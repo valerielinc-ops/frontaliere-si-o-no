@@ -3213,6 +3213,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-falsi-preti-barasso-truffe-anziani': { name: 'Novità', path: '/articoli-frontaliere/falsi-preti-barasso-truffe-anziani', parent: 'blog' },
     'blog-bando-restauro-beni-culturali-lombardia': { name: 'Bando restauro', path: '/articoli-frontaliere/bando-restauro-beni-culturali-lombardia', parent: 'blog' },
     'blog-insieme-ad-andrea-si-puo-ricerca-leucemie-infantili': { name: 'Novità', path: '/articoli-frontaliere/insieme-ad-andrea-si-puo-ricerca-leucemie-infantili', parent: 'blog' },
+    'blog-scuola-chiude-fino-mornasco-2026': { name: 'Novità', path: '/articoli-frontaliere/scuola-chiude-fino-mornasco-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

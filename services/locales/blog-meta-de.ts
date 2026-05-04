@@ -5912,6 +5912,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.title': 'Andrea und der Kampf gegen Kinderleukämien',
     'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.excerpt': 'Die Geschichte von Andrea, einem Kind, das gegen Leukämie kämpfte, inspirierte die Gründung eines Vereins, der die Forschung gegen Kinderleukämien unterstützt.',
     'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.imageAlt': 'Eine Gemeinschaftsveranstaltung in Lugano zur Unterstützung der Forschung gegen Kinderleukämie',
+    'blog.article.scuola-chiude-fino-mornasco-2026.title': 'Schule in Fino Mornasco schließt: Geburtenrückgang und Proteste',
+    'blog.article.scuola-chiude-fino-mornasco-2026.excerpt': 'Bürgermeister Fornasiero bestätigt die Schließung der Rodari-Schule in Socco, einer Fraktion von Fino Mornasco, aufgrund des Geburtenrückgangs.',
+    'blog.article.scuola-chiude-fino-mornasco-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

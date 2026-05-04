@@ -16727,6 +16727,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scuola-chiude-fino-mornasco-2026': {
+    title: 'Scuola chiude a Fino Mornasco: calo nascite e proteste',
+    description: 'Il sindaco di Fino Mornasco conferma la chiusura della scuola Rodari a Socco a causa del calo delle nascite. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, chiude, fino, mornasco',
+    ogTitle: 'Scuola chiude a Fino Mornasco: calo nascite e proteste',
+    ogDescription: 'Il sindaco di Fino Mornasco conferma la chiusura della scuola Rodari a Socco a causa del calo delle nascite. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/scuola-chiude-fino-mornasco-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola chiude a Fino Mornasco: calo nascite e proteste",
+      "description": "Il sindaco di Fino Mornasco conferma la chiusura della scuola Rodari a Socco a causa del calo delle nascite. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scuola-chiude-fino-mornasco-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici"
+      },
+      "datePublished": "2026-05-04T22:28:16+00:00",
+      "dateModified": "2026-05-04T22:28:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scuola-chiude-fino-mornasco-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

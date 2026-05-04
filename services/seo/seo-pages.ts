@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2023,
+ "numberOfItems": 2024,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6666,7 +6666,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2020, "name": "Mendrisio si candida a Capitale Culturale Svizzera", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-capitale-culturale-2026` },
           { "@type": "ListItem", "position": 2021, "name": "Falsi preti a Barasso: l’allerta del Comune con...", "url": `${BASE_URL}/articoli-frontaliere/falsi-preti-barasso-truffe-anziani` },
           { "@type": "ListItem", "position": 2022, "name": "21,5 milioni per il restauro dei beni culturali...", "url": `${BASE_URL}/articoli-frontaliere/bando-restauro-beni-culturali-lombardia` },
-          { "@type": "ListItem", "position": 2023, "name": "Andrea e la lotta contro le leucemie infantili", "url": `${BASE_URL}/articoli-frontaliere/insieme-ad-andrea-si-puo-ricerca-leucemie-infantili` }
+          { "@type": "ListItem", "position": 2023, "name": "Andrea e la lotta contro le leucemie infantili", "url": `${BASE_URL}/articoli-frontaliere/insieme-ad-andrea-si-puo-ricerca-leucemie-infantili` },
+          { "@type": "ListItem", "position": 2024, "name": "Scuola chiude a Fino Mornasco: calo nascite e p...", "url": `${BASE_URL}/articoli-frontaliere/scuola-chiude-fino-mornasco-2026` }
  ]
  },
  {
