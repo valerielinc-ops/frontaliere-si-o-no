@@ -17876,4 +17876,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'teresina-cerini-100-anni-coglio',
+ category: 'novita',
+ date: '2026-05-04T01:47:27.886Z',
+ image: '/images/blog/teresina-cerini-100-anni-coglio.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

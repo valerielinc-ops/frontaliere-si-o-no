@@ -5501,6 +5501,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.title': 'Ausschreitungen in Lugano Pensilina: zwei Leichtverletzte',
     'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.excerpt': 'Massiver Polizeieinsatz in Lugano Pensilina mit zwei Leichtverletzten und Einsatz von Reizspray',
     'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.imageAlt': 'Lugano Pensilina bei Nacht mit Polizeieinsatz und Menschenmenge',
+    'blog.article.teresina-cerini-100-anni-coglio.title': 'Teresina Cerini feiert 100. Geburtstag in Coglio',
+    'blog.article.teresina-cerini-100-anni-coglio.excerpt': 'Feier mit Familie und Behörden zum 100. Geburtstag von Teresina Cerini, geboren 1926 in Lodano',
+    'blog.article.teresina-cerini-100-anni-coglio.imageAlt': 'Eco-Hotel Cristallina in Coglio, Tessin, während einer Hundertjahrfeier',
 };
 
 export default blogMetaDe;

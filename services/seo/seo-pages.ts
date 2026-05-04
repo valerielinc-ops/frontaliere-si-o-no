@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1886,
+ "numberOfItems": 1887,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6524,7 +6524,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1883, "name": "COF Lanzo aderisce alla Campagna mondiale per l...", "url": `${BASE_URL}/articoli-frontaliere/cof-lanzo-igiene-mani-2026` },
           { "@type": "ListItem", "position": 1884, "name": "Peter Zeidler nuovo tecnico del Grasshopper", "url": `${BASE_URL}/articoli-frontaliere/grasshopper-zeidler-allenatore-2026` },
           { "@type": "ListItem", "position": 1885, "name": "Disordini a Lugano: intervento veloce grazie al...", "url": `${BASE_URL}/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce` },
-          { "@type": "ListItem", "position": 1886, "name": "Disordini a Lugano Pensilina: due feriti leggeri", "url": `${BASE_URL}/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce-2026` }
+          { "@type": "ListItem", "position": 1886, "name": "Disordini a Lugano Pensilina: due feriti leggeri", "url": `${BASE_URL}/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce-2026` },
+          { "@type": "ListItem", "position": 1887, "name": "Teresina Cerini festeggia 100 anni a Coglio", "url": `${BASE_URL}/articoli-frontaliere/teresina-cerini-100-anni-coglio` }
  ]
  },
  {
