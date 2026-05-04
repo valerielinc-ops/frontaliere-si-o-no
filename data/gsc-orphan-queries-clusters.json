@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-02T23:36:38.714Z",
+  "generatedAt": "2026-05-04T06:26:39.606Z",
   "sourceFile": "data/gsc-orphan-queries.json",
-  "totalClusters": 34,
+  "totalClusters": 38,
   "gates": {
     "minClusterImpressions": 5
   },
@@ -297,6 +297,30 @@
       ]
     },
     {
+      "clusterId": "it-lavoro-ticino-negli-ultimi-3-giorni",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino negli ultimi 3 giorni",
+      "canonicalSlug": "lavoro-ticino-negli-ultimi-3-giorni",
+      "roleTokens": [
+        "giorn",
+        "lavor",
+        "negl",
+        "ultim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 16,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "lavoro ticino negli ultimi 3 giorni",
+          "clicks": 1,
+          "impressions": 16
+        }
+      ]
+    },
+    {
       "clusterId": "it-migros-offerte-di-lavoro-ticino",
       "locale": "it",
       "canonicalQuery": "migros offerte di lavoro ticino",
@@ -316,30 +340,6 @@
           "query": "migros offerte di lavoro ticino",
           "clicks": 1,
           "impressions": 15
-        }
-      ]
-    },
-    {
-      "clusterId": "it-lavoro-ticino-negli-ultimi-3-giorni",
-      "locale": "it",
-      "canonicalQuery": "lavoro ticino negli ultimi 3 giorni",
-      "canonicalSlug": "lavoro-ticino-negli-ultimi-3-giorni",
-      "roleTokens": [
-        "giorn",
-        "lavor",
-        "negl",
-        "ultim"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 13,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "lavoro ticino negli ultimi 3 giorni",
-          "clicks": 0,
-          "impressions": 13
         }
       ]
     },
@@ -517,6 +517,67 @@
       ]
     },
     {
+      "clusterId": "en-help-me-find-ticino-caregiver-jobs-for-elderly-care-with-live-in-option-and-clea",
+      "locale": "en",
+      "canonicalQuery": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+      "canonicalSlug": "help-me-find-ticino-caregiver-jobs-for-elderly-care-with-live-in-option-and-clea",
+      "roleTokens": [
+        "car",
+        "caregiver",
+        "clear",
+        "contract",
+        "elderly",
+        "find",
+        "help",
+        "job",
+        "legal",
+        "liv",
+        "me",
+        "option",
+        "term"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lidl-ticino-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "lidl ticino offerte di lavoro",
+      "canonicalSlug": "lidl-ticino-offerte-di-lavoro",
+      "roleTokens": [
+        "lavor",
+        "lidl",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "lidl ticino offerte di lavoro",
+          "clicks": 1,
+          "impressions": 5
+        },
+        {
+          "query": "lidl offerte di lavoro ticino",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
       "clusterId": "fr-otis-emploi",
       "locale": "fr",
       "canonicalQuery": "otis emploi",
@@ -579,6 +640,31 @@
           "query": "lavoro mendrisio",
           "clicks": 0,
           "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "en-i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
+      "locale": "en",
+      "canonicalQuery": "i am searching for caregiver jobs in ticino for elderly support.",
+      "canonicalSlug": "i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
+      "roleTokens": [
+        "caregiver",
+        "elderly",
+        "job",
+        "search",
+        "support"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "i am searching for caregiver jobs in ticino for elderly support.",
+          "clicks": 0,
+          "impressions": 6
         }
       ]
     },
@@ -733,6 +819,25 @@
           "query": "coop lavora con noi",
           "clicks": 0,
           "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-frontalieri",
+      "locale": "it",
+      "canonicalQuery": "frontalieri",
+      "canonicalSlug": "frontalieri",
+      "roleTokens": [
+        "frontalier"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 5
         }
       ]
     },
