@@ -350,9 +350,13 @@ export function renderJobCardHtml(
     ? `<span class="inline-flex items-center gap-1" data-posted="${escHtml(postedIso)}">${ICON_CLOCK}${escHtml(postedLabel)}</span>`
     : '';
 
-  const ariaLabel = company ? `${title} — ${company}` : title;
+  // No `aria-label`: WCAG 2.5.3 (Label in Name) requires the accessible name
+  // to contain the visible text. Letting the browser compute the name from
+  // the visible content (title, company/location, chips) yields a richer,
+  // compliant name than a hand-built label that omits parts of the visible
+  // text and uses a separator (—) the visible UI does not show.
 
-  return `<article class="${articleClasses}"><a href="${escHtml(href)}" aria-label="${escHtml(ariaLabel)}" class="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"><div class="flex items-start gap-3">${renderLogoSlot(job, logoSrc)}<div class="min-w-0 flex-1"><h3 class="text-sm sm:text-base font-bold font-display text-heading leading-tight">${escHtml(title)}${featuredBadge}${newBadge}</h3><p class="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">${companyAndLocation}</p>${salaryHtml}</div></div><div class="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted">${locChip}${contractChip}${postedChip}</div></a></article>`;
+  return `<article class="${articleClasses}"><a href="${escHtml(href)}" class="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"><div class="flex items-start gap-3">${renderLogoSlot(job, logoSrc)}<div class="min-w-0 flex-1"><h3 class="text-sm sm:text-base font-bold font-display text-heading leading-tight">${escHtml(title)}${featuredBadge}${newBadge}</h3><p class="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">${companyAndLocation}</p>${salaryHtml}</div></div><div class="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted">${locChip}${contractChip}${postedChip}</div></a></article>`;
 }
 
 // ── List renderer ────────────────────────────────────────────────────
