@@ -1,21 +1,22 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-04T11:19:01.967Z",
+  "generatedAt": "2026-05-04T22:20:38.294Z",
   "total": 28,
-  "newCount": 3,
-  "updatedCount": 23,
+  "newCount": 0,
+  "updatedCount": 26,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 45681,
-  "avgDurationMs": 45681,
+  "durationMs": 34773,
+  "avgDurationMs": 34773,
   "durationHistory": [
-    45681
+    34773
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-di1gox",
-      "slug": "nachwuchstalent-fur-karriere-im-verkauf-genossenschaft-migros-ostschweiz-samedan",
+      "slug": "nachwuchstalent-per-karriere-im-vendita-genossenschaft-migros-ostschweiz-samedan-di1gox",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Nachwuchstalent für Karriere im Verkauf",
       "location": "Samedan",
@@ -45,19 +46,27 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-05-04T11:18:59.846Z",
       "firstSeenAt": "2026-05-04T11:18:59.846Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-qw8bsd",
-      "slug": "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz",
+      "slug": "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz-qw8bsd",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Bereichsleiter*in Metzgerei",
       "location": "Davos-Platz",
@@ -86,19 +95,27 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-05-04T11:18:59.846Z",
       "firstSeenAt": "2026-05-04T11:18:59.846Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-cesv8v",
-      "slug": "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
+      "slug": "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-cesv8v",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Abteilungsleiter*in Fleisch/Fisch",
       "location": "Landquart",
@@ -127,18 +144,24 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-05-04T11:18:59.846Z",
       "firstSeenAt": "2026-05-04T11:18:59.846Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-q0g1ap",
       "slug": "employe-de-conciergerie-m-w-d-societe-cooperative-migros-valais-sierre-q0g1ap",
@@ -188,6 +211,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
