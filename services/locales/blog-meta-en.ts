@@ -5933,6 +5933,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-rifiuti-lac-lemano.title': 'Over 2.5 tonnes of waste removed from Lake Geneva in two days',
     'blog.article.frontalieri-rifiuti-lac-lemano.excerpt': 'The Net\'Léman initiative removed 2,592 kg of waste from Lake Geneva in two days, involving over 1,000 volunteers.',
     'blog.article.frontalieri-rifiuti-lac-lemano.imageAlt': 'Aerial view of Lake Lugano with clear blue waters and surrounding mountains',
+    'blog.article.cazzago-brabbia-camminan-mangiando-2026.title': 'Food and wine walk in Cazzago Brabbia',
+    'blog.article.cazzago-brabbia-camminan-mangiando-2026.excerpt': 'A 5 km walk through local flavors, cultural events, and scenic views in Cazzago Brabbia on Sunday, May 17, 2026.',
+    'blog.article.cazzago-brabbia-camminan-mangiando-2026.imageAlt': 'Panoramic view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

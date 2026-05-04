@@ -19172,4 +19172,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cazzago-brabbia-camminan-mangiando-2026',
+ category: 'pratico',
+ date: '2026-05-04T23:45:27.152Z',
+ image: '/images/blog/cazzago-brabbia-camminan-mangiando-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

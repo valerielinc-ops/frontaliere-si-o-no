@@ -5934,6 +5934,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-rifiuti-lac-lemano.title': 'Dal Lemano pescati oltre 2,5 tonnellate di rifiuti in due giorni',
     'blog.article.frontalieri-rifiuti-lac-lemano.excerpt': 'L\'iniziativa Net\'Léman ha rimosso 2.592 kg di rifiuti dal lago Lemano in due giorni, coinvolgendo oltre 1.000 volontari.',
     'blog.article.frontalieri-rifiuti-lac-lemano.imageAlt': 'Vista aerea del Lago di Lugano con acque cristalline e montagne circostanti',
+    'blog.article.cazzago-brabbia-camminan-mangiando-2026.title': 'Camminata enogastronomica a Cazzago Brabbia',
+    'blog.article.cazzago-brabbia-camminan-mangiando-2026.excerpt': 'Una passeggiata di 5 km tra sapori locali, eventi culturali e scorci del territorio a Cazzago Brabbia domenica 17 maggio 2026.',
+    'blog.article.cazzago-brabbia-camminan-mangiando-2026.imageAlt': 'Vista panoramica del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

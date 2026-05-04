@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2030,
+ "numberOfItems": 2031,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6673,7 +6673,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2027, "name": "Villa Geno a Como all'asta: servono quasi 400mi...", "url": `${BASE_URL}/articoli-frontaliere/asta-villa-geno-como-400mila-euro` },
           { "@type": "ListItem", "position": 2028, "name": "Besozzo Superiore: nasce il mercato agricolo al...", "url": `${BASE_URL}/articoli-frontaliere/mercato-agricolo-besozzo-superiore` },
           { "@type": "ListItem", "position": 2029, "name": "Confcommercio: convegno su AI e robotica a Varese", "url": `${BASE_URL}/articoli-frontaliere/intelligenza-artificiale-robotica-varese-2026` },
-          { "@type": "ListItem", "position": 2030, "name": "Dal Lemano pescati oltre 2,5 tonnellate di rifi...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-rifiuti-lac-lemano` }
+          { "@type": "ListItem", "position": 2030, "name": "Dal Lemano pescati oltre 2,5 tonnellate di rifi...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-rifiuti-lac-lemano` },
+          { "@type": "ListItem", "position": 2031, "name": "Camminata enogastronomica a Cazzago Brabbia", "url": `${BASE_URL}/articoli-frontaliere/cazzago-brabbia-camminan-mangiando-2026` }
  ]
  },
  {

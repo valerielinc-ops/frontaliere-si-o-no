@@ -3220,6 +3220,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mercato-agricolo-besozzo-superiore': { name: 'Mercato agricolo', path: '/articoli-frontaliere/mercato-agricolo-besozzo-superiore', parent: 'blog' },
     'blog-intelligenza-artificiale-robotica-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/intelligenza-artificiale-robotica-varese-2026', parent: 'blog' },
     'blog-frontalieri-rifiuti-lac-lemano': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-rifiuti-lac-lemano', parent: 'blog' },
+    'blog-cazzago-brabbia-camminan-mangiando-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/cazzago-brabbia-camminan-mangiando-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

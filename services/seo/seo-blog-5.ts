@@ -16965,6 +16965,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cazzago-brabbia-camminan-mangiando-2026': {
+    title: 'Camminata enogastronomica a Cazzago Brabbia | Frontaliere Ticino',
+    description: 'Una passeggiata di 5 km tra sapori locali, eventi culturali e scorci del territorio a Cazzago Brabbia domenica 17 maggio 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, camminata, enogastronomica, cazzago, brabbia',
+    ogTitle: 'Camminan Mangiando a Cazzago Brabbia: gusto, cultura e natura domenica 17 maggio 2026',
+    ogDescription: 'Una passeggiata di 5 km tra sapori locali, eventi culturali e scorci del territorio a Cazzago Brabbia domenica 17 maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/cazzago-brabbia-camminan-mangiando-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Camminata enogastronomica a Cazzago Brabbia",
+      "description": "Una passeggiata di 5 km tra sapori locali, eventi culturali e scorci del territorio a Cazzago Brabbia domenica 17 maggio 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cazzago-brabbia-camminan-mangiando-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-04T23:45:27+00:00",
+      "dateModified": "2026-05-04T23:45:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cazzago-brabbia-camminan-mangiando-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

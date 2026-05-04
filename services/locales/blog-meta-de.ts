@@ -5933,6 +5933,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-rifiuti-lac-lemano.title': 'Über 2,5 Tonnen Müll aus dem Genfersee geborgen',
     'blog.article.frontalieri-rifiuti-lac-lemano.excerpt': 'Die Initiative Net\'Léman hat in zwei Tagen 2.592 kg Müll aus dem Genfersee entfernt und dabei über 1.000 Freiwillige mobilisiert.',
     'blog.article.frontalieri-rifiuti-lac-lemano.imageAlt': 'Luftaufnahme des Luganersees mit klaren blauen Gewässern und umliegenden Bergen',
+    'blog.article.cazzago-brabbia-camminan-mangiando-2026.title': 'Kulinarischer Spaziergang in Cazzago Brabbia',
+    'blog.article.cazzago-brabbia-camminan-mangiando-2026.excerpt': 'Ein 5 km langer Spaziergang durch lokale Aromen, kulturelle Veranstaltungen und Aussichten auf das Gebiet in Cazzago Brabbia am Sonntag, den 17. Mai 2026.',
+    'blog.article.cazzago-brabbia-camminan-mangiando-2026.imageAlt': 'Panoramablick auf den Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
