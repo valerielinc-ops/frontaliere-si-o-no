@@ -5510,6 +5510,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.orso-valposchiavo-frontalieri-2026.title': 'Bär in Valposchiavo gesichtet: Was Grenzgänger wissen müssen',
     'blog.article.orso-valposchiavo-frontalieri-2026.excerpt': 'Nach Jahren der Abwesenheit wurde ein Bär in Valposchiavo gesichtet. Hier erfahren Sie, was Sie wissen müssen, wenn Sie in der Schweiz arbeiten und in Italien leben.',
     'blog.article.orso-valposchiavo-frontalieri-2026.imageAlt': 'Bär in Valposchiavo von einer Wildkamera aufgenommen',
+    'blog.article.thun-campionato-calcio-2026.title': 'Thun zum ersten Mal Schweizer Fussballmeister',
+    'blog.article.thun-campionato-calcio-2026.excerpt': 'Nach 128 Jahren gewinnt Thun die Schweizer Meisterschaft. Der Tessiner Trainer Mauro Lustrinelli ist einer der Architekten des Erfolgs',
+    'blog.article.thun-campionato-calcio-2026.imageAlt': 'Feiernde Menge vor der Stockhorn Arena in Thun, Schweiz',
 };
 
 export default blogMetaDe;

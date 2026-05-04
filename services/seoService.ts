@@ -3079,6 +3079,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-teresina-cerini-100-anni-coglio': { name: 'Novità', path: '/articoli-frontaliere/teresina-cerini-100-anni-coglio', parent: 'blog' },
     'blog-svizzera-cechia-rigori-4-maggio-2026': { name: 'Sport', path: '/articoli-frontaliere/svizzera-cechia-rigori-4-maggio-2026', parent: 'blog' },
     'blog-orso-valposchiavo-frontalieri-2026': { name: 'Orso Valposchiavo', path: '/articoli-frontaliere/orso-valposchiavo-frontalieri-2026', parent: 'blog' },
+    'blog-thun-campionato-calcio-2026': { name: 'Novità', path: '/articoli-frontaliere/thun-campionato-calcio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

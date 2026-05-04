@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1889,
+ "numberOfItems": 1890,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6527,7 +6527,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1886, "name": "Disordini a Lugano Pensilina: due feriti leggeri", "url": `${BASE_URL}/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce-2026` },
           { "@type": "ListItem", "position": 1887, "name": "Teresina Cerini festeggia 100 anni a Coglio", "url": `${BASE_URL}/articoli-frontaliere/teresina-cerini-100-anni-coglio` },
           { "@type": "ListItem", "position": 1888, "name": "Svizzera batte la Cechia ai rigori, raddrizzand...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-cechia-rigori-4-maggio-2026` },
-          { "@type": "ListItem", "position": 1889, "name": "Orso ripreso in Valposchiavo: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/orso-valposchiavo-frontalieri-2026` }
+          { "@type": "ListItem", "position": 1889, "name": "Orso ripreso in Valposchiavo: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/orso-valposchiavo-frontalieri-2026` },
+          { "@type": "ListItem", "position": 1890, "name": "Thun campione svizzero di calcio per la prima v...", "url": `${BASE_URL}/articoli-frontaliere/thun-campionato-calcio-2026` }
  ]
  },
  {

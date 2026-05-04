@@ -5510,6 +5510,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.orso-valposchiavo-frontalieri-2026.title': 'Bear spotted in Valposchiavo: what changes for cross-border workers',
     'blog.article.orso-valposchiavo-frontalieri-2026.excerpt': 'A bear has been spotted in Valposchiavo after years of absence. Here\'s what cross-border workers need to know.',
     'blog.article.orso-valposchiavo-frontalieri-2026.imageAlt': 'Bear captured in Valposchiavo by a wildlife camera',
+    'blog.article.thun-campionato-calcio-2026.title': 'Thun wins Swiss football championship for the first time',
+    'blog.article.thun-campionato-calcio-2026.excerpt': 'After 128 years, Thun wins the Swiss championship. Ticinese coach Mauro Lustrinelli is one of the architects of the success',
+    'blog.article.thun-campionato-calcio-2026.imageAlt': 'Celebratory crowd in front of Stockhorn Arena in Thun, Switzerland',
 };
 
 export default blogMetaEn;

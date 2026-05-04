@@ -5511,6 +5511,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.orso-valposchiavo-frontalieri-2026.title': 'Orso ripreso in Valposchiavo: cosa cambia per i frontalieri',
     'blog.article.orso-valposchiavo-frontalieri-2026.excerpt': 'Un orso è stato avvistato in Valposchiavo dopo anni di assenza. Ecco cosa sapere per chi lavora in Svizzera e vive in Italia.',
     'blog.article.orso-valposchiavo-frontalieri-2026.imageAlt': 'Orso ripreso in Valposchiavo da una fototrappola',
+    'blog.article.thun-campionato-calcio-2026.title': 'Thun campione svizzero di calcio per la prima volta',
+    'blog.article.thun-campionato-calcio-2026.excerpt': 'Dopo 128 anni, il Thun vince il campionato svizzero. L\'allenatore ticinese Mauro Lustrinelli è uno degli artefici del successo',
+    'blog.article.thun-campionato-calcio-2026.imageAlt': 'Folla festante davanti alla Stockhorn Arena a Thun, Svizzera',
 };
 
 export default blogMetaIt;

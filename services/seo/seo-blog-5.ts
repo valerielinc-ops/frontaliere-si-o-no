@@ -12171,6 +12171,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-thun-campionato-calcio-2026': {
+    title: 'Thun campione svizzero di calcio per la prima volta',
+    description: 'Dopo 128 anni, il Thun vince il campionato svizzero. L\'allenatore ticinese Mauro Lustrinelli è uno degli artefici del successo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, thun, campione, svizzero, calcio',
+    ogTitle: 'Thun campione svizzero di calcio per la prima volta',
+    ogDescription: 'Dopo 128 anni, il Thun vince il campionato svizzero. L\'allenatore ticinese Mauro Lustrinelli è uno degli artefici del successo',
+    canonicalPath: '/articoli-frontaliere/thun-campionato-calcio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Thun campione svizzero di calcio per la prima volta",
+      "description": "Dopo 128 anni, il Thun vince il campionato svizzero. L'allenatore ticinese Mauro Lustrinelli è uno degli artefici del successo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/thun-campionato-calcio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Folla festante davanti alla Stockhorn Arena a Thun, Svizzera"
+      },
+      "datePublished": "2026-05-04T02:17:19+00:00",
+      "dateModified": "2026-05-04T02:17:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/thun-campionato-calcio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
