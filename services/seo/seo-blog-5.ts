@@ -13803,6 +13803,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vendite-auto-ticino-2026-stabili-elettrico': {
+    title: 'Vendite auto stabili in Ticino, cresce l\'elettrico',
+    description: 'In aprile 2026 vendite auto stabili in Svizzera, elettriche +35%. Focus su impatto frontalieri e mercato ticinese. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, vendite, auto, stabili, cresce',
+    ogTitle: 'Vendite auto stabili in Ticino, cresce l\'elettrico',
+    ogDescription: 'In aprile 2026 vendite auto stabili in Svizzera, elettriche +35%. Focus su impatto frontalieri e mercato ticinese.',
+    canonicalPath: '/articoli-frontaliere/vendite-auto-ticino-2026-stabili-elettrico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vendite auto stabili in Ticino, cresce l'elettrico",
+      "description": "In aprile 2026 vendite auto stabili in Svizzera, elettriche +35%. Focus su impatto frontalieri e mercato ticinese. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vendite-auto-ticino-2026-stabili-elettrico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti"
+      },
+      "datePublished": "2026-05-04T08:02:50+00:00",
+      "dateModified": "2026-05-04T08:02:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vendite-auto-ticino-2026-stabili-elettrico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

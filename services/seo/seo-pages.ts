@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1937,
+ "numberOfItems": 1938,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6575,7 +6575,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1934, "name": "Raccolti quasi 2000 euro per il parco giochi in...", "url": `${BASE_URL}/articoli-frontaliere/raccolti-2000-euro-parco-matteo` },
           { "@type": "ListItem", "position": 1935, "name": "Moleno: arriva la piazza green e migliora la ch...", "url": `${BASE_URL}/articoli-frontaliere/moleno-piazza-green-chiesa-migliorata` },
           { "@type": "ListItem", "position": 1936, "name": "Armato si barrica in casa: arrestato 30enne a F...", "url": `${BASE_URL}/articoli-frontaliere/arresto-frauenfeld-30enne-barricato` },
-          { "@type": "ListItem", "position": 1937, "name": "Mercato del lavoro svizzero: KOF conferma la ri...", "url": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-kof-ripresa-2026` }
+          { "@type": "ListItem", "position": 1937, "name": "Mercato del lavoro svizzero: KOF conferma la ri...", "url": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-kof-ripresa-2026` },
+          { "@type": "ListItem", "position": 1938, "name": "Vendite auto stabili in Ticino, cresce l'elettrico", "url": `${BASE_URL}/articoli-frontaliere/vendite-auto-ticino-2026-stabili-elettrico` }
  ]
  },
  {

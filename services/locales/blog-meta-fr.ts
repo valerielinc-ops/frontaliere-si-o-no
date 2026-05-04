@@ -5655,6 +5655,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mercato-lavoro-kof-ripresa-2026.title': 'Marché du travail suisse: KOF confirme la reprise',
     'blog.article.mercato-lavoro-kof-ripresa-2026.excerpt': 'Les nouvelles données KOF signalent une reprise du marché du travail helvétique, avec des perspectives positives pour les frontaliers.',
     'blog.article.mercato-lavoro-kof-ripresa-2026.imageAlt': 'Lugano et le lac de Lugano avec des travailleurs en transit',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.title': 'Ventes de voitures stables au Tessin, l\'électrique progresse',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.excerpt': 'En avril 2026, ventes de voitures stables en Suisse, électriques +35%. Focus sur l\'impact des frontaliers et le marché tessinois.',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
 };
 
 export default blogMetaFr;

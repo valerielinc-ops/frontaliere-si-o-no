@@ -5654,6 +5654,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercato-lavoro-kof-ripresa-2026.title': 'Schweizer Arbeitsmarkt: KOF bestätigt die Erholung',
     'blog.article.mercato-lavoro-kof-ripresa-2026.excerpt': 'Die neuen KOF-Zahlen zeigen eine Erholung des schweizerischen Arbeitsmarktes mit positiven Aussichten für Grenzgänger.',
     'blog.article.mercato-lavoro-kof-ripresa-2026.imageAlt': 'Lugano und Luganersee mit Pendler',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.title': 'Stabile Autoverkäufe im Tessin, Elektroautos im Aufwind',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.excerpt': 'Im April 2026 stabile Autoverkäufe in der Schweiz, Elektroautos +35 %. Fokus auf Grenzgänger und Tessiner Markt.',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

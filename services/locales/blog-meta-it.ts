@@ -5655,6 +5655,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercato-lavoro-kof-ripresa-2026.title': 'Mercato del lavoro svizzero: KOF conferma la ripresa',
     'blog.article.mercato-lavoro-kof-ripresa-2026.excerpt': 'Le nuove cifre KOF segnalano una ripresa del mercato del lavoro elvetico, con prospettive positive per i frontalieri.',
     'blog.article.mercato-lavoro-kof-ripresa-2026.imageAlt': 'Lugano e il lago Ceresio con lavoratori in transito',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.title': 'Vendite auto stabili in Ticino, cresce l\'elettrico',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.excerpt': 'In aprile 2026 vendite auto stabili in Svizzera, elettriche +35%. Focus su impatto frontalieri e mercato ticinese.',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
 };
 
 export default blogMetaIt;

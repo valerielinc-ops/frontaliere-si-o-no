@@ -18335,4 +18335,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vendite-auto-ticino-2026-stabili-elettrico',
+ category: 'novita',
+ date: '2026-05-04T08:02:50.588Z',
+ image: '/images/blog/vendite-auto-ticino-2026-stabili-elettrico.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

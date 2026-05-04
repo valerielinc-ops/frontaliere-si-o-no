@@ -5654,6 +5654,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercato-lavoro-kof-ripresa-2026.title': 'Swiss job market: KOF confirms recovery',
     'blog.article.mercato-lavoro-kof-ripresa-2026.excerpt': 'New KOF figures signal a recovery in Switzerland\'s job market, with positive prospects for cross-border workers.',
     'blog.article.mercato-lavoro-kof-ripresa-2026.imageAlt': 'Lugano and Lake Ceresio with commuting workers',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.title': 'Stable car sales in Ticino, electric vehicles rise',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.excerpt': 'In April 2026, car sales stable in Switzerland, electric vehicles +35%. Focus on impact of cross-border workers and Ticino market.',
+    'blog.article.vendite-auto-ticino-2026-stabili-elettrico.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
 };
 
 export default blogMetaEn;
