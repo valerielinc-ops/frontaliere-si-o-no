@@ -519,7 +519,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
               </td>
               <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
                 <div class="job-title" style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;line-height:1.3;">${escapeHtml(truncatedTitle)}</div>
-                <div style="font-size:12px;color:#94a3b8;margin-top:2px;">${escapeHtml(job.company)}${job.location ? ' \u00b7 ' + escapeHtml(job.location) : ''}</div>
+                <div style="font-size:12px;color:#94a3b8;margin-top:2px;">${job.companyUrl ? `<a href="${directUrl(job.companyUrl)}" style="color:#94a3b8;text-decoration:underline;">${escapeHtml(job.company)}</a>` : escapeHtml(job.company)}${job.location ? ' \u00b7 ' + escapeHtml(job.location) : ''}</div>
                 ${tags.length > 0 ? `<div style="margin-top:4px;">${tags.join(' ')}</div>` : ''}
               </td>
             </tr>

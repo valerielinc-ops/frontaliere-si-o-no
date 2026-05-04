@@ -241,11 +241,19 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
     }
 
     if (j.company) {
-      const companyEsc = j.company.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      html = html.replace(new RegExp(`<a[^>]*>\\s*(${companyEsc})\\s*</a>`, 'gi'), '$1');
-      html = html.replace(new RegExp(`<strong>(${companyEsc})</strong>`, 'gi'), '$1');
-      if (companyUrl && new RegExp(companyEsc, 'i').test(html)) {
-        html = html.replace(new RegExp(`(${companyEsc})`, 'i'), `<a href="${companyUrl}" style="${linkStyle}">$1</a>`);
+      // Build candidate names: full name + short name (before any parenthesis/dash/comma)
+      const shortCompany = j.company.replace(/[\s(/-].*$/, '').trim();
+      const companyNames = [...new Set([j.company, shortCompany].filter(Boolean))];
+      let companyLinked = false;
+      for (const name of companyNames) {
+        if (companyLinked) break;
+        const nameEsc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        html = html.replace(new RegExp(`<a[^>]*>\\s*(${nameEsc})\\s*</a>`, 'gi'), '$1');
+        html = html.replace(new RegExp(`<strong>(${nameEsc})</strong>`, 'gi'), '$1');
+        if (companyUrl && new RegExp(nameEsc, 'i').test(html)) {
+          html = html.replace(new RegExp(`(${nameEsc})`, 'i'), `<a href="${companyUrl}" style="${linkStyle}">$1</a>`);
+          companyLinked = true;
+        }
       }
     }
 
@@ -268,6 +276,40 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
     html = `<p style="font-size:14px;color:#334155;line-height:1.65;margin:0 0 14px;">${jobIntro}</p>` + html;
   }
 
+  return html;
+}
+
+/**
+ * Inject hyperlinks for well-known tools/features mentioned in the AI briefing.
+ * The AI reliably names these but rarely links them; we do it deterministically.
+ */
+const TOOL_LINK_PATTERNS = [
+  // Order matters: longer/more-specific patterns first
+  { pattern: /Confronto LAMal/gi,       url: '/compara-servizi/confronta-casse-malati' },
+  { pattern: /Calcola(?:tore)? stipendio/gi, url: '/calcolatore' },
+  { pattern: /3[°ºo]\s*pilastro\s*3a/gi, url: '/fisco/terzo-pilastro-3a' },
+  { pattern: /3[°ºo]\s*pilastro/gi,     url: '/fisco/terzo-pilastro-3a' },
+  { pattern: /cambio valuta/gi,          url: '/compara-servizi/cambio-franco-euro' },
+  { pattern: /tasso di cambio/gi,        url: '/compara-servizi/cambio-franco-euro' },
+  { pattern: /LAMal/g,                   url: '/compara-servizi/confronta-casse-malati' },
+];
+
+function injectToolLinks(html, locale = 'it') {
+  if (!html) return html;
+  const linkStyle = 'color:#2563eb;text-decoration:underline;';
+  for (const { pattern, url } of TOOL_LINK_PATTERNS) {
+    // Skip if already linked (text is inside an existing <a> tag)
+    // Simple heuristic: replace only the first occurrence not already inside <a>
+    html = html.replace(pattern, (match, offset) => {
+      // Check if this match is already inside an anchor
+      const before = html.slice(0, offset);
+      const openAnchors = (before.match(/<a[\s>]/gi) || []).length;
+      const closeAnchors = (before.match(/<\/a>/gi) || []).length;
+      if (openAnchors > closeAnchors) return match; // inside an existing <a>
+      const absUrl = `${BASE_URL}${url}`;
+      return `<a href="${absUrl}" style="${linkStyle}">${match}</a>`;
+    });
+  }
   return html;
 }
 
@@ -1568,6 +1610,7 @@ async function main() {
         })) || getFallbackBriefing(locale, exchangeRate);
     // Always inject job links — applies to both AI and fallback briefings
     briefing = injectJobAndCompanyLinks(briefing, previewJobs, locale);
+    briefing = injectToolLinks(briefing, locale);
 
     const html = buildNewsletter({
       aiBriefing: briefing,
@@ -1700,6 +1743,7 @@ async function main() {
     }
     // Always inject job links — applies to both AI and fallback briefings
     finalBriefing = injectJobAndCompanyLinks(finalBriefing, cohort.matchedJobs, cohort.locale);
+    finalBriefing = injectToolLinks(finalBriefing, cohort.locale);
     briefingMap.set(key, finalBriefing);
   }
   console.log(`  ✓ ${aiSuccessCount} AI briefings, ${aiFallbackCount} fallbacks`);

@@ -483,6 +483,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
         sector: job.sector || job.category || '',
         rawContract: job.contract || '',
         logoUrl: resolveLogoUrl(job),
+        companyUrl: job.company ? companyPageUrl(slugifyCompanyName(job.company), locale) : '',
       };
     });
 }
