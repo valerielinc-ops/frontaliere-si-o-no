@@ -1,18 +1,143 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-03T21:55:06.067Z",
-  "total": 25,
-  "newCount": 0,
+  "generatedAt": "2026-05-04T11:19:01.967Z",
+  "total": 28,
+  "newCount": 3,
   "updatedCount": 23,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 42928,
-  "avgDurationMs": 42928,
+  "durationMs": 45681,
+  "avgDurationMs": 45681,
   "durationHistory": [
-    42928
+    45681
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-di1gox",
+      "slug": "nachwuchstalent-fur-karriere-im-verkauf-genossenschaft-migros-ostschweiz-samedan",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Nachwuchstalent für Karriere im Verkauf",
+      "location": "Samedan",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/nachwuchstalent-fur-karriere-im-verkauf/633e3d84-e4b5-467e-9fca-0ac0cfce958c",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Vorbereitung auf die fachliche und personelle Führung einer Abteilung",
+        "Umsatz-, Kosten-, Verderb-, Inventar- und Lagerbewirtschaftung",
+        "Verkaufsförderung und Warenpräsentation",
+        "Kundenbedienung und -beratung"
+      ],
+      "_migrosBenefits": [
+        "Eigenverantwortung & Freiraum: Abwechslungsreiche Aufgaben und Förderung von Eigenverantwortung",
+        "Aus- und Weiterbildung: Angebot eines vielfältigen internen Kursprogramms sowie finanzielle Beteiligung an berufsbezogenen externen Weiterbildungen",
+        "Gezielte Förderung: Förderung unserer Mitarbeitenden mit gezielten Personalentwicklungsmassnahmen",
+        "Sport- und Fitnessangebote: Vergünstigung bei Abonnements der Freizeit- und Fitnessanlagen",
+        "Freizeit- und Kulturangebote: Diverse Vergünstigungen auf Ferienangebote und Events"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-04T11:18:59.846Z",
+      "firstSeenAt": "2026-05-04T11:18:59.846Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-qw8bsd",
+      "slug": "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Bereichsleiter*in Metzgerei",
+      "location": "Davos-Platz",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/bereichsleiterin-metzgerei/99f91611-4b4f-418d-98e0-28617124acc9",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du übernimmst die fachliche und personelle Verantwortung für den Bereich Metzgerei 🥩🔪 und sorgst dafür, dass alles reibungslos läuft.",
+        "Du kümmerst dich um Verkaufsförderung und Personaleinsatzplanung. 📅🤝 Mit deinem Organisationstalent sorgst du für einen reibungslosen Ablauf.",
+        "Umsatz-, Kosten-, Inventar- und Lagerbewirtschaftung 📈📦 gehören zu deinen Kernaufgaben – du hast dabei stets den Überblick und steuerst gezielt.",
+        "Bestellwesen, Wareneingangskontrollen, Warenpräsentation und -disposition 📋🚛✨ liegen in deinen Händen – du sorgst dafür, dass alles perfekt läuft.",
+        "Freundliche und kompetente Kundenbedienung und -beratung 😊🛍️ an der Bedienungstheke gehören für dich selbstverständlich dazu und du stehst den Kunden mit deinem Fachwissen beratend zur Seite."
+      ],
+      "_migrosBenefits": [
+        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-04T11:18:59.846Z",
+      "firstSeenAt": "2026-05-04T11:18:59.846Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-cesv8v",
+      "slug": "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Abteilungsleiter*in Fleisch/Fisch",
+      "location": "Landquart",
+      "canton": "GR",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abteilungsleiterin-fleischfisch/5b1d4a4d-5120-4fe2-99c5-ceac9c49da4e",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du übernimmst die fachliche Verantwortung für den Bereich Metzgerei 🥩🔪 und sorgst dafür, dass alles reibungslos läuft.",
+        "Du kümmerst dich um Verkaufsförderung. 📅🤝 Mit deinem Organisationstalent sorgst du für einen reibungslosen Ablauf.",
+        "Umsatz-, Kosten-, Inventar- und Lagerbewirtschaftung 📈📦 gehören zu deinen Kernaufgaben – du hast dabei stets den Überblick und steuerst gezielt.",
+        "Bestellwesen, Wareneingangskontrollen, Warenpräsentation und -disposition 📋🚛✨ liegen in deinen Händen – du sorgst dafür, dass alles perfekt läuft.",
+        "Freundliche und kompetente Kundenbedienung und -beratung 😊🛍️ an der Bedienungstheke gehören für dich selbstverständlich dazu und du stehst den Kunden mit deinem Fachwissen beratend zur Seite."
+      ],
+      "_migrosBenefits": [
+        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-04T11:18:59.846Z",
+      "firstSeenAt": "2026-05-04T11:18:59.846Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-q0g1ap",
@@ -57,8 +182,6 @@
       "crawledAt": "2026-05-01T22:05:13.915Z",
       "firstSeenAt": "2026-05-01T22:05:13.915Z",
       "sourceLang": "fr",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
       "streetAddress": "Via Lugano 2",
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
