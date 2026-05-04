@@ -40,8 +40,19 @@ function loadLogoManifest() {
 }
 
 /**
+ * Fallback gFavicon domains for companies whose companyKey isn't in the manifest
+ * and whose jobs lack a companyWebsite. Mirrors CRAWLED_COMPANY_LOGOS in jobDataNormalization.ts.
+ */
+const KNOWN_LOGO_DOMAINS = {
+  'citta-di-lugano': 'lugano.ch',
+  'citta-di-bellinzona': 'bellinzona.ch',
+  'citta-di-locarno': 'locarno.ch',
+  'citta-di-mendrisio': 'mendrisio.ch',
+};
+
+/**
  * Resolve the best logo URL for a job in newsletter context (absolute URLs only).
- * Priority: manifest (self-hosted) → Clearbit (company domain) → null
+ * Priority: manifest (self-hosted) → Clearbit (company domain) → gFavicon fallback → null
  */
 function resolveLogoUrl(job) {
   const manifest = loadLogoManifest();
@@ -62,6 +73,11 @@ function resolveLogoUrl(job) {
     } catch {
       // ignore malformed URL
     }
+  }
+
+  // 3. gFavicon for known public-sector companies without a companyWebsite
+  if (key && KNOWN_LOGO_DOMAINS[key]) {
+    return `https://www.google.com/s2/favicons?domain=${KNOWN_LOGO_DOMAINS[key]}&sz=128`;
   }
 
   return null;

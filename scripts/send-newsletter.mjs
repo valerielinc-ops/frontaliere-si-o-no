@@ -212,6 +212,33 @@ function slugifyCompanyName(name) {
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
 }
 
+/**
+ * Replace `nameEsc` in HTML text nodes only — skips matches inside tag attributes.
+ * Uses the alternation trick: (<tag>) | (pattern). Tags pass through unchanged;
+ * replaceFn is called only for text-node matches.
+ * When flags lacks 'g', only the first text-node occurrence is replaced.
+ */
+function replaceOutsideTags(html, nameEsc, flags, replaceFn) {
+  const wantsAll = flags.includes('g');
+  const combinedFlags = wantsAll ? flags : flags + 'g'; // need g for alternation to scan all tags
+  const re = new RegExp(`(<[^>]+>)|(${nameEsc})`, combinedFlags);
+  let replaced = false;
+  return html.replace(re, (_, tag, text) => {
+    if (tag !== undefined) return tag;
+    if (!wantsAll && replaced) return text;
+    replaced = true;
+    return replaceFn(text);
+  });
+}
+
+/** Returns true if nameEsc appears in text content (outside HTML tags). */
+function appearsInText(html, nameEsc) {
+  const re = new RegExp(`(<[^>]+>)|(${nameEsc})`, 'gi');
+  let found = false;
+  html.replace(re, (_, tag, text) => { if (text !== undefined) found = true; });
+  return found;
+}
+
 function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
   if (!jobs || jobs.length === 0) return html;
   const linkStyle = 'color:#2563eb;text-decoration:underline;';
@@ -234,8 +261,8 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
       const titleEsc = j.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       html = html.replace(new RegExp(`<a[^>]*>\\s*(${titleEsc})\\s*</a>`, 'gi'), '$1');
       html = html.replace(new RegExp(`<strong>(${titleEsc})</strong>`, 'gi'), '$1');
-      if (jobUrl && new RegExp(titleEsc, 'i').test(html)) {
-        html = html.replace(new RegExp(`(${titleEsc})`, 'i'), `<a href="${jobUrl}" style="${linkStyle}">$1</a>`);
+      if (jobUrl && appearsInText(html, titleEsc)) {
+        html = replaceOutsideTags(html, titleEsc, 'i', (m) => `<a href="${jobUrl}" style="${linkStyle}">${m}</a>`);
         foundTitle = true;
       }
     }
@@ -250,8 +277,8 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
         const nameEsc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         html = html.replace(new RegExp(`<a[^>]*>\\s*(${nameEsc})\\s*</a>`, 'gi'), '$1');
         html = html.replace(new RegExp(`<strong>(${nameEsc})</strong>`, 'gi'), '$1');
-        if (companyUrl && new RegExp(nameEsc, 'i').test(html)) {
-          html = html.replace(new RegExp(`(${nameEsc})`, 'i'), `<a href="${companyUrl}" style="${linkStyle}">$1</a>`);
+        if (companyUrl && appearsInText(html, nameEsc)) {
+          html = replaceOutsideTags(html, nameEsc, 'i', (m) => `<a href="${companyUrl}" style="${linkStyle}">${m}</a>`);
           companyLinked = true;
         }
       }
