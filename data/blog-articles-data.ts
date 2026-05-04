@@ -18317,4 +18317,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'arresto-frauenfeld-30enne-barricato',
+ category: 'novita',
+ date: '2026-05-04T07:49:44.795Z',
+ image: '/images/blog/arresto-frauenfeld-30enne-barricato.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

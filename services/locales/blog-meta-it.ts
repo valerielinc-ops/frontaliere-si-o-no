@@ -5649,6 +5649,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.moleno-piazza-green-chiesa-migliorata.title': 'Moleno: arriva la piazza green e migliora la chiesa',
     'blog.article.moleno-piazza-green-chiesa-migliorata.excerpt': 'Il Municipio di Bellinzona presenta i progetti per la nuova piazza verde e il restauro della chiesa a Moleno. Ecco i dettagli',
     'blog.article.moleno-piazza-green-chiesa-migliorata.imageAlt': 'Piazza del paese di Moleno con chiesa e scuola ristrutturata',
+    'blog.article.arresto-frauenfeld-30enne-barricato.title': 'Armato si barrica in casa: arrestato 30enne a Frauenfeld',
+    'blog.article.arresto-frauenfeld-30enne-barricato.excerpt': 'Un uomo di 30 anni si è barricato nel suo appartamento a Frauenfeld, in condizioni psichiche alterate. La polizia lo ha arrestato dopo un intervento di diverse ore.',
+    'blog.article.arresto-frauenfeld-30enne-barricato.imageAlt': 'Polizia circonda un edificio a Frauenfeld dopo un incidente con un uomo barricato',
 };
 
 export default blogMetaIt;

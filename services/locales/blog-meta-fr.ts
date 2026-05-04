@@ -5649,6 +5649,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.moleno-piazza-green-chiesa-migliorata.title': 'Moleno: place verte et église rénovée',
     'blog.article.moleno-piazza-green-chiesa-migliorata.excerpt': 'La municipalité de Bellinzone présente les projets pour la nouvelle place verte et la rénovation de l\'église à Moleno. Voici les détails',
     'blog.article.moleno-piazza-green-chiesa-migliorata.imageAlt': 'Place du village de Moleno avec église et école rénovée',
+    'blog.article.arresto-frauenfeld-30enne-barricato.title': 'Un homme armé se barricade chez lui: arrestation à Frauenfeld',
+    'blog.article.arresto-frauenfeld-30enne-barricato.excerpt': 'Un homme de 30 ans s\'est barricadé dans son appartement à Frauenfeld, dans un état psychique altéré. La police l\'a arrêté après une intervention de plusieurs heures.',
+    'blog.article.arresto-frauenfeld-30enne-barricato.imageAlt': 'La police entoure un bâtiment à Frauenfeld après un incident avec un homme barricadé',
 };
 
 export default blogMetaFr;

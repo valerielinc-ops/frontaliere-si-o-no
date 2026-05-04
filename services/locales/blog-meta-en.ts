@@ -5648,6 +5648,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.moleno-piazza-green-chiesa-migliorata.title': 'Moleno: new green square and church restoration',
     'blog.article.moleno-piazza-green-chiesa-migliorata.excerpt': 'The Municipality of Bellinzona presents the projects for the new green square and the restoration of the church in Moleno. Here are the details',
     'blog.article.moleno-piazza-green-chiesa-migliorata.imageAlt': 'Village square of Moleno with church and renovated school',
+    'blog.article.arresto-frauenfeld-30enne-barricato.title': 'Armed man barricades himself in Frauenfeld home, arrested',
+    'blog.article.arresto-frauenfeld-30enne-barricato.excerpt': 'A 30-year-old man barricaded himself in his apartment in Frauenfeld, in an altered mental state. The police arrested him after a several-hour intervention.',
+    'blog.article.arresto-frauenfeld-30enne-barricato.imageAlt': 'Police surround a building in Frauenfeld after an incident with a barricaded man',
 };
 
 export default blogMetaEn;

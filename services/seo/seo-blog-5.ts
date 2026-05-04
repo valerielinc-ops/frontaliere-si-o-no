@@ -13735,6 +13735,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-frauenfeld-30enne-barricato': {
+    title: 'Armato si barrica in casa: arrestato 30enne a Frauenfeld',
+    description: 'Un uomo di 30 anni si è barricato nel suo appartamento a Frauenfeld, in condizioni psichiche alterate. La polizia lo ha arrestato dopo un intervento di diverse',
+    keywords: 'frontalieri, ticino, svizzera, italia, armato, barrica, casa, arrestato',
+    ogTitle: 'Armato si barrica in casa: arrestato 30enne a Frauenfeld',
+    ogDescription: 'Un uomo di 30 anni si è barricato nel suo appartamento a Frauenfeld, in condizioni psichiche alterate. La polizia lo ha arrestato dopo un intervento di diverse',
+    canonicalPath: '/articoli-frontaliere/arresto-frauenfeld-30enne-barricato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Armato si barrica in casa: arrestato 30enne a Frauenfeld",
+      "description": "Un uomo di 30 anni si è barricato nel suo appartamento a Frauenfeld, in condizioni psichiche alterate. La polizia lo ha arrestato dopo un intervento di diverse",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/arresto-frauenfeld-30enne-barricato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia circonda un edificio a Frauenfeld dopo un incidente con un uomo barricato"
+      },
+      "datePublished": "2026-05-04T07:49:44+00:00",
+      "dateModified": "2026-05-04T07:49:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-frauenfeld-30enne-barricato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
