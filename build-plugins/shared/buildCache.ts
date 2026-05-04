@@ -250,7 +250,7 @@ export async function runCached(opts: RunCachedOptions): Promise<RunCachedResult
   await work({ recordWrite });
 
   // Snapshot recorded files into cache.
-  const snapshotted = snapshotToCache(keyDir, distDir, pluginName, recorded);
+  const snapshotted = await snapshotToCache(keyDir, distDir, pluginName, recorded);
   const dt = ((Date.now() - t0) / 1000).toFixed(2);
   console.log(
     `[cache] ${pluginName}: snapshot wrote ${snapshotted} files to cache in ${dt}s`,
@@ -325,12 +325,23 @@ async function restoreFromCache(
 
 // ── MISS helpers ────────────────────────────────────────────────
 
-function snapshotToCache(
+/**
+ * Per-plugin concurrency for the parallel SNAPSHOT. Mirrors the restore
+ * tuning. Run 25320531156 saw jobs-seo-pages snapshot 204 899 files in
+ * 1 045 s with the original sequential `fs.copyFileSync` loop — pushing
+ * the deploy to 24 min wall-clock during MISS paths. With 50 in-flight
+ * `fs.copyFile` calls per plugin and 5 plugins simultaneously
+ * snapshotting under the same closeBundle, aggregate ≈ 250 — the same
+ * disk-friendly ceiling the restore path uses.
+ */
+const SNAPSHOT_CONCURRENCY = 50;
+
+async function snapshotToCache(
   keyDir: string,
   distDir: string,
   pluginName: string,
   recorded: Set<string>,
-): number {
+): Promise<number> {
   // Reset the keyDir to ensure no stale state from a previous failed run
   // contaminates this snapshot.
   fs.rmSync(keyDir, { recursive: true, force: true });
@@ -338,6 +349,7 @@ function snapshotToCache(
 
   const distAbs = path.resolve(distDir);
   const paths: string[] = [];
+  const copyJobs: Array<{ src: string; dst: string }> = [];
 
   for (const abs of recorded) {
     if (!abs.startsWith(distAbs + path.sep) && abs !== distAbs) {
@@ -353,9 +365,26 @@ function snapshotToCache(
     }
     const rel = path.relative(distAbs, abs);
     const dst = path.join(keyDir, 'files', rel);
-    fs.mkdirSync(path.dirname(dst), { recursive: true });
-    fs.copyFileSync(abs, dst);
+    copyJobs.push({ src: abs, dst });
     paths.push(rel);
+  }
+
+  // Pre-create every destination directory in one synchronous pass before
+  // dispatching the parallel copies. Set-deduped so siblings don't redo
+  // each other's work.
+  const dirs = new Set<string>();
+  for (const job of copyJobs) {
+    dirs.add(path.dirname(job.dst));
+  }
+  for (const d of dirs) {
+    fs.mkdirSync(d, { recursive: true });
+  }
+
+  // Parallel copy in batches of SNAPSHOT_CONCURRENCY. fs.promises.copyFile
+  // uses libuv's worker pool so throughput scales with cores up to ~4-8.
+  for (let i = 0; i < copyJobs.length; i += SNAPSHOT_CONCURRENCY) {
+    const batch = copyJobs.slice(i, i + SNAPSHOT_CONCURRENCY);
+    await Promise.all(batch.map(({ src, dst }) => fs.promises.copyFile(src, dst)));
   }
 
   const manifest: CacheManifest = {
