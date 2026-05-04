@@ -5525,6 +5525,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fc-thun-campionato-2026-ticino.title': 'FC Thun ist Schweizer Meister: Fest in Thun',
     'blog.article.fc-thun-campionato-2026-ticino.excerpt': 'Der FC Thun, unter der Leitung des Tessiner Trainers Mauro Lustrinelli, gewinnt zum ersten Mal in der Vereinsgeschichte die Schweizer Meisterschaft.',
     'blog.article.fc-thun-campionato-2026-ticino.imageAlt': 'FC Thun Feier in Thun, Schweiz. Das Team feiert mit den Fans.',
+    'blog.article.incidente-maloja-frontaliere-2026.title': 'Motorradfahrer auf der Malojastraße verletzt',
+    'blog.article.incidente-maloja-frontaliere-2026.excerpt': 'Ein 63-jähriger Motorradfahrer verletzte sich bei einem Unfall auf der Malojastraße und wurde ins Spital nach Samedan gebracht.',
+    'blog.article.incidente-maloja-frontaliere-2026.imageAlt': 'Ein Motorradfahrer fährt auf einer kurvenreichen Bergstraße in den Schweizer Alpen, mit schneebedeckten Gipfeln im Hintergrund.',
 };
 
 export default blogMetaDe;

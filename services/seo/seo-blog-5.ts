@@ -12341,6 +12341,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-maloja-frontaliere-2026': {
+    title: 'Motociclista ferito sulla strada del Maloja | Frontaliere Ticino',
+    description: 'Un motociclista di 63 anni si è ferito in un incidente sulla strada del Maloja, trasportato in ospedale a Samedan. Implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, motociclista, ferito, sulla, strada',
+    ogTitle: 'Motociclista ferito sulla strada del Maloja',
+    ogDescription: 'Un motociclista di 63 anni si è ferito in un incidente sulla strada del Maloja, trasportato in ospedale a Samedan. Implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/incidente-maloja-frontaliere-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Motociclista ferito sulla strada del Maloja",
+      "description": "Un motociclista di 63 anni si è ferito in un incidente sulla strada del Maloja, trasportato in ospedale a Samedan. Implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-maloja-frontaliere-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un motociclista guida su una strada di montagna tortuosa nel Canton Grigioni, con le Alpi innevate sullo sfondo."
+      },
+      "datePublished": "2026-05-04T03:12:48+00:00",
+      "dateModified": "2026-05-04T03:12:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-maloja-frontaliere-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

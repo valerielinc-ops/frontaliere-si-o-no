@@ -5525,6 +5525,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fc-thun-campionato-2026-ticino.title': 'FC Thun wins Swiss championship: celebration in Thun',
     'blog.article.fc-thun-campionato-2026-ticino.excerpt': 'FC Thun, led by Ticinese coach Mauro Lustrinelli, wins the Swiss championship for the first time in its history.',
     'blog.article.fc-thun-campionato-2026-ticino.imageAlt': 'FC Thun celebration in Thun, Switzerland. The team celebrates with fans.',
+    'blog.article.incidente-maloja-frontaliere-2026.title': '63-year-old motorcyclist injured on Maloja road',
+    'blog.article.incidente-maloja-frontaliere-2026.excerpt': 'A 63-year-old motorcyclist injured his leg in an accident on the Maloja road and was taken to hospital in Samedan.',
+    'blog.article.incidente-maloja-frontaliere-2026.imageAlt': 'A motorcyclist riding on a winding mountain road in the Swiss Alps, with snow-capped peaks in the background.',
 };
 
 export default blogMetaEn;

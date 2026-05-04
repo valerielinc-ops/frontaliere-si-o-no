@@ -3084,6 +3084,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-anguria-pannelli-incendio-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/anguria-pannelli-incendio-ticino-2026', parent: 'blog' },
     'blog-tiro-sportivo-veterani-junghi-2026': { name: 'Tiro Sportivo', path: '/articoli-frontaliere/tiro-sportivo-veterani-junghi-2026', parent: 'blog' },
     'blog-fc-thun-campionato-2026-ticino': { name: 'Novità', path: '/articoli-frontaliere/fc-thun-campionato-2026-ticino', parent: 'blog' },
+    'blog-incidente-maloja-frontaliere-2026': { name: 'Novità', path: '/articoli-frontaliere/incidente-maloja-frontaliere-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
