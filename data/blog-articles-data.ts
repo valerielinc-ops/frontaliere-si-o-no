@@ -18002,4 +18002,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'antonelli-vince-gp-miami-2026',
+ category: 'novita',
+ date: '2026-05-04T03:46:56.217Z',
+ image: '/images/blog/antonelli-vince-gp-miami-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5544,6 +5544,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-incendio-riciclaggio-2026.title': 'Crans-Montana: riciclaggio e incendio restano uniti',
     'blog.article.crans-montana-incendio-riciclaggio-2026.excerpt': 'Le procuratrici respingono la richiesta di separare l\'inchiesta sul rogo mortale dal sospetto di riciclaggio',
     'blog.article.crans-montana-incendio-riciclaggio-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.antonelli-vince-gp-miami-2026.title': 'Antonelli vince il GP Miami 2026: ordine d\'arrivo e classifica mondiale',
+    'blog.article.antonelli-vince-gp-miami-2026.excerpt': 'Andrea Kimi Antonelli trionfa a Miami e resta leader del Mondiale di Formula 1. Ecco l\'ordine d\'arrivo e la classifica aggiornata.',
+    'blog.article.antonelli-vince-gp-miami-2026.imageAlt': 'Lago di Lugano con auto da Formula 1 in primo piano',
 };
 
 export default blogMetaIt;

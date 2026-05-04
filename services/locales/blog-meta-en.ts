@@ -5543,6 +5543,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-incendio-riciclaggio-2026.title': 'Crans-Montana: arson and money laundering remain linked',
     'blog.article.crans-montana-incendio-riciclaggio-2026.excerpt': 'Prosecutors reject the request to separate the investigation into the fatal fire from the suspected money laundering',
     'blog.article.crans-montana-incendio-riciclaggio-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.antonelli-vince-gp-miami-2026.title': 'Antonelli wins Miami GP 2026: race results and world championship standings',
+    'blog.article.antonelli-vince-gp-miami-2026.excerpt': 'Andrea Kimi Antonelli triumphs in Miami and remains the leader of the Formula 1 World Championship. Here is the final classification and the updated standings.',
+    'blog.article.antonelli-vince-gp-miami-2026.imageAlt': 'Lake Lugano with a Formula 1 car in the foreground',
 };
 
 export default blogMetaEn;

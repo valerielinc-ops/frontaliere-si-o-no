@@ -12545,6 +12545,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-antonelli-vince-gp-miami-2026': {
+    title: 'Antonelli vince il GP Miami 2026: ordine d\'arrivo e classifica mondiale',
+    description: 'Andrea Kimi Antonelli trionfa a Miami e resta leader del Mondiale di Formula 1. Ecco l\'ordine d\'arrivo e la classifica aggiornata. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, antonelli, vince, miami, ordine',
+    ogTitle: 'Antonelli vince GP Miami 2026: ordine d\'arrivo e classifica mondiale',
+    ogDescription: 'Andrea Kimi Antonelli trionfa a Miami e resta leader del Mondiale di Formula 1. Ecco l\'ordine d\'arrivo e la classifica aggiornata.',
+    canonicalPath: '/articoli-frontaliere/antonelli-vince-gp-miami-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Antonelli vince il GP Miami 2026: ordine d'arrivo e classifica mondiale",
+      "description": "Andrea Kimi Antonelli trionfa a Miami e resta leader del Mondiale di Formula 1. Ecco l'ordine d'arrivo e la classifica aggiornata. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/antonelli-vince-gp-miami-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con auto da Formula 1 in primo piano"
+      },
+      "datePublished": "2026-05-04T03:46:56+00:00",
+      "dateModified": "2026-05-04T03:46:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/antonelli-vince-gp-miami-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

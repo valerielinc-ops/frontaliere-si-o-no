@@ -5543,6 +5543,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-incendio-riciclaggio-2026.title': 'Crans-Montana: Brand und Geldwäsche bleiben verbunden',
     'blog.article.crans-montana-incendio-riciclaggio-2026.excerpt': 'Die Staatsanwältinnen lehnen den Antrag ab, die Untersuchung zum tödlichen Brand von den Geldwäscheverdacht zu trennen',
     'blog.article.crans-montana-incendio-riciclaggio-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.antonelli-vince-gp-miami-2026.title': 'Antonelli gewinnt den Miami-GP 2026: Ergebnis und WM-Stand',
+    'blog.article.antonelli-vince-gp-miami-2026.excerpt': 'Andrea Kimi Antonelli triumphiert in Miami und bleibt Leader der Formel-1-Weltmeisterschaft. Hier das Ergebnis und der aktualisierte Stand.',
+    'blog.article.antonelli-vince-gp-miami-2026.imageAlt': 'Luganersee mit einem Formel-1-Auto im Vordergrund',
 };
 
 export default blogMetaDe;
