@@ -1,11 +1,17 @@
 /**
  * Company logo fallback helpers.
  *
- * Chain of attempts for a company logo:
- *   1. Explicit CRAWLED_COMPANY_LOGOS map (see jobDataNormalization.resolveCompanyLogoUrl)
- *   2. Clearbit logo CDN (logo.clearbit.com)
- *   3. Google favicon API (google.com/s2/favicons)
- *   4. Static SVG placeholder (/icons/company-placeholder.svg)
+ * Chain of attempts for a company logo (resolved by the calling component,
+ * usually `<ProviderLogo>`):
+ *   1. Local slug-based asset (`PROVIDER_LOGOS[slug].localPath` in `services/brandLogos.ts`)
+ *   2. Insurer-domain logo map (`getInsurerLogoUrl` in `services/brandLogos.ts`)
+ *   3. Clearbit logo CDN (`logo.clearbit.com`)
+ *   4. Local stylized SVG placeholder (`/icons/company-placeholder.svg`)
+ *
+ * Note: the older Google favicons step (`google.com/s2/favicons`) was removed
+ * because it returned a generic gray-globe icon for unknown/disallowed
+ * domains, which looked broken to users. We now fall straight from Clearbit
+ * to the local placeholder.
  *
  * This service exports a single onError handler for <img> tags so every
  * broken-logo path eventually resolves to a visible placeholder instead of
@@ -20,33 +26,22 @@ export const COMPANY_LOGO_PLACEHOLDER = '/icons/company-placeholder.svg';
  * onError handler for <img> tags displaying a company logo.
  *
  * Strategy:
- *   - If the image was served by Clearbit, retry with Google's favicon API.
- *   - If the image was served by Google favicons, fall back to the local SVG placeholder.
- *   - Otherwise, fall back to the local SVG placeholder directly.
+ *   - Any failure (including Clearbit) falls through to the local SVG
+ *     placeholder. The Google favicons fallback was removed (gray-globe).
  *
  * The placeholder is only assigned once (we guard against infinite error loops
- * by checking the current src before mutating).
+ * by checking `dataset.logoFallback` before mutating).
  */
 export function handleCompanyLogoError(event: SyntheticEvent<HTMLImageElement>): void {
- const el = event.currentTarget;
- // Avoid infinite loop: once placeholder is set, stop.
- if (el.dataset.logoFallback === 'placeholder') return;
+  const el = event.currentTarget;
+  // Avoid infinite loop: once placeholder is set, stop.
+  if (el.dataset.logoFallback === 'placeholder') return;
 
- const currentSrc = el.src || '';
-
- // Step 1: Clearbit → Google favicon
- if (currentSrc.includes('logo.clearbit.com')) {
- const domain = currentSrc.replace(/^https?:\/\/logo\.clearbit\.com\//, '').split(/[/?#]/)[0];
- if (domain) {
- el.src = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
- el.dataset.logoFallback = 'google-favicon';
- return;
- }
- }
-
- // Step 2 (or any other failure): local SVG placeholder
- el.src = COMPANY_LOGO_PLACEHOLDER;
- el.dataset.logoFallback = 'placeholder';
- // Make sure it's visible (some older sites hid the image on error)
- el.style.visibility = 'visible';
+  // Any failure → local SVG placeholder. We deliberately do NOT fall back to
+  // Google favicons (`google.com/s2/favicons`) because it serves a generic
+  // gray-globe icon for unknown domains and the user reported this as broken.
+  el.src = COMPANY_LOGO_PLACEHOLDER;
+  el.dataset.logoFallback = 'placeholder';
+  // Make sure it's visible (some older sites hid the image on error)
+  el.style.visibility = 'visible';
 }
