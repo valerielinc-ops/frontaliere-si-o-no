@@ -5712,6 +5712,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.meloni-cooperazione-mediterraneo-immigrazione.title': 'Meloni: coopération méditerranéenne pour gérer l\'immigration',
     'blog.article.meloni-cooperazione-mediterraneo-immigrazione.excerpt': 'La Première ministre italienne souligne l\'importance de la coopération internationale pour relever les défis migratoires et leurs implications économiques et sociales.',
     'blog.article.meloni-cooperazione-mediterraneo-immigrazione.imageAlt': 'Lac de Lugano avec travailleurs transfrontaliers à l\'arrière-plan',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri.title': 'Paolo Iodice, nouveau questeur de Varèse',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri.excerpt': 'Paolo Iodice est le nouveau questeur de Varèse. Voici ce qui change pour la sécurité et les frontaliers.',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri.imageAlt': 'Vue aérienne de Bellinzone, Tessin, Suisse, avec ses trois châteaux et les montagnes environnantes.',
 };
 
 export default blogMetaFr;

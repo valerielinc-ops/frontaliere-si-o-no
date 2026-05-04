@@ -5711,6 +5711,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.meloni-cooperazione-mediterraneo-immigrazione.title': 'Meloni: Mediterranean cooperation to manage immigration',
     'blog.article.meloni-cooperazione-mediterraneo-immigrazione.excerpt': 'The Italian prime minister stresses the importance of international cooperation to address migration challenges and their economic and social implications.',
     'blog.article.meloni-cooperazione-mediterraneo-immigrazione.imageAlt': 'Lake Lugano with cross-border workers in the background',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri.title': 'Paolo Iodice new Varese police chief: security and continuity for the area',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri.excerpt': 'Paolo Iodice is the new Varese police chief. Here\'s what changes for security and cross-border workers.',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri.imageAlt': 'Aerial view of Bellinzona, Ticino, Switzerland, with its three castles and the surrounding mountains.',
 };
 
 export default blogMetaEn;

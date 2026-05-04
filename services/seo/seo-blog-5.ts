@@ -14449,6 +14449,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-questore-varese-sicurezza-frontalieri': {
+    title: 'Paolo Iodice nuovo questore di Varese: sicurezza e continuità per il territorio',
+    description: 'Paolo Iodice è il nuovo questore di Varese. Ecco cosa cambia per la sicurezza e i frontalieri che lavorano in Svizzera e risiedono in Italia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, paolo, iodice, nuovo, questore',
+    ogTitle: 'Paolo Iodice nuovo questore di Varese: sicurezza e continuità',
+    ogDescription: 'Paolo Iodice è il nuovo questore di Varese. Ecco cosa cambia per la sicurezza e i frontalieri che lavorano in Svizzera e risiedono in Italia.',
+    canonicalPath: '/articoli-frontaliere/nuovo-questore-varese-sicurezza-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Paolo Iodice nuovo questore di Varese: sicurezza e continuità per il territorio",
+      "description": "Paolo Iodice è il nuovo questore di Varese. Ecco cosa cambia per la sicurezza e i frontalieri che lavorano in Svizzera e risiedono in Italia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-questore-varese-sicurezza-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona, Ticino, Svizzera, con i suoi tre castelli e le montagne circostanti."
+      },
+      "datePublished": "2026-05-04T10:48:50+00:00",
+      "dateModified": "2026-05-04T10:48:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-questore-varese-sicurezza-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
