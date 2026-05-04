@@ -5564,6 +5564,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sergi-presidenza-basket-ticino-2026.title': 'Sergi strebt erneut die Präsidentschaft des Ticino-Basketballs an',
     'blog.article.sergi-presidenza-basket-ticino-2026.excerpt': 'Giancarlo Sergi fordert Andrea Siviero die Präsidentschaft des Basketballs im Tessin heraus. Wahlen für Mai 2026 vorgesehen.',
     'blog.article.sergi-presidenza-basket-ticino-2026.imageAlt': 'Basketballspiel in Lugano, Tessin',
+    'blog.article.ginnastica-artistica-ticino-2026.title': 'Turnen: junge Talente glänzen an den Tessiner Meisterschaften',
+    'blog.article.ginnastica-artistica-ticino-2026.excerpt': 'Die Tessiner Turnmeisterschaften 2026 haben neue Talente hervorgebracht, in Abwesenheit der \'Big Four\'',
+    'blog.article.ginnastica-artistica-ticino-2026.imageAlt': 'Turner bei einer Veranstaltung in Tessin',
 };
 
 export default blogMetaDe;

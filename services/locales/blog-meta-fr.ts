@@ -5565,6 +5565,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sergi-presidenza-basket-ticino-2026.title': 'Sergi vise à nouveau la présidence du basket ticinois',
     'blog.article.sergi-presidenza-basket-ticino-2026.excerpt': 'Giancarlo Sergi défie Andrea Siviero pour la présidence du basket en Ticino. Élections prévues pour mai 2026.',
     'blog.article.sergi-presidenza-basket-ticino-2026.imageAlt': 'Match de basket à Lugano, Tessin',
+    'blog.article.ginnastica-artistica-ticino-2026.title': 'Gymnastique artistique : jeunes talents brillent aux Championnats tessinois',
+    'blog.article.ginnastica-artistica-ticino-2026.excerpt': 'Les Championnats tessinois de gymnastique artistique 2026 ont vu émerger de nouveaux talents en l\'absence des \'big four\'',
+    'blog.article.ginnastica-artistica-ticino-2026.imageAlt': 'Gymnaste en action lors d\'une compétition au Tessin',
 };
 
 export default blogMetaFr;

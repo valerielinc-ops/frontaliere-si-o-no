@@ -5564,6 +5564,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sergi-presidenza-basket-ticino-2026.title': 'Sergi aims for Ticino basketball presidency again',
     'blog.article.sergi-presidenza-basket-ticino-2026.excerpt': 'Giancarlo Sergi challenges Andrea Siviero for the presidency of basketball in Ticino. Elections scheduled for May 2026.',
     'blog.article.sergi-presidenza-basket-ticino-2026.imageAlt': 'Basketball game in Lugano, Ticino',
+    'blog.article.ginnastica-artistica-ticino-2026.title': 'Gymnastics: young talents shine at Ticino Championships',
+    'blog.article.ginnastica-artistica-ticino-2026.excerpt': 'The 2026 Ticino artistic gymnastics championships saw new talents emerge in the absence of the \'big four\'',
+    'blog.article.ginnastica-artistica-ticino-2026.imageAlt': 'Gymnast performing during a competition in Ticino',
 };
 
 export default blogMetaEn;
