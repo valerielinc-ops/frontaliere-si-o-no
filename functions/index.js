@@ -44,10 +44,12 @@ export const newsletterResendWebhook = onRequest(
  headers: req.headers,
  webhookSecret: resendWebhookSecret,
  });
+ console.log(`[resendWebhook] ${result?.type || 'unknown'} → ${result?.handled ? 'handled' : (result?.reason || 'skipped')} for ${result?.email || '?'}`);
  res.status(200).json({ ok: true, result });
  } catch (error) {
  const message = error instanceof Error ? error.message : String(error || 'unknown_error');
  const status = /signature|svix|webhook/i.test(message) ? 401 : 500;
+ console.error('[newsletterResendWebhook] Error:', message);
  res.status(status).json({ ok: false, error: message });
  }
  },
