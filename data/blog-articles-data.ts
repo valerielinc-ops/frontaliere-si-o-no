@@ -18551,4 +18551,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'proposte-cernobbio-2026-tessile',
+ category: 'novita',
+ date: '2026-05-04T11:35:52.605Z',
+ image: '/images/blog/proposte-cernobbio-2026-tessile.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

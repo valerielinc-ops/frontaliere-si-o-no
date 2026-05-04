@@ -14619,6 +14619,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-proposte-cernobbio-2026-tessile': {
+    title: 'Proposte 2026 a Cernobbio: mercato tessile da 1,3 miliardi di euro',
+    description: 'La 33ª edizione di Proposte, la fiera del tessuto d’arredamento, si apre a Villa Erba con 87 espositori internazionali e un focus su sostenibilità e',
+    keywords: 'frontalieri, ticino, svizzera, italia, proposte, cernobbio, mercato, tessile',
+    ogTitle: 'Proposte 2026 a Cernobbio: mercato tessile da 1,3 miliardi di euro',
+    ogDescription: 'La 33ª edizione di Proposte, la fiera del tessuto d’arredamento, si apre a Villa Erba con 87 espositori internazionali e un focus su sostenibilità e',
+    canonicalPath: '/articoli-frontaliere/proposte-cernobbio-2026-tessile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Proposte 2026 a Cernobbio: mercato tessile da 1,3 miliardi di euro",
+      "description": "La 33ª edizione di Proposte, la fiera del tessuto d’arredamento, si apre a Villa Erba con 87 espositori internazionali e un focus su sostenibilità e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/proposte-cernobbio-2026-tessile.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Erba a Cernobbio durante la fiera Proposte 2026, con espositori che mostrano tessuti d'arredamento."
+      },
+      "datePublished": "2026-05-04T11:35:52+00:00",
+      "dateModified": "2026-05-04T11:35:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/proposte-cernobbio-2026-tessile`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

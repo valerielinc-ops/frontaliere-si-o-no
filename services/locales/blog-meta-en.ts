@@ -5726,6 +5726,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parcheggi-blu-como-residenti.title': 'Blue parking in Como: residents fooled, empty streets despite promises',
     'blog.article.parcheggi-blu-como-residenti.excerpt': 'Blue parking spots in central Como, excluded from the reform for residents, remain empty. Councilor Paola Ceriello denounces the situation.',
     'blog.article.parcheggi-blu-como-residenti.imageAlt': 'Aerial view of Como city center with empty blue parking spots and residents',
+    'blog.article.proposte-cernobbio-2026-tessile.title': 'Proposte 2026 in Cernobbio: textile market worth 1.3 billion euros',
+    'blog.article.proposte-cernobbio-2026-tessile.excerpt': 'The 33rd edition of Proposte, the home textile fair, opens at Villa Erba with 87 international exhibitors and a focus on sustainability and innovation.',
+    'blog.article.proposte-cernobbio-2026-tessile.imageAlt': 'Villa Erba in Cernobbio during the Proposte 2026 fair, with exhibitors showcasing home textiles.',
 };
 
 export default blogMetaEn;

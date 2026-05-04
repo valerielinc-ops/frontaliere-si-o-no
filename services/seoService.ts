@@ -3151,6 +3151,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-franzolini-fenealuil-piano-casa': { name: 'Novità', path: '/articoli-frontaliere/franzolini-fenealuil-piano-casa', parent: 'blog' },
     'blog-parco-biumo-inaugurazione-2026': { name: 'Inaugurazione parco Biumo', path: '/articoli-frontaliere/parco-biumo-inaugurazione-2026', parent: 'blog' },
     'blog-parcheggi-blu-como-residenti': { name: 'Parcheggi blu Como', path: '/articoli-frontaliere/parcheggi-blu-como-residenti', parent: 'blog' },
+    'blog-proposte-cernobbio-2026-tessile': { name: 'Proposte 2026', path: '/articoli-frontaliere/proposte-cernobbio-2026-tessile', parent: 'blog' },
  };
 
  const info = sectionNames[section];

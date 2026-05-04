@@ -5727,6 +5727,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parcheggi-blu-como-residenti.title': 'Parkings bleus à Côme : résidents bernés, rues vides malgré les promesses',
     'blog.article.parcheggi-blu-como-residenti.excerpt': 'Les parkings bleus à Côme centre, exclus de la réforme pour les résidents, restent vides. La conseillère Paola Ceriello dénonce la situation.',
     'blog.article.parcheggi-blu-como-residenti.imageAlt': 'Vue aérienne du centre-ville de Côme avec des places de parking bleues vides et des résidents',
+    'blog.article.proposte-cernobbio-2026-tessile.title': 'Proposte 2026 à Cernobbio : marché textile de 1,3 milliards d\'euros',
+    'blog.article.proposte-cernobbio-2026-tessile.excerpt': 'La 33ème édition de Proposte, le salon du tissu d\'ameublement, ouvre ses portes à Villa Erba avec 87 exposants internationaux et un focus sur la durabilité et l\'innovation.',
+    'blog.article.proposte-cernobbio-2026-tessile.imageAlt': 'Villa Erba à Cernobbio pendant le salon Proposte 2026, avec des exposants présentant des textiles d\'intérieur.',
 };
 
 export default blogMetaFr;

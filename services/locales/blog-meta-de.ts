@@ -5726,6 +5726,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parcheggi-blu-como-residenti.title': 'Blaue Parkplätze in Como: Anwohner betrogen, Straßen leer trotz Versprechen',
     'blog.article.parcheggi-blu-como-residenti.excerpt': 'Die blauen Parkplätze in der Comoer Innenstadt, aus der Reform für Anwohner ausgeschlossen, bleiben leer. Die Gemeinderätin Paola Ceriello denunziert die Situation.',
     'blog.article.parcheggi-blu-como-residenti.imageAlt': 'Luftaufnahme des Como Stadtzentrums mit leeren blauen Parkplätzen und Einwohnern',
+    'blog.article.proposte-cernobbio-2026-tessile.title': 'Proposte 2026 in Cernobbio: Textilmarkt von 1,3 Milliarden Euro',
+    'blog.article.proposte-cernobbio-2026-tessile.excerpt': 'Die 33. Ausgabe von Proposte, die Messe für Textilien im Innenausbau, beginnt in Villa Erba mit 87 internationalen Ausstellern und einem Fokus auf Nachhaltigkeit und Innovation.',
+    'blog.article.proposte-cernobbio-2026-tessile.imageAlt': 'Villa Erba in Cernobbio während der Proposte 2026 Messe, mit Ausstellern, die Heimtextilien zeigen.',
 };
 
 export default blogMetaDe;

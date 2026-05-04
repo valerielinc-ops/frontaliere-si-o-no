@@ -5727,6 +5727,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parcheggi-blu-como-residenti.title': 'Parcheggi blu a Como: residenti beffati, vie vuote nonostante le promesse',
     'blog.article.parcheggi-blu-como-residenti.excerpt': 'I parcheggi blu a Como centro, esclusi dalla riforma per i residenti, restano vuoti. La consigliera Paola Ceriello denuncia la situazione.',
     'blog.article.parcheggi-blu-como-residenti.imageAlt': 'Vista aerea del centro di Como con parcheggi blu vuoti e residenti',
+    'blog.article.proposte-cernobbio-2026-tessile.title': 'Proposte 2026 a Cernobbio: mercato tessile da 1,3 miliardi di euro',
+    'blog.article.proposte-cernobbio-2026-tessile.excerpt': 'La 33ª edizione di Proposte, la fiera del tessuto d’arredamento, si apre a Villa Erba con 87 espositori internazionali e un focus su sostenibilità e innovazione.',
+    'blog.article.proposte-cernobbio-2026-tessile.imageAlt': 'Villa Erba a Cernobbio durante la fiera Proposte 2026, con espositori che mostrano tessuti d\'arredamento.',
 };
 
 export default blogMetaIt;
