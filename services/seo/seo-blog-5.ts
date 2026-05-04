@@ -15707,6 +15707,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ladies-run-lugano-2026': {
+    title: 'Ladies Run Ticino 2026: torna la corsa femminile a Lugano',
+    description: 'Sabato 9 maggio 2026 a Lugano torna la Ladies Run Ticino con percorsi di 2.5 km, 5 km e 10 km. Iscrizioni ancora aperte online fino al 7 maggio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ladies, torna, corsa, femminile',
+    ogTitle: 'Ladies Run Ticino 2026: corsa femminile a Lugano',
+    ogDescription: 'Sabato 9 maggio 2026 a Lugano torna la Ladies Run Ticino con percorsi di 2.5 km, 5 km e 10 km. Iscrizioni ancora aperte online fino al 7 maggio.',
+    canonicalPath: '/articoli-frontaliere/ladies-run-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ladies Run Ticino 2026: torna la corsa femminile a Lugano",
+      "description": "Sabato 9 maggio 2026 a Lugano torna la Ladies Run Ticino con percorsi di 2.5 km, 5 km e 10 km. Iscrizioni ancora aperte online fino al 7 maggio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ladies-run-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Corridori alla Ladies Run Ticino 2026 a Lugano"
+      },
+      "datePublished": "2026-05-04T17:41:22+00:00",
+      "dateModified": "2026-05-04T17:41:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ladies-run-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

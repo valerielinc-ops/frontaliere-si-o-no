@@ -3183,6 +3183,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-festa-mamma-solidarieta-2026': { name: 'Festa della mamma', path: '/articoli-frontaliere/festa-mamma-solidarieta-2026', parent: 'blog' },
     'blog-a8-chiusure-gallarate-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/a8-chiusure-gallarate-frontalieri', parent: 'blog' },
     'blog-costi-aeroporto-lugano-2026': { name: 'Aeroporto Lugano', path: '/articoli-frontaliere/costi-aeroporto-lugano-2026', parent: 'blog' },
+    'blog-ladies-run-lugano-2026': { name: 'Ladies Run Ticino 2026', path: '/articoli-frontaliere/ladies-run-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

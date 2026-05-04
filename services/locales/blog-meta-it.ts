@@ -5823,6 +5823,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costi-aeroporto-lugano-2026.title': 'Costi aeroporto Lugano: 4 milioni in spese non autorizzate',
     'blog.article.costi-aeroporto-lugano-2026.excerpt': 'Interpellanza al Municipio: 2,7 milioni per carburante, IVA non inclusa. Strategia e tempistiche ancora sfocate',
     'blog.article.costi-aeroporto-lugano-2026.imageAlt': 'Vista aerea dell\'aeroporto di Lugano con montagne sullo sfondo',
+    'blog.article.ladies-run-lugano-2026.title': 'Ladies Run Ticino 2026: torna la corsa femminile a Lugano',
+    'blog.article.ladies-run-lugano-2026.excerpt': 'Sabato 9 maggio 2026 a Lugano torna la Ladies Run Ticino con percorsi di 2.5 km, 5 km e 10 km. Iscrizioni ancora aperte online fino al 7 maggio.',
+    'blog.article.ladies-run-lugano-2026.imageAlt': 'Corridori alla Ladies Run Ticino 2026 a Lugano',
 };
 
 export default blogMetaIt;
