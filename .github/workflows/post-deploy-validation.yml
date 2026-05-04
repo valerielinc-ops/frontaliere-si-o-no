@@ -6,23 +6,77 @@ on:
     types: [completed]
 
 concurrency:
-  # Cancel any in-flight validation when a newer deploy completes — we only
-  # care about validating the latest live version.
-  group: post-deploy-validation
+  # 1:1 alignment with the deploy workflow — each deploy run gets its own
+  # validation that runs to completion. Keying the concurrency group on the
+  # triggering deploy's run ID guarantees no two post-deploys ever share a
+  # group, so `cancel-in-progress` (still true as a defensive default) only
+  # ever fires on a re-run of the same deploy.
+  #
+  # Previous setting `group: post-deploy-validation` with cancel-in-progress
+  # killed validation A mid-flight whenever validation B started (regardless
+  # of whether deploy A had already succeeded). For workflow_dispatch flows
+  # that publish articles to Facebook/LinkedIn, this dropped posts whenever
+  # two articles deployed back-to-back. The new key isolates each run.
+  group: post-deploy-validation-${{ github.event.workflow_run.id }}
   cancel-in-progress: true
 
 jobs:
-  # Quick pre-check: was this a deployable run (has github-pages artifact)?
-  # Profile-only runs (profile_sequential=true) skip the deploy steps and
-  # produce no Pages artifact — we detect this and skip validation entirely.
+  # Quick pre-check: did the deploy actually succeed and produce a Pages
+  # artifact?
+  #
+  # Mirroring contract — every deploy run produces exactly one
+  # post-deploy run with the SAME terminal conclusion:
+  #   - deploy success   → post-deploy continues to validate (success on green)
+  #   - deploy cancelled → post-deploy cancels itself via `gh run cancel`
+  #     so the Actions UI shows "cancelled", not the misleading "skipped"
+  #     that a job-level `if` evaluates-false would produce
+  #   - deploy failure   → post-deploy fails (exit 1) so the UI shows
+  #     "failure", again preserving the deploy's terminal state
+  #   - profile-only run → post-deploy succeeds with a no-op (the only
+  #     case where mirroring deliberately diverges, because a profile run
+  #     never reaches a deployable artifact and there is nothing to validate)
+  #
+  # Why mirror at all: a 1:1 deploy↔post-deploy alignment makes the
+  # Actions UI a faithful audit log. When you see 8 deploy runs and 8
+  # post-deploys, each pair shares a status, you can scan the list and
+  # immediately tell "every red here matches a red there" instead of
+  # decoding "skipped" as either "deploy succeeded but profile run" or
+  # "deploy cancelled by concurrency" or "validation gated off".
   pre-check:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     outputs:
       deployable: ${{ steps.check.outputs.deployable }}
     permissions:
-      actions: read
+      actions: write   # gh run cancel on this run when deploy was cancelled
     steps:
+      - name: Mirror deploy conclusion (cancel/fail to match deploy terminal state)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEPLOY_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+        run: |
+          echo "Triggering deploy concluded with: $DEPLOY_CONCLUSION"
+          case "$DEPLOY_CONCLUSION" in
+            success)
+              echo "Deploy succeeded — proceeding to artifact check + validation."
+              ;;
+            cancelled)
+              echo "Deploy was cancelled — cancelling this post-deploy run to mirror."
+              gh run cancel "${{ github.run_id }}" -R "${{ github.repository }}"
+              # `gh run cancel` is async; sleep so the runner sees SIGTERM
+              # before the next step starts. exit 1 is a belt-and-suspenders
+              # in case cancel doesn't land in time — the run still ends red,
+              # which matches the deploy's red better than a green "skipped".
+              sleep 30
+              exit 1
+              ;;
+            *)
+              # failure / timed_out / action_required / stale / null etc.
+              # Fail loud so the UI status mirrors the deploy's failure.
+              echo "Deploy did not succeed — failing this post-deploy run to mirror."
+              exit 1
+              ;;
+          esac
+
       - name: Check for GitHub Pages artifact
         id: check
         env:
