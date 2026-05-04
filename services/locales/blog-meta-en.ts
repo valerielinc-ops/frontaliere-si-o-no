@@ -5924,6 +5924,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.asta-villa-geno-como-400mila-euro.title': 'Villa Geno in Como up for auction: nearly 400k euros needed',
     'blog.article.asta-villa-geno-como-400mila-euro.excerpt': 'The municipality of Como is auctioning off Villa Geno and the adjacent green area. The concession has an annual rent of nearly 400,000 euros.',
     'blog.article.asta-villa-geno-como-400mila-euro.imageAlt': 'Villa Geno in Como, with green gardens and a view of Lake Como',
+    'blog.article.mercato-agricolo-besozzo-superiore.title': 'Besozzo Superiore: new biweekly farmers\' market at Parco del Cioss',
+    'blog.article.mercato-agricolo-besozzo-superiore.excerpt': 'Since May 9th, Besozzo Superiore hosts a new biweekly farmers\' market with local products and short supply chains. Here are the dates and details.',
+    'blog.article.mercato-agricolo-besozzo-superiore.imageAlt': 'Agricultural market in Besozzo Superiore with local products and crafts',
 };
 
 export default blogMetaEn;

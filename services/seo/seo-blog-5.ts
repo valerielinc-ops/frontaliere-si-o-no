@@ -16863,6 +16863,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-agricolo-besozzo-superiore': {
+    title: 'Besozzo Superiore: nasce il mercato agricolo al Parco del Cioss',
+    description: 'Dal 9 maggio, Besozzo Superiore ospita un nuovo mercato agricolo bimensile con prodotti locali e filiera corta. Scopri date e dettagli. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, besozzo, superiore, nasce, mercato',
+    ogTitle: 'Mercato agricolo a Besozzo Superiore: date e prodotti',
+    ogDescription: 'Scopri il nuovo mercato agricolo a Besozzo Superiore con prodotti locali e filiera corta. Date e dettagli.',
+    canonicalPath: '/articoli-frontaliere/mercato-agricolo-besozzo-superiore',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Besozzo Superiore: nasce il mercato agricolo al Parco del Cioss",
+      "description": "Dal 9 maggio, Besozzo Superiore ospita un nuovo mercato agricolo bimensile con prodotti locali e filiera corta. Scopri date e dettagli. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mercato-agricolo-besozzo-superiore.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato agricolo a Besozzo Superiore con prodotti locali e artigianato"
+      },
+      "datePublished": "2026-05-04T23:11:51+00:00",
+      "dateModified": "2026-05-04T23:11:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-agricolo-besozzo-superiore`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

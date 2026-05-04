@@ -5925,6 +5925,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.asta-villa-geno-como-400mila-euro.title': 'Villa Geno à Côme mise aux enchères: 400 000 euros nécessaires',
     'blog.article.asta-villa-geno-como-400mila-euro.excerpt': 'La commune de Côme met aux enchères la Villa Geno et la zone verte attenante. La concession a un loyer annuel de près de 400 000 euros.',
     'blog.article.asta-villa-geno-como-400mila-euro.imageAlt': 'Villa Geno à Côme, avec des jardins verts et vue sur le lac de Côme',
+    'blog.article.mercato-agricolo-besozzo-superiore.title': 'Besozzo Superiore: marché agricole au parc du Cioss',
+    'blog.article.mercato-agricolo-besozzo-superiore.excerpt': 'Depuis le 9 mai, Besozzo Superiore accueille un nouveau marché agricole bimensuel avec des produits locaux et de la filière courte. Voici les dates et les détails.',
+    'blog.article.mercato-agricolo-besozzo-superiore.imageAlt': 'Marché agricole à Besozzo Superiore avec des produits locaux et artisanaux',
 };
 
 export default blogMetaFr;

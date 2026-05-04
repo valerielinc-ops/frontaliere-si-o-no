@@ -5924,6 +5924,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.asta-villa-geno-como-400mila-euro.title': 'Villa Geno in Como wird versteigert: fast 400.000 Euro',
     'blog.article.asta-villa-geno-como-400mila-euro.excerpt': 'Die Gemeinde Como versteigert Villa Geno und das angrenzende Grünfläche. Die Konzession hat eine Jahresmiete von fast 400.000 Euro.',
     'blog.article.asta-villa-geno-como-400mila-euro.imageAlt': 'Villa Geno in Como, mit grünen Gärten und Blick auf den Comer See',
+    'blog.article.mercato-agricolo-besozzo-superiore.title': 'Besozzo Superiore: Neuer Bauernmarkt im Parco del Cioss',
+    'blog.article.mercato-agricolo-besozzo-superiore.excerpt': 'Seit dem 9. Mai gibt es in Besozzo Superiore einen neuen zweimonatlichen Bauernmarkt mit lokalen Produkten und kurzer Lieferkette. Hier sind die Daten und Details.',
+    'blog.article.mercato-agricolo-besozzo-superiore.imageAlt': 'Bauernmarkt in Besozzo Superiore mit lokalen Produkten und Handwerk',
 };
 
 export default blogMetaDe;

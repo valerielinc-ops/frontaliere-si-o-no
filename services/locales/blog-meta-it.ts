@@ -5925,6 +5925,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.asta-villa-geno-como-400mila-euro.title': 'Villa Geno a Como all\'asta: servono quasi 400mila euro',
     'blog.article.asta-villa-geno-como-400mila-euro.excerpt': 'Il Comune di Como mette all\'asta Villa Geno e l\'area verde annessa. La concessione ha un canone annuo di quasi 400mila euro.',
     'blog.article.asta-villa-geno-como-400mila-euro.imageAlt': 'Villa Geno a Como, con giardini verdi e vista sul lago di Como',
+    'blog.article.mercato-agricolo-besozzo-superiore.title': 'Besozzo Superiore: nasce il mercato agricolo al Parco del Cioss',
+    'blog.article.mercato-agricolo-besozzo-superiore.excerpt': 'Dal 9 maggio, Besozzo Superiore ospita un nuovo mercato agricolo bimensile con prodotti locali e filiera corta. Ecco date e dettagli.',
+    'blog.article.mercato-agricolo-besozzo-superiore.imageAlt': 'Mercato agricolo a Besozzo Superiore con prodotti locali e artigianato',
 };
 
 export default blogMetaIt;

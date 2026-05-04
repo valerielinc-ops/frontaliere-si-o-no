@@ -19145,4 +19145,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mercato-agricolo-besozzo-superiore',
+ category: 'novita',
+ date: '2026-05-04T23:11:51.365Z',
+ image: '/images/blog/mercato-agricolo-besozzo-superiore.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

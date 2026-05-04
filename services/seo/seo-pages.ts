@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2027,
+ "numberOfItems": 2028,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6670,7 +6670,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2024, "name": "Scuola chiude a Fino Mornasco: calo nascite e p...", "url": `${BASE_URL}/articoli-frontaliere/scuola-chiude-fino-mornasco-2026` },
           { "@type": "ListItem", "position": 2025, "name": "Como tra turismo sostenibile e futuro del terri...", "url": `${BASE_URL}/articoli-frontaliere/como-turismo-sostenibile-10-maggio` },
           { "@type": "ListItem", "position": 2026, "name": "Serge Aubin nuovo allenatore del Berna", "url": `${BASE_URL}/articoli-frontaliere/nuovo-allenatore-orsi-serge-aubin` },
-          { "@type": "ListItem", "position": 2027, "name": "Villa Geno a Como all'asta: servono quasi 400mi...", "url": `${BASE_URL}/articoli-frontaliere/asta-villa-geno-como-400mila-euro` }
+          { "@type": "ListItem", "position": 2027, "name": "Villa Geno a Como all'asta: servono quasi 400mi...", "url": `${BASE_URL}/articoli-frontaliere/asta-villa-geno-como-400mila-euro` },
+          { "@type": "ListItem", "position": 2028, "name": "Besozzo Superiore: nasce il mercato agricolo al...", "url": `${BASE_URL}/articoli-frontaliere/mercato-agricolo-besozzo-superiore` }
  ]
  },
  {
