@@ -3122,6 +3122,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-belotti-sport-test-scarpe-trail-running-2026': { name: 'Eventi sportivi', path: '/articoli-frontaliere/belotti-sport-test-scarpe-trail-running-2026', parent: 'blog' },
     'blog-pericoli-minori-iniziativa-10-milioni': { name: 'Novità', path: '/articoli-frontaliere/pericoli-minori-iniziativa-10-milioni', parent: 'blog' },
     'blog-agrinatura-sold-out-2026': { name: 'Agrinatura 2026', path: '/articoli-frontaliere/agrinatura-sold-out-2026', parent: 'blog' },
+    'blog-mezzo-milione-luganese-sviluppo-2026': { name: 'Novità', path: '/articoli-frontaliere/mezzo-milione-luganese-sviluppo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

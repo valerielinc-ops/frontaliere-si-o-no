@@ -5639,6 +5639,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agrinatura-sold-out-2026.title': 'Agrinatura ausverkauft: Verkostungen, Show-Kochkünste und Workshops',
     'blog.article.agrinatura-sold-out-2026.excerpt': 'Die fünfundzwanzigste Ausgabe von Agrinatura verzeichnete einen großen Erfolg mit ausverkauften Workshops und hochwertigen Kochshows',
     'blog.article.agrinatura-sold-out-2026.imageAlt': 'Agrinatura 2026 Landwirtschaftsmesse mit Kochshow und Workshops in Tessin',
+    'blog.article.mezzo-milione-luganese-sviluppo-2026.title': '500.000 Franken für die Entwicklung von Lugano bis 2026',
+    'blog.article.mezzo-milione-luganese-sviluppo-2026.excerpt': 'Die ERSL stellt 500.000 Franken für lokale Projekte bereit, mit einem Hebel von 8 Franken pro investiertem Franken.',
+    'blog.article.mezzo-milione-luganese-sviluppo-2026.imageAlt': 'Luganersee mit wirtschaftlichen Entwicklungsprojekten im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -13633,6 +13633,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mezzo-milione-luganese-sviluppo-2026': {
+    title: 'Mezzo milione per lo sviluppo del Luganese nel 2026',
+    description: 'L\'ERSL mette a disposizione 500mila franchi per progetti locali nel Luganese, con un effetto leva di 8 franchi per ogni franco investito. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, mezzo, milione, sviluppo, luganese',
+    ogTitle: 'Mezzo milione per lo sviluppo del Luganese nel 2026',
+    ogDescription: 'L\'ERSL mette a disposizione 500mila franchi per progetti locali nel Luganese, con un effetto leva di 8 franchi per ogni franco investito.',
+    canonicalPath: '/articoli-frontaliere/mezzo-milione-luganese-sviluppo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mezzo milione per lo sviluppo del Luganese nel 2026",
+      "description": "L'ERSL mette a disposizione 500mila franchi per progetti locali nel Luganese, con un effetto leva di 8 franchi per ogni franco investito. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mezzo-milione-luganese-sviluppo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con progetti di sviluppo economico"
+      },
+      "datePublished": "2026-05-04T07:29:01+00:00",
+      "dateModified": "2026-05-04T07:29:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mezzo-milione-luganese-sviluppo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

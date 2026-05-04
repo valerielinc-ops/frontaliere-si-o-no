@@ -5639,6 +5639,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agrinatura-sold-out-2026.title': 'Agrinatura sold out: tastings, cooking shows and workshops',
     'blog.article.agrinatura-sold-out-2026.excerpt': 'The twenty-fifth edition of Agrinatura recorded great success with sold-out workshops and high-level cooking shows',
     'blog.article.agrinatura-sold-out-2026.imageAlt': 'Agrinatura 2026 agricultural fair with cooking show and workshops in Ticino',
+    'blog.article.mezzo-milione-luganese-sviluppo-2026.title': 'Half a million for Lugano\'s 2026 development',
+    'blog.article.mezzo-milione-luganese-sviluppo-2026.excerpt': 'ERSL is providing 500,000 francs for local projects, with an 8-to-1 leverage effect for every franc invested.',
+    'blog.article.mezzo-milione-luganese-sviluppo-2026.imageAlt': 'Lake Lugano with economic development projects in the background',
 };
 
 export default blogMetaEn;

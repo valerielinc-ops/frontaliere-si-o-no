@@ -18290,4 +18290,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mezzo-milione-luganese-sviluppo-2026',
+ category: 'novita',
+ date: '2026-05-04T07:29:01.746Z',
+ image: '/images/blog/mezzo-milione-luganese-sviluppo-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
