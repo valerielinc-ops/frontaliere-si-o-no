@@ -12001,6 +12001,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disordini-pensilina-lugano-intervento-veloce': {
+    title: 'Disordini a Lugano: intervento veloce grazie al presidio accresciuto',
+    description: 'La capodicastero Sicurezza Karin Valenzano Rossi commenta gli scontri in Pensilina e l\'importanza di abbassare i toni politici. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, disordini, lugano, intervento, veloce',
+    ogTitle: 'Disordini a Lugano: intervento veloce grazie al presidio accresciuto',
+    ogDescription: 'La capodicastero Sicurezza Karin Valenzano Rossi commenta gli scontri in Pensilina e l\'importanza di abbassare i toni politici',
+    canonicalPath: '/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disordini a Lugano: intervento veloce grazie al presidio accresciuto",
+      "description": "La capodicastero Sicurezza Karin Valenzano Rossi commenta gli scontri in Pensilina e l'importanza di abbassare i toni politici. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disordini-pensilina-lugano-intervento-veloce.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pensilina di Lugano di notte con presenza di polizia"
+      },
+      "datePublished": "2026-05-04T01:29:32+00:00",
+      "dateModified": "2026-05-04T01:29:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

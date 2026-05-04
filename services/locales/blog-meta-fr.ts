@@ -5496,6 +5496,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grasshopper-zeidler-allenatore-2026.title': 'Peter Zeidler nouveau entraîneur du Grasshopper',
     'blog.article.grasshopper-zeidler-allenatore-2026.excerpt': 'Peter Zeidler a été nommé nouvel entraîneur du Grasshopper, avec pour objectif de maintenir l\'équipe en Super League.',
     'blog.article.grasshopper-zeidler-allenatore-2026.imageAlt': 'Stade Cornaredo à Lugano, match de football Grasshopper contre Servette',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce.title': 'Troubles à Lugano: intervention rapide grâce au renforcement de la présence',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce.excerpt': 'La cheffe du département de la Sécurité Karin Valenzano Rossi commente les affrontements à la Pensilina et l\'importance de baisser le ton politique',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce.imageAlt': 'Pensilina de Lugano la nuit avec présence policière',
 };
 
 export default blogMetaFr;

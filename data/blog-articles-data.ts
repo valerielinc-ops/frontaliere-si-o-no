@@ -17858,4 +17858,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'disordini-pensilina-lugano-intervento-veloce',
+ category: 'novita',
+ date: '2026-05-04T01:29:32.876Z',
+ image: '/images/blog/disordini-pensilina-lugano-intervento-veloce.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
