@@ -17,6 +17,29 @@
 
 import sharp from 'sharp';
 
+// F5 BIG-IP ASM on www4.ti.ch sets session cookies (dtCookie, BIGipServer*, TS*) on the
+// first response. Subsequent requests from the same IP without those cookies get 403.
+// This cookie jar collects them from each response and resends them on the next fetch,
+// exactly as a browser would — restoring session continuity across all feed fetches.
+const tiChCookieJar = new Map();
+
+function buildCookieHeader() {
+  if (tiChCookieJar.size === 0) return undefined;
+  return [...tiChCookieJar.entries()].map(([k, v]) => `${k}=${v}`).join('; ');
+}
+
+function updateCookieJar(response) {
+  // getSetCookie() returns each Set-Cookie header as a separate string (Node 20+)
+  const setCookies = response.headers.getSetCookie?.() ?? [];
+  for (const cookie of setCookies) {
+    const [nameValue] = cookie.split(';');
+    const eqIdx = nameValue.indexOf('=');
+    if (eqIdx > 0) {
+      tiChCookieJar.set(nameValue.slice(0, eqIdx).trim(), nameValue.slice(eqIdx + 1).trim());
+    }
+  }
+}
+
 // Feed URLs — deduplicated. Multiple crossings may share the same physical camera.
 export const WEBCAM_FEEDS = {
   '01.2S': {
@@ -80,11 +103,18 @@ export async function analyzeWebcamFeed(feedKey) {
 
   let buf;
   try {
+    const cookieHeader = buildCookieHeader();
     const res = await fetch(feed.url, {
-      headers: { 'User-Agent': 'FrontaliereTicino/1.0 (traffic-monitor)' },
+      headers: {
+        'User-Agent': 'FrontaliereTicino/1.0 (traffic-monitor)',
+        'Referer': 'https://www4.ti.ch/',
+        'Accept': 'image/gif,image/*,*/*',
+        ...(cookieHeader ? { 'Cookie': cookieHeader } : {}),
+      },
       signal: AbortSignal.timeout(10000),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    updateCookieJar(res);
     buf = Buffer.from(await res.arrayBuffer());
   } catch (err) {
     console.warn(`⚠️ Webcam fetch failed [${feedKey}]: ${err.message}`);
