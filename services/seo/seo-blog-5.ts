@@ -12681,6 +12681,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-csoa-molino-rimozione-macerie-lugano': {
+    title: 'Addio Csoa Il Molino: inizia la rimozione delle macerie',
+    description: 'La Città di Lugano avvia i lavori di riqualificazione dell\'area dell\'ex Macello. Durata stimata tra un mese e mezzo e due mesi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, addio, csoa, molino, inizia',
+    ogTitle: 'Addio Csoa Il Molino: inizia la rimozione delle macerie',
+    ogDescription: 'La Città di Lugano avvia i lavori di riqualificazione dell\'area dell\'ex Macello. Durata stimata tra un mese e mezzo e due mesi.',
+    canonicalPath: '/articoli-frontaliere/csoa-molino-rimozione-macerie-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Addio Csoa Il Molino: inizia la rimozione delle macerie",
+      "description": "La Città di Lugano avvia i lavori di riqualificazione dell'area dell'ex Macello. Durata stimata tra un mese e mezzo e due mesi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/csoa-molino-rimozione-macerie-lugano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lac de Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-04T04:11:16+00:00",
+      "dateModified": "2026-05-04T04:11:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/csoa-molino-rimozione-macerie-lugano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

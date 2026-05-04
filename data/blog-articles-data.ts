@@ -18038,4 +18038,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'csoa-molino-rimozione-macerie-lugano',
+ category: 'novita',
+ date: '2026-05-04T04:11:16.337Z',
+ image: '/images/blog/csoa-molino-rimozione-macerie-lugano.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

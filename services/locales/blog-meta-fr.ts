@@ -5556,6 +5556,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.immigrazione-modello-svizzera-2026.title': 'Immigration : pourquoi la Suisse est un modèle démographique',
     'blog.article.immigrazione-modello-svizzera-2026.excerpt': 'Le professeur Philippe Wanner explique le rôle crucial de l\'immigration dans le succès démographique suisse. Focus sur le Tessin et les frontaliers.',
     'blog.article.immigrazione-modello-svizzera-2026.imageAlt': 'Vue aérienne du Château Grande à Bellinzone, Tessin',
+    'blog.article.csoa-molino-rimozione-macerie-lugano.title': 'Fin de la Csoa Il Molino : début du déblaiement',
+    'blog.article.csoa-molino-rimozione-macerie-lugano.excerpt': 'La ville de Lugano lance les travaux de requalification de l\'ancienne zone de l\'abattoir. Durée estimée entre un mois et demi et deux mois.',
+    'blog.article.csoa-molino-rimozione-macerie-lugano.imageAlt': 'Lac de Lugano avec montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
