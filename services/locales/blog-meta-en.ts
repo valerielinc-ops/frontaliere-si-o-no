@@ -5561,6 +5561,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-riazzino-ciclista-condanna.title': '6 months for truck driver in fatal Riazzino cycling accident',
     'blog.article.incidente-riazzino-ciclista-condanna.excerpt': 'The truck driver who struck and killed a cyclist in Riazzino in January 2025 has been sentenced to 6 months for negligent homicide.',
     'blog.article.incidente-riazzino-ciclista-condanna.imageAlt': 'Road accident in Riazzino with a cyclist and a truck',
+    'blog.article.sergi-presidenza-basket-ticino-2026.title': 'Sergi aims for Ticino basketball presidency again',
+    'blog.article.sergi-presidenza-basket-ticino-2026.excerpt': 'Giancarlo Sergi challenges Andrea Siviero for the presidency of basketball in Ticino. Elections scheduled for May 2026.',
+    'blog.article.sergi-presidenza-basket-ticino-2026.imageAlt': 'Basketball game in Lugano, Ticino',
 };
 
 export default blogMetaEn;

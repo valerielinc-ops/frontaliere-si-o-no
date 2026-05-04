@@ -18056,4 +18056,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sergi-presidenza-basket-ticino-2026',
+ category: 'novita',
+ date: '2026-05-04T04:27:17.896Z',
+ image: '/images/blog/sergi-presidenza-basket-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5561,6 +5561,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-riazzino-ciclista-condanna.title': '6 Monate Haft für LKW-Fahrer nach tödlichem Unfall',
     'blog.article.incidente-riazzino-ciclista-condanna.excerpt': 'Der LKW-Fahrer, der im Januar 2025 in Riazzino einen Radfahrer überfuhr, wurde zu 6 Monaten Haft wegen fahrlässiger Tötung verurteilt.',
     'blog.article.incidente-riazzino-ciclista-condanna.imageAlt': 'Straßenunfall in Riazzino mit einem Radfahrer und einem Lkw',
+    'blog.article.sergi-presidenza-basket-ticino-2026.title': 'Sergi strebt erneut die Präsidentschaft des Ticino-Basketballs an',
+    'blog.article.sergi-presidenza-basket-ticino-2026.excerpt': 'Giancarlo Sergi fordert Andrea Siviero die Präsidentschaft des Basketballs im Tessin heraus. Wahlen für Mai 2026 vorgesehen.',
+    'blog.article.sergi-presidenza-basket-ticino-2026.imageAlt': 'Basketballspiel in Lugano, Tessin',
 };
 
 export default blogMetaDe;

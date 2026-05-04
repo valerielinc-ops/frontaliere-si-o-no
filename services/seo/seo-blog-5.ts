@@ -12749,6 +12749,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sergi-presidenza-basket-ticino-2026': {
+    title: 'Sergi punta di nuovo alla presidenza del basket ticinese',
+    description: 'Giancarlo Sergi sfida Andrea Siviero per la presidenza del basket in Ticino. Elezioni previste per maggio 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sergi, punta, nuovo, alla',
+    ogTitle: 'Sergi punta di nuovo alla presidenza del basket ticinese',
+    ogDescription: 'Giancarlo Sergi sfida Andrea Siviero per la presidenza del basket in Ticino. Elezioni previste per maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/sergi-presidenza-basket-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sergi punta di nuovo alla presidenza del basket ticinese",
+      "description": "Giancarlo Sergi sfida Andrea Siviero per la presidenza del basket in Ticino. Elezioni previste per maggio 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sergi-presidenza-basket-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di basket a Lugano, Ticino"
+      },
+      "datePublished": "2026-05-04T04:27:17+00:00",
+      "dateModified": "2026-05-04T04:27:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sergi-presidenza-basket-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

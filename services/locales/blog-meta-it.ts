@@ -5562,6 +5562,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-riazzino-ciclista-condanna.title': 'Condanna per omicidio colposo: 6 mesi per il camionista',
     'blog.article.incidente-riazzino-ciclista-condanna.excerpt': 'Il camionista che investì un ciclista a Riazzino nel gennaio 2025 è stato condannato a 6 mesi per omicidio colposo.',
     'blog.article.incidente-riazzino-ciclista-condanna.imageAlt': 'Incidente stradale a Riazzino con un ciclista e un camion',
+    'blog.article.sergi-presidenza-basket-ticino-2026.title': 'Sergi punta di nuovo alla presidenza del basket ticinese',
+    'blog.article.sergi-presidenza-basket-ticino-2026.excerpt': 'Giancarlo Sergi sfida Andrea Siviero per la presidenza del basket in Ticino. Elezioni previste per maggio 2026.',
+    'blog.article.sergi-presidenza-basket-ticino-2026.imageAlt': 'Partita di basket a Lugano, Ticino',
 };
 
 export default blogMetaIt;
