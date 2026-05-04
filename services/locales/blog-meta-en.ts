@@ -5843,6 +5843,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.staffette-rossocrociate-pechino-2027.title': 'Only one Swiss relay team qualifies for Beijing 2027',
     'blog.article.staffette-rossocrociate-pechino-2027.excerpt': 'The mixed 4x100 m relay team has qualified for the 2027 World Championships in Beijing, while other Swiss teams have been eliminated',
     'blog.article.staffette-rossocrociate-pechino-2027.imageAlt': 'Swiss athletes running on a track with Lake Lugano in the background',
+    'blog.article.ecolight-camarda-presidente-2026-2028.title': 'Walter Camarda re-elected as Ecolight Consortium President',
+    'blog.article.ecolight-camarda-presidente-2026-2028.excerpt': 'The annual assembly of the Ecolight Consortium has re-elected Walter Camarda as president for the 2026-2028 term.',
+    'blog.article.ecolight-camarda-presidente-2026-2028.imageAlt': 'Walter Camarda, President of Ecolight Consortium, in a modern office with a focus on sustainable technology and waste management',
 };
 
 export default blogMetaEn;

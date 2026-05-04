@@ -5844,6 +5844,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.staffette-rossocrociate-pechino-2027.title': 'Solo una staffetta svizzera qualificata per Pechino 2027',
     'blog.article.staffette-rossocrociate-pechino-2027.excerpt': 'La staffetta 4x100 m mista si è qualificata per i Mondiali di Pechino 2027, mentre le altre squadre svizzere sono state eliminate',
     'blog.article.staffette-rossocrociate-pechino-2027.imageAlt': 'Atleti svizzeri in gara su una pista di atletica con il Lago di Lugano sullo sfondo',
+    'blog.article.ecolight-camarda-presidente-2026-2028.title': 'Walter Camarda riconfermato presidente del Consorzio Ecolight',
+    'blog.article.ecolight-camarda-presidente-2026-2028.excerpt': 'L\'assemblea annuale del Consorzio Ecolight ha confermato Walter Camarda alla presidenza per il triennio 2026-2028.',
+    'blog.article.ecolight-camarda-presidente-2026-2028.imageAlt': 'Walter Camarda, Presidente del Consorzio Ecolight, in un ufficio moderno con focus su tecnologia sostenibile e gestione dei rifiuti',
 };
 
 export default blogMetaIt;

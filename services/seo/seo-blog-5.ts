@@ -15945,6 +15945,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ecolight-camarda-presidente-2026-2028': {
+    title: 'Walter Camarda riconfermato presidente del Consorzio Ecolight',
+    description: 'L\'assemblea annuale del Consorzio Ecolight ha confermato Walter Camarda alla presidenza per il triennio 2026-2028. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, walter, camarda, riconfermato, presidente',
+    ogTitle: 'Walter Camarda riconfermato presidente del Consorzio Ecolight',
+    ogDescription: 'L\'assemblea annuale del Consorzio Ecolight ha confermato Walter Camarda alla presidenza per il triennio 2026-2028. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ecolight-camarda-presidente-2026-2028',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Walter Camarda riconfermato presidente del Consorzio Ecolight",
+      "description": "L'assemblea annuale del Consorzio Ecolight ha confermato Walter Camarda alla presidenza per il triennio 2026-2028. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ecolight-camarda-presidente-2026-2028.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Walter Camarda, Presidente del Consorzio Ecolight, in un ufficio moderno con focus su tecnologia sostenibile e gestione dei rifiuti"
+      },
+      "datePublished": "2026-05-04T19:06:52+00:00",
+      "dateModified": "2026-05-04T19:06:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ecolight-camarda-presidente-2026-2028`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

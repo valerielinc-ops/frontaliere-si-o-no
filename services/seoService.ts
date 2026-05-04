@@ -3190,6 +3190,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-chiasso-operai-ricoverati': { name: 'Incendio Chiasso', path: '/articoli-frontaliere/incendio-chiasso-operai-ricoverati', parent: 'blog' },
     'blog-hodler-dipinto-eredita-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/hodler-dipinto-eredita-frontalieri', parent: 'blog' },
     'blog-staffette-rossocrociate-pechino-2027': { name: 'Novità', path: '/articoli-frontaliere/staffette-rossocrociate-pechino-2027', parent: 'blog' },
+    'blog-ecolight-camarda-presidente-2026-2028': { name: 'Novità', path: '/articoli-frontaliere/ecolight-camarda-presidente-2026-2028', parent: 'blog' },
  };
 
  const info = sectionNames[section];

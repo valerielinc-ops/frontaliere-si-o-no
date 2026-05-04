@@ -18902,4 +18902,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ecolight-camarda-presidente-2026-2028',
+ category: 'novita',
+ date: '2026-05-04T19:06:52.575Z',
+ image: '/images/blog/ecolight-camarda-presidente-2026-2028.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
