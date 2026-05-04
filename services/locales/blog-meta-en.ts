@@ -5828,6 +5828,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-meloni-parmelin-2026.title': 'Crans-Montana, Meloni and Parmelin ease tensions',
     'blog.article.crans-montana-meloni-parmelin-2026.excerpt': 'Meeting between the two leaders to resolve the issue of healthcare costs for Italian victims of the fire',
     'blog.article.crans-montana-meloni-parmelin-2026.imageAlt': 'Aerial view of Crans-Montana after the New Year\'s Eve fire, with rescue operations underway',
+    'blog.article.gabbiano-bonaparte-ticino-2026.title': 'Bonaparte gull spotted in Switzerland: first time in Ticino',
+    'blog.article.gabbiano-bonaparte-ticino-2026.excerpt': 'A Bonaparte gull, a rare American specimen, has been spotted for the first time in Switzerland, causing a stir among enthusiasts.',
+    'blog.article.gabbiano-bonaparte-ticino-2026.imageAlt': 'Bonaparte gull observed near Lake Lugano',
 };
 
 export default blogMetaEn;

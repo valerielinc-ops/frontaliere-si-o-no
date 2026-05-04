@@ -18857,4 +18857,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gabbiano-bonaparte-ticino-2026',
+ category: 'novita',
+ date: '2026-05-04T18:03:39.748Z',
+ image: '/images/blog/gabbiano-bonaparte-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5828,6 +5828,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-meloni-parmelin-2026.title': 'Crans-Montana: Entspannung zwischen Meloni und Parmelin',
     'blog.article.crans-montana-meloni-parmelin-2026.excerpt': 'Treffen der beiden Führer zur Lösung der Frage der Gesundheitskosten für die italienischen Opfer des Brandes',
     'blog.article.crans-montana-meloni-parmelin-2026.imageAlt': 'Luftaufnahme von Crans-Montana nach dem Silvesterbrand, mit laufenden Rettungsoperationen',
+    'blog.article.gabbiano-bonaparte-ticino-2026.title': 'Bonaparte-Möwe erstmals in der Schweiz gesichtet',
+    'blog.article.gabbiano-bonaparte-ticino-2026.excerpt': 'Eine Bonaparte-Möwe, ein seltener amerikanischer Vogel, wurde erstmals in der Schweiz gesichtet und sorgt bei den Liebhabern für Aufregung.',
+    'blog.article.gabbiano-bonaparte-ticino-2026.imageAlt': 'Bonaparte Möwe beobachtet am Luganersee',
 };
 
 export default blogMetaDe;

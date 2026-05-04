@@ -5829,6 +5829,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-meloni-parmelin-2026.title': 'Crans-Montana, distensione tra Meloni e Parmelin',
     'blog.article.crans-montana-meloni-parmelin-2026.excerpt': 'Incontro tra i due leader per risolvere la questione delle spese sanitarie per le vittime italiane dell\'incendio',
     'blog.article.crans-montana-meloni-parmelin-2026.imageAlt': 'Vista aerea di Crans-Montana dopo l\'incendio di Capodanno, con operazioni di soccorso in corso',
+    'blog.article.gabbiano-bonaparte-ticino-2026.title': 'Gabbiano di Bonaparte avvistato in Svizzera: prima volta in Ticino',
+    'blog.article.gabbiano-bonaparte-ticino-2026.excerpt': 'Un gabbiano di Bonaparte, raro esemplare americano, è stato avvistato per la prima volta in Svizzera, creando scalpore tra gli appassionati.',
+    'blog.article.gabbiano-bonaparte-ticino-2026.imageAlt': 'Gabbiano di Bonaparte osservato vicino al Lago di Lugano',
 };
 
 export default blogMetaIt;

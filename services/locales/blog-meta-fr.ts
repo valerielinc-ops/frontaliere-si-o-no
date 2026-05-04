@@ -5829,6 +5829,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crans-montana-meloni-parmelin-2026.title': 'Crans-Montana, détente entre Meloni et Parmelin',
     'blog.article.crans-montana-meloni-parmelin-2026.excerpt': 'Rencontre entre les deux dirigeants pour résoudre la question des frais médicaux pour les victimes italiennes de l\'incendie',
     'blog.article.crans-montana-meloni-parmelin-2026.imageAlt': 'Vue aérienne de Crans-Montana après l\'incendie du Nouvel An, avec des opérations de sauvetage en cours',
+    'blog.article.gabbiano-bonaparte-ticino-2026.title': 'Un goéland de Bonaparte aperçu en Suisse: première fois au Tessin',
+    'blog.article.gabbiano-bonaparte-ticino-2026.excerpt': 'Un goéland de Bonaparte, un rare spécimen américain, a été aperçu pour la première fois en Suisse, suscitant l\'enthousiasme des passionnés.',
+    'blog.article.gabbiano-bonaparte-ticino-2026.imageAlt': 'Un goéland de Bonaparte observé près du lac de Lugano',
 };
 
 export default blogMetaFr;

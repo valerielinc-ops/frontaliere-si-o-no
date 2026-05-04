@@ -15775,6 +15775,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gabbiano-bonaparte-ticino-2026': {
+    title: 'Gabbiano di Bonaparte avvistato in Svizzera: prima volta in Ticino',
+    description: 'Un gabbiano di Bonaparte, raro esemplare americano, è stato avvistato per la prima volta in Svizzera, creando scalpore tra gli appassionati. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, gabbiano, bonaparte, avvistato, prima',
+    ogTitle: 'Gabbiano di Bonaparte avvistato in Svizzera: prima volta in Ticino',
+    ogDescription: 'Un gabbiano di Bonaparte, raro esemplare americano, è stato avvistato per la prima volta in Svizzera, creando scalpore tra gli appassionati.',
+    canonicalPath: '/articoli-frontaliere/gabbiano-bonaparte-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gabbiano di Bonaparte avvistato in Svizzera: prima volta in Ticino",
+      "description": "Un gabbiano di Bonaparte, raro esemplare americano, è stato avvistato per la prima volta in Svizzera, creando scalpore tra gli appassionati. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gabbiano-bonaparte-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gabbiano di Bonaparte osservato vicino al Lago di Lugano"
+      },
+      "datePublished": "2026-05-04T18:03:39+00:00",
+      "dateModified": "2026-05-04T18:03:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gabbiano-bonaparte-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
