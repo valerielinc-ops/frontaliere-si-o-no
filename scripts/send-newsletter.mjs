@@ -1190,6 +1190,7 @@ function buildEmailHeaders(email, campaign) {
     'List-ID': `Frontaliere Weekly <weekly.frontaliereticino.ch>`,
     'Feedback-ID': `${campaignKey}:frontaliere-weekly:frontaliere-ticino`,
     'X-Entity-Ref-ID': `${campaignKey}-${emailKey}`,
+    'X-Campaign-Id': campaign,
     'X-Auto-Response-Suppress': 'OOF, AutoReply',
   };
 }
