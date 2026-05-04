@@ -5820,6 +5820,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a8-chiusure-gallarate-frontalieri.title': 'A8, cambiano le chiusure notturne tra Solbiate Arno e Gallarate',
     'blog.article.a8-chiusure-gallarate-frontalieri.excerpt': 'Nuove restrizioni notturne sull\'autostrada A8 tra Solbiate Arno e Gallarate dal 6 al 8 maggio 2026. Ecco cosa cambia per i frontalieri',
     'blog.article.a8-chiusure-gallarate-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, giornata di sole con riflessi sull\'acqua',
+    'blog.article.costi-aeroporto-lugano-2026.title': 'Costi aeroporto Lugano: 4 milioni in spese non autorizzate',
+    'blog.article.costi-aeroporto-lugano-2026.excerpt': 'Interpellanza al Municipio: 2,7 milioni per carburante, IVA non inclusa. Strategia e tempistiche ancora sfocate',
+    'blog.article.costi-aeroporto-lugano-2026.imageAlt': 'Vista aerea dell\'aeroporto di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

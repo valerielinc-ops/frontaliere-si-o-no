@@ -18830,4 +18830,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'costi-aeroporto-lugano-2026',
+ category: 'pratico',
+ date: '2026-05-04T17:30:46.394Z',
+ image: '/images/blog/costi-aeroporto-lugano-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

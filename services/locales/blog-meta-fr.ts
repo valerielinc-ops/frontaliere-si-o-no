@@ -5820,6 +5820,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.a8-chiusure-gallarate-frontalieri.title': 'A8 : nouvelles fermetures nocturnes entre Solbiate Arno et Gallarate',
     'blog.article.a8-chiusure-gallarate-frontalieri.excerpt': 'Nouvelles restrictions nocturnes sur l\'autoroute A8 entre Solbiate Arno et Gallarate du 6 au 8 mai 2026. Voici ce qui change pour les frontaliers',
     'blog.article.a8-chiusure-gallarate-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, journée ensoleillée avec des reflets sur l\'eau',
+    'blog.article.costi-aeroporto-lugano-2026.title': 'Coûts aéroport Lugano: 4 millions en dépenses non autorisées',
+    'blog.article.costi-aeroporto-lugano-2026.excerpt': 'Interpellation au Conseil municipal: 2,7 millions pour le carburant, TVA non incluse. Stratégie et délais encore flous',
+    'blog.article.costi-aeroporto-lugano-2026.imageAlt': 'Vue aérienne de l\'aéroport de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
