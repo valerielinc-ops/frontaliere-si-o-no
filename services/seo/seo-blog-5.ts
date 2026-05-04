@@ -16183,6 +16183,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-legge-quadro-florovivaismo-varese-2026': {
+    title: 'Legge Quadro Florovivaismo: via libera, Confagricoltura Varese soddisfatta',
+    description: 'Approvata la Legge Quadro sul Florovivaismo. Confagricoltura Varese: un traguardo storico per il settore, che vale il 10% dell\'agricoltura provinciale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, legge, quadro, florovivaismo, libera',
+    ogTitle: 'Legge Quadro Florovivaismo: via libera, Confagricoltura Varese soddisfatta',
+    ogDescription: 'Approvata la Legge Quadro sul Florovivaismo. Confagricoltura Varese: un traguardo storico per il settore, che vale il 10% dell\'agricoltura provinciale.',
+    canonicalPath: '/articoli-frontaliere/legge-quadro-florovivaismo-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Legge Quadro Florovivaismo: via libera, Confagricoltura Varese soddisfatta",
+      "description": "Approvata la Legge Quadro sul Florovivaismo. Confagricoltura Varese: un traguardo storico per il settore, che vale il 10% dell'agricoltura provinciale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/legge-quadro-florovivaismo-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campi di florovivaismo a Varese, Italia, con serre e fiori colorati sotto un cielo azzurro"
+      },
+      "datePublished": "2026-05-04T20:14:27+00:00",
+      "dateModified": "2026-05-04T20:14:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/legge-quadro-florovivaismo-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

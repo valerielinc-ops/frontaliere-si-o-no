@@ -3197,6 +3197,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-barometro-kof-aprile-2026-prospettive-modeste': { name: 'Novità', path: '/articoli-frontaliere/barometro-kof-aprile-2026-prospettive-modeste', parent: 'blog' },
     'blog-elicottero-mezzovico-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/elicottero-mezzovico-frontalieri', parent: 'blog' },
     'blog-ospedale-universitario-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ospedale-universitario-ticino-2026', parent: 'blog' },
+    'blog-legge-quadro-florovivaismo-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/legge-quadro-florovivaismo-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

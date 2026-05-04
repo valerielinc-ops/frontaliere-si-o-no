@@ -5864,6 +5864,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ospedale-universitario-ticino-2026.title': 'Tessin träumt von einem dezentralen Uniklinikum',
     'blog.article.ospedale-universitario-ticino-2026.excerpt': 'Das Projekt liegt beim Staatsrat. Sanvido (EOC): \'Wir hoffen bald auf grünes Licht\'',
     'blog.article.ospedale-universitario-ticino-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Krankenhausgebäuden, Tessin, Schweiz',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.title': 'Rahmengesetz Florovivaismo: Freigabe, Varese zufrieden',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.excerpt': 'Das Rahmengesetz zum Florovivaismo wurde verabschiedet. Confagricoltura Varese: ein historischer Meilenstein für den Sektor, der 10% der Landwirtschaft der Provinz ausmacht.',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.imageAlt': 'Blumenfelder in Varese, Italien, mit Gewächshäusern und bunten Blumen unter einem klaren blauen Himmel',
 };
 
 export default blogMetaDe;

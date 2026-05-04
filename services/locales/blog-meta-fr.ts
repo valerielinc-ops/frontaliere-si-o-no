@@ -5865,6 +5865,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ospedale-universitario-ticino-2026.title': 'Le Tessin rêve d\'un hôpital universitaire diffus',
     'blog.article.ospedale-universitario-ticino-2026.excerpt': 'Le projet est sur la table du Conseil d\'État. Sanvido (EOC) : \'Nous espérons recevoir bientôt le feu vert\'',
     'blog.article.ospedale-universitario-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments d\'hôpital modernes, Tessin, Suisse',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.title': 'Loi cadre sur la floriculture: feu vert, Varèse satisfait',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.excerpt': 'La loi cadre sur la floriculture a été approuvée. Confagricoltura Varèse: un objectif historique pour le secteur, qui représente 10% de l\'agriculture provinciale.',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.imageAlt': 'Champs de floriculture à Varèse, Italie, avec des serres et des fleurs colorées sous un ciel bleu clair',
 };
 
 export default blogMetaFr;

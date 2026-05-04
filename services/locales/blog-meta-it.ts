@@ -5865,6 +5865,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ospedale-universitario-ticino-2026.title': 'Ticino sogna un ospedale universitario diffuso',
     'blog.article.ospedale-universitario-ticino-2026.excerpt': 'Il progetto è sul tavolo del Consiglio di Stato. Sanvido (Eoc): \'Speriamo di ricevere presto il via libera\'',
     'blog.article.ospedale-universitario-ticino-2026.imageAlt': 'Vista aerea del lago di Lugano con edifici ospedalieri moderni, Ticino, Svizzera',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.title': 'Legge Quadro Florovivaismo: via libera, Confagricoltura Varese soddisfatta',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.excerpt': 'Approvata la Legge Quadro sul Florovivaismo. Confagricoltura Varese: un traguardo storico per il settore, che vale il 10% dell\'agricoltura provinciale.',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.imageAlt': 'Campi di florovivaismo a Varese, Italia, con serre e fiori colorati sotto un cielo azzurro',
 };
 
 export default blogMetaIt;

@@ -18965,4 +18965,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'legge-quadro-florovivaismo-varese-2026',
+ category: 'novita',
+ date: '2026-05-04T20:14:27.151Z',
+ image: '/images/blog/legge-quadro-florovivaismo-varese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

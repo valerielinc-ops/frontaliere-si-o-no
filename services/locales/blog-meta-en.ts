@@ -5864,6 +5864,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ospedale-universitario-ticino-2026.title': 'Ticino dreams of a distributed university hospital',
     'blog.article.ospedale-universitario-ticino-2026.excerpt': 'The project is on the State Council\'s table. Sanvido (Eoc): \'We hope to receive the green light soon\'',
     'blog.article.ospedale-universitario-ticino-2026.imageAlt': 'Aerial view of Lugano lake with modern hospital buildings, Ticino, Switzerland',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.title': 'Framework Law on Floriculture: Approved, Varese Farmers\' Association Satisfied',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.excerpt': 'The Framework Law on Floriculture has been approved. Varese Farmers\' Association: a historic milestone for the sector, which accounts for 10% of provincial agriculture.',
+    'blog.article.legge-quadro-florovivaismo-varese-2026.imageAlt': 'Floriculture fields in Varese, Italy, with greenhouses and colorful flowers under a clear blue sky',
 };
 
 export default blogMetaEn;
