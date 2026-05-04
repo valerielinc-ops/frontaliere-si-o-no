@@ -11,6 +11,7 @@ const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
 const JobAlertPostAuthPrompt = lazyRetry(() => import('@/components/community/JobAlertPostAuthPrompt'));
+const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
@@ -2601,6 +2602,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // and they were actively searching, invite them to also create an alert.
  // Session-scoped dismissal to avoid nagging.
  const [postAuthPromptVisible, setPostAuthPromptVisible] = useState(false);
+ // Job-detail alert prompt: gentle 1-tap subscription when a logged-in user
+ // opens a single job detail. Independent from postAuthPromptVisible.
+ const [jobDetailPromptVisible, setJobDetailPromptVisible] = useState(false);
+ const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  const prevAuthUserRef = useRef<typeof authUser>(authUser);
  useEffect(() => {
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
@@ -2968,6 +2973,67 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setEnrichmentLoading(false);
  });
  }, [selectedJobId]);
+
+ // Job-detail alert prompt — gating + 4 s reveal timer.
+ // Trigger: single-job-detail view, logged-in user with email, feature flag on,
+ // localStorage gating allows it, AND no existing alert covers this category.
+ const isJobDetailView = selectedJob !== null;
+ const userEmail = authUser?.email || null;
+ const userId = authUser?.uid || null;
+ useEffect(() => {
+ if (!isJobDetailView || !selectedJob) return;
+ if (!enableJobAlerts || !userId || !userEmail) return;
+ const categoryKey = categoryTranslationKey(selectedJob);
+ const localizedCategory = (t(categoryKey) || '').trim();
+ if (!localizedCategory) return;
+
+ let cancelled = false;
+ let timerId: number | null = null;
+
+ (async () => {
+ const [{ loadGatingState, markShownThisSession, shouldShowPrompt }, { getUserAlerts, findMatchingAlertForCategory, normalizeKeyword }] = await Promise.all([
+ import('@/services/jobDetailAlertGating'),
+ import('@/services/jobAlertService'),
+ ]);
+ if (cancelled) return;
+
+ const state = loadGatingState();
+ const normalized = normalizeKeyword(localizedCategory);
+ if (!shouldShowPrompt(state, new Date(), normalized)) return;
+
+ let existing: Awaited<ReturnType<typeof getUserAlerts>>;
+ try {
+ existing = await getUserAlerts(userId);
+ } catch {
+ // Fail closed — never badger users on a degraded network.
+ return;
+ }
+ if (cancelled) return;
+ if (findMatchingAlertForCategory(existing, localizedCategory)) return;
+
+ timerId = window.setTimeout(() => {
+ if (cancelled) return;
+ markShownThisSession();
+ setJobDetailPromptCategory(localizedCategory);
+ setJobDetailPromptVisible(true);
+ Analytics.trackJobAlertCtaClick('job_detail_prompt', 'shown', localizedCategory);
+ }, 4000);
+ })();
+
+ return () => {
+ cancelled = true;
+ if (timerId !== null) window.clearTimeout(timerId);
+ };
+ }, [isJobDetailView, selectedJob, enableJobAlerts, userId, userEmail, t]);
+
+ // Auto-unmount the prompt if the user logs out or leaves the detail view.
+ useEffect(() => {
+ if (!jobDetailPromptVisible) return;
+ if (!isJobDetailView || !userEmail || !userId) {
+ setJobDetailPromptVisible(false);
+ setJobDetailPromptCategory(null);
+ }
+ }, [isJobDetailView, jobDetailPromptVisible, userEmail, userId]);
 
  const editorialJobTodayLanding = useMemo(() => {
  if (editorialLandingDescriptor?.kind !== 'today') return null;
@@ -7272,6 +7338,44 @@ const JobBoard: React.FC<JobBoardProps> = ({
  Analytics.trackJobAlertCtaClick('post_auth_prompt', 'dismiss', searchQuery.trim());
  sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
  setPostAuthPromptVisible(false);
+ }}
+ />
+ </Suspense>
+ )}
+
+ {jobDetailPromptVisible && jobDetailPromptCategory && userEmail && userId && (
+ <Suspense fallback={null}>
+ <JobDetailAlertPrompt
+ category={jobDetailPromptCategory}
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ onClose={() => {
+ setJobDetailPromptVisible(false);
+ setJobDetailPromptCategory(null);
+ }}
+ onAccepted={() => {
+ const category = jobDetailPromptCategory;
+ Analytics.trackJobAlertCtaClick('job_detail_prompt', 'accept', category);
+ Analytics.trackJobAlertCtaClick('job_detail_prompt', 'success', category);
+ import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordAccept, normalizeKeyword }) => {
+ const next = recordAccept(loadGatingState(), new Date(), normalizeKeyword(category));
+ saveGatingState(next);
+ }).catch(() => {});
+ }}
+ onDismissed={() => {
+ const category = jobDetailPromptCategory;
+ Analytics.trackJobAlertCtaClick('job_detail_prompt', 'dismiss', category);
+ import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordDismiss, normalizeKeyword }) => {
+ const next = recordDismiss(loadGatingState(), new Date(), normalizeKeyword(category));
+ saveGatingState(next);
+ }).catch(() => {});
+ }}
+ onErrored={() => {
+ Analytics.trackJobAlertCtaClick('job_detail_prompt', 'error', jobDetailPromptCategory);
+ }}
+ onManage={() => {
+ window.dispatchEvent(new CustomEvent('openJobAlert'));
  }}
  />
  </Suspense>
