@@ -13769,6 +13769,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-lavoro-kof-ripresa-2026': {
+    title: 'Mercato del lavoro svizzero: KOF conferma la ripresa',
+    description: 'Le nuove cifre KOF segnalano una ripresa del mercato del lavoro elvetico, con prospettive positive per i frontalieri. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, svizzero, conferma',
+    ogTitle: 'Mercato del lavoro svizzero: KOF conferma la ripresa',
+    ogDescription: 'Le nuove cifre KOF segnalano una ripresa del mercato del lavoro elvetico, con prospettive positive per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/mercato-lavoro-kof-ripresa-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro svizzero: KOF conferma la ripresa",
+      "description": "Le nuove cifre KOF segnalano una ripresa del mercato del lavoro elvetico, con prospettive positive per i frontalieri. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-kof-ripresa-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano e il lago Ceresio con lavoratori in transito"
+      },
+      "datePublished": "2026-05-04T07:56:39+00:00",
+      "dateModified": "2026-05-04T07:56:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-kof-ripresa-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

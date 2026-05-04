@@ -5652,6 +5652,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-frauenfeld-30enne-barricato.title': 'Armato si barrica in casa: arrestato 30enne a Frauenfeld',
     'blog.article.arresto-frauenfeld-30enne-barricato.excerpt': 'Un uomo di 30 anni si è barricato nel suo appartamento a Frauenfeld, in condizioni psichiche alterate. La polizia lo ha arrestato dopo un intervento di diverse ore.',
     'blog.article.arresto-frauenfeld-30enne-barricato.imageAlt': 'Polizia circonda un edificio a Frauenfeld dopo un incidente con un uomo barricato',
+    'blog.article.mercato-lavoro-kof-ripresa-2026.title': 'Mercato del lavoro svizzero: KOF conferma la ripresa',
+    'blog.article.mercato-lavoro-kof-ripresa-2026.excerpt': 'Le nuove cifre KOF segnalano una ripresa del mercato del lavoro elvetico, con prospettive positive per i frontalieri.',
+    'blog.article.mercato-lavoro-kof-ripresa-2026.imageAlt': 'Lugano e il lago Ceresio con lavoratori in transito',
 };
 
 export default blogMetaIt;

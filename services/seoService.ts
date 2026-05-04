@@ -3126,6 +3126,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-raccolti-2000-euro-parco-matteo': { name: 'Raccolta fondi', path: '/articoli-frontaliere/raccolti-2000-euro-parco-matteo', parent: 'blog' },
     'blog-moleno-piazza-green-chiesa-migliorata': { name: 'Novità', path: '/articoli-frontaliere/moleno-piazza-green-chiesa-migliorata', parent: 'blog' },
     'blog-arresto-frauenfeld-30enne-barricato': { name: 'Novità', path: '/articoli-frontaliere/arresto-frauenfeld-30enne-barricato', parent: 'blog' },
+    'blog-mercato-lavoro-kof-ripresa-2026': { name: 'Novità', path: '/articoli-frontaliere/mercato-lavoro-kof-ripresa-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

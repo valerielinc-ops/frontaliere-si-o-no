@@ -5651,6 +5651,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-frauenfeld-30enne-barricato.title': 'Armed man barricades himself in Frauenfeld home, arrested',
     'blog.article.arresto-frauenfeld-30enne-barricato.excerpt': 'A 30-year-old man barricaded himself in his apartment in Frauenfeld, in an altered mental state. The police arrested him after a several-hour intervention.',
     'blog.article.arresto-frauenfeld-30enne-barricato.imageAlt': 'Police surround a building in Frauenfeld after an incident with a barricaded man',
+    'blog.article.mercato-lavoro-kof-ripresa-2026.title': 'Swiss job market: KOF confirms recovery',
+    'blog.article.mercato-lavoro-kof-ripresa-2026.excerpt': 'New KOF figures signal a recovery in Switzerland\'s job market, with positive prospects for cross-border workers.',
+    'blog.article.mercato-lavoro-kof-ripresa-2026.imageAlt': 'Lugano and Lake Ceresio with commuting workers',
 };
 
 export default blogMetaEn;

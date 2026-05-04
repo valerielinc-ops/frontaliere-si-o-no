@@ -5651,6 +5651,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-frauenfeld-30enne-barricato.title': '30-Jähriger in Frauenfeld festgenommen',
     'blog.article.arresto-frauenfeld-30enne-barricato.excerpt': 'Ein 30-jähriger Mann hat sich in seiner Wohnung in Frauenfeld in psychisch verändertem Zustand verbarrikadiert. Die Polizei nahm ihn nach einem mehrstündigen Einsatz fest.',
     'blog.article.arresto-frauenfeld-30enne-barricato.imageAlt': 'Polizei umstellt ein Gebäude in Frauenfeld nach einem Vorfall mit einem eingeschlossenen Mann',
+    'blog.article.mercato-lavoro-kof-ripresa-2026.title': 'Schweizer Arbeitsmarkt: KOF bestätigt die Erholung',
+    'blog.article.mercato-lavoro-kof-ripresa-2026.excerpt': 'Die neuen KOF-Zahlen zeigen eine Erholung des schweizerischen Arbeitsmarktes mit positiven Aussichten für Grenzgänger.',
+    'blog.article.mercato-lavoro-kof-ripresa-2026.imageAlt': 'Lugano und Luganersee mit Pendler',
 };
 
 export default blogMetaDe;
