@@ -113,6 +113,20 @@ export interface WriteCollectorOptions {
   * can name both writers. See `sharedWriteRegistry.ts` for the invariant.
   */
  pluginName?: string;
+ /**
+  * Optional callback fired once per filePath that successfully passes every
+  * skip gate (skipExisting, content-hash manifest, sharedWriteRegistry
+  * collision claim) and is queued for flush. Used by `shared/buildCache.ts`
+  * to capture the exact set of paths a plugin emits, so the cache snapshot
+  * mirrors what reached disk. Skipped writes are NOT recorded — replaying
+  * them on a cache hit would re-create files the registry deliberately
+  * suppressed.
+  *
+  * Idempotency: if the same path is `add()`-ed twice within one collector,
+  * the recorder fires twice. Consumers (the cache snapshot) should dedupe
+  * via Set.add — the on-disk file is the same regardless.
+  */
+ pathRecorder?: (filePath: string) => void;
 }
 
 /**
@@ -155,6 +169,7 @@ export class WriteCollector {
  private _firstError: Error | null = null;
  private readonly _concurrency: number;
  private readonly _autoFlushThreshold: number;
+ private readonly _pathRecorder?: (filePath: string) => void;
 
  constructor(opts?: WriteCollectorOptions) {
  this.skipExisting = opts?.skipExisting ?? false;
@@ -162,6 +177,7 @@ export class WriteCollector {
  this._concurrency = opts?.concurrency ?? 500;
  this._autoFlushThreshold = opts?.autoFlushThreshold ?? DEFAULT_AUTO_FLUSH_THRESHOLD;
  this._pluginName = opts?.pluginName ?? 'unknown';
+ this._pathRecorder = opts?.pathRecorder;
  }
 
  /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
@@ -198,6 +214,16 @@ export class WriteCollector {
  globalIntraPluginOverwrites += 1;
  }
  this.writes.set(filePath, { filePath, content });
+ // Notify cache wrapper (if any) AFTER the path passes every skip gate
+ // and is queued for flush. The recorder must not throw — wrap defensively
+ // so a bug in the consumer never breaks the build.
+ if (this._pathRecorder) {
+ try {
+ this._pathRecorder(filePath);
+ } catch {
+ /* swallow — recorder is observational only */
+ }
+ }
 
  // Auto-flush in background once we cross the threshold. add() must stay
  // synchronous for callers, so we kick off the flush without awaiting.

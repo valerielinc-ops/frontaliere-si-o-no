@@ -1,14 +1,23 @@
 import '@testing-library/jest-dom/vitest';
 
+// Tests that opt-in to `// @vitest-environment node` (e.g. build-plugin
+// utilities that need to call `esbuild` directly — esbuild requires a real
+// `TextEncoder`/`Uint8Array` invariant that JSDOM breaks) skip this entire
+// file's window/document setup. The vi.mock(...) calls are side-effect-free
+// at the module-mock registry level and remain registered even in node env.
+const HAS_DOM = typeof window !== 'undefined' && typeof document !== 'undefined';
+
 // JSDOM does not implement ResizeObserver; mock it to prevent error-boundary crashes.
-global.ResizeObserver = class ResizeObserver {
-  observe() {}
-  unobserve() {}
-  disconnect() {}
-};
+if (HAS_DOM) {
+  global.ResizeObserver = class ResizeObserver {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };
+}
 
 // Mock window.matchMedia (not available in jsdom)
-Object.defineProperty(window, 'matchMedia', {
+if (HAS_DOM) Object.defineProperty(window, 'matchMedia', {
  writable: true,
  value: vi.fn().mockImplementation((query: string) => ({
  matches: false,
@@ -23,14 +32,14 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 // JSDOM does not implement scrollTo; avoid noisy "Not implemented" warnings.
-Object.defineProperty(window, 'scrollTo', {
+if (HAS_DOM) Object.defineProperty(window, 'scrollTo', {
  writable: true,
  value: vi.fn(),
 });
 
 // Mock localStorage
 const store: Record<string, string> = {};
-Object.defineProperty(globalThis, 'localStorage', {
+if (HAS_DOM) Object.defineProperty(globalThis, 'localStorage', {
  value: {
  getItem: (key: string) => store[key] ?? null,
  setItem: (key: string, val: string) => { store[key] = val; },
@@ -223,6 +232,7 @@ vi.mock('react-leaflet', () => ({
 // These run around EVERY test in EVERY file in the worker.
 
 beforeEach(() => {
+  if (!HAS_DOM) return;
   // Reset URL to root so router/navigation tests don't bleed URL state into each other.
   // If window.location was replaced by Object.defineProperty (as in router.test.ts),
   // this replaceState call only reaches the real history; files that do their own
