@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-05-03T22:26:15.698Z",
+  "assembledAt": "2026-05-04T11:50:06.165Z",
   "jobs": [
     {
       "id": "company-lz4syo",
@@ -42,20 +42,30 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "operatore-di-manutenzione-edifici-thusis-swiss-armed-forces-vtg-bern",
-        "en": "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
-        "de": "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
-        "fr": "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
+        "en": "building-operations-worker-thusis-swiss-armed-forces-vtg-bellinzona",
+        "de": "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bellinzona",
+        "fr": "operateur-de-maintenance-des-batiments-thusis-swiss-armed-forces-vtg-bellinzona"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern",
           "collaboratore-trice-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
+        ],
+        "en": [
+          "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
+        ],
+        "de": [
+          "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
+        ],
+        "fr": [
+          "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern",
-        "collaboratore-trice-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
+        "collaboratore-trice-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
+        "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -247,7 +257,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jnoz9i",

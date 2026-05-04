@@ -1,21 +1,22 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-03T22:26:15.699Z",
+  "generatedAt": "2026-05-04T11:50:06.165Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 29948,
-  "avgDurationMs": 29948,
+  "durationMs": 34923,
+  "avgDurationMs": 34923,
   "durationHistory": [
-    29948
+    34923
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-lz4syo",
-      "slug": "collaboratore-trice-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
+      "slug": "operatore-di-manutenzione-edifici-thusis-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mitarbeiter/-in Gebäudebetrieb Thusis",
       "location": "Bern",
@@ -37,16 +38,23 @@
       "crawledAt": "2026-05-03T22:26:15.017Z",
       "firstSeenAt": "2026-05-03T22:26:15.017Z",
       "sourceLang": "de",
-      "_qualityScore": 76,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
