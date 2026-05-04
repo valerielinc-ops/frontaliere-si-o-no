@@ -28,10 +28,16 @@
         "de": "berufslehre-kauffrau-kaufmann-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre Kauffrau / Kaufmann"
+        "de": "Berufslehre Kauffrau / Kaufmann",
+        "it": "Apprendista Commerciale",
+        "en": "Commercial Apprentice",
+        "fr": "Apprenti(e) Commerciale"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Du führst allgemeine Korrespondenzen, verwaltest Dokumente, bearbeitest Postsendungen und erfasst Stammdaten in den jeweiligen Systemen\n \n• Du erledigst allgemeine kaufmännische Aufgaben in den Bereichen Human Resource Management, Arztsekretariat, Finanzen und Patientenadministration\n \n• Du prüfst und erfasst Rechnungen, ebenso erstellst und kontierst du Belege\n \n• Du triffst Abklärungen mit Ämtern und Versicherungen und holst relevante Informationen ein\n\nAnforderungen:\n• Du besuchst die Oberstufe, bringst einen guten schulischen Leistungsnachweis mit und dir wurde anhand eines Tests (Multicheck) die Eignung zum Berufsbild Kauffrau / Kaufmann bestätigt\n \n• Du bringst Interesse für das Gesundheitswesen und den Spitalbetrieb mit\n \n• Du freust dich über die Herausforderung stets dazuzulernen und dich persönlich sowie fachlich weiterzuentwickeln\n \n• Du bringst hohe Einsatzbereitschaft mit, um deine berufliche Ausbildung erfolgreich zu durchlaufen und aktiv mitzugestalten\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Descrizione Starte am 1. August 2027 mit der dreijährigen ## Aufgaben - Du führst allgemeine Korrespondenzen, verwaltest Dokumente, bearbeitest Postsendungen und erfasst Stammdaten in den jeweiligen Systemen - Du erledigst allgemeine kaufmännische Aufgaben in den Bereichen Human Resource Management, Arztsekretariat, Finanzen und Patientenadministration - Du prüfst und erfasst Rechnungen, ebenso erstellst und kontierst du Belege - Du triffst Abklärungen mit Ämtern und Versicherungen und holst relevante Informationen ein ## Anforderungen - Du besuchst die Oberstufe, bringst einen guten schulischen Leistungsnachweis mit und dir wurde anhand eines Tests (Multicheck) die Eignung zum Berufsbild Kauffrau / Kaufmann bestätigt - Du bringst Interesse für das Gesundheitswesen und den Spitalbetrieb mit - Du freust dich über die Herausforderung stets dazuzulernen und dich persönlich sowie fachlich weiterzuentwickeln - Du bringst hohe Einsatzbereitschaft mit, um deine berufliche Ausbildung erfolgreich zu durchlaufen und aktiv mitzugestalten Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
+        "it": "Descrizione Avviare su 1. Agosto 2027 con i tre anni ## Compiti - Effettuare le corrispondenze generali, gestire documenti, elaborare spedizioni postali e raccogliere dati master nei rispettivi sistemi - Lei svolge compiti commerciali generali nelle aree Gestione delle risorse umane, segretariato del medico, finanza e amministrazione del paziente - Lei controlla e verifica, così come il primo controllo e le prove concepite Porti l'interesse per l'assistenza sanitaria e l'operazione ospedaliera - sei sempre felice di conoscere la sfida e di svilupparsi personalmente e professionalmente - stai portando un alto livello di impegno per passare con successo attraverso la tua formazione professionale e partecipare attivamente a modellare qualcosa che gli altri non possono fare? Fai la differenza? Allora appartieni a noi!",
+        "en": "Descrizione Start on 1. August 2027 with the three-year-old ## Tasks - You carry out general correspondences, manage documents, process postal consignments and collect master data in the respective systems - You perform general commercial tasks in the areas Human Resource Management, doctor's secretariat, finance and patient administration - You check and audit, as well as first check and conceive proofs You bring interest in health care and hospital operation - you are always happy to learn about the challenge and to develop yourself personally and professionally - you are bringing a high level of commitment to successfully go through your professional training and actively participate in shaping something that others cannot do? You make the difference? Then you belong to us!",
+        "fr": "Descrizione Commencez sur 1. Août 2027 avec les tâches ## de trois ans - Vous effectuez des correspondances générales, la gestion des documents, le traitement des envois postaux et la collecte des données principales dans les systèmes respectifs - Vous effectuez des tâches commerciales générales dans les domaines de la gestion des ressources humaines, du secrétariat du médecin, des finances et de l'administration du patient - Vous vérifiez et auditez, ainsi que le premier contrôle et concevoir des preuves Vous vous intéressez aux soins de santé et aux opérations hospitalières - vous êtes toujours heureux d'apprendre le défi et de vous développer personnellement et professionnellement - vous apportez un haut niveau d'engagement pour passer avec succès par votre formation professionnelle et participer activement à façonner quelque chose que les autres ne peuvent pas faire? Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,7 +50,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -77,10 +82,16 @@
         "de": "berufslehre-fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre Fachfrau / Fachmann Betriebsunterhalt"
+        "de": "Berufslehre Fachfrau / Fachmann Betriebsunterhalt",
+        "it": "Specialista di insegnamento professionale / lavoratore specializzato",
+        "en": "Professional Teaching Specialist / skilled worker",
+        "fr": "Spécialiste de l'enseignement professionnel / travailleur qualifié"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Du trägst Mitverantwortung für die Funktionalität aller Einrichtungen in unseren Gebäuden und in der Umgebung\n \n• Du überwachst die Haustechnik, führst Kontrollen durch und setzt Reparaturen fachgerecht um\n \n• Du wartest unsere Maschinen, damit sie zuverlässig und sicher im Einsatz bleiben\n \n• Du pflegst die Grünanlagen und sorgst dafür, dass unsere Aussenbereiche gepflegt und einladend wirken\n\nAnforderungen:\n• Du hast die obligatorische Schulzeit abgeschlossen und bist bereit, im Berufsalltag richtig durchzustarten\n \n• Du verfügst über handwerkliches Geschick und packst gerne praktisch mit an\n \n• Du hast ein gutes praktisch‑technisches Verständnis und bist körperlich belastbar – Arbeiten drinnen wie draussen liegen dir\n \n• Du bist zuverlässig und kannst Aufgaben selbstständig, sorgfältig und verantwortungsbewusst ausführen\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "## Descrizione\nStarte am 1. August 2027 mit der dreijährigen\n\n## Aufgaben:\n- Du trägst Mitverantwortung für die Funktionalität aller Einrichtungen in unseren Gebäuden und in der Umgebung\n- Du überwachst die Haustechnik, führst Kontrollen durch und setzt Reparaturen fachgerecht um\n- Du wartest unsere Maschinen, damit sie zuverlässig und sicher im Einsatz bleiben\n- Du pflegst die Grünanlagen und sorgst dafür, dass unsere Aussenbereiche gepflegt und einladend wirken\n\n## Anforderungen:\n- Du hast die obligatorische Schulzeit abgeschlossen und bist bereit, im Berufsalltag richtig durchzustarten\n- Du verfügst über handwerkliches Geschick und packst gerne praktisch mit an\n- Du hast ein gutes praktisch‑technisches Verständnis und bist körperlich belastbar – Arbeiten drinnen wie draussen liegen dir\n- Du bist zuverlässig und kannst Aufgaben selbstständig, sorgfältig und verantwortungsbewusst ausführen\n\n## Du kannst etwas, was andere nicht können?\n- Du machst den Unterschied aus?\n- Dann gehörst du zu uns!",
+        "it": "Descrizione Avviare su 1. Agosto 2027 con i tre anni di ## Compiti: - Si effettua la corresponsabilità per la funzionalità di tutte le strutture nei nostri edifici e nell'ambiente - Si monitora la tecnologia dell'edificio, effettua controlli e implementa le riparazioni professionalmente - Siete in attesa per le nostre macchine in modo che rimangano affidabili e sicuri in uso - Si è gradire le aree verdi e quindi assicurarsi che le nostre aree esterne sono ben mantenuto e accogliente Lavorare dentro e fuori siete - Sei affidabile e puoi svolgere compiti in modo indipendente, attento e responsabile ## Puoi fare qualcosa che gli altri non possono? Allora appartieni a noi!",
+        "en": "Descrizione Start on 1. August 2027 with the three-year-old ## Tasks: - You carry co-responsibility for the functionality of all facilities in our buildings and in the environment - You monitor the building technology, carry out checks and implement repairs professionally - You are waiting for our machines so that they remain reliable and safe in use - You are pleasing the green areas and so make sure that our outdoor areas are well maintained and welcoming Working inside and out are you - You are reliable and can perform tasks independently, carefully and responsibly ## You can do something that others can't? - Then you belong to us!",
+        "fr": "Descrizione Commencez sur 1. Août 2027 avec les tâches ## de trois ans: - Vous portez coresponsabilité pour la fonctionnalité de toutes les installations dans nos bâtiments et dans l'environnement - Vous surveillez la technologie du bâtiment, effectuez des vérifications et des réparations professionnellement - Vous attendez nos machines afin qu'elles restent fiables et sûres en utilisation - Vous êtes agréables les espaces verts et assurez-vous que nos espaces extérieurs sont bien entretenus et accueillants Travailler à l'intérieur et à l'extérieur sont vous - Vous êtes fiable et pouvez effectuer des tâches indépendamment, soigneusement et de manière responsable ## Vous pouvez faire quelque chose que les autres ne peuvent pas? - Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -93,7 +104,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -126,10 +136,16 @@
         "de": "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
-        "de": "Berufslehre Fachfrau / Fachmann Gesundheit"
+        "de": "Berufslehre Fachfrau / Fachmann Gesundheit",
+        "it": "Apprendista in Assistenza Sanitaria",
+        "en": "Healthcare Assistant Apprentice",
+        "fr": "Apprenti en Assistance Sanitaire"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Du pflegst Patientinnen und Patienten im stationären und ambulanten Bereich und unterstützt sie im Alltag\n \n• Du führst medizinaltechnische Verrichtungen wie Blutentnahmen, Blutdruckmessungen oder Medikamentenabgaben sorgfältig und fachgerecht aus\n \n• Du förderst das körperliche, soziale und psychische Wohlbefinden der Patientinnen und Patienten und richtest dein Handeln stets nach ihren individuellen Bedürfnissen aus\n \n• Du übernimmst administrative und logistische Aufgaben, die für einen reibungslosen Pflegealltag wichtig sind\n\nAnforderungen:\n• Du hast die obligatorische Schulzeit abgeschlossen und bist bereit für deinen Einstieg in die Berufswelt\n \n• Du interessierst dich dafür, pflege‑ und hilfsbedürftige Menschen zu unterstützen und möchtest ihren Alltag aktiv mitgestalten\n \n• Du bist verantwortungsbewusst, flexibel, teamfähig und belastbar – sowohl körperlich als auch psychisch\n \n• Du hast eine gute Beobachtungs‑ und Wahrnehmungsgabe und kannst Situationen schnell einschätzen\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Descrizione Starte am 1. August 2027 mit der dreijährigen ## Aufgaben • Du pflegst Patientinnen und Patienten im stationären und ambulanten Bereich und unterstützt sie im Alltag • Du führst medizinaltechnische Verrichtungen wie Blutentnahmen, Blutdruckmessungen oder Medikamentenabgaben sorgfältig und fachgerecht aus • Du förderst das körperliche, soziale und psychische Wohlbefinden der Patientinnen und Patienten und richtest dein Handeln stets nach ihren individuellen Bedürfnissen aus • Du übernimmst administrative und logistische Aufgaben, die für einen reibungslosen Pflegealltag wichtig sind ## Anforderungen • Du hast die obligatorische Schulzeit abgeschlossen und bist bereit für deinen Einstieg in die Berufswelt • Du interessierst dich dafür, pflege‑ und hilfsbedürftige Menschen zu unterstützen und möchtest ihren Alltag aktiv mitgestalten • Du bist verantwortungsbewusst, flexibel, teamfähig und belastbar – sowohl körperlich als auch psychisch • Du hast eine gute Beobachtungs‑ und Wahrnehmungsgabe und kannst Situationen schnell einschätzen ## Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
+        "it": "Descrizione Iniziare il 1 agosto 2027 con i tre anni ## Compiti • Ti preoccupi per i pazienti in aree stazionarie e ambulatoriali e li supporta nella vita quotidiana • Effettuare dispositivi medici come prelievi di sangue, misurazioni della pressione sanguigna o la consegna di droga con attenzione e professionalmente • Promuovi il benessere fisico, sociale e psicologico dei pazienti e giudichi sempre le tue azioni secondo le loro esigenze individuali • Si svolgono compiti amministrativi e logistici che sono importanti per una giornata di cura liscia: ## Requisiti • Hai completato la scuola obbligatoria e sono pronti per l'ingresso nel mondo professionale • Siete interessati a sostenere le persone che hanno bisogno di cura e di aiuto e vogliono plasmare attivamente la loro vita quotidiana • Sei responsabile, flessibile, collaborabile e resiliente – sia fisico che psicologico • Hai una buona osservazione e percezione e puoi valutare rapidamente le situazioni ## Puoi fare qualcosa che gli altri non possono fare? Fai la differenza? Allora appartieni a noi!",
+        "en": "Descrizione Start on August 1, 2027 with the three-year ## Tasks • You care for patients in stationary and outpatient areas and support them in everyday life • You carry out medical devices such as blood withdrawals, blood pressure measurements or drug delivery carefully and professionally • You promote the physical, social and psychological well-being of patients and always judge your actions according to their individual needs • You carry out administrative and logistic tasks that are important for a smooth day of care: ## Requirements • You have completed compulsory schooling and are ready for your entry into the professional world • You are interested in supporting people in need of care and help and want to actively shape their everyday lives • You are responsible, flexible, teamable and resilient – both physical and psychological • You have a good observation and perception and can quickly assess situations ## You can do something that others can't do? You make the difference? Then you belong to us!",
+        "fr": "Descrizione Commencez le 1er août 2027 avec les tâches ## de trois ans • Vous prenez soin des patients dans les zones fixes et externes et les soutenir dans la vie quotidienne • Vous effectuez des dispositifs médicaux tels que des prélèvements sanguins, des mesures de la pression artérielle ou l'administration de médicaments avec soin et professionnalisme • Vous favorisez le bien-être physique, social et psychologique des patients et jugez toujours vos actions en fonction de leurs besoins individuels • Vous effectuez des tâches administratives et logistiques importantes pour une journée de soins en douceur : ## Exigences • Vous avez terminé la scolarité obligatoire et êtes prêt pour votre entrée dans le monde professionnel • Vous êtes intéressé à soutenir les personnes qui ont besoin de soins et d'aide et voulez façonner activement leur vie quotidienne • Vous êtes responsable, flexible, solidaire et résilient – physique et psychologique • Vous avez une bonne observation et perception et pouvez rapidement évaluer les situations ## Vous pouvez faire quelque chose que les autres ne peuvent pas faire? Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -142,7 +158,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -175,10 +190,16 @@
         "de": "berufslehre-gebaudeinformatiker-in-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre Gebäudeinformatiker:in"
+        "de": "Berufslehre Gebäudeinformatiker:in",
+        "it": "Apprendista Ingegnere Edile",
+        "en": "Building Information Technology Apprentice",
+        "fr": "Apprenti en Informatique de Bâtiment"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der vierjährigen\n\nAufgaben:\n• Du planst die Vernetzung von gebäudetechnischen Anlagen und sorgst dafür, dass alle Systeme reibungslos miteinander kommunizieren\n \n• Du nimmst intelligente und energieeffiziente Steuerungen in Betrieb, wartest sie regelmässig und programmierst sie nach Bedarf weiter\n \n• Du arbeitest eng mit den Technik‑Teams der verschiedenen Fachbereiche zusammen\n\nAnforderungen:\n• Du hast gute Schulnoten auf Sekundarniveau A, besonders in Mathematik, Medien und Informatik, Deutsch und Englisch\n \n• Du arbeitest gerne exakt, und komplexe sowie logisch‑technische Zusammenhänge bereiten dir Freude\n \n• Du begeisterst dich für Teamarbeit und bringst dich aktiv ein, wenn ihr gemeinsam Lösungen entwickelt\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Descrizione Starte am 1. August 2027 mit der vierjährigen ## Aufgaben • Du planst die Vernetzung von gebäudetechnischen Anlagen und sorgst dafür, dass alle Systeme reibungslos miteinander kommunizieren • Du nimmst intelligente und energieeffiziente Steuerungen in Betrieb, wartest sie regelmässig und programmierst sie nach Bedarf weiter • Du arbeitest eng mit den Technik‑Teams der verschiedenen Fachbereiche zusammen ## Anforderungen • Du hast gute Schulnoten auf Sekundarniveau A, besonders in Mathematik, Medien und Informatik, Deutsch und Englisch • Du arbeitest gerne exakt, und komplexe sowie logisch‑technische Zusammenhänge bereiten dir Freude • Du begeisterst dich für Teamarbeit und bringst dich aktiv ein, wenn ihr gemeinsam Lösungen entwickelt ## Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
+        "it": "Descrizione Avviare il 1 agosto 2027 con i quattro anni ## Tasks • Pianificate la rete di sistemi edili e assicurate che tutti i sistemi comunichino senza intoppi l'uno con l'altro • È possibile utilizzare controller intelligenti ed efficienti dal punto di vista energetico, mantenerli regolarmente e programmarli secondo le necessità • Si lavora a stretto contatto con i team tecnici dei vari dipartimenti ## Requisiti • Hai buoni voti scolastici a livello secondario A, soprattutto in matematica, media e informatica, tedesco e inglese • Ti piace lavorare esattamente, e relazioni complesse e logiche-tecniche preparano la gioia • Sei appassionato di lavoro di squadra e sei attivamente coinvolto nello sviluppo di soluzioni insieme ## Puoi fare qualcosa che gli altri non possono? Fai la differenza? Allora appartieni a noi!",
+        "en": "Descrizione Start on August 1, 2027 with the four-year-old ## Tasks • You plan the networking of building systems and ensure that all systems communicate smoothly with each other • You use intelligent and energy-efficient controllers, maintain them regularly and program them as needed • You work closely with the technical teams of the various departments ## Requirements • You have good school grades at secondary level A, especially in mathematics, media and computer science, German and English • You like to work exactly, and complex as well as logical-technical relationships prepare you joy • You're passionate about teamwork and you're actively involved in developing solutions together ## You can do something that others can't? You make the difference? Then you belong to us!",
+        "fr": "Descrizione Commencez le 1er août 2027 avec les tâches ## de quatre ans • Vous planifiez la mise en réseau des systèmes de construction et assurez-vous que tous les systèmes communiquent en douceur entre eux • Vous utilisez des contrôleurs intelligents et économes en énergie, les maintenir régulièrement et les programmer au besoin • Vous travaillez en étroite collaboration avec les équipes techniques des différents départements ## Exigences • Vous avez de bonnes notes scolaires au niveau secondaire A, en particulier dans les mathématiques, les médias et l'informatique, l'allemand et l'anglais • Vous aimez travailler exactement, et les relations complexes ainsi que logique-technique vous préparent la joie • Vous êtes passionné par le travail d'équipe et vous êtes activement impliqué dans le développement de solutions ensemble ## Vous pouvez faire quelque chose que les autres ne peuvent pas faire? Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -191,7 +212,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -224,10 +244,16 @@
         "de": "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre Fachfrau / Fachmann Gesundheit"
+        "de": "Berufslehre Fachfrau / Fachmann Gesundheit",
+        "it": "Specialista di insegnamento professionale / Salute professionale",
+        "en": "Professional Teaching Specialist / Professional Health",
+        "fr": "Spécialiste de l'enseignement professionnel / Santé professionnelle"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Du pflegst Patientinnen und Patienten im stationären Bereich und unterstützt sie im Alltag\n \n• Du führst medizinaltechnische Verrichtungen wie zum Beispiel Blutentnahmen, Medikamentenabgaben oder Blutdruckmessungen sorgfältig und fachgerecht aus\n \n• Du förderst das körperliche, soziale und psychische Wohlbefinden der Patientinnen und Patienten und richtest dein Handeln stets nach ihren individuellen Bedürfnissen aus\n \n• Du übernimmst administrative und logistische Aufgaben, die für einen reibungslosen Arbeitsalltag wichtig sind\n\nAnforderungen:\n• Du hast die obligatorische Schulzeit abgeschlossen und bist bereit für deinen Einstieg in die Berufswelt\n \n• Du unterstützt pflege‑ und hilfsbedürftige Menschen und gestaltest ihren Alltag aktiv mit\n \n• Du bist verantwortungsbewusst, flexibel, teamfähig und belastbar – sowohl körperlich als auch psychisch\n \n• Du hast eine gute Beobachtungs‑ und Wahrnehmungsgabe und kannst Situationen schnell einschätzen\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "## Descrizione\nStarte am 1. August 2027 mit der dreijährigen\n\n## Aufgaben\n- Du pflegst Patientinnen und Patienten im stationären Bereich und unterstützt sie im Alltag\n- Du führst medizinaltechnische Verrichtungen wie zum Beispiel Blutentnahmen, Medikamentenabgaben oder Blutdruckmessungen sorgfältig und fachgerecht aus\n- Du förderst das körperliche, soziale und psychische Wohlbefinden der Patientinnen und Patienten und richtest dein Handeln stets nach ihren individuellen Bedürfnissen aus\n- Du übernimmst administrative und logistische Aufgaben, die für einen reibungslosen Arbeitsalltag wichtig sind\n\n## Anforderungen\n- Du hast die obligatorische Schulzeit abgeschlossen und bist bereit für deinen Einstieg in die Berufswelt\n- Du unterstützt pflege‑ und hilfsbedürftige Menschen und gestaltest ihren Alltag aktiv mit\n- Du bist verantwortungsbewusst, flexibel, teamfähig und belastbar – sowohl körperlich als auch psychisch\n- Du hast eine gute Beobachtungs‑ und Wahrnehmungsgabe und kannst Situationen schnell einschätzen\n\n## Du kannst etwas, was andere nicht können?\n- Du machst den Unterschied aus?\n- Dann gehörst du zu uns!",
+        "it": "Descrizione Inizia il 1° agosto 2027 con i compiti triennali ## - Ti prendi cura dei pazienti nell'area di ricovero e li supporti nella vita quotidiana - Esegui compiti tecnologici medici come prelievi di sangue, somministrazione di farmaci o misurazioni della pressione in modo attento e professionale - Promuovi il benessere fisico, sociale e psicologico dei pazienti e allinei sempre le tue azioni secondo le loro esigenze individuali - Tu assumi compiti amministrativi e logistici importanti per una giornata lavorativa senza intoppi ## Requisiti - Hai completato la scuola obbligatoria e sei pronto per il tuo ingresso nel mondo professionale - Supporti le persone bisognose di assistenza e assistenza e modelli attivamente la loro vita quotidiana - Sei responsabile, flessibile, un giocatore di squadra e resiliente - sia fisicamente che mentalmente - Hai buone capacità di osservazione e percezione e puoi Valuta le situazioni rapidamente ## Puoi fare qualcosa che gli altri non possono? - Sei tu a fare la differenza? - Allora appartieni a noi!",
+        "en": "Descrizione Start on August 1, 2027 with the three-year ## tasks - You care for patients in the inpatient area and support them in everyday life - You carry out medical technology tasks such as blood draws, medication dispensing or blood pressure measurements carefully and professionally - You promote the physical, social and psychological well-being of patients and always align your actions according to their individual needs - You take on administrative and logistical tasks that are important for a smooth working day ## Requirements - You have completed compulsory schooling and are ready for your entry into the professional world - You support people in need of care and assistance and actively shape their everyday life - You are responsible, flexible, a team player and resilient - both physically and mentally - You have good powers of observation and perception and can Assess situations quickly ## You can do something that others can't? - You make the difference? - Then you belong to us!",
+        "fr": "Descrizione Commencez sur 1. Août 2027 avec les trois ans ## Tâches - Vous prenez soin des patients dans la zone stationnaire et les soutenir dans la vie quotidienne - Vous réalisez des dispositifs médicaux tels que des prélèvements sanguins, des charges de médicaments ou des mesures de la pression artérielle soigneusement et professionnellement - Vous soutenez le bien-être physique, social et psychologique des patients et vous gérez toujours vos actions en fonction de leurs besoins individuels - Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -245,7 +271,8 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-04T11:09:50.180Z"
+      "firstSeenAt": "2026-05-04T11:09:50.180Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "10020205",
@@ -273,10 +300,16 @@
         "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre Fachfrau / Fachmann Hotellerie-Hauswirtschaft"
+        "de": "Berufslehre Fachfrau / Fachmann Hotellerie-Hauswirtschaft",
+        "it": "Apprendista Hotelieria e Gestione Alberghiera",
+        "en": "Apprentice Hotelier and Housekeeping",
+        "fr": "Apprenti(e) Hôtellerie et Gestion d'Hôtellerie"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Vom Empfang bis zur Verabschiedung bist du die Ansprechperson für unsere stationären Patientinnen und Patienten bei allen nichtmedizinischen Fragen\n \n• Du koordinierst die Essensbestellungen, in den Patientenzimmern und Aufenthaltsräumen hältst du Ordnung und trägst damit wesentlich zum Wohlbefinden der Gäste bei\n \n• Die Lebensmittelbestellung und Materialbewirtschaftung erledigst du zuverlässig über unser EDV‑System\n \n• Im Restaurant sowie bei Banketten und Events betreust du unsere Gäste und sorgst für eine angenehme Atmosphäre\n \n• Während deines externen Praktikums in der Bündner Hotellerie lernst du zusätzlich die Abläufe an der Rezeption, im à‑la‑carte‑Service und bei Grossveranstaltungen kennen\n\nAnforderungen:\n• Du hast einen Oberstufen‑Abschluss und überzeugst mit guten schulischen Leistungen\n \n• Der Kontakt mit Menschen bereitet dir Freude, und du trittst dienstleistungsorientiert, hilfsbereit und zuvorkommend auf\n \n• Offenheit und Flexibilität gehören zu deinen persönlichen Stärken\n \n• Dank deinem Organisationstalent behältst du auch in hektischen Momenten den Überblick und handelst überlegt\n \n• Du arbeitest gerne im Team und trägst zu einem positiven Miteinander bei\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Descrizione Starte am 1. August 2027 mit der dreijährigen ## Aufgaben • Vom Empfang bis zur Verabschiedung bist du die Ansprechperson für unsere stationären Patientinnen und Patienten bei allen nichtmedizinischen Fragen • Du koordinierst die Essensbestellungen, in den Patientenzimmern und Aufenthaltsräumen hältst du Ordnung und trägst damit wesentlich zum Wohlbefinden der Gäste bei • Die Lebensmittelbestellung und Materialbewirtschaftung erledigst du zuverlässig über unser EDV‑System • Im Restaurant sowie bei Banketten und Events betreust du unsere Gäste und sorgst für eine angenehme Atmosphäre • Während deines externen Praktikums in der Bündner Hotellerie lernst du zusätzlich die Abläufe an der Rezeption, im à‑la‑carte‑Service und bei Grossveranstaltungen kennen ## Anforderungen • Du hast einen Oberstufen‑Abschluss und überzeugst mit guten schulischen Leistungen • Der Kontakt mit Menschen bereitet dir Freude, und du trittst dienstleistungsorientiert, hilfsbereit und zuvorkommend auf • Offenheit und Flexibilität gehören zu deinen persönlichen Stärken • Dank deinem Organisationstalent behältst du auch in hektischen Momenten den Überblick und handelst überlegt • Du arbeitest gerne im Team und trägst zu einem positiven Miteinander bei ## Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
+        "it": "Descrizione Inizia il 1 agosto 2027 con i tre anni ## Tasks • Dalla ricezione all'adozione, sei la persona di contatto per i nostri pazienti stazionari in tutte le domande non mediche • Coordinate gli ordini di cibo, nelle stanze e nei saloni del paziente mantenendo l'ordine e contribuisce in modo significativo al benessere degli ospiti • L'ordinazione alimentare e la gestione dei materiali vengono effettuati in modo affidabile tramite il nostro sistema informatico • Nel ristorante così come nei banchetti e negli eventi visiterete i nostri ospiti e vi assicurerete una piacevole atmosfera • Durante il vostro stage esterno presso la Bündner Hotellerie, potrete anche conoscere i processi alla reception, al servizio à‐la‐carte e ai principali eventi. Hai un livello superiore e convinci con i buoni risultati scolastici • Il contatto con le persone ti prepara la gioia, e si entra in servizio, utile e accomodante • L'apertura e la flessibilità sono i tuoi punti di forza personali • Grazie al tuo talento organizzativo, puoi anche tenere traccia e il commercio di momenti frenetici • Ti piace lavorare nella squadra e contribuire a una relazione positiva ## Puoi fare qualcosa che gli altri non possono fare? Fai la differenza? Allora appartieni a noi!",
+        "en": "Descrizione Start on August 1, 2027 with the three-year ## Tasks • From reception to adoption, you are the contact person for our stationary patients in all non-medical questions • You coordinate the food orders, in the patient's rooms and lounges you keep order and thus contribute significantly to the well-being of the guests • Food ordering and material management are carried out reliably via our computer system • In the restaurant as well as in banquets and events you will visit our guests and ensure a pleasant atmosphere • During your external internship at the Bündner Hotellerie, you will also get to know the processes at the reception, in the à‐la‐carte service and at major events. You have an upper level degree and convince with good school achievements • Contact with people prepares you joy, and you enter service-oriented, helpful and accommodating • Openness and flexibility are your personal strengths • Thanks to your organizational talent, you can also keep track of and trade in hectic moments • You like to work in the team and contribute to a positive relationship ## You can do something that others can't do? You make the difference? Then you belong to us!",
+        "fr": "Descrizione Commencez le 1er août 2027 avec les tâches ## de trois ans • De la réception à l'adoption, vous êtes la personne de contact pour nos patients fixes dans toutes les questions non médicales • Vous coordonnez les commandes alimentaires, dans les chambres et les salons du patient, vous gardez l'ordre et contribuez ainsi de manière significative au bien-être des clients • La commande alimentaire et la gestion du matériel sont effectuées de manière fiable via notre système informatique • Dans le restaurant ainsi que dans les banquets et les événements vous visiterez nos invités et assurerez une atmosphère agréable • Lors de votre stage externe à l'Hôtellerie Bündner, vous apprendrez également à connaître les processus à la réception, dans le service à la carte et lors d'événements majeurs. Vous avez un diplôme de niveau supérieur et de convaincre avec de bonnes réalisations scolaires • Le contact avec les gens vous prépare la joie, et vous entrez orienté service, utile et accommodant • L'ouverture et la flexibilité sont vos forces personnelles • Grâce à votre talent organisationnel, vous pouvez également suivre et échanger dans les moments agités • Vous aimez travailler en équipe et contribuer à une relation positive ## Vous pouvez faire quelque chose que les autres ne peuvent pas faire? Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -289,7 +322,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -322,10 +354,16 @@
         "de": "berufslehre-medizinische-r-praxisassistent-in-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre Medizinische:r Praxisassistent:in"
+        "de": "Berufslehre Medizinische:r Praxisassistent:in",
+        "it": "Medico: assistente pratico:in",
+        "en": "Medical: practical assistant:in",
+        "fr": "Médecin: assistant pratique"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Du unterstützt die Ärzteschaft bei der Behandlung von Patientinnen und Patienten, führst Tests durch, nimmst Blut ab und kannst es in unserer internen Hausarztpraxis teilweise sogar selbst analysieren\n \n• Du vereinbarst Termine, empfängst Patientinnen und Patienten freundlich und erfasst alle wichtigen Daten im System\n \n• Du schreibst Berichte ab Diktat und führst die elektronischen Patientendossiers sorgfältig und strukturiert\n \n• Im internen Röntgeninstitut lernst du, wie man korrekte Röntgenbilder erstellt und diese fachgerecht beurteilt\n\nAnforderungen:\n• Du hast die obligatorische Schulzeit abgeschlossen, idealerweise mit einem Sekundarabschluss\n \n• Du hast Freude am Kontakt mit Menschen und bringst Einfühlungsvermögen für Patientinnen und Patienten mit\n \n• Du bist zuverlässig, flexibel und verantwortungsbewusst und arbeitest gerne exakt und sorgfältig\n \n• Du bist verschwiegen, denn die ärztliche Schweigepflicht ist für dich selbstverständlich\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "## Descrizione\nStarte am 1. August 2027 mit der dreijährigen\n\n## Aufgaben\n- Du unterstützt die Ärzteschaft bei der Behandlung von Patientinnen und Patienten, führst Tests durch, nimmst Blut ab und kannst es in unserer internen Hausarztpraxis teilweise sogar selbst analysieren\n- Du vereinbarst Termine, empfängst Patientinnen und Patienten freundlich und erfasst alle wichtigen Daten im System\n- Du schreibst Berichte ab Diktat und führst die elektronischen Patientendossiers sorgfältig und strukturiert\n- Im internen Röntgeninstitut lernst du, wie man korrekte Röntgenbilder erstellt und diese fachgerecht beurteilt\n\n## Anforderungen\n- Du hast die obligatorische Schulzeit abgeschlossen, idealerweise mit einem Sekundarabschluss\n- Du hast Freude am Kontakt mit Menschen und bringst Einfühlungsvermögen für Patientinnen und Patienten mit\n- Du bist zuverlässig, flexibel und verantwortungsbewusst und arbeitest gerne exakt und sorgfältig\n- Du bist verschwiegen, denn die ärztliche Schweigepflicht ist für dich selbstverständlich\n\n## Du kannst etwas, was andere nicht können?\n- Du machst den Unterschied aus?\n- Dann gehörst du zu uns!",
+        "it": "Descrizione Avviare su 1. Agosto 2027 con i tre anni-vecchio ## Compiti - Supporti il dottorato nel trattamento dei pazienti, effettui test, prenda il sangue e può in parte anche analizzarlo te stesso nella nostra pratica medica interna - accetti le date, ricevi i pazienti amichevoli e raccogli tutti i dati importanti nel sistema - scrivi report off detta e effettui i dossier del paziente elettronico accuratamente e strutturati - Puoi fare qualcosa che gli altri non possono? - Allora appartieni a noi!",
+        "en": "Descrizione Start on August 1, 2027 with the three-year ## tasks - You support the medical profession in the treatment of patients, carry out tests, take blood samples and can even analyze it yourself in our internal family practice - You make appointments, receive patients in a friendly manner and record all important data in the system - You write reports from dictation and maintain the electronic patient records carefully and in a structured manner - In the internal X-ray institute, you will learn how to create correct X-ray images and assess them professionally ## Requirements - You have completed compulsory schooling, ideally with a secondary school leaving certificate - You enjoy contact with people and have empathy for patients - You are reliable, flexible and responsible and like to work accurately and carefully - You are discreet, because medical confidentiality is essential for ## You can do something that others can't? - You make the difference? - Then you belong to us!",
+        "fr": "Descrizione Commencez sur 1. Août 2027 avec le ## Tâches de trois ans - Vous soutenez le doctorat dans le traitement des patients, effectuez des tests, prenez du sang et pouvez même partiellement l'analyser vous-même dans notre pratique médicale interne - Vous acceptez les dates, recevez les patients amical et recueillez toutes les données importantes dans le système - Vous annulez les rapports dictez et exécutez les dossiers de patients électroniques soigneusement et structuré - Vous pouvez faire quelque chose que les autres ne peuvent pas? - Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -343,7 +381,8 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-04T11:09:50.180Z"
+      "firstSeenAt": "2026-05-04T11:09:50.180Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "10019067",
@@ -371,10 +410,16 @@
         "de": "praktikant-in-kauffrau-kaufmann-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Praktikant:in Kauffrau / Kaufmann"
+        "de": "Praktikant:in Kauffrau / Kaufmann",
+        "it": "Interno: in Kauffrau / Kaufmann",
+        "en": "Intern:in Kauffrau / Kaufmann",
+        "fr": "Stagiaire: à Kauffrau / Kaufmann"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 das einjährige Praktikum als\n\nAufgaben:\n• Du führst allgemeine Korrespondenzen und verwaltest Dokumente \n \n• Du erfasst Stammdaten in den jeweiligen Systemen\n \n• Du erledigst allgemeine kaufmännische Aufgaben in den Bereichen Einkauf oder Patientenadministration\n\nAnforderungen:\n• Du besuchst die Handelsmittelschule (HMS) oder Wirtschaftsmittelschule (WMS) und beendest im Sommer 2027 das 3. Schuljahr\n \n• Du verfügst über eine gymnasiale Maturität oder Berufsmaturität und willst Berufspraxis sammeln\n \n• Du bringst ein hohes Interesse für das Gesundheitswesen und den Spitalbetrieb mit\n \n• Du freust dich im Praxisjahr Neues zu lernen und bist bereit, dich für den erfolgreichen Verlauf der Ausbildung einzusetzen\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "## Descrizione\nStarte am 1. August 2027 das einjährige Praktikum als\n\n## Aufgaben:\n- Du führst allgemeine Korrespondenzen und verwaltest Dokumente\n- Du erfasst Stammdaten in den jeweiligen Systemen\n- Du erledigst allgemeine kaufmännische Aufgaben in den Bereichen Einkauf oder Patientenadministration\n\n## Anforderungen:\n- Du besuchst die Handelsmittelschule (HMS) oder Wirtschaftsmittelschule (WMS) und beendest im Sommer 2027 das 3. Schuljahr\n- Du verfügst über eine gymnasiale Maturität oder Berufsmaturität und willst Berufspraxis sammeln\n- Du bringst ein hohes Interesse für das Gesundheitswesen und den Spitalbetrieb mit\n- Du freust dich im Praxisjahr Neues zu lernen und bist bereit, dich für den erfolgreichen Verlauf der Ausbildung einzusetzen\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Descrizione Avviare su 1. Agosto 2027 lo stage di un anno come ## Compiti: - Effettuate le corrispondenze generali e gestite i documenti - Raccogliete i dati master nei rispettivi sistemi - È possibile eseguire i compiti commerciali generali nei settori dell'Acquisizione o dell'Amministrazione Paziente ## Requisiti: - Stai visitando il Centro commerciale Spice School (HMS) o Scuola Economica (WMS) e sei pronto a utilizzare il terzo anno scolastico nell'estate 2027 - Sei pronto a fare la differenza? Allora appartieni a noi!",
+        "en": "Descrizione Start on 1. August 2027 the one-year internship as ## Tasks: - You carry out general correspondences and manage documents - You collect master data in the respective systems - You can perform general commercial tasks in the fields of Purchasing or Patient Administration ## Requirements: - You are visiting the Trade Center Spice School (HMS) or Economic School (WMS) and you are ready to use the 3rd school year in summer 2027 - You are ready to work You make the difference? Then you belong to us!",
+        "fr": "Descrizione Commencez sur 1. Août 2027 le stage d'un an comme ## Tâches : - Vous effectuez des correspondances générales et gérez des documents - Vous recueillez des données de maîtrise dans les systèmes respectifs - Vous pouvez effectuer des tâches commerciales générales dans les domaines de l'achat ou de l'administration du patient ## Exigences : - Vous visitez le Trade Center Spice School (HMS) ou Economic School (WMS) et vous êtes prêt à utiliser la 3e année scolaire en été 2027 - Vous êtes prêt à travailler Vous faites la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -387,7 +432,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 63000,
@@ -420,10 +464,16 @@
         "de": "berufslehre-informatiker-in-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre Informatiker:in"
+        "de": "Berufslehre Informatiker:in",
+        "it": "Apprendista Informatico",
+        "en": "IT Apprentice",
+        "fr": "Apprenti en Informatique"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der vierjährigen\n\nAufgaben:\n• Du planst, bewirtschaftest und wartest physische wie auch virtuelle Serversysteme und ‑dienste\n\n• Du planst lokale Netzwerke (LAN), wählst geeignete Netzkomponenten aus, installierst und konfigurierst sie und überwachst den laufenden Betrieb\n\n• Du sorgst für die Sicherheit und Verfügbarkeit der Systeme und Dienste sowie für die Leistungsfähigkeit des gesamten Netzes\n\n• Du stellst sicher, dass Informationen geschützt sind und sicher übertragen werden können\n\nAnforderungen:\n• Du bringst gute Schulnoten auf Sekundarstufe mit\n\n• Du analysierst gerne, denkst vernetzt und findest clevere Lösungen\n\n• Du hast technisches Geschick und Interesse an neuen technologischen Trends\n\n• Du arbeitest gerne im Team und kommunizierst offen und respektvoll.\n\n• Du interessierst dich für naturwissenschaftliche Fächer und möchtest dein Wissen weiter vertiefen\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Descrizione Starte am 1. August 2027 mit der vierjährigen ## Aufgaben • Du planst, bewirtschaftest und wartest physische wie auch virtuelle Serversysteme und ‑dienste • Du planst lokale Netzwerke (LAN), wählst geeignete Netzkomponenten aus, installierst und konfigurierst sie und überwachst den laufenden Betrieb • Du sorgst für die Sicherheit und Verfügbarkeit der Systeme und Dienste sowie für die Leistungsfähigkeit des gesamten Netzes • Du stellst sicher, dass Informationen geschützt sind und sicher übertragen werden können ## Anforderungen • Du bringst gute Schulnoten auf Sekundarstufe mit • Du analysierst gerne, denkst vernetzt und findest clevere Lösungen • Du hast technisches Geschick und Interesse an neuen technologischen Trends • Du arbeitest gerne im Team und kommunizierst offen und respektvoll. • Du interessierst dich für naturwissenschaftliche Fächer und möchtest dein Wissen weiter vertiefen Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
+        "it": "Descrizione Avviare il 1 agosto 2027 con i quattro anni ## Tasks • Pianifica, gestisci e mantieni sistemi e servizi di server fisici e virtuali • Pianifica reti locali (LAN), seleziona componenti di rete adatti, installali e configurali e monitora il funzionamento in corso • Sei responsabile per la sicurezza e la disponibilità di sistemi e servizi e per le prestazioni dell'intera rete • Assicurati che le informazioni siano protette e possano essere trasferite in modo sicuro ## Requisiti • Porti buone note scolastiche a livello secondario • Ti piace analizzare, pensare in rete e trovare soluzioni intelligenti • Hai competenze tecniche e interesse per le nuove tendenze tecnologiche • Ti piace lavorare nella squadra e comunicare apertamente e con rispetto. • Sei interessato a materie scientifiche e vuoi approfondire ulteriormente la tua conoscenza Puoi fare qualcosa che gli altri non possono? Fai la differenza? Allora appartieni a noi!",
+        "en": "Descrizione Start on August 1, 2027 with the four-year-old ## Tasks • You plan, manage and maintain physical and virtual server systems and services • You plan local networks (LAN), select suitable network components, install and configure them and monitor ongoing operation • You are responsible for the security and availability of systems and services and for the performance of the entire network • You make sure that information is protected and can be safely transferred ## Requirements • You bring good schoolnotes at secondary level • You like to analyze, think networked and find clever solutions • You have technical skills and interest in new technological trends • You like to work in the team and communicate openly and respectfully. • You are interested in science subjects and want to further deepen your knowledge You can do something that others cannot? You make the difference? Then you belong to us!",
+        "fr": "Descrizione Commencez le 1er août 2027 avec les tâches ## de quatre ans • Vous planifiez, gérez et maintenez les systèmes et services de serveurs physiques et virtuels • Vous planifiez les réseaux locaux (LAN), sélectionnez les composants de réseau appropriés, installez et configurez-les et surveillez le fonctionnement continu • Vous êtes responsable de la sécurité et de la disponibilité des systèmes et services et de la performance de l'ensemble du réseau • Vous assurez que l'information est protégée et peut être transférée en toute sécurité ## Exigences • Vous apportez de bonnes notes scolaires au niveau secondaire • Vous aimez analyser, penser en réseau et trouver des solutions intelligentes • Vous avez des compétences techniques et vous intéressez aux nouvelles tendances technologiques • Vous aimez travailler en équipe et communiquer ouvertement et respectueusement. • Vous êtes intéressé par des sujets scientifiques et souhaitez approfondir vos connaissances Tu peux faire quelque chose que les autres ne peuvent pas faire ? Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -436,7 +486,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -469,10 +518,16 @@
         "de": "berufslehre-ict-fachfrau-ict-fachmann-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre ICT-Fachfrau / ICT-Fachmann"
+        "de": "Berufslehre ICT-Fachfrau / ICT-Fachmann",
+        "it": "Specialista ICT professionale",
+        "en": "Professional ICT specialist",
+        "fr": "Spécialiste des TIC"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Du installierst PCs, Tablets und Mobiltelefone\n\n• Du bindest Peripheriegeräte wie Notebooks oder Drucker in unsere Netzinfrastruktur ein\n\n• Du unterstützt Benutzer:innen im Umgang mit ICT-Mitteln \n\n• Du durchleuchtest Probleme und findest in Zusammenarbeit mit anderen Fachpersonen Lösungen\n\n• Du priorisierst deine Aufgaben und arbeitest in Projekten mit\n\nAnforderungen:\n• Du bist eine kommunikative Person und interessierst dich für technische Angelegenheiten aller Art\n\n• Du arbeitest gerne im persönlichen Kontakt mit Menschen und fühlst dich in einem Team wohl\n\n• Dir gefällt es, deine Aufgaben selbständig zu koordinieren, zu organisieren und zu priorisieren\n\n• Du hast ein Flair für das Zusammenspiel zwischen Mensch und Technik, um professionelle Lösungen zu ermöglichen\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "## Descrizione\nStarte am 1. August 2027 mit der dreijährigen\n\n## Aufgaben\n- Du installierst PCs, Tablets und Mobiltelefone\n- Du bindest Peripheriegeräte wie Notebooks oder Drucker in unsere Netzinfrastruktur ein\n- Du unterstützt Benutzer:innen im Umgang mit ICT-Mitteln\n- Du durchleuchtest Probleme und findest in Zusammenarbeit mit anderen Fachpersonen Lösungen\n- Du priorisierst deine Aufgaben und arbeitest in Projekten mit\n\n## Anforderungen\n- Du bist eine kommunikative Person und interessierst dich für technische Angelegenheiten aller Art\n- Du arbeitest gerne im persönlichen Kontakt mit Menschen und fühlst dich in einem Team wohl\n- Dir gefällt es, deine Aufgaben selbständig zu koordinieren, zu organisieren und zu priorisieren\n- Du hast ein Flair für das Zusammenspiel zwischen Mensch und Technik, um professionelle Lösungen zu ermöglichen\n\n## Du kannst etwas, was andere nicht können?\n- Du machst den Unterschied aus?\n- Dann gehörst du zu uns!",
+        "it": "Descrizione Avviare su 1. agosto 2027 con i tre anni ## Tasks - Si installa PC, tablet e telefoni cellulari - Si integrano dispositivi periferici come notebook o stampanti nella nostra infrastruttura di rete - Sosteni gli utenti: nel trattare le risorse ICT - È possibile trovare problemi e trovare soluzioni in collaborazione con altri professionisti - Hai priorità i tuoi compiti e lavori in progetti con ## Requisiti - Sei una persona comunicativa e un Ti piace coordinare in modo indipendente, organizzare e dare priorità ai tuoi compiti - hai un tocco per l'interazione tra uomo e tecnologia per consentire soluzioni professionali ## Puoi fare qualcosa che gli altri non possono? - Allora appartieni a noi!",
+        "en": "Descrizione Start on 1. August 2027 with the three-year-old ## Tasks - You install PCs, tablets and mobile phones - You integrate peripheral devices such as notebooks or printers into our network infrastructure - You support users:in dealing with ICT resources - You can find problems and find solutions in cooperation with other professionals - You priority your tasks and work in projects with ## Requirements - You are a communicative person and an interesthet You like to independently coordinate, organize and prioritize your tasks - you have a flair for the interaction between man and technology to enable professional solutions ## You can do something that others can't? - Then you belong to us!",
+        "fr": "Descrizione Commencez sur 1. Août 2027 avec les tâches ## de trois ans - Vous installez des PC, des tablettes et des téléphones mobiles - Vous intégrez des périphériques tels que des ordinateurs portables ou des imprimantes dans notre infrastructure réseau - Vous aidez les utilisateurs:dans le traitement des ressources TIC - Vous pouvez trouver des problèmes et des solutions en coopération avec d'autres professionnels - Vous priorisez vos tâches et travaillez dans des projets avec ## Exigences - Vous êtes une personne communicative et un intérêt Vous aimez coordonner, organiser et prioriser vos tâches de façon indépendante - vous avez un flair pour l'interaction entre l'homme et la technologie pour permettre des solutions professionnelles ## Vous pouvez faire quelque chose que les autres ne peuvent pas? - Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -485,7 +540,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -515,13 +569,22 @@
       "crawledAt": "2026-05-04T11:09:50.180Z",
       "slug": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "berufslehre-kochin-koch-kantonsspital-graubunden-chur"
+        "de": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
+        "it": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
+        "en": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
+        "fr": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre Köchin / Koch"
+        "de": "Berufslehre Köchin / Koch",
+        "it": "Apprendistato come cuoco/a",
+        "en": "Apprenticeship as a Chef",
+        "fr": "Apprentissage de cuisinier/ère"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Du bereitest warme und kalte Speisen zu und präsentierst diese dekorativ\n\n• Du sorgst für das Wohlbefinden und die Zufriedenheit unserer Gäste\n\n• Du lernst, wie man aus hochwertigen saisonalen Lebensmittel schmackhafte Speisen zubereitet\n\nAnforderungen:\n• Du hast die obligatorische Schulzeit erfolgreich abgeschlossen\n\n• Du bringst Interesse am Kochen sowie ein Flair für den Umgang mit Lebensmitteln mit\n\n• Kreativität sowie ein ausgeprägter Geruchs- und Geschmackssinn erleichtern dir den Einstieg\n\n• Du bist bereit, eine fünftägige Schnupperlehre in unserem Betrieb zu absolvieren\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte am 1. August 2026 mit der dreijährigen Aufgaben: - Du bereitest warme und kalte Speisen zu und präsentierst diese dekorativ - Du sorgst für das Wohlbefinden und die Zufriedenheit unserer Gäste - Du lernst, wie man aus hochwertigen saisonalen Lebensmittel schmackhafte Speisen zubereitet Anforderungen: - Du hast die obligatorische Schulzeit erfolgreich abgeschlossen - Du bringst Interesse am Kochen sowie ein Flair für den Umgang mit Lebensmitteln mit - Kreativität sowie ein ausgeprägter Geruchs- und Geschmackssinn erleichtern dir den Einstieg - Du bist bereit, eine fünftägige Schnupperlehre in unserem Betrieb zu absolvieren Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
+        "it": "Inizia il 1° agosto 2026 con il tirocinio triennale. Compiti: - Prepari piatti caldi e freddi e li presenti in modo decorativo - Assicuri il benessere e la soddisfazione dei nostri ospiti - Imparerai a preparare piatti gustosi a partire da ingredienti stagionali di alta qualità Requisiti: - Hai completato con successo la scuola dell'obbligo - Mostri interesse per la cucina e una spiccata sensibilità nell'uso degli alimenti - La creatività e un olfatto e un gusto sviluppati faciliteranno il tuo ingresso - Sei disponibile a svolgere un tirocinio di cinque giorni presso la nostra struttura Sai fare qualcosa che gli altri non sanno fare? Fai la differenza? Allora fai parte della nostra squadra!",
+        "en": "Start on August 1, 2026 with the three-year apprenticeship. Tasks: - Prepare hot and cold dishes and present them decoratively - Ensure the well-being and satisfaction of our guests - Learn how to prepare delicious dishes from high-quality seasonal ingredients Requirements: - You have successfully completed compulsory schooling - You have an interest in cooking and a flair for working with food - Creativity and a keen sense of smell and taste will make it easier for you to get started - You are willing to complete a five-day trial apprenticeship in our company Can you do something others can't? Do you make a difference? Then you belong with us!",
+        "fr": "Commencez le 1er août 2026 avec l'apprentissage de trois ans. Tâches : - Préparez des plats chauds et froids et présentez-les de manière décorative - Assurez le bien-être et la satisfaction de nos clients - Apprenez à préparer des plats savoureux à partir d'ingrédients saisonniers de haute qualité Exigences : - Vous avez terminé avec succès votre scolarité obligatoire - Vous avez un intérêt pour la cuisine et un flair pour travailler avec les aliments - La créativité ainsi qu'un odorat et un goût développés faciliteront votre intégration - Vous êtes prêt(e) à effectuer un stage d'observation de cinq jours dans notre entreprise Savez-vous faire quelque chose que les autres ne savent pas faire ? Faites la différence ? Alors rejoignez-nous !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -534,12 +597,16 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-04T11:09:50.180Z"
+      "firstSeenAt": "2026-05-04T11:09:50.180Z",
+      "previousSlugs": [
+        "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
+        "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
+        "diet-chef-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10020267",
@@ -567,10 +634,16 @@
         "de": "berufslehre-kochin-koch-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
-        "de": "Berufslehre Köchin / Koch"
+        "de": "Berufslehre Köchin / Koch",
+        "it": "Cucina professionale / cuoco",
+        "en": "Professional cook / cook",
+        "fr": "Cuisinier professionnel / cuisinier"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n&shy;\n• Du bereitest warme und kalte Speisen zu und präsentierst diese dekorativ\n\n• Du sorgst für das Wohlbefinden und die Zufriedenheit unserer Gäste\n\n• Du lernst, wie man aus hochwertigen saisonalen Lebensmittel schmackhafte Speisen zubereitet\n\nAnforderungen:\n• Du hast die obligatorische Schulzeit erfolgreich abgeschlossen\n\n• Du bringst Interesse am Kochen sowie ein Flair für den Umgang mit Lebensmitteln mit\n\n• Kreativität sowie ein ausgeprägter Geruchs- und Geschmackssinn erleichtern dir den Einstieg\n\n• Du bist bereit, eine fünftägige Schnupperlehre in unserem Betrieb zu absolvieren\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "## Descrizione\nStarte am 1. August 2027 mit der dreijährigen\n\n## Aufgaben:\n- Du bereitest warme und kalte Speisen zu und präsentierst diese dekorativ\n- Du sorgst für das Wohlbefinden und die Zufriedenheit unserer Gäste\n- Du lernst, wie man aus hochwertigen saisonalen Lebensmittel schmackhafte Speisen zubereitet\n\n## Anforderungen:\n- Du hast die obligatorische Schulzeit erfolgreich abgeschlossen\n- Du bringst Interesse am Kochen sowie ein Flair für den Umgang mit Lebensmitteln mit\n- Kreativität sowie ein ausgeprägter Geruchs- und Geschmackssinn erleichtern dir den Einstieg\n- Du bist bereit, eine fünftägige Schnupperlehre in unserem Betrieb zu absolvieren\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Descrizione Avviare su 1. Agosto 2027 con il triennio ## Compiti: - Prepari piatti caldi e freddi e presenti questi decorativi - ti preoccupi per il benessere e la soddisfazione dei nostri ospiti - impari a preparare piatti gustosi da cibi stagionali di alta qualità ## Requisiti: - Hai completato con successo il periodo di scuola obbligatoria - sei interessato a cucinare e un flair per l'uso di cibo con - creatività e un odore pronunciato Si fa la differenza? Allora appartieni a noi!",
+        "en": "Descrizione Start on 1. August 2027 with the three-year-old ## Tasks: - You prepare warm and cold dishes and present these decorative - you care for the well-being and satisfaction of our guests - you learn how to prepare tasty dishes from high-quality seasonal foods ## Requirements: - You have successfully completed the compulsory schooling period - you are interested in cooking and a flair for the use of food with - creativity as well as a pronounced odour You make the difference? Then you belong to us!",
+        "fr": "Descrizione Commencez sur 1. Août 2027 avec les tâches ## de trois ans: - Vous préparez des plats chauds et froids et présentez ces décorations - vous vous souciez du bien-être et de la satisfaction de nos invités - vous apprenez à préparer des plats savoureux de haute qualité des aliments de saison ## Exigences: - Vous avez terminé avec succès la période de scolarité obligatoire - vous êtes intéressé par la cuisine et un flair pour l'utilisation des aliments avec - la créativité ainsi qu'une odeur prononcée Vous faites la différence? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -583,7 +656,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -616,10 +688,16 @@
         "de": "berufslehre-logistiker-in-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufslehre Logistiker:in"
+        "de": "Berufslehre Logistiker:in",
+        "it": "Apprendista Logistica",
+        "en": "Logistics Apprentice",
+        "fr": "Apprenti en Logistique"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Du nimmst Güter entgegen und kontrollierst diese\n\n• Du bewirtschaftest das Zentrallager sowie die KANBAN Lager auf den Stationen und Abteilungen\n\n• Du kommissionierst, verpackst und verteilst Materialien im Gebäude\n\nAnforderungen:\n• Du hast die obligatorische Schulzeit abgeschlossen\n\n• Du organisierst gerne, verfügst über praktisches Verständnis und handwerkliches Geschick\n\n• Du bist gesundheitlich fit sowie eine zuverlässige und verantwortungsbewusste Persönlichkeit\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Descrizione Starte am 1. August 2027 mit der dreijährigen ## Aufgaben • Du nimmst Güter entgegen und kontrollierst diese • Du bewirtschaftest das Zentrallager sowie die KANBAN Lager auf den Stationen und Abteilungen • Du kommissionierst, verpackst und verteilst Materialien im Gebäude ## Anforderungen • Du hast die obligatorische Schulzeit abgeschlossen • Du organisierst gerne, verfügst über praktisches Verständnis und handwerkliches Geschick • Du bist gesundheitlich fit sowie eine zuverlässige und verantwortungsbewusste Persönlichkeit Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
+        "it": "Descrizione Iniziare il 1 agosto 2027 con i tre anni ## Tasks • Prendere merci e controllarli • Gestisci il magazzino centrale e i magazzini KANBAN su stazioni e dipartimenti • Scegli, confeziona e distribuisci materiali nell'edificio ## Requisiti • Hai completato la scuola obbligatoria • Ti piace organizzare, avere comprensione pratica e artigianalità • Sei adatto per la salute e una personalità affidabile e responsabile Puoi fare qualcosa che gli altri non possono fare? Fai la differenza? Allora appartieni a noi!",
+        "en": "Descrizione Start on August 1, 2027 with the three-year ## Tasks • You take goods and control them • You manage the central warehouse as well as the KANBAN warehouses on stations and departments • You pick, pack and distribute materials in the building ## Requirements • You have completed compulsory schooling • You like to organize, have practical understanding and craftsmanship • You are fit for health and a reliable and responsible personality You can do something that others can't do? You make the difference? Then you belong to us!",
+        "fr": "Descrizione Commencez le 1er août 2027 avec les tâches ## de trois ans • Vous prenez des marchandises et les contrôlez • Vous gérez l'entrepôt central ainsi que les entrepôts KANBAN sur les stations et les départements • Vous choisissez, emballez et distribuez des matériaux dans le bâtiment ## Exigences • Vous avez terminé la scolarité obligatoire • Vous aimez organiser, avoir une compréhension pratique et de l'artisanat • Vous êtes apte à la santé et à une personnalité fiable et responsable Tu peux faire quelque chose que les autres ne peuvent pas faire ? Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -632,7 +710,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -1478,7 +1555,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -2872,7 +2948,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-interdisziplinares-ambulatorium-kantonsspital-graubunden-walenstadt"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3133,7 +3208,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5520,7 +5594,8 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
@@ -5588,7 +5663,6 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5913,7 +5987,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-o-fachexpertin-fachexperte-onkologiepflege-ambulant-kantonsspital-graubunden-chur"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6303,7 +6376,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6893,7 +6965,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,

@@ -1,57 +1,5 @@
 [
   {
-    "timestamp": "2026-04-20T05:50:46.268Z",
-    "label": "before",
-    "total": 2934,
-    "needsRetranslation": 31,
-    "incomplete": 22,
-    "complete": 2912,
-    "missingByLocale": {
-      "it": 21,
-      "en": 1,
-      "de": 21,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Prada Group",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-20T06:08:32.230Z",
-    "label": "after",
-    "total": 2934,
-    "needsRetranslation": 56,
-    "incomplete": 21,
-    "complete": 2913,
-    "missingByLocale": {
-      "it": 20,
-      "en": 1,
-      "de": 20,
-      "fr": 21
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-20T08:39:13.259Z",
     "label": "before",
     "total": 2869,
@@ -8519,6 +8467,118 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-04T11:53:50.594Z",
+    "label": "before",
+    "total": 2603,
+    "needsRetranslation": 1043,
+    "incomplete": 133,
+    "complete": 2470,
+    "missingByLocale": {
+      "it": 63,
+      "en": 106,
+      "de": 76,
+      "fr": 119
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "Kantonsspital Graubünden",
+        "pending": 13
+      },
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 7
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 7
+      },
+      {
+        "company": "Denner",
+        "pending": 6
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 4
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 3
+      },
+      {
+        "company": "Lonza",
+        "pending": 3
+      },
+      {
+        "company": "Genossenschaft Migros Ostschweiz",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-04T12:53:07.405Z",
+    "label": "after",
+    "total": 2603,
+    "needsRetranslation": 93,
+    "incomplete": 36,
+    "complete": 2567,
+    "missingByLocale": {
+      "it": 22,
+      "en": 18,
+      "de": 21,
+      "fr": 27
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 4
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 3
+      },
+      {
+        "company": "Lonza",
+        "pending": 3
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 2
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ariston Group",
         "pending": 1
       }
     ]
