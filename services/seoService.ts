@@ -3219,6 +3219,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-asta-villa-geno-como-400mila-euro': { name: 'Villa Geno asta', path: '/articoli-frontaliere/asta-villa-geno-como-400mila-euro', parent: 'blog' },
     'blog-mercato-agricolo-besozzo-superiore': { name: 'Mercato agricolo', path: '/articoli-frontaliere/mercato-agricolo-besozzo-superiore', parent: 'blog' },
     'blog-intelligenza-artificiale-robotica-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/intelligenza-artificiale-robotica-varese-2026', parent: 'blog' },
+    'blog-frontalieri-rifiuti-lac-lemano': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-rifiuti-lac-lemano', parent: 'blog' },
  };
 
  const info = sectionNames[section];

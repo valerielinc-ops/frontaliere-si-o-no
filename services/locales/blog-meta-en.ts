@@ -5930,6 +5930,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.intelligenza-artificiale-robotica-varese-2026.title': 'Confcommercio: AI and robotics conference in Varese',
     'blog.article.intelligenza-artificiale-robotica-varese-2026.excerpt': 'Artificial intelligence and advanced robotics enter SMEs, with case studies from VHIT Spa and opportunities for Varese-based companies.',
     'blog.article.intelligenza-artificiale-robotica-varese-2026.imageAlt': 'Humanoid robot Lumi in a modern office in Ticino',
+    'blog.article.frontalieri-rifiuti-lac-lemano.title': 'Over 2.5 tonnes of waste removed from Lake Geneva in two days',
+    'blog.article.frontalieri-rifiuti-lac-lemano.excerpt': 'The Net\'Léman initiative removed 2,592 kg of waste from Lake Geneva in two days, involving over 1,000 volunteers.',
+    'blog.article.frontalieri-rifiuti-lac-lemano.imageAlt': 'Aerial view of Lake Lugano with clear blue waters and surrounding mountains',
 };
 
 export default blogMetaEn;

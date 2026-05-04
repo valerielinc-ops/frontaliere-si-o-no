@@ -5930,6 +5930,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.intelligenza-artificiale-robotica-varese-2026.title': 'Confcommercio: Konferenz zu KI und Robotik in Varese',
     'blog.article.intelligenza-artificiale-robotica-varese-2026.excerpt': 'Künstliche Intelligenz und fortschrittliche Robotik dringen in KMUs ein, mit Fallstudien von VHIT Spa und Chancen für Unternehmen in Varese.',
     'blog.article.intelligenza-artificiale-robotica-varese-2026.imageAlt': 'Humanoider Roboter Lumi in einem modernen Büro in Ticino',
+    'blog.article.frontalieri-rifiuti-lac-lemano.title': 'Über 2,5 Tonnen Müll aus dem Genfersee geborgen',
+    'blog.article.frontalieri-rifiuti-lac-lemano.excerpt': 'Die Initiative Net\'Léman hat in zwei Tagen 2.592 kg Müll aus dem Genfersee entfernt und dabei über 1.000 Freiwillige mobilisiert.',
+    'blog.article.frontalieri-rifiuti-lac-lemano.imageAlt': 'Luftaufnahme des Luganersees mit klaren blauen Gewässern und umliegenden Bergen',
 };
 
 export default blogMetaDe;

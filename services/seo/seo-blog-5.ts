@@ -16931,6 +16931,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-rifiuti-lac-lemano': {
+    title: 'Dal Lemano pescati oltre 2,5 tonnellate di rifiuti in due giorni',
+    description: 'L\'iniziativa Net\'Léman ha rimosso 2.592 kg di rifiuti dal lago Lemano in due giorni, coinvolgendo oltre 1.000 volontari. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, lemano, pescati, oltre, tonnellate',
+    ogTitle: 'Dal Lemano pescati oltre 2,5 tonnellate di rifiuti in due giorni',
+    ogDescription: 'L\'iniziativa Net\'Léman ha rimosso 2.592 kg di rifiuti dal lago Lemano in due giorni, coinvolgendo oltre 1.000 volontari.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-rifiuti-lac-lemano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dal Lemano pescati oltre 2,5 tonnellate di rifiuti in due giorni",
+      "description": "L'iniziativa Net'Léman ha rimosso 2.592 kg di rifiuti dal lago Lemano in due giorni, coinvolgendo oltre 1.000 volontari. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-rifiuti-lac-lemano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con acque cristalline e montagne circostanti"
+      },
+      "datePublished": "2026-05-04T23:31:53+00:00",
+      "dateModified": "2026-05-04T23:31:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-rifiuti-lac-lemano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

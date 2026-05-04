@@ -5931,6 +5931,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.intelligenza-artificiale-robotica-varese-2026.title': 'Confcommercio: convegno su AI e robotica a Varese',
     'blog.article.intelligenza-artificiale-robotica-varese-2026.excerpt': 'L\'intelligenza artificiale e la robotica avanzata entrano nelle PMI, con casi studio di VHIT Spa e opportunità per le aziende varesine.',
     'blog.article.intelligenza-artificiale-robotica-varese-2026.imageAlt': 'Robot umanoide Lumi in un ufficio moderno in Ticino',
+    'blog.article.frontalieri-rifiuti-lac-lemano.title': 'Dal Lemano pescati oltre 2,5 tonnellate di rifiuti in due giorni',
+    'blog.article.frontalieri-rifiuti-lac-lemano.excerpt': 'L\'iniziativa Net\'Léman ha rimosso 2.592 kg di rifiuti dal lago Lemano in due giorni, coinvolgendo oltre 1.000 volontari.',
+    'blog.article.frontalieri-rifiuti-lac-lemano.imageAlt': 'Vista aerea del Lago di Lugano con acque cristalline e montagne circostanti',
 };
 
 export default blogMetaIt;
