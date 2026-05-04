@@ -3203,6 +3203,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-jashari-milan-bocciatura': { name: 'Novità', path: '/articoli-frontaliere/jashari-milan-bocciatura', parent: 'blog' },
     'blog-mendrisio-senso-citta-rossini-lorenzon': { name: 'Novità', path: '/articoli-frontaliere/mendrisio-senso-citta-rossini-lorenzon', parent: 'blog' },
     'blog-incendio-chiasso-operai-feriti': { name: 'Novità', path: '/articoli-frontaliere/incendio-chiasso-operai-feriti', parent: 'blog' },
+    'blog-luino-bilancio-2025-avanzo-26-milioni': { name: 'Bilancio Luino', path: '/articoli-frontaliere/luino-bilancio-2025-avanzo-26-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

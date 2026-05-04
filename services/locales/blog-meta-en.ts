@@ -5882,6 +5882,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-chiasso-operai-feriti.title': 'Fire in Chiasso: Injured Workers Evacuated',
     'blog.article.incendio-chiasso-operai-feriti.excerpt': 'A fire on the roof of a building in Chiasso caused injuries and the evacuation of about thirty people.',
     'blog.article.incendio-chiasso-operai-feriti.imageAlt': 'Fire on the roof of a building in Chiasso with firefighters in action',
+    'blog.article.luino-bilancio-2025-avanzo-26-milioni.title': 'Luino ends 2025 with a surplus of 2.6 million',
+    'blog.article.luino-bilancio-2025-avanzo-26-milioni.excerpt': 'The 2025 final budget of the municipality of Luino shows a surplus of 2.6 million euros, with revenues exceeding 31.5 million.',
+    'blog.article.luino-bilancio-2025-avanzo-26-milioni.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky, and boats on the water',
 };
 
 export default blogMetaEn;

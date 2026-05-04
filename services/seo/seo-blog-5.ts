@@ -16387,6 +16387,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luino-bilancio-2025-avanzo-26-milioni': {
+    title: 'Luino chiude il 2025 con un avanzo di 2,6 milioni | Frontaliere Ticino',
+    description: 'Il bilancio consuntivo 2025 del Comune di Luino mostra un avanzo di 2,6 milioni di euro, con entrate per oltre 31,5 milioni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, luino, chiude, 2025, avanzo',
+    ogTitle: 'Luino chiude il 2025 con un avanzo di 2,6 milioni',
+    ogDescription: 'Il bilancio consuntivo 2025 del Comune di Luino mostra un avanzo di 2,6 milioni di euro, con entrate per oltre 31,5 milioni.',
+    canonicalPath: '/articoli-frontaliere/luino-bilancio-2025-avanzo-26-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luino chiude il 2025 con un avanzo di 2,6 milioni",
+      "description": "Il bilancio consuntivo 2025 del Comune di Luino mostra un avanzo di 2,6 milioni di euro, con entrate per oltre 31,5 milioni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/luino-bilancio-2025-avanzo-26-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido e barche sull'acqua"
+      },
+      "datePublished": "2026-05-04T21:02:11+00:00",
+      "dateModified": "2026-05-04T21:02:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luino-bilancio-2025-avanzo-26-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

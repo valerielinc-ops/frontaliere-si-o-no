@@ -19019,4 +19019,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'luino-bilancio-2025-avanzo-26-milioni',
+ category: 'fiscale',
+ date: '2026-05-04T21:02:11.817Z',
+ image: '/images/blog/luino-bilancio-2025-avanzo-26-milioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
