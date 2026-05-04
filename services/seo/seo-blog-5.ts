@@ -11763,6 +11763,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-incontro-violenza-psicologica-disturbi-alimentari': {
+    title: 'Varese: incontro su violenza psicologica e disturbi alimentari',
+    description: 'Venerdì 8 maggio a Varese un evento per riflettere sul legame tra maltrattamento psicologico e disagio alimentare. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, incontro, violenza, psicologica',
+    ogTitle: 'Varese: incontro su violenza psicologica e disturbi alimentari',
+    ogDescription: 'Venerdì 8 maggio a Varese un evento per riflettere sul legame tra maltrattamento psicologico e disagio alimentare.',
+    canonicalPath: '/articoli-frontaliere/varese-incontro-violenza-psicologica-disturbi-alimentari',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: incontro su violenza psicologica e disturbi alimentari",
+      "description": "Venerdì 8 maggio a Varese un evento per riflettere sul legame tra maltrattamento psicologico e disagio alimentare. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-incontro-violenza-psicologica-disturbi-alimentari.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di persone partecipa a un incontro pubblico a Varese, Italia, per discutere di salute mentale e disturbi alimentari."
+      },
+      "datePublished": "2026-05-04T00:32:05+00:00",
+      "dateModified": "2026-05-04T00:32:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-incontro-violenza-psicologica-disturbi-alimentari`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

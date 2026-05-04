@@ -5475,6 +5475,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-napoli-pareggio-2026.title': 'Como-Napoli 0-0 : Nico Paz brille, mais Douvikas et Diao ratent',
     'blog.article.como-napoli-pareggio-2026.excerpt': 'Le Como fait match nul 0-0 contre Naples. Nico Paz est le meilleur sur le terrain, mais Douvikas et Diao ratent des occasions de but.',
     'blog.article.como-napoli-pareggio-2026.imageAlt': 'Stade Sinigaglia à Côme pendant un match de football',
+    'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.title': 'Varèse: rencontre sur la violence psychologique et les troubles alimentaires',
+    'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.excerpt': 'Vendredi 8 mai à Varèse, un événement pour réfléchir au lien entre maltraitance psychologique et trouble alimentaire.',
+    'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.imageAlt': 'Un groupe de personnes assiste à une réunion publique à Varese, en Italie, pour discuter de la santé mentale et des troubles alimentaires.',
 };
 
 export default blogMetaFr;

@@ -3067,6 +3067,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ingorgo-taxi-boat-como-2026': { name: 'Novità', path: '/articoli-frontaliere/ingorgo-taxi-boat-como-2026', parent: 'blog' },
     'blog-controlli-cantu-movida-nero-2026': { name: 'Novità', path: '/articoli-frontaliere/controlli-cantu-movida-nero-2026', parent: 'blog' },
     'blog-como-napoli-pareggio-2026': { name: 'Como-Napoli 2026', path: '/articoli-frontaliere/como-napoli-pareggio-2026', parent: 'blog' },
+    'blog-varese-incontro-violenza-psicologica-disturbi-alimentari': { name: 'Incontro Varese', path: '/articoli-frontaliere/varese-incontro-violenza-psicologica-disturbi-alimentari', parent: 'blog' },
  };
 
  const info = sectionNames[section];

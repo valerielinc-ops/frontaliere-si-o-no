@@ -17795,4 +17795,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-incontro-violenza-psicologica-disturbi-alimentari',
+ category: 'novita',
+ date: '2026-05-04T00:32:05.789Z',
+ image: '/images/blog/varese-incontro-violenza-psicologica-disturbi-alimentari.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
