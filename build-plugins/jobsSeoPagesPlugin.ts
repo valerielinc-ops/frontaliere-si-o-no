@@ -7512,7 +7512,15 @@ ${hreflangLinks}
  const previousSlugWinners: PreviousSlugWinnersFile = loadWinners(previousSlugWinnersPath);
  const previousSlugWinnersBefore = JSON.stringify(previousSlugWinners);
  const winnerByPrevSlugKey = new Map<string, string>(); // key → winner jobIdentifier
- const nowIso = new Date().toISOString();
+ // Day-quantized timestamp. With millisecond precision the previous-slug
+ // winners registry's `lastSeenAt` field churned on every deploy, producing
+ // ~96 commits/day to data/previous-slug-winners.json (one per article-cron
+ // deploy) — pure noise that invalidated jobs-seo-pages cache and bloated
+ // git history. Quantizing to UTC midnight means the file only changes
+ // once per day (when crossing the day boundary refreshes lastSeenAt for
+ // every active entry). pruneStaleWinners uses a 30+ day threshold so the
+ // day-level granularity is more than fine.
+ const nowIso = new Date().toISOString().slice(0, 10) + 'T00:00:00.000Z';
  let multiClaimantKeys = 0;
  for (const [key, candidates] of previousSlugClaimants) {
  const [locale, oldSlug] = key.split('::', 2);
