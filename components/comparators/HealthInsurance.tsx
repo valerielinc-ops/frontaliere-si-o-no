@@ -4,6 +4,7 @@ import { Heart, Shield, AlertCircle, Info, ChevronDown, ChevronUp, TrendingDown,
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
+import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -52,6 +53,14 @@ const FRANCHISE_ADJUSTMENT: Record<number, number> = {
 
 const AGE_MULTIPLIER: Record<AgeGroup, number> = {
  '0-18': 0.25, '19-25': 0.75, '26+': 1.0,
+};
+
+const insurerDomain = (website: string): string | undefined => {
+ try {
+   return website ? new URL(website).hostname.replace(/^www\./, '') : undefined;
+ } catch {
+   return undefined;
+ }
 };
 
 const ACCIDENT_ADDITION = 0.07;
@@ -332,14 +341,24 @@ const HealthInsurance: React.FC = () => {
  <span className="text-xs font-bold uppercase tracking-wider">{'Più economica'}</span>
  </div>
  <p className="text-2xl font-bold text-strong">{cheapest.premium.toFixed(2)} CHF</p>
+ <div className="flex items-center gap-1.5 mt-0.5">
+ {cheapest.insurer.website && (
+ <ProviderLogo
+ domain={insurerDomain(cheapest.insurer.website)}
+ name={cheapest.insurer.name}
+ size={20}
+ className="rounded object-contain"
+ />
+ )}
  <p className="text-sm text-muted">{cheapest.insurer.name} /mese</p>
+ </div>
  </div>
  <div className="bg-accent-subtle rounded-xl p-5 border border-accent-border">
  <div className="flex items-center gap-2 text-accent mb-1">
  <Award size={16} />
  <span className="text-xs font-bold uppercase tracking-wider">Miglior rapporto</span>
  </div>
- {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-bold text-strong">{bv.premium.toFixed(2)} CHF</p><p className="text-sm text-muted">{bv.insurer.name}</p></>) : null; })()}
+ {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-bold text-strong">{bv.premium.toFixed(2)} CHF</p><div className="flex items-center gap-1.5 mt-0.5">{bv.insurer.website && (<ProviderLogo domain={insurerDomain(bv.insurer.website)} name={bv.insurer.name} size={20} className="rounded object-contain" />)}<p className="text-sm text-muted">{bv.insurer.name}</p></div></>) : null; })()}
  </div>
  <div className="bg-surface-alt/50 rounded-xl p-5 border border-edge">
  <div className="flex items-center gap-2 text-muted mb-1">
@@ -386,6 +405,14 @@ const HealthInsurance: React.FC = () => {
  </div>
  <div className="flex-1 min-w-0">
  <div className="flex items-center gap-2 flex-wrap">
+ {result.insurer.website && (
+ <ProviderLogo
+ domain={insurerDomain(result.insurer.website)}
+ name={result.insurer.name}
+ size={20}
+ className="rounded object-contain flex-shrink-0"
+ />
+ )}
  <h3 className="font-bold text-strong">{result.insurer.name}</h3>
  {result.isBestPrice && (
  <span className="px-2 py-0.5 bg-success-subtle text-success text-xs font-bold uppercase rounded-full">Migliore prezzo</span>)}
