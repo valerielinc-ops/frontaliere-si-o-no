@@ -5852,6 +5852,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.neutralizzazione-stime-immobiliari-2026.title': 'Neutralizing property valuations: a lifetime\'s sacrifices',
     'blog.article.neutralizzazione-stime-immobiliari-2026.excerpt': 'Popular initiative to neutralize property valuations in Ticino. Implications for cross-border workers and the local economy.',
     'blog.article.neutralizzazione-stime-immobiliari-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.title': 'Why Ticino votes YES on property tax adjustments',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.excerpt': '430 million francs at stake: Ticino decides whether to automatically adjust taxes or leave it to the Grand Council',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.imageAlt': 'View of Lake Lugano with the city of Lugano in the background',
 };
 
 export default blogMetaEn;

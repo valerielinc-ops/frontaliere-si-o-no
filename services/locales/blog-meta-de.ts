@@ -5852,6 +5852,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.neutralizzazione-stime-immobiliari-2026.title': 'Immobilienbewertungen neutralisieren: Lebenswerk schützen',
     'blog.article.neutralizzazione-stime-immobiliari-2026.excerpt': 'Volksinitiative zur Neutralisierung der Immobilienbewertungen im Tessin. Auswirkungen auf Grenzgänger und die lokale Wirtschaft.',
     'blog.article.neutralizzazione-stime-immobiliari-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.title': 'Immobilienbewertung: Warum der Tessin Ja sagt',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.excerpt': '430 Millionen Franken pro Jahr im Spiel: Der Tessin entscheidet, ob die Steuern automatisch angepasst werden oder die Wahl dem Grossen Rat überlassen bleibt',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

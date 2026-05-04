@@ -5853,6 +5853,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.neutralizzazione-stime-immobiliari-2026.title': 'Neutralizzazione stime immobiliari: difesa dei sacrifici di una vita',
     'blog.article.neutralizzazione-stime-immobiliari-2026.excerpt': 'Iniziativa popolare per neutralizzare le stime immobiliari in Ticino. Implicazioni per i frontalieri e l\'economia locale.',
     'blog.article.neutralizzazione-stime-immobiliari-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.title': 'Neutralizzazione stime immobiliari: perché il Ticino vota SÌ',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.excerpt': '430 milioni di franchi annui in gioco: il Ticino decide se adeguare automaticamente le imposte o lasciare la scelta al Gran Consiglio',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.imageAlt': 'Vista del lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -18929,4 +18929,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'neutralizzazione-stime-immobiliari-2026-ticino',
+ category: 'fiscale',
+ date: '2026-05-04T19:39:39.020Z',
+ image: '/images/blog/neutralizzazione-stime-immobiliari-2026-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

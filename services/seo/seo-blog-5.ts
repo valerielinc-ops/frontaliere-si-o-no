@@ -16047,6 +16047,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neutralizzazione-stime-immobiliari-2026-ticino': {
+    title: 'Neutralizzazione stime immobiliari: perché il Ticino vota SÌ',
+    description: '430 milioni di franchi annui in gioco: il Ticino decide se adeguare automaticamente le imposte o lasciare la scelta al Gran Consiglio. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralizzazione, stime, immobiliari, perché',
+    ogTitle: 'Neutralizzazione stime immobiliari: perché il Ticino vota SÌ',
+    ogDescription: '430 milioni di franchi annui in gioco: il Ticino decide se adeguare automaticamente le imposte o lasciare la scelta al Gran Consiglio',
+    canonicalPath: '/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralizzazione stime immobiliari: perché il Ticino vota SÌ",
+      "description": "430 milioni di franchi annui in gioco: il Ticino decide se adeguare automaticamente le imposte o lasciare la scelta al Gran Consiglio. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/neutralizzazione-stime-immobiliari-2026-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-04T19:39:39+00:00",
+      "dateModified": "2026-05-04T19:39:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5853,6 +5853,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.neutralizzazione-stime-immobiliari-2026.title': 'Neutralisation des estimations immobilières: défense des sacrifices d\'une vie',
     'blog.article.neutralizzazione-stime-immobiliari-2026.excerpt': 'Initiative populaire pour neutraliser les estimations immobilières au Tessin. Implications pour les frontaliers et l\'économie locale.',
     'blog.article.neutralizzazione-stime-immobiliari-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.title': 'Neutralisation des estimations immobilières: pourquoi le Tessin vote OUI',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.excerpt': '430 millions de francs annuels en jeu: le Tessin décide s\'il faut adapter automatiquement les impôts ou laisser le choix au Grand Conseil',
+    'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
