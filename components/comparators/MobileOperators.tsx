@@ -1,6 +1,7 @@
 import React, { useState, useMemo, Suspense } from 'react';
 import { Smartphone, Wifi, Phone, MessageSquare, AlertCircle, CheckCircle2, Info, Euro, Globe } from 'lucide-react';
 import Callout from '@/components/shared/Callout';
+import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -11,7 +12,7 @@ import DataFreshness from '@/components/shared/DataFreshness';
 
 interface MobileOperator {
  name: string;
- logo: string;
+ slug: string;
  country: 'IT' | 'CH';
  monthlyCost: number;
  dataGB: number | string; // number or"illimitati"
@@ -46,7 +47,7 @@ const operators: MobileOperator[] = [
  // Italian Operators
  {
  name: 'Iliad',
- logo: '🇮🇹',
+ slug: 'iliad',
  country: 'IT',
  monthlyCost: 9.99,
  dataGB: 200,
@@ -66,7 +67,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'ho. Mobile',
- logo: '🟢',
+ slug: 'ho-mobile',
  country: 'IT',
  monthlyCost: 4.95,
  dataGB: 100,
@@ -86,7 +87,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'Vodafone',
- logo: '🔴',
+ slug: 'vodafone-it',
  country: 'IT',
  monthlyCost: 9.99,
  dataGB: 100,
@@ -105,7 +106,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'TIM',
- logo: '🔵',
+ slug: 'tim',
  country: 'IT',
  monthlyCost: 14.99,
  dataGB: 100,
@@ -125,7 +126,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'WindTre',
- logo: '🟠',
+ slug: 'windtre',
  country: 'IT',
  monthlyCost: 14.99,
  dataGB: 'illimitati',
@@ -144,7 +145,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'Very Mobile',
- logo: '🟣',
+ slug: 'very-mobile',
  country: 'IT',
  monthlyCost: 6.99,
  dataGB: 200,
@@ -164,7 +165,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'Fastweb Mobile',
- logo: '⚡',
+ slug: 'fastweb-mobile',
  country: 'IT',
  monthlyCost: 7.95,
  dataGB: 150,
@@ -185,7 +186,7 @@ const operators: MobileOperator[] = [
  // Swiss Operators
  {
  name: 'Swisscom blue M',
- logo: '🇨🇭',
+ slug: 'swisscom',
  country: 'CH',
  monthlyCost: 79.90,
  dataGB: 'illimitati',
@@ -204,7 +205,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'Salt Travel',
- logo: '🧂',
+ slug: 'salt',
  country: 'CH',
  monthlyCost: 29.95,
  dataGB: 'illimitati',
@@ -223,7 +224,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'Salt Swiss Max',
- logo: '🧂',
+ slug: 'salt',
  country: 'CH',
  monthlyCost: 26.95,
  dataGB: 'illimitati',
@@ -242,7 +243,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'Sunrise',
- logo: '🌅',
+ slug: 'sunrise',
  country: 'CH',
  monthlyCost: 39.90,
  dataGB: 'illimitati',
@@ -261,7 +262,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'Yallo Europe',
- logo: '💛',
+ slug: 'yallo',
  country: 'CH',
  monthlyCost: 27.90,
  dataGB: 'illimitati',
@@ -280,7 +281,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'Wingo',
- logo: '🪽',
+ slug: 'wingo',
  country: 'CH',
  monthlyCost: 25.00,
  dataGB: 40,
@@ -299,7 +300,7 @@ const operators: MobileOperator[] = [
  },
  {
  name: 'Aldi Mobile CH',
- logo: '🛒',
+ slug: 'aldi-mobile-ch',
  country: 'CH',
  monthlyCost: 17.95,
  dataGB: 15,
@@ -527,8 +528,8 @@ const MobileOperators: React.FC = () => {
 
  <div className="flex items-start justify-between gap-4 mb-4">
  <div className="flex items-center gap-3">
- <div className={`text-4xl p-3 bg-gradient-to-br ${operator.color} rounded-2xl`}>
- {operator.logo}
+ <div className={`p-3 bg-gradient-to-br ${operator.color} rounded-2xl flex items-center justify-center`}>
+ <ProviderLogo slug={operator.slug} name={operator.name} size={28} />
  </div>
  <div>
  <h3 className="text-xl font-bold font-display text-strong">{operator.name}</h3>
