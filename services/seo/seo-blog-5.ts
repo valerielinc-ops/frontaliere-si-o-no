@@ -12715,6 +12715,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-riazzino-ciclista-condanna': {
+    title: 'Condanna per omicidio colposo: 6 mesi per il camionista',
+    description: 'Il camionista che investì un ciclista a Riazzino nel gennaio 2025 è stato condannato a 6 mesi per omicidio colposo. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, condanna, omicidio, colposo, mesi',
+    ogTitle: 'Condanna per omicidio colposo: 6 mesi per il camionista',
+    ogDescription: 'Il camionista che investì un ciclista a Riazzino nel gennaio 2025 è stato condannato a 6 mesi per omicidio colposo.',
+    canonicalPath: '/articoli-frontaliere/incidente-riazzino-ciclista-condanna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Condanna per omicidio colposo: 6 mesi per il camionista",
+      "description": "Il camionista che investì un ciclista a Riazzino nel gennaio 2025 è stato condannato a 6 mesi per omicidio colposo. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-riazzino-ciclista-condanna.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale a Riazzino con un ciclista e un camion"
+      },
+      "datePublished": "2026-05-04T04:19:55+00:00",
+      "dateModified": "2026-05-04T04:19:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-riazzino-ciclista-condanna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

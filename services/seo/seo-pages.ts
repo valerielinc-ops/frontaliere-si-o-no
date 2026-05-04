@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1905,
+ "numberOfItems": 1906,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6543,7 +6543,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1902, "name": "Hantavirus su nave, 3 morti nell'Atlantico", "url": `${BASE_URL}/articoli-frontaliere/tre-morti-hantavirus-nave-atlantico` },
           { "@type": "ListItem", "position": 1903, "name": "Juve pareggia 1-1 con il Verona già retrocesso", "url": `${BASE_URL}/articoli-frontaliere/juve-verona-1-1-frontalieri-2026` },
           { "@type": "ListItem", "position": 1904, "name": "Immigrazione: perché la Svizzera è un modello d...", "url": `${BASE_URL}/articoli-frontaliere/immigrazione-modello-svizzera-2026` },
-          { "@type": "ListItem", "position": 1905, "name": "Addio Csoa Il Molino: inizia la rimozione delle...", "url": `${BASE_URL}/articoli-frontaliere/csoa-molino-rimozione-macerie-lugano` }
+          { "@type": "ListItem", "position": 1905, "name": "Addio Csoa Il Molino: inizia la rimozione delle...", "url": `${BASE_URL}/articoli-frontaliere/csoa-molino-rimozione-macerie-lugano` },
+          { "@type": "ListItem", "position": 1906, "name": "Condanna per omicidio colposo: 6 mesi per il ca...", "url": `${BASE_URL}/articoli-frontaliere/incidente-riazzino-ciclista-condanna` }
  ]
  },
  {

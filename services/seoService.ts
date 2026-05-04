@@ -3095,6 +3095,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-juve-verona-1-1-frontalieri-2026': { name: 'Calcio e Frontalieri', path: '/articoli-frontaliere/juve-verona-1-1-frontalieri-2026', parent: 'blog' },
     'blog-immigrazione-modello-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/immigrazione-modello-svizzera-2026', parent: 'blog' },
     'blog-csoa-molino-rimozione-macerie-lugano': { name: 'Novità', path: '/articoli-frontaliere/csoa-molino-rimozione-macerie-lugano', parent: 'blog' },
+    'blog-incidente-riazzino-ciclista-condanna': { name: 'Novità', path: '/articoli-frontaliere/incidente-riazzino-ciclista-condanna', parent: 'blog' },
  };
 
  const info = sectionNames[section];

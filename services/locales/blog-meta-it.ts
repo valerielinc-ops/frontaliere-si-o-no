@@ -5559,6 +5559,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.csoa-molino-rimozione-macerie-lugano.title': 'Addio Csoa Il Molino: inizia la rimozione delle macerie',
     'blog.article.csoa-molino-rimozione-macerie-lugano.excerpt': 'La Città di Lugano avvia i lavori di riqualificazione dell\'area dell\'ex Macello. Durata stimata tra un mese e mezzo e due mesi.',
     'blog.article.csoa-molino-rimozione-macerie-lugano.imageAlt': 'Lac de Lugano con montagne sullo sfondo',
+    'blog.article.incidente-riazzino-ciclista-condanna.title': 'Condanna per omicidio colposo: 6 mesi per il camionista',
+    'blog.article.incidente-riazzino-ciclista-condanna.excerpt': 'Il camionista che investì un ciclista a Riazzino nel gennaio 2025 è stato condannato a 6 mesi per omicidio colposo.',
+    'blog.article.incidente-riazzino-ciclista-condanna.imageAlt': 'Incidente stradale a Riazzino con un ciclista e un camion',
 };
 
 export default blogMetaIt;

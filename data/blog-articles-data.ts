@@ -18047,4 +18047,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-riazzino-ciclista-condanna',
+ category: 'novita',
+ date: '2026-05-04T04:19:55.062Z',
+ image: '/images/blog/incidente-riazzino-ciclista-condanna.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

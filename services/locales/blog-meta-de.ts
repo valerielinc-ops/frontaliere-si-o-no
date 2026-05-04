@@ -5558,6 +5558,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.csoa-molino-rimozione-macerie-lugano.title': 'Auf Wiedersehen Csoa Il Molino: Abriss beginnt',
     'blog.article.csoa-molino-rimozione-macerie-lugano.excerpt': 'Die Stadt Lugano beginnt mit der Sanierung des ehemaligen Schlachthofgebiets. Die Arbeiten dauern voraussichtlich zwischen eineinhalb und zwei Monaten.',
     'blog.article.csoa-molino-rimozione-macerie-lugano.imageAlt': 'Luganersee mit Bergen im Hintergrund',
+    'blog.article.incidente-riazzino-ciclista-condanna.title': '6 Monate Haft für LKW-Fahrer nach tödlichem Unfall',
+    'blog.article.incidente-riazzino-ciclista-condanna.excerpt': 'Der LKW-Fahrer, der im Januar 2025 in Riazzino einen Radfahrer überfuhr, wurde zu 6 Monaten Haft wegen fahrlässiger Tötung verurteilt.',
+    'blog.article.incidente-riazzino-ciclista-condanna.imageAlt': 'Straßenunfall in Riazzino mit einem Radfahrer und einem Lkw',
 };
 
 export default blogMetaDe;

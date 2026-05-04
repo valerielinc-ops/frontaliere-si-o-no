@@ -5558,6 +5558,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.csoa-molino-rimozione-macerie-lugano.title': 'Farewell to Csoa Il Molino: debris removal begins',
     'blog.article.csoa-molino-rimozione-macerie-lugano.excerpt': 'The City of Lugano starts the redevelopment work of the former slaughterhouse area. Estimated duration between one and a half and two months.',
     'blog.article.csoa-molino-rimozione-macerie-lugano.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.incidente-riazzino-ciclista-condanna.title': '6 months for truck driver in fatal Riazzino cycling accident',
+    'blog.article.incidente-riazzino-ciclista-condanna.excerpt': 'The truck driver who struck and killed a cyclist in Riazzino in January 2025 has been sentenced to 6 months for negligent homicide.',
+    'blog.article.incidente-riazzino-ciclista-condanna.imageAlt': 'Road accident in Riazzino with a cyclist and a truck',
 };
 
 export default blogMetaEn;
