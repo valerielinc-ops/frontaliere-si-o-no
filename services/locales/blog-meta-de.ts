@@ -5723,6 +5723,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parco-biumo-inaugurazione-2026.title': 'Einweihung Park Biumo: Samstag, 9. Mai',
     'blog.article.parco-biumo-inaugurazione-2026.excerpt': 'Neuer Freizeitbereich mit Basketballfeld, Tischtennis und Teqball. Eröffnung um 15 Uhr mit Turnieren und Musik',
     'blog.article.parco-biumo-inaugurazione-2026.imageAlt': 'Luftaufnahme des neuen Parks in Biumo mit Menschen, die spielen und sich unterhalten',
+    'blog.article.parcheggi-blu-como-residenti.title': 'Blaue Parkplätze in Como: Anwohner betrogen, Straßen leer trotz Versprechen',
+    'blog.article.parcheggi-blu-como-residenti.excerpt': 'Die blauen Parkplätze in der Comoer Innenstadt, aus der Reform für Anwohner ausgeschlossen, bleiben leer. Die Gemeinderätin Paola Ceriello denunziert die Situation.',
+    'blog.article.parcheggi-blu-como-residenti.imageAlt': 'Luftaufnahme des Como Stadtzentrums mit leeren blauen Parkplätzen und Einwohnern',
 };
 
 export default blogMetaDe;

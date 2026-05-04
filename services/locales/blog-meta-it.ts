@@ -5724,6 +5724,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parco-biumo-inaugurazione-2026.title': 'Inaugurazione parco Biumo: sabato 9 maggio',
     'blog.article.parco-biumo-inaugurazione-2026.excerpt': 'Nuovo spazio attrezzato con campo da basket, pingpong e teqball. Taglio del nastro alle 15 con tornei e musica',
     'blog.article.parco-biumo-inaugurazione-2026.imageAlt': 'Vista aerea del nuovo parco di Biumo con persone che giocano e socializzano',
+    'blog.article.parcheggi-blu-como-residenti.title': 'Parcheggi blu a Como: residenti beffati, vie vuote nonostante le promesse',
+    'blog.article.parcheggi-blu-como-residenti.excerpt': 'I parcheggi blu a Como centro, esclusi dalla riforma per i residenti, restano vuoti. La consigliera Paola Ceriello denuncia la situazione.',
+    'blog.article.parcheggi-blu-como-residenti.imageAlt': 'Vista aerea del centro di Como con parcheggi blu vuoti e residenti',
 };
 
 export default blogMetaIt;

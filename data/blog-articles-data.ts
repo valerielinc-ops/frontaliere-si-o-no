@@ -18542,4 +18542,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'parcheggi-blu-como-residenti',
+ category: 'pratico',
+ date: '2026-05-04T11:22:36.970Z',
+ image: '/images/blog/parcheggi-blu-como-residenti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

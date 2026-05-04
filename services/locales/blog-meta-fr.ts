@@ -5724,6 +5724,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parco-biumo-inaugurazione-2026.title': 'Inauguration du parc Biumo: samedi 9 mai',
     'blog.article.parco-biumo-inaugurazione-2026.excerpt': 'Nouvel espace équipé avec terrain de basket, ping-pong et teqball. Cérémonie d\'ouverture à 15h avec tournois et musique',
     'blog.article.parco-biumo-inaugurazione-2026.imageAlt': 'Vue aérienne du nouveau parc de Biumo avec des personnes jouant et socialisant',
+    'blog.article.parcheggi-blu-como-residenti.title': 'Parkings bleus à Côme : résidents bernés, rues vides malgré les promesses',
+    'blog.article.parcheggi-blu-como-residenti.excerpt': 'Les parkings bleus à Côme centre, exclus de la réforme pour les résidents, restent vides. La conseillère Paola Ceriello dénonce la situation.',
+    'blog.article.parcheggi-blu-como-residenti.imageAlt': 'Vue aérienne du centre-ville de Côme avec des places de parking bleues vides et des résidents',
 };
 
 export default blogMetaFr;
