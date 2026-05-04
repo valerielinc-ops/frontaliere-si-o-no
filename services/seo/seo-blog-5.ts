@@ -14483,6 +14483,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-questore-varese-sicurezza-frontalieri-2026': {
+    title: 'Nuovo questore di Varese: priorità a truffe, furti e rapine',
+    description: 'Paolo Iodice si presenta come nuovo questore di Varese, con focus su sicurezza e lotta alla criminalità transfrontaliera. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, questore, varese, priorità',
+    ogTitle: 'Nuovo questore Varese: priorità a truffe, furti e rapine',
+    ogDescription: 'Paolo Iodice si presenta come nuovo questore di Varese, con focus su sicurezza e lotta alla criminalità transfrontaliera',
+    canonicalPath: '/articoli-frontaliere/nuovo-questore-varese-sicurezza-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo questore di Varese: priorità a truffe, furti e rapine",
+      "description": "Paolo Iodice si presenta come nuovo questore di Varese, con focus su sicurezza e lotta alla criminalità transfrontaliera. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-questore-varese-sicurezza-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confine italo-svizzero con il Castello di Bellinzona in lontananza"
+      },
+      "datePublished": "2026-05-04T10:55:40+00:00",
+      "dateModified": "2026-05-04T10:55:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-questore-varese-sicurezza-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

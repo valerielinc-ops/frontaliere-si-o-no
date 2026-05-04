@@ -5715,6 +5715,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri.title': 'Paolo Iodice, nouveau questeur de Varèse',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri.excerpt': 'Paolo Iodice est le nouveau questeur de Varèse. Voici ce qui change pour la sécurité et les frontaliers.',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri.imageAlt': 'Vue aérienne de Bellinzone, Tessin, Suisse, avec ses trois châteaux et les montagnes environnantes.',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.title': 'Nouveau questeur de Varèse: priorité aux fraudes, vols et hold-up',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.excerpt': 'Paolo Iodice se présente comme nouveau questeur de Varèse, avec un focus sur la sécurité et la lutte contre la criminalité transfrontalière',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.imageAlt': 'Frontière italo-suisse avec le château de Bellinzona au loin',
 };
 
 export default blogMetaFr;

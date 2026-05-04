@@ -5715,6 +5715,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri.title': 'Paolo Iodice nuovo questore di Varese: sicurezza e continuità per il territorio',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri.excerpt': 'Paolo Iodice è il nuovo questore di Varese. Ecco cosa cambia per la sicurezza e i frontalieri.',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri.imageAlt': 'Vista aerea di Bellinzona, Ticino, Svizzera, con i suoi tre castelli e le montagne circostanti.',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.title': 'Nuovo questore di Varese: priorità a truffe, furti e rapine',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.excerpt': 'Paolo Iodice si presenta come nuovo questore di Varese, con focus su sicurezza e lotta alla criminalità transfrontaliera',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.imageAlt': 'Confine italo-svizzero con il Castello di Bellinzona in lontananza',
 };
 
 export default blogMetaIt;

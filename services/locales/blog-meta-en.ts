@@ -5714,6 +5714,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri.title': 'Paolo Iodice new Varese police chief: security and continuity for the area',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri.excerpt': 'Paolo Iodice is the new Varese police chief. Here\'s what changes for security and cross-border workers.',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri.imageAlt': 'Aerial view of Bellinzona, Ticino, Switzerland, with its three castles and the surrounding mountains.',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.title': 'New Varese police chief targets fraud, theft, and robbery',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.excerpt': 'Paolo Iodice introduces himself as the new Varese police chief, focusing on security and combating cross-border crime',
+    'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.imageAlt': 'Italian-Swiss border with Bellinzona Castle in the distance',
 };
 
 export default blogMetaEn;

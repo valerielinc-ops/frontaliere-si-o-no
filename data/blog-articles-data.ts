@@ -18515,4 +18515,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuovo-questore-varese-sicurezza-frontalieri-2026',
+ category: 'novita',
+ date: '2026-05-04T10:55:40.007Z',
+ image: '/images/blog/nuovo-questore-varese-sicurezza-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
