@@ -135,4 +135,33 @@ describe('reportCaughtError', () => {
     expect(warnSpy).toHaveBeenCalledWith('[console.test]', err);
     warnSpy.mockRestore();
   });
+
+  describe('benign noise filter', () => {
+    it.each([
+      'Failed to load Google Identity Services',
+      'ResizeObserver loop completed with undelivered notifications.',
+      'Script error.',
+      'Failed to get document because the client is offline.',
+      'TypeError: Importing a module script failed.',
+    ])('drops noise pattern: %s', (msg) => {
+      reportCaughtError(new Error(msg), 'noise.test');
+      expect(Analytics.trackAppError).not.toHaveBeenCalled();
+    });
+
+    it('still reports messages that do not match noise patterns', () => {
+      reportCaughtError(new Error('genuine bug in calculator'), 'real.bug');
+      expect(Analytics.trackAppError).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('per-session cap', () => {
+    it('caps total reports per page-load to prevent flood storms', () => {
+      // Cap is 25 per session — emit 30 unique-context errors so throttle
+      // never kicks in, only the cap.
+      for (let i = 0; i < 30; i++) {
+        reportCaughtError(new Error(`unique-${i}`), `flood.context.${i}`);
+      }
+      expect(Analytics.trackAppError).toHaveBeenCalledTimes(25);
+    });
+  });
 });

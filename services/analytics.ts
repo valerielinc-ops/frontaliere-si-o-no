@@ -978,18 +978,13 @@ export const Analytics = {
  recoverFromIndexedDbLoss();
  return;
  }
- // Track cross-origin "Script error" as a categorized event instead of dropping it.
- // These are 3rd-party script errors (browser CORS blocks details). Not actionable,
- // but tracking them prevents "(not set)" entries in the analytics report.
- if (!msg || msg === 'Script error.' || msg === 'Script error') {
- Analytics.trackAppError('cross_origin_script', {
- message: 'Cross-origin script error (details blocked by browser CORS policy)',
- stack: event.filename ? `at ${event.filename}:${event.lineno}:${event.colno}` : '',
- pagePath: window.location.pathname + window.location.search,
- fatal: false,
- });
- return;
- }
+ // Drop cross-origin "Script error" — opaque by design (browser CORS blocks
+ // the stack and message). Tracking them costs ~50% of total GA4 errors with
+ // zero diagnostic value (May 2026 audit: 1,783/3,543).
+ if (!msg || msg === 'Script error.' || msg === 'Script error') return;
+ // Drop ResizeObserver loop notifications — browser-internal layout signal,
+ // not a bug. (22+/3,543 in May 2026 audit.)
+ if (/ResizeObserver loop/i.test(msg)) return;
  Analytics.trackAppError('unhandled_error', {
  message: msg || 'Unknown error',
  stack: event.error?.stack || `at ${event.filename}:${event.lineno}:${event.colno}`,
@@ -1017,6 +1012,12 @@ export const Analytics = {
  }
  // Suppress third-party tracker errors
  if (message.includes('TrackerStorageType')) return;
+ // Benign noise — same deny-list rationale as services/errorReporter.ts.
+ // Module-script preload failures, ResizeObserver loop, and "Script error"
+ // shapes account for the bulk of unactionable rejections.
+ if (/Importing a module script failed/i.test(message)) return;
+ if (/ResizeObserver loop/i.test(message)) return;
+ if (/^(Error: )?Script error\.?$/i.test(message)) return;
  const stack = reason instanceof Error ? reason.stack || '' : '';
  Analytics.trackAppError('unhandled_rejection', {
  message,

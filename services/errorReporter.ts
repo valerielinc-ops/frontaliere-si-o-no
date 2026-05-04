@@ -34,9 +34,45 @@ type ErrorType =
 const THROTTLE_MS = 60_000;
 const recentlyReported = new Map<string, number>();
 
-/** @internal — only for use in tests to clear shared module-level throttle state. */
+// Per-page-load cap. Protects GA4 against runaway floods (e.g. a render loop
+// firing the same handler hundreds of times per session). The April 2026 trend
+// showed a 760-error spike on a single day — this cap is the safety belt.
+const MAX_REPORTS_PER_SESSION = 25;
+let reportsThisSession = 0;
+
+// Benign-noise deny-list. Errors matching any pattern below are dropped at the
+// reporter so they never reach GA4. Rationale per pattern is documented inline;
+// each entry was chosen from the May 2026 GA4 audit (3,543 errors / 30d, of
+// which ~58% were environmental noise with no actionable stack trace).
+const NOISE_PATTERNS: ReadonlyArray<RegExp> = [
+ // Adblockers/privacy extensions block accounts.google.com/gsi/client.
+ // We already degrade gracefully (One Tap simply doesn't show); reporting
+ // is pure noise. (181/3543 in May 2026 audit.)
+ /Failed to load Google Identity Services/i,
+ // Browser-internal layout signal — not a bug, not actionable. Chrome/Safari
+ // emit this when a ResizeObserver callback queues a mutation that resizes
+ // observed elements. (22+ in audit.)
+ /ResizeObserver loop/i,
+ // Cross-origin script errors with no stack — opaque by design (browser CORS).
+ // We can't fix what we can't see. (1,783 in audit — single biggest bucket.)
+ /^Script error\.?$/i,
+ // Firebase/Firestore offline state during tab suspension on iOS Safari.
+ // Recoverable; the SDK retries automatically. (20+ in audit.)
+ /Failed to get document because the client is offline/i,
+ // Module preload failure on flaky networks. The SW recovery path
+ // (sw_cache_stale) handles the visible cases; bare rejections without
+ // a recovery hook are noise. (16+ in audit.)
+ /Importing a module script failed/i,
+];
+
+function isNoise(message: string): boolean {
+ return NOISE_PATTERNS.some((re) => re.test(message));
+}
+
+/** @internal — only for use in tests to clear shared module-level state. */
 export function _resetThrottleMapForTests(): void {
  recentlyReported.clear();
+ reportsThisSession = 0;
 }
 
 function extractMessage(error: unknown): string {
@@ -76,12 +112,20 @@ export function reportCaughtError(
  // ── Dev console visibility ──
  console.warn(`[${context}]`, error);
 
+ // ── Drop benign environmental noise (adblock, browser quirks, offline) ──
+ // Console.warn above still runs so devs can see it locally; GA4 doesn't.
+ if (isNoise(message)) return;
+
+ // ── Per-page-load cap to prevent flood storms ──
+ if (reportsThisSession >= MAX_REPORTS_PER_SESSION) return;
+
  // ── Throttle duplicate reports ──
  const dedupeKey = `${context}::${message.slice(0, 80)}`;
  const now = Date.now();
  const lastReported = recentlyReported.get(dedupeKey);
  if (lastReported && now - lastReported < THROTTLE_MS) return;
  recentlyReported.set(dedupeKey, now);
+ reportsThisSession++;
 
  // Cleanup old entries every ~50 reports
  if (recentlyReported.size > 50) {
