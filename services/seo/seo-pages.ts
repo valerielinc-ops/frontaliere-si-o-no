@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2015,
+ "numberOfItems": 2016,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6658,7 +6658,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2012, "name": "Mendrisio: la nuova sindaca Rossini punta sul s...", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-senso-citta-rossini-lorenzon` },
           { "@type": "ListItem", "position": 2013, "name": "Incendio a Chiasso: operai feriti e evacuati", "url": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-operai-feriti` },
           { "@type": "ListItem", "position": 2014, "name": "Luino chiude il 2025 con un avanzo di 2,6 milioni", "url": `${BASE_URL}/articoli-frontaliere/luino-bilancio-2025-avanzo-26-milioni` },
-          { "@type": "ListItem", "position": 2015, "name": "Nuovo Cardiocentro Lugano: inaugurati tre piani...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-cardiocentro-lugano-realta` }
+          { "@type": "ListItem", "position": 2015, "name": "Nuovo Cardiocentro Lugano: inaugurati tre piani...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-cardiocentro-lugano-realta` },
+          { "@type": "ListItem", "position": 2016, "name": "Spazi per l'autogestione a Lugano: Ghisletta, «...", "url": `${BASE_URL}/articoli-frontaliere/spazi-autogestione-lugano-ghisletta` }
  ]
  },
  {

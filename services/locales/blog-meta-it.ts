@@ -5889,6 +5889,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-cardiocentro-lugano-realta.title': 'Nuovo Cardiocentro Lugano: inaugurati tre piani aggiuntivi',
     'blog.article.nuovo-cardiocentro-lugano-realta.excerpt': 'Inaugurati tre piani aggiuntivi al Cardiocentro di Lugano, con miglioramenti per pazienti e operatori',
     'blog.article.nuovo-cardiocentro-lugano-realta.imageAlt': 'Vista aerea del lago di Lugano con edifici medici moderni',
+    'blog.article.spazi-autogestione-lugano-ghisletta.title': 'Spazi per l\'autogestione a Lugano: Ghisletta, «Il tema non è sul tavolo»',
+    'blog.article.spazi-autogestione-lugano-ghisletta.excerpt': 'Inizio lavori per la riqualificazione dell\'ex Macello di Lugano, mentre si discute la futura ex scuola di sartoria di Viganello per la cultura indipendente.',
+    'blog.article.spazi-autogestione-lugano-ghisletta.imageAlt': 'Vista aerea di Lugano con il lago e il panorama cittadino',
 };
 
 export default blogMetaIt;

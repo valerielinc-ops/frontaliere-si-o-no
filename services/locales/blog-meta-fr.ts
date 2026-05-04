@@ -5889,6 +5889,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-cardiocentro-lugano-realta.title': 'Nouveau Cardiocentre de Lugano: trois étages supplémentaires inaugurés',
     'blog.article.nuovo-cardiocentro-lugano-realta.excerpt': 'Trois étages supplémentaires ont été inaugurés au Cardiocentre de Lugano, avec des améliorations pour les patients et les opérateurs',
     'blog.article.nuovo-cardiocentro-lugano-realta.imageAlt': 'Vue aérienne du front de lac de Lugano avec des bâtiments médicaux modernes',
+    'blog.article.spazi-autogestione-lugano-ghisletta.title': 'Autogestion à Lugano: Ghisletta, «Thème non à l\'ordre du jour»',
+    'blog.article.spazi-autogestione-lugano-ghisletta.excerpt': 'Début des travaux de réhabilitation de l\'ancien abattoir de Lugano, tandis que l\'on discute de l\'avenir de l\'ancienne école de couture de Viganello pour la culture indépendante.',
+    'blog.article.spazi-autogestione-lugano-ghisletta.imageAlt': 'Vue aérienne de Lugano avec le lac et le paysage urbain',
 };
 
 export default blogMetaFr;

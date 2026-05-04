@@ -3205,6 +3205,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-chiasso-operai-feriti': { name: 'Novità', path: '/articoli-frontaliere/incendio-chiasso-operai-feriti', parent: 'blog' },
     'blog-luino-bilancio-2025-avanzo-26-milioni': { name: 'Bilancio Luino', path: '/articoli-frontaliere/luino-bilancio-2025-avanzo-26-milioni', parent: 'blog' },
     'blog-nuovo-cardiocentro-lugano-realta': { name: 'Novità sanità', path: '/articoli-frontaliere/nuovo-cardiocentro-lugano-realta', parent: 'blog' },
+    'blog-spazi-autogestione-lugano-ghisletta': { name: 'Spazi autogestione', path: '/articoli-frontaliere/spazi-autogestione-lugano-ghisletta', parent: 'blog' },
  };
 
  const info = sectionNames[section];

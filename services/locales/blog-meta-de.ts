@@ -5888,6 +5888,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-cardiocentro-lugano-realta.title': 'Neue Etagen am Herzzentrum Lugano eröffnet',
     'blog.article.nuovo-cardiocentro-lugano-realta.excerpt': 'Drei zusätzliche Etagen am Herzzentrum Lugano wurden eröffnet, mit Verbesserungen für Patienten und Mitarbeiter',
     'blog.article.nuovo-cardiocentro-lugano-realta.imageAlt': 'Luftaufnahme des Luganer Seebodens mit modernen medizinischen Gebäuden',
+    'blog.article.spazi-autogestione-lugano-ghisletta.title': 'Autonome Räume in Lugano: Ghisletta, «Thema nicht aktuell»',
+    'blog.article.spazi-autogestione-lugano-ghisletta.excerpt': 'Beginn der Arbeiten zur Aufwertung des ehemaligen Schlachthofs in Lugano, während über die zukünftige ehemalige Schneider-Schule in Viganello für unabhängige Kultur diskutiert wird.',
+    'blog.article.spazi-autogestione-lugano-ghisletta.imageAlt': 'Luftaufnahme von Lugano mit dem See und der Stadtansicht',
 };
 
 export default blogMetaDe;
