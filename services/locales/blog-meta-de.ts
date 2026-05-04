@@ -5666,6 +5666,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aeroporto-zurigo-traffico-crescita-2026.title': 'Flughafen Zürich: Luftverkehr im April um 5% gestiegen',
     'blog.article.aeroporto-zurigo-traffico-crescita-2026.excerpt': 'Vor-Pandemie-Niveau überschritten mit 23\'300 Flugbewegungen, erste jährliche Steigerung seit 2019. Daten von Awp zu IFR.',
     'blog.article.aeroporto-zurigo-traffico-crescita-2026.imageAlt': 'Luftaufnahme des Flughafens Zürich mit startenden und landenden Flugzeugen, klarer blauer Himmel, detaillierte Terminalgebäude',
+    'blog.article.ffs-ascensione-pentecoste-2026.title': 'SBB: 58 Extra-Züge zu Christi Himmelfahrt und Pfingsten',
+    'blog.article.ffs-ascensione-pentecoste-2026.excerpt': 'Die SBB verstärken das Angebot mit 58 Sonderzügen und 130.000 zusätzlichen Plätzen zwischen der Deutschschweiz und dem Tessin',
+    'blog.article.ffs-ascensione-pentecoste-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;

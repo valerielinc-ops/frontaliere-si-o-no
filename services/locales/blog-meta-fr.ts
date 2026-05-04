@@ -5667,6 +5667,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aeroporto-zurigo-traffico-crescita-2026.title': 'Aéroport Zurich: trafic aérien en hausse de 5% en avril',
     'blog.article.aeroporto-zurigo-traffico-crescita-2026.excerpt': 'Dépassement des niveaux pré-pandémiques avec 23\'300 mouvements aériens, première augmentation annuelle depuis 2019. Données Awp sur IFR.',
     'blog.article.aeroporto-zurigo-traffico-crescita-2026.imageAlt': 'Vue aérienne de l\'aéroport de Zurich avec des avions au décollage et à l\'atterrissage, ciel bleu clair, bâtiments de terminal détaillés',
+    'blog.article.ffs-ascensione-pentecoste-2026.title': 'CFF: 58 trains supplémentaires pour l\'Ascension et la Pentecôte',
+    'blog.article.ffs-ascensione-pentecoste-2026.excerpt': 'Les CFF renforcent leur offre avec 58 trains spéciaux et 130.000 places supplémentaires entre la Suisse alémanique et le Tessin',
+    'blog.article.ffs-ascensione-pentecoste-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

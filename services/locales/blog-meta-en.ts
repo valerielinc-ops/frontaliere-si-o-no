@@ -5666,6 +5666,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aeroporto-zurigo-traffico-crescita-2026.title': 'Zurich Airport: 5% air traffic growth in April',
     'blog.article.aeroporto-zurigo-traffico-crescita-2026.excerpt': 'Pre-pandemic levels exceeded with 23,300 flights, first annual increase since 2019. AWP data on IFR.',
     'blog.article.aeroporto-zurigo-traffico-crescita-2026.imageAlt': 'Aerial view of Zurich Airport with planes taking off and landing, clear blue sky, detailed terminal buildings',
+    'blog.article.ffs-ascensione-pentecoste-2026.title': 'SBB: 58 extra trains for Ascension and Pentecost',
+    'blog.article.ffs-ascensione-pentecoste-2026.excerpt': 'SBB enhances its offer with 58 special trains and 130,000 additional seats between German-speaking Switzerland and Ticino',
+    'blog.article.ffs-ascensione-pentecoste-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;
