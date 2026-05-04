@@ -3214,6 +3214,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bando-restauro-beni-culturali-lombardia': { name: 'Bando restauro', path: '/articoli-frontaliere/bando-restauro-beni-culturali-lombardia', parent: 'blog' },
     'blog-insieme-ad-andrea-si-puo-ricerca-leucemie-infantili': { name: 'Novità', path: '/articoli-frontaliere/insieme-ad-andrea-si-puo-ricerca-leucemie-infantili', parent: 'blog' },
     'blog-scuola-chiude-fino-mornasco-2026': { name: 'Novità', path: '/articoli-frontaliere/scuola-chiude-fino-mornasco-2026', parent: 'blog' },
+    'blog-como-turismo-sostenibile-10-maggio': { name: 'Turismo sostenibile', path: '/articoli-frontaliere/como-turismo-sostenibile-10-maggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

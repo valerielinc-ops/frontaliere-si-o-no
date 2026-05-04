@@ -5916,6 +5916,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scuola-chiude-fino-mornasco-2026.title': 'École fermée à Fino Mornasco: baisse des naissances et protestations',
     'blog.article.scuola-chiude-fino-mornasco-2026.excerpt': 'Le maire Fornasiero confirme la fermeture de l\'école Rodari à Socco, une fraction de Fino Mornasco, en raison de la baisse des naissances.',
     'blog.article.scuola-chiude-fino-mornasco-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bâtiments',
+    'blog.article.como-turismo-sostenibile-10-maggio.title': 'Como entre tourisme durable et avenir du territoire',
+    'blog.article.como-turismo-sostenibile-10-maggio.excerpt': 'Le 10 mai, Como discute du tourisme durable et de l\'avenir du territoire avec des ateliers et des débats.',
+    'blog.article.como-turismo-sostenibile-10-maggio.imageAlt': 'Vue du Lac de Côme avec montagnes et bateaux',
 };
 
 export default blogMetaFr;

@@ -16761,6 +16761,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-turismo-sostenibile-10-maggio': {
+    title: 'Como tra turismo sostenibile e futuro del territorio',
+    description: 'Il 10 maggio a Como si discute di turismo sostenibile e futuro del territorio con laboratori e dibattiti. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, turismo, sostenibile, futuro',
+    ogTitle: 'Como tra turismo sostenibile e futuro del territorio',
+    ogDescription: 'Il 10 maggio a Como si discute di turismo sostenibile e futuro del territorio con laboratori e dibattiti.',
+    canonicalPath: '/articoli-frontaliere/como-turismo-sostenibile-10-maggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como tra turismo sostenibile e futuro del territorio",
+      "description": "Il 10 maggio a Como si discute di turismo sostenibile e futuro del territorio con laboratori e dibattiti. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-turismo-sostenibile-10-maggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Como con montagne e barche"
+      },
+      "datePublished": "2026-05-04T22:40:04+00:00",
+      "dateModified": "2026-05-04T22:40:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-turismo-sostenibile-10-maggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -19118,4 +19118,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-turismo-sostenibile-10-maggio',
+ category: 'novita',
+ date: '2026-05-04T22:40:04.761Z',
+ image: '/images/blog/como-turismo-sostenibile-10-maggio.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
