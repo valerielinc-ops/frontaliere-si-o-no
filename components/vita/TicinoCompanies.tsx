@@ -10,6 +10,10 @@ import { resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { reportCaughtError } from '@/services/errorReporter';
 import extraCompaniesData from '@/data/ticino-companies-extra.json';
 import crawlerCompaniesData from '@/data/crawler-companies-auto.json';
+import ProviderLogo from '@/components/shared/ProviderLogo';
+
+const companyDomain = (website: string) =>
+ website ? new URL(website).hostname.replace(/^www\./, '') : '';
 
 
 interface Company {
@@ -699,18 +703,6 @@ const TicinoCompanies: React.FC = () => {
  const totalEmployees = useMemo(() => filtered.reduce((sum, c) => sum + c.employees, 0), [filtered]);
  const mapCenter: [number, number] = [46.02, 8.96];
 
- // Get company favicon from website domain
- const getCompanyLogo = (company: Company) => {
- if (company.logo) return company.logo;
- if (company.website) {
- try {
- const domain = new URL(company.website).hostname;
- return `https://logo.clearbit.com/${domain}`;
- } catch { return null; }
- }
- return null;
- };
-
  return (
  <div className="space-y-6 animate-fade-in overflow-x-hidden">
  <style>{`
@@ -838,9 +830,9 @@ const TicinoCompanies: React.FC = () => {
  onMouseLeave={() => setHoveredCompany(null)}
  >
  <div className="flex items-start gap-3 mb-2">
- {getCompanyLogo(company) ? (
+ {company.website ? (
  <div className="w-9 h-9 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden flex-shrink-0 border border-edge">
- <img src={getCompanyLogo(company)!} alt={company.name} width={22} height={22} className="w-[22px] h-[22px] object-contain" loading="lazy" onError={(e) => { const el = e.target as HTMLImageElement; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; el.parentElement!.innerHTML = `<span class="text-lg">${SECTOR_ICONS[company.sector] || '🏢'}</span>`; } }} />
+ <ProviderLogo domain={companyDomain(company.website)} name={company.name} size={22} className="w-[22px] h-[22px] object-contain" />
  </div>
  ) : (
  <div className="text-xl flex-shrink-0">{SECTOR_ICONS[company.sector] || '🏢'}</div>
@@ -903,7 +895,7 @@ const TicinoCompanies: React.FC = () => {
  <div className="p-1">
  <div className="flex items-center gap-2 mb-2">
  {company.website ? (
- <img src={`https://logo.clearbit.com/${new URL(company.website).hostname}`} alt={`Logo ${company.name}`} width={28} height={28} style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'contain' }} loading="lazy" onError={(e) => { const el = e.target as HTMLImageElement; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
+ <ProviderLogo domain={companyDomain(company.website)} name={company.name} size={28} />
  ) : (
  <span className="text-2xl">{SECTOR_ICONS[company.sector] || '🏢'}</span>
  )}
