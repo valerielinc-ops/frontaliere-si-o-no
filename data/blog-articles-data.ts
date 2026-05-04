@@ -18218,4 +18218,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gambarogno-contributi-costruzione-ricorrenti',
+ category: 'pratico',
+ date: '2026-05-04T06:39:19.427Z',
+ image: '/images/blog/gambarogno-contributi-costruzione-ricorrenti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

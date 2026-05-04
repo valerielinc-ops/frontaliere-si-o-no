@@ -5615,6 +5615,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aargau-festnahmen-2-mag-2026.title': 'Zwei Festnahmen in einer Nacht im Aargau: ein Tunesier und ein Marokkaner',
     'blog.article.aargau-festnahmen-2-mag-2026.excerpt': 'Die Kantonspolizei Aargau hat in der Nacht von Freitag auf Samstag zwei Männer in zwei verschiedenen Gemeinden festgenommen.',
     'blog.article.aargau-festnahmen-2-mag-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin',
+    'blog.article.gambarogno-contributi-costruzione-ricorrenti.title': 'Gambarogno: Bürger gewinnen gegen Baugebühren',
+    'blog.article.gambarogno-contributi-costruzione-ricorrenti.excerpt': 'Das Enteignungsgericht hat über die Abgaben für Kanalisations- und Kläranlagen in Contone entschieden. Hier erfahren Sie, was sich ändert',
+    'blog.article.gambarogno-contributi-costruzione-ricorrenti.imageAlt': 'Luganersee mit umliegenden Bergen',
 };
 
 export default blogMetaDe;

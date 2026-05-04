@@ -13361,6 +13361,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gambarogno-contributi-costruzione-ricorrenti': {
+    title: 'Gambarogno: vince la battaglia dei cittadini sui contributi di costruzione',
+    description: 'Il Tribunale di espropriazione ha deciso sui prelievi per opere di canalizzazione e depurazione a Contone. Ecco cosa cambia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gambarogno, vince, battaglia, cittadini',
+    ogTitle: 'Gambarogno: vince la battaglia dei cittadini sui contributi di costruzione',
+    ogDescription: 'Il Tribunale di espropriazione ha deciso sui prelievi per opere di canalizzazione e depurazione a Contone. Ecco cosa cambia',
+    canonicalPath: '/articoli-frontaliere/gambarogno-contributi-costruzione-ricorrenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gambarogno: vince la battaglia dei cittadini sui contributi di costruzione",
+      "description": "Il Tribunale di espropriazione ha deciso sui prelievi per opere di canalizzazione e depurazione a Contone. Ecco cosa cambia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gambarogno-contributi-costruzione-ricorrenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con le montagne circostanti"
+      },
+      "datePublished": "2026-05-04T06:39:19+00:00",
+      "dateModified": "2026-05-04T06:39:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gambarogno-contributi-costruzione-ricorrenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

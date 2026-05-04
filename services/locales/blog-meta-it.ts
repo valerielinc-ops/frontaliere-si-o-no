@@ -5616,6 +5616,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aargau-festnahmen-2-mag-2026.title': 'Due arresti in una notte nell\'Aargau: un tunesino e un marocchino',
     'blog.article.aargau-festnahmen-2-mag-2026.excerpt': 'La polizia cantonale dell\'Aargau ha arrestato due uomini in due diversi comuni nella notte tra venerdì e sabato.',
     'blog.article.aargau-festnahmen-2-mag-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino',
+    'blog.article.gambarogno-contributi-costruzione-ricorrenti.title': 'Gambarogno: vince la battaglia dei cittadini sui contributi di costruzione',
+    'blog.article.gambarogno-contributi-costruzione-ricorrenti.excerpt': 'Il Tribunale di espropriazione ha deciso sui prelievi per opere di canalizzazione e depurazione a Contone. Ecco cosa cambia',
+    'blog.article.gambarogno-contributi-costruzione-ricorrenti.imageAlt': 'Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

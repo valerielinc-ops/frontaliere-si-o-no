@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1924,
+ "numberOfItems": 1925,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6562,7 +6562,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1921, "name": "Piccaluga: «Con l'UDC dialogo aperto, Norman e ...", "url": `${BASE_URL}/articoli-frontaliere/piccaluga-udc-dialogo-apertura` },
           { "@type": "ListItem", "position": 1922, "name": "Bonifici in ritardo: cosa fare prima di allarmarsi", "url": `${BASE_URL}/articoli-frontaliere/bonifici-ritardo-frontalieri-ticino` },
           { "@type": "ListItem", "position": 1923, "name": "Noleggio auto: consigli per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/noleggio-auto-frontalieri-ticino-2026` },
-          { "@type": "ListItem", "position": 1924, "name": "Due arresti in una notte nell'Aargau: un tunesi...", "url": `${BASE_URL}/articoli-frontaliere/aargau-festnahmen-2-mag-2026` }
+          { "@type": "ListItem", "position": 1924, "name": "Due arresti in una notte nell'Aargau: un tunesi...", "url": `${BASE_URL}/articoli-frontaliere/aargau-festnahmen-2-mag-2026` },
+          { "@type": "ListItem", "position": 1925, "name": "Gambarogno: vince la battaglia dei cittadini su...", "url": `${BASE_URL}/articoli-frontaliere/gambarogno-contributi-costruzione-ricorrenti` }
  ]
  },
  {
