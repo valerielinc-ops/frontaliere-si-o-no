@@ -9,11 +9,20 @@ vi.mock('@/services/logoService', () => ({
 }));
 
 describe('ProviderLogo', () => {
-  it('renders img with Clearbit src for known slug', () => {
+  it('renders img with resolved src for known slug (localPath or Clearbit)', () => {
+    // swisscom has a downloaded localPath; intesa-sanpaolo falls back to Clearbit.
+    // Either way the src must NOT be the placeholder — the slug resolved to something.
     const { container } = render(<ProviderLogo slug="swisscom" name="Swisscom" />);
     const img = container.querySelector('img')!;
-    expect(img.src).toContain('logo.clearbit.com/swisscom.ch');
+    expect(img.src).not.toContain('company-placeholder.svg');
     expect(img.alt).toBe('Swisscom');
+  });
+
+  it('renders Clearbit src for slug without localPath', () => {
+    // intesa-sanpaolo intentionally has no localPath (download failed)
+    const { container } = render(<ProviderLogo slug="intesa-sanpaolo" name="Intesa" />);
+    const img = container.querySelector('img')!;
+    expect(img.src).toContain('logo.clearbit.com/intesasanpaolo.com');
   });
 
   it('uses domain prop for ad-hoc providers not in PROVIDER_LOGOS', () => {

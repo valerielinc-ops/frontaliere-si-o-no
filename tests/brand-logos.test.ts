@@ -3,15 +3,16 @@ import { PROVIDER_LOGOS, getProviderLogoUrl } from '@/services/brandLogos';
 
 describe('getProviderLogoUrl', () => {
   it('returns Clearbit URL for known slug without localPath', () => {
-    const url = getProviderLogoUrl('wise');
-    expect(url).toBe('https://logo.clearbit.com/wise.com');
+    // intesa-sanpaolo has no localPath (download failed) — reliably tests the Clearbit fallback path
+    const url = getProviderLogoUrl('intesa-sanpaolo');
+    expect(url).toBe('https://logo.clearbit.com/intesasanpaolo.com');
   });
 
   it('returns localPath when set', () => {
-    const original = PROVIDER_LOGOS['wise'];
-    PROVIDER_LOGOS['wise'] = { ...original, localPath: '/images/providers/wise.png' };
-    expect(getProviderLogoUrl('wise')).toBe('/images/providers/wise.png');
-    PROVIDER_LOGOS['wise'] = original; // restore
+    const original = PROVIDER_LOGOS['intesa-sanpaolo'];
+    PROVIDER_LOGOS['intesa-sanpaolo'] = { ...original, localPath: '/images/providers/intesa-sanpaolo.png' };
+    expect(getProviderLogoUrl('intesa-sanpaolo')).toBe('/images/providers/intesa-sanpaolo.png');
+    PROVIDER_LOGOS['intesa-sanpaolo'] = original; // restore
   });
 
   it('returns null for unknown slug', () => {
