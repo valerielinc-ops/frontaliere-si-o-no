@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1972,
+ "numberOfItems": 1973,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6610,7 +6610,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1969, "name": "Banca cantonale grigionese denunciata per centi...", "url": `${BASE_URL}/articoli-frontaliere/banca-grigionese-denuncia-centinaia-milioni` },
           { "@type": "ListItem", "position": 1970, "name": "Como: posti blu vuoti e residenti in difficoltà...", "url": `${BASE_URL}/articoli-frontaliere/parcheggi-blu-como-residenti-difficolta` },
           { "@type": "ListItem", "position": 1971, "name": "Dal 2027 presidio Fs Security alla stazione di ...", "url": `${BASE_URL}/articoli-frontaliere/gallarate-fs-security-2027` },
-          { "@type": "ListItem", "position": 1972, "name": "Incendio a Chiasso: evacuati 30 residenti da un...", "url": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-palazzina-evacuati-30` }
+          { "@type": "ListItem", "position": 1972, "name": "Incendio a Chiasso: evacuati 30 residenti da un...", "url": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-palazzina-evacuati-30` },
+          { "@type": "ListItem", "position": 1973, "name": "Aperto il nuovo McDonald's di Lamone", "url": `${BASE_URL}/articoli-frontaliere/mcdonalds-lamone-apertura-2026` }
  ]
  },
  {

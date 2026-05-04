@@ -5760,6 +5760,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-chiasso-palazzina-evacuati-30.title': 'Incendie à Chiasso: 30 résidents évacués d\'un immeuble',
     'blog.article.incendio-chiasso-palazzina-evacuati-30.excerpt': 'Un incendie sur le toit d\'un immeuble à Chiasso a conduit à l\'évacuation de 30 personnes. Deux ouvriers ont été légèrement blessés.',
     'blog.article.incendio-chiasso-palazzina-evacuati-30.imageAlt': 'Incendie sur le toit d\'un immeuble à Chiasso, avec des pompiers en action et des résidents évacués',
+    'blog.article.mcdonalds-lamone-apertura-2026.title': 'Ouverture du nouveau McDonald\'s de Lamone',
+    'blog.article.mcdonalds-lamone-apertura-2026.excerpt': 'La nouvelle filiale du géant du fast-food est la neuvième dans le canton du Tessin et la quatrième dans la région de Lugano.',
+    'blog.article.mcdonalds-lamone-apertura-2026.imageAlt': 'Vue du McDonald\'s de Lamone avec les montagnes environnantes',
 };
 
 export default blogMetaFr;

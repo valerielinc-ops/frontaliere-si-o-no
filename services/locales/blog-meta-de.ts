@@ -5759,6 +5759,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-chiasso-palazzina-evacuati-30.title': 'Brand in Chiasso: 30 Bewohner evakuiert',
     'blog.article.incendio-chiasso-palazzina-evacuati-30.excerpt': 'Ein Brand auf dem Dach eines Mehrfamilienhauses in Chiasso hat zur Evakuierung von 30 Personen geführt. Zwei Arbeiter wurden leicht verletzt.',
     'blog.article.incendio-chiasso-palazzina-evacuati-30.imageAlt': 'Brand auf dem Dach eines Gebäudes in Chiasso, mit Feuerwehrleuten im Einsatz und evakuierten Bewohnern',
+    'blog.article.mcdonalds-lamone-apertura-2026.title': 'Neuer McDonald\'s in Lamone eröffnet',
+    'blog.article.mcdonalds-lamone-apertura-2026.excerpt': 'Die neue Filiale der Fast-Food-Kette ist die neunte im Kanton Tessin und die vierte im Luganese.',
+    'blog.article.mcdonalds-lamone-apertura-2026.imageAlt': 'Ansicht des McDonald\'s in Lamone mit umliegenden Bergen',
 };
 
 export default blogMetaDe;
