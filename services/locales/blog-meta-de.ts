@@ -5891,6 +5891,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spazi-autogestione-lugano-ghisletta.title': 'Autonome Räume in Lugano: Ghisletta, «Thema nicht aktuell»',
     'blog.article.spazi-autogestione-lugano-ghisletta.excerpt': 'Beginn der Arbeiten zur Aufwertung des ehemaligen Schlachthofs in Lugano, während über die zukünftige ehemalige Schneider-Schule in Viganello für unabhängige Kultur diskutiert wird.',
     'blog.article.spazi-autogestione-lugano-ghisletta.imageAlt': 'Luftaufnahme von Lugano mit dem See und der Stadtansicht',
+    'blog.article.svizzera-volare-aviazione-civile.title': 'Schweiz und zivile Luftfahrt: 61% dafür',
+    'blog.article.svizzera-volare-aviazione-civile.excerpt': 'Laut einer von Aviationsuisse in Auftrag gegebenen Studie erkennt die Mehrheit der Schweizer die strategische und wirtschaftliche Bedeutung der Flughäfen an.',
+    'blog.article.svizzera-volare-aviazione-civile.imageAlt': 'Luftaufnahme des Luganer Sees mit den Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

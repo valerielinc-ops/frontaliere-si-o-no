@@ -19046,4 +19046,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-volare-aviazione-civile',
+ category: 'novita',
+ date: '2026-05-04T21:25:05.168Z',
+ image: '/images/blog/svizzera-volare-aviazione-civile.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

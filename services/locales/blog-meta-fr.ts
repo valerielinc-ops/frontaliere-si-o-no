@@ -5892,6 +5892,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spazi-autogestione-lugano-ghisletta.title': 'Autogestion à Lugano: Ghisletta, «Thème non à l\'ordre du jour»',
     'blog.article.spazi-autogestione-lugano-ghisletta.excerpt': 'Début des travaux de réhabilitation de l\'ancien abattoir de Lugano, tandis que l\'on discute de l\'avenir de l\'ancienne école de couture de Viganello pour la culture indépendante.',
     'blog.article.spazi-autogestione-lugano-ghisletta.imageAlt': 'Vue aérienne de Lugano avec le lac et le paysage urbain',
+    'blog.article.svizzera-volare-aviazione-civile.title': 'Suisse et aviation civile: 61% des Suisses favorables',
+    'blog.article.svizzera-volare-aviazione-civile.excerpt': 'Selon une étude commandée par Aviationsuisse, la majorité des Suisses reconnaît l\'importance stratégique et économique des aéroports.',
+    'blog.article.svizzera-volare-aviazione-civile.imageAlt': 'Vue aérienne du lac de Lugano avec les Alpes suisses en arrière-plan',
 };
 
 export default blogMetaFr;

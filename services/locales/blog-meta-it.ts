@@ -5892,6 +5892,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spazi-autogestione-lugano-ghisletta.title': 'Spazi per l\'autogestione a Lugano: Ghisletta, «Il tema non è sul tavolo»',
     'blog.article.spazi-autogestione-lugano-ghisletta.excerpt': 'Inizio lavori per la riqualificazione dell\'ex Macello di Lugano, mentre si discute la futura ex scuola di sartoria di Viganello per la cultura indipendente.',
     'blog.article.spazi-autogestione-lugano-ghisletta.imageAlt': 'Vista aerea di Lugano con il lago e il panorama cittadino',
+    'blog.article.svizzera-volare-aviazione-civile.title': 'Svizzera e aviazione civile: il 61% degli svizzeri favorevole',
+    'blog.article.svizzera-volare-aviazione-civile.excerpt': 'Secondo uno studio commissionato da Aviationsuisse, la maggioranza degli svizzeri riconosce l\'importanza strategica ed economica degli aeroporti.',
+    'blog.article.svizzera-volare-aviazione-civile.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi Svizzere sullo sfondo',
 };
 
 export default blogMetaIt;

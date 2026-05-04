@@ -5891,6 +5891,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spazi-autogestione-lugano-ghisletta.title': 'Self-management spaces in Lugano: Ghisletta, \'The topic is not on the table\'',
     'blog.article.spazi-autogestione-lugano-ghisletta.excerpt': 'Work begins on the redevelopment of Lugano\'s former slaughterhouse, while discussions continue on the future use of the former Viganello sewing school for independent culture.',
     'blog.article.spazi-autogestione-lugano-ghisletta.imageAlt': 'Aerial view of Lugano with the lake and cityscape',
+    'blog.article.svizzera-volare-aviazione-civile.title': 'Switzerland and civil aviation: 61% of Swiss in favor',
+    'blog.article.svizzera-volare-aviazione-civile.excerpt': 'According to a study commissioned by Aviationsuisse, the majority of Swiss recognize the strategic and economic importance of airports.',
+    'blog.article.svizzera-volare-aviazione-civile.imageAlt': 'Aerial view of Lake Lugano with the Swiss Alps in the background',
 };
 
 export default blogMetaEn;
