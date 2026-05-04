@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1954,
+ "numberOfItems": 1955,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6592,7 +6592,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1951, "name": "Ponti primaverili: più traffico su strada e rotaia", "url": `${BASE_URL}/articoli-frontaliere/ponti-primaverili-traffico-2026` },
           { "@type": "ListItem", "position": 1952, "name": "PerBacco! che Bianchi! a Bellinzona: tre giorni...", "url": `${BASE_URL}/articoli-frontaliere/perbacco-bianchi-bellinzona-2026` },
           { "@type": "ListItem", "position": 1953, "name": "I bianconeri amano il corto muso: quattro vitto...", "url": `${BASE_URL}/articoli-frontaliere/bianconeri-corto-muso-2026` },
-          { "@type": "ListItem", "position": 1954, "name": "Tasse sugli immobili: il rischio di una stangat...", "url": `${BASE_URL}/articoli-frontaliere/stangata-nascosta-tasse-immobiliari` }
+          { "@type": "ListItem", "position": 1954, "name": "Tasse sugli immobili: il rischio di una stangat...", "url": `${BASE_URL}/articoli-frontaliere/stangata-nascosta-tasse-immobiliari` },
+          { "@type": "ListItem", "position": 1955, "name": "Caro benzina: benzinai varesini tra accise e in...", "url": `${BASE_URL}/articoli-frontaliere/caro-benzina-varese-accise-2026` }
  ]
  },
  {

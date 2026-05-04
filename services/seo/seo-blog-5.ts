@@ -14381,6 +14381,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caro-benzina-varese-accise-2026': {
+    title: 'Caro benzina: benzinai varesini tra accise e incertezze',
+    description: 'Dopo il ponte del 1° maggio, i distributori di carburante della provincia di Varese si sono trovati a secco. Ecco come le accise stanno complicando la vita ai',
+    keywords: 'frontalieri, ticino, svizzera, italia, caro, benzina, benzinai, varesini',
+    ogTitle: 'Caro benzina: benzinai varesini tra accise e incertezze',
+    ogDescription: 'Dopo il ponte del 1° maggio, i distributori di carburante della provincia di Varese si sono trovati a secco. Ecco come le accise stanno complicando la vita ai',
+    canonicalPath: '/articoli-frontaliere/caro-benzina-varese-accise-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caro benzina: benzinai varesini tra accise e incertezze",
+      "description": "Dopo il ponte del 1° maggio, i distributori di carburante della provincia di Varese si sono trovati a secco. Ecco come le accise stanno complicando la vita ai",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/caro-benzina-varese-accise-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una stazione di servizio a Varese con il display dei prezzi della benzina"
+      },
+      "datePublished": "2026-05-04T10:36:28+00:00",
+      "dateModified": "2026-05-04T10:36:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caro-benzina-varese-accise-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

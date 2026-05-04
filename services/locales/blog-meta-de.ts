@@ -5705,6 +5705,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stangata-nascosta-tasse-immobiliari.title': 'Immobiliensteuern: versteckte Kostenfalle',
     'blog.article.stangata-nascosta-tasse-immobiliari.excerpt': 'Familien und Unternehmen in Alarmbereitschaft wegen der Überprüfung der Immobilienbewertungen im Tessin. Hier erfahren Sie, was sich ändert und wie Sie sich schützen können.',
     'blog.article.stangata-nascosta-tasse-immobiliari.imageAlt': 'Luganersee mit modernen Gebäuden im Hintergrund',
+    'blog.article.caro-benzina-varese-accise-2026.title': 'Hohe Benzinpreise: Tankstellen in Varese zwischen Steuern und Unsicherheiten',
+    'blog.article.caro-benzina-varese-accise-2026.excerpt': 'Nach dem 1. Mai-Feiertag waren die Tankstellen in der Provinz Varese leer. So erschweren die Steuern den Betreibern das Leben',
+    'blog.article.caro-benzina-varese-accise-2026.imageAlt': 'Eine Tankstelle in Varese mit der Kraftstoffpreis-Anzeige',
 };
 
 export default blogMetaDe;

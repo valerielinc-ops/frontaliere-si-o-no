@@ -5705,6 +5705,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stangata-nascosta-tasse-immobiliari.title': 'Hidden tax hike risk on properties in Ticino',
     'blog.article.stangata-nascosta-tasse-immobiliari.excerpt': 'Families and businesses in Ticino are worried about the revision of property valuations. Here\'s what\'s changing and how to protect yourself.',
     'blog.article.stangata-nascosta-tasse-immobiliari.imageAlt': 'Lake Lugano with modern buildings in the background',
+    'blog.article.caro-benzina-varese-accise-2026.title': 'Fuel price hike: Varesi petrol stations face tax and uncertainty',
+    'blog.article.caro-benzina-varese-accise-2026.excerpt': 'After the 1st May bank holiday, fuel distributors in the province of Varese found themselves out of stock. Here\'s how taxes are complicating life for managers',
+    'blog.article.caro-benzina-varese-accise-2026.imageAlt': 'A gas station in Varese with the fuel price display',
 };
 
 export default blogMetaEn;

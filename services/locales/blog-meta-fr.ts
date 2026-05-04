@@ -5706,6 +5706,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stangata-nascosta-tasse-immobiliari.title': 'Impôts sur les biens immobiliers : le risque d\'une hausse cachée',
     'blog.article.stangata-nascosta-tasse-immobiliari.excerpt': 'Les familles et les entreprises s\'inquiètent de la révision des valeurs d\'estimation immobilières au Tessin. Voici ce qui change et comment se défendre.',
     'blog.article.stangata-nascosta-tasse-immobiliari.imageAlt': 'Lac de Lugano avec des bâtiments modernes en arrière-plan',
+    'blog.article.caro-benzina-varese-accise-2026.title': 'Prix essence : Varèse face aux taxes',
+    'blog.article.caro-benzina-varese-accise-2026.excerpt': 'Après le pont du 1er mai, les distributeurs de carburant de la province de Varèse se sont retrouvés à sec. Voici comment les taxes compliquent la vie des gestionnaires.',
+    'blog.article.caro-benzina-varese-accise-2026.imageAlt': 'Une station-service à Varese avec l\'affichage des prix de l\'essence',
 };
 
 export default blogMetaFr;

@@ -5706,6 +5706,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stangata-nascosta-tasse-immobiliari.title': 'Tasse sugli immobili: il rischio di una stangata nascosta',
     'blog.article.stangata-nascosta-tasse-immobiliari.excerpt': 'Famiglie e imprese in allarme per la revisione dei valori di stima immobiliari in Ticino. Ecco cosa cambia e come difendersi.',
     'blog.article.stangata-nascosta-tasse-immobiliari.imageAlt': 'Lago di Lugano con edifici moderni sullo sfondo',
+    'blog.article.caro-benzina-varese-accise-2026.title': 'Caro benzina: benzinai varesini tra accise e incertezze',
+    'blog.article.caro-benzina-varese-accise-2026.excerpt': 'Dopo il ponte del 1° maggio, i distributori di carburante della provincia di Varese si sono trovati a secco. Ecco come le accise stanno complicando la vita ai gestori',
+    'blog.article.caro-benzina-varese-accise-2026.imageAlt': 'Una stazione di servizio a Varese con il display dei prezzi della benzina',
 };
 
 export default blogMetaIt;

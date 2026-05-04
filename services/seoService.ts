@@ -3144,6 +3144,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-perbacco-bianchi-bellinzona-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/perbacco-bianchi-bellinzona-2026', parent: 'blog' },
     'blog-bianconeri-corto-muso-2026': { name: 'Novità', path: '/articoli-frontaliere/bianconeri-corto-muso-2026', parent: 'blog' },
     'blog-stangata-nascosta-tasse-immobiliari': { name: 'Tasse immobiliari', path: '/articoli-frontaliere/stangata-nascosta-tasse-immobiliari', parent: 'blog' },
+    'blog-caro-benzina-varese-accise-2026': { name: 'Caro benzina', path: '/articoli-frontaliere/caro-benzina-varese-accise-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
