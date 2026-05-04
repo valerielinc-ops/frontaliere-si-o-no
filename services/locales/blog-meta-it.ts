@@ -5577,6 +5577,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.confine-vacallo-clandestini-2026.title': 'Confine Vacallo: clandestini passano da buco nella ramina',
     'blog.article.confine-vacallo-clandestini-2026.excerpt': 'Tiziano Pasta, consigliere UDC a Mendrisio, denuncia passaggi illegali di clandestini da un varco nella ramina a Vacallo.',
     'blog.article.confine-vacallo-clandestini-2026.imageAlt': 'Confine svizzero-italiano a Vacallo di notte con una recinzione danneggiata e persone che cercano di attraversare',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.title': 'Morte Alex Zanardi: un simbolo per lo sport italiano',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.excerpt': 'Alex Zanardi, ex pilota di Formula 1 e atleta paralimpico, è morto a 59 anni. La sua vita e carriera sono un esempio di resilienza e passione.',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.imageAlt': 'Veduta serena del Lago di Lugano con la città sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -5576,6 +5576,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.confine-vacallo-clandestini-2026.title': 'Vacallo border: illegal migrants pass through hedge gap',
     'blog.article.confine-vacallo-clandestini-2026.excerpt': 'Tiziano Pasta, UDC councilor in Mendrisio, reports illegal crossings by migrants through a gap in the hedge at Vacallo.',
     'blog.article.confine-vacallo-clandestini-2026.imageAlt': 'Swiss-Italian border at Vacallo at night with a damaged fence and people attempting to cross',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.title': 'Alex Zanardi: a symbol for Italian sports',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.excerpt': 'Alex Zanardi, former Formula 1 driver and Paralympic athlete, has died at the age of 59. His life and career are an example of resilience and passion.',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.imageAlt': 'Serene view of Lake Lugano with the city in the background',
 };
 
 export default blogMetaEn;

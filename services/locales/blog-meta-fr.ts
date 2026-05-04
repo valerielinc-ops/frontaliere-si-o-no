@@ -5577,6 +5577,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.confine-vacallo-clandestini-2026.title': 'Frontière de Vacallo : des clandestins passent par un trou dans la clôture',
     'blog.article.confine-vacallo-clandestini-2026.excerpt': 'Tiziano Pasta, conseiller UDC à Mendrisio, dénonce des passages illégaux de clandestins par une brèche dans la clôture à Vacallo.',
     'blog.article.confine-vacallo-clandestini-2026.imageAlt': 'Frontière suisse-italienne à Vacallo la nuit avec une clôture endommagée et des personnes tentant de traverser',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.title': 'Mort d\'Alex Zanardi : un symbole pour le sport italien',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.excerpt': 'Alex Zanardi, ancien pilote de Formule 1 et athlète paralympique, est mort à 59 ans. Sa vie et sa carrière sont un exemple de résilience et de passion.',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.imageAlt': 'Vue sereine du lac de Lugano avec la ville en arrière-plan',
 };
 
 export default blogMetaFr;

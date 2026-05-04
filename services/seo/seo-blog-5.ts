@@ -12919,6 +12919,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-morte-alex-zanardi-impatti-frontalieri': {
+    title: 'Morte Alex Zanardi: un simbolo per lo sport italiano',
+    description: 'Alex Zanardi, ex pilota di Formula 1 e atleta paralimpico, è morto a 59 anni. La sua vita e carriera sono un esempio di resilienza e passione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, morte, alex, zanardi, simbolo',
+    ogTitle: 'Morte Alex Zanardi: un simbolo per lo sport italiano',
+    ogDescription: 'Alex Zanardi, ex pilota di Formula 1 e atleta paralimpico, è morto a 59 anni. La sua vita e carriera sono un esempio di resilienza e passione.',
+    canonicalPath: '/articoli-frontaliere/morte-alex-zanardi-impatti-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Morte Alex Zanardi: un simbolo per lo sport italiano",
+      "description": "Alex Zanardi, ex pilota di Formula 1 e atleta paralimpico, è morto a 59 anni. La sua vita e carriera sono un esempio di resilienza e passione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/morte-alex-zanardi-impatti-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta serena del Lago di Lugano con la città sullo sfondo"
+      },
+      "datePublished": "2026-05-04T05:08:23+00:00",
+      "dateModified": "2026-05-04T05:08:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/morte-alex-zanardi-impatti-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

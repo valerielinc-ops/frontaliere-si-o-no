@@ -5576,6 +5576,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.confine-vacallo-clandestini-2026.title': 'Grenzüberschreitung in Vacallo: Illegale Passagen durch Lücke im Zaun',
     'blog.article.confine-vacallo-clandestini-2026.excerpt': 'Tiziano Pasta, UDC-Gemeinderat in Mendrisio, meldet illegale Grenzübertritte von Migranten durch eine Lücke im Zaun in Vacallo.',
     'blog.article.confine-vacallo-clandestini-2026.imageAlt': 'Schweizer-italienische Grenze bei Vacallo in der Nacht mit einem beschädigten Zaun und Menschen, die versuchen, zu überqueren',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.title': 'Tod von Alex Zanardi: ein Symbol für den italienischen Sport',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.excerpt': 'Alex Zanardi, ehemaliger Formel-1-Pilot und paralympischer Athlet, ist im Alter von 59 Jahren gestorben. Sein Leben und seine Karriere sind ein Beispiel für Widerstandsfähigkeit und Leidenschaft.',
+    'blog.article.morte-alex-zanardi-impatti-frontalieri.imageAlt': 'Ruhevolle Aussicht auf den Luganersee mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

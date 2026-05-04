@@ -18101,4 +18101,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'morte-alex-zanardi-impatti-frontalieri',
+ category: 'novita',
+ date: '2026-05-04T05:08:23.657Z',
+ image: '/images/blog/morte-alex-zanardi-impatti-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

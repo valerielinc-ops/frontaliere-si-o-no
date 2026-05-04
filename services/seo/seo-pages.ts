@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1911,
+ "numberOfItems": 1912,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6549,7 +6549,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1908, "name": "Ginnastica artistica: giovani talenti brillano ...", "url": `${BASE_URL}/articoli-frontaliere/ginnastica-artistica-ticino-2026` },
           { "@type": "ListItem", "position": 1909, "name": "Italia dei sospetti: scandali VAR, Minetti e te...", "url": `${BASE_URL}/articoli-frontaliere/italia-sospetti-var-minetti-quirinale` },
           { "@type": "ListItem", "position": 1910, "name": "Azzate festeggia il Koningsdag con la Console o...", "url": `${BASE_URL}/articoli-frontaliere/azzate-koningsdag-console-olandese-2026` },
-          { "@type": "ListItem", "position": 1911, "name": "Confine Vacallo: clandestini passano da buco ne...", "url": `${BASE_URL}/articoli-frontaliere/confine-vacallo-clandestini-2026` }
+          { "@type": "ListItem", "position": 1911, "name": "Confine Vacallo: clandestini passano da buco ne...", "url": `${BASE_URL}/articoli-frontaliere/confine-vacallo-clandestini-2026` },
+          { "@type": "ListItem", "position": 1912, "name": "Morte Alex Zanardi: un simbolo per lo sport ita...", "url": `${BASE_URL}/articoli-frontaliere/morte-alex-zanardi-impatti-frontalieri` }
  ]
  },
  {
