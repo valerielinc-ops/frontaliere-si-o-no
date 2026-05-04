@@ -5748,6 +5748,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-albanese-cocaina-capolago.title': 'Un Albanais arrêté avec 54 grammes de cocaïne à Capolago',
     'blog.article.arresto-albanese-cocaina-capolago.excerpt': 'Un Albanais de 24 ans a été arrêté avec 54 grammes de cocaïne dans sa voiture sur l\'A2 à Capolago. Voici les détails de l\'opération.',
     'blog.article.arresto-albanese-cocaina-capolago.imageAlt': 'Opération de police près du lac de Lugano',
+    'blog.article.banca-grigionese-denuncia-centinaia-milioni.title': 'La Banque cantonale des Grisons poursuivie pour des centaines de millions',
+    'blog.article.banca-grigionese-denuncia-centinaia-milioni.excerpt': 'Une action en justice d\'un million a été intentée contre la Banque cantonale des Grisons et sa filiale BZ Bank pour des violations présumées des obligations contractuelles.',
+    'blog.article.banca-grigionese-denuncia-centinaia-milioni.imageAlt': 'Bâtiment de banque à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;

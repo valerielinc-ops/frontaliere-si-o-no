@@ -18614,4 +18614,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'banca-grigionese-denuncia-centinaia-milioni',
+ category: 'novita',
+ date: '2026-05-04T12:45:42.270Z',
+ image: '/images/blog/banca-grigionese-denuncia-centinaia-milioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

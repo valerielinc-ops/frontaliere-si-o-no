@@ -14857,6 +14857,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banca-grigionese-denuncia-centinaia-milioni': {
+    title: 'Banca cantonale grigionese denunciata per centinaia di milioni',
+    description: 'Una causa milionaria è stata intentata contro la Banca cantonale grigionese e la sua affiliata BZ Bank per presunte violazioni degli obblighi contrattuali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banca, cantonale, grigionese, denunciata',
+    ogTitle: 'Banca cantonale grigionese denunciata per centinaia di milioni',
+    ogDescription: 'Una causa milionaria è stata intentata contro la Banca cantonale grigionese e la sua affiliata BZ Bank per presunte violazioni degli obblighi contrattuali.',
+    canonicalPath: '/articoli-frontaliere/banca-grigionese-denuncia-centinaia-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banca cantonale grigionese denunciata per centinaia di milioni",
+      "description": "Una causa milionaria è stata intentata contro la Banca cantonale grigionese e la sua affiliata BZ Bank per presunte violazioni degli obblighi contrattuali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/banca-grigionese-denuncia-centinaia-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio della banca a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-05-04T12:45:42+00:00",
+      "dateModified": "2026-05-04T12:45:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banca-grigionese-denuncia-centinaia-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

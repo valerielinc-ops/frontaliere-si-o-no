@@ -3158,6 +3158,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tragedia-bellinzona-folgorazione-2026': { name: 'Novità', path: '/articoli-frontaliere/tragedia-bellinzona-folgorazione-2026', parent: 'blog' },
     'blog-sicurezza-varese-monte-santo-intervento-comune': { name: 'Novità Varese', path: '/articoli-frontaliere/sicurezza-varese-monte-santo-intervento-comune', parent: 'blog' },
     'blog-arresto-albanese-cocaina-capolago': { name: 'Novità', path: '/articoli-frontaliere/arresto-albanese-cocaina-capolago', parent: 'blog' },
+    'blog-banca-grigionese-denuncia-centinaia-milioni': { name: 'Novità', path: '/articoli-frontaliere/banca-grigionese-denuncia-centinaia-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

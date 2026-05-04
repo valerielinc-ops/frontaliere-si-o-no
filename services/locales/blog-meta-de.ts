@@ -5747,6 +5747,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-albanese-cocaina-capolago.title': '24-jähriger Albaner mit 54 Gramm Kokain in Capolago festgenommen',
     'blog.article.arresto-albanese-cocaina-capolago.excerpt': 'Ein 24-jähriger Albaner wurde mit 54 Gramm Kokain im Auto auf der A2 in Capolago festgenommen. Hier sind die Details der Operation.',
     'blog.article.arresto-albanese-cocaina-capolago.imageAlt': 'Polizeieinsatz am Luganersee',
+    'blog.article.banca-grigionese-denuncia-centinaia-milioni.title': 'Graubündner Kantonalbank wegen Millionen verklagt',
+    'blog.article.banca-grigionese-denuncia-centinaia-milioni.excerpt': 'Eine Millionenklage wurde gegen die Graubündner Kantonalbank und ihre Tochter BZ Bank wegen angeblicher Vertragsverletzungen eingereicht.',
+    'blog.article.banca-grigionese-denuncia-centinaia-milioni.imageAlt': 'Bankgebäude in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;
