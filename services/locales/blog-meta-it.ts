@@ -5733,6 +5733,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.confisca-preventiva-mafie-svizzera.title': 'Confisca preventiva: Cappa propone modello italiano per la Svizzera',
     'blog.article.confisca-preventiva-mafie-svizzera.excerpt': 'Rosa Maria Cappa, ex procuratrice federale, propone di introdurre in Svizzera il sequestro preventivo dei beni delle mafie, come in Italia',
     'blog.article.confisca-preventiva-mafie-svizzera.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino e una barca che naviga',
+    'blog.article.ospedale-erba-cura-oncologiche-2026.title': 'Ospedale Erba: massaggi e make-up per pazienti oncologiche',
+    'blog.article.ospedale-erba-cura-oncologiche-2026.excerpt': 'Nuovo progetto per il benessere psicofisico delle pazienti oncologiche con massaggi e consulenze make-up. Iniziativa a partire da settembre 2026.',
+    'blog.article.ospedale-erba-cura-oncologiche-2026.imageAlt': 'Ospedale Erba, edificio principale con ingresso e area circostante',
 };
 
 export default blogMetaIt;

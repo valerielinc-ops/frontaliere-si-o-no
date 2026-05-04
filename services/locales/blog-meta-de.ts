@@ -5732,6 +5732,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.confisca-preventiva-mafie-svizzera.title': 'Cappa schlägt italienisches Modell für die Schweiz vor',
     'blog.article.confisca-preventiva-mafie-svizzera.excerpt': 'Rosa Maria Cappa, ehemalige Bundesanwältin, schlägt vor, in der Schweiz die Beschlagnahmung von Vermögenswerten der Mafia zu einführen, wie in Italien.',
     'blog.article.confisca-preventiva-mafie-svizzera.imageAlt': 'Luftaufnahme des Luganersees mit den Tessin-Berge und einem vorbeifahrenden Boot',
+    'blog.article.ospedale-erba-cura-oncologiche-2026.title': 'Spital Erba: Massagen und Make-up für Krebspatientinnen',
+    'blog.article.ospedale-erba-cura-oncologiche-2026.excerpt': 'Neues Projekt für das psychophysische Wohlbefinden von Krebspatientinnen mit Massagen und Make-up-Beratungen. Initiative ab September 2026.',
+    'blog.article.ospedale-erba-cura-oncologiche-2026.imageAlt': 'Krankenhaus Erba, Hauptgebäude mit Eingang und Umgebung',
 };
 
 export default blogMetaDe;

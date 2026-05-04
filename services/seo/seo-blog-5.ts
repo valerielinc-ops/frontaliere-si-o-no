@@ -14687,6 +14687,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ospedale-erba-cura-oncologiche-2026': {
+    title: 'Ospedale Erba: massaggi e make-up per pazienti oncologiche',
+    description: 'Nuovo progetto per il benessere psicofisico delle pazienti oncologiche con massaggi e consulenze make-up. Iniziativa a partire da settembre 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedale, erba, massaggi, make-up',
+    ogTitle: 'Ospedale Erba: massaggi e make-up per pazienti oncologiche',
+    ogDescription: 'Nuovo progetto per il benessere psicofisico delle pazienti oncologiche con massaggi e consulenze make-up. Iniziativa a partire da settembre 2026.',
+    canonicalPath: '/articoli-frontaliere/ospedale-erba-cura-oncologiche-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedale Erba: massaggi e make-up per pazienti oncologiche",
+      "description": "Nuovo progetto per il benessere psicofisico delle pazienti oncologiche con massaggi e consulenze make-up. Iniziativa a partire da settembre 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ospedale-erba-cura-oncologiche-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale Erba, edificio principale con ingresso e area circostante"
+      },
+      "datePublished": "2026-05-04T11:57:09+00:00",
+      "dateModified": "2026-05-04T11:57:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ospedale-erba-cura-oncologiche-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
