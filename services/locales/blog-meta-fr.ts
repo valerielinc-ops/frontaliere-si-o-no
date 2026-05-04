@@ -5574,6 +5574,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.azzate-koningsdag-console-olandese-2026.title': 'Azzate célèbre le Koningsdag avec la console néerlandaise',
     'blog.article.azzate-koningsdag-console-olandese-2026.excerpt': 'Dimanche 3 mai, Azzate a célébré le Koningsdag avec des marchés, de la musique et la présence de la console néerlandaise Mascha Baak.',
     'blog.article.azzate-koningsdag-console-olandese-2026.imageAlt': 'Célébration du Koningsdag à Azzate avec des marchés et de la musique',
+    'blog.article.confine-vacallo-clandestini-2026.title': 'Frontière de Vacallo : des clandestins passent par un trou dans la clôture',
+    'blog.article.confine-vacallo-clandestini-2026.excerpt': 'Tiziano Pasta, conseiller UDC à Mendrisio, dénonce des passages illégaux de clandestins par une brèche dans la clôture à Vacallo.',
+    'blog.article.confine-vacallo-clandestini-2026.imageAlt': 'Frontière suisse-italienne à Vacallo la nuit avec une clôture endommagée et des personnes tentant de traverser',
 };
 
 export default blogMetaFr;

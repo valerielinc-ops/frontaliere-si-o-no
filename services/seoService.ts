@@ -3100,6 +3100,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ginnastica-artistica-ticino-2026': { name: 'Ginnastica artistica', path: '/articoli-frontaliere/ginnastica-artistica-ticino-2026', parent: 'blog' },
     'blog-italia-sospetti-var-minetti-quirinale': { name: 'Novità', path: '/articoli-frontaliere/italia-sospetti-var-minetti-quirinale', parent: 'blog' },
     'blog-azzate-koningsdag-console-olandese-2026': { name: 'Eventi', path: '/articoli-frontaliere/azzate-koningsdag-console-olandese-2026', parent: 'blog' },
+    'blog-confine-vacallo-clandestini-2026': { name: 'Confine Vacallo', path: '/articoli-frontaliere/confine-vacallo-clandestini-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

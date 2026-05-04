@@ -5573,6 +5573,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.azzate-koningsdag-console-olandese-2026.title': 'Azzate feiert den Königstag mit der niederländischen Konsulin',
     'blog.article.azzate-koningsdag-console-olandese-2026.excerpt': 'Am Sonntag, den 3. Mai, feierte Azzate den Königstag mit Märkten, Musik und der Anwesenheit der niederländischen Konsulin Mascha Baak.',
     'blog.article.azzate-koningsdag-console-olandese-2026.imageAlt': 'Koningsdag-Feier in Azzate mit Märkten und Musik',
+    'blog.article.confine-vacallo-clandestini-2026.title': 'Grenzüberschreitung in Vacallo: Illegale Passagen durch Lücke im Zaun',
+    'blog.article.confine-vacallo-clandestini-2026.excerpt': 'Tiziano Pasta, UDC-Gemeinderat in Mendrisio, meldet illegale Grenzübertritte von Migranten durch eine Lücke im Zaun in Vacallo.',
+    'blog.article.confine-vacallo-clandestini-2026.imageAlt': 'Schweizer-italienische Grenze bei Vacallo in der Nacht mit einem beschädigten Zaun und Menschen, die versuchen, zu überqueren',
 };
 
 export default blogMetaDe;
