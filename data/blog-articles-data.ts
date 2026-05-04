@@ -19010,4 +19010,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incendio-chiasso-operai-feriti',
+ category: 'novita',
+ date: '2026-05-04T20:53:49.425Z',
+ image: '/images/blog/incendio-chiasso-operai-feriti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

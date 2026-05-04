@@ -5879,6 +5879,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.title': 'Mendrisio: Mayor Rossini focuses on city spirit',
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.excerpt': 'New mayor Simona Rossini (Lega) takes over from Lucio Lorenzon and revives the topic of parochialism in Mendrisio',
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.imageAlt': 'Mendrisio cityscape with modern buildings and historic architecture',
+    'blog.article.incendio-chiasso-operai-feriti.title': 'Fire in Chiasso: Injured Workers Evacuated',
+    'blog.article.incendio-chiasso-operai-feriti.excerpt': 'A fire on the roof of a building in Chiasso caused injuries and the evacuation of about thirty people.',
+    'blog.article.incendio-chiasso-operai-feriti.imageAlt': 'Fire on the roof of a building in Chiasso with firefighters in action',
 };
 
 export default blogMetaEn;

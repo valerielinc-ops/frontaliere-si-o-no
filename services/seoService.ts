@@ -3202,6 +3202,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crack-house-ingrado-2026': { name: 'Crack house Ticino', path: '/articoli-frontaliere/crack-house-ingrado-2026', parent: 'blog' },
     'blog-jashari-milan-bocciatura': { name: 'Novità', path: '/articoli-frontaliere/jashari-milan-bocciatura', parent: 'blog' },
     'blog-mendrisio-senso-citta-rossini-lorenzon': { name: 'Novità', path: '/articoli-frontaliere/mendrisio-senso-citta-rossini-lorenzon', parent: 'blog' },
+    'blog-incendio-chiasso-operai-feriti': { name: 'Novità', path: '/articoli-frontaliere/incendio-chiasso-operai-feriti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

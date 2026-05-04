@@ -5880,6 +5880,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.title': 'Mendrisio: la nuova sindaca Rossini punta sul senso di città',
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.excerpt': 'La neo sindaca Simona Rossini (Lega) prende il testimone da Lucio Lorenzon e rilancia il tema dei campanilismi a Mendrisio',
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.imageAlt': 'Panorama della città di Mendrisio con edifici moderni e architettura storica',
+    'blog.article.incendio-chiasso-operai-feriti.title': 'Incendio a Chiasso: operai feriti e evacuati',
+    'blog.article.incendio-chiasso-operai-feriti.excerpt': 'Un incendio sul tetto di una palazzina a Chiasso ha causato feriti e l\'evacuazione di una trentina di persone.',
+    'blog.article.incendio-chiasso-operai-feriti.imageAlt': 'Incendio sul tetto di una palazzina a Chiasso con i vigili del fuoco in azione',
 };
 
 export default blogMetaIt;

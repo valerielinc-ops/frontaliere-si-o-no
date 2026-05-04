@@ -5879,6 +5879,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.title': 'Mendrisio: Bürgermeisterin Rossini setzt auf Gemeinschaftsgefühl',
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.excerpt': 'Die neue Bürgermeisterin Simona Rossini (Lega) übernimmt das Amt von Lucio Lorenzon und thematisiert die Rivalität zwischen den Ortsteilen in Mendrisio',
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.imageAlt': 'Panorama der Stadt Mendrisio mit modernen Gebäuden und historischer Architektur',
+    'blog.article.incendio-chiasso-operai-feriti.title': 'Brand in Chiasso: Verletzte und Evakuierte',
+    'blog.article.incendio-chiasso-operai-feriti.excerpt': 'Ein Brand auf dem Dach eines Mehrfamilienhauses in Chiasso hat Verletzte und die Evakuierung von etwa dreißig Personen verursacht.',
+    'blog.article.incendio-chiasso-operai-feriti.imageAlt': 'Brand auf dem Dach eines Gebäudes in Chiasso mit Feuerwehr im Einsatz',
 };
 
 export default blogMetaDe;

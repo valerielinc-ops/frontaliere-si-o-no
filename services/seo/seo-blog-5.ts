@@ -16353,6 +16353,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-chiasso-operai-feriti': {
+    title: 'Incendio a Chiasso: operai feriti e evacuati | Frontaliere Ticino',
+    description: 'Un incendio sul tetto di una palazzina a Chiasso ha causato feriti e l\'evacuazione di una trentina di persone. Scopri di più sull\'accaduto e le implicazioni per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, chiasso, operai, feriti',
+    ogTitle: 'Incendio a Chiasso: operai feriti e evacuati',
+    ogDescription: 'Un incendio sul tetto di una palazzina a Chiasso ha causato feriti e l\'evacuazione di una trentina di persone. Scopri di più sull\'accaduto e le implicazioni per',
+    canonicalPath: '/articoli-frontaliere/incendio-chiasso-operai-feriti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio a Chiasso: operai feriti e evacuati",
+      "description": "Un incendio sul tetto di una palazzina a Chiasso ha causato feriti e l'evacuazione di una trentina di persone. Scopri di più sull'accaduto e le implicazioni per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendio-chiasso-operai-feriti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incendio sul tetto di una palazzina a Chiasso con i vigili del fuoco in azione"
+      },
+      "datePublished": "2026-05-04T20:53:49+00:00",
+      "dateModified": "2026-05-04T20:53:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-operai-feriti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

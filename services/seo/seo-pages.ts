@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2012,
+ "numberOfItems": 2013,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6655,7 +6655,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2009, "name": "Policonsumo di droga in Ticino: il rapporto 202...", "url": `${BASE_URL}/articoli-frontaliere/policonsumo-ticino-2026` },
           { "@type": "ListItem", "position": 2010, "name": "Crack house in aumento in Ticino: 8 persone al ...", "url": `${BASE_URL}/articoli-frontaliere/crack-house-ingrado-2026` },
           { "@type": "ListItem", "position": 2011, "name": "Jashari bocciato all'esordio con il Milan", "url": `${BASE_URL}/articoli-frontaliere/jashari-milan-bocciatura` },
-          { "@type": "ListItem", "position": 2012, "name": "Mendrisio: la nuova sindaca Rossini punta sul s...", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-senso-citta-rossini-lorenzon` }
+          { "@type": "ListItem", "position": 2012, "name": "Mendrisio: la nuova sindaca Rossini punta sul s...", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-senso-citta-rossini-lorenzon` },
+          { "@type": "ListItem", "position": 2013, "name": "Incendio a Chiasso: operai feriti e evacuati", "url": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-operai-feriti` }
  ]
  },
  {

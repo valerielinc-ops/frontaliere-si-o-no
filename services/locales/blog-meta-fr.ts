@@ -5880,6 +5880,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.title': 'Mendrisio: la nouvelle mairesse Rossini mise sur l\'esprit de la ville',
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.excerpt': 'La nouvelle mairesse Simona Rossini (Lega) succède à Lucio Lorenzon et relance le thème des campanilismes à Mendrisio',
     'blog.article.mendrisio-senso-citta-rossini-lorenzon.imageAlt': 'Panorama de la ville de Mendrisio avec des bâtiments modernes et une architecture historique',
+    'blog.article.incendio-chiasso-operai-feriti.title': 'Incendie à Chiasso: ouvriers blessés et évacués',
+    'blog.article.incendio-chiasso-operai-feriti.excerpt': 'Un incendie sur le toit d\'un immeuble à Chiasso a causé des blessés et l\'évacuation d\'une trentaine de personnes.',
+    'blog.article.incendio-chiasso-operai-feriti.imageAlt': 'Incendie sur le toit d\'un immeuble à Chiasso avec les pompiers en action',
 };
 
 export default blogMetaFr;
