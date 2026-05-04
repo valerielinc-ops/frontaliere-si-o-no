@@ -18776,4 +18776,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'banca-piazza-petruzzella-abt-2026',
+ category: 'novita',
+ date: '2026-05-04T16:22:08.413Z',
+ image: '/images/blog/banca-piazza-petruzzella-abt-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

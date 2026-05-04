@@ -5801,6 +5801,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-carburanti-como-guardia-finanza.title': 'Erhöhte Kontrollen bei Kraftstoffen in der Provinz Como',
     'blog.article.controlli-carburanti-como-guardia-finanza.excerpt': 'Die Guardia di Finanza von Como hat die Kontrollen an den Kraftstofftankstellen verstärkt und vier Strafen für Preisunregelmäßigkeiten verhängt.',
     'blog.article.controlli-carburanti-como-guardia-finanza.imageAlt': 'Guardia di Finanza überprüft Tankstellen in Como',
+    'blog.article.banca-piazza-petruzzella-abt-2026.title': 'ABT: Die Finanzplatz des Tessin ist stärker denn je',
+    'blog.article.banca-piazza-petruzzella-abt-2026.excerpt': 'Die Ämter des Bankenverbandes des Tessins wurden für die Amtszeit 2026-2029 erneuert. Petruzzella bleibt Präsident.',
+    'blog.article.banca-piazza-petruzzella-abt-2026.imageAlt': 'Ansicht des Finanzbezirks von Lugano mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -3176,6 +3176,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fondazione-cariplo-varese-5-milioni-2025': { name: 'Novità', path: '/articoli-frontaliere/fondazione-cariplo-varese-5-milioni-2025', parent: 'blog' },
     'blog-varese-milano-rallentamenti-treni-maggio-2026': { name: 'Trasporti', path: '/articoli-frontaliere/varese-milano-rallentamenti-treni-maggio-2026', parent: 'blog' },
     'blog-controlli-carburanti-como-guardia-finanza': { name: 'Novità', path: '/articoli-frontaliere/controlli-carburanti-como-guardia-finanza', parent: 'blog' },
+    'blog-banca-piazza-petruzzella-abt-2026': { name: 'Novità', path: '/articoli-frontaliere/banca-piazza-petruzzella-abt-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

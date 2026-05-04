@@ -5802,6 +5802,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-carburanti-como-guardia-finanza.title': 'Contrôles renforcés sur les carburants dans la province de Côme',
     'blog.article.controlli-carburanti-como-guardia-finanza.excerpt': 'La Guardia di Finanza de Côme a intensifié les contrôles sur les distributeurs de carburant, infligeant quatre sanctions pour des irrégularités sur les prix.',
     'blog.article.controlli-carburanti-como-guardia-finanza.imageAlt': 'La Guardia di Finanza vérifie les stations-service à Côme',
+    'blog.article.banca-piazza-petruzzella-abt-2026.title': 'ABT: place financière tessinoise plus solide que jamais',
+    'blog.article.banca-piazza-petruzzella-abt-2026.excerpt': 'Renouvellement des charges de l\'Association Bancaire Tessinoise pour le triennat 2026-2029. Petruzzella confirmé président.',
+    'blog.article.banca-piazza-petruzzella-abt-2026.imageAlt': 'Vue du quartier financier de Lugano avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

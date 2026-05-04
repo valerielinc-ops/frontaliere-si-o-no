@@ -15469,6 +15469,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banca-piazza-petruzzella-abt-2026': {
+    title: 'ABT: piazza finanziaria ticinese più solida che mai',
+    description: 'Rinnovate le cariche dell\'Associazione Bancaria Ticinese per il triennio 2026-2029. Petruzzella confermato presidente. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, piazza, finanziaria, ticinese, solida',
+    ogTitle: 'ABT: piazza finanziaria ticinese più solida che mai',
+    ogDescription: 'Rinnovate le cariche dell\'Associazione Bancaria Ticinese per il triennio 2026-2029. Petruzzella confermato presidente.',
+    canonicalPath: '/articoli-frontaliere/banca-piazza-petruzzella-abt-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ABT: piazza finanziaria ticinese più solida che mai",
+      "description": "Rinnovate le cariche dell'Associazione Bancaria Ticinese per il triennio 2026-2029. Petruzzella confermato presidente. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/banca-piazza-petruzzella-abt-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del distretto finanziario di Lugano con il lago Ceresio sullo sfondo"
+      },
+      "datePublished": "2026-05-04T16:22:08+00:00",
+      "dateModified": "2026-05-04T16:22:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banca-piazza-petruzzella-abt-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

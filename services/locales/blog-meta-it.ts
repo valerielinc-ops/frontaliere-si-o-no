@@ -5802,6 +5802,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-carburanti-como-guardia-finanza.title': 'Controlli rafforzati sui carburanti in provincia di Como',
     'blog.article.controlli-carburanti-como-guardia-finanza.excerpt': 'La Guardia di Finanza di Como ha intensificato i controlli sui distributori di carburante, elevando quattro sanzioni per irregolarità sui prezzi.',
     'blog.article.controlli-carburanti-como-guardia-finanza.imageAlt': 'Guardia di Finanza controlla distributori carburante Como',
+    'blog.article.banca-piazza-petruzzella-abt-2026.title': 'ABT: piazza finanziaria ticinese più solida che mai',
+    'blog.article.banca-piazza-petruzzella-abt-2026.excerpt': 'Rinnovate le cariche dell\'Associazione Bancaria Ticinese per il triennio 2026-2029. Petruzzella confermato presidente.',
+    'blog.article.banca-piazza-petruzzella-abt-2026.imageAlt': 'Vista del distretto finanziario di Lugano con il lago Ceresio sullo sfondo',
 };
 
 export default blogMetaIt;

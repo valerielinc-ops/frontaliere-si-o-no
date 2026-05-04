@@ -5801,6 +5801,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-carburanti-como-guardia-finanza.title': 'Stricter fuel checks in Como province',
     'blog.article.controlli-carburanti-como-guardia-finanza.excerpt': 'The Guardia di Finanza in Como has intensified checks on fuel distributors, issuing four fines for price irregularities.',
     'blog.article.controlli-carburanti-como-guardia-finanza.imageAlt': 'Guardia di Finanza checking fuel stations in Como',
+    'blog.article.banca-piazza-petruzzella-abt-2026.title': 'ABT: Ticino\'s financial hub stronger than ever',
+    'blog.article.banca-piazza-petruzzella-abt-2026.excerpt': 'The Association Bancaire Ticinese has renewed its leadership for the 2026-2029 term. Petruzzella re-elected as president.',
+    'blog.article.banca-piazza-petruzzella-abt-2026.imageAlt': 'View of Lugano financial district with Lake Lugano in the background',
 };
 
 export default blogMetaEn;
