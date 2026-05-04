@@ -5682,6 +5682,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ndrangheta-ticino-antimafia-italiana.title': '\'Ndrangheta utilise le Tessin pour échapper à l\'antimafia italienne',
     'blog.article.ndrangheta-ticino-antimafia-italiana.excerpt': 'Des sentences suisses et italiennes révèlent comment la cosca d\'Isola Capo Rizzuto a utilisé des sociétés tessinoises pour contourner les interdictions antimafia',
     'blog.article.ndrangheta-ticino-antimafia-italiana.imageAlt': 'Panorama de Lugano avec le lac et les montagnes',
+    'blog.article.nuove-accise-carburanti-2026.title': 'Nouvelles taxes sur les carburants: les prix changent en Ticino',
+    'blog.article.nuove-accise-carburanti-2026.excerpt': 'Depuis le 2 mai 2026, les taxes sur l\'essence et le GPL ont augmenté, tandis que le diesel baisse légèrement. Voici comment change le coût du carburant pour les frontaliers.',
+    'blog.article.nuove-accise-carburanti-2026.imageAlt': 'Une station-service dans le Tessin avec l\'affichage des prix du carburant',
 };
 
 export default blogMetaFr;

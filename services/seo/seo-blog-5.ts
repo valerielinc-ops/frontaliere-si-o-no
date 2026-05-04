@@ -14109,6 +14109,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuove-accise-carburanti-2026': {
+    title: 'Nuove accise sui carburanti: come cambiano i prezzi in Ticino',
+    description: 'Dai 2 maggio 2026 le accise sulla benzina e sul GPL sono aumentate, mentre il diesel è in lieve calo. Ecco come cambia il costo del carburante per i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, accise, carburanti, cambiano',
+    ogTitle: 'Nuove accise carburanti 2026: impatto sui frontalieri Ticino',
+    ogDescription: 'Dai 2 maggio 2026 le accise sulla benzina e sul GPL sono aumentate, mentre il diesel è in lieve calo. Ecco come cambia il costo del carburante per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/nuove-accise-carburanti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove accise sui carburanti: come cambiano i prezzi in Ticino",
+      "description": "Dai 2 maggio 2026 le accise sulla benzina e sul GPL sono aumentate, mentre il diesel è in lieve calo. Ecco come cambia il costo del carburante per i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuove-accise-carburanti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una stazione di servizio in Ticino con il display dei prezzi dei carburanti"
+      },
+      "datePublished": "2026-05-04T09:11:32+00:00",
+      "dateModified": "2026-05-04T09:11:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuove-accise-carburanti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

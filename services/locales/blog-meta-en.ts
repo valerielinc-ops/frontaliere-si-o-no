@@ -5681,6 +5681,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ndrangheta-ticino-antimafia-italiana.title': '\'Ndrangheta uses Ticino to evade Italian anti-mafia measures',
     'blog.article.ndrangheta-ticino-antimafia-italiana.excerpt': 'Swiss and Italian rulings reveal how the Isola Capo Rizzuto clan used Ticinese companies to bypass anti-mafia injunctions',
     'blog.article.ndrangheta-ticino-antimafia-italiana.imageAlt': 'Lugano cityscape with Lake Lugano and mountains',
+    'blog.article.nuove-accise-carburanti-2026.title': 'New fuel excise duties: price changes in Ticino',
+    'blog.article.nuove-accise-carburanti-2026.excerpt': 'As of May 2, 2026, excise duties on gasoline and LPG have increased, while diesel has slightly decreased. Here\'s how fuel costs change for cross-border workers',
+    'blog.article.nuove-accise-carburanti-2026.imageAlt': 'A gas station in Ticino with the fuel price display',
 };
 
 export default blogMetaEn;

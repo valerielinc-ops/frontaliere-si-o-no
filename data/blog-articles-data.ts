@@ -18416,4 +18416,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuove-accise-carburanti-2026',
+ category: 'pratico',
+ date: '2026-05-04T09:11:32.268Z',
+ image: '/images/blog/nuove-accise-carburanti-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5682,6 +5682,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ndrangheta-ticino-antimafia-italiana.title': 'La ’ndrangheta usa il Ticino per sfuggire all’antimafia italiana',
     'blog.article.ndrangheta-ticino-antimafia-italiana.excerpt': 'Sentenze svizzere e italiane rivelano come la cosca di Isola Capo Rizzuto abbia usato società ticinesi per aggirare interdittive antimafia',
     'blog.article.ndrangheta-ticino-antimafia-italiana.imageAlt': 'Panorama di Lugano con il lago e le montagne',
+    'blog.article.nuove-accise-carburanti-2026.title': 'Nuove accise sui carburanti: come cambiano i prezzi in Ticino',
+    'blog.article.nuove-accise-carburanti-2026.excerpt': 'Dai 2 maggio 2026 le accise sulla benzina e sul GPL sono aumentate, mentre il diesel è in lieve calo. Ecco come cambia il costo del carburante per i frontalieri',
+    'blog.article.nuove-accise-carburanti-2026.imageAlt': 'Una stazione di servizio in Ticino con il display dei prezzi dei carburanti',
 };
 
 export default blogMetaIt;
