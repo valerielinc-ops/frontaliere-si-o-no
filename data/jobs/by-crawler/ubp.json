@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubp",
-  "assembledAt": "2026-05-03T22:22:58.601Z",
+  "assembledAt": "2026-05-04T11:47:01.626Z",
   "jobs": [
     {
       "id": "ubp-5f6cbca8cc8d",
@@ -33,7 +33,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/240",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-03T22:22:55.667Z",
+      "crawledAt": "2026-05-04T11:46:58.752Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/297",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:55.144Z",
+      "crawledAt": "2026-05-04T11:46:58.215Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -186,7 +186,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/265",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:54.610Z",
+      "crawledAt": "2026-05-04T11:46:57.658Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -221,6 +221,7 @@
         "it-business-analyst-risk-management-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:18.243Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -265,7 +266,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:54.084Z",
+      "crawledAt": "2026-05-04T11:46:57.099Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -300,6 +301,7 @@
         "it-business-analyst-credit-it-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:17.703Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -309,85 +311,6 @@
           "@type": "QuantitativeValue",
           "minValue": 51500,
           "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ubp-be3fc18d451e",
-      "slug": "specialista-fiscale-temporary-8-mesi-union-bancaire-privee-geneva-switzerland",
-      "slugByLocale": {
-        "it": "specialista-fiscale-temporary-8-mesi-union-bancaire-privee-geneva-switzerland",
-        "en": "tax-specialist-temporary-8-months-union-bancaire-privee-geneva-switzerland",
-        "de": "tax-spezialist-temporary-8-months-union-bancaire-privee-geneva-switzerland",
-        "fr": "tax-specialiste-temporary-8-months-union-bancaire-privee-geneva-switzerland"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Tax Specialist (Temporary 8 months)",
-      "titleByLocale": {
-        "it": "Specialista fiscale (Temporary 8 mesi)",
-        "en": "Tax Specialist (Temporary 8 months)",
-        "de": "Tax Spezialist (Temporary 8 months)",
-        "fr": "Tax Spécialiste (Temporary 8 months)"
-      },
-      "description": "Mission \n \n As part of the Tax Services team, the Tax and Documentation Specialist is a key element to ensure the quality and accuracy of the US and CRS reporting done by the Bank, in an environment which is subject to constant changes and evolutions. The employee’s mission also includes investigation and follow up on requests from internal/external auditors, authorities and Relationship managers. \n \n Main duties \n \n• Participate in the Data preparation and validation for reportings such as FATCA/CRS \n\n• QI/FATCA/CRS Data quality control, Reconciliation and Reporting \n\n• Manage the documentation and indicia Dashboard for the WM. Provide relevant support, monitoring and required IT improvements. \n\n• Answer inquiries in relation to withholding taxes including QI/FATCA and CRS \n\n• Provide support to the front office about QI/FATCA and CRS \n\n• Perform regular controls on transactions and codification in our systems to ensure that the tax is properly levied and reported. \n\n• Monitoring and control of FATCA/CRS client documentation and change in circumstances \n\n• Follow up on requests from internal/external auditors, authorities \n \n\n Core competencies \n \n Skills & Abilities: \n \n• Good knowledge of the financial products and associated transactions\n\n• Knowledge of US and CRS reporting rules (Optional)\n\n• 1-3 years of experience in Tax Operation team or equivalent\n\n• Strong analytical skills, able to make complex data reconciliation\n\n• Ability to efficiently manage priorities\n\n• Be able to work independently but also as a team\n\n• Fluent in French and English\n Open mind and team orientation: \n \n• Be open to other’s ideas.\n\n• Always balance personal and team interests keeping in mind that the Bank’s interest are the priority.\n\n• Express and accept constructive criticism.\n Innovation and development: \n \n• Propose and seek improvement of the current tools and processes.\n\n• Be positive towards change and seek opportunities to improve the quality of the working environment.\n\n• Conitunuously work on knowledge improvement.\n Corporate culture: \n \n• Be ‘solution oriented’ and have a strong sense of customer services.\n\n• Be proactive and driven.\n\n• Developp and maintain a relationship network within the various Bank departments.\n\n• Comply consistently with internal and external regulations.",
-      "descriptionByLocale": {
-        "it": "Missione Nell'ambito del team Tax Services, il Tax and Documentation Specialist è un elemento chiave per garantire la qualità e l'accuratezza della segnalazione degli Stati Uniti e del CRS effettuata dalla Banca, in un ambiente soggetto a costanti cambiamenti ed evoluzioni. La missione del dipendente comprende anche le indagini e seguire le richieste di revisori interni/esterni, autorità e responsabili delle relazioni. ## Mansioni principato - Partecipa alla preparazione e alla validazione dei dati per report come FATCA/CRS - QI/FATCA/CRS Controllo qualità dei dati, Riconciliazione e Reporting - Gestire la documentazione e indicia Dashboard per il WM. Fornire supporto, monitoraggio e miglioramenti IT richiesti. - Rispondere alle richieste in relazione alle imposte di mantenimento, tra cui QI/FATCA e CRS - Fornire supporto all'ufficio anteriore su QI/FATCA e CRS - Eseguire controlli regolari sulle transazioni e la codificazione nei nostri sistemi per garantire che l'imposta sia correttamente levied e segnalato. - Monitoraggio e controllo della documentazione dei clienti FATCA/CRS e cambiamento delle circostanze - Seguire le richieste di revisori interni/esterni, autorità ## Competenze chiave ## Skills & Abilities: - Buona conoscenza dei prodotti finanziari e delle transazioni associate - Conoscenza delle regole di reporting degli Stati Uniti e del CRS (opzionale) - 1-3 anni di esperienza nel team di Operazione fiscale o equivalente - Forte competenze analitiche, in grado di rendere complessa riconciliazione dei dati - Capacità Essere in grado di lavorare in modo indipendente ma anche come squadra - fluente in francese e inglese ## Apri la mente e l'orientamento di squadra: - Sii aperto alle idee altrui. - No. Sempre bilanciare gli interessi personali e di squadra tenendo presente che l’interesse della Banca è la priorità. - Esprimere e accettare critiche costruttive. ### Innovazione e sviluppo: - Proporre e cercare il miglioramento degli strumenti e dei processi attuali. - Siate positivi verso il cambiamento e cercate opportunità per migliorare la qualità dell'ambiente di lavoro. - Lavorare costantemente al miglioramento della conoscenza. #### Cultura aziendale: - Essere orientata alla soluzione e avere un forte senso dei servizi del cliente. - Sii proattivo e guidato. - Sviluppare e mantenere una rete di relazioni all'interno dei vari dipartimenti bancari. - Complessivamente con normative interne ed esterne.",
-        "en": "Mission As part of the Tax Services team, the Tax and Documentation Specialist is a key element to ensure the quality and accuracy of the US and CRS reporting done by the Bank, in an environment which is subject to constant changes and evolutions. The employee’s mission also includes investigation and follow up on requests from internal/external auditors, authorities and Relationship managers. Main duties • Participate in the Data preparation and validation for reportings such as FATCA/CRS • QI/FATCA/CRS Data quality control, Reconciliation and Reporting • Manage the documentation and indicia Dashboard for the WM. Provide relevant support, monitoring and required IT improvements. • Answer inquiries in relation to withholding taxes including QI/FATCA and CRS • Provide support to the front office about QI/FATCA and CRS • Perform regular controls on transactions and codification in our systems to ensure that the tax is properly levied and reported. • Monitoring and control of FATCA/CRS client documentation and change in circumstances • Follow up on requests from internal/external auditors, authorities Core competencies Skills & Abilities: • Good knowledge of the financial products and associated transactions • Knowledge of US and CRS reporting rules (Optional) • 1-3 years of experience in Tax Operation team or equivalent • Strong analytical skills, able to make complex data reconciliation • Ability to efficiently manage priorities • Be able to work independently but also as a team • Fluent in French and English Open mind and team orientation: • Be open to other’s ideas. • Always balance personal and team interests keeping in mind that the Bank’s interest are the priority. • Express and accept constructive criticism. Innovation and development: • Propose and seek improvement of the current tools and processes. • Be positive towards change and seek opportunities to improve the quality of the working environment. • Conitunuously work on knowledge improvement. Corporate culture: • Be ‘solution oriented’ and have a strong sense of customer services. • Be proactive and driven. • Developp and maintain a relationship network within the various Bank departments. • Comply consistently with internal and external regulations.",
-        "de": "Mission Im Rahmen des Tax Services Teams ist der Tax and Documentation Specialist ein Schlüsselelement, um die Qualität und Genauigkeit der US- und CRS-Berichte der Bank in einem Umfeld zu gewährleisten, das ständigen Veränderungen und Entwicklungen unterliegt. Die Mission des Mitarbeiters umfasst auch Untersuchung und Weiterverfolgung von Anträgen von internen/externen Auditoren, Behörden und Beziehungsmanagern. Mansioni principali - Nehmen Sie an der Datenvorbereitung und Validierung für Berichterstattungen wie FATCA/CRS teil - QI/FATCA/CRS Datenqualitätskontrolle, Versöhnung und Reporting - Verwalten Sie die Dokumentation und Indicia Dashboard für die WM. Stellen Sie relevante Unterstützung, Überwachung und erforderliche IT-Verbesserungen zur Verfügung. - Beantworten Sie Anfragen in Bezug auf die Quellensteuer einschließlich QI/FATCA und CRS - Unterstützung bei der Frontstelle über QI/FATCA und CRS - Führen Sie regelmäßige Kontrollen über Transaktionen und Kodifizierung in unseren Systemen, um sicherzustellen, dass die Steuer ordnungsgemäß erhoben und gemeldet wird. - Überwachung und Kontrolle der FATCA/CRS-Clientdokumentation und -änderung unter Umständen - Folgen Sie auf Anfragen von internen/externen Auditoren, Behörden \\ Competenze chiave ### Fähigkeiten & Fähigkeiten: - Gute Kenntnisse der Finanzprodukte und damit verbundenen Transaktionen - Kenntnisse der US- und CRS-Reporting-Regeln (Optional) - 1-3 Jahre Erfahrung im Steuerbetriebsteam oder gleichwertig - Starke analytische Fähigkeiten, in der Lage, komplexe Datenabgleichung - Fähigkeit, effizient zu verwalten Prioritäten Seien Sie in der Lage, unabhängig zu arbeiten, aber auch als Team - Flöten in Französisch und Englisch ### Offene Meinung und Teamorientierung: - Seien Sie offen für andere Ideen. - Ja. Berücksichtigen Sie immer, dass das Interesse der Bank die Priorität hat. - Express und akzeptieren konstruktive Kritik. ### Innovation und Entwicklung: - Anlehnen und suchen Verbesserung der aktuellen Werkzeuge und Prozesse. Seien Sie positiv auf Veränderungen und suchen Sie Möglichkeiten, die Qualität des Arbeitsumfelds zu verbessern. - Konkrete Arbeit an der Wissensverbesserung. ### Unternehmenskultur: - Seien Sie ‘Lösung orientiert’ und haben ein starkes Gefühl der Kundendienste. - Sei proaktiv und getrieben. - Developp und Aufrechterhaltung eines Beziehungsnetzwerks innerhalb der verschiedenen Bankabteilungen. - Konsistent mit internen und externen Vorschriften.",
-        "fr": "Missione Dans le cadre de l'équipe des Services fiscaux, le spécialiste de l'impôt et de la documentation est un élément clé pour assurer la qualité et l'exactitude des rapports des États-Unis et du CS Ex effectués par la Banque, dans un environnement qui est soumis à des changements et des évolutions constants. La mission de l'employé comprend également les enquêtes et le suivi des demandes des vérificateurs internes et externes, des autorités et des gestionnaires des relations. ## Mansioni principali - Participer à la préparation et à la validation des données pour les rapports tels que FATCA/CRS - QI/FATCA/CRS Contrôle de la qualité des données, rapprochement et rapports - Gérer la documentation et le tableau de bord Indicia pour le WM. Fournir le soutien, le suivi et les améliorations nécessaires en matière de TI. - Répondre aux demandes de renseignements concernant les retenues d'impôt, y compris la QI/FATCA et le CS Ex - Fournir du soutien au bureau principal au sujet de la QI/FATCA et du CS Ex - Effectuer des contrôles réguliers des opérations et de la codification dans nos systèmes pour s'assurer que la taxe est prélevée et déclarée correctement. - Surveillance et contrôle de la documentation sur les clients de la FATCA/SCR et changement de circonstances - Suivi des demandes des vérificateurs internes/externes, des autorités ## Competenze chiave ### Compétences et capacités : - Bonne connaissance des produits financiers et des transactions connexes - Connaissance des règles de déclaration des états-Unis et du SCR (facultatif) - 1 à 3 ans d'expérience dans l'équipe de l'opération fiscale ou l'équivalent - Fortes compétences analytiques, capables de faire un rapprochement complexe des données - Capacité de gérer efficacement les priorités - Être capable de travailler indépendamment mais aussi en équipe - Fluent en français et en anglais ### Esprit ouvert et orientation de l'équipe : - Être ouvert aux autres idées. - Oui. Toujours équilibrer les intérêts personnels et d'équipe en gardant à l'esprit que les intérêts de la Banque sont la priorité. - Exprimer et accepter des critiques constructives. ### Innovation et développement: - Proposer et chercher à améliorer les outils et les processus actuels. - Soyez positif envers le changement et cherchez des occasions d'améliorer la qualité de l'environnement de travail. - Travailler ensemble à l'amélioration des connaissances. ### Culture d'entreprise: - Être orienté vers la solution et avoir un fort sens des services à la clientèle. - Soyez proactif et motivé. - Développer et maintenir un réseau de relations au sein des différents services de la Banque. - Respecter les règlements internes et externes."
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/452",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:53.551Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-13",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/452",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "tax-specialist-temporary-8-months-ubp-ch"
-        ],
-        "it": [
-          "tax-specialist-temporary-8-months-ubp-ch"
-        ],
-        "de": [
-          "tax-specialist-temporary-8-months-ubp-ch"
-        ],
-        "fr": [
-          "tax-specialist-temporary-8-months-ubp-ch"
-        ]
-      },
-      "previousSlugs": [
-        "tax-specialist-temporary-8-months-ubp-ch"
-      ],
-      "firstSeenAt": "2026-04-13T11:28:17.155Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -423,7 +346,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/514",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:53.033Z",
+      "crawledAt": "2026-05-04T11:46:56.551Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -502,7 +425,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/519",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:52.513Z",
+      "crawledAt": "2026-05-04T11:46:56.008Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -537,6 +460,7 @@
         "middle-officer-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:16.025Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -581,7 +505,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/542",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:51.989Z",
+      "crawledAt": "2026-05-04T11:46:55.455Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -616,96 +540,7 @@
         "investment-advisor-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:15.483Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ubp-d2b1b07b8727",
-      "slug": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
-      "slugByLocale": {
-        "it": "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
-        "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland",
-        "fr": "specialiste-fiscal-union-bancaire-privee-geneva-switzerland"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Tax Specialist",
-      "titleByLocale": {
-        "it": "Specialista fiscale",
-        "en": "Tax Specialist",
-        "de": "Tax Spezialist",
-        "fr": "Spécialiste fiscal"
-      },
-      "description": "Mission \n \n We are seeking a motivated and detail-oriented Tax Specialist to join our Client Documentation and Tax Services Department. \n As part of the Fiscal Reporting team, you will play a key role in ensuring the accuracy and quality of our clients’ tax statements, while collaborating with various departments and external providers. \n This is a unique opportunity to grow in a fast-paced, stimulating environment and contribute to impactful projects across the bank. \n \n Main Responsibilities \n \n Tax Statement Review & Validation \n- Review and validate tax statements for over 20 international jurisdictions, including Switzerland, France, Portugal, Mexico, and others.\n- Ensure that tax documents comply with local and international regulations before being sent to clients.\n Data Quality Assurance \n- Collaborate with our external provider to ensure the quality and accuracy of tax data before statement production.\n- Identify and correct anomalies or inconsistencies in the data to ensure reliable reporting.\n Client Support & Front Office Interaction \n- Address inquiries and requests from the Front Office regarding tax statements, providing clear and precise explanations.\n- Manage tax document orders in coordination with internal teams and external providers.\n Cross-Functional Collaboration \n- Work closely with Compliance, Operations, Front Office, and IT teams to ensure smooth management of tax processes.\n- Actively participate in cross-functional projects involving process improvements, regulatory updates, or strategic initiatives.\n Project Management \n- Contribute to side projects related to tax data, information systems, and operational processes.\n- Participate in the continuous improvement of tools and processes in collaboration with IT and other departments.\n Regulatory Compliance & Reporting \n- Stay updated on tax regulatory changes across the covered jurisdictions.\n- Prepare detailed reports and maintain comprehensive documentation to meet audit and regulatory requirements.\n \n Key Skills & Qualifications \n • Tax Expertise : In-depth knowledge of international tax regulations.\n• Analytical Skills : Ability to analyze complex data and identify anomalies.\n• Client Orientation : Excellent communication skills to address Front Office and client inquiries.\n• Cross-Functional Collaboration: Experience working with multidisciplinary teams (Compliance, IT, Operations, etc.).\n• Project Management : Ability to manage multiple projects simultaneously and meet deadlines.\n \n What We're Looking For \n • Experience : Minimum 2 years in banking, with a focus on tax services.\n• Skills : Strong knowledge of financial instruments (Equities, Bonds, Structured Products, Derivatives – Listed or OTC) and their specific characteristics. Familiarity with European income and gains taxation is a plus. Proficiency in Microsoft Office is essential.\n• Languages : Fluency in French and English is required; German, Italian, Spanish, or Portuguese is a plus.\n• Mindset : Proactive, solution-oriented, and eager to learn. Strong problem-solving skills, ability to work quickly and efficiently, and a team player who thrives in a fast-paced environment.\n \n Why Join Us? \n • Be part of a collaborative and innovative team.\n• Work in a challenging yet rewarding environment.\n• Develop your expertise and grow your career in a leading financial institution.\n \n If you’re ready to take on this exciting challenge and make a long-term impact, we’d love to hear from you!",
-      "descriptionByLocale": {
-        "it": "Mansioni - Tax Statement Review & Validation - Valutazione e convalida delle dichiarazioni fiscali per oltre 20 giurisdizioni internazionali, tra cui Svizzera, Francia, Portogallo, Messico e altri. - Assicurarsi che i documenti fiscali siano conformi alle normative locali e internazionali prima di essere inviati ai clienti. ## Data Quality Assurance - Collabora con il nostro fornitore esterno per garantire la qualità e l'accuratezza dei dati fiscali prima della produzione di dichiarazioni. - Identificare e correggere anomalie o incongruenze dei dati per garantire una segnalazione affidabile. ## Customer Support & Front Office Interaction - Richieste di indirizzo e richieste del Front Office relative alle dichiarazioni fiscali, fornendo spiegazioni chiare e precise. - Gestire gli ordini dei documenti fiscali in coordinamento con le squadre interne e i fornitori esterni. ## Cross-Functional Collaboration - Lavorare a stretto contatto con i team Compliance, Operations, Front Office e IT per garantire una gestione regolare dei processi fiscali. - Partecipa attivamente a progetti interfunzionali che coinvolgono miglioramenti di processo, aggiornamenti normativi o iniziative strategiche. ## Project Management - Contribuisci ai progetti collaterali relativi ai dati fiscali, ai sistemi informativi e ai processi operativi. - Partecipa al continuo miglioramento di strumenti e processi in collaborazione con IT e altri reparti. ## Normativa Compliance & Reporting - Resta aggiornato sulle modifiche normative fiscali nelle giurisdizioni coperte. - Preparare report dettagliati e mantenere una documentazione completa per soddisfare i requisiti di audit e regolamentazione. ## Requisiti - Esperienza: minimo 2 anni nel settore bancario, con un focus sui servizi fiscali. - Competenze: Forte conoscenza degli strumenti finanziari (Equità, Obbligazioni, Prodotti Strutturati, Derivati – Elencati o OTC) e delle loro caratteristiche specifiche. La familiarità con il reddito europeo e i guadagni fiscali è un plus. La competenza in Microsoft Office è essenziale. - Lingue: francese e inglese; tedesco, italiano, spagnolo o portoghese è un plus. - Mindset: Proattivo, orientato alla soluzione, e desideroso di imparare. Forte capacità di problem solving, capacità di lavorare in modo rapido ed efficiente, e un giocatore di squadra che prospera in un ambiente veloce. # Cosa# offrendo - Fa parte di un team collaborativo e innovativo. - Lavorare in un ambiente stimolante ma gratificante. - Sviluppare la tua esperienza e crescere la tua carriera in un istituto finanziario leader. ## Contatto Nessuna informazione di contatto fornita. ## Core Competencies - Aderenza ai valori dell'azienda: Dedication, Conviction, Agility e Responsibility - Rispetto alle normative e alle direttive interne",
-        "en": "Mission We are seeking a motivated and detail-oriented Tax Specialist to join our Client Documentation and Tax Services Department. As part of the Fiscal Reporting team, you will play a key role in ensuring the accuracy and quality of our clients’ tax statements, while collaborating with various departments and external providers. This is a unique opportunity to grow in a fast-paced, stimulating environment and contribute to impactful projects across the bank. Main Responsibilities Tax Statement Review & Validation - Review and validate tax statements for over 20 international jurisdictions, including Switzerland, France, Portugal, Mexico, and others. - Ensure that tax documents comply with local and international regulations before being sent to clients. Data Quality Assurance - Collaborate with our external provider to ensure the quality and accuracy of tax data before statement production. - Identify and correct anomalies or inconsistencies in the data to ensure reliable reporting. Client Support & Front Office Interaction - Address inquiries and requests from the Front Office regarding tax statements, providing clear and precise explanations. - Manage tax document orders in coordination with internal teams and external providers. Cross-Functional Collaboration - Work closely with Compliance, Operations, Front Office, and IT teams to ensure smooth management of tax processes. - Actively participate in cross-functional projects involving process improvements, regulatory updates, or strategic initiatives. Project Management - Contribute to side projects related to tax data, information systems, and operational processes. - Participate in the continuous improvement of tools and processes in collaboration with IT and other departments. Regulatory Compliance & Reporting - Stay updated on tax regulatory changes across the covered jurisdictions. - Prepare detailed reports and maintain comprehensive documentation to meet audit and regulatory requirements. Key Skills & Qualifications • Tax Expertise : In-depth knowledge of international tax regulations. • Analytical Skills : Ability to analyze complex data and identify anomalies. • Client Orientation : Excellent communication skills to address Front Office and client inquiries. • Cross-Functional Collaboration: Experience working with multidisciplinary teams (Compliance, IT, Operations, etc.). • Project Management : Ability to manage multiple projects simultaneously and meet deadlines. What We're Looking For • Experience : Minimum 2 years in banking, with a focus on tax services. • Skills : Strong knowledge of financial instruments (Equities, Bonds, Structured Products, Derivatives – Listed or OTC) and their specific characteristics. Familiarity with European income and gains taxation is a plus. Proficiency in Microsoft Office is essential. • Languages : Fluency in French and English is required; German, Italian, Spanish, or Portuguese is a plus. • Mindset : Proactive, solution-oriented, and eager to learn. Strong problem-solving skills, ability to work quickly and efficiently, and a team player who thrives in a fast-paced environment. Why Join Us? • Be part of a collaborative and innovative team. • Work in a challenging yet rewarding environment. • Develop your expertise and grow your career in a leading financial institution. If you’re ready to take on this exciting challenge and make a long-term impact, we’d love to hear from you!",
-        "de": "Mansioni - Tax Statement Review & Validation - Bewertung und Validierung von Steuererklärungen für über 20 internationale Gerichtsbarkeiten, darunter Schweiz, Frankreich, Portugal, Mexiko und andere. - Stellen Sie sicher, dass die Steuerdokumente den lokalen und internationalen Vorschriften entsprechen, bevor Sie an Kunden gesendet werden. Â Data Quality Assurance - Mit unserem externen Anbieter zusammenarbeiten, um die Qualität und Genauigkeit von Steuerdaten vor der Statement-Produktion zu gewährleisten. - Identifizierung und Korrektur von Anomalien oder Unstimmigkeiten in den Daten, um eine zuverlässige Berichterstattung zu gewährleisten. Â Client Support & Front Office Interaction - Adressenanfragen und Anfragen des Front Office bezüglich Steuererklärungen, die klare und präzise Erklärungen liefern. - Steuerbelegaufträge in Abstimmung mit internen Teams und externen Anbietern verwalten. Cross-Functional Collaboration - Arbeiten Sie eng mit Compliance-, Operations-, Front Office- und IT-Teams zusammen, um eine reibungslose Verwaltung von Steuerprozessen sicherzustellen. - Nehmen Sie aktiv an funktionsübergreifenden Projekten mit Prozessverbesserungen, regulatorischen Updates oder strategischen Initiativen teil. Projektmanagement - Nebenprojekte im Zusammenhang mit Steuerdaten, Informationssystemen und operativen Prozessen. - Erwarten Sie die kontinuierliche Verbesserung von Werkzeugen und Prozessen in Zusammenarbeit mit IT und anderen Abteilungen. Â Regulatory Compliance & Reporting - Bleiben Sie auf dem neuesten Stand der steuerrechtlichen Änderungen in den abgedeckten Zuständigkeiten. - Bereiten Sie detaillierte Berichte vor und pflegen Sie umfassende Dokumentationen, um die Prüfungs- und Regulierungsanforderungen zu erfüllen. Requisiti - Erfahrung: Mindestens 2 Jahre im Bankwesen, mit Schwerpunkt auf Steuerdienstleistungen. - Fähigkeiten : Starkes Wissen über Finanzinstrumente (Equities, Bonds, Structured Products, Derivatives – Listed oder OTC) und ihre spezifischen Merkmale. Die Vertraulichkeit mit dem europäischen Einkommen und der Gewinnbesteuerung ist ein Plus. Die Effizienz in Microsoft Office ist unerlässlich. - Sprachen: Französisch und Englisch sind erforderlich; Deutsch, Italienisch, Spanisch oder Portugiesisch ist ein Plus. - Mindset: Proaktiv, lösungsorientiert und eifrig zu lernen. Starke Problemlösungsfähigkeiten, schnell und effizient zu arbeiten, und ein Teamplayer, der in einer schnelllebigen Umgebung lebt. Cosa offriamo - Sei Teil eines kollaborativen und innovativen Teams. - Arbeiten Sie in einer anspruchsvollen und dennoch lohnenden Umgebung. - Entwickeln Sie Ihr Know-how und wachsen Sie Ihre Karriere in einer führenden Finanzinstitution. (Contatto) Keine Kontaktinformationen zur Verfügung gestellt. Kernkompetenzen - Einhaltung der Werte des Unternehmens: Hingabe, Konviktion, Agilität und Verantwortung - Einhaltung von Vorschriften und internen Richtlinien",
-        "fr": "Mansioni - Examen et validation des déclarations fiscales - Examiner et valider les déclarations fiscales pour plus de 20 juridictions internationales, dont la Suisse, la France, le Portugal, le Mexique et d'autres. - Veiller à ce que les documents fiscaux soient conformes aux règlements locaux et internationaux avant d'être envoyés aux clients. ## Assurance de la qualité des données - Collaborez avec notre fournisseur externe pour assurer la qualité et l'exactitude des données fiscales avant la production des déclarations. - Recenser et corriger les anomalies ou les incohérences dans les données pour garantir la fiabilité des rapports. ## Soutien à la clientèle et interaction avec le front office - Répondez aux demandes et aux demandes du front office concernant les déclarations fiscales, en fournissant des explications claires et précises. - Gérer les commandes de documents fiscaux en coordination avec les équipes internes et les fournisseurs externes. ## Collaboration interfonctionnelle - Collaborer étroitement avec les équipes de conformité, d'exploitation, de front office et de TI pour assurer une gestion harmonieuse des processus fiscaux. - Participer activement à des projets interfonctionnels comportant des améliorations des processus, des mises à jour réglementaires ou des initiatives stratégiques. ## Gestion de projet - Contribuer aux projets parallèles liés aux données fiscales, aux systèmes d'information et aux processus opérationnels. - Participer à l'amélioration continue des outils et des processus en collaboration avec la TI et d'autres ministères. ## Conformité à la réglementation et rapports - Restez au courant des changements apportés à la réglementation fiscale dans les administrations visées. - Préparer des rapports détaillés et tenir à jour une documentation complète pour satisfaire aux exigences de la vérification et de la réglementation. ## Requisiti - Expérience : Minimum 2 ans en banque, avec un accent sur les services fiscaux. - Compétences : Forte connaissance des instruments financiers (actions, obligations, produits structurés, dérivés – inscrits ou OTC) et de leurs caractéristiques spécifiques. La connaissance du revenu et des gains en Europe est un plus. La compétence en Microsoft Office est essentielle. - Langues : La maîtrise du français et de l'anglais est requise ; l'allemand, l'italien, l'espagnol ou le portugais est un plus. - Mindset : Proactif, orienté vers la solution et désireux d'apprendre. Fortes compétences de résolution de problèmes, la capacité de travailler rapidement et efficacement, et un joueur d'équipe qui prospère dans un environnement rapide. ## Cosa offriamo - Faites partie d'une équipe collaborative et innovante. - Travailler dans un environnement stimulant mais gratifiant. - Développer votre expertise et développer votre carrière dans une institution financière de premier plan. Contatto Aucune information de contact fournie. ## Compétences de base - Respect des valeurs de l'entreprise : Dédicace, condamnation, agilité et responsabilité - Respect des règlements et des directives internes"
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/403",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:51.463Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-29",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/403",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "tax-specialist-ubp-ch"
-        ],
-        "it": [
-          "tax-specialist-ubp-ch",
-          "tax-specialista-union-bancaire-privee-geneva-switzerland"
-        ],
-        "de": [
-          "tax-specialist-ubp-ch"
-        ],
-        "fr": [
-          "tax-specialist-ubp-ch",
-          "tax-specialiste-union-bancaire-privee-geneva-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "tax-specialist-ubp-ch",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland",
-        "tax-specialiste-union-bancaire-privee-geneva-switzerland",
-        "tax-specialist-ubp-ch-3",
-        "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393r9",
-        "tax-specialist-ubp-ch-2",
-        "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393wd",
-        "steuerspezialist-union-bancaire-privee-geneva-switzerland",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393wd",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9"
-      ],
-      "firstSeenAt": "2026-04-13T11:28:14.869Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -750,7 +585,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:50.931Z",
+      "crawledAt": "2026-05-04T11:46:54.907Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -799,99 +634,6 @@
       }
     },
     {
-      "id": "ubp-967b0831912c",
-      "slug": "specialista-fiscale-union-bancaire-privee-geneva-switzerland-53af7f",
-      "slugByLocale": {
-        "it": "specialista-fiscale-union-bancaire-privee-geneva-switzerland-53af7f",
-        "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland-53af7f",
-        "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Tax Specialist",
-      "titleByLocale": {
-        "it": "Specialista fiscale",
-        "en": "Tax Specialist",
-        "de": "Tax Spezialist",
-        "fr": "Tax Spécialiste"
-      },
-      "description": "• Mission \n As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n \n• Main responsibilities \n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n\n• Monthly reconciliations, quality control and statistics of the data reported\n\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n\n• Correction of consistency issues, update reporting tool’s database\n\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n\n• Communication with the reporting engine providers (ARM, APA, TR)\n\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n\n• Contribute to all testing linked to regulatory and reporting updates\n\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n \n \n\n• Open mind and team orientation: \nBe open to other’s ideas.\nExpress and accept constructive criticism.\n\n• Innovation and development: \nPropose and seek improvement of the current tools and processes.\nBe positive towards change and seek opportunities to improve the quality of the working environment.\nConitunuously work on knowledge improvement.\n\n• Corporate culture: \nBe ‘solution oriented’ and have a strong sense of customer services.\nBe proactive and driven.\nDevelopp and maintain a relationship network within the various Bank departments.\nComply consistently with internal and external regulations.\n \n\n• Your Profile \n• Good knowledge of the financial products and associated transactions\n\n• 3-5 years of experience in banking or financial services\n\n• Project management experience\n\n• Strong Excel, Access skills\n\n• Strong analytical skills, able to make complex data reconciliation\n\n• Ability to efficiently manage priorities\n\n• Be able to work independently but also as a team\n\n• Seek opportunities to improve the existing set-up\n\n• Go beyond specific assignments, walk the extra mile\n\n• Consistently comply with internal & external regulations\n\n• Maintain quality standards despite schedule pressures\n\n• Fluent in French and English\n \n \n\n• Others \n• Swiss Residence \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-      "descriptionByLocale": {
-        "it": "Mansioni Nell'ambito del team Tax Services, il Tax Specialist è un elemento chiave per garantire la qualità e l'accuratezza della segnalazione effettuata dalla Banca, come obbligo normativo, in un ambiente soggetto a costanti cambiamenti ed evoluzioni. All’interno del team Daily Regulatory Reporting, la missione del dipendente include anche il monitoraggio costante e la riconciliazione dei dati da segnalare. Gli argomenti fiscali e regolamentari includono MIFID II/ EMIR / FMIA / FINFRAG / Duty da divulgare. ## Responsabilità Principali - Monitoraggio giornaliero e controllo del reporting normativo (MIFID II / EMIR / FMIA / FINFRAG) inviato alla piattaforma di reportistica (i.e. i regolatori di correzione locali) - Riconciliazioni mensili, controllo della qualità e statistiche dei dati segnalati - Gestire le indagini e indagare le questioni e le questioni relative alle imposte o alle relazioni regolamentari da altri diparti della Banca o da controparti esterne - Esprimere e accettare critiche costruttive. - Innovazione e sviluppo: - Proporre e cercare il miglioramento degli strumenti e dei processi attuali. - Siate positivi verso il cambiamento e cercate opportunità per migliorare la qualità dell'ambiente di lavoro. - Lavorare costantemente sul miglioramento della conoscenza. - Cultura aziendale: - Essere orientati alla soluzione e avere un forte senso dei servizi del cliente. - Sii proattivo e guidato. - Sviluppare e mantenere una rete di relazioni all'interno dei vari dipartimenti bancari. - Complessivamente con normative interne ed esterne. ## Profilo - Buona conoscenza dei prodotti finanziari e delle transazioni associate - 3-5 anni di esperienza nei servizi bancari o finanziari - Esperienza di gestione del progetto - Strong Excel, Capacità di accesso - Forte capacità analitiche, in grado di rendere complessa la riconciliazione dei dati - Capacità di gestire in modo efficiente le priorità - Essere in grado di lavorare in modo indipendente ma anche come team - Cercare opportunità per migliorare l'impostazione esistente - Vai oltre incarichi specifici, a piedi la pressione extra miglio - coerente rispettare i valori interni e le normative esterne -.",
-        "en": "• Mission As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose. • Main responsibilities • Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators) • Monthly reconciliations, quality control and statistics of the data reported • Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties • Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process • Correction of consistency issues, update reporting tool’s database • Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s) • Communication with the reporting engine providers (ARM, APA, TR) • Performing regular and ad-hoc reporting related to statistics for internal and external parties • Contribute to all testing linked to regulatory and reporting updates • Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation • Open mind and team orientation: Be open to other’s ideas. Express and accept constructive criticism. • Innovation and development: Propose and seek improvement of the current tools and processes. Be positive towards change and seek opportunities to improve the quality of the working environment. Conitunuously work on knowledge improvement. • Corporate culture: Be ‘solution oriented’ and have a strong sense of customer services. Be proactive and driven. Developp and maintain a relationship network within the various Bank departments. Comply consistently with internal and external regulations. • Your Profile • Good knowledge of the financial products and associated transactions • 3-5 years of experience in banking or financial services • Project management experience • Strong Excel, Access skills • Strong analytical skills, able to make complex data reconciliation • Ability to efficiently manage priorities • Be able to work independently but also as a team • Seek opportunities to improve the existing set-up • Go beyond specific assignments, walk the extra mile • Consistently comply with internal & external regulations • Maintain quality standards despite schedule pressures • Fluent in French and English • Others • Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "Mansion Im Rahmen des Tax Services Teams ist der Steuerspezialist ein Schlüsselelement, um die Qualität und Genauigkeit der von der Bank geleisteten Berichterstattung als regulatorische Verpflichtung in einem Umfeld zu gewährleisten, das ständigen Veränderungen und Entwicklungen unterliegt. Innerhalb des Daily Regulatory Reporting Teams umfasst die Mission des Mitarbeiters auch eine ständige Überwachung und Aussöhnung der zu meldenden Daten. Die steuerlichen und regulatorischen Themen umfassen MIFID II/ EMIR / FMIA / FINFRAG / Duty to offenbaren. Responsabilità Principali - Tägliche Überwachung und Kontrolle der regulatorischen Berichterstattung (MIFID II / EMIR / FMIA / FINFRAG) an die Berichterstattungsplattform(en) (d.h. lokale Regulierungsbehörden) gesendet - Monatliche Aussöhnungen, Qualitätskontrolle und Statistiken der gemeldeten Daten - Untersuchung von Anfragen und Fragen über die Steuern oder die regulatorische Berichterstattung von anderen Abteilungen der Bank oder von externen Sensitivitäten - Express und akzeptieren konstruktive Kritik. - Innovation und Entwicklung: - Anlehnung an die Verbesserung der aktuellen Werkzeuge und Prozesse. Seien Sie positiv auf Veränderungen und suchen Sie Möglichkeiten, die Qualität des Arbeitsumfelds zu verbessern. - Arbeiten Sie kontinuierlich an der Wissensverbesserung. - Unternehmenskultur: - Seien Sie „auflösungsorientiert“ und haben ein starkes Gefühl von Kundendienstleistungen. - Sei proaktiv und getrieben. - Entwicklung und Pflege eines Beziehungsnetzwerks innerhalb der verschiedenen Bankabteilungen. - Konsistent mit internen und externen Vorschriften. Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â.",
-        "fr": "Mansioni Dans le cadre de l'équipe des Services fiscaux, le spécialiste de l'impôt est un élément clé pour assurer la qualité et l'exactitude de la déclaration faite par la Banque, à titre d'obligation réglementaire, dans un environnement soumis à des changements et à des évolutions constants. Au sein de l'équipe de rapports quotidiens sur la réglementation, la mission de l'employé comprend également un suivi et un rapprochement constants des données à communiquer. Les questions fiscales et réglementaires incluent MIFID II/ EMIR / FMIA / FINFRAG / Obligation de divulgation. ## Responsabilità Principali - Surveillance et contrôle quotidiens des rapports réglementaires (MIFID II / EMIR / FMIA / FINFRAG) envoyés à la ou aux plates-formes de rapports (c'est-à-dire les organismes de réglementation locaux) - Rapprochements mensuels, contrôle de la qualité et statistiques des données déclarées - Gérer les demandes de renseignements et enquêter sur les questions et les questions relatives aux impôts ou aux rapports réglementaires d'autres ministères de la Banque ou de contreparties externes - Comprendre la sensibilité aux risques réglementaires et avoir une vue de bout en bout du flux/processus de la Banque - Correction des problèmes de cohérence, mise à jour de l'outil de rapports - Base de données des rapports - Assurer la liaison et la coordination avec le ministère responsable des données sous-jacentes pour les corrections, explications, saisie de données et présentation des rapports corrigés - Communication avec les fournisseurs de moteurs de rapports (ARM, APA, TR) - Effectuer des rapports réguliers et ponctuels liés aux statistiques pour les parties internes et externes - Contribuer à tous les tests liés aux mises à jour réglementaires et aux rapports - Participation active aux projets EMIR/MIFID/DTD (enquêtes d'audit, modifications des fournisseurs et demandes de - Exprimer et accepter des critiques constructives. - Innovation et développement : - Proposer et chercher à améliorer les outils et processus actuels. - Soyez positif envers le changement et cherchez des occasions d'améliorer la qualité de l'environnement de travail. - Travailler en permanence à l'amélioration des connaissances. - Culture d'entreprise: - être orienté vers la solution et avoir un fort sens des services à la clientèle. - Soyez proactif et motivé. - Développer et maintenir un réseau de relations au sein des différents services de la Banque. - Respecter les règlements internes et externes. ## Profilo - Bonne connaissance des produits financiers et des transactions connexes - 3 à 5 ans d'expérience dans les services bancaires ou financiers - Expérience en gestion de projet - Fort Excel, Compétences d'accès - Fortes compétences analytiques, capables de faire un rapprochement complexe des données - Capacité de gérer efficacement les priorités - Être en mesure de travailler de façon indépendante mais aussi en équipe - Chercher des occasions d'améliorer la configuration existante - Aller au-delà de certaines tâches, marcher le mille supplémentaire - Respect constant des règlements internes et externes - Maintenir les normes de qualité malgré les pressions du calendrier - Fluent en français et en anglais ## Altro - Swiss Residence - Core Competences : Adhérence à l'entreprise - Valeurs : Dédicace, Conviction, Agilité et Responsabilité - Respect des règlements et directives internes ## Contatto Aucune information de contact fournie."
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:50.386Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-18",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "tax-specialist-ubp-ch"
-        ],
-        "it": [
-          "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
-          "tax-specialist-ubp-ch-2"
-        ],
-        "de": [
-          "tax-spezialist-union-bancaire-privee-geneva-switzerland",
-          "tax-specialist-ubp-ch-2"
-        ],
-        "fr": [
-          "specialiste-fiscal-union-bancaire-privee-geneva-switzerland",
-          "tax-specialist-ubp-ch-2"
-        ]
-      },
-      "previousSlugs": [
-        "tax-specialist-ubp-ch",
-        "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
-        "tax-specialist-ubp-ch-2",
-        "tax-spezialist-union-bancaire-privee-geneva-switzerland",
-        "specialiste-fiscal-union-bancaire-privee-geneva-switzerland",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland",
-        "tax-specialist-ubp-ch-3",
-        "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393r9",
-        "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393wd",
-        "steuerspezialist-union-bancaire-privee-geneva-switzerland",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393wd",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9"
-      ],
-      "firstSeenAt": "2026-05-03T10:55:16.957Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ubp-ae7c18e0fe8c",
       "slug": "specialista-di-azioni-aziendali-6-mesi-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
@@ -922,7 +664,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/575",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:49.864Z",
+      "crawledAt": "2026-05-04T11:46:54.359Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -957,6 +699,7 @@
         "corporate-actions-specialist-6-months-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:13.238Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1001,7 +744,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/605",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:49.346Z",
+      "crawledAt": "2026-05-04T11:46:53.813Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1080,7 +823,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:48.818Z",
+      "crawledAt": "2026-05-04T11:46:53.263Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1159,7 +902,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/654",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:48.292Z",
+      "crawledAt": "2026-05-04T11:46:52.715Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1208,82 +951,6 @@
       }
     },
     {
-      "id": "ubp-44002b0ed451",
-      "slug": "batch-operator-union-bancaire-privee-geneva-switzerland",
-      "slugByLocale": {
-        "it": "batch-operator-union-bancaire-privee-geneva-switzerland",
-        "en": "batch-operator-ubp-ch",
-        "de": "batch-betreiber-union-bancaire-privee-geneva-switzerland",
-        "fr": "batch-operateur-union-bancaire-privee-geneva-switzerland"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Batch Operator",
-      "titleByLocale": {
-        "it": "Batch Operator",
-        "en": "Batch Operator",
-        "de": "Batch-Betreiber",
-        "fr": "Batch Opérateur"
-      },
-      "description": "Mission \n Ensure the Information System stability and ensure escalation and incident qualification; control documentation and the required updates.\n Challenge is Ensure the Information System stability and ensure escalation and incident qualification; control documentation and the required updates. \n Main responsibilities \n \n• Use main monitoring console and subsequent tools \n\n• Coordinate all batches activities to ensure the best quality and ensure timings (Production, UAT, Tests, DEV, …) \n\n• Adapt documented instructions based on events and business impacts, and ensure an updated documentation \n\n• Ensure documentation is applied and actions made are in sync with the business constraints \n\n• Raise and qualify incidents based on events identified and business impacts \n\n• Actively contribute to incident resolution \n\n• Proactively Interact with the Incident Manager \n\n• Participate and support test efforts \n\n• Communicate transparently issues and improvements required for this position \n\n• Actively Contribute to knowledge transfer required on applications \n\n• Interact and follow instructions defined by the Operating Pilot \n\n• Interact with HelpDesk (L1) and L2 / L3 teams.\n \n Your profile \n \n• Minimum 3 years of experience in an IT production environment\n\n• Previous experience with a scheduler (Control-M, Vtom, or Autosys)\n\n• English: B2 level minimum \n\n• Ability to collaborate with offshore teams\n\n• Experience in private banking is a plus\n\n• Driver's license and vehicle preferred\n\n• Team spirit\n \n Swiss residence: Optional \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-      "descriptionByLocale": {
-        "it": "Missione - Assicurare la stabilità del sistema informativo e garantire l'escalation e la qualificazione incidente; documentazione di controllo e gli aggiornamenti richiesti. - La sfida è assicurare la stabilità del sistema informativo e garantire l'escalation e la qualificazione incidente; la documentazione di controllo e gli aggiornamenti richiesti. ## Principali responsabilitÃ - Utilizzare la console di monitoraggio principale e gli strumenti successivi - Coordinare tutte le attivitÃ batch per garantire la migliore qualitÃ e garantire tempistiche (Produzione, UAT, Test, DEV, ...) - Adapt documentato istruzioni in base agli eventi e agli impatti aziendali, e garantire una documentazione aggiornata - Assicurare la documentazione viene applicata e le azioni effettuate sono in sincronizzazione con i vincoli aziendali - Aumentare e qualificare gli incidenti in base a eventi identificati e impatti aziendali ## Il tuo profilo - Minimo 3 anni di esperienza in un ambiente di produzione IT - Esperienza precedente con un programmatore (Control-M, Vtom, o Autosys) - Inglese: B2 livello minimo - Capacità di collaborare con i team offshore - L'esperienza nel private banking è un plus - La licenza del conducente e il veicolo preferito - Spirito di squadra - Residenza svizzera: Competenze facoltative ## - Aderenza ai valori dell'azienda: Direttivo, Revibilità, Agibilità, Agibilità, Agibilità, Agibilità, Agibilità, Agibilità, Azioni",
-        "en": "Mission Ensure the Information System stability and ensure escalation and incident qualification; control documentation and the required updates. Challenge is Ensure the Information System stability and ensure escalation and incident qualification; control documentation and the required updates. Main responsibilities • Use main monitoring console and subsequent tools • Coordinate all batches activities to ensure the best quality and ensure timings (Production, UAT, Tests, DEV, …) • Adapt documented instructions based on events and business impacts, and ensure an updated documentation • Ensure documentation is applied and actions made are in sync with the business constraints • Raise and qualify incidents based on events identified and business impacts • Actively contribute to incident resolution • Proactively Interact with the Incident Manager • Participate and support test efforts • Communicate transparently issues and improvements required for this position • Actively Contribute to knowledge transfer required on applications • Interact and follow instructions defined by the Operating Pilot • Interact with HelpDesk (L1) and L2 / L3 teams. Your profile • Minimum 3 years of experience in an IT production environment • Previous experience with a scheduler (Control-M, Vtom, or Autosys) • English: B2 level minimum • Ability to collaborate with offshore teams • Experience in private banking is a plus • Driver's license and vehicle preferred • Team spirit Swiss residence: Optional Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "Mission - Stellen Sie die Stabilität des Informationssystems sicher und sorgen Sie für Eskalation und Vorfallqualifikation; Kontrolldokumentation und die erforderlichen Updates. - Herausforderung stellt die Stabilität des Informationssystems sicher und sorgt für Eskalation und Vorfallqualifikation; Kontrolldokumentation und die erforderlichen Updates. Hauptverantwortlichkeiten - Verwenden Sie die Hauptüberwachungskonsole und die nachfolgenden Werkzeuge - Passen Sie alle Chargenaktivitäten zusammen, um die beste Qualität zu gewährleisten und Timings zu gewährleisten (Produktion, UAT, Tests, DEV, ...) - Passen Sie dokumentierte Anweisungen auf der Grundlage von Ereignissen und Geschäftseinflüssen an und stellen Sie sicher, dass die Intercatly-Dokumentation angewendet wird und die getroffenen Maßnahmen mit den Geschäftsbedingungen in Einklang stehen - Raise und qualifizierte Vorfälle basierend auf identifizierte Vorfälle - Ihr Profil - Mindestens 3 Jahre Erfahrung in einer IT-Produktionsumgebung - Vorherige Erfahrung mit einem Scheduler (Control-M, Vtom oder Autosys) - Englisch: B2-Niveau - Fähigkeit zur Zusammenarbeit mit Offshore-Teams - Erfahrung im privaten Banking ist ein Plus - Führerschein und Fahrzeug bevorzugt - Teamgeist - Schweizer Residenz: Optionale Kernkompetenzen - Einhaltung der Werte des Unternehmens: Dedication, Compliance, Agilität und",
-        "fr": "Mission - Assurer la stabilité du système d'information et assurer l'escalade et la qualification des incidents; la documentation de contrôle et les mises à jour requises. - Le défi est d'assurer la stabilité du système d'information et d'assurer l'escalade et la qualification des incidents; la documentation de contrôle et les mises à jour requises. ## Principales responsabilités - Utiliser la console de surveillance principale et les outils subséquents - Coordonner toutes les activités de lots pour assurer la meilleure qualité et assurer le calendrier (Production, TAU, Tests, DEV, ...) - Adapter les instructions documentées en fonction des événements et des impacts opérationnels, et s'assurer qu'une documentation mise à jour est mise à jour - S'assurer que la documentation est appliquée et que les mesures prises sont synchronisées avec les contraintes opérationnelles - Relever et qualifier les incidents en fonction des événements identifiés et des impacts opérationnels - Contribuer activement à la résolution des incidents - Interagir activement avec le gestionnaire des incidents - Participer et appuyer les efforts d'essai - Communiquer de façon transparente les problèmes et les améliorations nécessaires à ce poste - Contribuer activement au transfert des connaissances requis sur les applications - Interagir et suivre les instructions définies par le pilote d'exploitation - Interagir avec les équipes HelpDesk (L1) et L2 / L3. ## Votre profil - Minimum de 3 ans d'expérience dans un environnement de production informatique - Expérience antérieure avec un programmeur (Control-M, Vtom, ou Autosys) - Anglais: Niveau B2 minimum - Capacité de collaborer avec des équipes offshore - Expérience en banque privée est un plus - Permis de conduire et véhicule préféré - Esprit d'équipe - Résidence suisse: Optionnel ## Compétences de base - Adhérence à l'entreprise Valeurs: Dédicace, Conviction, Agilité et Responsabilité - Conformité aux règlements et directives internes"
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/629",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:47.774Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-03",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/629",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "batch-operator-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "batch-operator-ubp-ch"
-        ],
-        "de": [
-          "batch-operator-ubp-ch"
-        ],
-        "fr": [
-          "batch-operator-ubp-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T11:28:10.624Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ubp-228bd0b0575d",
       "slug": "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
@@ -1314,7 +981,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:47.252Z",
+      "crawledAt": "2026-05-04T11:46:52.172Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1393,7 +1060,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/661",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:46.732Z",
+      "crawledAt": "2026-05-04T11:46:51.625Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1485,7 +1152,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/673",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:46.208Z",
+      "crawledAt": "2026-05-04T11:46:51.077Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1564,7 +1231,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/733",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:45.685Z",
+      "crawledAt": "2026-05-04T11:46:50.526Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1644,7 +1311,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/408",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-03T22:22:45.166Z",
+      "crawledAt": "2026-05-04T11:46:49.967Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1673,6 +1340,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:05.762Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1717,7 +1385,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/753",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:44.636Z",
+      "crawledAt": "2026-05-04T11:46:49.426Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1796,7 +1464,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/687",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:44.110Z",
+      "crawledAt": "2026-05-04T11:46:48.877Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1825,6 +1493,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:04.161Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1869,7 +1538,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/766",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:43.586Z",
+      "crawledAt": "2026-05-04T11:46:48.317Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1948,7 +1617,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/758",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:43.057Z",
+      "crawledAt": "2026-05-04T11:46:47.774Z",
       "addressLocality": "Frankfurt am Main, Germany",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2019,7 +1688,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/229",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:42.538Z",
+      "crawledAt": "2026-05-04T11:46:47.226Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2098,7 +1767,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/767",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:42.013Z",
+      "crawledAt": "2026-05-04T11:46:46.676Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2178,7 +1847,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/763",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:41.488Z",
+      "crawledAt": "2026-05-04T11:46:46.121Z",
       "addressLocality": "Jersey",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2249,7 +1918,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/776",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:40.964Z",
+      "crawledAt": "2026-05-04T11:46:45.584Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2323,7 +1992,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/713",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:40.440Z",
+      "crawledAt": "2026-05-04T11:46:45.027Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2402,7 +2071,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/823",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:39.906Z",
+      "crawledAt": "2026-05-04T11:46:44.483Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2481,7 +2150,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/821",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:39.384Z",
+      "crawledAt": "2026-05-04T11:46:43.939Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2513,6 +2182,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:27:56.455Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2557,7 +2227,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/831",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:38.865Z",
+      "crawledAt": "2026-05-04T11:46:43.394Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2636,7 +2306,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/864",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:38.350Z",
+      "crawledAt": "2026-05-04T11:46:42.857Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2710,7 +2380,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/865",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:37.826Z",
+      "crawledAt": "2026-05-04T11:46:42.313Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2789,7 +2459,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/847",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:37.309Z",
+      "crawledAt": "2026-05-04T11:46:41.752Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2852,7 +2522,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/849",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:36.792Z",
+      "crawledAt": "2026-05-04T11:46:41.195Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2931,7 +2601,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/867",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:36.271Z",
+      "crawledAt": "2026-05-04T11:46:40.636Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3005,7 +2675,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/840",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:35.732Z",
+      "crawledAt": "2026-05-04T11:46:40.066Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3084,7 +2754,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/910",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:35.215Z",
+      "crawledAt": "2026-05-04T11:46:39.520Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3113,6 +2783,7 @@
         ]
       },
       "firstSeenAt": "2026-04-21T10:57:40.460Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3157,7 +2828,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/886",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:34.698Z",
+      "crawledAt": "2026-05-04T11:46:38.971Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3236,7 +2907,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/916",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:34.174Z",
+      "crawledAt": "2026-05-04T11:46:38.431Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3268,6 +2939,7 @@
         "investments-data-analyst-temporary-ubp-ch"
       ],
       "firstSeenAt": "2026-04-21T10:57:39.261Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3312,7 +2984,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/826",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:33.648Z",
+      "crawledAt": "2026-05-04T11:46:37.884Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3391,7 +3063,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/974",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:33.119Z",
+      "crawledAt": "2026-05-04T11:46:37.339Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3420,6 +3092,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T11:04:14.719Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3464,7 +3137,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:32.596Z",
+      "crawledAt": "2026-05-04T11:46:36.796Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3543,7 +3216,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/982",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:32.079Z",
+      "crawledAt": "2026-05-04T11:46:36.257Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3614,7 +3287,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/908",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "de",
-      "crawledAt": "2026-05-03T22:22:31.542Z",
+      "crawledAt": "2026-05-04T11:46:35.696Z",
       "addressLocality": "Basel, Switzerland",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3643,6 +3316,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:46:31.039Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3687,7 +3361,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/933",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:31.014Z",
+      "crawledAt": "2026-05-04T11:46:35.150Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3722,6 +3396,7 @@
         "receptionist-temporary-6-months-ubp-ch"
       ],
       "firstSeenAt": "2026-04-28T22:46:30.438Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3766,7 +3441,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/948",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:30.495Z",
+      "crawledAt": "2026-05-04T11:46:34.603Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3845,7 +3520,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-03T22:22:29.942Z",
+      "crawledAt": "2026-05-04T11:46:34.039Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3892,6 +3567,136 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ubp-f318905129a9",
+      "slug": "assistant-relationship-manager-latam-ubp-ch",
+      "slugByLocale": {
+        "en": "assistant-relationship-manager-latam-union-bancaire-privee-geneva-switzerland",
+        "it": "assistant-relationship-manager-latam-ubp-ch",
+        "de": "assistant-relationship-manager-latam-ubp-ch",
+        "fr": "assistant-relationship-manager-latam-ubp-ch"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "Assistant Relationship Manager LATAM",
+      "titleByLocale": {
+        "en": "Assistant Relationship Manager LATAM",
+        "it": "Assistant Relationship Manager LATAM",
+        "de": "Assistent Relationship Manager LATAM",
+        "fr": "Assistant Relationship Manager LATAM"
+      },
+      "description": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+      "descriptionByLocale": {
+        "en": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "it": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+      },
+      "location": "Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
+      "source": "Union Bancaire Privée Oracle HCM API",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-04T11:46:33.469Z",
+      "addressLocality": "Geneva, Switzerland",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-04T11:46:33.469Z"
+    },
+    {
+      "id": "ubp-5a41d34466f1",
+      "slug": "wm-business-monitoring-officer-eam-controls-ubp-ch",
+      "slugByLocale": {
+        "en": "wm-business-monitoring-officer-eam-controls-union-bancaire-privee-geneva-switzerland",
+        "it": "wm-business-monitoring-officer-eam-controls-ubp-ch",
+        "de": "wm-business-monitoring-officer-eam-controls-ubp-ch",
+        "fr": "wm-business-monitoring-officer-eam-controls-ubp-ch"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "WM Business Monitoring Officer (EAM controls)",
+      "titleByLocale": {
+        "en": "WM Business Monitoring Officer (EAM controls)",
+        "it": "WM Business Monitoring Officer (EAM controls)",
+        "de": "WM Business Monitoring Officer (EAM controls)",
+        "fr": "WM Business Monitoring Officer (EAM controls)"
+      },
+      "description": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+      "descriptionByLocale": {
+        "en": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "it": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+      },
+      "location": "Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
+      "source": "Union Bancaire Privée Oracle HCM API",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-04T11:46:32.845Z",
+      "addressLocality": "Geneva, Switzerland",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-04T11:46:32.845Z"
     }
   ]
 }
