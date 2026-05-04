@@ -18236,4 +18236,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'giornata-liberta-stampa-unesco-minacce-autocensura',
+ category: 'novita',
+ date: '2026-05-04T06:51:37.578Z',
+ image: '/images/blog/giornata-liberta-stampa-unesco-minacce-autocensura.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

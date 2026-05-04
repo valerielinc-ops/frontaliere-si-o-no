@@ -5621,6 +5621,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavena-brano-musicale-leone-xiv.title': 'A musical tribute to Pope Leo XIV from Lavena Ponte Tresa',
     'blog.article.lavena-brano-musicale-leone-xiv.excerpt': 'A musical piece dedicated to Pope Leo XIV will be performed for the first time on May 8th in Cremenaga.',
     'blog.article.lavena-brano-musicale-leone-xiv.imageAlt': 'Sunset at Lake Lugano with city lights reflected in the water',
+    'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.title': 'UNESCO warns: threats and self-censorship undermine press freedom',
+    'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.excerpt': 'World Press Freedom Day is celebrated on May 3. UNESCO signals a worrying global decline',
+    'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.imageAlt': 'Journalists protest for press freedom at Lake Lugano',
 };
 
 export default blogMetaEn;

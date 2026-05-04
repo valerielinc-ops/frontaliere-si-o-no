@@ -5622,6 +5622,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavena-brano-musicale-leone-xiv.title': 'Da Lavena Ponte Tresa un brano musicale in onore di Leone XIV',
     'blog.article.lavena-brano-musicale-leone-xiv.excerpt': 'Un brano musicale dedicato a Papa Leone XIV sarà eseguito per la prima volta l\'8 maggio a Cremenaga.',
     'blog.article.lavena-brano-musicale-leone-xiv.imageAlt': 'Tramonto sul Lago di Lugano con le luci della città riflesse nell\'acqua',
+    'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.title': 'UNESCO lancia l\'allarme: minacce e autocensura minano la libertà di stampa',
+    'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.excerpt': 'Il 3 maggio si celebra la Giornata mondiale della libertà di stampa. L\'UNESCO segnala un preoccupante arretramento globale',
+    'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.imageAlt': 'Giornalisti protestano per la libertà di stampa sul lago di Lugano',
 };
 
 export default blogMetaIt;
