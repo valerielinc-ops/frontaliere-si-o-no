@@ -17831,4 +17831,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'verbania-clandestino-espulsione-2026',
+ category: 'novita',
+ date: '2026-05-04T01:04:15.603Z',
+ image: '/images/blog/verbania-clandestino-espulsione-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

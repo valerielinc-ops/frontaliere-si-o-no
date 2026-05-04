@@ -3071,6 +3071,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-retromarcia-contromano-faido-chiggiogna-2026': { name: 'Sicurezza stradale', path: '/articoli-frontaliere/retromarcia-contromano-faido-chiggiogna-2026', parent: 'blog' },
     'blog-lugano-young-boys-cornaredo-2026': { name: 'Calcio Ticino', path: '/articoli-frontaliere/lugano-young-boys-cornaredo-2026', parent: 'blog' },
     'blog-tragedia-falleatsche-frontalieri': { name: 'Tragedia Fallätsche', path: '/articoli-frontaliere/tragedia-falleatsche-frontalieri', parent: 'blog' },
+    'blog-verbania-clandestino-espulsione-2026': { name: 'Novità', path: '/articoli-frontaliere/verbania-clandestino-espulsione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

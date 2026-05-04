@@ -5486,6 +5486,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tragedia-falleatsche-frontalieri.title': 'Tragödie an der Fallätsche: 69-Jähriger stürzt tödlich',
     'blog.article.tragedia-falleatsche-frontalieri.excerpt': 'Ein 69-jähriger Mann stürzte tödlich an der Fallätsche, einem Erholungsgebiet nahe Zürich. Hier ist, was passiert ist.',
     'blog.article.tragedia-falleatsche-frontalieri.imageAlt': 'Tragödie an der Fallätsche: 69-Jähriger stürzt tödlich',
+    'blog.article.verbania-clandestino-espulsione-2026.title': 'Illegale flieht nach Verbania, wird festgenommen und abgeschoben',
+    'blog.article.verbania-clandestino-espulsione-2026.excerpt': 'Ein illegaler Einwanderer wurde festgenommen, als er in Verbania zu fliehen versuchte und anschließend abgeschoben. Hier sind die Details des Vorfalls.',
+    'blog.article.verbania-clandestino-espulsione-2026.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz im Bereich von Verbania',
 };
 
 export default blogMetaDe;

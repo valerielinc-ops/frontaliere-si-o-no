@@ -5486,6 +5486,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tragedia-falleatsche-frontalieri.title': 'Tragedy at Fallätsche: 69-year-old man dies in fall',
     'blog.article.tragedia-falleatsche-frontalieri.excerpt': 'A 69-year-old man fatally fell at Fallätsche, a recreational area near Zurich. Here\'s what happened.',
     'blog.article.tragedia-falleatsche-frontalieri.imageAlt': 'Tragedy at Fallätsche: 69-year-old man fatally falls',
+    'blog.article.verbania-clandestino-espulsione-2026.title': 'Illegal immigrant attempts escape in Verbania, stopped and deported',
+    'blog.article.verbania-clandestino-espulsione-2026.excerpt': 'An illegal immigrant was stopped while attempting to escape in Verbania and subsequently deported. Here are the details of the incident.',
+    'blog.article.verbania-clandestino-espulsione-2026.imageAlt': 'Border checkpoint between Italy and Switzerland in the Verbania area',
 };
 
 export default blogMetaEn;

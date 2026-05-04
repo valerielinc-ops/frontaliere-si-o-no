@@ -11899,6 +11899,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-verbania-clandestino-espulsione-2026': {
+    title: 'Clandestino tenta la fuga a Verbania, fermato e poi espulso',
+    description: 'Un clandestino è stato fermato mentre tentava la fuga a Verbania e successivamente espulso. Ecco i dettagli dell\'accaduto e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, clandestino, tenta, fuga, verbania',
+    ogTitle: 'Clandestino tenta la fuga a Verbania, fermato e poi espulso',
+    ogDescription: 'Un clandestino è stato fermato mentre tentava la fuga a Verbania e successivamente espulso. Ecco i dettagli dell\'accaduto e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/verbania-clandestino-espulsione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Clandestino tenta la fuga a Verbania, fermato e poi espulso",
+      "description": "Un clandestino è stato fermato mentre tentava la fuga a Verbania e successivamente espulso. Ecco i dettagli dell'accaduto e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/verbania-clandestino-espulsione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controllo di frontiera tra Italia e Svizzera nella zona di Verbania"
+      },
+      "datePublished": "2026-05-04T01:04:15+00:00",
+      "dateModified": "2026-05-04T01:04:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/verbania-clandestino-espulsione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

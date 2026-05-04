@@ -5487,6 +5487,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tragedia-falleatsche-frontalieri.title': 'Tragedia alla Fallätsche: 69enne precipita mortalmente',
     'blog.article.tragedia-falleatsche-frontalieri.excerpt': 'Un uomo di 69 anni è precipitato mortalmente alla Fallätsche, un\'area di svago vicino a Zurigo. Ecco cosa è successo.',
     'blog.article.tragedia-falleatsche-frontalieri.imageAlt': 'Tragedia alla Fallätsche: uomo di 69 anni precipita mortalmente',
+    'blog.article.verbania-clandestino-espulsione-2026.title': 'Clandestino tenta la fuga a Verbania, fermato e poi espulso',
+    'blog.article.verbania-clandestino-espulsione-2026.excerpt': 'Un clandestino è stato fermato mentre tentava la fuga a Verbania e successivamente espulso. Ecco i dettagli dell\'accaduto.',
+    'blog.article.verbania-clandestino-espulsione-2026.imageAlt': 'Controllo di frontiera tra Italia e Svizzera nella zona di Verbania',
 };
 
 export default blogMetaIt;
