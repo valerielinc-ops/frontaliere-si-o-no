@@ -510,7 +510,12 @@ function renderJobs(matchedJobs, locale, totalJobs) {
           <table width="100%" cellpadding="0" cellspacing="0" style="background:${BRAND_DARK};border-radius:12px;">
             <tr>
               <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
-                <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#1e293b,#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>
+                ${job.logoUrl
+                  ? `<div style="width:44px;height:44px;border-radius:10px;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                       <img src="${escapeHtml(job.logoUrl)}" width="44" height="44" alt="${escapeHtml(job.company || '')}" style="width:44px;height:44px;object-fit:contain;border-radius:10px;display:block;">
+                     </div>`
+                  : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#1e293b,#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>`
+                }
               </td>
               <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
                 <div class="job-title" style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;line-height:1.3;">${escapeHtml(truncatedTitle)}</div>

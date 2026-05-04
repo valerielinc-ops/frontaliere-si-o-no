@@ -25,6 +25,48 @@ try {
   // Browser environment — Node path module not available
 }
 
+// ─── Company logo resolution ─────────────────────────────────
+
+let _logoManifest = null;
+function loadLogoManifest() {
+  if (_logoManifest) return _logoManifest;
+  try {
+    const p = path.resolve(__dirname, '..', 'data', 'company-logos-manifest.json');
+    _logoManifest = JSON.parse(fs.readFileSync(p, 'utf-8'));
+  } catch {
+    _logoManifest = {};
+  }
+  return _logoManifest;
+}
+
+/**
+ * Resolve the best logo URL for a job in newsletter context (absolute URLs only).
+ * Priority: manifest (self-hosted) → Clearbit (company domain) → null
+ */
+function resolveLogoUrl(job) {
+  const manifest = loadLogoManifest();
+  const key = job.companyKey || '';
+
+  // 1. Self-hosted logo from manifest
+  if (key && manifest[key]) {
+    return `${BASE_URL}${manifest[key]}`;
+  }
+
+  // 2. Clearbit via company website domain
+  const website = job.companyWebsite || job.website || '';
+  if (website) {
+    try {
+      const domain = new URL(website.startsWith('http') ? website : `https://${website}`).hostname
+        .replace(/^www\./, '');
+      if (domain) return `https://logo.clearbit.com/${domain}`;
+    } catch {
+      // ignore malformed URL
+    }
+  }
+
+  return null;
+}
+
 // ─── Job matching ───────────────────────────────────────────
 
 function toDateValue(job) {
@@ -440,6 +482,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
         contract: normalizeContract(job.contract, locale),
         sector: job.sector || job.category || '',
         rawContract: job.contract || '',
+        logoUrl: resolveLogoUrl(job),
       };
     });
 }
