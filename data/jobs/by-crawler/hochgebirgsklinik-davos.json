@@ -1090,12 +1090,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-fb1b8d16332f",
-      "slug": "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos",
+      "slug": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
-        "it": "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos",
-        "en": "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
-        "fr": "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
+        "it": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
+        "en": "service-staff-m-w-d-80-100-temporary-june-september-hochgebirgsklinik-davos-davos",
+        "fr": "employe-de-service-m-w-d-80-100-a-temps-partiel-juin-septembre-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1146,11 +1146,19 @@
       "contactPhone": "+41 81 417 30 40",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
+          "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
+        ],
+        "en": [
+          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
           "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
+        "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
+        "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-alqha9",
-      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
+      "slug": "vendita-m-w-d-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40%",
       "location": "St. Moritz",
@@ -41,10 +41,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
-        "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
+        "it": "vendita-m-w-d-lidl-svizzera-st-moritz",
+        "en": "seller-m-w-d-lidl-svizzera-st-moritz",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
-        "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
+        "fr": "vendeur-m-w-d-lidl-svizzera-st-moritz"
       },
       "country": "CH",
       "sourceLang": "de",
@@ -52,11 +52,19 @@
       "streetAddress": "Via Grevas 9b",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz"
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz"
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

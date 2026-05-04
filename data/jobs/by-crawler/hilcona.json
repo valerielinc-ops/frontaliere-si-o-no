@@ -663,12 +663,12 @@
     },
     {
       "id": "hilcona-23b4d4229fe6",
-      "slug": "produktionsleiter-adj-betriebsleiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
+      "slug": "direttore-di-produzione-adj-plant-manager-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
       "slugByLocale": {
         "de": "produktionsleiter-adj-betriebsleiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
-        "it": "produktionsleiter-adj-betriebsleiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
-        "en": "produktionsleiter-adj-betriebsleiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
-        "fr": "produktionsleiter-adj-betriebsleiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
+        "it": "direttore-di-produzione-adj-plant-manager-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "en": "production-manager-adj-plant-manager-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "fr": "directeur-de-la-production-adj-responsable-de-l-usine-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
       },
       "company": "Bell Suisse SA",
       "companyKey": "hilcona",
@@ -718,7 +718,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-04T11:01:56.559Z"
+      "firstSeenAt": "2026-05-04T11:01:56.559Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsleiter-adj-betriebsleiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
+        ],
+        "en": [
+          "produktionsleiter-adj-betriebsleiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
+        ],
+        "fr": [
+          "produktionsleiter-adj-betriebsleiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsleiter-adj-betriebsleiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
+      ]
     },
     {
       "id": "hilcona-fad4b3a0e88f",
@@ -1369,8 +1383,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne",
         "it": "mitarbeiterin-collaboratore-trice-operational-technology-bell-suisse-sa-cheseaux-sur-lausanne",
-        "en": "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne",
-        "fr": "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne"
+        "en": "operational-technology-specialist-bell-suisse-sa-cheseaux-sur-lausanne",
+        "fr": "specialiste-en-technologie-operationnelle-bell-suisse-sa-cheseaux-sur-lausanne"
       },
       "company": "Bell Suisse SA",
       "companyKey": "hilcona",
@@ -1409,6 +1423,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne"
         ]
       },

@@ -42,9 +42,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "consulente-vendita-giardino-jumbo-tenero-contra-ticino-98b1xm",
-        "en": "consulente-sales-giardino-jumbo-tenero-contra-ticino-98b1xm",
+        "en": "garden-sales-consultant-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra",
         "de": "consulente-verkauf-giardino-jumbo-tenero-contra-ticino-98b1xm",
-        "fr": "consulente-vente-giardino-jumbo-tenero-contra-ticino-98b1xm"
+        "fr": "consultant-en-ventes-de-jardins-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra"
       },
       "addressLocality": "Tenero-Contra",
       "salaryMin": 49500,
@@ -58,7 +58,19 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "consulente-sales-giardino-jumbo-tenero-contra-ticino-98b1xm"
+        ],
+        "fr": [
+          "consulente-vente-giardino-jumbo-tenero-contra-ticino-98b1xm"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-sales-giardino-jumbo-tenero-contra-ticino-98b1xm",
+        "consulente-vente-giardino-jumbo-tenero-contra-ticino-98b1xm"
+      ]
     },
     {
       "id": "company-h131f0",
@@ -111,9 +123,9 @@
       },
       "slugByLocale": {
         "it": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-        "en": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-        "de": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-        "fr": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0"
+        "en": "dr-sales-services-f-m-d-coop-genossenschaft-caslano",
+        "de": "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano",
+        "fr": "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano"
       },
       "addressLocality": "Caslano",
       "salaryMin": 49500,
@@ -127,7 +139,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0"
+        ],
+        "de": [
+          "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0"
+        ],
+        "fr": [
+          "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0"
+        ]
+      },
+      "previousSlugs": [
+        "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0"
+      ]
     },
     {
       "id": "company-29z0lf",
@@ -186,7 +212,7 @@
     },
     {
       "id": "company-pxuu97",
-      "slug": "verkaufer-in-food-coop-disentis-muster-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-disentis-muster",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Disentis/Mustér",
@@ -232,10 +258,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97",
-        "en": "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97",
+        "it": "venditore-in-food-coop-genossenschaft-disentis-muster",
+        "en": "seller-in-food-coop-genossenschaft-disentis-muster",
         "de": "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97",
-        "fr": "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster"
       },
       "addressLocality": "Disentis/Mustér",
       "sourceLang": "de",
@@ -250,11 +276,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97",
+          "verkaufer-in-food-coop-disentis-muster-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97",
+        "verkaufer-in-food-coop-disentis-muster-graubunden"
+      ]
     },
     {
       "id": "company-rjepid",
-      "slug": "verkaufsberater-in-import-parfumerie-chur-graubunden",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Chur",
@@ -300,10 +342,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid",
-        "en": "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid",
+        "it": "consulente-commerciale-in-coop-genossenschaft-chur",
+        "en": "sales-consultant-in-coop-genossenschaft-chur",
         "de": "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid",
-        "fr": "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid"
+        "fr": "consultant-en-ventes-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -318,11 +360,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden"
+        ],
+        "en": [
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid"
+        ],
+        "fr": [
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid",
+        "verkaufsberater-in-import-parfumerie-chur-graubunden"
+      ]
     },
     {
       "id": "company-hy7w7d",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Verkaufsberater:in",
       "location": "Chur",
@@ -348,10 +406,10 @@
       "crawledAt": "2026-05-04T10:41:40.347Z",
       "firstSeenAt": "2026-05-04T10:41:40.347Z",
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "it": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur",
         "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -386,11 +444,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
+        ],
+        "en": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        ],
+        "fr": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
+      ]
     },
     {
       "id": "company-tyijpe",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Chur",
@@ -416,10 +490,10 @@
       "crawledAt": "2026-05-04T10:41:40.347Z",
       "firstSeenAt": "2026-05-04T10:41:40.347Z",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "it": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur",
         "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -454,11 +528,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
+      ]
     },
     {
       "id": "company-g6dub0",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Verkaufsberater:in",
       "location": "Chur",
@@ -484,10 +574,10 @@
       "crawledAt": "2026-05-03T09:51:43.060Z",
       "firstSeenAt": "2026-05-03T09:51:43.060Z",
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "it": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437",
         "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -526,30 +616,36 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-chur"
+          "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur"
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
         ],
         "de": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0"
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       ]
     },
     {
       "id": "company-3br90q",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Chur",
@@ -575,10 +671,10 @@
       "crawledAt": "2026-05-03T09:51:43.060Z",
       "firstSeenAt": "2026-05-03T09:51:43.060Z",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "it": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -617,23 +713,29 @@
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "amministratore-delegato-in-christ-uhren-schmuck-ag-chur"
+          "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
         ],
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "managing-director-in-christ-uhren-schmuck-ag-chur"
+          "managing-director-in-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
         ],
         "de": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q"
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "directeur-general-christ-uhren-schmuck-ag-chur"
+          "directeur-general-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
         "managing-director-in-christ-uhren-schmuck-ag-chur",
         "directeur-general-christ-uhren-schmuck-ag-chur"
       ]
@@ -1633,7 +1735,6 @@
       },
       "previousSlugs": [
         "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-cadenazzo",
         "kitchen-bathroom-installation-technician-fust-bellinzona-ticino",
         "kuchen-und-badezimmermonteur-fust-bellinzona-ticino",
         "technicien-d-installation-de-cuisine-et-de-salle-de-bain-fust-bellinzona-ticino",
@@ -1648,15 +1749,11 @@
         "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona",
         "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-e3zmz6",
         "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-e3zmz6",
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-ke4f2c",
         "sanitary-equipment-for-kitchens-and-bathrooms-fust-swiss-household-services-ag-bellinzona",
         "sanitare-ausstattung-fur-kuchen-und-badezimmer-fust-swiss-household-services-ag-bellinzona",
         "equipement-sanitaire-pour-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-bellinzona"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-ke4f2c"
-        ],
         "en": [
           "sanitary-equipment-for-kitchens-and-bathrooms-fust-swiss-household-services-ag-bellinzona"
         ],

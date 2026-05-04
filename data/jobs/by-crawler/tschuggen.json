@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "tschuggen-1927880b4baa",
-      "slug": "demi-chef-patisserie-m-w-d-sommersaison-2026-tschuggen-ch",
+      "slug": "mezza-pasticceria-principale-m-w-d-dormire-2026-tschuggen-collection-arosa",
       "slugByLocale": {
         "de": "demi-chef-patisserie-m-w-d-sommersaison-2026-tschuggen-ch",
-        "it": "demi-chef-patisserie-m-w-d-sommersaison-2026-tschuggen-ch",
+        "it": "mezza-pasticceria-principale-m-w-d-dormire-2026-tschuggen-collection-arosa",
         "en": "demi-chef-patisserie-m-w-d-sommersaison-2026-tschuggen-ch",
         "fr": "demi-chef-patisserie-m-w-d-sommersaison-2026-tschuggen-ch"
       },
@@ -65,7 +65,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-04T11:46:07.707Z"
+      "firstSeenAt": "2026-05-04T11:46:07.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "demi-chef-patisserie-m-w-d-sommersaison-2026-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "demi-chef-patisserie-m-w-d-sommersaison-2026-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-f6bf7211a6a1",

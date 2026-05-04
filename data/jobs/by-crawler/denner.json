@@ -202,12 +202,12 @@
     },
     {
       "id": "denner-ac8e9e9a6346",
-      "slug": "verkaufer-in-im-stundenlohn-denner-weinfelden",
+      "slug": "venditore-in-salario-orario-denner-weinfelden",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-weinfelden",
-        "en": "verkaufer-in-im-stundenlohn-denner-weinfelden",
+        "it": "venditore-in-salario-orario-denner-weinfelden",
+        "en": "seller-in-in-hourly-wage-denner-weinfelden",
         "de": "verkaufer-in-im-stundenlohn-denner-weinfelden",
-        "fr": "verkaufer-in-im-stundenlohn-denner-weinfelden"
+        "fr": "vendeur-en-salaire-horaire-denner-weinfelden"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -266,20 +266,24 @@
       "crawledAt": "2026-05-04T10:44:58.660Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-weinfelden"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-weinfelden"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-weinfelden"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-weinfelden",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -775,12 +779,12 @@
     },
     {
       "id": "denner-d4d3027bb396",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-langnau-am-albis",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-langnau-am-albis",
+        "en": "assistant-in-branch-management-denner-langnau-am-albis",
         "de": "assistent-in-filialleitung-denner-langnau-am-albis",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-langnau-am-albis"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -840,10 +844,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -861,12 +876,12 @@
     },
     {
       "id": "denner-6888cd0ced68",
-      "slug": "student-in-come-ferienaushilfe-im-stundenlohn-denner-steffisburg",
+      "slug": "studente-in-indennita-di-ferie-nel-salario-orario-denner-steffisburg",
       "slugByLocale": {
-        "it": "student-in-come-ferienaushilfe-im-stundenlohn-denner-steffisburg",
+        "it": "studente-in-indennita-di-ferie-nel-salario-orario-denner-steffisburg",
         "en": "student-in-als-ferienaushilfe-im-stundenlohn-denner",
         "de": "student-in-als-ferienaushilfe-im-stundenlohn-denner",
-        "fr": "student-in-als-ferienaushilfe-im-stundenlohn-denner"
+        "fr": "etudiant-en-tant-qu-indemnite-de-vacances-dans-le-salaire-horaire-denner-steffisburg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -923,11 +938,16 @@
       "crawledAt": "2026-05-04T10:44:29.228Z",
       "previousSlugsByLocale": {
         "it": [
+          "student-in-als-ferienaushilfe-im-stundenlohn-denner",
+          "student-in-come-ferienaushilfe-im-stundenlohn-denner-steffisburg"
+        ],
+        "fr": [
           "student-in-als-ferienaushilfe-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
-        "student-in-als-ferienaushilfe-im-stundenlohn-denner"
+        "student-in-als-ferienaushilfe-im-stundenlohn-denner",
+        "student-in-come-ferienaushilfe-im-stundenlohn-denner-steffisburg"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1130,12 +1150,12 @@
     },
     {
       "id": "denner-d1df27d4f8ab",
-      "slug": "filialleiter-in-in-ausbildung-denner-chur",
+      "slug": "capofila-dell-istruzione-denner-chur",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-chur",
-        "en": "filialleiter-in-in-ausbildung-denner-chur",
+        "it": "capofila-dell-istruzione-denner-chur",
+        "en": "head-of-branch-in-education-denner-chur",
         "de": "filialleiter-in-in-ausbildung-denner-chur",
-        "fr": "filialleiter-in-in-ausbildung-denner-chur"
+        "fr": "chef-de-division-en-education-denner-chur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1194,20 +1214,24 @@
       "crawledAt": "2026-05-04T10:44:27.619Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-chur"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-chur"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-chur"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-chur",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -1226,12 +1250,12 @@
     },
     {
       "id": "denner-c81d819efe2a",
-      "slug": "stv-filialleiter-in-in-ausbildung-denner",
+      "slug": "stv-branch-manager-in-formazione-denner-chur",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-in-ausbildung-denner",
-        "en": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
+        "it": "stv-branch-manager-in-formazione-denner-chur",
+        "en": "stv-branch-manager-in-in-training-denner-chur",
         "de": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
-        "fr": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        "fr": "directeur-de-la-branche-stv-en-formation-denner-chur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1290,11 +1314,20 @@
       "crawledAt": "2026-05-04T10:44:27.617Z",
       "previousSlugsByLocale": {
         "it": [
-          "vice-responsabile-di-filiale-in-formazione-denner-chur"
+          "vice-responsabile-di-filiale-in-formazione-denner-chur",
+          "stv-filialleiter-in-in-ausbildung-denner"
+        ],
+        "en": [
+          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        ],
+        "fr": [
+          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
         ]
       },
       "previousSlugs": [
-        "vice-responsabile-di-filiale-in-formazione-denner-chur"
+        "vice-responsabile-di-filiale-in-formazione-denner-chur",
+        "stv-filialleiter-in-in-ausbildung-denner",
+        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
