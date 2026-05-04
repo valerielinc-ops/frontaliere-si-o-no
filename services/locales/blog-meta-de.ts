@@ -5768,6 +5768,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-chiasso-evacuati-trentina-persone.title': 'Dachbrand in Chiasso, etwa 30 Personen evakuiert',
     'blog.article.incendio-chiasso-evacuati-trentina-persone.excerpt': 'Ein Feuer ist auf dem Dach eines Mehrfamilienhauses in der Piazza Indipendenza in Chiasso ausgebrochen und hat die Evakuierung von etwa 30 Personen verursacht.',
     'blog.article.incendio-chiasso-evacuati-trentina-persone.imageAlt': 'Luftaufnahme von Piazza Indipendenza in Chiasso, mit Einsatzfahrzeugen und Feuerwehrleuten, die auf ein Dachfeuer reagieren.',
+    'blog.article.lotta-zanzara-tigre-mendrisio.title': 'Kampf gegen die Tiger-Mücke in Mendrisio',
+    'blog.article.lotta-zanzara-tigre-mendrisio.excerpt': 'Mendrisio steht 2026 im Kampf gegen die Tiger-Mücke an der Spitze',
+    'blog.article.lotta-zanzara-tigre-mendrisio.imageAlt': 'Tigermücke in einem Mendrisio-Park',
 };
 
 export default blogMetaDe;

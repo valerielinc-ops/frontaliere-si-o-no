@@ -18677,4 +18677,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lotta-zanzara-tigre-mendrisio',
+ category: 'pratico',
+ date: '2026-05-04T14:20:25.754Z',
+ image: '/images/blog/lotta-zanzara-tigre-mendrisio.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

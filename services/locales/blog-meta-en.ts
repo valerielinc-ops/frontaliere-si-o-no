@@ -5768,6 +5768,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-chiasso-evacuati-trentina-persone.title': 'Rooftop fire in Chiasso, 30 evacuated',
     'blog.article.incendio-chiasso-evacuati-trentina-persone.excerpt': 'A fire broke out on the roof of a building in Piazza Indipendenza, Chiasso, leading to the evacuation of around thirty people.',
     'blog.article.incendio-chiasso-evacuati-trentina-persone.imageAlt': 'Aerial view of Piazza Indipendenza in Chiasso, with emergency vehicles and firefighters responding to a roof fire.',
+    'blog.article.lotta-zanzara-tigre-mendrisio.title': 'Fighting the tiger mosquito in Mendrisio',
+    'blog.article.lotta-zanzara-tigre-mendrisio.excerpt': 'Mendrisio leading the fight against the tiger mosquito in 2026',
+    'blog.article.lotta-zanzara-tigre-mendrisio.imageAlt': 'Tiger mosquito in a Mendrisio park',
 };
 
 export default blogMetaEn;

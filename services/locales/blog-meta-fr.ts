@@ -5769,6 +5769,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-chiasso-evacuati-trentina-persone.title': 'Incendie sur le toit à Chiasso, une trentaine de personnes évacuées',
     'blog.article.incendio-chiasso-evacuati-trentina-persone.excerpt': 'Un incendie s\'est déclaré sur le toit d\'un immeuble à Piazza Indipendenza à Chiasso, entraînant l\'évacuation d\'environ trente personnes.',
     'blog.article.incendio-chiasso-evacuati-trentina-persone.imageAlt': 'Vue aérienne de la Piazza Indipendenza à Chiasso, avec des véhicules d\'urgence et des pompiers répondant à un incendie sur le toit.',
+    'blog.article.lotta-zanzara-tigre-mendrisio.title': 'Combat contre la zanzara tigre à Mendrisio',
+    'blog.article.lotta-zanzara-tigre-mendrisio.excerpt': 'Mendrisio en première ligne en 2026 contre la zanzara tigre',
+    'blog.article.lotta-zanzara-tigre-mendrisio.imageAlt': 'Moustique tigre dans un parc de Mendrisio',
 };
 
 export default blogMetaFr;

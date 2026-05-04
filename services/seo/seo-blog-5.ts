@@ -15095,6 +15095,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lotta-zanzara-tigre-mendrisio': {
+    title: 'Lotta alla zanzara tigre a Mendrisio | Frontaliere Ticino',
+    description: 'Mendrisio in prima linea nel 2026 contro la zanzara tigre con un progetto basato sulla tecnica del maschio sterile. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, lotta, alla, zanzara, tigre',
+    ogTitle: 'Lotta alla zanzara tigre a Mendrisio',
+    ogDescription: 'Mendrisio in prima linea nel 2026 contro la zanzara tigre con un progetto basato sulla tecnica del maschio sterile',
+    canonicalPath: '/articoli-frontaliere/lotta-zanzara-tigre-mendrisio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lotta alla zanzara tigre a Mendrisio",
+      "description": "Mendrisio in prima linea nel 2026 contro la zanzara tigre con un progetto basato sulla tecnica del maschio sterile. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lotta-zanzara-tigre-mendrisio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Zanzara tigre in un parco di Mendrisio"
+      },
+      "datePublished": "2026-05-04T14:20:25+00:00",
+      "dateModified": "2026-05-04T14:20:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lotta-zanzara-tigre-mendrisio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
