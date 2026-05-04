@@ -1,76 +1,44 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-04T10:44:18.702Z",
-  "total": 157,
-  "newCount": 7,
-  "updatedCount": 0,
+  "generatedAt": "2026-05-04T21:47:41.618Z",
+  "total": 158,
+  "newCount": 1,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 150,
-  "durationMs": 320705,
-  "avgDurationMs": 320705,
+  "durationMs": 411380,
+  "avgDurationMs": 411380,
   "durationHistory": [
-    320705
+    411380
   ],
   "newJobs": [
     {
-      "id": "company-98b1xm",
-      "slug": "consulente-vendita-giardino-jumbo-tenero-contra-ticino",
-      "company": "Jumbo, Divisione di Coop Società Cooperativa",
-      "title": "Consulente vendita Giardino",
-      "location": "Tenero-Contra",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/consulente-vendita-giardino/2a2a5c7d-3a90-4bbb-b6fb-58bc9a2f979f",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-04T10:41:40.347Z",
-      "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "needsRetranslation": true,
-      "addressLocality": "Tenero-Contra",
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 15,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-h131f0",
-      "slug": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino",
+      "id": "company-gzq9bg",
+      "slug": "geschaftsfuhrer-in-kublis-coop-kublis-graubunden",
       "company": "Coop Genossenschaft",
-      "title": "DR_Venditrice/tore Casse/Servizi (f/m/d),",
-      "location": "Caslano",
-      "canton": "TI",
+      "title": "Geschäftsführer:in Küblis",
+      "location": "Küblis",
+      "canton": "GR",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-04",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/dr_venditrice-tore-casse-servizi-f-m-d/1b21330d-9cf0-4006-83db-2bde17c4d34c",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in-kueblis/8944deea-febe-474a-930c-8217bb35b8c3",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
+        "location": "Grigioni",
+        "canton": "GR"
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-04T10:41:40.347Z",
-      "firstSeenAt": "2026-05-04T10:41:40.347Z",
+      "crawledAt": "2026-05-04T21:44:55.398Z",
+      "firstSeenAt": "2026-05-04T21:44:55.398Z",
       "needsRetranslation": true,
-      "addressLocality": "Caslano",
+      "addressLocality": "Küblis",
+      "sourceLang": "de",
       "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,10 +46,12 @@
         "translation": 4,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-29z0lf",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-29z0lf",
       "company": "Fust | Swiss Household Services AG",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Oberbüren",
@@ -105,12 +75,15 @@
       "needsRetranslation": true,
       "addressLocality": "Oberbüren",
       "sourceLang": "de",
-      "_qualityScore": 67,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 4,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -136,15 +109,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-04T10:41:40.347Z",
       "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "needsRetranslation": true,
       "addressLocality": "Disentis/Mustér",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -170,15 +145,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-04T10:41:40.347Z",
       "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -204,15 +181,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-04T10:41:40.347Z",
       "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -238,21 +217,19 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-04T10:41:40.347Z",
       "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-g6dub0",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -314,6 +291,79 @@
       "firstSeenAt": "2026-05-03T09:51:43.060Z",
       "addressLocality": "Chur",
       "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-98b1xm",
+      "slug": "consulente-vendita-giardino-jumbo-tenero-contra-ticino",
+      "company": "Jumbo, Divisione di Coop Società Cooperativa",
+      "title": "Consulente vendita Giardino",
+      "location": "Tenero-Contra",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/consulente-vendita-giardino/2a2a5c7d-3a90-4bbb-b6fb-58bc9a2f979f",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-04T10:41:40.347Z",
+      "firstSeenAt": "2026-05-04T10:41:40.347Z",
+      "addressLocality": "Tenero-Contra",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-h131f0",
+      "slug": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "DR_Venditrice/tore Casse/Servizi (f/m/d),",
+      "location": "Caslano",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/dr_venditrice-tore-casse-servizi-f-m-d/1b21330d-9cf0-4006-83db-2bde17c4d34c",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-04T10:41:40.347Z",
+      "firstSeenAt": "2026-05-04T10:41:40.347Z",
+      "addressLocality": "Caslano",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
