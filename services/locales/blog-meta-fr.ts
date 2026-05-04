@@ -5805,6 +5805,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.banca-piazza-petruzzella-abt-2026.title': 'ABT: place financière tessinoise plus solide que jamais',
     'blog.article.banca-piazza-petruzzella-abt-2026.excerpt': 'Renouvellement des charges de l\'Association Bancaire Tessinoise pour le triennat 2026-2029. Petruzzella confirmé président.',
     'blog.article.banca-piazza-petruzzella-abt-2026.imageAlt': 'Vue du quartier financier de Lugano avec le lac de Lugano en arrière-plan',
+    'blog.article.swiss-market-index-crescita-2026.title': 'Swiss Market Index en hausse, mais des craintes pour les trimestrielles',
+    'blog.article.swiss-market-index-crescita-2026.excerpt': 'L\'indice Swiss Market Index clôture en positif, mais les Bourses européennes montrent des inquiétudes concernant les résultats des entreprises.',
+    'blog.article.swiss-market-index-crescita-2026.imageAlt': 'Lac de Lugano avec des bâtiments modernes en arrière-plan, journée ensoleillée',
 };
 
 export default blogMetaFr;

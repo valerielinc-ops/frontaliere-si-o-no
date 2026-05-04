@@ -5804,6 +5804,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.banca-piazza-petruzzella-abt-2026.title': 'ABT: Die Finanzplatz des Tessin ist stärker denn je',
     'blog.article.banca-piazza-petruzzella-abt-2026.excerpt': 'Die Ämter des Bankenverbandes des Tessins wurden für die Amtszeit 2026-2029 erneuert. Petruzzella bleibt Präsident.',
     'blog.article.banca-piazza-petruzzella-abt-2026.imageAlt': 'Ansicht des Finanzbezirks von Lugano mit dem Luganersee im Hintergrund',
+    'blog.article.swiss-market-index-crescita-2026.title': 'Swiss Market Index steigt, aber Sorge um Quartalszahlen',
+    'blog.article.swiss-market-index-crescita-2026.excerpt': 'Der Swiss Market Index schließt positiv, doch die europäischen Börsen zeigen Besorgnis über die Unternehmenszahlen.',
+    'blog.article.swiss-market-index-crescita-2026.imageAlt': 'Luganersee mit modernen Gebäuden im Hintergrund, sonniger Tag',
 };
 
 export default blogMetaDe;

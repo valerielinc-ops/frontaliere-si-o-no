@@ -5805,6 +5805,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.banca-piazza-petruzzella-abt-2026.title': 'ABT: piazza finanziaria ticinese più solida che mai',
     'blog.article.banca-piazza-petruzzella-abt-2026.excerpt': 'Rinnovate le cariche dell\'Associazione Bancaria Ticinese per il triennio 2026-2029. Petruzzella confermato presidente.',
     'blog.article.banca-piazza-petruzzella-abt-2026.imageAlt': 'Vista del distretto finanziario di Lugano con il lago Ceresio sullo sfondo',
+    'blog.article.swiss-market-index-crescita-2026.title': 'Swiss Market Index in crescita, ma con timori per le trimestrali',
+    'blog.article.swiss-market-index-crescita-2026.excerpt': 'L\'indice Swiss Market Index chiude in positivo, ma le Borse europee mostrano preoccupazione per i risultati delle aziende.',
+    'blog.article.swiss-market-index-crescita-2026.imageAlt': 'Lago di Lugano con edifici moderni sullo sfondo, giornata di sole',
 };
 
 export default blogMetaIt;

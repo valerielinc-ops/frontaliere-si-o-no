@@ -18785,4 +18785,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'swiss-market-index-crescita-2026',
+ category: 'novita',
+ date: '2026-05-04T16:40:14.654Z',
+ image: '/images/blog/swiss-market-index-crescita-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5804,6 +5804,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.banca-piazza-petruzzella-abt-2026.title': 'ABT: Ticino\'s financial hub stronger than ever',
     'blog.article.banca-piazza-petruzzella-abt-2026.excerpt': 'The Association Bancaire Ticinese has renewed its leadership for the 2026-2029 term. Petruzzella re-elected as president.',
     'blog.article.banca-piazza-petruzzella-abt-2026.imageAlt': 'View of Lugano financial district with Lake Lugano in the background',
+    'blog.article.swiss-market-index-crescita-2026.title': 'Swiss Market Index rises, but concerns over earnings',
+    'blog.article.swiss-market-index-crescita-2026.excerpt': 'The Swiss Market Index closes in positive territory, but European markets show concern over corporate results.',
+    'blog.article.swiss-market-index-crescita-2026.imageAlt': 'Lake Lugano with modern buildings in the background, sunny day',
 };
 
 export default blogMetaEn;
