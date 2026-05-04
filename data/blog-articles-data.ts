@@ -18389,4 +18389,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'camelie-locarno-record-visitatori-2026',
+ category: 'novita',
+ date: '2026-05-04T08:48:37.237Z',
+ image: '/images/blog/camelie-locarno-record-visitatori-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

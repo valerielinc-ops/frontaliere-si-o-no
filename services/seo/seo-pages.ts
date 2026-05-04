@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1943,
+ "numberOfItems": 1944,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6581,7 +6581,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1940, "name": "Tenero festeggia 25 anni con il campo 3T per gi...", "url": `${BASE_URL}/articoli-frontaliere/campo-talenti-tenero-25-anni` },
           { "@type": "ListItem", "position": 1941, "name": "Aeroporto Zurigo: traffico aereo in crescita de...", "url": `${BASE_URL}/articoli-frontaliere/aeroporto-zurigo-traffico-crescita-2026` },
           { "@type": "ListItem", "position": 1942, "name": "FFS: 58 treni extra per Ascensione e Pentecoste", "url": `${BASE_URL}/articoli-frontaliere/ffs-ascensione-pentecoste-2026` },
-          { "@type": "ListItem", "position": 1943, "name": "StraLugano 2026: percorsi per tutti i livelli", "url": `${BASE_URL}/articoli-frontaliere/stralugano-percorsi-frontalieri-2026` }
+          { "@type": "ListItem", "position": 1943, "name": "StraLugano 2026: percorsi per tutti i livelli", "url": `${BASE_URL}/articoli-frontaliere/stralugano-percorsi-frontalieri-2026` },
+          { "@type": "ListItem", "position": 1944, "name": "Camelie Locarno 2026: record di visitatori e in...", "url": `${BASE_URL}/articoli-frontaliere/camelie-locarno-record-visitatori-2026` }
  ]
  },
  {

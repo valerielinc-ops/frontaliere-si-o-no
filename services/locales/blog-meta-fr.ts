@@ -5673,6 +5673,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stralugano-percorsi-frontalieri-2026.title': 'StraLugano 2026 : parcours pour tous les niveaux',
     'blog.article.stralugano-percorsi-frontalieri-2026.excerpt': 'La StraLugano propose des parcours pour tous les niveaux, du 5 km au semi-marathon, avec des tarifs réduits pour les plus de 65 ans.',
     'blog.article.stralugano-percorsi-frontalieri-2026.imageAlt': 'Lac de Lugano avec un coureur au premier plan, ciel bleu clair, couleurs automnales',
+    'blog.article.camelie-locarno-record-visitatori-2026.title': 'Camélias Locarno 2026: record de visiteurs et de recettes',
+    'blog.article.camelie-locarno-record-visitatori-2026.excerpt': 'L\'édition 2026 de Camélias Locarno a enregistré 14.000 visiteurs et une augmentation de 10% des recettes par rapport à 2022.',
+    'blog.article.camelie-locarno-record-visitatori-2026.imageAlt': 'Parc des Camélias à Locarno pendant l\'événement Camelie Locarno 2026',
 };
 
 export default blogMetaFr;

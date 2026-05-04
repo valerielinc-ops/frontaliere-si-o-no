@@ -3133,6 +3133,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aeroporto-zurigo-traffico-crescita-2026': { name: 'Novità', path: '/articoli-frontaliere/aeroporto-zurigo-traffico-crescita-2026', parent: 'blog' },
     'blog-ffs-ascensione-pentecoste-2026': { name: 'Novità', path: '/articoli-frontaliere/ffs-ascensione-pentecoste-2026', parent: 'blog' },
     'blog-stralugano-percorsi-frontalieri-2026': { name: 'StraLugano 2026', path: '/articoli-frontaliere/stralugano-percorsi-frontalieri-2026', parent: 'blog' },
+    'blog-camelie-locarno-record-visitatori-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/camelie-locarno-record-visitatori-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

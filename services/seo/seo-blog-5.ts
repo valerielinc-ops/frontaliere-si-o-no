@@ -14007,6 +14007,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-camelie-locarno-record-visitatori-2026': {
+    title: 'Camelie Locarno 2026: record di visitatori e incassi',
+    description: 'L\'edizione 2026 di Camelie Locarno ha registrato 14.000 visitatori e un aumento del 10% degli incassi rispetto al 2022. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, camelie, locarno, record, visitatori',
+    ogTitle: 'Camelie Locarno 2026: record di visitatori e incassi',
+    ogDescription: 'L\'edizione 2026 di Camelie Locarno ha registrato 14.000 visitatori e un aumento del 10% degli incassi rispetto al 2022.',
+    canonicalPath: '/articoli-frontaliere/camelie-locarno-record-visitatori-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Camelie Locarno 2026: record di visitatori e incassi",
+      "description": "L'edizione 2026 di Camelie Locarno ha registrato 14.000 visitatori e un aumento del 10% degli incassi rispetto al 2022. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/camelie-locarno-record-visitatori-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parco delle Camelie a Locarno durante l'evento Camelie Locarno 2026"
+      },
+      "datePublished": "2026-05-04T08:48:37+00:00",
+      "dateModified": "2026-05-04T08:48:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/camelie-locarno-record-visitatori-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
