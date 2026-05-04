@@ -5679,6 +5679,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disastri-museo-leventina-gioco-oca.title': 'Al Museo di Leventina i disastri diventano un gioco dell\'oca',
     'blog.article.disastri-museo-leventina-gioco-oca.excerpt': 'Nuova mostra interattiva dal Medioevo a oggi su come le comunità del Ticino hanno affrontato frane, epidemie e incendi',
     'blog.article.disastri-museo-leventina-gioco-oca.imageAlt': 'Museo di Leventina, Ticino, mostra su disastri storici con gioco dell\'oca',
+    'blog.article.ndrangheta-ticino-antimafia-italiana.title': 'La ’ndrangheta usa il Ticino per sfuggire all’antimafia italiana',
+    'blog.article.ndrangheta-ticino-antimafia-italiana.excerpt': 'Sentenze svizzere e italiane rivelano come la cosca di Isola Capo Rizzuto abbia usato società ticinesi per aggirare interdittive antimafia',
+    'blog.article.ndrangheta-ticino-antimafia-italiana.imageAlt': 'Panorama di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;

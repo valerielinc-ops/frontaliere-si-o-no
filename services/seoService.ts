@@ -3135,6 +3135,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stralugano-percorsi-frontalieri-2026': { name: 'StraLugano 2026', path: '/articoli-frontaliere/stralugano-percorsi-frontalieri-2026', parent: 'blog' },
     'blog-camelie-locarno-record-visitatori-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/camelie-locarno-record-visitatori-2026', parent: 'blog' },
     'blog-disastri-museo-leventina-gioco-oca': { name: 'Novità', path: '/articoli-frontaliere/disastri-museo-leventina-gioco-oca', parent: 'blog' },
+    'blog-ndrangheta-ticino-antimafia-italiana': { name: 'Novità', path: '/articoli-frontaliere/ndrangheta-ticino-antimafia-italiana', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1945,
+ "numberOfItems": 1946,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6583,7 +6583,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1942, "name": "FFS: 58 treni extra per Ascensione e Pentecoste", "url": `${BASE_URL}/articoli-frontaliere/ffs-ascensione-pentecoste-2026` },
           { "@type": "ListItem", "position": 1943, "name": "StraLugano 2026: percorsi per tutti i livelli", "url": `${BASE_URL}/articoli-frontaliere/stralugano-percorsi-frontalieri-2026` },
           { "@type": "ListItem", "position": 1944, "name": "Camelie Locarno 2026: record di visitatori e in...", "url": `${BASE_URL}/articoli-frontaliere/camelie-locarno-record-visitatori-2026` },
-          { "@type": "ListItem", "position": 1945, "name": "Al Museo di Leventina i disastri diventano un g...", "url": `${BASE_URL}/articoli-frontaliere/disastri-museo-leventina-gioco-oca` }
+          { "@type": "ListItem", "position": 1945, "name": "Al Museo di Leventina i disastri diventano un g...", "url": `${BASE_URL}/articoli-frontaliere/disastri-museo-leventina-gioco-oca` },
+          { "@type": "ListItem", "position": 1946, "name": "La ’ndrangheta usa il Ticino per sfuggire all’a...", "url": `${BASE_URL}/articoli-frontaliere/ndrangheta-ticino-antimafia-italiana` }
  ]
  },
  {

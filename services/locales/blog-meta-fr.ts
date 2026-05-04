@@ -5679,6 +5679,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disastri-museo-leventina-gioco-oca.title': 'Au musée de Leventina, les catastrophes deviennent un jeu de l\'oie',
     'blog.article.disastri-museo-leventina-gioco-oca.excerpt': 'Nouvelle exposition interactive du Moyen Âge à nos jours sur la manière dont les communautés du Tessin ont fait face aux glissements de terrain, aux épidémies et aux incendies',
     'blog.article.disastri-museo-leventina-gioco-oca.imageAlt': 'Musée de Leventina, Tessin, exposition sur les catastrophes historiques avec un jeu de l\'oie',
+    'blog.article.ndrangheta-ticino-antimafia-italiana.title': '\'Ndrangheta utilise le Tessin pour échapper à l\'antimafia italienne',
+    'blog.article.ndrangheta-ticino-antimafia-italiana.excerpt': 'Des sentences suisses et italiennes révèlent comment la cosca d\'Isola Capo Rizzuto a utilisé des sociétés tessinoises pour contourner les interdictions antimafia',
+    'blog.article.ndrangheta-ticino-antimafia-italiana.imageAlt': 'Panorama de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaFr;

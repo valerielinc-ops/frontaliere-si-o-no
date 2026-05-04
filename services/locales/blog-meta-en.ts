@@ -5678,6 +5678,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disastri-museo-leventina-gioco-oca.title': 'Disasters become a board game at Leventina Museum',
     'blog.article.disastri-museo-leventina-gioco-oca.excerpt': 'New interactive exhibition from the Middle Ages to today on how Ticino communities have faced landslides, epidemics and fires',
     'blog.article.disastri-museo-leventina-gioco-oca.imageAlt': 'Leventina Museum, Ticino, exhibition on historical disasters with a game of snakes and ladders',
+    'blog.article.ndrangheta-ticino-antimafia-italiana.title': '\'Ndrangheta uses Ticino to evade Italian anti-mafia measures',
+    'blog.article.ndrangheta-ticino-antimafia-italiana.excerpt': 'Swiss and Italian rulings reveal how the Isola Capo Rizzuto clan used Ticinese companies to bypass anti-mafia injunctions',
+    'blog.article.ndrangheta-ticino-antimafia-italiana.imageAlt': 'Lugano cityscape with Lake Lugano and mountains',
 };
 
 export default blogMetaEn;
