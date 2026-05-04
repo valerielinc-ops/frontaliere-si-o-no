@@ -13395,6 +13395,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavena-brano-musicale-leone-xiv': {
+    title: 'Da Lavena Ponte Tresa un brano musicale in onore di Leone XIV',
+    description: 'Un brano musicale dedicato a Papa Leone XIV sarà eseguito per la prima volta l\'8 maggio a Cremenaga. Scopri di più su questo evento speciale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavena, ponte, tresa, brano',
+    ogTitle: 'Da Lavena Ponte Tresa un brano musicale in onore di Leone XIV',
+    ogDescription: 'Un brano musicale dedicato a Papa Leone XIV sarà eseguito per la prima volta l\'8 maggio a Cremenaga. Scopri di più su questo evento speciale.',
+    canonicalPath: '/articoli-frontaliere/lavena-brano-musicale-leone-xiv',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da Lavena Ponte Tresa un brano musicale in onore di Leone XIV",
+      "description": "Un brano musicale dedicato a Papa Leone XIV sarà eseguito per la prima volta l'8 maggio a Cremenaga. Scopri di più su questo evento speciale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavena-brano-musicale-leone-xiv.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tramonto sul Lago di Lugano con le luci della città riflesse nell'acqua"
+      },
+      "datePublished": "2026-05-04T06:44:09+00:00",
+      "dateModified": "2026-05-04T06:44:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-brano-musicale-leone-xiv`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

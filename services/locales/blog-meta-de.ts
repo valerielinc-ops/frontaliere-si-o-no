@@ -5618,6 +5618,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gambarogno-contributi-costruzione-ricorrenti.title': 'Gambarogno: Bürger gewinnen gegen Baugebühren',
     'blog.article.gambarogno-contributi-costruzione-ricorrenti.excerpt': 'Das Enteignungsgericht hat über die Abgaben für Kanalisations- und Kläranlagen in Contone entschieden. Hier erfahren Sie, was sich ändert',
     'blog.article.gambarogno-contributi-costruzione-ricorrenti.imageAlt': 'Luganersee mit umliegenden Bergen',
+    'blog.article.lavena-brano-musicale-leone-xiv.title': 'Ein Musikstück zu Ehren von Papst Leo XIV aus Lavena Ponte Tresa',
+    'blog.article.lavena-brano-musicale-leone-xiv.excerpt': 'Ein Musikstück, gewidmet Papst Leo XIV, wird am 8. Mai in Cremenaga erstmals aufgeführt.',
+    'blog.article.lavena-brano-musicale-leone-xiv.imageAlt': 'Sonnenuntergang am Luganersee mit Stadtlichtern, die sich im Wasser spiegeln',
 };
 
 export default blogMetaDe;

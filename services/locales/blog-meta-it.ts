@@ -5619,6 +5619,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gambarogno-contributi-costruzione-ricorrenti.title': 'Gambarogno: vince la battaglia dei cittadini sui contributi di costruzione',
     'blog.article.gambarogno-contributi-costruzione-ricorrenti.excerpt': 'Il Tribunale di espropriazione ha deciso sui prelievi per opere di canalizzazione e depurazione a Contone. Ecco cosa cambia',
     'blog.article.gambarogno-contributi-costruzione-ricorrenti.imageAlt': 'Lago di Lugano con le montagne circostanti',
+    'blog.article.lavena-brano-musicale-leone-xiv.title': 'Da Lavena Ponte Tresa un brano musicale in onore di Leone XIV',
+    'blog.article.lavena-brano-musicale-leone-xiv.excerpt': 'Un brano musicale dedicato a Papa Leone XIV sarà eseguito per la prima volta l\'8 maggio a Cremenaga.',
+    'blog.article.lavena-brano-musicale-leone-xiv.imageAlt': 'Tramonto sul Lago di Lugano con le luci della città riflesse nell\'acqua',
 };
 
 export default blogMetaIt;

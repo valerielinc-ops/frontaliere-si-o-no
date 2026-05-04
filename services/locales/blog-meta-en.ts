@@ -5618,6 +5618,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gambarogno-contributi-costruzione-ricorrenti.title': 'Gambarogno: citizens win battle over construction fees',
     'blog.article.gambarogno-contributi-costruzione-ricorrenti.excerpt': 'The Expropriation Court has ruled on levies for sewer and purification works in Contone. Here\'s what changes',
     'blog.article.gambarogno-contributi-costruzione-ricorrenti.imageAlt': 'Lake Lugano with surrounding mountains',
+    'blog.article.lavena-brano-musicale-leone-xiv.title': 'A musical tribute to Pope Leo XIV from Lavena Ponte Tresa',
+    'blog.article.lavena-brano-musicale-leone-xiv.excerpt': 'A musical piece dedicated to Pope Leo XIV will be performed for the first time on May 8th in Cremenaga.',
+    'blog.article.lavena-brano-musicale-leone-xiv.imageAlt': 'Sunset at Lake Lugano with city lights reflected in the water',
 };
 
 export default blogMetaEn;

@@ -18227,4 +18227,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavena-brano-musicale-leone-xiv',
+ category: 'novita',
+ date: '2026-05-04T06:44:09.715Z',
+ image: '/images/blog/lavena-brano-musicale-leone-xiv.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
