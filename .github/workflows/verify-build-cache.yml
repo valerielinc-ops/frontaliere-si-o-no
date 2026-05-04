@@ -87,6 +87,15 @@ jobs:
             'nursing-landings'
             'faq-hub'
             'fr-salaire-net-landing'
+            # Wave 2 — 8 job-data-driven plugins
+            'jobs-seo-pages'
+            'weekly-employers'
+            'job-market-snapshot'
+            'market-report-landing'
+            'annual-report-landing'
+            'job-recency-pages'
+            'job-sector-pages'
+            'comparisons-hub'
           )
           MISSING=()
           for p in "${PLUGINS[@]}"; do
@@ -135,6 +144,16 @@ jobs:
             '/sitemap-faq-hub.xml'
             # fr-salaire-net-landing
             '/sitemap-fr-salaire-net.xml'
+            # Wave 2 — 8 job-data-driven plugins
+            '/sitemap-jobs.xml'
+            '/sitemap-jobs-expired.xml'
+            '/sitemap-weekly-employers.xml'
+            '/sitemap-job-market.xml'
+            '/sitemap-market-report.xml'
+            '/sitemap-annual-report.xml'
+            '/sitemap-recency.xml'
+            '/sitemap-sector.xml'
+            '/sitemap-comparisons.xml'
           )
           DRIFT=0
           for p in "${PATTERNS[@]}"; do
