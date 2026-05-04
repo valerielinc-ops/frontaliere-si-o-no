@@ -3141,6 +3141,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lidl-svizzera-ceo-elvetico': { name: 'Novità', path: '/articoli-frontaliere/lidl-svizzera-ceo-elvetico', parent: 'blog' },
     'blog-calcio-alpino-ticino-2026': { name: 'Torneo Alge Alp Sport', path: '/articoli-frontaliere/calcio-alpino-ticino-2026', parent: 'blog' },
     'blog-ponti-primaverili-traffico-2026': { name: 'Ponti primaverili', path: '/articoli-frontaliere/ponti-primaverili-traffico-2026', parent: 'blog' },
+    'blog-perbacco-bianchi-bellinzona-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/perbacco-bianchi-bellinzona-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

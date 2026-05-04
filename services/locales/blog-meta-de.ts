@@ -5696,6 +5696,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ponti-primaverili-traffico-2026.title': 'Brückentage: Mehr Verkehr auf Straße und Schiene',
     'blog.article.ponti-primaverili-traffico-2026.excerpt': 'Die SBB verstärken das Angebot mit 58 Sonderzügen und 130.000 zusätzlichen Sitzplätzen. USTRA empfiehlt Alternativen, um Staus zu vermeiden.',
     'blog.article.ponti-primaverili-traffico-2026.imageAlt': 'Luftaufnahme des Luganersees mit klaren blauen Gewässern und umliegenden Bergen',
+    'blog.article.perbacco-bianchi-bellinzona-2026.title': 'PerBacco! Weisse Weine in Bellinzona: Drei Tage Genuss und Musik',
+    'blog.article.perbacco-bianchi-bellinzona-2026.excerpt': 'Vom 8. bis 10. Mai 2026 feiert Bellinzona die Weißweine des Tessin mit Verkostungen, Musik und Touren durch die Weinberge',
+    'blog.article.perbacco-bianchi-bellinzona-2026.imageAlt': 'Weinverkostung in Bellinzona mit Musik und lokalen Speisen',
 };
 
 export default blogMetaDe;

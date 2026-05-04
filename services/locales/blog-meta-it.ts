@@ -5697,6 +5697,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ponti-primaverili-traffico-2026.title': 'Ponti primaverili: più traffico su strada e rotaia',
     'blog.article.ponti-primaverili-traffico-2026.excerpt': 'FFS potenziano l\'offerta con 58 treni speciali e 130.000 posti aggiuntivi. USTRA consiglia alternative per evitare ingorghi.',
     'blog.article.ponti-primaverili-traffico-2026.imageAlt': 'Vista aerea del Lago di Lugano con acque cristalline e montagne circostanti',
+    'blog.article.perbacco-bianchi-bellinzona-2026.title': 'PerBacco! che Bianchi! a Bellinzona: tre giorni di degustazioni e musica',
+    'blog.article.perbacco-bianchi-bellinzona-2026.excerpt': 'Dal 8 al 10 maggio 2026, Bellinzona celebra i vini bianchi ticinesi con degustazioni, musica e tour tra i vigneti',
+    'blog.article.perbacco-bianchi-bellinzona-2026.imageAlt': 'Evento di degustazione di vini bianchi a Bellinzona, con musica e cibo locale',
 };
 
 export default blogMetaIt;

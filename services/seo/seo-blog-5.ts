@@ -14279,6 +14279,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-perbacco-bianchi-bellinzona-2026': {
+    title: 'PerBacco! che Bianchi! a Bellinzona: tre giorni di degustazioni e musica',
+    description: 'Dal 8 al 10 maggio 2026, Bellinzona celebra i vini bianchi ticinesi con degustazioni, musica e tour tra i vigneti. Scopri il programma e come partecipare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, perbacco, bianchi, bellinzona, giorni',
+    ogTitle: 'PerBacco! che Bianchi! a Bellinzona: degustazioni e musica',
+    ogDescription: 'Dal 8 al 10 maggio 2026, Bellinzona celebra i vini bianchi ticinesi con degustazioni, musica e tour tra i vigneti. Scopri il programma e come partecipare.',
+    canonicalPath: '/articoli-frontaliere/perbacco-bianchi-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PerBacco! che Bianchi! a Bellinzona: tre giorni di degustazioni e musica",
+      "description": "Dal 8 al 10 maggio 2026, Bellinzona celebra i vini bianchi ticinesi con degustazioni, musica e tour tra i vigneti. Scopri il programma e come partecipare.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/perbacco-bianchi-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento di degustazione di vini bianchi a Bellinzona, con musica e cibo locale"
+      },
+      "datePublished": "2026-05-04T09:59:10+00:00",
+      "dateModified": "2026-05-04T09:59:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/perbacco-bianchi-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

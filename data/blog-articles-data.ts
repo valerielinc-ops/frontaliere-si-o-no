@@ -18461,4 +18461,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'perbacco-bianchi-bellinzona-2026',
+ category: 'novita',
+ date: '2026-05-04T09:59:10.293Z',
+ image: '/images/blog/perbacco-bianchi-bellinzona-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

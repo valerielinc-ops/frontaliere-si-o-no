@@ -5697,6 +5697,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ponti-primaverili-traffico-2026.title': 'Ponts printaniers: trafic accru sur route et rail',
     'blog.article.ponti-primaverili-traffico-2026.excerpt': 'Les CFF renforcent l\'offre avec 58 trains spéciaux et 130.000 places supplémentaires. USTRA recommande des alternatives pour éviter les embouteillages.',
     'blog.article.ponti-primaverili-traffico-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des eaux cristallines et des montagnes environnantes',
+    'blog.article.perbacco-bianchi-bellinzona-2026.title': 'PerBacco! Les Blancs à Bellinzona: 3 jours de dégustations et musique',
+    'blog.article.perbacco-bianchi-bellinzona-2026.excerpt': 'Du 8 au 10 mai 2026, Bellinzona célèbre les vins blancs du Tessin avec dégustations, musique et visites des vignobles',
+    'blog.article.perbacco-bianchi-bellinzona-2026.imageAlt': 'Dégustation de vins blancs à Bellinzona avec musique et nourriture locale',
 };
 
 export default blogMetaFr;

@@ -5696,6 +5696,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ponti-primaverili-traffico-2026.title': 'Spring bank holidays: more traffic on road and rail',
     'blog.article.ponti-primaverili-traffico-2026.excerpt': 'SBB increases capacity with 58 special trains and 130,000 extra seats. USTRA advises alternatives to avoid congestion.',
     'blog.article.ponti-primaverili-traffico-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue waters and surrounding mountains',
+    'blog.article.perbacco-bianchi-bellinzona-2026.title': 'PerBacco! White Wines in Bellinzona: Tastings and Music',
+    'blog.article.perbacco-bianchi-bellinzona-2026.excerpt': 'From May 8 to 10, 2026, Bellinzona celebrates Ticino\'s white wines with tastings, music, and vineyard tours.',
+    'blog.article.perbacco-bianchi-bellinzona-2026.imageAlt': 'White wine tasting event in Bellinzona with music and local food',
 };
 
 export default blogMetaEn;
