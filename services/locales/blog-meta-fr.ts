@@ -5832,6 +5832,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gabbiano-bonaparte-ticino-2026.title': 'Un goéland de Bonaparte aperçu en Suisse: première fois au Tessin',
     'blog.article.gabbiano-bonaparte-ticino-2026.excerpt': 'Un goéland de Bonaparte, un rare spécimen américain, a été aperçu pour la première fois en Suisse, suscitant l\'enthousiasme des passionnés.',
     'blog.article.gabbiano-bonaparte-ticino-2026.imageAlt': 'Un goéland de Bonaparte observé près du lac de Lugano',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.title': 'Bons de restaurant pour les mères célibataires en difficulté',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.excerpt': 'Soccorso d’inverno Ticino et GastroTicino offrent des bons de restaurant à 74 personnes, dont 50 enfants, pour la Fête des mères 2026',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.imageAlt': 'Famille profitant d\'un dîner dans un restaurant au bord du lac de Lugano',
 };
 
 export default blogMetaFr;

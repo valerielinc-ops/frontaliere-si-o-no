@@ -5832,6 +5832,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gabbiano-bonaparte-ticino-2026.title': 'Gabbiano di Bonaparte avvistato in Svizzera: prima volta in Ticino',
     'blog.article.gabbiano-bonaparte-ticino-2026.excerpt': 'Un gabbiano di Bonaparte, raro esemplare americano, è stato avvistato per la prima volta in Svizzera, creando scalpore tra gli appassionati.',
     'blog.article.gabbiano-bonaparte-ticino-2026.imageAlt': 'Gabbiano di Bonaparte osservato vicino al Lago di Lugano',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.title': 'Buoni per ristoranti a mamme monoparentali in difficoltà',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.excerpt': 'Soccorso d’inverno Ticino e GastroTicino regalano buoni per ristoranti a 74 persone, tra cui 50 bambini, per la Festa della mamma 2026',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.imageAlt': 'Famiglia che gusta una cena in un ristorante sul lago di Lugano',
 };
 
 export default blogMetaIt;

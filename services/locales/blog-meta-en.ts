@@ -5831,6 +5831,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gabbiano-bonaparte-ticino-2026.title': 'Bonaparte gull spotted in Switzerland: first time in Ticino',
     'blog.article.gabbiano-bonaparte-ticino-2026.excerpt': 'A Bonaparte gull, a rare American specimen, has been spotted for the first time in Switzerland, causing a stir among enthusiasts.',
     'blog.article.gabbiano-bonaparte-ticino-2026.imageAlt': 'Bonaparte gull observed near Lake Lugano',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.title': 'Restaurant vouchers for struggling single mothers',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.excerpt': 'Winter Aid Ticino and GastroTicino gift restaurant vouchers to 74 people, including 50 children, for Mother\'s Day 2026',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.imageAlt': 'Family enjoying dinner at a restaurant on Lake Lugano',
 };
 
 export default blogMetaEn;

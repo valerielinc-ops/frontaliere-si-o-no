@@ -5831,6 +5831,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gabbiano-bonaparte-ticino-2026.title': 'Bonaparte-Möwe erstmals in der Schweiz gesichtet',
     'blog.article.gabbiano-bonaparte-ticino-2026.excerpt': 'Eine Bonaparte-Möwe, ein seltener amerikanischer Vogel, wurde erstmals in der Schweiz gesichtet und sorgt bei den Liebhabern für Aufregung.',
     'blog.article.gabbiano-bonaparte-ticino-2026.imageAlt': 'Bonaparte Möwe beobachtet am Luganersee',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.title': 'Gutscheine für Restaurants an alleinerziehende Mütter in Not',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.excerpt': 'Winterhilfe Ticino und GastroTicino schenken 74 Personen, darunter 50 Kinder, Restaurantgutscheine zum Muttertag 2026.',
+    'blog.article.buoni-ristorante-mamme-monoparentali-ticino.imageAlt': 'Familie genießt Abendessen in einem Restaurant am Luganersee',
 };
 
 export default blogMetaDe;
