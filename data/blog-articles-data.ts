@@ -18560,4 +18560,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'confisca-preventiva-mafie-svizzera',
+ category: 'novita',
+ date: '2026-05-04T11:46:38.237Z',
+ image: '/images/blog/confisca-preventiva-mafie-svizzera.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

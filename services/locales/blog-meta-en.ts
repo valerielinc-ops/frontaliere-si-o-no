@@ -5729,6 +5729,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.proposte-cernobbio-2026-tessile.title': 'Proposte 2026 in Cernobbio: textile market worth 1.3 billion euros',
     'blog.article.proposte-cernobbio-2026-tessile.excerpt': 'The 33rd edition of Proposte, the home textile fair, opens at Villa Erba with 87 international exhibitors and a focus on sustainability and innovation.',
     'blog.article.proposte-cernobbio-2026-tessile.imageAlt': 'Villa Erba in Cernobbio during the Proposte 2026 fair, with exhibitors showcasing home textiles.',
+    'blog.article.confisca-preventiva-mafie-svizzera.title': 'Cappa suggests Italian model for Swiss asset seizure',
+    'blog.article.confisca-preventiva-mafie-svizzera.excerpt': 'Rosa Maria Cappa, former federal prosecutor, proposes introducing preventive seizure of mafia assets in Switzerland, as in Italy',
+    'blog.article.confisca-preventiva-mafie-svizzera.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains and a cruising boat',
 };
 
 export default blogMetaEn;

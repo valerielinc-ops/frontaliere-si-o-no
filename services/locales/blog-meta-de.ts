@@ -5729,6 +5729,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.proposte-cernobbio-2026-tessile.title': 'Proposte 2026 in Cernobbio: Textilmarkt von 1,3 Milliarden Euro',
     'blog.article.proposte-cernobbio-2026-tessile.excerpt': 'Die 33. Ausgabe von Proposte, die Messe für Textilien im Innenausbau, beginnt in Villa Erba mit 87 internationalen Ausstellern und einem Fokus auf Nachhaltigkeit und Innovation.',
     'blog.article.proposte-cernobbio-2026-tessile.imageAlt': 'Villa Erba in Cernobbio während der Proposte 2026 Messe, mit Ausstellern, die Heimtextilien zeigen.',
+    'blog.article.confisca-preventiva-mafie-svizzera.title': 'Cappa schlägt italienisches Modell für die Schweiz vor',
+    'blog.article.confisca-preventiva-mafie-svizzera.excerpt': 'Rosa Maria Cappa, ehemalige Bundesanwältin, schlägt vor, in der Schweiz die Beschlagnahmung von Vermögenswerten der Mafia zu einführen, wie in Italien.',
+    'blog.article.confisca-preventiva-mafie-svizzera.imageAlt': 'Luftaufnahme des Luganersees mit den Tessin-Berge und einem vorbeifahrenden Boot',
 };
 
 export default blogMetaDe;

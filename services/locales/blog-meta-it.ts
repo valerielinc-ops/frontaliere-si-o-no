@@ -5730,6 +5730,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.proposte-cernobbio-2026-tessile.title': 'Proposte 2026 a Cernobbio: mercato tessile da 1,3 miliardi di euro',
     'blog.article.proposte-cernobbio-2026-tessile.excerpt': 'La 33ª edizione di Proposte, la fiera del tessuto d’arredamento, si apre a Villa Erba con 87 espositori internazionali e un focus su sostenibilità e innovazione.',
     'blog.article.proposte-cernobbio-2026-tessile.imageAlt': 'Villa Erba a Cernobbio durante la fiera Proposte 2026, con espositori che mostrano tessuti d\'arredamento.',
+    'blog.article.confisca-preventiva-mafie-svizzera.title': 'Confisca preventiva: Cappa propone modello italiano per la Svizzera',
+    'blog.article.confisca-preventiva-mafie-svizzera.excerpt': 'Rosa Maria Cappa, ex procuratrice federale, propone di introdurre in Svizzera il sequestro preventivo dei beni delle mafie, come in Italia',
+    'blog.article.confisca-preventiva-mafie-svizzera.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino e una barca che naviga',
 };
 
 export default blogMetaIt;

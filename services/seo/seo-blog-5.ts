@@ -14653,6 +14653,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confisca-preventiva-mafie-svizzera': {
+    title: 'Confisca preventiva: Cappa propone modello italiano per la Svizzera',
+    description: 'Rosa Maria Cappa, ex procuratrice federale, propone di introdurre in Svizzera il sequestro preventivo dei beni delle mafie, come in Italia. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, confisca, preventiva, cappa, propone',
+    ogTitle: 'Confisca preventiva: Cappa propone modello italiano per la Svizzera',
+    ogDescription: 'Rosa Maria Cappa, ex procuratrice federale, propone di introdurre in Svizzera il sequestro preventivo dei beni delle mafie, come in Italia',
+    canonicalPath: '/articoli-frontaliere/confisca-preventiva-mafie-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confisca preventiva: Cappa propone modello italiano per la Svizzera",
+      "description": "Rosa Maria Cappa, ex procuratrice federale, propone di introdurre in Svizzera il sequestro preventivo dei beni delle mafie, come in Italia. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/confisca-preventiva-mafie-svizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le montagne del Ticino e una barca che naviga"
+      },
+      "datePublished": "2026-05-04T11:46:38+00:00",
+      "dateModified": "2026-05-04T11:46:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confisca-preventiva-mafie-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
