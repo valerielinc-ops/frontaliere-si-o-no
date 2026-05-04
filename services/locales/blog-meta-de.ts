@@ -5642,6 +5642,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mezzo-milione-luganese-sviluppo-2026.title': '500.000 Franken für die Entwicklung von Lugano bis 2026',
     'blog.article.mezzo-milione-luganese-sviluppo-2026.excerpt': 'Die ERSL stellt 500.000 Franken für lokale Projekte bereit, mit einem Hebel von 8 Franken pro investiertem Franken.',
     'blog.article.mezzo-milione-luganese-sviluppo-2026.imageAlt': 'Luganersee mit wirtschaftlichen Entwicklungsprojekten im Hintergrund',
+    'blog.article.raccolti-2000-euro-parco-matteo.title': 'Fast 2000 Franken für Spielplatz in Erinnerung an Matteo gesammelt',
+    'blog.article.raccolti-2000-euro-parco-matteo.excerpt': 'Fast 2000 Franken wurden für einen neuen Spielplatz in Erinnerung an den kleinen Matteo in Busto Arsizio gesammelt.',
+    'blog.article.raccolti-2000-euro-parco-matteo.imageAlt': 'Seeblick von Lugano mit einem Spielplatz im Vordergrund',
 };
 
 export default blogMetaDe;

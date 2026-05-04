@@ -5643,6 +5643,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mezzo-milione-luganese-sviluppo-2026.title': 'Mezzo milione per lo sviluppo del Luganese nel 2026',
     'blog.article.mezzo-milione-luganese-sviluppo-2026.excerpt': 'L\'ERSL mette a disposizione 500mila franchi per progetti locali, con un effetto leva di 8 franchi per ogni franco investito.',
     'blog.article.mezzo-milione-luganese-sviluppo-2026.imageAlt': 'Vista del lago di Lugano con progetti di sviluppo economico',
+    'blog.article.raccolti-2000-euro-parco-matteo.title': 'Raccolti quasi 2000 euro per il parco giochi in memoria di Matteo',
+    'blog.article.raccolti-2000-euro-parco-matteo.excerpt': 'Quasi 2000 euro raccolti per un nuovo parco giochi in memoria del piccolo Matteo a Busto Arsizio.',
+    'blog.article.raccolti-2000-euro-parco-matteo.imageAlt': 'Panorama del Lago di Lugano con un parco giochi in primo piano',
 };
 
 export default blogMetaIt;

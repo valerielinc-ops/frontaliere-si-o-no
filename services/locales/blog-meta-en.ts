@@ -5642,6 +5642,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mezzo-milione-luganese-sviluppo-2026.title': 'Half a million for Lugano\'s 2026 development',
     'blog.article.mezzo-milione-luganese-sviluppo-2026.excerpt': 'ERSL is providing 500,000 francs for local projects, with an 8-to-1 leverage effect for every franc invested.',
     'blog.article.mezzo-milione-luganese-sviluppo-2026.imageAlt': 'Lake Lugano with economic development projects in the background',
+    'blog.article.raccolti-2000-euro-parco-matteo.title': 'Nearly 2000 euros raised for Matteo\'s memorial playground',
+    'blog.article.raccolti-2000-euro-parco-matteo.excerpt': 'Almost 2000 euros raised for a new playground in memory of little Matteo in Busto Arsizio.',
+    'blog.article.raccolti-2000-euro-parco-matteo.imageAlt': 'Lake Lugano view with a playground in the foreground',
 };
 
 export default blogMetaEn;

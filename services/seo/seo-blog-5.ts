@@ -13667,6 +13667,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-raccolti-2000-euro-parco-matteo': {
+    title: 'Raccolti quasi 2000 euro per il parco giochi in memoria di Matteo',
+    description: 'Quasi 2000 euro raccolti per un nuovo parco giochi in memoria del piccolo Matteo a Busto Arsizio. Scopri come contribuire. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, raccolti, quasi, 2000, euro',
+    ogTitle: 'Raccolti quasi 2000 euro per il parco giochi in memoria di Matteo',
+    ogDescription: 'Quasi 2000 euro raccolti per un nuovo parco giochi in memoria del piccolo Matteo a Busto Arsizio. Scopri come contribuire.',
+    canonicalPath: '/articoli-frontaliere/raccolti-2000-euro-parco-matteo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Raccolti quasi 2000 euro per il parco giochi in memoria di Matteo",
+      "description": "Quasi 2000 euro raccolti per un nuovo parco giochi in memoria del piccolo Matteo a Busto Arsizio. Scopri come contribuire. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/raccolti-2000-euro-parco-matteo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Lago di Lugano con un parco giochi in primo piano"
+      },
+      "datePublished": "2026-05-04T07:34:27+00:00",
+      "dateModified": "2026-05-04T07:34:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/raccolti-2000-euro-parco-matteo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

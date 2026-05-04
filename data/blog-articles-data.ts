@@ -18299,4 +18299,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'raccolti-2000-euro-parco-matteo',
+ category: 'novita',
+ date: '2026-05-04T07:34:27.866Z',
+ image: '/images/blog/raccolti-2000-euro-parco-matteo.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
