@@ -62,6 +62,7 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { runCached } from './shared/buildCache';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -2811,6 +2812,36 @@ function patchSitemapIndex(distDir: string, dateStamp: string): void {
 
 // ── Plugin entry ───────────────────────────────────────────────
 
+/**
+ * Enumerate the runtime data files this plugin reads via `fs.readFileSync`.
+ *
+ * esbuild's import tracer covers code dependencies but does NOT see files
+ * loaded with `fs` at runtime. The cache hashes every file in this list to
+ * make sure dataset edits invalidate the cache automatically.
+ *
+ * Returns ABSOLUTE paths so the cache hashes raw bytes (path-independent).
+ * The list is sorted by path inside `computeCacheKey` for determinism.
+ *
+ * Tolerates missing files (the cache encodes a sentinel for absence so the
+ * cache key still shifts when a file appears or disappears).
+ */
+function healthPremiumsRuntimeFiles(rootDir: string): string[] {
+  const list: string[] = [];
+  const legacy = np.resolve(rootDir, 'data', 'health-premiums.json');
+  if (fs.existsSync(legacy)) list.push(legacy);
+  const dir = np.resolve(rootDir, 'data', 'health-premiums');
+  if (fs.existsSync(dir)) {
+    try {
+      for (const f of fs.readdirSync(dir)) {
+        if (f.endsWith('.json')) list.push(np.join(dir, f));
+      }
+    } catch {
+      /* ignore — missing dir captured by the absence sentinel */
+    }
+  }
+  return list;
+}
+
 export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
   return {
     name: 'health-premiums-landing',
@@ -2825,7 +2856,10 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       if (!fs.existsSync(distDir)) return;
 
       // Ext3 task 3 — wipe owned namespaces before regen so per-canton /
-      // per-age pages that drop out of the dataset don't linger.
+      // per-age pages that drop out of the dataset don't linger. Runs on
+      // every build (cache hit or miss): the cache restore later refills
+      // the namespace with the canonical set, so wiping first ensures no
+      // stale leaves survive a dataset shrink.
       cleanNamespaces(distDir, [
         'premi-cassa-malati',
         'en/health-insurance-premiums',
@@ -2834,114 +2868,159 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       ]);
       cleanSitemapFiles(distDir, ['sitemap-health-premiums.xml']);
 
-      // Locate the canonical current-year dataset. Preferred path is the
-      // F2-A3 multi-year directory (`data/health-premiums/{year}.json`); we
-      // fall back to the legacy flat file when the directory is not present
-      // so older deployments keep working.
+      // `today` is fixed once per build and threaded through the cache key
+      // (via `extraKey`, day-granular) and the work function. Cache hits
+      // within the same UTC day reuse the FIRST build's exact ISO timestamps
+      // baked into JSON-LD `dateModified`/`datePublished`. Across days the
+      // extraKey shifts, forcing a fresh build with the new day's timestamps.
       const today = new Date();
-      const preferredYear = today.getUTCFullYear();
-      const dirCandidate = np.resolve(rootDir, 'data', 'health-premiums', `${preferredYear}.json`);
-      const legacyCandidate = np.resolve(rootDir, 'data', 'health-premiums.json');
-      let dataPath: string | null = null;
-      if (fs.existsSync(dirCandidate)) dataPath = dirCandidate;
-      else if (fs.existsSync(legacyCandidate)) dataPath = legacyCandidate;
+      const dayKey = today.toISOString().slice(0, 10);
 
-      let dataset: HealthPremiumsDataset = {};
-      if (!dataPath) {
-        console.warn(`[health-premiums] no dataset found at ${dirCandidate} or ${legacyCandidate} — skipping plugin`);
-        return;
-      }
-      try {
-        const raw = fs.readFileSync(dataPath, 'utf-8');
-        dataset = JSON.parse(raw) as HealthPremiumsDataset;
-      } catch (err) {
-        console.warn(`[health-premiums] failed to read ${dataPath}`, err);
-        return;
-      }
-
-      // Optional prior-year dataset for YoY rendering (F2 A3). When absent
-      // the generator silently skips the "Variazione vs {priorYear}"
-      // section — never fabricates data.
-      let priorDataset: HealthPremiumsDataset | null = null;
-      const currentYear = dataset.year ?? preferredYear;
-      const priorYear = currentYear - 1;
-      const priorLoaded = loadPremiumsForYear(rootDir, priorYear);
-      if (priorLoaded) {
-        priorDataset = priorLoaded as HealthPremiumsDataset;
-        console.log(`[health-premiums] loaded prior-year dataset ${priorYear} for YoY`);
-      } else {
-        console.log(`[health-premiums] no ${priorYear}.json archive — YoY section will be skipped`);
-      }
-
-      // Optional oldest-year dataset for tri-year trend (B-cont-4). Same
-      // graceful-degradation contract: missing archive → silent skip of the
-      // tri-year block, YoY block still renders.
-      let oldestDataset: HealthPremiumsDataset | null = null;
-      const oldestYear = currentYear - 2;
-      const oldestLoaded = loadPremiumsForYear(rootDir, oldestYear);
-      if (oldestLoaded) {
-        oldestDataset = oldestLoaded as HealthPremiumsDataset;
-        console.log(`[health-premiums] loaded oldest-year dataset ${oldestYear} for tri-year trend`);
-      } else {
-        console.log(`[health-premiums] no ${oldestYear}.json archive — tri-year trend section will be skipped`);
-      }
-
-      const { pages, skippedCantons, yoyByCanton, triYearByCanton } = generateHealthPremiumsPages({
-        dataset,
-        priorDataset,
-        oldestDataset,
-        today,
+      await runCached({
+        pluginName: 'health-premiums-landing',
+        rootDir,
         distDir,
-      });
-      const yoyActive = Object.values(yoyByCanton).filter((y) => y !== null).length;
-      const triYearActive = Object.values(triYearByCanton).filter((y) => y !== null).length;
+        bundleEntry: np.resolve(rootDir, 'build-plugins/healthPremiumsLandingPlugin.ts'),
+        runtimeFiles: () => healthPremiumsRuntimeFiles(rootDir),
+        extraKey: dayKey,
+        work: async ({ recordWrite }) => {
+          // Locate the canonical current-year dataset. Preferred path is the
+          // F2-A3 multi-year directory (`data/health-premiums/{year}.json`);
+          // fall back to the legacy flat file when the directory is absent.
+          const preferredYear = today.getUTCFullYear();
+          const dirCandidate = np.resolve(
+            rootDir,
+            'data',
+            'health-premiums',
+            `${preferredYear}.json`,
+          );
+          const legacyCandidate = np.resolve(rootDir, 'data', 'health-premiums.json');
+          let dataPath: string | null = null;
+          if (fs.existsSync(dirCandidate)) dataPath = dirCandidate;
+          else if (fs.existsSync(legacyCandidate)) dataPath = legacyCandidate;
 
-      const collector = new WriteCollector({ distDir, skipExisting: false, pluginName: 'healthPremiumsLandingPlugin' });
-      let pagesWritten = 0;
-      let skippedForWordCount = 0;
-      const writtenPaths: string[] = [];
-
-      for (const [path, html] of Object.entries(pages)) {
-        const words = countHtmlBodyWords(html);
-        if (words < MIN_INDEXABLE_WORDS) {
-          skippedForWordCount++;
-          console.warn(`[health-premiums] thin content (${words} words) for ${path} — skipping`);
-          continue;
-        }
-        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-        collector.add(np.join(outDir, 'index.html'), html);
-        pagesWritten++;
-        writtenPaths.push(path);
-      }
-
-      await collector.flush();
-
-      // Sitemap — emit only IT canonicals, with hreflang alternates pointing to each localised path.
-      try {
-        const pathsByCanonical: Record<string, { alternates: string[] }> = {};
-        for (const path of writtenPaths) {
-          if (path.startsWith('/en/') || path.startsWith('/de/') || path.startsWith('/fr/')) continue;
-          // Build list of hreflang alternates: find corresponding entries in other locales.
-          const alts: string[] = [];
-          for (const alt of HEALTH_PREMIUM_LOCALES) {
-            const altPath = deriveAltPath(path, alt);
-            if (altPath && writtenPaths.includes(altPath)) {
-              alts.push(`${alt}:${BASE_URL}${altPath}`);
-            }
+          let dataset: HealthPremiumsDataset = {};
+          if (!dataPath) {
+            console.warn(
+              `[health-premiums] no dataset found at ${dirCandidate} or ${legacyCandidate} — skipping plugin`,
+            );
+            return;
           }
-          alts.push(`x-default:${BASE_URL}${path}`);
-          pathsByCanonical[path] = { alternates: alts };
-        }
-        const xml = buildSitemapXml(writtenPaths, today, pathsByCanonical);
-        fs.writeFileSync(np.join(distDir, 'sitemap-health-premiums.xml'), xml, 'utf-8');
-        patchSitemapIndex(distDir, today.toISOString().slice(0, 10));
-      } catch (err) {
-        console.warn('[health-premiums] failed to write sitemap', err);
-      }
+          try {
+            const raw = fs.readFileSync(dataPath, 'utf-8');
+            dataset = JSON.parse(raw) as HealthPremiumsDataset;
+          } catch (err) {
+            console.warn(`[health-premiums] failed to read ${dataPath}`, err);
+            return;
+          }
 
-      console.log(
-        `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'}; YoY active on ${yoyActive}/${HEALTH_PREMIUM_CANTONS.length} cantons; tri-year trend active on ${triYearActive}/${HEALTH_PREMIUM_CANTONS.length} cantons)`,
-      );
+          // Optional prior-year dataset for YoY rendering (F2 A3).
+          let priorDataset: HealthPremiumsDataset | null = null;
+          const currentYear = dataset.year ?? preferredYear;
+          const priorYear = currentYear - 1;
+          const priorLoaded = loadPremiumsForYear(rootDir, priorYear);
+          if (priorLoaded) {
+            priorDataset = priorLoaded as HealthPremiumsDataset;
+            console.log(`[health-premiums] loaded prior-year dataset ${priorYear} for YoY`);
+          } else {
+            console.log(`[health-premiums] no ${priorYear}.json archive — YoY section will be skipped`);
+          }
+
+          // Optional oldest-year dataset for tri-year trend (B-cont-4).
+          let oldestDataset: HealthPremiumsDataset | null = null;
+          const oldestYear = currentYear - 2;
+          const oldestLoaded = loadPremiumsForYear(rootDir, oldestYear);
+          if (oldestLoaded) {
+            oldestDataset = oldestLoaded as HealthPremiumsDataset;
+            console.log(
+              `[health-premiums] loaded oldest-year dataset ${oldestYear} for tri-year trend`,
+            );
+          } else {
+            console.log(
+              `[health-premiums] no ${oldestYear}.json archive — tri-year trend section will be skipped`,
+            );
+          }
+
+          const { pages, skippedCantons, yoyByCanton, triYearByCanton } =
+            generateHealthPremiumsPages({
+              dataset,
+              priorDataset,
+              oldestDataset,
+              today,
+              distDir,
+            });
+          const yoyActive = Object.values(yoyByCanton).filter((y) => y !== null).length;
+          const triYearActive = Object.values(triYearByCanton).filter((y) => y !== null).length;
+
+          const collector = new WriteCollector({
+            distDir,
+            skipExisting: false,
+            pluginName: 'healthPremiumsLandingPlugin',
+            pathRecorder: recordWrite,
+          });
+          let pagesWritten = 0;
+          let skippedForWordCount = 0;
+          const writtenPaths: string[] = [];
+
+          for (const [pageRel, html] of Object.entries(pages)) {
+            const words = countHtmlBodyWords(html);
+            if (words < MIN_INDEXABLE_WORDS) {
+              skippedForWordCount++;
+              console.warn(
+                `[health-premiums] thin content (${words} words) for ${pageRel} — skipping`,
+              );
+              continue;
+            }
+            const outDir = np.join(distDir, pageRel.replace(/^\/+/, ''));
+            collector.add(np.join(outDir, 'index.html'), html);
+            pagesWritten++;
+            writtenPaths.push(pageRel);
+          }
+
+          await collector.flush();
+
+          // Sitemap — emit only IT canonicals, with hreflang alternates.
+          try {
+            const pathsByCanonical: Record<string, { alternates: string[] }> = {};
+            for (const pageRel of writtenPaths) {
+              if (
+                pageRel.startsWith('/en/') ||
+                pageRel.startsWith('/de/') ||
+                pageRel.startsWith('/fr/')
+              )
+                continue;
+              const alts: string[] = [];
+              for (const alt of HEALTH_PREMIUM_LOCALES) {
+                const altPath = deriveAltPath(pageRel, alt);
+                if (altPath && writtenPaths.includes(altPath)) {
+                  alts.push(`${alt}:${BASE_URL}${altPath}`);
+                }
+              }
+              alts.push(`x-default:${BASE_URL}${pageRel}`);
+              pathsByCanonical[pageRel] = { alternates: alts };
+            }
+            const xml = buildSitemapXml(writtenPaths, today, pathsByCanonical);
+            const sitemapPath = np.join(distDir, 'sitemap-health-premiums.xml');
+            fs.writeFileSync(sitemapPath, xml, 'utf-8');
+            recordWrite(sitemapPath);
+          } catch (err) {
+            console.warn('[health-premiums] failed to write sitemap', err);
+          }
+
+          console.log(
+            `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'}; YoY active on ${yoyActive}/${HEALTH_PREMIUM_CANTONS.length} cantons; tri-year trend active on ${triYearActive}/${HEALTH_PREMIUM_CANTONS.length} cantons)`,
+          );
+        },
+      });
+
+      // Always-run: patch sitemap.xml index `<lastmod>` for the
+      // sitemap-health-premiums.xml entry. Only when the sitemap actually
+      // exists in dist (either freshly written or restored from cache) —
+      // skipping this when the dataset was missing and the work returned
+      // early without writing anything.
+      if (fs.existsSync(np.join(distDir, 'sitemap-health-premiums.xml'))) {
+        patchSitemapIndex(distDir, dayKey);
+      }
     },
   };
 }

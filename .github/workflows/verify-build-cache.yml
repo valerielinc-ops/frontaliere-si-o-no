@@ -1,0 +1,138 @@
+name: Verify build cache (drift detection)
+
+# Automatic drift detection for the salary-hub + health-premiums build cache.
+#
+# Builds twice in immediate succession with the cache enabled:
+#   1. Run A: cold cache → cache MISS → fresh generate, snapshot to cache.
+#   2. Run B: warmed cache (from Run A) → cache HIT → restore from cache.
+#
+# Then diffs the two `dist/` trees byte-by-byte for every path the cache is
+# supposed to own. If the diff is non-empty, the cache produced different
+# bytes than the fresh generate did — i.e. an input we forgot to hash, or a
+# non-determinism we didn't account for. The job fails loud so we catch
+# drift before it can ship through deploy.yml's normal pipeline.
+#
+# Cost: two full builds. Schedule keeps it weekly; manual dispatch supports
+# investigating a suspected regression on demand. Builds run ONLY for the
+# two cached plugins (every other SEO plugin is gated off with SKIP_*) so
+# a single run lands in well under 10 min on ubuntu-latest free tier.
+
+on:
+  schedule:
+    # Sunday 02:00 UTC — well after the 04:15 UTC weekly cron that updates
+    # data/health-premiums.json, and before any auto-blog deploys, so the
+    # input dataset is stable across both runs.
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-build-cache
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # Skip every SEO plugin we are NOT validating. salary-hub and
+      # health-premiums have no SKIP_* gate of their own — we want them on.
+      SKIP_FUEL_DAILY: '1'
+      SKIP_WEEKLY_EMPLOYERS: '1'
+      SKIP_JOB_MARKET_SNAPSHOT: '1'
+      SKIP_ORPHAN_LANDINGS: '1'
+      SKIP_BORDER_WAIT: '1'
+      SKIP_SECTION_PAGES: '1'
+      NODE_OPTIONS: '--max-old-space-size=18432'
+      # No BUILD_TODAY pin: Runs A and B happen within minutes of each
+      # other so they almost always share a UTC day. The rare midnight
+      # straddle surfaces as a clean "Run B did NOT hit the cache" failure
+      # below (not a silent false drift), which is fine to re-run by hand.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run A — fresh build (cold cache)
+        run: |
+          rm -rf dist .cache/build-plugins
+          npx vite build 2>&1 | tee /tmp/run-a.log
+          mv dist /tmp/dist-a
+
+      - name: Run B — cached build (warm cache)
+        run: |
+          rm -rf dist
+          npx vite build 2>&1 | tee /tmp/run-b.log
+          mv dist /tmp/dist-b
+
+      - name: Confirm Run B was a cache HIT for both plugins
+        run: |
+          set -e
+          if ! grep -q '\[cache\] salary-hub-seo: HIT' /tmp/run-b.log; then
+            echo "::error::salary-hub-seo did NOT hit the cache on Run B — drift detection cannot proceed" >&2
+            grep '\[cache\] salary-hub-seo' /tmp/run-b.log || true
+            exit 1
+          fi
+          if ! grep -q '\[cache\] health-premiums-landing: HIT' /tmp/run-b.log; then
+            echo "::error::health-premiums-landing did NOT hit the cache on Run B — drift detection cannot proceed" >&2
+            grep '\[cache\] health-premiums-landing' /tmp/run-b.log || true
+            exit 1
+          fi
+          echo "Both cached plugins hit on Run B"
+
+      - name: Diff cached output paths byte-by-byte
+        run: |
+          set -e
+          # Restrict the diff to the namespaces the cache actually owns —
+          # other plugins write files into dist/ in parallel, and their
+          # output may have legitimate per-build variance (timestamps in
+          # post-walk-coordinator, etc.) that this job is not validating.
+          PATTERNS=(
+            '/calcola-stipendio/'
+            '/en/calculate-salary/'
+            '/de/gehalt-berechnen/'
+            '/fr/calculer-salaire/'
+            '/premi-cassa-malati/'
+            '/en/health-insurance-premiums/'
+            '/de/krankenkassenpraemien/'
+            '/fr/primes-assurance-maladie/'
+            '/sitemap-salary-hub.xml'
+            '/sitemap-health-premiums.xml'
+          )
+          DRIFT=0
+          for p in "${PATTERNS[@]}"; do
+            A=/tmp/dist-a$p
+            B=/tmp/dist-b$p
+            if [ -e "$A" ] || [ -e "$B" ]; then
+              if ! diff -rq "$A" "$B" > /tmp/diff-$$ 2>&1; then
+                echo "::error::Drift detected under $p" >&2
+                head -50 /tmp/diff-$$ >&2
+                DRIFT=1
+              fi
+            fi
+          done
+          if [ $DRIFT -eq 1 ]; then
+            echo "::error::Build cache produced bytes different from fresh build — fix the missing input or the non-determinism before merging cache changes" >&2
+            exit 1
+          fi
+          echo "Cache and fresh outputs match byte-for-byte across all owned paths"
+
+      - name: Upload Run A artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: drift-debug
+          path: |
+            /tmp/run-a.log
+            /tmp/run-b.log
+          retention-days: 7

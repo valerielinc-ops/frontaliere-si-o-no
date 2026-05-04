@@ -213,12 +213,31 @@ jobs:
           restore-keys: |
             pdf-${{ runner.os }}-
 
-      # Cache content-hash manifest step DISABLED 2026-04-28 — paired with the
-      # disabled bootstrap/finalize plugins in vite.config.ts. The repo's
-      # auto-blog/auto-translate churn meant ~80% of deploys had data changes,
-      # so the manifest skip rarely fired while costing +30-60s SHA256 every
-      # build. To re-enable, uncomment this step AND restore the inline
-      # plugins in vite.config.ts.
+      # Cache build-plugin snapshots for salaryHubPlugin (~370s/build) and
+      # healthPremiumsLandingPlugin (~290s/build). Both wrap their heavy
+      # work in `runCached` (build-plugins/shared/buildCache.ts) which keys
+      # on a SHA-256 of the esbuild bundle of the plugin entry plus any
+      # runtime-loaded data files. Cache HIT replays the previous build's
+      # snapshot byte-identically; cache MISS regenerates and snapshots.
+      #
+      # Invalidation is automatic — modifying any TS/JS file in the
+      # plugin's import graph (esbuild traces it) or any data/health-premiums*
+      # JSON shifts the in-tree cache key. The CI cache key here is
+      # intentionally broader than the in-tree key: any edit anywhere in
+      # build-plugins/ or services/ refreshes the GH Actions cache entry,
+      # but the in-tree key still differentiates inside it. Stale entries
+      # cost disk only — the in-tree key still controls correctness.
+      #
+      # Restore-keys cascade is just `runner.os` so we always pull the most
+      # recent snapshot for this OS even if no exact match exists, then let
+      # the in-tree per-key directories sort out actual hits.
+      - name: Cache build-plugin snapshots (salary-hub + health-premiums)
+        uses: actions/cache@v5
+        with:
+          path: .cache/build-plugins
+          key: build-plugins-${{ runner.os }}-${{ hashFiles('build-plugins/**/*.ts', 'services/calculationService.ts', 'services/constants.ts', 'data/health-premiums.json', 'data/health-premiums/**/*.json') }}
+          restore-keys: |
+            build-plugins-${{ runner.os }}-
 
       - name: Build
         env:
