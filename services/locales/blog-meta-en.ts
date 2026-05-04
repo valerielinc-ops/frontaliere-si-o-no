@@ -5528,6 +5528,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-maloja-frontaliere-2026.title': '63-year-old motorcyclist injured on Maloja road',
     'blog.article.incidente-maloja-frontaliere-2026.excerpt': 'A 63-year-old motorcyclist injured his leg in an accident on the Maloja road and was taken to hospital in Samedan.',
     'blog.article.incidente-maloja-frontaliere-2026.imageAlt': 'A motorcyclist riding on a winding mountain road in the Swiss Alps, with snow-capped peaks in the background.',
+    'blog.article.thun-campionato-calcio-2026-festa-thun.title': 'FC Thun wins Super League: historic celebration in Thun',
+    'blog.article.thun-campionato-calcio-2026-festa-thun.excerpt': 'The newly promoted FC Thun secures its first-ever title. Celebrations at the Stockhorn Arena after St. Gallen\'s defeat against Sion.',
+    'blog.article.thun-campionato-calcio-2026-festa-thun.imageAlt': 'Jubilant crowd at Stockhorn Arena in Thun after the historic victory of FC Thun',
 };
 
 export default blogMetaEn;

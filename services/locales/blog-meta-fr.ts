@@ -5529,6 +5529,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-maloja-frontaliere-2026.title': 'Un motard blessé sur la route du Maloja',
     'blog.article.incidente-maloja-frontaliere-2026.excerpt': 'Un motard de 63 ans s\'est blessé à une jambe dans un accident sur la route du Maloja, transporté à l\'hôpital de Samedan.',
     'blog.article.incidente-maloja-frontaliere-2026.imageAlt': 'Un motocycliste roulant sur une route de montagne sinueuse dans les Alpes suisses, avec des sommets enneigés en arrière-plan.',
+    'blog.article.thun-campionato-calcio-2026-festa-thun.title': 'FC Thun champion de Super League: fête après la victoire historique',
+    'blog.article.thun-campionato-calcio-2026-festa-thun.excerpt': 'Le promu FC Thun remporte son premier titre de son histoire. Fête à la Stockhorn Arena après la défaite de Saint-Gall contre Sion.',
+    'blog.article.thun-campionato-calcio-2026-festa-thun.imageAlt': 'Foule en liesse au Stockhorn Arena de Thun après la victoire historique du FC Thun',
 };
 
 export default blogMetaFr;

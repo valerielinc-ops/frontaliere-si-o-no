@@ -17957,4 +17957,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'thun-campionato-calcio-2026-festa-thun',
+ category: 'novita',
+ date: '2026-05-04T03:19:54.514Z',
+ image: '/images/blog/thun-campionato-calcio-2026-festa-thun.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

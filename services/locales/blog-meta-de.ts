@@ -5528,6 +5528,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-maloja-frontaliere-2026.title': 'Motorradfahrer auf der Malojastraße verletzt',
     'blog.article.incidente-maloja-frontaliere-2026.excerpt': 'Ein 63-jähriger Motorradfahrer verletzte sich bei einem Unfall auf der Malojastraße und wurde ins Spital nach Samedan gebracht.',
     'blog.article.incidente-maloja-frontaliere-2026.imageAlt': 'Ein Motorradfahrer fährt auf einer kurvenreichen Bergstraße in den Schweizer Alpen, mit schneebedeckten Gipfeln im Hintergrund.',
+    'blog.article.thun-campionato-calcio-2026-festa-thun.title': 'FC Thun wird Super-League-Meister: Historischer Triumph gefeiert',
+    'blog.article.thun-campionato-calcio-2026-festa-thun.excerpt': 'Der Aufsteiger FC Thun holt den ersten Titel der Vereinsgeschichte. Nach der Niederlage des FC St. Gallen gegen Sion wird in der Stockhorn Arena gefeiert.',
+    'blog.article.thun-campionato-calcio-2026-festa-thun.imageAlt': 'Jubelnde Menge im Stockhorn Arena in Thun nach dem historischen Sieg des FC Thun',
 };
 
 export default blogMetaDe;

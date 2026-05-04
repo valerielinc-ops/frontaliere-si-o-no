@@ -12375,6 +12375,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-thun-campionato-calcio-2026-festa-thun': {
+    title: 'FC Thun campione di Super League: festa a Thun dopo la vittoria storica',
+    description: 'La neopromossa FC Thun conquista il primo titolo della sua storia. Festa alla Stockhorn Arena dopo il ko del San Gallo contro il Sion. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, thun, campione, super, league',
+    ogTitle: 'FC Thun campione di Super League: festa a Thun dopo la vittoria storica',
+    ogDescription: 'La neopromossa FC Thun conquista il primo titolo della sua storia. Festa alla Stockhorn Arena dopo il ko del San Gallo contro il Sion.',
+    canonicalPath: '/articoli-frontaliere/thun-campionato-calcio-2026-festa-thun',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FC Thun campione di Super League: festa a Thun dopo la vittoria storica",
+      "description": "La neopromossa FC Thun conquista il primo titolo della sua storia. Festa alla Stockhorn Arena dopo il ko del San Gallo contro il Sion. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/thun-campionato-calcio-2026-festa-thun.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Folla festante allo Stockhorn Arena di Thun dopo la vittoria storica del FC Thun"
+      },
+      "datePublished": "2026-05-04T03:19:54+00:00",
+      "dateModified": "2026-05-04T03:19:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/thun-campionato-calcio-2026-festa-thun`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
