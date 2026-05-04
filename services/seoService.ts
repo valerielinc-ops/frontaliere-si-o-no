@@ -3128,6 +3128,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-arresto-frauenfeld-30enne-barricato': { name: 'Novità', path: '/articoli-frontaliere/arresto-frauenfeld-30enne-barricato', parent: 'blog' },
     'blog-mercato-lavoro-kof-ripresa-2026': { name: 'Novità', path: '/articoli-frontaliere/mercato-lavoro-kof-ripresa-2026', parent: 'blog' },
     'blog-vendite-auto-ticino-2026-stabili-elettrico': { name: 'Novità', path: '/articoli-frontaliere/vendite-auto-ticino-2026-stabili-elettrico', parent: 'blog' },
+    'blog-indice-pmi-svizzera-ottimismo-2026': { name: 'Novità', path: '/articoli-frontaliere/indice-pmi-svizzera-ottimismo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

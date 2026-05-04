@@ -5657,6 +5657,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vendite-auto-ticino-2026-stabili-elettrico.title': 'Stabile Autoverkäufe im Tessin, Elektroautos im Aufwind',
     'blog.article.vendite-auto-ticino-2026-stabili-elettrico.excerpt': 'Im April 2026 stabile Autoverkäufe in der Schweiz, Elektroautos +35 %. Fokus auf Grenzgänger und Tessiner Markt.',
     'blog.article.vendite-auto-ticino-2026-stabili-elettrico.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
+    'blog.article.indice-pmi-svizzera-ottimismo-2026.title': 'Schweizer PMI-Index: Optimismus über den Erwartungen',
+    'blog.article.indice-pmi-svizzera-ottimismo-2026.excerpt': 'Der Schweizer PMI-Index steigt auf 54,5 Punkte für die Industrie und 54,8 für die Dienstleistungen und übertrifft die Prognosen der Analysten.',
+    'blog.article.indice-pmi-svizzera-ottimismo-2026.imageAlt': 'Panoramablick auf Lugano mit dem Finanzzentrum',
 };
 
 export default blogMetaDe;

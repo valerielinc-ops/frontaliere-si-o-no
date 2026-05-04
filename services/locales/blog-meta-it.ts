@@ -5658,6 +5658,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vendite-auto-ticino-2026-stabili-elettrico.title': 'Vendite auto stabili in Ticino, cresce l\'elettrico',
     'blog.article.vendite-auto-ticino-2026-stabili-elettrico.excerpt': 'In aprile 2026 vendite auto stabili in Svizzera, elettriche +35%. Focus su impatto frontalieri e mercato ticinese.',
     'blog.article.vendite-auto-ticino-2026-stabili-elettrico.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
+    'blog.article.indice-pmi-svizzera-ottimismo-2026.title': 'Indice PMI svizzero: ottimismo oltre le stime',
+    'blog.article.indice-pmi-svizzera-ottimismo-2026.excerpt': 'L\'indice PMI svizzero sale a 54,5 punti per il manifatturiero e 54,8 per i servizi, superando le previsioni degli analisti',
+    'blog.article.indice-pmi-svizzera-ottimismo-2026.imageAlt': 'Veduta panoramica di Lugano con il centro finanziario',
 };
 
 export default blogMetaIt;

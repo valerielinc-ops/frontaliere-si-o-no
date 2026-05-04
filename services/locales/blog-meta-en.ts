@@ -5657,6 +5657,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vendite-auto-ticino-2026-stabili-elettrico.title': 'Stable car sales in Ticino, electric vehicles rise',
     'blog.article.vendite-auto-ticino-2026-stabili-elettrico.excerpt': 'In April 2026, car sales stable in Switzerland, electric vehicles +35%. Focus on impact of cross-border workers and Ticino market.',
     'blog.article.vendite-auto-ticino-2026-stabili-elettrico.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
+    'blog.article.indice-pmi-svizzera-ottimismo-2026.title': 'Swiss PMI index: optimism beats forecasts',
+    'blog.article.indice-pmi-svizzera-ottimismo-2026.excerpt': 'Swiss PMI index rises to 54.5 points for manufacturing and 54.8 for services, exceeding analysts\' predictions',
+    'blog.article.indice-pmi-svizzera-ottimismo-2026.imageAlt': 'Panoramic view of Lugano with the financial district',
 };
 
 export default blogMetaEn;

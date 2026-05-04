@@ -18344,4 +18344,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'indice-pmi-svizzera-ottimismo-2026',
+ category: 'novita',
+ date: '2026-05-04T08:09:11.074Z',
+ image: '/images/blog/indice-pmi-svizzera-ottimismo-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

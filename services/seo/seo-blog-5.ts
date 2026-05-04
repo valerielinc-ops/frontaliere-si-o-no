@@ -13837,6 +13837,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-indice-pmi-svizzera-ottimismo-2026': {
+    title: 'Indice PMI svizzero: ottimismo oltre le stime | Frontaliere Ticino',
+    description: 'L\'indice PMI svizzero sale a 54,5 punti per il manifatturiero e 54,8 per i servizi, superando le previsioni degli analisti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, indice, svizzero, ottimismo, oltre',
+    ogTitle: 'Indice PMI svizzero: ottimismo oltre le stime',
+    ogDescription: 'L\'indice PMI svizzero sale a 54,5 punti per il manifatturiero e 54,8 per i servizi, superando le previsioni degli analisti',
+    canonicalPath: '/articoli-frontaliere/indice-pmi-svizzera-ottimismo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indice PMI svizzero: ottimismo oltre le stime",
+      "description": "L'indice PMI svizzero sale a 54,5 punti per il manifatturiero e 54,8 per i servizi, superando le previsioni degli analisti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/indice-pmi-svizzera-ottimismo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano con il centro finanziario"
+      },
+      "datePublished": "2026-05-04T08:09:11+00:00",
+      "dateModified": "2026-05-04T08:09:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indice-pmi-svizzera-ottimismo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
