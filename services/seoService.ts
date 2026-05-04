@@ -3113,6 +3113,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-piccaluga-udc-dialogo-apertura': { name: 'Novità', path: '/articoli-frontaliere/piccaluga-udc-dialogo-apertura', parent: 'blog' },
     'blog-bonifici-ritardo-frontalieri-ticino': { name: 'Guida pratica', path: '/articoli-frontaliere/bonifici-ritardo-frontalieri-ticino', parent: 'blog' },
     'blog-noleggio-auto-frontalieri-ticino-2026': { name: 'Noleggio auto', path: '/articoli-frontaliere/noleggio-auto-frontalieri-ticino-2026', parent: 'blog' },
+    'blog-aargau-festnahmen-2-mag-2026': { name: 'Novità', path: '/articoli-frontaliere/aargau-festnahmen-2-mag-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

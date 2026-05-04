@@ -5613,6 +5613,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.noleggio-auto-frontalieri-ticino-2026.title': 'Noleggio auto: consigli per frontalieri',
     'blog.article.noleggio-auto-frontalieri-ticino-2026.excerpt': 'Confronta tariffe, verifica le condizioni del veicolo e controlla le coperture assicurative per evitare spiacevoli sorprese',
     'blog.article.noleggio-auto-frontalieri-ticino-2026.imageAlt': 'Agenzia di noleggio auto a Lugano con vista sul lago e montagne',
+    'blog.article.aargau-festnahmen-2-mag-2026.title': 'Due arresti in una notte nell\'Aargau: un tunesino e un marocchino',
+    'blog.article.aargau-festnahmen-2-mag-2026.excerpt': 'La polizia cantonale dell\'Aargau ha arrestato due uomini in due diversi comuni nella notte tra venerdì e sabato.',
+    'blog.article.aargau-festnahmen-2-mag-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino',
 };
 
 export default blogMetaIt;

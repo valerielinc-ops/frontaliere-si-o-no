@@ -5613,6 +5613,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.noleggio-auto-frontalieri-ticino-2026.title': 'Location de voiture : conseils pour frontaliers',
     'blog.article.noleggio-auto-frontalieri-ticino-2026.excerpt': 'Comparez les tarifs, vérifiez l\'état du véhicule et contrôlez les couvertures d\'assurance pour éviter les mauvaises surprises',
     'blog.article.noleggio-auto-frontalieri-ticino-2026.imageAlt': 'Agence de location de voitures à Lugano avec vue sur le lac et les montagnes',
+    'blog.article.aargau-festnahmen-2-mag-2026.title': 'Deux arrestations dans la nuit à l\'Aargau: un Tunisien et un Marocain',
+    'blog.article.aargau-festnahmen-2-mag-2026.excerpt': 'La police cantonale de l\'Aargau a arrêté deux hommes dans deux communes différentes dans la nuit de vendredi à samedi.',
+    'blog.article.aargau-festnahmen-2-mag-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin',
 };
 
 export default blogMetaFr;

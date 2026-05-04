@@ -5612,6 +5612,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.noleggio-auto-frontalieri-ticino-2026.title': 'Car rental tips for cross-border workers',
     'blog.article.noleggio-auto-frontalieri-ticino-2026.excerpt': 'Compare rates, check the vehicle\'s condition, and verify insurance coverage to avoid unpleasant surprises',
     'blog.article.noleggio-auto-frontalieri-ticino-2026.imageAlt': 'Car rental agency in Lugano with a view of the lake and mountains',
+    'blog.article.aargau-festnahmen-2-mag-2026.title': 'Two arrests in one night in Aargau: a Tunisian and a Moroccan',
+    'blog.article.aargau-festnahmen-2-mag-2026.excerpt': 'The Aargau cantonal police arrested two men in two different municipalities in the night between Friday and Saturday.',
+    'blog.article.aargau-festnahmen-2-mag-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino\'s mountains',
 };
 
 export default blogMetaEn;
