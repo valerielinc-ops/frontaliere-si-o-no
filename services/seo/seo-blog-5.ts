@@ -13973,6 +13973,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stralugano-percorsi-frontalieri-2026': {
+    title: 'StraLugano 2026: percorsi per tutti i livelli | Frontaliere Ticino',
+    description: 'Scopri i percorsi disponibili alla StraLugano 2026, dalla 5 km alla mezza maratona, con tariffe agevolate per gli Over 65. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, stralugano, percorsi, tutti, livelli',
+    ogTitle: 'StraLugano 2026: percorsi per tutti i livelli',
+    ogDescription: 'Scopri i percorsi disponibili alla StraLugano 2026, dalla 5 km alla mezza maratona, con tariffe agevolate per gli Over 65.',
+    canonicalPath: '/articoli-frontaliere/stralugano-percorsi-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "StraLugano 2026: percorsi per tutti i livelli",
+      "description": "Scopri i percorsi disponibili alla StraLugano 2026, dalla 5 km alla mezza maratona, con tariffe agevolate per gli Over 65. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stralugano-percorsi-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un runner in primo piano, cielo azzurro, colori autunnali"
+      },
+      "datePublished": "2026-05-04T08:38:59+00:00",
+      "dateModified": "2026-05-04T08:38:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stralugano-percorsi-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

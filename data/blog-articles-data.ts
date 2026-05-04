@@ -18380,4 +18380,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'stralugano-percorsi-frontalieri-2026',
+ category: 'novita',
+ date: '2026-05-04T08:38:59.008Z',
+ image: '/images/blog/stralugano-percorsi-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

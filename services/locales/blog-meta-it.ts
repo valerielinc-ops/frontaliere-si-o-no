@@ -5670,6 +5670,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-ascensione-pentecoste-2026.title': 'FFS: 58 treni extra per Ascensione e Pentecoste',
     'blog.article.ffs-ascensione-pentecoste-2026.excerpt': 'Le FFS potenziano l\'offerta con 58 treni speciali e 130.000 posti aggiuntivi tra Svizzera tedesca e Ticino',
     'blog.article.ffs-ascensione-pentecoste-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
+    'blog.article.stralugano-percorsi-frontalieri-2026.title': 'StraLugano 2026: percorsi per tutti i livelli',
+    'blog.article.stralugano-percorsi-frontalieri-2026.excerpt': 'La StraLugano offre percorsi per tutti i livelli, dalla 5 km alla mezza maratona, con tariffe agevolate per gli Over 65.',
+    'blog.article.stralugano-percorsi-frontalieri-2026.imageAlt': 'Lago di Lugano con un runner in primo piano, cielo azzurro, colori autunnali',
 };
 
 export default blogMetaIt;

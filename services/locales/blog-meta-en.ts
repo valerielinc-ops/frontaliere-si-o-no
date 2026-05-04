@@ -5669,6 +5669,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-ascensione-pentecoste-2026.title': 'SBB: 58 extra trains for Ascension and Pentecost',
     'blog.article.ffs-ascensione-pentecoste-2026.excerpt': 'SBB enhances its offer with 58 special trains and 130,000 additional seats between German-speaking Switzerland and Ticino',
     'blog.article.ffs-ascensione-pentecoste-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.stralugano-percorsi-frontalieri-2026.title': 'StraLugano 2026: routes for all levels',
+    'blog.article.stralugano-percorsi-frontalieri-2026.excerpt': 'StraLugano offers routes for all levels, from 5 km to half marathon, with discounted rates for Over 65s.',
+    'blog.article.stralugano-percorsi-frontalieri-2026.imageAlt': 'Lake Lugano with a runner in the foreground, clear blue sky, autumn colors',
 };
 
 export default blogMetaEn;

@@ -5670,6 +5670,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-ascensione-pentecoste-2026.title': 'CFF: 58 trains supplémentaires pour l\'Ascension et la Pentecôte',
     'blog.article.ffs-ascensione-pentecoste-2026.excerpt': 'Les CFF renforcent leur offre avec 58 trains spéciaux et 130.000 places supplémentaires entre la Suisse alémanique et le Tessin',
     'blog.article.ffs-ascensione-pentecoste-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.stralugano-percorsi-frontalieri-2026.title': 'StraLugano 2026 : parcours pour tous les niveaux',
+    'blog.article.stralugano-percorsi-frontalieri-2026.excerpt': 'La StraLugano propose des parcours pour tous les niveaux, du 5 km au semi-marathon, avec des tarifs réduits pour les plus de 65 ans.',
+    'blog.article.stralugano-percorsi-frontalieri-2026.imageAlt': 'Lac de Lugano avec un coureur au premier plan, ciel bleu clair, couleurs automnales',
 };
 
 export default blogMetaFr;

@@ -5669,6 +5669,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ffs-ascensione-pentecoste-2026.title': 'SBB: 58 Extra-Züge zu Christi Himmelfahrt und Pfingsten',
     'blog.article.ffs-ascensione-pentecoste-2026.excerpt': 'Die SBB verstärken das Angebot mit 58 Sonderzügen und 130.000 zusätzlichen Plätzen zwischen der Deutschschweiz und dem Tessin',
     'blog.article.ffs-ascensione-pentecoste-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.stralugano-percorsi-frontalieri-2026.title': 'StraLugano 2026: Strecken für alle Niveaus',
+    'blog.article.stralugano-percorsi-frontalieri-2026.excerpt': 'Die StraLugano bietet Strecken für alle Niveaus, von 5 km bis zur Halbmarathon, mit ermäßigten Tarifen für Über-65-Jährige.',
+    'blog.article.stralugano-percorsi-frontalieri-2026.imageAlt': 'Luganersee mit einem Läufer im Vordergrund, klarer blauer Himmel, Herbstfarben',
 };
 
 export default blogMetaDe;

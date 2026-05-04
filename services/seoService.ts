@@ -3132,6 +3132,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-campo-talenti-tenero-25-anni': { name: 'Novità', path: '/articoli-frontaliere/campo-talenti-tenero-25-anni', parent: 'blog' },
     'blog-aeroporto-zurigo-traffico-crescita-2026': { name: 'Novità', path: '/articoli-frontaliere/aeroporto-zurigo-traffico-crescita-2026', parent: 'blog' },
     'blog-ffs-ascensione-pentecoste-2026': { name: 'Novità', path: '/articoli-frontaliere/ffs-ascensione-pentecoste-2026', parent: 'blog' },
+    'blog-stralugano-percorsi-frontalieri-2026': { name: 'StraLugano 2026', path: '/articoli-frontaliere/stralugano-percorsi-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
