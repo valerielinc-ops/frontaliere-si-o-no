@@ -5720,6 +5720,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franzolini-fenealuil-piano-casa.title': 'Franzolini (FenealUil): Structural plan needed for housing',
     'blog.article.franzolini-fenealuil-piano-casa.excerpt': 'The general secretary of FenealUil, Mauro Franzolini, emphasizes the importance of a structural plan to address high rents and renovate the building stock.',
     'blog.article.franzolini-fenealuil-piano-casa.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
+    'blog.article.parco-biumo-inaugurazione-2026.title': 'Biumo Park opening: Saturday, May 9th',
+    'blog.article.parco-biumo-inaugurazione-2026.excerpt': 'New equipped space with basketball court, ping pong and teqball. Ribbon cutting at 3 PM with tournaments and music',
+    'blog.article.parco-biumo-inaugurazione-2026.imageAlt': 'Aerial view of the new Biumo park with people playing and socializing',
 };
 
 export default blogMetaEn;

@@ -14551,6 +14551,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parco-biumo-inaugurazione-2026': {
+    title: 'Inaugurazione parco Biumo: sabato 9 maggio | Frontaliere Ticino',
+    description: 'Nuovo parco a Biumo con campo da basket, pingpong e teqball. Inaugurazione sabato 9 maggio alle 15 con tornei e musica. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, inaugurazione, parco, biumo, sabato',
+    ogTitle: 'Inaugurazione parco Biumo: sabato 9 maggio',
+    ogDescription: 'Nuovo parco a Biumo con campo da basket, pingpong e teqball. Inaugurazione sabato 9 maggio alle 15 con tornei e musica',
+    canonicalPath: '/articoli-frontaliere/parco-biumo-inaugurazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inaugurazione parco Biumo: sabato 9 maggio",
+      "description": "Nuovo parco a Biumo con campo da basket, pingpong e teqball. Inaugurazione sabato 9 maggio alle 15 con tornei e musica. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/parco-biumo-inaugurazione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del nuovo parco di Biumo con persone che giocano e socializzano"
+      },
+      "datePublished": "2026-05-04T11:13:12+00:00",
+      "dateModified": "2026-05-04T11:13:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parco-biumo-inaugurazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5721,6 +5721,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.franzolini-fenealuil-piano-casa.title': 'Franzolini (FenealUil): Serve piano strutturale per la casa',
     'blog.article.franzolini-fenealuil-piano-casa.excerpt': 'Il segretario generale della FenealUil, Mauro Franzolini, sottolinea l\'importanza di un piano strutturale per affrontare il caro affitti e riqualificare il patrimonio edilizio.',
     'blog.article.franzolini-fenealuil-piano-casa.imageAlt': 'Veduta panoramica di Lugano con il lago e le montagne',
+    'blog.article.parco-biumo-inaugurazione-2026.title': 'Inaugurazione parco Biumo: sabato 9 maggio',
+    'blog.article.parco-biumo-inaugurazione-2026.excerpt': 'Nuovo spazio attrezzato con campo da basket, pingpong e teqball. Taglio del nastro alle 15 con tornei e musica',
+    'blog.article.parco-biumo-inaugurazione-2026.imageAlt': 'Vista aerea del nuovo parco di Biumo con persone che giocano e socializzano',
 };
 
 export default blogMetaIt;

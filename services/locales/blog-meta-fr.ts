@@ -5721,6 +5721,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franzolini-fenealuil-piano-casa.title': 'Franzolini (FenealUil) : Un plan structurel pour le logement',
     'blog.article.franzolini-fenealuil-piano-casa.excerpt': 'Le secrétaire général de la FenealUil, Mauro Franzolini, souligne l\'importance d\'un plan structurel pour faire face à la hausse des loyers et rénover le patrimoine immobilier.',
     'blog.article.franzolini-fenealuil-piano-casa.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
+    'blog.article.parco-biumo-inaugurazione-2026.title': 'Inauguration du parc Biumo: samedi 9 mai',
+    'blog.article.parco-biumo-inaugurazione-2026.excerpt': 'Nouvel espace équipé avec terrain de basket, ping-pong et teqball. Cérémonie d\'ouverture à 15h avec tournois et musique',
+    'blog.article.parco-biumo-inaugurazione-2026.imageAlt': 'Vue aérienne du nouveau parc de Biumo avec des personnes jouant et socialisant',
 };
 
 export default blogMetaFr;

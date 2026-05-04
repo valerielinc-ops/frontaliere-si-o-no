@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1959,
+ "numberOfItems": 1960,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6597,7 +6597,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1956, "name": "Meloni: cooperazione con Mediterraneo per gesti...", "url": `${BASE_URL}/articoli-frontaliere/meloni-cooperazione-mediterraneo-immigrazione` },
           { "@type": "ListItem", "position": 1957, "name": "Paolo Iodice nuovo questore di Varese: sicurezz...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-questore-varese-sicurezza-frontalieri` },
           { "@type": "ListItem", "position": 1958, "name": "Nuovo questore di Varese: priorità a truffe, fu...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-questore-varese-sicurezza-frontalieri-2026` },
-          { "@type": "ListItem", "position": 1959, "name": "Franzolini (FenealUil): Serve piano strutturale...", "url": `${BASE_URL}/articoli-frontaliere/franzolini-fenealuil-piano-casa` }
+          { "@type": "ListItem", "position": 1959, "name": "Franzolini (FenealUil): Serve piano strutturale...", "url": `${BASE_URL}/articoli-frontaliere/franzolini-fenealuil-piano-casa` },
+          { "@type": "ListItem", "position": 1960, "name": "Inaugurazione parco Biumo: sabato 9 maggio", "url": `${BASE_URL}/articoli-frontaliere/parco-biumo-inaugurazione-2026` }
  ]
  },
  {

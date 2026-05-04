@@ -5720,6 +5720,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franzolini-fenealuil-piano-casa.title': 'Franzolini (FenealUil): Strukturplan für Wohnraum nötig',
     'blog.article.franzolini-fenealuil-piano-casa.excerpt': 'Der Generalsekretär der FenealUil, Mauro Franzolini, betont die Wichtigkeit eines Strukturplans, um die hohen Mietpreise zu bekämpfen und den Gebäudebestand zu sanieren.',
     'blog.article.franzolini-fenealuil-piano-casa.imageAlt': 'Panoramablick auf Lugano mit dem See und Bergen',
+    'blog.article.parco-biumo-inaugurazione-2026.title': 'Einweihung Park Biumo: Samstag, 9. Mai',
+    'blog.article.parco-biumo-inaugurazione-2026.excerpt': 'Neuer Freizeitbereich mit Basketballfeld, Tischtennis und Teqball. Eröffnung um 15 Uhr mit Turnieren und Musik',
+    'blog.article.parco-biumo-inaugurazione-2026.imageAlt': 'Luftaufnahme des neuen Parks in Biumo mit Menschen, die spielen und sich unterhalten',
 };
 
 export default blogMetaDe;
