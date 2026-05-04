@@ -2657,6 +2657,47 @@ ${hreflangHtml}
  if (raw && raw !== canonical) companyMap.get(canonical)!.rawSlugs.add(raw);
  }
 
+ // Brand-umbrella aggregation. Some brand groups span multiple legal
+ // subsidiaries that each get their own canonical hub (e.g. Migros →
+ // Banca Migros, Scuola Club Migros, Cooperativa Migros Ticino).
+ // Searches for the parent brand alone (e.g. "migros") have no real
+ // company to land on. We synthesize a parent-brand entry whose jobs
+ // are the union of every matching subsidiary's jobs, so the existing
+ // company-hub template renders an indexable umbrella page that
+ // aggregates the whole group. Real subsidiary hubs are unaffected —
+ // they keep their own canonical, their own URL, their own page.
+ const BRAND_UMBRELLAS: ReadonlyArray<{
+  slug: string;
+  name: string;
+  match: (canonical: string, name: string) => boolean;
+ }> = [
+  {
+   slug: 'migros',
+   name: 'Migros',
+   match: (canonical, name) =>
+    /(^|-)migros($|-)/i.test(canonical) || /\bmigros\b/i.test(name),
+  },
+ ];
+ for (const u of BRAND_UMBRELLAS) {
+  const aggregatedJobs: typeof validJobs = [];
+  const aggregatedRaw = new Set<string>();
+  for (const [k, v] of companyMap) {
+   if (k === u.slug) continue;
+   if (u.match(k, v.name)) {
+    aggregatedJobs.push(...v.jobs);
+    for (const r of v.rawSlugs) aggregatedRaw.add(r);
+   }
+  }
+  if (aggregatedJobs.length === 0) continue;
+  const existing = companyMap.get(u.slug);
+  if (existing) {
+   for (const j of aggregatedJobs) existing.jobs.push(j);
+   for (const r of aggregatedRaw) existing.rawSlugs.add(r);
+  } else {
+   companyMap.set(u.slug, { name: u.name, jobs: aggregatedJobs, rawSlugs: aggregatedRaw });
+  }
+ }
+
  let companyPagesCount = 0;
  for (const [cSlug, { name: companyName, jobs: companyJobs, rawSlugs }] of companyMap) {
  for (const locale of localeList) {

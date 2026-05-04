@@ -80,21 +80,20 @@ export const BRAND_CANONICAL_MAP: Readonly<Record<string, BrandCanonicalEntry>> 
       'casale-group',
     ],
   },
-  // Migros umbrella → currently bridges to Banca Migros, the only
-  // Migros-group entity with an active company hub in the dataset.
-  // The plain "migros" brand query was returning a 0-result page
-  // because no `azienda-migros` slug ever got generated; aliasing it
-  // here emits a noindex,follow bridge with canonical → banca-migros
-  // so the URL stops 404'ing and brand-search signals consolidate on
-  // the only existing Migros hub. If/when Scuola Club Migros or
-  // Cooperativa Migros Ticino accumulate enough active jobs to earn
-  // their own hubs, those keep their distinct canonicals — only the
-  // ambiguous "migros / migros-ticino / gruppo-migros" queries route
-  // through this bridge.
-  'banca-migros': {
-    canonical: 'banca-migros',
+  // Migros umbrella canonical. The `migros` slug is a synthetic
+  // umbrella hub (NOT a real subsidiary) injected by the
+  // jobsSeoPagesPlugin company aggregation: it pulls together all
+  // jobs from Migros-group entities present in the dataset (Banca
+  // Migros, Scuola Club Migros, Cooperativa Migros Ticino, ...) and
+  // renders them on a single indexable hub page. The cosmetic
+  // brand-search variations `migros-ticino` and `gruppo-migros`
+  // bridge to the umbrella canonical to consolidate brand signals.
+  // Real subsidiary hubs (banca-migros, scuola-club-migros, ...)
+  // keep their own distinct canonicals — they are real, separate
+  // employers and must NOT bridge to the umbrella.
+  'migros': {
+    canonical: 'migros',
     aliases: [
-      'migros',
       'migros-ticino',
       'gruppo-migros',
     ],
