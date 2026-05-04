@@ -44,10 +44,18 @@ function isCompanyJob(job) {
 }
 function isTrustedDomain(rawUrl = '') { try { const h = new URL(rawUrl).hostname.toLowerCase(); return h.includes('ncoreplat.com') || h.includes('sintetica'); } catch { return false; } }
 
+// NCore Platform (app.ncoreplat.com) returns a 919-byte SPA shell to
+// identify-as-bot User-Agents and the full server-rendered HTML (~95 KB)
+// to standard browser UAs. Empirically: with our default bot UA, every
+// Sintetica detail page returned <1 KB and parseDetailPage fell back to
+// the boilerplate; with a Chrome UA, descriptions clock in at 6-8 K chars.
+// The override env var is preserved for tests/custom deployments.
+const SINTETICA_DEFAULT_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+
 async function fetchPage(url, timeoutMs = 20000) {
   try {
     const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en,it-CH;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
+    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en-US,en;q=0.9,it-CH;q=0.8', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || SINTETICA_DEFAULT_UA } });
     clearTimeout(timer); if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
 }
@@ -74,12 +82,18 @@ async function fetchJobs() {
 
     // Fetch detail page for full job description
     let description = raw.snippet || '';
+    let detailClosed = false;
     if (raw.url) {
       console.log(`    🔗 Fetching detail page: ${raw.url}`);
       const detailHtml = await fetchPage(raw.url);
       if (detailHtml) {
         const detail = parseDetailPage(detailHtml);
-        if (detail.body && detail.body.length >= MIN_DESC_LENGTH) {
+        if (detail.closed) {
+          // NCore reports the position as closed — skip rather than persist
+          // a stub. The listing-page link is stale; the live job is gone.
+          console.log(`    🚫 Detail page reports position closed: "${raw.title}"`);
+          detailClosed = true;
+        } else if (detail.body && detail.body.length >= MIN_DESC_LENGTH) {
           description = `${raw.title} — Sintetica SA, Mendrisio (TI).\n\n${detail.body}`;
           console.log(`    ✅ Detail description: ${detail.body.length} chars`);
         } else {
@@ -89,6 +103,7 @@ async function fetchJobs() {
         console.log(`    ⚠️ Could not fetch detail page, using fallback`);
       }
     }
+    if (detailClosed) continue;
     if (!description || description.length < MIN_DESC_LENGTH) {
       description = fallbackDesc;
     }

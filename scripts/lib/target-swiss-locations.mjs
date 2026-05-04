@@ -265,6 +265,29 @@ const _allSwissCityTokens = (() => {
   return tokens;
 })();
 
+// Strict municipality set: only city tokens, no canton names. Used by
+// crawler validators that need to reject jobs whose `addressLocality` is
+// just a canton label (e.g. "Ticino") with the actual city buried in
+// the description body — see Swatch Group "Forte dei Marmi" leak.
+const _strictSwissCityTokens = (() => {
+  const tokens = new Set();
+  for (const code of Object.keys(SWISS_CANTONS)) {
+    for (const t of getCantonCityTokens(code)) tokens.add(t);
+  }
+  return tokens;
+})();
+
+// Token set of canton-only labels (names + 2-letter codes). Used to detect
+// when a `location` field is canton-level rather than city-level.
+const _cantonOnlyTokens = (() => {
+  const tokens = new Set();
+  for (const [code, canton] of Object.entries(SWISS_CANTONS)) {
+    tokens.add(normalizeToken(code));
+    for (const name of canton.names || []) tokens.add(normalizeToken(name));
+  }
+  return tokens;
+})();
+
 /**
  * Check if a city name matches any known Swiss municipality (BFS data)
  * or canton name. Returns true only for exact city-level matches,
@@ -274,6 +297,52 @@ export function isKnownSwissMunicipality(cityName = '') {
   const token = normalizeToken(cityName);
   if (!token || token.length < 2) return false;
   return _allSwissCityTokens.has(token);
+}
+
+/**
+ * Strict variant: matches only known Swiss CITIES (BFS municipalities +
+ * aliases). Canton names ("Ticino", "Graubünden", "Tessin") return false.
+ *
+ * Use this when validating crawler output: a job whose addressLocality
+ * is just a canton name has no real city and likely indicates a misclassified
+ * record (the actual location is buried in the description body).
+ */
+export function isKnownSwissCity(cityName = '') {
+  const token = normalizeToken(cityName);
+  if (!token || token.length < 2) return false;
+  return _strictSwissCityTokens.has(token);
+}
+
+/**
+ * True iff the input is just a canton name/code (e.g. "Ticino", "TI",
+ * "Graubünden", "GR"). False for cities and anything else.
+ */
+export function isCantonOnlyLabel(text = '') {
+  const token = normalizeToken(text);
+  if (!token) return false;
+  return _cantonOnlyTokens.has(token);
+}
+
+/**
+ * Find any known Swiss city mentioned in free-form text. Returns the first
+ * matched city token (normalized) or empty string. Used as a "rescue" path
+ * when addressLocality is canton-only — we look at the description body
+ * for a real city before deciding to drop the record.
+ */
+export function findSwissCityInText(text = '') {
+  if (!text || typeof text !== 'string') return '';
+  const norm = normalizeToken(text);
+  if (!norm) return '';
+  // Tokenise on whitespace; bigrams + trigrams catch multi-word cities
+  // like "La Chaux-de-Fonds", "Saint-Gall".
+  const words = norm.split(' ').filter((w) => w.length >= 2);
+  for (let n = 3; n >= 1; n--) {
+    for (let i = 0; i + n <= words.length; i++) {
+      const candidate = words.slice(i, i + n).join(' ');
+      if (_strictSwissCityTokens.has(candidate)) return candidate;
+    }
+  }
+  return '';
 }
 
 // Re-export for convenience

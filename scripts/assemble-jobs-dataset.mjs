@@ -45,7 +45,7 @@ import {
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -793,12 +793,80 @@ async function assembleJobs() {
     console.log(`  🌍 Foreign location filter: excluded ${foreignCount} non-Swiss jobs (${foreignFiltered.length} remaining)`);
   }
 
+  // ── Swiss-municipality whitelist (BFS) ─────────────────────────────
+  // The blacklist above only catches jobs whose location *string* names a
+  // known foreign city. Swatch Group's Italian retail jobs slipped through
+  // because the crawler hardcoded `location: "Ticino"`, `postalCode: "6500"`,
+  // `addressCountry: "CH"` (all forged HQ defaults) while the actual city
+  // ("Forte dei Marmi, 55042") only appeared in the description body.
+  //
+  // Two-stage validation:
+  //   1. Negative signal first: if the description body contains explicit
+  //      foreign markers (5-digit postal codes — Italian/DE/FR format —
+  //      next to a country word like "Italy/Italia/Italie"), drop. This
+  //      overrides any potentially-forged metadata fields.
+  //   2. Positive signal: primary location must resolve to a known Swiss
+  //      municipality (BFS dataset, 2,110 entries + aliases). A canton-only
+  //      label ("Ticino", "TI") needs a Swiss anchor: Swiss postal code on
+  //      the record OR a known Swiss city of ≥4 chars in description.
+  const SWISS_PC_RE = /^\d{4}$/;
+  // Match: 5-digit ZIP within ~30 chars of an unambiguous foreign-country
+  // word. Avoids false positives on lone numbers in tax/salary text.
+  const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Italien|France|Frankreich|Francia|Germany|Deutschland|Allemagne|Germania|Austria|Österreich|Autriche|Spagna|España|Spain|Espagne|Portugal|United Kingdom|UK\b|Belgium|Belgio|Belgien|Belgique|Netherlands|Nederland|Pays-Bas)\b/i;
+  const isSwissPostalCode = (pc) => {
+    const s = String(pc || '').trim();
+    if (!SWISS_PC_RE.test(s)) return false;
+    const n = +s;
+    return n >= 1000 && n <= 9658; // BFS valid Swiss postal-code range
+  };
+  let droppedBadSwissCity = 0;
+  let droppedCantonOnlyNoCity = 0;
+  let droppedForeignAddress = 0;
+  const swissValidated = foreignFiltered.filter((job) => {
+    const haystack = `${job.description || ''} ${job.descriptionByLocale?.it || ''} ${job.descriptionByLocale?.en || ''} ${job.descriptionByLocale?.de || ''} ${job.descriptionByLocale?.fr || ''} ${job.streetAddress || ''}`;
+
+    // (1) Strong negative: description body explicitly states a foreign
+    // address (5-digit ZIP next to a non-Swiss country name). Drop even
+    // if metadata fields claim Switzerland — those are likely forged.
+    if (FOREIGN_ADDRESS_RE.test(haystack)) {
+      droppedForeignAddress++;
+      return false;
+    }
+
+    const primaryLoc = String(job.addressLocality || job.location || '').trim();
+    if (!primaryLoc) return false; // no location at all → drop
+
+    // (2) Strong positive: primary location names a known Swiss city.
+    if (isKnownSwissCity(primaryLoc)) return true;
+
+    // (3) Canton-only labels need a Swiss anchor.
+    if (isCantonOnlyLabel(primaryLoc)) {
+      if (isSwissPostalCode(job.postalCode)) return true;
+      // Look for a Swiss city of ≥4 chars in description (avoids false
+      // positives like "Sales" — a real FR commune — matching "Sales
+      // Assistant" in English titles).
+      const found = findSwissCityInText(haystack);
+      if (found && found.length >= 4) return true;
+      droppedCantonOnlyNoCity++;
+      return false;
+    }
+
+    // Neither a known Swiss city nor a canton — likely a non-Swiss locality
+    // that escaped the explicit-foreign blacklist (e.g. small Italian town).
+    droppedBadSwissCity++;
+    return false;
+  });
+  const totalDropped = droppedBadSwissCity + droppedCantonOnlyNoCity + droppedForeignAddress;
+  if (totalDropped > 0) {
+    console.log(`  🇨🇭 Swiss whitelist: excluded ${totalDropped} jobs (${droppedBadSwissCity} unknown locality, ${droppedCantonOnlyNoCity} canton-only without anchor, ${droppedForeignAddress} foreign address in description; ${swissValidated.length} remaining)`);
+  }
+
   // ── Canton validation — fix mismatches using BFS data ──────────────
   // Some crawlers assign HQ canton instead of the actual city's canton.
   // Use inferAnyCanton (backed by 2,110 BFS municipalities) to correct.
   let cantonFixes = 0;
   let lowercaseFixes = 0;
-  for (const job of foreignFiltered) {
+  for (const job of swissValidated) {
     // Fix lowercase canton codes
     if (job.canton && job.canton !== job.canton.toUpperCase()) {
       job.canton = job.canton.toUpperCase();
@@ -824,7 +892,7 @@ async function assembleJobs() {
   // description but populated descriptionByLocale. The build plugin
   // needs description for its validity filter, so backfill from Italian.
   let backfilledDescs = 0;
-  for (const job of foreignFiltered) {
+  for (const job of swissValidated) {
     if (!job.description && job.descriptionByLocale) {
       const fallback = job.descriptionByLocale.it || job.descriptionByLocale.de || job.descriptionByLocale.en || job.descriptionByLocale.fr || '';
       if (fallback) {
@@ -841,14 +909,14 @@ async function assembleJobs() {
   // Some crawlers write slices without job IDs. Assign a stable hash-based
   // ID so cleanup-jobs.mjs and the build system can identify them.
   let backfilledIds = 0;
-  for (const job of foreignFiltered) {
+  for (const job of swissValidated) {
     if (!job.id) {
       job.id = buildStableId(job);
       backfilledIds++;
     }
   }
   if (backfilledIds > 0) {
-    console.log(`  🆔 Backfilled ${backfilledIds} missing job IDs (of ${foreignFiltered.length} total)`);
+    console.log(`  🆔 Backfilled ${backfilledIds} missing job IDs (of ${swissValidated.length} total)`);
   }
 
   // ── Fixture-data filter ─────────────────────────────────────────────
@@ -857,7 +925,7 @@ async function assembleJobs() {
   // this gate, fixture jobs end up persisted into data/jobs.json and
   // downstream consumers (newsletter, jobsSeoPagesPlugin, GSC orphan
   // tracking) propagate them to production. See scripts/lib/fixture-data-filter.mjs.
-  const cleaned = filterFixtureJobs(foreignFiltered, 'assemble-jobs-dataset');
+  const cleaned = filterFixtureJobs(swissValidated, 'assemble-jobs-dataset');
 
   return hardenJobsWithStructuredSalary(cleaned).jobs;
 }

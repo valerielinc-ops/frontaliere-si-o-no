@@ -125,12 +125,20 @@ export function parseListingPage(html = '') {
 
 /**
  * Parse a job detail page from NCore Platform.
- * Returns { title, body, location, sourceBodyLength }.
+ * Returns { title, body, location, sourceBodyLength, closed }.
+ *
+ * `closed: true` is set when the page renders the "Position closed" notice
+ * ("Siamo spiacenti", "non più disponibile", etc.). Callers should treat the
+ * returned body as unusable in that case.
  */
+const NCORE_CLOSED_RE = /\b(Siamo spiacenti|risulta essere chiusa|non è più possibile inoltrare|position(?: is)? closed|no longer available|Position non disponibile)\b/i;
+
 export function parseDetailPage(html = '') {
-  if (!html) return { title: '', body: '', location: '', sourceBodyLength: 0 };
+  if (!html) return { title: '', body: '', location: '', sourceBodyLength: 0, closed: false };
 
   const { document } = new JSDOM(html).window;
+
+  const closed = NCORE_CLOSED_RE.test(document.body?.textContent || '');
 
   // Title
   const titleEl = document.querySelector('h1, h2, .job-title');
@@ -179,7 +187,7 @@ export function parseDetailPage(html = '') {
     }
   }
 
-  return { title, body, location, sourceBodyLength: body.length };
+  return { title, body, location, sourceBodyLength: body.length, closed };
 }
 
 /**
