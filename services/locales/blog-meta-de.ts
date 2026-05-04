@@ -5798,6 +5798,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-milano-rallentamenti-treni-maggio-2026.title': 'Verzögerungen auf der Strecke Varese-Mailand',
     'blog.article.varese-milano-rallentamenti-treni-maggio-2026.excerpt': 'Trenord kündigt Änderungen im Fahrplan und Verspätungen von bis zu 3 Minuten für Pendler aus dem Varesotto und dem Mailänder Raum an',
     'blog.article.varese-milano-rallentamenti-treni-maggio-2026.imageAlt': 'Pendler am Bahnhof Lugano mit Seeblick',
+    'blog.article.controlli-carburanti-como-guardia-finanza.title': 'Erhöhte Kontrollen bei Kraftstoffen in der Provinz Como',
+    'blog.article.controlli-carburanti-como-guardia-finanza.excerpt': 'Die Guardia di Finanza von Como hat die Kontrollen an den Kraftstofftankstellen verstärkt und vier Strafen für Preisunregelmäßigkeiten verhängt.',
+    'blog.article.controlli-carburanti-como-guardia-finanza.imageAlt': 'Guardia di Finanza überprüft Tankstellen in Como',
 };
 
 export default blogMetaDe;

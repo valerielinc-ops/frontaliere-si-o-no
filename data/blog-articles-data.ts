@@ -18767,4 +18767,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'controlli-carburanti-como-guardia-finanza',
+ category: 'novita',
+ date: '2026-05-04T16:10:55.205Z',
+ image: '/images/blog/controlli-carburanti-como-guardia-finanza.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

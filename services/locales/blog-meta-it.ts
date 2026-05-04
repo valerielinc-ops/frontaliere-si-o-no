@@ -5799,6 +5799,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-milano-rallentamenti-treni-maggio-2026.title': 'Varese-Milano, rallentamenti sui treni dal 5 all’11 maggio',
     'blog.article.varese-milano-rallentamenti-treni-maggio-2026.excerpt': 'Trenord annuncia modifiche agli orari e ritardi fino a 3 minuti per i pendolari del Varesotto e dell’area milanese',
     'blog.article.varese-milano-rallentamenti-treni-maggio-2026.imageAlt': 'Pendolari alla stazione di Lugano con vista lago',
+    'blog.article.controlli-carburanti-como-guardia-finanza.title': 'Controlli rafforzati sui carburanti in provincia di Como',
+    'blog.article.controlli-carburanti-como-guardia-finanza.excerpt': 'La Guardia di Finanza di Como ha intensificato i controlli sui distributori di carburante, elevando quattro sanzioni per irregolarità sui prezzi.',
+    'blog.article.controlli-carburanti-como-guardia-finanza.imageAlt': 'Guardia di Finanza controlla distributori carburante Como',
 };
 
 export default blogMetaIt;

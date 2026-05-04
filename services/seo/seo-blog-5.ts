@@ -15435,6 +15435,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-carburanti-como-guardia-finanza': {
+    title: 'Controlli rafforzati sui carburanti in provincia di Como',
+    description: 'La Guardia di Finanza di Como ha intensificato i controlli sui distributori di carburante, elevando quattro sanzioni per irregolarità sui prezzi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, rafforzati, carburanti, provincia',
+    ogTitle: 'Controlli rafforzati sui carburanti in provincia di Como',
+    ogDescription: 'La Guardia di Finanza di Como ha intensificato i controlli sui distributori di carburante, elevando quattro sanzioni per irregolarità sui prezzi.',
+    canonicalPath: '/articoli-frontaliere/controlli-carburanti-como-guardia-finanza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli rafforzati sui carburanti in provincia di Como",
+      "description": "La Guardia di Finanza di Como ha intensificato i controlli sui distributori di carburante, elevando quattro sanzioni per irregolarità sui prezzi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-carburanti-como-guardia-finanza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guardia di Finanza controlla distributori carburante Como"
+      },
+      "datePublished": "2026-05-04T16:10:55+00:00",
+      "dateModified": "2026-05-04T16:10:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-carburanti-como-guardia-finanza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

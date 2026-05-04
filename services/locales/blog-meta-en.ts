@@ -5798,6 +5798,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-milano-rallentamenti-treni-maggio-2026.title': 'Delays on Varese-Milan trains from 5 to 11 May',
     'blog.article.varese-milano-rallentamenti-treni-maggio-2026.excerpt': 'Trenord announces schedule changes and delays up to 3 minutes for commuters from Varesotto and the Milan area',
     'blog.article.varese-milano-rallentamenti-treni-maggio-2026.imageAlt': 'Commuters at Lugano station with lake view',
+    'blog.article.controlli-carburanti-como-guardia-finanza.title': 'Stricter fuel checks in Como province',
+    'blog.article.controlli-carburanti-como-guardia-finanza.excerpt': 'The Guardia di Finanza in Como has intensified checks on fuel distributors, issuing four fines for price irregularities.',
+    'blog.article.controlli-carburanti-como-guardia-finanza.imageAlt': 'Guardia di Finanza checking fuel stations in Como',
 };
 
 export default blogMetaEn;
