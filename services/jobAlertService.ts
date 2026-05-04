@@ -202,6 +202,68 @@ export async function deleteAlert(email: string, alertId: string): Promise<void>
 }
 
 /**
+ * Normalize a free-form keyword/category string for stable comparison.
+ * Lowercases, trims, strips combining diacritics (NFD), and collapses
+ * internal whitespace to a single space.
+ *
+ * Used by:
+ *  - `findMatchingAlertForCategory` (dedupe across surfaces).
+ *  - `jobDetailAlertGating` (per-category cooldown key).
+ */
+export function normalizeKeyword(s: string): string {
+  return (s || '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, ' ');
+}
+
+/**
+ * Find the first active alert whose `keywords[]` already covers the given
+ * category. Comparison is case- and accent-insensitive (`normalizeKeyword`).
+ * Returns `null` if no alert currently subscribes to the category.
+ */
+export function findMatchingAlertForCategory(
+  alerts: JobAlert[],
+  category: string,
+): JobAlert | null {
+  const target = normalizeKeyword(category);
+  if (!target) return null;
+  for (const alert of alerts) {
+    if (!alert.active) continue;
+    for (const kw of alert.keywords || []) {
+      if (normalizeKeyword(kw) === target) return alert;
+    }
+  }
+  return null;
+}
+
+/**
+ * 1-tap subscribe helper for the job-detail prompt.
+ *
+ * Builds a canonical `JobAlertConfig` (keyword = localized category, weekly
+ * frequency, no other filters) and forwards to `createAlert`. The max-3
+ * active-alerts limit enforced by `createAlert` propagates to the caller.
+ */
+export async function subscribeJobAlertOneTap(
+  userId: string,
+  email: string,
+  category: string,
+  locale: 'it' | 'en' | 'de' | 'fr',
+): Promise<JobAlert> {
+  const config: JobAlertConfig = {
+    keywords: [category.trim()],
+    locations: [],
+    contractTypes: [],
+    sectors: [],
+    frequency: 'weekly',
+    locale,
+  };
+  return createAlert(userId, email, config);
+}
+
+/**
  * Update alert parameters.
  */
 export async function updateAlert(
