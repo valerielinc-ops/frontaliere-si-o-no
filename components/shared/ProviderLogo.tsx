@@ -32,13 +32,14 @@ export default function ProviderLogo({ slug, domain, name, size = 32, className 
     if (el.dataset.logoFallback === 'placeholder') return;
 
     const currentSrc = el.src;
-    // localPath failed → try Clearbit before the standard chain
-    if (clearbitUrl && !currentSrc.includes('clearbit.com') && !currentSrc.includes('google.com')) {
+    // localPath failed → try Clearbit before falling through to placeholder.
+    if (clearbitUrl && !currentSrc.includes('clearbit.com')) {
       el.src = clearbitUrl;
       el.dataset.logoFallback = 'clearbit';
       return;
     }
-    // Clearbit or further failures → standard chain (Google favicon → placeholder)
+    // Clearbit (or any other) failure → local SVG placeholder.
+    // The old Google favicons step was removed (gray-globe).
     handleCompanyLogoError(e);
   }
 

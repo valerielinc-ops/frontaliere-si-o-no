@@ -4,6 +4,7 @@ import { Building2, CreditCard, Euro, TrendingDown, AlertCircle, CheckCircle2, X
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
+import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
@@ -11,6 +12,7 @@ import DataFreshness from '@/components/shared/DataFreshness';
 
 interface Bank {
  name: string;
+ slug: string; // PROVIDER_LOGOS slug — drives <ProviderLogo> + Clearbit fallback chain
  country: 'CH' | 'IT';
  accountFee: number;
  transactionFees: string;
@@ -27,6 +29,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  return [
  {
  name: 'PostFinance',
+ slug: 'postfinance',
  country: 'CH',
  accountFee: 5,
  transactionFees: t('banks.postfinance.transactionFees'),
@@ -40,6 +43,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'UBS',
+ slug: 'ubs',
  country: 'CH',
  accountFee: 0,
  transactionFees: t('banks.ubs.transactionFees'),
@@ -53,6 +57,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'Credit Suisse',
+ slug: 'credit-suisse',
  country: 'CH',
  accountFee: 0,
  transactionFees: t('banks.creditSuisse.transactionFees'),
@@ -66,6 +71,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'Raiffeisen',
+ slug: 'raiffeisen',
  country: 'CH',
  accountFee: 3,
  transactionFees: t('banks.raiffeisen.transactionFees'),
@@ -79,6 +85,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'Revolut',
+ slug: 'revolut',
  country: 'IT',
  accountFee: 0,
  transactionFees: t('banks.revolut.transactionFees'),
@@ -92,6 +99,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'Wise',
+ slug: 'wise',
  country: 'IT',
  accountFee: 0,
  transactionFees: t('banks.wise.transactionFees'),
@@ -105,6 +113,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'Intesa Sanpaolo',
+ slug: 'intesa-sanpaolo',
  country: 'IT',
  accountFee: 0,
  transactionFees: t('banks.intesa.transactionFees'),
@@ -118,6 +127,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'Fineco',
+ slug: 'fineco',
  country: 'IT',
  accountFee: 0,
  transactionFees: t('banks.fineco.transactionFees'),
@@ -131,6 +141,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'Yuh',
+ slug: 'yuh',
  country: 'CH',
  accountFee: 0,
  transactionFees: t('banks.yuh.transactionFees'),
@@ -144,6 +155,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'Neon',
+ slug: 'neon',
  country: 'CH',
  accountFee: 0,
  transactionFees: t('banks.neon.transactionFees'),
@@ -157,6 +169,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'N26',
+ slug: 'n26',
  country: 'IT',
  accountFee: 0,
  transactionFees: t('banks.n26.transactionFees'),
@@ -170,6 +183,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  },
  {
  name: 'HYPE',
+ slug: 'hype',
  country: 'IT',
  accountFee: 0,
  transactionFees: t('banks.hype.transactionFees'),
@@ -284,8 +298,8 @@ const BankComparison: React.FC = () => {
 
  <div className="flex items-start justify-between gap-4 mb-4">
  <div className="flex items-center gap-3">
- <div className={`p-3 bg-gradient-to-br ${bank.color} rounded-2xl text-on-accent`}>
- <Building2 size={24} />
+ <div className={`p-3 bg-gradient-to-br ${bank.color} rounded-2xl text-on-accent flex items-center justify-center shrink-0`}>
+ <ProviderLogo slug={bank.slug} name={bank.name} size={28} className="rounded" />
  </div>
  <div>
  <h3 className="text-xl font-bold font-display text-strong">{bank.name}</h3>
