@@ -373,17 +373,24 @@ jobs:
       # │    its internal tar manually and pass our own knobs to         │
       # │    upload-artifact@v7.                                         │
       # │                                                                │
-      # │  Why parallel-gzip the tar in Step A:                          │
-      # │  - Old flow: tar (45s, I/O) → upload-artifact level-9 (110s,   │
-      # │    single-thread CPU compressing 6.4 GB tar). Total 155s.      │
-      # │  - New flow: tar piped through pigz (~30s, parallel CPU using  │
-      # │    every core on ubuntu-latest) writes a ~970 MB gzipped tar.  │
-      # │    upload-artifact then runs at level 0 ("store") and just     │
-      # │    wraps the already-compressed bytes into the zip envelope    │
-      # │    in a few seconds.                                           │
-      # │  - Net wire size is unchanged (~970 MB) because we collapse    │
-      # │    work that used to happen serially in two CPUs into one      │
-      # │    parallel pass. End-to-end ≈ 40s (~70 % faster).             │
+      # │  Why parallel-gzip in Step A at level 9 (NOT level 1):         │
+      # │  - First attempt used `pigz -1` (fastest) which produced a     │
+      # │    1.6 GB gzipped tar (vs 970 MB at level 9). Combined with    │
+      # │    upload-artifact `compression-level: 0` the wire artifact    │
+      # │    grew to 1.6 GB — crossing the 1 GB Pages threshold and      │
+      # │    failing the deploy with "Deployment failed, try again       │
+      # │    later" (run 25308327381). Lesson: artifact SIZE is the      │
+      # │    binding constraint, not CPU time alone.                     │
+      # │  - `pigz -9` matches the previous deflate-level-9 ratio so the │
+      # │    artifact stays ~970 MB. Because pigz parallelises across    │
+      # │    every ubuntu-latest core, level 9 here still completes in   │
+      # │    ~30-40s — well under the ~110s the old single-threaded      │
+      # │    upload-artifact level-9 step used to spend.                 │
+      # │  - Old flow: tar (45s I/O) → upload-artifact level-9 (110s     │
+      # │    single-thread CPU). Total 155s.                             │
+      # │  - New flow: tar | pigz -9 (~30s parallel CPU) → upload-       │
+      # │    artifact level-0 store (~10s wrap). End-to-end ≈ 40s.       │
+      # │  - Net wire size unchanged (~970 MB) ✓ Pages threshold ok ✓    │
       # │                                                                │
       # │  Compatibility: deploy-pages@v5 runs `tar -xf` on the artifact │
       # │  internally — modern tar auto-detects gzip via magic bytes     │
@@ -402,11 +409,16 @@ jobs:
           tar \
             --dereference --hard-dereference \
             --directory dist \
-            --use-compress-program="pigz -1" \
+            --use-compress-program="pigz -9" \
             --exclude=.git \
             --exclude=.github \
             -cf "$RUNNER_TEMP/artifact.tar" \
             .
+          # Surface size early so a regression past the 1 GB Pages
+          # threshold is visible in the workflow log right after pack
+          # (instead of only at the deploy-pages "Deployment failed"
+          # tail) — the artifact size is the binding constraint here.
+          ls -lh "$RUNNER_TEMP/artifact.tar"
 
       - name: Upload Pages artifact (store mode — tar already gzipped)
         if: github.event.inputs.profile_sequential != 'true'
