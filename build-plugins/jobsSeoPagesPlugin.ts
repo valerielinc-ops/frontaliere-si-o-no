@@ -94,6 +94,7 @@ import {
 import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 import { startTimer, recordEmit, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
+import { runCached } from './shared/buildCache';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -337,6 +338,54 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
 
+ // ── Cache key inputs ──────────────────────────────────────────────
+ // Day-granular extraKey: a few sitemap entries fall back to today's
+ // dateStamp when crawledAt is missing, so the cache must invalidate
+ // daily even when no input file changes. The runtimeFiles list covers
+ // every fs.readFileSync target inside the plugin (jobs, expired-jobs,
+ // tracking, overrides, profiles, orphans, compat paths, postal codes,
+ // adapter JSONs, blog data, router/seo helpers read as raw text).
+ const cacheDateStamp = new Date().toISOString().slice(0, 10);
+ const cacheRuntimeFiles = (): string[] => {
+ const out: string[] = [
+ jobsPath,
+ np.resolve(rootDir, 'data', 'blog-articles-data.ts'),
+ np.resolve(rootDir, 'services/routerBlogData.ts'),
+ np.resolve(rootDir, 'services/seo/seo-blog.ts'),
+ np.resolve(rootDir, 'data/job-canonical-overrides.json'),
+ np.resolve(rootDir, 'data/company-profiles.json'),
+ np.resolve(rootDir, 'data/known-company-slugs.json'),
+ np.resolve(rootDir, 'data/keyword-pages-config.json'),
+ np.resolve(rootDir, 'data/jobs-stats.json'),
+ np.resolve(rootDir, 'data/all-known-job-slugs.json'),
+ np.resolve(rootDir, 'data/orphan-indexed-job-slugs.json'),
+ np.resolve(rootDir, 'data/seo-404-compat-paths.json'),
+ np.resolve(rootDir, 'data/orphan-enriched-data.json'),
+ np.resolve(rootDir, 'data/expired-jobs.json'),
+ np.resolve(rootDir, 'data', 'swiss-postal-codes.json'),
+ np.resolve(rootDir, 'data', 'previous-slug-winners.json'),
+ ];
+ for (let n = 2; n <= 10; n++) {
+ out.push(np.resolve(rootDir, `services/seo/seo-blog-${n}.ts`));
+ }
+ const adapterDir = np.resolve(rootDir, 'data/jobs-crawler-adapters/adapters');
+ try {
+ for (const f of fs.readdirSync(adapterDir)) {
+ if (f.endsWith('.json')) out.push(np.join(adapterDir, f));
+ }
+ } catch { /* dir missing — buildCache treats listed-but-absent as sentinel */ }
+ return out;
+ };
+
+ await runCached({
+ pluginName: 'jobs-seo-pages',
+ rootDir,
+ distDir,
+ bundleEntry: np.resolve(rootDir, 'build-plugins/jobsSeoPagesPlugin.ts'),
+ runtimeFiles: cacheRuntimeFiles,
+ extraKey: cacheDateStamp,
+ work: async ({ recordWrite }) => {
+
  // ─── Parameterized defaults ──────────────────────────────────────────
  // Change DEFAULT_CANTON to expand the primary target region.
  // See scripts/lib/crawler-location-config.mjs for the central switch.
@@ -363,7 +412,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
 
  /* ── Buffered write system via shared WriteCollector ── */
- const collector = new WriteCollector({ distDir, pluginName: 'jobsSeoPagesPlugin' });
+ const collector = new WriteCollector({ distDir, pluginName: 'jobsSeoPagesPlugin', pathRecorder: recordWrite });
  const _ensuredDirs = new Set<string>();
  function _md(dir: string) {
  if (_ensuredDirs.has(dir)) return;
@@ -5844,7 +5893,9 @@ ${alternates}
  const categorySitemap = categorySitemapEntries.length > 0 ? '\n' + categorySitemapEntries.join('\n') : '';
  const keywordSitemap = keywordSitemapEntries.length > 0 ? '\n' + keywordSitemapEntries.join('\n') : '';
  const sitemapJobs = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`;
- fs.writeFileSync(np.join(distDir, 'sitemap-jobs.xml'), sitemapJobs, 'utf-8');
+ const sitemapJobsPath = np.join(distDir, 'sitemap-jobs.xml');
+ fs.writeFileSync(sitemapJobsPath, sitemapJobs, 'utf-8');
+ recordWrite(sitemapJobsPath);
 
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
  if (fs.existsSync(sitemapIndexPath)) {
@@ -7269,7 +7320,9 @@ ${hreflangLinks}
  // Write expired jobs sitemap
  if (expiredSitemapEntries.length > 0) {
  const sitemapExpired = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${expiredSitemapEntries.join('\n')}\n</urlset>\n`;
- fs.writeFileSync(np.join(distDir, 'sitemap-jobs-expired.xml'), sitemapExpired, 'utf-8');
+ const sitemapExpiredPath = np.join(distDir, 'sitemap-jobs-expired.xml');
+ fs.writeFileSync(sitemapExpiredPath, sitemapExpired, 'utf-8');
+ recordWrite(sitemapExpiredPath);
 
  // Register in sitemap index
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
@@ -7675,6 +7728,47 @@ ${hreflangLinks}
 
  // Print profiler summary if JOBS_SEO_PROFILE=1 is set; no-op otherwise.
  printJobsSeoProfile();
+ },
+ });
+
+ // ── Always-run: patch sitemap.xml index lastmods ────────────────────
+ // Must execute on cache hits too — the sitemap.xml index file is
+ // re-emitted by other plugins each build, so our entries' <lastmod>
+ // would otherwise drop out (or fail to register on a clean build).
+ // Idempotent: adds the entry if missing, otherwise refreshes lastmod.
+ const sitemapIndexFile = np.join(distDir, 'sitemap.xml');
+ if (fs.existsSync(sitemapIndexFile)) {
+ let idx = fs.readFileSync(sitemapIndexFile, 'utf-8');
+ const sitemapJobsExists = fs.existsSync(np.join(distDir, 'sitemap-jobs.xml'));
+ if (sitemapJobsExists) {
+ if (!idx.includes('sitemap-jobs.xml')) {
+ idx = idx.replace(
+ '</sitemapindex>',
+ ` <sitemap>\n <loc>${BASE_URL}/sitemap-jobs.xml</loc>\n <lastmod>${cacheDateStamp}</lastmod>\n </sitemap>\n</sitemapindex>`
+ );
+ } else {
+ idx = idx.replace(
+ /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-jobs\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
+ `$1${cacheDateStamp}$2`
+ );
+ }
+ }
+ const sitemapExpiredExists = fs.existsSync(np.join(distDir, 'sitemap-jobs-expired.xml'));
+ if (sitemapExpiredExists) {
+ if (!idx.includes('sitemap-jobs-expired.xml')) {
+ idx = idx.replace(
+ '</sitemapindex>',
+ ` <sitemap>\n <loc>${BASE_URL}/sitemap-jobs-expired.xml</loc>\n <lastmod>${cacheDateStamp}</lastmod>\n </sitemap>\n</sitemapindex>`
+ );
+ } else {
+ idx = idx.replace(
+ /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-jobs-expired\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
+ `$1${cacheDateStamp}$2`
+ );
+ }
+ }
+ fs.writeFileSync(sitemapIndexFile, idx, 'utf-8');
+ }
  },
  };
 }
