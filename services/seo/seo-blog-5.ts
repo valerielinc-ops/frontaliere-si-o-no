@@ -15979,6 +15979,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-boom-viaggiatori-treni-2026-ticino': {
+    title: 'Boom di viaggiatori sui treni elvetici | Frontaliere Ticino',
+    description: 'Record di passeggeri nel primo trimestre 2026, ma calo del trasporto merci. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, boom, viaggiatori, treni, elvetici',
+    ogTitle: 'Boom di viaggiatori sui treni elvetici',
+    ogDescription: 'Record di passeggeri nel primo trimestre 2026, ma calo del trasporto merci. Ecco cosa cambia per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/boom-viaggiatori-treni-2026-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Boom di viaggiatori sui treni elvetici",
+      "description": "Record di passeggeri nel primo trimestre 2026, ma calo del trasporto merci. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/boom-viaggiatori-treni-2026-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con treni in lontananza, rappresentante i viaggi transfrontalieri in Ticino"
+      },
+      "datePublished": "2026-05-04T19:18:06+00:00",
+      "dateModified": "2026-05-04T19:18:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/boom-viaggiatori-treni-2026-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

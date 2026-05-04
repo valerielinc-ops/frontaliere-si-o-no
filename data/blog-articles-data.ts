@@ -18911,4 +18911,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'boom-viaggiatori-treni-2026-ticino',
+ category: 'novita',
+ date: '2026-05-04T19:18:06.864Z',
+ image: '/images/blog/boom-viaggiatori-treni-2026-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

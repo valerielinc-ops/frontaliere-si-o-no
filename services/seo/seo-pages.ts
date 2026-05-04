@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2001,
+ "numberOfItems": 2002,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6639,7 +6639,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1998, "name": "Incendio a Chiasso: due operai ricoverati dopo ...", "url": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-operai-ricoverati` },
           { "@type": "ListItem", "position": 1999, "name": "Hodler restituito: storia di un dipinto e di un...", "url": `${BASE_URL}/articoli-frontaliere/hodler-dipinto-eredita-frontalieri` },
           { "@type": "ListItem", "position": 2000, "name": "Solo una staffetta svizzera qualificata per Pec...", "url": `${BASE_URL}/articoli-frontaliere/staffette-rossocrociate-pechino-2027` },
-          { "@type": "ListItem", "position": 2001, "name": "Walter Camarda riconfermato presidente del Cons...", "url": `${BASE_URL}/articoli-frontaliere/ecolight-camarda-presidente-2026-2028` }
+          { "@type": "ListItem", "position": 2001, "name": "Walter Camarda riconfermato presidente del Cons...", "url": `${BASE_URL}/articoli-frontaliere/ecolight-camarda-presidente-2026-2028` },
+          { "@type": "ListItem", "position": 2002, "name": "Boom di viaggiatori sui treni elvetici", "url": `${BASE_URL}/articoli-frontaliere/boom-viaggiatori-treni-2026-ticino` }
  ]
  },
  {

@@ -5847,6 +5847,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ecolight-camarda-presidente-2026-2028.title': 'Walter Camarda reconduit à la présidence du Consorzio Ecolight',
     'blog.article.ecolight-camarda-presidente-2026-2028.excerpt': 'L\'assemblée annuelle du Consorzio Ecolight a confirmé Walter Camarda à la présidence pour le triennat 2026-2028.',
     'blog.article.ecolight-camarda-presidente-2026-2028.imageAlt': 'Walter Camarda, Président du Consortium Ecolight, dans un bureau moderne axé sur la technologie durable et la gestion des déchets',
+    'blog.article.boom-viaggiatori-treni-2026-ticino.title': 'Record de voyageurs dans les trains suisses',
+    'blog.article.boom-viaggiatori-treni-2026-ticino.excerpt': 'Record de passagers au premier trimestre 2026, mais baisse du transport de marchandises. Voici ce qui change pour les frontaliers',
+    'blog.article.boom-viaggiatori-treni-2026-ticino.imageAlt': 'Vue du lac de Lugano avec des trains en arrière-plan, représentant les voyages transfrontaliers en Tessin',
 };
 
 export default blogMetaFr;
