@@ -5835,6 +5835,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.buoni-ristorante-mamme-monoparentali-ticino.title': 'Bons de restaurant pour les mères célibataires en difficulté',
     'blog.article.buoni-ristorante-mamme-monoparentali-ticino.excerpt': 'Soccorso d’inverno Ticino et GastroTicino offrent des bons de restaurant à 74 personnes, dont 50 enfants, pour la Fête des mères 2026',
     'blog.article.buoni-ristorante-mamme-monoparentali-ticino.imageAlt': 'Famille profitant d\'un dîner dans un restaurant au bord du lac de Lugano',
+    'blog.article.incendio-chiasso-operai-ricoverati.title': 'Incendie à Chiasso: deux ouvriers hospitalisés après un incendie sur un toit',
+    'blog.article.incendio-chiasso-operai-ricoverati.excerpt': 'Un incendie causé par des flammes libres a touché un toit à Chiasso, avec deux ouvriers hospitalisés. Voici ce qui s\'est passé.',
+    'blog.article.incendio-chiasso-operai-ricoverati.imageAlt': 'Incendie sur un toit à Chiasso, avec les pompiers en action',
 };
 
 export default blogMetaFr;

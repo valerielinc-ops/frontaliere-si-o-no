@@ -5834,6 +5834,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.buoni-ristorante-mamme-monoparentali-ticino.title': 'Gutscheine für Restaurants an alleinerziehende Mütter in Not',
     'blog.article.buoni-ristorante-mamme-monoparentali-ticino.excerpt': 'Winterhilfe Ticino und GastroTicino schenken 74 Personen, darunter 50 Kinder, Restaurantgutscheine zum Muttertag 2026.',
     'blog.article.buoni-ristorante-mamme-monoparentali-ticino.imageAlt': 'Familie genießt Abendessen in einem Restaurant am Luganersee',
+    'blog.article.incendio-chiasso-operai-ricoverati.title': 'Brand in Chiasso: Zwei Arbeiter nach Dachbrand im Krankenhaus',
+    'blog.article.incendio-chiasso-operai-ricoverati.excerpt': 'Ein durch freies Feuer verursachter Brand hat ein Dach in Chiasso erfasst, wobei zwei Arbeiter ins Krankenhaus eingeliefert wurden. Hier ist, was passiert ist.',
+    'blog.article.incendio-chiasso-operai-ricoverati.imageAlt': 'Brand auf einem Dach in Chiasso, mit Feuerwehr im Einsatz',
 };
 
 export default blogMetaDe;

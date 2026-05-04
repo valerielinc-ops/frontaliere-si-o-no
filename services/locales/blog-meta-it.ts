@@ -5835,6 +5835,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.buoni-ristorante-mamme-monoparentali-ticino.title': 'Buoni per ristoranti a mamme monoparentali in difficoltà',
     'blog.article.buoni-ristorante-mamme-monoparentali-ticino.excerpt': 'Soccorso d’inverno Ticino e GastroTicino regalano buoni per ristoranti a 74 persone, tra cui 50 bambini, per la Festa della mamma 2026',
     'blog.article.buoni-ristorante-mamme-monoparentali-ticino.imageAlt': 'Famiglia che gusta una cena in un ristorante sul lago di Lugano',
+    'blog.article.incendio-chiasso-operai-ricoverati.title': 'Incendio a Chiasso: due operai ricoverati dopo un rogo su un tetto',
+    'blog.article.incendio-chiasso-operai-ricoverati.excerpt': 'Un incendio causato da fiamme libere ha coinvolto un tetto a Chiasso, con due operai ricoverati in ospedale. Ecco cosa è successo.',
+    'blog.article.incendio-chiasso-operai-ricoverati.imageAlt': 'Incendio su un tetto a Chiasso, con i vigili del fuoco in azione',
 };
 
 export default blogMetaIt;

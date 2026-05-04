@@ -15843,6 +15843,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-chiasso-operai-ricoverati': {
+    title: 'Incendio a Chiasso: due operai ricoverati dopo un rogo su un tetto',
+    description: 'Un incendio causato da fiamme libere ha coinvolto un tetto a Chiasso, con due operai ricoverati in ospedale. Ecco cosa è successo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, chiasso, operai, ricoverati',
+    ogTitle: 'Incendio a Chiasso: due operai ricoverati dopo un rogo su un tetto',
+    ogDescription: 'Un incendio causato da fiamme libere ha coinvolto un tetto a Chiasso, con due operai ricoverati in ospedale. Ecco cosa è successo.',
+    canonicalPath: '/articoli-frontaliere/incendio-chiasso-operai-ricoverati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio a Chiasso: due operai ricoverati dopo un rogo su un tetto",
+      "description": "Un incendio causato da fiamme libere ha coinvolto un tetto a Chiasso, con due operai ricoverati in ospedale. Ecco cosa è successo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendio-chiasso-operai-ricoverati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incendio su un tetto a Chiasso, con i vigili del fuoco in azione"
+      },
+      "datePublished": "2026-05-04T18:25:43+00:00",
+      "dateModified": "2026-05-04T18:25:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-operai-ricoverati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

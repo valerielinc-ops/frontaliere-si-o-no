@@ -3187,6 +3187,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-meloni-parmelin-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-meloni-parmelin-2026', parent: 'blog' },
     'blog-gabbiano-bonaparte-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/gabbiano-bonaparte-ticino-2026', parent: 'blog' },
     'blog-buoni-ristorante-mamme-monoparentali-ticino': { name: 'Buoni ristoranti', path: '/articoli-frontaliere/buoni-ristorante-mamme-monoparentali-ticino', parent: 'blog' },
+    'blog-incendio-chiasso-operai-ricoverati': { name: 'Incendio Chiasso', path: '/articoli-frontaliere/incendio-chiasso-operai-ricoverati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1997,
+ "numberOfItems": 1998,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6635,7 +6635,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1994, "name": "Ladies Run Ticino 2026: torna la corsa femminil...", "url": `${BASE_URL}/articoli-frontaliere/ladies-run-lugano-2026` },
           { "@type": "ListItem", "position": 1995, "name": "Crans-Montana, distensione tra Meloni e Parmelin", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-meloni-parmelin-2026` },
           { "@type": "ListItem", "position": 1996, "name": "Gabbiano di Bonaparte avvistato in Svizzera: pr...", "url": `${BASE_URL}/articoli-frontaliere/gabbiano-bonaparte-ticino-2026` },
-          { "@type": "ListItem", "position": 1997, "name": "Buoni per ristoranti a mamme monoparentali in d...", "url": `${BASE_URL}/articoli-frontaliere/buoni-ristorante-mamme-monoparentali-ticino` }
+          { "@type": "ListItem", "position": 1997, "name": "Buoni per ristoranti a mamme monoparentali in d...", "url": `${BASE_URL}/articoli-frontaliere/buoni-ristorante-mamme-monoparentali-ticino` },
+          { "@type": "ListItem", "position": 1998, "name": "Incendio a Chiasso: due operai ricoverati dopo ...", "url": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-operai-ricoverati` }
  ]
  },
  {
