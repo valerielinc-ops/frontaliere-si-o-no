@@ -5628,6 +5628,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.russotto-bellinzona-frontalieri-2026.title': 'Russotto a Bellinzona: «Una scelta che forse non rifarei»',
     'blog.article.russotto-bellinzona-frontalieri-2026.excerpt': 'Andrea Russotto ricorda gli anni in Ticino tra sacrifici familiari e il peso di essere indicato come il nuovo Del Piero.',
     'blog.article.russotto-bellinzona-frontalieri-2026.imageAlt': 'Giovane calciatore a Bellinzona con vista sulle Alpi',
+    'blog.article.democrazia-finisce-quando-ticino.title': 'Quando una democrazia smette di essere tale',
+    'blog.article.democrazia-finisce-quando-ticino.excerpt': 'Esperti discutono i segnali di declino democratico e le sfide nel definirne la fine, con implicazioni per i frontalieri in Ticino.',
+    'blog.article.democrazia-finisce-quando-ticino.imageAlt': 'Castello di Castelgrande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

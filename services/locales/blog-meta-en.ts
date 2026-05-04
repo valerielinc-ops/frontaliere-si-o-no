@@ -5627,6 +5627,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.russotto-bellinzona-frontalieri-2026.title': 'Russotto on Bellinzona: \'A choice I might not repeat\'',
     'blog.article.russotto-bellinzona-frontalieri-2026.excerpt': 'Andrea Russotto recalls his years in Ticino, marked by family sacrifices and the pressure of being labeled as the new Del Piero.',
     'blog.article.russotto-bellinzona-frontalieri-2026.imageAlt': 'Young soccer player in Bellinzona with Alpine view',
+    'blog.article.democrazia-finisce-quando-ticino.title': 'When a democracy stops being one',
+    'blog.article.democrazia-finisce-quando-ticino.excerpt': 'Experts discuss the signs of democratic decline and the challenges in defining its end, with implications for cross-border workers in Ticino.',
+    'blog.article.democrazia-finisce-quando-ticino.imageAlt': 'Castelgrande Castle in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

@@ -13497,6 +13497,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-democrazia-finisce-quando-ticino': {
+    title: 'Quando una democrazia smette di essere tale | Frontaliere Ticino',
+    description: 'Esperti discutono i segnali di declino democratico e le sfide nel definirne la fine, con implicazioni per i frontalieri in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, quando, democrazia, smette, essere',
+    ogTitle: 'Quando una democrazia smette di essere tale',
+    ogDescription: 'Esperti discutono i segnali di declino democratico e le sfide nel definirne la fine, con implicazioni per i frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/democrazia-finisce-quando-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quando una democrazia smette di essere tale",
+      "description": "Esperti discutono i segnali di declino democratico e le sfide nel definirne la fine, con implicazioni per i frontalieri in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/democrazia-finisce-quando-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castello di Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-05-04T07:03:51+00:00",
+      "dateModified": "2026-05-04T07:03:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/democrazia-finisce-quando-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

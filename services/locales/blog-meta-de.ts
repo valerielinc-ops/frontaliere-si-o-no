@@ -5627,6 +5627,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.russotto-bellinzona-frontalieri-2026.title': 'Russotto: «Vielleicht keine Wiederholung»',
     'blog.article.russotto-bellinzona-frontalieri-2026.excerpt': 'Andrea Russotto erinnert sich an die Jahre im Tessin zwischen familiären Opfern und dem Druck, als der neue Del Piero bezeichnet zu werden.',
     'blog.article.russotto-bellinzona-frontalieri-2026.imageAlt': 'Junger Fußballspieler in Bellinzona mit Alpenblick',
+    'blog.article.democrazia-finisce-quando-ticino.title': 'Wenn eine Demokratie aufhört, eine zu sein',
+    'blog.article.democrazia-finisce-quando-ticino.excerpt': 'Experten diskutieren die Zeichen des demokratischen Niedergangs und die Herausforderungen, dessen Ende zu definieren, mit Auswirkungen auf die Grenzgänger im Tessin.',
+    'blog.article.democrazia-finisce-quando-ticino.imageAlt': 'Schloss Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

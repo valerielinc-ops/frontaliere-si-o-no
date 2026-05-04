@@ -18254,4 +18254,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'democrazia-finisce-quando-ticino',
+ category: 'novita',
+ date: '2026-05-04T07:03:51.014Z',
+ image: '/images/blog/democrazia-finisce-quando-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
