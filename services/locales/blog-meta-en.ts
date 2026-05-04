@@ -5786,6 +5786,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.distributori-carburante-ticino-2026.title': 'Four gas stations in trouble: displayed prices different from actual ones',
     'blog.article.distributori-carburante-ticino-2026.excerpt': 'The Guardia di Finanza of Como discovered irregularities in four fuel distributors in Ticino. Here\'s what changes for cross-border workers.',
     'blog.article.distributori-carburante-ticino-2026.imageAlt': 'Close-up of a gas station pump in Ticino, Switzerland, with the Lugano lake and mountains in the background',
+    'blog.article.dona-spesa-nova-coop-2026.title': 'Dona la Spesa 2026: Nova Coop collects for local associations',
+    'blog.article.dona-spesa-nova-coop-2026.excerpt': 'The solidarity initiative returns on Saturday, May 9th in the supermarkets of Tradate, Luino, and Castano Primo. Collection for Caritas, Red Cross, and other associations',
+    'blog.article.dona-spesa-nova-coop-2026.imageAlt': 'Nova Coop supermarket in Ticino during the solidarity day Dona la Spesa',
 };
 
 export default blogMetaEn;

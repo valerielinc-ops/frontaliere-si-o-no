@@ -3171,6 +3171,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-centenario-chiasso-luciano-bordignon': { name: 'Novità', path: '/articoli-frontaliere/nuovo-centenario-chiasso-luciano-bordignon', parent: 'blog' },
     'blog-g7-evian-frontiere-chiuse-2026': { name: 'G7 Evian', path: '/articoli-frontaliere/g7-evian-frontiere-chiuse-2026', parent: 'blog' },
     'blog-distributori-carburante-ticino-2026': { name: 'Pratico', path: '/articoli-frontaliere/distributori-carburante-ticino-2026', parent: 'blog' },
+    'blog-dona-spesa-nova-coop-2026': { name: 'Solidarietà', path: '/articoli-frontaliere/dona-spesa-nova-coop-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

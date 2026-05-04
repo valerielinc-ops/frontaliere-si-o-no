@@ -15299,6 +15299,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dona-spesa-nova-coop-2026': {
+    title: 'Dona la Spesa 2026: Nova Coop raccoglie beni per associazioni locali',
+    description: 'Sabato 9 maggio torna l\'iniziativa solidale nei supermercati di Tradate, Luino e Castano Primo. Raccolta per Caritas, Croce Rossa e altre associazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, dona, spesa, nova, coop',
+    ogTitle: 'Dona la Spesa 2026: Nova Coop raccoglie beni per associazioni locali',
+    ogDescription: 'Sabato 9 maggio torna l\'iniziativa solidale nei supermercati di Tradate, Luino e Castano Primo. Raccolta per Caritas, Croce Rossa e altre associazioni',
+    canonicalPath: '/articoli-frontaliere/dona-spesa-nova-coop-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dona la Spesa 2026: Nova Coop raccoglie beni per associazioni locali",
+      "description": "Sabato 9 maggio torna l'iniziativa solidale nei supermercati di Tradate, Luino e Castano Primo. Raccolta per Caritas, Croce Rossa e altre associazioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dona-spesa-nova-coop-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Supermercato Nova Coop in Ticino durante la giornata solidale Dona la Spesa"
+      },
+      "datePublished": "2026-05-04T15:29:49+00:00",
+      "dateModified": "2026-05-04T15:29:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dona-spesa-nova-coop-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

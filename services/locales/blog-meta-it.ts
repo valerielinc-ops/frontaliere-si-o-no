@@ -5787,6 +5787,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.distributori-carburante-ticino-2026.title': 'Quattro distributori nei guai: prezzi esposti diversi da quelli praticati',
     'blog.article.distributori-carburante-ticino-2026.excerpt': 'La Guardia di Finanza di Como ha scoperto irregolarità in quattro distributori di carburante nel Ticino. Ecco cosa cambia per i frontalieri.',
     'blog.article.distributori-carburante-ticino-2026.imageAlt': 'Primo piano di una colonnina di distribuzione carburante in Ticino, con sullo sfondo il lago di Lugano e le montagne',
+    'blog.article.dona-spesa-nova-coop-2026.title': 'Dona la Spesa 2026: Nova Coop raccoglie beni per associazioni locali',
+    'blog.article.dona-spesa-nova-coop-2026.excerpt': 'Sabato 9 maggio torna l\'iniziativa solidale nei supermercati di Tradate, Luino e Castano Primo. Raccolta per Caritas, Croce Rossa e altre associazioni',
+    'blog.article.dona-spesa-nova-coop-2026.imageAlt': 'Supermercato Nova Coop in Ticino durante la giornata solidale Dona la Spesa',
 };
 
 export default blogMetaIt;

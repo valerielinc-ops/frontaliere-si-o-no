@@ -5786,6 +5786,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.distributori-carburante-ticino-2026.title': 'Vier Tankstellen: Preise stimmen nicht überein',
     'blog.article.distributori-carburante-ticino-2026.excerpt': 'Die Guardia di Finanza von Como hat Unregelmäßigkeiten bei vier Tankstellen im Ticino entdeckt. Hier erfahren Grenzgänger, was sich ändert.',
     'blog.article.distributori-carburante-ticino-2026.imageAlt': 'Naheaufnahme einer Tankstelle in Ticino, Schweiz, mit dem Luganersee und Bergen im Hintergrund',
+    'blog.article.dona-spesa-nova-coop-2026.title': 'Dona la Spesa 2026: Nova Coop sammelt für lokale Vereine',
+    'blog.article.dona-spesa-nova-coop-2026.excerpt': 'Am Samstag, 9. Mai, kehrt die Solidaritätsaktion in den Supermärkten von Tradate, Luino und Castano Primo zurück. Sammlung für Caritas, das Rote Kreuz und andere Vereine',
+    'blog.article.dona-spesa-nova-coop-2026.imageAlt': 'Nova Coop Supermarkt in Tessin während des Solidaritätstags Dona la Spesa',
 };
 
 export default blogMetaDe;

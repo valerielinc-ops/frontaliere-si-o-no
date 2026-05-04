@@ -18731,4 +18731,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dona-spesa-nova-coop-2026',
+ category: 'pratico',
+ date: '2026-05-04T15:29:49.066Z',
+ image: '/images/blog/dona-spesa-nova-coop-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
