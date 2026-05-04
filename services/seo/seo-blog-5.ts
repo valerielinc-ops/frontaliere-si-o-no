@@ -13191,6 +13191,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iran-invita-sacrificio-frontalieri-2026': {
+    title: 'Iran invita frontalieri al sacrificio: cosa cambia in Ticino',
+    description: 'L\'ambasciata iraniana a Berna promuove la campagna Janfada. Preoccupazione tra la diaspora e autorità svizzere. Implicazioni per i frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iran, invita, sacrificio, cosa',
+    ogTitle: 'Iran invita frontalieri al sacrificio: cosa cambia in Ticino',
+    ogDescription: 'L\'ambasciata iraniana a Berna promuove la campagna Janfada. Preoccupazione tra la diaspora e autorità svizzere. Implicazioni per i frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/iran-invita-sacrificio-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iran invita frontalieri al sacrificio: cosa cambia in Ticino",
+      "description": "L'ambasciata iraniana a Berna promuove la campagna Janfada. Preoccupazione tra la diaspora e autorità svizzere. Implicazioni per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iran-invita-sacrificio-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia iraniana in Ticino discute della campagna Janfada"
+      },
+      "datePublished": "2026-05-04T06:04:05+00:00",
+      "dateModified": "2026-05-04T06:04:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iran-invita-sacrificio-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

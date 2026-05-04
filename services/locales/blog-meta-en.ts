@@ -5600,6 +5600,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-celebra-san-vittore-girometta-oro-2026.title': 'Varese honors San Vittore with Andrea Chiodi\'s Girometta d\'oro',
     'blog.article.varese-celebra-san-vittore-girometta-oro-2026.excerpt': 'Varese honors San Vittore with Andrea Chiodi\'s Girometta d\'oro, Mera & Longhi and the \'super grandma\' aged 102',
     'blog.article.varese-celebra-san-vittore-girometta-oro-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water and surrounding mountains',
+    'blog.article.iran-invita-sacrificio-frontalieri-2026.title': 'Iran calls on cross-border workers to sacrifice: changes in Ticino',
+    'blog.article.iran-invita-sacrificio-frontalieri-2026.excerpt': 'The Iranian embassy in Bern promotes the Janfada campaign. Concern among the diaspora and Swiss authorities.',
+    'blog.article.iran-invita-sacrificio-frontalieri-2026.imageAlt': 'Iranian family in Ticino discussing the Janfada campaign',
 };
 
 export default blogMetaEn;
