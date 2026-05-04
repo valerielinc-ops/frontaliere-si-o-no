@@ -5870,6 +5870,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.policonsumo-ticino-2026.title': 'Poly-drug use in Ticino: Ingrado\'s 2025 report',
     'blog.article.policonsumo-ticino-2026.excerpt': 'Ingrado\'s 2025 report confirms poly-drug use as the prevailing trend in Ticino, with a 16.4% increase in substance counseling services.',
     'blog.article.policonsumo-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.crack-house-ingrado-2026.title': 'Increase in crack houses in Ticino: 8 people daily seek help from Ingrado',
+    'blog.article.crack-house-ingrado-2026.excerpt': 'Over 3,200 people followed in 2025 for addictions to alcohol, drugs, video games, and online betting. Ingrado raises alarm on crack houses',
+    'blog.article.crack-house-ingrado-2026.imageAlt': 'A group of people in front of a building in Locarno, Ticino',
 };
 
 export default blogMetaEn;

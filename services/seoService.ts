@@ -3199,6 +3199,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ospedale-universitario-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ospedale-universitario-ticino-2026', parent: 'blog' },
     'blog-legge-quadro-florovivaismo-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/legge-quadro-florovivaismo-varese-2026', parent: 'blog' },
     'blog-policonsumo-ticino-2026': { name: 'Policonsumo droga', path: '/articoli-frontaliere/policonsumo-ticino-2026', parent: 'blog' },
+    'blog-crack-house-ingrado-2026': { name: 'Crack house Ticino', path: '/articoli-frontaliere/crack-house-ingrado-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

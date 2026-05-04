@@ -5871,6 +5871,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.policonsumo-ticino-2026.title': 'Consommation multiple de drogues au Tessin: le rapport 2025 d\'Ingrado',
     'blog.article.policonsumo-ticino-2026.excerpt': 'Le rapport 2025 d\'Ingrado confirme la consommation multiple comme tendance dominante au Tessin, avec une augmentation de 16,4% dans les centres de consultation sur les substances.',
     'blog.article.policonsumo-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.crack-house-ingrado-2026.title': 'Augmentation crack houses au Tessin: 8 demandes/jour',
+    'blog.article.crack-house-ingrado-2026.excerpt': 'Plus de 3 200 personnes suivies en 2025 pour des dépendances à l\'alcool, aux drogues, aux jeux vidéo et aux paris en ligne. Ingrado lance l\'alerte sur les crack houses',
+    'blog.article.crack-house-ingrado-2026.imageAlt': 'Un groupe de personnes devant un bâtiment à Locarno, Tessin',
 };
 
 export default blogMetaFr;

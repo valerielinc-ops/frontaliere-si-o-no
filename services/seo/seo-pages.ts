@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2009,
+ "numberOfItems": 2010,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6652,7 +6652,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2006, "name": "Elicottero precipita a Mezzovico: sei feriti, u...", "url": `${BASE_URL}/articoli-frontaliere/elicottero-mezzovico-frontalieri` },
           { "@type": "ListItem", "position": 2007, "name": "Ticino sogna un ospedale universitario diffuso", "url": `${BASE_URL}/articoli-frontaliere/ospedale-universitario-ticino-2026` },
           { "@type": "ListItem", "position": 2008, "name": "Legge Quadro Florovivaismo: via libera, Confagr...", "url": `${BASE_URL}/articoli-frontaliere/legge-quadro-florovivaismo-varese-2026` },
-          { "@type": "ListItem", "position": 2009, "name": "Policonsumo di droga in Ticino: il rapporto 202...", "url": `${BASE_URL}/articoli-frontaliere/policonsumo-ticino-2026` }
+          { "@type": "ListItem", "position": 2009, "name": "Policonsumo di droga in Ticino: il rapporto 202...", "url": `${BASE_URL}/articoli-frontaliere/policonsumo-ticino-2026` },
+          { "@type": "ListItem", "position": 2010, "name": "Crack house in aumento in Ticino: 8 persone al ...", "url": `${BASE_URL}/articoli-frontaliere/crack-house-ingrado-2026` }
  ]
  },
  {

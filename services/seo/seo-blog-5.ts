@@ -16251,6 +16251,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crack-house-ingrado-2026': {
+    title: 'Crack house in aumento in Ticino: 8 persone al giorno chiedono aiuto a Ingrado',
+    description: 'Oltre 3.200 persone seguite nel 2025 per dipendenze da alcol, droghe, videogiochi e scommesse online. Ingrado lancia allarme sulle crack house. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, crack, house, aumento, persone',
+    ogTitle: 'Crack house in aumento in Ticino: 8 persone al giorno chiedono aiuto a Ingrado',
+    ogDescription: 'Oltre 3.200 persone seguite nel 2025 per dipendenze da alcol, droghe, videogiochi e scommesse online. Ingrado lancia allarme sulle crack house',
+    canonicalPath: '/articoli-frontaliere/crack-house-ingrado-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crack house in aumento in Ticino: 8 persone al giorno chiedono aiuto a Ingrado",
+      "description": "Oltre 3.200 persone seguite nel 2025 per dipendenze da alcol, droghe, videogiochi e scommesse online. Ingrado lancia allarme sulle crack house. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crack-house-ingrado-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di persone davanti a un edificio a Locarno, Ticino"
+      },
+      "datePublished": "2026-05-04T20:31:55+00:00",
+      "dateModified": "2026-05-04T20:31:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crack-house-ingrado-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

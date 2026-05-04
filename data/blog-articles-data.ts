@@ -18983,4 +18983,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'crack-house-ingrado-2026',
+ category: 'pratico',
+ date: '2026-05-04T20:31:55.554Z',
+ image: '/images/blog/crack-house-ingrado-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

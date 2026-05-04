@@ -5871,6 +5871,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.policonsumo-ticino-2026.title': 'Policonsumo di droga in Ticino: il rapporto 2025 di Ingrado',
     'blog.article.policonsumo-ticino-2026.excerpt': 'Il rapporto 2025 di Ingrado conferma il policonsumo come tendenza prevalente in Ticino, con un aumento del 16,4% nei consultori sostanze.',
     'blog.article.policonsumo-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.crack-house-ingrado-2026.title': 'Crack house in aumento in Ticino: 8 persone al giorno chiedono aiuto a Ingrado',
+    'blog.article.crack-house-ingrado-2026.excerpt': 'Oltre 3.200 persone seguite nel 2025 per dipendenze da alcol, droghe, videogiochi e scommesse online. Ingrado lancia allarme sulle crack house',
+    'blog.article.crack-house-ingrado-2026.imageAlt': 'Un gruppo di persone davanti a un edificio a Locarno, Ticino',
 };
 
 export default blogMetaIt;
