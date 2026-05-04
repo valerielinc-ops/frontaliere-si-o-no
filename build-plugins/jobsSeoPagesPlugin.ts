@@ -697,6 +697,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  console.log(`\x1b[33m[jobs-seo-pages]\x1b[0m Filtered ${fixtureCount} fixture job(s) from input (test/dev seed records)`);
  }
 
+ // Recency timestamp helper: prefers `datePosted` (employer publish time)
+ // over `crawledAt` (when our crawler last saw the listing). Used both
+ // here (validJobs sort) and below (expiredJobsData sort) so the
+ // sharedWriteRegistry's first-write-wins claim() picks the FRESHEST job
+ // when multiple distinct jobs converge on the same per-locale path
+ // (e.g. 40 different localsearch postings whose German title slugifies
+ // identically). Without this sort, iteration order is the order jobs
+ // happen to be in data/jobs.json, which is not recency-aligned and lets
+ // an older posting clobber a newer one on the canonical URL.
+ const _jobRecency = (j: any): number => {
+ const dp = j?.datePosted ? new Date(j.datePosted).getTime() : 0;
+ if (dp > 0 && !Number.isNaN(dp)) return dp;
+ const ca = j?.crawledAt ? new Date(j.crawledAt).getTime() : 0;
+ if (ca > 0 && !Number.isNaN(ca)) return ca;
+ return 0;
+ };
+
  const validJobs = jobs
  .filter((j: any) => !isFixtureJob(j))
  .filter((j: any) => j?.title && j?.company && j?.location && (j?.description || j?.descriptionByLocale))
@@ -704,7 +721,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ...j,
  slug: j.slug || slugify(`${j.title}-${j.company}-${j.location}`) || j.id || '',
  }))
- .filter((j: any) => !!j.slug);
+ .filter((j: any) => !!j.slug)
+ // DESC by recency, tiebreak by id for determinism. Most-recent first
+ // means the registry's first-write-wins gives the canonical URL to the
+ // freshest posting; older duplicates record a collision (visible in
+ // dist/.write-collisions.json) but don't overwrite on disk.
+ .sort((a: any, b: any) => {
+ const ta = _jobRecency(a);
+ const tb = _jobRecency(b);
+ if (ta !== tb) return tb - ta;
+ return String(a.id || a.slug || '').localeCompare(String(b.id || b.slug || ''));
+ });
 
  /**
   * Per-slug canonical override map (Semrush cannibalization fix). Loaded from
@@ -6082,9 +6109,25 @@ ${alternates}
  expiredJobsData = JSON.parse(fs.readFileSync(expiredJobsPath, 'utf-8'));
  if (!Array.isArray(expiredJobsData)) expiredJobsData = [];
  } catch { /* no expired data */ }
+ // Sort DESC by recency BEFORE populating expiredBySlug. Combined with the
+ // `!has` guard below this gives "most-recent expired job wins" for both
+ // own-slug indexing AND previousSlugs indexing (147 of the 305 expired
+ // entries share at least one previousSlug with another expired entry —
+ // top offender: `augenoptiker-w-m-d-fielmann-ch` shared by 63 expired
+ // jobs — so the order in which we enter them into the map decides which
+ // job's title/description ends up on the soft-landing page at that path).
+ expiredJobsData.sort((a, b) => {
+ const ta = _jobRecency(a);
+ const tb = _jobRecency(b);
+ if (ta !== tb) return tb - ta;
+ return String(a.id || a.slug || '').localeCompare(String(b.id || b.slug || ''));
+ });
  const expiredBySlug = new Map<string, any>();
  for (const ej of expiredJobsData) {
- if (ej.slug) expiredBySlug.set(ej.slug, ej);
+ // `!has` guard so the FIRST entry (most-recent due to sort above) wins.
+ // Was unconditional `set` previously, which let the LAST entry (oldest
+ // after sort, but arbitrary order before sort) overwrite the winner.
+ if (ej.slug && !expiredBySlug.has(ej.slug)) expiredBySlug.set(ej.slug, ej);
  // Also index previousSlugs so renamed-then-deleted jobs get enriched soft-landing pages
  if (Array.isArray(ej.previousSlugs)) {
  for (const ps of ej.previousSlugs) {
@@ -6702,6 +6745,34 @@ ${hreflangLinks}
  return html;
  };
 
+ // Sort expiredSlugs by the recency of the linked expired-job entry
+ // (DESC, ties broken by slug for determinism) so the FIRST iteration
+ // for any colliding `tracking[slug][locale]` path is the most-recent
+ // job's content. The `emittedSoftLandingPaths` Set below skips later
+ // duplicates so the freshest version stays on disk. Without this sort,
+ // the oldest version frequently won because it appeared earlier in
+ // `Object.keys(tracking)` (insertion order from
+ // data/all-known-job-slugs.json, which is mostly chronological-ascending).
+ const _expiredSlugRecency = (s: string): number => {
+ const ej = expiredBySlug.get(s);
+ return ej ? _jobRecency(ej) : 0;
+ };
+ expiredSlugs.sort((a, b) => {
+ const ra = _expiredSlugRecency(a);
+ const rb = _expiredSlugRecency(b);
+ if (ra !== rb) return rb - ra;
+ return a.localeCompare(b);
+ });
+
+ // Set of (locale-prefixed) paths already emitted as soft-landing pages
+ // in THIS phase. Multiple distinct slugs can map to the same
+ // `tracking[slug][locale]` value (1349 IT / 2999 EN / 3072 DE / 3224 FR
+ // such collisions in the current registry — typically AI-translated
+ // slugs converging on the IT path). Without dedup each collider would
+ // fire `_qw` and produce a write-registry collision report; with dedup
+ // only the most-recent (per the sort above) lands on disk.
+ const emittedSoftLandingPaths = new Set<string>();
+
  for (const slug of expiredSlugs) {
  const paths = tracking[slug];
  const ejData = expiredBySlug.get(slug);
@@ -7121,6 +7192,16 @@ ${hreflangLinks}
  staticBodyJson, staticBody
  );
 
+ // Skip if a previous (most-recent due to sort) slug already emitted
+ // a soft-landing at this exact locale-prefixed path. Avoids the
+ // write-registry collision that surfaces in dist/.write-collisions.json
+ // when many slugs converge on one path. Map.set last-add-wins would
+ // also dedup at the collector level, but the registry still RECORDS
+ // each collision attempt — this Set keeps the report clean.
+ const __slPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
+ if (emittedSoftLandingPaths.has(__slPathKey)) continue;
+ emittedSoftLandingPaths.add(__slPathKey);
+
  writeSoftLandingPage(relPath.slice(1), softLandingHtml);
  const cacheKey = `${locale}:${slug}`;
  if (expiredCacheKeys.has(cacheKey)) {
@@ -7132,7 +7213,8 @@ ${hreflangLinks}
  if (locale !== 'it') {
  const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const trackedRel = relPath.replace(/^\//, '');
- if (legacyRel !== trackedRel) {
+ if (legacyRel !== trackedRel && !emittedSoftLandingPaths.has(legacyRel.replace(/\/+$/, ''))) {
+ emittedSoftLandingPaths.add(legacyRel.replace(/\/+$/, ''));
  writeSoftLandingPage(legacyRel, softLandingHtml);
  legacyCount++;
  }

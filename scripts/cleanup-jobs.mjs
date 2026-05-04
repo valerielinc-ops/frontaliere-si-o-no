@@ -159,6 +159,26 @@ function buildExpiredEntry(job) {
 }
 
 /**
+ * Recency timestamp for slug-dedup tiebreaking. Prefers `datePosted` (when
+ * the employer actually published the listing — the freshness signal that
+ * matters to job seekers) and falls back to `crawledAt` (when our crawler
+ * last saw it) when datePosted is absent. Returns 0 for jobs with neither
+ * — those tie-break by lexicographic id at the call site.
+ *
+ * Why two fields: most crawlers populate datePosted from the employer's
+ * structured data (JobPosting.datePosted) but a handful only have
+ * crawledAt. Sticking to a single field would silently demote those
+ * fallback jobs into being picked as losers regardless of recency.
+ */
+function jobRecencyTimestamp(job) {
+  const dp = job?.datePosted ? new Date(job.datePosted).getTime() : 0;
+  if (dp > 0 && !Number.isNaN(dp)) return dp;
+  const ca = job?.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+  if (ca > 0 && !Number.isNaN(ca)) return ca;
+  return 0;
+}
+
+/**
  * Disambiguate a within-slice slug-dedup loser so it can be archived to the
  * expired pipeline without colliding with the winning slug. The loser receives
  * a deterministic slug based on its fingerprint hash, and the original
@@ -398,8 +418,13 @@ async function main() {
         if (!slug) { deduped.push(job); continue; }
         const prev = seenSlug.get(slug);
         if (prev) {
-          const prevTs = prev.crawledAt ? new Date(prev.crawledAt).getTime() : 0;
-          const currTs = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+          // Tiebreak by recency: datePosted (employer-published timestamp)
+          // wins over crawledAt because a job posted on 2026-05-10 that we
+          // crawled on 2026-05-04 should beat a job posted on 2026-04-01
+          // that we crawled on 2026-05-04 — even though both share the
+          // same crawledAt minute, the user wants the freshest LISTING.
+          const prevTs = jobRecencyTimestamp(prev);
+          const currTs = jobRecencyTimestamp(job);
           if (currTs > prevTs) {
             const idx = deduped.indexOf(prev);
             if (idx !== -1) deduped[idx] = job;
@@ -676,8 +701,10 @@ async function main() {
     if (!slug) { afterSlugDedup.push(job); continue; }
     const prev = seenSlug.get(slug);
     if (prev) {
-      const prevTs = prev.crawledAt ? new Date(prev.crawledAt).getTime() : 0;
-      const currTs = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+      // Recency tiebreak: prefer datePosted (employer publish time) over
+      // crawledAt — see jobRecencyTimestamp() comment for why both signals.
+      const prevTs = jobRecencyTimestamp(prev);
+      const currTs = jobRecencyTimestamp(job);
       let loser;
       if (currTs > prevTs) {
         const idx = afterSlugDedup.indexOf(prev);
