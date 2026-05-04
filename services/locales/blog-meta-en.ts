@@ -5549,6 +5549,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tre-morti-hantavirus-nave-atlantico.title': 'Hantavirus on ship, 3 deaths in the Atlantic',
     'blog.article.tre-morti-hantavirus-nave-atlantico.excerpt': 'The WHO confirms three deaths linked to a possible hantavirus outbreak on a cruise ship in the Atlantic. Here\'s what we know.',
     'blog.article.tre-morti-hantavirus-nave-atlantico.imageAlt': 'Lake Lugano with a cruise ship in the distance',
+    'blog.article.juve-verona-1-1-frontalieri-2026.title': 'Juventus draws 1-1 with already-relegated Verona',
+    'blog.article.juve-verona-1-1-frontalieri-2026.excerpt': 'Juventus draws 1-1 against already-relegated Verona, missing the chance to catch up with Milan in the Champions race.',
+    'blog.article.juve-verona-1-1-frontalieri-2026.imageAlt': 'A realistic photograph of a football match at the Juventus Stadium in Turin, Italy. The image captures the intensity of the game with players in action and a vibrant crowd in the background.',
 };
 
 export default blogMetaEn;

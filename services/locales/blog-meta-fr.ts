@@ -5550,6 +5550,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tre-morti-hantavirus-nave-atlantico.title': 'Hantavirus sur un navire, 3 morts dans l\'Atlantique',
     'blog.article.tre-morti-hantavirus-nave-atlantico.excerpt': 'L\'OMS confirme trois décès liés à un possible foyer d\'hantavirus sur un navire de croisière dans l\'Atlantique. Voici ce que nous savons.',
     'blog.article.tre-morti-hantavirus-nave-atlantico.imageAlt': 'Lac de Lugano avec un navire de croisière au loin',
+    'blog.article.juve-verona-1-1-frontalieri-2026.title': 'La Juventus fait match nul 1-1 contre Vérone',
+    'blog.article.juve-verona-1-1-frontalieri-2026.excerpt': 'La Juventus fait match nul 1-1 contre Vérone déjà relégué, ratant le rattrapage avec le Milan dans la course à la Champions.',
+    'blog.article.juve-verona-1-1-frontalieri-2026.imageAlt': 'Une photographie réaliste d\'un match de football au Juventus Stadium à Turin, en Italie. L\'image capture l\'intensité du jeu avec des joueurs en action et une foule vibrante en arrière-plan.',
 };
 
 export default blogMetaFr;

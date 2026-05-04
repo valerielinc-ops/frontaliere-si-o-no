@@ -12613,6 +12613,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-juve-verona-1-1-frontalieri-2026': {
+    title: 'Juve pareggia 1-1 con il Verona già retrocesso | Frontaliere Ticino',
+    description: 'La Juventus pareggia 1-1 contro il Verona già retrocesso, fallendo l\'aggancio al Milan nella corsa alla Champions. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, juve, pareggia, verona, retrocesso',
+    ogTitle: 'Juve pareggia 1-1 con il Verona già retrocesso',
+    ogDescription: 'La Juventus pareggia 1-1 contro il Verona già retrocesso, fallendo l\'aggancio al Milan nella corsa alla Champions.',
+    canonicalPath: '/articoli-frontaliere/juve-verona-1-1-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Juve pareggia 1-1 con il Verona già retrocesso",
+      "description": "La Juventus pareggia 1-1 contro il Verona già retrocesso, fallendo l'aggancio al Milan nella corsa alla Champions. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/juve-verona-1-1-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un'immagine realistica di una partita di calcio allo Juventus Stadium a Torino, Italia. L'immagine cattura l'intensità della partita con i giocatori in azione e una folla vivace sullo sfondo."
+      },
+      "datePublished": "2026-05-04T03:56:11+00:00",
+      "dateModified": "2026-05-04T03:56:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/juve-verona-1-1-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5550,6 +5550,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tre-morti-hantavirus-nave-atlantico.title': 'Hantavirus su nave, 3 morti nell\'Atlantico',
     'blog.article.tre-morti-hantavirus-nave-atlantico.excerpt': 'L\'OMS conferma tre decessi legati a un possibile focolaio di hantavirus su una nave da crociera nell\'Atlantico. Ecco cosa sappiamo.',
     'blog.article.tre-morti-hantavirus-nave-atlantico.imageAlt': 'Lago di Lugano con nave da crociera in lontananza',
+    'blog.article.juve-verona-1-1-frontalieri-2026.title': 'Juve pareggia 1-1 con il Verona già retrocesso',
+    'blog.article.juve-verona-1-1-frontalieri-2026.excerpt': 'La Juventus pareggia 1-1 contro il Verona già retrocesso, fallendo l\'aggancio al Milan nella corsa alla Champions.',
+    'blog.article.juve-verona-1-1-frontalieri-2026.imageAlt': 'Un\'immagine realistica di una partita di calcio allo Juventus Stadium a Torino, Italia. L\'immagine cattura l\'intensità della partita con i giocatori in azione e una folla vivace sullo sfondo.',
 };
 
 export default blogMetaIt;

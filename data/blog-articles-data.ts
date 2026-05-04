@@ -18020,4 +18020,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'juve-verona-1-1-frontalieri-2026',
+ category: 'novita',
+ date: '2026-05-04T03:56:11.367Z',
+ image: '/images/blog/juve-verona-1-1-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
