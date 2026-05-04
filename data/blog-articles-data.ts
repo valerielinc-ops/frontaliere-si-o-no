@@ -19127,4 +19127,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuovo-allenatore-orsi-serge-aubin',
+ category: 'novita',
+ date: '2026-05-04T22:52:10.942Z',
+ image: '/images/blog/nuovo-allenatore-orsi-serge-aubin.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

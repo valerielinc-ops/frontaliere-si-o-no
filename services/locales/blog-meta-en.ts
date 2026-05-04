@@ -5918,6 +5918,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-turismo-sostenibile-10-maggio.title': 'Como: sustainable tourism and territory\'s future',
     'blog.article.como-turismo-sostenibile-10-maggio.excerpt': 'On May 10th in Como, sustainable tourism and the territory\'s future are discussed with workshops and debates.',
     'blog.article.como-turismo-sostenibile-10-maggio.imageAlt': 'View of Lake Como with mountains and boats',
+    'blog.article.nuovo-allenatore-orsi-serge-aubin.title': 'Serge Aubin new coach for Bern',
+    'blog.article.nuovo-allenatore-orsi-serge-aubin.excerpt': 'The Canadian coach has signed a three-year contract with the Bern Bears',
+    'blog.article.nuovo-allenatore-orsi-serge-aubin.imageAlt': 'Serge Aubin in action on the hockey rink',
 };
 
 export default blogMetaEn;

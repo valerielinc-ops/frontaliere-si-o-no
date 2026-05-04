@@ -5919,6 +5919,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-turismo-sostenibile-10-maggio.title': 'Como tra turismo sostenibile e futuro del territorio',
     'blog.article.como-turismo-sostenibile-10-maggio.excerpt': 'Il 10 maggio a Como si discute di turismo sostenibile e futuro del territorio con laboratori e dibattiti.',
     'blog.article.como-turismo-sostenibile-10-maggio.imageAlt': 'Vista del Lago di Como con montagne e barche',
+    'blog.article.nuovo-allenatore-orsi-serge-aubin.title': 'Serge Aubin nuovo allenatore del Berna',
+    'blog.article.nuovo-allenatore-orsi-serge-aubin.excerpt': 'Il tecnico canadese ha firmato un contratto triennale con gli Orsi di Berna',
+    'blog.article.nuovo-allenatore-orsi-serge-aubin.imageAlt': 'Serge Aubin in azione sulla pista di hockey',
 };
 
 export default blogMetaIt;

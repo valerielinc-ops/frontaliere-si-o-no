@@ -3215,6 +3215,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-insieme-ad-andrea-si-puo-ricerca-leucemie-infantili': { name: 'Novità', path: '/articoli-frontaliere/insieme-ad-andrea-si-puo-ricerca-leucemie-infantili', parent: 'blog' },
     'blog-scuola-chiude-fino-mornasco-2026': { name: 'Novità', path: '/articoli-frontaliere/scuola-chiude-fino-mornasco-2026', parent: 'blog' },
     'blog-como-turismo-sostenibile-10-maggio': { name: 'Turismo sostenibile', path: '/articoli-frontaliere/como-turismo-sostenibile-10-maggio', parent: 'blog' },
+    'blog-nuovo-allenatore-orsi-serge-aubin': { name: 'Novità', path: '/articoli-frontaliere/nuovo-allenatore-orsi-serge-aubin', parent: 'blog' },
  };
 
  const info = sectionNames[section];

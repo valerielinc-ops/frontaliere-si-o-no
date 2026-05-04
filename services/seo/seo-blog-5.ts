@@ -16795,6 +16795,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-allenatore-orsi-serge-aubin': {
+    title: 'Serge Aubin nuovo allenatore del Berna | Frontaliere Ticino',
+    description: 'Il tecnico canadese ha firmato un contratto triennale con gli Orsi di Berna. Scopri di più sulle sue ambizioni e strategie. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, serge, aubin, nuovo, allenatore',
+    ogTitle: 'Serge Aubin nuovo allenatore del Berna',
+    ogDescription: 'Il tecnico canadese ha firmato un contratto triennale con gli Orsi di Berna. Scopri di più sulle sue ambizioni e strategie.',
+    canonicalPath: '/articoli-frontaliere/nuovo-allenatore-orsi-serge-aubin',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Serge Aubin nuovo allenatore del Berna",
+      "description": "Il tecnico canadese ha firmato un contratto triennale con gli Orsi di Berna. Scopri di più sulle sue ambizioni e strategie. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-allenatore-orsi-serge-aubin.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Serge Aubin in azione sulla pista di hockey"
+      },
+      "datePublished": "2026-05-04T22:52:10+00:00",
+      "dateModified": "2026-05-04T22:52:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-allenatore-orsi-serge-aubin`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
