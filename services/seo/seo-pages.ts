@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1982,
+ "numberOfItems": 1983,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6620,7 +6620,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1979, "name": "Luciano Bordignon festeggia 100 anni a Chiasso", "url": `${BASE_URL}/articoli-frontaliere/nuovo-centenario-chiasso-luciano-bordignon` },
           { "@type": "ListItem", "position": 1980, "name": "G7 Evian: possibili chiusure frontiere, cosa ca...", "url": `${BASE_URL}/articoli-frontaliere/g7-evian-frontiere-chiuse-2026` },
           { "@type": "ListItem", "position": 1981, "name": "Quattro distributori nei guai: prezzi esposti d...", "url": `${BASE_URL}/articoli-frontaliere/distributori-carburante-ticino-2026` },
-          { "@type": "ListItem", "position": 1982, "name": "Dona la Spesa 2026: Nova Coop raccoglie beni pe...", "url": `${BASE_URL}/articoli-frontaliere/dona-spesa-nova-coop-2026` }
+          { "@type": "ListItem", "position": 1982, "name": "Dona la Spesa 2026: Nova Coop raccoglie beni pe...", "url": `${BASE_URL}/articoli-frontaliere/dona-spesa-nova-coop-2026` },
+          { "@type": "ListItem", "position": 1983, "name": "Littizzetto critica fatture Svizzera a feriti", "url": `${BASE_URL}/articoli-frontaliere/littizzetto-critica-svizzera-crans-montana` }
  ]
  },
  {

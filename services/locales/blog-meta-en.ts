@@ -5789,6 +5789,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dona-spesa-nova-coop-2026.title': 'Dona la Spesa 2026: Nova Coop collects for local associations',
     'blog.article.dona-spesa-nova-coop-2026.excerpt': 'The solidarity initiative returns on Saturday, May 9th in the supermarkets of Tradate, Luino, and Castano Primo. Collection for Caritas, Red Cross, and other associations',
     'blog.article.dona-spesa-nova-coop-2026.imageAlt': 'Nova Coop supermarket in Ticino during the solidarity day Dona la Spesa',
+    'blog.article.littizzetto-critica-svizzera-crans-montana.title': 'Littizzetto criticizes Switzerland for billing injured',
+    'blog.article.littizzetto-critica-svizzera-crans-montana.excerpt': 'The Italian comedian criticizes Switzerland for hospital bills sent to the injured from the Crans Montana fire, sparking controversy and stereotypes.',
+    'blog.article.littizzetto-critica-svizzera-crans-montana.imageAlt': 'Crans Montana after the fire with emergency services and people gathered around',
 };
 
 export default blogMetaEn;

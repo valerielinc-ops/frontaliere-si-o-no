@@ -18740,4 +18740,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'littizzetto-critica-svizzera-crans-montana',
+ category: 'novita',
+ date: '2026-05-04T15:40:18.013Z',
+ image: '/images/blog/littizzetto-critica-svizzera-crans-montana.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

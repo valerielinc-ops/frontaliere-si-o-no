@@ -5790,6 +5790,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dona-spesa-nova-coop-2026.title': 'Dona la Spesa 2026: Nova Coop raccoglie beni per associazioni locali',
     'blog.article.dona-spesa-nova-coop-2026.excerpt': 'Sabato 9 maggio torna l\'iniziativa solidale nei supermercati di Tradate, Luino e Castano Primo. Raccolta per Caritas, Croce Rossa e altre associazioni',
     'blog.article.dona-spesa-nova-coop-2026.imageAlt': 'Supermercato Nova Coop in Ticino durante la giornata solidale Dona la Spesa',
+    'blog.article.littizzetto-critica-svizzera-crans-montana.title': 'Littizzetto critica fatture Svizzera a feriti',
+    'blog.article.littizzetto-critica-svizzera-crans-montana.excerpt': 'La comica italiana critica la Svizzera per le fatture ospedaliere ai feriti dell\'incendio di Crans Montana, sollevando polemiche e luoghi comuni.',
+    'blog.article.littizzetto-critica-svizzera-crans-montana.imageAlt': 'Crans Montana dopo l\'incendio con i soccorsi e le persone radunate intorno',
 };
 
 export default blogMetaIt;

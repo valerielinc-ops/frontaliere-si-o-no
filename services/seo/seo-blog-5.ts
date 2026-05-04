@@ -15333,6 +15333,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-littizzetto-critica-svizzera-crans-montana': {
+    title: 'Littizzetto critica fatture Svizzera a feriti | Frontaliere Ticino',
+    description: 'La comica italiana Luciana Littizzetto critica la Svizzera per le fatture ospedaliere ai feriti dell\'incendio di Crans Montana, sollevando polemiche e luoghi',
+    keywords: 'frontalieri, ticino, svizzera, italia, littizzetto, critica, fatture, feriti',
+    ogTitle: 'Littizzetto critica la Svizzera per le fatture ai feriti di Crans Montana',
+    ogDescription: 'La comica italiana Luciana Littizzetto critica la Svizzera per le fatture ospedaliere ai feriti dell\'incendio di Crans Montana, sollevando polemiche e luoghi',
+    canonicalPath: '/articoli-frontaliere/littizzetto-critica-svizzera-crans-montana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Littizzetto critica fatture Svizzera a feriti",
+      "description": "La comica italiana Luciana Littizzetto critica la Svizzera per le fatture ospedaliere ai feriti dell'incendio di Crans Montana, sollevando polemiche e luoghi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/littizzetto-critica-svizzera-crans-montana.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Crans Montana dopo l'incendio con i soccorsi e le persone radunate intorno"
+      },
+      "datePublished": "2026-05-04T15:40:18+00:00",
+      "dateModified": "2026-05-04T15:40:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/littizzetto-critica-svizzera-crans-montana`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
