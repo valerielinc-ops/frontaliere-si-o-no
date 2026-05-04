@@ -1,21 +1,22 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-04T11:12:59.502Z",
+  "generatedAt": "2026-05-04T22:14:18.481Z",
   "total": 12,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 67027,
-  "avgDurationMs": 67027,
+  "durationMs": 26333,
+  "avgDurationMs": 26333,
   "durationHistory": [
-    67027
+    26333
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-alqha9",
-      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
+      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40%",
       "location": "St. Moritz",
@@ -36,21 +37,24 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-05-04T11:12:59.255Z",
       "firstSeenAt": "2026-05-04T11:12:59.255Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
       "postalCode": "7500",
       "streetAddress": "Via Grevas 9b",
-      "_qualityScore": 71,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-1s7m1i",
       "slug": "ch-lavoro-per-studenti-vendita-m-w-d-20-60-lidl-svizzera-biasca-1s7m1i",
