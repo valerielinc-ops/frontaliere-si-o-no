@@ -5826,6 +5826,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ladies-run-lugano-2026.title': 'Ladies Run Ticino 2026: torna la corsa femminile a Lugano',
     'blog.article.ladies-run-lugano-2026.excerpt': 'Sabato 9 maggio 2026 a Lugano torna la Ladies Run Ticino con percorsi di 2.5 km, 5 km e 10 km. Iscrizioni ancora aperte online fino al 7 maggio.',
     'blog.article.ladies-run-lugano-2026.imageAlt': 'Corridori alla Ladies Run Ticino 2026 a Lugano',
+    'blog.article.crans-montana-meloni-parmelin-2026.title': 'Crans-Montana, distensione tra Meloni e Parmelin',
+    'blog.article.crans-montana-meloni-parmelin-2026.excerpt': 'Incontro tra i due leader per risolvere la questione delle spese sanitarie per le vittime italiane dell\'incendio',
+    'blog.article.crans-montana-meloni-parmelin-2026.imageAlt': 'Vista aerea di Crans-Montana dopo l\'incendio di Capodanno, con operazioni di soccorso in corso',
 };
 
 export default blogMetaIt;

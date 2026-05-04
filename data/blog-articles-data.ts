@@ -18848,4 +18848,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'crans-montana-meloni-parmelin-2026',
+ category: 'novita',
+ date: '2026-05-04T17:51:41.810Z',
+ image: '/images/blog/crans-montana-meloni-parmelin-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

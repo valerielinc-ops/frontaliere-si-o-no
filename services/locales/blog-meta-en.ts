@@ -5825,6 +5825,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ladies-run-lugano-2026.title': 'Ladies Run Ticino 2026: Women\'s Race Returns to Lugano',
     'blog.article.ladies-run-lugano-2026.excerpt': 'On Saturday, May 9, 2026, the Ladies Run Ticino returns to Lugano with 2.5 km, 5 km, and 10 km routes. Online registrations still open until May 7.',
     'blog.article.ladies-run-lugano-2026.imageAlt': 'Runners at the Ladies Run Ticino 2026 in Lugano',
+    'blog.article.crans-montana-meloni-parmelin-2026.title': 'Crans-Montana, Meloni and Parmelin ease tensions',
+    'blog.article.crans-montana-meloni-parmelin-2026.excerpt': 'Meeting between the two leaders to resolve the issue of healthcare costs for Italian victims of the fire',
+    'blog.article.crans-montana-meloni-parmelin-2026.imageAlt': 'Aerial view of Crans-Montana after the New Year\'s Eve fire, with rescue operations underway',
 };
 
 export default blogMetaEn;
