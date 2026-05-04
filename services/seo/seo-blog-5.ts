@@ -15231,6 +15231,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-g7-evian-frontiere-chiuse-2026': {
+    title: 'G7 Evian: possibili chiusure frontiere, cosa cambia per i frontalieri',
+    description: 'Manifestazioni anti-G7 e possibili chiusure parziali dei valichi con la Francia. Ecco cosa sapere se vivi in Italia e lavori in Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, evian, possibili, chiusure, frontiere',
+    ogTitle: 'G7 Evian: chiusure frontiere, cosa cambia per i frontalieri',
+    ogDescription: 'Manifestazioni anti-G7 e possibili chiusure parziali dei valichi con la Francia. Ecco cosa sapere se vivi in Italia e lavori in Svizzera',
+    canonicalPath: '/articoli-frontaliere/g7-evian-frontiere-chiuse-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "G7 Evian: possibili chiusure frontiere, cosa cambia per i frontalieri",
+      "description": "Manifestazioni anti-G7 e possibili chiusure parziali dei valichi con la Francia. Ecco cosa sapere se vivi in Italia e lavori in Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/g7-evian-frontiere-chiuse-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano"
+      },
+      "datePublished": "2026-05-04T15:10:34+00:00",
+      "dateModified": "2026-05-04T15:10:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/g7-evian-frontiere-chiuse-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5780,6 +5780,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-centenario-chiasso-luciano-bordignon.title': 'Luciano Bordignon feiert 100. Geburtstag in Chiasso',
     'blog.article.nuovo-centenario-chiasso-luciano-bordignon.excerpt': 'Herr Luciano Bordignon hat am 30. April 100 Jahre alt geworden und mit dem Bürgermeister Bruno Arrigoni gefeiert.',
     'blog.article.nuovo-centenario-chiasso-luciano-bordignon.imageAlt': 'Ansicht von Chiasso, mit dem Stadtzentrum und Bergen im Hintergrund',
+    'blog.article.g7-evian-frontiere-chiuse-2026.title': 'G7 Evian: mögliche Grenzschließungen, was für Grenzgänger gilt',
+    'blog.article.g7-evian-frontiere-chiuse-2026.excerpt': 'Anti-G7-Demonstrationen und mögliche partielle Schließungen der Grenzübergänge mit Frankreich. Hier erfahren Sie, was zu beachten ist, wenn Sie in Italien leben und in der Schweiz arbeiten',
+    'blog.article.g7-evian-frontiere-chiuse-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
 };
 
 export default blogMetaDe;

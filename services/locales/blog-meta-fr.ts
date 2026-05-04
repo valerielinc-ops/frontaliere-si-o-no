@@ -5781,6 +5781,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-centenario-chiasso-luciano-bordignon.title': 'Luciano Bordignon fête ses 100 ans à Chiasso',
     'blog.article.nuovo-centenario-chiasso-luciano-bordignon.excerpt': 'Monsieur Luciano Bordignon a soufflé ses 100 bougies le 30 avril dernier, en célébrant avec le maire Bruno Arrigoni.',
     'blog.article.nuovo-centenario-chiasso-luciano-bordignon.imageAlt': 'Vue de Chiasso, avec le centre-ville et les montagnes en arrière-plan',
+    'blog.article.g7-evian-frontiere-chiuse-2026.title': 'G7 Évian: fermetures frontalières, ce qui change pour les frontaliers',
+    'blog.article.g7-evian-frontiere-chiuse-2026.excerpt': 'Manifestations anti-G7 et possibles fermetures partielles des postes frontaliers avec la France. Voici ce qu\'il faut savoir si vous vivez en Italie et travaillez en Suisse',
+    'blog.article.g7-evian-frontiere-chiuse-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
 };
 
 export default blogMetaFr;
