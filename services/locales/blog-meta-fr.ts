@@ -5589,6 +5589,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stati-canaglia-2026-aggiornamento-lista.title': 'États voyous 2026 : la liste se met à jour',
     'blog.article.stati-canaglia-2026-aggiornamento-lista.excerpt': 'Les États-Unis et Israël parmi les pays \'infréquentables\' selon une analyse qui redéfinit la géopolitique contemporaine',
     'blog.article.stati-canaglia-2026-aggiornamento-lista.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.melenchon-candidatura-presidenziali-2027.title': 'Mélenchon se présente aux présidentielles : « Je suis l’homme contre la droite »',
+    'blog.article.melenchon-candidatura-presidenziali-2027.excerpt': 'Le leader de La France Insoumise mise sur l’expérience pour contrer la menace de la droite aux urnes.',
+    'blog.article.melenchon-candidatura-presidenziali-2027.imageAlt': 'Jean-Luc Mélenchon parle lors d\'un rassemblement politique à Lugano, en Suisse.',
 };
 
 export default blogMetaFr;

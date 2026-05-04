@@ -5589,6 +5589,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stati-canaglia-2026-aggiornamento-lista.title': 'Stati canaglia 2026: la lista si aggiorna',
     'blog.article.stati-canaglia-2026-aggiornamento-lista.excerpt': 'Gli Stati Uniti e Israele tra i paesi \'infrequentabili\' secondo un\'analisi che ridefinisce la geopolitica contemporanea',
     'blog.article.stati-canaglia-2026-aggiornamento-lista.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
+    'blog.article.melenchon-candidatura-presidenziali-2027.title': 'Mélenchon si candida alle presidenziali: «Sono l’uomo giusto contro la destra»',
+    'blog.article.melenchon-candidatura-presidenziali-2027.excerpt': 'Il leader di La France Insoumise punta sull’esperienza per contrastare la minaccia della destra alle urne.',
+    'blog.article.melenchon-candidatura-presidenziali-2027.imageAlt': 'Jean-Luc Mélenchon parla a un raduno politico a Lugano, in Svizzera.',
 };
 
 export default blogMetaIt;

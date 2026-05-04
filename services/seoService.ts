@@ -3105,6 +3105,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-premio-walo-2026-frontalieri': { name: 'Premio Walo', path: '/articoli-frontaliere/premio-walo-2026-frontalieri', parent: 'blog' },
     'blog-stresa-espulsione-egiziano-2026': { name: 'Novità', path: '/articoli-frontaliere/stresa-espulsione-egiziano-2026', parent: 'blog' },
     'blog-stati-canaglia-2026-aggiornamento-lista': { name: 'Novità', path: '/articoli-frontaliere/stati-canaglia-2026-aggiornamento-lista', parent: 'blog' },
+    'blog-melenchon-candidatura-presidenziali-2027': { name: 'Politica', path: '/articoli-frontaliere/melenchon-candidatura-presidenziali-2027', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -5588,6 +5588,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stati-canaglia-2026-aggiornamento-lista.title': 'Rogue states 2026: the list updates',
     'blog.article.stati-canaglia-2026-aggiornamento-lista.excerpt': 'The United States and Israel among \'unfriendly\' countries according to an analysis that redefines contemporary geopolitics',
     'blog.article.stati-canaglia-2026-aggiornamento-lista.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.melenchon-candidatura-presidenziali-2027.title': 'Mélenchon runs for president: \'I\'m the right man against the right\'',
+    'blog.article.melenchon-candidatura-presidenziali-2027.excerpt': 'The leader of La France Insoumise relies on his experience to counter the right-wing threat at the polls.',
+    'blog.article.melenchon-candidatura-presidenziali-2027.imageAlt': 'Jean-Luc Mélenchon speaking at a political rally in Lugano, Switzerland.',
 };
 
 export default blogMetaEn;

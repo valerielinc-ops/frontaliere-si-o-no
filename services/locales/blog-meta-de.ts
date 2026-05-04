@@ -5588,6 +5588,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stati-canaglia-2026-aggiornamento-lista.title': 'Schurkenstaaten 2026: Die Liste wird aktualisiert',
     'blog.article.stati-canaglia-2026-aggiornamento-lista.excerpt': 'Die USA und Israel gehören laut einer Analyse, die die zeitgenössische Geopolitik neu definiert, zu den \'unangenehmen\' Ländern',
     'blog.article.stati-canaglia-2026-aggiornamento-lista.imageAlt': 'Luganersee mit Bergen im Hintergrund',
+    'blog.article.melenchon-candidatura-presidenziali-2027.title': 'Mélenchon für Präsidentschaft: «Ich gegen Rechte»',
+    'blog.article.melenchon-candidatura-presidenziali-2027.excerpt': 'Der Führer von La France Insoumise setzt auf Erfahrung, um die Bedrohung durch die Rechte an den Urnen zu bekämpfen.',
+    'blog.article.melenchon-candidatura-presidenziali-2027.imageAlt': 'Jean-Luc Mélenchon spricht auf einer politischen Kundgebung in Lugano, Schweiz.',
 };
 
 export default blogMetaDe;

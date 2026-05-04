@@ -13055,6 +13055,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-melenchon-candidatura-presidenziali-2027': {
+    title: 'Mélenchon si candida alle presidenziali: «Sono l’uomo giusto contro la destra»',
+    description: 'Il leader di La France Insoumise punta sull’esperienza per contrastare la minaccia della destra alle urne. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mélenchon, candida, alle, presidenziali',
+    ogTitle: 'Mélenchon si candida alle presidenziali: «Sono l’uomo giusto contro la destra»',
+    ogDescription: 'Il leader di La France Insoumise punta sull’esperienza per contrastare la minaccia della destra alle urne. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/melenchon-candidatura-presidenziali-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mélenchon si candida alle presidenziali: «Sono l’uomo giusto contro la destra»",
+      "description": "Il leader di La France Insoumise punta sull’esperienza per contrastare la minaccia della destra alle urne. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/melenchon-candidatura-presidenziali-2027.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Jean-Luc Mélenchon parla a un raduno politico a Lugano, in Svizzera."
+      },
+      "datePublished": "2026-05-04T05:38:02+00:00",
+      "dateModified": "2026-05-04T05:38:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/melenchon-candidatura-presidenziali-2027`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

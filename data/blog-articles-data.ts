@@ -18137,4 +18137,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'melenchon-candidatura-presidenziali-2027',
+ category: 'novita',
+ date: '2026-05-04T05:38:02.222Z',
+ image: '/images/blog/melenchon-candidatura-presidenziali-2027.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

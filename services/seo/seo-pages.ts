@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1915,
+ "numberOfItems": 1916,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6553,7 +6553,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1912, "name": "Morte Alex Zanardi: un simbolo per lo sport ita...", "url": `${BASE_URL}/articoli-frontaliere/morte-alex-zanardi-impatti-frontalieri` },
           { "@type": "ListItem", "position": 1913, "name": "Premio Walo 2026: Hecht e Stephan Eicher trionfano", "url": `${BASE_URL}/articoli-frontaliere/premio-walo-2026-frontalieri` },
           { "@type": "ListItem", "position": 1914, "name": "Stresa: espulso cittadino egiziano, nessun diri...", "url": `${BASE_URL}/articoli-frontaliere/stresa-espulsione-egiziano-2026` },
-          { "@type": "ListItem", "position": 1915, "name": "Stati canaglia 2026: la lista si aggiorna", "url": `${BASE_URL}/articoli-frontaliere/stati-canaglia-2026-aggiornamento-lista` }
+          { "@type": "ListItem", "position": 1915, "name": "Stati canaglia 2026: la lista si aggiorna", "url": `${BASE_URL}/articoli-frontaliere/stati-canaglia-2026-aggiornamento-lista` },
+          { "@type": "ListItem", "position": 1916, "name": "Mélenchon si candida alle presidenziali: «Sono ...", "url": `${BASE_URL}/articoli-frontaliere/melenchon-candidatura-presidenziali-2027` }
  ]
  },
  {
