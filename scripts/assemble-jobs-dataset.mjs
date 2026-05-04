@@ -46,6 +46,7 @@ import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -850,7 +851,15 @@ async function assembleJobs() {
     console.log(`  🆔 Backfilled ${backfilledIds} missing job IDs (of ${foreignFiltered.length} total)`);
   }
 
-  return hardenJobsWithStructuredSalary(foreignFiltered).jobs;
+  // ── Fixture-data filter ─────────────────────────────────────────────
+  // Drop test/dev fixture jobs (e.g. "Fixture Corp SA" seed records used
+  // for local builds when per-crawler slices aren't available). Without
+  // this gate, fixture jobs end up persisted into data/jobs.json and
+  // downstream consumers (newsletter, jobsSeoPagesPlugin, GSC orphan
+  // tracking) propagate them to production. See scripts/lib/fixture-data-filter.mjs.
+  const cleaned = filterFixtureJobs(foreignFiltered, 'assemble-jobs-dataset');
+
+  return hardenJobsWithStructuredSalary(cleaned).jobs;
 }
 
 /**

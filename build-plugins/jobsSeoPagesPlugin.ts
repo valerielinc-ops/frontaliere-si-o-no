@@ -668,7 +668,37 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return slugify(`${localizedTitle}-${job?.company || ''}-${job?.location || ''}`) || slugify(localizedTitle);
  };
 
+ // Fixture-data guard — drop test/dev seed records (e.g. "Fixture Corp SA")
+ // before they enter the validJobs pipeline. Without this, a local jobs.json
+ // fixture would persist its slug into all-known-job-slugs.json and feed the
+ // expired-job soft-landing pipeline forever.
+ // Mirrors scripts/lib/fixture-data-filter.mjs (kept inline so this build
+ // plugin has no .mjs dependency at TypeScript compile time).
+ const FIXTURE_SLUG_RE = /^fixture-|-fixture-corp-|-fixture-canonical-/i;
+ const FIXTURE_ID_RE = /^fixture-/i;
+ const FIXTURE_COMPANY_KEY_RE = /^fixture(?:-|$)/i;
+ const FIXTURE_COMPANY_NAMES = new Set(['fixture corp sa', 'fixture corp']);
+ const isFixtureJob = (j: any): boolean => {
+ if (!j || typeof j !== 'object') return false;
+ if (j.id && FIXTURE_ID_RE.test(String(j.id))) return true;
+ if (j.companyKey && FIXTURE_COMPANY_KEY_RE.test(String(j.companyKey))) return true;
+ if (j.company && FIXTURE_COMPANY_NAMES.has(String(j.company).trim().toLowerCase())) return true;
+ if (j.slug && FIXTURE_SLUG_RE.test(String(j.slug))) return true;
+ if (j.slugByLocale && typeof j.slugByLocale === 'object') {
+ for (const v of Object.values(j.slugByLocale)) {
+ if (v && FIXTURE_SLUG_RE.test(String(v))) return true;
+ }
+ }
+ return false;
+ };
+ const isFixtureSlug = (s: string): boolean => !!s && FIXTURE_SLUG_RE.test(s);
+ const fixtureCount = jobs.filter(isFixtureJob).length;
+ if (fixtureCount > 0) {
+ console.log(`\x1b[33m[jobs-seo-pages]\x1b[0m Filtered ${fixtureCount} fixture job(s) from input (test/dev seed records)`);
+ }
+
  const validJobs = jobs
+ .filter((j: any) => !isFixtureJob(j))
  .filter((j: any) => j?.title && j?.company && j?.location && (j?.description || j?.descriptionByLocale))
  .map((j: any) => ({
  ...j,
@@ -5879,6 +5909,22 @@ ${alternates}
  if (reservedHubsRemoved > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Removed ${reservedHubsRemoved} reserved hub slug(s) from tracking (would have clobbered sector/city hubs)`);
  }
+
+ // Strip pre-existing fixture-data slugs that earlier fixture-only builds
+ // wrote into all-known-job-slugs.json. This is the cleanup half of the
+ // fixture guard: even after we filter validJobs, the tracking file may
+ // still hold leaked fixture keys from prior commits, so wipe them on
+ // every build before persistence.
+ let fixtureKeysRemoved = 0;
+ for (const key of Object.keys(tracking)) {
+ if (isFixtureSlug(key)) {
+ delete tracking[key];
+ fixtureKeysRemoved++;
+ }
+ }
+ if (fixtureKeysRemoved > 0) {
+ console.log(`\x1b[33m[jobs-seo-pages]\x1b[0m Removed ${fixtureKeysRemoved} fixture-data slug(s) from tracking`);
+ }
  fs.writeFileSync(trackingPath, JSON.stringify(tracking, null, 2) + '\n', 'utf-8');
 
  // 1b. Merge orphan indexed slugs (GSC-indexed URLs with no matching job)
@@ -5897,6 +5943,8 @@ ${alternates}
  if (/^(?:search|ricerca|suche|recherche)-/.test(entry)) continue;
  // Skip sector/city hub slugs to avoid overwriting hub pages.
  if (RESERVED_HUB_SLUGS.has(entry)) continue;
+ // Skip fixture-data slugs leaked from earlier local builds.
+ if (isFixtureSlug(entry)) continue;
  tracking[entry] = { it: `/cerca-lavoro-ticino/${entry}` };
  } else if (typeof entry === 'object' && entry.locale && entry.path) {
  // Locale-aware format: { locale: "de", path: "/de/jobs-im-tessin/..." }
@@ -5910,6 +5958,8 @@ ${alternates}
  if (/^(?:search|ricerca|suche|recherche)-/.test(slug)) continue;
  // Skip sector/city hub slugs to avoid overwriting hub pages.
  if (RESERVED_HUB_SLUGS.has(slug)) continue;
+ // Skip fixture-data slugs leaked from earlier local builds.
+ if (isFixtureSlug(slug)) continue;
  if (!tracking[slug]) tracking[slug] = {};
  (tracking[slug] as Record<string, string>)[entry.locale] = cleanPath;
  } else {
@@ -5954,6 +6004,8 @@ ${alternates}
  // breaks the canonical (the IT hub stops ranking; only EN sibling
  // survives because its slug differs).
  if (RESERVED_HUB_SLUGS.has(slug)) break;
+ // Skip fixture-data slugs leaked from earlier local builds.
+ if (isFixtureSlug(slug)) break;
  if (!tracking[slug]) tracking[slug] = {};
  if ((tracking[slug] as Record<string, string>)[locale]) break; // locale path already known
  (tracking[slug] as Record<string, string>)[locale] = `${prefix}${slug}`;

@@ -35,6 +35,7 @@ import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubj
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
+import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1085,6 +1086,10 @@ function loadLocalJobsData() {
   } catch {
     // stats are optional
   }
+
+  // Drop test/dev fixture jobs so a local jobs.json fixture can never leak
+  // a "Fixture Corp SA" link into a real subscriber send.
+  jobs = filterFixtureJobs(jobs, 'send-newsletter');
 
   return { jobs, jobStats };
 }

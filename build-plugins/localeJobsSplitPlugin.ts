@@ -4,6 +4,31 @@ import type { Plugin } from 'vite';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+// Fixture-data guard — mirror of scripts/lib/fixture-data-filter.mjs.
+// Inlined so this plugin has no .mjs dependency at TypeScript compile time.
+const FIXTURE_SLUG_RE = /^fixture-|-fixture-corp-|-fixture-canonical-/i;
+const FIXTURE_ID_RE = /^fixture-/i;
+const FIXTURE_COMPANY_KEY_RE = /^fixture(?:-|$)/i;
+const FIXTURE_COMPANY_NAMES = new Set(['fixture corp sa', 'fixture corp']);
+function isFixtureJobEntry(j: Record<string, unknown>): boolean {
+ if (!j || typeof j !== 'object') return false;
+ const id = j.id;
+ if (typeof id === 'string' && FIXTURE_ID_RE.test(id)) return true;
+ const ck = j.companyKey;
+ if (typeof ck === 'string' && FIXTURE_COMPANY_KEY_RE.test(ck)) return true;
+ const co = j.company;
+ if (typeof co === 'string' && FIXTURE_COMPANY_NAMES.has(co.trim().toLowerCase())) return true;
+ const slug = j.slug;
+ if (typeof slug === 'string' && FIXTURE_SLUG_RE.test(slug)) return true;
+ const sbl = j.slugByLocale;
+ if (sbl && typeof sbl === 'object') {
+ for (const v of Object.values(sbl as Record<string, unknown>)) {
+ if (typeof v === 'string' && FIXTURE_SLUG_RE.test(v)) return true;
+ }
+ }
+ return false;
+}
+
 /** Fields included in the slim index file (used for listing + filtering + routing).
  * Detail-only fields (description, requirements, canonicalContent, baseSalary,
  * streetAddress, postalCode, applyUrl) are excluded to keep the index small. */
@@ -102,8 +127,16 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  function generateFiles(outDir: string): number {
  if (!fs.existsSync(dataJobsPath)) return 0;
 
- const jobs: JobEntry[] = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
- if (!Array.isArray(jobs)) return 0;
+ const rawJobs: JobEntry[] = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+ if (!Array.isArray(rawJobs)) return 0;
+
+ // Strip fixture-data records (e.g. "Fixture Corp SA" seed) so they cannot
+ // leak into dist/data/jobs-*.json or dist/data/job-detail/*.json.
+ const jobs = rawJobs.filter((j) => !isFixtureJobEntry(j));
+ const dropped = rawJobs.length - jobs.length;
+ if (dropped > 0) {
+ console.log(`[locale-jobs-split] Filtered ${dropped} fixture job(s) before locale split`);
+ }
 
  const dataDir = path.resolve(outDir, 'data');
  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
