@@ -5777,6 +5777,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guardia-finanza-carburanti-como-2026.title': 'Finanzwache: Kontrollen bei Treibstoffen in Como',
     'blog.article.guardia-finanza-carburanti-como-2026.excerpt': 'Vier Tankstellen wegen Verstößen bei den Benzinpreisen gebüsst. Das ändert sich für Grenzgänger.',
     'blog.article.guardia-finanza-carburanti-como-2026.imageAlt': 'Luftansicht des Luganersees mit Como im Hintergrund',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.title': 'Luciano Bordignon feiert 100. Geburtstag in Chiasso',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.excerpt': 'Herr Luciano Bordignon hat am 30. April 100 Jahre alt geworden und mit dem Bürgermeister Bruno Arrigoni gefeiert.',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.imageAlt': 'Ansicht von Chiasso, mit dem Stadtzentrum und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

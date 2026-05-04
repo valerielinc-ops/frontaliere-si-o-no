@@ -5777,6 +5777,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guardia-finanza-carburanti-como-2026.title': 'Finance Police: fuel checks in Como',
     'blog.article.guardia-finanza-carburanti-como-2026.excerpt': 'Four distributors fined for gasoline price violations. Here\'s what changes for cross-border workers.',
     'blog.article.guardia-finanza-carburanti-como-2026.imageAlt': 'Aerial view of Lake Lugano with Como in the background',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.title': 'Luciano Bordignon celebrates 100 years in Chiasso',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.excerpt': 'Mr. Luciano Bordignon turned 100 on April 30, celebrating with Mayor Bruno Arrigoni.',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.imageAlt': 'View of Chiasso, with the urban center and mountains in the background',
 };
 
 export default blogMetaEn;

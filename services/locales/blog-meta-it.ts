@@ -5778,6 +5778,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guardia-finanza-carburanti-como-2026.title': 'Guardia di Finanza: controlli sui carburanti a Como',
     'blog.article.guardia-finanza-carburanti-como-2026.excerpt': 'Quattro distributori multati per violazioni sui prezzi della benzina. Ecco cosa cambia per i frontalieri.',
     'blog.article.guardia-finanza-carburanti-como-2026.imageAlt': 'Vista aerea del Lago di Lugano con Como sullo sfondo',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.title': 'Luciano Bordignon festeggia 100 anni a Chiasso',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.excerpt': 'Il signor Luciano Bordignon ha spento 100 candeline lo scorso 30 aprile, festeggiando con il sindaco Bruno Arrigoni.',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.imageAlt': 'Veduta di Chiasso, con il centro urbano e le montagne in lontananza',
 };
 
 export default blogMetaIt;

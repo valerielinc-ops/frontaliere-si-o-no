@@ -5778,6 +5778,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guardia-finanza-carburanti-como-2026.title': 'Douane : contrôles sur les carburants à Côme',
     'blog.article.guardia-finanza-carburanti-como-2026.excerpt': 'Quatre distributeurs sanctionnés pour violations sur les prix de l\'essence. Voici ce qui change pour les frontaliers.',
     'blog.article.guardia-finanza-carburanti-como-2026.imageAlt': 'Vue aérienne du lac de Lugano avec Côme en arrière-plan',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.title': 'Luciano Bordignon fête ses 100 ans à Chiasso',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.excerpt': 'Monsieur Luciano Bordignon a soufflé ses 100 bougies le 30 avril dernier, en célébrant avec le maire Bruno Arrigoni.',
+    'blog.article.nuovo-centenario-chiasso-luciano-bordignon.imageAlt': 'Vue de Chiasso, avec le centre-ville et les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

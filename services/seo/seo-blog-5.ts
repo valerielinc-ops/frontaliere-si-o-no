@@ -15197,6 +15197,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-centenario-chiasso-luciano-bordignon': {
+    title: 'Luciano Bordignon festeggia 100 anni a Chiasso | Frontaliere Ticino',
+    description: 'Il signor Luciano Bordignon ha spento 100 candeline lo scorso 30 aprile, festeggiando con il sindaco Bruno Arrigoni a Chiasso. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, luciano, bordignon, festeggia, anni',
+    ogTitle: 'Luciano Bordignon festeggia 100 anni a Chiasso',
+    ogDescription: 'Il signor Luciano Bordignon ha spento 100 candeline lo scorso 30 aprile, festeggiando con il sindaco Bruno Arrigoni a Chiasso.',
+    canonicalPath: '/articoli-frontaliere/nuovo-centenario-chiasso-luciano-bordignon',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luciano Bordignon festeggia 100 anni a Chiasso",
+      "description": "Il signor Luciano Bordignon ha spento 100 candeline lo scorso 30 aprile, festeggiando con il sindaco Bruno Arrigoni a Chiasso. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-centenario-chiasso-luciano-bordignon.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Chiasso, con il centro urbano e le montagne in lontananza"
+      },
+      "datePublished": "2026-05-04T14:57:15+00:00",
+      "dateModified": "2026-05-04T14:57:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-centenario-chiasso-luciano-bordignon`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
