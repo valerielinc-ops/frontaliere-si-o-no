@@ -5763,6 +5763,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mcdonalds-lamone-apertura-2026.title': 'Aperto il nuovo McDonald\'s di Lamone',
     'blog.article.mcdonalds-lamone-apertura-2026.excerpt': 'La nuova filiale del gigante del fast food è la nona nel Cantone Ticino e la quarta nel Luganese.',
     'blog.article.mcdonalds-lamone-apertura-2026.imageAlt': 'Vista del McDonald\'s di Lamone con le montagne circostanti',
+    'blog.article.maxi-piano-traffico-lago-como-2026.title': 'Maxi piano per il traffico sulla statale del Lago di Como: soluzioni chirurgiche',
+    'blog.article.maxi-piano-traffico-lago-como-2026.excerpt': 'Interventi mirati per migliorare la sicurezza e fluidità della viabilità lungo la SS 340 Regina, con finanziamenti ANAS e coordinamento provinciale',
+    'blog.article.maxi-piano-traffico-lago-como-2026.imageAlt': 'Vista aerea della strada statale del Lago di Como con traffico intenso e lavori in corso',
 };
 
 export default blogMetaIt;

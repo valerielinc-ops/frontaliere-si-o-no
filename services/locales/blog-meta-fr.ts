@@ -5763,6 +5763,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mcdonalds-lamone-apertura-2026.title': 'Ouverture du nouveau McDonald\'s de Lamone',
     'blog.article.mcdonalds-lamone-apertura-2026.excerpt': 'La nouvelle filiale du géant du fast-food est la neuvième dans le canton du Tessin et la quatrième dans la région de Lugano.',
     'blog.article.mcdonalds-lamone-apertura-2026.imageAlt': 'Vue du McDonald\'s de Lamone avec les montagnes environnantes',
+    'blog.article.maxi-piano-traffico-lago-como-2026.title': 'Gros plan pour le trafic sur la route du lac de Côme : solutions chirurgicales',
+    'blog.article.maxi-piano-traffico-lago-como-2026.excerpt': 'Interventions ciblées pour améliorer la sécurité et la fluidité de la circulation le long de la SS 340 Regina, avec des financements ANAS et une coordination provinciale',
+    'blog.article.maxi-piano-traffico-lago-como-2026.imageAlt': 'Vue aérienne de la route du lac de Côme avec un trafic intense et des travaux en cours',
 };
 
 export default blogMetaFr;

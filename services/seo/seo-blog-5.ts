@@ -15027,6 +15027,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maxi-piano-traffico-lago-como-2026': {
+    title: 'Maxi piano per il traffico sulla statale del Lago di Como: soluzioni chirurgiche',
+    description: 'Interventi mirati per migliorare la sicurezza e fluidità della viabilità lungo la SS 340 Regina, con finanziamenti ANAS e coordinamento provinciale',
+    keywords: 'frontalieri, ticino, svizzera, italia, maxi, piano, traffico, sulla',
+    ogTitle: 'Maxi piano per il traffico sulla statale del Lago di Como: soluzioni chirurgiche',
+    ogDescription: 'Interventi mirati per migliorare la sicurezza e fluidità della viabilità lungo la SS 340 Regina, con finanziamenti ANAS e coordinamento provinciale',
+    canonicalPath: '/articoli-frontaliere/maxi-piano-traffico-lago-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maxi piano per il traffico sulla statale del Lago di Como: soluzioni chirurgiche",
+      "description": "Interventi mirati per migliorare la sicurezza e fluidità della viabilità lungo la SS 340 Regina, con finanziamenti ANAS e coordinamento provinciale",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maxi-piano-traffico-lago-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della strada statale del Lago di Como con traffico intenso e lavori in corso"
+      },
+      "datePublished": "2026-05-04T13:49:03+00:00",
+      "dateModified": "2026-05-04T13:49:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maxi-piano-traffico-lago-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

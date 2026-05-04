@@ -3163,6 +3163,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gallarate-fs-security-2027': { name: 'Novità sicurezza', path: '/articoli-frontaliere/gallarate-fs-security-2027', parent: 'blog' },
     'blog-incendio-chiasso-palazzina-evacuati-30': { name: 'Incendio Chiasso', path: '/articoli-frontaliere/incendio-chiasso-palazzina-evacuati-30', parent: 'blog' },
     'blog-mcdonalds-lamone-apertura-2026': { name: 'Novità', path: '/articoli-frontaliere/mcdonalds-lamone-apertura-2026', parent: 'blog' },
+    'blog-maxi-piano-traffico-lago-como-2026': { name: 'Novità', path: '/articoli-frontaliere/maxi-piano-traffico-lago-como-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

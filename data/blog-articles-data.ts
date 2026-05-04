@@ -18659,4 +18659,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'maxi-piano-traffico-lago-como-2026',
+ category: 'novita',
+ date: '2026-05-04T13:49:03.636Z',
+ image: '/images/blog/maxi-piano-traffico-lago-como-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

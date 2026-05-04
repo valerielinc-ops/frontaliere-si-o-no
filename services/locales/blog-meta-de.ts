@@ -5762,6 +5762,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mcdonalds-lamone-apertura-2026.title': 'Neuer McDonald\'s in Lamone eröffnet',
     'blog.article.mcdonalds-lamone-apertura-2026.excerpt': 'Die neue Filiale der Fast-Food-Kette ist die neunte im Kanton Tessin und die vierte im Luganese.',
     'blog.article.mcdonalds-lamone-apertura-2026.imageAlt': 'Ansicht des McDonald\'s in Lamone mit umliegenden Bergen',
+    'blog.article.maxi-piano-traffico-lago-como-2026.title': 'Großer Plan für den Verkehr auf der Comer-See-Straße: gezielte Lösungen',
+    'blog.article.maxi-piano-traffico-lago-como-2026.excerpt': 'Gezielte Maßnahmen zur Verbesserung der Sicherheit und des Verkehrsflusses entlang der SS 340 Regina, mit Finanzierung durch ANAS und provinzieller Koordination',
+    'blog.article.maxi-piano-traffico-lago-como-2026.imageAlt': 'Luftaufnahme der Straße am Comer See mit starkem Verkehr und laufenden Bauarbeiten',
 };
 
 export default blogMetaDe;
