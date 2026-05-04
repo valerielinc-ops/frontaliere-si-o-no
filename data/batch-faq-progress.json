@@ -727,7 +727,12 @@
     "ritardi-a2-tra-chiasso-lugano",
     "sindacati-ticino-1-maggio-2026",
     "bike-sharing-como-gratis-giugno",
-    "furti-chiese-bellinzonese-arresti-2026"
+    "furti-chiese-bellinzonese-arresti-2026",
+    "a4-milano-brescia-chiusura-notturna-2026",
+    "bellinzona-2025-consuntivo-risultati",
+    "concerto-luino-vivaldi-bach-2026",
+    "juve-verona-1-1-frontalieri-2026",
+    "parcheggi-cernobbio-ticino-residenti"
   ],
   "failed": [
     {
@@ -6484,8 +6489,23 @@
       "id": "parcheggio-abusivo-como-villa-olmo",
       "error": "Unterminated string in JSON at position 1341 (line 12 column 349)",
       "at": "2026-05-03T04:29:20.203Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 276 (line 4 column 159)",
+      "at": "2026-05-04T04:17:38.819Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 197 (line 4 column 109)",
+      "at": "2026-05-04T04:18:07.226Z"
+    },
+    {
+      "id": "parcheggio-abusivo-como-villa-olmo",
+      "error": "Unterminated string in JSON at position 724 (line 8 column 135)",
+      "at": "2026-05-04T04:18:45.924Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-03T04:29:20.203Z"
+  "updatedAt": "2026-05-04T04:18:45.924Z"
 }
