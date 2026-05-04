@@ -5676,6 +5676,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.camelie-locarno-record-visitatori-2026.title': 'Camélias Locarno 2026: record de visiteurs et de recettes',
     'blog.article.camelie-locarno-record-visitatori-2026.excerpt': 'L\'édition 2026 de Camélias Locarno a enregistré 14.000 visiteurs et une augmentation de 10% des recettes par rapport à 2022.',
     'blog.article.camelie-locarno-record-visitatori-2026.imageAlt': 'Parc des Camélias à Locarno pendant l\'événement Camelie Locarno 2026',
+    'blog.article.disastri-museo-leventina-gioco-oca.title': 'Au musée de Leventina, les catastrophes deviennent un jeu de l\'oie',
+    'blog.article.disastri-museo-leventina-gioco-oca.excerpt': 'Nouvelle exposition interactive du Moyen Âge à nos jours sur la manière dont les communautés du Tessin ont fait face aux glissements de terrain, aux épidémies et aux incendies',
+    'blog.article.disastri-museo-leventina-gioco-oca.imageAlt': 'Musée de Leventina, Tessin, exposition sur les catastrophes historiques avec un jeu de l\'oie',
 };
 
 export default blogMetaFr;

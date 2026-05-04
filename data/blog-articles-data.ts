@@ -18398,4 +18398,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'disastri-museo-leventina-gioco-oca',
+ category: 'novita',
+ date: '2026-05-04T08:56:20.686Z',
+ image: '/images/blog/disastri-museo-leventina-gioco-oca.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

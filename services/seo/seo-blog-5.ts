@@ -14041,6 +14041,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disastri-museo-leventina-gioco-oca': {
+    title: 'Al Museo di Leventina i disastri diventano un gioco dell\'oca',
+    description: 'Nuova mostra interattiva dal Medioevo a oggi su come le comunità del Ticino hanno affrontato frane, epidemie e incendi. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, museo, leventina, disastri, diventano',
+    ogTitle: 'Al Museo di Leventina i disastri diventano un gioco dell\'oca',
+    ogDescription: 'Nuova mostra interattiva dal Medioevo a oggi su come le comunità del Ticino hanno affrontato frane, epidemie e incendi',
+    canonicalPath: '/articoli-frontaliere/disastri-museo-leventina-gioco-oca',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Al Museo di Leventina i disastri diventano un gioco dell'oca",
+      "description": "Nuova mostra interattiva dal Medioevo a oggi su come le comunità del Ticino hanno affrontato frane, epidemie e incendi. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disastri-museo-leventina-gioco-oca.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Museo di Leventina, Ticino, mostra su disastri storici con gioco dell'oca"
+      },
+      "datePublished": "2026-05-04T08:56:20+00:00",
+      "dateModified": "2026-05-04T08:56:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disastri-museo-leventina-gioco-oca`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

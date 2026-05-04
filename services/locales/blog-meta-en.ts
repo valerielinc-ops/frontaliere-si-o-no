@@ -5675,6 +5675,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.camelie-locarno-record-visitatori-2026.title': 'Camelie Locarno 2026: record visitors and revenue',
     'blog.article.camelie-locarno-record-visitatori-2026.excerpt': 'The 2026 edition of Camelie Locarno recorded 14,000 visitors and a 10% increase in revenue compared to 2022.',
     'blog.article.camelie-locarno-record-visitatori-2026.imageAlt': 'Parco delle Camelie in Locarno during the Camelie Locarno 2026 event',
+    'blog.article.disastri-museo-leventina-gioco-oca.title': 'Disasters become a board game at Leventina Museum',
+    'blog.article.disastri-museo-leventina-gioco-oca.excerpt': 'New interactive exhibition from the Middle Ages to today on how Ticino communities have faced landslides, epidemics and fires',
+    'blog.article.disastri-museo-leventina-gioco-oca.imageAlt': 'Leventina Museum, Ticino, exhibition on historical disasters with a game of snakes and ladders',
 };
 
 export default blogMetaEn;
