@@ -16829,6 +16829,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asta-villa-geno-como-400mila-euro': {
+    title: 'Villa Geno a Como all\'asta: servono quasi 400mila euro',
+    description: 'Il Comune di Como mette all\'asta Villa Geno e l\'area verde annessa. La concessione ha un canone annuo di quasi 400mila euro. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, villa, geno, como, asta',
+    ogTitle: 'Villa Geno a Como all\'asta: servono quasi 400mila euro',
+    ogDescription: 'Il Comune di Como mette all\'asta Villa Geno e l\'area verde annessa. La concessione ha un canone annuo di quasi 400mila euro.',
+    canonicalPath: '/articoli-frontaliere/asta-villa-geno-como-400mila-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Villa Geno a Como all'asta: servono quasi 400mila euro",
+      "description": "Il Comune di Como mette all'asta Villa Geno e l'area verde annessa. La concessione ha un canone annuo di quasi 400mila euro. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/asta-villa-geno-como-400mila-euro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Geno a Como, con giardini verdi e vista sul lago di Como"
+      },
+      "datePublished": "2026-05-04T22:59:08+00:00",
+      "dateModified": "2026-05-04T22:59:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asta-villa-geno-como-400mila-euro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

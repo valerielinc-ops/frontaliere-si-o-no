@@ -5922,6 +5922,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-allenatore-orsi-serge-aubin.title': 'Serge Aubin nuovo allenatore del Berna',
     'blog.article.nuovo-allenatore-orsi-serge-aubin.excerpt': 'Il tecnico canadese ha firmato un contratto triennale con gli Orsi di Berna',
     'blog.article.nuovo-allenatore-orsi-serge-aubin.imageAlt': 'Serge Aubin in azione sulla pista di hockey',
+    'blog.article.asta-villa-geno-como-400mila-euro.title': 'Villa Geno a Como all\'asta: servono quasi 400mila euro',
+    'blog.article.asta-villa-geno-como-400mila-euro.excerpt': 'Il Comune di Como mette all\'asta Villa Geno e l\'area verde annessa. La concessione ha un canone annuo di quasi 400mila euro.',
+    'blog.article.asta-villa-geno-como-400mila-euro.imageAlt': 'Villa Geno a Como, con giardini verdi e vista sul lago di Como',
 };
 
 export default blogMetaIt;

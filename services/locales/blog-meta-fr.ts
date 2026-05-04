@@ -5922,6 +5922,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-allenatore-orsi-serge-aubin.title': 'Serge Aubin, nouvel entraîneur de Berne',
     'blog.article.nuovo-allenatore-orsi-serge-aubin.excerpt': 'L\'entraîneur canadien a signé un contrat de trois ans avec les Ours de Berne',
     'blog.article.nuovo-allenatore-orsi-serge-aubin.imageAlt': 'Serge Aubin en action sur la patinoire',
+    'blog.article.asta-villa-geno-como-400mila-euro.title': 'Villa Geno à Côme mise aux enchères: 400 000 euros nécessaires',
+    'blog.article.asta-villa-geno-como-400mila-euro.excerpt': 'La commune de Côme met aux enchères la Villa Geno et la zone verte attenante. La concession a un loyer annuel de près de 400 000 euros.',
+    'blog.article.asta-villa-geno-como-400mila-euro.imageAlt': 'Villa Geno à Côme, avec des jardins verts et vue sur le lac de Côme',
 };
 
 export default blogMetaFr;
