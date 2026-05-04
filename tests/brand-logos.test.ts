@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { PROVIDER_LOGOS, getProviderLogoUrl } from '@/services/brandLogos';
+import { PROVIDER_LOGOS, getProviderLogoUrl, INSURER_LOGOS, getInsurerLogoUrl } from '@/services/brandLogos';
 
 describe('getProviderLogoUrl', () => {
   it('returns Clearbit URL for known slug without localPath', () => {
@@ -31,5 +31,24 @@ describe('getProviderLogoUrl', () => {
     for (const slug of expectedSlugs) {
       expect(PROVIDER_LOGOS[slug], `missing slug: ${slug}`).toBeDefined();
     }
+  });
+});
+
+describe('getInsurerLogoUrl', () => {
+  it('returns local path for known insurer domain', () => {
+    expect(getInsurerLogoUrl('helsana.ch')).toBe('/images/insurers/helsana.svg');
+    expect(getInsurerLogoUrl('swica.ch')).toBe('/images/insurers/swica.svg');
+  });
+
+  it('maps groupemutuel.ch for all Groupe Mutuel brands', () => {
+    expect(getInsurerLogoUrl('groupemutuel.ch')).toMatch(/\/images\/insurers\//);
+  });
+
+  it('returns null for unknown domain', () => {
+    expect(getInsurerLogoUrl('unknown-insurer.ch')).toBeNull();
+  });
+
+  it('covers at least 20 insurer domains', () => {
+    expect(Object.keys(INSURER_LOGOS).length).toBeGreaterThanOrEqual(20);
   });
 });

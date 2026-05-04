@@ -44,3 +44,36 @@ export function getProviderLogoUrl(slug: string): string | null {
   if (entry.localPath) return entry.localPath;
   return `https://logo.clearbit.com/${entry.domain}`;
 }
+
+// ── Health insurer logos keyed by domain ────────────────────────────────────
+// 25 out of 34 downloaded from each insurer's official site (SVG preferred).
+// Remaining 9 fall back to Clearbit → Google favicon → placeholder at runtime.
+
+export const INSURER_LOGOS: Record<string, string> = {
+  'css.ch':            '/images/insurers/css.svg',
+  'aquilana.ch':       '/images/insurers/aquilana.png',
+  'sumiswalder.ch':    '/images/insurers/sumiswalder.png',
+  'concordia.ch':      '/images/insurers/concordia.svg',
+  'atupri.ch':         '/images/insurers/atupri.png',
+  'groupemutuel.ch':   '/images/insurers/avenir.svg',  // all Groupe Mutuel brands
+  'kpt.ch':            '/images/insurers/kpt.svg',
+  'oekk.ch':           '/images/insurers/okk.png',
+  'curaulta.ch':       '/images/insurers/curaulta.svg',
+  'egk.ch':            '/images/insurers/egk.svg',
+  'slkk.ch':           '/images/insurers/slkk.svg',
+  'sodalis.ch':        '/images/insurers/sodalis.png',
+  'kkwaedenswil.ch':   '/images/insurers/wadenswil.png',
+  'swica.ch':          '/images/insurers/swica.svg',
+  'galenos.ch':        '/images/insurers/galenos.png',
+  'rhenusana.ch':      '/images/insurers/rhenusana.svg',
+  'sanitas.com':       '/images/insurers/sanitas.png',
+  'assura.ch':         '/images/insurers/assura.png',
+  'visana.ch':         '/images/insurers/visana.svg',
+  'helsana.ch':        '/images/insurers/helsana.svg',
+  'sana24.ch':         '/images/insurers/sana24.svg',
+};
+
+/** Returns the committed local logo path for a health insurer domain, or null. */
+export function getInsurerLogoUrl(domain: string): string | null {
+  return INSURER_LOGOS[domain] ?? null;
+}
