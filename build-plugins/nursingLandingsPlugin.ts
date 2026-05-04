@@ -39,6 +39,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
+import { runCached } from './shared/buildCache';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -361,60 +362,85 @@ export function nursingLandingsPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      const collector = new WriteCollector({ distDir, pluginName: 'nursingLandingsPlugin' });
       const dateStamp = new Date().toISOString().slice(0, 10);
-      const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
 
-      let pagesWritten = 0;
-      let thinSkipped = 0;
+      // Cacheable: 3 nursing landings × 4 locales = 12 pages × 2 (index+flat)
+      // = 24 files + sitemap-nursing.xml. Inputs are imports only (NURSING_*
+      // copy + data tables). extraKey on dateStamp captures the day-stamp
+      // shift in JSON-LD + sitemap lastmod.
+      await runCached({
+        pluginName: 'nursing-landings',
+        rootDir,
+        distDir,
+        bundleEntry: np.resolve(rootDir, 'build-plugins/nursingLandingsPlugin.ts'),
+        extraKey: dateStamp,
+        work: async ({ recordWrite }) => {
+          const collector = new WriteCollector({
+            distDir,
+            pluginName: 'nursingLandingsPlugin',
+            pathRecorder: recordWrite,
+          });
+          const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
 
-      for (const id of NURSING_LANDING_IDS) {
-        // Build hreflang alt list once per id — same 4 locales for every page.
-        const alternates = NURSING_LOCALES.map((alt) => `${alt}|${BASE_URL}${buildNursingLandingPath(alt, id)}`);
-        alternates.push(`x-default|${BASE_URL}${buildNursingLandingPath('it', id)}`);
+          let pagesWritten = 0;
+          let thinSkipped = 0;
 
-        for (const locale of NURSING_LOCALES) {
-          const rendered = renderPage({ locale, id, dateStamp, distDir });
+          for (const id of NURSING_LANDING_IDS) {
+            const alternates = NURSING_LOCALES.map((alt) => `${alt}|${BASE_URL}${buildNursingLandingPath(alt, id)}`);
+            alternates.push(`x-default|${BASE_URL}${buildNursingLandingPath('it', id)}`);
 
-          if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
-            thinSkipped++;
-            console.warn(
-              `\x1b[33m[nursing-landings]\x1b[0m ${locale}/${id} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
-            );
-            continue;
+            for (const locale of NURSING_LOCALES) {
+              const rendered = renderPage({ locale, id, dateStamp, distDir });
+
+              if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+                thinSkipped++;
+                console.warn(
+                  `\x1b[33m[nursing-landings]\x1b[0m ${locale}/${id} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+                );
+                continue;
+              }
+
+              const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
+              const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
+              collector.add(indexPath, rendered.html);
+              collector.add(flatPath, rendered.html);
+
+              if (locale === 'it') {
+                sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+              }
+
+              pagesWritten++;
+            }
           }
 
-          const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
-          const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
-          collector.add(indexPath, rendered.html);
-          collector.add(flatPath, rendered.html);
-
-          // Only emit IT canonicals in the sitemap; EN/DE/FR are surfaced via
-          // the hreflang alternates on that IT entry.
-          if (locale === 'it') {
-            sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+          if (sitemapEntries.length > 0) {
+            try {
+              const xml = buildSitemapXml(sitemapEntries, dateStamp);
+              fs.mkdirSync(distDir, { recursive: true });
+              const sitemapPath = np.join(distDir, 'sitemap-nursing.xml');
+              fs.writeFileSync(sitemapPath, xml, 'utf-8');
+              recordWrite(sitemapPath);
+            } catch (err) {
+              console.warn('\x1b[33m[nursing-landings]\x1b[0m sitemap write failed:', err);
+            }
           }
 
-          pagesWritten++;
-        }
-      }
+          const t0 = Date.now();
+          const written = await collector.flush();
+          console.log(
+            `\x1b[36m[nursing-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+          );
+        },
+      });
 
-      if (sitemapEntries.length > 0) {
+      // Always-run: patch sitemap.xml index lastmod (regenerated each build).
+      if (fs.existsSync(np.join(distDir, 'sitemap-nursing.xml'))) {
         try {
-          const xml = buildSitemapXml(sitemapEntries, dateStamp);
-          fs.mkdirSync(distDir, { recursive: true });
-          fs.writeFileSync(np.join(distDir, 'sitemap-nursing.xml'), xml, 'utf-8');
           patchSitemapIndex(distDir, dateStamp);
         } catch (err) {
-          console.warn('\x1b[33m[nursing-landings]\x1b[0m sitemap write failed:', err);
+          console.warn('\x1b[33m[nursing-landings]\x1b[0m sitemap-index patch failed:', err);
         }
       }
-
-      const t0 = Date.now();
-      const written = await collector.flush();
-      console.log(
-        `\x1b[36m[nursing-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
-      );
     },
   };
 }

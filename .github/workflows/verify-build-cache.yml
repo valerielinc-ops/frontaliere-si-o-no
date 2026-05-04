@@ -84,6 +84,9 @@ jobs:
             'profession-landings'
             'cost-of-living-landings'
             'career-landings'
+            'nursing-landings'
+            'faq-hub'
+            'fr-salaire-net-landing'
           )
           MISSING=()
           for p in "${PLUGINS[@]}"; do
@@ -126,6 +129,12 @@ jobs:
             '/sitemap-cost-of-living.xml'
             # career-landings
             '/sitemap-career-landings.xml'
+            # nursing-landings
+            '/sitemap-nursing.xml'
+            # faq-hub
+            '/sitemap-faq-hub.xml'
+            # fr-salaire-net-landing
+            '/sitemap-fr-salaire-net.xml'
           )
           DRIFT=0
           for p in "${PATTERNS[@]}"; do
