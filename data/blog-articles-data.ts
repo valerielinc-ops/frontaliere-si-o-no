@@ -18596,4 +18596,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sicurezza-varese-monte-santo-intervento-comune',
+ category: 'novita',
+ date: '2026-05-04T12:24:00.954Z',
+ image: '/images/blog/sicurezza-varese-monte-santo-intervento-comune.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

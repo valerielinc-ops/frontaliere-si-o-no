@@ -5741,6 +5741,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tragedia-bellinzona-folgorazione-2026.title': 'Tragödie am Bahnhof Bellinzona: Mann durch Bahnstrom getötet',
     'blog.article.tragedia-bellinzona-folgorazione-2026.excerpt': 'Ein Mann wurde durch Bahnstrom am Bahnhof Bellinzona getötet. Die Ermittlungen laufen.',
     'blog.article.tragedia-bellinzona-folgorazione-2026.imageAlt': 'Bellinzona Bahnhof bei Nacht mit Notbeleuchtung und Polizeifahrzeugen',
+    'blog.article.sicurezza-varese-monte-santo-intervento-comune.title': 'Varese: Monti und Angei (Lega) fordern dringenden Einsatz für Via Monte Santo',
+    'blog.article.sicurezza-varese-monte-santo-intervento-comune.excerpt': 'Die Gemeinderäte Monti und Angei melden Verwahrlosung und Unsicherheit im ehemaligen Sitz der öffentlichen Arbeiten',
+    'blog.article.sicurezza-varese-monte-santo-intervento-comune.imageAlt': 'Luftaufnahme des Varese Stadtzentrums mit dem Monte Santo Bereich im Fokus',
 };
 
 export default blogMetaDe;

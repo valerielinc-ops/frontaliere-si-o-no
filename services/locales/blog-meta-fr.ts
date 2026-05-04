@@ -5742,6 +5742,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tragedia-bellinzona-folgorazione-2026.title': 'Tragédie à la gare de Bellinzona: un homme électrocuté',
     'blog.article.tragedia-bellinzona-folgorazione-2026.excerpt': 'Un homme est mort électrocuté par la ligne ferroviaire à la gare de Bellinzona. Les enquêtes sont en cours.',
     'blog.article.tragedia-bellinzona-folgorazione-2026.imageAlt': 'Gare de Bellinzona de nuit avec éclairage d\'urgence et véhicules de police',
+    'blog.article.sicurezza-varese-monte-santo-intervento-comune.title': 'Varèse : Monti et Angei demandent une intervention urgente',
+    'blog.article.sicurezza-varese-monte-santo-intervento-comune.excerpt': 'Les conseillers communaux Monti et Angei dénoncent le délabrement et l\'insécurité dans l\'ancienne siège des Travaux Publics',
+    'blog.article.sicurezza-varese-monte-santo-intervento-comune.imageAlt': 'Vue aérienne du centre-ville de Varese avec la zone de Monte Santo en premier plan',
 };
 
 export default blogMetaFr;

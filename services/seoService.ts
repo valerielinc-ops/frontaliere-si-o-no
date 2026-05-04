@@ -3156,6 +3156,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ospedale-erba-cura-oncologiche-2026': { name: 'Novità', path: '/articoli-frontaliere/ospedale-erba-cura-oncologiche-2026', parent: 'blog' },
     'blog-mezzo-milione-franchi-progetti-luganese-2026': { name: 'Novità', path: '/articoli-frontaliere/mezzo-milione-franchi-progetti-luganese-2026', parent: 'blog' },
     'blog-tragedia-bellinzona-folgorazione-2026': { name: 'Novità', path: '/articoli-frontaliere/tragedia-bellinzona-folgorazione-2026', parent: 'blog' },
+    'blog-sicurezza-varese-monte-santo-intervento-comune': { name: 'Novità Varese', path: '/articoli-frontaliere/sicurezza-varese-monte-santo-intervento-comune', parent: 'blog' },
  };
 
  const info = sectionNames[section];

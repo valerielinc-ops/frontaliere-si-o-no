@@ -5742,6 +5742,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tragedia-bellinzona-folgorazione-2026.title': 'Tragedia alla stazione di Bellinzona: muore folgorato dalla linea ferroviaria',
     'blog.article.tragedia-bellinzona-folgorazione-2026.excerpt': 'Un uomo è morto folgorato dalla linea ferroviaria alla stazione di Bellinzona. Le indagini sono in corso.',
     'blog.article.tragedia-bellinzona-folgorazione-2026.imageAlt': 'Stazione ferroviaria di Bellinzona di notte con luci di emergenza e veicoli della polizia',
+    'blog.article.sicurezza-varese-monte-santo-intervento-comune.title': 'Varese: Monti e Angei (Lega) chiedono intervento urgente per via Monte Santo',
+    'blog.article.sicurezza-varese-monte-santo-intervento-comune.excerpt': 'I consiglieri comunali Monti e Angei denunciano degrado e insicurezza nell\'ex sede dei Lavori Pubblici',
+    'blog.article.sicurezza-varese-monte-santo-intervento-comune.imageAlt': 'Vista aerea del centro di Varese con l\'area di Monte Santo in primo piano',
 };
 
 export default blogMetaIt;

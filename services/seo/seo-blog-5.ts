@@ -14789,6 +14789,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-varese-monte-santo-intervento-comune': {
+    title: 'Varese: Monti e Angei (Lega) chiedono intervento urgente per via Monte Santo',
+    description: 'I consiglieri comunali Monti e Angei denunciano degrado e insicurezza nell\'ex sede dei Lavori Pubblici a Varese, chiedendo un intervento urgente. Dati',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, monti, angei, lega',
+    ogTitle: 'Varese: Monti e Angei (Lega) chiedono intervento urgente per via Monte Santo',
+    ogDescription: 'I consiglieri comunali Monti e Angei denunciano degrado e insicurezza nell\'ex sede dei Lavori Pubblici a Varese, chiedendo un intervento urgente',
+    canonicalPath: '/articoli-frontaliere/sicurezza-varese-monte-santo-intervento-comune',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: Monti e Angei (Lega) chiedono intervento urgente per via Monte Santo",
+      "description": "I consiglieri comunali Monti e Angei denunciano degrado e insicurezza nell'ex sede dei Lavori Pubblici a Varese, chiedendo un intervento urgente. Dati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sicurezza-varese-monte-santo-intervento-comune.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro di Varese con l'area di Monte Santo in primo piano"
+      },
+      "datePublished": "2026-05-04T12:24:01+00:00",
+      "dateModified": "2026-05-04T12:24:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-varese-monte-santo-intervento-comune`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
