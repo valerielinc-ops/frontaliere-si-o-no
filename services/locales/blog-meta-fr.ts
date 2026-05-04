@@ -5631,6 +5631,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.democrazia-finisce-quando-ticino.title': 'Quand une démocratie cesse d\'en être une',
     'blog.article.democrazia-finisce-quando-ticino.excerpt': 'Des experts discutent des signes de déclin démocratique et des défis à définir sa fin, avec des implications pour les frontaliers en Suisse.',
     'blog.article.democrazia-finisce-quando-ticino.imageAlt': 'Château de Castelgrande à Bellinzone, Tessin',
+    'blog.article.belotti-sport-test-scarpe-trail-running-2026.title': 'Test gratuit de chaussures de trail à Monte Verità',
+    'blog.article.belotti-sport-test-scarpe-trail-running-2026.excerpt': 'Belotti Sport organise un événement gratuit pour essayer des chaussures de trail au Monte Verità d\'Ascona le 9 mai 2026.',
+    'blog.article.belotti-sport-test-scarpe-trail-running-2026.imageAlt': 'Groupe de trail runners testant des chaussures au Monte Verità à Ascona, Tessin',
 };
 
 export default blogMetaFr;

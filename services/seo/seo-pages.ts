@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1929,
+ "numberOfItems": 1930,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6567,7 +6567,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1926, "name": "Da Lavena Ponte Tresa un brano musicale in onor...", "url": `${BASE_URL}/articoli-frontaliere/lavena-brano-musicale-leone-xiv` },
           { "@type": "ListItem", "position": 1927, "name": "UNESCO lancia l'allarme: minacce e autocensura ...", "url": `${BASE_URL}/articoli-frontaliere/giornata-liberta-stampa-unesco-minacce-autocensura` },
           { "@type": "ListItem", "position": 1928, "name": "Russotto a Bellinzona: «Una scelta che forse no...", "url": `${BASE_URL}/articoli-frontaliere/russotto-bellinzona-frontalieri-2026` },
-          { "@type": "ListItem", "position": 1929, "name": "Quando una democrazia smette di essere tale", "url": `${BASE_URL}/articoli-frontaliere/democrazia-finisce-quando-ticino` }
+          { "@type": "ListItem", "position": 1929, "name": "Quando una democrazia smette di essere tale", "url": `${BASE_URL}/articoli-frontaliere/democrazia-finisce-quando-ticino` },
+          { "@type": "ListItem", "position": 1930, "name": "Test gratuito di scarpe da trail-running a Mont...", "url": `${BASE_URL}/articoli-frontaliere/belotti-sport-test-scarpe-trail-running-2026` }
  ]
  },
  {

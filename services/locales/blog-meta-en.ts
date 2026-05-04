@@ -5630,6 +5630,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.democrazia-finisce-quando-ticino.title': 'When a democracy stops being one',
     'blog.article.democrazia-finisce-quando-ticino.excerpt': 'Experts discuss the signs of democratic decline and the challenges in defining its end, with implications for cross-border workers in Ticino.',
     'blog.article.democrazia-finisce-quando-ticino.imageAlt': 'Castelgrande Castle in Bellinzona, Ticino',
+    'blog.article.belotti-sport-test-scarpe-trail-running-2026.title': 'Free trail-running shoe test at Monte Verità',
+    'blog.article.belotti-sport-test-scarpe-trail-running-2026.excerpt': 'Belotti Sport organizes a free event to try trail-running shoes at Monte Verità in Ascona on May 9, 2026.',
+    'blog.article.belotti-sport-test-scarpe-trail-running-2026.imageAlt': 'Group of trail runners testing shoes at Monte Verità in Ascona, Ticino',
 };
 
 export default blogMetaEn;

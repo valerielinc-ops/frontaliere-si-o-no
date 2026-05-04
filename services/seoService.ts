@@ -3119,6 +3119,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giornata-liberta-stampa-unesco-minacce-autocensura': { name: 'Novità', path: '/articoli-frontaliere/giornata-liberta-stampa-unesco-minacce-autocensura', parent: 'blog' },
     'blog-russotto-bellinzona-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/russotto-bellinzona-frontalieri-2026', parent: 'blog' },
     'blog-democrazia-finisce-quando-ticino': { name: 'Novità', path: '/articoli-frontaliere/democrazia-finisce-quando-ticino', parent: 'blog' },
+    'blog-belotti-sport-test-scarpe-trail-running-2026': { name: 'Eventi sportivi', path: '/articoli-frontaliere/belotti-sport-test-scarpe-trail-running-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

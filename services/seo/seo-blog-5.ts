@@ -13531,6 +13531,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-belotti-sport-test-scarpe-trail-running-2026': {
+    title: 'Test gratuito di scarpe da trail-running a Monte Verità',
+    description: 'Belotti Sport organizza un test gratuito di scarpe da trail-running al Monte Verità di Ascona il 9 maggio 2026. Iscrizioni aperte. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, test, gratuito, scarpe, trail-running',
+    ogTitle: 'Test gratuito scarpe trail-running Monte Verità 2026',
+    ogDescription: 'Belotti Sport organizza un test gratuito di scarpe da trail-running al Monte Verità di Ascona il 9 maggio 2026. Iscrizioni aperte.',
+    canonicalPath: '/articoli-frontaliere/belotti-sport-test-scarpe-trail-running-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Test gratuito di scarpe da trail-running a Monte Verità",
+      "description": "Belotti Sport organizza un test gratuito di scarpe da trail-running al Monte Verità di Ascona il 9 maggio 2026. Iscrizioni aperte. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/belotti-sport-test-scarpe-trail-running-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di trail runner durante un test di scarpe al Monte Verità di Ascona, Ticino"
+      },
+      "datePublished": "2026-05-04T07:10:21+00:00",
+      "dateModified": "2026-05-04T07:10:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/belotti-sport-test-scarpe-trail-running-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
