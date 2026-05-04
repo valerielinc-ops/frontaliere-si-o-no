@@ -5547,6 +5547,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.antonelli-vince-gp-miami-2026.title': 'Antonelli vince il GP Miami 2026: ordine d\'arrivo e classifica mondiale',
     'blog.article.antonelli-vince-gp-miami-2026.excerpt': 'Andrea Kimi Antonelli trionfa a Miami e resta leader del Mondiale di Formula 1. Ecco l\'ordine d\'arrivo e la classifica aggiornata.',
     'blog.article.antonelli-vince-gp-miami-2026.imageAlt': 'Lago di Lugano con auto da Formula 1 in primo piano',
+    'blog.article.tre-morti-hantavirus-nave-atlantico.title': 'Hantavirus su nave, 3 morti nell\'Atlantico',
+    'blog.article.tre-morti-hantavirus-nave-atlantico.excerpt': 'L\'OMS conferma tre decessi legati a un possibile focolaio di hantavirus su una nave da crociera nell\'Atlantico. Ecco cosa sappiamo.',
+    'blog.article.tre-morti-hantavirus-nave-atlantico.imageAlt': 'Lago di Lugano con nave da crociera in lontananza',
 };
 
 export default blogMetaIt;

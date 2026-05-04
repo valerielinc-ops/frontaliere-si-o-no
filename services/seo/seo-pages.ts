@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1901,
+ "numberOfItems": 1902,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6539,7 +6539,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1898, "name": "La Casa dell'Hockey: novità e sviluppi nel mond...", "url": `${BASE_URL}/articoli-frontaliere/casa-hockey-ticino-novita` },
           { "@type": "ListItem", "position": 1899, "name": "Tessile diventa arte: evento a Como con oltre 1...", "url": `${BASE_URL}/articoli-frontaliere/tessile-arte-giovani-generazioni-como` },
           { "@type": "ListItem", "position": 1900, "name": "Crans-Montana: riciclaggio e incendio restano u...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-incendio-riciclaggio-2026` },
-          { "@type": "ListItem", "position": 1901, "name": "Antonelli vince il GP Miami 2026: ordine d'arri...", "url": `${BASE_URL}/articoli-frontaliere/antonelli-vince-gp-miami-2026` }
+          { "@type": "ListItem", "position": 1901, "name": "Antonelli vince il GP Miami 2026: ordine d'arri...", "url": `${BASE_URL}/articoli-frontaliere/antonelli-vince-gp-miami-2026` },
+          { "@type": "ListItem", "position": 1902, "name": "Hantavirus su nave, 3 morti nell'Atlantico", "url": `${BASE_URL}/articoli-frontaliere/tre-morti-hantavirus-nave-atlantico` }
  ]
  },
  {

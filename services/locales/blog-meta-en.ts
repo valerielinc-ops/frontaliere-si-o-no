@@ -5546,6 +5546,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.antonelli-vince-gp-miami-2026.title': 'Antonelli wins Miami GP 2026: race results and world championship standings',
     'blog.article.antonelli-vince-gp-miami-2026.excerpt': 'Andrea Kimi Antonelli triumphs in Miami and remains the leader of the Formula 1 World Championship. Here is the final classification and the updated standings.',
     'blog.article.antonelli-vince-gp-miami-2026.imageAlt': 'Lake Lugano with a Formula 1 car in the foreground',
+    'blog.article.tre-morti-hantavirus-nave-atlantico.title': 'Hantavirus on ship, 3 deaths in the Atlantic',
+    'blog.article.tre-morti-hantavirus-nave-atlantico.excerpt': 'The WHO confirms three deaths linked to a possible hantavirus outbreak on a cruise ship in the Atlantic. Here\'s what we know.',
+    'blog.article.tre-morti-hantavirus-nave-atlantico.imageAlt': 'Lake Lugano with a cruise ship in the distance',
 };
 
 export default blogMetaEn;

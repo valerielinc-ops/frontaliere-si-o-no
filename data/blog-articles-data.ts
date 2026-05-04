@@ -18011,4 +18011,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tre-morti-hantavirus-nave-atlantico',
+ category: 'novita',
+ date: '2026-05-04T03:52:13.309Z',
+ image: '/images/blog/tre-morti-hantavirus-nave-atlantico.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

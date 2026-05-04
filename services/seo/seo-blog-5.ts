@@ -12579,6 +12579,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tre-morti-hantavirus-nave-atlantico': {
+    title: 'Hantavirus su nave, 3 morti nell\'Atlantico | Frontaliere Ticino',
+    description: 'L\'OMS conferma tre decessi legati a un possibile focolaio di hantavirus su una nave da crociera nell\'Atlantico. Ecco cosa sappiamo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, hantavirus, nave, morti, nell',
+    ogTitle: 'Tre morti hantavirus nave Atlantico | Frontaliere Ticino',
+    ogDescription: 'L\'OMS conferma tre decessi legati a un possibile focolaio di hantavirus su una nave da crociera nell\'Atlantico. Ecco cosa sappiamo.',
+    canonicalPath: '/articoli-frontaliere/tre-morti-hantavirus-nave-atlantico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hantavirus su nave, 3 morti nell'Atlantico",
+      "description": "L'OMS conferma tre decessi legati a un possibile focolaio di hantavirus su una nave da crociera nell'Atlantico. Ecco cosa sappiamo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tre-morti-hantavirus-nave-atlantico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con nave da crociera in lontananza"
+      },
+      "datePublished": "2026-05-04T03:52:13+00:00",
+      "dateModified": "2026-05-04T03:52:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tre-morti-hantavirus-nave-atlantico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
