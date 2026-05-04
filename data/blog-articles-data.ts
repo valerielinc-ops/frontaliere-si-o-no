@@ -19181,4 +19181,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lot-polish-60-anni-malpensa-varsavia',
+ category: 'novita',
+ date: '2026-05-04T23:55:14.513Z',
+ image: '/images/blog/lot-polish-60-anni-malpensa-varsavia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

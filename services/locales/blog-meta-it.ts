@@ -5937,6 +5937,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cazzago-brabbia-camminan-mangiando-2026.title': 'Camminata enogastronomica a Cazzago Brabbia',
     'blog.article.cazzago-brabbia-camminan-mangiando-2026.excerpt': 'Una passeggiata di 5 km tra sapori locali, eventi culturali e scorci del territorio a Cazzago Brabbia domenica 17 maggio 2026.',
     'blog.article.cazzago-brabbia-camminan-mangiando-2026.imageAlt': 'Vista panoramica del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.lot-polish-60-anni-malpensa-varsavia.title': 'Lot Polish Airlines festeggia 60 anni di voli tra Malpensa e Varsavia',
+    'blog.article.lot-polish-60-anni-malpensa-varsavia.excerpt': 'La compagnia aerea celebra sei decenni di collegamenti con oltre 2,2 milioni di passeggeri trasportati',
+    'blog.article.lot-polish-60-anni-malpensa-varsavia.imageAlt': 'Aeroporto di Milano Malpensa con aereo LOT Polish Airlines',
 };
 
 export default blogMetaIt;

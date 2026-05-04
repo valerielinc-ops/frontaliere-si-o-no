@@ -5936,6 +5936,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cazzago-brabbia-camminan-mangiando-2026.title': 'Food and wine walk in Cazzago Brabbia',
     'blog.article.cazzago-brabbia-camminan-mangiando-2026.excerpt': 'A 5 km walk through local flavors, cultural events, and scenic views in Cazzago Brabbia on Sunday, May 17, 2026.',
     'blog.article.cazzago-brabbia-camminan-mangiando-2026.imageAlt': 'Panoramic view of Lake Lugano with mountains in the background',
+    'blog.article.lot-polish-60-anni-malpensa-varsavia.title': 'LOT Polish Airlines celebrates 60 years of flights between Malpensa and Warsaw',
+    'blog.article.lot-polish-60-anni-malpensa-varsavia.excerpt': 'The airline celebrates six decades of connections with over 2.2 million passengers transported',
+    'blog.article.lot-polish-60-anni-malpensa-varsavia.imageAlt': 'Milan Malpensa Airport with LOT Polish Airlines plane',
 };
 
 export default blogMetaEn;

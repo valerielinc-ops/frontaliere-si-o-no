@@ -3221,6 +3221,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-intelligenza-artificiale-robotica-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/intelligenza-artificiale-robotica-varese-2026', parent: 'blog' },
     'blog-frontalieri-rifiuti-lac-lemano': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-rifiuti-lac-lemano', parent: 'blog' },
     'blog-cazzago-brabbia-camminan-mangiando-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/cazzago-brabbia-camminan-mangiando-2026', parent: 'blog' },
+    'blog-lot-polish-60-anni-malpensa-varsavia': { name: 'Novità', path: '/articoli-frontaliere/lot-polish-60-anni-malpensa-varsavia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

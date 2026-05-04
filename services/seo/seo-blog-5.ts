@@ -16999,6 +16999,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lot-polish-60-anni-malpensa-varsavia': {
+    title: 'Lot Polish Airlines festeggia 60 anni di voli tra Malpensa e Varsavia',
+    description: 'LOT Polish Airlines celebra 60 anni di collegamenti tra Milano Malpensa e Varsavia con oltre 2,2 milioni di passeggeri trasportati. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, polish, airlines, festeggia, anni',
+    ogTitle: 'Lot Polish Airlines festeggia 60 anni di voli tra Malpensa e Varsavia',
+    ogDescription: 'LOT Polish Airlines celebra 60 anni di collegamenti tra Milano Malpensa e Varsavia con oltre 2,2 milioni di passeggeri trasportati',
+    canonicalPath: '/articoli-frontaliere/lot-polish-60-anni-malpensa-varsavia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lot Polish Airlines festeggia 60 anni di voli tra Malpensa e Varsavia",
+      "description": "LOT Polish Airlines celebra 60 anni di collegamenti tra Milano Malpensa e Varsavia con oltre 2,2 milioni di passeggeri trasportati. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lot-polish-60-anni-malpensa-varsavia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Milano Malpensa con aereo LOT Polish Airlines"
+      },
+      "datePublished": "2026-05-04T23:55:14+00:00",
+      "dateModified": "2026-05-04T23:55:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lot-polish-60-anni-malpensa-varsavia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
