@@ -15129,6 +15129,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inaugurato-nuovo-cardiocentro-ticino': {
+    title: 'Inaugurato il nuovo Cardiocentro Ticino | Frontaliere Ticino',
+    description: 'Il nuovo Cardiocentro Ticino offre servizi integrati e migliorata assistenza specialistica per il territorio. Inaugurato a Lugano il 4 maggio 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inaugurato, nuovo, cardiocentro, offre',
+    ogTitle: 'Inaugurato il nuovo Cardiocentro Ticino',
+    ogDescription: 'Il nuovo Cardiocentro Ticino offre servizi integrati e migliorata assistenza specialistica per il territorio. Inaugurato a Lugano il 4 maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/inaugurato-nuovo-cardiocentro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inaugurato il nuovo Cardiocentro Ticino",
+      "description": "Il nuovo Cardiocentro Ticino offre servizi integrati e migliorata assistenza specialistica per il territorio. Inaugurato a Lugano il 4 maggio 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inaugurato-nuovo-cardiocentro-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del nuovo Cardiocentro a Lugano, Svizzera, con architettura moderna e paesaggio urbano circostante."
+      },
+      "datePublished": "2026-05-04T14:34:45+00:00",
+      "dateModified": "2026-05-04T14:34:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inaugurato-nuovo-cardiocentro-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

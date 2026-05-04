@@ -5772,6 +5772,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lotta-zanzara-tigre-mendrisio.title': 'Lotta alla zanzara tigre a Mendrisio',
     'blog.article.lotta-zanzara-tigre-mendrisio.excerpt': 'Mendrisio in prima linea nel 2026 contro la zanzara tigre',
     'blog.article.lotta-zanzara-tigre-mendrisio.imageAlt': 'Zanzara tigre in un parco di Mendrisio',
+    'blog.article.inaugurato-nuovo-cardiocentro-ticino.title': 'Inaugurato il nuovo Cardiocentro Ticino',
+    'blog.article.inaugurato-nuovo-cardiocentro-ticino.excerpt': 'Il nuovo Cardiocentro Ticino offre servizi integrati e migliorata assistenza specialistica per il territorio. Inaugurato a Lugano il 4 maggio 2026.',
+    'blog.article.inaugurato-nuovo-cardiocentro-ticino.imageAlt': 'Vista aerea del nuovo Cardiocentro a Lugano, Svizzera, con architettura moderna e paesaggio urbano circostante.',
 };
 
 export default blogMetaIt;

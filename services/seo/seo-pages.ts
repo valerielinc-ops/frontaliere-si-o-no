@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1976,
+ "numberOfItems": 1977,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6614,7 +6614,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1973, "name": "Aperto il nuovo McDonald's di Lamone", "url": `${BASE_URL}/articoli-frontaliere/mcdonalds-lamone-apertura-2026` },
           { "@type": "ListItem", "position": 1974, "name": "Maxi piano per il traffico sulla statale del La...", "url": `${BASE_URL}/articoli-frontaliere/maxi-piano-traffico-lago-como-2026` },
           { "@type": "ListItem", "position": 1975, "name": "Incendio sul tetto a Chiasso, evacuati una tren...", "url": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-evacuati-trentina-persone` },
-          { "@type": "ListItem", "position": 1976, "name": "Lotta alla zanzara tigre a Mendrisio", "url": `${BASE_URL}/articoli-frontaliere/lotta-zanzara-tigre-mendrisio` }
+          { "@type": "ListItem", "position": 1976, "name": "Lotta alla zanzara tigre a Mendrisio", "url": `${BASE_URL}/articoli-frontaliere/lotta-zanzara-tigre-mendrisio` },
+          { "@type": "ListItem", "position": 1977, "name": "Inaugurato il nuovo Cardiocentro Ticino", "url": `${BASE_URL}/articoli-frontaliere/inaugurato-nuovo-cardiocentro-ticino` }
  ]
  },
  {

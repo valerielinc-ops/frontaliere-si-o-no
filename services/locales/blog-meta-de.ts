@@ -5771,6 +5771,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lotta-zanzara-tigre-mendrisio.title': 'Kampf gegen die Tiger-Mücke in Mendrisio',
     'blog.article.lotta-zanzara-tigre-mendrisio.excerpt': 'Mendrisio steht 2026 im Kampf gegen die Tiger-Mücke an der Spitze',
     'blog.article.lotta-zanzara-tigre-mendrisio.imageAlt': 'Tigermücke in einem Mendrisio-Park',
+    'blog.article.inaugurato-nuovo-cardiocentro-ticino.title': 'Neues Cardiocentro Ticino eröffnet',
+    'blog.article.inaugurato-nuovo-cardiocentro-ticino.excerpt': 'Das neue Cardiocentro Ticino bietet integrierte Dienstleistungen und verbesserte Fach assistência für die Region. Am 4. Mai 2026 in Lugano eröffnet.',
+    'blog.article.inaugurato-nuovo-cardiocentro-ticino.imageAlt': 'Luftaufnahme des neuen Cardiocentros in Lugano, Schweiz, mit moderner Architektur und umliegender städtischer Landschaft.',
 };
 
 export default blogMetaDe;

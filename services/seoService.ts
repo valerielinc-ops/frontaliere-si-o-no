@@ -3166,6 +3166,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-maxi-piano-traffico-lago-como-2026': { name: 'Novità', path: '/articoli-frontaliere/maxi-piano-traffico-lago-como-2026', parent: 'blog' },
     'blog-incendio-chiasso-evacuati-trentina-persone': { name: 'Incendio Chiasso', path: '/articoli-frontaliere/incendio-chiasso-evacuati-trentina-persone', parent: 'blog' },
     'blog-lotta-zanzara-tigre-mendrisio': { name: 'Lotta zanzara tigre', path: '/articoli-frontaliere/lotta-zanzara-tigre-mendrisio', parent: 'blog' },
+    'blog-inaugurato-nuovo-cardiocentro-ticino': { name: 'Novità', path: '/articoli-frontaliere/inaugurato-nuovo-cardiocentro-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
