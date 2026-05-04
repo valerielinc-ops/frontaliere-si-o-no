@@ -16217,6 +16217,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-policonsumo-ticino-2026': {
+    title: 'Policonsumo di droga in Ticino: il rapporto 2025 di Ingrado',
+    description: 'Il rapporto 2025 di Ingrado conferma il policonsumo come tendenza prevalente in Ticino, con un aumento del 16,4% nei consultori sostanze. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, policonsumo, droga, rapporto, 2025',
+    ogTitle: 'Policonsumo droga Ticino 2026: rapporto Ingrado',
+    ogDescription: 'Il rapporto 2025 di Ingrado conferma il policonsumo come tendenza prevalente in Ticino, con un aumento del 16,4% nei consultori sostanze.',
+    canonicalPath: '/articoli-frontaliere/policonsumo-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Policonsumo di droga in Ticino: il rapporto 2025 di Ingrado",
+      "description": "Il rapporto 2025 di Ingrado conferma il policonsumo come tendenza prevalente in Ticino, con un aumento del 16,4% nei consultori sostanze. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/policonsumo-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-04T20:24:59+00:00",
+      "dateModified": "2026-05-04T20:24:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/policonsumo-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

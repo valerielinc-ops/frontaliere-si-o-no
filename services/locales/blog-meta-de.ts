@@ -5867,6 +5867,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.legge-quadro-florovivaismo-varese-2026.title': 'Rahmengesetz Florovivaismo: Freigabe, Varese zufrieden',
     'blog.article.legge-quadro-florovivaismo-varese-2026.excerpt': 'Das Rahmengesetz zum Florovivaismo wurde verabschiedet. Confagricoltura Varese: ein historischer Meilenstein für den Sektor, der 10% der Landwirtschaft der Provinz ausmacht.',
     'blog.article.legge-quadro-florovivaismo-varese-2026.imageAlt': 'Blumenfelder in Varese, Italien, mit Gewächshäusern und bunten Blumen unter einem klaren blauen Himmel',
+    'blog.article.policonsumo-ticino-2026.title': 'Mehrfachkonsum von Drogen im Tessin: Ingrado-Bericht 2025',
+    'blog.article.policonsumo-ticino-2026.excerpt': 'Der Ingrado-Bericht 2025 bestätigt den Mehrfachkonsum als vorherrschende Tendenz im Tessin, mit einem Anstieg von 16,4% in den Suchtberatungsstellen.',
+    'blog.article.policonsumo-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

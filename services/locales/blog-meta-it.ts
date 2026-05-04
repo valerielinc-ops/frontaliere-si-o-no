@@ -5868,6 +5868,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.legge-quadro-florovivaismo-varese-2026.title': 'Legge Quadro Florovivaismo: via libera, Confagricoltura Varese soddisfatta',
     'blog.article.legge-quadro-florovivaismo-varese-2026.excerpt': 'Approvata la Legge Quadro sul Florovivaismo. Confagricoltura Varese: un traguardo storico per il settore, che vale il 10% dell\'agricoltura provinciale.',
     'blog.article.legge-quadro-florovivaismo-varese-2026.imageAlt': 'Campi di florovivaismo a Varese, Italia, con serre e fiori colorati sotto un cielo azzurro',
+    'blog.article.policonsumo-ticino-2026.title': 'Policonsumo di droga in Ticino: il rapporto 2025 di Ingrado',
+    'blog.article.policonsumo-ticino-2026.excerpt': 'Il rapporto 2025 di Ingrado conferma il policonsumo come tendenza prevalente in Ticino, con un aumento del 16,4% nei consultori sostanze.',
+    'blog.article.policonsumo-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

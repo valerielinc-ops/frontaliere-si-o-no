@@ -18974,4 +18974,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'policonsumo-ticino-2026',
+ category: 'novita',
+ date: '2026-05-04T20:24:59.326Z',
+ image: '/images/blog/policonsumo-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

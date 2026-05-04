@@ -3198,6 +3198,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-elicottero-mezzovico-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/elicottero-mezzovico-frontalieri', parent: 'blog' },
     'blog-ospedale-universitario-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ospedale-universitario-ticino-2026', parent: 'blog' },
     'blog-legge-quadro-florovivaismo-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/legge-quadro-florovivaismo-varese-2026', parent: 'blog' },
+    'blog-policonsumo-ticino-2026': { name: 'Policonsumo droga', path: '/articoli-frontaliere/policonsumo-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

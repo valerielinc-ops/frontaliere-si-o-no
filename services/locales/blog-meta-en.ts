@@ -5867,6 +5867,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.legge-quadro-florovivaismo-varese-2026.title': 'Framework Law on Floriculture: Approved, Varese Farmers\' Association Satisfied',
     'blog.article.legge-quadro-florovivaismo-varese-2026.excerpt': 'The Framework Law on Floriculture has been approved. Varese Farmers\' Association: a historic milestone for the sector, which accounts for 10% of provincial agriculture.',
     'blog.article.legge-quadro-florovivaismo-varese-2026.imageAlt': 'Floriculture fields in Varese, Italy, with greenhouses and colorful flowers under a clear blue sky',
+    'blog.article.policonsumo-ticino-2026.title': 'Poly-drug use in Ticino: Ingrado\'s 2025 report',
+    'blog.article.policonsumo-ticino-2026.excerpt': 'Ingrado\'s 2025 report confirms poly-drug use as the prevailing trend in Ticino, with a 16.4% increase in substance counseling services.',
+    'blog.article.policonsumo-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

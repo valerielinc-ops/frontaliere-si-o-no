@@ -5868,6 +5868,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.legge-quadro-florovivaismo-varese-2026.title': 'Loi cadre sur la floriculture: feu vert, Varèse satisfait',
     'blog.article.legge-quadro-florovivaismo-varese-2026.excerpt': 'La loi cadre sur la floriculture a été approuvée. Confagricoltura Varèse: un objectif historique pour le secteur, qui représente 10% de l\'agriculture provinciale.',
     'blog.article.legge-quadro-florovivaismo-varese-2026.imageAlt': 'Champs de floriculture à Varèse, Italie, avec des serres et des fleurs colorées sous un ciel bleu clair',
+    'blog.article.policonsumo-ticino-2026.title': 'Consommation multiple de drogues au Tessin: le rapport 2025 d\'Ingrado',
+    'blog.article.policonsumo-ticino-2026.excerpt': 'Le rapport 2025 d\'Ingrado confirme la consommation multiple comme tendance dominante au Tessin, avec une augmentation de 16,4% dans les centres de consultation sur les substances.',
+    'blog.article.policonsumo-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
