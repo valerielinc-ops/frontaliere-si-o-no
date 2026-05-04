@@ -5597,6 +5597,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tribunale-federale-giudici-conviventi-2026.title': 'Federal court judges cohabiting: court must clarify',
     'blog.article.tribunale-federale-giudici-conviventi-2026.excerpt': 'Two judges of the Federal Court may have violated the law on the composition of the supreme court',
     'blog.article.tribunale-federale-giudici-conviventi-2026.imageAlt': 'Interior of the Federal Tribunal building in Bellinzona, showcasing architectural details and marble',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.title': 'Varese honors San Vittore with Andrea Chiodi\'s Girometta d\'oro',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.excerpt': 'Varese honors San Vittore with Andrea Chiodi\'s Girometta d\'oro, Mera & Longhi and the \'super grandma\' aged 102',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water and surrounding mountains',
 };
 
 export default blogMetaEn;

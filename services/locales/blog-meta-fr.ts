@@ -5598,6 +5598,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tribunale-federale-giudici-conviventi-2026.title': 'Juges du Tribunal fédéral cohabitants : la Cour devra éclaircir',
     'blog.article.tribunale-federale-giudici-conviventi-2026.excerpt': 'Deux juges du Tribunal fédéral auraient pu violer la loi sur la composition de la cour suprême',
     'blog.article.tribunale-federale-giudici-conviventi-2026.imageAlt': 'Intérieur du Palais fédéral de Bellinzona, avec des détails architecturaux et du marbre',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.title': 'Varèse célèbre Saint-Victor avec la Girometta d\'or à Andrea Chiodi',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.excerpt': 'Varèse célèbre Saint-Victor avec la Girometta d\'or à Andrea Chiodi, Mera & Longhi et la \'super grand-mère\' de 102 ans',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.imageAlt': 'Vue aérienne du Lac de Lugano avec de l\'eau bleue claire et des montagnes environnantes',
 };
 
 export default blogMetaFr;

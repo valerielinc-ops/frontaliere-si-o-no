@@ -5597,6 +5597,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tribunale-federale-giudici-conviventi-2026.title': 'Bundesrichter leben zusammen: Gericht muss Stellung nehmen',
     'blog.article.tribunale-federale-giudici-conviventi-2026.excerpt': 'Zwei Richter des Bundesgerichts könnten gegen das Gesetz zur Zusammensetzung des obersten Gerichts verstoßen haben',
     'blog.article.tribunale-federale-giudici-conviventi-2026.imageAlt': 'Innenraum des Bundesgerichtsgebäudes in Bellinzona mit architektonischen Details und Marmor',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.title': 'Varese ehrt San Vittore mit Andrea Chiodi',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.excerpt': 'Varese ehrt San Vittore mit Andrea Chiodi, Mera & Longhi und der \'Super-Oma\' im Alter von 102 Jahren',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.imageAlt': 'Luftaufnahme des Luganersees mit klarem blauem Wasser und umliegenden Bergen',
 };
 
 export default blogMetaDe;

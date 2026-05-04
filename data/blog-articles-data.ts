@@ -18164,4 +18164,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-celebra-san-vittore-girometta-oro-2026',
+ category: 'novita',
+ date: '2026-05-04T05:56:44.496Z',
+ image: '/images/blog/varese-celebra-san-vittore-girometta-oro-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -3108,6 +3108,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-melenchon-candidatura-presidenziali-2027': { name: 'Politica', path: '/articoli-frontaliere/melenchon-candidatura-presidenziali-2027', parent: 'blog' },
     'blog-lugano-renato-steffen-goal-staffa': { name: 'Sport', path: '/articoli-frontaliere/lugano-renato-steffen-goal-staffa', parent: 'blog' },
     'blog-tribunale-federale-giudici-conviventi-2026': { name: 'Novità', path: '/articoli-frontaliere/tribunale-federale-giudici-conviventi-2026', parent: 'blog' },
+    'blog-varese-celebra-san-vittore-girometta-oro-2026': { name: 'Varese celebra San Vittore', path: '/articoli-frontaliere/varese-celebra-san-vittore-girometta-oro-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

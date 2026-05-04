@@ -5598,6 +5598,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tribunale-federale-giudici-conviventi-2026.title': 'Giudici del Tribunale federale conviventi: la Corte dovrà chiarire',
     'blog.article.tribunale-federale-giudici-conviventi-2026.excerpt': 'Due giudici del Tribunale federale potrebbero aver violato la legge sulla composizione della suprema corte',
     'blog.article.tribunale-federale-giudici-conviventi-2026.imageAlt': 'Interno del Palazzo federale di Bellinzona, con dettagli architettonici e marmo',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.title': 'Varese celebra San Vittore con la Girometta d’oro ad Andrea Chiodi',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.excerpt': 'Varese celebra San Vittore con la Girometta d’oro ad Andrea Chiodi, Mera & Longhi e la \'super nonna\' di 102 anni',
+    'blog.article.varese-celebra-san-vittore-girometta-oro-2026.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina e montagne circostanti',
 };
 
 export default blogMetaIt;
