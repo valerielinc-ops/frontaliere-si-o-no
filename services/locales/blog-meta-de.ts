@@ -5690,6 +5690,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lidl-svizzera-ceo-elvetico.title': 'Lidl Schweiz bekommt erstmals einen Schweizer CEO',
     'blog.article.lidl-svizzera-ceo-elvetico.excerpt': 'Michael Kunz, der aktuelle CEO von Lidl Österreich, wird Nicholas Pennanen Ende Sommer 2026 ersetzen.',
     'blog.article.lidl-svizzera-ceo-elvetico.imageAlt': 'Ein Lidl-Laden in Ticino, Schweiz, mit Schweizer und italienischen Kunden, die einkaufen, mit dem Lidl-Logo prominent.',
+    'blog.article.calcio-alpino-ticino-2026.title': 'Alge Alp Sport: Alpiner Fußball in der Schweiz vom 14. bis 17. Mai',
+    'blog.article.calcio-alpino-ticino-2026.excerpt': 'Vom 14. bis 17. Mai finden in Bellinzona, Tenero und Gambarogno das Alge Alp Sport-Turnier statt, ein internationales Jugendfußballturnier für alle.',
+    'blog.article.calcio-alpino-ticino-2026.imageAlt': 'Junge Fußballer im Einsatz während eines Turniers in Tessin, mit Zuschauern und einer inklusiven Atmosphäre',
 };
 
 export default blogMetaDe;

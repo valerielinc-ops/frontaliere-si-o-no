@@ -3139,6 +3139,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuove-accise-carburanti-2026': { name: 'Nuove accise carburanti', path: '/articoli-frontaliere/nuove-accise-carburanti-2026', parent: 'blog' },
     'blog-ponti-primaverili-traffico-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ponti-primaverili-traffico-ticino-2026', parent: 'blog' },
     'blog-lidl-svizzera-ceo-elvetico': { name: 'Novità', path: '/articoli-frontaliere/lidl-svizzera-ceo-elvetico', parent: 'blog' },
+    'blog-calcio-alpino-ticino-2026': { name: 'Torneo Alge Alp Sport', path: '/articoli-frontaliere/calcio-alpino-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -14211,6 +14211,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calcio-alpino-ticino-2026': {
+    title: 'Torneo Alge Alp Sport: calcio alpino in Ticino dal 14 al 17 maggio',
+    description: 'Dal 14 al 17 maggio, Bellinzona, Tenero e Gambarogno ospiteranno il torneo Alge Alp Sport, un evento internazionale di calcio giovanile e inclusivo',
+    keywords: 'frontalieri, ticino, svizzera, italia, torneo, alge, sport, calcio',
+    ogTitle: 'Torneo Alge Alp Sport: calcio alpino in Ticino dal 14 al 17 maggio',
+    ogDescription: 'Dal 14 al 17 maggio, Bellinzona, Tenero e Gambarogno ospiteranno il torneo Alge Alp Sport, un evento internazionale di calcio giovanile e inclusivo',
+    canonicalPath: '/articoli-frontaliere/calcio-alpino-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Torneo Alge Alp Sport: calcio alpino in Ticino dal 14 al 17 maggio",
+      "description": "Dal 14 al 17 maggio, Bellinzona, Tenero e Gambarogno ospiteranno il torneo Alge Alp Sport, un evento internazionale di calcio giovanile e inclusivo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/calcio-alpino-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani calciatori in azione durante un torneo di calcio in Ticino, con spettatori e un'atmosfera inclusiva"
+      },
+      "datePublished": "2026-05-04T09:40:40+00:00",
+      "dateModified": "2026-05-04T09:40:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcio-alpino-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
