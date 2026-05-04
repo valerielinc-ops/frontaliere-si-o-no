@@ -362,8 +362,8 @@ jobs:
 
       # ┌─ Pages artifact pipeline (two steps, one logical operation) ─┐
       # │                                                                │
-      # │  Step A : pack dist/ into a parallel-gzipped tar (LOCAL only)  │
-      # │  Step B : ship that tar to the runner artifact store            │
+      # │  Step A : tar dist/ as a plain UNCOMPRESSED archive            │
+      # │  Step B : upload via upload-artifact@v7 with compression 9     │
       # │                                                                │
       # │  Why split:                                                    │
       # │  - actions/upload-pages-artifact@v5 does not expose            │
@@ -373,54 +373,44 @@ jobs:
       # │    its internal tar manually and pass our own knobs to         │
       # │    upload-artifact@v7.                                         │
       # │                                                                │
-      # │  Why parallel-gzip in Step A at level 9 (NOT level 1):         │
-      # │  - First attempt used `pigz -1` (fastest) which produced a     │
-      # │    1.6 GB gzipped tar (vs 970 MB at level 9). Combined with    │
-      # │    upload-artifact `compression-level: 0` the wire artifact    │
-      # │    grew to 1.6 GB — crossing the 1 GB Pages threshold and      │
-      # │    failing the deploy with "Deployment failed, try again       │
-      # │    later" (run 25308327381). Lesson: artifact SIZE is the      │
-      # │    binding constraint, not CPU time alone.                     │
-      # │  - `pigz -9` matches the previous deflate-level-9 ratio so the │
-      # │    artifact stays ~970 MB. Because pigz parallelises across    │
-      # │    every ubuntu-latest core, level 9 here still completes in   │
-      # │    ~30-40s — well under the ~110s the old single-threaded      │
-      # │    upload-artifact level-9 step used to spend.                 │
-      # │  - Old flow: tar (45s I/O) → upload-artifact level-9 (110s     │
-      # │    single-thread CPU). Total 155s.                             │
-      # │  - New flow: tar | pigz -9 (~30s parallel CPU) → upload-       │
-      # │    artifact level-0 store (~10s wrap). End-to-end ≈ 40s.       │
-      # │  - Net wire size unchanged (~970 MB) ✓ Pages threshold ok ✓    │
-      # │                                                                │
-      # │  Compatibility: deploy-pages@v5 runs `tar -xf` on the artifact │
-      # │  internally — modern tar auto-detects gzip via magic bytes     │
-      # │  regardless of the .tar extension, so the file name stays      │
-      # │  artifact.tar (which deploy-pages expects).                    │
+      # │  Why this is NOT a parallel-gzipped tar:                       │
+      # │  Two attempts to substitute `tar | pigz` and use compression-  │
+      # │  level 0 on upload-artifact ended badly:                       │
+      # │  - run 25308327381 (`pigz -1`): 1.6 GB artifact, exceeded the  │
+      # │    1 GB Pages cap → "Deployment failed".                       │
+      # │  - run 25309021889 (`pigz -9`): artifact dropped to 1.35 GB    │
+      # │    but `actions/deploy-pages@v5` still failed with             │
+      # │    "Deployment temporarily failed → Deployment failed". The    │
+      # │    likely cause is that the Pages backend does NOT accept a    │
+      # │    pre-gzipped tar inside the artifact zip — its extractor     │
+      # │    expects uncompressed tar named `artifact.tar`, even though  │
+      # │    a CLI `tar -xf` would auto-detect the gzip magic bytes.     │
+      # │  Lesson: trade time for compatibility. Pages format is fixed   │
+      # │  to plain tar, so we keep the tar uncompressed and let         │
+      # │  upload-artifact compress at level 9.                          │
       # │                                                                │
       # │  Background: PATH 3 (tar in bg during post-build pool) was     │
       # │  tried in commit 11b65de81 and reverted — tar contended with   │
       # │  the 4 heaviest dist/-walking audits and net post-build went   │
-      # │  +98s. The optimization here changes serial CPU work, not      │
-      # │  parallel I/O, so that contention path is not re-introduced.   │
+      # │  +98s.                                                         │
       # └────────────────────────────────────────────────────────────────┘
-      - name: Pack dist/ into Pages tar archive (parallel gzip)
+      - name: Pack dist/ into Pages tar archive
         if: github.event.inputs.profile_sequential != 'true'
         run: |
           tar \
             --dereference --hard-dereference \
             --directory dist \
-            --use-compress-program="pigz -9" \
+            -cf "$RUNNER_TEMP/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
-            -cf "$RUNNER_TEMP/artifact.tar" \
             .
           # Surface size early so a regression past the 1 GB Pages
           # threshold is visible in the workflow log right after pack
           # (instead of only at the deploy-pages "Deployment failed"
-          # tail) — the artifact size is the binding constraint here.
+          # tail) — the artifact size is the binding constraint.
           ls -lh "$RUNNER_TEMP/artifact.tar"
 
-      - name: Upload Pages artifact (store mode — tar already gzipped)
+      - name: Upload Pages artifact (compression-level 9)
         if: github.event.inputs.profile_sequential != 'true'
         id: upload-pages-artifact
         uses: actions/upload-artifact@v7
@@ -429,9 +419,10 @@ jobs:
           path: ${{ runner.temp }}/artifact.tar
           retention-days: 1
           if-no-files-found: error
-          # Level 0 = store: the tar is already gzipped via pigz upstream,
-          # so re-deflating wastes CPU without shrinking the wire bytes.
-          compression-level: 0
+          # Level 9 = max deflate compression on the zip envelope. Pages
+          # backend extracts the zip first, so our content gets the best
+          # compression ratio in transit (~970 MB vs ~1.21 GB at level 6).
+          compression-level: 9
 
       - name: Upload write-collisions analysis
         if: always() && github.event.inputs.profile_sequential != 'true'
