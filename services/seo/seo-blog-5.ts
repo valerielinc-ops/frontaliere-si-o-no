@@ -14177,6 +14177,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lidl-svizzera-ceo-elvetico': {
+    title: 'Lidl Svizzera avrà un CEO elvetico: è la prima volta',
+    description: 'Michael Kunz, attuale CEO di Lidl Austria, prenderà il posto di Nicholas Pennanen a fine estate 2026. Scopri le implicazioni per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lidl, avrà, elvetico, prima',
+    ogTitle: 'Lidl Svizzera avrà un CEO elvetico: è la prima volta',
+    ogDescription: 'Michael Kunz, attuale CEO di Lidl Austria, prenderà il posto di Nicholas Pennanen a fine estate 2026. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/lidl-svizzera-ceo-elvetico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lidl Svizzera avrà un CEO elvetico: è la prima volta",
+      "description": "Michael Kunz, attuale CEO di Lidl Austria, prenderà il posto di Nicholas Pennanen a fine estate 2026. Scopri le implicazioni per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lidl-svizzera-ceo-elvetico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un negozio Lidl in Ticino, Svizzera, con clienti svizzeri e italiani che fanno shopping, con il logo Lidl ben visibile."
+      },
+      "datePublished": "2026-05-04T09:29:15+00:00",
+      "dateModified": "2026-05-04T09:29:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lidl-svizzera-ceo-elvetico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

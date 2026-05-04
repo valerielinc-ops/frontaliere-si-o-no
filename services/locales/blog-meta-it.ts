@@ -5688,6 +5688,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ponti-primaverili-traffico-ticino-2026.title': 'Ponti primaverili: traffico intenso su autostrade e valichi',
     'blog.article.ponti-primaverili-traffico-ticino-2026.excerpt': 'L\'Ufficio federale delle strade prevede disagi su A2, A13 e valichi di frontiera durante i ponti di Ascensione, Pentecoste e Corpus Domini.',
     'blog.article.ponti-primaverili-traffico-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti e città',
+    'blog.article.lidl-svizzera-ceo-elvetico.title': 'Lidl Svizzera avrà un CEO elvetico: è la prima volta',
+    'blog.article.lidl-svizzera-ceo-elvetico.excerpt': 'Michael Kunz, attuale CEO di Lidl Austria, prenderà il posto di Nicholas Pennanen a fine estate 2026.',
+    'blog.article.lidl-svizzera-ceo-elvetico.imageAlt': 'Un negozio Lidl in Ticino, Svizzera, con clienti svizzeri e italiani che fanno shopping, con il logo Lidl ben visibile.',
 };
 
 export default blogMetaIt;

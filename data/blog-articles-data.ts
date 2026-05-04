@@ -18434,4 +18434,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lidl-svizzera-ceo-elvetico',
+ category: 'novita',
+ date: '2026-05-04T09:29:15.433Z',
+ image: '/images/blog/lidl-svizzera-ceo-elvetico.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
