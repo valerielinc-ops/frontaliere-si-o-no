@@ -5817,6 +5817,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.festa-mamma-solidarieta-2026.title': 'Festa della mamma solidale: buoni per ristoranti a famiglie monoparentali',
     'blog.article.festa-mamma-solidarieta-2026.excerpt': 'Soccorso d\'Inverno e GastroTicino regalano buoni per la Festa della mamma a 26 famiglie monoparentali in difficoltà economica',
     'blog.article.festa-mamma-solidarieta-2026.imageAlt': 'Una mamma e una bambina sorridenti in un ristorante a Lugano',
+    'blog.article.a8-chiusure-gallarate-frontalieri.title': 'A8, cambiano le chiusure notturne tra Solbiate Arno e Gallarate',
+    'blog.article.a8-chiusure-gallarate-frontalieri.excerpt': 'Nuove restrizioni notturne sull\'autostrada A8 tra Solbiate Arno e Gallarate dal 6 al 8 maggio 2026. Ecco cosa cambia per i frontalieri',
+    'blog.article.a8-chiusure-gallarate-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, giornata di sole con riflessi sull\'acqua',
 };
 
 export default blogMetaIt;

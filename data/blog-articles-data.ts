@@ -18821,4 +18821,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'a8-chiusure-gallarate-frontalieri',
+ category: 'novita',
+ date: '2026-05-04T17:19:11.813Z',
+ image: '/images/blog/a8-chiusure-gallarate-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

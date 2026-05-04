@@ -15639,6 +15639,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a8-chiusure-gallarate-frontalieri': {
+    title: 'A8, cambiano le chiusure notturne tra Solbiate Arno e Gallarate',
+    description: 'Nuove restrizioni notturne sull\'autostrada A8 tra Solbiate Arno e Gallarate dal 6 al 8 maggio 2026. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambiano, chiusure, notturne, solbiate',
+    ogTitle: 'A8, cambiano le chiusure notturne tra Solbiate Arno e Gallarate',
+    ogDescription: 'Nuove restrizioni notturne sull\'autostrada A8 tra Solbiate Arno e Gallarate dal 6 al 8 maggio 2026. Ecco cosa cambia per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/a8-chiusure-gallarate-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A8, cambiano le chiusure notturne tra Solbiate Arno e Gallarate",
+      "description": "Nuove restrizioni notturne sull'autostrada A8 tra Solbiate Arno e Gallarate dal 6 al 8 maggio 2026. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/a8-chiusure-gallarate-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo, giornata di sole con riflessi sull'acqua"
+      },
+      "datePublished": "2026-05-04T17:19:11+00:00",
+      "dateModified": "2026-05-04T17:19:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a8-chiusure-gallarate-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

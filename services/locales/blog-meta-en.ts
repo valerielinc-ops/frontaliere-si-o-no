@@ -5816,6 +5816,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.festa-mamma-solidarieta-2026.title': 'Solidarity Mother\'s Day: restaurant vouchers for single-parent families',
     'blog.article.festa-mamma-solidarieta-2026.excerpt': 'Soccorso d\'Inverno and GastroTicino gift Mother\'s Day vouchers to 26 struggling single-parent families',
     'blog.article.festa-mamma-solidarieta-2026.imageAlt': 'A smiling mother and child in a restaurant in Lugano',
+    'blog.article.a8-chiusure-gallarate-frontalieri.title': 'A8: night closures change between Solbiate Arno and Gallarate',
+    'blog.article.a8-chiusure-gallarate-frontalieri.excerpt': 'New nighttime restrictions on the A8 motorway between Solbiate Arno and Gallarate from May 6 to 8, 2026. Here\'s what changes for cross-border workers',
+    'blog.article.a8-chiusure-gallarate-frontalieri.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, sunny day with reflections on the water',
 };
 
 export default blogMetaEn;

@@ -3181,6 +3181,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-comco-keyword-bidding-inchieste': { name: 'Novità', path: '/articoli-frontaliere/comco-keyword-bidding-inchieste', parent: 'blog' },
     'blog-autolaghi-chiusura-barriere-antirumore-2026': { name: 'Novità', path: '/articoli-frontaliere/autolaghi-chiusura-barriere-antirumore-2026', parent: 'blog' },
     'blog-festa-mamma-solidarieta-2026': { name: 'Festa della mamma', path: '/articoli-frontaliere/festa-mamma-solidarieta-2026', parent: 'blog' },
+    'blog-a8-chiusure-gallarate-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/a8-chiusure-gallarate-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
