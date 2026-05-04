@@ -21,6 +21,7 @@ These directives have the highest priority. No exceptions, workarounds, or "temp
 9. **Linear tasks must reflect reality**: if a task is partially completed, close it and create a follow-up for what's missing.
 10. **Subagents inherit the current session model** — do not override the model when launching agents unless the task explicitly requires a specific model.
 11. **GitHub: always use `gh` CLI** for all GitHub operations (issues, PRs, repos, actions, API calls). Never use any MCP GitHub tools — they route to GitHub Enterprise and will 404 on this repo. The `gh` CLI is pre-authenticated and targets `github.com` by default.
+12. **NEVER run `send-newsletter.mjs --send` locally.** Real newsletter sends to subscribers MUST go through the `send-newsletter` GitHub Actions workflow (`gh workflow run send-newsletter.yml`). For local testing, use `--preview` (stdout, no Firebase) or `--test --target-email <email>` (sends only to that one address). Running `--send` locally bypasses the workflow guardrails and sends to all subscribers.
 
 ---
 

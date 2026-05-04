@@ -1,0 +1,27 @@
+name: Repair Campaign Sends (one-time)
+on:
+  workflow_dispatch:
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Setup Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing"; exit 1
+          fi
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+      - name: Run repair
+        run: node scripts/repair-campaign-sends-2026-05-04.mjs
