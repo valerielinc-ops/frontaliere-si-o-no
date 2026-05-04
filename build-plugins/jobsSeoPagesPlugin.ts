@@ -372,7 +372,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  np.resolve(rootDir, 'data/orphan-enriched-data.json'),
  np.resolve(rootDir, 'data/expired-jobs.json'),
  np.resolve(rootDir, 'data', 'swiss-postal-codes.json'),
- np.resolve(rootDir, 'data', 'previous-slug-winners.json'),
+ // `data/previous-slug-winners.json` is intentionally NOT in
+ // runtimeFiles. It's committed back to the repo as a side-effect of
+ // every successful deploy (~61 commits/day). With mtime-based
+ // fingerprinting that invalidates jobs-seo-pages cache continuously
+ // → ~0 % hit rate. The plugin uses this file only to populate
+ // `winnerByPrevSlugKey` for bridge-emission dedup. On cache HIT,
+ // work() is skipped so cached HTML keeps whatever winner mapping was
+ // correct at snapshot time; new entries are picked up at the next
+ // legitimate MISS (jobs.json or other input change).
  ];
  const adapterDir = np.resolve(rootDir, 'data/jobs-crawler-adapters/adapters');
  try {
