@@ -5663,6 +5663,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.campo-talenti-tenero-25-anni.title': 'Tenero feiert 25 Jahre mit dem 3T-Camp für junge Athleten',
     'blog.article.campo-talenti-tenero-25-anni.excerpt': 'Vom 10. bis 15. Mai beherbergt das Sportzentrum Tenero 500 junge Talente für das 3T-Camp, organisiert von Swiss Olympic',
     'blog.article.campo-talenti-tenero-25-anni.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und Bergen im Hintergrund',
+    'blog.article.aeroporto-zurigo-traffico-crescita-2026.title': 'Flughafen Zürich: Luftverkehr im April um 5% gestiegen',
+    'blog.article.aeroporto-zurigo-traffico-crescita-2026.excerpt': 'Vor-Pandemie-Niveau überschritten mit 23\'300 Flugbewegungen, erste jährliche Steigerung seit 2019. Daten von Awp zu IFR.',
+    'blog.article.aeroporto-zurigo-traffico-crescita-2026.imageAlt': 'Luftaufnahme des Flughafens Zürich mit startenden und landenden Flugzeugen, klarer blauer Himmel, detaillierte Terminalgebäude',
 };
 
 export default blogMetaDe;

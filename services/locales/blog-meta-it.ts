@@ -5664,6 +5664,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.campo-talenti-tenero-25-anni.title': 'Tenero festeggia 25 anni con il campo 3T per giovani atleti',
     'blog.article.campo-talenti-tenero-25-anni.excerpt': 'Dal 10 al 15 maggio, il Centro Sportivo di Tenero ospita 500 giovani talenti per il campo 3T, organizzato da Swiss Olympic',
     'blog.article.campo-talenti-tenero-25-anni.imageAlt': 'Vista del Lago di Lugano con edifici moderni e montagne sullo sfondo',
+    'blog.article.aeroporto-zurigo-traffico-crescita-2026.title': 'Aeroporto Zurigo: traffico aereo in crescita del 5% ad aprile',
+    'blog.article.aeroporto-zurigo-traffico-crescita-2026.excerpt': 'Superati i livelli pre-pandemici con 23\'300 movimenti aerei, primo aumento annuale dal 2019. Dati Awp su IFR.',
+    'blog.article.aeroporto-zurigo-traffico-crescita-2026.imageAlt': 'Vista aerea dell\'aeroporto di Zurigo con aerei in decollo e atterraggio, cielo azzurro limpido, edifici terminal dettagliati',
 };
 
 export default blogMetaIt;

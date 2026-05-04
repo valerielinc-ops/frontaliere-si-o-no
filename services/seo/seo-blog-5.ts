@@ -13905,6 +13905,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aeroporto-zurigo-traffico-crescita-2026': {
+    title: 'Aeroporto Zurigo: traffico aereo in crescita del 5% ad aprile',
+    description: 'Superati i livelli pre-pandemici con 23\'300 movimenti aerei, primo aumento annuale dal 2019. Dati Awp su regole IFR. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporto, zurigo, traffico, aereo',
+    ogTitle: 'Aeroporto Zurigo: traffico aereo in crescita del 5% ad aprile',
+    ogDescription: 'Superati i livelli pre-pandemici con 23\'300 movimenti aerei, primo aumento annuale dal 2019. Dati Awp su regole IFR.',
+    canonicalPath: '/articoli-frontaliere/aeroporto-zurigo-traffico-crescita-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporto Zurigo: traffico aereo in crescita del 5% ad aprile",
+      "description": "Superati i livelli pre-pandemici con 23'300 movimenti aerei, primo aumento annuale dal 2019. Dati Awp su regole IFR. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aeroporto-zurigo-traffico-crescita-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'aeroporto di Zurigo con aerei in decollo e atterraggio, cielo azzurro limpido, edifici terminal dettagliati"
+      },
+      "datePublished": "2026-05-04T08:24:47+00:00",
+      "dateModified": "2026-05-04T08:24:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aeroporto-zurigo-traffico-crescita-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

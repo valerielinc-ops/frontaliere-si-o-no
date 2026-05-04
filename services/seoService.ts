@@ -3130,6 +3130,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vendite-auto-ticino-2026-stabili-elettrico': { name: 'Novità', path: '/articoli-frontaliere/vendite-auto-ticino-2026-stabili-elettrico', parent: 'blog' },
     'blog-indice-pmi-svizzera-ottimismo-2026': { name: 'Novità', path: '/articoli-frontaliere/indice-pmi-svizzera-ottimismo-2026', parent: 'blog' },
     'blog-campo-talenti-tenero-25-anni': { name: 'Novità', path: '/articoli-frontaliere/campo-talenti-tenero-25-anni', parent: 'blog' },
+    'blog-aeroporto-zurigo-traffico-crescita-2026': { name: 'Novità', path: '/articoli-frontaliere/aeroporto-zurigo-traffico-crescita-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
