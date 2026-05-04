@@ -5625,6 +5625,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.title': 'UNESCO alerte : menaces à la liberté de presse',
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.excerpt': 'Le 3 mai, on célèbre la Journée mondiale de la liberté de la presse. L\'UNESCO signale un recul inquiétant à l\'échelle mondiale',
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.imageAlt': 'Journalistes manifestent pour la liberté de la presse au lac de Lugano',
+    'blog.article.russotto-bellinzona-frontalieri-2026.title': 'Russotto à Bellinzone : «Un choix que je ne referais peut-être pas»',
+    'blog.article.russotto-bellinzona-frontalieri-2026.excerpt': 'Andrea Russotto se souvient de ses années en Suisse, entre sacrifices familiaux et le poids d\'être désigné comme le nouveau Del Piero.',
+    'blog.article.russotto-bellinzona-frontalieri-2026.imageAlt': 'Jeune footballeur à Bellinzona avec vue sur les Alpes',
 };
 
 export default blogMetaFr;

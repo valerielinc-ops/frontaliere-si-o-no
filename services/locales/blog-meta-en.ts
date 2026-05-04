@@ -5624,6 +5624,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.title': 'UNESCO warns: threats and self-censorship undermine press freedom',
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.excerpt': 'World Press Freedom Day is celebrated on May 3. UNESCO signals a worrying global decline',
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.imageAlt': 'Journalists protest for press freedom at Lake Lugano',
+    'blog.article.russotto-bellinzona-frontalieri-2026.title': 'Russotto on Bellinzona: \'A choice I might not repeat\'',
+    'blog.article.russotto-bellinzona-frontalieri-2026.excerpt': 'Andrea Russotto recalls his years in Ticino, marked by family sacrifices and the pressure of being labeled as the new Del Piero.',
+    'blog.article.russotto-bellinzona-frontalieri-2026.imageAlt': 'Young soccer player in Bellinzona with Alpine view',
 };
 
 export default blogMetaEn;

@@ -3117,6 +3117,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gambarogno-contributi-costruzione-ricorrenti': { name: 'Contributi costruzione', path: '/articoli-frontaliere/gambarogno-contributi-costruzione-ricorrenti', parent: 'blog' },
     'blog-lavena-brano-musicale-leone-xiv': { name: 'Evento musicale', path: '/articoli-frontaliere/lavena-brano-musicale-leone-xiv', parent: 'blog' },
     'blog-giornata-liberta-stampa-unesco-minacce-autocensura': { name: 'Novità', path: '/articoli-frontaliere/giornata-liberta-stampa-unesco-minacce-autocensura', parent: 'blog' },
+    'blog-russotto-bellinzona-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/russotto-bellinzona-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -5625,6 +5625,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.title': 'UNESCO lancia l\'allarme: minacce e autocensura minano la libertà di stampa',
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.excerpt': 'Il 3 maggio si celebra la Giornata mondiale della libertà di stampa. L\'UNESCO segnala un preoccupante arretramento globale',
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.imageAlt': 'Giornalisti protestano per la libertà di stampa sul lago di Lugano',
+    'blog.article.russotto-bellinzona-frontalieri-2026.title': 'Russotto a Bellinzona: «Una scelta che forse non rifarei»',
+    'blog.article.russotto-bellinzona-frontalieri-2026.excerpt': 'Andrea Russotto ricorda gli anni in Ticino tra sacrifici familiari e il peso di essere indicato come il nuovo Del Piero.',
+    'blog.article.russotto-bellinzona-frontalieri-2026.imageAlt': 'Giovane calciatore a Bellinzona con vista sulle Alpi',
 };
 
 export default blogMetaIt;

@@ -5624,6 +5624,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.title': 'UNESCO warnt: Bedrohungen und Selbstzensur gefährden die Pressefreiheit',
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.excerpt': 'Am 3. Mai wird der Weltpressefreiheitstag begangen. Die UNESCO meldet einen beunruhigenden globalen Rückschritt',
     'blog.article.giornata-liberta-stampa-unesco-minacce-autocensura.imageAlt': 'Journalisten protestieren für Pressefreiheit am Luganersee',
+    'blog.article.russotto-bellinzona-frontalieri-2026.title': 'Russotto: «Vielleicht keine Wiederholung»',
+    'blog.article.russotto-bellinzona-frontalieri-2026.excerpt': 'Andrea Russotto erinnert sich an die Jahre im Tessin zwischen familiären Opfern und dem Druck, als der neue Del Piero bezeichnet zu werden.',
+    'blog.article.russotto-bellinzona-frontalieri-2026.imageAlt': 'Junger Fußballspieler in Bellinzona mit Alpenblick',
 };
 
 export default blogMetaDe;
