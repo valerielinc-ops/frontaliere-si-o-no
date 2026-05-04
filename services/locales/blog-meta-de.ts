@@ -5849,6 +5849,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.boom-viaggiatori-treni-2026-ticino.title': 'Rekord bei Reisenden in Schweizer Zügen',
     'blog.article.boom-viaggiatori-treni-2026-ticino.excerpt': 'Rekordzahl an Passagieren im ersten Quartal 2026, aber Rückgang im Güterverkehr. Was sich für Grenzgänger ändert',
     'blog.article.boom-viaggiatori-treni-2026-ticino.imageAlt': 'Blick auf den Luganersee mit Zügen im Hintergrund, die den grenzüberschreitenden Verkehr im Tessin darstellen',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.title': 'Immobilienbewertungen neutralisieren: Lebenswerk schützen',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.excerpt': 'Volksinitiative zur Neutralisierung der Immobilienbewertungen im Tessin. Auswirkungen auf Grenzgänger und die lokale Wirtschaft.',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

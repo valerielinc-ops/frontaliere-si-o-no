@@ -16013,6 +16013,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neutralizzazione-stime-immobiliari-2026': {
+    title: 'Neutralizzazione stime immobiliari: difesa dei sacrifici di una vita',
+    description: 'Iniziativa popolare per neutralizzare le stime immobiliari in Ticino. Implicazioni per i frontalieri e l\'economia locale. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralizzazione, stime, immobiliari, difesa',
+    ogTitle: 'Neutralizzazione stime immobiliari: difesa dei sacrifici di una vita',
+    ogDescription: 'Iniziativa popolare per neutralizzare le stime immobiliari in Ticino. Implicazioni per i frontalieri e l\'economia locale.',
+    canonicalPath: '/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralizzazione stime immobiliari: difesa dei sacrifici di una vita",
+      "description": "Iniziativa popolare per neutralizzare le stime immobiliari in Ticino. Implicazioni per i frontalieri e l'economia locale. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/neutralizzazione-stime-immobiliari-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-04T19:32:22+00:00",
+      "dateModified": "2026-05-04T19:32:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

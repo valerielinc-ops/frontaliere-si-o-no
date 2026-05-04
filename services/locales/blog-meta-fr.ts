@@ -5850,6 +5850,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.boom-viaggiatori-treni-2026-ticino.title': 'Record de voyageurs dans les trains suisses',
     'blog.article.boom-viaggiatori-treni-2026-ticino.excerpt': 'Record de passagers au premier trimestre 2026, mais baisse du transport de marchandises. Voici ce qui change pour les frontaliers',
     'blog.article.boom-viaggiatori-treni-2026-ticino.imageAlt': 'Vue du lac de Lugano avec des trains en arrière-plan, représentant les voyages transfrontaliers en Tessin',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.title': 'Neutralisation des estimations immobilières: défense des sacrifices d\'une vie',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.excerpt': 'Initiative populaire pour neutraliser les estimations immobilières au Tessin. Implications pour les frontaliers et l\'économie locale.',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

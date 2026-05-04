@@ -5849,6 +5849,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.boom-viaggiatori-treni-2026-ticino.title': 'Record passenger numbers on Swiss trains',
     'blog.article.boom-viaggiatori-treni-2026-ticino.excerpt': 'Record number of passengers in the first quarter of 2026, but a decline in freight transport. Here\'s what changes for cross-border workers',
     'blog.article.boom-viaggiatori-treni-2026-ticino.imageAlt': 'View of Lake Lugano with trains in the background, representing cross-border travel in Ticino',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.title': 'Neutralizing property valuations: a lifetime\'s sacrifices',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.excerpt': 'Popular initiative to neutralize property valuations in Ticino. Implications for cross-border workers and the local economy.',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

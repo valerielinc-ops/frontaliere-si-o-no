@@ -3192,6 +3192,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-staffette-rossocrociate-pechino-2027': { name: 'Novità', path: '/articoli-frontaliere/staffette-rossocrociate-pechino-2027', parent: 'blog' },
     'blog-ecolight-camarda-presidente-2026-2028': { name: 'Novità', path: '/articoli-frontaliere/ecolight-camarda-presidente-2026-2028', parent: 'blog' },
     'blog-boom-viaggiatori-treni-2026-ticino': { name: 'Novità', path: '/articoli-frontaliere/boom-viaggiatori-treni-2026-ticino', parent: 'blog' },
+    'blog-neutralizzazione-stime-immobiliari-2026': { name: 'Neutralizzazione stime immobiliari', path: '/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

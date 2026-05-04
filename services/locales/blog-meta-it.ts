@@ -5850,6 +5850,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.boom-viaggiatori-treni-2026-ticino.title': 'Boom di viaggiatori sui treni elvetici',
     'blog.article.boom-viaggiatori-treni-2026-ticino.excerpt': 'Record di passeggeri nel primo trimestre 2026, ma calo del trasporto merci. Ecco cosa cambia per i frontalieri',
     'blog.article.boom-viaggiatori-treni-2026-ticino.imageAlt': 'Vista del Lago di Lugano con treni in lontananza, rappresentante i viaggi transfrontalieri in Ticino',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.title': 'Neutralizzazione stime immobiliari: difesa dei sacrifici di una vita',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.excerpt': 'Iniziativa popolare per neutralizzare le stime immobiliari in Ticino. Implicazioni per i frontalieri e l\'economia locale.',
+    'blog.article.neutralizzazione-stime-immobiliari-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;
