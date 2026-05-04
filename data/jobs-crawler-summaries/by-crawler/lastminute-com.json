@@ -1,21 +1,21 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-05-04T11:11:44.050Z",
+  "generatedAt": "2026-05-04T22:13:41.941Z",
   "total": 5,
   "newCount": 5,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15253,
-  "avgDurationMs": 15253,
+  "durationMs": 17271,
+  "avgDurationMs": 17271,
   "durationHistory": [
-    15253
+    17271
   ],
   "newJobs": [
     {
       "id": "company-6y6dd3",
-      "slug": "data-ingegnere-chiasso",
+      "slug": "ingegnere-dati-chiasso",
       "company": "lastminute.com",
       "title": "Data Engineer",
       "location": "Chiasso",
@@ -36,7 +36,6 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-05-04T11:11:43.383Z",
       "firstSeenAt": "2026-05-04T11:11:43.383Z",
-      "needsRetranslation": true,
       "addressLocality": "Chiasso",
       "country": "CH",
       "sourceLang": "en",
@@ -47,11 +46,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
