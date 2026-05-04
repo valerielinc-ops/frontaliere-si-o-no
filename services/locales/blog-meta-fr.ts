@@ -5523,6 +5523,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tiro-sportivo-veterani-junghi-2026.title': 'Ilvo Junghi remporte le tir à 50 mètres catégorie Vétérans',
     'blog.article.tiro-sportivo-veterani-junghi-2026.excerpt': 'Ilvo Junghi s\'adjuge la victoire dans le tir sportif à 50 mètres catégorie Vétérans. Découvrez les détails de la compétition.',
     'blog.article.tiro-sportivo-veterani-junghi-2026.imageAlt': 'Un stand de tir sportif dans le canton du Tessin, avec la cible à 50 mètres.',
+    'blog.article.fc-thun-campionato-2026-ticino.title': 'FC Thun champion suisse: fête à Thun',
+    'blog.article.fc-thun-campionato-2026-ticino.excerpt': 'Le FC Thun, dirigé par l\'entraîneur tessinois Mauro Lustrinelli, remporte le championnat suisse pour la première fois de son histoire.',
+    'blog.article.fc-thun-campionato-2026-ticino.imageAlt': 'Célébration du FC Thun à Thun, Suisse. L\'équipe célèbre avec les fans.',
 };
 
 export default blogMetaFr;

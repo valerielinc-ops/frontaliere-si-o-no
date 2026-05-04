@@ -17939,4 +17939,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fc-thun-campionato-2026-ticino',
+ category: 'novita',
+ date: '2026-05-04T03:03:21.184Z',
+ image: '/images/blog/fc-thun-campionato-2026-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

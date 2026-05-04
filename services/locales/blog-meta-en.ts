@@ -5522,6 +5522,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tiro-sportivo-veterani-junghi-2026.title': 'Ilvo Junghi wins 50m Veteran shooting category',
     'blog.article.tiro-sportivo-veterani-junghi-2026.excerpt': 'Ilvo Junghi wins the 50m sporting shooting in the Veteran category. Discover the competition details.',
     'blog.article.tiro-sportivo-veterani-junghi-2026.imageAlt': 'A sports shooting range in the Canton of Ticino, with the target at 50 meters.',
+    'blog.article.fc-thun-campionato-2026-ticino.title': 'FC Thun wins Swiss championship: celebration in Thun',
+    'blog.article.fc-thun-campionato-2026-ticino.excerpt': 'FC Thun, led by Ticinese coach Mauro Lustrinelli, wins the Swiss championship for the first time in its history.',
+    'blog.article.fc-thun-campionato-2026-ticino.imageAlt': 'FC Thun celebration in Thun, Switzerland. The team celebrates with fans.',
 };
 
 export default blogMetaEn;

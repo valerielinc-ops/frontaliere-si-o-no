@@ -12307,6 +12307,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fc-thun-campionato-2026-ticino': {
+    title: 'FC Thun campione svizzero: festa a Thun | Frontaliere Ticino',
+    description: 'Il FC Thun, guidato dall\'allenatore ticinese Mauro Lustrinelli, vince il campionato svizzero per la prima volta nella sua storia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, thun, campione, svizzero, festa',
+    ogTitle: 'FC Thun campione svizzero: festa a Thun',
+    ogDescription: 'Il FC Thun, guidato dall\'allenatore ticinese Mauro Lustrinelli, vince il campionato svizzero per la prima volta nella sua storia.',
+    canonicalPath: '/articoli-frontaliere/fc-thun-campionato-2026-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FC Thun campione svizzero: festa a Thun",
+      "description": "Il FC Thun, guidato dall'allenatore ticinese Mauro Lustrinelli, vince il campionato svizzero per la prima volta nella sua storia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fc-thun-campionato-2026-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa per il titolo del FC Thun a Thun, Svizzera. La squadra festeggia con i tifosi."
+      },
+      "datePublished": "2026-05-04T03:03:21+00:00",
+      "dateModified": "2026-05-04T03:03:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fc-thun-campionato-2026-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
