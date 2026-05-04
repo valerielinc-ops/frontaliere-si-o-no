@@ -12817,6 +12817,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-italia-sospetti-var-minetti-quirinale': {
+    title: 'Italia dei sospetti: scandali VAR, Minetti e tensioni italo-svizzere',
+    description: 'Scandali nel calcio italiano e dubbi sulla grazia a Nicole Minetti dominano la cronaca elvetica. Ecco cosa succede. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sospetti, scandali, minetti, tensioni',
+    ogTitle: 'Italia dei sospetti: scandali VAR, Minetti e tensioni italo-svizzere',
+    ogDescription: 'Scandali nel calcio italiano e dubbi sulla grazia a Nicole Minetti dominano la cronaca elvetica. Ecco cosa succede.',
+    canonicalPath: '/articoli-frontaliere/italia-sospetti-var-minetti-quirinale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Italia dei sospetti: scandali VAR, Minetti e tensioni italo-svizzere",
+      "description": "Scandali nel calcio italiano e dubbi sulla grazia a Nicole Minetti dominano la cronaca elvetica. Ecco cosa succede. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/italia-sospetti-var-minetti-quirinale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici circostanti"
+      },
+      "datePublished": "2026-05-04T04:45:43+00:00",
+      "dateModified": "2026-05-04T04:45:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/italia-sospetti-var-minetti-quirinale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

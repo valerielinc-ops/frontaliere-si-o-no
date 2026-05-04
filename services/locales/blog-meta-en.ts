@@ -5567,6 +5567,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ginnastica-artistica-ticino-2026.title': 'Gymnastics: young talents shine at Ticino Championships',
     'blog.article.ginnastica-artistica-ticino-2026.excerpt': 'The 2026 Ticino artistic gymnastics championships saw new talents emerge in the absence of the \'big four\'',
     'blog.article.ginnastica-artistica-ticino-2026.imageAlt': 'Gymnast performing during a competition in Ticino',
+    'blog.article.italia-sospetti-var-minetti-quirinale.title': 'Italy under suspicion: VAR scandals, Minetti and Italo-Swiss tensions',
+    'blog.article.italia-sospetti-var-minetti-quirinale.excerpt': 'Scandals in Italian football and doubts about Nicole Minetti\'s pardon dominate Swiss news. Here\'s what\'s happening.',
+    'blog.article.italia-sospetti-var-minetti-quirinale.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;

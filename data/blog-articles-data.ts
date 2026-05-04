@@ -18074,4 +18074,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'italia-sospetti-var-minetti-quirinale',
+ category: 'novita',
+ date: '2026-05-04T04:45:43.856Z',
+ image: '/images/blog/italia-sospetti-var-minetti-quirinale.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

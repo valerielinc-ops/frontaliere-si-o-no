@@ -5567,6 +5567,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ginnastica-artistica-ticino-2026.title': 'Turnen: junge Talente glänzen an den Tessiner Meisterschaften',
     'blog.article.ginnastica-artistica-ticino-2026.excerpt': 'Die Tessiner Turnmeisterschaften 2026 haben neue Talente hervorgebracht, in Abwesenheit der \'Big Four\'',
     'blog.article.ginnastica-artistica-ticino-2026.imageAlt': 'Turner bei einer Veranstaltung in Tessin',
+    'blog.article.italia-sospetti-var-minetti-quirinale.title': 'Italien der Verdächtigungen: VAR-Skandale, Minetti und Spannungen',
+    'blog.article.italia-sospetti-var-minetti-quirinale.excerpt': 'Skandale im italienischen Fußball und Zweifel an der Begnadigung von Nicole Minetti dominieren die Schweizer Chronik. Hier ist, was passiert.',
+    'blog.article.italia-sospetti-var-minetti-quirinale.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

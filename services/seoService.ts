@@ -3098,6 +3098,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-riazzino-ciclista-condanna': { name: 'Novità', path: '/articoli-frontaliere/incidente-riazzino-ciclista-condanna', parent: 'blog' },
     'blog-sergi-presidenza-basket-ticino-2026': { name: 'Basket Ticino', path: '/articoli-frontaliere/sergi-presidenza-basket-ticino-2026', parent: 'blog' },
     'blog-ginnastica-artistica-ticino-2026': { name: 'Ginnastica artistica', path: '/articoli-frontaliere/ginnastica-artistica-ticino-2026', parent: 'blog' },
+    'blog-italia-sospetti-var-minetti-quirinale': { name: 'Novità', path: '/articoli-frontaliere/italia-sospetti-var-minetti-quirinale', parent: 'blog' },
  };
 
  const info = sectionNames[section];

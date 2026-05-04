@@ -5568,6 +5568,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ginnastica-artistica-ticino-2026.title': 'Ginnastica artistica: giovani talenti brillano ai Campionati ticinesi',
     'blog.article.ginnastica-artistica-ticino-2026.excerpt': 'I Campionati ticinesi di ginnastica artistica 2026 hanno visto emergere nuovi talenti in assenza dei \'big four\'',
     'blog.article.ginnastica-artistica-ticino-2026.imageAlt': 'Ginnasta in azione durante una competizione in Ticino',
+    'blog.article.italia-sospetti-var-minetti-quirinale.title': 'Italia dei sospetti: scandali VAR, Minetti e tensioni italo-svizzere',
+    'blog.article.italia-sospetti-var-minetti-quirinale.excerpt': 'Scandali nel calcio italiano e dubbi sulla grazia a Nicole Minetti dominano la cronaca elvetica. Ecco cosa succede.',
+    'blog.article.italia-sospetti-var-minetti-quirinale.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;
