@@ -1,19 +1,21 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-04T11:50:06.165Z",
+  "generatedAt": "2026-05-04T22:52:01.881Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 34923,
-  "avgDurationMs": 34923,
+  "unchangedCount": 5,
+  "durationMs": 34840,
+  "avgDurationMs": 34840,
   "durationHistory": [
-    34923
+    34840
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-lz4syo",
       "slug": "operatore-di-manutenzione-edifici-thusis-swiss-armed-forces-vtg-bern",
@@ -53,10 +55,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-hkdide",
       "slug": "operatore-di-impianti-tecnici-swiss-armed-forces-vtg-bern",
