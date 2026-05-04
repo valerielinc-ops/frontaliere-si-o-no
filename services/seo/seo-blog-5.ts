@@ -14517,6 +14517,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franzolini-fenealuil-piano-casa': {
+    title: 'Franzolini (FenealUil): Serve piano strutturale per la casa',
+    description: 'Il segretario generale della FenealUil, Mauro Franzolini, sottolinea l\'importanza di un piano strutturale per affrontare il caro affitti e riqualificare il',
+    keywords: 'frontalieri, ticino, svizzera, italia, franzolini, fenealuil, serve, piano',
+    ogTitle: 'Franzolini (FenealUil): Piano strutturale casa',
+    ogDescription: 'Il segretario generale della FenealUil, Mauro Franzolini, sottolinea l\'importanza di un piano strutturale per affrontare il caro affitti e riqualificare il',
+    canonicalPath: '/articoli-frontaliere/franzolini-fenealuil-piano-casa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franzolini (FenealUil): Serve piano strutturale per la casa",
+      "description": "Il segretario generale della FenealUil, Mauro Franzolini, sottolinea l'importanza di un piano strutturale per affrontare il caro affitti e riqualificare il",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/franzolini-fenealuil-piano-casa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-05-04T11:03:00+00:00",
+      "dateModified": "2026-05-04T11:03:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franzolini-fenealuil-piano-casa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

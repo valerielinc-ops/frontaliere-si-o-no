@@ -5717,6 +5717,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.title': 'New Varese police chief targets fraud, theft, and robbery',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.excerpt': 'Paolo Iodice introduces himself as the new Varese police chief, focusing on security and combating cross-border crime',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.imageAlt': 'Italian-Swiss border with Bellinzona Castle in the distance',
+    'blog.article.franzolini-fenealuil-piano-casa.title': 'Franzolini (FenealUil): Structural plan needed for housing',
+    'blog.article.franzolini-fenealuil-piano-casa.excerpt': 'The general secretary of FenealUil, Mauro Franzolini, emphasizes the importance of a structural plan to address high rents and renovate the building stock.',
+    'blog.article.franzolini-fenealuil-piano-casa.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
 };
 
 export default blogMetaEn;

@@ -18524,4 +18524,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'franzolini-fenealuil-piano-casa',
+ category: 'novita',
+ date: '2026-05-04T11:03:00.898Z',
+ image: '/images/blog/franzolini-fenealuil-piano-casa.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

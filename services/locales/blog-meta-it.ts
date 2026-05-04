@@ -5718,6 +5718,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.title': 'Nuovo questore di Varese: priorità a truffe, furti e rapine',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.excerpt': 'Paolo Iodice si presenta come nuovo questore di Varese, con focus su sicurezza e lotta alla criminalità transfrontaliera',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.imageAlt': 'Confine italo-svizzero con il Castello di Bellinzona in lontananza',
+    'blog.article.franzolini-fenealuil-piano-casa.title': 'Franzolini (FenealUil): Serve piano strutturale per la casa',
+    'blog.article.franzolini-fenealuil-piano-casa.excerpt': 'Il segretario generale della FenealUil, Mauro Franzolini, sottolinea l\'importanza di un piano strutturale per affrontare il caro affitti e riqualificare il patrimonio edilizio.',
+    'blog.article.franzolini-fenealuil-piano-casa.imageAlt': 'Veduta panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;

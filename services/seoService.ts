@@ -3148,6 +3148,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-meloni-cooperazione-mediterraneo-immigrazione': { name: 'Novità', path: '/articoli-frontaliere/meloni-cooperazione-mediterraneo-immigrazione', parent: 'blog' },
     'blog-nuovo-questore-varese-sicurezza-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/nuovo-questore-varese-sicurezza-frontalieri', parent: 'blog' },
     'blog-nuovo-questore-varese-sicurezza-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/nuovo-questore-varese-sicurezza-frontalieri-2026', parent: 'blog' },
+    'blog-franzolini-fenealuil-piano-casa': { name: 'Novità', path: '/articoli-frontaliere/franzolini-fenealuil-piano-casa', parent: 'blog' },
  };
 
  const info = sectionNames[section];

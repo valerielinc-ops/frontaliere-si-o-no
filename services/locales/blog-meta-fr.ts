@@ -5718,6 +5718,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.title': 'Nouveau questeur de Varèse: priorité aux fraudes, vols et hold-up',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.excerpt': 'Paolo Iodice se présente comme nouveau questeur de Varèse, avec un focus sur la sécurité et la lutte contre la criminalité transfrontalière',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.imageAlt': 'Frontière italo-suisse avec le château de Bellinzona au loin',
+    'blog.article.franzolini-fenealuil-piano-casa.title': 'Franzolini (FenealUil) : Un plan structurel pour le logement',
+    'blog.article.franzolini-fenealuil-piano-casa.excerpt': 'Le secrétaire général de la FenealUil, Mauro Franzolini, souligne l\'importance d\'un plan structurel pour faire face à la hausse des loyers et rénover le patrimoine immobilier.',
+    'blog.article.franzolini-fenealuil-piano-casa.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaFr;

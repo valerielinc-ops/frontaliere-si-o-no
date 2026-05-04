@@ -5717,6 +5717,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.title': 'Neuer Questore von Varese: Fokus auf Betrug, Diebstahl und Raub',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.excerpt': 'Paolo Iodice stellt sich als neuer Questore von Varese vor, mit Schwerpunkt auf Sicherheit und Bekämpfung der grenzüberschreitenden Kriminalität',
     'blog.article.nuovo-questore-varese-sicurezza-frontalieri-2026.imageAlt': 'Italienisch-schweizerische Grenze mit der Burg Bellinzona in der Ferne',
+    'blog.article.franzolini-fenealuil-piano-casa.title': 'Franzolini (FenealUil): Strukturplan für Wohnraum nötig',
+    'blog.article.franzolini-fenealuil-piano-casa.excerpt': 'Der Generalsekretär der FenealUil, Mauro Franzolini, betont die Wichtigkeit eines Strukturplans, um die hohen Mietpreise zu bekämpfen und den Gebäudebestand zu sanieren.',
+    'blog.article.franzolini-fenealuil-piano-casa.imageAlt': 'Panoramablick auf Lugano mit dem See und Bergen',
 };
 
 export default blogMetaDe;
