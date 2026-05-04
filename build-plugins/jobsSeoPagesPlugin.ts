@@ -344,14 +344,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // daily even when no input file changes. The runtimeFiles list covers
  // every fs.readFileSync target inside the plugin (jobs, expired-jobs,
  // tracking, overrides, profiles, orphans, compat paths, postal codes,
- // adapter JSONs, blog data, router/seo helpers read as raw text).
+ // adapter JSONs, router/seo helpers read as raw text).
+ //
+ // Blog data files (data/blog-articles-data.ts, services/routerBlogData.ts,
+ // services/seo/seo-blog*.ts) are deliberately EXCLUDED. The plugin reads
+ // them only to inject "related blog articles" footer links into job
+ // pages, but the auto-blog cron updates them every 15 min (~96
+ // invalidations/day on this repo) — including them here drove the cache
+ // hit rate to near 0 % (run 25318098290 forced a full rebuild after a
+ // single new article landed). The cross-links may be stale by one
+ // article-cycle on cache hits; that's acceptable for SEO since each
+ // blog article still has its own canonical page indexed independently
+ // and "related" sections rarely change Google's understanding of a
+ // job page's primary topic.
  const cacheDateStamp = new Date().toISOString().slice(0, 10);
  const cacheRuntimeFiles = (): string[] => {
  const out: string[] = [
  jobsPath,
- np.resolve(rootDir, 'data', 'blog-articles-data.ts'),
- np.resolve(rootDir, 'services/routerBlogData.ts'),
- np.resolve(rootDir, 'services/seo/seo-blog.ts'),
  np.resolve(rootDir, 'data/job-canonical-overrides.json'),
  np.resolve(rootDir, 'data/company-profiles.json'),
  np.resolve(rootDir, 'data/known-company-slugs.json'),
@@ -365,9 +374,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  np.resolve(rootDir, 'data', 'swiss-postal-codes.json'),
  np.resolve(rootDir, 'data', 'previous-slug-winners.json'),
  ];
- for (let n = 2; n <= 10; n++) {
- out.push(np.resolve(rootDir, `services/seo/seo-blog-${n}.ts`));
- }
  const adapterDir = np.resolve(rootDir, 'data/jobs-crawler-adapters/adapters');
  try {
  for (const f of fs.readdirSync(adapterDir)) {
