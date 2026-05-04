@@ -39,7 +39,13 @@ import sharp from 'sharp';
 // ── Config ────────────────────────────────────────────────────
 const DEFAULT_OUT_SUBDIR = path.join('og', 'border-wait');
 const USER_AGENT = 'FrontaliereTicino-OGBot';
-const FETCH_TIMEOUT_MS = 10_000;
+// 30s instead of the original 10s: from CI's Azure pool, www4.ti.ch's F5
+// BIG-IP responds slowly even on the cookie-jar-warmed fast path. Run
+// 25312420503 saw 4 of 5 crossings hit "This operation was aborted" at
+// 10s; bumping to 30s keeps the worst-case post-build window bounded
+// (5 crossings × 30s = 150s upper bound, all skipped) while letting the
+// usual 1-3s warm responses succeed reliably.
+const FETCH_TIMEOUT_MS = 30_000;
 const TARGET_WIDTH = 640;
 const TARGET_HEIGHT = 360;
 const JPEG_QUALITY = 80;

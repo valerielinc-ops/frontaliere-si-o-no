@@ -262,13 +262,17 @@ export async function runCached(opts: RunCachedOptions): Promise<RunCachedResult
 // ── HIT helpers ─────────────────────────────────────────────────
 
 /**
- * Concurrency for the parallel restore. 200 in-flight `fs.promises.copyFile`
- * calls saturates the runner's SSD without crossing macOS launchd's default
- * 256 fd ceiling or ubuntu-latest's much higher default. Tuned alongside
- * the WriteCollector's flushWrites concurrency (500) — both share the same
- * disk during closeBundle so we keep our restore lower to avoid contention.
+ * Per-plugin concurrency for the parallel restore. With 5 plugins all
+ * running their cache restore concurrently inside the same closeBundle
+ * phase, aggregate concurrency is 5 × this number — at 200 each we hit
+ * 1 000 in-flight `fs.copyFile` calls and SSD I/O contention got the
+ * salary-hub restore SLOWER (361s vs 265s sequential). 50 per plugin =
+ * ~250 aggregate in-flight, still parallel enough to keep libuv's
+ * worker pool busy without thrashing the disk. Verified empirically on
+ * the deploy.yml ubuntu-latest runners; revisit if the runner image
+ * gets faster storage or worker count changes.
  */
-const RESTORE_CONCURRENCY = 200;
+const RESTORE_CONCURRENCY = 50;
 
 async function restoreFromCache(
   keyDir: string,

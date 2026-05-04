@@ -1537,6 +1537,22 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  }
 
+ // Per-locale active-job path dedup. cleanup-jobs.mjs dedupes by
+ // `job.slug` (the canonical IT slug), but two distinct jobs can pass
+ // that filter with different IT slugs while still converging on the
+ // same DE/EN/FR locale slug — for example two `tally-weijl-aarau`
+ // postings whose IT titles differ slightly but whose German/English
+ // translations slugify identically. Each then emits an active-job
+ // page at /de/jobs-im-tessin/{same-slug}/index.html, producing the
+ // 204-collision-per-build pattern in run 25312882900.
+ //
+ // validJobs is already sorted DESC by recency above, so the FIRST job
+ // for any colliding (locale, slug) is the most recent. We register it
+ // in this Set and skip later jobs that would write to the same path.
+ // Their original IT canonical (which IS unique because cleanup ensured
+ // it) still emits — only the colliding locale variants are suppressed.
+ const emittedActiveJobPaths = new Set<string>();
+
  for (const job of validJobs) {
  const perLocaleSlug = {
  it: localizedSlug(job, 'it'),
@@ -1547,6 +1563,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const locale of localeList) {
  const __tActiveJob = startTimer();
  const relPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${perLocaleSlug[locale]}`.replace(/\/+/g, '/');
+ // Suppress duplicate per-locale emit. Most-recent (sorted earlier)
+ // already won this path; emitting again would only register a
+ // collision in dist/.write-collisions.json without changing the
+ // bytes on disk (Map last-add-wins inside the WriteCollector).
+ const __activeJobKey = `${locale}:${perLocaleSlug[locale]}`;
+ if (emittedActiveJobPaths.has(__activeJobKey)) {
+ recordEmit('active-job', __tActiveJob);
+ continue;
+ }
+ emittedActiveJobPaths.add(__activeJobKey);
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  // Cannibalization fix: <link rel="canonical"> and og:url may point to a
