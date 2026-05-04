@@ -5751,6 +5751,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.title': 'La Banque cantonale des Grisons poursuivie pour des centaines de millions',
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.excerpt': 'Une action en justice d\'un million a été intentée contre la Banque cantonale des Grisons et sa filiale BZ Bank pour des violations présumées des obligations contractuelles.',
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.imageAlt': 'Bâtiment de banque à Bellinzone, Tessin',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.title': 'Como: places bleues vides et résidents en difficulté pour se garer',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.excerpt': 'Les résidents de Como signalent des places bleues pour résidents toujours pleines et des difficultés à trouver un parking, malgré les places bleues ASA libres',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.imageAlt': 'Vue aérienne du centre-ville de Côme avec des problèmes de stationnement, des places bleues vides et des résidents en difficulté pour se garer',
 };
 
 export default blogMetaFr;

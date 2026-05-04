@@ -5750,6 +5750,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.title': 'Graubündner Kantonalbank wegen Millionen verklagt',
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.excerpt': 'Eine Millionenklage wurde gegen die Graubündner Kantonalbank und ihre Tochter BZ Bank wegen angeblicher Vertragsverletzungen eingereicht.',
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.imageAlt': 'Bankgebäude in Bellinzona, Tessin',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.title': 'Como: Blaue Parkplätze leer, Anwohner haben Parkprobleme',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.excerpt': 'Anwohner von Como melden, dass blaue Parkplätze für Anwohner immer belegt sind und es Schwierigkeiten gibt, einen Parkplatz zu finden, obwohl blaue ASA-Parkplätze frei sind',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.imageAlt': 'Luftansicht des Como Stadtzentrums mit Parkproblemen, leere blaue Parkplätze und Einwohner, die Schwierigkeiten haben, einen Parkplatz zu finden',
 };
 
 export default blogMetaDe;

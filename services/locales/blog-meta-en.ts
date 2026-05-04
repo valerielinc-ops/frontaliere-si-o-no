@@ -5750,6 +5750,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.title': 'Grisons Cantonal Bank sued for hundreds of millions',
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.excerpt': 'A multi-million lawsuit has been filed against the Grisons Cantonal Bank and its affiliate BZ Bank for alleged breach of contractual obligations.',
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.imageAlt': 'Bank building in Bellinzona, Ticino',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.title': 'Como: empty blue spots and residents struggle to park',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.excerpt': 'Residents of Como report that blue spots for residents are always full and they have difficulty finding parking, despite the free non-ASA blue spots',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.imageAlt': 'Aerial view of Como city center with parking issues, empty blue parking spots, and residents struggling to find parking',
 };
 
 export default blogMetaEn;

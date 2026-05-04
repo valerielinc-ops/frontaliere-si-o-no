@@ -18623,4 +18623,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'parcheggi-blu-como-residenti-difficolta',
+ category: 'pratico',
+ date: '2026-05-04T12:59:35.559Z',
+ image: '/images/blog/parcheggi-blu-como-residenti-difficolta.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

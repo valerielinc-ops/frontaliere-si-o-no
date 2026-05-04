@@ -3159,6 +3159,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sicurezza-varese-monte-santo-intervento-comune': { name: 'Novità Varese', path: '/articoli-frontaliere/sicurezza-varese-monte-santo-intervento-comune', parent: 'blog' },
     'blog-arresto-albanese-cocaina-capolago': { name: 'Novità', path: '/articoli-frontaliere/arresto-albanese-cocaina-capolago', parent: 'blog' },
     'blog-banca-grigionese-denuncia-centinaia-milioni': { name: 'Novità', path: '/articoli-frontaliere/banca-grigionese-denuncia-centinaia-milioni', parent: 'blog' },
+    'blog-parcheggi-blu-como-residenti-difficolta': { name: 'Parcheggi Como', path: '/articoli-frontaliere/parcheggi-blu-como-residenti-difficolta', parent: 'blog' },
  };
 
  const info = sectionNames[section];

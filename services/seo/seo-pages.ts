@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1969,
+ "numberOfItems": 1970,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6607,7 +6607,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1966, "name": "Tragedia alla stazione di Bellinzona: muore fol...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-bellinzona-folgorazione-2026` },
           { "@type": "ListItem", "position": 1967, "name": "Varese: Monti e Angei (Lega) chiedono intervent...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-varese-monte-santo-intervento-comune` },
           { "@type": "ListItem", "position": 1968, "name": "Arrestato albanese con 54 grammi di cocaina a C...", "url": `${BASE_URL}/articoli-frontaliere/arresto-albanese-cocaina-capolago` },
-          { "@type": "ListItem", "position": 1969, "name": "Banca cantonale grigionese denunciata per centi...", "url": `${BASE_URL}/articoli-frontaliere/banca-grigionese-denuncia-centinaia-milioni` }
+          { "@type": "ListItem", "position": 1969, "name": "Banca cantonale grigionese denunciata per centi...", "url": `${BASE_URL}/articoli-frontaliere/banca-grigionese-denuncia-centinaia-milioni` },
+          { "@type": "ListItem", "position": 1970, "name": "Como: posti blu vuoti e residenti in difficoltà...", "url": `${BASE_URL}/articoli-frontaliere/parcheggi-blu-como-residenti-difficolta` }
  ]
  },
  {

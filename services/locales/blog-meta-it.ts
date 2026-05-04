@@ -5751,6 +5751,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.title': 'Banca cantonale grigionese denunciata per centinaia di milioni',
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.excerpt': 'Una causa milionaria è stata intentata contro la Banca cantonale grigionese e la sua affiliata BZ Bank per presunte violazioni degli obblighi contrattuali.',
     'blog.article.banca-grigionese-denuncia-centinaia-milioni.imageAlt': 'Edificio della banca a Bellinzona, Ticino',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.title': 'Como: posti blu vuoti e residenti in difficoltà a parcheggiare',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.excerpt': 'Residenti di Como segnalano posti blu per residenti sempre pieni e difficoltà a trovare parcheggio, nonostante i posti blu non ASA liberi',
+    'blog.article.parcheggi-blu-como-residenti-difficolta.imageAlt': 'Vista aerea del centro di Como con problemi di parcheggio, posti blu vuoti e residenti in difficoltà',
 };
 
 export default blogMetaIt;
