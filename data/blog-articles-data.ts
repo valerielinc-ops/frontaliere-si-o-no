@@ -18794,4 +18794,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'comco-keyword-bidding-inchieste',
+ category: 'novita',
+ date: '2026-05-04T16:48:24.544Z',
+ image: '/images/blog/comco-keyword-bidding-inchieste.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

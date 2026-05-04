@@ -15537,6 +15537,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comco-keyword-bidding-inchieste': {
+    title: 'COMCO apre inchieste su keyword bidding: viaggi e casinò online nel mirino',
+    description: 'La Commissione della concorrenza indaga su accordi illeciti tra aziende di viaggi e casinò online per il keyword bidding. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, comco, apre, inchieste, keyword',
+    ogTitle: 'COMCO apre inchieste su keyword bidding: viaggi e casinò online nel mirino',
+    ogDescription: 'La Commissione della concorrenza indaga su accordi illeciti tra aziende di viaggi e casinò online per il keyword bidding',
+    canonicalPath: '/articoli-frontaliere/comco-keyword-bidding-inchieste',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "COMCO apre inchieste su keyword bidding: viaggi e casinò online nel mirino",
+      "description": "La Commissione della concorrenza indaga su accordi illeciti tra aziende di viaggi e casinò online per il keyword bidding. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comco-keyword-bidding-inchieste.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio COMCO con vista su Lugano"
+      },
+      "datePublished": "2026-05-04T16:48:24+00:00",
+      "dateModified": "2026-05-04T16:48:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comco-keyword-bidding-inchieste`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

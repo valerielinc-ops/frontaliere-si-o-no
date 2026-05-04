@@ -5808,6 +5808,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-market-index-crescita-2026.title': 'Swiss Market Index in crescita, ma con timori per le trimestrali',
     'blog.article.swiss-market-index-crescita-2026.excerpt': 'L\'indice Swiss Market Index chiude in positivo, ma le Borse europee mostrano preoccupazione per i risultati delle aziende.',
     'blog.article.swiss-market-index-crescita-2026.imageAlt': 'Lago di Lugano con edifici moderni sullo sfondo, giornata di sole',
+    'blog.article.comco-keyword-bidding-inchieste.title': 'COMCO apre inchieste su keyword bidding: viaggi e casinò online nel mirino',
+    'blog.article.comco-keyword-bidding-inchieste.excerpt': 'La Commissione della concorrenza indaga su accordi illeciti tra aziende di viaggi e casinò online per il keyword bidding',
+    'blog.article.comco-keyword-bidding-inchieste.imageAlt': 'Ufficio COMCO con vista su Lugano',
 };
 
 export default blogMetaIt;

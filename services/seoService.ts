@@ -3178,6 +3178,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controlli-carburanti-como-guardia-finanza': { name: 'Novità', path: '/articoli-frontaliere/controlli-carburanti-como-guardia-finanza', parent: 'blog' },
     'blog-banca-piazza-petruzzella-abt-2026': { name: 'Novità', path: '/articoli-frontaliere/banca-piazza-petruzzella-abt-2026', parent: 'blog' },
     'blog-swiss-market-index-crescita-2026': { name: 'Novità', path: '/articoli-frontaliere/swiss-market-index-crescita-2026', parent: 'blog' },
+    'blog-comco-keyword-bidding-inchieste': { name: 'Novità', path: '/articoli-frontaliere/comco-keyword-bidding-inchieste', parent: 'blog' },
  };
 
  const info = sectionNames[section];

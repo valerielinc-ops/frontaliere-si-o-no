@@ -5808,6 +5808,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.swiss-market-index-crescita-2026.title': 'Swiss Market Index en hausse, mais des craintes pour les trimestrielles',
     'blog.article.swiss-market-index-crescita-2026.excerpt': 'L\'indice Swiss Market Index clôture en positif, mais les Bourses européennes montrent des inquiétudes concernant les résultats des entreprises.',
     'blog.article.swiss-market-index-crescita-2026.imageAlt': 'Lac de Lugano avec des bâtiments modernes en arrière-plan, journée ensoleillée',
+    'blog.article.comco-keyword-bidding-inchieste.title': 'COMCO enquête sur le keyword bidding : voyages et casinos en ligne visés',
+    'blog.article.comco-keyword-bidding-inchieste.excerpt': 'La Commission de la concurrence enquête sur des accords illicites entre des entreprises de voyages et des casinos en ligne pour le keyword bidding',
+    'blog.article.comco-keyword-bidding-inchieste.imageAlt': 'Bureau COMCO avec vue sur Lugano',
 };
 
 export default blogMetaFr;

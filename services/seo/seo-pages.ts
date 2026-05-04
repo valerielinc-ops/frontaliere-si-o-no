@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1988,
+ "numberOfItems": 1989,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6626,7 +6626,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1985, "name": "Varese-Milano, rallentamenti sui treni dal 5 al...", "url": `${BASE_URL}/articoli-frontaliere/varese-milano-rallentamenti-treni-maggio-2026` },
           { "@type": "ListItem", "position": 1986, "name": "Controlli rafforzati sui carburanti in provinci...", "url": `${BASE_URL}/articoli-frontaliere/controlli-carburanti-como-guardia-finanza` },
           { "@type": "ListItem", "position": 1987, "name": "ABT: piazza finanziaria ticinese più solida che...", "url": `${BASE_URL}/articoli-frontaliere/banca-piazza-petruzzella-abt-2026` },
-          { "@type": "ListItem", "position": 1988, "name": "Swiss Market Index in crescita, ma con timori p...", "url": `${BASE_URL}/articoli-frontaliere/swiss-market-index-crescita-2026` }
+          { "@type": "ListItem", "position": 1988, "name": "Swiss Market Index in crescita, ma con timori p...", "url": `${BASE_URL}/articoli-frontaliere/swiss-market-index-crescita-2026` },
+          { "@type": "ListItem", "position": 1989, "name": "COMCO apre inchieste su keyword bidding: viaggi...", "url": `${BASE_URL}/articoli-frontaliere/comco-keyword-bidding-inchieste` }
  ]
  },
  {
