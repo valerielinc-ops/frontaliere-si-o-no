@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-gzq9bg",
-      "slug": "geschaftsfuhrer-in-kublis-coop-kublis-graubunden",
+      "slug": "amministratore-delegato-in-kublis-coop-genossenschaft-kublis",
       "company": "Coop Genossenschaft",
       "title": "Geschäftsführer:in Küblis",
       "location": "Küblis",
@@ -50,10 +50,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg",
-        "en": "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg",
+        "it": "amministratore-delegato-in-kublis-coop-genossenschaft-kublis",
+        "en": "managing-director-in-kublis-coop-genossenschaft-kublis",
         "de": "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg",
-        "fr": "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg"
+        "fr": "directeur-general-in-kublis-coop-genossenschaft-kublis"
       },
       "addressLocality": "Küblis",
       "sourceLang": "de",
@@ -68,7 +68,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg",
+          "geschaftsfuhrer-in-kublis-coop-kublis-graubunden"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg",
+        "geschaftsfuhrer-in-kublis-coop-kublis-graubunden"
+      ]
     },
     {
       "id": "company-98b1xm",
@@ -702,13 +718,11 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
           "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437"
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
           "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437"
         ],
@@ -717,17 +731,13 @@
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
           "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
@@ -803,13 +813,11 @@
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
           "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d"
         ],
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "managing-director-in-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
           "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d"
         ],
@@ -818,17 +826,13 @@
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "directeur-general-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
           "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "managing-director-in-christ-uhren-schmuck-ag-chur",
-        "directeur-general-christ-uhren-schmuck-ag-chur",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"

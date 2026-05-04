@@ -105,7 +105,7 @@
         "fr": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
         "it": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
         "en": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
-        "de": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz"
+        "de": "zimmerwarte-zimmerdame-zimmerboy-m-w-d-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -543,12 +543,12 @@
     },
     {
       "id": "kulm-hotel-093b2ff2d1c6",
-      "slug": "luxury-spa-supervisor-m-w-d-kulm-hotel-st-moritz",
+      "slug": "supervisore-spa-di-lusso-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
         "en": "luxury-spa-supervisor-m-w-d-kulm-hotel-st-moritz",
-        "it": "luxury-spa-supervisor-m-w-d-kulm-hotel-st-moritz",
+        "it": "supervisore-spa-di-lusso-m-w-d-kulm-hotel-st-moritz-pontresina",
         "de": "luxury-spa-supervisor-m-w-d-kulm-hotel-st-moritz",
-        "fr": "luxury-spa-supervisor-m-w-d-kulm-hotel-st-moritz"
+        "fr": "superviseur-de-spa-de-luxe-m-m-j-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -606,7 +606,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-04T22:12:43.142Z"
+      "firstSeenAt": "2026-05-04T22:12:43.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "luxury-spa-supervisor-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
+          "luxury-spa-supervisor-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "luxury-spa-supervisor-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-3b40cab3c22b",
@@ -1689,7 +1700,7 @@
         "it": "responsabile-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "assistent-reservations-manager-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "fr": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
+        "fr": "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -1753,7 +1764,7 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
           "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
@@ -1762,7 +1773,6 @@
       },
       "previousSlugs": [
         "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
-        "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina",
         "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "firstSeenAt": "2026-04-13T22:00:28.646Z",

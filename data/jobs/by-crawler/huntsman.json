@@ -668,12 +668,12 @@
     },
     {
       "id": "huntsman-2465633aa4f4",
-      "slug": "technologue-en-production-5-equipes-huntsman-ch",
+      "slug": "tecnologo-in-produzione-5-squadre-huntsman-corporation-monthey",
       "slugByLocale": {
         "fr": "technologue-en-production-5-equipes-huntsman-ch",
-        "it": "technologue-en-production-5-equipes-huntsman-ch",
-        "en": "technologue-en-production-5-equipes-huntsman-ch",
-        "de": "technologue-en-production-5-equipes-huntsman-ch"
+        "it": "tecnologo-in-produzione-5-squadre-huntsman-corporation-monthey",
+        "en": "technologist-in-production-5-teams-huntsman-corporation-monthey",
+        "de": "techniker-in-der-produktion-5-teams-huntsman-corporation-monthey"
       },
       "company": "Huntsman Corporation",
       "companyKey": "huntsman",
@@ -728,7 +728,21 @@
         }
       },
       "postalCode": "1870",
-      "firstSeenAt": "2026-05-04T22:05:20.209Z"
+      "firstSeenAt": "2026-05-04T22:05:20.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technologue-en-production-5-equipes-huntsman-ch"
+        ],
+        "en": [
+          "technologue-en-production-5-equipes-huntsman-ch"
+        ],
+        "de": [
+          "technologue-en-production-5-equipes-huntsman-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technologue-en-production-5-equipes-huntsman-ch"
+      ]
     }
   ]
 }

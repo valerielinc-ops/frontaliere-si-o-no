@@ -5054,12 +5054,12 @@
     },
     {
       "id": "hilcona-a06619ba261d",
-      "slug": "sachbearbeiter-sachbearbeiterin-sdm-business-bell-schweiz-ag-basel",
+      "slug": "responsabile-dati-master-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "sachbearbeiter-sachbearbeiterin-sdm-business-bell-schweiz-ag-basel",
-        "it": "sachbearbeiter-sachbearbeiterin-sdm-business-bell-schweiz-ag-basel",
-        "en": "sachbearbeiter-sachbearbeiterin-sdm-business-bell-schweiz-ag-basel",
-        "fr": "sachbearbeiter-sachbearbeiterin-sdm-business-bell-schweiz-ag-basel"
+        "it": "responsabile-dati-master-bell-schweiz-ag-basel",
+        "en": "master-data-specialist-bell-schweiz-ag-basel",
+        "fr": "specialiste-donnees-maitres-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -5098,14 +5098,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-sachbearbeiterin-sdm-business-hilcona-basel"
+          "sachbearbeiter-sachbearbeiterin-sdm-business-hilcona-basel",
+          "sachbearbeiter-sachbearbeiterin-sdm-business-bell-schweiz-ag-basel"
         ],
         "de": [
           "sachbearbeiter-sachbearbeiterin-sdm-business-hilcona-basel"
+        ],
+        "en": [
+          "sachbearbeiter-sachbearbeiterin-sdm-business-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "sachbearbeiter-sachbearbeiterin-sdm-business-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-sachbearbeiterin-sdm-business-hilcona-basel"
+        "sachbearbeiter-sachbearbeiterin-sdm-business-hilcona-basel",
+        "sachbearbeiter-sachbearbeiterin-sdm-business-bell-schweiz-ag-basel"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

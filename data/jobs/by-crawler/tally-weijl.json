@@ -1353,10 +1353,10 @@
     },
     {
       "id": "tally-weijl-bf3e64bf2328",
-      "slug": "flexible-aushilfe-tally-weijl-chur",
+      "slug": "aiuto-flessibile-tally-weijl-chur",
       "slugByLocale": {
         "de": "flexible-aushilfe-tally-weijl-chur",
-        "it": "flexible-aushilfe-tally-weijl-chur",
+        "it": "aiuto-flessibile-tally-weijl-chur",
         "en": "flexible-aushilfe-tally-weijl-chur",
         "fr": "flexible-aushilfe-tally-weijl-chur"
       },
@@ -1412,7 +1412,15 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-05-04T22:44:04.893Z"
+      "firstSeenAt": "2026-05-04T22:44:04.893Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flexible-aushilfe-tally-weijl-chur"
+        ]
+      },
+      "previousSlugs": [
+        "flexible-aushilfe-tally-weijl-chur"
+      ]
     },
     {
       "id": "tally-weijl-4b18b5fa4e7e",
