@@ -8,6 +8,7 @@ import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { lazyRetry } from '@/services/lazyRetry';
+import ProviderLogo from '@/components/shared/ProviderLogo';
 
 function appendUtm(url: string, providerName: string): string {
  const sep = url.includes('?') ? '&' : '?';
@@ -59,7 +60,7 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 
 interface ExchangeProvider {
  name: string;
- logo: string;
+ slug: string;
  commission: number; // Flat fee in CHF
  commissionPercent: number; // Percentage fee
  exchangeRateMarkup: number; // Markup over real rate (e.g., 0.01 = 1%)
@@ -77,7 +78,7 @@ interface ExchangeProvider {
 const providers: ExchangeProvider[] = [
  {
  name: 'Wise (TransferWise)',
- logo: '🌍',
+ slug: 'wise',
  commission: 0,
  commissionPercent: 0.25, // Placeholder, calcolato dinamicamente
  exchangeRateMarkup: 0, // Uses real mid-market rate
@@ -93,7 +94,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'Revolut',
- logo: '💳',
+ slug: 'revolut',
  commission: 0,
  commissionPercent: 0,
  exchangeRateMarkup: 0.005, // ~0.5% fair usage fee over 1000 EUR/month on Standard
@@ -109,7 +110,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'Yuh',
- logo: '🇨🇭',
+ slug: 'yuh',
  commission: 0,
  commissionPercent: 0,
  exchangeRateMarkup: 0.009, // ~0.9% markup
@@ -124,7 +125,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'PostFinance',
- logo: '📮',
+ slug: 'postfinance',
  commission: 0,
  commissionPercent: 0,
  exchangeRateMarkup: 0.025, // ~2.5% markup
@@ -139,7 +140,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'UBS',
- logo: '🏦',
+ slug: 'ubs',
  commission: 5,
  commissionPercent: 0.1,
  exchangeRateMarkup: 0.03, // ~3% markup
@@ -154,7 +155,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'Credit Suisse',
- logo: '🏛️',
+ slug: 'credit-suisse',
  commission: 5,
  commissionPercent: 0.15,
  exchangeRateMarkup: 0.028, // ~2.8% markup
@@ -169,7 +170,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'Fineco Bank',
- logo: '🇮🇹',
+ slug: 'fineco',
  commission: 0,
  commissionPercent: 0.5,
  exchangeRateMarkup: 0.018, // ~1.8% markup
@@ -185,7 +186,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'Intesa Sanpaolo',
- logo: '🏦',
+ slug: 'intesa-sanpaolo',
  commission: 5,
  commissionPercent: 0.25,
  exchangeRateMarkup: 0.032, // ~3.2% markup
@@ -200,7 +201,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'Cariparma (Crédit Agricole)',
- logo: '🏛️',
+ slug: 'credit-agricole-it',
  commission: 4,
  commissionPercent: 0.3,
  exchangeRateMarkup: 0.028, // ~2.8% markup
@@ -216,7 +217,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'UniCredit',
- logo: '🏦',
+ slug: 'unicredit',
  commission: 5,
  commissionPercent: 0.2,
  exchangeRateMarkup: 0.03, // ~3% markup
@@ -231,7 +232,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'Banco BPM',
- logo: '🏦',
+ slug: 'banco-bpm',
  commission: 4.5,
  commissionPercent: 0.25,
  exchangeRateMarkup: 0.029, // ~2.9% markup
@@ -246,7 +247,7 @@ const providers: ExchangeProvider[] = [
  },
  {
  name: 'Cambiavalute.ch',
- logo: '🇨🇭',
+ slug: 'cambiavalute',
  commission: 0,
  commissionPercent: 0,
  exchangeRateMarkup: 0.0035, // ~0.35% spread
@@ -448,7 +449,9 @@ const CurrencyExchange: React.FC = () => {
  >
  <div className="flex items-center justify-between gap-3 sm:gap-4 flex-wrap">
  <div className="flex items-center gap-3 min-w-0">
- <div className="flex-shrink-0 text-3xl sm:text-4xl">{topAffiliate.provider.logo}</div>
+ <div className="flex-shrink-0">
+ <ProviderLogo slug={topAffiliate.provider.slug} name={topAffiliate.provider.name} size={28} className="rounded" />
+ </div>
  <div className="min-w-0">
  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-success-strong text-on-accent text-[10px] sm:text-xs font-bold rounded-full mb-1">
  <CheckCircle2 size={12} />
@@ -715,8 +718,8 @@ const CurrencyExchange: React.FC = () => {
 
  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
  <div className="flex items-center gap-3 min-w-0">
- <div className={`text-2xl sm:text-4xl p-2 sm:p-3 bg-gradient-to-br ${result.provider.color} rounded-xl sm:rounded-2xl shrink-0`}>
- {result.provider.logo}
+ <div className={`p-2 sm:p-3 bg-gradient-to-br ${result.provider.color} rounded-xl sm:rounded-2xl shrink-0 flex items-center justify-center`}>
+ <ProviderLogo slug={result.provider.slug} name={result.provider.name} size={28} className="rounded" />
  </div>
  <div className="min-w-0">
  <h3 className="text-base sm:text-xl font-bold font-display text-strong">{result.provider.name}</h3>
