@@ -5901,6 +5901,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inaugurazione-parchetto-biumo-via-arconati.title': 'Inauguration du parc de Biumo: nouvel espace sportif et social',
     'blog.article.inaugurazione-parchetto-biumo-via-arconati.excerpt': 'Samedi 9 mai, inauguration du nouveau parc de via Arconati à Biumo, Varese, avec des tournois de basket, de la musique et un pique-nique.',
     'blog.article.inaugurazione-parchetto-biumo-via-arconati.imageAlt': 'Parc de la Via Arconati à Biumo, Varese, avec terrain de basket, tables de ping-pong et aire de pique-nique',
+    'blog.article.mendrisio-capitale-culturale-2026.title': 'Mendrisio candidate au titre de Capitale culturelle suisse',
+    'blog.article.mendrisio-capitale-culturale-2026.excerpt': 'La ville de Mendrisio a présenté sa candidature pour devenir Capitale culturelle suisse en 2026.',
+    'blog.article.mendrisio-capitale-culturale-2026.imageAlt': 'Vue aérienne de Mendrisio, Suisse, avec ses bâtiments historiques et ses monuments culturels.',
 };
 
 export default blogMetaFr;

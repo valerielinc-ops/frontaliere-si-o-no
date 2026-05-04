@@ -16591,6 +16591,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mendrisio-capitale-culturale-2026': {
+    title: 'Mendrisio si candida a Capitale Culturale Svizzera',
+    description: 'Mendrisio ha presentato la sua candidatura per diventare Capitale Culturale Svizzera nel 2026. Scopri le implicazioni per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisio, candida, capitale, culturale',
+    ogTitle: 'Mendrisio si candida a Capitale Culturale Svizzera',
+    ogDescription: 'Mendrisio ha presentato la sua candidatura per diventare Capitale Culturale Svizzera nel 2026. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/mendrisio-capitale-culturale-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisio si candida a Capitale Culturale Svizzera",
+      "description": "Mendrisio ha presentato la sua candidatura per diventare Capitale Culturale Svizzera nel 2026. Scopri le implicazioni per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mendrisio-capitale-culturale-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Svizzera, con i suoi edifici storici e monumenti culturali."
+      },
+      "datePublished": "2026-05-04T21:53:33+00:00",
+      "dateModified": "2026-05-04T21:53:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mendrisio-capitale-culturale-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

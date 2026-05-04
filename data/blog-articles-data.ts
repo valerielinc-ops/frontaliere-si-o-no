@@ -19073,4 +19073,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mendrisio-capitale-culturale-2026',
+ category: 'novita',
+ date: '2026-05-04T21:53:33.001Z',
+ image: '/images/blog/mendrisio-capitale-culturale-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
