@@ -5592,6 +5592,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.melenchon-candidatura-presidenziali-2027.title': 'Mélenchon si candida alle presidenziali: «Sono l’uomo giusto contro la destra»',
     'blog.article.melenchon-candidatura-presidenziali-2027.excerpt': 'Il leader di La France Insoumise punta sull’esperienza per contrastare la minaccia della destra alle urne.',
     'blog.article.melenchon-candidatura-presidenziali-2027.imageAlt': 'Jean-Luc Mélenchon parla a un raduno politico a Lugano, in Svizzera.',
+    'blog.article.lugano-renato-steffen-goal-staffa.title': 'Lugano trionfa con il goal di Renato Steffen',
+    'blog.article.lugano-renato-steffen-goal-staffa.excerpt': 'Renato Steffen segna il goal decisivo per il Lugano contro il Thun, assicurando la vittoria finale.',
+    'blog.article.lugano-renato-steffen-goal-staffa.imageAlt': 'Stadio Cornaredo a Lugano durante una partita di calcio',
 };
 
 export default blogMetaIt;

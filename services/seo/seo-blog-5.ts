@@ -13089,6 +13089,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-renato-steffen-goal-staffa': {
+    title: 'Lugano trionfa con il goal di Renato Steffen | Frontaliere Ticino',
+    description: 'Renato Steffen segna il goal decisivo per il Lugano contro il Thun, assicurando la vittoria finale. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, trionfa, goal, renato',
+    ogTitle: 'Lugano trionfa con il goal di Renato Steffen',
+    ogDescription: 'Renato Steffen segna il goal decisivo per il Lugano contro il Thun, assicurando la vittoria finale.',
+    canonicalPath: '/articoli-frontaliere/lugano-renato-steffen-goal-staffa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano trionfa con il goal di Renato Steffen",
+      "description": "Renato Steffen segna il goal decisivo per il Lugano contro il Thun, assicurando la vittoria finale. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-renato-steffen-goal-staffa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio Cornaredo a Lugano durante una partita di calcio"
+      },
+      "datePublished": "2026-05-04T05:43:48+00:00",
+      "dateModified": "2026-05-04T05:43:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-renato-steffen-goal-staffa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

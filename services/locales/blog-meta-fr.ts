@@ -5592,6 +5592,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.melenchon-candidatura-presidenziali-2027.title': 'Mélenchon se présente aux présidentielles : « Je suis l’homme contre la droite »',
     'blog.article.melenchon-candidatura-presidenziali-2027.excerpt': 'Le leader de La France Insoumise mise sur l’expérience pour contrer la menace de la droite aux urnes.',
     'blog.article.melenchon-candidatura-presidenziali-2027.imageAlt': 'Jean-Luc Mélenchon parle lors d\'un rassemblement politique à Lugano, en Suisse.',
+    'blog.article.lugano-renato-steffen-goal-staffa.title': 'Lugano triomphe grâce au but de Renato Steffen',
+    'blog.article.lugano-renato-steffen-goal-staffa.excerpt': 'Renato Steffen marque le but décisif pour Lugano contre Thun, assurant la victoire finale.',
+    'blog.article.lugano-renato-steffen-goal-staffa.imageAlt': 'Stade Cornaredo à Lugano lors d\'un match de football',
 };
 
 export default blogMetaFr;

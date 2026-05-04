@@ -18146,4 +18146,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lugano-renato-steffen-goal-staffa',
+ category: 'novita',
+ date: '2026-05-04T05:43:48.497Z',
+ image: '/images/blog/lugano-renato-steffen-goal-staffa.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

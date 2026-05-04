@@ -5591,6 +5591,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.melenchon-candidatura-presidenziali-2027.title': 'Mélenchon für Präsidentschaft: «Ich gegen Rechte»',
     'blog.article.melenchon-candidatura-presidenziali-2027.excerpt': 'Der Führer von La France Insoumise setzt auf Erfahrung, um die Bedrohung durch die Rechte an den Urnen zu bekämpfen.',
     'blog.article.melenchon-candidatura-presidenziali-2027.imageAlt': 'Jean-Luc Mélenchon spricht auf einer politischen Kundgebung in Lugano, Schweiz.',
+    'blog.article.lugano-renato-steffen-goal-staffa.title': 'Lugano siegt dank Renato Steffens Tor',
+    'blog.article.lugano-renato-steffen-goal-staffa.excerpt': 'Renato Steffen erzielt das entscheidende Tor für Lugano gegen Thun und sichert den Sieg.',
+    'blog.article.lugano-renato-steffen-goal-staffa.imageAlt': 'Cornaredo-Stadion in Lugano während eines Fußballspiels',
 };
 
 export default blogMetaDe;
