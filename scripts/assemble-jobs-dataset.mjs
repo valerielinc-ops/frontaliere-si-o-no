@@ -1333,6 +1333,15 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       for (const [src, dst] of restorePairs) {
         fs.mkdirSync(path.dirname(dst), { recursive: true });
         fs.copyFileSync(src, dst);
+        // Preserve the source mtime/atime so downstream plugins that
+        // hash these files via mtime+size (build-plugins/shared/buildCache.ts
+        // runtimeFiles) see byte-AND-mtime-stable inputs across deploys.
+        // Without this every assemble-jobs HIT still poisons jobs-seo /
+        // job-market-snapshot / market-report cache with a fresh mtime,
+        // forcing them to MISS even though their input bytes are
+        // identical to the previous run.
+        const srcStat = fs.statSync(src);
+        fs.utimesSync(dst, srcStat.atime, srcStat.mtime);
       }
       const dt = ((Date.now() - t0) / 1000).toFixed(2);
       console.log(`✅ assemble-jobs cache HIT (key=${cacheKey.slice(0, 12)}..., restored ${restorePairs.length} files in ${dt}s)`);
@@ -1491,7 +1500,12 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     let snapshotted = 0;
     for (const [src, name] of snapshotPairs) {
       if (fs.existsSync(src)) {
-        fs.copyFileSync(src, path.join(cacheDir, name));
+        const dstPath = path.join(cacheDir, name);
+        fs.copyFileSync(src, dstPath);
+        // Preserve source mtime in the snapshot so subsequent HIT restores
+        // can replay the exact mtime — see the HIT-path utimesSync above.
+        const srcStat = fs.statSync(src);
+        fs.utimesSync(dstPath, srcStat.atime, srcStat.mtime);
         snapshotted++;
       }
     }
