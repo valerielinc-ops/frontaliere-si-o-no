@@ -5480,6 +5480,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.retromarcia-contromano-faido-chiggiogna-2026.title': 'Ausländer riskieren bei Faido-Chiggiogna',
     'blog.article.retromarcia-contromano-faido-chiggiogna-2026.excerpt': 'Autofahrer mit ausländischem Kennzeichen riskieren Bußgelder und Unfälle, um Staus auf der A2 im Tessin zu vermeiden.',
     'blog.article.retromarcia-contromano-faido-chiggiogna-2026.imageAlt': 'Belebter Autobahnzubringer in Faido-Chiggiogna mit starkem Verkehr',
+    'blog.article.lugano-young-boys-cornaredo-2026.title': 'Lugano-YB in Cornaredo: vorletzte Partie vor dem Umzug',
+    'blog.article.lugano-young-boys-cornaredo-2026.excerpt': 'Der FC Lugano empfängt die Young Boys in einem entscheidenden Spiel um den Einzug in die europäischen Wettbewerbe. Letzte Spiele im Cornaredo vor dem Umzug in die Ail Arena.',
+    'blog.article.lugano-young-boys-cornaredo-2026.imageAlt': 'Cornaredo-Stadion in Lugano während eines Fussballspiels',
 };
 
 export default blogMetaDe;

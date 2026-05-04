@@ -17813,4 +17813,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lugano-young-boys-cornaredo-2026',
+ category: 'novita',
+ date: '2026-05-04T00:47:19.687Z',
+ image: '/images/blog/lugano-young-boys-cornaredo-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

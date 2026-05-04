@@ -5480,6 +5480,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.retromarcia-contromano-faido-chiggiogna-2026.title': 'Foreign drivers risk fines on Faido-Chiggiogna',
     'blog.article.retromarcia-contromano-faido-chiggiogna-2026.excerpt': 'Drivers with foreign plates risk fines and accidents to avoid A2 queues in Ticino.',
     'blog.article.retromarcia-contromano-faido-chiggiogna-2026.imageAlt': 'Busy highway entrance at Faido-Chiggiogna with heavy traffic',
+    'blog.article.lugano-young-boys-cornaredo-2026.title': 'Lugano vs YB: crucial match before moving stadium',
+    'blog.article.lugano-young-boys-cornaredo-2026.excerpt': 'Lugano hosts Young Boys in a crucial game for European cup access. Last matches at Cornaredo before moving to Ail Arena.',
+    'blog.article.lugano-young-boys-cornaredo-2026.imageAlt': 'Cornaredo Stadium in Lugano during a football match',
 };
 
 export default blogMetaEn;

@@ -5481,6 +5481,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.retromarcia-contromano-faido-chiggiogna-2026.title': 'Automobilisti stranieri rischiano a Faido-Chiggiogna',
     'blog.article.retromarcia-contromano-faido-chiggiogna-2026.excerpt': 'Automobilisti con targa straniera rischiano multe e incidenti per evitare code sull\'A2 in Ticino.',
     'blog.article.retromarcia-contromano-faido-chiggiogna-2026.imageAlt': 'Ingresso autostradale di Faido-Chiggiogna con traffico intenso',
+    'blog.article.lugano-young-boys-cornaredo-2026.title': 'Lugano-YB a Cornaredo: la terzultima sfida prima del trasloco',
+    'blog.article.lugano-young-boys-cornaredo-2026.excerpt': 'Il Lugano ospita lo Young Boys in una partita cruciale per l\'accesso alle coppe europee. Ultime gare al Cornaredo prima del trasferimento nell\'Ail Arena.',
+    'blog.article.lugano-young-boys-cornaredo-2026.imageAlt': 'Stadio di Cornaredo a Lugano durante una partita di calcio',
 };
 
 export default blogMetaIt;

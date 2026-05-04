@@ -11831,6 +11831,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-young-boys-cornaredo-2026': {
+    title: 'Lugano-YB a Cornaredo: la terzultima sfida prima del trasloco',
+    description: 'Il Lugano ospita lo Young Boys in una partita cruciale per l\'accesso alle coppe europee. Ultime gare al Cornaredo prima del trasferimento nell\'Ail Arena.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano-yb, cornaredo, terzultima, sfida',
+    ogTitle: 'Lugano-YB a Cornaredo: la terzultima sfida prima del trasloco',
+    ogDescription: 'Il Lugano ospita lo Young Boys in una partita cruciale per l\'accesso alle coppe europee. Ultime gare al Cornaredo prima del trasferimento nell\'Ail Arena.',
+    canonicalPath: '/articoli-frontaliere/lugano-young-boys-cornaredo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano-YB a Cornaredo: la terzultima sfida prima del trasloco",
+      "description": "Il Lugano ospita lo Young Boys in una partita cruciale per l'accesso alle coppe europee. Ultime gare al Cornaredo prima del trasferimento nell'Ail Arena.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-young-boys-cornaredo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di Cornaredo a Lugano durante una partita di calcio"
+      },
+      "datePublished": "2026-05-04T00:47:19+00:00",
+      "dateModified": "2026-05-04T00:47:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-young-boys-cornaredo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
