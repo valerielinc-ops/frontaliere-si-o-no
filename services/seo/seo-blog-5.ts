@@ -14925,6 +14925,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gallarate-fs-security-2027': {
+    title: 'Dal 2027 presidio Fs Security alla stazione di Gallarate',
+    description: 'Nuovo presidio di sicurezza alla stazione di Gallarate dal 2027, con operatori attivi 24 ore su 24. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, 2027, presidio, security, alla',
+    ogTitle: 'Dal 2027 presidio Fs Security a Gallarate',
+    ogDescription: 'Nuovo presidio di sicurezza alla stazione di Gallarate dal 2027, con operatori attivi 24 ore su 24.',
+    canonicalPath: '/articoli-frontaliere/gallarate-fs-security-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dal 2027 presidio Fs Security alla stazione di Gallarate",
+      "description": "Nuovo presidio di sicurezza alla stazione di Gallarate dal 2027, con operatori attivi 24 ore su 24. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gallarate-fs-security-2027.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di Gallarate con presenza di sicurezza Fs Security"
+      },
+      "datePublished": "2026-05-04T13:19:34+00:00",
+      "dateModified": "2026-05-04T13:19:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gallarate-fs-security-2027`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

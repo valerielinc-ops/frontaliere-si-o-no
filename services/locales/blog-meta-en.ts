@@ -5753,6 +5753,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parcheggi-blu-como-residenti-difficolta.title': 'Como: empty blue spots and residents struggle to park',
     'blog.article.parcheggi-blu-como-residenti-difficolta.excerpt': 'Residents of Como report that blue spots for residents are always full and they have difficulty finding parking, despite the free non-ASA blue spots',
     'blog.article.parcheggi-blu-como-residenti-difficolta.imageAlt': 'Aerial view of Como city center with parking issues, empty blue parking spots, and residents struggling to find parking',
+    'blog.article.gallarate-fs-security-2027.title': 'FS Security post at Gallarate station from 2027',
+    'blog.article.gallarate-fs-security-2027.excerpt': 'New security post at Gallarate station from 2027, with operators active 24/7.',
+    'blog.article.gallarate-fs-security-2027.imageAlt': 'Gallarate train station with Fs Security presence',
 };
 
 export default blogMetaEn;

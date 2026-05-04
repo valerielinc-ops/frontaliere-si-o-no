@@ -5754,6 +5754,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parcheggi-blu-como-residenti-difficolta.title': 'Como: places bleues vides et résidents en difficulté pour se garer',
     'blog.article.parcheggi-blu-como-residenti-difficolta.excerpt': 'Les résidents de Como signalent des places bleues pour résidents toujours pleines et des difficultés à trouver un parking, malgré les places bleues ASA libres',
     'blog.article.parcheggi-blu-como-residenti-difficolta.imageAlt': 'Vue aérienne du centre-ville de Côme avec des problèmes de stationnement, des places bleues vides et des résidents en difficulté pour se garer',
+    'blog.article.gallarate-fs-security-2027.title': 'Poste de sécurité Fs à Gallarate dès 2027',
+    'blog.article.gallarate-fs-security-2027.excerpt': 'Nouveau poste de sécurité à la gare de Gallarate dès 2027, avec des opérateurs actifs 24 heures sur 24.',
+    'blog.article.gallarate-fs-security-2027.imageAlt': 'Gare de Gallarate avec présence de Fs Security',
 };
 
 export default blogMetaFr;

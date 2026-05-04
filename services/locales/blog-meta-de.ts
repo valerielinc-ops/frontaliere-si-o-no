@@ -5753,6 +5753,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parcheggi-blu-como-residenti-difficolta.title': 'Como: Blaue Parkplätze leer, Anwohner haben Parkprobleme',
     'blog.article.parcheggi-blu-como-residenti-difficolta.excerpt': 'Anwohner von Como melden, dass blaue Parkplätze für Anwohner immer belegt sind und es Schwierigkeiten gibt, einen Parkplatz zu finden, obwohl blaue ASA-Parkplätze frei sind',
     'blog.article.parcheggi-blu-como-residenti-difficolta.imageAlt': 'Luftansicht des Como Stadtzentrums mit Parkproblemen, leere blaue Parkplätze und Einwohner, die Schwierigkeiten haben, einen Parkplatz zu finden',
+    'blog.article.gallarate-fs-security-2027.title': 'Ab 2027 Sicherheitspräsenz am Bahnhof Gallarate',
+    'blog.article.gallarate-fs-security-2027.excerpt': 'Neue Sicherheitspräsenz am Bahnhof Gallarate ab 2027, mit rund um die Uhr aktiven Mitarbeitern.',
+    'blog.article.gallarate-fs-security-2027.imageAlt': 'Bahnhof Gallarate mit Fs Security Präsenz',
 };
 
 export default blogMetaDe;

@@ -18632,4 +18632,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gallarate-fs-security-2027',
+ category: 'novita',
+ date: '2026-05-04T13:19:34.110Z',
+ image: '/images/blog/gallarate-fs-security-2027.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5754,6 +5754,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parcheggi-blu-como-residenti-difficolta.title': 'Como: posti blu vuoti e residenti in difficoltà a parcheggiare',
     'blog.article.parcheggi-blu-como-residenti-difficolta.excerpt': 'Residenti di Como segnalano posti blu per residenti sempre pieni e difficoltà a trovare parcheggio, nonostante i posti blu non ASA liberi',
     'blog.article.parcheggi-blu-como-residenti-difficolta.imageAlt': 'Vista aerea del centro di Como con problemi di parcheggio, posti blu vuoti e residenti in difficoltà',
+    'blog.article.gallarate-fs-security-2027.title': 'Dal 2027 presidio Fs Security alla stazione di Gallarate',
+    'blog.article.gallarate-fs-security-2027.excerpt': 'Nuovo presidio di sicurezza alla stazione di Gallarate dal 2027, con operatori attivi 24 ore su 24.',
+    'blog.article.gallarate-fs-security-2027.imageAlt': 'Stazione di Gallarate con presenza di sicurezza Fs Security',
 };
 
 export default blogMetaIt;
