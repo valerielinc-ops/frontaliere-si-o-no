@@ -451,22 +451,76 @@ export function buildSectorHubSeo(
        // along with qualifier on overflow and distinct sector × count
        // pairs collapse to identical titles, tripping the title-uniqueness
        // gate (sector hub regression caught 2026-04-27).
-      const titleBase = formatSeoTitle({
-        keyword: `Lavoro ${noun}`,
-        location: 'Ticino',
-        year: yearStr,
-        count: safeCount > 0 ? safeCount : undefined,
-      });
+      // Per-sector verbatim phrase overrides for near-win GSC queries:
+      //  - Q2 "case anziani ticino offerte di lavoro" (rank ~2.5, CTR 11.1%)
+      //  - Q4 "offerte lavoro infermieri svizzera canton ticino" (rank ~3.4)
+      // For these sectors we bypass formatSeoTitle and emit a hand-crafted
+      // keyword-first headline that contains the exact query phrase. Other
+      // sectors keep the original formatSeoTitle template.
+      let titleBase: string;
+      if (sector === 'case-anziani') {
+        titleBase = safeCount > 0
+          ? `Case Anziani Ticino: offerte di lavoro ${yearStr} (${safeCount})`
+          : `Case Anziani Ticino: offerte di lavoro ${yearStr}`;
+      } else if (sector === 'infermieri') {
+        // Verbatim "Infermieri Svizzera Canton Ticino" (29 ch) anchors the
+        // query phrase. Year + count appended only if the resulting headline
+        // (incl. the " | Frontaliere Ticino" suffix added downstream) fits
+        // the 70-char Semrush W2 budget. 29 + 21 (suffix) = 50 → 20 chars
+        // free for `: 42 offerte 2026` (~17 ch typical).
+        titleBase = safeCount > 0
+          ? `Infermieri Svizzera Canton Ticino: ${safeCount} offerte`
+          : `Infermieri Svizzera Canton Ticino — offerte aperte`;
+      } else {
+        titleBase = formatSeoTitle({
+          keyword: `Lavoro ${noun}`,
+          location: 'Ticino',
+          year: yearStr,
+          count: safeCount > 0 ? safeCount : undefined,
+        });
+      }
       const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
-      const desc = safeCount > 0
-        ? `Trova ${safeCount} offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`
-        : `Trova offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`;
+      const desc = (() => {
+        if (sector === 'case-anziani') {
+          return safeCount > 0
+            ? `Case anziani Ticino offerte di lavoro: ${safeCount} posizioni aperte oggi in residenze e RSA ticinesi (Lugano, Bellinzona, Mendrisio, Locarno). Aggiornate ogni giorno, candidatura diretta.`
+            : `Case anziani Ticino offerte di lavoro: posizioni aperte in residenze e RSA ticinesi (Lugano, Bellinzona, Mendrisio, Locarno). Aggiornate ogni giorno, candidatura diretta.`;
+        }
+        if (sector === 'infermieri') {
+          return safeCount > 0
+            ? `Offerte lavoro infermieri Svizzera Canton Ticino: ${safeCount} posizioni in ospedali, cliniche e case anziani. Aggiornate ogni giorno, candidatura diretta da frontaliere.`
+            : `Offerte lavoro infermieri Svizzera Canton Ticino: posizioni in ospedali, cliniche e case anziani. Aggiornate ogni giorno, candidatura diretta da frontaliere.`;
+        }
+        return safeCount > 0
+          ? `Trova ${safeCount} offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`
+          : `Trova offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`;
+      })();
       // H1: narrative ("990 posti vacanti nel settore Case Anziani in Ticino").
       // Never identical to the SEO title (Semrush W3, issue 105).
-      const h1 = safeCount > 0
-        ? `${safeCount} posti vacanti nel settore ${noun} in Ticino`
-        : `Opportunità di lavoro per ${noun.toLowerCase()} in Ticino`;
-      const intro = `Pagina dedicata alle opportunità di lavoro ${noun.toLowerCase()} in Ticino. Contiene solo annunci attivi, pubblicati da ospedali, case anziani, scuole e cooperative ticinesi. Ogni annuncio porta alla candidatura ufficiale dell'azienda.`;
+      const h1 = (() => {
+        if (sector === 'case-anziani') {
+          return safeCount > 0
+            ? `Case anziani Ticino — offerte di lavoro (${safeCount} posizioni aperte)`
+            : `Case anziani Ticino — offerte di lavoro aperte oggi`;
+        }
+        if (sector === 'infermieri') {
+          return safeCount > 0
+            ? `Offerte lavoro infermieri Svizzera Canton Ticino (${safeCount} posizioni)`
+            : `Offerte lavoro infermieri Svizzera Canton Ticino — posizioni aperte`;
+        }
+        return safeCount > 0
+          ? `${safeCount} posti vacanti nel settore ${noun} in Ticino`
+          : `Opportunità di lavoro per ${noun.toLowerCase()} in Ticino`;
+      })();
+      const intro = (() => {
+        if (sector === 'case-anziani') {
+          return `Case anziani Ticino offerte di lavoro: questa pagina raccoglie tutte le posizioni aperte in case di cura, residenze per anziani (RSA), istituti geriatrici e cooperative socio-assistenziali del Canton Ticino — tra cui Pregassona, OSCAM, RIS Lugano, Mendrisio, Bellinzona, Locarno, Chiasso, Massagno e Paradiso. Ogni annuncio è verificato e porta direttamente alla candidatura ufficiale del datore di lavoro, senza registrazione e senza intermediari. Profili più richiesti: infermieri, operatori socio-sanitari (OSS), animatori, ausiliari, cuochi e personale di pulizia.`;
+        }
+        if (sector === 'infermieri') {
+          return `Offerte lavoro infermieri Svizzera Canton Ticino: in questa pagina raccogliamo tutte le posizioni aperte oggi per infermieri diplomati e specialisti negli ospedali pubblici (rete EOC), cliniche private, case anziani e servizi di cure a domicilio (Spitex/SACD) ticinesi. Le offerte includono ruoli a tempo pieno e parziale, contratti a tempo indeterminato e mandati per supplenze. Ogni annuncio porta alla candidatura ufficiale, senza registrazione. Per i frontalieri italiani il riconoscimento del titolo passa dalla Croce Rossa Svizzera (SRC); il nostro elenco indica sede, datore di lavoro e profilo richiesto in modo trasparente.`;
+        }
+        return `Pagina dedicata alle opportunità di lavoro ${noun.toLowerCase()} in Ticino. Contiene solo annunci attivi, pubblicati da ospedali, case anziani, scuole e cooperative ticinesi. Ogni annuncio porta alla candidatura ufficiale dell'azienda.`;
+      })();
       const faq = [
         {
           question: `Quanti posti di lavoro ci sono per ${noun.toLowerCase()} in Ticino?`,

@@ -104,13 +104,17 @@ describe('jobSectorLanding — paths', () => {
 describe('jobSectorLanding — SEO copy', () => {
   it('Italian title includes live count, noun, and year (Phase 3A: ≤70ch, no emoji)', () => {
     const seo = buildSectorHubSeo('it', 'infermieri', 42, YEAR);
+    // Q4 SEO override: title leads with the verbatim phrase
+    // "Infermieri Svizzera Canton Ticino" + count. Year is dropped from this
+    // sector's title to keep the 70-char budget after the brand suffix.
     expect(seo.title).toContain('Infermieri');
+    expect(seo.title).toContain('Svizzera Canton Ticino');
     expect(seo.title).toContain('42');
-    expect(seo.title).toContain('Ticino');
-    expect(seo.title).toContain(String(YEAR));
     expect(seo.title.length).toBeLessThanOrEqual(70);
     expect(seo.title.startsWith('🔥')).toBe(false);
-    expect(seo.h1).toBe('42 posti vacanti nel settore Infermieri in Ticino');
+    expect(seo.h1.toLowerCase()).toContain('infermieri');
+    expect(seo.h1).toContain('Svizzera Canton Ticino');
+    expect(seo.h1).toContain('42');
     expect(seo.h1).not.toBe(seo.title);
   });
 
@@ -124,9 +128,13 @@ describe('jobSectorLanding — SEO copy', () => {
 
   it('uses zero-count narrative for H1 when count = 0 (Phase 3A)', () => {
     const seo = buildSectorHubSeo('it', 'case-anziani', 0, YEAR);
+    // Q2 SEO override: "case anziani ticino offerte di lavoro".
+    // H1 still carries the verbatim phrase even when count is zero.
     expect(seo.title).not.toContain('🔥');
     expect(seo.title).not.toMatch(/^\d/);
-    expect(seo.h1).toBe('Opportunità di lavoro per case anziani in Ticino');
+    expect(seo.h1.toLowerCase()).toContain('case anziani');
+    expect(seo.h1.toLowerCase()).toContain('ticino');
+    expect(seo.h1.toLowerCase()).toContain('offerte di lavoro');
     expect(seo.h1).not.toBe(seo.title);
   });
 

@@ -130,10 +130,13 @@ const EOC: EmployerBrand = {
   ],
   copy: {
     it: {
-      h1: 'Lavorare in EOC — Ente Ospedaliero Cantonale del Canton Ticino',
-      tagline: 'Carriera nella sanità pubblica ticinese: offerte di lavoro aperte, stipendi, sedi, come candidarsi.',
+      // SEO target: query "eoc offerte di lavoro" (rank ~3.1). H1 leads with
+      // the exact query phrase verbatim; meta-title also keyword-first so the
+      // SERP snippet shows the phrase immediately.
+      h1: 'EOC offerte di lavoro — Ente Ospedaliero Cantonale del Canton Ticino',
+      tagline: 'EOC offerte di lavoro aperte oggi: stipendi, sedi (Bellinzona, Lugano, Locarno, Mendrisio) e come candidarsi da frontaliere.',
       paragraphs: [
-        "L'Ente Ospedaliero Cantonale (EOC) è la principale azienda sanitaria pubblica del Canton Ticino: un ente di diritto pubblico che gestisce la rete degli ospedali cantonali multisito e coordina l'offerta di cure ospedaliere per tutta la Svizzera italiana. Con oltre 41'000 pazienti degenti e quasi 700'000 visite ambulatoriali all'anno, EOC è al contempo il maggior datore di lavoro del settore sanitario in Ticino e uno dei principali datori di lavoro del cantone tout court, con circa 5'000 collaboratrici e collaboratori.",
+        "EOC offerte di lavoro: l'Ente Ospedaliero Cantonale è la principale azienda sanitaria pubblica del Canton Ticino, un ente di diritto pubblico che gestisce la rete degli ospedali cantonali multisito e coordina l'offerta di cure ospedaliere per tutta la Svizzera italiana. Con oltre 41'000 pazienti degenti e quasi 700'000 visite ambulatoriali all'anno, EOC è al contempo il maggior datore di lavoro del settore sanitario in Ticino e uno dei principali datori di lavoro del cantone tout court, con circa 5'000 collaboratrici e collaboratori. In questa pagina trovi tutte le offerte di lavoro EOC attualmente aperte, aggiornate ogni giorno dai nostri crawler, con link diretto alla candidatura ufficiale sul portale eoc.ch/carriere.",
         "La rete ospedaliera EOC riunisce le strutture pubbliche dei quattro poli regionali — Bellinzona e Valli, Lugano, Locarno, Mendrisio — oltre a cliniche di riabilitazione, all'Istituto Oncologico della Svizzera Italiana (IOSI) e al Cardiocentro Ticino Institute. Ogni struttura ha specialità proprie ma condivide standard clinici, sistemi informativi e procedure HR, il che rende possibile per i collaboratori muoversi tra sedi in base a progetti, formazione e bisogni personali.",
         "EOC assume con regolarità sia personale sanitario (medici assistenti, capi clinica, infermieri, operatori socio-sanitari, tecnici di radiologia e di laboratorio, fisioterapisti, ostetriche, farmacisti, psicologi) sia profili non clinici: amministrazione, logistica, informatica, ingegneria clinica, facility management, comunicazione e project management. La maggior parte dei contratti è a tempo indeterminato, pieno o parziale, con possibilità di turni fissi o rotanti a seconda del servizio.",
         "Per i frontalieri italiani, EOC rappresenta una delle destinazioni più accessibili del cantone: i poli di Mendrisio e Lugano sono raggiungibili entro 30-45 minuti dai principali comuni italiani di confine (Como, Varese, Luino), mentre Bellinzona e Locarno sono serviti dalla linea ferroviaria TILO. L'ente accetta regolarmente candidature da frontalieri con Permesso G e valuta titoli di studio italiani con equipollenze gestite attraverso la Conferenza svizzera dei direttori cantonali della sanità (CDS).",
@@ -169,8 +172,8 @@ const EOC: EmployerBrand = {
       ],
       locationsIntro: 'EOC gestisce una rete cantonale multisito: puoi scegliere la sede più vicina al tuo comune di residenza (anche italiano) o spostarti tra i presidi nel corso della carriera.',
       emptyStateNote: 'In questo momento non ci sono posizioni EOC attive nella nostra banca dati. Gli annunci vengono aggiornati ogni giorno dal crawler: torna domani oppure candidati spontaneamente sul portale ufficiale.',
-      metaTitle: 'Lavorare in EOC | Offerte di lavoro Ente Ospedaliero Cantonale Ticino',
-      metaDescription: 'EOC Ticino: posizioni aperte, stipendi, sedi (Bellinzona, Lugano, Locarno, Mendrisio), come candidarsi da frontaliere. Aggiornato ogni giorno.',
+      metaTitle: 'EOC offerte di lavoro Ticino: posizioni aperte oggi | Frontaliere Ticino',
+      metaDescription: 'EOC offerte di lavoro Ticino: tutte le posizioni aperte all\'Ente Ospedaliero Cantonale (Bellinzona, Lugano, Locarno, Mendrisio), stipendi e come candidarsi da frontaliere. Aggiornato ogni giorno.',
     },
     en: {
       h1: 'Careers at EOC — Ente Ospedaliero Cantonale, Canton Ticino',

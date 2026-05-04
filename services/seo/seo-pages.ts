@@ -990,11 +990,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  newFrontierTaxSim: {
- title: 'Simulazione Tasse Nuovi Frontalieri 2026 | IRPEF',
- description: 'Simulazione tasse nuovi frontalieri: calcola imposta alla fonte Ticino, IRPEF con franchigia €10.000, credito d\'imposta e netto 2026.',
+ // SEO target: query "simulazione tasse nuovi frontalieri" (rank ~2.9, CTR
+ // 29.7%). Title leads with the exact phrase + year + value-prop. H1 set
+ // explicitly so it differs from <title> (Semrush W3) while still carrying
+ // the verbatim query.
+ title: 'Simulazione tasse nuovi frontalieri 2026: calcolo netto online',
+ h1: 'Simulazione tasse nuovi frontalieri 2026 — Accordo Italia-Svizzera',
+ description: 'Simulazione tasse nuovi frontalieri 2026: calcola imposta alla fonte Ticino, IRPEF con franchigia €10.000 e credito d\'imposta. Simulatore gratuito, senza registrazione.',
  keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse nuovi frontalieri 2026, imposta alla fonte nuovi frontalieri, IRPEF frontalieri franchigia 10000, nuovo accordo frontalieri tasse, doppia imposizione nuovi frontalieri, differenza vecchi nuovi frontalieri tasse, franchigia nuovi frontalieri',
- ogTitle: 'Simulazione Tasse Nuovi Frontalieri 2026',
- ogDescription: 'Calcola le tasse come nuovo frontaliere: imposta alla fonte CH + IRPEF Italia con franchigia €10.000 e credito d\'imposta. Simulatore gratuito.',
+ ogTitle: 'Simulazione tasse nuovi frontalieri 2026 — Calcolo netto',
+ ogDescription: 'Simulazione tasse nuovi frontalieri 2026: imposta alla fonte CH + IRPEF Italia con franchigia €10.000 e credito d\'imposta. Calcolo gratuito, risultato in EUR.',
  canonicalPath: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri',
  structuredData: [
  {
