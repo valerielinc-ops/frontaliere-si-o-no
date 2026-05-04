@@ -19,7 +19,6 @@ import {
   GTAG_SNIPPET,
   ADSENSE_SNIPPET,
 } from './constants';
-import { runCached } from './shared/buildCache';
 import {
   STAT_TILE_ACCENT,
   STAT_TILE_WARNING,
@@ -357,27 +356,11 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
       const np = await import('node:path');
       const distDir = np.resolve(rootDir, 'dist');
       const jobsPath = np.resolve(rootDir, 'data/jobs.json');
-      const sectorDescPath = np.resolve(rootDir, 'data/sector-descriptions.json');
 
-      // `dateStamp` is fixed once per build and folded into the cache key.
-      // Within the same UTC day, if jobs.json + sector-descriptions.json
-      // haven't changed, the cache hit reuses identical HTML.
+      // `dateStamp` is fixed once per build and baked into HTML.
       const dateStamp = new Date().toISOString().slice(0, 10);
       const year = new Date().getUTCFullYear();
 
-      await runCached({
-        pluginName: 'job-sector-pages',
-        rootDir,
-        distDir,
-        bundleEntry: np.resolve(rootDir, 'build-plugins/jobSectorPagesPlugin.ts'),
-        runtimeFiles: () => {
-          const list: string[] = [];
-          if (fs.existsSync(jobsPath)) list.push(jobsPath);
-          if (fs.existsSync(sectorDescPath)) list.push(sectorDescPath);
-          return list;
-        },
-        extraKey: `${dateStamp}|${year}`,
-        work: async ({ recordWrite }) => {
       // Read jobs.json (gitignored in dev; present in CI).
       let jobs: SectorCountableJob[] = [];
       try {
@@ -455,13 +438,11 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           ensureDir(outDir);
           const indexFile = np.join(outDir, 'index.html');
           fs.writeFileSync(indexFile, html, 'utf-8');
-          recordWrite(indexFile);
           const flatPath = canonicalPath.replace(/\/+$/, '');
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
             ensureDir(np.dirname(flatFile));
             fs.writeFileSync(flatFile, html, 'utf-8');
-            recordWrite(flatFile);
           }
 
           // Build sitemap entry keyed on IT canonical
@@ -477,7 +458,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
         }
       }
 
-      // Write sitemap-sector.xml inside the cacheable work — snapshotted.
+      // Write sitemap-sector.xml.
       if (sitemapEntries.length > 0) {
         const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -487,7 +468,6 @@ ${sitemapEntries.join('\n')}
         try {
           const sitemapPath = np.join(distDir, 'sitemap-sector.xml');
           fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
-          recordWrite(sitemapPath);
         } catch (err) {
           console.warn('[job-sector-pages] failed to write sitemap-sector.xml', err);
         }
@@ -497,8 +477,6 @@ ${sitemapEntries.join('\n')}
       console.log(
         `\x1b[36m[job-sector-pages]\x1b[0m Generated ${totalPages} sector hubs (${jobs.length} candidate jobs)`,
       );
-        },
-      });
 
       // Always-run: patch sitemap.xml index lastmod entry. Other plugins
       // regenerate sitemap.xml every build, so our entry's <lastmod> would

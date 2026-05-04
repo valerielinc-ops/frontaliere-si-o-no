@@ -16,7 +16,6 @@ import {
   GTAG_SNIPPET,
   ADSENSE_SNIPPET,
 } from './constants';
-import { runCached } from './shared/buildCache';
 import {
   JOB_RECENCY_LANDING_SLUGS,
   type JobRecencyVariant,
@@ -122,24 +121,9 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       const jobsPath = np.resolve(rootDir, 'data/jobs.json');
 
-      // `dateStamp` is fixed once per build and threaded through both the
-      // cache key (extraKey, day-granular) and the work function. Within
-      // the same UTC day, if jobs.json hasn't changed, the cache hit reuses
-      // identical HTML (same dateStamp baked into JSON-LD/sitemap).
+      // `dateStamp` is fixed once per build and baked into JSON-LD/sitemap.
       const dateStamp = new Date().toISOString().slice(0, 10);
 
-      await runCached({
-        pluginName: 'job-recency-pages',
-        rootDir,
-        distDir,
-        bundleEntry: np.resolve(rootDir, 'build-plugins/jobRecencyPagesPlugin.ts'),
-        runtimeFiles: () => {
-          const list: string[] = [];
-          if (fs.existsSync(jobsPath)) list.push(jobsPath);
-          return list;
-        },
-        extraKey: dateStamp,
-        work: async ({ recordWrite }) => {
       // Read jobs.json (gitignored in dev; present in CI). Missing file is
       // a soft failure — empty-state pages are still generated.
       let jobs: Array<Record<string, unknown>> = [];
@@ -372,13 +356,11 @@ ${alternates}
           ensureDir(outDir);
           const indexFile = np.join(outDir, 'index.html');
           fs.writeFileSync(indexFile, html, 'utf-8');
-          recordWrite(indexFile);
           const flatPath = canonicalPath.replace(/\/+$/, '');
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
             ensureDir(np.dirname(flatFile));
             fs.writeFileSync(flatFile, html, 'utf-8');
-            recordWrite(flatFile);
           }
 
           // Build sitemap entry once per (locale, variant) pair — keyed on IT canonical
@@ -398,7 +380,7 @@ ${alternates}
         }
       }
 
-      // Write sitemap-recency.xml inside cacheable work so it gets snapshotted.
+      // Write sitemap-recency.xml.
       if (sitemapEntries.length > 0) {
         const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -408,7 +390,6 @@ ${sitemapEntries.join('\n')}
         try {
           const sitemapPath = np.join(distDir, 'sitemap-recency.xml');
           fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
-          recordWrite(sitemapPath);
         } catch (err) {
           console.warn('[job-recency-pages] failed to write sitemap-recency.xml', err);
         }
@@ -417,8 +398,6 @@ ${sitemapEntries.join('\n')}
       console.log(
         `\x1b[36m[job-recency-pages]\x1b[0m Generated ${LOCALES.length * VARIANTS.length} recency hubs (${validJobs.length} candidate jobs)`,
       );
-        },
-      });
 
       // Always-run: patch sitemap.xml index lastmod entry. Other plugins
       // regenerate sitemap.xml every build, so our entry's <lastmod> would

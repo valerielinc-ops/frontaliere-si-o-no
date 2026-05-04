@@ -49,7 +49,6 @@ import {
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
-import { runCached } from './shared/buildCache';
 import {
   JOB_MARKET_HUB_NAME,
   JOB_MARKET_LOCALE_PREFIX,
@@ -2698,32 +2697,6 @@ function patchSitemapIndex(distDir: string, dateStamp: string): void {
 
 // ── Plugin entry ──────────────────────────────────────────────
 
-/**
- * Enumerate the runtime data files this plugin reads via `fs.readFileSync`.
- *
- * esbuild covers TS/JS imports but does NOT see fs-loaded data files.
- * The cache hashes every file in this list to make sure dataset edits
- * invalidate the cache automatically. Returns ABSOLUTE paths.
- */
-function jobMarketSnapshotRuntimeFiles(rootDir: string): string[] {
-  const list: string[] = [];
-  const dataDir = np.join(rootDir, 'data');
-  const candidates = [
-    np.join(dataDir, 'jobs.json'),
-    np.join(dataDir, 'jobs-stats.json'),
-    np.join(dataDir, 'jobs-stats-history.json'),
-    // Written by jobsSeoPagesPlugin earlier in closeBundle and read here via
-    // loadKnownCompanySlugs — include so the cache invalidates when the
-    // company-slug roster changes.
-    np.join(dataDir, 'known-company-slugs.json'),
-    np.join(dataDir, 'all-known-job-slugs.json'),
-  ];
-  for (const p of candidates) {
-    if (fs.existsSync(p)) list.push(p);
-  }
-  return list;
-}
-
 export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
   return {
     name: 'job-market-snapshot',
@@ -2740,9 +2713,7 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       }
 
       // Ext3 task 3 — wipe owned namespaces before regen so per-sector /
-      // per-archive pages that drop out don't linger as stale files. Stays
-      // BEFORE runCached so wipe-then-restore order is correct: the cache
-      // restore later refills the namespace with the canonical set.
+      // per-archive pages that drop out don't linger as stale files.
       cleanNamespaces(distDir, [
         'mercato-lavoro-ticino',
         'en/ticino-job-market',
@@ -2754,142 +2725,130 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       const today = new Date();
       const dateStamp = today.toISOString().slice(0, 10);
 
-      await runCached({
-        pluginName: 'job-market-snapshot',
-        rootDir,
+      const historyPath = np.resolve(rootDir, 'data', 'jobs-stats-history.json');
+      const jobsPath = np.resolve(rootDir, 'data', 'jobs.json');
+
+      let history: StatsHistoryDataset | null = null;
+      try {
+        if (fs.existsSync(historyPath)) {
+          const raw = fs.readFileSync(historyPath, 'utf-8');
+          const parsed = JSON.parse(raw) as StatsHistoryDataset;
+          if (parsed && Array.isArray(parsed.entries)) history = parsed;
+        }
+      } catch (err) {
+        console.warn('[job-market-snapshot] failed to read data/jobs-stats-history.json', err);
+      }
+
+      let jobs: JobRecord[] = [];
+      try {
+        if (fs.existsSync(jobsPath)) {
+          const raw = fs.readFileSync(jobsPath, 'utf-8');
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) jobs = parsed as JobRecord[];
+        }
+      } catch (err) {
+        console.warn('[job-market-snapshot] failed to read data/jobs.json', err);
+      }
+
+      const knownSlugs = loadKnownCompanySlugs(rootDir);
+      const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
+
+      // D-3A: per-sector snapshot pages (~14 sectors × 4 locali = ~56 pages)
+      const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
+      for (const [path, html] of Object.entries(sectorOutput.pages)) {
+        pages[path] = html;
+      }
+
+      const collector = new WriteCollector({
         distDir,
-        bundleEntry: np.resolve(rootDir, 'build-plugins/jobMarketSnapshotPlugin.ts'),
-        runtimeFiles: () => jobMarketSnapshotRuntimeFiles(rootDir),
-        extraKey: dateStamp,
-        work: async ({ recordWrite }) => {
-          const historyPath = np.resolve(rootDir, 'data', 'jobs-stats-history.json');
-          const jobsPath = np.resolve(rootDir, 'data', 'jobs.json');
+        pluginName: 'jobMarketSnapshotPlugin',
+      });
+      const sitemapEntries: string[] = [];
+      let pagesWritten = 0;
+      let skippedForWordCount = 0;
 
-          let history: StatsHistoryDataset | null = null;
-          try {
-            if (fs.existsSync(historyPath)) {
-              const raw = fs.readFileSync(historyPath, 'utf-8');
-              const parsed = JSON.parse(raw) as StatsHistoryDataset;
-              if (parsed && Array.isArray(parsed.entries)) history = parsed;
+      for (const [path, html] of Object.entries(pages)) {
+        const isHub = JOB_MARKET_SNAPSHOT_LOCALES.some((loc) => buildHubPath(loc) === path);
+        const minWords = isHub ? MIN_HUB_WORDS : MIN_SNAPSHOT_WORDS;
+        const words = countHtmlBodyWords(html);
+        if (words < Math.max(MIN_INDEXABLE_WORDS, minWords)) {
+          skippedForWordCount++;
+          console.warn(`[job-market-snapshot] thin content (${words} words) for ${path} — skipping`);
+          continue;
+        }
+        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
+        pagesWritten++;
+
+        // Sitemap: only emit IT canonical for each page (hub/weekly/monthly), with hreflang alternates
+        const isItalian = !path.startsWith('/en/') && !path.startsWith('/de/') && !path.startsWith('/fr/');
+        if (isItalian && !html.includes('name="robots" content="noindex')) {
+          // Extract the IT sub-slug after the section, then re-localise it
+          // per alternate so the alternate link lands on the correct
+          // locale-specific URL (woche-16-2026, week-16-2026, etc.).
+          const stripped = path.replace(/^\/mercato-lavoro-ticino\/?/, '');
+          const subSlug = stripped.replace(/\/+$/, '');
+          const localisedSubSlug = (alt: JobMarketSnapshotLocale): string => {
+            if (!subSlug) return '';
+            // Weekly slug form: settimana-NN-YYYY
+            const weekMatch = /^settimana-(\d{1,2})-(\d{4})$/.exec(subSlug);
+            if (weekMatch) {
+              const week = weekMatch[1];
+              const year = weekMatch[2];
+              const prefix = alt === 'it' ? 'settimana' : alt === 'en' ? 'week' : alt === 'de' ? 'woche' : 'semaine';
+              return `${prefix}-${week}-${year}`;
             }
-          } catch (err) {
-            console.warn('[job-market-snapshot] failed to read data/jobs-stats-history.json', err);
-          }
-
-          let jobs: JobRecord[] = [];
-          try {
-            if (fs.existsSync(jobsPath)) {
-              const raw = fs.readFileSync(jobsPath, 'utf-8');
-              const parsed = JSON.parse(raw);
-              if (Array.isArray(parsed)) jobs = parsed as JobRecord[];
+            // Monthly slug form: <monthName>-YYYY (IT)
+            const monthMatch = /^([a-z]+)-(\d{4})$/.exec(subSlug);
+            if (monthMatch) {
+              const itMonthName = monthMatch[1];
+              const year = Number(monthMatch[2]);
+              const itIdx = JOB_MARKET_MONTH_NAMES.it.indexOf(itMonthName);
+              if (itIdx >= 1) {
+                const altName = JOB_MARKET_MONTH_NAMES[alt][itIdx];
+                return `${altName}-${year}`;
+              }
             }
-          } catch (err) {
-            console.warn('[job-market-snapshot] failed to read data/jobs.json', err);
-          }
-
-          const knownSlugs = loadKnownCompanySlugs(rootDir);
-          const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
-
-          // D-3A: per-sector snapshot pages (~14 sectors × 4 locali = ~56 pages)
-          const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
-          for (const [path, html] of Object.entries(sectorOutput.pages)) {
-            pages[path] = html;
-          }
-
-          const collector = new WriteCollector({
-            distDir,
-            pluginName: 'jobMarketSnapshotPlugin',
-            pathRecorder: recordWrite,
-          });
-          const sitemapEntries: string[] = [];
-          let pagesWritten = 0;
-          let skippedForWordCount = 0;
-
-          for (const [path, html] of Object.entries(pages)) {
-            const isHub = JOB_MARKET_SNAPSHOT_LOCALES.some((loc) => buildHubPath(loc) === path);
-            const minWords = isHub ? MIN_HUB_WORDS : MIN_SNAPSHOT_WORDS;
-            const words = countHtmlBodyWords(html);
-            if (words < Math.max(MIN_INDEXABLE_WORDS, minWords)) {
-              skippedForWordCount++;
-              console.warn(`[job-market-snapshot] thin content (${words} words) for ${path} — skipping`);
-              continue;
+            // Sector slug form: settore/<sectorSlug> (IT) → branche/<slug> (DE) etc.
+            const sectorMatch = /^settore\/([a-z0-9-]+)$/.exec(subSlug);
+            if (sectorMatch) {
+              const leaf = sectorMatch[1];
+              return `${JOB_MARKET_SECTOR_SEGMENT[alt]}/${leaf}`;
             }
-            const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-            collector.add(np.join(outDir, 'index.html'), html);
-            pagesWritten++;
+            return subSlug;
+          };
+          const alternates = JOB_MARKET_SNAPSHOT_LOCALES.map((alt) => {
+            const altSub = localisedSubSlug(alt);
+            const basePath = `${JOB_MARKET_LOCALE_PREFIX[alt]}/${JOB_MARKET_SECTION_SLUG[alt]}/`;
+            const altPath = (altSub ? `${basePath}${altSub}/` : basePath).replace(/\/+/g, '/');
+            return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}" />`;
+          }).join('\n');
+          sitemapEntries.push(
+            `  <url>\n    <loc>${BASE_URL}${path}</loc>\n${alternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${path}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+          );
+        }
+      }
 
-            // Sitemap: only emit IT canonical for each page (hub/weekly/monthly), with hreflang alternates
-            const isItalian = !path.startsWith('/en/') && !path.startsWith('/de/') && !path.startsWith('/fr/');
-            if (isItalian && !html.includes('name="robots" content="noindex')) {
-              // Extract the IT sub-slug after the section, then re-localise it
-              // per alternate so the alternate link lands on the correct
-              // locale-specific URL (woche-16-2026, week-16-2026, etc.).
-              const stripped = path.replace(/^\/mercato-lavoro-ticino\/?/, '');
-              const subSlug = stripped.replace(/\/+$/, '');
-              const localisedSubSlug = (alt: JobMarketSnapshotLocale): string => {
-                if (!subSlug) return '';
-                // Weekly slug form: settimana-NN-YYYY
-                const weekMatch = /^settimana-(\d{1,2})-(\d{4})$/.exec(subSlug);
-                if (weekMatch) {
-                  const week = weekMatch[1];
-                  const year = weekMatch[2];
-                  const prefix = alt === 'it' ? 'settimana' : alt === 'en' ? 'week' : alt === 'de' ? 'woche' : 'semaine';
-                  return `${prefix}-${week}-${year}`;
-                }
-                // Monthly slug form: <monthName>-YYYY (IT)
-                const monthMatch = /^([a-z]+)-(\d{4})$/.exec(subSlug);
-                if (monthMatch) {
-                  const itMonthName = monthMatch[1];
-                  const year = Number(monthMatch[2]);
-                  const itIdx = JOB_MARKET_MONTH_NAMES.it.indexOf(itMonthName);
-                  if (itIdx >= 1) {
-                    const altName = JOB_MARKET_MONTH_NAMES[alt][itIdx];
-                    return `${altName}-${year}`;
-                  }
-                }
-                // Sector slug form: settore/<sectorSlug> (IT) → branche/<slug> (DE) etc.
-                const sectorMatch = /^settore\/([a-z0-9-]+)$/.exec(subSlug);
-                if (sectorMatch) {
-                  const leaf = sectorMatch[1];
-                  return `${JOB_MARKET_SECTOR_SEGMENT[alt]}/${leaf}`;
-                }
-                return subSlug;
-              };
-              const alternates = JOB_MARKET_SNAPSHOT_LOCALES.map((alt) => {
-                const altSub = localisedSubSlug(alt);
-                const basePath = `${JOB_MARKET_LOCALE_PREFIX[alt]}/${JOB_MARKET_SECTION_SLUG[alt]}/`;
-                const altPath = (altSub ? `${basePath}${altSub}/` : basePath).replace(/\/+/g, '/');
-                return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}" />`;
-              }).join('\n');
-              sitemapEntries.push(
-                `  <url>\n    <loc>${BASE_URL}${path}</loc>\n${alternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${path}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
-              );
-            }
-          }
+      await collector.flush();
 
-          await collector.flush();
-
-          if (sitemapEntries.length > 0) {
-            const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+      if (sitemapEntries.length > 0) {
+        const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${sitemapEntries.join('\n')}
 </urlset>
 `;
-            try {
-              const sitemapPath = np.join(distDir, 'sitemap-job-market.xml');
-              fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
-              recordWrite(sitemapPath);
-            } catch (err) {
-              console.warn('[job-market-snapshot] failed to write sitemap-job-market.xml', err);
-            }
-          }
+        try {
+          const sitemapPath = np.join(distDir, 'sitemap-job-market.xml');
+          fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
+        } catch (err) {
+          console.warn('[job-market-snapshot] failed to write sitemap-job-market.xml', err);
+        }
+      }
 
-          const sectorPagesCount = Object.keys(sectorOutput.pages).length;
-          console.log(
-            `\x1b[36m[job-market-snapshot]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount}, degraded=${degraded}, sector=${sectorPagesCount})`,
-          );
-        },
-      });
+      const sectorPagesCount = Object.keys(sectorOutput.pages).length;
+      console.log(
+        `\x1b[36m[job-market-snapshot]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount}, degraded=${degraded}, sector=${sectorPagesCount})`,
+      );
 
       // Always-run: patch sitemap.xml index `<lastmod>` for the
       // sitemap-job-market.xml entry. Only when the sitemap actually

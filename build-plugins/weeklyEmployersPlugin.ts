@@ -41,7 +41,6 @@ import {
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
-import { runCached } from './shared/buildCache';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
   WEEKLY_EMPLOYERS_ARCHIVE_PREFIX,
@@ -3304,45 +3303,6 @@ interface PluginResult {
   degradedMode: boolean;
 }
 
-/**
- * Enumerate the runtime data files this plugin reads via `fs.readFileSync`.
- *
- * esbuild covers TS/JS imports but does NOT see fs-loaded data files.
- * The cache hashes every file in this list to make sure dataset edits
- * invalidate the cache automatically. Returns ABSOLUTE paths.
- */
-function weeklyEmployersRuntimeFiles(rootDir: string): string[] {
-  const list: string[] = [];
-  const dataDir = np.join(rootDir, 'data');
-
-  const mainJobs = np.join(dataDir, 'jobs.json');
-  if (fs.existsSync(mainJobs)) list.push(mainJobs);
-
-  const sliceDir = np.join(dataDir, 'jobs', 'by-crawler');
-  if (fs.existsSync(sliceDir)) {
-    try {
-      for (const f of fs.readdirSync(sliceDir)) {
-        if (f.endsWith('.json')) list.push(np.join(sliceDir, f));
-      }
-    } catch {
-      /* ignore */
-    }
-  }
-
-  const historyDir = np.join(dataDir, 'jobs-snapshots-history');
-  if (fs.existsSync(historyDir)) {
-    try {
-      for (const f of fs.readdirSync(historyDir)) {
-        if (/^\d{4}-\d{2}\.json$/.test(f)) list.push(np.join(historyDir, f));
-      }
-    } catch {
-      /* ignore */
-    }
-  }
-
-  return list;
-}
-
 export function weeklyEmployersPlugin(rootDir: string): Plugin {
   return {
     name: 'weekly-employers-pages',
@@ -3361,8 +3321,6 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       // build's company×city pages don't linger after employer drops out
       // of the pairs list (the thin-content guard used to leave empty
       // directories behind — see PLAN-SPRINT-1-TECH-FIXES-EXTENSION-3 §3).
-      // Stays BEFORE runCached so wipe-then-restore order is correct: the
-      // cache restore later refills the namespace with the canonical set.
       const __tCleanup = __weProfStart();
       cleanNamespaces(distDir, [
         'aziende-che-assumono',
@@ -3373,143 +3331,127 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       cleanSitemapFiles(distDir, ['sitemap-weekly-employers.xml']);
       __weProfRecord('cleanup', __tCleanup);
 
-      // `dateStamp` is fixed once per build and threaded through both the
-      // cache key (extraKey, day-granular) and the work function. Cache
-      // hits within the same UTC day reuse the FIRST build's exact stamp
-      // baked into sitemap <lastmod>; across days the extraKey shifts,
-      // forcing a fresh build with the new day's stamp.
+      // `dateStamp` is fixed once per build and baked into sitemap <lastmod>.
       const dateStamp = today.toISOString().slice(0, 10);
 
-      await runCached({
-        pluginName: 'weekly-employers',
+      const __tLoadJobs = __weProfStart();
+      const jobs = loadAllJobs(rootDir);
+      __weProfRecord('load-jobs', __tLoadJobs);
+      const __tLoadSnap = __weProfStart();
+      const snapshots = readSnapshotHistory(rootDir);
+      __weProfRecord('load-snapshots', __tLoadSnap);
+      const degraded = snapshots.length < 2;
+
+      if (degraded) {
+        console.log(
+          `\x1b[33m[weekly-employers]\x1b[0m DEGRADED MODE: ${snapshots.length} snapshot(s) in history — generating current-week pages without delta. Archives will appear once ≥2 snapshots exist.`,
+        );
+      }
+
+      const enableAutoStubs = process.env.ENABLE_AUTO_EMPLOYER_STUBS === '1';
+      const __tGen = __weProfStart();
+      const pages = generateWeeklyEmployerPages({
         rootDir,
+        jobs,
+        snapshots,
+        today,
+        enableAutoStubs,
         distDir,
-        bundleEntry: np.resolve(rootDir, 'build-plugins/weeklyEmployersPlugin.ts'),
-        runtimeFiles: () => weeklyEmployersRuntimeFiles(rootDir),
-        extraKey: dateStamp,
-        work: async ({ recordWrite }) => {
-          const __tLoadJobs = __weProfStart();
-          const jobs = loadAllJobs(rootDir);
-          __weProfRecord('load-jobs', __tLoadJobs);
-          const __tLoadSnap = __weProfStart();
-          const snapshots = readSnapshotHistory(rootDir);
-          __weProfRecord('load-snapshots', __tLoadSnap);
-          const degraded = snapshots.length < 2;
+      });
+      __weProfRecord('generate-pages', __tGen);
 
-          if (degraded) {
-            console.log(
-              `\x1b[33m[weekly-employers]\x1b[0m DEGRADED MODE: ${snapshots.length} snapshot(s) in history — generating current-week pages without delta. Archives will appear once ≥2 snapshots exist.`,
-            );
-          }
+      const collector = new WriteCollector({
+        distDir,
+        skipExisting: false,
+        pluginName: 'weeklyEmployersPlugin',
+      });
 
-          const enableAutoStubs = process.env.ENABLE_AUTO_EMPLOYER_STUBS === '1';
-          const __tGen = __weProfStart();
-          const pages = generateWeeklyEmployerPages({
-            rootDir,
-            jobs,
-            snapshots,
-            today,
-            enableAutoStubs,
-            distDir,
-          });
-          __weProfRecord('generate-pages', __tGen);
+      let currentWeekCount = 0;
+      let archiveCount = 0;
+      let companyCityCount = 0;
+      let skipped = 0;
+      // Paths that should land in sitemap-weekly-employers.xml. Only indexable
+      // pages (current-week + last-12-weeks archives) are listed — noindex
+      // archives stay reachable but are excluded from the sitemap to keep
+      // crawl budget focused on fresh content.
+      const indexableSitemapPaths: string[] = [];
 
-          const collector = new WriteCollector({
-            distDir,
-            skipExisting: false,
-            pluginName: 'weeklyEmployersPlugin',
-            pathRecorder: recordWrite,
-          });
+      // Classify by path — archive paths contain "settimana-NN-YYYY" etc.
+      const archiveRe = /\/(?:settimana|week|woche|semaine)-\d{2}-\d{4}\/?$/;
 
-          let currentWeekCount = 0;
-          let archiveCount = 0;
-          let companyCityCount = 0;
-          let skipped = 0;
-          // Paths that should land in sitemap-weekly-employers.xml. Only indexable
-          // pages (current-week + last-12-weeks archives) are listed — noindex
-          // archives stay reachable but are excluded from the sitemap to keep
-          // crawl budget focused on fresh content.
-          const indexableSitemapPaths: string[] = [];
+      for (const page of pages) {
+        const __tPage = __weProfStart();
+        const words = countHtmlBodyWords(page.html);
+        if (words < MIN_INDEXABLE_WORDS) {
+          skipped++;
+          console.warn(
+            `[weekly-employers] thin content (${words} words) for ${page.path} — skipping`,
+          );
+          __weProfRecord('process-page', __tPage);
+          continue;
+        }
+        const outDir = np.join(distDir, page.path.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), page.html);
+        // Company × city pages have 4 segments after the locale prefix (section,
+        // city, companySlug, when) vs. 3 segments for city-only pages. Use the
+        // parse helper so we don't re-derive the rule.
+        const companyCityMatch = parseCompanyCityPath(page.path);
+        if (companyCityMatch) companyCityCount++;
+        else if (archiveRe.test(page.path)) archiveCount++;
+        else currentWeekCount++;
+        if (page.indexable) indexableSitemapPaths.push(page.path);
+        __weProfRecord('process-page', __tPage);
+      }
 
-          // Classify by path — archive paths contain "settimana-NN-YYYY" etc.
-          const archiveRe = /\/(?:settimana|week|woche|semaine)-\d{2}-\d{4}\/?$/;
+      const __tFlush = __weProfStart();
+      const written = await collector.flush();
+      __weProfRecord('flush', __tFlush);
 
-          for (const page of pages) {
-            const __tPage = __weProfStart();
-            const words = countHtmlBodyWords(page.html);
-            if (words < MIN_INDEXABLE_WORDS) {
-              skipped++;
-              console.warn(
-                `[weekly-employers] thin content (${words} words) for ${page.path} — skipping`,
-              );
-              __weProfRecord('process-page', __tPage);
-              continue;
-            }
-            const outDir = np.join(distDir, page.path.replace(/^\/+/, ''));
-            collector.add(np.join(outDir, 'index.html'), page.html);
-            // Company × city pages have 4 segments after the locale prefix (section,
-            // city, companySlug, when) vs. 3 segments for city-only pages. Use the
-            // parse helper so we don't re-derive the rule.
-            const companyCityMatch = parseCompanyCityPath(page.path);
-            if (companyCityMatch) companyCityCount++;
-            else if (archiveRe.test(page.path)) archiveCount++;
-            else currentWeekCount++;
-            if (page.indexable) indexableSitemapPaths.push(page.path);
-            __weProfRecord('process-page', __tPage);
-          }
-
-          const __tFlush = __weProfStart();
-          const written = await collector.flush();
-          __weProfRecord('flush', __tFlush);
-
-          // ── Emit sitemap-weekly-employers.xml ───────────────────────
-          // Auto-discovered by sitemapAliasPlugin into dist/sitemap.xml.
-          if (indexableSitemapPaths.length > 0) {
-            const __tSitemap = __weProfStart();
-            try {
-              const urlEntries = indexableSitemapPaths
-                .map((p) => {
-                  // Current-week pages update weekly; archives update monthly.
-                  const isCurrent = !archiveRe.test(p);
-                  const changefreq = isCurrent ? 'weekly' : 'monthly';
-                  const priority = isCurrent ? '0.8' : '0.5';
-                  return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
-                })
-                .join('\n');
-              const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+      // ── Emit sitemap-weekly-employers.xml ───────────────────────
+      // Auto-discovered by sitemapAliasPlugin into dist/sitemap.xml.
+      if (indexableSitemapPaths.length > 0) {
+        const __tSitemap = __weProfStart();
+        try {
+          const urlEntries = indexableSitemapPaths
+            .map((p) => {
+              // Current-week pages update weekly; archives update monthly.
+              const isCurrent = !archiveRe.test(p);
+              const changefreq = isCurrent ? 'weekly' : 'monthly';
+              const priority = isCurrent ? '0.8' : '0.5';
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+            })
+            .join('\n');
+          const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urlEntries}
 </urlset>
 `;
-              const sitemapPath = np.join(distDir, 'sitemap-weekly-employers.xml');
-              fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
-              recordWrite(sitemapPath);
-              console.log(
-                `\x1b[36m[weekly-employers]\x1b[0m Wrote sitemap-weekly-employers.xml (${indexableSitemapPaths.length} URLs)`,
-              );
-            } catch (err) {
-              console.warn(
-                '[weekly-employers] failed to write sitemap-weekly-employers.xml',
-                err,
-              );
-            }
-            __weProfRecord('sitemap-write', __tSitemap);
-          }
-
-          const result: PluginResult = {
-            pagesWritten: written,
-            currentWeekPages: currentWeekCount,
-            archivePages: archiveCount,
-            companyCityPages: companyCityCount,
-            skippedForWordCount: skipped,
-            degradedMode: degraded,
-          };
-
+          const sitemapPath = np.join(distDir, 'sitemap-weekly-employers.xml');
+          fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
           console.log(
-            `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive + ${result.companyCityPages} company×city pages (skipped ${result.skippedForWordCount}) — degraded=${result.degradedMode}`,
+            `\x1b[36m[weekly-employers]\x1b[0m Wrote sitemap-weekly-employers.xml (${indexableSitemapPaths.length} URLs)`,
           );
-        },
-      });
+        } catch (err) {
+          console.warn(
+            '[weekly-employers] failed to write sitemap-weekly-employers.xml',
+            err,
+          );
+        }
+        __weProfRecord('sitemap-write', __tSitemap);
+      }
+
+      const result: PluginResult = {
+        pagesWritten: written,
+        currentWeekPages: currentWeekCount,
+        archivePages: archiveCount,
+        companyCityPages: companyCityCount,
+        skippedForWordCount: skipped,
+        degradedMode: degraded,
+      };
+
+      console.log(
+        `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive + ${result.companyCityPages} company×city pages (skipped ${result.skippedForWordCount}) — degraded=${result.degradedMode}`,
+      );
 
       // Per-category profile summary (no-op unless WEEKLY_EMPLOYERS_PROFILE=1)
       __weProfPrint();

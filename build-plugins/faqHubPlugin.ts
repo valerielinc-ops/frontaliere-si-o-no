@@ -36,7 +36,6 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
-import { runCached } from './shared/buildCache';
 import {
   ALL_FAQ_HUB,
   FAQ_HUB_CATEGORIES,
@@ -502,74 +501,58 @@ export function faqHubPlugin(rootDir: string): Plugin {
 
       const dateStamp = new Date().toISOString().slice(0, 10);
 
-      // Cacheable: 4 locales × 1 page × 2 (index+flat) = 8 files +
-      // sitemap-faq-hub.xml. 100-Q&A FAQ data lives in TS imports
-      // (auto-tracked by esbuild bundle hash). No always-run sitemap
-      // patch because sitemapAliasPlugin auto-discovers sitemap-*.xml
-      // — our sitemap shows up via that auto-discovery on every build.
-      await runCached({
-        pluginName: 'faq-hub',
-        rootDir,
+      const collector = new WriteCollector({
         distDir,
-        bundleEntry: np.resolve(rootDir, 'build-plugins/faqHubPlugin.ts'),
-        extraKey: dateStamp,
-        work: async ({ recordWrite }) => {
-          const collector = new WriteCollector({
-            distDir,
-            pluginName: 'faqHubPlugin',
-            pathRecorder: recordWrite,
-          });
-
-          const alternates = FAQ_HUB_LOCALES.map(
-            (alt) => `${alt}|${BASE_URL}${buildFaqHubPath(alt)}`,
-          );
-          alternates.push(`x-default|${BASE_URL}${buildFaqHubPath('it')}`);
-
-          const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
-          let pagesWritten = 0;
-          let thinSkipped = 0;
-
-          for (const locale of FAQ_HUB_LOCALES) {
-            const rendered = renderPage(locale, dateStamp, distDir);
-
-            if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
-              thinSkipped++;
-              console.warn(
-                `\x1b[33m[faq-hub]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
-              );
-              continue;
-            }
-
-            const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
-            const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
-            collector.add(indexPath, rendered.html);
-            collector.add(flatPath, rendered.html);
-
-            if (locale === 'it') {
-              sitemapEntries.push({ canonical: rendered.urlPath, alternates });
-            }
-            pagesWritten++;
-          }
-
-          if (sitemapEntries.length > 0) {
-            try {
-              const xml = buildSitemapXml(sitemapEntries, dateStamp);
-              fs.mkdirSync(distDir, { recursive: true });
-              const sitemapPath = np.join(distDir, 'sitemap-faq-hub.xml');
-              fs.writeFileSync(sitemapPath, xml, 'utf-8');
-              recordWrite(sitemapPath);
-            } catch (err) {
-              console.warn('\x1b[33m[faq-hub]\x1b[0m sitemap write failed:', err);
-            }
-          }
-
-          const t0 = Date.now();
-          const written = await collector.flush();
-          console.log(
-            `\x1b[36m[faq-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · total entries: ${ALL_FAQ_HUB.length}`,
-          );
-        },
+        pluginName: 'faqHubPlugin',
       });
+
+      const alternates = FAQ_HUB_LOCALES.map(
+        (alt) => `${alt}|${BASE_URL}${buildFaqHubPath(alt)}`,
+      );
+      alternates.push(`x-default|${BASE_URL}${buildFaqHubPath('it')}`);
+
+      const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
+      let pagesWritten = 0;
+      let thinSkipped = 0;
+
+      for (const locale of FAQ_HUB_LOCALES) {
+        const rendered = renderPage(locale, dateStamp, distDir);
+
+        if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+          thinSkipped++;
+          console.warn(
+            `\x1b[33m[faq-hub]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+          );
+          continue;
+        }
+
+        const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
+        const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
+        collector.add(indexPath, rendered.html);
+        collector.add(flatPath, rendered.html);
+
+        if (locale === 'it') {
+          sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+        }
+        pagesWritten++;
+      }
+
+      if (sitemapEntries.length > 0) {
+        try {
+          const xml = buildSitemapXml(sitemapEntries, dateStamp);
+          fs.mkdirSync(distDir, { recursive: true });
+          const sitemapPath = np.join(distDir, 'sitemap-faq-hub.xml');
+          fs.writeFileSync(sitemapPath, xml, 'utf-8');
+        } catch (err) {
+          console.warn('\x1b[33m[faq-hub]\x1b[0m sitemap write failed:', err);
+        }
+      }
+
+      const t0 = Date.now();
+      const written = await collector.flush();
+      console.log(
+        `\x1b[36m[faq-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · total entries: ${ALL_FAQ_HUB.length}`,
+      );
     },
   };
 }

@@ -358,3 +358,4 @@ Key routing rules:
 | Job crawlers, slugs, translation cache | [docs/CRAWLERS.md](docs/CRAWLERS.md) |
 | Design context, brand, users, principles | [docs/DESIGN-CONTEXT.md](docs/DESIGN-CONTEXT.md) |
 | Local dev hygiene (hide cron noise from `git status`) | [docs/LOCAL-DEV.md](docs/LOCAL-DEV.md) — `scripts/dev/local-ignore-cron.sh` |
+| Build-plugin cache experiment (why we tried it, why we removed it) | [docs/CACHE-EXPERIMENT.md](docs/CACHE-EXPERIMENT.md) — `assemble-jobs` cache stays; plugin-level cache cost ~11 min/deploy more than fresh regen |

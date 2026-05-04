@@ -41,7 +41,6 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
-import { runCached } from './shared/buildCache';
 import {
   BASE_URL,
   countHtmlBodyWords,
@@ -985,20 +984,6 @@ function patchJobMarketHubs(distDir: string, logger: (msg: string) => void): voi
 
 // ── Plugin ────────────────────────────────────────────────────────
 
-/**
- * Enumerate the runtime data files this plugin reads via `fs.readFileSync`.
- *
- * esbuild covers TS/JS imports but does NOT see fs-loaded data files.
- * The cache hashes every file in this list to make sure dataset edits
- * invalidate the cache automatically. Returns ABSOLUTE paths.
- */
-function annualReportRuntimeFiles(rootDir: string): string[] {
-  const list: string[] = [];
-  const jobs = path.join(rootDir, 'data', 'jobs.json');
-  if (fs.existsSync(jobs)) list.push(jobs);
-  return list;
-}
-
 function patchAnnualReportSitemapIndex(distDir: string, dateStamp: string): void {
   const masterSitemap = path.join(distDir, 'sitemap.xml');
   if (!fs.existsSync(masterSitemap)) return;
@@ -1032,99 +1017,83 @@ export function annualReportPlugin(rootDir: string): Plugin {
       }
 
       const distDir = path.resolve(rootDir, 'dist');
-      // `dateStamp` is fixed once per build and threaded through both the
-      // cache key (extraKey, day-granular) and the work function. Cache
-      // hits within the same UTC day reuse the FIRST build's exact stamp.
-      // Across days the extraKey shifts, forcing a fresh build. This
-      // mirrors `aggregate()`'s `generatedAt` so output stays byte-identical.
+      // `dateStamp` is fixed once per build. This mirrors `aggregate()`'s
+      // `generatedAt` so output stays byte-identical within a build.
       const dateStamp = new Date().toISOString().slice(0, 10);
 
-      await runCached({
-        pluginName: 'annual-report-landing',
-        rootDir,
+      const jobs = loadJobs(rootDir);
+      if (jobs.length === 0) {
+        console.warn('\x1b[33m[annual-report]\x1b[0m data/jobs.json missing or empty — aborting (no aggregate to publish)');
+        return;
+      }
+      const agg = aggregate(jobs);
+      if (agg.topSectors.length === 0) {
+        console.warn('\x1b[33m[annual-report]\x1b[0m no sector has ≥10 salary observations — aborting');
+        return;
+      }
+
+      const collector = new WriteCollector({
         distDir,
-        bundleEntry: path.resolve(rootDir, 'build-plugins/annualReportPlugin.ts'),
-        runtimeFiles: () => annualReportRuntimeFiles(rootDir),
-        extraKey: dateStamp,
-        work: async ({ recordWrite }) => {
-          const jobs = loadJobs(rootDir);
-          if (jobs.length === 0) {
-            console.warn('\x1b[33m[annual-report]\x1b[0m data/jobs.json missing or empty — aborting (no aggregate to publish)');
-            return;
-          }
-          const agg = aggregate(jobs);
-          if (agg.topSectors.length === 0) {
-            console.warn('\x1b[33m[annual-report]\x1b[0m no sector has ≥10 salary observations — aborting');
-            return;
-          }
-
-          const collector = new WriteCollector({
-            distDir,
-            pluginName: 'annualReportPlugin',
-            pathRecorder: recordWrite,
-          });
-          const sitemapEntries: string[] = [];
-
-          for (const locale of LOCALES) {
-            const render = renderReport({ locale, agg, distDir });
-
-            if (render.wordCount < MIN_INDEXABLE_WORDS) {
-              console.warn(
-                `\x1b[33m[annual-report]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${render.wordCount}) — will be noindex`,
-              );
-            }
-
-            const indexPath = path.join(distDir, render.urlPath, 'index.html');
-            const flatPath = path.join(distDir, render.urlPath.replace(/\/+$/, '') + '.html');
-            collector.add(indexPath, render.html);
-            collector.add(flatPath, render.html);
-
-            sitemapEntries.push(
-              `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${agg.generatedAt}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
-            );
-          }
-
-          // CSV download (Sprint 5.2).
-          const csv = buildCsv(agg);
-          collector.add(path.join(distDir, 'data', 'jobs-salary-aggregate.csv'), csv);
-
-          // Sidecar link manifest — other plugins MAY read this to surface a
-          // "read the annual report" link without duplicating data.
-          const linkManifest = {
-            generatedAt: agg.generatedAt,
-            urls: Object.fromEntries(
-              LOCALES.map((l) => [l, `${BASE_URL}/${REPORT_SLUG[l]}/`.replace(/\/+/g, '/')]),
-            ),
-            title: Object.fromEntries(LOCALES.map((l) => [l, COPY[l].relatedCalloutTitle])),
-          };
-          collector.add(
-            path.join(distDir, 'data', 'annual-report-link.json'),
-            JSON.stringify(linkManifest, null, 2) + '\n',
-          );
-
-          // Dedicated sitemap (master-index patch is applied as always-run
-          // outside runCached so it survives across cache hits when other
-          // plugins regenerate sitemap.xml each build).
-          if (sitemapEntries.length > 0) {
-            const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join('\n')}\n</urlset>\n`;
-            try {
-              fs.mkdirSync(distDir, { recursive: true });
-              const sitemapPath = path.join(distDir, 'sitemap-annual-report.xml');
-              fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
-              recordWrite(sitemapPath);
-            } catch (err) {
-              console.warn('\x1b[33m[annual-report]\x1b[0m sitemap write failed:', err);
-            }
-          }
-
-          const t0 = Date.now();
-          const written = await collector.flush();
-
-          console.log(
-            `\x1b[36m[annual-report]\x1b[0m Generated ${LOCALES.length} locale reports + CSV — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
-          );
-        },
+        pluginName: 'annualReportPlugin',
       });
+      const sitemapEntries: string[] = [];
+
+      for (const locale of LOCALES) {
+        const render = renderReport({ locale, agg, distDir });
+
+        if (render.wordCount < MIN_INDEXABLE_WORDS) {
+          console.warn(
+            `\x1b[33m[annual-report]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${render.wordCount}) — will be noindex`,
+          );
+        }
+
+        const indexPath = path.join(distDir, render.urlPath, 'index.html');
+        const flatPath = path.join(distDir, render.urlPath.replace(/\/+$/, '') + '.html');
+        collector.add(indexPath, render.html);
+        collector.add(flatPath, render.html);
+
+        sitemapEntries.push(
+          `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${agg.generatedAt}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
+        );
+      }
+
+      // CSV download (Sprint 5.2).
+      const csv = buildCsv(agg);
+      collector.add(path.join(distDir, 'data', 'jobs-salary-aggregate.csv'), csv);
+
+      // Sidecar link manifest — other plugins MAY read this to surface a
+      // "read the annual report" link without duplicating data.
+      const linkManifest = {
+        generatedAt: agg.generatedAt,
+        urls: Object.fromEntries(
+          LOCALES.map((l) => [l, `${BASE_URL}/${REPORT_SLUG[l]}/`.replace(/\/+/g, '/')]),
+        ),
+        title: Object.fromEntries(LOCALES.map((l) => [l, COPY[l].relatedCalloutTitle])),
+      };
+      collector.add(
+        path.join(distDir, 'data', 'annual-report-link.json'),
+        JSON.stringify(linkManifest, null, 2) + '\n',
+      );
+
+      // Dedicated sitemap (master-index patch is applied as always-run
+      // below so it survives when other plugins regenerate sitemap.xml).
+      if (sitemapEntries.length > 0) {
+        const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join('\n')}\n</urlset>\n`;
+        try {
+          fs.mkdirSync(distDir, { recursive: true });
+          const sitemapPath = path.join(distDir, 'sitemap-annual-report.xml');
+          fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
+        } catch (err) {
+          console.warn('\x1b[33m[annual-report]\x1b[0m sitemap write failed:', err);
+        }
+      }
+
+      const t0 = Date.now();
+      const written = await collector.flush();
+
+      console.log(
+        `\x1b[36m[annual-report]\x1b[0m Generated ${LOCALES.length} locale reports + CSV — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+      );
 
       // Always-run: patch sitemap.xml index `<lastmod>` for the
       // sitemap-annual-report.xml entry. Only when our sitemap exists in

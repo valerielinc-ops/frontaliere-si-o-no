@@ -34,7 +34,6 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
-import { runCached } from './shared/buildCache';
 import {
   BASE_URL,
   countHtmlBodyWords,
@@ -723,27 +722,6 @@ function renderReport(opts: {
 
 // ── Plugin ────────────────────────────────────────────────────────
 
-/**
- * Enumerate the runtime data files this plugin reads via `fs.readFileSync`.
- *
- * esbuild covers TS/JS imports but does NOT see fs-loaded data files.
- * The cache hashes every file in this list to make sure dataset edits
- * invalidate the cache automatically. Returns ABSOLUTE paths.
- */
-function marketReportRuntimeFiles(rootDir: string): string[] {
-  const list: string[] = [];
-  const dataDir = path.join(rootDir, 'data');
-  const candidates = [
-    path.join(dataDir, 'jobs-stats.json'),
-    path.join(dataDir, 'jobs.json'),
-    path.join(dataDir, 'jobs-stats-history.json'),
-  ];
-  for (const p of candidates) {
-    if (fs.existsSync(p)) list.push(p);
-  }
-  return list;
-}
-
 function patchSitemapIndex(distDir: string, dateStamp: string): void {
   const masterSitemap = path.join(distDir, 'sitemap.xml');
   if (!fs.existsSync(masterSitemap)) return;
@@ -779,63 +757,50 @@ export function marketReportPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       const dateStamp = new Date().toISOString().slice(0, 10);
 
-      await runCached({
-        pluginName: 'market-report-landing',
-        rootDir,
+      const stats = loadJobsStats(rootDir);
+      if (!stats) {
+        console.warn('\x1b[33m[market-report]\x1b[0m data/jobs-stats.json missing — emitting report with fallback zeroes');
+      }
+
+      const collector = new WriteCollector({
         distDir,
-        bundleEntry: path.resolve(rootDir, 'build-plugins/marketReportPlugin.ts'),
-        runtimeFiles: () => marketReportRuntimeFiles(rootDir),
-        extraKey: dateStamp,
-        work: async ({ recordWrite }) => {
-          const stats = loadJobsStats(rootDir);
-          if (!stats) {
-            console.warn('\x1b[33m[market-report]\x1b[0m data/jobs-stats.json missing — emitting report with fallback zeroes');
-          }
-
-          const collector = new WriteCollector({
-            distDir,
-            pluginName: 'marketReportPlugin',
-            pathRecorder: recordWrite,
-          });
-          const sitemapEntries: string[] = [];
-
-          for (const locale of LOCALES) {
-            const render = renderReport({ locale, stats, dateStamp, distDir });
-
-            if (render.wordCount < MIN_INDEXABLE_WORDS) {
-              console.warn(`\x1b[33m[market-report]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${render.wordCount}) — will be noindex`);
-            }
-
-            const indexPath = path.join(distDir, render.urlPath, 'index.html');
-            const flatPath = path.join(distDir, render.urlPath.replace(/\/+$/, '') + '.html');
-            collector.add(indexPath, render.html);
-            collector.add(flatPath, render.html);
-
-            sitemapEntries.push(
-              `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
-            );
-          }
-
-          // Dedicated sitemap (master-index patch is applied as always-run
-          // outside runCached so it survives across cache hits when other
-          // plugins regenerate sitemap.xml each build).
-          if (sitemapEntries.length > 0) {
-            const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join('\n')}\n</urlset>\n`;
-            try {
-              fs.mkdirSync(distDir, { recursive: true });
-              const sitemapPath = path.join(distDir, 'sitemap-market-report.xml');
-              fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
-              recordWrite(sitemapPath);
-            } catch (err) {
-              console.warn('\x1b[33m[market-report]\x1b[0m sitemap write failed:', err);
-            }
-          }
-
-          const t0 = Date.now();
-          const written = await collector.flush();
-          console.log(`\x1b[36m[market-report]\x1b[0m Generated ${LOCALES.length} locale reports — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-        },
+        pluginName: 'marketReportPlugin',
       });
+      const sitemapEntries: string[] = [];
+
+      for (const locale of LOCALES) {
+        const render = renderReport({ locale, stats, dateStamp, distDir });
+
+        if (render.wordCount < MIN_INDEXABLE_WORDS) {
+          console.warn(`\x1b[33m[market-report]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${render.wordCount}) — will be noindex`);
+        }
+
+        const indexPath = path.join(distDir, render.urlPath, 'index.html');
+        const flatPath = path.join(distDir, render.urlPath.replace(/\/+$/, '') + '.html');
+        collector.add(indexPath, render.html);
+        collector.add(flatPath, render.html);
+
+        sitemapEntries.push(
+          `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+        );
+      }
+
+      // Dedicated sitemap (master-index patch is applied as always-run
+      // below so it survives when other plugins regenerate sitemap.xml).
+      if (sitemapEntries.length > 0) {
+        const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join('\n')}\n</urlset>\n`;
+        try {
+          fs.mkdirSync(distDir, { recursive: true });
+          const sitemapPath = path.join(distDir, 'sitemap-market-report.xml');
+          fs.writeFileSync(sitemapPath, sitemapXml, 'utf-8');
+        } catch (err) {
+          console.warn('\x1b[33m[market-report]\x1b[0m sitemap write failed:', err);
+        }
+      }
+
+      const t0 = Date.now();
+      const written = await collector.flush();
+      console.log(`\x1b[36m[market-report]\x1b[0m Generated ${LOCALES.length} locale reports — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 
       // Always-run: patch sitemap.xml index `<lastmod>` for the
       // sitemap-market-report.xml entry. Only when our sitemap exists in

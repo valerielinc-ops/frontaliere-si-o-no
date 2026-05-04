@@ -94,7 +94,6 @@ import {
 import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 import { startTimer, recordEmit, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
-import { runCached } from './shared/buildCache';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -338,67 +337,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
 
- // ── Cache key inputs ──────────────────────────────────────────────
- // Day-granular extraKey: a few sitemap entries fall back to today's
- // dateStamp when crawledAt is missing, so the cache must invalidate
- // daily even when no input file changes. The runtimeFiles list covers
- // every fs.readFileSync target inside the plugin (jobs, expired-jobs,
- // tracking, overrides, profiles, orphans, compat paths, postal codes,
- // adapter JSONs, router/seo helpers read as raw text).
- //
- // Blog data files (data/blog-articles-data.ts, services/routerBlogData.ts,
- // services/seo/seo-blog*.ts) are deliberately EXCLUDED. The plugin reads
- // them only to inject "related blog articles" footer links into job
- // pages, but the auto-blog cron updates them every 15 min (~96
- // invalidations/day on this repo) — including them here drove the cache
- // hit rate to near 0 % (run 25318098290 forced a full rebuild after a
- // single new article landed). The cross-links may be stale by one
- // article-cycle on cache hits; that's acceptable for SEO since each
- // blog article still has its own canonical page indexed independently
- // and "related" sections rarely change Google's understanding of a
- // job page's primary topic.
+ // `cacheDateStamp` is used as today's stamp throughout the plugin and
+ // in the always-run sitemap-index patch below.
  const cacheDateStamp = new Date().toISOString().slice(0, 10);
- const cacheRuntimeFiles = (): string[] => {
- const out: string[] = [
- jobsPath,
- np.resolve(rootDir, 'data/job-canonical-overrides.json'),
- np.resolve(rootDir, 'data/company-profiles.json'),
- np.resolve(rootDir, 'data/known-company-slugs.json'),
- np.resolve(rootDir, 'data/keyword-pages-config.json'),
- np.resolve(rootDir, 'data/jobs-stats.json'),
- np.resolve(rootDir, 'data/all-known-job-slugs.json'),
- np.resolve(rootDir, 'data/orphan-indexed-job-slugs.json'),
- np.resolve(rootDir, 'data/seo-404-compat-paths.json'),
- np.resolve(rootDir, 'data/orphan-enriched-data.json'),
- np.resolve(rootDir, 'data/expired-jobs.json'),
- np.resolve(rootDir, 'data', 'swiss-postal-codes.json'),
- // `data/previous-slug-winners.json` is intentionally NOT in
- // runtimeFiles. It's committed back to the repo as a side-effect of
- // every successful deploy (~61 commits/day). With mtime-based
- // fingerprinting that invalidates jobs-seo-pages cache continuously
- // → ~0 % hit rate. The plugin uses this file only to populate
- // `winnerByPrevSlugKey` for bridge-emission dedup. On cache HIT,
- // work() is skipped so cached HTML keeps whatever winner mapping was
- // correct at snapshot time; new entries are picked up at the next
- // legitimate MISS (jobs.json or other input change).
- ];
- const adapterDir = np.resolve(rootDir, 'data/jobs-crawler-adapters/adapters');
- try {
- for (const f of fs.readdirSync(adapterDir)) {
- if (f.endsWith('.json')) out.push(np.join(adapterDir, f));
- }
- } catch { /* dir missing — buildCache treats listed-but-absent as sentinel */ }
- return out;
- };
-
- await runCached({
- pluginName: 'jobs-seo-pages',
- rootDir,
- distDir,
- bundleEntry: np.resolve(rootDir, 'build-plugins/jobsSeoPagesPlugin.ts'),
- runtimeFiles: cacheRuntimeFiles,
- extraKey: cacheDateStamp,
- work: async ({ recordWrite }) => {
 
  // ─── Parameterized defaults ──────────────────────────────────────────
  // Change DEFAULT_CANTON to expand the primary target region.
@@ -426,7 +367,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
 
  /* ── Buffered write system via shared WriteCollector ── */
- const collector = new WriteCollector({ distDir, pluginName: 'jobsSeoPagesPlugin', pathRecorder: recordWrite });
+ const collector = new WriteCollector({ distDir, pluginName: 'jobsSeoPagesPlugin' });
  const _ensuredDirs = new Set<string>();
  function _md(dir: string) {
  if (_ensuredDirs.has(dir)) return;
@@ -5950,7 +5891,6 @@ ${alternates}
  const sitemapJobs = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`;
  const sitemapJobsPath = np.join(distDir, 'sitemap-jobs.xml');
  fs.writeFileSync(sitemapJobsPath, sitemapJobs, 'utf-8');
- recordWrite(sitemapJobsPath);
 
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
  if (fs.existsSync(sitemapIndexPath)) {
@@ -7377,7 +7317,6 @@ ${hreflangLinks}
  const sitemapExpired = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${expiredSitemapEntries.join('\n')}\n</urlset>\n`;
  const sitemapExpiredPath = np.join(distDir, 'sitemap-jobs-expired.xml');
  fs.writeFileSync(sitemapExpiredPath, sitemapExpired, 'utf-8');
- recordWrite(sitemapExpiredPath);
 
  // Register in sitemap index
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
@@ -7791,14 +7730,12 @@ ${hreflangLinks}
 
  // Print profiler summary if JOBS_SEO_PROFILE=1 is set; no-op otherwise.
  printJobsSeoProfile();
- },
- });
 
- // ── Always-run: patch sitemap.xml index lastmods ────────────────────
- // Must execute on cache hits too — the sitemap.xml index file is
- // re-emitted by other plugins each build, so our entries' <lastmod>
- // would otherwise drop out (or fail to register on a clean build).
- // Idempotent: adds the entry if missing, otherwise refreshes lastmod.
+ // ── Patch sitemap.xml index lastmods ───────────────────────────────
+ // The sitemap.xml index file is re-emitted by other plugins each build,
+ // so our entries' <lastmod> would otherwise drop out (or fail to
+ // register on a clean build). Idempotent: adds the entry if missing,
+ // otherwise refreshes lastmod.
  const sitemapIndexFile = np.join(distDir, 'sitemap.xml');
  if (fs.existsSync(sitemapIndexFile)) {
  let idx = fs.readFileSync(sitemapIndexFile, 'utf-8');

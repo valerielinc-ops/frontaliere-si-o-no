@@ -1333,13 +1333,9 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       for (const [src, dst] of restorePairs) {
         fs.mkdirSync(path.dirname(dst), { recursive: true });
         fs.copyFileSync(src, dst);
-        // Preserve the source mtime/atime so downstream plugins that
-        // hash these files via mtime+size (build-plugins/shared/buildCache.ts
-        // runtimeFiles) see byte-AND-mtime-stable inputs across deploys.
-        // Without this every assemble-jobs HIT still poisons jobs-seo /
-        // job-market-snapshot / market-report cache with a fresh mtime,
-        // forcing them to MISS even though their input bytes are
-        // identical to the previous run.
+        // Preserve the source mtime/atime — left over from when the
+        // build-plugin cache existed and hashed these files. Cheap to
+        // keep; harmless now that the plugin cache is gone.
         const srcStat = fs.statSync(src);
         fs.utimesSync(dst, srcStat.atime, srcStat.mtime);
       }

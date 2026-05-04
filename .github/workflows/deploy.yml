@@ -225,57 +225,14 @@ jobs:
           restore-keys: |
             pdf-${{ runner.os }}-
 
-      # Cache build-plugin snapshots for salaryHubPlugin (~370s/build) and
-      # healthPremiumsLandingPlugin (~290s/build). Both wrap their heavy
-      # work in `runCached` (build-plugins/shared/buildCache.ts) which keys
-      # on a SHA-256 of the esbuild bundle of the plugin entry plus any
-      # runtime-loaded data files. Cache HIT replays the previous build's
-      # snapshot byte-identically; cache MISS regenerates and snapshots.
-      #
-      # Invalidation is automatic — modifying any TS/JS file in the
-      # plugin's import graph (esbuild traces it) or any data/health-premiums*
-      # JSON shifts the in-tree cache key. The CI cache key here is
-      # intentionally broader than the in-tree key: any edit anywhere in
-      # build-plugins/ or services/ refreshes the GH Actions cache entry,
-      # but the in-tree key still differentiates inside it. Stale entries
-      # cost disk only — the in-tree key still controls correctness.
-      #
-      # Restore-keys cascade is just `runner.os` so we always pull the most
-      # recent snapshot for this OS even if no exact match exists, then let
-      # the in-tree per-key directories sort out actual hits.
-      - name: Cache build-plugin snapshots (salary-hub + health-premiums + 3 landings)
-        uses: actions/cache@v5
-        with:
-          path: .cache/build-plugins
-          # Hash inputs cover every plugin currently wrapped in runCached:
-          # - salary-hub (depends on calculationService + constants + locales)
-          # - health-premiums (depends on data/health-premiums*.json)
-          # - profession-landings, cost-of-living-landings, career-landings
-          #   (data is in TS imports — fully covered by build-plugins/**/*.ts)
-          # The hashFiles glob is intentionally wide: any TS edit anywhere
-          # in build-plugins/ refreshes the cache key here. The IN-TREE
-          # cache key (esbuild bundle hash, computed in buildCache.ts) is
-          # the actual correctness guarantee — this CI key is just for
-          # cache-restore granularity. A miss here is "warm cache directory
-          # without the right hash subdir," which the in-tree logic handles
-          # correctly via cold-start MISS path.
-          # Key MUST change every deploy so actions/cache@v5 uploads the
-          # accumulated `.cache/build-plugins/<plugin>/<innerKey>/` snapshots
-          # written by THIS run. Without `${{ github.run_id }}` the key would
-          # only change on TS edits in build-plugins/, and `actions/cache@v5`
-          # would log "Cache hit occurred on the primary key, not saving"
-          # for every subsequent deploy — freezing the remote tarball at
-          # whatever the first run after the TS change uploaded. We saw
-          # exactly this between commits 7b21b6 and c202e80d: 5+ deploys
-          # all skipped upload, every plugin MISS-snapshot got thrown away.
-          #
-          # Restore-keys cascade keeps fast-restore by hashFiles prefix
-          # (matches "compatible" tarballs after a TS edit) and falls back
-          # to the broadest os-only prefix as a last resort.
-          key: build-plugins-${{ runner.os }}-${{ hashFiles('build-plugins/**/*.ts', 'services/calculationService.ts', 'services/constants.ts', 'services/locales/it-calculator.ts', 'services/locales/en-calculator.ts', 'services/locales/de-calculator.ts', 'services/locales/fr-calculator.ts', 'data/health-premiums.json', 'data/health-premiums/**/*.json') }}-${{ github.run_id }}
-          restore-keys: |
-            build-plugins-${{ runner.os }}-${{ hashFiles('build-plugins/**/*.ts', 'services/calculationService.ts', 'services/constants.ts', 'services/locales/it-calculator.ts', 'services/locales/en-calculator.ts', 'services/locales/de-calculator.ts', 'services/locales/fr-calculator.ts', 'data/health-premiums.json', 'data/health-premiums/**/*.json') }}-
-            build-plugins-${{ runner.os }}-
+      # Plugin-level build cache REMOVED (commit TBD).
+      # See docs/CACHE-EXPERIMENT.md for the data: caching the per-plugin
+      # output cost ~11 min per deploy more than just regenerating, because
+      # (a) the 982 MB tarball Post Cache step took ~6 min, and (b) restore
+      # I/O for the two big plugins (salary-hub 3,473 files, jobs-seo 204k
+      # files) was slower than fresh generation.
+      # `data/jobs.json` assembly cache (next step above) stays — it's net
+      # positive (~60s saved, ~28 MB tarball).
 
       - name: Build
         env:

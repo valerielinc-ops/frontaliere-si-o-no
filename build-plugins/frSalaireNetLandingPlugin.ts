@@ -40,7 +40,6 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
-import { runCached } from './shared/buildCache';
 import {
   BREADCRUMB_STYLE,
   BREADCRUMB_LINK_STYLE,
@@ -434,52 +433,37 @@ export function frSalaireNetLandingPlugin(rootDir: string): Plugin {
 
       const dateStamp = new Date().toISOString().slice(0, 10);
 
-      // Cacheable: 1 page × 2 (index+flat) + sitemap-fr-salaire-net.xml
-      // = 3 files. Fully hardcoded breakdown tables (no fs.readFileSync,
-      // no daily-cron data) — esbuild bundle hash + extraKey on dateStamp
-      // give near-100% hit rate between manual edits.
-      await runCached({
-        pluginName: 'fr-salaire-net-landing',
-        rootDir,
+      const collector = new WriteCollector({
         distDir,
-        bundleEntry: np.resolve(rootDir, 'build-plugins/frSalaireNetLandingPlugin.ts'),
-        extraKey: dateStamp,
-        work: async ({ recordWrite }) => {
-          const collector = new WriteCollector({
-            distDir,
-            pluginName: 'frSalaireNetLandingPlugin',
-            pathRecorder: recordWrite,
-          });
-          const rendered = renderPage({ distDir, dateStamp });
-
-          if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
-            console.warn(
-              `\x1b[33m[fr-salaire-net]\x1b[0m Page below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — emitted as noindex,follow`,
-            );
-          }
-
-          const indexPath = np.join(distDir, URL_PATH, 'index.html');
-          const flatPath = np.join(distDir, URL_PATH.replace(/\/+$/, '') + '.html');
-          collector.add(indexPath, rendered.html);
-          collector.add(flatPath, rendered.html);
-
-          try {
-            const xml = buildSitemapXml(dateStamp);
-            fs.mkdirSync(distDir, { recursive: true });
-            const sitemapPath = np.join(distDir, 'sitemap-fr-salaire-net.xml');
-            fs.writeFileSync(sitemapPath, xml, 'utf-8');
-            recordWrite(sitemapPath);
-          } catch (err) {
-            console.warn('\x1b[33m[fr-salaire-net]\x1b[0m sitemap write failed:', err);
-          }
-
-          const t0 = Date.now();
-          const written = await collector.flush();
-          console.log(
-            `\x1b[36m[fr-salaire-net]\x1b[0m Generated 1 page (${rendered.wordCount} words) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
-          );
-        },
+        pluginName: 'frSalaireNetLandingPlugin',
       });
+      const rendered = renderPage({ distDir, dateStamp });
+
+      if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+        console.warn(
+          `\x1b[33m[fr-salaire-net]\x1b[0m Page below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — emitted as noindex,follow`,
+        );
+      }
+
+      const indexPath = np.join(distDir, URL_PATH, 'index.html');
+      const flatPath = np.join(distDir, URL_PATH.replace(/\/+$/, '') + '.html');
+      collector.add(indexPath, rendered.html);
+      collector.add(flatPath, rendered.html);
+
+      try {
+        const xml = buildSitemapXml(dateStamp);
+        fs.mkdirSync(distDir, { recursive: true });
+        const sitemapPath = np.join(distDir, 'sitemap-fr-salaire-net.xml');
+        fs.writeFileSync(sitemapPath, xml, 'utf-8');
+      } catch (err) {
+        console.warn('\x1b[33m[fr-salaire-net]\x1b[0m sitemap write failed:', err);
+      }
+
+      const t0 = Date.now();
+      const written = await collector.flush();
+      console.log(
+        `\x1b[36m[fr-salaire-net]\x1b[0m Generated 1 page (${rendered.wordCount} words) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+      );
 
       // Always-run: patch sitemap.xml index (regenerated each build).
       if (fs.existsSync(np.join(distDir, 'sitemap-fr-salaire-net.xml'))) {
