@@ -34,6 +34,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import { resolveProfessionLandingsFlushed } from './shared/buildSignals';
+import { runCached } from './shared/buildCache';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -450,62 +451,101 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      const collector = new WriteCollector({ distDir, pluginName: 'professionLandingsPlugin' });
+      // `dateStamp` is fixed once per build and threaded through both the
+      // cache key (extraKey, day-granular) and the work function. Cache
+      // hits within the same UTC day reuse the FIRST build's exact stamp
+      // baked into JSON-LD + sitemap <lastmod>; across days the extraKey
+      // shifts, forcing a fresh build with the new day's stamp.
       const dateStamp = new Date().toISOString().slice(0, 10);
-      const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
 
-      let pagesWritten = 0;
-      let thinSkipped = 0;
+      // Cacheable section: 40 profession landings × 4 locales = up to 160
+      // HTML files. PROFESSION_FACTS / copy / data are imported (covered
+      // by the esbuild bundle hash) and there are no fs-loaded data files,
+      // so the only daily-shifting factor is `dateStamp` — extraKey
+      // captures it so output stays byte-identical within a UTC day.
+      await runCached({
+        pluginName: 'profession-landings',
+        rootDir,
+        distDir,
+        bundleEntry: np.resolve(rootDir, 'build-plugins/professionLandingsPlugin.ts'),
+        extraKey: dateStamp,
+        work: async ({ recordWrite }) => {
+          const collector = new WriteCollector({
+            distDir,
+            pluginName: 'professionLandingsPlugin',
+            pathRecorder: recordWrite,
+          });
+          const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
 
-      for (const id of PROFESSION_IDS) {
-        const alternates = PROFESSION_LOCALES.map(
-          (alt) => `${alt}|${BASE_URL}${buildProfessionLandingPath(alt, id)}`,
-        );
-        alternates.push(`x-default|${BASE_URL}${buildProfessionLandingPath('it', id)}`);
+          let pagesWritten = 0;
+          let thinSkipped = 0;
 
-        for (const locale of PROFESSION_LOCALES) {
-          const rendered = renderPage({ locale, id, dateStamp, distDir });
-
-          if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
-            thinSkipped++;
-            console.warn(
-              `\x1b[33m[profession-landings]\x1b[0m ${locale}/${id} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+          for (const id of PROFESSION_IDS) {
+            const alternates = PROFESSION_LOCALES.map(
+              (alt) => `${alt}|${BASE_URL}${buildProfessionLandingPath(alt, id)}`,
             );
-            continue;
+            alternates.push(`x-default|${BASE_URL}${buildProfessionLandingPath('it', id)}`);
+
+            for (const locale of PROFESSION_LOCALES) {
+              const rendered = renderPage({ locale, id, dateStamp, distDir });
+
+              if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+                thinSkipped++;
+                console.warn(
+                  `\x1b[33m[profession-landings]\x1b[0m ${locale}/${id} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+                );
+                continue;
+              }
+
+              const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
+              const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
+              collector.add(indexPath, rendered.html);
+              collector.add(flatPath, rendered.html);
+
+              if (locale === 'it') {
+                sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+              }
+
+              pagesWritten++;
+            }
           }
 
-          const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
-          const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
-          collector.add(indexPath, rendered.html);
-          collector.add(flatPath, rendered.html);
-
-          if (locale === 'it') {
-            sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+          if (sitemapEntries.length > 0) {
+            try {
+              const xml = buildSitemapXml(sitemapEntries, dateStamp);
+              fs.mkdirSync(distDir, { recursive: true });
+              const sitemapPath = np.join(distDir, 'sitemap-professions.xml');
+              fs.writeFileSync(sitemapPath, xml, 'utf-8');
+              recordWrite(sitemapPath);
+            } catch (err) {
+              console.warn('\x1b[33m[profession-landings]\x1b[0m sitemap write failed:', err);
+            }
           }
 
-          pagesWritten++;
-        }
-      }
+          const t0 = Date.now();
+          const written = await collector.flush();
+          console.log(
+            `\x1b[36m[profession-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+          );
+        },
+      });
 
-      if (sitemapEntries.length > 0) {
+      // Always-run: patch sitemap.xml index lastmod (other plugins regenerate
+      // sitemap.xml every build, so our entry's <lastmod> would otherwise
+      // drop out). Only when our sitemap actually exists in dist (either
+      // freshly written or restored from cache).
+      if (fs.existsSync(np.join(distDir, 'sitemap-professions.xml'))) {
         try {
-          const xml = buildSitemapXml(sitemapEntries, dateStamp);
-          fs.mkdirSync(distDir, { recursive: true });
-          fs.writeFileSync(np.join(distDir, 'sitemap-professions.xml'), xml, 'utf-8');
           patchSitemapIndex(distDir, dateStamp);
         } catch (err) {
-          console.warn('\x1b[33m[profession-landings]\x1b[0m sitemap write failed:', err);
+          console.warn('\x1b[33m[profession-landings]\x1b[0m sitemap-index patch failed:', err);
         }
       }
 
-      const t0 = Date.now();
-      const written = await collector.flush();
-      console.log(
-        `\x1b[36m[profession-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
-      );
-      // Signal the linker (professionLandingsLinksPlugin) that the 40 landings
-      // have landed on disk. Combined with the staticPagesFlushed signal, this
-      // removes the closeBundle race entirely — no more mtime polling.
+      // Always-run: signal the linker (professionLandingsLinksPlugin) that
+      // the 40 landings have landed on disk. Resolve unconditionally — on
+      // cache hit the files were just restored, on miss the work() above
+      // already flushed the collector.
       resolveProfessionLandingsFlushed();
     },
   };

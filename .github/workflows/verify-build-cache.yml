@@ -75,20 +75,30 @@ jobs:
           npx vite build 2>&1 | tee /tmp/run-b.log
           mv dist /tmp/dist-b
 
-      - name: Confirm Run B was a cache HIT for both plugins
+      - name: Confirm Run B was a cache HIT for every cached plugin
         run: |
           set -e
-          if ! grep -q '\[cache\] salary-hub-seo: HIT' /tmp/run-b.log; then
-            echo "::error::salary-hub-seo did NOT hit the cache on Run B — drift detection cannot proceed" >&2
-            grep '\[cache\] salary-hub-seo' /tmp/run-b.log || true
+          PLUGINS=(
+            'salary-hub-seo'
+            'health-premiums-landing'
+            'profession-landings'
+            'cost-of-living-landings'
+            'career-landings'
+          )
+          MISSING=()
+          for p in "${PLUGINS[@]}"; do
+            if ! grep -q "\[cache\] $p: HIT" /tmp/run-b.log; then
+              MISSING+=("$p")
+            fi
+          done
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo "::error::Plugins did NOT hit cache on Run B (drift detection cannot proceed): ${MISSING[*]}" >&2
+            for p in "${MISSING[@]}"; do
+              grep "\[cache\] $p" /tmp/run-b.log || echo "  (no cache log line for $p at all)"
+            done
             exit 1
           fi
-          if ! grep -q '\[cache\] health-premiums-landing: HIT' /tmp/run-b.log; then
-            echo "::error::health-premiums-landing did NOT hit the cache on Run B — drift detection cannot proceed" >&2
-            grep '\[cache\] health-premiums-landing' /tmp/run-b.log || true
-            exit 1
-          fi
-          echo "Both cached plugins hit on Run B"
+          echo "All ${#PLUGINS[@]} cached plugins hit on Run B"
 
       - name: Diff cached output paths byte-by-byte
         run: |
@@ -98,16 +108,24 @@ jobs:
           # output may have legitimate per-build variance (timestamps in
           # post-walk-coordinator, etc.) that this job is not validating.
           PATTERNS=(
+            # salary-hub
             '/calcola-stipendio/'
             '/en/calculate-salary/'
             '/de/gehalt-berechnen/'
             '/fr/calculer-salaire/'
+            '/sitemap-salary-hub.xml'
+            # health-premiums
             '/premi-cassa-malati/'
             '/en/health-insurance-premiums/'
             '/de/krankenkassenpraemien/'
             '/fr/primes-assurance-maladie/'
-            '/sitemap-salary-hub.xml'
             '/sitemap-health-premiums.xml'
+            # profession-landings
+            '/sitemap-professions.xml'
+            # cost-of-living-landings
+            '/sitemap-cost-of-living.xml'
+            # career-landings
+            '/sitemap-career-landings.xml'
           )
           DRIFT=0
           for p in "${PATTERNS[@]}"; do

@@ -39,6 +39,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
+import { runCached } from './shared/buildCache';
 import {
   COL_LOCALES,
   COL_CITY_IDS,
@@ -383,62 +384,92 @@ export function costOfLivingLandingsPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      const collector = new WriteCollector({ distDir, pluginName: 'costOfLivingLandingsPlugin' });
       const dateStamp = new Date().toISOString().slice(0, 10);
-      const sitemapEntries: Array<{
-        readonly canonical: string;
-        readonly alternates: readonly string[];
-      }> = [];
 
-      let pagesWritten = 0;
-      let thinSkipped = 0;
+      // Cacheable section: 6 cities × 4 locales = up to 24 pages × 2 (index +
+      // flat) = 48 HTML files + sitemap-cost-of-living.xml. All inputs are
+      // imports (FSO + ISTAT data, copy tables) — esbuild bundle hash
+      // catches code changes; extraKey on dateStamp catches the day-stamp
+      // shift in JSON-LD + sitemap <lastmod>.
+      await runCached({
+        pluginName: 'cost-of-living-landings',
+        rootDir,
+        distDir,
+        bundleEntry: np.resolve(rootDir, 'build-plugins/costOfLivingLandingsPlugin.ts'),
+        extraKey: dateStamp,
+        work: async ({ recordWrite }) => {
+          const collector = new WriteCollector({
+            distDir,
+            pluginName: 'costOfLivingLandingsPlugin',
+            pathRecorder: recordWrite,
+          });
+          const sitemapEntries: Array<{
+            readonly canonical: string;
+            readonly alternates: readonly string[];
+          }> = [];
 
-      for (const city of COL_CITY_IDS) {
-        const altLinks = COL_LOCALES.map(
-          (alt) => `${alt}|${BASE_URL}${buildCostOfLivingLandingPath(alt, city)}`,
-        );
-        altLinks.push(`x-default|${BASE_URL}${buildCostOfLivingLandingPath('it', city)}`);
+          let pagesWritten = 0;
+          let thinSkipped = 0;
 
-        for (const locale of COL_LOCALES) {
-          const rendered = renderPage({ locale, city, dateStamp, distDir });
-
-          if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
-            thinSkipped++;
-            console.warn(
-              `\x1b[33m[cost-of-living]\x1b[0m ${locale}/${city} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+          for (const city of COL_CITY_IDS) {
+            const altLinks = COL_LOCALES.map(
+              (alt) => `${alt}|${BASE_URL}${buildCostOfLivingLandingPath(alt, city)}`,
             );
-            continue;
+            altLinks.push(`x-default|${BASE_URL}${buildCostOfLivingLandingPath('it', city)}`);
+
+            for (const locale of COL_LOCALES) {
+              const rendered = renderPage({ locale, city, dateStamp, distDir });
+
+              if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+                thinSkipped++;
+                console.warn(
+                  `\x1b[33m[cost-of-living]\x1b[0m ${locale}/${city} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+                );
+                continue;
+              }
+
+              const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
+              const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
+              collector.add(indexPath, rendered.html);
+              collector.add(flatPath, rendered.html);
+
+              if (locale === 'it') {
+                sitemapEntries.push({ canonical: rendered.urlPath, alternates: altLinks });
+              }
+
+              pagesWritten++;
+            }
           }
 
-          const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
-          const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
-          collector.add(indexPath, rendered.html);
-          collector.add(flatPath, rendered.html);
-
-          if (locale === 'it') {
-            sitemapEntries.push({ canonical: rendered.urlPath, alternates: altLinks });
+          if (sitemapEntries.length > 0) {
+            try {
+              const xml = buildSitemapXml(sitemapEntries, dateStamp);
+              fs.mkdirSync(distDir, { recursive: true });
+              const sitemapPath = np.join(distDir, 'sitemap-cost-of-living.xml');
+              fs.writeFileSync(sitemapPath, xml, 'utf-8');
+              recordWrite(sitemapPath);
+            } catch (err) {
+              console.warn('\x1b[33m[cost-of-living]\x1b[0m sitemap write failed:', err);
+            }
           }
 
-          pagesWritten++;
-        }
-      }
+          const t0 = Date.now();
+          const written = await collector.flush();
+          console.log(
+            `\x1b[36m[cost-of-living]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+          );
+        },
+      });
 
-      if (sitemapEntries.length > 0) {
+      // Always-run: patch sitemap.xml index lastmod regardless of cache state,
+      // since sitemap.xml is regenerated each build by sitemapAliasPlugin.
+      if (fs.existsSync(np.join(distDir, 'sitemap-cost-of-living.xml'))) {
         try {
-          const xml = buildSitemapXml(sitemapEntries, dateStamp);
-          fs.mkdirSync(distDir, { recursive: true });
-          fs.writeFileSync(np.join(distDir, 'sitemap-cost-of-living.xml'), xml, 'utf-8');
           patchSitemapIndex(distDir, dateStamp);
         } catch (err) {
-          console.warn('\x1b[33m[cost-of-living]\x1b[0m sitemap write failed:', err);
+          console.warn('\x1b[33m[cost-of-living]\x1b[0m sitemap-index patch failed:', err);
         }
       }
-
-      const t0 = Date.now();
-      const written = await collector.flush();
-      console.log(
-        `\x1b[36m[cost-of-living]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
-      );
     },
   };
 }

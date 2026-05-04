@@ -42,6 +42,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
+import { runCached } from './shared/buildCache';
 import {
   CAREER_LOCALES,
   CAREER_LANDING_IDS,
@@ -398,74 +399,102 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      const collector = new WriteCollector({ distDir, pluginName: 'careerLandingsPlugin' });
       const dateStamp = new Date().toISOString().slice(0, 10);
-      const sitemapEntries: Array<{
-        canonical: string;
-        alternates: string[];
-      }> = [];
 
-      let pagesWritten = 0;
-      let thinSkipped = 0;
-
-      for (const id of CAREER_LANDING_IDS) {
-        const alternates = CAREER_LOCALES.map(
-          (alt) => `${alt}|${BASE_URL}${buildCareerLandingPath(alt, id)}`,
-        );
-        alternates.push(
-          `x-default|${BASE_URL}${buildCareerLandingPath('it', id)}`,
-        );
-
-        for (const locale of CAREER_LOCALES) {
-          const rendered = renderPage({ locale, id, dateStamp, distDir });
-
-          if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
-            thinSkipped++;
-            console.warn(
-              `\x1b[33m[career-landings]\x1b[0m ${locale}/${id} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
-            );
-            continue;
-          }
-
-          const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
-          const flatPath = np.join(
+      // Cacheable: 4 career landings × 4 locales = 16 pages × 2 (index + flat)
+      // = 32 HTML files + sitemap-career-landings.xml. Inputs are imports
+      // (concorsi.ti.ch snapshot + SECO AVG registry tables, copy strings)
+      // so the esbuild bundle hash captures all code changes; extraKey on
+      // dateStamp captures the day-stamp shift in JSON-LD + sitemap lastmod.
+      await runCached({
+        pluginName: 'career-landings',
+        rootDir,
+        distDir,
+        bundleEntry: np.resolve(rootDir, 'build-plugins/careerLandingsPlugin.ts'),
+        extraKey: dateStamp,
+        work: async ({ recordWrite }) => {
+          const collector = new WriteCollector({
             distDir,
-            rendered.urlPath.replace(/\/+$/, '') + '.html',
-          );
-          collector.add(indexPath, rendered.html);
-          collector.add(flatPath, rendered.html);
+            pluginName: 'careerLandingsPlugin',
+            pathRecorder: recordWrite,
+          });
+          const sitemapEntries: Array<{
+            canonical: string;
+            alternates: string[];
+          }> = [];
 
-          if (locale === 'it') {
-            sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+          let pagesWritten = 0;
+          let thinSkipped = 0;
+
+          for (const id of CAREER_LANDING_IDS) {
+            const alternates = CAREER_LOCALES.map(
+              (alt) => `${alt}|${BASE_URL}${buildCareerLandingPath(alt, id)}`,
+            );
+            alternates.push(
+              `x-default|${BASE_URL}${buildCareerLandingPath('it', id)}`,
+            );
+
+            for (const locale of CAREER_LOCALES) {
+              const rendered = renderPage({ locale, id, dateStamp, distDir });
+
+              if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+                thinSkipped++;
+                console.warn(
+                  `\x1b[33m[career-landings]\x1b[0m ${locale}/${id} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+                );
+                continue;
+              }
+
+              const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
+              const flatPath = np.join(
+                distDir,
+                rendered.urlPath.replace(/\/+$/, '') + '.html',
+              );
+              collector.add(indexPath, rendered.html);
+              collector.add(flatPath, rendered.html);
+
+              if (locale === 'it') {
+                sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+              }
+
+              pagesWritten++;
+            }
           }
 
-          pagesWritten++;
-        }
-      }
+          if (sitemapEntries.length > 0) {
+            try {
+              const xml = buildSitemapXml(sitemapEntries, dateStamp);
+              fs.mkdirSync(distDir, { recursive: true });
+              const sitemapPath = np.join(distDir, 'sitemap-career-landings.xml');
+              fs.writeFileSync(sitemapPath, xml, 'utf-8');
+              recordWrite(sitemapPath);
+            } catch (err) {
+              console.warn(
+                '\x1b[33m[career-landings]\x1b[0m sitemap write failed:',
+                err,
+              );
+            }
+          }
 
-      if (sitemapEntries.length > 0) {
-        try {
-          const xml = buildSitemapXml(sitemapEntries, dateStamp);
-          fs.mkdirSync(distDir, { recursive: true });
-          fs.writeFileSync(
-            np.join(distDir, 'sitemap-career-landings.xml'),
-            xml,
-            'utf-8',
+          const t0 = Date.now();
+          const written = await collector.flush();
+          console.log(
+            `\x1b[36m[career-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
           );
+        },
+      });
+
+      // Always-run: patch sitemap.xml index lastmod (regenerated each build).
+      if (fs.existsSync(np.join(distDir, 'sitemap-career-landings.xml'))) {
+        try {
           patchSitemapIndex(distDir, dateStamp);
         } catch (err) {
           console.warn(
-            '\x1b[33m[career-landings]\x1b[0m sitemap write failed:',
+            '\x1b[33m[career-landings]\x1b[0m sitemap-index patch failed:',
             err,
           );
         }
       }
-
-      const t0 = Date.now();
-      const written = await collector.flush();
-      console.log(
-        `\x1b[36m[career-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
-      );
     },
   };
 }

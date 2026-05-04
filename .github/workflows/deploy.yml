@@ -231,11 +231,23 @@ jobs:
       # Restore-keys cascade is just `runner.os` so we always pull the most
       # recent snapshot for this OS even if no exact match exists, then let
       # the in-tree per-key directories sort out actual hits.
-      - name: Cache build-plugin snapshots (salary-hub + health-premiums)
+      - name: Cache build-plugin snapshots (salary-hub + health-premiums + 3 landings)
         uses: actions/cache@v5
         with:
           path: .cache/build-plugins
-          key: build-plugins-${{ runner.os }}-${{ hashFiles('build-plugins/**/*.ts', 'services/calculationService.ts', 'services/constants.ts', 'data/health-premiums.json', 'data/health-premiums/**/*.json') }}
+          # Hash inputs cover every plugin currently wrapped in runCached:
+          # - salary-hub (depends on calculationService + constants + locales)
+          # - health-premiums (depends on data/health-premiums*.json)
+          # - profession-landings, cost-of-living-landings, career-landings
+          #   (data is in TS imports — fully covered by build-plugins/**/*.ts)
+          # The hashFiles glob is intentionally wide: any TS edit anywhere
+          # in build-plugins/ refreshes the cache key here. The IN-TREE
+          # cache key (esbuild bundle hash, computed in buildCache.ts) is
+          # the actual correctness guarantee — this CI key is just for
+          # cache-restore granularity. A miss here is "warm cache directory
+          # without the right hash subdir," which the in-tree logic handles
+          # correctly via cold-start MISS path.
+          key: build-plugins-${{ runner.os }}-${{ hashFiles('build-plugins/**/*.ts', 'services/calculationService.ts', 'services/constants.ts', 'services/locales/it-calculator.ts', 'services/locales/en-calculator.ts', 'services/locales/de-calculator.ts', 'services/locales/fr-calculator.ts', 'data/health-premiums.json', 'data/health-premiums/**/*.json') }}
           restore-keys: |
             build-plugins-${{ runner.os }}-
 

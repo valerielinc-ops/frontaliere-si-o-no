@@ -221,7 +221,7 @@ export async function runCached(opts: RunCachedOptions): Promise<RunCachedResult
   if (fs.existsSync(manifestPath)) {
     try {
       const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8')) as CacheManifest;
-      const restored = restoreFromCache(keyDir, distDir, manifest);
+      const restored = await restoreFromCache(keyDir, distDir, manifest);
       const dt = ((Date.now() - t0) / 1000).toFixed(2);
       console.log(
         `[cache] ${pluginName}: HIT (key=${key.slice(0, 12)}..., ${restored} files restored in ${dt}s)`,
@@ -261,18 +261,60 @@ export async function runCached(opts: RunCachedOptions): Promise<RunCachedResult
 
 // ── HIT helpers ─────────────────────────────────────────────────
 
-function restoreFromCache(keyDir: string, distDir: string, manifest: CacheManifest): number {
+/**
+ * Concurrency for the parallel restore. 200 in-flight `fs.promises.copyFile`
+ * calls saturates the runner's SSD without crossing macOS launchd's default
+ * 256 fd ceiling or ubuntu-latest's much higher default. Tuned alongside
+ * the WriteCollector's flushWrites concurrency (500) — both share the same
+ * disk during closeBundle so we keep our restore lower to avoid contention.
+ */
+const RESTORE_CONCURRENCY = 200;
+
+async function restoreFromCache(
+  keyDir: string,
+  distDir: string,
+  manifest: CacheManifest,
+): Promise<number> {
   const filesDir = path.join(keyDir, 'files');
-  let restored = 0;
+
+  // Pre-create every destination directory in one synchronous pass before
+  // dispatching the parallel copies. Doing this inline inside each parallel
+  // copy task would cost N synchronous mkdirSync calls and serialise an I/O
+  // pattern we explicitly want to spread across cores. Set-dedup'd so
+  // siblings don't redo each other's work.
+  const dirs = new Set<string>();
+  for (const rel of manifest.paths) {
+    dirs.add(path.dirname(path.join(distDir, rel)));
+  }
+  for (const d of dirs) {
+    fs.mkdirSync(d, { recursive: true });
+  }
+
+  // Validate up-front so a partial restore never lands and leaves dist/ in a
+  // half-baked state. Cheap (Set lookup + stat) compared with the actual
+  // copy.
   for (const rel of manifest.paths) {
     const src = path.join(filesDir, rel);
-    const dst = path.join(distDir, rel);
     if (!fs.existsSync(src)) {
       throw new Error(`[buildCache] cache file missing: ${src}`);
     }
-    fs.mkdirSync(path.dirname(dst), { recursive: true });
-    fs.copyFileSync(src, dst);
-    restored++;
+  }
+
+  // Parallel copy: chunk the manifest into batches of RESTORE_CONCURRENCY
+  // and `Promise.all` each batch. fs.promises.copyFile uses libuv's worker
+  // pool so the throughput scales with CPU count up to ~4-8 cores even
+  // though Node's main loop is single-threaded.
+  let restored = 0;
+  for (let i = 0; i < manifest.paths.length; i += RESTORE_CONCURRENCY) {
+    const batch = manifest.paths.slice(i, i + RESTORE_CONCURRENCY);
+    await Promise.all(
+      batch.map((rel) => {
+        const src = path.join(filesDir, rel);
+        const dst = path.join(distDir, rel);
+        return fs.promises.copyFile(src, dst);
+      }),
+    );
+    restored += batch.length;
   }
   return restored;
 }
