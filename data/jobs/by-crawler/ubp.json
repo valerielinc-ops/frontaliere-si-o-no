@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubp",
-  "assembledAt": "2026-05-04T11:47:01.626Z",
+  "assembledAt": "2026-05-04T22:48:43.145Z",
   "jobs": [
     {
       "id": "ubp-5f6cbca8cc8d",
@@ -33,7 +33,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/240",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T11:46:58.752Z",
+      "crawledAt": "2026-05-04T22:48:40.253Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/297",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:58.215Z",
+      "crawledAt": "2026-05-04T22:48:39.723Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -186,7 +186,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/265",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:57.658Z",
+      "crawledAt": "2026-05-04T22:48:39.185Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -221,6 +221,7 @@
         "it-business-analyst-risk-management-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:18.243Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -265,7 +266,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:57.099Z",
+      "crawledAt": "2026-05-04T22:48:38.653Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -300,6 +301,7 @@
         "it-business-analyst-credit-it-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:17.703Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -344,7 +346,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/514",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:56.551Z",
+      "crawledAt": "2026-05-04T22:48:38.126Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -423,7 +425,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/519",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:56.008Z",
+      "crawledAt": "2026-05-04T22:48:37.592Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -458,6 +460,7 @@
         "middle-officer-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:16.025Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -502,7 +505,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/542",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:55.455Z",
+      "crawledAt": "2026-05-04T22:48:37.060Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -537,6 +540,7 @@
         "investment-advisor-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -546,85 +550,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ubp-deba9b6d5cb1",
-      "slug": "investment-marketing-content-manager-temporary-12-mesi-union-bancaire-privee-geneva-switzerland",
-      "slugByLocale": {
-        "it": "investment-marketing-content-manager-temporary-12-mesi-union-bancaire-privee-geneva-switzerland",
-        "en": "investment-marketing-content-manager-temporary-12-months-union-bancaire-privee-geneva-switzerland",
-        "de": "investment-marketing-content-manager-zeitraum-12-monate-union-bancaire-privee-geneva-switzerland",
-        "fr": "gestionnaire-de-contenu-marketing-d-investissement-temporaire-12-mois-union-bancaire-privee-geneva-switzerland"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Investment Marketing Content Manager (Temporary 12 months)",
-      "titleByLocale": {
-        "it": "Investment Marketing Content Manager (Temporary 12 mesi)",
-        "en": "Investment Marketing Content Manager (Temporary 12 months)",
-        "de": "Investment Marketing Content Manager (Zeitraum 12 Monate)",
-        "fr": "Gestionnaire de contenu marketing d'investissement (temporaire 12 mois)"
-      },
-      "description": "Mission \n Within Investment Management, you play a key role in the conception, structuring and strategic presentation of investment content across all asset classes.\nAt the intersection of portfolio management, strategy and other business lines, you transform complex financial expertise into clear, structured and visually compelling materials.\nYou ensure that investment communication is rigorous, compliant with regulatory requirements, and fully aligned with the identity and standards of an international investment group.\n \n Key Responsibilities \n \n• Strategic Structuring of Investment Content \n Work closely with Investment Management stakeholders to formalise and structure investment views.\nTranslate complex financial analysis into clear, pedagogical and strategically coherent narratives.\nEnsure consistency between investment philosophy, portfolio construction and client communication.\nContribute to the articulation of multi asset strategies and portfolio architecture frameworks.\n \n• Editorial Leadership & Financial Design \n Lead the editorial and visual development of investment materials, including strategic presentations, outlook publications, fund documentation and digital content.\nMaintain high visual and editorial standards in line with private banking expectations.\nStructure financial storytelling through clear message hierarchy and rigorous visual architecture.\nEnsure coherence across asset classes and publications.\n \n• Digital Integration \n Oversee content production using Adobe InDesign and coordinate adaptation for digital investment platforms.\nActively contribute to the investment content distribution strategy.\nSupport the enhancement of client and user experience across digital channels.\n \n• Governance & Coordination \n Support the Investment Project Manager in coordinating cross functional initiatives within Investment Management.\nWork closely with Compliance to ensure regulatory soundness of all materials.\nContribute to the continuous improvement of production, validation and deployment processes.\nParticipate in the definition and harmonisation of editorial and visual standards at group level.\n \n Profile \n \n• Experience \n Proven experience within private banking, asset management or investment banking.\nSolid understanding of financial markets and major asset classes.\nDemonstrated ability to structure and formalise complex investment content.\nAdvanced proficiency in Adobe InDesign. Knowledge of Illustrator and Photoshop is an advantage.\nExperience operating in a regulated financial environment.\nStrong interest in the digital evolution of investment communication.\n \n• Key Skills \n Investment architecture communication\nInvestment narrative structuring\nEditorial design applied to finance\nCross functional coordination with investment teams\nDigital investment content integration\nStrong institutional and premium standards awareness\n \n• Education \n Higher education in finance, economics or a related field.\nA dual background in finance and communication or design is considered a strong advantage.\n \n• Languages \n French: fluent or native\nEnglish: fluent, written and spoken\nAdditional languages are an advantage\n \n• Technical Skills \n Strong understanding of regulated financial communication requirements\nExperience adapting investment materials for digital platforms\nUnderstanding of multi asset reporting frameworks\n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-      "descriptionByLocale": {
-        "it": "Missione - All'interno della gestione degli investimenti, si gioca un ruolo chiave nella concezione, strutturazione e presentazione strategica dei contenuti di investimento in tutte le classi di asset. - No. All'incrocio tra gestione del portafoglio, strategia e altre linee di business, si trasformano competenze finanziarie complesse in materiali chiari, strutturati e visivamente convincenti. - No. Assicurarsi che la comunicazione degli investimenti sia rigorosa, conforme ai requisiti normativi, e pienamente allineato con l'identità e gli standard di un gruppo di investimento internazionale. ## Responsabilità chiave ## #Struttura strategica dei contenuti degli investimenti - Lavorare a stretto contatto con gli stakeholder della gestione degli investimenti per formalizzare e strutturare le opinioni sugli investimenti. - Tradurre analisi finanziarie complesse in narrazioni chiare, pedagogiche e strategicamente coerenti. - Assicurare la coerenza tra filosofia di investimento, costruzione di portafoglio e comunicazione cliente. - Contribuire all'articolazione di strategie multi asset e framework di architettura portafoglio. #### Editorial Leadership & Financial Design - Guida lo sviluppo editoriale e visivo dei materiali di investimento, incluse presentazioni strategiche, pubblicazioni di prospettiva, documentazione di fondo e contenuti digitali. - Mantenere elevati standard visivi e editoriali in linea con le aspettative bancarie private. - Strutturare lo storytelling finanziario attraverso una chiara gerarchia dei messaggi e una rigorosa architettura visiva. - Assicurare coerenza tra classi di attività e pubblicazioni. ### Digital Integration - Superare la produzione di contenuti utilizzando Adobe InDesign e coordinare l'adattamento per le piattaforme di investimento digitali. - Contribuire attivamente alla strategia di distribuzione dei contenuti di investimento. - Supporta la valorizzazione dell'esperienza del cliente e dell'utente attraverso i canali digitali. #### Governance & Coordination - Sostenere il responsabile del progetto di investimento nel coordinare le iniziative funzionali cross all'interno della gestione degli investimenti. - Lavorare a stretto contatto con Compliance per garantire la solidità normativa di tutti i materiali. - Contribuire al miglioramento continuo dei processi di produzione, convalida e distribuzione. - Partecipare alla definizione e all'armonizzazione degli standard editoriali e visivi a livello di gruppo. ## Profilo ## Esperienza - Esperienza comprovata all'interno di private banking, asset management o investment banking. - Solida comprensione dei mercati finanziari e delle principali classi di asset. - Capacità dimostrata di strutturare e formalizzare contenuti di investimento complessi. - Competenza avanzata in Adobe InDesign. La conoscenza di Illustrator e Photoshop è un vantaggio. - Esperienza operativa in un ambiente finanziario regolamentato. - Forte interesse per l'evoluzione digitale della comunicazione degli investimenti. ### Key Skills - Comunicazione di architettura degli investimenti - Strutturazione narrativa degli investimenti - Progettazione editoriale applicata alla finanza - Coordinamento funzionale trasversale con i team di investimento - Integrazione dei contenuti di investimento digitale - Forte consapevolezza degli standard istituzionali e premium ## Education - Istruzione superiore in finanza, economia o un campo relativo. - Un doppio background in finanza e comunicazione o design è considerato un forte vantaggio. ### Lingue - Francese: fluente o nativo - Inglese: fluente, scritto e parlato - Le lingue aggiuntive sono un vantaggio ## competenze tecniche - Forte comprensione dei requisiti di comunicazione finanziaria regolamentati - Esperienza di adattamento dei materiali di investimento per piattaforme digitali - Comprensione dei framework di reporting multi asset ## Competenza core - Aderenza ai valori dell'azienda: Dedication, Conviction, Agility e Responsibility - Conformance con le direttive interne",
-        "en": "Mission Within Investment Management, you play a key role in the conception, structuring and strategic presentation of investment content across all asset classes. At the intersection of portfolio management, strategy and other business lines, you transform complex financial expertise into clear, structured and visually compelling materials. You ensure that investment communication is rigorous, compliant with regulatory requirements, and fully aligned with the identity and standards of an international investment group. Key Responsibilities • Strategic Structuring of Investment Content Work closely with Investment Management stakeholders to formalise and structure investment views. Translate complex financial analysis into clear, pedagogical and strategically coherent narratives. Ensure consistency between investment philosophy, portfolio construction and client communication. Contribute to the articulation of multi asset strategies and portfolio architecture frameworks. • Editorial Leadership & Financial Design Lead the editorial and visual development of investment materials, including strategic presentations, outlook publications, fund documentation and digital content. Maintain high visual and editorial standards in line with private banking expectations. Structure financial storytelling through clear message hierarchy and rigorous visual architecture. Ensure coherence across asset classes and publications. • Digital Integration Oversee content production using Adobe InDesign and coordinate adaptation for digital investment platforms. Actively contribute to the investment content distribution strategy. Support the enhancement of client and user experience across digital channels. • Governance & Coordination Support the Investment Project Manager in coordinating cross functional initiatives within Investment Management. Work closely with Compliance to ensure regulatory soundness of all materials. Contribute to the continuous improvement of production, validation and deployment processes. Participate in the definition and harmonisation of editorial and visual standards at group level. Profile • Experience Proven experience within private banking, asset management or investment banking. Solid understanding of financial markets and major asset classes. Demonstrated ability to structure and formalise complex investment content. Advanced proficiency in Adobe InDesign. Knowledge of Illustrator and Photoshop is an advantage. Experience operating in a regulated financial environment. Strong interest in the digital evolution of investment communication. • Key Skills Investment architecture communication Investment narrative structuring Editorial design applied to finance Cross functional coordination with investment teams Digital investment content integration Strong institutional and premium standards awareness • Education Higher education in finance, economics or a related field. A dual background in finance and communication or design is considered a strong advantage. • Languages French: fluent or native English: fluent, written and spoken Additional languages are an advantage • Technical Skills Strong understanding of regulated financial communication requirements Experience adapting investment materials for digital platforms Understanding of multi asset reporting frameworks Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "Mission - Innerhalb des Investment Managements spielen Sie eine Schlüsselrolle bei der Konzeption, Strukturierung und strategischen Präsentation von Anlageinhalten in allen Assetklassen. - Ja. An der Schnittstelle von Portfoliomanagement, Strategie und anderen Geschäftsfeldern transformieren Sie komplexe finanzielle Expertise in klare, strukturierte und visuell überzeugende Materialien. - Ja. Sie stellen sicher, dass die Investitionskommunikation streng ist, den regulatorischen Anforderungen entspricht und die Identität und die Standards einer internationalen Investmentgruppe vollständig angepasst sind. ### Strategische Strukturierung von Investitionsinhalten - Arbeiten Sie eng mit den Interessenvertretern des Investment Managements zusammen, um Investment-Ansichten zu formalisieren und zu strukturieren. - Übersetzen Sie komplexe Finanzanalysen in klare, pädagogische und strategisch kohärente Erzählungen. - Gewährleistung der Konsistenz zwischen Investitionsphilosophie, Portfolio-Bau und Kundenkommunikation. - Beitrag zur Artikulation von Multi Asset-Strategien und Portfolio-Architektur-Rahmen. ### Editorial Leadership & Financial Design - Führen Sie die redaktionelle und visuelle Entwicklung von Investitionsmaterialien, einschließlich strategischer Präsentationen, Ausblickveröffentlichungen, Fondsdokumentation und digitaler Inhalte. - Bewahren Sie hohe visuelle und redaktionelle Standards im Einklang mit den Erwartungen der Privatbanken. - Struktur finanzielles Storytelling durch klare Botschaft Hierarchie und strenge visuelle Architektur. - Gewährleistung der Kohärenz in allen Assetklassen und Publikationen. ### Digitale Integration - Übersehen Sie die Content-Produktion mit Adobe InDesign und Koordinatenanpassung für digitale Investmentplattformen. - Aktiver Beitrag zur Strategie der Investment Content Distribution. - Unterstützung der Verbesserung der Kunden- und Nutzererfahrung über digitale Kanäle. ### Governance & Coordination - Unterstützung des Investment Project Managers bei der Koordination von funktionsübergreifenden Initiativen im Investment Management. - Arbeiten Sie eng mit Compliance zusammen, um die regulatorische Klangfähigkeit aller Materialien zu gewährleisten. - Beitrag zur kontinuierlichen Verbesserung der Produktions-, Validierungs- und Bereitstellungsprozesse. - Erwarten Sie die Definition und Harmonisierung der redaktionellen und visuellen Standards auf Gruppenebene. Â Profil ### Erfahrung - Bewährte Erfahrung im Private Banking, Asset Management oder Investment Banking. - Solides Verständnis der Finanzmärkte und der wichtigsten Vermögensklassen. - Demonstrierte Fähigkeit, komplexe Anlageinhalte zu strukturieren und zu formalisieren. - Fortgeschrittene Kenntnisse in Adobe InDesign. Das Wissen von Illustrator und Photoshop ist ein Vorteil. - Erfahrung in einem geregelten Finanzumfeld. - Starkes Interesse an der digitalen Entwicklung der Investitionskommunikation. ### Key Skills - Investment-Architektur-Kommunikation - Investment narrative Strukturierung - Editorial Design angewendet, um zu finanzieren - Cross-funktionelle Koordination mit Investment-Teams - Digitale Investment-Inhalte-Integration - Starke institutionellen und Premium-Standards Bewusstsein ### Bildung - Höhere Bildung in Finanzen, Wirtschaft oder ein verwandten Bereich. - Ein doppelter Hintergrund in Finanzen und Kommunikation oder Design gilt als ein starker Vorteil. ### Sprachen - Französisch: fließend oder native - Englisch: fließend, schriftlich und gesprochen - Zusätzliche Sprachen sind ein Vorteil ### Technische Fähigkeiten - Starkes Verständnis der regulierten Finanzkommunikationsanforderungen - Erleben Sie die Anpassung von Anlagematerialien für digitale Plattformen - Verständnis von Multi Asset Reporting Frameworks",
-        "fr": "Mission - Au sein de la gestion des investissements, vous jouez un rôle clé dans la conception, la structuration et la présentation stratégique du contenu des investissements dans toutes les classes d'actifs. - Oui. À l'intersection de la gestion de portefeuille, de la stratégie et d'autres secteurs d'activité, vous transformez une expertise financière complexe en documents clairs, structurés et visuellement convaincants. - Oui. Vous veillez à ce que la communication des investissements soit rigoureuse, conforme aux exigences réglementaires et pleinement conforme à l'identité et aux normes d'un groupe d'investissement international. ## Principales responsabilités ### Structure stratégique du contenu des investissements - Collaborer étroitement avec les intervenants de la gestion des investissements pour formaliser et structurer les points de vue sur les investissements. - Traduire l'analyse financière complexe en récits clairs, pédagogiques et stratégiquement cohérents. - Assurer la cohérence entre la philosophie d'investissement, la construction de portefeuilles et la communication avec les clients. - Contribuer à l'élaboration de stratégies multiactifs et de cadres d'architecture de portefeuille. ### Leadership éditorial et conception financière - Diriger le développement éditorial et visuel du matériel d'investissement, y compris les présentations stratégiques, les publications de perspectives, la documentation de fonds et le contenu numérique. - Maintenir des normes visuelles et éditoriales élevées en fonction des attentes des banques privées. - Structurer l'histoire financière par une hiérarchie claire des messages et une architecture visuelle rigoureuse. - Assurer la cohérence entre les classes de biens et les publications. ### Intégration numérique - Surveiller la production de contenu en utilisant Adobe InDesign et coordonner l'adaptation pour les plateformes d'investissement numériques. - Contribuer activement à la stratégie de distribution des contenus d'investissement. - Soutenir l'amélioration de l'expérience client et utilisateur à travers les canaux numériques. ### Gouvernance et coordination - Aider le gestionnaire de projet d'investissement à coordonner les initiatives interfonctionnelles au sein de la gestion des investissements. - Collaborer étroitement avec la conformité pour assurer la solidité réglementaire de tous les matériaux. - Contribuer à l'amélioration continue des processus de production, de validation et de déploiement. - Participer à la définition et à l'harmonisation des normes éditoriales et visuelles au niveau du groupe. ## Profil ### Expérience - Expérience éprouvée au sein des banques privées, de la gestion d'actifs ou des banques d'investissement. - Une bonne compréhension des marchés financiers et des grandes classes d'actifs. - Capacité démontrée de structurer et de formaliser des contenus d'investissement complexes. - Compétence avancée en Adobe InDesign. La connaissance de l'illustrateur et de Photoshop est un avantage. - Expérience dans un environnement financier réglementé. - Un fort intérêt pour l'évolution numérique de la communication d'investissement. ### Compétences clés - Architecture de l'investissement communication - Structure narrative de l'investissement - Conception éditoriale appliquée au financement - Coordination interfonctionnelle avec les équipes d'investissement - Intégration du contenu de l'investissement numérique - Forte sensibilisation aux normes institutionnelles et haut de gamme ### Éducation - Enseignement supérieur en finance, en économie ou dans un domaine connexe. - Une double expérience en finance et communication ou conception est considérée comme un avantage important. ### Langues - Français : couramment ou natif - Anglais : couramment, écrit et parlé - D'autres langues sont un avantage ### Compétences techniques - Forte compréhension des exigences réglementaires en matière de communication financière - Expérience d'adaptation du matériel d'investissement pour les plateformes numériques - Compréhension des cadres de rapports multiactifs ## Compétences de base - Respect des valeurs de l'entreprise : Dédicace, Conviction, Agilité et Responsabilité - Respect des règlements et des directives internes"
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:54.907Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-06",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "investment-marketing-content-manager-temporary-12-months-ubp-ch"
-        ],
-        "it": [
-          "investment-marketing-content-manager-temporary-12-months-ubp-ch"
-        ],
-        "de": [
-          "investment-marketing-content-manager-temporary-12-months-ubp-ch"
-        ],
-        "fr": [
-          "investment-marketing-content-manager-temporary-12-months-ubp-ch"
-        ]
-      },
-      "previousSlugs": [
-        "investment-marketing-content-manager-temporary-12-months-ubp-ch"
-      ],
-      "firstSeenAt": "2026-04-13T11:28:14.330Z",
-      "salaryMin": 75500,
-      "salaryMax": 133000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 75500,
-          "maxValue": 133000,
           "unitText": "YEAR"
         }
       }
@@ -660,7 +585,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/575",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:54.359Z",
+      "crawledAt": "2026-05-04T22:48:36.510Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -695,6 +620,7 @@
         "corporate-actions-specialist-6-months-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:13.238Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -739,7 +665,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/605",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:53.813Z",
+      "crawledAt": "2026-05-04T22:48:35.955Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -818,7 +744,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:53.263Z",
+      "crawledAt": "2026-05-04T22:48:35.419Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -897,7 +823,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/654",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:52.715Z",
+      "crawledAt": "2026-05-04T22:48:34.884Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -976,7 +902,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:52.172Z",
+      "crawledAt": "2026-05-04T22:48:34.350Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1055,7 +981,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/661",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:51.625Z",
+      "crawledAt": "2026-05-04T22:48:33.821Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1147,7 +1073,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/673",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:51.077Z",
+      "crawledAt": "2026-05-04T22:48:33.288Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1226,7 +1152,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/733",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:50.526Z",
+      "crawledAt": "2026-05-04T22:48:32.753Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1306,7 +1232,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/408",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T11:46:49.967Z",
+      "crawledAt": "2026-05-04T22:48:32.220Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1335,6 +1261,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:05.762Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1379,7 +1306,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/753",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:49.426Z",
+      "crawledAt": "2026-05-04T22:48:31.687Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1458,7 +1385,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/687",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:48.877Z",
+      "crawledAt": "2026-05-04T22:48:31.158Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1487,6 +1414,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:04.161Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1531,7 +1459,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/766",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:48.317Z",
+      "crawledAt": "2026-05-04T22:48:30.621Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1610,7 +1538,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/758",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:47.774Z",
+      "crawledAt": "2026-05-04T22:48:30.083Z",
       "addressLocality": "Frankfurt am Main, Germany",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1681,7 +1609,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/229",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:47.226Z",
+      "crawledAt": "2026-05-04T22:48:29.539Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1760,7 +1688,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/767",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:46.676Z",
+      "crawledAt": "2026-05-04T22:48:29.000Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1840,7 +1768,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/763",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:46.121Z",
+      "crawledAt": "2026-05-04T22:48:28.465Z",
       "addressLocality": "Jersey",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1911,7 +1839,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/776",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:45.584Z",
+      "crawledAt": "2026-05-04T22:48:27.934Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1985,7 +1913,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/713",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:45.027Z",
+      "crawledAt": "2026-05-04T22:48:27.400Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2064,7 +1992,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/823",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:44.483Z",
+      "crawledAt": "2026-05-04T22:48:26.870Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2143,7 +2071,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/821",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:43.939Z",
+      "crawledAt": "2026-05-04T22:48:26.325Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2175,6 +2103,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:27:56.455Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2219,7 +2148,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/831",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:43.394Z",
+      "crawledAt": "2026-05-04T22:48:25.789Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2298,7 +2227,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/864",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:42.857Z",
+      "crawledAt": "2026-05-04T22:48:25.252Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2372,7 +2301,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/865",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:42.313Z",
+      "crawledAt": "2026-05-04T22:48:24.716Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2451,7 +2380,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/847",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:41.752Z",
+      "crawledAt": "2026-05-04T22:48:24.182Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2514,7 +2443,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/849",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:41.195Z",
+      "crawledAt": "2026-05-04T22:48:23.649Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2593,7 +2522,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/867",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:40.636Z",
+      "crawledAt": "2026-05-04T22:48:23.115Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2667,7 +2596,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/840",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:40.066Z",
+      "crawledAt": "2026-05-04T22:48:22.573Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2746,7 +2675,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/910",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:39.520Z",
+      "crawledAt": "2026-05-04T22:48:22.034Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2775,6 +2704,7 @@
         ]
       },
       "firstSeenAt": "2026-04-21T10:57:40.460Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2819,7 +2749,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/886",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:38.971Z",
+      "crawledAt": "2026-05-04T22:48:21.499Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2898,7 +2828,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/916",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:38.431Z",
+      "crawledAt": "2026-05-04T22:48:20.966Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2930,6 +2860,7 @@
         "investments-data-analyst-temporary-ubp-ch"
       ],
       "firstSeenAt": "2026-04-21T10:57:39.261Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2974,7 +2905,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/826",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:37.884Z",
+      "crawledAt": "2026-05-04T22:48:20.431Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3053,7 +2984,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/974",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:37.339Z",
+      "crawledAt": "2026-05-04T22:48:19.895Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3082,6 +3013,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T11:04:14.719Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3126,7 +3058,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:36.796Z",
+      "crawledAt": "2026-05-04T22:48:19.365Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3205,7 +3137,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/982",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:36.257Z",
+      "crawledAt": "2026-05-04T22:48:18.829Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3276,7 +3208,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/908",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T11:46:35.696Z",
+      "crawledAt": "2026-05-04T22:48:18.283Z",
       "addressLocality": "Basel, Switzerland",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3305,6 +3237,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:46:31.039Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3349,7 +3282,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/933",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:35.150Z",
+      "crawledAt": "2026-05-04T22:48:17.750Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3384,6 +3317,7 @@
         "receptionist-temporary-6-months-ubp-ch"
       ],
       "firstSeenAt": "2026-04-28T22:46:30.438Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3428,7 +3362,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/948",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:34.603Z",
+      "crawledAt": "2026-05-04T22:48:17.213Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3507,7 +3441,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:34.039Z",
+      "crawledAt": "2026-05-04T22:48:16.677Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3559,9 +3493,9 @@
       "id": "ubp-f318905129a9",
       "slug": "assistant-relationship-manager-latam-ubp-ch",
       "slugByLocale": {
-        "en": "assistant-relationship-manager-latam-union-bancaire-privee-geneva-switzerland",
         "it": "assistant-relationship-manager-latam-ubp-ch",
-        "de": "assistant-relationship-manager-latam-ubp-ch",
+        "en": "assistant-relationship-manager-latam-union-bancaire-privee-geneva-switzerland",
+        "de": "assistent-relationship-manager-latam-union-bancaire-privee-geneva-switzerland",
         "fr": "assistant-relationship-manager-latam-ubp-ch"
       },
       "company": "Union Bancaire Privée",
@@ -3569,24 +3503,24 @@
       "companyDomain": "ubp.com",
       "title": "Assistant Relationship Manager LATAM",
       "titleByLocale": {
-        "en": "Assistant Relationship Manager LATAM",
         "it": "Assistant Relationship Manager LATAM",
+        "en": "Assistant Relationship Manager LATAM",
         "de": "Assistent Relationship Manager LATAM",
         "fr": "Assistant Relationship Manager LATAM"
       },
       "description": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
       "descriptionByLocale": {
-        "en": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "it": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "fr": "Mission \n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with \n the Bank’s internal regulations and guidelines within the Hispanic Markets. \n Main responsibilities \n \n• Prepare the necessary documentation for client meetings and business trips for relationship managers \n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications \n\n• Provide administrative support to the Team Head \n\n• Cash Management \n\n• Assist in AML clarifications and prepare clients KYC and related updates \n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings \n\n• Prepare and monitor account openings, closings and mutations \n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) \n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) \n\n• Deputy of other assistants if needed \n \n Your Profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Private Banking certificate, SAQ or other equivalent certification a plus \n\n• Minimum 5 years of experience in a similar role or within private banking \n\n• Strong banking, Compliance and KYC knowledge \n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills \n\n• Fluent in French, Spanish and English. Any additional language is an added value \n \n Others \n \n• Swiss Residence is mandatory \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+        "it": "Mission Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with the Bank’s internal regulations and guidelines within the Hispanic Markets. Main responsibilities • Prepare the necessary documentation for client meetings and business trips for relationship managers • Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications • Provide administrative support to the Team Head • Cash Management • Assist in AML clarifications and prepare clients KYC and related updates • Direct interaction with clients by phone, e-mail and, occasionally in meetings • Prepare and monitor account openings, closings and mutations • Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) • Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) • Deputy of other assistants if needed Your Profile • Degree in a related field (banking apprenticeship, CYP, banking internship or similar) • Private Banking certificate, SAQ or other equivalent certification a plus • Minimum 5 years of experience in a similar role or within private banking • Strong banking, Compliance and KYC knowledge • Team spirit, inter-personal skills, highly service and client oriented as well as communication skills • Fluent in French, Spanish and English. Any additional language is an added value Others • Swiss Residence is mandatory Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "en": "Mission Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with the Bank’s internal regulations and guidelines within the Hispanic Markets. Main responsibilities • Prepare the necessary documentation for client meetings and business trips for relationship managers • Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications • Provide administrative support to the Team Head • Cash Management • Assist in AML clarifications and prepare clients KYC and related updates • Direct interaction with clients by phone, e-mail and, occasionally in meetings • Prepare and monitor account openings, closings and mutations • Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) • Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) • Deputy of other assistants if needed Your Profile • Degree in a related field (banking apprenticeship, CYP, banking internship or similar) • Private Banking certificate, SAQ or other equivalent certification a plus • Minimum 5 years of experience in a similar role or within private banking • Strong banking, Compliance and KYC knowledge • Team spirit, inter-personal skills, highly service and client oriented as well as communication skills • Fluent in French, Spanish and English. Any additional language is an added value Others • Swiss Residence is mandatory Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "Mission Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with the Bank’s internal regulations and guidelines within the Hispanic Markets. Main responsibilities • Prepare the necessary documentation for client meetings and business trips for relationship managers • Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications • Provide administrative support to the Team Head • Cash Management • Assist in AML clarifications and prepare clients KYC and related updates • Direct interaction with clients by phone, e-mail and, occasionally in meetings • Prepare and monitor account openings, closings and mutations • Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) • Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) • Deputy of other assistants if needed Your Profile • Degree in a related field (banking apprenticeship, CYP, banking internship or similar) • Private Banking certificate, SAQ or other equivalent certification a plus • Minimum 5 years of experience in a similar role or within private banking • Strong banking, Compliance and KYC knowledge • Team spirit, inter-personal skills, highly service and client oriented as well as communication skills • Fluent in French, Spanish and English. Any additional language is an added value Others • Swiss Residence is mandatory Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "Mission Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with the Bank’s internal regulations and guidelines within the Hispanic Markets. Main responsibilities • Prepare the necessary documentation for client meetings and business trips for relationship managers • Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications • Provide administrative support to the Team Head • Cash Management • Assist in AML clarifications and prepare clients KYC and related updates • Direct interaction with clients by phone, e-mail and, occasionally in meetings • Prepare and monitor account openings, closings and mutations • Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.) • Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.) • Deputy of other assistants if needed Your Profile • Degree in a related field (banking apprenticeship, CYP, banking internship or similar) • Private Banking certificate, SAQ or other equivalent certification a plus • Minimum 5 years of experience in a similar role or within private banking • Strong banking, Compliance and KYC knowledge • Team spirit, inter-personal skills, highly service and client oriented as well as communication skills • Fluent in French, Spanish and English. Any additional language is an added value Others • Swiss Residence is mandatory Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
       },
       "location": "Geneva, Switzerland",
       "canton": "GE",
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:33.469Z",
+      "crawledAt": "2026-05-04T22:48:16.141Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3602,10 +3536,9 @@
       "postedDate": "2026-05-04",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-04T11:46:33.469Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3617,15 +3550,14 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-04T11:46:33.469Z"
+      }
     },
     {
       "id": "ubp-5a41d34466f1",
       "slug": "wm-business-monitoring-officer-eam-controls-ubp-ch",
       "slugByLocale": {
-        "en": "wm-business-monitoring-officer-eam-controls-union-bancaire-privee-geneva-switzerland",
         "it": "wm-business-monitoring-officer-eam-controls-ubp-ch",
+        "en": "wm-business-monitoring-officer-eam-controls-union-bancaire-privee-geneva-switzerland",
         "de": "wm-business-monitoring-officer-eam-controls-ubp-ch",
         "fr": "wm-business-monitoring-officer-eam-controls-ubp-ch"
       },
@@ -3634,24 +3566,24 @@
       "companyDomain": "ubp.com",
       "title": "WM Business Monitoring Officer (EAM controls)",
       "titleByLocale": {
-        "en": "WM Business Monitoring Officer (EAM controls)",
         "it": "WM Business Monitoring Officer (EAM controls)",
+        "en": "WM Business Monitoring Officer (EAM controls)",
         "de": "WM Business Monitoring Officer (EAM controls)",
         "fr": "WM Business Monitoring Officer (EAM controls)"
       },
       "description": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
       "descriptionByLocale": {
-        "en": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "it": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "fr": "Mission \n As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams.\n Main responsibilities \n \n• Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework\n\n• Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes\n\n• Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding\n\n• Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests\n\n• Continuously improving and automating activity\n\n• Delivering any other task required by Management relating to the Mission of the employee\n \n Your profile \n \n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar) \n\n• Minimum 3 year in control tasks in a Swiss Banking environment\n\n• Proficiency in Compliance and Regulatory matters surrounding External Asset Management\n\n• Fluent in French and English. Any additional language is a plus\n\n• High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business\n\n• Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills \n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Openness to new ideas and be force of proposition\n \n Others \n \n• Swiss Residence \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+        "it": "Mission As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams. Main responsibilities • Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework • Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes • Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding • Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests • Continuously improving and automating activity • Delivering any other task required by Management relating to the Mission of the employee Your profile • Degree in a related field (banking apprenticeship, CYP, banking internship or similar) • Minimum 3 year in control tasks in a Swiss Banking environment • Proficiency in Compliance and Regulatory matters surrounding External Asset Management • Fluent in French and English. Any additional language is a plus • High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business • Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions • Strong analytical, naturally well-organized, and curious mindset with excellent research skills • Assertive, open, and constructive communication, both written and verbal • An open, flexible, and confident team-player who can quickly adapt to new challenges • Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach • Openness to new ideas and be force of proposition Others • Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "en": "Mission As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams. Main responsibilities • Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework • Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes • Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding • Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests • Continuously improving and automating activity • Delivering any other task required by Management relating to the Mission of the employee Your profile • Degree in a related field (banking apprenticeship, CYP, banking internship or similar) • Minimum 3 year in control tasks in a Swiss Banking environment • Proficiency in Compliance and Regulatory matters surrounding External Asset Management • Fluent in French and English. Any additional language is a plus • High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business • Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions • Strong analytical, naturally well-organized, and curious mindset with excellent research skills • Assertive, open, and constructive communication, both written and verbal • An open, flexible, and confident team-player who can quickly adapt to new challenges • Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach • Openness to new ideas and be force of proposition Others • Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "Mission As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams. Main responsibilities • Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework • Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes • Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding • Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests • Continuously improving and automating activity • Delivering any other task required by Management relating to the Mission of the employee Your profile • Degree in a related field (banking apprenticeship, CYP, banking internship or similar) • Minimum 3 year in control tasks in a Swiss Banking environment • Proficiency in Compliance and Regulatory matters surrounding External Asset Management • Fluent in French and English. Any additional language is a plus • High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business • Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions • Strong analytical, naturally well-organized, and curious mindset with excellent research skills • Assertive, open, and constructive communication, both written and verbal • An open, flexible, and confident team-player who can quickly adapt to new challenges • Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach • Openness to new ideas and be force of proposition Others • Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "Mission As Business Monitoring Officer you will manage EAM's onboarding at group level and ensure the completion of the yearly EAM control plan and keep it up to date. You will also deliver commercial, administrative and operational support to the Market Heads and the respective teams. Main responsibilities • Performing first line of controls as per the EAM Control Plan and Management & Functional Controls framework • Designing, implementing, and monitoring specific action plans and projects. Identifying areas for improvement in existing procedures and processes • Ensuring relevant documentation is requested, obtained, and registered as part of the EAM on boarding • Supporting the EAM teams on commercial, administrative, and operational day to day or exceptional requests • Continuously improving and automating activity • Delivering any other task required by Management relating to the Mission of the employee Your profile • Degree in a related field (banking apprenticeship, CYP, banking internship or similar) • Minimum 3 year in control tasks in a Swiss Banking environment • Proficiency in Compliance and Regulatory matters surrounding External Asset Management • Fluent in French and English. Any additional language is a plus • High proficiency in MS Excel, MS PowerPoint, MS Power BI, SQL language, MS Power Query, SAP Business • Ability to embrace a strategic vision and translate it in simple, pragmatic, and feasible solutions • Strong analytical, naturally well-organized, and curious mindset with excellent research skills • Assertive, open, and constructive communication, both written and verbal • An open, flexible, and confident team-player who can quickly adapt to new challenges • Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach • Openness to new ideas and be force of proposition Others • Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
       },
       "location": "Geneva, Switzerland",
       "canton": "GE",
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T11:46:32.845Z",
+      "crawledAt": "2026-05-04T22:48:15.604Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3666,6 +3598,69 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-04T11:46:32.845Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ubp-0926079a9f30",
+      "slug": "quality-control-specialist-temporary-6-months-ubp-ch",
+      "slugByLocale": {
+        "en": "quality-control-specialist-temporary-6-months-union-bancaire-privee-geneva-switzerland",
+        "it": "quality-control-specialist-temporary-6-months-ubp-ch",
+        "de": "quality-control-specialist-temporary-6-months-ubp-ch",
+        "fr": "quality-control-specialist-temporary-6-months-ubp-ch"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "Quality control specialist - Temporary 6 months",
+      "titleByLocale": {
+        "en": "Quality control specialist - Temporary 6 months",
+        "it": "Quality control Specialista - Temporary 6 months",
+        "de": "Qualität control Spezialist - Temporary 6 months",
+        "fr": "Qualité control Spécialiste - Temporary 6 months"
+      },
+      "description": "Mission \n \nAs part of a team of eight, the Compliance Control specialist will help to implement the control plan, which covers all compliance-related activities.\n \n Challenges \nTo contribute to the achievement of the Bank’s objective of maintaining a risk control framework of the highest standard.\n Role Description \n• Review the design and effectiveness of controls in place for various compliance-related activities (financial crime, anti-money laundering, know-your-customer, sanctions, investor protection, cross-border operations, etc.)\n• Lead or participate in control reviews by conducting diagnostics and carrying out detailed testing.\n• Identify areas for improvement and recommend corrective actions.\n• Monitor the timely implementation of recommendations and action plans.\n• Work closely with Compliance, Business Risk & Controls Departments to ensure execution of controls and resolution of issues.\n• Produce high quality working papers and control reports in accordance with the CCRM methodology.\n \n Your Profile \n Education: University Degree (Business / Law) \n Year of Experience: 3-7 years \n Skills & Requirements: Compliance, Audit, Internal control\n Languages: \n French: Fluent\n English: Fluent \n Swiss residence: Mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+      "descriptionByLocale": {
+        "en": "Mission \n \nAs part of a team of eight, the Compliance Control specialist will help to implement the control plan, which covers all compliance-related activities.\n \n Challenges \nTo contribute to the achievement of the Bank’s objective of maintaining a risk control framework of the highest standard.\n Role Description \n• Review the design and effectiveness of controls in place for various compliance-related activities (financial crime, anti-money laundering, know-your-customer, sanctions, investor protection, cross-border operations, etc.)\n• Lead or participate in control reviews by conducting diagnostics and carrying out detailed testing.\n• Identify areas for improvement and recommend corrective actions.\n• Monitor the timely implementation of recommendations and action plans.\n• Work closely with Compliance, Business Risk & Controls Departments to ensure execution of controls and resolution of issues.\n• Produce high quality working papers and control reports in accordance with the CCRM methodology.\n \n Your Profile \n Education: University Degree (Business / Law) \n Year of Experience: 3-7 years \n Skills & Requirements: Compliance, Audit, Internal control\n Languages: \n French: Fluent\n English: Fluent \n Swiss residence: Mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "it": "Mission \n \nAs part of a team of eight, the Compliance Control specialist will help to implement the control plan, which covers all compliance-related activities.\n \n Challenges \nTo contribute to the achievement of the Bank’s objective of maintaining a risk control framework of the highest standard.\n Role Description \n• Review the design and effectiveness of controls in place for various compliance-related activities (financial crime, anti-money laundering, know-your-customer, sanctions, investor protection, cross-border operations, etc.)\n• Lead or participate in control reviews by conducting diagnostics and carrying out detailed testing.\n• Identify areas for improvement and recommend corrective actions.\n• Monitor the timely implementation of recommendations and action plans.\n• Work closely with Compliance, Business Risk & Controls Departments to ensure execution of controls and resolution of issues.\n• Produce high quality working papers and control reports in accordance with the CCRM methodology.\n \n Your Profile \n Education: University Degree (Business / Law) \n Year of Experience: 3-7 years \n Skills & Requirements: Compliance, Audit, Internal control\n Languages: \n French: Fluent\n English: Fluent \n Swiss residence: Mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "Mission \n \nAs part of a team of eight, the Compliance Control specialist will help to implement the control plan, which covers all compliance-related activities.\n \n Challenges \nTo contribute to the achievement of the Bank’s objective of maintaining a risk control framework of the highest standard.\n Role Description \n• Review the design and effectiveness of controls in place for various compliance-related activities (financial crime, anti-money laundering, know-your-customer, sanctions, investor protection, cross-border operations, etc.)\n• Lead or participate in control reviews by conducting diagnostics and carrying out detailed testing.\n• Identify areas for improvement and recommend corrective actions.\n• Monitor the timely implementation of recommendations and action plans.\n• Work closely with Compliance, Business Risk & Controls Departments to ensure execution of controls and resolution of issues.\n• Produce high quality working papers and control reports in accordance with the CCRM methodology.\n \n Your Profile \n Education: University Degree (Business / Law) \n Year of Experience: 3-7 years \n Skills & Requirements: Compliance, Audit, Internal control\n Languages: \n French: Fluent\n English: Fluent \n Swiss residence: Mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "Mission \n \nAs part of a team of eight, the Compliance Control specialist will help to implement the control plan, which covers all compliance-related activities.\n \n Challenges \nTo contribute to the achievement of the Bank’s objective of maintaining a risk control framework of the highest standard.\n Role Description \n• Review the design and effectiveness of controls in place for various compliance-related activities (financial crime, anti-money laundering, know-your-customer, sanctions, investor protection, cross-border operations, etc.)\n• Lead or participate in control reviews by conducting diagnostics and carrying out detailed testing.\n• Identify areas for improvement and recommend corrective actions.\n• Monitor the timely implementation of recommendations and action plans.\n• Work closely with Compliance, Business Risk & Controls Departments to ensure execution of controls and resolution of issues.\n• Produce high quality working papers and control reports in accordance with the CCRM methodology.\n \n Your Profile \n Education: University Degree (Business / Law) \n Year of Experience: 3-7 years \n Skills & Requirements: Compliance, Audit, Internal control\n Languages: \n French: Fluent\n English: Fluent \n Swiss residence: Mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+      },
+      "location": "Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/991",
+      "source": "Union Bancaire Privée Oracle HCM API",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-04T22:48:14.927Z",
+      "addressLocality": "Geneva, Switzerland",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/991",
       "requirements": [],
       "requirementsByLocale": {
         "en": []
@@ -3683,7 +3678,90 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-04T11:46:32.845Z"
+      "firstSeenAt": "2026-05-04T22:48:14.927Z"
+    },
+    {
+      "id": "ubp-deba9b6d5cb1",
+      "slug": "investment-marketing-content-manager-temporary-12-mesi-union-bancaire-privee-geneva-switzerland",
+      "slugByLocale": {
+        "it": "investment-marketing-content-manager-temporary-12-mesi-union-bancaire-privee-geneva-switzerland",
+        "en": "investment-content-designer-temporary-12-months-union-bancaire-privee-geneva-switzerland",
+        "de": "investment-marketing-content-manager-zeitraum-12-monate-union-bancaire-privee-geneva-switzerland",
+        "fr": "gestionnaire-de-contenu-marketing-d-investissement-temporaire-12-mois-union-bancaire-privee-geneva-switzerland"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "Investment Content Designer (Temporary 12 months)",
+      "titleByLocale": {
+        "it": "Investment Marketing Content Manager (Temporary 12 mesi)",
+        "en": "Investment Content Designer (Temporary 12 months)",
+        "de": "Investment Marketing Content Manager (Zeitraum 12 Monate)",
+        "fr": "Gestionnaire de contenu marketing d'investissement (temporaire 12 mois)"
+      },
+      "description": "Mission \n A creative role at the heart of investment.\nWithin Investment Marketing, we are looking for a talented designer. You will be a full member of the Investment Management team, helping define how our investment thinking is structured, articulated, and presented to Wealth Management, to clients, to investors.\nAt the intersection of portfolio management, strategy and other business lines, you transform complex financial expertise into clear, structured and visually compelling materials.\nYou ensure that investment communication is rigorous, compliant with regulatory requirements, and fully aligned with the identity and standards of an international investment group.\n \n• You design the materials that shape how investment specialists communicate their conviction.\n\n• Your output has immediate visibility with investment digital platforms.\n\n• You have real influence over the visual and editorial standards of the Investment Management team\n \n \n Key Responsibilities \n \n• Investment Content \nStructure and formalise investment views\nTranslate complex financial analysis into clear, pedagogical narratives\nEnsure consistency between investment philosophy and client communication\nContribute to multi-asset strategy articulation and portfolio frameworks\n\n• Editorial & Visual Design \nLead the design of strategic presentations, outlook publications and investment solutions documentation\nMaintain high visual standards aligned with private banking expectations\nBuild clear message hierarchies and rigorous visual architecture\nEnsure coherence across asset classes and publication formats\n\n• Digital Integration \nOversee content production in Adobe InDesign, related design tools and adapt for digital platforms\nContribute to the investment content distribution strategy\nEnhance client experience across digital investment platform\n\n• Governance & Standards \nCoordinate cross-functional initiatives within Investment Management\nEnsure regulatory soundness of all materials in close collaboration with Compliance\nDrive continuous improvement of production, validation and deployment processes\nDefine and harmonise editorial and visual standards at group level\n \n \n Profile \n \n• Experience \nBackground in private banking, asset management or investment banking\nDemonstrated ability to structure complex investment content\nExperience in a regulated financial communication environment\nStrong interest in the digital evolution of investment content\n\n• Education \nHigher education in finance, economics or a related discipline.\nA background in graphic communication or design is considered a strong advantage.\n\n• Languages \nFrench - fluent or native\nEnglish - fluent, written and spoken\nAdditional languages are an advantage\n\n• Technical skills \nAdvanced proficiency in Adobe InDesign — essential\nIllustrator and Photoshop — an advantage\nFamiliarity with regulated financial communication requirements\nExperience adapting investment materials for digital platforms\nUnderstanding of multi-asset reporting frameworks\n\n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+      "descriptionByLocale": {
+        "it": "Missione - All'interno della gestione degli investimenti, si gioca un ruolo chiave nella concezione, strutturazione e presentazione strategica dei contenuti di investimento in tutte le classi di asset. - No. All'incrocio tra gestione del portafoglio, strategia e altre linee di business, si trasformano competenze finanziarie complesse in materiali chiari, strutturati e visivamente convincenti. - No. Assicurarsi che la comunicazione degli investimenti sia rigorosa, conforme ai requisiti normativi, e pienamente allineato con l'identità e gli standard di un gruppo di investimento internazionale. ## Responsabilità chiave ## #Struttura strategica dei contenuti degli investimenti - Lavorare a stretto contatto con gli stakeholder della gestione degli investimenti per formalizzare e strutturare le opinioni sugli investimenti. - Tradurre analisi finanziarie complesse in narrazioni chiare, pedagogiche e strategicamente coerenti. - Assicurare la coerenza tra filosofia di investimento, costruzione di portafoglio e comunicazione cliente. - Contribuire all'articolazione di strategie multi asset e framework di architettura portafoglio. #### Editorial Leadership & Financial Design - Guida lo sviluppo editoriale e visivo dei materiali di investimento, incluse presentazioni strategiche, pubblicazioni di prospettiva, documentazione di fondo e contenuti digitali. - Mantenere elevati standard visivi e editoriali in linea con le aspettative bancarie private. - Strutturare lo storytelling finanziario attraverso una chiara gerarchia dei messaggi e una rigorosa architettura visiva. - Assicurare coerenza tra classi di attività e pubblicazioni. ### Digital Integration - Superare la produzione di contenuti utilizzando Adobe InDesign e coordinare l'adattamento per le piattaforme di investimento digitali. - Contribuire attivamente alla strategia di distribuzione dei contenuti di investimento. - Supporta la valorizzazione dell'esperienza del cliente e dell'utente attraverso i canali digitali. #### Governance & Coordination - Sostenere il responsabile del progetto di investimento nel coordinare le iniziative funzionali cross all'interno della gestione degli investimenti. - Lavorare a stretto contatto con Compliance per garantire la solidità normativa di tutti i materiali. - Contribuire al miglioramento continuo dei processi di produzione, convalida e distribuzione. - Partecipare alla definizione e all'armonizzazione degli standard editoriali e visivi a livello di gruppo. ## Profilo ## Esperienza - Esperienza comprovata all'interno di private banking, asset management o investment banking. - Solida comprensione dei mercati finanziari e delle principali classi di asset. - Capacità dimostrata di strutturare e formalizzare contenuti di investimento complessi. - Competenza avanzata in Adobe InDesign. La conoscenza di Illustrator e Photoshop è un vantaggio. - Esperienza operativa in un ambiente finanziario regolamentato. - Forte interesse per l'evoluzione digitale della comunicazione degli investimenti. ### Key Skills - Comunicazione di architettura degli investimenti - Strutturazione narrativa degli investimenti - Progettazione editoriale applicata alla finanza - Coordinamento funzionale trasversale con i team di investimento - Integrazione dei contenuti di investimento digitale - Forte consapevolezza degli standard istituzionali e premium ## Education - Istruzione superiore in finanza, economia o un campo relativo. - Un doppio background in finanza e comunicazione o design è considerato un forte vantaggio. ### Lingue - Francese: fluente o nativo - Inglese: fluente, scritto e parlato - Le lingue aggiuntive sono un vantaggio ## competenze tecniche - Forte comprensione dei requisiti di comunicazione finanziaria regolamentati - Esperienza di adattamento dei materiali di investimento per piattaforme digitali - Comprensione dei framework di reporting multi asset ## Competenza core - Aderenza ai valori dell'azienda: Dedication, Conviction, Agility e Responsibility - Conformance con le direttive interne",
+        "en": "Mission A creative role at the heart of investment. Within Investment Marketing, we are looking for a talented designer. You will be a full member of the Investment Management team, helping define how our investment thinking is structured, articulated, and presented to Wealth Management, to clients, to investors. At the intersection of portfolio management, strategy and other business lines, you transform complex financial expertise into clear, structured and visually compelling materials. You ensure that investment communication is rigorous, compliant with regulatory requirements, and fully aligned with the identity and standards of an international investment group. • You design the materials that shape how investment specialists communicate their conviction. • Your output has immediate visibility with investment digital platforms. • You have real influence over the visual and editorial standards of the Investment Management team Key Responsibilities • Investment Content Structure and formalise investment views Translate complex financial analysis into clear, pedagogical narratives Ensure consistency between investment philosophy and client communication Contribute to multi-asset strategy articulation and portfolio frameworks • Editorial & Visual Design Lead the design of strategic presentations, outlook publications and investment solutions documentation Maintain high visual standards aligned with private banking expectations Build clear message hierarchies and rigorous visual architecture Ensure coherence across asset classes and publication formats • Digital Integration Oversee content production in Adobe InDesign, related design tools and adapt for digital platforms Contribute to the investment content distribution strategy Enhance client experience across digital investment platform • Governance & Standards Coordinate cross-functional initiatives within Investment Management Ensure regulatory soundness of all materials in close collaboration with Compliance Drive continuous improvement of production, validation and deployment processes Define and harmonise editorial and visual standards at group level Profile • Experience Background in private banking, asset management or investment banking Demonstrated ability to structure complex investment content Experience in a regulated financial communication environment Strong interest in the digital evolution of investment content • Education Higher education in finance, economics or a related discipline. A background in graphic communication or design is considered a strong advantage. • Languages French - fluent or native English - fluent, written and spoken Additional languages are an advantage • Technical skills Advanced proficiency in Adobe InDesign — essential Illustrator and Photoshop — an advantage Familiarity with regulated financial communication requirements Experience adapting investment materials for digital platforms Understanding of multi-asset reporting frameworks Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "Mission - Innerhalb des Investment Managements spielen Sie eine Schlüsselrolle bei der Konzeption, Strukturierung und strategischen Präsentation von Anlageinhalten in allen Assetklassen. - Ja. An der Schnittstelle von Portfoliomanagement, Strategie und anderen Geschäftsfeldern transformieren Sie komplexe finanzielle Expertise in klare, strukturierte und visuell überzeugende Materialien. - Ja. Sie stellen sicher, dass die Investitionskommunikation streng ist, den regulatorischen Anforderungen entspricht und die Identität und die Standards einer internationalen Investmentgruppe vollständig angepasst sind. ### Strategische Strukturierung von Investitionsinhalten - Arbeiten Sie eng mit den Interessenvertretern des Investment Managements zusammen, um Investment-Ansichten zu formalisieren und zu strukturieren. - Übersetzen Sie komplexe Finanzanalysen in klare, pädagogische und strategisch kohärente Erzählungen. - Gewährleistung der Konsistenz zwischen Investitionsphilosophie, Portfolio-Bau und Kundenkommunikation. - Beitrag zur Artikulation von Multi Asset-Strategien und Portfolio-Architektur-Rahmen. ### Editorial Leadership & Financial Design - Führen Sie die redaktionelle und visuelle Entwicklung von Investitionsmaterialien, einschließlich strategischer Präsentationen, Ausblickveröffentlichungen, Fondsdokumentation und digitaler Inhalte. - Bewahren Sie hohe visuelle und redaktionelle Standards im Einklang mit den Erwartungen der Privatbanken. - Struktur finanzielles Storytelling durch klare Botschaft Hierarchie und strenge visuelle Architektur. - Gewährleistung der Kohärenz in allen Assetklassen und Publikationen. ### Digitale Integration - Übersehen Sie die Content-Produktion mit Adobe InDesign und Koordinatenanpassung für digitale Investmentplattformen. - Aktiver Beitrag zur Strategie der Investment Content Distribution. - Unterstützung der Verbesserung der Kunden- und Nutzererfahrung über digitale Kanäle. ### Governance & Coordination - Unterstützung des Investment Project Managers bei der Koordination von funktionsübergreifenden Initiativen im Investment Management. - Arbeiten Sie eng mit Compliance zusammen, um die regulatorische Klangfähigkeit aller Materialien zu gewährleisten. - Beitrag zur kontinuierlichen Verbesserung der Produktions-, Validierungs- und Bereitstellungsprozesse. - Erwarten Sie die Definition und Harmonisierung der redaktionellen und visuellen Standards auf Gruppenebene. Â Profil ### Erfahrung - Bewährte Erfahrung im Private Banking, Asset Management oder Investment Banking. - Solides Verständnis der Finanzmärkte und der wichtigsten Vermögensklassen. - Demonstrierte Fähigkeit, komplexe Anlageinhalte zu strukturieren und zu formalisieren. - Fortgeschrittene Kenntnisse in Adobe InDesign. Das Wissen von Illustrator und Photoshop ist ein Vorteil. - Erfahrung in einem geregelten Finanzumfeld. - Starkes Interesse an der digitalen Entwicklung der Investitionskommunikation. ### Key Skills - Investment-Architektur-Kommunikation - Investment narrative Strukturierung - Editorial Design angewendet, um zu finanzieren - Cross-funktionelle Koordination mit Investment-Teams - Digitale Investment-Inhalte-Integration - Starke institutionellen und Premium-Standards Bewusstsein ### Bildung - Höhere Bildung in Finanzen, Wirtschaft oder ein verwandten Bereich. - Ein doppelter Hintergrund in Finanzen und Kommunikation oder Design gilt als ein starker Vorteil. ### Sprachen - Französisch: fließend oder native - Englisch: fließend, schriftlich und gesprochen - Zusätzliche Sprachen sind ein Vorteil ### Technische Fähigkeiten - Starkes Verständnis der regulierten Finanzkommunikationsanforderungen - Erleben Sie die Anpassung von Anlagematerialien für digitale Plattformen - Verständnis von Multi Asset Reporting Frameworks",
+        "fr": "Mission - Au sein de la gestion des investissements, vous jouez un rôle clé dans la conception, la structuration et la présentation stratégique du contenu des investissements dans toutes les classes d'actifs. - Oui. À l'intersection de la gestion de portefeuille, de la stratégie et d'autres secteurs d'activité, vous transformez une expertise financière complexe en documents clairs, structurés et visuellement convaincants. - Oui. Vous veillez à ce que la communication des investissements soit rigoureuse, conforme aux exigences réglementaires et pleinement conforme à l'identité et aux normes d'un groupe d'investissement international. ## Principales responsabilités ### Structure stratégique du contenu des investissements - Collaborer étroitement avec les intervenants de la gestion des investissements pour formaliser et structurer les points de vue sur les investissements. - Traduire l'analyse financière complexe en récits clairs, pédagogiques et stratégiquement cohérents. - Assurer la cohérence entre la philosophie d'investissement, la construction de portefeuilles et la communication avec les clients. - Contribuer à l'élaboration de stratégies multiactifs et de cadres d'architecture de portefeuille. ### Leadership éditorial et conception financière - Diriger le développement éditorial et visuel du matériel d'investissement, y compris les présentations stratégiques, les publications de perspectives, la documentation de fonds et le contenu numérique. - Maintenir des normes visuelles et éditoriales élevées en fonction des attentes des banques privées. - Structurer l'histoire financière par une hiérarchie claire des messages et une architecture visuelle rigoureuse. - Assurer la cohérence entre les classes de biens et les publications. ### Intégration numérique - Surveiller la production de contenu en utilisant Adobe InDesign et coordonner l'adaptation pour les plateformes d'investissement numériques. - Contribuer activement à la stratégie de distribution des contenus d'investissement. - Soutenir l'amélioration de l'expérience client et utilisateur à travers les canaux numériques. ### Gouvernance et coordination - Aider le gestionnaire de projet d'investissement à coordonner les initiatives interfonctionnelles au sein de la gestion des investissements. - Collaborer étroitement avec la conformité pour assurer la solidité réglementaire de tous les matériaux. - Contribuer à l'amélioration continue des processus de production, de validation et de déploiement. - Participer à la définition et à l'harmonisation des normes éditoriales et visuelles au niveau du groupe. ## Profil ### Expérience - Expérience éprouvée au sein des banques privées, de la gestion d'actifs ou des banques d'investissement. - Une bonne compréhension des marchés financiers et des grandes classes d'actifs. - Capacité démontrée de structurer et de formaliser des contenus d'investissement complexes. - Compétence avancée en Adobe InDesign. La connaissance de l'illustrateur et de Photoshop est un avantage. - Expérience dans un environnement financier réglementé. - Un fort intérêt pour l'évolution numérique de la communication d'investissement. ### Compétences clés - Architecture de l'investissement communication - Structure narrative de l'investissement - Conception éditoriale appliquée au financement - Coordination interfonctionnelle avec les équipes d'investissement - Intégration du contenu de l'investissement numérique - Forte sensibilisation aux normes institutionnelles et haut de gamme ### Éducation - Enseignement supérieur en finance, en économie ou dans un domaine connexe. - Une double expérience en finance et communication ou conception est considérée comme un avantage important. ### Langues - Français : couramment ou natif - Anglais : couramment, écrit et parlé - D'autres langues sont un avantage ### Compétences techniques - Forte compréhension des exigences réglementaires en matière de communication financière - Expérience d'adaptation du matériel d'investissement pour les plateformes numériques - Compréhension des cadres de rapports multiactifs ## Compétences de base - Respect des valeurs de l'entreprise : Dédicace, Conviction, Agilité et Responsabilité - Respect des règlements et des directives internes"
+      },
+      "location": "Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
+      "source": "Union Bancaire Privée Oracle HCM API",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-04T22:48:14.323Z",
+      "addressLocality": "Geneva, Switzerland",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-06",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "investment-marketing-content-manager-temporary-12-months-ubp-ch",
+          "investment-marketing-content-manager-temporary-12-months-union-bancaire-privee-geneva-switzerland",
+          "investment-content-designer-temporary-12-months-ubp-ch"
+        ],
+        "it": [
+          "investment-marketing-content-manager-temporary-12-months-ubp-ch"
+        ],
+        "de": [
+          "investment-marketing-content-manager-temporary-12-months-ubp-ch"
+        ],
+        "fr": [
+          "investment-marketing-content-manager-temporary-12-months-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "investment-marketing-content-manager-temporary-12-months-ubp-ch",
+        "investment-marketing-content-manager-temporary-12-months-union-bancaire-privee-geneva-switzerland",
+        "investment-content-designer-temporary-12-months-ubp-ch"
+      ],
+      "firstSeenAt": "2026-04-13T11:28:14.330Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
