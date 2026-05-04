@@ -17,6 +17,15 @@ export const PROVIDER_LOGOS: Record<string, ProviderLogoEntry> = {
   'unicredit':          { domain: 'unicredit.it', localPath: '/images/providers/unicredit.png' },
   'banco-bpm':          { domain: 'bancobpm.it', localPath: '/images/providers/banco-bpm.png' },
   'cambiavalute':       { domain: 'cambiavalute.ch', localPath: '/images/providers/cambiavalute.png' },
+  // ── Banks (matches BankComparison.tsx bank list) ──
+  // PostFinance/UBS/Credit Suisse/Fineco/Yuh/Revolut/Wise/Intesa/UniCredit
+  // already declared in the currency-exchange section above and reused here
+  // via the same slug. New entries below cover banks unique to BankComparison.
+  'raiffeisen':         { domain: 'raiffeisen.ch' },
+  'neon':               { domain: 'neon-free.ch' },
+  'n26':                { domain: 'n26.com' },
+  'hype':               { domain: 'hype.it' },
+  'bnl':                { domain: 'bnl.it' },
   // ── Telecom — Italian operators ──
   'iliad':              { domain: 'iliad.it', localPath: '/images/providers/iliad.png' },
   'ho-mobile':          { domain: 'ho-mobile.it', localPath: '/images/providers/ho-mobile.png' },
