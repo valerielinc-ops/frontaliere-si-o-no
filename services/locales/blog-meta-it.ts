@@ -5541,6 +5541,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tessile-arte-giovani-generazioni-como.title': 'Tessile diventa arte: evento a Como con oltre 150 partecipanti',
     'blog.article.tessile-arte-giovani-generazioni-como.excerpt': 'L\'evento \'Trame in Trasformazione\' presso Seterie Argenti ha visto la partecipazione di giovani talenti e professionisti del settore tessile.',
     'blog.article.tessile-arte-giovani-generazioni-como.imageAlt': 'Giovani artisti creano disegni tessili in una storica azienda comasca',
+    'blog.article.crans-montana-incendio-riciclaggio-2026.title': 'Crans-Montana: riciclaggio e incendio restano uniti',
+    'blog.article.crans-montana-incendio-riciclaggio-2026.excerpt': 'Le procuratrici respingono la richiesta di separare l\'inchiesta sul rogo mortale dal sospetto di riciclaggio',
+    'blog.article.crans-montana-incendio-riciclaggio-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -5541,6 +5541,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tessile-arte-giovani-generazioni-como.title': 'Le textile devient art : événement à Côme avec plus de 150 participants',
     'blog.article.tessile-arte-giovani-generazioni-como.excerpt': 'L\'événement \'Trame in Trasformazione\' chez Seterie Argenti a vu la participation de jeunes talents et de professionnels du secteur textile.',
     'blog.article.tessile-arte-giovani-generazioni-como.imageAlt': 'Jeunes artistes créant des designs textiles dans une usine historique de Côme',
+    'blog.article.crans-montana-incendio-riciclaggio-2026.title': 'Crans-Montana: incendie et blanchiment restent liés',
+    'blog.article.crans-montana-incendio-riciclaggio-2026.excerpt': 'Les procureures rejettent la demande de séparer l\'enquête sur l\'incendie mortel des soupçons de blanchiment',
+    'blog.article.crans-montana-incendio-riciclaggio-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

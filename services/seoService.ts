@@ -3089,6 +3089,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-playoff-lavagnese-2026': { name: 'Varese playoff', path: '/articoli-frontaliere/varese-playoff-lavagnese-2026', parent: 'blog' },
     'blog-casa-hockey-ticino-novita': { name: 'Novità Hockey Ticino', path: '/articoli-frontaliere/casa-hockey-ticino-novita', parent: 'blog' },
     'blog-tessile-arte-giovani-generazioni-como': { name: 'Novità', path: '/articoli-frontaliere/tessile-arte-giovani-generazioni-como', parent: 'blog' },
+    'blog-crans-montana-incendio-riciclaggio-2026': { name: 'Crans-Montana', path: '/articoli-frontaliere/crans-montana-incendio-riciclaggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
