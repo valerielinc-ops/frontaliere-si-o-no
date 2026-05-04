@@ -320,7 +320,7 @@ export function companyPageUrl(companySlug, locale = 'it') {
   return `${BASE_URL}/${boardPath}/azienda-${companySlug}`;
 }
 
-export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it') {
+export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it', recentlyFeaturedSlugs = []) {
   if (!jobs || jobs.length === 0) return [];
 
   const popularity = loadPopularity();
@@ -329,7 +329,18 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   // Quality filter for popularity ranking; fallback pool keeps all valid jobs
   const qualityPool = jobs.filter(passesQualityGate);
   const basicPool = jobs.filter((j) => j?.title && j?.slug && j?.company);
-  const pool = hasPopularity && qualityPool.length >= limit ? qualityPool : basicPool;
+  const fullPool = hasPopularity && qualityPool.length >= limit ? qualityPool : basicPool;
+
+  // ── Exclude recently featured jobs (rotation, same logic as article rotation) ──
+  const recentSet = new Set(recentlyFeaturedSlugs);
+  const jobIsRecent = (j) =>
+    recentSet.size > 0 && (
+      (j.slug && recentSet.has(j.slug)) ||
+      Object.values(j.slugByLocale || {}).some((s) => s && recentSet.has(s))
+    );
+  // Only apply exclusion when enough non-recent jobs remain
+  const freshPool = fullPool.filter((j) => !jobIsRecent(j));
+  const pool = freshPool.length >= limit ? freshPool : fullPool;
 
   // ── Build subscriber interest profile from available signals ──
   const jobSlug = subscriber?.job_slug || '';
@@ -422,10 +433,13 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
       return {
         title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title,
         url: `/${boardPath}/${slug}/`,
+        slug: job.slug || slug,
         company: job.company,
         companyKey: job.companyKey || '',
         location: normalizeLocation(job.location),
         contract: normalizeContract(job.contract, locale),
+        sector: job.sector || job.category || '',
+        rawContract: job.contract || '',
       };
     });
 }

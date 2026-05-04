@@ -499,7 +499,8 @@ function renderJobs(matchedJobs, locale, totalJobs) {
     const initial = (job.company || '?')[0].toUpperCase();
     const truncatedTitle = truncateAtWordBoundary(job.title, 55);
     const tags = [];
-    if (i === 0) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);
+    if (job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(234,179,8,0.2);color:#fde047;padding:2px 8px;border-radius:6px;letter-spacing:0.5px;font-weight:600;">🔔 Il tuo alert</span>`);
+    if (i === 0 && !job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);
     if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.contract)}</span>`);
     if (job.location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.location)}</span>`);
 

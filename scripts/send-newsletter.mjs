@@ -821,6 +821,89 @@ async function saveRecentlyFeaturedArticle(articleId) {
   }
 }
 
+// \u2500\u2500\u2500 Job rotation (mirrors article rotation) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+const RECENTLY_FEATURED_JOBS_KEY = 'recently_featured_jobs';
+const MAX_FEATURED_JOBS_HISTORY = 8; // 2 weeks \u00d7 4 cards = 8 slots
+
+async function fetchRecentlyFeaturedJobs() {
+  if (!db) return [];
+  try {
+    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
+    const doc = await metaRef.get();
+    return doc.exists ? (doc.data()[RECENTLY_FEATURED_JOBS_KEY] || []) : [];
+  } catch {
+    return [];
+  }
+}
+
+async function saveRecentlyFeaturedJobs(slugs) {
+  if (!db || !slugs.length) return;
+  try {
+    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
+    const doc = await metaRef.get();
+    const existing = doc.exists ? (doc.data()[RECENTLY_FEATURED_JOBS_KEY] || []) : [];
+    const updated = [...new Set([...slugs, ...existing])].slice(0, MAX_FEATURED_JOBS_HISTORY);
+    await metaRef.set({ [RECENTLY_FEATURED_JOBS_KEY]: updated }, { merge: true });
+    console.log(`\u2705 Job rotation: saved ${updated.length} recently featured slugs`);
+  } catch (e) {
+    console.warn('\u26a0\ufe0f Save recently featured jobs failed:', e.message);
+  }
+}
+
+// \u2500\u2500\u2500 Job alert matching \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+
+/**
+ * Load all active job alerts, keyed by email.
+ * Uses a collectionGroup query to avoid N+1 reads.
+ * @returns {Promise<Map<string, object[]>>}
+ */
+async function fetchAllJobAlerts() {
+  if (!db) return new Map();
+  try {
+    const snap = await db.collectionGroup('alerts').where('active', '==', true).get();
+    const map = new Map();
+    snap.forEach((doc) => {
+      const data = doc.data();
+      const email = (data.email || '').toLowerCase();
+      if (!email) return;
+      if (!map.has(email)) map.set(email, []);
+      map.get(email).push(data);
+    });
+    console.log(`\ud83d\udd14 Job alerts loaded: ${map.size} subscribers with active alerts`);
+    return map;
+  } catch (e) {
+    console.warn('\u26a0\ufe0f Load job alerts failed:', e.message);
+    return new Map();
+  }
+}
+
+/**
+ * Returns true if the job matches any of the subscriber's active alerts.
+ * Within each filter type: OR logic (any match is enough).
+ * Across filter types: AND logic (all non-empty filters must match).
+ */
+function jobMatchesAlerts(job, alerts) {
+  if (!alerts || alerts.length === 0) return false;
+  const title = (job.title || '').toLowerCase();
+  const company = (job.company || '').toLowerCase();
+  const location = (job.location || '').toLowerCase();
+  const contract = (job.rawContract || job.contract || '').toLowerCase();
+  const sector = (job.sector || '').toLowerCase();
+
+  return alerts.some((alert) => {
+    if (!alert.active) return false;
+    const kwOk = !alert.keywords?.length ||
+      alert.keywords.some((k) => title.includes(k.toLowerCase()) || company.includes(k.toLowerCase()));
+    const locOk = !alert.locations?.length ||
+      alert.locations.some((l) => location.includes(l.toLowerCase()));
+    const ctOk = !alert.contractTypes?.length ||
+      alert.contractTypes.some((c) => contract.includes(c.toLowerCase()));
+    const secOk = !alert.sectors?.length ||
+      alert.sectors.some((s) => sector.includes(s.toLowerCase()) || title.includes(s.toLowerCase()));
+    return kwOk && locOk && ctOk && secOk;
+  });
+}
+
 async function pickFeaturedArticle() {
   let bestId = DEFAULT_ARTICLE_ID;
 
@@ -1440,6 +1523,16 @@ async function main() {
   }
 
   const { jobs } = loadLocalJobsData();
+
+  // Load job rotation history and subscriber alerts (parallel, non-blocking)
+  const [recentlyFeaturedJobs, allJobAlerts] = await Promise.all([
+    fetchRecentlyFeaturedJobs(),
+    fetchAllJobAlerts(),
+  ]);
+  if (recentlyFeaturedJobs.length) {
+    console.log(`🔄 Job rotation: excluding ${recentlyFeaturedJobs.length} recently featured slugs`);
+  }
+
   // Tool-of-the-week index: shared across all locales so every subscriber sees the
   // same featured tool, but the tool's title/description is rendered in their locale.
   const toolIndex = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000)) % 4;
@@ -1553,10 +1646,12 @@ async function main() {
   console.log('\n📋 Phase 1: Job matching & cohort grouping...');
   const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
-    const matchedJobs = validateJobUrls(
-      matchJobsForSubscriber(subscriber, jobs, 4, locale),
-      jobs,
-    );
+    const subscriberAlerts = allJobAlerts.get((subscriber.email || '').toLowerCase()) || [];
+    const rawMatched = matchJobsForSubscriber(subscriber, jobs, 4, locale, recentlyFeaturedJobs);
+    const matchedJobs = validateJobUrls(rawMatched, jobs).map((job) => ({
+      ...job,
+      alertMatch: jobMatchesAlerts(job, subscriberAlerts),
+    }));
     const cohortKey = `${locale}:${jobSetHash(matchedJobs)}`;
     return { subscriber, locale, matchedJobs, cohortKey };
   });
@@ -1770,6 +1865,14 @@ async function main() {
   // Track featured article for rotation (avoid repeating same article next week)
   if (sent.length > 0 && featuredArticle.persistRotation) {
     await featuredArticle.persistRotation();
+  }
+
+  // Track featured jobs for rotation — only persist on real sends, not test/preview
+  if (mode === 'send' && sent.length > 0) {
+    const shownSlugs = [...new Set(
+      subscriberData.flatMap((sd) => sd.matchedJobs.map((j) => j.slug).filter(Boolean))
+    )];
+    await saveRecentlyFeaturedJobs(shownSlugs);
   }
 
   if (flushScores) await flushScores();
