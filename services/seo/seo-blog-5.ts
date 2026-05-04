@@ -12851,6 +12851,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-azzate-koningsdag-console-olandese-2026': {
+    title: 'Azzate festeggia il Koningsdag con la Console olandese',
+    description: 'Domenica 3 maggio, Azzate ha celebrato il Koningsdag con mercatini, musica e la presenza della Console olandese Mascha Baak. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, azzate, festeggia, koningsdag, console',
+    ogTitle: 'Azzate si tinge d’arancione: il Koningsdag compie tredici anni e ospita la Console olandese',
+    ogDescription: 'Domenica 3 maggio, Azzate ha celebrato il Koningsdag con mercatini, musica e la presenza della Console olandese Mascha Baak.',
+    canonicalPath: '/articoli-frontaliere/azzate-koningsdag-console-olandese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Azzate festeggia il Koningsdag con la Console olandese",
+      "description": "Domenica 3 maggio, Azzate ha celebrato il Koningsdag con mercatini, musica e la presenza della Console olandese Mascha Baak. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/azzate-koningsdag-console-olandese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Celebrazione del Koningsdag ad Azzate con mercatini e musica"
+      },
+      "datePublished": "2026-05-04T04:54:12+00:00",
+      "dateModified": "2026-05-04T04:54:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/azzate-koningsdag-console-olandese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

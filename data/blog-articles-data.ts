@@ -18083,4 +18083,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'azzate-koningsdag-console-olandese-2026',
+ category: 'novita',
+ date: '2026-05-04T04:54:12.321Z',
+ image: '/images/blog/azzate-koningsdag-console-olandese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

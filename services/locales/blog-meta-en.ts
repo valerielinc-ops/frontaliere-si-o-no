@@ -5570,6 +5570,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.italia-sospetti-var-minetti-quirinale.title': 'Italy under suspicion: VAR scandals, Minetti and Italo-Swiss tensions',
     'blog.article.italia-sospetti-var-minetti-quirinale.excerpt': 'Scandals in Italian football and doubts about Nicole Minetti\'s pardon dominate Swiss news. Here\'s what\'s happening.',
     'blog.article.italia-sospetti-var-minetti-quirinale.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
+    'blog.article.azzate-koningsdag-console-olandese-2026.title': 'Azzate celebrates King\'s Day with Dutch Consul',
+    'blog.article.azzate-koningsdag-console-olandese-2026.excerpt': 'On Sunday, May 3, Azzate celebrated King\'s Day with markets, music, and the presence of Dutch Consul Mascha Baak.',
+    'blog.article.azzate-koningsdag-console-olandese-2026.imageAlt': 'Koningsdag celebration in Azzate with markets and music',
 };
 
 export default blogMetaEn;

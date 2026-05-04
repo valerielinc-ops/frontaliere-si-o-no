@@ -5571,6 +5571,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.italia-sospetti-var-minetti-quirinale.title': 'Italie des soupçons: scandales VAR, Minetti et tensions italo-suisses',
     'blog.article.italia-sospetti-var-minetti-quirinale.excerpt': 'Scandales dans le football italien et doutes sur la grâce de Nicole Minetti dominent l\'actualité helvétique. Voici ce qui se passe.',
     'blog.article.italia-sospetti-var-minetti-quirinale.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les bâtiments environnants',
+    'blog.article.azzate-koningsdag-console-olandese-2026.title': 'Azzate célèbre le Koningsdag avec la console néerlandaise',
+    'blog.article.azzate-koningsdag-console-olandese-2026.excerpt': 'Dimanche 3 mai, Azzate a célébré le Koningsdag avec des marchés, de la musique et la présence de la console néerlandaise Mascha Baak.',
+    'blog.article.azzate-koningsdag-console-olandese-2026.imageAlt': 'Célébration du Koningsdag à Azzate avec des marchés et de la musique',
 };
 
 export default blogMetaFr;

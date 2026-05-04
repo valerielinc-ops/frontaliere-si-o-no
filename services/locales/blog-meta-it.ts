@@ -5571,6 +5571,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.italia-sospetti-var-minetti-quirinale.title': 'Italia dei sospetti: scandali VAR, Minetti e tensioni italo-svizzere',
     'blog.article.italia-sospetti-var-minetti-quirinale.excerpt': 'Scandali nel calcio italiano e dubbi sulla grazia a Nicole Minetti dominano la cronaca elvetica. Ecco cosa succede.',
     'blog.article.italia-sospetti-var-minetti-quirinale.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
+    'blog.article.azzate-koningsdag-console-olandese-2026.title': 'Azzate festeggia il Koningsdag con la Console olandese',
+    'blog.article.azzate-koningsdag-console-olandese-2026.excerpt': 'Domenica 3 maggio, Azzate ha celebrato il Koningsdag con mercatini, musica e la presenza della Console olandese Mascha Baak.',
+    'blog.article.azzate-koningsdag-console-olandese-2026.imageAlt': 'Celebrazione del Koningsdag ad Azzate con mercatini e musica',
 };
 
 export default blogMetaIt;
