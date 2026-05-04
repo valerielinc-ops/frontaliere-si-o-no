@@ -5903,6 +5903,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mendrisio-capitale-culturale-2026.title': 'Mendrisio bids to be Swiss Cultural Capital',
     'blog.article.mendrisio-capitale-culturale-2026.excerpt': 'The city of Mendrisio has submitted its bid to become Swiss Cultural Capital in 2026.',
     'blog.article.mendrisio-capitale-culturale-2026.imageAlt': 'Aerial view of Mendrisio, Switzerland, with its historic buildings and cultural landmarks.',
+    'blog.article.falsi-preti-barasso-truffe-anziani.title': 'Fake priests in Barasso: the town\'s alert against elderly scams',
+    'blog.article.falsi-preti-barasso-truffe-anziani.excerpt': 'The town of Barasso warns: fake priests are scamming the elderly. Here\'s what to do to protect yourself.',
+    'blog.article.falsi-preti-barasso-truffe-anziani.imageAlt': 'Quiet street in Barasso, Ticino, with a view of the surrounding hills and a church in the background',
 };
 
 export default blogMetaEn;

@@ -16625,6 +16625,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-falsi-preti-barasso-truffe-anziani': {
+    title: 'Falsi preti a Barasso: l’allerta del Comune contro le truffe agli anziani',
+    description: 'Il Comune di Barasso avverte: falsi preti truffano gli anziani. Ecco cosa fare per proteggersi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, falsi, preti, barasso, allerta',
+    ogTitle: 'Falsi preti a Barasso: l’allerta del Comune contro le truffe agli anziani',
+    ogDescription: 'Il Comune di Barasso avverte: falsi preti truffano gli anziani. Ecco cosa fare per proteggersi.',
+    canonicalPath: '/articoli-frontaliere/falsi-preti-barasso-truffe-anziani',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Falsi preti a Barasso: l’allerta del Comune contro le truffe agli anziani",
+      "description": "Il Comune di Barasso avverte: falsi preti truffano gli anziani. Ecco cosa fare per proteggersi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/falsi-preti-barasso-truffe-anziani.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada tranquilla a Barasso, Ticino, con vista sulle colline circostanti e una chiesa in lontananza"
+      },
+      "datePublished": "2026-05-04T22:01:50+00:00",
+      "dateModified": "2026-05-04T22:01:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/falsi-preti-barasso-truffe-anziani`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

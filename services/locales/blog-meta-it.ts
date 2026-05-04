@@ -5904,6 +5904,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mendrisio-capitale-culturale-2026.title': 'Mendrisio si candida a Capitale Culturale Svizzera',
     'blog.article.mendrisio-capitale-culturale-2026.excerpt': 'La città di Mendrisio ha presentato la sua candidatura per diventare Capitale Culturale Svizzera nel 2026.',
     'blog.article.mendrisio-capitale-culturale-2026.imageAlt': 'Vista aerea di Mendrisio, Svizzera, con i suoi edifici storici e monumenti culturali.',
+    'blog.article.falsi-preti-barasso-truffe-anziani.title': 'Falsi preti a Barasso: l’allerta del Comune contro le truffe agli anziani',
+    'blog.article.falsi-preti-barasso-truffe-anziani.excerpt': 'Il Comune di Barasso avverte: falsi preti truffano gli anziani. Ecco cosa fare per proteggersi.',
+    'blog.article.falsi-preti-barasso-truffe-anziani.imageAlt': 'Strada tranquilla a Barasso, Ticino, con vista sulle colline circostanti e una chiesa in lontananza',
 };
 
 export default blogMetaIt;

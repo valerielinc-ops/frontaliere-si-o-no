@@ -5903,6 +5903,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mendrisio-capitale-culturale-2026.title': 'Mendrisio bewirbt sich als Schweizer Kulturhauptstadt',
     'blog.article.mendrisio-capitale-culturale-2026.excerpt': 'Die Stadt Mendrisio hat ihre Bewerbung eingereicht, um 2026 zur Schweizer Kulturhauptstadt ernannt zu werden.',
     'blog.article.mendrisio-capitale-culturale-2026.imageAlt': 'Luftaufnahme von Mendrisio, Schweiz, mit seinen historischen Gebäuden und kulturellen Wahrzeichen.',
+    'blog.article.falsi-preti-barasso-truffe-anziani.title': 'Falsche Priester in Barasso: Warnung vor Betrug an Senioren',
+    'blog.article.falsi-preti-barasso-truffe-anziani.excerpt': 'Die Gemeinde Barasso warnt: Falsche Priester betrügen Senioren. So können Sie sich schützen.',
+    'blog.article.falsi-preti-barasso-truffe-anziani.imageAlt': 'Ruhe Straße in Barasso, Tessin, mit Blick auf die umliegenden Hügel und eine Kirche im Hintergrund',
 };
 
 export default blogMetaDe;
