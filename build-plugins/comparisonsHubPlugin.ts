@@ -42,6 +42,7 @@ import {
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import { WriteCollector } from './batchWrite';
+import { runCached } from './shared/buildCache';
 import {
   COMPARISONS_LOCALES,
   COMPARISONS_LOCALE_PREFIX,
@@ -565,63 +566,97 @@ export function comparisonsHubPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      const collector = new WriteCollector({ distDir, pluginName: 'comparisonsHubPlugin' });
+      // `dateStamp` is fixed once per build and threaded through both the
+      // cache key (extraKey, day-granular) and the work function. Cache
+      // hits within the same UTC day reuse the FIRST build's exact stamp
+      // baked into JSON-LD `dateModified` + sitemap <lastmod>; across days
+      // the extraKey shifts, forcing a fresh build.
       const dateStamp = new Date().toISOString().slice(0, 10);
-
-      // Aggregations — computed once, reused for every locale.
-      const salaryRows = aggregateSalaryBySector(rootDir, 10);
       const year = new Date().getFullYear();
-      const lamalRows = aggregateLamalCantonMedians(rootDir, year);
 
-      // Hreflang alt list — same 4 locales for every page.
-      const alternates = COMPARISONS_LOCALES.map(
-        (alt) => `${alt}|${BASE_URL}${buildComparisonsHubPath(alt)}`,
-      );
-      alternates.push(`x-default|${BASE_URL}${buildComparisonsHubPath('it')}`);
+      const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+      const lamalPath = np.resolve(rootDir, 'data/health-premiums', `${year}.json`);
 
-      const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
-      let pagesWritten = 0;
-      let thinSkipped = 0;
+      await runCached({
+        pluginName: 'comparisons-hub',
+        rootDir,
+        distDir,
+        bundleEntry: np.resolve(rootDir, 'build-plugins/comparisonsHubPlugin.ts'),
+        runtimeFiles: () => {
+          const list: string[] = [];
+          if (fs.existsSync(jobsPath)) list.push(jobsPath);
+          if (fs.existsSync(lamalPath)) list.push(lamalPath);
+          return list;
+        },
+        extraKey: `${dateStamp}|${year}`,
+        work: async ({ recordWrite }) => {
+          const collector = new WriteCollector({
+            distDir,
+            pluginName: 'comparisonsHubPlugin',
+            pathRecorder: recordWrite,
+          });
 
-      for (const locale of COMPARISONS_LOCALES) {
-        const rendered = renderPage({ locale, salaryRows, lamalRows, dateStamp, distDir });
+          // Aggregations — computed once, reused for every locale.
+          const salaryRows = aggregateSalaryBySector(rootDir, 10);
+          const lamalRows = aggregateLamalCantonMedians(rootDir, year);
 
-        if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
-          thinSkipped++;
-          console.warn(
-            `\x1b[33m[comparisons-hub]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+          // Hreflang alt list — same 4 locales for every page.
+          const alternates = COMPARISONS_LOCALES.map(
+            (alt) => `${alt}|${BASE_URL}${buildComparisonsHubPath(alt)}`,
           );
-          continue;
-        }
+          alternates.push(`x-default|${BASE_URL}${buildComparisonsHubPath('it')}`);
 
-        const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
-        const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
-        collector.add(indexPath, rendered.html);
-        collector.add(flatPath, rendered.html);
+          const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
+          let pagesWritten = 0;
+          let thinSkipped = 0;
 
-        // Only emit IT canonical in the sitemap; EN/DE/FR are expressed through
-        // the hreflang alternates on that entry (same pattern as nursing).
-        if (locale === 'it') {
-          sitemapEntries.push({ canonical: rendered.urlPath, alternates });
-        }
-        pagesWritten++;
-      }
+          for (const locale of COMPARISONS_LOCALES) {
+            const rendered = renderPage({ locale, salaryRows, lamalRows, dateStamp, distDir });
 
-      if (sitemapEntries.length > 0) {
-        try {
-          const xml = buildSitemapXml(sitemapEntries, dateStamp);
-          fs.mkdirSync(distDir, { recursive: true });
-          fs.writeFileSync(np.join(distDir, 'sitemap-comparisons.xml'), xml, 'utf-8');
-        } catch (err) {
-          console.warn('\x1b[33m[comparisons-hub]\x1b[0m sitemap write failed:', err);
-        }
-      }
+            if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
+              thinSkipped++;
+              console.warn(
+                `\x1b[33m[comparisons-hub]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${rendered.wordCount}) — skipping`,
+              );
+              continue;
+            }
 
-      const t0 = Date.now();
-      const written = await collector.flush();
-      console.log(
-        `\x1b[36m[comparisons-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · salary rows: ${salaryRows.length}, LAMal cantons: ${lamalRows.length}`,
-      );
+            const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
+            const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
+            collector.add(indexPath, rendered.html);
+            collector.add(flatPath, rendered.html);
+
+            // Only emit IT canonical in the sitemap; EN/DE/FR are expressed through
+            // the hreflang alternates on that entry (same pattern as nursing).
+            if (locale === 'it') {
+              sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+            }
+            pagesWritten++;
+          }
+
+          if (sitemapEntries.length > 0) {
+            try {
+              const xml = buildSitemapXml(sitemapEntries, dateStamp);
+              fs.mkdirSync(distDir, { recursive: true });
+              const sitemapPath = np.join(distDir, 'sitemap-comparisons.xml');
+              fs.writeFileSync(sitemapPath, xml, 'utf-8');
+              recordWrite(sitemapPath);
+            } catch (err) {
+              console.warn('\x1b[33m[comparisons-hub]\x1b[0m sitemap write failed:', err);
+            }
+          }
+
+          const t0 = Date.now();
+          const written = await collector.flush();
+          console.log(
+            `\x1b[36m[comparisons-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · salary rows: ${salaryRows.length}, LAMal cantons: ${lamalRows.length}`,
+          );
+        },
+      });
+
+      // Always-run: comparisons-hub does NOT write into sitemap.xml index
+      // directly — the sitemapAliasPlugin auto-discovers `sitemap-*.xml`
+      // files (see plugin docstring). No extra patch needed here.
     },
   };
 }
