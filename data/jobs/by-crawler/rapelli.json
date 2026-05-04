@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rapelli",
-  "assembledAt": "2026-05-03T22:03:28.647Z",
+  "assembledAt": "2026-05-04T11:27:20.895Z",
   "jobs": [
     {
       "id": "rapelli-eef49fb6a6c9",
@@ -43,7 +43,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Controller%2C-100-TI/1373974233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-03T22:03:26.452Z",
+      "crawledAt": "2026-05-04T11:27:18.567Z",
       "previousSlugs": [
         "controller-100-rapelli-stabio",
         "controller-100-rapelli-orior-food-ag-stabio"
@@ -63,6 +63,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:42.525Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -118,12 +119,13 @@
       "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-03T22:03:26.122Z",
+      "crawledAt": "2026-05-04T11:27:18.247Z",
       "previousSlugs": [
         "buyer-ingredienti-trade-100-rapelli-orior-food-ag-stabio",
         "ingredienti-d-acquisto-e-commercio-100-rapelli-orior-food-ag-stabio"
       ],
       "firstSeenAt": "2026-04-13T11:08:41.140Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -179,7 +181,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-03T22:03:25.779Z",
+      "crawledAt": "2026-05-04T11:27:17.822Z",
       "previousSlugs": [
         "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio"
       ],
@@ -253,7 +255,7 @@
       "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-03T22:03:25.460Z",
+      "crawledAt": "2026-05-04T11:27:17.458Z",
       "previousSlugs": [
         "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
         "manutentore-maintenance-technician-100-rapelli-orior-food-ag-stabio"
@@ -264,6 +266,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:41.714Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -319,7 +322,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare%2C-100-TI/1375846933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-03T22:03:25.118Z",
+      "crawledAt": "2026-05-04T11:27:17.080Z",
       "previousSlugs": [
         "tecnologia-alimentare-100-rapelli-orior-food-ag-stabio",
         "tecnologo-alimentare-100-rapelli-orior-food-ag-stabio"
@@ -340,6 +343,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:41.972Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -395,7 +399,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-03T22:03:24.776Z",
+      "crawledAt": "2026-05-04T11:27:16.763Z",
       "previousSlugs": [
         "chaine-d-approvisionnement-planner-100-rapelli-orior-food-ag-stabio",
         "pianificatore-della-supply-chain-al-100-rapelli-orior-food-ag-stabio",
@@ -417,6 +421,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:41.431Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -472,7 +477,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Chief-Financial-Officer%2C-100-%28mwd%29-TI/1386501233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-03T22:03:24.437Z",
+      "crawledAt": "2026-05-04T11:27:16.434Z",
       "firstSeenAt": "2026-04-22T22:15:54.204Z",
       "salaryMin": 98000,
       "salaryMax": 132000,
@@ -487,6 +492,66 @@
         }
       },
       "postalCode": "6855"
+    },
+    {
+      "id": "rapelli-85e9378f6294",
+      "slug": "digital-order-edi-specialist-50-80-rapelli-stabio",
+      "slugByLocale": {
+        "it": "digital-order-edi-specialist-50-80-rapelli-stabio",
+        "en": "digital-order-edi-specialist-50-80-rapelli-stabio",
+        "de": "digital-order-edi-specialist-50-80-rapelli-stabio",
+        "fr": "digital-order-edi-specialist-50-80-rapelli-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Digital Order & EDI Specialist (50-80%)",
+      "titleByLocale": {
+        "it": "Digital Order & EDI Specialista (50-80%)",
+        "en": "Digital Order & EDI Specialist (50-80%)",
+        "de": "Digital Order & EDI Spezialist (50-80%)",
+        "fr": "Digital Order & EDI Spécialiste (50-80%)"
+      },
+      "description": "Responsabilità principali \n\n \n Garantire la gestione operativa del processo ordine (order-to-cash), assicurando continuit à , precisione e rispetto delle tempistiche \n\n \n Gestire e monitorare i flussi EDI (ORDER, DESADV, INVOICE – standard EDIFACT), intervenendo in caso di anomalie \n\n \n Gestire ordini manuali e processi di emergenza (Notfallprozess) \n\n \n Assicurare la correttezza documentale e supportare fatturazione e note di credito \n\n \n Gestire il contatto diretto con i clienti (telefono ed email – CH: IT / DE / FR) \n\n \n Gestire reclami e problematiche operative, garantendone la risoluzione e il follow-up \n\n \n Monitorare consegne, ritardi e anomalie, intervenendo proattivamente \n\n \n Aggiornare anagrafiche clienti/materiali, codici EAN/GTIN e condizioni commerciali \n\n \n nterfacciarsi con pianificazione, logistica, produzione, vendite, amministrazione e IT / provider EDI \n\n \n Contribuire al miglioramento continuo dei processi operativi (in particolare EDI e gestione ordini) \n\n \n Garantire il rispetto delle procedure interne e degli standard aziendali \n\n \n Collaborare con il team per la copertura operativa e la pianificazione delle attivit à \n\n \n \n\n \n \n\n \n Profilo \n\n \n Et à indicativa: 30 – 45 anni \n\n \n Formazione commerciale o amministrativa \n\n \n Esperienza di 3 – 5 anni in vendita interna, customer service o order management \n\n \n Esperienza nella gestione di flussi EDI (EDIFACT) \n\n \n Ottima conoscenza di SAP (preferibilmente S/4HANA) \n\n \n Buona conoscenza dei processi logistici e amministrativi \n\n \n Buona padronanza degli strumenti informatici (Office, Excel) \n\n \n Lingue: italiano fluente; tedesco e francese (min. B2) \n\n \n Precisione, affidabilit à e capacit à di gestione delle priorit à \n\n \n Flessibilit à operativa (telelavoro serale e sabato a rotazione) \n\n \n Attitudine al lavoro in team e alla collaborazione interfunzionale \n\n \n Preferibile conoscenza del mercato svizzero e della GDO \n\n \n \n\n \n Competenze \n\n \n Gestione autonoma del processo ordine end-to-end \n\n \n Conoscenza operativa dei flussi EDI e gestione delle anomalie \n\n \n Problem solving operativo e gestione reclami \n\n \n Coordinamento efficace con reparti interni \n\n \n Capacit à di lavorare con elevati volumi mantenendo qualit à e precisione \n\n \n Buona comprensione dei flussi logistici e della supply chain \n\n \n Utilizzo avanzato di SAP e strumenti digitali \n\n \n Orientamento al cliente e approccio proattivo \n\n \n Capacit à di adattamento e miglioramento continuo \n\n \n \n\n \n Requisiti MUST: \n\n \n Esperienza concreta con flussi EDI (EDIFACT: ORDER, DESADV, INVOICE) \n\n \n Esperienza operativa in gestione ordini (order management / vendita interna / customer service) \n\n \n Ottima conoscenza di SAP \n\n \n Italiano fluente + tedesco e francese (min. livello B2) \n\n \n Disponibilità a svolgere attività in telelavoro in fasce serali (circa 1 ora, 2–3 volte a settimana) e a copertura del sabato (circa 7 ore), secondo pianificazione condivisa all’interno di un team di 3 persone e nel rispetto del monte ore settimanale \n\n \n \n\n \n Le candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n Saranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti .",
+      "descriptionByLocale": {
+        "it": "Responsabilità principali \n\n \n Garantire la gestione operativa del processo ordine (order-to-cash), assicurando continuit à , precisione e rispetto delle tempistiche \n\n \n Gestire e monitorare i flussi EDI (ORDER, DESADV, INVOICE – standard EDIFACT), intervenendo in caso di anomalie \n\n \n Gestire ordini manuali e processi di emergenza (Notfallprozess) \n\n \n Assicurare la correttezza documentale e supportare fatturazione e note di credito \n\n \n Gestire il contatto diretto con i clienti (telefono ed email – CH: IT / DE / FR) \n\n \n Gestire reclami e problematiche operative, garantendone la risoluzione e il follow-up \n\n \n Monitorare consegne, ritardi e anomalie, intervenendo proattivamente \n\n \n Aggiornare anagrafiche clienti/materiali, codici EAN/GTIN e condizioni commerciali \n\n \n nterfacciarsi con pianificazione, logistica, produzione, vendite, amministrazione e IT / provider EDI \n\n \n Contribuire al miglioramento continuo dei processi operativi (in particolare EDI e gestione ordini) \n\n \n Garantire il rispetto delle procedure interne e degli standard aziendali \n\n \n Collaborare con il team per la copertura operativa e la pianificazione delle attivit à \n\n \n \n\n \n \n\n \n Profilo \n\n \n Et à indicativa: 30 – 45 anni \n\n \n Formazione commerciale o amministrativa \n\n \n Esperienza di 3 – 5 anni in vendita interna, customer service o order management \n\n \n Esperienza nella gestione di flussi EDI (EDIFACT) \n\n \n Ottima conoscenza di SAP (preferibilmente S/4HANA) \n\n \n Buona conoscenza dei processi logistici e amministrativi \n\n \n Buona padronanza degli strumenti informatici (Office, Excel) \n\n \n Lingue: italiano fluente; tedesco e francese (min. B2) \n\n \n Precisione, affidabilit à e capacit à di gestione delle priorit à \n\n \n Flessibilit à operativa (telelavoro serale e sabato a rotazione) \n\n \n Attitudine al lavoro in team e alla collaborazione interfunzionale \n\n \n Preferibile conoscenza del mercato svizzero e della GDO \n\n \n \n\n \n Competenze \n\n \n Gestione autonoma del processo ordine end-to-end \n\n \n Conoscenza operativa dei flussi EDI e gestione delle anomalie \n\n \n Problem solving operativo e gestione reclami \n\n \n Coordinamento efficace con reparti interni \n\n \n Capacit à di lavorare con elevati volumi mantenendo qualit à e precisione \n\n \n Buona comprensione dei flussi logistici e della supply chain \n\n \n Utilizzo avanzato di SAP e strumenti digitali \n\n \n Orientamento al cliente e approccio proattivo \n\n \n Capacit à di adattamento e miglioramento continuo \n\n \n \n\n \n Requisiti MUST: \n\n \n Esperienza concreta con flussi EDI (EDIFACT: ORDER, DESADV, INVOICE) \n\n \n Esperienza operativa in gestione ordini (order management / vendita interna / customer service) \n\n \n Ottima conoscenza di SAP \n\n \n Italiano fluente + tedesco e francese (min. livello B2) \n\n \n Disponibilità a svolgere attività in telelavoro in fasce serali (circa 1 ora, 2–3 volte a settimana) e a copertura del sabato (circa 7 ore), secondo pianificazione condivisa all’interno di un team di 3 persone e nel rispetto del monte ore settimanale \n\n \n \n\n \n Le candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n Saranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti .",
+        "en": "Responsabilità principali \n\n \n Garantire la gestione operativa del processo ordine (order-to-cash), assicurando continuit à , precisione e rispetto delle tempistiche \n\n \n Gestire e monitorare i flussi EDI (ORDER, DESADV, INVOICE – standard EDIFACT), intervenendo in caso di anomalie \n\n \n Gestire ordini manuali e processi di emergenza (Notfallprozess) \n\n \n Assicurare la correttezza documentale e supportare fatturazione e note di credito \n\n \n Gestire il contatto diretto con i clienti (telefono ed email – CH: IT / DE / FR) \n\n \n Gestire reclami e problematiche operative, garantendone la risoluzione e il follow-up \n\n \n Monitorare consegne, ritardi e anomalie, intervenendo proattivamente \n\n \n Aggiornare anagrafiche clienti/materiali, codici EAN/GTIN e condizioni commerciali \n\n \n nterfacciarsi con pianificazione, logistica, produzione, vendite, amministrazione e IT / provider EDI \n\n \n Contribuire al miglioramento continuo dei processi operativi (in particolare EDI e gestione ordini) \n\n \n Garantire il rispetto delle procedure interne e degli standard aziendali \n\n \n Collaborare con il team per la copertura operativa e la pianificazione delle attivit à \n\n \n \n\n \n \n\n \n Profilo \n\n \n Et à indicativa: 30 – 45 anni \n\n \n Formazione commerciale o amministrativa \n\n \n Esperienza di 3 – 5 anni in vendita interna, customer service o order management \n\n \n Esperienza nella gestione di flussi EDI (EDIFACT) \n\n \n Ottima conoscenza di SAP (preferibilmente S/4HANA) \n\n \n Buona conoscenza dei processi logistici e amministrativi \n\n \n Buona padronanza degli strumenti informatici (Office, Excel) \n\n \n Lingue: italiano fluente; tedesco e francese (min. B2) \n\n \n Precisione, affidabilit à e capacit à di gestione delle priorit à \n\n \n Flessibilit à operativa (telelavoro serale e sabato a rotazione) \n\n \n Attitudine al lavoro in team e alla collaborazione interfunzionale \n\n \n Preferibile conoscenza del mercato svizzero e della GDO \n\n \n \n\n \n Competenze \n\n \n Gestione autonoma del processo ordine end-to-end \n\n \n Conoscenza operativa dei flussi EDI e gestione delle anomalie \n\n \n Problem solving operativo e gestione reclami \n\n \n Coordinamento efficace con reparti interni \n\n \n Capacit à di lavorare con elevati volumi mantenendo qualit à e precisione \n\n \n Buona comprensione dei flussi logistici e della supply chain \n\n \n Utilizzo avanzato di SAP e strumenti digitali \n\n \n Orientamento al cliente e approccio proattivo \n\n \n Capacit à di adattamento e miglioramento continuo \n\n \n \n\n \n Requisiti MUST: \n\n \n Esperienza concreta con flussi EDI (EDIFACT: ORDER, DESADV, INVOICE) \n\n \n Esperienza operativa in gestione ordini (order management / vendita interna / customer service) \n\n \n Ottima conoscenza di SAP \n\n \n Italiano fluente + tedesco e francese (min. livello B2) \n\n \n Disponibilità a svolgere attività in telelavoro in fasce serali (circa 1 ora, 2–3 volte a settimana) e a copertura del sabato (circa 7 ore), secondo pianificazione condivisa all’interno di un team di 3 persone e nel rispetto del monte ore settimanale \n\n \n \n\n \n Le candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n Saranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti .",
+        "de": "Responsabilità principali \n\n \n Garantire la gestione operativa del processo ordine (order-to-cash), assicurando continuit à , precisione e rispetto delle tempistiche \n\n \n Gestire e monitorare i flussi EDI (ORDER, DESADV, INVOICE – standard EDIFACT), intervenendo in caso di anomalie \n\n \n Gestire ordini manuali e processi di emergenza (Notfallprozess) \n\n \n Assicurare la correttezza documentale e supportare fatturazione e note di credito \n\n \n Gestire il contatto diretto con i clienti (telefono ed email – CH: IT / DE / FR) \n\n \n Gestire reclami e problematiche operative, garantendone la risoluzione e il follow-up \n\n \n Monitorare consegne, ritardi e anomalie, intervenendo proattivamente \n\n \n Aggiornare anagrafiche clienti/materiali, codici EAN/GTIN e condizioni commerciali \n\n \n nterfacciarsi con pianificazione, logistica, produzione, vendite, amministrazione e IT / provider EDI \n\n \n Contribuire al miglioramento continuo dei processi operativi (in particolare EDI e gestione ordini) \n\n \n Garantire il rispetto delle procedure interne e degli standard aziendali \n\n \n Collaborare con il team per la copertura operativa e la pianificazione delle attivit à \n\n \n \n\n \n \n\n \n Profilo \n\n \n Et à indicativa: 30 – 45 anni \n\n \n Formazione commerciale o amministrativa \n\n \n Esperienza di 3 – 5 anni in vendita interna, customer service o order management \n\n \n Esperienza nella gestione di flussi EDI (EDIFACT) \n\n \n Ottima conoscenza di SAP (preferibilmente S/4HANA) \n\n \n Buona conoscenza dei processi logistici e amministrativi \n\n \n Buona padronanza degli strumenti informatici (Office, Excel) \n\n \n Lingue: italiano fluente; tedesco e francese (min. B2) \n\n \n Precisione, affidabilit à e capacit à di gestione delle priorit à \n\n \n Flessibilit à operativa (telelavoro serale e sabato a rotazione) \n\n \n Attitudine al lavoro in team e alla collaborazione interfunzionale \n\n \n Preferibile conoscenza del mercato svizzero e della GDO \n\n \n \n\n \n Competenze \n\n \n Gestione autonoma del processo ordine end-to-end \n\n \n Conoscenza operativa dei flussi EDI e gestione delle anomalie \n\n \n Problem solving operativo e gestione reclami \n\n \n Coordinamento efficace con reparti interni \n\n \n Capacit à di lavorare con elevati volumi mantenendo qualit à e precisione \n\n \n Buona comprensione dei flussi logistici e della supply chain \n\n \n Utilizzo avanzato di SAP e strumenti digitali \n\n \n Orientamento al cliente e approccio proattivo \n\n \n Capacit à di adattamento e miglioramento continuo \n\n \n \n\n \n Requisiti MUST: \n\n \n Esperienza concreta con flussi EDI (EDIFACT: ORDER, DESADV, INVOICE) \n\n \n Esperienza operativa in gestione ordini (order management / vendita interna / customer service) \n\n \n Ottima conoscenza di SAP \n\n \n Italiano fluente + tedesco e francese (min. livello B2) \n\n \n Disponibilità a svolgere attività in telelavoro in fasce serali (circa 1 ora, 2–3 volte a settimana) e a copertura del sabato (circa 7 ore), secondo pianificazione condivisa all’interno di un team di 3 persone e nel rispetto del monte ore settimanale \n\n \n \n\n \n Le candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n Saranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti .",
+        "fr": "Responsabilità principali \n\n \n Garantire la gestione operativa del processo ordine (order-to-cash), assicurando continuit à , precisione e rispetto delle tempistiche \n\n \n Gestire e monitorare i flussi EDI (ORDER, DESADV, INVOICE – standard EDIFACT), intervenendo in caso di anomalie \n\n \n Gestire ordini manuali e processi di emergenza (Notfallprozess) \n\n \n Assicurare la correttezza documentale e supportare fatturazione e note di credito \n\n \n Gestire il contatto diretto con i clienti (telefono ed email – CH: IT / DE / FR) \n\n \n Gestire reclami e problematiche operative, garantendone la risoluzione e il follow-up \n\n \n Monitorare consegne, ritardi e anomalie, intervenendo proattivamente \n\n \n Aggiornare anagrafiche clienti/materiali, codici EAN/GTIN e condizioni commerciali \n\n \n nterfacciarsi con pianificazione, logistica, produzione, vendite, amministrazione e IT / provider EDI \n\n \n Contribuire al miglioramento continuo dei processi operativi (in particolare EDI e gestione ordini) \n\n \n Garantire il rispetto delle procedure interne e degli standard aziendali \n\n \n Collaborare con il team per la copertura operativa e la pianificazione delle attivit à \n\n \n \n\n \n \n\n \n Profilo \n\n \n Et à indicativa: 30 – 45 anni \n\n \n Formazione commerciale o amministrativa \n\n \n Esperienza di 3 – 5 anni in vendita interna, customer service o order management \n\n \n Esperienza nella gestione di flussi EDI (EDIFACT) \n\n \n Ottima conoscenza di SAP (preferibilmente S/4HANA) \n\n \n Buona conoscenza dei processi logistici e amministrativi \n\n \n Buona padronanza degli strumenti informatici (Office, Excel) \n\n \n Lingue: italiano fluente; tedesco e francese (min. B2) \n\n \n Precisione, affidabilit à e capacit à di gestione delle priorit à \n\n \n Flessibilit à operativa (telelavoro serale e sabato a rotazione) \n\n \n Attitudine al lavoro in team e alla collaborazione interfunzionale \n\n \n Preferibile conoscenza del mercato svizzero e della GDO \n\n \n \n\n \n Competenze \n\n \n Gestione autonoma del processo ordine end-to-end \n\n \n Conoscenza operativa dei flussi EDI e gestione delle anomalie \n\n \n Problem solving operativo e gestione reclami \n\n \n Coordinamento efficace con reparti interni \n\n \n Capacit à di lavorare con elevati volumi mantenendo qualit à e precisione \n\n \n Buona comprensione dei flussi logistici e della supply chain \n\n \n Utilizzo avanzato di SAP e strumenti digitali \n\n \n Orientamento al cliente e approccio proattivo \n\n \n Capacit à di adattamento e miglioramento continuo \n\n \n \n\n \n Requisiti MUST: \n\n \n Esperienza concreta con flussi EDI (EDIFACT: ORDER, DESADV, INVOICE) \n\n \n Esperienza operativa in gestione ordini (order management / vendita interna / customer service) \n\n \n Ottima conoscenza di SAP \n\n \n Italiano fluente + tedesco e francese (min. livello B2) \n\n \n Disponibilità a svolgere attività in telelavoro in fasce serali (circa 1 ora, 2–3 volte a settimana) e a copertura del sabato (circa 7 ore), secondo pianificazione condivisa all’interno di un team di 3 persone e nel rispetto del monte ore settimanale \n\n \n \n\n \n Le candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n Saranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti ."
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-04T11:27:16.075Z",
+      "needsRetranslation": true,
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855",
+      "firstSeenAt": "2026-05-04T11:27:16.075Z"
     }
   ]
 }
