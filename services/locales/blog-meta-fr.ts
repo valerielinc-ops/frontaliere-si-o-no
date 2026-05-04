@@ -5928,6 +5928,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mercato-agricolo-besozzo-superiore.title': 'Besozzo Superiore: marché agricole au parc du Cioss',
     'blog.article.mercato-agricolo-besozzo-superiore.excerpt': 'Depuis le 9 mai, Besozzo Superiore accueille un nouveau marché agricole bimensuel avec des produits locaux et de la filière courte. Voici les dates et les détails.',
     'blog.article.mercato-agricolo-besozzo-superiore.imageAlt': 'Marché agricole à Besozzo Superiore avec des produits locaux et artisanaux',
+    'blog.article.intelligenza-artificiale-robotica-varese-2026.title': 'Confcommercio: conférence sur l\'IA et la robotique à Varèse',
+    'blog.article.intelligenza-artificiale-robotica-varese-2026.excerpt': 'L\'intelligence artificielle et la robotique avancée entrent dans les PME, avec des études de cas de VHIT Spa et des opportunités pour les entreprises varésines.',
+    'blog.article.intelligenza-artificiale-robotica-varese-2026.imageAlt': 'Robot humanoïde Lumi dans un bureau moderne à Ticino',
 };
 
 export default blogMetaFr;

@@ -19154,4 +19154,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'intelligenza-artificiale-robotica-varese-2026',
+ category: 'novita',
+ date: '2026-05-04T23:22:07.798Z',
+ image: '/images/blog/intelligenza-artificiale-robotica-varese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

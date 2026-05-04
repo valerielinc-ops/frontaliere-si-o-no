@@ -16897,6 +16897,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-intelligenza-artificiale-robotica-varese-2026': {
+    title: 'Confcommercio: convegno su AI e robotica a Varese | Frontaliere Ticino',
+    description: 'L\'intelligenza artificiale e la robotica avanzata entrano nelle PMI, con casi studio di VHIT Spa e opportunità per le aziende varesine. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, confcommercio, convegno, robotica, varese',
+    ogTitle: 'Intelligenza artificiale e robotica in azienda: il convegno di Confcommercio a Varese',
+    ogDescription: 'L\'intelligenza artificiale e la robotica avanzata entrano nelle PMI, con casi studio di VHIT Spa e opportunità per le aziende varesine.',
+    canonicalPath: '/articoli-frontaliere/intelligenza-artificiale-robotica-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confcommercio: convegno su AI e robotica a Varese",
+      "description": "L'intelligenza artificiale e la robotica avanzata entrano nelle PMI, con casi studio di VHIT Spa e opportunità per le aziende varesine. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/intelligenza-artificiale-robotica-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Robot umanoide Lumi in un ufficio moderno in Ticino"
+      },
+      "datePublished": "2026-05-04T23:22:07+00:00",
+      "dateModified": "2026-05-04T23:22:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/intelligenza-artificiale-robotica-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

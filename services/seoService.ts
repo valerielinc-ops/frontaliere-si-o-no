@@ -3218,6 +3218,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-allenatore-orsi-serge-aubin': { name: 'Novità', path: '/articoli-frontaliere/nuovo-allenatore-orsi-serge-aubin', parent: 'blog' },
     'blog-asta-villa-geno-como-400mila-euro': { name: 'Villa Geno asta', path: '/articoli-frontaliere/asta-villa-geno-como-400mila-euro', parent: 'blog' },
     'blog-mercato-agricolo-besozzo-superiore': { name: 'Mercato agricolo', path: '/articoli-frontaliere/mercato-agricolo-besozzo-superiore', parent: 'blog' },
+    'blog-intelligenza-artificiale-robotica-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/intelligenza-artificiale-robotica-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
