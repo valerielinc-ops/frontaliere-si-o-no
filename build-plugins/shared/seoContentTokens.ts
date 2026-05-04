@@ -532,6 +532,8 @@ export interface EntityCardOpts {
   readonly logoUrl?: string;
   /** Alt text for the `<img>`. Required when `logoUrl` is provided. */
   readonly logoAlt?: string;
+  /** Inline `onerror` handler for the logo `<img>`. Enables Clearbit → favicon → placeholder fallback chain. */
+  readonly logoOnerror?: string;
   /** Inline SVG markup used when there is no `logoUrl` (24×24 stroke icon). */
   readonly iconSvg?: string;
   /** Card heading. */
@@ -558,7 +560,8 @@ const ENTITY_CARD_METRIC_VAR: Record<EntityCardMetricTone, string> = {
 function renderEntityCardVisual(opts: EntityCardOpts): string {
   if (opts.logoUrl) {
     const alt = opts.logoAlt ?? opts.title;
-    return `<img src="${esc(opts.logoUrl)}" alt="${esc(alt)}" width="40" height="40" loading="lazy" decoding="async" style="display:block;width:40px;height:40px;border-radius:10px;object-fit:contain;background:var(--color-surface-alt);flex-shrink:0">`;
+    const onerrorAttr = opts.logoOnerror ? ` onerror="${opts.logoOnerror}"` : '';
+    return `<img src="${esc(opts.logoUrl)}" alt="${esc(alt)}" width="40" height="40" loading="lazy" decoding="async"${onerrorAttr} style="display:block;width:40px;height:40px;border-radius:10px;object-fit:contain;background:var(--color-surface-alt);flex-shrink:0">`;
   }
   if (opts.iconSvg) {
     // Inline SVG already sized 24×24 by the caller; wrap in the neutral bubble.

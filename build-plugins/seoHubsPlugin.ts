@@ -430,6 +430,42 @@ function readJobSlugsMap(
   }
 }
 
+/**
+ * Parse CRAWLED_COMPANY_LOGOS from services/jobDataNormalization.ts source.
+ * Returns slug → URL map for use as fallback when local manifest has no entry.
+ */
+function readCrawledCompanyLogos(fs: typeof fsT, np: typeof npT, rootDir: string): Record<string, string> {
+  const out: Record<string, string> = {};
+  try {
+    const src = fs.readFileSync(np.resolve(rootDir, 'services/jobDataNormalization.ts'), 'utf-8');
+    const blockMatch = src.match(/CRAWLED_COMPANY_LOGOS[^{]*\{([\s\S]*?)\n\};/);
+    if (!blockMatch) return out;
+    const block = blockMatch[1];
+    const lineRx = /'([a-z0-9-]+)':\s*(.+?),?\s*$/gm;
+    let m: RegExpExecArray | null;
+    while ((m = lineRx.exec(block)) !== null) {
+      const slug = m[1];
+      const val = m[2].trim().replace(/,$/, '');
+      if (val.startsWith("gFavicon('")) {
+        const domain = val.match(/gFavicon\('([^']+)'\)/)?.[1];
+        if (domain) out[slug] = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
+      } else if (val.startsWith('cLogo(')) {
+        const domain = val.match(/cLogo\('([^']+)'\)/)?.[1];
+        if (domain) out[slug] = `https://logo.clearbit.com/${domain}`;
+      } else if (val.startsWith("'") && val.endsWith("'")) {
+        out[slug] = val.slice(1, -1);
+      }
+    }
+  } catch (err) {
+    console.warn('[seo-hubs] failed to read CRAWLED_COMPANY_LOGOS', err);
+  }
+  return out;
+}
+
+/** Fallback chain: Clearbit → Google favicon → placeholder SVG. */
+const LOGO_ONERROR =
+  `if(this.dataset.lf==='ph')return;if(this.src.indexOf('logo.clearbit.com')>-1){var d=this.src.replace(/^https?:\\/\\/logo\\.clearbit\\.com\\//,'').split(/[\\/?#]/)[0];if(d){this.src='https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128';this.dataset.lf='gf';return;}}this.src='/icons/company-placeholder.svg';this.dataset.lf='ph';this.style.visibility='visible';`;
+
 function readCompanySlugs(fs: typeof fsT, np: typeof npT, rootDir: string): string[] {
   const file = np.resolve(rootDir, 'data/known-company-slugs.json');
   try {
@@ -621,6 +657,7 @@ function buildHtml(args: BuildHtmlArgs): string {
               href: it.href,
               logoUrl: it.logo ?? undefined,
               iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
+              logoOnerror: it.logo ? LOGO_ONERROR : undefined,
               title: it.label,
               subtitle: it.jobCount ? jobsActiveLabel(locale, it.jobCount) : undefined,
             });
@@ -750,6 +787,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
   const { slugs: jobSlugs, perLocale: jobPerLocale } = readJobSlugsMap(fs, np, rootDir);
   const companySlugs = readCompanySlugs(fs, np, rootDir);
   const jobCountBySlug = readJobCountsBySlug(fs, np, rootDir);
+  const crawledLogos = readCrawledCompanyLogos(fs, np, rootDir);
 
   const ensuredDirs = new Set<string>();
   function writeFile(canonicalPath: string, html: string): void {
@@ -804,10 +842,11 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : 'trouver-emploi-tessin'
       }`;
       for (const slug of companySlugs) {
+        const logoUrl = resolveBrandLogoUrl(rootDir, slug) ?? crawledLogos[slug] ?? null;
         items.push({
           href: `${sectionRoot}/azienda-${slug}/`,
           label: humanizeSlug(slug),
-          logo: resolveBrandLogoUrl(rootDir, slug),
+          logo: logoUrl,
           jobCount: jobCountBySlug.get(slug),
         });
       }
