@@ -34,6 +34,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
@@ -166,6 +167,58 @@ const DATA_SUMMARIES = path.join(ROOT, 'data', 'jobs-crawler-summaries.json');
 
 /** Maximum number of expired jobs to keep across all crawlers. */
 const EXPIRED_JOBS_CAP = 5000;
+
+/* ── Content-addressable cache for assembled outputs ─────────────────────
+ *
+ * Repository runs ~96 deploys/day driven by an article-publish cron (every
+ * 15 min). Inputs (slice files) only change on a handful of cron hours
+ * (06:00, 12:00, 00:00, 00:20, 03:20, 08:00, 20:00 UTC) plus per-crawler
+ * runs and translate-pending. Between events the inputs are stable for
+ * hours → ~80 % of deploys can skip the 58 s assembly entirely.
+ *
+ * Cache key = sha256(filePath \0 size \0 mtimeMs \0 …) of every slice file
+ * across the three input directories. We use stat metadata (cheap) instead
+ * of hashing 50 MB of file contents (~5× slower) — mtime+size is good
+ * enough because slice files are only touched by deterministic writes
+ * from `writeJson`, never random concurrent edits.
+ */
+const CACHE_ROOT = path.join(ROOT, '.cache', 'assemble-jobs');
+const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
+
+/**
+ * Compute a fingerprint of all crawler-slice input files so the assembly can
+ * be cached. Uses mtime+size (cheap stat call) instead of SHA-256 of contents
+ * (which would be ~5x slower at 50 MB total). Tolerates missing files via
+ * `existsSync` guard so a fresh checkout with empty slice dirs hashes to a
+ * deterministic value.
+ *
+ * Sorted by absolute path before hashing for cross-machine determinism.
+ *
+ * @returns {string} 16-char hex prefix of the sha256 fingerprint
+ */
+export function computeAssembleInputFingerprint() {
+  const dirs = [JOBS_SLICES_DIR, EXPIRED_SLICES_DIR, SUMMARIES_SLICES_DIR];
+  const files = [];
+  for (const d of dirs) {
+    if (!fs.existsSync(d)) continue;
+    for (const f of fs.readdirSync(d)) {
+      if (!f.endsWith('.json')) continue;
+      files.push(path.join(d, f));
+    }
+  }
+  files.sort();
+  const hasher = crypto.createHash('sha256');
+  for (const f of files) {
+    const st = fs.statSync(f);
+    hasher.update(f);
+    hasher.update('\0');
+    hasher.update(String(st.size));
+    hasher.update('\0');
+    hasher.update(String(st.mtimeMs));
+    hasher.update('\0');
+  }
+  return hasher.digest('hex').slice(0, 16);
+}
 
 /* ── I/O helpers ──────────────────────────────────────────────────────── */
 
@@ -1249,6 +1302,47 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     console.log('📦 Slice-only mode: skipping assembly (will run at deploy time)');
     return;
   }
+
+  // --- Content-addressable cache lookup ---
+  // Skip the 58 s assembly when the slice fingerprint matches a previous run.
+  // Inputs change on a few cron hours per day; between those events, ~80 % of
+  // deploys feed identical bytes through the same pipeline.
+  const inputFingerprint = computeAssembleInputFingerprint();
+  const cacheKey = `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}`;
+  const cacheDir = path.join(CACHE_ROOT, cacheKey);
+  const manifestPath = path.join(cacheDir, 'manifest.json');
+
+  if (fs.existsSync(manifestPath)) {
+    const t0 = Date.now();
+    const restorePairs = [
+      [path.join(cacheDir, 'jobs.json'), DATA_JOBS],
+      [path.join(cacheDir, 'jobs.json'), PUBLIC_JOBS],
+      [path.join(cacheDir, 'expired-jobs.json'), DATA_EXPIRED],
+      [path.join(cacheDir, 'expired-jobs.json'), PUBLIC_EXPIRED],
+      [path.join(cacheDir, 'jobs-meta.json'), DATA_META],
+      [path.join(cacheDir, 'jobs-crawler-summaries.json'), DATA_SUMMARIES],
+    ];
+    if (withStats) {
+      restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), DATA_STATS]);
+    }
+    // Verify the snapshot is complete BEFORE writing anything; a partial
+    // snapshot (e.g. previous run was without --stats) must fall through to
+    // a full miss rather than half-restoring outputs.
+    const allPresent = restorePairs.every(([src]) => fs.existsSync(src));
+    if (allPresent) {
+      for (const [src, dst] of restorePairs) {
+        fs.mkdirSync(path.dirname(dst), { recursive: true });
+        fs.copyFileSync(src, dst);
+      }
+      const dt = ((Date.now() - t0) / 1000).toFixed(2);
+      console.log(`✅ assemble-jobs cache HIT (key=${cacheKey.slice(0, 12)}..., restored ${restorePairs.length} files in ${dt}s)`);
+      return;
+    }
+    console.log(`⚠️  assemble-jobs cache partial (key=${cacheKey.slice(0, 12)}..., missing snapshot files) — running full assembly`);
+  } else {
+    console.log(`⚠️  assemble-jobs cache MISS (key=${cacheKey.slice(0, 12)}...) — running full assembly`);
+  }
+
   console.log('🔧 Assembling jobs dataset from per-crawler slices...');
 
   // --- Jobs ---
@@ -1377,6 +1471,39 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     const { generateJobBoardStats } = await import('./generate-job-board-stats.mjs');
     const result = generateJobBoardStats();
     console.log(`📈 Stats regenerated: ${result.summary.totals.activeJobs} active jobs`);
+  }
+
+  // --- Snapshot to cache for next run ---
+  // Wrapped in try/catch — cache write failures must never fail the deploy;
+  // worst case the next run pays the 58 s assembly cost again.
+  try {
+    fs.rmSync(cacheDir, { recursive: true, force: true });
+    fs.mkdirSync(cacheDir, { recursive: true });
+    const snapshotPairs = [
+      [DATA_JOBS, 'jobs.json'],
+      [DATA_EXPIRED, 'expired-jobs.json'],
+      [DATA_META, 'jobs-meta.json'],
+      [DATA_SUMMARIES, 'jobs-crawler-summaries.json'],
+    ];
+    if (withStats) {
+      snapshotPairs.push([DATA_STATS, 'jobs-stats.json']);
+    }
+    let snapshotted = 0;
+    for (const [src, name] of snapshotPairs) {
+      if (fs.existsSync(src)) {
+        fs.copyFileSync(src, path.join(cacheDir, name));
+        snapshotted++;
+      }
+    }
+    fs.writeFileSync(manifestPath, JSON.stringify({
+      inputFingerprint,
+      withStats,
+      snapshotAt: new Date().toISOString(),
+      fileCount: snapshotted,
+    }, null, 2));
+    console.log(`💾 assemble-jobs cached ${snapshotted} files at .cache/assemble-jobs/${cacheKey.slice(0, 12)}...`);
+  } catch (err) {
+    console.warn(`⚠️  assemble-jobs cache snapshot failed (non-fatal): ${err.message}`);
   }
 
   console.log('✅ Assembly complete.');

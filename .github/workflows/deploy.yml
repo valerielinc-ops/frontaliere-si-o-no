@@ -116,6 +116,18 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Cache assemble-jobs output
+        uses: actions/cache@v5
+        with:
+          path: .cache/assemble-jobs
+          # Hash inputs cover ALL slice files. When ANY of them is touched
+          # (by translate-pending, orchestrate-crawlers, or individual
+          # crawler workflows) → key changes → miss. Restore-keys cascade
+          # to the most recent OS-matching cache when no exact hit.
+          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+
       - name: Assemble jobs dataset from per-crawler slices
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
