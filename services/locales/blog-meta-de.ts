@@ -5498,6 +5498,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disordini-pensilina-lugano-intervento-veloce.title': 'Ausschreitungen in Lugano: Schnelle Intervention dank verstärkter Präsenz',
     'blog.article.disordini-pensilina-lugano-intervento-veloce.excerpt': 'Die Sicherheitsvorsteherin Karin Valenzano Rossi kommentiert die Zusammenstöße in der Pensilina und die Wichtigkeit, die politischen Töne zu senken',
     'blog.article.disordini-pensilina-lugano-intervento-veloce.imageAlt': 'Lugano Pensilina bei Nacht mit Polizeianwesenheit',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.title': 'Ausschreitungen in Lugano Pensilina: zwei Leichtverletzte',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.excerpt': 'Massiver Polizeieinsatz in Lugano Pensilina mit zwei Leichtverletzten und Einsatz von Reizspray',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.imageAlt': 'Lugano Pensilina bei Nacht mit Polizeieinsatz und Menschenmenge',
 };
 
 export default blogMetaDe;

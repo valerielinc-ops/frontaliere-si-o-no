@@ -3075,6 +3075,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cof-lanzo-igiene-mani-2026': { name: 'Novità', path: '/articoli-frontaliere/cof-lanzo-igiene-mani-2026', parent: 'blog' },
     'blog-grasshopper-zeidler-allenatore-2026': { name: 'Novità', path: '/articoli-frontaliere/grasshopper-zeidler-allenatore-2026', parent: 'blog' },
     'blog-disordini-pensilina-lugano-intervento-veloce': { name: 'Disordini Lugano', path: '/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce', parent: 'blog' },
+    'blog-disordini-pensilina-lugano-intervento-veloce-2026': { name: 'Novità', path: '/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -5499,6 +5499,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disordini-pensilina-lugano-intervento-veloce.title': 'Disordini a Lugano: intervento veloce grazie al presidio accresciuto',
     'blog.article.disordini-pensilina-lugano-intervento-veloce.excerpt': 'La capodicastero Sicurezza Karin Valenzano Rossi commenta gli scontri in Pensilina e l\'importanza di abbassare i toni politici',
     'blog.article.disordini-pensilina-lugano-intervento-veloce.imageAlt': 'Pensilina di Lugano di notte con presenza di polizia',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.title': 'Disordini a Lugano Pensilina: due feriti leggeri',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.excerpt': 'Intervento massiccio della polizia a Lugano Pensilina con due feriti leggeri e uso di spray urticante',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.imageAlt': 'Lugano Pensilina di notte con intervento della polizia e folla',
 };
 
 export default blogMetaIt;

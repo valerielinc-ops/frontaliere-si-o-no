@@ -5498,6 +5498,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disordini-pensilina-lugano-intervento-veloce.title': 'Riots in Lugano: swift intervention thanks to increased presence',
     'blog.article.disordini-pensilina-lugano-intervento-veloce.excerpt': 'Head of Security Karin Valenzano Rossi comments on the clashes in Pensilina and the importance of lowering political tensions',
     'blog.article.disordini-pensilina-lugano-intervento-veloce.imageAlt': 'Lugano Pensilina at night with police presence',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.title': 'Disturbances at Lugano Pensilina: two slightly injured',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.excerpt': 'Massive police intervention at Lugano Pensilina with two slightly injured and use of urticating spray',
+    'blog.article.disordini-pensilina-lugano-intervento-veloce-2026.imageAlt': 'Lugano Pensilina at night with police intervention and crowd',
 };
 
 export default blogMetaEn;

@@ -12035,6 +12035,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disordini-pensilina-lugano-intervento-veloce-2026': {
+    title: 'Disordini a Lugano Pensilina: due feriti leggeri | Frontaliere Ticino',
+    description: 'Intervento massiccio della polizia a Lugano Pensilina con due feriti leggeri e uso di spray urticante. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disordini, lugano, pensilina, feriti',
+    ogTitle: 'Disordini a Lugano Pensilina: due feriti leggeri',
+    ogDescription: 'Intervento massiccio della polizia a Lugano Pensilina con due feriti leggeri e uso di spray urticante',
+    canonicalPath: '/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disordini a Lugano Pensilina: due feriti leggeri",
+      "description": "Intervento massiccio della polizia a Lugano Pensilina con due feriti leggeri e uso di spray urticante. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disordini-pensilina-lugano-intervento-veloce-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano Pensilina di notte con intervento della polizia e folla"
+      },
+      "datePublished": "2026-05-04T01:37:23+00:00",
+      "dateModified": "2026-05-04T01:37:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disordini-pensilina-lugano-intervento-veloce-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
