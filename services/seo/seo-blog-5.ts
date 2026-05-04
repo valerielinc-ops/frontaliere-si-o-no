@@ -12239,6 +12239,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-anguria-pannelli-incendio-ticino-2026': {
+    title: 'Pannelli ignifughi con semi di anguria: rivoluzione per la sicurezza antincendio',
+    description: 'Scoperta del Politecnico di Zurigo: pannelli resistenti al fuoco realizzati con semi di anguria. Possibili applicazioni in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pannelli, ignifughi, semi, anguria',
+    ogTitle: 'Pannelli ignifughi con semi di anguria: rivoluzione per la sicurezza antincendio',
+    ogDescription: 'Scoperta del Politecnico di Zurigo: pannelli resistenti al fuoco realizzati con semi di anguria. Possibili applicazioni in Ticino.',
+    canonicalPath: '/articoli-frontaliere/anguria-pannelli-incendio-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pannelli ignifughi con semi di anguria: rivoluzione per la sicurezza antincendio",
+      "description": "Scoperta del Politecnico di Zurigo: pannelli resistenti al fuoco realizzati con semi di anguria. Possibili applicazioni in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/anguria-pannelli-incendio-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano, Ticino, Svizzera, con il Lago di Lugano in primo piano e il paesaggio urbano sullo sfondo."
+      },
+      "datePublished": "2026-05-04T02:38:54+00:00",
+      "dateModified": "2026-05-04T02:38:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/anguria-pannelli-incendio-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5516,6 +5516,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scudetto-varese-frontalieri-2026.title': 'Schwarz-blaue Meisterschaft: Varesotto feiert',
     'blog.article.scudetto-varese-frontalieri-2026.excerpt': 'Die Fans von Inter feiern den 21. Titel mit Festen auf den Plätzen von Varese und Gallarate. So verlief die Nacht vom 3. Mai 2026.',
     'blog.article.scudetto-varese-frontalieri-2026.imageAlt': 'Feier zur Meisterschaft des Inter in Varese',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.title': 'Feuerfeste Platten aus Wassermelonenkernen: Revolution für den Brandschutz',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.excerpt': 'Entdeckung der ETH Zürich: feuerfeste Platten aus Wassermelonenkernen. Mögliche Anwendungen im Tessin.',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.imageAlt': 'Luftaufnahme von Lugano, Tessin, Schweiz, mit dem Luganersee im Vordergrund und der Stadtlandschaft im Hintergrund.',
 };
 
 export default blogMetaDe;

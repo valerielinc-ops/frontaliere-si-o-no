@@ -17921,4 +17921,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'anguria-pannelli-incendio-ticino-2026',
+ category: 'novita',
+ date: '2026-05-04T02:38:54.048Z',
+ image: '/images/blog/anguria-pannelli-incendio-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

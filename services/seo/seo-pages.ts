@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1891,
+ "numberOfItems": 1892,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6529,7 +6529,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1888, "name": "Svizzera batte la Cechia ai rigori, raddrizzand...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-cechia-rigori-4-maggio-2026` },
           { "@type": "ListItem", "position": 1889, "name": "Orso ripreso in Valposchiavo: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/orso-valposchiavo-frontalieri-2026` },
           { "@type": "ListItem", "position": 1890, "name": "Thun campione svizzero di calcio per la prima v...", "url": `${BASE_URL}/articoli-frontaliere/thun-campionato-calcio-2026` },
-          { "@type": "ListItem", "position": 1891, "name": "Scudetto nerazzurro, il Varesotto festeggia", "url": `${BASE_URL}/articoli-frontaliere/scudetto-varese-frontalieri-2026` }
+          { "@type": "ListItem", "position": 1891, "name": "Scudetto nerazzurro, il Varesotto festeggia", "url": `${BASE_URL}/articoli-frontaliere/scudetto-varese-frontalieri-2026` },
+          { "@type": "ListItem", "position": 1892, "name": "Pannelli ignifughi con semi di anguria: rivoluz...", "url": `${BASE_URL}/articoli-frontaliere/anguria-pannelli-incendio-ticino-2026` }
  ]
  },
  {

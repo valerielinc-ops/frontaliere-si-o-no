@@ -5517,6 +5517,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scudetto-varese-frontalieri-2026.title': 'Scudetto nerazzurro, le Varesotto fête',
     'blog.article.scudetto-varese-frontalieri-2026.excerpt': 'Les supporters de l\'Inter célèbrent le 21e titre avec des festivités sur les places de Varese et Gallarate. Voici comment s\'est déroulée la nuit du 3 mai 2026.',
     'blog.article.scudetto-varese-frontalieri-2026.imageAlt': 'Célébration du championnat de l\'Inter à Varese',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.title': 'Panneaux ignifuges à base de graines de pastèque',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.excerpt': 'Découverte du Polytechnique de Zurich : des panneaux résistants au feu réalisés avec des graines de pastèque. Des applications possibles en Ticino.',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.imageAlt': 'Vue aérienne de Lugano, Tessin, Suisse, avec le lac de Lugano au premier plan et le paysage urbain à l\'arrière-plan.',
 };
 
 export default blogMetaFr;

@@ -5517,6 +5517,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scudetto-varese-frontalieri-2026.title': 'Scudetto nerazzurro, il Varesotto festeggia',
     'blog.article.scudetto-varese-frontalieri-2026.excerpt': 'I tifosi dell\'Inter celebrano il 21° titolo con festeggiamenti nelle piazze di Varese e Gallarate. Ecco come è andata la notte del 3 maggio 2026.',
     'blog.article.scudetto-varese-frontalieri-2026.imageAlt': 'Festa per lo scudetto dell\'Inter a Varese',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.title': 'Pannelli ignifughi con semi di anguria: rivoluzione per la sicurezza antincendio',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.excerpt': 'Scoperta del Politecnico di Zurigo: pannelli resistenti al fuoco realizzati con semi di anguria. Possibili applicazioni in Ticino.',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.imageAlt': 'Vista aerea di Lugano, Ticino, Svizzera, con il Lago di Lugano in primo piano e il paesaggio urbano sullo sfondo.',
 };
 
 export default blogMetaIt;

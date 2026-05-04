@@ -5516,6 +5516,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scudetto-varese-frontalieri-2026.title': 'Inter\'s 21st title celebrated in Varese and Gallarate',
     'blog.article.scudetto-varese-frontalieri-2026.excerpt': 'Inter fans celebrate the 21st title with festivities in the squares of Varese and Gallarate. Here\'s how the night of May 3, 2026 unfolded.',
     'blog.article.scudetto-varese-frontalieri-2026.imageAlt': 'Inter championship celebration in Varese',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.title': 'Fire-resistant panels made from watermelon seeds',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.excerpt': 'Discovery by ETH Zurich: fire-resistant panels made from watermelon seeds. Possible applications in Ticino.',
+    'blog.article.anguria-pannelli-incendio-ticino-2026.imageAlt': 'Aerial view of Lugano, Ticino, Switzerland, with Lake Lugano in the foreground and the cityscape in the background.',
 };
 
 export default blogMetaEn;

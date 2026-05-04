@@ -3081,6 +3081,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-orso-valposchiavo-frontalieri-2026': { name: 'Orso Valposchiavo', path: '/articoli-frontaliere/orso-valposchiavo-frontalieri-2026', parent: 'blog' },
     'blog-thun-campionato-calcio-2026': { name: 'Novità', path: '/articoli-frontaliere/thun-campionato-calcio-2026', parent: 'blog' },
     'blog-scudetto-varese-frontalieri-2026': { name: 'Scudetto Inter', path: '/articoli-frontaliere/scudetto-varese-frontalieri-2026', parent: 'blog' },
+    'blog-anguria-pannelli-incendio-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/anguria-pannelli-incendio-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
