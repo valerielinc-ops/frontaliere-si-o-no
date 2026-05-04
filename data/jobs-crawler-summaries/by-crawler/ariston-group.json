@@ -1,18 +1,49 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-05-03T20:52:42.261Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-05-04T10:16:36.834Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3216,
-  "avgDurationMs": 3216,
+  "durationMs": 2933,
+  "avgDurationMs": 2933,
   "durationHistory": [
-    3216
+    2933
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "TECNICO DI SERVIZIO ENERGIE RINNOVABILI",
+      "slug": "tecnico-di-servizio-energie-rinnovabili-ariston-group-bedano-ch-6930",
+      "url": "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-ENERGIE-RINNOVABILI-Beda-6930/1389819233/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1389819233/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Bedano, CH, 6930",
+      "addressLocality": "Bedano, CH, 6930",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-06-03",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "VERKAUFSBERATER/IN AUSSENDIENST (W/M) - REGION OBERWALLIS",
@@ -35,7 +66,7 @@
       "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-02",
+      "validThrough": "2026-06-03",
       "id": "ariston-group-8f87aad08aa9",
       "salaryMin": 58000,
       "salaryMax": 88000,
