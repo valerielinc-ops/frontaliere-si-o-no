@@ -5783,6 +5783,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.g7-evian-frontiere-chiuse-2026.title': 'G7 Evian: border closures, what changes for cross-border workers',
     'blog.article.g7-evian-frontiere-chiuse-2026.excerpt': 'Anti-G7 protests and possible partial closures of border crossings with France. Here\'s what you need to know if you live in Italy and work in Switzerland',
     'blog.article.g7-evian-frontiere-chiuse-2026.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
+    'blog.article.distributori-carburante-ticino-2026.title': 'Four gas stations in trouble: displayed prices different from actual ones',
+    'blog.article.distributori-carburante-ticino-2026.excerpt': 'The Guardia di Finanza of Como discovered irregularities in four fuel distributors in Ticino. Here\'s what changes for cross-border workers.',
+    'blog.article.distributori-carburante-ticino-2026.imageAlt': 'Close-up of a gas station pump in Ticino, Switzerland, with the Lugano lake and mountains in the background',
 };
 
 export default blogMetaEn;

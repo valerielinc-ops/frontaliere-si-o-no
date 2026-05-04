@@ -5784,6 +5784,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.g7-evian-frontiere-chiuse-2026.title': 'G7 Évian: fermetures frontalières, ce qui change pour les frontaliers',
     'blog.article.g7-evian-frontiere-chiuse-2026.excerpt': 'Manifestations anti-G7 et possibles fermetures partielles des postes frontaliers avec la France. Voici ce qu\'il faut savoir si vous vivez en Italie et travaillez en Suisse',
     'blog.article.g7-evian-frontiere-chiuse-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
+    'blog.article.distributori-carburante-ticino-2026.title': 'Quatre stations essence en difficulté: prix différents',
+    'blog.article.distributori-carburante-ticino-2026.excerpt': 'La Guardia di Finanza de Côme a découvert des irrégularités dans quatre distributeurs de carburant dans le Tessin. Voici ce qui change pour les frontaliers.',
+    'blog.article.distributori-carburante-ticino-2026.imageAlt': 'Gros plan d\'une pompe à essence à Ticino, Suisse, avec le lac de Lugano et les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -5784,6 +5784,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.g7-evian-frontiere-chiuse-2026.title': 'G7 Evian: possibili chiusure frontiere, cosa cambia per i frontalieri',
     'blog.article.g7-evian-frontiere-chiuse-2026.excerpt': 'Manifestazioni anti-G7 e possibili chiusure parziali dei valichi con la Francia. Ecco cosa sapere se vivi in Italia e lavori in Svizzera',
     'blog.article.g7-evian-frontiere-chiuse-2026.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
+    'blog.article.distributori-carburante-ticino-2026.title': 'Quattro distributori nei guai: prezzi esposti diversi da quelli praticati',
+    'blog.article.distributori-carburante-ticino-2026.excerpt': 'La Guardia di Finanza di Como ha scoperto irregolarità in quattro distributori di carburante nel Ticino. Ecco cosa cambia per i frontalieri.',
+    'blog.article.distributori-carburante-ticino-2026.imageAlt': 'Primo piano di una colonnina di distribuzione carburante in Ticino, con sullo sfondo il lago di Lugano e le montagne',
 };
 
 export default blogMetaIt;
