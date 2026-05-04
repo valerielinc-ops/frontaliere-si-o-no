@@ -5484,6 +5484,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lugano-young-boys-cornaredo-2026.title': 'Lugano-YB à Cornaredo: avant-dernier défi avant le déménagement',
     'blog.article.lugano-young-boys-cornaredo-2026.excerpt': 'Le Lugano accueille le Young Boys dans un match crucial pour l\'accès aux coupes européennes. Dernières rencontres à Cornaredo avant le transfert à l\'Ail Arena.',
     'blog.article.lugano-young-boys-cornaredo-2026.imageAlt': 'Stade de Cornaredo à Lugano pendant un match de football',
+    'blog.article.tragedia-falleatsche-frontalieri.title': 'Tragédie à la Fallätsche: un homme de 69 ans chute mortellement',
+    'blog.article.tragedia-falleatsche-frontalieri.excerpt': 'Un homme de 69 ans a fait une chute mortelle à la Fallätsche, une zone de loisirs près de Zurich. Voici ce qui s\'est passé.',
+    'blog.article.tragedia-falleatsche-frontalieri.imageAlt': 'Tragédie à Fallätsche: un homme de 69 ans tombe mortellement',
 };
 
 export default blogMetaFr;

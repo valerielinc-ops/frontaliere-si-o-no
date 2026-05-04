@@ -5483,6 +5483,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lugano-young-boys-cornaredo-2026.title': 'Lugano vs YB: crucial match before moving stadium',
     'blog.article.lugano-young-boys-cornaredo-2026.excerpt': 'Lugano hosts Young Boys in a crucial game for European cup access. Last matches at Cornaredo before moving to Ail Arena.',
     'blog.article.lugano-young-boys-cornaredo-2026.imageAlt': 'Cornaredo Stadium in Lugano during a football match',
+    'blog.article.tragedia-falleatsche-frontalieri.title': 'Tragedy at Fallätsche: 69-year-old man dies in fall',
+    'blog.article.tragedia-falleatsche-frontalieri.excerpt': 'A 69-year-old man fatally fell at Fallätsche, a recreational area near Zurich. Here\'s what happened.',
+    'blog.article.tragedia-falleatsche-frontalieri.imageAlt': 'Tragedy at Fallätsche: 69-year-old man fatally falls',
 };
 
 export default blogMetaEn;

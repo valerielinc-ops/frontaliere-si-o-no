@@ -11865,6 +11865,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tragedia-falleatsche-frontalieri': {
+    title: 'Tragedia alla Fallätsche: 69enne precipita mortalmente',
+    description: 'Un uomo di 69 anni è precipitato mortalmente alla Fallätsche, un\'area di svago vicino a Zurigo. Ecco cosa è successo. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, tragedia, alla, fallätsche, 69enne',
+    ogTitle: 'Tragedia alla Fallätsche: 69enne precipita mortalmente',
+    ogDescription: 'Un uomo di 69 anni è precipitato mortalmente alla Fallätsche, un\'area di svago vicino a Zurigo. Ecco cosa è successo.',
+    canonicalPath: '/articoli-frontaliere/tragedia-falleatsche-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tragedia alla Fallätsche: 69enne precipita mortalmente",
+      "description": "Un uomo di 69 anni è precipitato mortalmente alla Fallätsche, un'area di svago vicino a Zurigo. Ecco cosa è successo. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tragedia-falleatsche-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tragedia alla Fallätsche: uomo di 69 anni precipita mortalmente"
+      },
+      "datePublished": "2026-05-04T00:55:06+00:00",
+      "dateModified": "2026-05-04T00:55:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-falleatsche-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

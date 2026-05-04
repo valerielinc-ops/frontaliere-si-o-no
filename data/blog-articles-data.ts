@@ -17822,4 +17822,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tragedia-falleatsche-frontalieri',
+ category: 'novita',
+ date: '2026-05-04T00:55:06.400Z',
+ image: '/images/blog/tragedia-falleatsche-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
