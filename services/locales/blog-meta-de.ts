@@ -5603,6 +5603,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iran-invita-sacrificio-frontalieri-2026.title': 'Iran ruft Grenzgänger zum Opfer auf: Was sich im Tessin ändert',
     'blog.article.iran-invita-sacrificio-frontalieri-2026.excerpt': 'Die iranische Botschaft in Bern fördert die Janfada-Kampagne. Besorgnis in der Diaspora und bei den Schweizer Behörden.',
     'blog.article.iran-invita-sacrificio-frontalieri-2026.imageAlt': 'Iranische Familie in Tessin diskutiert über die Janfada-Kampagne',
+    'blog.article.piccaluga-udc-dialogo-apertura.title': 'Piccaluga: Dialog mit SVP, Norman und Claudio',
+    'blog.article.piccaluga-udc-dialogo-apertura.excerpt': 'Der Koordinator der Lega dei Ticinesi, Daniele Piccaluga, spricht über die wachsende Bewegung und die Unterschiede zwischen Norman Gobbi und Claudio Zali.',
+    'blog.article.piccaluga-udc-dialogo-apertura.imageAlt': 'Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

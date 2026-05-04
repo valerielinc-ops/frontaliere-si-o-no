@@ -13225,6 +13225,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-piccaluga-udc-dialogo-apertura': {
+    title: 'Piccaluga: «Con l\'UDC dialogo aperto, Norman e Claudio due anime diverse»',
+    description: 'Daniele Piccaluga, coordinatore della Lega dei Ticinesi, parla del movimento in crescita e delle differenze tra Norman Gobbi e Claudio Zali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, piccaluga, dialogo, aperto, norman',
+    ogTitle: 'Piccaluga: «Con l\'UDC dialogo aperto, Norman e Claudio due anime diverse»',
+    ogDescription: 'Daniele Piccaluga, coordinatore della Lega dei Ticinesi, parla del movimento in crescita e delle differenze tra Norman Gobbi e Claudio Zali.',
+    canonicalPath: '/articoli-frontaliere/piccaluga-udc-dialogo-apertura',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Piccaluga: «Con l'UDC dialogo aperto, Norman e Claudio due anime diverse»",
+      "description": "Daniele Piccaluga, coordinatore della Lega dei Ticinesi, parla del movimento in crescita e delle differenze tra Norman Gobbi e Claudio Zali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/piccaluga-udc-dialogo-apertura.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-05-04T06:10:51+00:00",
+      "dateModified": "2026-05-04T06:10:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piccaluga-udc-dialogo-apertura`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

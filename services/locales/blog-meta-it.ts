@@ -5604,6 +5604,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iran-invita-sacrificio-frontalieri-2026.title': 'Iran invita frontalieri al sacrificio: cosa cambia in Ticino',
     'blog.article.iran-invita-sacrificio-frontalieri-2026.excerpt': 'L\'ambasciata iraniana a Berna promuove la campagna Janfada. Preoccupazione tra la diaspora e autorità svizzere.',
     'blog.article.iran-invita-sacrificio-frontalieri-2026.imageAlt': 'Famiglia iraniana in Ticino discute della campagna Janfada',
+    'blog.article.piccaluga-udc-dialogo-apertura.title': 'Piccaluga: «Con l\'UDC dialogo aperto, Norman e Claudio due anime diverse»',
+    'blog.article.piccaluga-udc-dialogo-apertura.excerpt': 'Il coordinatore della Lega dei Ticinesi, Daniele Piccaluga, parla del movimento in crescita e delle differenze tra Norman Gobbi e Claudio Zali.',
+    'blog.article.piccaluga-udc-dialogo-apertura.imageAlt': 'Castelgrande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

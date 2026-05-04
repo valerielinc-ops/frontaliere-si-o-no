@@ -18182,4 +18182,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'piccaluga-udc-dialogo-apertura',
+ category: 'novita',
+ date: '2026-05-04T06:10:51.659Z',
+ image: '/images/blog/piccaluga-udc-dialogo-apertura.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

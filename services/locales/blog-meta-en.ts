@@ -5603,6 +5603,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iran-invita-sacrificio-frontalieri-2026.title': 'Iran calls on cross-border workers to sacrifice: changes in Ticino',
     'blog.article.iran-invita-sacrificio-frontalieri-2026.excerpt': 'The Iranian embassy in Bern promotes the Janfada campaign. Concern among the diaspora and Swiss authorities.',
     'blog.article.iran-invita-sacrificio-frontalieri-2026.imageAlt': 'Iranian family in Ticino discussing the Janfada campaign',
+    'blog.article.piccaluga-udc-dialogo-apertura.title': 'Piccaluga: \'Open dialogue with UDC, Norman and Claudio different souls\'',
+    'blog.article.piccaluga-udc-dialogo-apertura.excerpt': 'The coordinator of the Lega dei Ticinesi, Daniele Piccaluga, talks about the growing movement and the differences between Norman Gobbi and Claudio Zali.',
+    'blog.article.piccaluga-udc-dialogo-apertura.imageAlt': 'Castelgrande in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;
