@@ -3189,6 +3189,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-buoni-ristorante-mamme-monoparentali-ticino': { name: 'Buoni ristoranti', path: '/articoli-frontaliere/buoni-ristorante-mamme-monoparentali-ticino', parent: 'blog' },
     'blog-incendio-chiasso-operai-ricoverati': { name: 'Incendio Chiasso', path: '/articoli-frontaliere/incendio-chiasso-operai-ricoverati', parent: 'blog' },
     'blog-hodler-dipinto-eredita-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/hodler-dipinto-eredita-frontalieri', parent: 'blog' },
+    'blog-staffette-rossocrociate-pechino-2027': { name: 'Novità', path: '/articoli-frontaliere/staffette-rossocrociate-pechino-2027', parent: 'blog' },
  };
 
  const info = sectionNames[section];

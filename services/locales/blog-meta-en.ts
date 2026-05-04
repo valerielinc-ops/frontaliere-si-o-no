@@ -5840,6 +5840,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.hodler-dipinto-eredita-frontalieri.title': 'Hodler painting returned: a cross-border worker\'s story',
     'blog.article.hodler-dipinto-eredita-frontalieri.excerpt': 'A Hodler painting, sold under duress during the Nazi regime, is returned to the heirs. The story of Martha Nathan, a Swiss citizen and cross-border worker',
     'blog.article.hodler-dipinto-eredita-frontalieri.imageAlt': 'Ferdinand Hodler painting exhibited in a Swiss museum',
+    'blog.article.staffette-rossocrociate-pechino-2027.title': 'Only one Swiss relay team qualifies for Beijing 2027',
+    'blog.article.staffette-rossocrociate-pechino-2027.excerpt': 'The mixed 4x100 m relay team has qualified for the 2027 World Championships in Beijing, while other Swiss teams have been eliminated',
+    'blog.article.staffette-rossocrociate-pechino-2027.imageAlt': 'Swiss athletes running on a track with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

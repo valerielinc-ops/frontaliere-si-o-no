@@ -5840,6 +5840,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hodler-dipinto-eredita-frontalieri.title': 'Hodler-Gemälde: Geschichte eines Grenzgängers',
     'blog.article.hodler-dipinto-eredita-frontalieri.excerpt': 'Ein Gemälde von Hodler, das während des NS-Regimes unter Zwang verkauft wurde, kehrt zu den Erben zurück. Die Geschichte von Martha Nathan, Schweizer Bürgerin und Grenzgängerin',
     'blog.article.hodler-dipinto-eredita-frontalieri.imageAlt': 'Gemälde von Ferdinand Hodler in einem Schweizer Museum',
+    'blog.article.staffette-rossocrociate-pechino-2027.title': 'Nur eine Schweizer Staffel für Peking 2027 qualifiziert',
+    'blog.article.staffette-rossocrociate-pechino-2027.excerpt': 'Die 4x100 m Mixed-Staffel hat sich für die Weltmeisterschaften in Peking 2027 qualifiziert, während die anderen Schweizer Teams ausgeschieden sind',
+    'blog.article.staffette-rossocrociate-pechino-2027.imageAlt': 'Schweizer Athleten auf einer Laufbahn mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

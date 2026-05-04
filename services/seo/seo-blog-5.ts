@@ -15911,6 +15911,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-staffette-rossocrociate-pechino-2027': {
+    title: 'Solo una staffetta svizzera qualificata per Pechino 2027',
+    description: 'La staffetta 4x100 m mista svizzera si qualifica per i Mondiali di Pechino 2027, mentre le altre squadre svizzere sono state eliminate. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, solo, staffetta, qualificata, pechino',
+    ogTitle: 'Solo una staffetta svizzera qualificata per Pechino 2027',
+    ogDescription: 'La staffetta 4x100 m mista svizzera si qualifica per i Mondiali di Pechino 2027, mentre le altre squadre svizzere sono state eliminate',
+    canonicalPath: '/articoli-frontaliere/staffette-rossocrociate-pechino-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Solo una staffetta svizzera qualificata per Pechino 2027",
+      "description": "La staffetta 4x100 m mista svizzera si qualifica per i Mondiali di Pechino 2027, mentre le altre squadre svizzere sono state eliminate. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/staffette-rossocrociate-pechino-2027.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Atleti svizzeri in gara su una pista di atletica con il Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-04T18:55:21+00:00",
+      "dateModified": "2026-05-04T18:55:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/staffette-rossocrociate-pechino-2027`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

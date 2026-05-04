@@ -18893,4 +18893,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'staffette-rossocrociate-pechino-2027',
+ category: 'novita',
+ date: '2026-05-04T18:55:21.727Z',
+ image: '/images/blog/staffette-rossocrociate-pechino-2027.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5841,6 +5841,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.hodler-dipinto-eredita-frontalieri.title': 'Hodler restituito: storia di un dipinto e di una frontaliere',
     'blog.article.hodler-dipinto-eredita-frontalieri.excerpt': 'Un dipinto di Hodler, venduto sotto coercizione durante il regime nazista, torna agli eredi. La storia di Martha Nathan, cittadina svizzera e frontaliere',
     'blog.article.hodler-dipinto-eredita-frontalieri.imageAlt': 'Dipinto di Ferdinand Hodler esposto in un museo in Svizzera',
+    'blog.article.staffette-rossocrociate-pechino-2027.title': 'Solo una staffetta svizzera qualificata per Pechino 2027',
+    'blog.article.staffette-rossocrociate-pechino-2027.excerpt': 'La staffetta 4x100 m mista si è qualificata per i Mondiali di Pechino 2027, mentre le altre squadre svizzere sono state eliminate',
+    'blog.article.staffette-rossocrociate-pechino-2027.imageAlt': 'Atleti svizzeri in gara su una pista di atletica con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
