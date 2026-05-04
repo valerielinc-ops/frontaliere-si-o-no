@@ -3143,6 +3143,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ponti-primaverili-traffico-2026': { name: 'Ponti primaverili', path: '/articoli-frontaliere/ponti-primaverili-traffico-2026', parent: 'blog' },
     'blog-perbacco-bianchi-bellinzona-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/perbacco-bianchi-bellinzona-2026', parent: 'blog' },
     'blog-bianconeri-corto-muso-2026': { name: 'Novità', path: '/articoli-frontaliere/bianconeri-corto-muso-2026', parent: 'blog' },
+    'blog-stangata-nascosta-tasse-immobiliari': { name: 'Tasse immobiliari', path: '/articoli-frontaliere/stangata-nascosta-tasse-immobiliari', parent: 'blog' },
  };
 
  const info = sectionNames[section];

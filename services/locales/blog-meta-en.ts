@@ -5702,6 +5702,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bianconeri-corto-muso-2026.title': 'The Bianconeri love the short muzzle: four consecutive wins',
     'blog.article.bianconeri-corto-muso-2026.excerpt': 'The Bianconeri win their fourth consecutive 1-0, tying with St. Gallen in second place.',
     'blog.article.bianconeri-corto-muso-2026.imageAlt': 'A football match in Lugano, with fans celebrating in the stands and players in action on the field.',
+    'blog.article.stangata-nascosta-tasse-immobiliari.title': 'Hidden tax hike risk on properties in Ticino',
+    'blog.article.stangata-nascosta-tasse-immobiliari.excerpt': 'Families and businesses in Ticino are worried about the revision of property valuations. Here\'s what\'s changing and how to protect yourself.',
+    'blog.article.stangata-nascosta-tasse-immobiliari.imageAlt': 'Lake Lugano with modern buildings in the background',
 };
 
 export default blogMetaEn;

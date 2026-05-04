@@ -5703,6 +5703,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bianconeri-corto-muso-2026.title': 'I bianconeri amano il corto muso: quattro vittorie consecutive',
     'blog.article.bianconeri-corto-muso-2026.excerpt': 'I bianconeri vincono il quarto 1-0 consecutivo, agganciando il San Gallo in seconda posizione.',
     'blog.article.bianconeri-corto-muso-2026.imageAlt': 'Una partita di calcio a Lugano, con tifosi che festeggiano nelle tribune e i giocatori in azione sul campo.',
+    'blog.article.stangata-nascosta-tasse-immobiliari.title': 'Tasse sugli immobili: il rischio di una stangata nascosta',
+    'blog.article.stangata-nascosta-tasse-immobiliari.excerpt': 'Famiglie e imprese in allarme per la revisione dei valori di stima immobiliari in Ticino. Ecco cosa cambia e come difendersi.',
+    'blog.article.stangata-nascosta-tasse-immobiliari.imageAlt': 'Lago di Lugano con edifici moderni sullo sfondo',
 };
 
 export default blogMetaIt;

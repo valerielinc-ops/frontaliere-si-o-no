@@ -18479,4 +18479,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'stangata-nascosta-tasse-immobiliari',
+ category: 'fiscale',
+ date: '2026-05-04T10:24:35.344Z',
+ image: '/images/blog/stangata-nascosta-tasse-immobiliari.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

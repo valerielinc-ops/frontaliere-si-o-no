@@ -14347,6 +14347,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stangata-nascosta-tasse-immobiliari': {
+    title: 'Tasse sugli immobili: il rischio di una stangata nascosta',
+    description: 'Famiglie e imprese in allarme per la revisione dei valori di stima immobiliari in Ticino. Ecco cosa cambia e come difendersi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasse, sugli, immobili, rischio',
+    ogTitle: 'Tasse sugli immobili: il rischio di una stangata nascosta',
+    ogDescription: 'Famiglie e imprese in allarme per la revisione dei valori di stima immobiliari in Ticino. Ecco cosa cambia e come difendersi.',
+    canonicalPath: '/articoli-frontaliere/stangata-nascosta-tasse-immobiliari',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasse sugli immobili: il rischio di una stangata nascosta",
+      "description": "Famiglie e imprese in allarme per la revisione dei valori di stima immobiliari in Ticino. Ecco cosa cambia e come difendersi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stangata-nascosta-tasse-immobiliari.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con edifici moderni sullo sfondo"
+      },
+      "datePublished": "2026-05-04T10:24:35+00:00",
+      "dateModified": "2026-05-04T10:24:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stangata-nascosta-tasse-immobiliari`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

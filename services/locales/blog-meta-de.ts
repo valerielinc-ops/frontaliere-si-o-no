@@ -5702,6 +5702,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bianconeri-corto-muso-2026.title': 'Die Bianconeri lieben den Kurzschnauzer: vier Siege in Folge',
     'blog.article.bianconeri-corto-muso-2026.excerpt': 'Die Bianconeri gewinnen das vierte 1-0-Spiel in Folge und erreichen damit den zweiten Platz mit dem FC St. Gallen.',
     'blog.article.bianconeri-corto-muso-2026.imageAlt': 'Ein Fussballspiel in Lugano, mit Fans, die in den Tribünen feiern und Spielern, die auf dem Feld in Aktion sind.',
+    'blog.article.stangata-nascosta-tasse-immobiliari.title': 'Immobiliensteuern: versteckte Kostenfalle',
+    'blog.article.stangata-nascosta-tasse-immobiliari.excerpt': 'Familien und Unternehmen in Alarmbereitschaft wegen der Überprüfung der Immobilienbewertungen im Tessin. Hier erfahren Sie, was sich ändert und wie Sie sich schützen können.',
+    'blog.article.stangata-nascosta-tasse-immobiliari.imageAlt': 'Luganersee mit modernen Gebäuden im Hintergrund',
 };
 
 export default blogMetaDe;
