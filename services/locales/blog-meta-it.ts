@@ -5508,6 +5508,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.title': 'Svizzera batte la Cechia ai rigori, raddrizzando il weekend',
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.excerpt': 'La nazionale svizzera di hockey vince ai rigori contro la Repubblica Ceca, chiudendo in positivo il weekend dopo due sconfitte.',
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.imageAlt': 'Partita di hockey tra Svizzera e Repubblica Ceca alla Budvar Arena',
+    'blog.article.orso-valposchiavo-frontalieri-2026.title': 'Orso ripreso in Valposchiavo: cosa cambia per i frontalieri',
+    'blog.article.orso-valposchiavo-frontalieri-2026.excerpt': 'Un orso è stato avvistato in Valposchiavo dopo anni di assenza. Ecco cosa sapere per chi lavora in Svizzera e vive in Italia.',
+    'blog.article.orso-valposchiavo-frontalieri-2026.imageAlt': 'Orso ripreso in Valposchiavo da una fototrappola',
 };
 
 export default blogMetaIt;

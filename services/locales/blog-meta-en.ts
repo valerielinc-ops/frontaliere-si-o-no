@@ -5507,6 +5507,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.title': 'Switzerland beats Czech Republic in penalty shootout, salvaging the weekend',
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.excerpt': 'The Swiss national hockey team wins in a penalty shootout against the Czech Republic, ending the weekend on a positive note after two defeats.',
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.imageAlt': 'Hockey match between Switzerland and the Czech Republic at Budvar Arena',
+    'blog.article.orso-valposchiavo-frontalieri-2026.title': 'Bear spotted in Valposchiavo: what changes for cross-border workers',
+    'blog.article.orso-valposchiavo-frontalieri-2026.excerpt': 'A bear has been spotted in Valposchiavo after years of absence. Here\'s what cross-border workers need to know.',
+    'blog.article.orso-valposchiavo-frontalieri-2026.imageAlt': 'Bear captured in Valposchiavo by a wildlife camera',
 };
 
 export default blogMetaEn;

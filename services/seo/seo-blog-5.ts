@@ -12137,6 +12137,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-orso-valposchiavo-frontalieri-2026': {
+    title: 'Orso ripreso in Valposchiavo: cosa cambia per i frontalieri',
+    description: 'Un orso è stato avvistato in Valposchiavo dopo anni di assenza. Ecco cosa sapere per chi lavora in Svizzera e vive in Italia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, orso, ripreso, valposchiavo, cosa',
+    ogTitle: 'Orso ripreso in Valposchiavo: cosa cambia per i frontalieri',
+    ogDescription: 'Un orso è stato avvistato in Valposchiavo dopo anni di assenza. Ecco cosa sapere per chi lavora in Svizzera e vive in Italia.',
+    canonicalPath: '/articoli-frontaliere/orso-valposchiavo-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orso ripreso in Valposchiavo: cosa cambia per i frontalieri",
+      "description": "Un orso è stato avvistato in Valposchiavo dopo anni di assenza. Ecco cosa sapere per chi lavora in Svizzera e vive in Italia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/orso-valposchiavo-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Orso ripreso in Valposchiavo da una fototrappola"
+      },
+      "datePublished": "2026-05-04T02:05:34+00:00",
+      "dateModified": "2026-05-04T02:05:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/orso-valposchiavo-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -17894,4 +17894,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'orso-valposchiavo-frontalieri-2026',
+ category: 'novita',
+ date: '2026-05-04T02:05:34.253Z',
+ image: '/images/blog/orso-valposchiavo-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5507,6 +5507,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.title': 'Schweiz besiegt Tschechien im Elfmeterschießen und rettet das Wochenende',
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.excerpt': 'Die Schweizer Eishockeynationalmannschaft gewinnt im Elfmeterschießen gegen die Tschechische Republik und beendet das Wochenende nach zwei Niederlagen positiv.',
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.imageAlt': 'Eishockeyspiel zwischen der Schweiz und der Tschechischen Republik in der Budvar Arena',
+    'blog.article.orso-valposchiavo-frontalieri-2026.title': 'Bär in Valposchiavo gesichtet: Was Grenzgänger wissen müssen',
+    'blog.article.orso-valposchiavo-frontalieri-2026.excerpt': 'Nach Jahren der Abwesenheit wurde ein Bär in Valposchiavo gesichtet. Hier erfahren Sie, was Sie wissen müssen, wenn Sie in der Schweiz arbeiten und in Italien leben.',
+    'blog.article.orso-valposchiavo-frontalieri-2026.imageAlt': 'Bär in Valposchiavo von einer Wildkamera aufgenommen',
 };
 
 export default blogMetaDe;

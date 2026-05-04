@@ -5508,6 +5508,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.title': 'La Suisse bat la République tchèque aux tirs au but, redressant le week-end',
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.excerpt': 'L\'équipe nationale suisse de hockey gagne aux tirs au but contre la République tchèque, clôturant le week-end positivement après deux défaites.',
     'blog.article.svizzera-cechia-rigori-4-maggio-2026.imageAlt': 'Match de hockey entre la Suisse et la République tchèque à la Budvar Arena',
+    'blog.article.orso-valposchiavo-frontalieri-2026.title': 'Un ours repéré en Valposchiavo : ce qui change pour les frontaliers',
+    'blog.article.orso-valposchiavo-frontalieri-2026.excerpt': 'Un ours a été aperçu en Valposchiavo après des années d\'absence. Voici ce qu\'il faut savoir pour ceux qui travaillent en Suisse et vivent en Italie.',
+    'blog.article.orso-valposchiavo-frontalieri-2026.imageAlt': 'Ours capturé à Valposchiavo par un piège photographique',
 };
 
 export default blogMetaFr;
