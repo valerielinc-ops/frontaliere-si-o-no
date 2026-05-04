@@ -3103,6 +3103,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-confine-vacallo-clandestini-2026': { name: 'Confine Vacallo', path: '/articoli-frontaliere/confine-vacallo-clandestini-2026', parent: 'blog' },
     'blog-morte-alex-zanardi-impatti-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/morte-alex-zanardi-impatti-frontalieri', parent: 'blog' },
     'blog-premio-walo-2026-frontalieri': { name: 'Premio Walo', path: '/articoli-frontaliere/premio-walo-2026-frontalieri', parent: 'blog' },
+    'blog-stresa-espulsione-egiziano-2026': { name: 'Novità', path: '/articoli-frontaliere/stresa-espulsione-egiziano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

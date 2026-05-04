@@ -5582,6 +5582,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.premio-walo-2026-frontalieri.title': 'Walo Prize 2026: Hecht and Stephan Eicher triumph',
     'blog.article.premio-walo-2026-frontalieri.excerpt': 'The 50th edition of the Walo Prize awarded the Hecht as the best group and Stephan Eicher in the Pop/Rock Singing category.',
     'blog.article.premio-walo-2026-frontalieri.imageAlt': 'Walo Prize 2026, Zurich, music, ceremony',
+    'blog.article.stresa-espulsione-egiziano-2026.title': 'Egyptian citizen expelled from Stresa, no political asylum',
+    'blog.article.stresa-espulsione-egiziano-2026.excerpt': 'An Egyptian citizen was expelled from Stresa after the refusal of the political asylum request. Here\'s what changes for cross-border workers.',
+    'blog.article.stresa-espulsione-egiziano-2026.imageAlt': 'Lake Lugano landscape with Swiss-Italian border details',
 };
 
 export default blogMetaEn;

@@ -5583,6 +5583,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.premio-walo-2026-frontalieri.title': 'Prix Walo 2026: Hecht et Stephan Eicher triomphent',
     'blog.article.premio-walo-2026-frontalieri.excerpt': 'La 50e édition du Prix Walo a récompensé les Hecht comme meilleur groupe et Stephan Eicher dans la catégorie Chant Pop/Rock.',
     'blog.article.premio-walo-2026-frontalieri.imageAlt': 'Prix Walo 2026, Zurich, musique, cérémonie',
+    'blog.article.stresa-espulsione-egiziano-2026.title': 'Stresa: expulsion d\'un citoyen égyptien, pas de droit d\'asile',
+    'blog.article.stresa-espulsione-egiziano-2026.excerpt': 'Un citoyen égyptien a été expulsé de Stresa après le refus de sa demande d\'asile politique. Voici ce qui change pour les frontaliers.',
+    'blog.article.stresa-espulsione-egiziano-2026.imageAlt': 'Panorama du lac de Lugano avec des détails de la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

@@ -12987,6 +12987,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stresa-espulsione-egiziano-2026': {
+    title: 'Stresa: espulso cittadino egiziano, nessun diritto all\'asilo politico',
+    description: 'Un cittadino egiziano è stato espulso da Stresa dopo il rifiuto della richiesta di asilo politico. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, stresa, espulso, cittadino, egiziano',
+    ogTitle: 'Stresa: espulso cittadino egiziano, nessun diritto all\'asilo politico',
+    ogDescription: 'Un cittadino egiziano è stato espulso da Stresa dopo il rifiuto della richiesta di asilo politico. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/stresa-espulsione-egiziano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stresa: espulso cittadino egiziano, nessun diritto all'asilo politico",
+      "description": "Un cittadino egiziano è stato espulso da Stresa dopo il rifiuto della richiesta di asilo politico. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stresa-espulsione-egiziano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Lago di Lugano con dettagli del confine svizzero-italiano"
+      },
+      "datePublished": "2026-05-04T05:24:52+00:00",
+      "dateModified": "2026-05-04T05:24:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stresa-espulsione-egiziano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
