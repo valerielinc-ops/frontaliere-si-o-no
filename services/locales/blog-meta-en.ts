@@ -5858,6 +5858,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.barometro-kof-aprile-2026-prospettive-modeste.title': 'KOF Barometer: Swiss economy slightly improves but outlook modest',
     'blog.article.barometro-kof-aprile-2026-prospettive-modeste.excerpt': 'The KOF barometer stands at 97.9 points in April, but the Swiss economy remains below the long-term average of 100.',
     'blog.article.barometro-kof-aprile-2026-prospettive-modeste.imageAlt': 'View of Lake Lugano with modern buildings in the background',
+    'blog.article.elicottero-mezzovico-frontalieri.title': 'Helicopter crashes in Mezzovico: six injured, one serious',
+    'blog.article.elicottero-mezzovico-frontalieri.excerpt': 'A helicopter crashed during landing in Mezzovico-Vira, six people injured, one in serious condition.',
+    'blog.article.elicottero-mezzovico-frontalieri.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

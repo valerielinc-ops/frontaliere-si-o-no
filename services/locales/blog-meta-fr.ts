@@ -5859,6 +5859,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.barometro-kof-aprile-2026-prospettive-modeste.title': 'Baromètre KOF: légère amélioration de l\'économie suisse',
     'blog.article.barometro-kof-aprile-2026-prospettive-modeste.excerpt': 'Le baromètre du KOF affiche 97,9 points en avril, mais l\'économie helvétique reste en dessous de la moyenne pluriannuelle de 100.',
     'blog.article.barometro-kof-aprile-2026-prospettive-modeste.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes en arrière-plan',
+    'blog.article.elicottero-mezzovico-frontalieri.title': 'Hélicoptère s\'écrase à Mezzovico: six blessés, un grave',
+    'blog.article.elicottero-mezzovico-frontalieri.excerpt': 'Un hélicoptère s\'est écrasé à l\'atterrissage à Mezzovico-Vira, six personnes blessées, une en graves conditions.',
+    'blog.article.elicottero-mezzovico-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

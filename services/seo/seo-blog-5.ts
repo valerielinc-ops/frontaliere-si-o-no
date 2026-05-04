@@ -16115,6 +16115,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-elicottero-mezzovico-frontalieri': {
+    title: 'Elicottero precipita a Mezzovico: sei feriti, uno grave',
+    description: 'Un elicottero precipita durante l\'atterraggio a Mezzovico-Vira, sei persone ferite, una in gravi condizioni. Indagini in corso sulle cause. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, elicottero, precipita, mezzovico, feriti',
+    ogTitle: 'Elicottero precipita a Mezzovico: sei feriti, uno grave',
+    ogDescription: 'Un elicottero precipita durante l\'atterraggio a Mezzovico-Vira, sei persone ferite, una in gravi condizioni. Indagini in corso sulle cause.',
+    canonicalPath: '/articoli-frontaliere/elicottero-mezzovico-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elicottero precipita a Mezzovico: sei feriti, uno grave",
+      "description": "Un elicottero precipita durante l'atterraggio a Mezzovico-Vira, sei persone ferite, una in gravi condizioni. Indagini in corso sulle cause. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/elicottero-mezzovico-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-04T19:58:53+00:00",
+      "dateModified": "2026-05-04T19:58:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/elicottero-mezzovico-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5858,6 +5858,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.barometro-kof-aprile-2026-prospettive-modeste.title': 'KOF-Barometer: Schweizer Wirtschaft leicht verbessert, aber bescheiden',
     'blog.article.barometro-kof-aprile-2026-prospettive-modeste.excerpt': 'Das KOF-Barometer liegt im April bei 97,9 Punkten, doch die Schweizer Wirtschaft bleibt unter dem langjährigen Durchschnitt von 100.',
     'blog.article.barometro-kof-aprile-2026-prospettive-modeste.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden im Hintergrund',
+    'blog.article.elicottero-mezzovico-frontalieri.title': 'Hubschrauberabsturz in Mezzovico: sechs Verletzte, einer schwer',
+    'blog.article.elicottero-mezzovico-frontalieri.excerpt': 'Ein Hubschrauber ist beim Landeanflug in Mezzovico-Vira abgestürzt. Sechs Personen wurden verletzt, eine davon schwer.',
+    'blog.article.elicottero-mezzovico-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

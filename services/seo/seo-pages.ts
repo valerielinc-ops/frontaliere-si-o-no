@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2005,
+ "numberOfItems": 2006,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6643,7 +6643,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2002, "name": "Boom di viaggiatori sui treni elvetici", "url": `${BASE_URL}/articoli-frontaliere/boom-viaggiatori-treni-2026-ticino` },
           { "@type": "ListItem", "position": 2003, "name": "Neutralizzazione stime immobiliari: difesa dei ...", "url": `${BASE_URL}/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026` },
           { "@type": "ListItem", "position": 2004, "name": "Neutralizzazione stime immobiliari: perché il T...", "url": `${BASE_URL}/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026-ticino` },
-          { "@type": "ListItem", "position": 2005, "name": "Barometro KOF: economia svizzera in leggero mig...", "url": `${BASE_URL}/articoli-frontaliere/barometro-kof-aprile-2026-prospettive-modeste` }
+          { "@type": "ListItem", "position": 2005, "name": "Barometro KOF: economia svizzera in leggero mig...", "url": `${BASE_URL}/articoli-frontaliere/barometro-kof-aprile-2026-prospettive-modeste` },
+          { "@type": "ListItem", "position": 2006, "name": "Elicottero precipita a Mezzovico: sei feriti, u...", "url": `${BASE_URL}/articoli-frontaliere/elicottero-mezzovico-frontalieri` }
  ]
  },
  {

@@ -18947,4 +18947,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'elicottero-mezzovico-frontalieri',
+ category: 'novita',
+ date: '2026-05-04T19:58:53.734Z',
+ image: '/images/blog/elicottero-mezzovico-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
