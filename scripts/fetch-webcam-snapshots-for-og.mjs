@@ -45,6 +45,35 @@ const TARGET_HEIGHT = 360;
 const JPEG_QUALITY = 80;
 const MAX_BYTES = 200 * 1024; // 200 KB per file
 
+// F5 BIG-IP ASM on www4.ti.ch sets session cookies (dtCookie, BIGipServer*,
+// TS*) on the first response. Subsequent requests from a CI Azure datacenter
+// IP without those cookies get 403 — that's why crossings beyond the first
+// one ('chiasso-strada', 'gaggiolo', etc.) fail with the generic "fetch
+// failed" while the very first crossing succeeds. Mirrors the cookie jar
+// `analyze-webcam-frame.mjs` already uses for the runtime traffic-monitor
+// fetcher (commit d8d71dbd1e).
+const tiChCookieJar = new Map();
+
+function buildCookieHeader() {
+  if (tiChCookieJar.size === 0) return undefined;
+  return [...tiChCookieJar.entries()].map(([k, v]) => `${k}=${v}`).join('; ');
+}
+
+function updateCookieJar(response) {
+  // getSetCookie() returns each Set-Cookie header as a separate string (Node 20+).
+  const setCookies = response.headers.getSetCookie?.() ?? [];
+  for (const cookie of setCookies) {
+    const [nameValue] = cookie.split(';');
+    const eqIdx = nameValue.indexOf('=');
+    if (eqIdx > 0) {
+      tiChCookieJar.set(
+        nameValue.slice(0, eqIdx).trim(),
+        nameValue.slice(eqIdx + 1).trim(),
+      );
+    }
+  }
+}
+
 // Mirror of borderWaitPagesPlugin.ts#slugifyName — MUST stay in sync.
 function slugifyName(name) {
   return name
@@ -69,14 +98,25 @@ export async function fetchImageBytes(url, timeoutMs = FETCH_TIMEOUT_MS, fetchFn
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), timeoutMs);
   try {
+    const cookieHeader = buildCookieHeader();
     const res = await fetchFn(url, {
       signal: ctrl.signal,
-      headers: { 'User-Agent': USER_AGENT, Accept: 'image/*' },
+      headers: {
+        'User-Agent': USER_AGENT,
+        // Referer + Accept improve compatibility with F5 BIG-IP ASM rules
+        // that some Canton Ticino services apply to direct image hits.
+        'Referer': 'https://www4.ti.ch/',
+        'Accept': 'image/gif,image/*,*/*',
+        ...(cookieHeader ? { 'Cookie': cookieHeader } : {}),
+      },
       redirect: 'follow',
     });
     if (!res.ok) {
       throw new Error(`HTTP ${res.status} ${res.statusText}`);
     }
+    // Persist cookies set by THIS response so the next image in the loop
+    // re-uses them — bypassing the 403-on-no-cookies path.
+    updateCookieJar(res);
     const arr = await res.arrayBuffer();
     return Buffer.from(arr);
   } finally {
