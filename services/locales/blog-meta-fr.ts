@@ -5814,6 +5814,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.autolaghi-chiusura-barriere-antirumore-2026.title': 'Autoroute des lacs: fermeture nocturne pour travaux anti-bruit',
     'blog.article.autolaghi-chiusura-barriere-antirumore-2026.excerpt': 'L\'autoroute A8 Milan-Varèse sera fermée pendant deux nuits entre Busto Arsizio et Gallarate en direction de Varèse pour des travaux sur les barrières anti-bruit.',
     'blog.article.autolaghi-chiusura-barriere-antirumore-2026.imageAlt': 'Autoroute A8 des Lacs avec des travaux en cours et des barrières antibruit',
+    'blog.article.festa-mamma-solidarieta-2026.title': 'Fête des mères solidaire: bons pour restaurants à familles monoparentales',
+    'blog.article.festa-mamma-solidarieta-2026.excerpt': 'Soccorso d\'Inverno et GastroTicino offrent des bons pour la Fête des mères à 26 familles monoparentales en difficulté économique',
+    'blog.article.festa-mamma-solidarieta-2026.imageAlt': 'Une mère et une enfant souriantes dans un restaurant à Lugano',
 };
 
 export default blogMetaFr;

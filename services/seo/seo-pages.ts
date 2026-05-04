@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1990,
+ "numberOfItems": 1991,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6628,7 +6628,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1987, "name": "ABT: piazza finanziaria ticinese più solida che...", "url": `${BASE_URL}/articoli-frontaliere/banca-piazza-petruzzella-abt-2026` },
           { "@type": "ListItem", "position": 1988, "name": "Swiss Market Index in crescita, ma con timori p...", "url": `${BASE_URL}/articoli-frontaliere/swiss-market-index-crescita-2026` },
           { "@type": "ListItem", "position": 1989, "name": "COMCO apre inchieste su keyword bidding: viaggi...", "url": `${BASE_URL}/articoli-frontaliere/comco-keyword-bidding-inchieste` },
-          { "@type": "ListItem", "position": 1990, "name": "Autolaghi: chiusura notturna per lavori alle ba...", "url": `${BASE_URL}/articoli-frontaliere/autolaghi-chiusura-barriere-antirumore-2026` }
+          { "@type": "ListItem", "position": 1990, "name": "Autolaghi: chiusura notturna per lavori alle ba...", "url": `${BASE_URL}/articoli-frontaliere/autolaghi-chiusura-barriere-antirumore-2026` },
+          { "@type": "ListItem", "position": 1991, "name": "Festa della mamma solidale: buoni per ristorant...", "url": `${BASE_URL}/articoli-frontaliere/festa-mamma-solidarieta-2026` }
  ]
  },
  {

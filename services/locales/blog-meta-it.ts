@@ -5814,6 +5814,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.autolaghi-chiusura-barriere-antirumore-2026.title': 'Autolaghi: chiusura notturna per lavori alle barriere antirumore',
     'blog.article.autolaghi-chiusura-barriere-antirumore-2026.excerpt': 'L\'autostrada A8 Milano-Varese sarà chiusa per due notti tra Busto Arsizio e Gallarate verso Varese per lavori alle barriere antirumore.',
     'blog.article.autolaghi-chiusura-barriere-antirumore-2026.imageAlt': 'Autostrada A8 dei Laghi con lavori in corso e barriere antirumore',
+    'blog.article.festa-mamma-solidarieta-2026.title': 'Festa della mamma solidale: buoni per ristoranti a famiglie monoparentali',
+    'blog.article.festa-mamma-solidarieta-2026.excerpt': 'Soccorso d\'Inverno e GastroTicino regalano buoni per la Festa della mamma a 26 famiglie monoparentali in difficoltà economica',
+    'blog.article.festa-mamma-solidarieta-2026.imageAlt': 'Una mamma e una bambina sorridenti in un ristorante a Lugano',
 };
 
 export default blogMetaIt;

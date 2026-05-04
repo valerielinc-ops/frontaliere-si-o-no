@@ -5813,6 +5813,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.autolaghi-chiusura-barriere-antirumore-2026.title': 'Autostrada A8: nighttime closure for noise barrier work',
     'blog.article.autolaghi-chiusura-barriere-antirumore-2026.excerpt': 'The A8 Milan-Varese motorway will be closed for two nights between Busto Arsizio and Gallarate towards Varese for noise barrier work.',
     'blog.article.autolaghi-chiusura-barriere-antirumore-2026.imageAlt': 'A8 Highway of the Lakes with ongoing work and noise barriers',
+    'blog.article.festa-mamma-solidarieta-2026.title': 'Solidarity Mother\'s Day: restaurant vouchers for single-parent families',
+    'blog.article.festa-mamma-solidarieta-2026.excerpt': 'Soccorso d\'Inverno and GastroTicino gift Mother\'s Day vouchers to 26 struggling single-parent families',
+    'blog.article.festa-mamma-solidarieta-2026.imageAlt': 'A smiling mother and child in a restaurant in Lugano',
 };
 
 export default blogMetaEn;
