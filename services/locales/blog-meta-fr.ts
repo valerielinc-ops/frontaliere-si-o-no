@@ -5694,6 +5694,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calcio-alpino-ticino-2026.title': 'Tournoi Alge Alp Sport: football alpin au Tessin du 14 au 17 mai',
     'blog.article.calcio-alpino-ticino-2026.excerpt': 'Du 14 au 17 mai, Bellinzone, Tenero et Gambarogno accueilleront le tournoi Alge Alp Sport, un événement international de football jeune et inclusif.',
     'blog.article.calcio-alpino-ticino-2026.imageAlt': 'Jeunes footballeurs en action lors d\'un tournoi en Tessin, avec des spectateurs et une atmosphère inclusive',
+    'blog.article.ponti-primaverili-traffico-2026.title': 'Ponts printaniers: trafic accru sur route et rail',
+    'blog.article.ponti-primaverili-traffico-2026.excerpt': 'Les CFF renforcent l\'offre avec 58 trains spéciaux et 130.000 places supplémentaires. USTRA recommande des alternatives pour éviter les embouteillages.',
+    'blog.article.ponti-primaverili-traffico-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des eaux cristallines et des montagnes environnantes',
 };
 
 export default blogMetaFr;
