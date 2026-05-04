@@ -5610,6 +5610,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bonifici-ritardo-frontalieri-ticino.title': 'Virements en retard : que faire avant de s\'inquiéter',
     'blog.article.bonifici-ritardo-frontalieri-ticino.excerpt': 'Guide pratique pour les frontaliers sur la gestion des retards de virements entre la Suisse et l\'Italie, avec des délais et des règles spécifiques',
     'blog.article.bonifici-ritardo-frontalieri-ticino.imageAlt': 'Personne vérifiant son compte bancaire sur un ordinateur portable près du lac de Lugano',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.title': 'Location de voiture : conseils pour frontaliers',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.excerpt': 'Comparez les tarifs, vérifiez l\'état du véhicule et contrôlez les couvertures d\'assurance pour éviter les mauvaises surprises',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.imageAlt': 'Agence de location de voitures à Lugano avec vue sur le lac et les montagnes',
 };
 
 export default blogMetaFr;

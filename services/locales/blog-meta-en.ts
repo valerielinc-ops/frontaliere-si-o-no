@@ -5609,6 +5609,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bonifici-ritardo-frontalieri-ticino.title': 'Delayed transfers: what to do before panicking',
     'blog.article.bonifici-ritardo-frontalieri-ticino.excerpt': 'Practical guide for cross-border workers on how to manage delays in transfers between Switzerland and Italy, with specific times and rules',
     'blog.article.bonifici-ritardo-frontalieri-ticino.imageAlt': 'Person checking their bank account on a laptop near Lake Lugano',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.title': 'Car rental tips for cross-border workers',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.excerpt': 'Compare rates, check the vehicle\'s condition, and verify insurance coverage to avoid unpleasant surprises',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.imageAlt': 'Car rental agency in Lugano with a view of the lake and mountains',
 };
 
 export default blogMetaEn;

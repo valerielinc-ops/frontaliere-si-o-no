@@ -5609,6 +5609,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bonifici-ritardo-frontalieri-ticino.title': 'Verzögerte Überweisungen: Was tun, bevor man sich Sorgen macht',
     'blog.article.bonifici-ritardo-frontalieri-ticino.excerpt': 'Praktische Anleitung für Grenzgänger zur Verwaltung von Verzögerungen bei Überweisungen zwischen der Schweiz und Italien, mit spezifischen Zeiten und Regeln',
     'blog.article.bonifici-ritardo-frontalieri-ticino.imageAlt': 'Person kontrolliert ihr Bankkonto auf einem Laptop in der Nähe des Luganer Sees',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.title': 'Autovermietung: Tipps für Grenzgänger',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.excerpt': 'Vergleichen Sie die Tarife, prüfen Sie den Zustand des Fahrzeugs und überprüfen Sie die Versicherungsschutz, um unangenehme Überraschungen zu vermeiden',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.imageAlt': 'Autovermietung in Lugano mit Blick auf den See und die Berge',
 };
 
 export default blogMetaDe;

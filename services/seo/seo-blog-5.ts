@@ -13293,6 +13293,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-noleggio-auto-frontalieri-ticino-2026': {
+    title: 'Noleggio auto: consigli per frontalieri | Frontaliere Ticino',
+    description: 'Scopri come noleggiare un\'auto in modo sicuro e conveniente. Confronta le tariffe, verifica le condizioni del veicolo e controlla le coperture assicurative.',
+    keywords: 'frontalieri, ticino, svizzera, italia, noleggio, auto, consigli, confronta',
+    ogTitle: 'Noleggio auto: consigli per frontalieri',
+    ogDescription: 'Scopri come noleggiare un\'auto in modo sicuro e conveniente. Confronta le tariffe, verifica le condizioni del veicolo e controlla le coperture assicurative.',
+    canonicalPath: '/articoli-frontaliere/noleggio-auto-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Noleggio auto: consigli per frontalieri",
+      "description": "Scopri come noleggiare un'auto in modo sicuro e conveniente. Confronta le tariffe, verifica le condizioni del veicolo e controlla le coperture assicurative.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/noleggio-auto-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agenzia di noleggio auto a Lugano con vista sul lago e montagne"
+      },
+      "datePublished": "2026-05-04T06:24:21+00:00",
+      "dateModified": "2026-05-04T06:24:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/noleggio-auto-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

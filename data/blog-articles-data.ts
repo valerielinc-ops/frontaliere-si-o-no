@@ -18200,4 +18200,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'noleggio-auto-frontalieri-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-04T06:24:21.490Z',
+ image: '/images/blog/noleggio-auto-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

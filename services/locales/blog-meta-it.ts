@@ -5610,6 +5610,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bonifici-ritardo-frontalieri-ticino.title': 'Bonifici in ritardo: cosa fare prima di allarmarsi',
     'blog.article.bonifici-ritardo-frontalieri-ticino.excerpt': 'Guida pratica per i frontalieri su come gestire i ritardi nei bonifici tra Svizzera e Italia, con tempi e regole specifiche',
     'blog.article.bonifici-ritardo-frontalieri-ticino.imageAlt': 'Persona che controlla il conto bancario sul laptop vicino al Lago di Lugano',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.title': 'Noleggio auto: consigli per frontalieri',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.excerpt': 'Confronta tariffe, verifica le condizioni del veicolo e controlla le coperture assicurative per evitare spiacevoli sorprese',
+    'blog.article.noleggio-auto-frontalieri-ticino-2026.imageAlt': 'Agenzia di noleggio auto a Lugano con vista sul lago e montagne',
 };
 
 export default blogMetaIt;
