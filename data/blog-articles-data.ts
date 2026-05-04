@@ -18605,4 +18605,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'arresto-albanese-cocaina-capolago',
+ category: 'novita',
+ date: '2026-05-04T12:33:18.813Z',
+ image: '/images/blog/arresto-albanese-cocaina-capolago.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

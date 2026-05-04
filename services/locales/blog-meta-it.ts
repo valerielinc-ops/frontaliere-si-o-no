@@ -5745,6 +5745,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicurezza-varese-monte-santo-intervento-comune.title': 'Varese: Monti e Angei (Lega) chiedono intervento urgente per via Monte Santo',
     'blog.article.sicurezza-varese-monte-santo-intervento-comune.excerpt': 'I consiglieri comunali Monti e Angei denunciano degrado e insicurezza nell\'ex sede dei Lavori Pubblici',
     'blog.article.sicurezza-varese-monte-santo-intervento-comune.imageAlt': 'Vista aerea del centro di Varese con l\'area di Monte Santo in primo piano',
+    'blog.article.arresto-albanese-cocaina-capolago.title': 'Arrestato albanese con 54 grammi di cocaina a Capolago',
+    'blog.article.arresto-albanese-cocaina-capolago.excerpt': 'Un 24enne albanese è stato arrestato con 54 grammi di cocaina in auto sull\'A2 a Capolago. Ecco i dettagli dell\'operazione.',
+    'blog.article.arresto-albanese-cocaina-capolago.imageAlt': 'Operazione di polizia sul lago di Lugano',
 };
 
 export default blogMetaIt;

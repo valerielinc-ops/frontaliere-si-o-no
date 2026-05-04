@@ -3157,6 +3157,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mezzo-milione-franchi-progetti-luganese-2026': { name: 'Novità', path: '/articoli-frontaliere/mezzo-milione-franchi-progetti-luganese-2026', parent: 'blog' },
     'blog-tragedia-bellinzona-folgorazione-2026': { name: 'Novità', path: '/articoli-frontaliere/tragedia-bellinzona-folgorazione-2026', parent: 'blog' },
     'blog-sicurezza-varese-monte-santo-intervento-comune': { name: 'Novità Varese', path: '/articoli-frontaliere/sicurezza-varese-monte-santo-intervento-comune', parent: 'blog' },
+    'blog-arresto-albanese-cocaina-capolago': { name: 'Novità', path: '/articoli-frontaliere/arresto-albanese-cocaina-capolago', parent: 'blog' },
  };
 
  const info = sectionNames[section];

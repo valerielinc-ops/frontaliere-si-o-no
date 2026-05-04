@@ -5745,6 +5745,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sicurezza-varese-monte-santo-intervento-comune.title': 'Varèse : Monti et Angei demandent une intervention urgente',
     'blog.article.sicurezza-varese-monte-santo-intervento-comune.excerpt': 'Les conseillers communaux Monti et Angei dénoncent le délabrement et l\'insécurité dans l\'ancienne siège des Travaux Publics',
     'blog.article.sicurezza-varese-monte-santo-intervento-comune.imageAlt': 'Vue aérienne du centre-ville de Varese avec la zone de Monte Santo en premier plan',
+    'blog.article.arresto-albanese-cocaina-capolago.title': 'Un Albanais arrêté avec 54 grammes de cocaïne à Capolago',
+    'blog.article.arresto-albanese-cocaina-capolago.excerpt': 'Un Albanais de 24 ans a été arrêté avec 54 grammes de cocaïne dans sa voiture sur l\'A2 à Capolago. Voici les détails de l\'opération.',
+    'blog.article.arresto-albanese-cocaina-capolago.imageAlt': 'Opération de police près du lac de Lugano',
 };
 
 export default blogMetaFr;

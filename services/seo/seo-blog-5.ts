@@ -14823,6 +14823,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-albanese-cocaina-capolago': {
+    title: 'Arrestato albanese con 54 grammi di cocaina a Capolago',
+    description: 'Un 24enne albanese è stato arrestato con 54 grammi di cocaina in auto sull\'A2 a Capolago. Ecco i dettagli dell\'operazione. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, arrestato, albanese, grammi, cocaina',
+    ogTitle: 'Arrestato albanese con 54 grammi di cocaina a Capolago',
+    ogDescription: 'Un 24enne albanese è stato arrestato con 54 grammi di cocaina in auto sull\'A2 a Capolago. Ecco i dettagli dell\'operazione.',
+    canonicalPath: '/articoli-frontaliere/arresto-albanese-cocaina-capolago',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Arrestato albanese con 54 grammi di cocaina a Capolago",
+      "description": "Un 24enne albanese è stato arrestato con 54 grammi di cocaina in auto sull'A2 a Capolago. Ecco i dettagli dell'operazione. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/arresto-albanese-cocaina-capolago.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operazione di polizia sul lago di Lugano"
+      },
+      "datePublished": "2026-05-04T12:33:18+00:00",
+      "dateModified": "2026-05-04T12:33:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-albanese-cocaina-capolago`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
