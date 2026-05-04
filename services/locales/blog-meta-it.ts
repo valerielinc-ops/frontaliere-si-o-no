@@ -5907,6 +5907,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.falsi-preti-barasso-truffe-anziani.title': 'Falsi preti a Barasso: l’allerta del Comune contro le truffe agli anziani',
     'blog.article.falsi-preti-barasso-truffe-anziani.excerpt': 'Il Comune di Barasso avverte: falsi preti truffano gli anziani. Ecco cosa fare per proteggersi.',
     'blog.article.falsi-preti-barasso-truffe-anziani.imageAlt': 'Strada tranquilla a Barasso, Ticino, con vista sulle colline circostanti e una chiesa in lontananza',
+    'blog.article.bando-restauro-beni-culturali-lombardia.title': '21,5 milioni per il restauro dei beni culturali lombardi',
+    'blog.article.bando-restauro-beni-culturali-lombardia.excerpt': 'Regione Lombardia e Fondazione Cariplo finanziano progetti per trasformare immobili pubblici in hub culturali. Domande entro il 24 giugno 2026.',
+    'blog.article.bando-restauro-beni-culturali-lombardia.imageAlt': 'Edificio storico in restauro in Lombardia con operai al lavoro',
 };
 
 export default blogMetaIt;

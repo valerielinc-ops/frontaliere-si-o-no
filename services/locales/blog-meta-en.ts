@@ -5906,6 +5906,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.falsi-preti-barasso-truffe-anziani.title': 'Fake priests in Barasso: the town\'s alert against elderly scams',
     'blog.article.falsi-preti-barasso-truffe-anziani.excerpt': 'The town of Barasso warns: fake priests are scamming the elderly. Here\'s what to do to protect yourself.',
     'blog.article.falsi-preti-barasso-truffe-anziani.imageAlt': 'Quiet street in Barasso, Ticino, with a view of the surrounding hills and a church in the background',
+    'blog.article.bando-restauro-beni-culturali-lombardia.title': '21.5 million for restoring Lombardy\'s cultural heritage',
+    'blog.article.bando-restauro-beni-culturali-lombardia.excerpt': 'Lombardy Region and Fondazione Cariplo fund projects to transform public properties into cultural hubs. Applications due by June 24, 2026.',
+    'blog.article.bando-restauro-beni-culturali-lombardia.imageAlt': 'Historic building under restoration in Lombardy with workers at work',
 };
 
 export default blogMetaEn;

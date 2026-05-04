@@ -3211,6 +3211,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-inaugurazione-parchetto-biumo-via-arconati': { name: 'Inaugurazione parchetto', path: '/articoli-frontaliere/inaugurazione-parchetto-biumo-via-arconati', parent: 'blog' },
     'blog-mendrisio-capitale-culturale-2026': { name: 'Novità', path: '/articoli-frontaliere/mendrisio-capitale-culturale-2026', parent: 'blog' },
     'blog-falsi-preti-barasso-truffe-anziani': { name: 'Novità', path: '/articoli-frontaliere/falsi-preti-barasso-truffe-anziani', parent: 'blog' },
+    'blog-bando-restauro-beni-culturali-lombardia': { name: 'Bando restauro', path: '/articoli-frontaliere/bando-restauro-beni-culturali-lombardia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

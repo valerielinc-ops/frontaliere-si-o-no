@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2021,
+ "numberOfItems": 2022,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6664,7 +6664,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2018, "name": "Inaugurato il Grande Anello Verde di Somma Lomb...", "url": `${BASE_URL}/articoli-frontaliere/tangenziale-verde-somma-lombardo-2026` },
           { "@type": "ListItem", "position": 2019, "name": "Inaugurazione parchetto Biumo: nuovo spazio spo...", "url": `${BASE_URL}/articoli-frontaliere/inaugurazione-parchetto-biumo-via-arconati` },
           { "@type": "ListItem", "position": 2020, "name": "Mendrisio si candida a Capitale Culturale Svizzera", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-capitale-culturale-2026` },
-          { "@type": "ListItem", "position": 2021, "name": "Falsi preti a Barasso: l’allerta del Comune con...", "url": `${BASE_URL}/articoli-frontaliere/falsi-preti-barasso-truffe-anziani` }
+          { "@type": "ListItem", "position": 2021, "name": "Falsi preti a Barasso: l’allerta del Comune con...", "url": `${BASE_URL}/articoli-frontaliere/falsi-preti-barasso-truffe-anziani` },
+          { "@type": "ListItem", "position": 2022, "name": "21,5 milioni per il restauro dei beni culturali...", "url": `${BASE_URL}/articoli-frontaliere/bando-restauro-beni-culturali-lombardia` }
  ]
  },
  {

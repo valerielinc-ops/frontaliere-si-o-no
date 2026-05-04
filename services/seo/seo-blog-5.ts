@@ -16659,6 +16659,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bando-restauro-beni-culturali-lombardia': {
+    title: '21,5 milioni per il restauro dei beni culturali lombardi',
+    description: 'Regione Lombardia e Fondazione Cariplo finanziano progetti per trasformare immobili pubblici in hub culturali. Domande entro il 24 giugno 2026. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, restauro, beni, culturali',
+    ogTitle: '21,5 milioni per il restauro dei beni culturali lombardi',
+    ogDescription: 'Regione Lombardia e Fondazione Cariplo finanziano progetti per trasformare immobili pubblici in hub culturali. Domande entro il 24 giugno 2026.',
+    canonicalPath: '/articoli-frontaliere/bando-restauro-beni-culturali-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "21,5 milioni per il restauro dei beni culturali lombardi",
+      "description": "Regione Lombardia e Fondazione Cariplo finanziano progetti per trasformare immobili pubblici in hub culturali. Domande entro il 24 giugno 2026. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bando-restauro-beni-culturali-lombardia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio storico in restauro in Lombardia con operai al lavoro"
+      },
+      "datePublished": "2026-05-04T22:09:24+00:00",
+      "dateModified": "2026-05-04T22:09:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bando-restauro-beni-culturali-lombardia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

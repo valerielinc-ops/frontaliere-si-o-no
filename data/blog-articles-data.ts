@@ -19091,4 +19091,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bando-restauro-beni-culturali-lombardia',
+ category: 'novita',
+ date: '2026-05-04T22:09:24.666Z',
+ image: '/images/blog/bando-restauro-beni-culturali-lombardia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

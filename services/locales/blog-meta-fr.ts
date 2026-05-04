@@ -5907,6 +5907,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.falsi-preti-barasso-truffe-anziani.title': 'Faux prêtres à Barasso: l\'alerte de la commune contre les arnaques aux seniors',
     'blog.article.falsi-preti-barasso-truffe-anziani.excerpt': 'La commune de Barasso alerte: de faux prêtres arnaquent les seniors. Voici comment se protéger.',
     'blog.article.falsi-preti-barasso-truffe-anziani.imageAlt': 'Rue tranquille à Barasso, Tessin, avec vue sur les collines environnantes et une église en arrière-plan',
+    'blog.article.bando-restauro-beni-culturali-lombardia.title': '21,5 millions pour la restauration du patrimoine lombard',
+    'blog.article.bando-restauro-beni-culturali-lombardia.excerpt': 'La Région Lombardie et la Fondation Cariplo financent des projets pour transformer des biens publics en hubs culturels. Demandes avant le 24 juin 2026.',
+    'blog.article.bando-restauro-beni-culturali-lombardia.imageAlt': 'Bâtiment historique en restauration en Lombardie avec des ouvriers',
 };
 
 export default blogMetaFr;
