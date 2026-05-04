@@ -5874,6 +5874,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crack-house-ingrado-2026.title': 'Crack house in aumento in Ticino: 8 persone al giorno chiedono aiuto a Ingrado',
     'blog.article.crack-house-ingrado-2026.excerpt': 'Oltre 3.200 persone seguite nel 2025 per dipendenze da alcol, droghe, videogiochi e scommesse online. Ingrado lancia allarme sulle crack house',
     'blog.article.crack-house-ingrado-2026.imageAlt': 'Un gruppo di persone davanti a un edificio a Locarno, Ticino',
+    'blog.article.jashari-milan-bocciatura.title': 'Jashari bocciato all\'esordio con il Milan',
+    'blog.article.jashari-milan-bocciatura.excerpt': 'Critiche dall\'Italia per il rendimento di Jashari, protagonista di un errore costato l\'1-0 al Milan contro il Sassuolo',
+    'blog.article.jashari-milan-bocciatura.imageAlt': 'Un giocatore di calcio commette un errore durante una partita in uno stadio del Ticino',
 };
 
 export default blogMetaIt;

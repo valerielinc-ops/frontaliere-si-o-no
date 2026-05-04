@@ -5873,6 +5873,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crack-house-ingrado-2026.title': 'Zunahme von Crack-Häusern im Tessin: 8 Personen pro Tag suchen Hilfe bei Ingrado',
     'blog.article.crack-house-ingrado-2026.excerpt': 'Über 3.200 Personen wurden 2025 wegen Abhängigkeiten von Alkohol, Drogen, Videospielen und Online-Wetten betreut. Ingrado warnt vor Crack-Häusern',
     'blog.article.crack-house-ingrado-2026.imageAlt': 'Eine Gruppe von Menschen vor einem Gebäude in Locarno, Tessin',
+    'blog.article.jashari-milan-bocciatura.title': 'Jashari enttäuscht beim AC-Milan-Debüt',
+    'blog.article.jashari-milan-bocciatura.excerpt': 'Kritik aus Italien für Jasharis Leistung, der einen Fehler machte, der dem AC Mailand ein 0:1 gegen Sassuolo kostete',
+    'blog.article.jashari-milan-bocciatura.imageAlt': 'Ein Fußballspieler macht einen Fehler während eines Spiels in einem Stadion in Tessin',
 };
 
 export default blogMetaDe;

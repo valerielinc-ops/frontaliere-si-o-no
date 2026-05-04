@@ -16285,6 +16285,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-jashari-milan-bocciatura': {
+    title: 'Jashari bocciato all\'esordio con il Milan | Frontaliere Ticino',
+    description: 'Critiche dall\'Italia per il rendimento di Jashari, protagonista di un errore costato l\'1-0 al Milan contro il Sassuolo. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, jashari, bocciato, esordio, milan',
+    ogTitle: 'Jashari bocciato all\'esordio con il Milan',
+    ogDescription: 'Critiche dall\'Italia per il rendimento di Jashari, protagonista di un errore costato l\'1-0 al Milan contro il Sassuolo',
+    canonicalPath: '/articoli-frontaliere/jashari-milan-bocciatura',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Jashari bocciato all'esordio con il Milan",
+      "description": "Critiche dall'Italia per il rendimento di Jashari, protagonista di un errore costato l'1-0 al Milan contro il Sassuolo. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/jashari-milan-bocciatura.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giocatore di calcio commette un errore durante una partita in uno stadio del Ticino"
+      },
+      "datePublished": "2026-05-04T20:39:58+00:00",
+      "dateModified": "2026-05-04T20:39:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/jashari-milan-bocciatura`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

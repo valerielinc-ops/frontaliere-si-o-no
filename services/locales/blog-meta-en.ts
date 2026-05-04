@@ -5873,6 +5873,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crack-house-ingrado-2026.title': 'Increase in crack houses in Ticino: 8 people daily seek help from Ingrado',
     'blog.article.crack-house-ingrado-2026.excerpt': 'Over 3,200 people followed in 2025 for addictions to alcohol, drugs, video games, and online betting. Ingrado raises alarm on crack houses',
     'blog.article.crack-house-ingrado-2026.imageAlt': 'A group of people in front of a building in Locarno, Ticino',
+    'blog.article.jashari-milan-bocciatura.title': 'Jashari fails to impress in Milan debut',
+    'blog.article.jashari-milan-bocciatura.excerpt': 'Criticism from Italy for Jashari\'s performance, who made an error costing Milan a 1-0 lead against Sassuolo',
+    'blog.article.jashari-milan-bocciatura.imageAlt': 'A soccer player makes a mistake during a match in a stadium in Ticino',
 };
 
 export default blogMetaEn;
