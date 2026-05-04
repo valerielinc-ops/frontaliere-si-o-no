@@ -3207,6 +3207,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-cardiocentro-lugano-realta': { name: 'Novità sanità', path: '/articoli-frontaliere/nuovo-cardiocentro-lugano-realta', parent: 'blog' },
     'blog-spazi-autogestione-lugano-ghisletta': { name: 'Spazi autogestione', path: '/articoli-frontaliere/spazi-autogestione-lugano-ghisletta', parent: 'blog' },
     'blog-svizzera-volare-aviazione-civile': { name: 'Aviazione civile', path: '/articoli-frontaliere/svizzera-volare-aviazione-civile', parent: 'blog' },
+    'blog-tangenziale-verde-somma-lombardo-2026': { name: 'Novità', path: '/articoli-frontaliere/tangenziale-verde-somma-lombardo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

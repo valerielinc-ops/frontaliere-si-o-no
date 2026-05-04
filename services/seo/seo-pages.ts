@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2017,
+ "numberOfItems": 2018,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6660,7 +6660,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2014, "name": "Luino chiude il 2025 con un avanzo di 2,6 milioni", "url": `${BASE_URL}/articoli-frontaliere/luino-bilancio-2025-avanzo-26-milioni` },
           { "@type": "ListItem", "position": 2015, "name": "Nuovo Cardiocentro Lugano: inaugurati tre piani...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-cardiocentro-lugano-realta` },
           { "@type": "ListItem", "position": 2016, "name": "Spazi per l'autogestione a Lugano: Ghisletta, «...", "url": `${BASE_URL}/articoli-frontaliere/spazi-autogestione-lugano-ghisletta` },
-          { "@type": "ListItem", "position": 2017, "name": "Svizzera e aviazione civile: il 61% degli svizz...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-volare-aviazione-civile` }
+          { "@type": "ListItem", "position": 2017, "name": "Svizzera e aviazione civile: il 61% degli svizz...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-volare-aviazione-civile` },
+          { "@type": "ListItem", "position": 2018, "name": "Inaugurato il Grande Anello Verde di Somma Lomb...", "url": `${BASE_URL}/articoli-frontaliere/tangenziale-verde-somma-lombardo-2026` }
  ]
  },
  {

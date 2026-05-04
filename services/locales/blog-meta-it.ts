@@ -5895,6 +5895,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-volare-aviazione-civile.title': 'Svizzera e aviazione civile: il 61% degli svizzeri favorevole',
     'blog.article.svizzera-volare-aviazione-civile.excerpt': 'Secondo uno studio commissionato da Aviationsuisse, la maggioranza degli svizzeri riconosce l\'importanza strategica ed economica degli aeroporti.',
     'blog.article.svizzera-volare-aviazione-civile.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi Svizzere sullo sfondo',
+    'blog.article.tangenziale-verde-somma-lombardo-2026.title': 'Inaugurato il Grande Anello Verde di Somma Lombardo: 25 km di natura e storia',
+    'blog.article.tangenziale-verde-somma-lombardo-2026.excerpt': 'Un percorso di 25 km tra boschi, paludi e monumenti storici, inaugurato il 16 maggio 2026.',
+    'blog.article.tangenziale-verde-somma-lombardo-2026.imageAlt': 'Panoramica del Lago di Lugano con vista sulle montagne circostanti',
 };
 
 export default blogMetaIt;

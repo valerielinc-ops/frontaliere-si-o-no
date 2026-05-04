@@ -5894,6 +5894,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-volare-aviazione-civile.title': 'Switzerland and civil aviation: 61% of Swiss in favor',
     'blog.article.svizzera-volare-aviazione-civile.excerpt': 'According to a study commissioned by Aviationsuisse, the majority of Swiss recognize the strategic and economic importance of airports.',
     'blog.article.svizzera-volare-aviazione-civile.imageAlt': 'Aerial view of Lake Lugano with the Swiss Alps in the background',
+    'blog.article.tangenziale-verde-somma-lombardo-2026.title': 'Somma Lombardo\'s Great Green Ring: 25 km of nature and history',
+    'blog.article.tangenziale-verde-somma-lombardo-2026.excerpt': 'A 25 km trail through forests, marshes, and historic monuments, inaugurated on May 16, 2026.',
+    'blog.article.tangenziale-verde-somma-lombardo-2026.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

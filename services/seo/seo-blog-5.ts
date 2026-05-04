@@ -16523,6 +16523,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tangenziale-verde-somma-lombardo-2026': {
+    title: 'Inaugurato il Grande Anello Verde di Somma Lombardo: 25 km di natura e storia',
+    description: 'Scopri il nuovo Grande Anello Verde di Somma Lombardo, un percorso di 25 km tra natura e storia, inaugurato il 16 maggio 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, inaugurato, grande, anello, verde',
+    ogTitle: 'Inaugurato il Grande Anello Verde di Somma Lombardo: 25 km di natura e storia',
+    ogDescription: 'Scopri il nuovo Grande Anello Verde di Somma Lombardo, un percorso di 25 km tra natura e storia, inaugurato il 16 maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/tangenziale-verde-somma-lombardo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inaugurato il Grande Anello Verde di Somma Lombardo: 25 km di natura e storia",
+      "description": "Scopri il nuovo Grande Anello Verde di Somma Lombardo, un percorso di 25 km tra natura e storia, inaugurato il 16 maggio 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tangenziale-verde-somma-lombardo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica del Lago di Lugano con vista sulle montagne circostanti"
+      },
+      "datePublished": "2026-05-04T21:34:25+00:00",
+      "dateModified": "2026-05-04T21:34:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tangenziale-verde-somma-lombardo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
