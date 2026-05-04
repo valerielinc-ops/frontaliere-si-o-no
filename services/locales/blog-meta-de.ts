@@ -5636,6 +5636,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pericoli-minori-iniziativa-10-milioni.title': 'Initiative 10 Millionen: Gefahren für Minderjährige',
     'blog.article.pericoli-minori-iniziativa-10-milioni.excerpt': 'Ein Bündnis von Organisationen warnt vor den Risiken für die Rechte der Kinder, falls die Initiative am 14. Juni angenommen wird',
     'blog.article.pericoli-minori-iniziativa-10-milioni.imageAlt': 'Kinder spielen am Luganersee mit der Stadtkulisse im Hintergrund',
+    'blog.article.agrinatura-sold-out-2026.title': 'Agrinatura ausverkauft: Verkostungen, Show-Kochkünste und Workshops',
+    'blog.article.agrinatura-sold-out-2026.excerpt': 'Die fünfundzwanzigste Ausgabe von Agrinatura verzeichnete einen großen Erfolg mit ausverkauften Workshops und hochwertigen Kochshows',
+    'blog.article.agrinatura-sold-out-2026.imageAlt': 'Agrinatura 2026 Landwirtschaftsmesse mit Kochshow und Workshops in Tessin',
 };
 
 export default blogMetaDe;

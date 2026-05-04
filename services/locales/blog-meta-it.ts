@@ -5637,6 +5637,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pericoli-minori-iniziativa-10-milioni.title': 'Iniziativa 10 milioni: i pericoli per i minori',
     'blog.article.pericoli-minori-iniziativa-10-milioni.excerpt': 'Un\'alleanza di organizzazioni avverte sui rischi per i diritti dei bambini se l\'iniziativa verrà approvata il 14 giugno',
     'blog.article.pericoli-minori-iniziativa-10-milioni.imageAlt': 'Bambini che giocano vicino al Lago di Lugano con lo skyline della città sullo sfondo',
+    'blog.article.agrinatura-sold-out-2026.title': 'Agrinatura sold out: degustazioni, show cooking e laboratori',
+    'blog.article.agrinatura-sold-out-2026.excerpt': 'La venticinquesima edizione di Agrinatura ha registrato un grande successo con laboratori sold out e cooking show di alto livello',
+    'blog.article.agrinatura-sold-out-2026.imageAlt': 'Fiera agricola Agrinatura 2026 con show cooking e laboratori in Ticino',
 };
 
 export default blogMetaIt;

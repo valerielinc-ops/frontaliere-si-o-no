@@ -13599,6 +13599,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agrinatura-sold-out-2026': {
+    title: 'Agrinatura sold out: degustazioni, show cooking e laboratori',
+    description: 'Agrinatura 2026 è sold out con laboratori e cooking show. Scopri il programma e i protagonisti della manifestazione. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, agrinatura, sold, degustazioni, show',
+    ogTitle: 'Agrinatura sold out: degustazioni, show cooking e laboratori',
+    ogDescription: 'Agrinatura 2026 è sold out con laboratori e cooking show. Scopri il programma e i protagonisti della manifestazione.',
+    canonicalPath: '/articoli-frontaliere/agrinatura-sold-out-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agrinatura sold out: degustazioni, show cooking e laboratori",
+      "description": "Agrinatura 2026 è sold out con laboratori e cooking show. Scopri il programma e i protagonisti della manifestazione. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/agrinatura-sold-out-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fiera agricola Agrinatura 2026 con show cooking e laboratori in Ticino"
+      },
+      "datePublished": "2026-05-04T07:22:15+00:00",
+      "dateModified": "2026-05-04T07:22:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agrinatura-sold-out-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5636,6 +5636,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pericoli-minori-iniziativa-10-milioni.title': 'Initiative 10 million: risks for minors',
     'blog.article.pericoli-minori-iniziativa-10-milioni.excerpt': 'An alliance of organizations warns about the risks to children\'s rights if the initiative is approved on June 14',
     'blog.article.pericoli-minori-iniziativa-10-milioni.imageAlt': 'Children playing near Lake Lugano with the city skyline in the background',
+    'blog.article.agrinatura-sold-out-2026.title': 'Agrinatura sold out: tastings, cooking shows and workshops',
+    'blog.article.agrinatura-sold-out-2026.excerpt': 'The twenty-fifth edition of Agrinatura recorded great success with sold-out workshops and high-level cooking shows',
+    'blog.article.agrinatura-sold-out-2026.imageAlt': 'Agrinatura 2026 agricultural fair with cooking show and workshops in Ticino',
 };
 
 export default blogMetaEn;
