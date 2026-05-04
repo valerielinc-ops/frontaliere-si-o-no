@@ -5514,6 +5514,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.thun-campionato-calcio-2026.title': 'Thun champion de Suisse de football pour la première fois',
     'blog.article.thun-campionato-calcio-2026.excerpt': 'Après 128 ans, Thun remporte le championnat suisse. L\'entraîneur tessinois Mauro Lustrinelli est l\'un des artisans de ce succès',
     'blog.article.thun-campionato-calcio-2026.imageAlt': 'Foule en liesse devant l\'Arène Stockhorn à Thun, Suisse',
+    'blog.article.scudetto-varese-frontalieri-2026.title': 'Scudetto nerazzurro, le Varesotto fête',
+    'blog.article.scudetto-varese-frontalieri-2026.excerpt': 'Les supporters de l\'Inter célèbrent le 21e titre avec des festivités sur les places de Varese et Gallarate. Voici comment s\'est déroulée la nuit du 3 mai 2026.',
+    'blog.article.scudetto-varese-frontalieri-2026.imageAlt': 'Célébration du championnat de l\'Inter à Varese',
 };
 
 export default blogMetaFr;

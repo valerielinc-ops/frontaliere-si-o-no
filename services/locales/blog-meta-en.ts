@@ -5513,6 +5513,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.thun-campionato-calcio-2026.title': 'Thun wins Swiss football championship for the first time',
     'blog.article.thun-campionato-calcio-2026.excerpt': 'After 128 years, Thun wins the Swiss championship. Ticinese coach Mauro Lustrinelli is one of the architects of the success',
     'blog.article.thun-campionato-calcio-2026.imageAlt': 'Celebratory crowd in front of Stockhorn Arena in Thun, Switzerland',
+    'blog.article.scudetto-varese-frontalieri-2026.title': 'Inter\'s 21st title celebrated in Varese and Gallarate',
+    'blog.article.scudetto-varese-frontalieri-2026.excerpt': 'Inter fans celebrate the 21st title with festivities in the squares of Varese and Gallarate. Here\'s how the night of May 3, 2026 unfolded.',
+    'blog.article.scudetto-varese-frontalieri-2026.imageAlt': 'Inter championship celebration in Varese',
 };
 
 export default blogMetaEn;

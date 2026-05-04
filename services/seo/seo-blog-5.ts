@@ -12205,6 +12205,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scudetto-varese-frontalieri-2026': {
+    title: 'Scudetto nerazzurro, il Varesotto festeggia | Frontaliere Ticino',
+    description: 'I tifosi dell\'Inter celebrano il 21° titolo con festeggiamenti nelle piazze di Varese e Gallarate. Ecco come è andata la notte del 3 maggio 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scudetto, nerazzurro, varesotto, festeggia',
+    ogTitle: 'Scudetto nerazzurro, il Varesotto festeggia: caroselli in piazza Montegrappa e alla fontana di Gallarate',
+    ogDescription: 'I tifosi dell\'Inter celebrano il 21° titolo con festeggiamenti nelle piazze di Varese e Gallarate. Ecco come è andata la notte del 3 maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/scudetto-varese-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scudetto nerazzurro, il Varesotto festeggia",
+      "description": "I tifosi dell'Inter celebrano il 21° titolo con festeggiamenti nelle piazze di Varese e Gallarate. Ecco come è andata la notte del 3 maggio 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scudetto-varese-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa per lo scudetto dell'Inter a Varese"
+      },
+      "datePublished": "2026-05-04T02:28:57+00:00",
+      "dateModified": "2026-05-04T02:28:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scudetto-varese-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
