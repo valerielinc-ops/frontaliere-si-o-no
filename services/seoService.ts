@@ -3154,6 +3154,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-proposte-cernobbio-2026-tessile': { name: 'Proposte 2026', path: '/articoli-frontaliere/proposte-cernobbio-2026-tessile', parent: 'blog' },
     'blog-confisca-preventiva-mafie-svizzera': { name: 'Novità', path: '/articoli-frontaliere/confisca-preventiva-mafie-svizzera', parent: 'blog' },
     'blog-ospedale-erba-cura-oncologiche-2026': { name: 'Novità', path: '/articoli-frontaliere/ospedale-erba-cura-oncologiche-2026', parent: 'blog' },
+    'blog-mezzo-milione-franchi-progetti-luganese-2026': { name: 'Novità', path: '/articoli-frontaliere/mezzo-milione-franchi-progetti-luganese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -5736,6 +5736,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ospedale-erba-cura-oncologiche-2026.title': 'Hôpital Erba: massages et maquillage pour les patientes oncologiques',
     'blog.article.ospedale-erba-cura-oncologiche-2026.excerpt': 'Nouveau projet pour le bien-être psychophysique des patientes oncologiques avec massages et conseils en maquillage. Initiative à partir de septembre 2026.',
     'blog.article.ospedale-erba-cura-oncologiche-2026.imageAlt': 'Hôpital d\'Erba, bâtiment principal avec entrée et zone environnante',
+    'blog.article.mezzo-milione-franchi-progetti-luganese-2026.title': '500\'000 francs pour des projets au Luganais: comment participer',
+    'blog.article.mezzo-milione-franchi-progetti-luganese-2026.excerpt': 'L\'Ersl met à disposition 500\'000 francs pour des projets au Luganais. Découvrez comment demander les contributions et les critères de sélection.',
+    'blog.article.mezzo-milione-franchi-progetti-luganese-2026.imageAlt': 'Vue aérienne de Lugano, Tessin, Suisse, avec lac et montagnes',
 };
 
 export default blogMetaFr;

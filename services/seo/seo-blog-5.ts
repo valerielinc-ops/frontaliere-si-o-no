@@ -14721,6 +14721,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mezzo-milione-franchi-progetti-luganese-2026': {
+    title: 'Mezzo milione per progetti nel Luganese: come partecipare',
+    description: 'L\'Ersl mette a disposizione 500\'000 franchi per progetti nel Luganese. Scopri come richiedere i contributi e i criteri di selezione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, mezzo, milione, progetti, luganese',
+    ogTitle: 'Mezzo milione per progetti nel Luganese: come partecipare',
+    ogDescription: 'L\'Ersl mette a disposizione 500\'000 franchi per progetti nel Luganese. Scopri come richiedere i contributi e i criteri di selezione.',
+    canonicalPath: '/articoli-frontaliere/mezzo-milione-franchi-progetti-luganese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mezzo milione per progetti nel Luganese: come partecipare",
+      "description": "L'Ersl mette a disposizione 500'000 franchi per progetti nel Luganese. Scopri come richiedere i contributi e i criteri di selezione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mezzo-milione-franchi-progetti-luganese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Lugano, Ticino, Svizzera, con lago e montagne"
+      },
+      "datePublished": "2026-05-04T12:05:51+00:00",
+      "dateModified": "2026-05-04T12:05:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mezzo-milione-franchi-progetti-luganese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5735,6 +5735,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ospedale-erba-cura-oncologiche-2026.title': 'Erba Hospital: massages and make-up for cancer patients',
     'blog.article.ospedale-erba-cura-oncologiche-2026.excerpt': 'New project for the psycho-physical well-being of cancer patients with massages and make-up consultations. Initiative starting from September 2026.',
     'blog.article.ospedale-erba-cura-oncologiche-2026.imageAlt': 'Erba Hospital, main building with entrance and surrounding area',
+    'blog.article.mezzo-milione-franchi-progetti-luganese-2026.title': '500,000 francs for Lugano projects: how to apply',
+    'blog.article.mezzo-milione-franchi-progetti-luganese-2026.excerpt': 'Ersl offers 500,000 francs for projects in Lugano. Learn how to request contributions and selection criteria.',
+    'blog.article.mezzo-milione-franchi-progetti-luganese-2026.imageAlt': 'Aerial view of Lugano, Ticino, Switzerland, with lake and mountains',
 };
 
 export default blogMetaEn;
