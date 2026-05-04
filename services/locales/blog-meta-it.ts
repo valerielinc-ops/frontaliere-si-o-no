@@ -5505,6 +5505,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.teresina-cerini-100-anni-coglio.title': 'Teresina Cerini festeggia 100 anni a Coglio',
     'blog.article.teresina-cerini-100-anni-coglio.excerpt': 'Celebrazione con famiglia e autorità per i 100 anni di Teresina Cerini, nata a Lodano nel 1926',
     'blog.article.teresina-cerini-100-anni-coglio.imageAlt': 'Eco-hotel Cristallina a Coglio, Ticino, durante una celebrazione del centenario',
+    'blog.article.svizzera-cechia-rigori-4-maggio-2026.title': 'Svizzera batte la Cechia ai rigori, raddrizzando il weekend',
+    'blog.article.svizzera-cechia-rigori-4-maggio-2026.excerpt': 'La nazionale svizzera di hockey vince ai rigori contro la Repubblica Ceca, chiudendo in positivo il weekend dopo due sconfitte.',
+    'blog.article.svizzera-cechia-rigori-4-maggio-2026.imageAlt': 'Partita di hockey tra Svizzera e Repubblica Ceca alla Budvar Arena',
 };
 
 export default blogMetaIt;

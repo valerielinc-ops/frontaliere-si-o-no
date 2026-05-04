@@ -5504,6 +5504,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.teresina-cerini-100-anni-coglio.title': 'Teresina Cerini celebrates her 100th birthday in Coglio',
     'blog.article.teresina-cerini-100-anni-coglio.excerpt': 'Celebration with family and authorities for the 100th birthday of Teresina Cerini, born in Lodano in 1926',
     'blog.article.teresina-cerini-100-anni-coglio.imageAlt': 'Eco-hotel Cristallina in Coglio, Ticino, during a centenary celebration',
+    'blog.article.svizzera-cechia-rigori-4-maggio-2026.title': 'Switzerland beats Czech Republic in penalty shootout, salvaging the weekend',
+    'blog.article.svizzera-cechia-rigori-4-maggio-2026.excerpt': 'The Swiss national hockey team wins in a penalty shootout against the Czech Republic, ending the weekend on a positive note after two defeats.',
+    'blog.article.svizzera-cechia-rigori-4-maggio-2026.imageAlt': 'Hockey match between Switzerland and the Czech Republic at Budvar Arena',
 };
 
 export default blogMetaEn;
