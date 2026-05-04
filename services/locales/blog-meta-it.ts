@@ -5886,6 +5886,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.luino-bilancio-2025-avanzo-26-milioni.title': 'Luino chiude il 2025 con un avanzo di 2,6 milioni',
     'blog.article.luino-bilancio-2025-avanzo-26-milioni.excerpt': 'Il bilancio consuntivo 2025 del Comune di Luino mostra un avanzo di 2,6 milioni di euro, con entrate per oltre 31,5 milioni.',
     'blog.article.luino-bilancio-2025-avanzo-26-milioni.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido e barche sull\'acqua',
+    'blog.article.nuovo-cardiocentro-lugano-realta.title': 'Nuovo Cardiocentro Lugano: inaugurati tre piani aggiuntivi',
+    'blog.article.nuovo-cardiocentro-lugano-realta.excerpt': 'Inaugurati tre piani aggiuntivi al Cardiocentro di Lugano, con miglioramenti per pazienti e operatori',
+    'blog.article.nuovo-cardiocentro-lugano-realta.imageAlt': 'Vista aerea del lago di Lugano con edifici medici moderni',
 };
 
 export default blogMetaIt;

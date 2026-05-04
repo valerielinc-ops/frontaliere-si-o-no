@@ -5885,6 +5885,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.luino-bilancio-2025-avanzo-26-milioni.title': 'Luino ends 2025 with a surplus of 2.6 million',
     'blog.article.luino-bilancio-2025-avanzo-26-milioni.excerpt': 'The 2025 final budget of the municipality of Luino shows a surplus of 2.6 million euros, with revenues exceeding 31.5 million.',
     'blog.article.luino-bilancio-2025-avanzo-26-milioni.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky, and boats on the water',
+    'blog.article.nuovo-cardiocentro-lugano-realta.title': 'New Lugano Cardiocentre: three additional floors inaugurated',
+    'blog.article.nuovo-cardiocentro-lugano-realta.excerpt': 'Three additional floors inaugurated at the Lugano Cardiocentre, with improvements for patients and operators',
+    'blog.article.nuovo-cardiocentro-lugano-realta.imageAlt': 'Aerial view of Lugano\'s lakefront with modern medical buildings',
 };
 
 export default blogMetaEn;

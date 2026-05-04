@@ -5886,6 +5886,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.luino-bilancio-2025-avanzo-26-milioni.title': 'Luino clôture 2025 avec un excédent de 2,6 millions',
     'blog.article.luino-bilancio-2025-avanzo-26-milioni.excerpt': 'Le bilan 2025 de la commune de Luino montre un excédent de 2,6 millions d\'euros, avec des recettes dépassant 31,5 millions.',
     'blog.article.luino-bilancio-2025-avanzo-26-milioni.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, un ciel bleu clair et des bateaux sur l\'eau',
+    'blog.article.nuovo-cardiocentro-lugano-realta.title': 'Nouveau Cardiocentre de Lugano: trois étages supplémentaires inaugurés',
+    'blog.article.nuovo-cardiocentro-lugano-realta.excerpt': 'Trois étages supplémentaires ont été inaugurés au Cardiocentre de Lugano, avec des améliorations pour les patients et les opérateurs',
+    'blog.article.nuovo-cardiocentro-lugano-realta.imageAlt': 'Vue aérienne du front de lac de Lugano avec des bâtiments médicaux modernes',
 };
 
 export default blogMetaFr;

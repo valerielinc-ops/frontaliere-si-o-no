@@ -16421,6 +16421,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-cardiocentro-lugano-realta': {
+    title: 'Nuovo Cardiocentro Lugano: inaugurati tre piani aggiuntivi',
+    description: 'Inaugurati tre piani aggiuntivi al Cardiocentro di Lugano, con miglioramenti per pazienti e operatori. Scopri le implicazioni per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, cardiocentro, lugano, inaugurati',
+    ogTitle: 'Nuovo Cardiocentro Lugano: inaugurati tre piani aggiuntivi',
+    ogDescription: 'Inaugurati tre piani aggiuntivi al Cardiocentro di Lugano, con miglioramenti per pazienti e operatori. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/nuovo-cardiocentro-lugano-realta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo Cardiocentro Lugano: inaugurati tre piani aggiuntivi",
+      "description": "Inaugurati tre piani aggiuntivi al Cardiocentro di Lugano, con miglioramenti per pazienti e operatori. Scopri le implicazioni per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-cardiocentro-lugano-realta.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lago di Lugano con edifici medici moderni"
+      },
+      "datePublished": "2026-05-04T21:09:31+00:00",
+      "dateModified": "2026-05-04T21:09:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-cardiocentro-lugano-realta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

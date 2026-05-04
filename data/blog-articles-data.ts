@@ -19028,4 +19028,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'nuovo-cardiocentro-lugano-realta',
+ category: 'novita',
+ date: '2026-05-04T21:09:31.694Z',
+ image: '/images/blog/nuovo-cardiocentro-lugano-realta.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
