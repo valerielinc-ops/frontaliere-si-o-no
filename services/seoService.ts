@@ -3194,6 +3194,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-boom-viaggiatori-treni-2026-ticino': { name: 'Novità', path: '/articoli-frontaliere/boom-viaggiatori-treni-2026-ticino', parent: 'blog' },
     'blog-neutralizzazione-stime-immobiliari-2026': { name: 'Neutralizzazione stime immobiliari', path: '/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026', parent: 'blog' },
     'blog-neutralizzazione-stime-immobiliari-2026-ticino': { name: 'Neutralizzazione stime', path: '/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026-ticino', parent: 'blog' },
+    'blog-barometro-kof-aprile-2026-prospettive-modeste': { name: 'Novità', path: '/articoli-frontaliere/barometro-kof-aprile-2026-prospettive-modeste', parent: 'blog' },
  };
 
  const info = sectionNames[section];

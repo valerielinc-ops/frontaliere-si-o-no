@@ -5856,6 +5856,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.title': 'Neutralizzazione stime immobiliari: perché il Ticino vota SÌ',
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.excerpt': '430 milioni di franchi annui in gioco: il Ticino decide se adeguare automaticamente le imposte o lasciare la scelta al Gran Consiglio',
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.imageAlt': 'Vista del lago di Lugano con la città di Lugano sullo sfondo',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.title': 'Barometro KOF: economia svizzera in leggero miglioramento ma prospettive modeste',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.excerpt': 'Il barometro del KOF segna 97,9 punti in aprile, ma l\'economia elvetica resta sotto la media pluriennale di 100.',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.imageAlt': 'Veduta del Lago di Lugano con edifici moderni sullo sfondo',
 };
 
 export default blogMetaIt;

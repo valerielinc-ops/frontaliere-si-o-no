@@ -5855,6 +5855,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.title': 'Why Ticino votes YES on property tax adjustments',
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.excerpt': '430 million francs at stake: Ticino decides whether to automatically adjust taxes or leave it to the Grand Council',
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.imageAlt': 'View of Lake Lugano with the city of Lugano in the background',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.title': 'KOF Barometer: Swiss economy slightly improves but outlook modest',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.excerpt': 'The KOF barometer stands at 97.9 points in April, but the Swiss economy remains below the long-term average of 100.',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.imageAlt': 'View of Lake Lugano with modern buildings in the background',
 };
 
 export default blogMetaEn;

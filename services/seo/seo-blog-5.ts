@@ -16081,6 +16081,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-barometro-kof-aprile-2026-prospettive-modeste': {
+    title: 'Barometro KOF: economia svizzera in leggero miglioramento ma prospettive modeste',
+    description: 'Il barometro del KOF segna 97,9 punti in aprile, ma l\'economia elvetica resta sotto la media pluriennale di 100. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, barometro, economia, leggero, miglioramento',
+    ogTitle: 'Barometro KOF: economia svizzera in leggero miglioramento ma prospettive modeste',
+    ogDescription: 'Il barometro del KOF segna 97,9 punti in aprile, ma l\'economia elvetica resta sotto la media pluriennale di 100. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/barometro-kof-aprile-2026-prospettive-modeste',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Barometro KOF: economia svizzera in leggero miglioramento ma prospettive modeste",
+      "description": "Il barometro del KOF segna 97,9 punti in aprile, ma l'economia elvetica resta sotto la media pluriennale di 100. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/barometro-kof-aprile-2026-prospettive-modeste.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Lago di Lugano con edifici moderni sullo sfondo"
+      },
+      "datePublished": "2026-05-04T19:50:15+00:00",
+      "dateModified": "2026-05-04T19:50:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/barometro-kof-aprile-2026-prospettive-modeste`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

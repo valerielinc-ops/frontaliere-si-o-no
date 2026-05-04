@@ -18938,4 +18938,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'barometro-kof-aprile-2026-prospettive-modeste',
+ category: 'novita',
+ date: '2026-05-04T19:50:15.269Z',
+ image: '/images/blog/barometro-kof-aprile-2026-prospettive-modeste.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

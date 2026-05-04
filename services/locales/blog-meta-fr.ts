@@ -5856,6 +5856,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.title': 'Neutralisation des estimations immobilières: pourquoi le Tessin vote OUI',
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.excerpt': '430 millions de francs annuels en jeu: le Tessin décide s\'il faut adapter automatiquement les impôts ou laisser le choix au Grand Conseil',
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.title': 'Baromètre KOF: légère amélioration de l\'économie suisse',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.excerpt': 'Le baromètre du KOF affiche 97,9 points en avril, mais l\'économie helvétique reste en dessous de la moyenne pluriannuelle de 100.',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes en arrière-plan',
 };
 
 export default blogMetaFr;

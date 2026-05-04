@@ -5855,6 +5855,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.title': 'Immobilienbewertung: Warum der Tessin Ja sagt',
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.excerpt': '430 Millionen Franken pro Jahr im Spiel: Der Tessin entscheidet, ob die Steuern automatisch angepasst werden oder die Wahl dem Grossen Rat überlassen bleibt',
     'blog.article.neutralizzazione-stime-immobiliari-2026-ticino.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano im Hintergrund',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.title': 'KOF-Barometer: Schweizer Wirtschaft leicht verbessert, aber bescheiden',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.excerpt': 'Das KOF-Barometer liegt im April bei 97,9 Punkten, doch die Schweizer Wirtschaft bleibt unter dem langjährigen Durchschnitt von 100.',
+    'blog.article.barometro-kof-aprile-2026-prospettive-modeste.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden im Hintergrund',
 };
 
 export default blogMetaDe;
