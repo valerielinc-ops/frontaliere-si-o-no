@@ -5876,6 +5876,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.jashari-milan-bocciatura.title': 'Jashari enttäuscht beim AC-Milan-Debüt',
     'blog.article.jashari-milan-bocciatura.excerpt': 'Kritik aus Italien für Jasharis Leistung, der einen Fehler machte, der dem AC Mailand ein 0:1 gegen Sassuolo kostete',
     'blog.article.jashari-milan-bocciatura.imageAlt': 'Ein Fußballspieler macht einen Fehler während eines Spiels in einem Stadion in Tessin',
+    'blog.article.mendrisio-senso-citta-rossini-lorenzon.title': 'Mendrisio: Bürgermeisterin Rossini setzt auf Gemeinschaftsgefühl',
+    'blog.article.mendrisio-senso-citta-rossini-lorenzon.excerpt': 'Die neue Bürgermeisterin Simona Rossini (Lega) übernimmt das Amt von Lucio Lorenzon und thematisiert die Rivalität zwischen den Ortsteilen in Mendrisio',
+    'blog.article.mendrisio-senso-citta-rossini-lorenzon.imageAlt': 'Panorama der Stadt Mendrisio mit modernen Gebäuden und historischer Architektur',
 };
 
 export default blogMetaDe;

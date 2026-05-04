@@ -5876,6 +5876,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.jashari-milan-bocciatura.title': 'Jashari fails to impress in Milan debut',
     'blog.article.jashari-milan-bocciatura.excerpt': 'Criticism from Italy for Jashari\'s performance, who made an error costing Milan a 1-0 lead against Sassuolo',
     'blog.article.jashari-milan-bocciatura.imageAlt': 'A soccer player makes a mistake during a match in a stadium in Ticino',
+    'blog.article.mendrisio-senso-citta-rossini-lorenzon.title': 'Mendrisio: Mayor Rossini focuses on city spirit',
+    'blog.article.mendrisio-senso-citta-rossini-lorenzon.excerpt': 'New mayor Simona Rossini (Lega) takes over from Lucio Lorenzon and revives the topic of parochialism in Mendrisio',
+    'blog.article.mendrisio-senso-citta-rossini-lorenzon.imageAlt': 'Mendrisio cityscape with modern buildings and historic architecture',
 };
 
 export default blogMetaEn;

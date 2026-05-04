@@ -3201,6 +3201,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-policonsumo-ticino-2026': { name: 'Policonsumo droga', path: '/articoli-frontaliere/policonsumo-ticino-2026', parent: 'blog' },
     'blog-crack-house-ingrado-2026': { name: 'Crack house Ticino', path: '/articoli-frontaliere/crack-house-ingrado-2026', parent: 'blog' },
     'blog-jashari-milan-bocciatura': { name: 'Novità', path: '/articoli-frontaliere/jashari-milan-bocciatura', parent: 'blog' },
+    'blog-mendrisio-senso-citta-rossini-lorenzon': { name: 'Novità', path: '/articoli-frontaliere/mendrisio-senso-citta-rossini-lorenzon', parent: 'blog' },
  };
 
  const info = sectionNames[section];

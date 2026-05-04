@@ -5877,6 +5877,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.jashari-milan-bocciatura.title': 'Jashari bocciato all\'esordio con il Milan',
     'blog.article.jashari-milan-bocciatura.excerpt': 'Critiche dall\'Italia per il rendimento di Jashari, protagonista di un errore costato l\'1-0 al Milan contro il Sassuolo',
     'blog.article.jashari-milan-bocciatura.imageAlt': 'Un giocatore di calcio commette un errore durante una partita in uno stadio del Ticino',
+    'blog.article.mendrisio-senso-citta-rossini-lorenzon.title': 'Mendrisio: la nuova sindaca Rossini punta sul senso di città',
+    'blog.article.mendrisio-senso-citta-rossini-lorenzon.excerpt': 'La neo sindaca Simona Rossini (Lega) prende il testimone da Lucio Lorenzon e rilancia il tema dei campanilismi a Mendrisio',
+    'blog.article.mendrisio-senso-citta-rossini-lorenzon.imageAlt': 'Panorama della città di Mendrisio con edifici moderni e architettura storica',
 };
 
 export default blogMetaIt;

@@ -19001,4 +19001,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mendrisio-senso-citta-rossini-lorenzon',
+ category: 'novita',
+ date: '2026-05-04T20:48:15.559Z',
+ image: '/images/blog/mendrisio-senso-citta-rossini-lorenzon.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

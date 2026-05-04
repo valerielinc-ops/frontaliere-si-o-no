@@ -16319,6 +16319,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mendrisio-senso-citta-rossini-lorenzon': {
+    title: 'Mendrisio: la nuova sindaca Rossini punta sul senso di città',
+    description: 'La neo sindaca Simona Rossini (Lega) prende il testimone da Lucio Lorenzon e rilancia il tema dei campanilismi a Mendrisio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisio, nuova, sindaca, rossini',
+    ogTitle: 'Mendrisio: la nuova sindaca Rossini punta sul senso di città',
+    ogDescription: 'La neo sindaca Simona Rossini (Lega) prende il testimone da Lucio Lorenzon e rilancia il tema dei campanilismi a Mendrisio',
+    canonicalPath: '/articoli-frontaliere/mendrisio-senso-citta-rossini-lorenzon',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisio: la nuova sindaca Rossini punta sul senso di città",
+      "description": "La neo sindaca Simona Rossini (Lega) prende il testimone da Lucio Lorenzon e rilancia il tema dei campanilismi a Mendrisio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mendrisio-senso-citta-rossini-lorenzon.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama della città di Mendrisio con edifici moderni e architettura storica"
+      },
+      "datePublished": "2026-05-04T20:48:15+00:00",
+      "dateModified": "2026-05-04T20:48:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mendrisio-senso-citta-rossini-lorenzon`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
