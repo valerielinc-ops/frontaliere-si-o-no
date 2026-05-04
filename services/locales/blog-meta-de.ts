@@ -5861,6 +5861,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.elicottero-mezzovico-frontalieri.title': 'Hubschrauberabsturz in Mezzovico: sechs Verletzte, einer schwer',
     'blog.article.elicottero-mezzovico-frontalieri.excerpt': 'Ein Hubschrauber ist beim Landeanflug in Mezzovico-Vira abgestürzt. Sechs Personen wurden verletzt, eine davon schwer.',
     'blog.article.elicottero-mezzovico-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.ospedale-universitario-ticino-2026.title': 'Tessin träumt von einem dezentralen Uniklinikum',
+    'blog.article.ospedale-universitario-ticino-2026.excerpt': 'Das Projekt liegt beim Staatsrat. Sanvido (EOC): \'Wir hoffen bald auf grünes Licht\'',
+    'blog.article.ospedale-universitario-ticino-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Krankenhausgebäuden, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

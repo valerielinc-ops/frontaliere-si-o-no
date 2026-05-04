@@ -3196,6 +3196,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-neutralizzazione-stime-immobiliari-2026-ticino': { name: 'Neutralizzazione stime', path: '/articoli-frontaliere/neutralizzazione-stime-immobiliari-2026-ticino', parent: 'blog' },
     'blog-barometro-kof-aprile-2026-prospettive-modeste': { name: 'Novità', path: '/articoli-frontaliere/barometro-kof-aprile-2026-prospettive-modeste', parent: 'blog' },
     'blog-elicottero-mezzovico-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/elicottero-mezzovico-frontalieri', parent: 'blog' },
+    'blog-ospedale-universitario-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ospedale-universitario-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

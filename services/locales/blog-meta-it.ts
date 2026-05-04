@@ -5862,6 +5862,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.elicottero-mezzovico-frontalieri.title': 'Elicottero precipita a Mezzovico: sei feriti, uno grave',
     'blog.article.elicottero-mezzovico-frontalieri.excerpt': 'Un elicottero è precipitato durante l\'atterraggio a Mezzovico-Vira, sei persone ferite, una in gravi condizioni.',
     'blog.article.elicottero-mezzovico-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.ospedale-universitario-ticino-2026.title': 'Ticino sogna un ospedale universitario diffuso',
+    'blog.article.ospedale-universitario-ticino-2026.excerpt': 'Il progetto è sul tavolo del Consiglio di Stato. Sanvido (Eoc): \'Speriamo di ricevere presto il via libera\'',
+    'blog.article.ospedale-universitario-ticino-2026.imageAlt': 'Vista aerea del lago di Lugano con edifici ospedalieri moderni, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

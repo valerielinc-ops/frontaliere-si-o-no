@@ -5861,6 +5861,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.elicottero-mezzovico-frontalieri.title': 'Helicopter crashes in Mezzovico: six injured, one serious',
     'blog.article.elicottero-mezzovico-frontalieri.excerpt': 'A helicopter crashed during landing in Mezzovico-Vira, six people injured, one in serious condition.',
     'blog.article.elicottero-mezzovico-frontalieri.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.ospedale-universitario-ticino-2026.title': 'Ticino dreams of a distributed university hospital',
+    'blog.article.ospedale-universitario-ticino-2026.excerpt': 'The project is on the State Council\'s table. Sanvido (Eoc): \'We hope to receive the green light soon\'',
+    'blog.article.ospedale-universitario-ticino-2026.imageAlt': 'Aerial view of Lugano lake with modern hospital buildings, Ticino, Switzerland',
 };
 
 export default blogMetaEn;
