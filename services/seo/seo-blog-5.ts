@@ -12953,6 +12953,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premio-walo-2026-frontalieri': {
+    title: 'Premio Walo 2026: Hecht e Stephan Eicher trionfano',
+    description: 'La 50ma edizione del Prix Walo ha insignito gli Hecht come miglior gruppo e Stephan Eicher nella categoria Canto Pop/Rock. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, premio, walo, hecht, stephan',
+    ogTitle: 'Premio Walo 2026: Hecht e Stephan Eicher trionfano',
+    ogDescription: 'La 50ma edizione del Prix Walo ha insignito gli Hecht come miglior gruppo e Stephan Eicher nella categoria Canto Pop/Rock.',
+    canonicalPath: '/articoli-frontaliere/premio-walo-2026-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premio Walo 2026: Hecht e Stephan Eicher trionfano",
+      "description": "La 50ma edizione del Prix Walo ha insignito gli Hecht come miglior gruppo e Stephan Eicher nella categoria Canto Pop/Rock. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/premio-walo-2026-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Premio Walo 2026, Zurigo, musica, cerimonia"
+      },
+      "datePublished": "2026-05-04T05:16:51+00:00",
+      "dateModified": "2026-05-04T05:16:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/premio-walo-2026-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

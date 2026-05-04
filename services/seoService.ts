@@ -3102,6 +3102,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-azzate-koningsdag-console-olandese-2026': { name: 'Eventi', path: '/articoli-frontaliere/azzate-koningsdag-console-olandese-2026', parent: 'blog' },
     'blog-confine-vacallo-clandestini-2026': { name: 'Confine Vacallo', path: '/articoli-frontaliere/confine-vacallo-clandestini-2026', parent: 'blog' },
     'blog-morte-alex-zanardi-impatti-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/morte-alex-zanardi-impatti-frontalieri', parent: 'blog' },
+    'blog-premio-walo-2026-frontalieri': { name: 'Premio Walo', path: '/articoli-frontaliere/premio-walo-2026-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -5580,6 +5580,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.morte-alex-zanardi-impatti-frontalieri.title': 'Mort d\'Alex Zanardi : un symbole pour le sport italien',
     'blog.article.morte-alex-zanardi-impatti-frontalieri.excerpt': 'Alex Zanardi, ancien pilote de Formule 1 et athlète paralympique, est mort à 59 ans. Sa vie et sa carrière sont un exemple de résilience et de passion.',
     'blog.article.morte-alex-zanardi-impatti-frontalieri.imageAlt': 'Vue sereine du lac de Lugano avec la ville en arrière-plan',
+    'blog.article.premio-walo-2026-frontalieri.title': 'Prix Walo 2026: Hecht et Stephan Eicher triomphent',
+    'blog.article.premio-walo-2026-frontalieri.excerpt': 'La 50e édition du Prix Walo a récompensé les Hecht comme meilleur groupe et Stephan Eicher dans la catégorie Chant Pop/Rock.',
+    'blog.article.premio-walo-2026-frontalieri.imageAlt': 'Prix Walo 2026, Zurich, musique, cérémonie',
 };
 
 export default blogMetaFr;

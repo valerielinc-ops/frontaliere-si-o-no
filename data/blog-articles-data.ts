@@ -18110,4 +18110,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'premio-walo-2026-frontalieri',
+ category: 'novita',
+ date: '2026-05-04T05:16:51.327Z',
+ image: '/images/blog/premio-walo-2026-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
