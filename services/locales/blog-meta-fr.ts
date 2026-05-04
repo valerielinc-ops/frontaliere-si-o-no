@@ -5766,6 +5766,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.maxi-piano-traffico-lago-como-2026.title': 'Gros plan pour le trafic sur la route du lac de Côme : solutions chirurgicales',
     'blog.article.maxi-piano-traffico-lago-como-2026.excerpt': 'Interventions ciblées pour améliorer la sécurité et la fluidité de la circulation le long de la SS 340 Regina, avec des financements ANAS et une coordination provinciale',
     'blog.article.maxi-piano-traffico-lago-como-2026.imageAlt': 'Vue aérienne de la route du lac de Côme avec un trafic intense et des travaux en cours',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.title': 'Incendie sur le toit à Chiasso, une trentaine de personnes évacuées',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.excerpt': 'Un incendie s\'est déclaré sur le toit d\'un immeuble à Piazza Indipendenza à Chiasso, entraînant l\'évacuation d\'environ trente personnes.',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.imageAlt': 'Vue aérienne de la Piazza Indipendenza à Chiasso, avec des véhicules d\'urgence et des pompiers répondant à un incendie sur le toit.',
 };
 
 export default blogMetaFr;

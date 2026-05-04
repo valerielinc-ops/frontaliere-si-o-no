@@ -5765,6 +5765,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.maxi-piano-traffico-lago-como-2026.title': 'Großer Plan für den Verkehr auf der Comer-See-Straße: gezielte Lösungen',
     'blog.article.maxi-piano-traffico-lago-como-2026.excerpt': 'Gezielte Maßnahmen zur Verbesserung der Sicherheit und des Verkehrsflusses entlang der SS 340 Regina, mit Finanzierung durch ANAS und provinzieller Koordination',
     'blog.article.maxi-piano-traffico-lago-como-2026.imageAlt': 'Luftaufnahme der Straße am Comer See mit starkem Verkehr und laufenden Bauarbeiten',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.title': 'Dachbrand in Chiasso, etwa 30 Personen evakuiert',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.excerpt': 'Ein Feuer ist auf dem Dach eines Mehrfamilienhauses in der Piazza Indipendenza in Chiasso ausgebrochen und hat die Evakuierung von etwa 30 Personen verursacht.',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.imageAlt': 'Luftaufnahme von Piazza Indipendenza in Chiasso, mit Einsatzfahrzeugen und Feuerwehrleuten, die auf ein Dachfeuer reagieren.',
 };
 
 export default blogMetaDe;

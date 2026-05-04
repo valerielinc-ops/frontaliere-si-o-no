@@ -18668,4 +18668,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incendio-chiasso-evacuati-trentina-persone',
+ category: 'novita',
+ date: '2026-05-04T13:55:39.010Z',
+ image: '/images/blog/incendio-chiasso-evacuati-trentina-persone.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

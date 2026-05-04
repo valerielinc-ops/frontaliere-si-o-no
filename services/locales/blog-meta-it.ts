@@ -5766,6 +5766,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maxi-piano-traffico-lago-como-2026.title': 'Maxi piano per il traffico sulla statale del Lago di Como: soluzioni chirurgiche',
     'blog.article.maxi-piano-traffico-lago-como-2026.excerpt': 'Interventi mirati per migliorare la sicurezza e fluidità della viabilità lungo la SS 340 Regina, con finanziamenti ANAS e coordinamento provinciale',
     'blog.article.maxi-piano-traffico-lago-como-2026.imageAlt': 'Vista aerea della strada statale del Lago di Como con traffico intenso e lavori in corso',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.title': 'Incendio sul tetto a Chiasso, evacuati una trentina di persone',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.excerpt': 'Un incendio è scoppiato sul tetto di una palazzina in Piazza Indipendenza a Chiasso, causando l\'evacuazione di circa trenta persone.',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.imageAlt': 'Vista aerea di Piazza Indipendenza a Chiasso, con veicoli di emergenza e vigili del fuoco che rispondono a un incendio sul tetto.',
 };
 
 export default blogMetaIt;

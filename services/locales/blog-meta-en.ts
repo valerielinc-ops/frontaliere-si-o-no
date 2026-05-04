@@ -5765,6 +5765,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.maxi-piano-traffico-lago-como-2026.title': 'Major plan for Lake Como state road traffic: surgical solutions',
     'blog.article.maxi-piano-traffico-lago-como-2026.excerpt': 'Targeted interventions to improve safety and traffic flow along the SS 340 Regina, with ANAS funding and provincial coordination',
     'blog.article.maxi-piano-traffico-lago-como-2026.imageAlt': 'Aerial view of Lake Como road with heavy traffic and ongoing construction work',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.title': 'Rooftop fire in Chiasso, 30 evacuated',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.excerpt': 'A fire broke out on the roof of a building in Piazza Indipendenza, Chiasso, leading to the evacuation of around thirty people.',
+    'blog.article.incendio-chiasso-evacuati-trentina-persone.imageAlt': 'Aerial view of Piazza Indipendenza in Chiasso, with emergency vehicles and firefighters responding to a roof fire.',
 };
 
 export default blogMetaEn;

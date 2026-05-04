@@ -15061,6 +15061,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-chiasso-evacuati-trentina-persone': {
+    title: 'Incendio sul tetto a Chiasso, evacuati una trentina di persone',
+    description: 'Un incendio è scoppiato sul tetto di una palazzina in Piazza Indipendenza a Chiasso, causando l\'evacuazione di circa trenta persone. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, tetto, chiasso, evacuati',
+    ogTitle: 'Incendio sul tetto a Chiasso, evacuati una trentina di persone',
+    ogDescription: 'Un incendio è scoppiato sul tetto di una palazzina in Piazza Indipendenza a Chiasso, causando l\'evacuazione di circa trenta persone.',
+    canonicalPath: '/articoli-frontaliere/incendio-chiasso-evacuati-trentina-persone',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio sul tetto a Chiasso, evacuati una trentina di persone",
+      "description": "Un incendio è scoppiato sul tetto di una palazzina in Piazza Indipendenza a Chiasso, causando l'evacuazione di circa trenta persone. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendio-chiasso-evacuati-trentina-persone.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Piazza Indipendenza a Chiasso, con veicoli di emergenza e vigili del fuoco che rispondono a un incendio sul tetto."
+      },
+      "datePublished": "2026-05-04T13:55:39+00:00",
+      "dateModified": "2026-05-04T13:55:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-evacuati-trentina-persone`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
