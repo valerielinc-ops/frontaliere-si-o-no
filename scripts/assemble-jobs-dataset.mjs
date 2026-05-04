@@ -187,10 +187,10 @@ const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
 
 /**
  * Compute a fingerprint of all crawler-slice input files so the assembly can
- * be cached. Uses mtime+size (cheap stat call) instead of SHA-256 of contents
- * (which would be ~5x slower at 50 MB total). Tolerates missing files via
- * `existsSync` guard so a fresh checkout with empty slice dirs hashes to a
- * deterministic value.
+ * be cached. Hashes file *contents* (sha256), not mtime+size: `actions/checkout`
+ * resets mtime on every CI run, which would invalidate every cache key on every
+ * deploy even when the bytes are identical. Content hashing is ~0.3s for ~47MB
+ * — negligible vs. the 60s+ full assembly it replaces.
  *
  * Sorted by absolute path before hashing for cross-machine determinism.
  *
@@ -209,12 +209,12 @@ export function computeAssembleInputFingerprint() {
   files.sort();
   const hasher = crypto.createHash('sha256');
   for (const f of files) {
-    const st = fs.statSync(f);
+    const buf = fs.readFileSync(f);
     hasher.update(f);
     hasher.update('\0');
-    hasher.update(String(st.size));
+    hasher.update(String(buf.length));
     hasher.update('\0');
-    hasher.update(String(st.mtimeMs));
+    hasher.update(buf);
     hasher.update('\0');
   }
   return hasher.digest('hex').slice(0, 16);

@@ -5,8 +5,10 @@
  *
  * These tests validate that:
  *   1. The fingerprint is stable across calls when slice files are unchanged.
- *   2. The fingerprint changes when any slice file's mtime changes.
- *   3. The fingerprint changes when any slice file's size changes.
+ *   2. The fingerprint is INVARIANT under mtime changes (content hashing —
+ *      `actions/checkout` resets mtime on every CI run, so an mtime-sensitive
+ *      key would always MISS).
+ *   3. The fingerprint changes when any slice file's content changes.
  *   4. The fingerprint changes when a new slice file is added.
  *   5. The fingerprint changes when a slice file is removed.
  *
@@ -93,12 +95,21 @@ describe('computeAssembleInputFingerprint', () => {
     expect(fp1).toEqual(fp2);
   });
 
-  it('changes when a slice file mtime changes', () => {
+  it('is INVARIANT under mtime changes (content hashing survives checkout mtime reset)', () => {
     const filePath = writeSlice('data/jobs/by-crawler/test-mtime.json', '{"x":1}');
     const fpBefore = computeAssembleInputFingerprint();
-    // Bump mtime by 10 seconds in the future
+    // Bump mtime by 10 seconds in the future — simulates `actions/checkout`
+    // rewriting mtimes to checkout time on every CI run.
     const future = new Date(Date.now() + 10_000);
     utimesSync(filePath, future, future);
+    const fpAfter = computeAssembleInputFingerprint();
+    expect(fpAfter).toEqual(fpBefore);
+  });
+
+  it('changes when a slice file content changes (same length)', () => {
+    writeSlice('data/jobs/by-crawler/test-content.json', '{"y":1}');
+    const fpBefore = computeAssembleInputFingerprint();
+    writeSlice('data/jobs/by-crawler/test-content.json', '{"y":2}');
     const fpAfter = computeAssembleInputFingerprint();
     expect(fpAfter).not.toEqual(fpBefore);
   });
