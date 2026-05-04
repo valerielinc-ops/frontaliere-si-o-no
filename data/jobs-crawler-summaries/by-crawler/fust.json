@@ -1,21 +1,22 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-05-04T10:54:18.205Z",
+  "generatedAt": "2026-05-04T21:56:03.191Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 19886,
-  "avgDurationMs": 19886,
+  "durationMs": 17043,
+  "avgDurationMs": 17043,
   "durationHistory": [
-    19886
+    17043
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-29z0lf",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-29z0lf",
+      "slug": "home-fornitore-negli-elettrodomestici-elettrici-fust-cadenazzo",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Grigioni",
@@ -36,18 +37,24 @@
       "companyDomain": "fust.ch",
       "crawledAt": "2026-05-04T10:54:17.145Z",
       "firstSeenAt": "2026-05-04T10:54:17.145Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 75,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Industria 1",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
