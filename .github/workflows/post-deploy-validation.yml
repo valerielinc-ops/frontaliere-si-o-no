@@ -80,6 +80,23 @@ jobs:
             echo "⚠️ Firebase secrets not set — registry operations will be skipped."
           fi
 
+      # Hydrate the runner env with secrets pulled from Firebase Remote Config
+      # so the social-media post steps below see FB_PAGE_ACCESS_TOKEN /
+      # FB_PAGE_ID / LINKEDIN_POST_* etc. as `process.env.*`. Without this
+      # step, post-to-facebook.mjs reads `process.env.FB_PAGE_ACCESS_TOKEN`,
+      # finds nothing, and silently exits with the "⚠️ FB_PAGE_ACCESS_TOKEN
+      # or FB_PAGE_ID not set — skipping Facebook post" log line. The
+      # `Post to Facebook Page` and `Post to LinkedIn Company Page` steps
+      # appear green in the UI but never publish.
+      #
+      # load-rc-env.mjs is best-effort: if Firebase credentials are missing
+      # or RC fetch fails, it warns and exits 0, leaving env vars unset and
+      # downstream posting steps to perform their own "missing token" skip.
+      # That is the same fail-soft contract the deploy.yml pipeline already
+      # relies on (see deploy.yml step "Load secrets from Remote Config").
+      - name: Load secrets from Remote Config (FB + LinkedIn tokens)
+        run: node scripts/load-rc-env.mjs
+
       # Source validators (run on repo source, no dist/ needed) are launched in
       # background while the GitHub Pages artifact downloads in the foreground.
       # Saves 30-60s vs running them sequentially after the download.
