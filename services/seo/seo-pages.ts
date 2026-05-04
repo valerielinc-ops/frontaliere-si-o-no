@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1984,
+ "numberOfItems": 1985,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6622,7 +6622,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1981, "name": "Quattro distributori nei guai: prezzi esposti d...", "url": `${BASE_URL}/articoli-frontaliere/distributori-carburante-ticino-2026` },
           { "@type": "ListItem", "position": 1982, "name": "Dona la Spesa 2026: Nova Coop raccoglie beni pe...", "url": `${BASE_URL}/articoli-frontaliere/dona-spesa-nova-coop-2026` },
           { "@type": "ListItem", "position": 1983, "name": "Littizzetto critica fatture Svizzera a feriti", "url": `${BASE_URL}/articoli-frontaliere/littizzetto-critica-svizzera-crans-montana` },
-          { "@type": "ListItem", "position": 1984, "name": "Fondazione Cariplo: 5 milioni a Varese per 48 p...", "url": `${BASE_URL}/articoli-frontaliere/fondazione-cariplo-varese-5-milioni-2025` }
+          { "@type": "ListItem", "position": 1984, "name": "Fondazione Cariplo: 5 milioni a Varese per 48 p...", "url": `${BASE_URL}/articoli-frontaliere/fondazione-cariplo-varese-5-milioni-2025` },
+          { "@type": "ListItem", "position": 1985, "name": "Varese-Milano, rallentamenti sui treni dal 5 al...", "url": `${BASE_URL}/articoli-frontaliere/varese-milano-rallentamenti-treni-maggio-2026` }
  ]
  },
  {

@@ -5796,6 +5796,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fondazione-cariplo-varese-5-milioni-2025.title': 'Fondation Cariplo: 5 millions pour 48 projets à Varèse en 2025',
     'blog.article.fondazione-cariplo-varese-5-milioni-2025.excerpt': 'La Fondation Cariplo a approuvé le budget 2025, attribuant près de 5 millions d\'euros à 48 projets dans la province de Varèse.',
     'blog.article.fondazione-cariplo-varese-5-milioni-2025.imageAlt': 'Vue aérienne du lac de Lugano avec une eau bleue cristalline, entouré de montagnes et de bâtiments, par une journée ensoleillée',
+    'blog.article.varese-milano-rallentamenti-treni-maggio-2026.title': 'Ralentissements sur les trains Varèse-Milan du 5 au 11 mai',
+    'blog.article.varese-milano-rallentamenti-treni-maggio-2026.excerpt': 'Trenord annonce des modifications d\'horaires et des retards jusqu\'à 3 minutes pour les navetteurs du Varesotto et de la région milanaise',
+    'blog.article.varese-milano-rallentamenti-treni-maggio-2026.imageAlt': 'Usagers à la gare de Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;

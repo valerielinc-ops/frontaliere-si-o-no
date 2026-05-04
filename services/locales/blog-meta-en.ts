@@ -5795,6 +5795,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fondazione-cariplo-varese-5-milioni-2025.title': 'Cariplo Foundation: 5 million for 48 Varese projects in 2025',
     'blog.article.fondazione-cariplo-varese-5-milioni-2025.excerpt': 'The Cariplo Foundation has approved the 2025 budget, allocating nearly 5 million euros to 48 projects in the province of Varese.',
     'blog.article.fondazione-cariplo-varese-5-milioni-2025.imageAlt': 'Aerial view of Lake Lugano with clear blue water, surrounded by mountains and buildings, on a sunny day',
+    'blog.article.varese-milano-rallentamenti-treni-maggio-2026.title': 'Delays on Varese-Milan trains from 5 to 11 May',
+    'blog.article.varese-milano-rallentamenti-treni-maggio-2026.excerpt': 'Trenord announces schedule changes and delays up to 3 minutes for commuters from Varesotto and the Milan area',
+    'blog.article.varese-milano-rallentamenti-treni-maggio-2026.imageAlt': 'Commuters at Lugano station with lake view',
 };
 
 export default blogMetaEn;

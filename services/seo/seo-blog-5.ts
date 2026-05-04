@@ -15401,6 +15401,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-milano-rallentamenti-treni-maggio-2026': {
+    title: 'Varese-Milano, rallentamenti sui treni dal 5 all’11 maggio',
+    description: 'Trenord annuncia rallentamenti sui treni Varese-Milano dal 5 all’11 maggio 2026. Ritardi fino a 3 minuti su diverse linee. Consigli per i pendolari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese-milano, rallentamenti, treni, maggio',
+    ogTitle: 'Varese-Milano, rallentamenti treni 5-11 maggio 2026',
+    ogDescription: 'Trenord annuncia rallentamenti sui treni Varese-Milano dal 5 all’11 maggio 2026. Ritardi fino a 3 minuti su diverse linee. Consigli per i pendolari.',
+    canonicalPath: '/articoli-frontaliere/varese-milano-rallentamenti-treni-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese-Milano, rallentamenti sui treni dal 5 all’11 maggio",
+      "description": "Trenord annuncia rallentamenti sui treni Varese-Milano dal 5 all’11 maggio 2026. Ritardi fino a 3 minuti su diverse linee. Consigli per i pendolari.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-milano-rallentamenti-treni-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari alla stazione di Lugano con vista lago"
+      },
+      "datePublished": "2026-05-04T16:01:39+00:00",
+      "dateModified": "2026-05-04T16:01:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-milano-rallentamenti-treni-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

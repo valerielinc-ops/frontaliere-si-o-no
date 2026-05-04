@@ -5796,6 +5796,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fondazione-cariplo-varese-5-milioni-2025.title': 'Fondazione Cariplo: 5 milioni a Varese per 48 progetti nel 2025',
     'blog.article.fondazione-cariplo-varese-5-milioni-2025.excerpt': 'La Fondazione Cariplo ha approvato il bilancio 2025, assegnando quasi 5 milioni di euro a 48 progetti nella provincia di Varese.',
     'blog.article.fondazione-cariplo-varese-5-milioni-2025.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici, in una giornata di sole',
+    'blog.article.varese-milano-rallentamenti-treni-maggio-2026.title': 'Varese-Milano, rallentamenti sui treni dal 5 all’11 maggio',
+    'blog.article.varese-milano-rallentamenti-treni-maggio-2026.excerpt': 'Trenord annuncia modifiche agli orari e ritardi fino a 3 minuti per i pendolari del Varesotto e dell’area milanese',
+    'blog.article.varese-milano-rallentamenti-treni-maggio-2026.imageAlt': 'Pendolari alla stazione di Lugano con vista lago',
 };
 
 export default blogMetaIt;

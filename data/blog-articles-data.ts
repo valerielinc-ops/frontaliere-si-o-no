@@ -18758,4 +18758,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-milano-rallentamenti-treni-maggio-2026',
+ category: 'pratico',
+ date: '2026-05-04T16:01:39.541Z',
+ image: '/images/blog/varese-milano-rallentamenti-treni-maggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
