@@ -5472,6 +5472,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-cantu-movida-nero-2026.title': 'Cantù, controlli nei locali: trovato un lavoratore in nero',
     'blog.article.controlli-cantu-movida-nero-2026.excerpt': 'Operazione congiunta dei Carabinieri e Polizia Locale a Cantù, sospesa un\'attività per lavoro irregolare',
     'blog.article.controlli-cantu-movida-nero-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
+    'blog.article.como-napoli-pareggio-2026.title': 'Como-Napoli 0-0: Nico Paz brilla, ma Douvikas e Diao non concretizzano',
+    'blog.article.como-napoli-pareggio-2026.excerpt': 'Il Como pareggia 0-0 contro il Napoli. Nico Paz è il migliore in campo, ma Douvikas e Diao sprecano occasioni da gol.',
+    'blog.article.como-napoli-pareggio-2026.imageAlt': 'Stadio Sinigaglia di Como durante una partita di calcio',
 };
 
 export default blogMetaIt;

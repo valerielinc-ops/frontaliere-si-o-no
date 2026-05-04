@@ -5471,6 +5471,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-cantu-movida-nero-2026.title': 'Cantù, checks in venues: undocumented worker found',
     'blog.article.controlli-cantu-movida-nero-2026.excerpt': 'Joint operation by Carabinieri and Local Police in Cantù, one activity suspended for irregular work',
     'blog.article.controlli-cantu-movida-nero-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background',
+    'blog.article.como-napoli-pareggio-2026.title': 'Como 0-0 Napoli: Nico Paz shines, but Douvikas and Diao miss chances',
+    'blog.article.como-napoli-pareggio-2026.excerpt': 'Como drew 0-0 with Napoli. Nico Paz was the best on the pitch, but Douvikas and Diao wasted scoring opportunities.',
+    'blog.article.como-napoli-pareggio-2026.imageAlt': 'Stadio Sinigaglia in Como during a football match',
 };
 
 export default blogMetaEn;

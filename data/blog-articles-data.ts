@@ -17786,4 +17786,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-napoli-pareggio-2026',
+ category: 'novita',
+ date: '2026-05-04T00:03:01.942Z',
+ image: '/images/blog/como-napoli-pareggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

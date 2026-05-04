@@ -3066,6 +3066,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fiaccola-sacconago-speranza-amicizia': { name: 'Novità', path: '/articoli-frontaliere/fiaccola-sacconago-speranza-amicizia', parent: 'blog' },
     'blog-ingorgo-taxi-boat-como-2026': { name: 'Novità', path: '/articoli-frontaliere/ingorgo-taxi-boat-como-2026', parent: 'blog' },
     'blog-controlli-cantu-movida-nero-2026': { name: 'Novità', path: '/articoli-frontaliere/controlli-cantu-movida-nero-2026', parent: 'blog' },
+    'blog-como-napoli-pareggio-2026': { name: 'Como-Napoli 2026', path: '/articoli-frontaliere/como-napoli-pareggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -5472,6 +5472,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-cantu-movida-nero-2026.title': 'Cantù, contrôle dans les locaux : un travailleur au noir trouvé',
     'blog.article.controlli-cantu-movida-nero-2026.excerpt': 'Opération conjointe des Carabiniers et de la Police Locale à Cantù, une activité suspendue pour travail irrégulier',
     'blog.article.controlli-cantu-movida-nero-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.como-napoli-pareggio-2026.title': 'Como-Napoli 0-0 : Nico Paz brille, mais Douvikas et Diao ratent',
+    'blog.article.como-napoli-pareggio-2026.excerpt': 'Le Como fait match nul 0-0 contre Naples. Nico Paz est le meilleur sur le terrain, mais Douvikas et Diao ratent des occasions de but.',
+    'blog.article.como-napoli-pareggio-2026.imageAlt': 'Stade Sinigaglia à Côme pendant un match de football',
 };
 
 export default blogMetaFr;
