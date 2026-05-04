@@ -19064,4 +19064,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'inaugurazione-parchetto-biumo-via-arconati',
+ category: 'novita',
+ date: '2026-05-04T21:44:05.237Z',
+ image: '/images/blog/inaugurazione-parchetto-biumo-via-arconati.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

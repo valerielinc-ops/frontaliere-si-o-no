@@ -5897,6 +5897,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tangenziale-verde-somma-lombardo-2026.title': 'Großer Grüner Ring in Somma Lombardo eröffnet: 25 km Natur und Geschichte',
     'blog.article.tangenziale-verde-somma-lombardo-2026.excerpt': 'Eine 25 km lange Route durch Wälder, Sümpfe und historische Denkmäler, eröffnet am 16. Mai 2026.',
     'blog.article.tangenziale-verde-somma-lombardo-2026.imageAlt': 'Panoramablick auf den Luganersee mit umliegenden Bergen',
+    'blog.article.inaugurazione-parchetto-biumo-via-arconati.title': 'Einweihung des Parkplatzes Biumo: neuer Sport- und Sozialraum',
+    'blog.article.inaugurazione-parchetto-biumo-via-arconati.excerpt': 'Am Samstag, dem 9. Mai, wird der neue Parkplatz in der Via Arconati in Biumo, Varese, mit Basketballturnieren, Musik und Picknick eingeweiht.',
+    'blog.article.inaugurazione-parchetto-biumo-via-arconati.imageAlt': 'Park in der Via Arconati in Biumo, Varese, mit Basketballplatz, Tischtennisplätzen und Picknickbereich',
 };
 
 export default blogMetaDe;

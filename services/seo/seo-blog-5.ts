@@ -16557,6 +16557,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inaugurazione-parchetto-biumo-via-arconati': {
+    title: 'Inaugurazione parchetto Biumo: nuovo spazio sportivo e sociale',
+    description: 'Sabato 9 maggio inaugurazione del nuovo parchetto di via Arconati a Biumo, Varese, con tornei di basket, musica e picnic. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, inaugurazione, parchetto, biumo, nuovo',
+    ogTitle: 'Inaugurazione parchetto Biumo: nuovo spazio sportivo e sociale',
+    ogDescription: 'Sabato 9 maggio inaugurazione del nuovo parchetto di via Arconati a Biumo, Varese, con tornei di basket, musica e picnic.',
+    canonicalPath: '/articoli-frontaliere/inaugurazione-parchetto-biumo-via-arconati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inaugurazione parchetto Biumo: nuovo spazio sportivo e sociale",
+      "description": "Sabato 9 maggio inaugurazione del nuovo parchetto di via Arconati a Biumo, Varese, con tornei di basket, musica e picnic. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inaugurazione-parchetto-biumo-via-arconati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parchetto di via Arconati a Biumo, Varese, con campo da basket, tavoli da ping pong e area picnic"
+      },
+      "datePublished": "2026-05-04T21:44:05+00:00",
+      "dateModified": "2026-05-04T21:44:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inaugurazione-parchetto-biumo-via-arconati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

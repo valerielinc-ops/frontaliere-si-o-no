@@ -5898,6 +5898,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tangenziale-verde-somma-lombardo-2026.title': 'Inaugurato il Grande Anello Verde di Somma Lombardo: 25 km di natura e storia',
     'blog.article.tangenziale-verde-somma-lombardo-2026.excerpt': 'Un percorso di 25 km tra boschi, paludi e monumenti storici, inaugurato il 16 maggio 2026.',
     'blog.article.tangenziale-verde-somma-lombardo-2026.imageAlt': 'Panoramica del Lago di Lugano con vista sulle montagne circostanti',
+    'blog.article.inaugurazione-parchetto-biumo-via-arconati.title': 'Inaugurazione parchetto Biumo: nuovo spazio sportivo e sociale',
+    'blog.article.inaugurazione-parchetto-biumo-via-arconati.excerpt': 'Sabato 9 maggio inaugurazione del nuovo parchetto di via Arconati a Biumo, Varese, con tornei di basket, musica e picnic.',
+    'blog.article.inaugurazione-parchetto-biumo-via-arconati.imageAlt': 'Parchetto di via Arconati a Biumo, Varese, con campo da basket, tavoli da ping pong e area picnic',
 };
 
 export default blogMetaIt;
