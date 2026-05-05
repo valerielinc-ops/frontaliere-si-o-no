@@ -6099,6 +6099,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cornaredo-miliardo-promesse-cemento.title': 'Cornaredo : un milliard de promesses et un million de mètres cubes de béton',
     'blog.article.cornaredo-miliardo-promesse-cemento.excerpt': 'Discussions sur le relancement du secteur de Cornaredo à Lugano, avec des critiques sur la densification extrême et les promesses non tenues',
     'blog.article.cornaredo-miliardo-promesse-cemento.imageAlt': 'Vue aérienne du quartier Cornaredo à Lugano avec des chantiers en cours et un développement urbain',
+    'blog.article.ladies-run-lugano-chiusure-stradali-2026.title': 'Ladies Run 2026 : fermetures de routes à Lugano',
+    'blog.article.ladies-run-lugano-chiusure-stradali-2026.excerpt': 'Modifications de la circulation pour l\'événement de course à pied du 9 mai 2026. Voici ce qui change pour les automobilistes et les travailleurs frontaliers.',
+    'blog.article.ladies-run-lugano-chiusure-stradali-2026.imageAlt': 'Événement Ladies Run à Lugano, Suisse, le long du lac',
 };
 
 export default blogMetaFr;

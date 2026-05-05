@@ -19667,4 +19667,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ladies-run-lugano-chiusure-stradali-2026',
+ category: 'pratico',
+ date: '2026-05-05T10:45:01.700Z',
+ image: '/images/blog/ladies-run-lugano-chiusure-stradali-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
