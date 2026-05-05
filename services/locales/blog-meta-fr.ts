@@ -6198,6 +6198,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.expat-ticino-sventa-truffa-hacker.title': 'Frontalier ticinois déjoue une arnaque : « J\'avais l\'arme secrète »',
     'blog.article.expat-ticino-sventa-truffa-hacker.excerpt': 'Un frontalier tessinois a évité une arnaque grâce à un code secret, après avoir été piraté.',
     'blog.article.expat-ticino-sventa-truffa-hacker.imageAlt': 'Expat travaillant sur un ordinateur portable à Lugano, avec une alerte de sécurité à l\'écran',
+    'blog.article.tragedia-braunwald-camminatore-disperso.title': 'Tragédie à Braunwald : un randonneur disparu après un accident',
+    'blog.article.tragedia-braunwald-camminatore-disperso.excerpt': 'Un randonneur a disparu après un accident à Braunwald. Les autorités recherchent toujours le disparu.',
+    'blog.article.tragedia-braunwald-camminatore-disperso.imageAlt': 'Équipes de secours en action près de Braunwald après la tragédie du randonneur disparu',
 };
 
 export default blogMetaFr;

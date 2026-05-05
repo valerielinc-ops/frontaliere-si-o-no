@@ -6198,6 +6198,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.expat-ticino-sventa-truffa-hacker.title': 'Expat ticinese sventa truffa: «Hackerato, ma avevo l\'arma segreta»',
     'blog.article.expat-ticino-sventa-truffa-hacker.excerpt': 'Un expat ticinese ha evitato una truffa grazie a un codice segreto, dopo essere stato hackerato.',
     'blog.article.expat-ticino-sventa-truffa-hacker.imageAlt': 'Expat lavoratore al laptop a Lugano, con allarme di sicurezza sullo schermo',
+    'blog.article.tragedia-braunwald-camminatore-disperso.title': 'Tragedia a Braunwald: camminatore disperso dopo un incidente',
+    'blog.article.tragedia-braunwald-camminatore-disperso.excerpt': 'Un camminatore è scomparso dopo un incidente a Braunwald. Le autorità sono ancora alla ricerca del disperso.',
+    'blog.article.tragedia-braunwald-camminatore-disperso.imageAlt': 'Soccorritori in azione nella zona di Braunwald dopo la tragedia del camminatore disperso',
 };
 
 export default blogMetaIt;

@@ -19964,4 +19964,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tragedia-braunwald-camminatore-disperso',
+ category: 'novita',
+ date: '2026-05-05T22:10:04.114Z',
+ image: '/images/blog/tragedia-braunwald-camminatore-disperso.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

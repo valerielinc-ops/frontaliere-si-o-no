@@ -6197,6 +6197,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.expat-ticino-sventa-truffa-hacker.title': 'Ticino expat foils scam: \'Hacked, but I had the secret code\'',
     'blog.article.expat-ticino-sventa-truffa-hacker.excerpt': 'A Ticino expat avoided a scam thanks to a secret code, after being hacked.',
     'blog.article.expat-ticino-sventa-truffa-hacker.imageAlt': 'Expat worker on laptop in Lugano, with security alert on screen',
+    'blog.article.tragedia-braunwald-camminatore-disperso.title': 'Tragedy in Braunwald: Hiker Missing After Accident',
+    'blog.article.tragedia-braunwald-camminatore-disperso.excerpt': 'A hiker has gone missing after an incident in Braunwald. Authorities are still searching for the missing person.',
+    'blog.article.tragedia-braunwald-camminatore-disperso.imageAlt': 'Rescue teams in action near Braunwald after the tragedy of the missing hiker',
 };
 
 export default blogMetaEn;

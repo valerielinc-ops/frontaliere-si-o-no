@@ -6197,6 +6197,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.expat-ticino-sventa-truffa-hacker.title': 'Tessin-Expat verhindert Betrug: «Gehackt, aber ich hatte das Geheimnis»',
     'blog.article.expat-ticino-sventa-truffa-hacker.excerpt': 'Ein Tessiner Expat hat dank eines geheimen Codes einen Betrug verhindert, nachdem er gehackt wurde.',
     'blog.article.expat-ticino-sventa-truffa-hacker.imageAlt': 'Expat-Arbeiter am Laptop in Lugano, mit Sicherheitsalarm auf dem Bildschirm',
+    'blog.article.tragedia-braunwald-camminatore-disperso.title': 'Tragödie in Braunwald: Wanderer nach Unfall vermisst',
+    'blog.article.tragedia-braunwald-camminatore-disperso.excerpt': 'Ein Wanderer ist nach einem Unfall in Braunwald verschwunden. Die Behörden suchen weiterhin nach dem Vermissten.',
+    'blog.article.tragedia-braunwald-camminatore-disperso.imageAlt': 'Rettungsteams im Einsatz in der Nähe von Braunwald nach der Tragödie des vermissten Wanderers',
 };
 
 export default blogMetaDe;
