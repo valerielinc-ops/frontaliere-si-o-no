@@ -17713,6 +17713,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tensioni-geopolitiche-elettrico-ticino': {
+    title: 'Tensioni geopolitiche spingono verso l\'elettrico in Ticino',
+    description: 'Le vendite di auto elettriche in Ticino crescono, ma con ritmi più lenti rispetto al resto della Svizzera. Scopri di più. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, tensioni, geopolitiche, spingono, verso',
+    ogTitle: 'Tensioni geopolitiche spingono verso l\'elettrico in Ticino',
+    ogDescription: 'Le vendite di auto elettriche in Ticino crescono, ma con ritmi più lenti rispetto al resto della Svizzera. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/tensioni-geopolitiche-elettrico-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tensioni geopolitiche spingono verso l'elettrico in Ticino",
+      "description": "Le vendite di auto elettriche in Ticino crescono, ma con ritmi più lenti rispetto al resto della Svizzera. Scopri di più. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tensioni-geopolitiche-elettrico-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-05T04:59:27+00:00",
+      "dateModified": "2026-05-05T04:59:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tensioni-geopolitiche-elettrico-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

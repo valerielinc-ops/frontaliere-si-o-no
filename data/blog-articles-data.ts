@@ -19370,4 +19370,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tensioni-geopolitiche-elettrico-ticino',
+ category: 'novita',
+ date: '2026-05-05T04:59:27.124Z',
+ image: '/images/blog/tensioni-geopolitiche-elettrico-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

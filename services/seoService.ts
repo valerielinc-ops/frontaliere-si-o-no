@@ -3242,6 +3242,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lupo-tempo-attesa-finito-agire': { name: 'Novità', path: '/articoli-frontaliere/lupo-tempo-attesa-finito-agire', parent: 'blog' },
     'blog-processo-binningen-morte-moglie-2026': { name: 'Processo Binningen', path: '/articoli-frontaliere/processo-binningen-morte-moglie-2026', parent: 'blog' },
     'blog-gianni-morandi-locarno-2026': { name: 'Concerto Gianni Morandi', path: '/articoli-frontaliere/gianni-morandi-locarno-2026', parent: 'blog' },
+    'blog-tensioni-geopolitiche-elettrico-ticino': { name: 'Novità', path: '/articoli-frontaliere/tensioni-geopolitiche-elettrico-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

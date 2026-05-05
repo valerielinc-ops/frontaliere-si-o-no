@@ -5999,6 +5999,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gianni-morandi-locarno-2026.title': 'Gianni Morandi in Locarno: concert at Palexpo FEVI on Oct 4, 2026',
     'blog.article.gianni-morandi-locarno-2026.excerpt': 'The Italian singer-songwriter celebrates 60 years of \'C\'era un ragazzo\' with a special stop in Switzerland.',
     'blog.article.gianni-morandi-locarno-2026.imageAlt': 'Gianni Morandi performing at Palexpo FEVI in Locarno',
+    'blog.article.tensioni-geopolitiche-elettrico-ticino.title': 'Geopolitical tensions drive Ticino towards electric',
+    'blog.article.tensioni-geopolitiche-elettrico-ticino.excerpt': 'Electric car sales in Ticino are growing, but at a slower pace than the rest of Switzerland.',
+    'blog.article.tensioni-geopolitiche-elettrico-ticino.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;
