@@ -396,41 +396,50 @@
                 </div>
               </div>
             </div>
-            <!-- Desktop InputCard — md:col-span-4, xl:col-span-3 (hidden on mobile) -->
-            <div class="sh-input-card" style="display:none">
-              <div class="sh-card" style="background:white;border-radius:16px;padding:24px;border:1px solid #f1f5f9">
-                <!-- LCP heading — desktop version (h2: avoids H1 conflict with root static content) -->
-                <h2 style="font-size:30px;font-weight:800;color:#0f172a;margin:0 0 6px 0;line-height:1.15">
-                  Calcola Stipendio Netto Frontaliere
-                  <span style="display:block;font-size:18px;font-weight:700;margin-top:4px;line-height:1.2">Svizzera–Italia (Ticino)</span>
-                </h2>
-                <p style="font-size:13px;color:#64748b;margin:0 0 20px 0;line-height:1.5">Simulatore reddito netto, costo della vita e guida completa per frontalieri Italia-Svizzera</p>
-                <!-- Toggle buttons -->
-                <div style="display:flex;gap:8px;margin-bottom:20px">
-                  <div class="sh-skel sh-pulse" style="flex:1;height:36px;background:#eef2ff;border-radius:12px"></div>
-                  <div class="sh-skel sh-pulse" style="flex:1;height:36px;background:#f1f5f9;border-radius:12px"></div>
-                </div>
-                <!-- Form fields — single block approximating 8 field pairs -->
-                <div style="display:flex;flex-direction:column;gap:16px">
-                  <div>
-                    <div class="sh-skel" style="width:40%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div>
-                    <div style="position:relative;height:40px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;display:flex;align-items:center;padding:0 12px 0 52px" elementtiming="lcp-income">
-                      <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:700;color:#64748b">CHF</span>
-                      <span style="font-size:26px;font-weight:700;line-height:1;color:#1e293b;letter-spacing:-0.01em">75.000</span>
-                    </div>
+            <!-- Desktop InputCard — md:col-span-4, xl:col-span-3 (hidden on mobile).
+                 PERF: Wrapped in <template> so mobile browsers don't parse ~2KB of inert
+                 desktop-only DOM. Synchronously cloned into <div id="sh-input-card-host">
+                 by the route-aware script below when viewport >= 768px (matches the
+                 .sh-input-card { display: block } breakpoint). This preserves the
+                 desktop LCP element (elementtiming="lcp-income") because the clone
+                 runs during HTML parse, before first paint. -->
+            <div id="sh-input-card-host"></div>
+            <template id="sh-input-card-tpl">
+              <div class="sh-input-card" style="display:none">
+                <div class="sh-card" style="background:white;border-radius:16px;padding:24px;border:1px solid #f1f5f9">
+                  <!-- LCP heading — desktop version (h2: avoids H1 conflict with root static content) -->
+                  <h2 style="font-size:30px;font-weight:800;color:#0f172a;margin:0 0 6px 0;line-height:1.15">
+                    Calcola Stipendio Netto Frontaliere
+                    <span style="display:block;font-size:18px;font-weight:700;margin-top:4px;line-height:1.2">Svizzera–Italia (Ticino)</span>
+                  </h2>
+                  <p style="font-size:13px;color:#64748b;margin:0 0 20px 0;line-height:1.5">Simulatore reddito netto, costo della vita e guida completa per frontalieri Italia-Svizzera</p>
+                  <!-- Toggle buttons -->
+                  <div style="display:flex;gap:8px;margin-bottom:20px">
+                    <div class="sh-skel sh-pulse" style="flex:1;height:36px;background:#eef2ff;border-radius:12px"></div>
+                    <div class="sh-skel sh-pulse" style="flex:1;height:36px;background:#f1f5f9;border-radius:12px"></div>
                   </div>
-                  <div><div class="sh-skel" style="width:35%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
-                  <div><div class="sh-skel" style="width:45%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
-                  <div><div class="sh-skel" style="width:30%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
-                  <div><div class="sh-skel" style="width:50%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
-                  <div><div class="sh-skel" style="width:38%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
-                  <div><div class="sh-skel" style="width:42%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
-                  <div><div class="sh-skel" style="width:36%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
+                  <!-- Form fields — single block approximating 8 field pairs -->
+                  <div style="display:flex;flex-direction:column;gap:16px">
+                    <div>
+                      <div class="sh-skel" style="width:40%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div>
+                      <div style="position:relative;height:40px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;display:flex;align-items:center;padding:0 12px 0 52px" elementtiming="lcp-income">
+                        <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:700;color:#64748b">CHF</span>
+                        <span style="font-size:26px;font-weight:700;line-height:1;color:#1e293b;letter-spacing:-0.01em">75.000</span>
+                      </div>
+                    </div>
+                    <div><div class="sh-skel" style="width:35%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
+                    <div><div class="sh-skel" style="width:45%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
+                    <div><div class="sh-skel" style="width:30%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
+                    <div><div class="sh-skel" style="width:50%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
+                    <div><div class="sh-skel" style="width:38%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
+                    <div><div class="sh-skel" style="width:42%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
+                    <div><div class="sh-skel" style="width:36%;height:12px;background:#f1f5f9;border-radius:4px;margin-bottom:6px"></div><div class="sh-skel" style="height:40px;background:#f1f5f9;border-radius:12px"></div></div>
+                  </div>
+                  <!-- Calculate button -->
+                  <div class="sh-skel sh-pulse" style="height:48px;background:#3b82f6;border-radius:12px;margin-top:20px;opacity:0.7"></div>
                 </div>
-                <!-- Calculate button -->
-                <div class="sh-skel sh-pulse" style="height:48px;background:#3b82f6;border-radius:12px;margin-top:20px;opacity:0.7"></div>
               </div>
-            </div>
+            </template>
             <!-- ResultsView: NOT rendered initially (result===null in React) -->
           </div>
 
@@ -443,7 +452,11 @@
             </div>
           </div>
 
-          <!-- Route-aware loading shell: hide calculator-specific elements on non-calculator pages -->
+          <!-- Route-aware loading shell: hide calculator-specific elements on non-calculator pages.
+               Also: on viewport >= 768px AND calculator route, clone the desktop InputCard
+               <template> into the host div. Mobile browsers skip this entirely (no parse cost
+               for the desktop-only ~2KB block). Runs synchronously inline so the clone happens
+               during HTML parse, before paint — desktop LCP element (lcp-income) is preserved. -->
           <script>
           (function(){
             var p=location.pathname.replace(/^\/(en|de|fr)(\/|$)/,'/');
@@ -454,13 +467,21 @@
               'guida-frontaliere','frontier-guide','grenzgaenger-leitfaden','guide-frontalier',
               'vivere-in-ticino','living-in-ticino','leben-im-tessin','vivre-au-tessin',
               'statistiche','statistics','statistiken','statistiques'];
-            if(calc.indexOf(s)===-1){
+            var isCalc=calc.indexOf(s)!==-1;
+            if(!isCalc){
               var t=document.getElementById('sh-ticker-area');if(t)t.style.display='none';
               var g=document.getElementById('sh-calc-grid');if(g)g.style.display='none';
               var gc=document.getElementById('sh-generic-content');if(gc)gc.style.display='block';
             }
-            if(calc.indexOf(s)===-1&&tabs.indexOf(s)===-1){
+            if(!isCalc&&tabs.indexOf(s)===-1){
               var sb=document.querySelector('.sh-subtab-bar');if(sb)sb.style.display='none';
+            }
+            // Inject desktop InputCard skeleton only on wide viewports + calculator route.
+            // Saves ~2KB of inert DOM parsing on mobile (where it would be display:none anyway).
+            if(isCalc&&window.innerWidth>=768){
+              var tpl=document.getElementById('sh-input-card-tpl');
+              var host=document.getElementById('sh-input-card-host');
+              if(tpl&&host&&tpl.content){host.appendChild(tpl.content.cloneNode(true));}
             }
           })();
           </script>
