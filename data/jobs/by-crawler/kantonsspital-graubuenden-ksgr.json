@@ -23,9 +23,12 @@
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-05T10:58:31.468Z",
-      "slug": "stationsleiter-in-innere-medizin-kantonsspital-graubunden-walenstadt",
+      "slug": "capo-reparto-medicina-interna-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
-        "de": "stationsleiter-in-innere-medizin-kantonsspital-graubunden-walenstadt"
+        "de": "stationsleiter-in-innere-medizin-kantonsspital-graubunden-walenstadt",
+        "it": "capo-reparto-medicina-interna-kantonsspital-graubunden-walenstadt",
+        "en": "head-of-internal-medicine-department-kantonsspital-graubunden-walenstadt",
+        "fr": "chef-de-service-de-medecine-interne-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
         "de": "Stationsleiter:in Innere Medizin",
@@ -54,7 +57,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-05T10:58:31.468Z"
+      "firstSeenAt": "2026-05-05T10:58:31.468Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiter-in-innere-medizin-kantonsspital-graubunden-walenstadt"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiter-in-innere-medizin-kantonsspital-graubunden-walenstadt"
+      ]
     },
     {
       "id": "10019035",
@@ -5775,8 +5786,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",

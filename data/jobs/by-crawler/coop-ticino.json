@@ -53,9 +53,9 @@
       },
       "slugByLocale": {
         "it": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
-        "en": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
-        "de": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
-        "fr": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev"
+        "en": "dr-sales-services-f-m-d-coop-genossenschaft-caslano",
+        "de": "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano",
+        "fr": "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano"
       },
       "addressLocality": "Caslano",
       "salaryMin": 49500,
@@ -69,7 +69,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev"
+        ],
+        "de": [
+          "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev"
+        ],
+        "fr": [
+          "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev"
+        ]
+      },
+      "previousSlugs": [
+        "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev"
+      ]
     },
     {
       "id": "company-g6dub0",
@@ -154,7 +168,6 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
@@ -243,7 +256,6 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"
@@ -472,9 +484,9 @@
       },
       "slugByLocale": {
         "it": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
-        "en": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
-        "de": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
-        "fr": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev"
+        "en": "dr-sales-services-f-m-d-coop-genossenschaft-caslano-1d319f",
+        "de": "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano-1d319f",
+        "fr": "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano-1d319f"
       },
       "addressLocality": "Caslano",
       "salaryMin": 49500,
@@ -492,15 +504,18 @@
       "previousSlugsByLocale": {
         "en": [
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-          "dr-sales-services-f-m-d-coop-genossenschaft-caslano"
+          "dr-sales-services-f-m-d-coop-genossenschaft-caslano",
+          "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev"
         ],
         "de": [
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-          "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano"
+          "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano",
+          "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev"
         ],
         "fr": [
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-          "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano"
+          "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano",
+          "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev"
         ],
         "it": [
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0"
@@ -508,15 +523,16 @@
       },
       "previousSlugs": [
         "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
+        "dr-sales-services-f-m-d-coop-genossenschaft-caslano",
+        "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
+        "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano",
+        "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano",
         "venditrice-tore-casse-servizi-jumbo-sant-antonino-ticino",
         "venditrice-tore-casse-servizi-jumbo-sant-antonino-ticino-bv5moc",
         "seller-cash-registers-services-jumbo-divisione-di-coop-societa-cooperativa-sant-antonino",
         "verkaufer-kassen-dienstleistungen-jumbo-divisione-di-coop-societa-cooperativa-sant-antonino",
         "caisses-enregistreuses-services-vendeurs-jumbo-divisione-di-coop-societa-cooperativa-sant-antonino",
-        "venditrice-tore-casse-servizi-jumbo-mendrisio-ticino-phz7gh",
-        "dr-sales-services-f-m-d-coop-genossenschaft-caslano",
-        "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano",
-        "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano"
+        "venditrice-tore-casse-servizi-jumbo-mendrisio-ticino-phz7gh"
       ]
     },
     {

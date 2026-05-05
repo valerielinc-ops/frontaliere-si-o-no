@@ -550,9 +550,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -601,12 +601,12 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
@@ -625,12 +625,12 @@
     },
     {
       "id": "hopital-du-valais-296098c0a1dd",
-      "slug": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig",
+      "slug": "infermiere-80-100-ortopedia-3-ovest-lean-reparto-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig",
-        "it": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig",
+        "it": "infermiere-80-100-ortopedia-3-ovest-lean-reparto-hopital-du-valais-brig",
         "en": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig",
-        "fr": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+        "fr": "infirmier-80-100-orthopedie-3-ouest-service-lean-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -688,7 +688,18 @@
         }
       },
       "firstSeenAt": "2026-05-05T10:51:11.162Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-62f7a5bd863c",
