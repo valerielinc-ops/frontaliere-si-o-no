@@ -1,18 +1,121 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-04T21:47:41.618Z",
-  "total": 158,
-  "newCount": 1,
-  "updatedCount": 7,
+  "generatedAt": "2026-05-05T10:34:34.331Z",
+  "total": 157,
+  "newCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 150,
-  "durationMs": 411380,
-  "avgDurationMs": 411380,
+  "unchangedCount": 152,
+  "durationMs": 418392,
+  "avgDurationMs": 418392,
   "durationHistory": [
-    411380
+    418392
   ],
   "newJobs": [
+    {
+      "id": "company-ogdpev",
+      "slug": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "DR_Venditrice/tore Casse/Servizi (f/m/d),",
+      "location": "Caslano",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/dr_venditrice-tore-casse-servizi-f-m-d/15faacd9-99b0-4a1f-a890-54a3a2acd06d",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-05T10:31:27.240Z",
+      "firstSeenAt": "2026-05-05T10:31:27.240Z",
+      "needsRetranslation": true,
+      "addressLocality": "Caslano",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-g6dub0",
+      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Verkaufsberater:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/76ed4e44-8f0b-4a54-93ff-43f58aab962c",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-05T10:31:27.240Z",
+      "firstSeenAt": "2026-05-05T10:31:27.240Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-3br90q",
+      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Geschäftsführer:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/95a05457-4989-4517-bf6d-904adf48bfee",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-05T10:31:27.240Z",
+      "firstSeenAt": "2026-05-05T10:31:27.240Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-gzq9bg",
       "slug": "geschaftsfuhrer-in-kublis-coop-kublis-graubunden",
@@ -36,19 +139,19 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-04T21:44:55.398Z",
       "firstSeenAt": "2026-05-04T21:44:55.398Z",
-      "needsRetranslation": true,
       "addressLocality": "Küblis",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-29z0lf",
       "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-29z0lf",
@@ -72,17 +175,88 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-04T10:41:40.347Z",
       "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "needsRetranslation": true,
       "addressLocality": "Oberbüren",
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "retranslationAttempts": 1,
-      "_qualityScore": 72,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-98b1xm",
+      "slug": "consulente-vendita-giardino-jumbo-tenero-contra-ticino",
+      "company": "Jumbo, Divisione di Coop Società Cooperativa",
+      "title": "Consulente vendita Giardino",
+      "location": "Tenero-Contra",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/consulente-vendita-giardino/2a2a5c7d-3a90-4bbb-b6fb-58bc9a2f979f",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-04T10:41:40.347Z",
+      "firstSeenAt": "2026-05-04T10:41:40.347Z",
+      "addressLocality": "Tenero-Contra",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-h131f0",
+      "slug": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "DR_Venditrice/tore Casse/Servizi (f/m/d),",
+      "location": "Caslano",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/dr_venditrice-tore-casse-servizi-f-m-d/1b21330d-9cf0-4006-83db-2bde17c4d34c",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-04T10:41:40.347Z",
+      "firstSeenAt": "2026-05-04T10:41:40.347Z",
+      "addressLocality": "Caslano",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -219,151 +393,6 @@
       "firstSeenAt": "2026-05-04T10:41:40.347Z",
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-g6dub0",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Verkaufsberater:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/76ed4e44-8f0b-4a54-93ff-43f58aab962c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-03T09:51:43.060Z",
-      "firstSeenAt": "2026-05-03T09:51:43.060Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-3br90q",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Geschäftsführer:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/95a05457-4989-4517-bf6d-904adf48bfee",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-03T09:51:43.060Z",
-      "firstSeenAt": "2026-05-03T09:51:43.060Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-98b1xm",
-      "slug": "consulente-vendita-giardino-jumbo-tenero-contra-ticino",
-      "company": "Jumbo, Divisione di Coop Società Cooperativa",
-      "title": "Consulente vendita Giardino",
-      "location": "Tenero-Contra",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/consulente-vendita-giardino/2a2a5c7d-3a90-4bbb-b6fb-58bc9a2f979f",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-04T10:41:40.347Z",
-      "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "addressLocality": "Tenero-Contra",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-h131f0",
-      "slug": "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino",
-      "company": "Coop Genossenschaft",
-      "title": "DR_Venditrice/tore Casse/Servizi (f/m/d),",
-      "location": "Caslano",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/dr_venditrice-tore-casse-servizi-f-m-d/1b21330d-9cf0-4006-83db-2bde17c4d34c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-04T10:41:40.347Z",
-      "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "addressLocality": "Caslano",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
@@ -548,41 +577,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-lwjf9k",
-      "slug": "aiuto-amministrativo-8-20-ore-coop-immobilien-bellinzona-ticino",
-      "company": "Coop Immobilien",
-      "title": "Aiuto amministrativo 8-20 ore",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-24",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/aiuto-amministrativo-8-20-ore/ec77bf23-f97e-4fe1-a381-74b36b4709ee",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-24T21:28:08.126Z",
-      "firstSeenAt": "2026-04-24T21:28:08.126Z",
-      "addressLocality": "Bellinzona",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
@@ -1053,42 +1047,6 @@
       }
     },
     {
-      "id": "company-rojhmo",
-      "slug": "verkaufer-in-food-coop-sankt-moritz-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food",
-      "location": "Sankt Moritz",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-16",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/ff72a5d4-b22c-454f-b9be-4834fae1c586",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-16T09:45:32.238Z",
-      "firstSeenAt": "2026-04-16T09:45:32.238Z",
-      "addressLocality": "Sankt Moritz",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "id": "company-cuy50g",
       "slug": "verkaufer-in-food-coop-zernez-graubunden",
       "company": "Coop Genossenschaft",
@@ -1299,78 +1257,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-hs6koo",
-      "slug": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Ilanz/Glion",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/85cd95da-d882-4480-a076-15c7b046c014",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-09T21:20:49.553Z",
-      "addressLocality": "Ilanz/Glion",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-04-09T21:20:49.553Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-w27wx3",
-      "slug": "verkaufer-in-kassen-services-jumbo-chur-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/70e611c4-9603-4a68-a31c-c125ffd8ea0c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-07T09:22:44.527Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "firstSeenAt": "2026-04-07T09:22:44.527Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
