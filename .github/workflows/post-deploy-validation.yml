@@ -305,23 +305,25 @@ jobs:
           }
 
           # ── HEAVY-DIST-WALKER serialized chain ──
-          # The 3 dist-multi audits + audit:title-uniqueness each walk the
-          # full dist/ HTML tree (~132k files) and individually peak ~2-3 GB
-          # RSS. Running 2+ concurrently on the 7 GB ubuntu-latest free
-          # runner triggers the kernel OOM killer. Post-deploy run
-          # 25393472881 SIGABRT'd `audit:dist-multi-light` AND
-          # `audit:title-uniqueness` at rc=134; run 25398494479 reproduced
-          # the same OOM on the same two audits even after the 3 dist-multi
-          # audits had been serialized — proving title-uniqueness is the
-          # other heavy walker that must NOT race with the chain.
+          # Every audit in this chain walks the full dist/ HTML tree
+          # (~132k files) and individually peaks 1-3 GB RSS. Running ANY two
+          # concurrently on the 7 GB ubuntu-latest free runner risks OOM
+          # kill. Post-deploy 25400905401 (chain only had 4 walkers) and
+          # 25402597503 (chain + MAX_PARALLEL=2) both SIGABRT'd
+          # `audit:dist-multi-light` and `audit:title-uniqueness` because
+          # other heavy walkers (text-html-ratio, page-weight,
+          # h1-title-duplicates, content-duplicates, etc.) were running
+          # concurrently in the spawn_capped pool. Cumulative RSS at peak
+          # exceeded the 7 GB cap.
           #
-          # Fix: serialize all 4 heavy walkers inside a single background
-          # subshell so only ONE walks dist/ at a time, while the rest of
-          # the `spawn_capped` pool keeps running in parallel alongside it.
-          # OS page cache helps a lot — sequential heavy walkers are barely
-          # slower than parallel because the dist/ tree is hot after the
-          # first one. Bookkeeping mirrors `spawn_capped` so failures are
-          # still captured uniformly.
+          # Fix: pull EVERY dist-walking audit out of the parallel pool and
+          # run them all serially in this single background subshell. OS
+          # page cache makes sequential walkers nearly as fast as parallel
+          # (dist tree stays hot). The pool keeps only the light audits
+          # (sitemap, hreflang, image-object-license, etc.) which read
+          # smaller subsets — at MAX_PARALLEL=2 their pool tail is well
+          # under the chain's wall time so total step duration is bounded
+          # by the chain (~10-12 min).
           (
             set +e
             for variant in ratio heavy light; do
@@ -337,31 +339,35 @@ jobs:
                 echo "audit:dist-multi-${variant} $logfile" >> /tmp/post-build-failures.txt
               fi
             done
-            # title-uniqueness is the 4th heavy walker — same RSS profile,
-            # same OOM behaviour when concurrent with dist-multi-light.
-            start=$(date +%s.%N)
-            npm run audit:title-uniqueness > /tmp/g13.log 2>&1
-            rc=$?
-            end=$(date +%s.%N)
-            awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"audit:title-uniqueness\", $end-$start, $rc}" \
-              >> /tmp/post-build-timings.txt
-            if [ $rc -ne 0 ]; then
-              echo "audit:title-uniqueness /tmp/g13.log" >> /tmp/post-build-failures.txt
-            fi
+            # All other dist-walking audits — same RSS profile, same OOM
+            # behaviour when concurrent with the chain. Serialize them all.
+            for chain_step in \
+              "audit:text-html-ratio|/tmp/g10.log|npm run audit:text-html-ratio" \
+              "audit:page-weight|/tmp/g12.log|npm run audit:page-weight" \
+              "audit:h1-title-duplicates|/tmp/g11.log|npm run audit:h1-title-duplicates" \
+              "audit:title-no-disambig-hash|/tmp/g17b.log|npm run audit:title-no-disambig-hash" \
+              "audit:title-length|/tmp/g17.log|npm run audit:title-length" \
+              "audit:content-duplicates|/tmp/g8.log|npm run audit:content-duplicates" \
+              "audit:title-uniqueness|/tmp/g13.log|npm run audit:title-uniqueness" \
+            ; do
+              IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
+              start=$(date +%s.%N)
+              eval "$step_cmd" > "$step_log" 2>&1
+              rc=$?
+              end=$(date +%s.%N)
+              awk -v n="$step_name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
+                >> /tmp/post-build-timings.txt
+              if [ $rc -ne 0 ]; then
+                echo "$step_name $step_log" >> /tmp/post-build-failures.txt
+              fi
+            done
           ) &
           DIST_MULTI_PID=$!
 
-          # LPT order: slowest tasks first so the tail is shorter.
-          spawn_capped audit:content-duplicates      /tmp/g8.log \
-            npm run audit:content-duplicates
+          # LIGHT POOL — only audits that DON'T walk the full dist HTML
+          # tree (or walk it cheaply via streaming). Safe to parallelise.
           spawn_capped audit:orphan-sitemap-pages    /tmp/g9.log \
             npm run audit:orphan-sitemap-pages -- --gate=baseline
-          spawn_capped audit:text-html-ratio         /tmp/g10.log \
-            npm run audit:text-html-ratio
-          spawn_capped audit:h1-title-duplicates     /tmp/g11.log \
-            npm run audit:h1-title-duplicates
-          spawn_capped audit:page-weight             /tmp/g12.log \
-            npm run audit:page-weight
           spawn_capped validate:sitemap-pages        /tmp/spm.log \
             npm run validate:sitemap-pages
           spawn_capped validate:jobs-quality         /tmp/v2.log \
@@ -376,10 +382,6 @@ jobs:
             npm run audit:sitemap-canonicals
           spawn_capped audit:news-sitemap            /tmp/g16.log \
             npm run audit:news-sitemap
-          spawn_capped audit:title-length            /tmp/g17.log \
-            npm run audit:title-length
-          spawn_capped audit:title-no-disambig-hash  /tmp/g17b.log \
-            npm run audit:title-no-disambig-hash
           spawn_capped audit:image-object-license    /tmp/g18.log \
             npm run audit:image-object-license
           spawn_capped audit:max-bfs-depth           /tmp/g19.log \
