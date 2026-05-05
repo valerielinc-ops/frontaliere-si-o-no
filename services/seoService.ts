@@ -3319,6 +3319,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-agricoltura-precisione-pesticidi-2026': { name: 'Agricoltura di precisione', path: '/articoli-frontaliere/agricoltura-precisione-pesticidi-2026', parent: 'blog' },
     'blog-hondius-hantavirus-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/hondius-hantavirus-frontalieri', parent: 'blog' },
     'blog-tajani-parmelin-crans-montana-2026': { name: 'Novità', path: '/articoli-frontaliere/tajani-parmelin-crans-montana-2026', parent: 'blog' },
+    'blog-carburante-ticino-guerra-2026': { name: 'Carburante in Ticino', path: '/articoli-frontaliere/carburante-ticino-guerra-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

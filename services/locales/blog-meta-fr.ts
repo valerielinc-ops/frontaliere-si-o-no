@@ -6231,6 +6231,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tajani-parmelin-crans-montana-2026.title': 'Tajani et Parmelin sur la coopération transfrontalière',
     'blog.article.tajani-parmelin-crans-montana-2026.excerpt': 'Rencontre entre Tajani et Parmelin à Rome : remboursements sanitaires pour la tragédie de Crans-Montana et coopération transfrontalière',
     'blog.article.tajani-parmelin-crans-montana-2026.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan, ciel bleu clair',
+    'blog.article.carburante-ticino-guerra-2026.title': 'Carburant au Tessin: pas de pénurie, prix élevés',
+    'blog.article.carburante-ticino-guerra-2026.excerpt': 'À ce jour, il n\'y a pas de pénurie de carburant au Tessin, mais les prix restent élevés. L\'avenir dépend de l\'évolution de la guerre et des flux énergétiques européens.',
+    'blog.article.carburante-ticino-guerra-2026.imageAlt': 'Stations-service et trafic à la frontière suisse-italienne, scène réaliste',
 };
 
 export default blogMetaFr;

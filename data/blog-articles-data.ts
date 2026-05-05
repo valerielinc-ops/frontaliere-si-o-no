@@ -20063,4 +20063,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'carburante-ticino-guerra-2026',
+ category: 'pratico',
+ date: '2026-05-05T23:19:06.073Z',
+ image: '/images/blog/carburante-ticino-guerra-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

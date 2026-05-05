@@ -6231,6 +6231,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tajani-parmelin-crans-montana-2026.title': 'Tajani e Parmelin su rimborsi sanitari e cooperazione transfrontaliera',
     'blog.article.tajani-parmelin-crans-montana-2026.excerpt': 'Incontro tra Tajani e Parmelin a Roma: rimborsi sanitari per la tragedia di Crans-Montana e cooperazione transfrontaliera',
     'blog.article.tajani-parmelin-crans-montana-2026.imageAlt': 'Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido',
+    'blog.article.carburante-ticino-guerra-2026.title': 'Carburante in Ticino: nessuna penuria, ma prezzo alto',
+    'blog.article.carburante-ticino-guerra-2026.excerpt': 'Ad oggi non manca il carburante in Ticino, ma i prezzi restano elevati. Il futuro dipende dall\'andamento della guerra e dai flussi energetici europei.',
+    'blog.article.carburante-ticino-guerra-2026.imageAlt': 'Stazioni di servizio e traffico al confine tra Ticino e Italia, scenario reale',
 };
 
 export default blogMetaIt;

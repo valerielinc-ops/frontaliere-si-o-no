@@ -6230,6 +6230,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tajani-parmelin-crans-montana-2026.title': 'Tajani & Parmelin on healthcare and cross-border ties',
     'blog.article.tajani-parmelin-crans-montana-2026.excerpt': 'Meeting between Tajani and Parmelin in Rome: healthcare reimbursements for the Crans-Montana tragedy and cross-border cooperation',
     'blog.article.tajani-parmelin-crans-montana-2026.imageAlt': 'Lake Lugano with mountains in the background, clear blue sky',
+    'blog.article.carburante-ticino-guerra-2026.title': 'Fuel in Ticino: no shortage, but high prices',
+    'blog.article.carburante-ticino-guerra-2026.excerpt': 'There is currently no fuel shortage in Ticino, but prices remain high. The future depends on the development of the war and European energy flows.',
+    'blog.article.carburante-ticino-guerra-2026.imageAlt': 'Petrol stations and traffic at the Swiss-Italian border, realistic scene',
 };
 
 export default blogMetaEn;
