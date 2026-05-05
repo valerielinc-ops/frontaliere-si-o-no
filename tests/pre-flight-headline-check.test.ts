@@ -18,6 +18,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { tokenizeIt, jaccardSim, containmentSim } from '../scripts/lib/it-text-similarity.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const src = readFileSync(resolve(ROOT, 'scripts/create-article.mjs'), 'utf8');
@@ -33,8 +34,17 @@ type CheckResult =
   | { duplicate: false }
   | { duplicate: true; signal: string; sim: number; existingId: string; existingTitle: string };
 
-const runner = new Function('read', `${fnMatch[0]}\nreturn preFlightHeadlineCheck;`);
-const preFlightHeadlineCheck = runner(read) as (headline: string) => CheckResult;
+// The function references `read`, `tokenizeIt`, `jaccardSim`, `containmentSim` — inject them.
+const runner = new Function(
+  'read',
+  'tokenizeIt',
+  'jaccardSim',
+  'containmentSim',
+  `${fnMatch[0]}\nreturn preFlightHeadlineCheck;`,
+);
+const preFlightHeadlineCheck = runner(read, tokenizeIt, jaccardSim, containmentSim) as (
+  headline: string,
+) => CheckResult;
 
 describe('preFlightHeadlineCheck', () => {
   describe('catches semantic duplicates of existing articles', () => {

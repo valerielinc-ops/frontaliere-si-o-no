@@ -66,6 +66,7 @@ import { createInterface } from 'node:readline';
 import path from 'node:path';
 import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores } from './lib/ai-models.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
+import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 
 // ── C1 News Sitemap Whitelist ──────────────────────────────────
 // Loaded by parsing data/news-sitemap-whitelist.ts at startup so we don't
@@ -3638,115 +3639,13 @@ function preFlightEvergreenCheck(keyword) {
   const blogItSrc = read('services/locales/blog-meta-it.ts');
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
 
-  const STOP_WORDS_IT = new Set([
-    'il', 'lo', 'la', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'a', 'da',
-    'in', 'con', 'su', 'per', 'tra', 'fra', 'e', 'o', 'ma', 'che', 'non',
-    'del', 'al', 'dal', 'nel', 'sul', 'dello', 'alla', 'della', 'dei', 'degli',
-    'delle', 'ai', 'dai', 'nei', 'sui', 'è', 'sono', 'come', 'più', 'anche',
-    'già', 'ancora', 'questo', 'questa', 'questi', 'queste', 'quello', 'quella',
-    'molto', 'poco', 'tutto', 'tutti', 'ogni', 'altro', 'altra', 'altri', 'altre',
-    'suo', 'sua', 'suoi', 'sue', 'loro', 'chi', 'cosa', 'dove', 'quando',
-    'mentre', 'dopo', 'prima', 'tra', 'fino', 'solo', 'nuovo', 'nuova', 'nuovi',
-    'base', 'rispetto', 'ultimo', 'ultima', 'ultimi', 'ultime',
-  ]);
-
-  // ── Italian stemmer (suffix stripping) ──────────────────────
-  function stemIt(word) {
-    if (word.length <= 3) return word;
-    const suffixes = [
-      'izzazione', 'izzazioni',
-      'amento', 'amenti', 'imento', 'imenti',
-      'zione', 'zioni', 'sione', 'sioni',
-      'abile', 'ibili', 'mente',
-      'iere', 'ieri', 'iera', 'ance', 'enza', 'enze',
-      'ante', 'anti', 'ente', 'enti',
-      'ario', 'aria', 'ari',
-      'tore', 'tori', 'trice', 'trici',
-      'ista', 'isti', 'iste',
-      'oso', 'osa', 'osi', 'ose',
-      'ale', 'ali', 'ile', 'ili',
-      'ato', 'ata', 'ati', 'ate', 'ito', 'ita', 'iti', 'ite',
-      'ano', 'ana', 'ani', 'ane',
-      'ino', 'ina', 'ini', 'ine',
-      'one', 'oni',
-      'ore', 'ori',
-      'ura', 'ure',
-      'io', 'ia', 'ie',
-      'à', 'tà',
-      'ere', 'are', 'ire',
-    ];
-    for (const s of suffixes) {
-      if (word.endsWith(s) && (word.length - s.length) >= 3) {
-        return word.slice(0, -s.length);
-      }
-    }
-    if (/[aeiou]$/.test(word) && word.length > 4) {
-      return word.slice(0, -1);
-    }
-    return word;
-  }
-
-  const SYNONYM_GROUPS = [
-    ['maternità', 'maternita', 'paternità', 'paternita', 'congedo', 'parentale', 'genitoriale', 'nascita', 'neonato', 'gestante', 'puerperio'],
-    ['imposta', 'tassa', 'tasse', 'fiscale', 'fiscali', 'fisco', 'tributario', 'tributaria', 'irpef', 'imposizione'],
-    ['stipendio', 'salario', 'retribuzione', 'busta', 'paga', 'reddito', 'ral', 'compenso', 'emolumento'],
-    ['frontaliere', 'frontalieri', 'frontaliera', 'transfrontaliero', 'transfrontaliera', 'pendolare', 'pendolari', 'cross-border'],
-    ['assicurazione', 'assicurazioni', 'copertura', 'polizza', 'lamal', 'cassa', 'malati', 'premio', 'premi'],
-    ['pensione', 'pensioni', 'pensionamento', 'previdenza', 'avs', 'lpp', 'pilastro', 'rendita', 'rendite'],
-    ['permesso', 'permessi', 'autorizzazione', 'autorizzazioni', 'visto'],
-    ['trasporto', 'trasporti', 'mobilità', 'mobilita', 'pendolarismo', 'treno', 'treni', 'bus', 'auto', 'traffico'],
-    ['casa', 'abitazione', 'alloggio', 'affitto', 'immobiliare', 'immobile', 'appartamento'],
-    ['banca', 'bancario', 'bancaria', 'conto', 'finanza', 'finanziario', 'finanziaria'],
-    ['lavoro', 'lavorare', 'lavoratore', 'lavoratori', 'lavoratrice', 'occupazione', 'impiego', 'mestiere'],
-    ['figlio', 'figli', 'figlia', 'figlie', 'bambino', 'bambini', 'bambina', 'bambine', 'minore', 'minori'],
-    ['svizzera', 'svizzero', 'elvetico', 'elvetica', 'confederazione', 'ch'],
-    ['italia', 'italiano', 'italiana', 'italiani', 'italiane', 'tricolore', 'belpaese'],
-    ['cambio', 'valuta', 'tasso', 'conversione', 'forex', 'chf', 'eur', 'euro', 'franco', 'franchi'],
-    ['costo', 'costi', 'spesa', 'spese', 'prezzo', 'prezzi', 'tariffa', 'tariffe'],
-    ['guida', 'tutorial', 'manuale', 'istruzioni', 'procedura', 'procedure', 'howto'],
-    ['scuola', 'scolastico', 'scolastica', 'istruzione', 'educazione', 'asilo', 'nido'],
-    ['sanità', 'sanita', 'sanitario', 'sanitaria', 'salute', 'medico', 'medica', 'ospedale', 'clinica'],
-    ['lavori', 'cantiere', 'cantieri', 'risanamento', 'manutenzione', 'interventi', 'costruzione', 'ristrutturazione', 'rifacimento', 'pavimentazione'],
-    ['strada', 'stradale', 'stradali', 'autostrada', 'autostradale', 'viabilità', 'viabilita', 'carreggiata', 'corsia'],
-  ];
-
-  const synonymMap = new Map();
-  for (const group of SYNONYM_GROUPS) {
-    const canonical = group[0];
-    for (const w of group) synonymMap.set(w, canonical);
-  }
-
-  function normalize(word) {
-    if (synonymMap.has(word)) return synonymMap.get(word);
-    const stemmed = stemIt(word);
-    if (synonymMap.has(stemmed)) return synonymMap.get(stemmed);
-    return stemmed;
-  }
-
-  function getWords(text) {
-    return text.toLowerCase()
-      .replace(/[^a-zàáèéìíòóùú0-9\s]/g, '')
-      .split(/\s+/)
-      .filter(w => w.length > 2 && !STOP_WORDS_IT.has(w))
-      .map(w => normalize(w));
-  }
-
-  function jaccard(a, b) {
-    const sa = new Set(a), sb = new Set(b);
-    if (sa.size === 0 && sb.size === 0) return 0;
-    const inter = [...sa].filter(w => sb.has(w)).length;
-    const union = new Set([...sa, ...sb]).size;
-    return union === 0 ? 0 : inter / union;
-  }
-
-  const kwWords = getWords(keyword);
+  const kwWords = tokenizeIt(keyword);
   const PRE_FLIGHT_THRESHOLD = 0.58; // less aggressive to avoid blocking valid new evergreen topics
 
   for (const m of titleMatches) {
     const existingTitle = m[2];
     const existingId = m[1];
-    const titleWords = getWords(existingTitle);
-    const sim = jaccard(kwWords, titleWords);
+    const sim = jaccardSim(kwWords, tokenizeIt(existingTitle));
     if (sim >= PRE_FLIGHT_THRESHOLD) {
       return { duplicate: true, sim, existingTitle, existingId };
     }
@@ -3763,7 +3662,7 @@ function preFlightEvergreenCheck(keyword) {
 //
 // Primary signal is **containment against the article-ID slug** (e.g.
 // `salario-minimo-ticino-2029-4000-franchi`). Article IDs are deliberately
-// distilled to ~4-7 distinguishing tokens, so if a headline contains 70 %+
+// distilled to ~4-7 distinguishing tokens, so if a headline contains 75 %+
 // of an existing ID's stemmed tokens, it's almost certainly the same topic.
 // Pure Jaccard against the long, noisy title text is too weak (real
 // duplicates score 0.42-0.67, well below the 0.58 evergreen threshold).
@@ -3771,92 +3670,7 @@ function preFlightHeadlineCheck(headline) {
   const blogItSrc = read('services/locales/blog-meta-it.ts');
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
 
-  const STOP_WORDS_IT = new Set([
-    'il', 'lo', 'la', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'a', 'da',
-    'in', 'con', 'su', 'per', 'tra', 'fra', 'e', 'o', 'ma', 'che', 'non',
-    'del', 'al', 'dal', 'nel', 'sul', 'dello', 'alla', 'della', 'dei', 'degli',
-    'delle', 'ai', 'dai', 'nei', 'sui', 'è', 'sono', 'come', 'più', 'anche',
-    'già', 'ancora', 'questo', 'questa', 'questi', 'queste', 'quello', 'quella',
-    'molto', 'poco', 'tutto', 'tutti', 'ogni', 'altro', 'altra', 'altri', 'altre',
-    'suo', 'sua', 'suoi', 'sue', 'loro', 'chi', 'cosa', 'dove', 'quando',
-    'mentre', 'dopo', 'prima', 'tra', 'fino', 'solo', 'nuovo', 'nuova', 'nuovi',
-    'base', 'rispetto', 'ultimo', 'ultima', 'ultimi', 'ultime',
-  ]);
-
-  function stemIt(word) {
-    if (word.length <= 3) return word;
-    const suffixes = [
-      'izzazione', 'izzazioni', 'amento', 'amenti', 'imento', 'imenti',
-      'zione', 'zioni', 'sione', 'sioni', 'abile', 'ibili', 'mente',
-      'iere', 'ieri', 'iera', 'ance', 'enza', 'enze', 'ante', 'anti',
-      'ente', 'enti', 'ario', 'aria', 'ari', 'tore', 'tori', 'trice', 'trici',
-      'ista', 'isti', 'iste', 'oso', 'osa', 'osi', 'ose', 'ale', 'ali', 'ile', 'ili',
-      'ato', 'ata', 'ati', 'ate', 'ito', 'ita', 'iti', 'ite',
-      'ano', 'ana', 'ani', 'ane', 'ino', 'ina', 'ini', 'ine',
-      'one', 'oni', 'ore', 'ori', 'ura', 'ure', 'io', 'ia', 'ie',
-      'à', 'tà', 'ere', 'are', 'ire',
-    ];
-    for (const s of suffixes) {
-      if (word.endsWith(s) && (word.length - s.length) >= 3) return word.slice(0, -s.length);
-    }
-    if (/[aeiou]$/.test(word) && word.length > 4) return word.slice(0, -1);
-    return word;
-  }
-
-  // Same synonym groups as preFlightEvergreenCheck — kept in sync intentionally
-  const SYNONYM_GROUPS = [
-    ['maternità', 'maternita', 'paternità', 'paternita', 'congedo', 'parentale', 'genitoriale', 'nascita', 'neonato', 'gestante', 'puerperio'],
-    ['imposta', 'tassa', 'tasse', 'fiscale', 'fiscali', 'fisco', 'tributario', 'tributaria', 'irpef', 'imposizione'],
-    ['stipendio', 'salario', 'retribuzione', 'busta', 'paga', 'reddito', 'ral', 'compenso', 'emolumento'],
-    ['frontaliere', 'frontalieri', 'frontaliera', 'transfrontaliero', 'transfrontaliera', 'pendolare', 'pendolari', 'cross-border'],
-    ['assicurazione', 'assicurazioni', 'copertura', 'polizza', 'lamal', 'cassa', 'malati', 'premio', 'premi'],
-    ['pensione', 'pensioni', 'pensionamento', 'previdenza', 'avs', 'lpp', 'pilastro', 'rendita', 'rendite'],
-    ['permesso', 'permessi', 'autorizzazione', 'autorizzazioni', 'visto'],
-    ['trasporto', 'trasporti', 'mobilità', 'mobilita', 'pendolarismo', 'treno', 'treni', 'bus', 'auto', 'traffico'],
-    ['casa', 'abitazione', 'alloggio', 'affitto', 'immobiliare', 'immobile', 'appartamento'],
-    ['banca', 'bancario', 'bancaria', 'conto', 'finanza', 'finanziario', 'finanziaria'],
-    ['lavoro', 'lavorare', 'lavoratore', 'lavoratori', 'lavoratrice', 'occupazione', 'impiego', 'mestiere'],
-    ['figlio', 'figli', 'figlia', 'figlie', 'bambino', 'bambini', 'bambina', 'bambine', 'minore', 'minori'],
-    ['svizzera', 'svizzero', 'elvetico', 'elvetica', 'confederazione', 'ch'],
-    ['italia', 'italiano', 'italiana', 'italiani', 'italiane', 'tricolore', 'belpaese'],
-    ['cambio', 'valuta', 'tasso', 'conversione', 'forex', 'chf', 'eur', 'euro', 'franco', 'franchi'],
-    ['costo', 'costi', 'spesa', 'spese', 'prezzo', 'prezzi', 'tariffa', 'tariffe'],
-    ['guida', 'tutorial', 'manuale', 'istruzioni', 'procedura', 'procedure', 'howto'],
-    ['scuola', 'scolastico', 'scolastica', 'istruzione', 'educazione', 'asilo', 'nido'],
-    ['sanità', 'sanita', 'sanitario', 'sanitaria', 'salute', 'medico', 'medica', 'ospedale', 'clinica'],
-    ['lavori', 'cantiere', 'cantieri', 'risanamento', 'manutenzione', 'interventi', 'costruzione', 'ristrutturazione', 'rifacimento', 'pavimentazione'],
-    ['strada', 'stradale', 'stradali', 'autostrada', 'autostradale', 'viabilità', 'viabilita', 'carreggiata', 'corsia'],
-  ];
-  const synonymMap = new Map();
-  for (const group of SYNONYM_GROUPS) for (const w of group) synonymMap.set(w, group[0]);
-
-  function normalize(word) {
-    if (synonymMap.has(word)) return synonymMap.get(word);
-    const stemmed = stemIt(word);
-    return synonymMap.has(stemmed) ? synonymMap.get(stemmed) : stemmed;
-  }
-  function getWords(text) {
-    return text.toLowerCase()
-      .replace(/[^a-zàáèéìíòóùú0-9\s-]/g, ' ')
-      .split(/[\s-]+/)
-      .filter(w => w.length > 2 && !STOP_WORDS_IT.has(w))
-      .map(normalize);
-  }
-  function jaccard(a, b) {
-    const sa = new Set(a), sb = new Set(b);
-    if (sa.size === 0 && sb.size === 0) return 0;
-    const inter = [...sa].filter(w => sb.has(w)).length;
-    const union = new Set([...sa, ...sb]).size;
-    return union === 0 ? 0 : inter / union;
-  }
-  /** Containment: fraction of `needle` tokens present in `haystack`. */
-  function containment(needle, haystack) {
-    const sb = new Set(haystack);
-    if (needle.length === 0) return 0;
-    return [...new Set(needle)].filter(w => sb.has(w)).length / new Set(needle).size;
-  }
-
-  const headlineWords = getWords(headline);
+  const headlineWords = tokenizeIt(headline);
   if (headlineWords.length < 3) return { duplicate: false }; // too short to compare reliably
 
   // Thresholds tuned on the May 2026 "salario minimo 4000 dal 2029" recurrence.
@@ -3872,15 +3686,15 @@ function preFlightHeadlineCheck(headline) {
   for (const m of titleMatches) {
     const existingId = m[1];
     const existingTitle = m[2];
-    const idWords = getWords(existingId);
+    const idWords = tokenizeIt(existingId);
     if (idWords.length < ID_MIN_TOKENS) continue;
 
-    const idContainment = containment(idWords, headlineWords);
+    const idContainment = containmentSim(idWords, headlineWords);
     if (idContainment >= ID_CONTAINMENT_THRESHOLD) {
       return { duplicate: true, signal: 'id_containment', sim: idContainment, existingId, existingTitle };
     }
 
-    const titleSim = jaccard(headlineWords, getWords(existingTitle));
+    const titleSim = jaccardSim(headlineWords, tokenizeIt(existingTitle));
     if (titleSim >= TITLE_JACCARD_THRESHOLD) {
       return { duplicate: true, signal: 'title_jaccard', sim: titleSim, existingId, existingTitle };
     }
@@ -3911,8 +3725,12 @@ function checkForDuplicates(data) {
     throw new Error(`❌ DUPLICATO: L'ID "${data.id}" esiste già tra gli articoli pubblicati!`);
   }
 
-  // ── NLP utilities ──────────────────────────────────────────
-  const STOP_WORDS_IT = new Set([
+  // ── Local tokenizer ────────────────────────────────────────
+  // Differs from the shared `tokenizeIt`: strips punctuation entirely
+  // (so "4.000" → "4000", not "000") because checkForDuplicates' thresholds
+  // were tuned against numeric-collapse behavior. Stemmer + synonyms come
+  // from scripts/lib/it-text-similarity.mjs (kept in sync across callers).
+  const STOP_WORDS_IT_LOCAL = new Set([
     'il', 'lo', 'la', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'a', 'da',
     'in', 'con', 'su', 'per', 'tra', 'fra', 'e', 'o', 'ma', 'che', 'non',
     'del', 'al', 'dal', 'nel', 'sul', 'dello', 'alla', 'della', 'dei', 'degli',
@@ -3924,100 +3742,16 @@ function checkForDuplicates(data) {
     'base', 'rispetto', 'ultimo', 'ultima', 'ultimi', 'ultime',
   ]);
 
-  // ── Italian stemmer (suffix stripping) ──────────────────────
-  function stemIt(word) {
-    if (word.length <= 3) return word;
-    // Longest-suffix-first order
-    const suffixes = [
-      'izzazione', 'izzazioni',
-      'amento', 'amenti', 'imento', 'imenti',
-      'zione', 'zioni', 'sione', 'sioni',
-      'abile', 'ibili', 'mente',
-      'iere', 'ieri', 'iera', 'ance', 'enza', 'enze',
-      'ante', 'anti', 'ente', 'enti',
-      'ario', 'aria', 'ari',
-      'tore', 'tori', 'trice', 'trici',
-      'ista', 'isti', 'iste',
-      'oso', 'osa', 'osi', 'ose',
-      'ale', 'ali', 'ile', 'ili',
-      'ato', 'ata', 'ati', 'ate', 'ito', 'ita', 'iti', 'ite',
-      'ano', 'ana', 'ani', 'ane',
-      'ino', 'ina', 'ini', 'ine',
-      'one', 'oni',
-      'ore', 'ori',
-      'ura', 'ure',
-      'io', 'ia', 'ie',
-      'à', 'tà',
-      'ere', 'are', 'ire',
-    ];
-    for (const s of suffixes) {
-      if (word.endsWith(s) && (word.length - s.length) >= 3) {
-        return word.slice(0, -s.length);
-      }
-    }
-    // Strip trailing vowel if stem long enough
-    if (/[aeiou]$/.test(word) && word.length > 4) {
-      return word.slice(0, -1);
-    }
-    return word;
-  }
-
-  // ── Domain synonym groups ──────────────────────────────────
-  const SYNONYM_GROUPS = [
-    ['maternità', 'maternita', 'paternità', 'paternita', 'congedo', 'parentale', 'genitoriale', 'nascita', 'neonato', 'gestante', 'puerperio'],
-    ['imposta', 'tassa', 'tasse', 'fiscale', 'fiscali', 'fisco', 'tributario', 'tributaria', 'irpef', 'imposizione'],
-    ['stipendio', 'salario', 'retribuzione', 'busta', 'paga', 'reddito', 'ral', 'compenso', 'emolumento'],
-    ['frontaliere', 'frontalieri', 'frontaliera', 'transfrontaliero', 'transfrontaliera', 'pendolare', 'pendolari', 'cross-border'],
-    ['assicurazione', 'assicurazioni', 'copertura', 'polizza', 'lamal', 'cassa', 'malati', 'premio', 'premi'],
-    ['pensione', 'pensioni', 'pensionamento', 'previdenza', 'avs', 'lpp', 'pilastro', 'rendita', 'rendite'],
-    ['permesso', 'permessi', 'autorizzazione', 'autorizzazioni', 'visto'],
-    ['trasporto', 'trasporti', 'mobilità', 'mobilita', 'pendolarismo', 'treno', 'treni', 'bus', 'auto', 'traffico'],
-    ['casa', 'abitazione', 'alloggio', 'affitto', 'immobiliare', 'immobile', 'appartamento'],
-    ['banca', 'bancario', 'bancaria', 'conto', 'finanza', 'finanziario', 'finanziaria'],
-    ['lavoro', 'lavorare', 'lavoratore', 'lavoratori', 'lavoratrice', 'occupazione', 'impiego', 'mestiere'],
-    ['figlio', 'figli', 'figlia', 'figlie', 'bambino', 'bambini', 'bambina', 'bambine', 'minore', 'minori'],
-    ['svizzera', 'svizzero', 'elvetico', 'elvetica', 'confederazione', 'ch'],
-    ['italia', 'italiano', 'italiana', 'italiani', 'italiane', 'tricolore', 'belpaese'],
-    ['cambio', 'valuta', 'tasso', 'conversione', 'forex', 'chf', 'eur', 'euro', 'franco', 'franchi'],
-    ['costo', 'costi', 'spesa', 'spese', 'prezzo', 'prezzi', 'tariffa', 'tariffe'],
-    ['guida', 'tutorial', 'manuale', 'istruzioni', 'procedura', 'procedure', 'howto'],
-    ['scuola', 'scolastico', 'scolastica', 'istruzione', 'educazione', 'asilo', 'nido'],
-    ['sanità', 'sanita', 'sanitario', 'sanitaria', 'salute', 'medico', 'medica', 'ospedale', 'clinica'],
-    ['lavori', 'cantiere', 'cantieri', 'risanamento', 'manutenzione', 'interventi', 'costruzione', 'ristrutturazione', 'rifacimento', 'pavimentazione'],
-    ['strada', 'stradale', 'stradali', 'autostrada', 'autostradale', 'viabilità', 'viabilita', 'carreggiata', 'corsia'],
-  ];
-
-  // Build reverse lookup: word → canonical (first word of its group)
-  const synonymMap = new Map();
-  for (const group of SYNONYM_GROUPS) {
-    const canonical = group[0];
-    for (const w of group) synonymMap.set(w, canonical);
-  }
-
-  /** Stem + synonym-normalize a single word */
-  function normalize(word) {
-    // Check synonym map first (before stemming) for exact domain matches
-    if (synonymMap.has(word)) return synonymMap.get(word);
-    const stemmed = stemIt(word);
-    if (synonymMap.has(stemmed)) return synonymMap.get(stemmed);
-    return stemmed;
-  }
-
   function getSignificantWords(text) {
     return text.toLowerCase()
       .replace(/[^a-zàáèéìíòóùú0-9\s]/g, '')
       .split(/\s+/)
-      .filter(w => w.length > 2 && !STOP_WORDS_IT.has(w))
-      .map(w => normalize(w));
+      .filter(w => w.length > 2 && !STOP_WORDS_IT_LOCAL.has(w))
+      .map(w => normalizeItWord(w));
   }
 
   function jaccardSimilarity(wordsA, wordsB) {
-    const setA = new Set(wordsA);
-    const setB = new Set(wordsB);
-    if (setA.size === 0 && setB.size === 0) return 0;
-    const intersection = [...setA].filter(w => setB.has(w)).length;
-    const union = new Set([...setA, ...setB]).size;
-    return union === 0 ? 0 : intersection / union;
+    return jaccardSim(wordsA, wordsB);
   }
 
   // Extract key numbers, percentages, and statistics from text
@@ -4038,7 +3772,7 @@ function checkForDuplicates(data) {
   }
 
   // ── Prepare new article signals ────────────────────────────
-  const newIdWords = data.id.split('-').filter(w => w.length > 1).map(w => normalize(w));
+  const newIdWords = data.id.split('-').filter(w => w.length > 1).map(w => normalizeItWord(w));
   const newTitleWords = getSignificantWords(data.content.it.title);
   const newExcerptWords = getSignificantWords(data.content.it.excerpt || '');
   const newEntities = extractKeyEntities(
@@ -4055,7 +3789,7 @@ function checkForDuplicates(data) {
   console.error(`  🔍 Controllo duplicati multi-segnale (${existingArticles.length} articoli esistenti)...`);
 
   for (const existing of existingArticles) {
-    const existingIdWords = existing.id.split('-').filter(w => w.length > 1).map(w => normalize(w));
+    const existingIdWords = existing.id.split('-').filter(w => w.length > 1).map(w => normalizeItWord(w));
     const existingTitleWords = getSignificantWords(existing.title);
     const existingExcerptWords = getSignificantWords(existing.excerpt);
     const existingEntities = extractKeyEntities(existing.title + ' ' + existing.excerpt);
