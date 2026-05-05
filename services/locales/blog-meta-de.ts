@@ -6227,6 +6227,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hondius-hantavirus-frontalieri.title': 'Hantavirus auf der Hondius: Mensch-zu-Mensch-Übertragung bestätigt',
     'blog.article.hondius-hantavirus-frontalieri.excerpt': 'Die WHO bestätigt die Übertragung des Hantavirus von Mensch zu Mensch auf dem Kreuzfahrtschiff Hondius. Drei Tote und fünf Verdachtsfälle.',
     'blog.article.hondius-hantavirus-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund',
+    'blog.article.tajani-parmelin-crans-montana-2026.title': 'Tajani und Parmelin: Gesundheitsrückerstattungen und Zusammenarbeit',
+    'blog.article.tajani-parmelin-crans-montana-2026.excerpt': 'Treffen zwischen Tajani und Parmelin in Rom: Gesundheitsrückerstattungen für die Tragödie von Crans-Montana und grenzüberschreitende Zusammenarbeit',
+    'blog.article.tajani-parmelin-crans-montana-2026.imageAlt': 'Luganersee mit Bergen im Hintergrund, klarer blauer Himmel',
 };
 
 export default blogMetaDe;

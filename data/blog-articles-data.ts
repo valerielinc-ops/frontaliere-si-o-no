@@ -20054,4 +20054,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tajani-parmelin-crans-montana-2026',
+ category: 'novita',
+ date: '2026-05-05T23:13:05.156Z',
+ image: '/images/blog/tajani-parmelin-crans-montana-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

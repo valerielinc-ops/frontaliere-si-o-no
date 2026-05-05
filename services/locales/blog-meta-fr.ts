@@ -6228,6 +6228,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.hondius-hantavirus-frontalieri.title': 'Hantavirus sur le Hondius: transmission homme-homme confirmée',
     'blog.article.hondius-hantavirus-frontalieri.excerpt': 'L\'OMS confirme la transmission de l\'hantavirus d\'homme à homme sur le navire de croisière Hondius. Trois morts et cinq cas suspects.',
     'blog.article.hondius-hantavirus-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.tajani-parmelin-crans-montana-2026.title': 'Tajani et Parmelin sur la coopération transfrontalière',
+    'blog.article.tajani-parmelin-crans-montana-2026.excerpt': 'Rencontre entre Tajani et Parmelin à Rome : remboursements sanitaires pour la tragédie de Crans-Montana et coopération transfrontalière',
+    'blog.article.tajani-parmelin-crans-montana-2026.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan, ciel bleu clair',
 };
 
 export default blogMetaFr;
