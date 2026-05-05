@@ -55,7 +55,6 @@ import https from 'node:https';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const DIST = join(ROOT, 'dist');
 const HOST = 'https://frontaliereticino.ch';
 
 const argv = process.argv.slice(2);
@@ -66,6 +65,15 @@ for (const a of argv) {
     args.set(k, v ?? true);
   }
 }
+
+// `--dist=<path>` lets a CI helper run the audit against an alternate dist/
+// (e.g. an extracted github-pages artifact at /tmp/dist-prod/) without
+// needing to symlink. Defaults to `<repo>/dist`.
+const DIST = (() => {
+  const v = args.get('dist');
+  if (typeof v === 'string') return isAbsolute(v) ? v : join(ROOT, v);
+  return join(ROOT, 'dist');
+})();
 
 const MAX_DEPTH = Number(args.get('max-depth') ?? 4);
 const LIMIT = Number(args.get('limit') ?? 30);
