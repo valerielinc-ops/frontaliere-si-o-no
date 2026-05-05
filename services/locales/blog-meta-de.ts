@@ -5960,6 +5960,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mondiali-hockey-svizzera-2026.title': 'Josi, Niederreiter, Hischier und Meier bei der WM 2026',
     'blog.article.mondiali-hockey-svizzera-2026.excerpt': 'Vier NHL-Stars verstärken das Schweizer Team für die Eishockey-WM 2026 in Zürich und Freiburg',
     'blog.article.mondiali-hockey-svizzera-2026.imageAlt': 'Eishockeybahn in Lugano mit Spielern im Einsatz',
+    'blog.article.comanorun-record-801-iscritti.title': 'ComanoRun 2026: Rekord mit 801 Teilnehmern und neuen Bestzeiten',
+    'blog.article.comanorun-record-801-iscritti.excerpt': 'Die sechste Ausgabe des ComanoRun verzeichnete einen Rekord von 801 Teilnehmern und neue Bestzeiten in den Kategorien Männer und Frauen.',
+    'blog.article.comanorun-record-801-iscritti.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

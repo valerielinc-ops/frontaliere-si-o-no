@@ -3229,6 +3229,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-elicottero-mezzovico-incidente-2026': { name: 'Incidente elicottero', path: '/articoli-frontaliere/elicottero-mezzovico-incidente-2026', parent: 'blog' },
     'blog-inarzo-festa-oasi-palude-brabbia-2026': { name: 'Eventi', path: '/articoli-frontaliere/inarzo-festa-oasi-palude-brabbia-2026', parent: 'blog' },
     'blog-mondiali-hockey-svizzera-2026': { name: 'Mondiali Hockey', path: '/articoli-frontaliere/mondiali-hockey-svizzera-2026', parent: 'blog' },
+    'blog-comanorun-record-801-iscritti': { name: 'ComanoRun 2026', path: '/articoli-frontaliere/comanorun-record-801-iscritti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -17271,6 +17271,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comanorun-record-801-iscritti': {
+    title: 'ComanoRun 2026: record di 801 iscritti e nuovi primati',
+    description: 'Scopri i dettagli della sesta edizione della ComanoRun con 801 iscritti e i nuovi primati nelle categorie maschile e femminile. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, comanorun, record, iscritti, nuovi',
+    ogTitle: 'ComanoRun 2026: record di 801 iscritti e nuovi primati',
+    ogDescription: 'Scopri i dettagli della sesta edizione della ComanoRun con 801 iscritti e i nuovi primati nelle categorie maschile e femminile.',
+    canonicalPath: '/articoli-frontaliere/comanorun-record-801-iscritti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ComanoRun 2026: record di 801 iscritti e nuovi primati",
+      "description": "Scopri i dettagli della sesta edizione della ComanoRun con 801 iscritti e i nuovi primati nelle categorie maschile e femminile. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comanorun-record-801-iscritti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-05T01:33:55+00:00",
+      "dateModified": "2026-05-05T01:33:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comanorun-record-801-iscritti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

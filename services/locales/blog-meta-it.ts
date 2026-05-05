@@ -5961,6 +5961,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mondiali-hockey-svizzera-2026.title': 'Josi, Niederreiter, Hischier e Meier ai Mondiali 2026',
     'blog.article.mondiali-hockey-svizzera-2026.excerpt': 'Quattro stelle NHL si aggiungono alla squadra svizzera per i Mondiali di hockey 2026 a Zurigo e Friburgo',
     'blog.article.mondiali-hockey-svizzera-2026.imageAlt': 'Pista di hockey a Lugano con giocatori in azione',
+    'blog.article.comanorun-record-801-iscritti.title': 'ComanoRun 2026: record di 801 iscritti e nuovi primati',
+    'blog.article.comanorun-record-801-iscritti.excerpt': 'La sesta edizione della ComanoRun ha visto un record di 801 partecipanti e nuovi primati nelle categorie maschile e femminile.',
+    'blog.article.comanorun-record-801-iscritti.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

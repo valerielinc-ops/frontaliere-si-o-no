@@ -19253,4 +19253,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'comanorun-record-801-iscritti',
+ category: 'novita',
+ date: '2026-05-05T01:33:55.269Z',
+ image: '/images/blog/comanorun-record-801-iscritti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
