@@ -6072,6 +6072,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lamone-nono-mcdonalds-ticino.title': 'À Lamone, le neuvième McDonald\'s tessinois',
     'blog.article.lamone-nono-mcdonalds-ticino.excerpt': 'Nouvelle ouverture à Lamone, 35 emplois et 85% d\'ingrédients locaux. Voici ce qui change pour les frontaliers',
     'blog.article.lamone-nono-mcdonalds-ticino.imageAlt': 'McDonald\'s à Lamone, Tessin, avec vue sur les montagnes',
+    'blog.article.stagflazione-imprese-varesine-2026.title': 'Stagflation : alarme pour les entreprises varésanes',
+    'blog.article.stagflazione-imprese-varesine-2026.excerpt': 'Les entreprises varésanes font face à une phase complexe entre inflation et ralentissement de la production. Voici ce qui change et comment s\'adapter',
+    'blog.article.stagflazione-imprese-varesine-2026.imageAlt': 'Vue aérienne de Mendrisio, Suisse, avec la frontière italienne en arrière-plan',
 };
 
 export default blogMetaFr;

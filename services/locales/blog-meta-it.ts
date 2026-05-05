@@ -6072,6 +6072,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lamone-nono-mcdonalds-ticino.title': 'A Lamone il nono McDonald\'s ticinese',
     'blog.article.lamone-nono-mcdonalds-ticino.excerpt': 'Nuova apertura a Lamone, 35 posti di lavoro e 85% ingredienti locali. Ecco cosa cambia per i frontalieri',
     'blog.article.lamone-nono-mcdonalds-ticino.imageAlt': 'McDonald\'s di Lamone, Ticino, con vista sulle montagne',
+    'blog.article.stagflazione-imprese-varesine-2026.title': 'Stagflazione: allarme per le imprese varesine',
+    'blog.article.stagflazione-imprese-varesine-2026.excerpt': 'Le imprese varesine affrontano una fase complessa tra inflazione e rallentamento produttivo. Ecco cosa cambia e come adattarsi',
+    'blog.article.stagflazione-imprese-varesine-2026.imageAlt': 'Vista aerea di Mendrisio, Svizzera, con il confine italiano sullo sfondo',
 };
 
 export default blogMetaIt;

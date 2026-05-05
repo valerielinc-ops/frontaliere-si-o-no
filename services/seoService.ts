@@ -3266,6 +3266,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-passo-gottardo-riapre-anticipo-8-maggio': { name: 'Novità', path: '/articoli-frontaliere/passo-gottardo-riapre-anticipo-8-maggio', parent: 'blog' },
     'blog-furti-auto-ticino-2026': { name: 'Furti auto Ticino', path: '/articoli-frontaliere/furti-auto-ticino-2026', parent: 'blog' },
     'blog-lamone-nono-mcdonalds-ticino': { name: 'Novità', path: '/articoli-frontaliere/lamone-nono-mcdonalds-ticino', parent: 'blog' },
+    'blog-stagflazione-imprese-varesine-2026': { name: 'Stagflazione', path: '/articoli-frontaliere/stagflazione-imprese-varesine-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
