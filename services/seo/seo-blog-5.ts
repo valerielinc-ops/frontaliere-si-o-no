@@ -19380,6 +19380,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lago-como-monte-san-primo-5-milioni': {
+    title: 'Lago di Como, monte da salvare senza impianti | Frontaliere Ticino',
+    description: 'Il Coordinamento Salviamo il Monte San Primo si batte contro nuovi impianti sciistici a bassa quota. Interrogazione in Regione per riqualificazione ambientale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lago, como, monte, salvare',
+    ogTitle: 'Lago di Como, il monte meraviglioso da salvare: no impianti da sci e opere da 5 milioni',
+    ogDescription: 'Il Coordinamento Salviamo il Monte San Primo si batte contro nuovi impianti sciistici a bassa quota. Interrogazione in Regione per riqualificazione ambientale.',
+    canonicalPath: '/articoli-frontaliere/lago-como-monte-san-primo-5-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lago di Como, monte da salvare senza impianti",
+      "description": "Il Coordinamento Salviamo il Monte San Primo si batte contro nuovi impianti sciistici a bassa quota. Interrogazione in Regione per riqualificazione ambientale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/lago-como-monte-san-primo-5-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Como con il Monte San Primo sullo sfondo"
+      },
+      "datePublished": "2026-05-05T21:24:54+00:00",
+      "dateModified": "2026-05-05T21:24:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lago-como-monte-san-primo-5-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

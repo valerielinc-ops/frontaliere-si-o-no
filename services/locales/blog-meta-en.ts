@@ -6182,6 +6182,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.moschea-cantu-frontalieri-2026.title': 'Mosque in Cantù: victory for Assalam after 12 years',
     'blog.article.moschea-cantu-frontalieri-2026.excerpt': 'The State Council has recognized Assalam\'s right to build a mosque in Cantù, ordering the Municipality to pay the costs.',
     'blog.article.moschea-cantu-frontalieri-2026.imageAlt': 'Aerial view of Cantù, Italy, with the Swiss border in the background.',
+    'blog.article.lago-como-monte-san-primo-5-milioni.title': 'Lake Como: Save the Mountain Without Ski Lifts',
+    'blog.article.lago-como-monte-san-primo-5-milioni.excerpt': 'The \'Save Monte San Primo\' committee opposes new low-altitude ski lifts. Regional question for environmental requalification.',
+    'blog.article.lago-como-monte-san-primo-5-milioni.imageAlt': 'Aerial view of Lake Como with Monte San Primo in the background',
 };
 
 export default blogMetaEn;

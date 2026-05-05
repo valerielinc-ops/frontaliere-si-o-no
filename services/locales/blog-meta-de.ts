@@ -6182,6 +6182,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.moschea-cantu-frontalieri-2026.title': 'Moschee in Cantù: Sieg für Assalam nach 12 Jahren',
     'blog.article.moschea-cantu-frontalieri-2026.excerpt': 'Der Staatsrat hat das Recht von Assalam anerkannt, eine Moschee in Cantù zu bauen, und die Gemeinde verurteilt, die Kosten zu tragen.',
     'blog.article.moschea-cantu-frontalieri-2026.imageAlt': 'Luftaufnahme von Cantù, Italien, mit der Schweizer Grenze im Hintergrund.',
+    'blog.article.lago-como-monte-san-primo-5-milioni.title': 'Comer See: Berg ohne Skipisten retten',
+    'blog.article.lago-como-monte-san-primo-5-milioni.excerpt': 'Das Koordinationsbüro \'Rettet den Monte San Primo\' kämpft gegen neue Skianlagen in tieferen Lagen. Anfrage in der Region für eine ökologische Aufwertung.',
+    'blog.article.lago-como-monte-san-primo-5-milioni.imageAlt': 'Luftaufnahme des Comer Sees mit dem Monte San Primo im Hintergrund',
 };
 
 export default blogMetaDe;

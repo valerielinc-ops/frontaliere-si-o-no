@@ -6183,6 +6183,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.moschea-cantu-frontalieri-2026.title': 'Moschea a Cantù: vittoria per Assalam dopo 12 anni',
     'blog.article.moschea-cantu-frontalieri-2026.excerpt': 'Il Consiglio di Stato ha riconosciuto il diritto di Assalam a costruire una moschea a Cantù, condannando il Comune a pagare le spese.',
     'blog.article.moschea-cantu-frontalieri-2026.imageAlt': 'Vista aerea di Cantù, Italia, con il confine svizzero sullo sfondo.',
+    'blog.article.lago-como-monte-san-primo-5-milioni.title': 'Lago di Como, monte da salvare senza impianti',
+    'blog.article.lago-como-monte-san-primo-5-milioni.excerpt': 'Il Coordinamento Salviamo il Monte San Primo si batte contro nuovi impianti sciistici a bassa quota. Interrogazione in Regione per riqualificazione ambientale.',
+    'blog.article.lago-como-monte-san-primo-5-milioni.imageAlt': 'Vista aerea del Lago di Como con il Monte San Primo sullo sfondo',
 };
 
 export default blogMetaIt;

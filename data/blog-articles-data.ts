@@ -19919,4 +19919,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lago-como-monte-san-primo-5-milioni',
+ category: 'pratico',
+ date: '2026-05-05T21:24:54.613Z',
+ image: '/images/blog/lago-como-monte-san-primo-5-milioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
