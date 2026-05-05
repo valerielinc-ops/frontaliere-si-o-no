@@ -19798,6 +19798,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-minoteries-chiude-zollbruck-28-dipendenti': {
+    title: 'Minoteries chiude sito a Zollbrück, 28 dipendenti interessati',
+    description: 'Il Gruppo Minoteries chiude il mulino Steiner a Zollbrück nel primo semestre 2027, interessando 28 dipendenti. Scopri le implicazioni e le opportunità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, minoteries, chiude, sito, zollbrück',
+    ogTitle: 'Minoteries chiude sito a Zollbrück, 28 dipendenti interessati',
+    ogDescription: 'Il Gruppo Minoteries chiude il mulino Steiner a Zollbrück nel primo semestre 2027, interessando 28 dipendenti. Scopri le implicazioni e le opportunità.',
+    canonicalPath: '/articoli-frontaliere/minoteries-chiude-zollbruck-28-dipendenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Minoteries chiude sito a Zollbrück, 28 dipendenti interessati",
+      "description": "Il Gruppo Minoteries chiude il mulino Steiner a Zollbrück nel primo semestre 2027, interessando 28 dipendenti. Scopri le implicazioni e le opportunità.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/minoteries-chiude-zollbruck-28-dipendenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di un'area industriale svizzera con un mulino chiuso e il paesaggio circostante"
+      },
+      "datePublished": "2026-05-05T22:50:26+00:00",
+      "dateModified": "2026-05-05T22:50:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/minoteries-chiude-zollbruck-28-dipendenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

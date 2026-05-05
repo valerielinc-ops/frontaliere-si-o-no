@@ -6215,6 +6215,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026-axa-segnalazioni.title': 'Car thefts rise in Ticino: AXA reports an increase',
     'blog.article.furti-auto-ticino-2026-axa-segnalazioni.excerpt': 'AXA reports a rise in car thefts in Switzerland, particularly in border cantons like Ticino. Here\'s what you need to know and how to protect yourself.',
     'blog.article.furti-auto-ticino-2026-axa-segnalazioni.imageAlt': 'Aerial view of Lugano and Lake Lugano',
+    'blog.article.minoteries-chiude-zollbruck-28-dipendenti.title': 'Minoteries to close Zollbrück mill, 28 jobs affected',
+    'blog.article.minoteries-chiude-zollbruck-28-dipendenti.excerpt': 'The Minoteries Group will close the Steiner mill in Zollbrück in the first half of 2027, affecting 28 employees.',
+    'blog.article.minoteries-chiude-zollbruck-28-dipendenti.imageAlt': 'Aerial view of a Swiss industrial area with a closed mill and surrounding landscape',
 };
 
 export default blogMetaEn;

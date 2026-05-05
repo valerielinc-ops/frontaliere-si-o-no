@@ -6215,6 +6215,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026-axa-segnalazioni.title': 'Autodiebstahl im Tessin: AXA meldet Anstieg',
     'blog.article.furti-auto-ticino-2026-axa-segnalazioni.excerpt': 'AXA meldet einen Anstieg der Autodiebstähle in der Schweiz, insbesondere in den Grenzregionen wie dem Tessin. Hier erfahren Sie, was Sie wissen müssen und wie Sie sich schützen können.',
     'blog.article.furti-auto-ticino-2026-axa-segnalazioni.imageAlt': 'Luftansicht von Lugano und dem Luganersee',
+    'blog.article.minoteries-chiude-zollbruck-28-dipendenti.title': 'Minoteries schließt Standort in Zollbrück, 28 Mitarbeiter betroffen',
+    'blog.article.minoteries-chiude-zollbruck-28-dipendenti.excerpt': 'Die Minoteries-Gruppe schließt die Mühle Steiner in Zollbrück im ersten Halbjahr 2027, was 28 Mitarbeiter betrifft.',
+    'blog.article.minoteries-chiude-zollbruck-28-dipendenti.imageAlt': 'Luftaufnahme eines Schweizer Industriegebiets mit einer geschlossenen Mühle und der umliegenden Landschaft',
 };
 
 export default blogMetaDe;

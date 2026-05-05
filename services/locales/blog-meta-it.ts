@@ -6216,6 +6216,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026-axa-segnalazioni.title': 'Furti auto in Ticino: AXA segnala un aumento',
     'blog.article.furti-auto-ticino-2026-axa-segnalazioni.excerpt': 'AXA segnala un aumento dei furti di auto in Svizzera, soprattutto nei cantoni di confine come il Ticino. Ecco cosa sapere e come proteggersi.',
     'blog.article.furti-auto-ticino-2026-axa-segnalazioni.imageAlt': 'Veduta aerea di Lugano e del Lago di Lugano',
+    'blog.article.minoteries-chiude-zollbruck-28-dipendenti.title': 'Minoteries chiude sito a Zollbrück, 28 dipendenti interessati',
+    'blog.article.minoteries-chiude-zollbruck-28-dipendenti.excerpt': 'Il Gruppo Minoteries chiude il mulino Steiner a Zollbrück nel primo semestre 2027, interessando 28 dipendenti.',
+    'blog.article.minoteries-chiude-zollbruck-28-dipendenti.imageAlt': 'Vista aerea di un\'area industriale svizzera con un mulino chiuso e il paesaggio circostante',
 };
 
 export default blogMetaIt;

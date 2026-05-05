@@ -20018,4 +20018,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'minoteries-chiude-zollbruck-28-dipendenti',
+ category: 'novita',
+ date: '2026-05-05T22:50:26.521Z',
+ image: '/images/blog/minoteries-chiude-zollbruck-28-dipendenti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
