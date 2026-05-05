@@ -1,23 +1,21 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-04T21:29:15.431Z",
-  "total": 0,
-  "newCount": 0,
+  "generatedAt": "2026-05-05T10:15:44.823Z",
+  "total": 1,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7165,
-  "avgDurationMs": 7165,
+  "durationMs": 9407,
+  "avgDurationMs": 9407,
   "durationHistory": [
-    7165
+    9407
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
+  "newJobs": [
     {
       "title": "Mechaniker (w/m/div.)",
-      "slug": "ingegnere-m-div-bosch-thermotechnik-ag-st-niklaus",
+      "slug": "mechaniker-w-m-div-bosch-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF284760B-mechaniker-w-m-div",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123354209-mechaniker-w-m-div-?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -37,20 +35,16 @@
       "sourceLang": "de",
       "postedDate": "2026-04-28",
       "validThrough": "",
-      "id": "bosch-thermotechnik-ag-6d2b9135be2d",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-28T10:27:51.110Z",
-      "_qualityScore": 94,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
     }
   ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": []
 }
