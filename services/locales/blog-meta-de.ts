@@ -6233,6 +6233,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carburante-ticino-guerra-2026.title': 'Treibstoff in Tessin: kein Mangel, aber hoher Preis',
     'blog.article.carburante-ticino-guerra-2026.excerpt': 'Bisher gibt es im Tessin keinen Treibstoffmangel, aber die Preise bleiben hoch. Die Zukunft hängt vom Verlauf des Krieges und den europäischen Energieflüssen ab.',
     'blog.article.carburante-ticino-guerra-2026.imageAlt': 'Tankstellen und Verkehr an der Schweizer-italienischen Grenze, realistische Szene',
+    'blog.article.udc-sostenibilita-lavoro-ticino-2026.title': 'UDC: «Keine Opfer für die Arbeitnehmer aus dem Tessin»',
+    'blog.article.udc-sostenibilita-lavoro-ticino-2026.excerpt': 'Der kantonale UDC-Ausschuss empfiehlt ein Ja zur Initiative «Nein zu einer Schweiz mit 10 Millionen» und kritisiert die Personenfreizügigkeit.',
+    'blog.article.udc-sostenibilita-lavoro-ticino-2026.imageAlt': 'Luftaufnahme von Bellinzona mit Castelgrande und den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

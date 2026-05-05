@@ -20026,6 +20026,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-udc-sostenibilita-lavoro-ticino-2026': {
+    title: 'UDC: «I lavoratori ticinesi non saranno sacrificati»',
+    description: 'Il Comitato cantonale UDC raccomanda il sì all\'iniziativa «No a una Svizzera da 10 milioni» e critica la libera circolazione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoratori, ticinesi, saranno, sacrificati',
+    ogTitle: 'UDC: «I lavoratori ticinesi non saranno sacrificati»',
+    ogDescription: 'Il Comitato cantonale UDC raccomanda il sì all\'iniziativa «No a una Svizzera da 10 milioni» e critica la libera circolazione.',
+    canonicalPath: '/articoli-frontaliere/udc-sostenibilita-lavoro-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UDC: «I lavoratori ticinesi non saranno sacrificati»",
+      "description": "Il Comitato cantonale UDC raccomanda il sì all'iniziativa «No a una Svizzera da 10 milioni» e critica la libera circolazione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/udc-sostenibilita-lavoro-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona con il Castelgrande e le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-05-05T23:26:16+00:00",
+      "dateModified": "2026-05-05T23:26:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/udc-sostenibilita-lavoro-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

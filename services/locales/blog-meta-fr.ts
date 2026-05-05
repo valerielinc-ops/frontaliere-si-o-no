@@ -6234,6 +6234,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carburante-ticino-guerra-2026.title': 'Carburant au Tessin: pas de pénurie, prix élevés',
     'blog.article.carburante-ticino-guerra-2026.excerpt': 'À ce jour, il n\'y a pas de pénurie de carburant au Tessin, mais les prix restent élevés. L\'avenir dépend de l\'évolution de la guerre et des flux énergétiques européens.',
     'blog.article.carburante-ticino-guerra-2026.imageAlt': 'Stations-service et trafic à la frontière suisse-italienne, scène réaliste',
+    'blog.article.udc-sostenibilita-lavoro-ticino-2026.title': 'UDC: «Les travailleurs tessinois ne seront pas sacrifiés»',
+    'blog.article.udc-sostenibilita-lavoro-ticino-2026.excerpt': 'Le comité cantonal UDC recommande le oui à l\'initiative «Non à une Suisse de 10 millions» et critique la libre circulation.',
+    'blog.article.udc-sostenibilita-lavoro-ticino-2026.imageAlt': 'Vue aérienne de Bellinzona avec Castelgrande et les Alpes en arrière-plan',
 };
 
 export default blogMetaFr;

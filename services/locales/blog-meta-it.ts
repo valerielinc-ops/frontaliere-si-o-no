@@ -6234,6 +6234,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carburante-ticino-guerra-2026.title': 'Carburante in Ticino: nessuna penuria, ma prezzo alto',
     'blog.article.carburante-ticino-guerra-2026.excerpt': 'Ad oggi non manca il carburante in Ticino, ma i prezzi restano elevati. Il futuro dipende dall\'andamento della guerra e dai flussi energetici europei.',
     'blog.article.carburante-ticino-guerra-2026.imageAlt': 'Stazioni di servizio e traffico al confine tra Ticino e Italia, scenario reale',
+    'blog.article.udc-sostenibilita-lavoro-ticino-2026.title': 'UDC: «I lavoratori ticinesi non saranno sacrificati»',
+    'blog.article.udc-sostenibilita-lavoro-ticino-2026.excerpt': 'Il Comitato cantonale UDC raccomanda il sì all\'iniziativa «No a una Svizzera da 10 milioni» e critica la libera circolazione.',
+    'blog.article.udc-sostenibilita-lavoro-ticino-2026.imageAlt': 'Vista aerea di Bellinzona con il Castelgrande e le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;

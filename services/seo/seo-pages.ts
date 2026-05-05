@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2130,
+ "numberOfItems": 2131,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6772,7 +6772,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2127, "name": "Agricoltura di precisione: meno pesticidi in Sv...", "url": `${BASE_URL}/articoli-frontaliere/agricoltura-precisione-pesticidi-2026` },
           { "@type": "ListItem", "position": 2128, "name": "Hantavirus sulla Hondius: trasmissione uomo-uom...", "url": `${BASE_URL}/articoli-frontaliere/hondius-hantavirus-frontalieri` },
           { "@type": "ListItem", "position": 2129, "name": "Tajani e Parmelin su rimborsi sanitari e cooper...", "url": `${BASE_URL}/articoli-frontaliere/tajani-parmelin-crans-montana-2026` },
-          { "@type": "ListItem", "position": 2130, "name": "Carburante in Ticino: nessuna penuria, ma prezz...", "url": `${BASE_URL}/articoli-frontaliere/carburante-ticino-guerra-2026` }
+          { "@type": "ListItem", "position": 2130, "name": "Carburante in Ticino: nessuna penuria, ma prezz...", "url": `${BASE_URL}/articoli-frontaliere/carburante-ticino-guerra-2026` },
+          { "@type": "ListItem", "position": 2131, "name": "UDC: «I lavoratori ticinesi non saranno sacrifi...", "url": `${BASE_URL}/articoli-frontaliere/udc-sostenibilita-lavoro-ticino-2026` }
  ]
  },
  {
