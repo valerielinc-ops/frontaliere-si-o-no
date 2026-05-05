@@ -1,0 +1,62 @@
+name: FB Jobs Daily Schedule (E5)
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # 06:00 UTC = 07:00 CET / 08:00 CEST
+  workflow_dispatch:
+    inputs:
+      volume:
+        description: 'Posts to schedule (24/72/144)'
+        required: false
+        default: '24'
+        type: choice
+        options: ['24', '72', '144']
+      dry_run:
+        description: 'Skip Graph API call (preview only)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
+
+permissions:
+  contents: write  # to commit fb-posted-jobs.json
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      - name: Schedule FB jobs
+        env:
+          FB_JOB_VOLUME: ${{ github.event.inputs.volume || '24' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: node scripts/schedule-fb-jobs-daily.mjs
+
+      - name: Commit posted-jobs tracking
+        if: success() && github.event.inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/fb-posted-jobs.json; then
+            echo "no changes"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/fb-posted-jobs.json
+          git commit -m "chore(fb): track posted jobs [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh
