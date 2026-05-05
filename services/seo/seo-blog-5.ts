@@ -17822,6 +17822,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-passo-gottardo-riaperto-ascensione': {
+    title: 'Passo del San Gottardo riaperto da venerdì | Frontaliere Ticino',
+    description: 'Il passo del San Gottardo riapre al traffico venerdì alle 11, in tempo per le festività dell\'Ascensione e di Pentecoste, alleggerendo l\'autostrada A2.',
+    keywords: 'frontalieri, ticino, svizzera, italia, passo, gottardo, riaperto, venerdì',
+    ogTitle: 'Passo del San Gottardo riaperto da venerdì',
+    ogDescription: 'Il passo del San Gottardo riapre al traffico venerdì alle 11, in tempo per le festività dell\'Ascensione e di Pentecoste, alleggerendo l\'autostrada A2.',
+    canonicalPath: '/articoli-frontaliere/passo-gottardo-riaperto-ascensione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Passo del San Gottardo riaperto da venerdì",
+      "description": "Il passo del San Gottardo riapre al traffico venerdì alle 11, in tempo per le festività dell'Ascensione e di Pentecoste, alleggerendo l'autostrada A2.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/passo-gottardo-riaperto-ascensione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Passo del San Gottardo in Ticino, Svizzera, con cieli sereni e strade aperte, che mostra il paesaggio montano e la riapertura del passo al traffico."
+      },
+      "datePublished": "2026-05-05T08:52:45+00:00",
+      "dateModified": "2026-05-05T08:52:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passo-gottardo-riaperto-ascensione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -6059,6 +6059,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benzina-19-euro-5-maggio-2026.title': 'Petrol exceeds 1.9 euros per litre: first time in two years',
     'blog.article.benzina-19-euro-5-maggio-2026.excerpt': 'Petrol price hits 1.926 euros per litre in self-service mode, while diesel slightly decreases.',
     'blog.article.benzina-19-euro-5-maggio-2026.imageAlt': 'A gas station in Ticino with the gasoline price at 1.926 CHF per litre',
+    'blog.article.passo-gottardo-riaperto-ascensione.title': 'St. Gotthard Pass reopens Friday',
+    'blog.article.passo-gottardo-riaperto-ascensione.excerpt': 'The St. Gotthard Pass reopens to traffic on Friday at 11 AM, in time for the Ascension and Pentecost bank holidays, easing traffic on the A2 motorway.',
+    'blog.article.passo-gottardo-riaperto-ascensione.imageAlt': 'Aerial view of the San Gottardo Pass in Ticino, Switzerland, with clear skies and open roads, showcasing the mountainous landscape and the reopening of the pass for traffic.',
 };
 
 export default blogMetaEn;

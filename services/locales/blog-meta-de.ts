@@ -6059,6 +6059,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.benzina-19-euro-5-maggio-2026.title': 'Benzinpreis übersteigt 1,90 Euro pro Liter: Erstmals seit zwei Jahren',
     'blog.article.benzina-19-euro-5-maggio-2026.excerpt': 'Der Benzinpreis erreicht 1,926 Euro pro Liter im Selbstbedienungsmodus, während Diesel leicht sinkt.',
     'blog.article.benzina-19-euro-5-maggio-2026.imageAlt': 'Eine Tankstelle in Tessin mit dem Benzinpreis von 1,926 CHF pro Liter',
+    'blog.article.passo-gottardo-riaperto-ascensione.title': 'San Gottardo wieder ab Freitag geöffnet',
+    'blog.article.passo-gottardo-riaperto-ascensione.excerpt': 'Der San Gottardo Pass öffnet am Freitag um 11 Uhr für den Verkehr, rechtzeitig zu den Feiertagen Christi Himmelfahrt und Pfingsten, und entlastet die Autobahn A2.',
+    'blog.article.passo-gottardo-riaperto-ascensione.imageAlt': 'Luftaufnahme des San-Gottardo-Passes in Tessin, Schweiz, mit klarem Himmel und offenen Straßen, die die Berglandschaft und die Wiedereröffnung des Passes für den Verkehr zeigt.',
 };
 
 export default blogMetaDe;

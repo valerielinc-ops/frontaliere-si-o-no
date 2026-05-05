@@ -6060,6 +6060,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.benzina-19-euro-5-maggio-2026.title': 'L\'essence dépasse 1,9 euro le litre: première fois en deux ans',
     'blog.article.benzina-19-euro-5-maggio-2026.excerpt': 'Le prix de l\'essence atteint 1,926 euro le litre en mode self-service, tandis que le gazole baisse légèrement.',
     'blog.article.benzina-19-euro-5-maggio-2026.imageAlt': 'Une station-service en Tessin avec le prix de l\'essence à 1,926 CHF le litre',
+    'blog.article.passo-gottardo-riaperto-ascensione.title': 'Le col du Saint-Gothard rouvre vendredi',
+    'blog.article.passo-gottardo-riaperto-ascensione.excerpt': 'Le col du Saint-Gothard rouvre à la circulation vendredi à 11h, à temps pour les fêtes de l\'Ascension et de la Pentecôte, soulageant l\'autoroute A2.',
+    'blog.article.passo-gottardo-riaperto-ascensione.imageAlt': 'Vue aérienne du col du Saint-Gothard en Tessin, Suisse, avec des ciels dégagés et des routes ouvertes, montrant le paysage montagneux et la réouverture du col à la circulation.',
 };
 
 export default blogMetaFr;

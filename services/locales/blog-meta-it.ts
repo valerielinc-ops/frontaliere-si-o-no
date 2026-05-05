@@ -6060,6 +6060,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.benzina-19-euro-5-maggio-2026.title': 'Benzina supera 1,9 euro al litro: prima volta in due anni',
     'blog.article.benzina-19-euro-5-maggio-2026.excerpt': 'Il prezzo della benzina tocca quota 1,926 euro al litro in modalità self service, mentre il gasolio scende leggermente.',
     'blog.article.benzina-19-euro-5-maggio-2026.imageAlt': 'Una stazione di servizio in Ticino con il prezzo della benzina a 1,926 CHF al litro',
+    'blog.article.passo-gottardo-riaperto-ascensione.title': 'Passo del San Gottardo riaperto da venerdì',
+    'blog.article.passo-gottardo-riaperto-ascensione.excerpt': 'Il passo del San Gottardo riapre al traffico venerdì alle 11, in tempo per le festività dell\'Ascensione e di Pentecoste, alleggerendo l\'autostrada A2.',
+    'blog.article.passo-gottardo-riaperto-ascensione.imageAlt': 'Vista aerea del Passo del San Gottardo in Ticino, Svizzera, con cieli sereni e strade aperte, che mostra il paesaggio montano e la riapertura del passo al traffico.',
 };
 
 export default blogMetaIt;
