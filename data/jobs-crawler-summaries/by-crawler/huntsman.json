@@ -1,18 +1,19 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-05-04T22:05:27.176Z",
+  "generatedAt": "2026-05-05T10:52:11.902Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7761,
-  "avgDurationMs": 7761,
+  "durationMs": 7460,
+  "avgDurationMs": 7460,
   "durationHistory": [
-    7761
+    7460
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "huntsman-2465633aa4f4",
       "slug": "technologue-en-production-5-equipes-huntsman-ch",
@@ -37,18 +38,17 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Technologue-en-production---5-quipes_J-019681",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T22:05:20.209Z",
+      "crawledAt": "2026-05-05T10:52:05.476Z",
       "jobReqId": "J-019681",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-04T22:05:20.209Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "huntsman-76dc77a0df36",
       "slug": "junior-project-manager-regional-growth-projects-12-month-assignment-huntsman-ch",
@@ -73,7 +73,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Germany---Bad-Sackingen/Junior-Project-Manager---Regional-Innovation--12-month-assignment-_J-019662",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T22:05:20.806Z",
+      "crawledAt": "2026-05-05T10:52:06.084Z",
       "jobReqId": "J-019662",
       "firstSeenAt": "2026-04-29T22:03:11.996Z",
       "_qualityScore": 82,
@@ -108,7 +108,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-Pilote_J-019602",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T22:05:21.400Z",
+      "crawledAt": "2026-05-05T10:52:06.660Z",
       "jobReqId": "J-019602",
       "firstSeenAt": "2026-04-13T10:44:44.868Z",
       "_qualityScore": 82,
@@ -143,7 +143,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-de-Conditionnement--en-quipe-de-jour_J-019425",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T22:05:22.155Z",
+      "crawledAt": "2026-05-05T10:52:07.273Z",
       "jobReqId": "J-019425",
       "firstSeenAt": "2026-04-13T10:44:45.451Z",
       "_qualityScore": 82,
@@ -178,7 +178,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Team-Lead-Logistics_J-019430",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T22:05:22.863Z",
+      "crawledAt": "2026-05-05T10:52:07.830Z",
       "jobReqId": "J-019430",
       "firstSeenAt": "2026-04-13T10:44:46.029Z",
       "_qualityScore": 82,
@@ -213,7 +213,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Technical-Service-Laboratory-Leader_J-019480",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T22:05:23.557Z",
+      "crawledAt": "2026-05-05T10:52:08.578Z",
       "jobReqId": "J-019480",
       "firstSeenAt": "2026-04-13T10:44:46.530Z",
       "_qualityScore": 84,
@@ -248,7 +248,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019429",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T22:05:24.239Z",
+      "crawledAt": "2026-05-05T10:52:09.140Z",
       "jobReqId": "J-019429",
       "firstSeenAt": "2026-04-13T10:44:47.119Z",
       "_qualityScore": 82,
@@ -283,7 +283,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-04T22:05:24.960Z",
+      "crawledAt": "2026-05-05T10:52:09.729Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "_qualityScore": 82,
