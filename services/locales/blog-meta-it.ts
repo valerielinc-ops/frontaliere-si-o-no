@@ -5982,6 +5982,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scontri-lugano-politica-toni.title': 'Scontri in pensilina a Lugano, la politica deve abbassare i toni',
     'blog.article.scontri-lugano-politica-toni.excerpt': 'Karin Valenzano Rossi, capodicastero sicurezza di Lugano, commenta gli scontri avvenuti in pensilina che hanno portato al ferimento di due persone.',
     'blog.article.scontri-lugano-politica-toni.imageAlt': 'Situazione tesa alla stazione di Lugano con persone che discutono e presenza della polizia',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.title': 'Svizzera, istruzioni per l\'uso: cosa cambia per i frontalieri',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.excerpt': 'Dalla perequazione finanziaria ai tagli universitari, ecco le novità che impattano i frontalieri in Ticino',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
 };
 
 export default blogMetaIt;

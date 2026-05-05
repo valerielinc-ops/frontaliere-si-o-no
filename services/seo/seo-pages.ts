@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2046,
+ "numberOfItems": 2047,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6689,7 +6689,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2043, "name": "Festival della Meraviglia: arte, musica e incon...", "url": `${BASE_URL}/articoli-frontaliere/festival-meraviglia-laveno-luino-2026` },
           { "@type": "ListItem", "position": 2044, "name": "Festival della Meraviglia 2026: storie che cost...", "url": `${BASE_URL}/articoli-frontaliere/meraviglia-festival-laveno-luino-2026` },
           { "@type": "ListItem", "position": 2045, "name": "UDC incalza su spesa cultura indipendente: «Giu...", "url": `${BASE_URL}/articoli-frontaliere/udc-cultura-indipendente-spesa-giustificata` },
-          { "@type": "ListItem", "position": 2046, "name": "Scontri in pensilina a Lugano, la politica deve...", "url": `${BASE_URL}/articoli-frontaliere/scontri-lugano-politica-toni` }
+          { "@type": "ListItem", "position": 2046, "name": "Scontri in pensilina a Lugano, la politica deve...", "url": `${BASE_URL}/articoli-frontaliere/scontri-lugano-politica-toni` },
+          { "@type": "ListItem", "position": 2047, "name": "Svizzera, istruzioni per l'uso: cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-istruzioni-uso-frontalieri` }
  ]
  },
  {

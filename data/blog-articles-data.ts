@@ -19316,4 +19316,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-istruzioni-uso-frontalieri',
+ category: 'novita',
+ date: '2026-05-05T03:57:26.533Z',
+ image: '/images/blog/svizzera-istruzioni-uso-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

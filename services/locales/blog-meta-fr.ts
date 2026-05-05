@@ -5982,6 +5982,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scontri-lugano-politica-toni.title': 'Affrontements à Lugano, la politique doit baisser le ton',
     'blog.article.scontri-lugano-politica-toni.excerpt': 'Karin Valenzano Rossi, cheffe du département sécurité de Lugano, commente les affrontements survenus dans la gare qui ont entraîné le blessure de deux personnes.',
     'blog.article.scontri-lugano-politica-toni.imageAlt': 'Situation tendue à la gare de Lugano avec des personnes en train de se disputer et la présence de la police',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.title': 'Suisse, mode d\'emploi : ce qui change pour les frontaliers',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.excerpt': 'De la péréquation financière aux coupes universitaires, voici les nouveautés qui impactent les frontaliers au Tessin',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
 };
 
 export default blogMetaFr;

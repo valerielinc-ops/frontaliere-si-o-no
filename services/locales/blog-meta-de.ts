@@ -5981,6 +5981,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scontri-lugano-politica-toni.title': 'Auseinandersetzungen in Lugano: Politik soll die Töne senken',
     'blog.article.scontri-lugano-politica-toni.excerpt': 'Karin Valenzano Rossi, Sicherheitsvorsteherin von Lugano, kommentiert die Auseinandersetzungen im Busbahnhof, die zu Verletzungen von zwei Personen führten.',
     'blog.article.scontri-lugano-politica-toni.imageAlt': 'Spannende Situation am Bahnhof Lugano mit streitenden Menschen und Polizeipräsenz',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.title': 'Schweiz, Gebrauchsanweisung: Was sich für Grenzgänger ändert',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.excerpt': 'Von der Finanzausgleich bis zu den Universitätskürzungen, hier sind die Neuigkeiten, die die Grenzgänger im Tessin betreffen',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

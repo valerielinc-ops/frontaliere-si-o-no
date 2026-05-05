@@ -5981,6 +5981,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scontri-lugano-politica-toni.title': 'Clashes in Lugano bus stop, politicians must tone down',
     'blog.article.scontri-lugano-politica-toni.excerpt': 'Karin Valenzano Rossi, head of security for Lugano, comments on the clashes that occurred in the bus stop, which resulted in two people being injured.',
     'blog.article.scontri-lugano-politica-toni.imageAlt': 'Tense situation at Lugano train station with people arguing and police presence',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.title': 'Switzerland, user guide: changes for cross-border workers',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.excerpt': 'From financial equalization to university cuts, here are the news affecting cross-border workers in Ticino',
+    'blog.article.svizzera-istruzioni-uso-frontalieri.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
 };
 
 export default blogMetaEn;
