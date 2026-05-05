@@ -6111,6 +6111,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.title': 'Olgiate Olona: nuovo alloggio domotico per disabili con fondi Pnrr',
     'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.excerpt': 'Inaugurato a Olgiate Olona un appartamento domotico per persone con disabilità, finanziato dal Pnrr. Obiettivo: autonomia abitativa e lavorativa.',
     'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.imageAlt': 'Appartamento domotico per persone con disabilità a Olgiate Olona',
+    'blog.article.swiss-voice-tour-tenero-2026.title': 'Swiss Voice Tour torna a Tenero: concorso canoro al Centro commerciale',
+    'blog.article.swiss-voice-tour-tenero-2026.excerpt': 'Dal 12 al 16 maggio 2026, giovani talenti e adulti si sfideranno per accedere alle fasi finali del concorso con Paolo Meneguzzi come giurato.',
+    'blog.article.swiss-voice-tour-tenero-2026.imageAlt': 'Swiss Voice Tour al Centro commerciale di Tenero, Ticino',
 };
 
 export default blogMetaIt;

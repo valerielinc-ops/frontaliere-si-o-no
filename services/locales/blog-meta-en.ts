@@ -6110,6 +6110,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.title': 'Olgiate Olona: smart home for disabled via Pnrr funds',
     'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.excerpt': 'A smart home for people with disabilities has been inaugurated in Olgiate Olona, funded by the Pnrr. Goal: housing and work autonomy.',
     'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.imageAlt': 'Domotic apartment for people with disabilities in Olgiate Olona',
+    'blog.article.swiss-voice-tour-tenero-2026.title': 'Swiss Voice Tour returns to Tenero: singing contest at the mall',
+    'blog.article.swiss-voice-tour-tenero-2026.excerpt': 'From May 12 to 16, 2026, young talents and adults will compete to reach the finals of the contest, with Paolo Meneguzzi as a judge.',
+    'blog.article.swiss-voice-tour-tenero-2026.imageAlt': 'Swiss Voice Tour at Centro commerciale di Tenero, Ticino',
 };
 
 export default blogMetaEn;
