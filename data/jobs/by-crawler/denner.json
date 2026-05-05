@@ -102,9 +102,9 @@
     },
     {
       "id": "denner-6e109fd9cade",
-      "slug": "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
+      "slug": "venditore-con-salario-orario-denner-wilen-b-will",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
+        "it": "venditore-con-salario-orario-denner-wilen-b-will",
         "en": "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
         "de": "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
         "fr": "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
@@ -167,7 +167,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner"
@@ -181,6 +182,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,

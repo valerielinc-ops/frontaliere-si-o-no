@@ -3541,9 +3541,9 @@
     },
     {
       "id": "ubp-5a41d34466f1",
-      "slug": "wm-business-monitoring-officer-eam-controls-ubp-ch",
+      "slug": "responsabile-del-monitoraggio-aziendale-wm-eam-controlli-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "wm-business-monitoring-officer-eam-controls-ubp-ch",
+        "it": "responsabile-del-monitoraggio-aziendale-wm-eam-controlli-union-bancaire-privee-geneva-switzerland",
         "en": "wm-business-monitoring-officer-eam-controls-union-bancaire-privee-geneva-switzerland",
         "de": "wm-business-monitoring-officer-eam-controls-ubp-ch",
         "fr": "wm-business-monitoring-officer-eam-controls-ubp-ch"
@@ -3600,7 +3600,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wm-business-monitoring-officer-eam-controls-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wm-business-monitoring-officer-eam-controls-ubp-ch"
+      ]
     },
     {
       "id": "ubp-0926079a9f30",

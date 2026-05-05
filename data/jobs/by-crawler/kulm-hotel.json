@@ -167,10 +167,10 @@
     },
     {
       "id": "kulm-hotel-ead1fc640edf",
-      "slug": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-2",
+      "slug": "assistente-di-stanza-zimmerdame-roomboy-lunedi-mercoledi-d-kulm-hotel-st-moritz-st-moritz-9110cd",
       "slugByLocale": {
         "fr": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
-        "it": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-2",
+        "it": "assistente-di-stanza-zimmerdame-roomboy-lunedi-mercoledi-d-kulm-hotel-st-moritz-st-moritz-9110cd",
         "en": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-2",
         "de": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-2"
       },
@@ -232,7 +232,15 @@
         }
       },
       "firstSeenAt": "2026-05-04T22:12:47.128Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-2"
+        ]
+      },
+      "previousSlugs": [
+        "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-2"
+      ]
     },
     {
       "id": "kulm-hotel-59df002ccde6",
