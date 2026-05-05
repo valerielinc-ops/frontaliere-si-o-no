@@ -132,11 +132,17 @@ jobs:
             done
           }
 
+          # `set +e` inside the subshell — see post-deploy-validation.yml
+          # spawn_capped for the full rationale. Without it, GH Actions'
+          # default `bash -eo pipefail` errexit propagates into the subshell
+          # and a failed task dies before rc=$?, vanishing from both the
+          # timings and failures files (silent gate failure).
           spawn_capped() {
             local name=$1
             local logfile=/tmp/$(echo "$name" | tr ':/' '__').log
             wait_slot
             (
+              set +e
               start=$(date +%s.%N)
               run_post_build_task "$name" > "$logfile" 2>&1
               rc=$?

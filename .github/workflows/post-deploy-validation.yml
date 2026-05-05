@@ -102,10 +102,32 @@ jobs:
     env:
       PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
     steps:
+      # Resolve the deploy's actual head_sha via the gh API instead of trusting
+      # `github.event.workflow_run.head_sha`. The event payload value can drift
+      # from the deploy's true head_sha when concurrent/cancelled deploys race
+      # (observed: post-deploy run 25377607613 had event head_sha=2ee881e while
+      # the deploy run 25377550358 was actually built from 4187b27792). The
+      # gh API on the deploy run is stable.
+      - name: Resolve actual deploy SHA
+        id: deploy-sha
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          api_sha=$(gh api \
+            "repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}" \
+            --jq .head_sha)
+          event_sha="${{ github.event.workflow_run.head_sha }}"
+          echo "Deploy run ${{ github.event.workflow_run.id }} → API head_sha: $api_sha"
+          if [ "$api_sha" != "$event_sha" ]; then
+            echo "::warning::workflow_run.head_sha drift — event=$event_sha api=$api_sha (using API)"
+          fi
+          echo "sha=$api_sha" >> "$GITHUB_OUTPUT"
+
       - name: Checkout (same SHA as deploy)
         uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ steps.deploy-sha.outputs.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -250,10 +272,18 @@ jobs:
             done
           }
 
+          # IMPORTANT: `set +e` inside the subshell. The GH Actions default
+          # shell is `bash -eo pipefail`, which propagates errexit into the
+          # ( ... ) subshell. Without `set +e`, a non-zero rc from "$@" kills
+          # the subshell BEFORE rc=$? runs, so neither the timings file nor
+          # the failures file gets the row — the failed task vanishes and
+          # the parent step prints "✅ All passed". This silently masked
+          # the title-length regression in post-deploy run 25377607613.
           spawn_capped() {
             local name=$1; local logfile=$2; shift 2
             wait_slot
             (
+              set +e
               start=$(date +%s.%N)
               "$@" > "$logfile" 2>&1
               rc=$?
