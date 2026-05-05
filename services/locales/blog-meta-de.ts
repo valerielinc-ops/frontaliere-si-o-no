@@ -6026,6 +6026,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mense-scolastiche-ticino-prezzi-2026.title': 'Schulgemeinschaften zu günstigen Preisen: Schüler warten auf Antworten',
     'blog.article.mense-scolastiche-ticino-prezzi-2026.excerpt': 'Der SISA kritisiert die Untätigkeit der Regierung des Tessin bei der Erhöhung der Preise für Schulgemeinschaften',
     'blog.article.mense-scolastiche-ticino-prezzi-2026.imageAlt': 'Schüler essen in einer Schulkantine in Lugano mit Blick auf den Luganersee',
+    'blog.article.inflazione-ticino-aprile-2026.title': 'Inflation in der Schweiz: +0,6% im April 2026',
+    'blog.article.inflazione-ticino-aprile-2026.excerpt': 'Die Inflation in der Schweiz steigt im April 2026 auf 0,6%, getrieben von den Preisen importierter Waren. Hier erfahren Grenzgänger, was sich ändert.',
+    'blog.article.inflazione-ticino-aprile-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

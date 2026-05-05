@@ -18019,6 +18019,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inflazione-ticino-aprile-2026': {
+    title: 'Inflazione in Svizzera: +0,6% ad aprile 2026 | Frontaliere Ticino',
+    description: 'L\'inflazione in Svizzera sale allo 0,6% ad aprile 2026, trainata dai prezzi dei beni importati. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, aprile, sale, allo',
+    ogTitle: 'Inflazione Svizzera: +0,6% ad aprile 2026',
+    ogDescription: 'L\'inflazione in Svizzera sale allo 0,6% ad aprile 2026, trainata dai prezzi dei beni importati. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/inflazione-ticino-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inflazione in Svizzera: +0,6% ad aprile 2026",
+      "description": "L'inflazione in Svizzera sale allo 0,6% ad aprile 2026, trainata dai prezzi dei beni importati. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inflazione-ticino-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-05T06:59:40+00:00",
+      "dateModified": "2026-05-05T06:59:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inflazione-ticino-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

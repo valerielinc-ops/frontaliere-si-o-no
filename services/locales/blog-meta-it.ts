@@ -6027,6 +6027,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mense-scolastiche-ticino-prezzi-2026.title': 'Mense scolastiche a prezzi popolari: studenti in attesa di risposte',
     'blog.article.mense-scolastiche-ticino-prezzi-2026.excerpt': 'Il SISA denuncia l\'immobilismo del governo ticinese sull\'aumento dei prezzi delle mense scolastiche',
     'blog.article.mense-scolastiche-ticino-prezzi-2026.imageAlt': 'Studenti che mangiano in una mensa scolastica a Lugano, con vista sul lago di Lugano',
+    'blog.article.inflazione-ticino-aprile-2026.title': 'Inflazione in Svizzera: +0,6% ad aprile 2026',
+    'blog.article.inflazione-ticino-aprile-2026.excerpt': 'L\'inflazione in Svizzera sale allo 0,6% ad aprile 2026, trainata dai prezzi dei beni importati. Ecco cosa cambia per i frontalieri.',
+    'blog.article.inflazione-ticino-aprile-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

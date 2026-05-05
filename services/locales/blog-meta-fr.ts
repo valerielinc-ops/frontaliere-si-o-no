@@ -6027,6 +6027,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mense-scolastiche-ticino-prezzi-2026.title': 'Cantines scolaires à prix populaires : les élèves attendent des réponses',
     'blog.article.mense-scolastiche-ticino-prezzi-2026.excerpt': 'Le SISA dénonce l\'immobilisme du gouvernement tessinois face à la hausse des prix des cantines scolaires',
     'blog.article.mense-scolastiche-ticino-prezzi-2026.imageAlt': 'Des étudiants mangent dans une cantine scolaire à Lugano, avec vue sur le lac de Lugano',
+    'blog.article.inflazione-ticino-aprile-2026.title': 'Inflation en Suisse: +0,6% en avril 2026',
+    'blog.article.inflazione-ticino-aprile-2026.excerpt': 'L\'inflation en Suisse atteint 0,6% en avril 2026, tirée par les prix des biens importés. Voici ce qui change pour les frontaliers.',
+    'blog.article.inflazione-ticino-aprile-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

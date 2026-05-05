@@ -6026,6 +6026,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mense-scolastiche-ticino-prezzi-2026.title': 'School canteens at popular prices: students waiting for answers',
     'blog.article.mense-scolastiche-ticino-prezzi-2026.excerpt': 'The SISA denounces the inaction of the Ticino government on the increase in school canteen prices',
     'blog.article.mense-scolastiche-ticino-prezzi-2026.imageAlt': 'Students eating in a school canteen in Lugano, with a view of Lake Lugano',
+    'blog.article.inflazione-ticino-aprile-2026.title': 'Switzerland inflation: +0.6% in April 2026',
+    'blog.article.inflazione-ticino-aprile-2026.excerpt': 'Switzerland\'s inflation rises to 0.6% in April 2026, driven by imported goods prices. Here\'s what changes for cross-border workers.',
+    'blog.article.inflazione-ticino-aprile-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background',
 };
 
 export default blogMetaEn;
