@@ -1,23 +1,17 @@
 {
-  "generated": "2026-05-05T00:00:00Z",
-  "_note": "Per-feature ratchet for the (#abcdef12) disambiguator visible in <title>. The hash is appended by build-plugins/ogPagesPlugin.ts:articleHashFromSlug and jobsSeoPagesPlugin.ts:buildTitleDisambiguator as a backstop against audit:title-uniqueness collisions, but it is visible in the SERP and degrades CTR. Counts can only go DOWN — fix at source by renaming colliding articles (add year, city, source qualifier) so the base title is unique without the hash. After a dedup pass, regenerate with `npm run audit:title-no-disambig-hash:rebaseline`. Initial seed (2026-05-05) reflects the simulated count from the existing dist/. The first CI build after the cap=66 + drop-brand changes lands should run :rebaseline to lock the precise floor.",
-  "total": 70000,
+  "generated": "2026-05-05T14:21:42.692Z",
+  "_note": "Per-feature ratchet for the (#abcdef12) disambiguator visible in <title>. Counts can only go DOWN. Fix at source by renaming colliding articles (year, city, source qualifier) so the base title is unique without the hash.",
+  "total": 62410,
   "byFeature": {
-    "job-board": 65000,
-    "blog": 4000,
-    "weekly-employers": 100,
-    "weekly-employers-hub": 100,
-    "fuel-daily": 100,
-    "health-premiums": 100,
-    "job-market-snapshot": 100,
-    "border-wait": 100,
-    "spa-locale": 100,
-    "spa-other": 400
+    "blog": 539,
+    "job-board": 61795,
+    "spa-other": 58,
+    "weekly-employers": 18
   },
   "byLocale": {
-    "it": 35000,
-    "en": 12000,
-    "de": 12000,
-    "fr": 12000
+    "it": 16619,
+    "de": 15780,
+    "en": 14966,
+    "fr": 15045
   }
 }

@@ -1,24 +1,19 @@
 {
-  "generated": "2026-05-05T00:00:00Z",
-  "_note": "Threshold tightened from 90 → 66 (60 SERP-display target + 10 % tolerance) on 2026-05-05 alongside the buildTitleWithBrand drop-brand-instead-of-truncate fix in build-plugins/shared/titleSuffix.ts. The simulated post-fix count on the existing dist/ was 14,757 — most offenders are job-board pages whose headline alone (job title + company + city + year) exceeds 66 char even without the brand. This baseline is a conservative ceiling that lets the first CI build pass; run `npm run audit:title-length:rebaseline` after the first clean build to lock the precise floor. Counts can only go DOWN. Per-feature/per-locale buckets are seeded generously — any new bucket that appears with non-zero count will still be flagged by the ratchet.",
+  "generated": "2026-05-05T14:20:52.148Z",
+  "_note": "Real numbers from prod dist (seed-title-baselines run 25381905225, deploy 25377776239). job-board accounts for 99.6% of offenders by design — JOB_TITLE_MAX=70 in build-plugins/jobsSeoPagesPlugin.ts preserves the city-preserving structure (job title + company + city + (#hash) disambiguator) inside a 70-char cap, which exceeds the audit threshold of 66 by up to 4 char on every job page. Non-job buckets stayed near zero — the drop-brand fix in build-plugins/shared/titleSuffix.ts:buildTitleWithBrand caught nearly everything else. Counts can only go DOWN; rebaseline via the seed-title-baselines workflow after a deliberate improvement.",
   "threshold": 66,
-  "total": 16000,
+  "total": 53546,
   "byFeature": {
-    "job-board": 14500,
-    "blog": 1000,
-    "weekly-employers": 100,
-    "weekly-employers-hub": 100,
-    "fuel-daily": 50,
-    "health-premiums": 50,
-    "job-market-snapshot": 50,
-    "border-wait": 50,
-    "spa-locale": 50,
-    "spa-other": 50
+    "spa-locale": 25,
+    "spa-other": 174,
+    "job-board": 53330,
+    "weekly-employers": 16,
+    "fuel-daily": 1
   },
   "byLocale": {
-    "it": 5000,
-    "en": 4000,
-    "de": 4000,
-    "fr": 4000
+    "en": 13782,
+    "it": 12427,
+    "fr": 13927,
+    "de": 13410
   }
 }
