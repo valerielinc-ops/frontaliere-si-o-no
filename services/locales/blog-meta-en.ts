@@ -6146,6 +6146,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.title': 'Mandatory dental insurance: double tax for Ticino residents',
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.excerpt': 'The No to the dental care initiative committee explains why the proposal is costly and disproportionate',
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.imageAlt': 'View of Lake Lugano with a modern dental clinic',
+    'blog.article.incidente-fornasette-2026.title': 'Car overturned at Fornasette border crossing: police and rescuers intervene',
+    'blog.article.incidente-fornasette-2026.excerpt': 'A road accident involving a car with Italian plates occurred at the Fornasette border crossing, in the municipality of Tresa. Police, firefighters, and rescuers were on the scene.',
+    'blog.article.incidente-fornasette-2026.imageAlt': 'Road accident at Fornasette border crossing with overturned car and emergency services',
 };
 
 export default blogMetaEn;

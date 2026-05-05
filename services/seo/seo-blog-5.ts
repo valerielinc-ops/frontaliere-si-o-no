@@ -18924,6 +18924,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-fornasette-2026': {
+    title: 'Auto ribaltata al valico di Fornasette: intervento di polizia e soccorritori',
+    description: 'Un incidente stradale ha coinvolto un\'auto con targhe italiane al valico di Fornasette, nel territorio comunale di Tresa. Sul posto polizia, pompieri e',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, ribaltata, valico, fornasette',
+    ogTitle: 'Auto ribaltata al valico di Fornasette: intervento di polizia e soccorritori',
+    ogDescription: 'Un incidente stradale ha coinvolto un\'auto con targhe italiane al valico di Fornasette, nel territorio comunale di Tresa. Sul posto polizia, pompieri e',
+    canonicalPath: '/articoli-frontaliere/incidente-fornasette-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Auto ribaltata al valico di Fornasette: intervento di polizia e soccorritori",
+      "description": "Un incidente stradale ha coinvolto un'auto con targhe italiane al valico di Fornasette, nel territorio comunale di Tresa. Sul posto polizia, pompieri e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/incidente-fornasette-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale al valico di Fornasette con auto ribaltata e soccorsi"
+      },
+      "datePublished": "2026-05-05T16:36:31+00:00",
+      "dateModified": "2026-05-05T16:36:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-fornasette-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

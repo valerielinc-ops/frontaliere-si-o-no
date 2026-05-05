@@ -6147,6 +6147,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.title': 'Assicurazione dentaria obbligatoria: doppia tassa per i ticinesi',
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.excerpt': 'Il comitato No all\'iniziativa sulle cure dentarie spiega perché la proposta è costosa e sproporzionata',
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.imageAlt': 'Vista del lago di Lugano con una clinica dentale moderna',
+    'blog.article.incidente-fornasette-2026.title': 'Auto ribaltata al valico di Fornasette: intervento di polizia e soccorritori',
+    'blog.article.incidente-fornasette-2026.excerpt': 'Un incidente stradale ha coinvolto un\'auto con targhe italiane al valico di Fornasette, nel territorio comunale di Tresa. Sul posto polizia, pompieri e soccorritori.',
+    'blog.article.incidente-fornasette-2026.imageAlt': 'Incidente stradale al valico di Fornasette con auto ribaltata e soccorsi',
 };
 
 export default blogMetaIt;

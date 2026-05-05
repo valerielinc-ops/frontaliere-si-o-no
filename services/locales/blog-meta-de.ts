@@ -6146,6 +6146,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.title': 'Zahnversicherungspflicht: Doppelte Abgaben für Tessin-Bewohner',
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.excerpt': 'Der Komitee Nein zur Zahnmedizin-Initiative erklärt, warum der Vorschlag teuer und unverhältnismäßig ist',
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.imageAlt': 'Blick auf den Luganersee mit einer modernen Zahnklinik',
+    'blog.article.incidente-fornasette-2026.title': 'Auto überschlagen an der Grenze von Fornasette',
+    'blog.article.incidente-fornasette-2026.excerpt': 'Ein Verkehrsunfall mit einem italienischen Auto ereignete sich an der Grenze von Fornasette, im Gemeindegebiet von Tresa. Vor Ort waren Polizei, Feuerwehr und Rettungskräfte.',
+    'blog.article.incidente-fornasette-2026.imageAlt': 'Verkehrsunfall am Grenzübergang Fornasette mit umgestürztem Auto und Rettungskräften',
 };
 
 export default blogMetaDe;

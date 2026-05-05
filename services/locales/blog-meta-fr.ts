@@ -6147,6 +6147,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.title': 'Assurance dentaire obligatoire : double taxe pour les Tessinois',
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.excerpt': 'Le comité No à l\'initiative sur les soins dentaires explique pourquoi la proposition est coûteuse et disproportionnée',
     'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.imageAlt': 'Vue du lac de Lugano avec une clinique dentaire moderne',
+    'blog.article.incidente-fornasette-2026.title': 'Voiture retournée au poste frontalier de Fornasette',
+    'blog.article.incidente-fornasette-2026.excerpt': 'Un accident de la route a impliqué une voiture immatriculée en Italie au poste frontalier de Fornasette, sur le territoire communal de Tresa. Sur place, la police, les pompiers et les secours.',
+    'blog.article.incidente-fornasette-2026.imageAlt': 'Accident de la route au passage frontalier de Fornasette avec voiture renversée et services d\'urgence',
 };
 
 export default blogMetaFr;

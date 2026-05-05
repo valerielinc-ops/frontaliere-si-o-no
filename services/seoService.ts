@@ -3291,6 +3291,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-truck-lavoro-etico-varese-studenti-visori-3d': { name: 'Truck lavoro Varese', path: '/articoli-frontaliere/truck-lavoro-etico-varese-studenti-visori-3d', parent: 'blog' },
     'blog-bici-miliardi-varese-percorsi-ciclabili': { name: 'Novità', path: '/articoli-frontaliere/bici-miliardi-varese-percorsi-ciclabili', parent: 'blog' },
     'blog-assicurazione-dentaria-obbligatoria-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/assicurazione-dentaria-obbligatoria-ticino-2026', parent: 'blog' },
+    'blog-incidente-fornasette-2026': { name: 'Incidente Fornasette', path: '/articoli-frontaliere/incidente-fornasette-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
