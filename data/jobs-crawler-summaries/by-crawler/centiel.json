@@ -1,18 +1,19 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-05-05T10:19:57.726Z",
+  "generatedAt": "2026-05-05T21:28:13.583Z",
   "total": 5,
-  "newCount": 2,
-  "updatedCount": 3,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 5,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1129,
-  "avgDurationMs": 1129,
+  "durationMs": 1103,
+  "avgDurationMs": 1103,
   "durationHistory": [
-    1129
+    1103
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Project Manager – Critical Power",
       "slug": "project-manager-critical-power-centiel-ticino",
@@ -35,12 +36,19 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 61,
+      "id": "centiel-53535134c4ae",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "firstSeenAt": "2026-05-05T10:19:57.725Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -65,16 +73,23 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 61,
+      "id": "centiel-bcf08d3b0c73",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "firstSeenAt": "2026-05-05T10:19:57.725Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Project Engineer – Centiel UK",
       "slug": "project-engineer-centiel-uk-centiel-ticino",
@@ -187,44 +202,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Pre-Sales Application Engineer – Critical Power",
-      "slug": "ingegnere-di-applicazione-pre-sales-potere-critico-centiel-cadro-lugano",
-      "url": "https://www.centiel.com/careers/",
-      "applyUrl": "https://www.centiel.com/careers/",
-      "company": "Centiel",
-      "companyKey": "centiel",
-      "companyDomain": "centiel.com",
-      "location": "Cadro (Lugano)",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia / UPS / Power Protection",
-      "source": "centiel-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "centiel-3770f609dbfe",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "Via Luserte 11",
-      "postalCode": "6572",
-      "firstSeenAt": "2026-05-04T21:33:25.918Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
