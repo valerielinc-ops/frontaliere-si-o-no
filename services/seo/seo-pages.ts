@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2051,
+ "numberOfItems": 2052,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6694,7 +6694,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2048, "name": "Prigioni Ticino sovraffollate: marcato peggiora...", "url": `${BASE_URL}/articoli-frontaliere/prigioni-ticino-sovraffollate-2026` },
           { "@type": "ListItem", "position": 2049, "name": "Folgorato alla stazione di Bellinzona, morto un...", "url": `${BASE_URL}/articoli-frontaliere/folgorato-stazione-bellinzona-morto-uomo` },
           { "@type": "ListItem", "position": 2050, "name": "Lupo in Ticino: il tempo dell'attesa è finito, ...", "url": `${BASE_URL}/articoli-frontaliere/lupo-tempo-attesa-finito-agire` },
-          { "@type": "ListItem", "position": 2051, "name": "Processo a Binningen per la morte della moglie:...", "url": `${BASE_URL}/articoli-frontaliere/processo-binningen-morte-moglie-2026` }
+          { "@type": "ListItem", "position": 2051, "name": "Processo a Binningen per la morte della moglie:...", "url": `${BASE_URL}/articoli-frontaliere/processo-binningen-morte-moglie-2026` },
+          { "@type": "ListItem", "position": 2052, "name": "Gianni Morandi a Locarno: concerto al Palexpo F...", "url": `${BASE_URL}/articoli-frontaliere/gianni-morandi-locarno-2026` }
  ]
  },
  {

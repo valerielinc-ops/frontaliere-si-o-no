@@ -17679,6 +17679,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gianni-morandi-locarno-2026': {
+    title: 'Gianni Morandi a Locarno: concerto al Palexpo FEVI il 4 ottobre 2026',
+    description: 'Gianni Morandi celebra 60 anni di \'C\'era un ragazzo\' con un concerto a Locarno il 4 ottobre 2026. Biglietti in prevendita su biglietteria.ch. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, gianni, morandi, locarno, concerto',
+    ogTitle: 'Gianni Morandi a Locarno: concerto al Palexpo FEVI il 4 ottobre 2026',
+    ogDescription: 'Gianni Morandi celebra 60 anni di \'C\'era un ragazzo\' con un concerto a Locarno il 4 ottobre 2026. Biglietti in prevendita su biglietteria.ch.',
+    canonicalPath: '/articoli-frontaliere/gianni-morandi-locarno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gianni Morandi a Locarno: concerto al Palexpo FEVI il 4 ottobre 2026",
+      "description": "Gianni Morandi celebra 60 anni di 'C'era un ragazzo' con un concerto a Locarno il 4 ottobre 2026. Biglietti in prevendita su biglietteria.ch. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gianni-morandi-locarno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gianni Morandi sul palco del Palexpo FEVI a Locarno"
+      },
+      "datePublished": "2026-05-05T04:48:29+00:00",
+      "dateModified": "2026-05-05T04:48:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gianni-morandi-locarno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

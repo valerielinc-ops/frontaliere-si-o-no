@@ -5996,6 +5996,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.processo-binningen-morte-moglie-2026.title': 'Trial in Binningen for wife\'s death: defendant claims self-defense',
     'blog.article.processo-binningen-morte-moglie-2026.excerpt': 'A 43-year-old Swiss man is accused of killing his wife in February 2024. The trial began on May 4, 2026.',
     'blog.article.processo-binningen-morte-moglie-2026.imageAlt': 'Courtroom in Binningen during the trial for the murder of the wife',
+    'blog.article.gianni-morandi-locarno-2026.title': 'Gianni Morandi in Locarno: concert at Palexpo FEVI on Oct 4, 2026',
+    'blog.article.gianni-morandi-locarno-2026.excerpt': 'The Italian singer-songwriter celebrates 60 years of \'C\'era un ragazzo\' with a special stop in Switzerland.',
+    'blog.article.gianni-morandi-locarno-2026.imageAlt': 'Gianni Morandi performing at Palexpo FEVI in Locarno',
 };
 
 export default blogMetaEn;

@@ -5996,6 +5996,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.processo-binningen-morte-moglie-2026.title': 'Prozess in Binningen: Angeklagter beruft sich auf Notwehr',
     'blog.article.processo-binningen-morte-moglie-2026.excerpt': 'Ein 43-jähriger Schweizer wird beschuldigt, im Februar 2024 seine Frau getötet zu haben. Der Prozess begann am 4. Mai 2026.',
     'blog.article.processo-binningen-morte-moglie-2026.imageAlt': 'Gerichtsraum in Binningen während des Prozesses für den Mord an der Ehefrau',
+    'blog.article.gianni-morandi-locarno-2026.title': 'Gianni Morandi in Locarno: Konzert im Palexpo FEVI am 4. Oktober 2026',
+    'blog.article.gianni-morandi-locarno-2026.excerpt': 'Der italienische Sänger feiert 60 Jahre \'C\'era un ragazzo\' mit einem besonderen Auftritt in der Schweiz.',
+    'blog.article.gianni-morandi-locarno-2026.imageAlt': 'Gianni Morandi auf der Bühne des Palexpo FEVI in Locarno',
 };
 
 export default blogMetaDe;

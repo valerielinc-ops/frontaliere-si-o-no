@@ -19361,4 +19361,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gianni-morandi-locarno-2026',
+ category: 'novita',
+ date: '2026-05-05T04:48:29.828Z',
+ image: '/images/blog/gianni-morandi-locarno-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
