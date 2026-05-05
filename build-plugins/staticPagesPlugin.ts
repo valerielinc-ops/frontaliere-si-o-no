@@ -1769,6 +1769,32 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  .find(prefix => italianPath.startsWith(prefix));
  if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
  editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
+ // SECTION_EDITORIAL short-circuits the `else if` chain that would
+ // otherwise hit the section-index navigators (line 2141 etc.). When
+ // the URL is a section ROOT (not a sub-page), append the index
+ // navigator here so SECTION_EDITORIAL + navigator coexist. The check
+ // canonicalPath === sectionKey + '/' identifies the section index
+ // (e.g. /guida-frontaliere/tempi-attesa-dogana/) and excludes
+ // per-valico sub-pages (/guida-frontaliere/tempi-attesa-dogana/<slug>/).
+ if (locale === 'it' && canonicalPath === `${sectionKey}/` && sectionKey === '/guida-frontaliere/tempi-attesa-dogana') {
+ const valichiPages = italianUrls
+ .filter(u => u.path.startsWith('/guida-frontaliere/tempi-attesa-dogana/') && u.path !== '/guida-frontaliere/tempi-attesa-dogana')
+ .map(u => {
+ const slug = u.path.split('/').filter(Boolean).pop() ?? u.path;
+ const label = slug.replace(/-/g, ' ').replace(/\b\w/g, m => m.toUpperCase());
+ return { href: withTrailingSlash(u.path), label };
+ })
+ .sort((a, b) => a.label.localeCompare(b.label));
+ if (valichiPages.length > 0) {
+ const valichiAnchors = valichiPages
+ .map(p => `<li><a href="${p.href}" style="color:#2563eb;text-decoration:none;font-weight:500">${esc(p.label)}</a></li>`)
+ .join('');
+ editorialBlocks.push(
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1.25rem 0 .5rem">Tutti i valichi (${valichiPages.length})</h2>`,
+ `<ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px;font-size:.9rem">${valichiAnchors}</ul>`,
+ );
+ }
+ }
  // For non-IT locales: pad to at least 7 paragraphs
  if (locale !== 'it' && editorialBlocks.length < 7) {
  const supplement = LOCALE_EDITORIAL[locale];
