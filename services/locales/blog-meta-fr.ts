@@ -6042,6 +6042,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.title': 'La valeur du voisin: cycle de rencontres sur l\'économie de proximité',
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.excerpt': 'Confartigianato Imprese Varese et Materia Impresa Lab organisent cinq rencontres de mai à décembre pour valoriser les filières locales',
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes environnantes',
+    'blog.article.carburante-svizzera-scorte-2026.title': 'Carburant Suisse: réserves critiques de kérosène',
+    'blog.article.carburante-svizzera-scorte-2026.excerpt': 'Les réserves de kérosène en Suisse ne couvrent que 72 jours, contre les 90 prévus. Voici ce qui change pour les frontaliers.',
+    'blog.article.carburante-svizzera-scorte-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

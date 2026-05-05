@@ -18189,6 +18189,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carburante-svizzera-scorte-2026': {
+    title: 'Carburante Svizzera: scorte critiche per il cherosene',
+    description: 'Le scorte di cherosene in Svizzera coprono solo 72 giorni. Ecco cosa cambia per i frontalieri e come prepararsi alle eventuali carenze. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, carburante, scorte, critiche, cherosene',
+    ogTitle: 'Carburante Svizzera: scorte critiche per il cherosene',
+    ogDescription: 'Le scorte di cherosene in Svizzera coprono solo 72 giorni. Ecco cosa cambia per i frontalieri e come prepararsi alle eventuali carenze.',
+    canonicalPath: '/articoli-frontaliere/carburante-svizzera-scorte-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carburante Svizzera: scorte critiche per il cherosene",
+      "description": "Le scorte di cherosene in Svizzera coprono solo 72 giorni. Ecco cosa cambia per i frontalieri e come prepararsi alle eventuali carenze. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carburante-svizzera-scorte-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano"
+      },
+      "datePublished": "2026-05-05T07:49:23+00:00",
+      "dateModified": "2026-05-05T07:49:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburante-svizzera-scorte-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

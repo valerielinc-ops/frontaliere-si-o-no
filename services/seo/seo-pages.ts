@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2066,
+ "numberOfItems": 2067,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6709,7 +6709,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2063, "name": "Pubblicità e impatto ambientale: il dibattito i...", "url": `${BASE_URL}/articoli-frontaliere/pubblicita-ambiente-amsterdam-svizzera` },
           { "@type": "ListItem", "position": 2064, "name": "Como: tunisino aggredisce un giovane, si ferisc...", "url": `${BASE_URL}/articoli-frontaliere/como-tunisino-denunciato-aggressione` },
           { "@type": "ListItem", "position": 2065, "name": "Internazionali d'Italia 2026: programma e dove ...", "url": `${BASE_URL}/articoli-frontaliere/internazionali-ticino-2026` },
-          { "@type": "ListItem", "position": 2066, "name": "Il valore del vicino: ciclo di incontri sull'ec...", "url": `${BASE_URL}/articoli-frontaliere/il-valore-del-vicino-ciclo-incontri-economia-prossimita` }
+          { "@type": "ListItem", "position": 2066, "name": "Il valore del vicino: ciclo di incontri sull'ec...", "url": `${BASE_URL}/articoli-frontaliere/il-valore-del-vicino-ciclo-incontri-economia-prossimita` },
+          { "@type": "ListItem", "position": 2067, "name": "Carburante Svizzera: scorte critiche per il che...", "url": `${BASE_URL}/articoli-frontaliere/carburante-svizzera-scorte-2026` }
  ]
  },
  {

@@ -6042,6 +6042,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.title': 'Il valore del vicino: ciclo di incontri sull\'economia della prossimità',
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.excerpt': 'Confartigianato Imprese Varese e Materia Impresa Lab organizzano cinque incontri da maggio a dicembre per valorizzare le filiere locali',
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
+    'blog.article.carburante-svizzera-scorte-2026.title': 'Carburante Svizzera: scorte critiche per il cherosene',
+    'blog.article.carburante-svizzera-scorte-2026.excerpt': 'Le scorte di cherosene in Svizzera coprono solo 72 giorni, contro i 90 previsti. Ecco cosa cambia per i frontalieri.',
+    'blog.article.carburante-svizzera-scorte-2026.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano',
 };
 
 export default blogMetaIt;

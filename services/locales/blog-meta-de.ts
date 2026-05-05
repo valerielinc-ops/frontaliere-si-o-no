@@ -6041,6 +6041,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.title': 'Der Wert des Nachbarn: Wirtschaft der Nähe',
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.excerpt': 'Confartigianato Imprese Varese und Materia Impresa Lab organisieren fünf Treffen von Mai bis Dezember, um lokale Lieferketten zu fördern.',
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.imageAlt': 'Panoramablick auf den Luganersee mit umliegenden Bergen',
+    'blog.article.carburante-svizzera-scorte-2026.title': 'Kerosinvorräte in der Schweiz sind kritisch',
+    'blog.article.carburante-svizzera-scorte-2026.excerpt': 'Die Kerosinvorräte in der Schweiz decken nur 72 Tage ab, statt der vorgesehenen 90. Hier erfahren Sie, was sich für Grenzgänger ändert.',
+    'blog.article.carburante-svizzera-scorte-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze',
 };
 
 export default blogMetaDe;

@@ -6041,6 +6041,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.title': 'The value of the neighbor: proximity economy meetings',
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.excerpt': 'Confartigianato Imprese Varese and Materia Impresa Lab organize five meetings from May to December to enhance local supply chains',
     'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
+    'blog.article.carburante-svizzera-scorte-2026.title': 'Switzerland fuel: critical jet fuel stocks',
+    'blog.article.carburante-svizzera-scorte-2026.excerpt': 'Switzerland\'s jet fuel reserves only cover 72 days, against the expected 90. Here\'s what changes for cross-border workers.',
+    'blog.article.carburante-svizzera-scorte-2026.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border',
 };
 
 export default blogMetaEn;

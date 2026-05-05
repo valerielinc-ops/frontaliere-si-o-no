@@ -3256,6 +3256,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-como-tunisino-denunciato-aggressione': { name: 'Novità', path: '/articoli-frontaliere/como-tunisino-denunciato-aggressione', parent: 'blog' },
     'blog-internazionali-ticino-2026': { name: 'Internazionali d\'Italia', path: '/articoli-frontaliere/internazionali-ticino-2026', parent: 'blog' },
     'blog-il-valore-del-vicino-ciclo-incontri-economia-prossimita': { name: 'Economia della prossimità', path: '/articoli-frontaliere/il-valore-del-vicino-ciclo-incontri-economia-prossimita', parent: 'blog' },
+    'blog-carburante-svizzera-scorte-2026': { name: 'Carburante Svizzera', path: '/articoli-frontaliere/carburante-svizzera-scorte-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
