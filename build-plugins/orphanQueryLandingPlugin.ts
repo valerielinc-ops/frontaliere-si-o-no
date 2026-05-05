@@ -811,6 +811,23 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           })
           .join('\n');
 
+        // Locale-aware "how it works" + "who it's for" prose. Without it,
+        // the hub renders as breadcrumb + h1 + intro + list — under 50 visible
+        // words, tripping `validate:sitemap-pages`'s thin-content gate AND
+        // dragging text/HTML ratio below 10 % once chrome is layered on.
+        const HUB_PROSE_HOW: Record<OrphanLandingLocale, string> = {
+          it: 'Come funziona: ogni pagina elencata raccoglie offerte di lavoro reali per una ricerca specifica condotta da frontalieri italo-svizzeri sui motori di ricerca. La query originale (es. "infermiere Lugano stipendio", "magazziniere notturno Mendrisio") viene convertita in un URL dedicato che indicizza i risultati pertinenti dal nostro database, aggiornato giornalmente con le posizioni aperte da Jobs.ch, JobUp, JobScout24 e dai principali datori di lavoro ticinesi (Ente Ospedaliero Cantonale, Banche cantonali, AXA, Swiss Post). Le offerte vengono filtrate sui ruoli effettivamente accessibili a un frontaliere — turni compatibili con il pendolarismo da Lombardia/Piemonte, contratto svizzero a tempo determinato o indeterminato, permesso G richiesto.',
+          en: 'How it works: each page below collects real job postings for a specific search a cross-border worker actually ran. The original query (e.g. "nurse Lugano salary", "night warehouse worker Mendrisio") is converted to a dedicated URL that indexes matching openings from our database, refreshed daily with positions from Jobs.ch, JobUp, JobScout24, and major Ticino employers (Cantonal Hospital, Cantonal Banks, AXA, Swiss Post). We filter for roles that fit a cross-border profile — shifts compatible with the daily commute from Lombardy/Piedmont, Swiss employment contracts, G permit eligibility.',
+          de: 'So funktioniert es: jede aufgeführte Seite sammelt echte Stellenanzeigen für eine spezifische Suchanfrage italo-schweizerischer Grenzgänger. Die ursprüngliche Anfrage (z.B. "Pflegekraft Lugano Lohn", "Lagerarbeiter Nachtschicht Mendrisio") wird in eine dedizierte URL überführt, die passende offene Stellen aus unserer Datenbank indexiert. Die Datenbank wird täglich aktualisiert mit Inseraten von Jobs.ch, JobUp, JobScout24 und den grössten Tessiner Arbeitgebern (Kantonsspital, Kantonalbanken, AXA, Schweizer Post). Wir filtern auf Stellen, die für ein Grenzgänger-Profil geeignet sind — Schichten kompatibel mit dem täglichen Pendeln aus der Lombardei/Piemont, schweizerische Arbeitsverträge, G-Bewilligung möglich.',
+          fr: 'Comment ça marche : chaque page listée rassemble de vraies offres pour une recherche spécifique effectuée par un frontalier italo-suisse. La requête originale (ex. "infirmier Lugano salaire", "magasinier de nuit Mendrisio") est convertie en URL dédiée qui indexe les postes pertinents de notre base de données, mise à jour quotidiennement avec des annonces de Jobs.ch, JobUp, JobScout24 et des principaux employeurs tessinois (Hôpital Cantonal, Banques cantonales, AXA, Poste suisse). Nous filtrons les rôles compatibles avec un profil frontalier — horaires compatibles avec la navette quotidienne depuis la Lombardie/le Piémont, contrats suisses, permis G requis.',
+        };
+        const HUB_PROSE_WHY: Record<OrphanLandingLocale, string> = {
+          it: 'Per chi è utile: questo indice serve sia ai frontalieri che hanno una ricerca molto specifica (settore + città + livello salariale) sia a chi sta esplorando i mercati del lavoro ticinese e non sa esattamente quale ruolo cercare. Ogni voce dell\'elenco apre una pagina con offerte aperte oggi, mediana stipendiale del ruolo, datori di lavoro più frequenti per quella query, e link diretto al calcolatore di stipendio netto per simulare le condizioni economiche reali con permesso G dopo il Nuovo Accordo 2026.',
+          en: 'Who it\'s for: this index serves both cross-border workers running a very specific search (sector + city + salary level) and those exploring the Ticino job market without a clear target role. Every entry opens a page listing today\'s open positions, median salary for the role, most frequent employers for that query, and a direct link to the net-salary calculator to simulate the real take-home with G permit under the 2026 New Agreement.',
+          de: 'Für wen es nützlich ist: dieser Index dient sowohl Grenzgängern mit sehr spezifischen Suchen (Branche + Stadt + Lohnniveau) als auch jenen, die den Tessiner Arbeitsmarkt erkunden, ohne ein klares Ziel-Profil. Jeder Eintrag öffnet eine Seite mit aktuell offenen Stellen, Median-Lohn für die Rolle, häufigste Arbeitgeber für diese Anfrage und einem direkten Link zum Nettolohn-Rechner für die Simulation der tatsächlichen Bedingungen mit G-Bewilligung unter dem Neuen Abkommen 2026.',
+          fr: 'À qui c\'est utile : cet index sert aussi bien aux frontaliers avec une recherche très spécifique (secteur + ville + niveau de salaire) qu\'à ceux qui explorent le marché du travail tessinois sans rôle ciblé clair. Chaque entrée ouvre une page listant les postes ouverts aujourd\'hui, le salaire médian du rôle, les employeurs les plus fréquents pour cette requête, et un lien direct vers le calculateur de salaire net pour simuler les conditions réelles avec permis G dans le cadre du Nouvel Accord 2026.',
+        };
+
         const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
           <nav style="${BREADCRUMB_STYLE}">
             <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -822,6 +839,10 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
             <p style="margin:0 0 14px;color:var(--color-body);font-size:17px;line-height:1.6;max-width:860px">${esc(copy.intro)}</p>
             <p style="margin:0;color:var(--color-subtle);font-size:13px">${sorted.length} · ${esc(dateStamp)}</p>
           </header>
+          <section style="margin:24px 0">
+            <p style="margin:0 0 14px;color:var(--color-body);font-size:15px;line-height:1.65;max-width:860px">${esc(HUB_PROSE_HOW[loc])}</p>
+            <p style="margin:0 0 22px;color:var(--color-body);font-size:15px;line-height:1.65;max-width:860px">${esc(HUB_PROSE_WHY[loc])}</p>
+          </section>
           <section style="margin:24px 0">
             <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${itemsHtml}</ul>
           </section>

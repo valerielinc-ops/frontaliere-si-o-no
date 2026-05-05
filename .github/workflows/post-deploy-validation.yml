@@ -296,20 +296,24 @@ jobs:
             ) &
           }
 
-          # ── audit:dist-multi-* serialized chain ──
-          # The 3 dist-multi audits each walk the full dist/ HTML tree
-          # (~132k files) and individually peak ~2-3 GB RSS. Running 2-3
-          # concurrently on the 7 GB ubuntu-latest free runner triggers
-          # the kernel OOM killer (post-deploy run 25393472881 SIGABRT'd
-          # `audit:dist-multi-light` and `audit:title-uniqueness` at rc=134).
+          # ── HEAVY-DIST-WALKER serialized chain ──
+          # The 3 dist-multi audits + audit:title-uniqueness each walk the
+          # full dist/ HTML tree (~132k files) and individually peak ~2-3 GB
+          # RSS. Running 2+ concurrently on the 7 GB ubuntu-latest free
+          # runner triggers the kernel OOM killer. Post-deploy run
+          # 25393472881 SIGABRT'd `audit:dist-multi-light` AND
+          # `audit:title-uniqueness` at rc=134; run 25398494479 reproduced
+          # the same OOM on the same two audits even after the 3 dist-multi
+          # audits had been serialized — proving title-uniqueness is the
+          # other heavy walker that must NOT race with the chain.
           #
-          # Fix: serialize the 3 dist-multi audits inside a single background
-          # subshell so only ONE runs at a time, while the rest of the
-          # `spawn_capped` pool keeps running in parallel alongside it.
-          # OS page cache helps a lot — sequential dist-multi-* is barely
+          # Fix: serialize all 4 heavy walkers inside a single background
+          # subshell so only ONE walks dist/ at a time, while the rest of
+          # the `spawn_capped` pool keeps running in parallel alongside it.
+          # OS page cache helps a lot — sequential heavy walkers are barely
           # slower than parallel because the dist/ tree is hot after the
-          # first walker. Bookkeeping (timings + failures files) mirrors
-          # `spawn_capped` so failures are still captured uniformly.
+          # first one. Bookkeeping mirrors `spawn_capped` so failures are
+          # still captured uniformly.
           (
             set +e
             for variant in ratio heavy light; do
@@ -325,6 +329,17 @@ jobs:
                 echo "audit:dist-multi-${variant} $logfile" >> /tmp/post-build-failures.txt
               fi
             done
+            # title-uniqueness is the 4th heavy walker — same RSS profile,
+            # same OOM behaviour when concurrent with dist-multi-light.
+            start=$(date +%s.%N)
+            npm run audit:title-uniqueness > /tmp/g13.log 2>&1
+            rc=$?
+            end=$(date +%s.%N)
+            awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"audit:title-uniqueness\", $end-$start, $rc}" \
+              >> /tmp/post-build-timings.txt
+            if [ $rc -ne 0 ]; then
+              echo "audit:title-uniqueness /tmp/g13.log" >> /tmp/post-build-failures.txt
+            fi
           ) &
           DIST_MULTI_PID=$!
 
@@ -339,8 +354,6 @@ jobs:
             npm run audit:h1-title-duplicates
           spawn_capped audit:page-weight             /tmp/g12.log \
             npm run audit:page-weight
-          spawn_capped audit:title-uniqueness        /tmp/g13.log \
-            npm run audit:title-uniqueness
           spawn_capped validate:sitemap-pages        /tmp/spm.log \
             npm run validate:sitemap-pages
           spawn_capped validate:jobs-quality         /tmp/v2.log \
