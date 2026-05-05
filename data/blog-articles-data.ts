@@ -19352,4 +19352,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'processo-binningen-morte-moglie-2026',
+ category: 'novita',
+ date: '2026-05-05T04:37:18.060Z',
+ image: '/images/blog/processo-binningen-morte-moglie-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

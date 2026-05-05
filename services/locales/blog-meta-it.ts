@@ -5994,6 +5994,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lupo-tempo-attesa-finito-agire.title': 'Lupo in Ticino: il tempo dell\'attesa è finito, occorre agire',
     'blog.article.lupo-tempo-attesa-finito-agire.excerpt': 'Il Municipio di Onsernone lancia un allarme: le comunità di montagna rischiano di perdere la loro identità a causa della presenza del lupo.',
     'blog.article.lupo-tempo-attesa-finito-agire.imageAlt': 'Castelgrande a Bellinzona, Ticino',
+    'blog.article.processo-binningen-morte-moglie-2026.title': 'Processo a Binningen per la morte della moglie: l\'imputato invoca l\'autodifesa',
+    'blog.article.processo-binningen-morte-moglie-2026.excerpt': 'Un 43enne svizzero è accusato di aver ucciso la moglie nel febbraio 2024. Il processo è iniziato il 4 maggio 2026.',
+    'blog.article.processo-binningen-morte-moglie-2026.imageAlt': 'Aula di tribunale a Binningen durante il processo per l\'omicidio della moglie',
 };
 
 export default blogMetaIt;

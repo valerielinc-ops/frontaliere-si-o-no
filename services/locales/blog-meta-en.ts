@@ -5993,6 +5993,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lupo-tempo-attesa-finito-agire.title': 'Wolf in Ticino: action needed, waiting time is over',
     'blog.article.lupo-tempo-attesa-finito-agire.excerpt': 'Onsernone Municipality raises an alarm: mountain communities risk losing their identity due to the presence of the wolf.',
     'blog.article.lupo-tempo-attesa-finito-agire.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.processo-binningen-morte-moglie-2026.title': 'Trial in Binningen for wife\'s death: defendant claims self-defense',
+    'blog.article.processo-binningen-morte-moglie-2026.excerpt': 'A 43-year-old Swiss man is accused of killing his wife in February 2024. The trial began on May 4, 2026.',
+    'blog.article.processo-binningen-morte-moglie-2026.imageAlt': 'Courtroom in Binningen during the trial for the murder of the wife',
 };
 
 export default blogMetaEn;

@@ -3240,6 +3240,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-prigioni-ticino-sovraffollate-2026': { name: 'Prigioni Ticino', path: '/articoli-frontaliere/prigioni-ticino-sovraffollate-2026', parent: 'blog' },
     'blog-folgorato-stazione-bellinzona-morto-uomo': { name: 'Novità', path: '/articoli-frontaliere/folgorato-stazione-bellinzona-morto-uomo', parent: 'blog' },
     'blog-lupo-tempo-attesa-finito-agire': { name: 'Novità', path: '/articoli-frontaliere/lupo-tempo-attesa-finito-agire', parent: 'blog' },
+    'blog-processo-binningen-morte-moglie-2026': { name: 'Processo Binningen', path: '/articoli-frontaliere/processo-binningen-morte-moglie-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

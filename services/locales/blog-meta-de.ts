@@ -5993,6 +5993,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lupo-tempo-attesa-finito-agire.title': 'Wolf im Tessin: Es ist Zeit zu handeln',
     'blog.article.lupo-tempo-attesa-finito-agire.excerpt': 'Die Gemeinde Onsernone schlägt Alarm: Die Bergdörfer gefährden ihre Identität durch die Anwesenheit des Wolfs.',
     'blog.article.lupo-tempo-attesa-finito-agire.imageAlt': 'Castelgrande in Bellinzona, Tessin',
+    'blog.article.processo-binningen-morte-moglie-2026.title': 'Prozess in Binningen: Angeklagter beruft sich auf Notwehr',
+    'blog.article.processo-binningen-morte-moglie-2026.excerpt': 'Ein 43-jähriger Schweizer wird beschuldigt, im Februar 2024 seine Frau getötet zu haben. Der Prozess begann am 4. Mai 2026.',
+    'blog.article.processo-binningen-morte-moglie-2026.imageAlt': 'Gerichtsraum in Binningen während des Prozesses für den Mord an der Ehefrau',
 };
 
 export default blogMetaDe;
