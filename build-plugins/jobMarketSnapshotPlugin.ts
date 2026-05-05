@@ -1504,6 +1504,33 @@ function renderHubPage(inp: HubPageInputs): string {
     ? `<p style="margin:0 0 20px"><a href="${esc(latestWeekHref)}" style="display:inline-flex;align-items:center;gap:6px;padding:12px 22px;border-radius:12px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:700">${esc(copy.hubSeeCurrentWeek)} →</a></p>`
     : '';
 
+  // Sector navigator — closes the orphan-graph for every per-sector snapshot
+  // page (`/mercato-lavoro-ticino/settore/<sector>/`). Without this block the
+  // 14 sector pages emitted by `generateSectorSnapshotPages` were only
+  // reachable from the sitemap editorial sidebar (depth ≥ 3 from /), which
+  // is what surfaced 16 of them in the May-2026 Ahrefs orphan-page audit.
+  // Listing every sector here pulls each snapshot to depth-2 from /.
+  const sectorsHeading = locale === 'it' ? 'Settori del mercato del lavoro ticinese'
+    : locale === 'en' ? 'Ticino job-market sectors'
+    : locale === 'de' ? 'Branchen des Tessiner Arbeitsmarkts'
+    : 'Secteurs du marché du travail tessinois';
+  const sectorsLede = locale === 'it' ? 'Snapshot settimanali per settore: andamento delle nuove offerte, datori più attivi, ruoli più richiesti.'
+    : locale === 'en' ? 'Weekly snapshots by sector: new posting trends, most-active employers, top-demanded roles.'
+    : locale === 'de' ? 'Wöchentliche Snapshots pro Branche: neue Stellen, aktivste Arbeitgeber, gefragte Rollen.'
+    : 'Snapshots hebdomadaires par secteur : tendances des nouvelles offres, employeurs les plus actifs, métiers demandés.';
+  const sectorAnchors = JOB_MARKET_SECTOR_KEYS
+    .map((sector) => {
+      const href = buildSectorSnapshotPath(locale, sector);
+      const label = JOB_MARKET_SECTOR_DISPLAY[locale][sector] ?? JOB_MARKET_SECTOR_DISPLAY.it[sector];
+      return `<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(label.charAt(0).toUpperCase() + label.slice(1))} →</a></li>`;
+    })
+    .join('');
+  const sectorsHtml = `<section style="margin:26px 0 0" aria-labelledby="sectorList">
+    <h2 id="sectorList" style="${H2_STYLE};margin-bottom:8px">${esc(sectorsHeading)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-subtle);line-height:1.6">${esc(sectorsLede)}</p>
+    <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px">${sectorAnchors}</ul>
+  </section>`;
+
   const methodology = `<section style="margin:26px 0 0" aria-labelledby="methodology">
     <h2 id="methodology" style="${H2_STYLE};margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody)}</p>
@@ -1634,6 +1661,7 @@ function renderHubPage(inp: HubPageInputs): string {
     </section>
     ${latestWeeksHtml}
     ${archiveHtml}
+    ${sectorsHtml}
     ${methodology}
     ${faqHtml}
     ${relatedHtml}

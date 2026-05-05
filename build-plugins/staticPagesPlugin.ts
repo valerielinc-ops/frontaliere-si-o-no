@@ -1722,6 +1722,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const isHomePage = canonicalPath === '/';
  const isJobsIndex = /\/(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/?$/.test(canonicalPath);
  const isArticlesIndex = /\/(articoli-frontaliere|frontier-articles|grenzgaenger-artikel|articles-frontalier)\/?$/.test(canonicalPath);
+ const isCalcStipendioIndex = /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/?$/.test(canonicalPath);
  // Don't seed editorialBlocks with seoData.desc — it's already rendered
  // in the gray subtitle <p> above the editorial div. Duplicating it wastes
  // the most valuable content slot and signals thin/boilerplate to crawlers.
@@ -2116,6 +2117,30 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `La mappa dei valichi di confine tra Ticino e Italia mostra tutti i punti di attraversamento con orari di apertura, livello di traffico tipico e tempo medio di attesa per fascia oraria.`,
  `Ogni valico ha caratteristiche diverse: alcuni sono riservati ai residenti locali, altri gestiscono traffico commerciale pesante. Conoscere il valico più adatto al proprio tragitto può risparmiare fino a 30 minuti al giorno.`,
  );
+ // Index navigator — closes the orphan-graph for every per-valico
+ // page (`/guida-frontaliere/tempi-attesa-dogana/<valico>/`). Without
+ // this list the 17 less-prominent valichi (campione-d-italia-bissone,
+ // crociale-dei-mulini, drezzo-pedrinate, etc.) were only linked from
+ // /mappa-del-sito/, which surfaced them in the May-2026 Ahrefs
+ // orphan-page audit. Listing every valico here pulls each page to
+ // depth-2 from `/`.
+ const valichiPages = italianUrls
+ .filter(u => u.path.startsWith('/guida-frontaliere/tempi-attesa-dogana/') && u.path !== '/guida-frontaliere/tempi-attesa-dogana')
+ .map(u => {
+ const slug = u.path.split('/').filter(Boolean).pop() ?? u.path;
+ const label = slug.replace(/-/g, ' ').replace(/\b\w/g, m => m.toUpperCase());
+ return { href: withTrailingSlash(u.path), label };
+ })
+ .sort((a, b) => a.label.localeCompare(b.label));
+ if (valichiPages.length > 0) {
+ const valichiAnchors = valichiPages
+ .map(p => `<li><a href="${p.href}" style="color:#2563eb;text-decoration:none;font-weight:500">${esc(p.label)}</a></li>`)
+ .join('');
+ editorialBlocks.push(
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1.25rem 0 .5rem">Tutti i valichi (${valichiPages.length})</h2>`,
+ `<ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px;font-size:.9rem">${valichiAnchors}</ul>`,
+ );
+ }
  } else if (canonicalPath.startsWith('/guida-frontaliere/trasferimento-auto')) {
  editorialBlocks.push(
  `La guida al trasferimento dell'auto copre le procedure per immatricolare un veicolo italiano in Svizzera e viceversa: sdoganamento, controllo tecnico MFK, assicurazione e tempistiche necessarie per la reimmatricolazione.`,
@@ -2568,6 +2593,39 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<p style="color:#64748b;font-size:0.8rem;margin-top:.5rem;">Fonte: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">UST/BFS</a> · <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO</a> · Dati Frontaliere Ticino</p>` +
  `</div></details>`,
  );
+ } else if (isCalcStipendioIndex) {
+ // Curated-scenario navigator — closes the orphan-graph for every
+ // hand-curated calcola-stipendio landing page in seo-landing.ts
+ // (stipendio-netto-40000-chf, confronto-permesso-g-vs-b-entro-20km,
+ // nuovi-frontalieri-oltre-20-km, etc.). The auto-generated scenari
+ // index `/calcola-stipendio/scenari/` covers the parametric grid but
+ // NOT these editorial landings, which is why 22 of them surfaced in
+ // the May-2026 Ahrefs orphan-page audit.
+ const calcLandings = italianUrls
+ .filter(u => {
+ const p = u.path.replace(/\/+$/, '');
+ if (!p.startsWith('/calcola-stipendio/')) return false;
+ if (p === '/calcola-stipendio') return false;
+ // Exclude the SPA "tool" sub-pages; they're already linked from main nav.
+ const seg = p.replace('/calcola-stipendio/', '').split('/')[0];
+ return !['scenari', 'simula-busta-paga', 'cosa-cambia-se', 'confronta-stipendi', 'quiz-stipendio', 'confronta-retribuzione-ral'].includes(seg);
+ })
+ .map(u => {
+ const slug = u.path.split('/').filter(Boolean).pop() ?? u.path;
+ const label = slug.replace(/-/g, ' ').replace(/\bchf\b/gi, 'CHF').replace(/\b\w/g, m => m.toUpperCase());
+ return { href: withTrailingSlash(u.path), label };
+ })
+ .sort((a, b) => a.label.localeCompare(b.label));
+ if (calcLandings.length > 0) {
+ const anchors = calcLandings
+ .map(p => `<li><a href="${p.href}" style="color:#2563eb;text-decoration:none;font-weight:500">${esc(p.label)}</a></li>`)
+ .join('');
+ editorialBlocks.push(
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Scenari di stipendio netto curati (${calcLandings.length})</h2>`,
+ `<p style="margin:.25rem 0 .75rem;color:#64748b;font-size:.9rem">Confronti pre-impostati per le combinazioni più frequenti — vecchio vs nuovo frontaliere, residenza entro/oltre 20 km, sposato con figli, soglie salariali principali.</p>`,
+ `<ul style="margin:0 0 1rem;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px;font-size:.9rem">${anchors}</ul>`,
+ );
+ }
  } else if (isArticlesIndex) {
  // H.7 — enriched intro + conclusion to raise text/HTML ratio above 0.10
  // Definition block for AI extraction (intro 150+ words)
