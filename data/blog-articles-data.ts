@@ -19748,4 +19748,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bici-bellinzona-valli-strategia',
+ category: 'novita',
+ date: '2026-05-05T11:58:06.592Z',
+ image: '/images/blog/bici-bellinzona-valli-strategia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

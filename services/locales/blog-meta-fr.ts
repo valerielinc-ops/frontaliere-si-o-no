@@ -6126,6 +6126,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.libretto-digitale-militare-ticino-2026.title': 'Carnets de service numériques : ce qui change pour les militaires',
     'blog.article.libretto-digitale-militare-ticino-2026.excerpt': 'À partir du 1er juin 2026, le carnet de service devient numérique. Voici ce qui change pour les militaires et la protection civile.',
     'blog.article.libretto-digitale-militare-ticino-2026.imageAlt': 'Livre numérique militaire avec Castelgrande en arrière-plan',
+    'blog.article.bici-bellinzona-valli-strategia.title': 'Bellinzone et Valli mise sur le vélo: parcours, événements et collaborations',
+    'blog.article.bici-bellinzona-valli-strategia.excerpt': 'Nouvelle stratégie pour attirer les cyclistes de tous niveaux avec 13 parcours de VTT et des événements internationaux',
+    'blog.article.bici-bellinzona-valli-strategia.imageAlt': 'Paysage de Bellinzona et ses vallées avec des cyclistes sur divers sentiers',
 };
 
 export default blogMetaFr;

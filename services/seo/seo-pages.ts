@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2094,
+ "numberOfItems": 2095,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6736,7 +6736,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2091, "name": "Guida alla Svizzera: cosa sapere per lavorare i...", "url": `${BASE_URL}/articoli-frontaliere/guida-svizzera-frontalieri-2026` },
           { "@type": "ListItem", "position": 2092, "name": "Iniziativa del caos: il comitato ticinese si op...", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-caos-comitato-ticino-2026` },
           { "@type": "ListItem", "position": 2093, "name": "Ospedale universitario di Zurigo, gravi mancanz...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-zurigo-mancanze-cardiochirurgia` },
-          { "@type": "ListItem", "position": 2094, "name": "Libretto di servizio digitale: cosa cambia per ...", "url": `${BASE_URL}/articoli-frontaliere/libretto-digitale-militare-ticino-2026` }
+          { "@type": "ListItem", "position": 2094, "name": "Libretto di servizio digitale: cosa cambia per ...", "url": `${BASE_URL}/articoli-frontaliere/libretto-digitale-militare-ticino-2026` },
+          { "@type": "ListItem", "position": 2095, "name": "Bellinzona e Valli punta sulla bici: percorsi, ...", "url": `${BASE_URL}/articoli-frontaliere/bici-bellinzona-valli-strategia` }
  ]
  },
  {

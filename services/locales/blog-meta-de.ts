@@ -6125,6 +6125,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.libretto-digitale-militare-ticino-2026.title': 'Digitaler Dienstausweis: Änderungen für Militär und Zivilschutz',
     'blog.article.libretto-digitale-militare-ticino-2026.excerpt': 'Ab dem 1. Juni 2026 wird der Dienstausweis digital. Hier erfahren Sie, was sich für Militär und Zivilschutz ändert.',
     'blog.article.libretto-digitale-militare-ticino-2026.imageAlt': 'Digitaler Militärbuch mit Castelgrande im Hintergrund',
+    'blog.article.bici-bellinzona-valli-strategia.title': 'Bellinzona und Täler setzt auf Fahrrad: Routen, Events und Kooperationen',
+    'blog.article.bici-bellinzona-valli-strategia.excerpt': 'Neue Strategie, um Radfahrer aller Niveaus anzuziehen, mit 13 Mountainbike-Routen und internationalen Events',
+    'blog.article.bici-bellinzona-valli-strategia.imageAlt': 'Landschaft von Bellinzona und Täler mit Radfahrern auf verschiedenen Wegen',
 };
 
 export default blogMetaDe;

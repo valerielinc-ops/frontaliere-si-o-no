@@ -6126,6 +6126,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.libretto-digitale-militare-ticino-2026.title': 'Libretto di servizio digitale: cosa cambia per i militari',
     'blog.article.libretto-digitale-militare-ticino-2026.excerpt': 'Dal 1° giugno 2026 il libretto di servizio diventa digitale. Ecco cosa cambia per i militari e la protezione civile.',
     'blog.article.libretto-digitale-militare-ticino-2026.imageAlt': 'Libretto digitale militare con Castelgrande sullo sfondo',
+    'blog.article.bici-bellinzona-valli-strategia.title': 'Bellinzona e Valli punta sulla bici: percorsi, eventi e collaborazioni',
+    'blog.article.bici-bellinzona-valli-strategia.excerpt': 'Nuova strategia per attrarre ciclisti di ogni livello con 13 percorsi di mountain bike e eventi internazionali',
+    'blog.article.bici-bellinzona-valli-strategia.imageAlt': 'Paesaggio di Bellinzona e Valli con ciclisti su vari percorsi',
 };
 
 export default blogMetaIt;
