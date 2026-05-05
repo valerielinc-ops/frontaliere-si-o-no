@@ -1,7 +1,188 @@
 {
   "version": 1,
-  "generatedAt": "2026-05-05T00:00:00.000Z",
+  "generatedAt": "2026-05-05T12:26:48.086Z",
   "maxDepth": 4,
-  "perSitemap": {},
-  "_comment": "Bootstrap placeholder. perSitemap is intentionally empty — the audit-bfs-depth.mjs gate will pass for every sitemap because the loop only flags sitemaps already present in the baseline (`if (!prev) continue`). This lets the gate ship enabled. After the first full production deploy lands, regenerate the baseline against a clean dist/ via `npm run audit:max-bfs-depth:rebaseline` and commit the populated JSON. From that point onward the ratchet is live: any sitemap whose atDepthGtMax goes UP fails the gate. Numbers must only DECREASE — per CLAUDE.md non-negotiable rule #5, orphans are fixed via internal links, never noindex."
+  "perSitemap": {
+    "sitemap-annual-report.xml": {
+      "total": 4,
+      "reached": 4,
+      "atDepthGtMax": 0,
+      "deepest": 4
+    },
+    "sitemap-blog.xml": {
+      "total": 2040,
+      "reached": 2037,
+      "atDepthGtMax": 3,
+      "deepest": 3
+    },
+    "sitemap-border-wait-map.xml": {
+      "total": 4,
+      "reached": 0,
+      "atDepthGtMax": 4,
+      "deepest": 0
+    },
+    "sitemap-border-wait.xml": {
+      "total": 128,
+      "reached": 108,
+      "atDepthGtMax": 23,
+      "deepest": 5
+    },
+    "sitemap-career-landings.xml": {
+      "total": 4,
+      "reached": 0,
+      "atDepthGtMax": 4,
+      "deepest": 0
+    },
+    "sitemap-comparisons.xml": {
+      "total": 1,
+      "reached": 1,
+      "atDepthGtMax": 0,
+      "deepest": 1
+    },
+    "sitemap-cost-of-living.xml": {
+      "total": 6,
+      "reached": 2,
+      "atDepthGtMax": 4,
+      "deepest": 3
+    },
+    "sitemap-faq-hub.xml": {
+      "total": 1,
+      "reached": 1,
+      "atDepthGtMax": 0,
+      "deepest": 1
+    },
+    "sitemap-fr-salaire-net.xml": {
+      "total": 1,
+      "reached": 0,
+      "atDepthGtMax": 1,
+      "deepest": 0
+    },
+    "sitemap-fuel-daily.xml": {
+      "total": 88,
+      "reached": 48,
+      "atDepthGtMax": 40,
+      "deepest": 4
+    },
+    "sitemap-fuel-indexes.xml": {
+      "total": 20,
+      "reached": 20,
+      "atDepthGtMax": 0,
+      "deepest": 3
+    },
+    "sitemap-fuel-italian-cities.xml": {
+      "total": 88,
+      "reached": 88,
+      "atDepthGtMax": 0,
+      "deepest": 4
+    },
+    "sitemap-fuel-italian-stations.xml": {
+      "total": 424,
+      "reached": 424,
+      "atDepthGtMax": 0,
+      "deepest": 4
+    },
+    "sitemap-fuel-stations.xml": {
+      "total": 496,
+      "reached": 496,
+      "atDepthGtMax": 0,
+      "deepest": 4
+    },
+    "sitemap-glossario.xml": {
+      "total": 42,
+      "reached": 42,
+      "atDepthGtMax": 0,
+      "deepest": 3
+    },
+    "sitemap-guides.xml": {
+      "total": 8,
+      "reached": 0,
+      "atDepthGtMax": 8,
+      "deepest": 0
+    },
+    "sitemap-health-premiums.xml": {
+      "total": 183,
+      "reached": 183,
+      "atDepthGtMax": 171,
+      "deepest": 6
+    },
+    "sitemap-job-market.xml": {
+      "total": 23,
+      "reached": 21,
+      "atDepthGtMax": 2,
+      "deepest": 3
+    },
+    "sitemap-jobs.xml": {
+      "total": 1436,
+      "reached": 1334,
+      "atDepthGtMax": 1030,
+      "deepest": 150
+    },
+    "sitemap-market-report.xml": {
+      "total": 4,
+      "reached": 4,
+      "atDepthGtMax": 3,
+      "deepest": 5
+    },
+    "sitemap-news.xml": {
+      "total": 322,
+      "reached": 321,
+      "atDepthGtMax": 1,
+      "deepest": 3
+    },
+    "sitemap-nursing.xml": {
+      "total": 3,
+      "reached": 0,
+      "atDepthGtMax": 3,
+      "deepest": 0
+    },
+    "sitemap-orphan-landings.xml": {
+      "total": 33,
+      "reached": 0,
+      "atDepthGtMax": 33,
+      "deepest": 0
+    },
+    "sitemap-pages.xml": {
+      "total": 177,
+      "reached": 83,
+      "atDepthGtMax": 95,
+      "deepest": 5
+    },
+    "sitemap-professions.xml": {
+      "total": 10,
+      "reached": 10,
+      "atDepthGtMax": 0,
+      "deepest": 2
+    },
+    "sitemap-recency.xml": {
+      "total": 2,
+      "reached": 2,
+      "atDepthGtMax": 0,
+      "deepest": 4
+    },
+    "sitemap-salary-hub.xml": {
+      "total": 1736,
+      "reached": 1736,
+      "atDepthGtMax": 0,
+      "deepest": 4
+    },
+    "sitemap-sector.xml": {
+      "total": 10,
+      "reached": 10,
+      "atDepthGtMax": 1,
+      "deepest": 5
+    },
+    "sitemap-seo-hubs.xml": {
+      "total": 328,
+      "reached": 326,
+      "atDepthGtMax": 302,
+      "deepest": 154
+    },
+    "sitemap-weekly-employers.xml": {
+      "total": 188,
+      "reached": 160,
+      "atDepthGtMax": 115,
+      "deepest": 5
+    }
+  },
+  "_comment": "Baseline for audit-bfs-depth.mjs. atDepthGtMax must only DECREASE — this gate is a ratchet. Regenerate after lowering offenders by adding internal links from a hub at depth ≤ 3. Never raise the numbers without explicit justification (it means new URLs are buried below crawl-depth and Ahrefs/Googlebot will flag them as orphan)."
 }
