@@ -19487,4 +19487,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'il-valore-del-vicino-ciclo-incontri-economia-prossimita',
+ category: 'novita',
+ date: '2026-05-05T07:36:37.002Z',
+ image: '/images/blog/il-valore-del-vicino-ciclo-incontri-economia-prossimita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

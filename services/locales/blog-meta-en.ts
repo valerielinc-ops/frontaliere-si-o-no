@@ -6038,6 +6038,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.internazionali-ticino-2026.title': 'Internazionali d\'Italia 2026: TV schedule and where to watch',
     'blog.article.internazionali-ticino-2026.excerpt': 'The tennis tournament in Rome starts today. Here\'s the first day\'s schedule and where to watch it on TV',
     'blog.article.internazionali-ticino-2026.imageAlt': 'Lake Lugano with a tennis court in the foreground, professional players in action, clear blue sky',
+    'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.title': 'The value of the neighbor: proximity economy meetings',
+    'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.excerpt': 'Confartigianato Imprese Varese and Materia Impresa Lab organize five meetings from May to December to enhance local supply chains',
+    'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

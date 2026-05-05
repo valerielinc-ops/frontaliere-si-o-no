@@ -18155,6 +18155,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-il-valore-del-vicino-ciclo-incontri-economia-prossimita': {
+    title: 'Il valore del vicino: ciclo di incontri sull\'economia della prossimità',
+    description: 'Confartigianato Imprese Varese e Materia Impresa Lab organizzano cinque incontri da maggio a dicembre per valorizzare le filiere locali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, valore, vicino, ciclo, incontri',
+    ogTitle: 'Il valore del vicino: ciclo di incontri sull\'economia della prossimità',
+    ogDescription: 'Confartigianato Imprese Varese e Materia Impresa Lab organizzano cinque incontri da maggio a dicembre per valorizzare le filiere locali',
+    canonicalPath: '/articoli-frontaliere/il-valore-del-vicino-ciclo-incontri-economia-prossimita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il valore del vicino: ciclo di incontri sull'economia della prossimità",
+      "description": "Confartigianato Imprese Varese e Materia Impresa Lab organizzano cinque incontri da maggio a dicembre per valorizzare le filiere locali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/il-valore-del-vicino-ciclo-incontri-economia-prossimita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con le montagne circostanti"
+      },
+      "datePublished": "2026-05-05T07:36:37+00:00",
+      "dateModified": "2026-05-05T07:36:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/il-valore-del-vicino-ciclo-incontri-economia-prossimita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -6039,6 +6039,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.internazionali-ticino-2026.title': 'Internazionali d\'Italia 2026: programma e dove vederli in tv',
     'blog.article.internazionali-ticino-2026.excerpt': 'Inizia oggi il torneo di tennis a Roma. Ecco il programma della prima giornata e dove seguirlo in tv',
     'blog.article.internazionali-ticino-2026.imageAlt': 'Lago di Lugano con un campo da tennis in primo piano, giocatori professionisti in azione, cielo azzurro limpido',
+    'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.title': 'Il valore del vicino: ciclo di incontri sull\'economia della prossimità',
+    'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.excerpt': 'Confartigianato Imprese Varese e Materia Impresa Lab organizzano cinque incontri da maggio a dicembre per valorizzare le filiere locali',
+    'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

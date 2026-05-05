@@ -6039,6 +6039,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.internazionali-ticino-2026.title': 'Internationaux d\'Italie 2026 : programme et diffusion TV',
     'blog.article.internazionali-ticino-2026.excerpt': 'Le tournoi de tennis à Rome commence aujourd\'hui. Voici le programme de la première journée et où le suivre à la télévision.',
     'blog.article.internazionali-ticino-2026.imageAlt': 'Lac de Lugano avec un court de tennis au premier plan, joueurs professionnels en action, ciel bleu clair',
+    'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.title': 'La valeur du voisin: cycle de rencontres sur l\'économie de proximité',
+    'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.excerpt': 'Confartigianato Imprese Varese et Materia Impresa Lab organisent cinq rencontres de mai à décembre pour valoriser les filières locales',
+    'blog.article.il-valore-del-vicino-ciclo-incontri-economia-prossimita.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes environnantes',
 };
 
 export default blogMetaFr;
