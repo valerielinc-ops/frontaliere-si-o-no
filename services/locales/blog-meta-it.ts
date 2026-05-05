@@ -6066,6 +6066,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.title': 'Passo del Gottardo riapre in anticipo l\'8 maggio',
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.excerpt': 'Grazie alle condizioni meteo favorevoli, il Passo del Gottardo riapre già venerdì 8 maggio, alleggerendo il traffico in vista delle festività',
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.imageAlt': 'Vista aerea del Passo del Gottardo in Ticino, Svizzera, con cielo sereno e strada aperta',
+    'blog.article.furti-auto-ticino-2026.title': 'Furti d\'auto in Ticino: Land Rover, Alfa Romeo e Porsche le più colpite',
+    'blog.article.furti-auto-ticino-2026.excerpt': 'Aumentano i furti d\'auto in Svizzera, con il Ticino sopra la media nazionale. Ecco cosa sapere e come proteggersi.',
+    'blog.article.furti-auto-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con auto moderne parcheggiate lungo la riva, Ticino, Svizzera.',
 };
 
 export default blogMetaIt;

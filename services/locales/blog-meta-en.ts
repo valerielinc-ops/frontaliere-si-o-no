@@ -6065,6 +6065,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.title': 'Gottardo Pass reopens early on May 8th',
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.excerpt': 'Thanks to favorable weather conditions, the Gottardo Pass reopens as early as Friday, May 8th, easing traffic ahead of the long weekend',
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.imageAlt': 'Aerial view of the Gotthard Pass in Ticino, Switzerland, with clear skies and open road',
+    'blog.article.furti-auto-ticino-2026.title': 'Car thefts in Ticino: Land Rover, Alfa Romeo, and Porsche most targeted',
+    'blog.article.furti-auto-ticino-2026.excerpt': 'Car thefts are increasing in Switzerland, with Ticino above the national average. Here\'s what you need to know and how to protect yourself.',
+    'blog.article.furti-auto-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with modern cars parked along the shore, Ticino, Switzerland.',
 };
 
 export default blogMetaEn;

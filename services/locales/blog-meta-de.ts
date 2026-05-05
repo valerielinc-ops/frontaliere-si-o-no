@@ -6065,6 +6065,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.title': 'Gottardpass öffnet früher am 8. Mai',
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.excerpt': 'Dank des guten Wetters öffnet der Gottardpass bereits am Freitag, dem 8. Mai, und entlastet den Verkehr vor den Feiertagen',
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.imageAlt': 'Luftaufnahme des Gotthardpasses in Tessin, Schweiz, mit klarem Himmel und offener Straße',
+    'blog.article.furti-auto-ticino-2026.title': 'Autodiebstähle: Land Rover, Alfa Romeo, Porsche',
+    'blog.article.furti-auto-ticino-2026.excerpt': 'Die Autodiebstähle in der Schweiz nehmen zu, wobei das Tessin über dem nationalen Durchschnitt liegt. Hier erfahren Sie, was Sie wissen müssen und wie Sie sich schützen können.',
+    'blog.article.furti-auto-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit modernen Autos am Ufer, Tessin, Schweiz.',
 };
 
 export default blogMetaDe;

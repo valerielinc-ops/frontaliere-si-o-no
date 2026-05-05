@@ -6066,6 +6066,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.title': 'Le col du Gothard rouvre le 8 mai',
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.excerpt': 'Grâce aux conditions météo favorables, le col du Gothard rouvre déjà vendredi 8 mai, soulageant le trafic en vue des jours fériés',
     'blog.article.passo-gottardo-riapre-anticipo-8-maggio.imageAlt': 'Vue aérienne du col du Gothard dans le Tessin, Suisse, avec ciel dégagé et route ouverte',
+    'blog.article.furti-auto-ticino-2026.title': 'Vol de voitures au Tessin: Land Rover, Alfa Romeo et Porsche les plus touchées',
+    'blog.article.furti-auto-ticino-2026.excerpt': 'Les vols de voitures augmentent en Suisse, avec le Tessin au-dessus de la moyenne nationale. Voici ce qu\'il faut savoir et comment se protéger.',
+    'blog.article.furti-auto-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des voitures modernes garées le long de la rive, Tessin, Suisse.',
 };
 
 export default blogMetaFr;
