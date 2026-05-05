@@ -18,7 +18,7 @@
  * regeneration. To force regeneration of one job, delete its PNG.
  */
 
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
 import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -672,10 +672,41 @@ export default function jobOgImagesPlugin(): Plugin {
         });
       }
 
+      // ── Cache cleanup: remove stale-version PNGs from .cache/og-jobs/ ──
+      // After a design bump (OG_RENDER_VERSION change), the actions/cache
+      // restore-keys cascade rehydrates the previous version's cached PNGs
+      // alongside the freshly-rendered ones. Without cleanup the cache size
+      // grows by ~180 MB per version bump (1916 PNGs × ~95 KB each), which
+      // both wastes the GitHub Actions cache budget and slows future
+      // restores. Filenames are `<slug>.<OG_RENDER_VERSION>.png` so we drop
+      // any *.png whose suffix doesn't match the current version.
+      const versionSuffix = `.${OG_RENDER_VERSION}.png`;
+      let pruned = 0;
+      let prunedBytes = 0;
+      try {
+        for (const entry of readdirSync(cacheRoot)) {
+          if (!entry.endsWith('.png')) continue;
+          if (entry.endsWith(versionSuffix)) continue;
+          const orphaned = path.join(cacheRoot, entry);
+          try {
+            // Cheap stat-less size estimate from a single read isn't worth
+            // it; just count files. If the user wants byte-level reporting
+            // they can `du -sh .cache/og-jobs/`.
+            unlinkSync(orphaned);
+            pruned += 1;
+            prunedBytes += 95_000; // approximate avg PNG size, for the log
+          } catch {
+            /* ignore — best-effort cleanup */
+          }
+        }
+      } catch {
+        /* cacheRoot doesn't exist (impossible here) — noop */
+      }
+
       const elapsedMs = Date.now() - startMs;
       // eslint-disable-next-line no-console
       console.log(
-        `[job-og-images] rendered=${stats.rendered} cached=${stats.cached} skipped=${stats.skipped} errors=${stats.errors} in ${(elapsedMs / 1000).toFixed(1)}s`,
+        `[job-og-images] rendered=${stats.rendered} cached=${stats.cached} skipped=${stats.skipped} errors=${stats.errors} pruned-stale=${pruned} (~${(prunedBytes / 1_048_576).toFixed(0)}MB) in ${(elapsedMs / 1000).toFixed(1)}s`,
       );
     },
   };
