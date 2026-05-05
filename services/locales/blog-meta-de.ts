@@ -6017,6 +6017,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.questionario-scuole-ticino-2026.title': 'Umfrage für Schüler und Lehrer: nützlich und abschreckend',
     'blog.article.questionario-scuole-ticino-2026.excerpt': 'Das Decs hat einen Fragebogen in einer Berufsschule im Tessin getestet, um die Kommunikationskanäle und Prävention zu stärken',
     'blog.article.questionario-scuole-ticino-2026.imageAlt': 'Ein Klassenzimmer in einer Berufsschule im Tessin mit Schülern und Lehrern, die einen Fragebogen diskutieren',
+    'blog.article.scuola-como-chiusura-socco.title': 'Schule Como: Schließung der Socco-Filiale, Eltern revoltieren',
+    'blog.article.scuola-como-chiusura-socco.excerpt': 'Eltern und Bürgerkomitee protestieren gegen die Schließung der Grundschule Socco in Fino Mornasco',
+    'blog.article.scuola-como-chiusura-socco.imageAlt': 'Eltern und Schüler vor der Grundschule in Socco, Fino Mornasco',
 };
 
 export default blogMetaDe;

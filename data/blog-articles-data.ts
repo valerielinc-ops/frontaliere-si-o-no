@@ -19424,4 +19424,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scuola-como-chiusura-socco',
+ category: 'novita',
+ date: '2026-05-05T06:37:04.709Z',
+ image: '/images/blog/scuola-como-chiusura-socco.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

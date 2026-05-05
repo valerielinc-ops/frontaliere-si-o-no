@@ -6017,6 +6017,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.questionario-scuole-ticino-2026.title': 'Survey for students and teachers: useful and deterrent tool',
     'blog.article.questionario-scuole-ticino-2026.excerpt': 'The State Secretariat for Education, Research and Innovation tested a survey in a Ticino vocational school to strengthen listening channels and prevention',
     'blog.article.questionario-scuole-ticino-2026.imageAlt': 'A classroom in a Ticino professional school with students and teachers discussing a questionnaire',
+    'blog.article.scuola-como-chiusura-socco.title': 'Como School: Socco building closure, parents revolt',
+    'blog.article.scuola-como-chiusura-socco.excerpt': 'Parents and citizens\' committee protest against the closure of Socco primary school in Fino Mornasco',
+    'blog.article.scuola-como-chiusura-socco.imageAlt': 'Parents and students in front of the primary school in Socco, Fino Mornasco',
 };
 
 export default blogMetaEn;

@@ -3248,6 +3248,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cliche-politici-giovani-ticino': { name: 'Cliché politici', path: '/articoli-frontaliere/cliche-politici-giovani-ticino', parent: 'blog' },
     'blog-lugano-ingaggia-olle-lycksell-2026': { name: 'Novità Lugano', path: '/articoli-frontaliere/lugano-ingaggia-olle-lycksell-2026', parent: 'blog' },
     'blog-questionario-scuole-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/questionario-scuole-ticino-2026', parent: 'blog' },
+    'blog-scuola-como-chiusura-socco': { name: 'Scuola Como', path: '/articoli-frontaliere/scuola-como-chiusura-socco', parent: 'blog' },
  };
 
  const info = sectionNames[section];

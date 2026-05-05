@@ -6018,6 +6018,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.questionario-scuole-ticino-2026.title': 'Questionnaire pour élèves et enseignants : outil utile et dissuasif',
     'blog.article.questionario-scuole-ticino-2026.excerpt': 'Le Decs a testé un questionnaire dans une école professionnelle tessinoise pour renforcer les canaux d\'écoute et de prévention',
     'blog.article.questionario-scuole-ticino-2026.imageAlt': 'Une salle de classe dans une école professionnelle du Tessin avec des élèves et des enseignants discutant d\'un questionnaire',
+    'blog.article.scuola-como-chiusura-socco.title': 'École de Côme: fermeture de l\'école Socco, parents en colère',
+    'blog.article.scuola-como-chiusura-socco.excerpt': 'Les parents et un comité de citoyens protestent contre la fermeture de l\'école primaire de Socco à Fino Mornasco',
+    'blog.article.scuola-como-chiusura-socco.imageAlt': 'Parents et élèves devant l\'école primaire de Socco, Fino Mornasco',
 };
 
 export default blogMetaFr;

@@ -6018,6 +6018,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.questionario-scuole-ticino-2026.title': 'Questionario per allievi e docenti: strumento utile e dissuasivo',
     'blog.article.questionario-scuole-ticino-2026.excerpt': 'Il Decs ha testato un questionario in una scuola professionale ticinese per rafforzare canali di ascolto e prevenzione',
     'blog.article.questionario-scuole-ticino-2026.imageAlt': 'Una classe di una scuola professionale ticinese con studenti e docenti che discutono un questionario',
+    'blog.article.scuola-como-chiusura-socco.title': 'Scuola Como: chiusura plesso Socco, genitori in rivolta',
+    'blog.article.scuola-como-chiusura-socco.excerpt': 'Genitori e comitato cittadino protestano contro la chiusura della scuola primaria di Socco a Fino Mornasco',
+    'blog.article.scuola-como-chiusura-socco.imageAlt': 'Genitori e studenti davanti alla scuola primaria di Socco a Fino Mornasco',
 };
 
 export default blogMetaIt;
