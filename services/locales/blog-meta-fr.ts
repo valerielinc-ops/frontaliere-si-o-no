@@ -5976,6 +5976,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.meraviglia-festival-laveno-luino-2026.title': 'Festival de la Meraviglia 2026 : des histoires qui construisent le présent',
     'blog.article.meraviglia-festival-laveno-luino-2026.excerpt': 'Du 8 au 24 mai, Laveno Mombello et Luino accueillent le Festival de la Meraviglia avec des événements culturels et des rencontres sur l\'histoire, la science et l\'art.',
     'blog.article.meraviglia-festival-laveno-luino-2026.imageAlt': 'Festival de la Meraviglia à Laveno Mombello et Luino, Lac Majeur',
+    'blog.article.udc-cultura-indipendente-spesa-giustificata.title': 'UDC questionne sur les dépenses culturelles indépendantes : « Justifiées ? »',
+    'blog.article.udc-cultura-indipendente-spesa-giustificata.excerpt': 'Interpellation de l\'UDC sur le financement cantonal pour les espaces culturels indépendants. Doutes sur l\'efficacité et la durabilité financière',
+    'blog.article.udc-cultura-indipendente-spesa-giustificata.imageAlt': 'Centre culturel LAC à Lugano avec une performance en cours',
 };
 
 export default blogMetaFr;

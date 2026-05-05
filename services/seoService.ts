@@ -3234,6 +3234,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-moria-pesci-berneck-2026': { name: 'Novità', path: '/articoli-frontaliere/moria-pesci-berneck-2026', parent: 'blog' },
     'blog-festival-meraviglia-laveno-luino-2026': { name: 'Festival della Meraviglia', path: '/articoli-frontaliere/festival-meraviglia-laveno-luino-2026', parent: 'blog' },
     'blog-meraviglia-festival-laveno-luino-2026': { name: 'Festival Meraviglia', path: '/articoli-frontaliere/meraviglia-festival-laveno-luino-2026', parent: 'blog' },
+    'blog-udc-cultura-indipendente-spesa-giustificata': { name: 'Novità', path: '/articoli-frontaliere/udc-cultura-indipendente-spesa-giustificata', parent: 'blog' },
  };
 
  const info = sectionNames[section];

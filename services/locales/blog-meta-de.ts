@@ -5975,6 +5975,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.meraviglia-festival-laveno-luino-2026.title': 'Festival der Wunder 2026: Geschichten, die die Gegenwart prägen',
     'blog.article.meraviglia-festival-laveno-luino-2026.excerpt': 'Vom 8. bis 24. Mai finden in Laveno Mombello und Luino das Festival der Wunder mit kulturellen Veranstaltungen und Begegnungen zu Geschichte, Wissenschaft und Kunst statt.',
     'blog.article.meraviglia-festival-laveno-luino-2026.imageAlt': 'Meraviglia-Festival in Laveno Mombello und Luino, Lago Maggiore',
+    'blog.article.udc-cultura-indipendente-spesa-giustificata.title': 'SVP fordert Rechenschaft über Kulturförderung',
+    'blog.article.udc-cultura-indipendente-spesa-giustificata.excerpt': 'Interpellation der SVP zur kantonalen Finanzierung unabhängiger Kulturräume. Zweifel an Wirksamkeit und finanzieller Nachhaltigkeit',
+    'blog.article.udc-cultura-indipendente-spesa-giustificata.imageAlt': 'Kulturzentrum LAC in Lugano mit einer laufenden Vorstellung',
 };
 
 export default blogMetaDe;

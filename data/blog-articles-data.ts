@@ -19298,4 +19298,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'udc-cultura-indipendente-spesa-giustificata',
+ category: 'novita',
+ date: '2026-05-05T03:31:49.372Z',
+ image: '/images/blog/udc-cultura-indipendente-spesa-giustificata.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

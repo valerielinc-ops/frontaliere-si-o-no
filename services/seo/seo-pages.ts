@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2044,
+ "numberOfItems": 2045,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6687,7 +6687,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2041, "name": "Comano Run 2026: record di partecipanti e nuovo...", "url": `${BASE_URL}/articoli-frontaliere/comano-run-record-2026` },
           { "@type": "ListItem", "position": 2042, "name": "Moria di pesci a Berneck: liquame in torrente", "url": `${BASE_URL}/articoli-frontaliere/moria-pesci-berneck-2026` },
           { "@type": "ListItem", "position": 2043, "name": "Festival della Meraviglia: arte, musica e incon...", "url": `${BASE_URL}/articoli-frontaliere/festival-meraviglia-laveno-luino-2026` },
-          { "@type": "ListItem", "position": 2044, "name": "Festival della Meraviglia 2026: storie che cost...", "url": `${BASE_URL}/articoli-frontaliere/meraviglia-festival-laveno-luino-2026` }
+          { "@type": "ListItem", "position": 2044, "name": "Festival della Meraviglia 2026: storie che cost...", "url": `${BASE_URL}/articoli-frontaliere/meraviglia-festival-laveno-luino-2026` },
+          { "@type": "ListItem", "position": 2045, "name": "UDC incalza su spesa cultura indipendente: «Giu...", "url": `${BASE_URL}/articoli-frontaliere/udc-cultura-indipendente-spesa-giustificata` }
  ]
  },
  {

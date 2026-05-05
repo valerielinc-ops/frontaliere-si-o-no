@@ -17441,6 +17441,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-udc-cultura-indipendente-spesa-giustificata': {
+    title: 'UDC incalza su spesa cultura indipendente: «Giustificata?»',
+    description: 'Interpellanza UDC sul finanziamento cantonale per spazi culturali indipendenti. Dubbi su efficacia e sostenibilità finanziaria. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incalza, spesa, cultura, indipendente',
+    ogTitle: 'UDC incalza su spesa cultura indipendente: «Giustificata?»',
+    ogDescription: 'Interpellanza UDC sul finanziamento cantonale per spazi culturali indipendenti. Dubbi su efficacia e sostenibilità finanziaria',
+    canonicalPath: '/articoli-frontaliere/udc-cultura-indipendente-spesa-giustificata',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UDC incalza su spesa cultura indipendente: «Giustificata?»",
+      "description": "Interpellanza UDC sul finanziamento cantonale per spazi culturali indipendenti. Dubbi su efficacia e sostenibilità finanziaria. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/udc-cultura-indipendente-spesa-giustificata.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro culturale LAC di Lugano con una performance in corso"
+      },
+      "datePublished": "2026-05-05T03:31:49+00:00",
+      "dateModified": "2026-05-05T03:31:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/udc-cultura-indipendente-spesa-giustificata`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
