@@ -6045,6 +6045,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carburante-svizzera-scorte-2026.title': 'Carburant Suisse: réserves critiques de kérosène',
     'blog.article.carburante-svizzera-scorte-2026.excerpt': 'Les réserves de kérosène en Suisse ne couvrent que 72 jours, contre les 90 prévus. Voici ce qui change pour les frontaliers.',
     'blog.article.carburante-svizzera-scorte-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne',
+    'blog.article.como-nuoto-750mila-euro-tribunale.title': 'Como Natation, 750\'000 euros en justice: plainte des minorités',
+    'blog.article.como-nuoto-750mila-euro-tribunale.excerpt': 'Les conseillers de minorité de la commune de Como ont déposé une plainte auprès du parquet pour la gestion de 750\'000 euros pour la piscine du viale Geno.',
+    'blog.article.como-nuoto-750mila-euro-tribunale.imageAlt': 'Piscine de Côme avec vue sur la ville',
 };
 
 export default blogMetaFr;

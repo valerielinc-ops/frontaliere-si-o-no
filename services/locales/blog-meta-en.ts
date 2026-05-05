@@ -6044,6 +6044,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carburante-svizzera-scorte-2026.title': 'Switzerland fuel: critical jet fuel stocks',
     'blog.article.carburante-svizzera-scorte-2026.excerpt': 'Switzerland\'s jet fuel reserves only cover 72 days, against the expected 90. Here\'s what changes for cross-border workers.',
     'blog.article.carburante-svizzera-scorte-2026.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border',
+    'blog.article.como-nuoto-750mila-euro-tribunale.title': 'Como Swimming, 750k euros in court: minority report',
+    'blog.article.como-nuoto-750mila-euro-tribunale.excerpt': 'Minority councilors of the Como municipality have filed a report with the Prosecutor\'s Office for the management of 750,000 euros for the Geno Avenue swimming pool.',
+    'blog.article.como-nuoto-750mila-euro-tribunale.imageAlt': 'Como swimming pool with city view',
 };
 
 export default blogMetaEn;

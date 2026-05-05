@@ -18223,6 +18223,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-nuoto-750mila-euro-tribunale': {
+    title: 'Como Nuoto, 750mila euro in tribunale: esposto delle minoranze',
+    description: 'I consiglieri di minoranza del Comune di Como hanno depositato un esposto alla Procura per la gestione di 750mila euro per la piscina di viale Geno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, nuoto, 750mila, euro',
+    ogTitle: 'Como Nuoto, 750mila euro in tribunale: esposto delle minoranze',
+    ogDescription: 'I consiglieri di minoranza del Comune di Como hanno depositato un esposto alla Procura per la gestione di 750mila euro per la piscina di viale Geno.',
+    canonicalPath: '/articoli-frontaliere/como-nuoto-750mila-euro-tribunale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como Nuoto, 750mila euro in tribunale: esposto delle minoranze",
+      "description": "I consiglieri di minoranza del Comune di Como hanno depositato un esposto alla Procura per la gestione di 750mila euro per la piscina di viale Geno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-nuoto-750mila-euro-tribunale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piscina di Como con vista sulla città"
+      },
+      "datePublished": "2026-05-05T07:59:18+00:00",
+      "dateModified": "2026-05-05T07:59:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-nuoto-750mila-euro-tribunale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

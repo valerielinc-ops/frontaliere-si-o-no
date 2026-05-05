@@ -6045,6 +6045,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carburante-svizzera-scorte-2026.title': 'Carburante Svizzera: scorte critiche per il cherosene',
     'blog.article.carburante-svizzera-scorte-2026.excerpt': 'Le scorte di cherosene in Svizzera coprono solo 72 giorni, contro i 90 previsti. Ecco cosa cambia per i frontalieri.',
     'blog.article.carburante-svizzera-scorte-2026.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano',
+    'blog.article.como-nuoto-750mila-euro-tribunale.title': 'Como Nuoto, 750mila euro in tribunale: esposto delle minoranze',
+    'blog.article.como-nuoto-750mila-euro-tribunale.excerpt': 'I consiglieri di minoranza del Comune di Como hanno depositato un esposto alla Procura per la gestione di 750mila euro per la piscina di viale Geno.',
+    'blog.article.como-nuoto-750mila-euro-tribunale.imageAlt': 'Piscina di Como con vista sulla città',
 };
 
 export default blogMetaIt;

@@ -19505,4 +19505,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-nuoto-750mila-euro-tribunale',
+ category: 'novita',
+ date: '2026-05-05T07:59:17.958Z',
+ image: '/images/blog/como-nuoto-750mila-euro-tribunale.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

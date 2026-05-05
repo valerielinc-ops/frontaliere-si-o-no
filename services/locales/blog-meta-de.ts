@@ -6044,6 +6044,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carburante-svizzera-scorte-2026.title': 'Kerosinvorräte in der Schweiz sind kritisch',
     'blog.article.carburante-svizzera-scorte-2026.excerpt': 'Die Kerosinvorräte in der Schweiz decken nur 72 Tage ab, statt der vorgesehenen 90. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.carburante-svizzera-scorte-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze',
+    'blog.article.como-nuoto-750mila-euro-tribunale.title': 'Como Schwimmen: 750.000 Euro vor Gericht',
+    'blog.article.como-nuoto-750mila-euro-tribunale.excerpt': 'Die Minderheitsräte der Gemeinde Como haben eine Anzeige bei der Staatsanwaltschaft wegen der Verwaltung von 750.000 Euro für das Schwimmbad in der Viale Geno eingereicht.',
+    'blog.article.como-nuoto-750mila-euro-tribunale.imageAlt': 'Schwimmbad in Como mit Stadtblick',
 };
 
 export default blogMetaDe;
