@@ -6117,6 +6117,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-svizzera-frontalieri-2026.title': 'Guide de la Suisse: travailler au Ticino',
     'blog.article.guida-svizzera-frontalieri-2026.excerpt': 'Découvrez comment trouver un emploi, quels transports utiliser et qui paie les frais médicaux en Suisse',
     'blog.article.guida-svizzera-frontalieri-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.iniziativa-caos-comitato-ticino-2026.title': 'Initiative du chaos : le comité tessinois s\'oppose',
+    'blog.article.iniziativa-caos-comitato-ticino-2026.excerpt': 'Le comité unitaire tessinois contre l\'initiative \'Non à une Suisse de 10 millions\' s\'est réuni pour contrer le projet',
+    'blog.article.iniziativa-caos-comitato-ticino-2026.imageAlt': 'Conférence de presse à Bellinzona contre l\'initiative du chaos',
 };
 
 export default blogMetaFr;

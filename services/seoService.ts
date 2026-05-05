@@ -3281,6 +3281,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-olgiate-olona-alloggio-domotico-disabili-2026': { name: 'Novità', path: '/articoli-frontaliere/olgiate-olona-alloggio-domotico-disabili-2026', parent: 'blog' },
     'blog-swiss-voice-tour-tenero-2026': { name: 'Swiss Voice Tour', path: '/articoli-frontaliere/swiss-voice-tour-tenero-2026', parent: 'blog' },
     'blog-guida-svizzera-frontalieri-2026': { name: 'Guida Svizzera', path: '/articoli-frontaliere/guida-svizzera-frontalieri-2026', parent: 'blog' },
+    'blog-iniziativa-caos-comitato-ticino-2026': { name: 'Iniziativa del caos', path: '/articoli-frontaliere/iniziativa-caos-comitato-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -6116,6 +6116,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guida-svizzera-frontalieri-2026.title': 'Arbeiten im Tessin: Wichtiges für Grenzgänger',
     'blog.article.guida-svizzera-frontalieri-2026.excerpt': 'Erfahren Sie, wie Sie einen Job finden, welche Verkehrsmittel Sie nutzen können und wer die medizinischen Kosten in der Schweiz übernimmt',
     'blog.article.guida-svizzera-frontalieri-2026.imageAlt': 'Luftansicht von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.iniziativa-caos-comitato-ticino-2026.title': 'Chaos-Initiative: Tessin-Komitee wehrt sich',
+    'blog.article.iniziativa-caos-comitato-ticino-2026.excerpt': 'Das einheitliche Tessin-Komitee gegen die Initiative \'Nein zu einer Schweiz mit 10 Millionen\' hat sich getroffen, um das Projekt zu bekämpfen',
+    'blog.article.iniziativa-caos-comitato-ticino-2026.imageAlt': 'Pressekonferenz in Bellinzona gegen die Chaos-Initiative',
 };
 
 export default blogMetaDe;

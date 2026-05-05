@@ -18544,6 +18544,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-caos-comitato-ticino-2026': {
+    title: 'Iniziativa del caos: il comitato ticinese si oppone',
+    description: 'Il comitato unitario ticinese contro l\'iniziativa \'No a una Svizzera da 10 milioni\' si è riunito per contrastare il progetto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, caos, comitato, ticinese',
+    ogTitle: 'Iniziativa del caos: il comitato ticinese si oppone',
+    ogDescription: 'Il comitato unitario ticinese contro l\'iniziativa \'No a una Svizzera da 10 milioni\' si è riunito per contrastare il progetto',
+    canonicalPath: '/articoli-frontaliere/iniziativa-caos-comitato-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa del caos: il comitato ticinese si oppone",
+      "description": "Il comitato unitario ticinese contro l'iniziativa 'No a una Svizzera da 10 milioni' si è riunito per contrastare il progetto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/iniziativa-caos-comitato-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza stampa a Bellinzona contro l'iniziativa del caos"
+      },
+      "datePublished": "2026-05-05T11:35:41+00:00",
+      "dateModified": "2026-05-05T11:35:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-caos-comitato-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
