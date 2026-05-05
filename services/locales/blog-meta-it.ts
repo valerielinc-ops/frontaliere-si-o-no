@@ -5952,6 +5952,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-a8-castellanza-busto-arsizio-2026.title': 'Incidente in A8 tra Castellanza e Busto Arsizio: lunghe code verso Varese',
     'blog.article.incidente-a8-castellanza-busto-arsizio-2026.excerpt': 'Incidente in A8 tra Castellanza e Busto Arsizio causa code fino a 4 km verso Varese. Due feriti soccorsi dal 118.',
     'blog.article.incidente-a8-castellanza-busto-arsizio-2026.imageAlt': 'Autostrada A8 con traffico intenso, vista dal lago di Lugano',
+    'blog.article.elicottero-mezzovico-incidente-2026.title': 'Elicottero precipita a Mezzovico: diversi feriti',
+    'blog.article.elicottero-mezzovico-incidente-2026.excerpt': 'Incidente a Mezzovico-Vira: elicottero privato precipita, diversi feriti. Intervengono pompieri, ambulanze, Rega e Polizia cantonale.',
+    'blog.article.elicottero-mezzovico-incidente-2026.imageAlt': 'Vista aerea di Mezzovico-Vira in Ticino, Svizzera, con il paesaggio dove è avvenuto il incidente dell\'elicottero.',
 };
 
 export default blogMetaIt;

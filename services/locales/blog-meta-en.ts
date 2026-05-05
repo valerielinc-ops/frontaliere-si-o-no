@@ -5951,6 +5951,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-a8-castellanza-busto-arsizio-2026.title': 'Accident on A8 between Castellanza and Busto Arsizio: long queues towards Varese',
     'blog.article.incidente-a8-castellanza-busto-arsizio-2026.excerpt': 'Accident on A8 between Castellanza and Busto Arsizio causing queues up to 4 km towards Varese. Two injured rescued by 118.',
     'blog.article.incidente-a8-castellanza-busto-arsizio-2026.imageAlt': 'A8 highway with heavy traffic, view from Lake Lugano',
+    'blog.article.elicottero-mezzovico-incidente-2026.title': 'Helicopter crashes in Mezzovico: several injured',
+    'blog.article.elicottero-mezzovico-incidente-2026.excerpt': 'Accident in Mezzovico-Vira: private helicopter crashes, several injured. Firefighters, ambulances, Rega and Cantonal Police intervene.',
+    'blog.article.elicottero-mezzovico-incidente-2026.imageAlt': 'Aerial view of Mezzovico-Vira in Ticino, Switzerland, with the landscape where the helicopter crash occurred.',
 };
 
 export default blogMetaEn;
