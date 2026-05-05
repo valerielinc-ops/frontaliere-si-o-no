@@ -6054,6 +6054,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guerra-frena-viaggi-estero-2026.title': 'Guerre freine les voyages à l\'étranger: un tiers des Suisses renonce',
     'blog.article.guerra-frena-viaggi-estero-2026.excerpt': 'Selon le TCS, un tiers des Suisses ne se sent pas en sécurité pour des vacances hors des frontières. L\'Espagne et le Portugal sont les destinations préférées.',
     'blog.article.guerra-frena-viaggi-estero-2026.imageAlt': 'Vue sereine du lac de Lugano avec les montagnes environnantes',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.title': 'Les métiers les plus gratifiants en Suisse: données du Tessin',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.excerpt': 'Une étude révèle que les métiers les plus gratifiants en Suisse ne sont pas les mieux payés ou les moins stressants. Voici les détails pour les frontaliers du Tessin.',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

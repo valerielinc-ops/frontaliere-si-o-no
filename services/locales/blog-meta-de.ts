@@ -6053,6 +6053,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guerra-frena-viaggi-estero-2026.title': 'Krieg bremst Reisen ins Ausland: Ein Drittel der Schweizer verzichtet',
     'blog.article.guerra-frena-viaggi-estero-2026.excerpt': 'Laut TCS fühlt sich ein Drittel der Schweizer im Ausland nicht sicher. Spanien und Portugal sind die beliebtesten Reiseziele.',
     'blog.article.guerra-frena-viaggi-estero-2026.imageAlt': 'Ruhige Aussicht auf den Luganersee mit umliegenden Bergen',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.title': 'Die zufriedenstellendsten Jobs in der Schweiz: Daten aus dem Tessin',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.excerpt': 'Eine Studie zeigt, dass die zufriedenstellendsten Jobs in der Schweiz nicht die bestbezahlten oder am wenigsten stressigen sind. Hier sind die Details für die Grenzgänger aus dem Tessin.',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.imageAlt': 'Luftansicht des Luganer Sees mit der Schweizer-italienischen Grenze',
 };
 
 export default blogMetaDe;

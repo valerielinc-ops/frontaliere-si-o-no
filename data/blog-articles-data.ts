@@ -19532,4 +19532,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavori-soddisfazione-svizzeri-ticino',
+ category: 'novita',
+ date: '2026-05-05T08:33:52.951Z',
+ image: '/images/blog/lavori-soddisfazione-svizzeri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

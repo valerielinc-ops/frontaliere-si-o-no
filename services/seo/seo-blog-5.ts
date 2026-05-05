@@ -18325,6 +18325,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-soddisfazione-svizzeri-ticino': {
+    title: 'Lavori che danno più soddisfazione in Svizzera: i dati del Ticino',
+    description: 'Scopri quali sono i lavori che danno più soddisfazione in Svizzera e come questo influisce sui frontalieri del Ticino. Dati e analisi dello studio Sotomo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, danno, soddisfazione, dati',
+    ogTitle: 'Lavori che danno più soddisfazione in Svizzera: i dati del Ticino',
+    ogDescription: 'Scopri quali sono i lavori che danno più soddisfazione in Svizzera e come questo influisce sui frontalieri del Ticino. Dati e analisi dello studio Sotomo.',
+    canonicalPath: '/articoli-frontaliere/lavori-soddisfazione-svizzeri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori che danno più soddisfazione in Svizzera: i dati del Ticino",
+      "description": "Scopri quali sono i lavori che danno più soddisfazione in Svizzera e come questo influisce sui frontalieri del Ticino. Dati e analisi dello studio Sotomo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavori-soddisfazione-svizzeri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano"
+      },
+      "datePublished": "2026-05-05T08:33:52+00:00",
+      "dateModified": "2026-05-05T08:33:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-soddisfazione-svizzeri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

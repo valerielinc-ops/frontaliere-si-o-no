@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2070,
+ "numberOfItems": 2071,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6713,7 +6713,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2067, "name": "Carburante Svizzera: scorte critiche per il che...", "url": `${BASE_URL}/articoli-frontaliere/carburante-svizzera-scorte-2026` },
           { "@type": "ListItem", "position": 2068, "name": "Como Nuoto, 750mila euro in tribunale: esposto ...", "url": `${BASE_URL}/articoli-frontaliere/como-nuoto-750mila-euro-tribunale` },
           { "@type": "ListItem", "position": 2069, "name": "Arrestato 24enne albanese con cocaina a Mendrisio", "url": `${BASE_URL}/articoli-frontaliere/arresto-cocaina-mendrisio-albanese` },
-          { "@type": "ListItem", "position": 2070, "name": "Guerra frena viaggi all'estero: un terzo degli ...", "url": `${BASE_URL}/articoli-frontaliere/guerra-frena-viaggi-estero-2026` }
+          { "@type": "ListItem", "position": 2070, "name": "Guerra frena viaggi all'estero: un terzo degli ...", "url": `${BASE_URL}/articoli-frontaliere/guerra-frena-viaggi-estero-2026` },
+          { "@type": "ListItem", "position": 2071, "name": "Lavori che danno più soddisfazione in Svizzera:...", "url": `${BASE_URL}/articoli-frontaliere/lavori-soddisfazione-svizzeri-ticino` }
  ]
  },
  {

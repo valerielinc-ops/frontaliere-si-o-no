@@ -6053,6 +6053,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guerra-frena-viaggi-estero-2026.title': 'War halts foreign travel: a third of Swiss cancel plans',
     'blog.article.guerra-frena-viaggi-estero-2026.excerpt': 'According to TCS, a third of Swiss don\'t feel safe for holidays outside their borders. Spain and Portugal are the preferred destinations.',
     'blog.article.guerra-frena-viaggi-estero-2026.imageAlt': 'Serene view of Lake Lugano with surrounding mountains',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.title': 'Most satisfying jobs in Switzerland: Ticino data',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.excerpt': 'A study reveals that the most satisfying jobs in Switzerland are not the highest-paying or least stressful. Here are the details for Ticino cross-border workers.',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border',
 };
 
 export default blogMetaEn;

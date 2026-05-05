@@ -6054,6 +6054,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guerra-frena-viaggi-estero-2026.title': 'Guerra frena viaggi all\'estero: un terzo degli svizzeri rinuncia',
     'blog.article.guerra-frena-viaggi-estero-2026.excerpt': 'Secondo il TCS, un terzo degli svizzeri non si sente sicuro per le vacanze fuori dai confini. Spagna e Portogallo sono le mete preferite.',
     'blog.article.guerra-frena-viaggi-estero-2026.imageAlt': 'Vista serena del Lago di Lugano con le montagne circostanti',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.title': 'Lavori che danno più soddisfazione in Svizzera: i dati del Ticino',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.excerpt': 'Uno studio rivela che i lavori più soddisfacenti in Svizzera non sono i più pagati o meno stressanti. Ecco i dettagli per i frontalieri del Ticino.',
+    'blog.article.lavori-soddisfazione-svizzeri-ticino.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano',
 };
 
 export default blogMetaIt;
