@@ -6057,6 +6057,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-soddisfazione-svizzeri-ticino.title': 'Lavori che danno più soddisfazione in Svizzera: i dati del Ticino',
     'blog.article.lavori-soddisfazione-svizzeri-ticino.excerpt': 'Uno studio rivela che i lavori più soddisfacenti in Svizzera non sono i più pagati o meno stressanti. Ecco i dettagli per i frontalieri del Ticino.',
     'blog.article.lavori-soddisfazione-svizzeri-ticino.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano',
+    'blog.article.benzina-19-euro-5-maggio-2026.title': 'Benzina supera 1,9 euro al litro: prima volta in due anni',
+    'blog.article.benzina-19-euro-5-maggio-2026.excerpt': 'Il prezzo della benzina tocca quota 1,926 euro al litro in modalità self service, mentre il gasolio scende leggermente.',
+    'blog.article.benzina-19-euro-5-maggio-2026.imageAlt': 'Una stazione di servizio in Ticino con il prezzo della benzina a 1,926 CHF al litro',
 };
 
 export default blogMetaIt;

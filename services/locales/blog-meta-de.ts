@@ -6056,6 +6056,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-soddisfazione-svizzeri-ticino.title': 'Die zufriedenstellendsten Jobs in der Schweiz: Daten aus dem Tessin',
     'blog.article.lavori-soddisfazione-svizzeri-ticino.excerpt': 'Eine Studie zeigt, dass die zufriedenstellendsten Jobs in der Schweiz nicht die bestbezahlten oder am wenigsten stressigen sind. Hier sind die Details für die Grenzgänger aus dem Tessin.',
     'blog.article.lavori-soddisfazione-svizzeri-ticino.imageAlt': 'Luftansicht des Luganer Sees mit der Schweizer-italienischen Grenze',
+    'blog.article.benzina-19-euro-5-maggio-2026.title': 'Benzinpreis übersteigt 1,90 Euro pro Liter: Erstmals seit zwei Jahren',
+    'blog.article.benzina-19-euro-5-maggio-2026.excerpt': 'Der Benzinpreis erreicht 1,926 Euro pro Liter im Selbstbedienungsmodus, während Diesel leicht sinkt.',
+    'blog.article.benzina-19-euro-5-maggio-2026.imageAlt': 'Eine Tankstelle in Tessin mit dem Benzinpreis von 1,926 CHF pro Liter',
 };
 
 export default blogMetaDe;

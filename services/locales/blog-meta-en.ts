@@ -6056,6 +6056,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-soddisfazione-svizzeri-ticino.title': 'Most satisfying jobs in Switzerland: Ticino data',
     'blog.article.lavori-soddisfazione-svizzeri-ticino.excerpt': 'A study reveals that the most satisfying jobs in Switzerland are not the highest-paying or least stressful. Here are the details for Ticino cross-border workers.',
     'blog.article.lavori-soddisfazione-svizzeri-ticino.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border',
+    'blog.article.benzina-19-euro-5-maggio-2026.title': 'Petrol exceeds 1.9 euros per litre: first time in two years',
+    'blog.article.benzina-19-euro-5-maggio-2026.excerpt': 'Petrol price hits 1.926 euros per litre in self-service mode, while diesel slightly decreases.',
+    'blog.article.benzina-19-euro-5-maggio-2026.imageAlt': 'A gas station in Ticino with the gasoline price at 1.926 CHF per litre',
 };
 
 export default blogMetaEn;

@@ -19541,4 +19541,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'benzina-19-euro-5-maggio-2026',
+ category: 'novita',
+ date: '2026-05-05T08:42:01.714Z',
+ image: '/images/blog/benzina-19-euro-5-maggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

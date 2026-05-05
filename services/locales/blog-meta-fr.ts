@@ -6057,6 +6057,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-soddisfazione-svizzeri-ticino.title': 'Les métiers les plus gratifiants en Suisse: données du Tessin',
     'blog.article.lavori-soddisfazione-svizzeri-ticino.excerpt': 'Une étude révèle que les métiers les plus gratifiants en Suisse ne sont pas les mieux payés ou les moins stressants. Voici les détails pour les frontaliers du Tessin.',
     'blog.article.lavori-soddisfazione-svizzeri-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne',
+    'blog.article.benzina-19-euro-5-maggio-2026.title': 'L\'essence dépasse 1,9 euro le litre: première fois en deux ans',
+    'blog.article.benzina-19-euro-5-maggio-2026.excerpt': 'Le prix de l\'essence atteint 1,926 euro le litre en mode self-service, tandis que le gazole baisse légèrement.',
+    'blog.article.benzina-19-euro-5-maggio-2026.imageAlt': 'Une station-service en Tessin avec le prix de l\'essence à 1,926 CHF le litre',
 };
 
 export default blogMetaFr;

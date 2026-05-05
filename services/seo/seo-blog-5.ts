@@ -17788,6 +17788,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-19-euro-5-maggio-2026': {
+    title: 'Benzina supera 1,9 euro al litro: prima volta in due anni',
+    description: 'Il prezzo della benzina tocca quota 1,926 euro al litro in modalità self service, mentre il gasolio scende leggermente. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, supera, euro, litro',
+    ogTitle: 'Benzina supera 1,9 euro al litro: prima volta in due anni',
+    ogDescription: 'Il prezzo della benzina tocca quota 1,926 euro al litro in modalità self service, mentre il gasolio scende leggermente.',
+    canonicalPath: '/articoli-frontaliere/benzina-19-euro-5-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina supera 1,9 euro al litro: prima volta in due anni",
+      "description": "Il prezzo della benzina tocca quota 1,926 euro al litro in modalità self service, mentre il gasolio scende leggermente. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/benzina-19-euro-5-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una stazione di servizio in Ticino con il prezzo della benzina a 1,926 CHF al litro"
+      },
+      "datePublished": "2026-05-05T08:42:01+00:00",
+      "dateModified": "2026-05-05T08:42:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-19-euro-5-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
