@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-05-05T12:26:48.086Z",
+  "generatedAt": "2026-05-05T13:32:36.119Z",
   "maxDepth": 4,
   "perSitemap": {
     "sitemap-annual-report.xml": {
@@ -10,8 +10,8 @@
       "deepest": 4
     },
     "sitemap-blog.xml": {
-      "total": 2040,
-      "reached": 2037,
+      "total": 2046,
+      "reached": 2043,
       "atDepthGtMax": 3,
       "deepest": 3
     },
@@ -112,10 +112,10 @@
       "deepest": 3
     },
     "sitemap-jobs.xml": {
-      "total": 1436,
-      "reached": 1334,
-      "atDepthGtMax": 1030,
-      "deepest": 150
+      "total": 2051,
+      "reached": 1949,
+      "atDepthGtMax": 118,
+      "deepest": 5
     },
     "sitemap-market-report.xml": {
       "total": 4,
@@ -136,9 +136,9 @@
       "deepest": 0
     },
     "sitemap-orphan-landings.xml": {
-      "total": 33,
+      "total": 35,
       "reached": 0,
-      "atDepthGtMax": 33,
+      "atDepthGtMax": 35,
       "deepest": 0
     },
     "sitemap-pages.xml": {
@@ -168,19 +168,19 @@
     "sitemap-sector.xml": {
       "total": 10,
       "reached": 10,
-      "atDepthGtMax": 1,
-      "deepest": 5
+      "atDepthGtMax": 0,
+      "deepest": 4
     },
     "sitemap-seo-hubs.xml": {
-      "total": 328,
-      "reached": 326,
-      "atDepthGtMax": 302,
-      "deepest": 154
+      "total": 329,
+      "reached": 327,
+      "atDepthGtMax": 2,
+      "deepest": 3
     },
     "sitemap-weekly-employers.xml": {
-      "total": 188,
-      "reached": 160,
-      "atDepthGtMax": 115,
+      "total": 224,
+      "reached": 196,
+      "atDepthGtMax": 139,
       "deepest": 5
     }
   },
