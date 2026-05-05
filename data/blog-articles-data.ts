@@ -19190,4 +19190,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'auto-truccate-polizia-zugo-2026',
+ category: 'novita',
+ date: '2026-05-05T00:07:04.450Z',
+ image: '/images/blog/auto-truccate-polizia-zugo-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

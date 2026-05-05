@@ -17033,6 +17033,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-auto-truccate-polizia-zugo-2026': {
+    title: 'Auto truccate nel mirino della polizia a Zugo | Frontaliere Ticino',
+    description: 'Controlli alla Stierenmarkt: 4 auto con scarichi modificati, 5 sequestrate per tuning software non autorizzato. Ecco cosa rischiano i proprietari',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, truccate, mirino, polizia',
+    ogTitle: 'Auto truccate nel mirino della polizia a Zugo',
+    ogDescription: 'Controlli alla Stierenmarkt: 4 auto con scarichi modificati, 5 sequestrate per tuning software non autorizzato. Ecco cosa rischiano i proprietari',
+    canonicalPath: '/articoli-frontaliere/auto-truccate-polizia-zugo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Auto truccate nel mirino della polizia a Zugo",
+      "description": "Controlli alla Stierenmarkt: 4 auto con scarichi modificati, 5 sequestrate per tuning software non autorizzato. Ecco cosa rischiano i proprietari",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/auto-truccate-polizia-zugo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia controlla auto modificate a un raduno in Ticino"
+      },
+      "datePublished": "2026-05-05T00:07:04+00:00",
+      "dateModified": "2026-05-05T00:07:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/auto-truccate-polizia-zugo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

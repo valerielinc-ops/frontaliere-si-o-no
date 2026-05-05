@@ -5939,6 +5939,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lot-polish-60-anni-malpensa-varsavia.title': 'LOT Polish Airlines celebrates 60 years of flights between Malpensa and Warsaw',
     'blog.article.lot-polish-60-anni-malpensa-varsavia.excerpt': 'The airline celebrates six decades of connections with over 2.2 million passengers transported',
     'blog.article.lot-polish-60-anni-malpensa-varsavia.imageAlt': 'Milan Malpensa Airport with LOT Polish Airlines plane',
+    'blog.article.auto-truccate-polizia-zugo-2026.title': 'Modified cars under police scrutiny in Zug',
+    'blog.article.auto-truccate-polizia-zugo-2026.excerpt': 'Checks at Stierenmarkt: 4 cars with modified exhausts, 5 seized for unauthorized tuning software. Here\'s what owners risk',
+    'blog.article.auto-truccate-polizia-zugo-2026.imageAlt': 'Police checking modified cars at a gathering in Ticino',
 };
 
 export default blogMetaEn;
