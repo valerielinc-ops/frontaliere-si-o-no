@@ -318,7 +318,11 @@ export function composeJobPageTitle(
  // downstream brand-fitting word-trim.
  const maxCore = Math.max(1, JOB_TITLE_MAX - disamb.length - JOB_TITLE_BRAND_SUFFIX.length);
  const core = truncateJobCorePreservingCity(jobTitle, company, city, locale, maxCore);
- return buildTitleWithBrand(`${core}${disamb}`, JOB_TITLE_BRAND_SUFFIX);
+ // Pass JOB_TITLE_MAX explicitly so the universal-default 66-char cap in
+ // shared/titleSuffix.ts does not retroactively drop the brand on
+ // job-board pages whose city+disambiguator+role inherently land at
+ // 67-70 char. Job pages are tracked separately in the audit baseline.
+ return buildTitleWithBrand(`${core}${disamb}`, JOB_TITLE_BRAND_SUFFIX, JOB_TITLE_MAX);
 }
 
 /** Compose H1: job title + company only (no city, no brand). */

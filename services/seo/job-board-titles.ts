@@ -33,10 +33,10 @@ export const JOB_PAGE_LOCALES: readonly JobPageLocale[] = ['it', 'en', 'de', 'fr
 export const TITLE_MIN_CHARS = 50;
 /**
  * Maximum visible title length. Aligned with the universal title rule in
- * build-plugins/shared/titleSuffix.ts (70 chars including the
- * " | Frontaliere Ticino" brand suffix when it fits).
+ * build-plugins/shared/titleSuffix.ts (60 target + 10 % tolerance = 66 chars
+ * including the " | Frontaliere Ticino" brand suffix when it fits).
  */
-export const TITLE_MAX_CHARS = 70;
+export const TITLE_MAX_CHARS = 66;
 /** Minimum active jobs above which we append 🔥 to boost CTR. */
 export const FIRE_EMOJI_THRESHOLD = 500;
 

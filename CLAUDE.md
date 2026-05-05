@@ -421,6 +421,8 @@ fix is to **add internal links** from a hub at depth ≤ MAX_DEPTH-1.
 - [ ] Text-to-HTML ratio gate passes: `npm run audit:text-html-ratio` (see *SEO content gate* above for the playbook on regression)
 - [ ] ImageObject license-fields gate passes: `npm run audit:image-object-license` (zero tolerance — every ImageObject in JSON-LD must have `acquireLicensePage`, `copyrightNotice`, `license`, `creator`; route through `services/seo/imageObjectLd.ts`)
 - [ ] BFS-depth gate passes: `npm run audit:max-bfs-depth` (per-sitemap ratchet — every URL must be reachable from `/` at BFS depth ≤ 4 via `<a href>` chain. Fix regressions by adding internal links from a hub at depth ≤ 3, never noindex)
+- [ ] Title-length gate passes: `npm run audit:title-length` (per-feature ratchet at threshold 66 = 60 SERP-display target + 10 % tolerance. `buildTitleWithBrand` drops the brand suffix when headline + brand > 66 instead of truncating mid-headline. Never re-introduce mid-`…` truncation — it tanked CTR on `/calcola-stipendio/` 4.8 % → 0.99 % during the 70-cap era)
+- [ ] Title-no-disambig-hash gate passes: `npm run audit:title-no-disambig-hash` (per-feature ratchet — flags `(#abcdef12)` disambiguators visible in `<title>`. Fix at source by renaming colliding articles with a year/city/source qualifier so the base title is unique without the hash, never widen the cap)
 
 ## Auto-push Rule
 

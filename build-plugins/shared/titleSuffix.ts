@@ -4,37 +4,46 @@
  * Universal policy across blog, jobs, soft-landings, static pages, expired
  * pages, and the SPA shell:
  *
- *   1. The final <title> is hard-capped at {@link TITLE_MAX_CHARS} (default 70).
- *      This is Google's SERP-display budget on most queries; titles past it
- *      get rewritten or truncated by the SERP, costing keyword visibility.
+ *   1. The final <title> targets {@link TITLE_TARGET_CHARS} (60 — Google's
+ *      SERP-display budget on most queries) with a 10 % tolerance, hard-cap
+ *      at {@link TITLE_MAX_CHARS} (66). Past this, Google rewrites or
+ *      truncates the title at SERP-render time.
  *
  *   2. The brand suffix " | Frontaliere Ticino" is appended only when the
  *      total stays within the cap. When the headline alone already fills
- *      (or exceeds) the cap, the brand is dropped to preserve keyword
- *      content in the headline.
+ *      (or exceeds) the cap, the brand is DROPPED to preserve the keyword
+ *      content of the headline. The brand is a "nice-to-have", not a
+ *      ranking signal.
  *
- *   3. When the headline itself exceeds the cap, it is truncated word-aware
- *      with a trailing "…". Callers that need to preserve a specific tail
- *      token (e.g. the trailing city in a job-detail title) MUST truncate
- *      upstream before calling this helper — see
- *      {@link build-plugins/jobsSeoPagesPlugin.truncateJobCorePreservingCity}.
+ *   3. When the headline itself exceeds the cap, it is RETURNED VERBATIM
+ *      (no `…` truncation). Word-aware truncation with `…` mid-headline
+ *      reads as broken in the SERP and collapses CTR (`/calcola-stipendio/`
+ *      4.8 % → 0.99 % over the 87a807975 → 2026-04-30 window when the cap
+ *      was 70 and `…` fired on 49-68 char headlines). Callers that
+ *      genuinely need a hard truncation (e.g. job-detail with a tail city
+ *      to preserve) must call {@link truncateHeadline} explicitly.
  */
 
 export const TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
 /**
- * Hard cap on the final <title> length. 90 matches the deploy-blocking
- * `audit:title-length` threshold (scripts/audit-dist-multi.mjs:49) — staying
- * inside the audit gate while leaving room for full headlines + brand suffix.
- *
- * Previously 70 (Google's SERP-display budget). That was tighter than the
- * audit gate and caused word-aware truncation with `…` to fire on headlines
- * 49-68 chars long, which then read as broken in the SERP and collapsed CTR
- * (e.g. `/calcola-stipendio/` 4.8% → 0.99% over the 87a807975 → 2026-04-30
- * window). 90 keeps the audit gate green while preserving the full keyword
- * tail for indexing; Google will visually truncate at SERP-render time but
- * without the broken `…` artifact mid-headline.
+ * Target SERP-display length. 60 char ≈ ~600 px on desktop SERP, the budget
+ * past which Google starts rewriting / truncating titles. Soft target —
+ * generators should aim here but the hard cap is {@link TITLE_MAX_CHARS}.
  */
-export const TITLE_MAX_CHARS = 90;
+export const TITLE_TARGET_CHARS = 60;
+/**
+ * Hard cap on the final <title> length: 60 (target) + 10 % tolerance = 66.
+ * The tolerance exists so generators don't have to amputate the last word
+ * of a headline that lands at 61-66 char — the 10 % slack absorbs natural
+ * sentence variance without mid-word cuts.
+ *
+ * The deploy-blocking `audit:title-length` ratchet uses this same cap. Past
+ * this threshold the audit fails (subject to baseline ratchet during
+ * migration). Headlines that exceed 66 char on their own (no brand to drop)
+ * are flagged but emitted verbatim — fix at source by editing the headline,
+ * never with mid-headline `…` truncation.
+ */
+export const TITLE_MAX_CHARS = 66;
 
 /**
  * Word-aware truncation: cut on the last whitespace boundary inside `max`,
@@ -58,18 +67,26 @@ export function truncateHeadline(headline: string, max: number): string {
 /**
  * Build the final <title> string per the universal policy.
  *
- * The brand suffix is ALWAYS appended. When headline + brand exceeds the
- * cap, the headline is truncated word-aware to make room for the brand,
- * never the other way around. Always-on brand guarantees that <title> is
- * structurally different from <h1> (which is brand-less), preventing the
- * title===h1 duplication that the audit:h1-title-duplicates gate flags.
+ * Order of preference:
+ *   1. headline + brand fits within `maxChars` → append brand
+ *   2. headline alone fits within `maxChars` → DROP the brand
+ *   3. headline alone exceeds `maxChars` → return VERBATIM (no truncation,
+ *      no `…`). This is a data-quality signal that the headline must be
+ *      shortened at source. The `audit:title-length` gate will catch it.
  *
- * @param headline    The page headline. Truncated word-aware when needed
- *                    so the final string fits inside `maxChars`.
- * @param brand       Brand suffix appended unconditionally. Default
- *                    {@link TITLE_BRAND_SUFFIX}.
- * @param maxChars    Hard cap on the returned <title> length. Default
- *                    {@link TITLE_MAX_CHARS}.
+ * Why never truncate here: mid-headline `…` reads as broken in the SERP
+ * and collapsed CTR (`/calcola-stipendio/` 4.8 % → 0.99 % during the
+ * cap=70 era when `…` fired on 49-68 char headlines).
+ *
+ * Brand drop is safe because <title> ≠ <h1> uniqueness is enforced
+ * separately (`audit:h1-title-duplicates`) and the target headlines are
+ * already keyword-rich.
+ *
+ * @param headline    The page headline. Returned verbatim — never
+ *                    truncated by this helper.
+ * @param brand       Brand suffix appended only when there is room.
+ *                    Default {@link TITLE_BRAND_SUFFIX}.
+ * @param maxChars    Hard cap. Default {@link TITLE_MAX_CHARS} (66).
  */
 export function buildTitleWithBrand(
   headline: string,
@@ -78,18 +95,8 @@ export function buildTitleWithBrand(
 ): string {
   const safeHeadline = String(headline || '').trim();
   if (!safeHeadline) return safeHeadline;
-  // Headline budget = total cap minus the (always-appended) brand suffix.
-  // If this drops to zero or below (e.g. brand alone overflows the cap),
-  // fall back to the headline truncated to the raw cap with no brand —
-  // there is literally no room for both.
-  const headlineBudget = maxChars - brand.length;
-  if (headlineBudget <= 0) {
-    return safeHeadline.length <= maxChars
-      ? safeHeadline
-      : truncateHeadline(safeHeadline, maxChars);
+  if (safeHeadline.length + brand.length <= maxChars) {
+    return safeHeadline + brand;
   }
-  const cappedHeadline = safeHeadline.length <= headlineBudget
-    ? safeHeadline
-    : truncateHeadline(safeHeadline, headlineBudget);
-  return cappedHeadline + brand;
+  return safeHeadline;
 }

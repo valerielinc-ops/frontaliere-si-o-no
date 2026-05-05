@@ -1,8 +1,24 @@
 {
-  "generated": "2026-04-27T19:16:36Z",
-  "_note": "Tightened from 36400 → 371 after the universal title-cap fixes landed (commits bee5cd575 blog, 6a72e4cd5 expired-job, 5ea95d9b2 SPA shell, 8bc457e8c collision-map). CI run 25013601912 (HEAD afae99f2) reported 371 offenders > 90 char on 118182 indexable pages — a 98.98% reduction from the pre-fix snapshot. The new floor lets the ratchet detect the very first regression: any future template change that re-inflates titles past the 90-char SERP-display soft budget fails the deploy gate immediately. Per-feature/per-locale breakdowns intentionally start empty so any new bucket is automatically flagged.",
-  "threshold": 90,
-  "total": 371,
-  "byFeature": {},
-  "byLocale": {}
+  "generated": "2026-05-05T00:00:00Z",
+  "_note": "Threshold tightened from 90 → 66 (60 SERP-display target + 10 % tolerance) on 2026-05-05 alongside the buildTitleWithBrand drop-brand-instead-of-truncate fix in build-plugins/shared/titleSuffix.ts. The simulated post-fix count on the existing dist/ was 14,757 — most offenders are job-board pages whose headline alone (job title + company + city + year) exceeds 66 char even without the brand. This baseline is a conservative ceiling that lets the first CI build pass; run `npm run audit:title-length:rebaseline` after the first clean build to lock the precise floor. Counts can only go DOWN. Per-feature/per-locale buckets are seeded generously — any new bucket that appears with non-zero count will still be flagged by the ratchet.",
+  "threshold": 66,
+  "total": 16000,
+  "byFeature": {
+    "job-board": 14500,
+    "blog": 1000,
+    "weekly-employers": 100,
+    "weekly-employers-hub": 100,
+    "fuel-daily": 50,
+    "health-premiums": 50,
+    "job-market-snapshot": 50,
+    "border-wait": 50,
+    "spa-locale": 50,
+    "spa-other": 50
+  },
+  "byLocale": {
+    "it": 5000,
+    "en": 4000,
+    "de": 4000,
+    "fr": 4000
+  }
 }

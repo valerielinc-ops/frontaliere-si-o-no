@@ -46,7 +46,9 @@ const DIST = join(ROOT, 'dist');
 // change the npm scripts, update these constants in lock-step.
 const RATIO_THRESHOLD = 10;
 const RATIO_BASELINE_PATH = join(ROOT, 'data', 'text-html-ratio-baseline.json');
-const TITLE_THRESHOLD = 90;
+// 60 SERP-display target + 10 % tolerance. Aligned with
+// build-plugins/shared/titleSuffix.ts:TITLE_MAX_CHARS.
+const TITLE_THRESHOLD = 66;
 const TITLE_BASELINE_PATH = join(ROOT, 'data', 'title-length-baseline.json');
 const H1_BASELINE_PATH = join(ROOT, 'data', 'h1-title-duplicates-baseline.json');
 const RATIO_LIMIT = 30; // matches default --limit in audit-text-html-ratio

@@ -1,13 +1,14 @@
 /**
- * Tests for `services/seo/job-board-titles.ts` — the shared 50-70 char
+ * Tests for `services/seo/job-board-titles.ts` — the shared 50-66 char
  * title templates introduced by F3a (Job Page CTR Optimization).
  *
- * The TITLE_MAX_CHARS budget was raised from 60 → 70 to align with the
- * universal title rule in build-plugins/shared/titleSuffix.ts (70 chars
- * including the " | Frontaliere Ticino" brand suffix when it fits).
+ * The TITLE_MAX_CHARS budget tracks the universal title rule in
+ * build-plugins/shared/titleSuffix.ts (60 SERP-display target + 10 %
+ * tolerance = 66 chars including the " | Frontaliere Ticino" brand
+ * suffix when it fits).
  *
  * Verifies:
- *   - Every title lands in 50-70 visible-chars (Google SERP-safe range).
+ *   - Every title lands in 50-66 visible-chars (Google SERP-safe range).
  *   - Primary keyword is present for each page type.
  *   - 🔥 emoji fires above threshold, never below.
  *   - All 4 locales are covered.
@@ -46,17 +47,17 @@ describe('visibleLength + isValidTitleLength', () => {
     expect(visibleLength('a🔥b')).toBe(3);
   });
 
-  it('isValidTitleLength matches the 50-70 range', () => {
+  it('isValidTitleLength matches the 50-66 range', () => {
     expect(isValidTitleLength('a'.repeat(49))).toBe(false);
     expect(isValidTitleLength('a'.repeat(50))).toBe(true);
     expect(isValidTitleLength('a'.repeat(60))).toBe(true);
-    expect(isValidTitleLength('a'.repeat(70))).toBe(true);
-    expect(isValidTitleLength('a'.repeat(71))).toBe(false);
+    expect(isValidTitleLength('a'.repeat(66))).toBe(true);
+    expect(isValidTitleLength('a'.repeat(67))).toBe(false);
   });
 
   it('exports the SERP-safe thresholds', () => {
     expect(TITLE_MIN_CHARS).toBe(50);
-    expect(TITLE_MAX_CHARS).toBe(70);
+    expect(TITLE_MAX_CHARS).toBe(66);
     expect(FIRE_EMOJI_THRESHOLD).toBe(500);
     expect(DEFAULT_CITY_HUB_FIRE_THRESHOLD).toBe(30);
   });

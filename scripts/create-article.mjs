@@ -3490,9 +3490,11 @@ function optimizeSeoMetadata(data) {
 
   // Universal rule (mirrors build-plugins/shared/titleSuffix.ts):
   // headline VERBATIM; brand suffix appended only when the total stays
-  // within TITLE_MAX_CHARS (70). No headline truncation.
+  // within TITLE_MAX_CHARS (60 target + 10 % tolerance = 66). No headline
+  // truncation — if the headline alone exceeds the cap, audit:title-length
+  // flags it and the AI prompt must regenerate a shorter title.
   const TITLE_SUFFIX = ' | Frontaliere Ticino';
-  const TITLE_MAX_CHARS = 70;
+  const TITLE_MAX_CHARS = 66;
   const seoTitleCore = String(it.title || data.id || 'Articolo frontalieri')
     .replace(/\s*\|\s*Frontaliere Ticino$/i, '')
     .trim();
@@ -5596,8 +5598,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       if (seoTitleCore !== itTitle) {
         // Fix it: the canonical source is content.it.title (it's what becomes
         // the H1; we treat it as ground truth). Rebuild seo.title with suffix
-        // if it fits the 70-char cap, otherwise without.
-        const TITLE_MAX_CHARS = 70;
+        // if it fits the 66-char cap (60 + 10 % tolerance), otherwise drop
+        // the brand. Mirrors build-plugins/shared/titleSuffix.ts.
+        const TITLE_MAX_CHARS = 66;
         const candidate = `${itTitle}${TITLE_SUFFIX}`;
         const newSeoTitle = candidate.length <= TITLE_MAX_CHARS ? candidate : itTitle;
         console.error(`  🔁 Sync seo.title ⇐ content.it.title ("${seoTitleCore}" → "${itTitle}")`);

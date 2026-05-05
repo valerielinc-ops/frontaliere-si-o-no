@@ -20,6 +20,7 @@ run_post_build_task() {
     audit:page-weight)            npm run audit:page-weight ;;
     audit:h1-title-duplicates)    npm run audit:h1-title-duplicates ;;
     audit:title-length)           npm run audit:title-length ;;
+    audit:title-no-disambig-hash) npm run audit:title-no-disambig-hash ;;
     audit:title-uniqueness)       npm run audit:title-uniqueness ;;
     audit:hreflang)               npm run audit:hreflang ;;
     audit:content-duplicates)     npm run audit:content-duplicates ;;
@@ -50,6 +51,7 @@ ALL_POST_BUILD_TASKS=(
   audit:h1-title-duplicates
   audit:content-duplicates
   audit:title-length
+  audit:title-no-disambig-hash
   audit:orphan-sitemap-pages
   audit:title-uniqueness
   validate:structured-data
@@ -83,6 +85,7 @@ POST_BUILD_SHARD_3=(
   test:e2e:smoke
   audit:page-weight
   audit:title-length
+  audit:title-no-disambig-hash
   validate:content-quality
   validate:canonical
 )

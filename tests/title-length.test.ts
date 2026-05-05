@@ -16,14 +16,15 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.resolve(__dirname, '..', 'dist');
-// Soft SERP budget is 60 char, but the deploy-blocking
-// audit:title-uniqueness gate trumps it: pages whose unique disambiguator
-// (city, canton-internal vs canton-external, address number, age bucket,
-// week/month) lives at the end of the headline MUST keep the full string
-// + brand suffix to stay unique across distinct canonical URLs. Allow up
-// to 90 char (≈ 60 base + " | Frontaliere Ticino") and report only the
-// hard outliers.
-const MAX_TITLE_LEN = 90;
+// SERP-display budget: 60 char target + 10 % tolerance = 66 char hard cap.
+// Aligned with build-plugins/shared/titleSuffix.ts:TITLE_MAX_CHARS. The
+// drop-brand-not-truncate behavior in buildTitleWithBrand keeps headlines
+// intact: when the headline + " | Frontaliere Ticino" suffix would exceed
+// 66 char, the brand is dropped instead of truncating the headline.
+// Pages whose disambiguator (city, canton, address, week/month) lives at
+// the end of the headline still need to fit — fix at source by shortening
+// the headline, never with mid-headline `…` truncation.
+const MAX_TITLE_LEN = 66;
 
 function walkHtml(dir: string, out: string[] = []): string[] {
   let entries: fs.Dirent[];
@@ -54,7 +55,7 @@ function extractTitle(html: string): string | null {
 
 const distExists = fs.existsSync(DIST_DIR);
 
-describe('SEO landing pages — <title> ≤90 chars (uniqueness > strict 60)', () => {
+describe('SEO landing pages — <title> ≤66 chars (60 target + 10 % tolerance)', () => {
   if (!distExists) {
     it.skip('dist/ missing — skipping (run `npx vite build` first)', () => {});
     return;
@@ -123,7 +124,7 @@ describe('SEO landing pages — <title> ≤90 chars (uniqueness > strict 60)', (
     expect(files.length).toBeGreaterThan(0);
   });
 
-  it('every <title> in dist/ is ≤60 chars', () => {
+  it('every <title> in dist/ is ≤66 chars', () => {
     const violations: Array<{ file: string; len: number; title: string }> = [];
     for (const file of files) {
       if (exclude.has(file)) continue;

@@ -247,17 +247,74 @@ export function ogPagesPlugin(rootDir: string): Plugin {
   * across different slugs (e.g. legacy "omaggio-angeli" + 2026-suffixed
   * republish, or two FR translations of the same headline). Compute a
   * (locale → baseTitle → count) map after locale meta is parsed; when a
-  * baseTitle would collide, append an FNV-1a 8-char hash of the per-locale
-  * slug to the <title>. Mirrors jobsSeoPagesPlugin.buildTitleDisambiguator. */
- const articleHashFromSlug = (slug: string): string => {
-  const cleaned = String(slug || '').toLowerCase().replace(/[^a-z0-9-]+/g, '');
-  if (!cleaned) return '';
+  * baseTitle would collide, append a HUMAN-READABLE token derived from
+  * the slug — year, city, or trailing meaningful word. Falls back to an
+  * FNV-1a 8-char hash only when nothing extractable exists.
+  *
+  * Why readable > hash: Semrush counted 935 IT blog pages with `(#abcd1234)`
+  * visible in <title> on the 2026-05-05 audit. Hashes pass title-uniqueness
+  * but tank CTR and brand perception in SERP. The readable token (e.g.
+  * "(2026)", "— Bellinzona") preserves uniqueness AND adds context.
+  *
+  * Source-level fix (renaming colliding articles in
+  * services/locales/blog-meta-it.ts) is tracked separately — this is the
+  * runtime backstop. The audit:title-no-disambig-hash ratchet still
+  * monitors hash-only fallbacks so the count can only go down. */
+ const KNOWN_CITY_KEYS: ReadonlyArray<{ key: string; name: string }> = [
+  { key: 'lugano', name: 'Lugano' },
+  { key: 'mendrisio', name: 'Mendrisio' },
+  { key: 'bellinzona', name: 'Bellinzona' },
+  { key: 'locarno', name: 'Locarno' },
+  { key: 'chiasso', name: 'Chiasso' },
+  { key: 'ticino', name: 'Ticino' },
+  { key: 'milano', name: 'Milano' },
+  { key: 'como', name: 'Como' },
+  { key: 'varese', name: 'Varese' },
+  { key: 'lombardia', name: 'Lombardia' },
+ ];
+ const SLUG_STOPWORDS = new Set([
+  'di','da','del','della','dei','degli','delle','dal','con','per','tra','fra',
+  'il','lo','la','i','gli','le','un','uno','una','in','su','ai','dai','nei','sui',
+  'che','non','più','come','sono','articolo','news','update','aggiornamento',
+  'frontaliere','frontalieri','svizzera','italia','svizzeri','italiani',
+ ]);
+ const fnvHashHex = (token: string): string => {
   let h = 0x811c9dc5;
-  for (let i = 0; i < cleaned.length; i++) {
-   h ^= cleaned.charCodeAt(i);
+  for (let i = 0; i < token.length; i++) {
+   h ^= token.charCodeAt(i);
    h = Math.imul(h, 0x01000193) >>> 0;
   }
-  return ` (#${(h >>> 0).toString(16).padStart(8, '0')})`;
+  return (h >>> 0).toString(16).padStart(8, '0');
+ };
+ const articleHashFromSlug = (slug: string, currentTitle?: string): string => {
+  const cleaned = String(slug || '').toLowerCase().replace(/[^a-z0-9-]+/g, '');
+  if (!cleaned) return '';
+  // Lowercase title used to skip tokens already present in the headline
+  // (no point appending " (Bellinzona)" when the title already says it).
+  const titleLower = String(currentTitle || '').toLowerCase();
+  // 1. Year (4-digit, 20xx range) — strong, semantic, common in slugs.
+  const yearMatch = cleaned.match(/\b(20[2-3]\d)\b/);
+  if (yearMatch && !titleLower.includes(yearMatch[1])) {
+   return ` (${yearMatch[1]})`;
+  }
+  // 2. Known city / region — also semantic and helpful in SERP.
+  for (const c of KNOWN_CITY_KEYS) {
+   if (cleaned.includes(c.key) && !titleLower.includes(c.key)) {
+    return ` — ${c.name}`;
+   }
+  }
+  // 3. Trailing meaningful word (>3 chars, not a stopword, not in title).
+  const tokens = cleaned.split('-').filter(Boolean);
+  for (let i = tokens.length - 1; i >= 0; i--) {
+   const t = tokens[i];
+   if (t.length < 4) continue;
+   if (SLUG_STOPWORDS.has(t)) continue;
+   if (titleLower.includes(t)) continue;
+   return ` — ${t.charAt(0).toUpperCase()}${t.slice(1)}`;
+  }
+  // 4. Last-resort FNV hash. Rare path now — flagged by
+  //    audit:title-no-disambig-hash so the ratchet can drive it to zero.
+  return ` (#${fnvHashHex(cleaned)})`;
  };
  const articleTitleCollisions: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
   it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
@@ -566,7 +623,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
- const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale) : '';
+ const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale, localizedTitle) : '';
  // Reserve room for disambiguator AND brand inside the 70-char cap so the
  // disambiguator survives the headline-budget truncate. Without this manual
  // pre-truncate, multi-article collisions (auto-generated articles sharing
