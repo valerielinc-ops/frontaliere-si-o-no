@@ -18848,6 +18848,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bici-miliardi-varese-percorsi-ciclabili': {
+    title: 'Bici: miliardi in sei percorsi ciclabili a Varese',
+    description: 'La Regione Lombardia investe decine di milioni di euro in percorsi ciclabili, con sei itinerari che attraversano la provincia di Varese, un crocevia strategico',
+    keywords: 'frontalieri, ticino, svizzera, italia, bici, miliardi, percorsi, ciclabili',
+    ogTitle: 'La bici vale miliardi: sei percorsi ciclabili attraversano la provincia di Varese',
+    ogDescription: 'La Regione Lombardia investe decine di milioni di euro in percorsi ciclabili, con sei itinerari che attraversano la provincia di Varese, un crocevia strategico',
+    canonicalPath: '/articoli-frontaliere/bici-miliardi-varese-percorsi-ciclabili',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bici: miliardi in sei percorsi ciclabili a Varese",
+      "description": "La Regione Lombardia investe decine di milioni di euro in percorsi ciclabili, con sei itinerari che attraversano la provincia di Varese, un crocevia strategico",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/bici-miliardi-varese-percorsi-ciclabili.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ciclista che pedala lungo le rive del Lago di Lugano, in Ticino, Svizzera. L'immagine cattura la bellezza serena del lago con le Alpi sullo sfondo, mostrando i percorsi panoramici che attirano i ciclisti."
+      },
+      "datePublished": "2026-05-05T12:49:23+00:00",
+      "dateModified": "2026-05-05T12:49:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bici-miliardi-varese-percorsi-ciclabili`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

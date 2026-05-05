@@ -3289,6 +3289,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fitness-ticino-record-2026': { name: 'Fitness Ticino', path: '/articoli-frontaliere/fitness-ticino-record-2026', parent: 'blog' },
     'blog-education-day-varese-studenti': { name: 'Education Day', path: '/articoli-frontaliere/education-day-varese-studenti', parent: 'blog' },
     'blog-truck-lavoro-etico-varese-studenti-visori-3d': { name: 'Truck lavoro Varese', path: '/articoli-frontaliere/truck-lavoro-etico-varese-studenti-visori-3d', parent: 'blog' },
+    'blog-bici-miliardi-varese-percorsi-ciclabili': { name: 'Novità', path: '/articoli-frontaliere/bici-miliardi-varese-percorsi-ciclabili', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -19793,4 +19793,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bici-miliardi-varese-percorsi-ciclabili',
+ category: 'novita',
+ date: '2026-05-05T12:49:23.070Z',
+ image: '/images/blog/bici-miliardi-varese-percorsi-ciclabili.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

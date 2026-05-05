@@ -6140,6 +6140,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.title': 'Ethical and safe work truck in Varese with companies, students and 3D viewers',
     'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.excerpt': 'On Monday, May 11th in Piazza Monte Grappa in Varese, the Ethical and Safe Work Truck offers guidance and opportunities for students and the unemployed.',
     'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.imageAlt': 'Ethical and safe work truck in Varese square with companies, students, and 3D viewers',
+    'blog.article.bici-miliardi-varese-percorsi-ciclabili.title': 'Bikes: billions in six cycling routes in Varese',
+    'blog.article.bici-miliardi-varese-percorsi-ciclabili.excerpt': 'The Lombardy Region is investing tens of millions of euros in cycling paths, with six routes crossing the province of Varese, a strategic hub for cycle tourism.',
+    'blog.article.bici-miliardi-varese-percorsi-ciclabili.imageAlt': 'A cyclist riding along the shores of Lake Lugano, Ticino, Switzerland. The image captures the serene beauty of the lake with the Alps in the background, showcasing the scenic routes that attract cyclists.',
 };
 
 export default blogMetaEn;

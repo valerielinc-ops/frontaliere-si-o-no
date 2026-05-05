@@ -6141,6 +6141,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.title': 'Truck del lavoro etico e sicuro a Varese con aziende, studenti e visori 3D',
     'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.excerpt': 'Lunedì 11 maggio in piazza Monte Grappa a Varese, il Truck del lavoro etico e sicuro offre orientamento e opportunità per studenti e disoccupati.',
     'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.imageAlt': 'Truck del lavoro etico e sicuro in piazza a Varese con aziende, studenti e visori 3D',
+    'blog.article.bici-miliardi-varese-percorsi-ciclabili.title': 'Bici: miliardi in sei percorsi ciclabili a Varese',
+    'blog.article.bici-miliardi-varese-percorsi-ciclabili.excerpt': 'La Regione Lombardia investe decine di milioni di euro in percorsi ciclabili, con sei itinerari che attraversano la provincia di Varese, un crocevia strategico per il cicloturismo.',
+    'blog.article.bici-miliardi-varese-percorsi-ciclabili.imageAlt': 'Un ciclista che pedala lungo le rive del Lago di Lugano, in Ticino, Svizzera. L\'immagine cattura la bellezza serena del lago con le Alpi sullo sfondo, mostrando i percorsi panoramici che attirano i ciclisti.',
 };
 
 export default blogMetaIt;

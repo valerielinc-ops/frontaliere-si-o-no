@@ -6140,6 +6140,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.title': 'Arbeits-Truck für ethische und sichere Jobs in Varese',
     'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.excerpt': 'Am Montag, den 11. Mai auf dem Piazza Monte Grappa in Varese bietet der Arbeits-Truck für ethische und sichere Jobs Orientierung und Chancen für Schüler und Arbeitslose.',
     'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.imageAlt': 'Truck für ethische und sichere Arbeit auf dem Varese-Platz mit Unternehmen, Schülern und 3D-Brillen',
+    'blog.article.bici-miliardi-varese-percorsi-ciclabili.title': 'Radwege: Milliarden für sechs Routen in Varese',
+    'blog.article.bici-miliardi-varese-percorsi-ciclabili.excerpt': 'Die Region Lombardei investiert Dutzende Millionen Euro in Radwege, mit sechs Routen, die die Provinz Varese durchqueren, ein strategischer Knotenpunkt für den Radtourismus.',
+    'blog.article.bici-miliardi-varese-percorsi-ciclabili.imageAlt': 'Ein Radfahrer, der entlang der Ufer des Luganersees in der Schweiz fährt. Das Bild zeigt die ruhige Schönheit des Sees mit den Alpen im Hintergrund und präsentiert die malerischen Routen, die Radfahrer anziehen.',
 };
 
 export default blogMetaDe;
