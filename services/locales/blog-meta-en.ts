@@ -5954,6 +5954,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.elicottero-mezzovico-incidente-2026.title': 'Helicopter crashes in Mezzovico: several injured',
     'blog.article.elicottero-mezzovico-incidente-2026.excerpt': 'Accident in Mezzovico-Vira: private helicopter crashes, several injured. Firefighters, ambulances, Rega and Cantonal Police intervene.',
     'blog.article.elicottero-mezzovico-incidente-2026.imageAlt': 'Aerial view of Mezzovico-Vira in Ticino, Switzerland, with the landscape where the helicopter crash occurred.',
+    'blog.article.inarzo-festa-oasi-palude-brabbia-2026.title': 'Inarzo: Nature, Tales & Drag Queens at Oasi Festival',
+    'blog.article.inarzo-festa-oasi-palude-brabbia-2026.excerpt': 'On Sunday, May 10, 2026, the LIPU Reserve in Inarzo opens its doors with workshops, guided tours, and shows for all ages.',
+    'blog.article.inarzo-festa-oasi-palude-brabbia-2026.imageAlt': 'Palude Brabbia nature reserve in Inarzo, featuring flora and fauna up close',
 };
 
 export default blogMetaEn;

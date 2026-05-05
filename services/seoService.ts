@@ -3227,6 +3227,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani': { name: 'Blackdamp: memoria, sacrificio ed', path: '/articoli-frontaliere/blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani', parent: 'blog' },
     'blog-incidente-a8-castellanza-busto-arsizio-2026': { name: 'Incidente A8', path: '/articoli-frontaliere/incidente-a8-castellanza-busto-arsizio-2026', parent: 'blog' },
     'blog-elicottero-mezzovico-incidente-2026': { name: 'Incidente elicottero', path: '/articoli-frontaliere/elicottero-mezzovico-incidente-2026', parent: 'blog' },
+    'blog-inarzo-festa-oasi-palude-brabbia-2026': { name: 'Eventi', path: '/articoli-frontaliere/inarzo-festa-oasi-palude-brabbia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -5955,6 +5955,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.elicottero-mezzovico-incidente-2026.title': 'Elicottero precipita a Mezzovico: diversi feriti',
     'blog.article.elicottero-mezzovico-incidente-2026.excerpt': 'Incidente a Mezzovico-Vira: elicottero privato precipita, diversi feriti. Intervengono pompieri, ambulanze, Rega e Polizia cantonale.',
     'blog.article.elicottero-mezzovico-incidente-2026.imageAlt': 'Vista aerea di Mezzovico-Vira in Ticino, Svizzera, con il paesaggio dove è avvenuto il incidente dell\'elicottero.',
+    'blog.article.inarzo-festa-oasi-palude-brabbia-2026.title': 'Inarzo: natura, favole e drag queen alla Festa Oasi della Palude Brabbia',
+    'blog.article.inarzo-festa-oasi-palude-brabbia-2026.excerpt': 'Domenica 10 maggio 2026 la Riserva LIPU di Inarzo apre le porte con laboratori, visite guidate e spettacoli per tutte le età.',
+    'blog.article.inarzo-festa-oasi-palude-brabbia-2026.imageAlt': 'Riserva naturale Palude Brabbia a Inarzo, con flora e fauna in primo piano',
 };
 
 export default blogMetaIt;

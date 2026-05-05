@@ -5955,6 +5955,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.elicottero-mezzovico-incidente-2026.title': 'Hélicoptère s\'écrase à Mezzovico: plusieurs blessés',
     'blog.article.elicottero-mezzovico-incidente-2026.excerpt': 'Accident à Mezzovico-Vira: un hélicoptère privé s\'écrase, plusieurs blessés. Les pompiers, ambulances, Rega et la police cantonale interviennent.',
     'blog.article.elicottero-mezzovico-incidente-2026.imageAlt': 'Vue aérienne de Mezzovico-Vira dans le Tessin, Suisse, avec le paysage où s\'est produit l\'accident d\'hélicoptère.',
+    'blog.article.inarzo-festa-oasi-palude-brabbia-2026.title': 'Inarzo: nature, contes et drag queen à la Fête de l\'Oasis de la Palude Brabbia',
+    'blog.article.inarzo-festa-oasi-palude-brabbia-2026.excerpt': 'Dimanche 10 mai 2026, la Réserve LIPU d\'Inarzo ouvre ses portes avec des ateliers, des visites guidées et des spectacles pour tous les âges.',
+    'blog.article.inarzo-festa-oasi-palude-brabbia-2026.imageAlt': 'Réserve naturelle Palude Brabbia à Inarzo, mettant en avant la flore et la faune',
 };
 
 export default blogMetaFr;
