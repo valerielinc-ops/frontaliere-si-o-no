@@ -6113,6 +6113,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swiss-voice-tour-tenero-2026.title': 'Swiss Voice Tour in Tenero: Gesangswettbewerb im Einkaufszentrum',
     'blog.article.swiss-voice-tour-tenero-2026.excerpt': 'Vom 12. bis 16. Mai 2026 treten junge Talente und Erwachsene gegeneinander an, um ins Finale des Wettbewerbs zu kommen. Als Juror fungiert Paolo Meneguzzi.',
     'blog.article.swiss-voice-tour-tenero-2026.imageAlt': 'Swiss Voice Tour im Einkaufszentrum Tenero, Tessin',
+    'blog.article.guida-svizzera-frontalieri-2026.title': 'Arbeiten im Tessin: Wichtiges für Grenzgänger',
+    'blog.article.guida-svizzera-frontalieri-2026.excerpt': 'Erfahren Sie, wie Sie einen Job finden, welche Verkehrsmittel Sie nutzen können und wer die medizinischen Kosten in der Schweiz übernimmt',
+    'blog.article.guida-svizzera-frontalieri-2026.imageAlt': 'Luftansicht von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

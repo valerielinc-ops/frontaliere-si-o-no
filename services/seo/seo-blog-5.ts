@@ -18506,6 +18506,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-svizzera-frontalieri-2026': {
+    title: 'Guida alla Svizzera: cosa sapere per lavorare in Ticino',
+    description: 'Scopri come trovare lavoro, quali mezzi di trasporto usare e chi paga le spese mediche in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alla, cosa, sapere, lavorare',
+    ogTitle: 'Guida alla Svizzera: cosa sapere per lavorare in Ticino',
+    ogDescription: 'Scopri come trovare lavoro, quali mezzi di trasporto usare e chi paga le spese mediche in Svizzera',
+    canonicalPath: '/articoli-frontaliere/guida-svizzera-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida alla Svizzera: cosa sapere per lavorare in Ticino",
+      "description": "Scopri come trovare lavoro, quali mezzi di trasporto usare e chi paga le spese mediche in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/guida-svizzera-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-05T11:26:39+00:00",
+      "dateModified": "2026-05-05T11:26:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-svizzera-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

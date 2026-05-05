@@ -6114,6 +6114,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-voice-tour-tenero-2026.title': 'Swiss Voice Tour torna a Tenero: concorso canoro al Centro commerciale',
     'blog.article.swiss-voice-tour-tenero-2026.excerpt': 'Dal 12 al 16 maggio 2026, giovani talenti e adulti si sfideranno per accedere alle fasi finali del concorso con Paolo Meneguzzi come giurato.',
     'blog.article.swiss-voice-tour-tenero-2026.imageAlt': 'Swiss Voice Tour al Centro commerciale di Tenero, Ticino',
+    'blog.article.guida-svizzera-frontalieri-2026.title': 'Guida alla Svizzera: cosa sapere per lavorare in Ticino',
+    'blog.article.guida-svizzera-frontalieri-2026.excerpt': 'Scopri come trovare lavoro, quali mezzi di trasporto usare e chi paga le spese mediche in Svizzera',
+    'blog.article.guida-svizzera-frontalieri-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;
