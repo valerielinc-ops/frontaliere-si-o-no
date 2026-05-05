@@ -5988,6 +5988,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prigioni-ticino-sovraffollate-2026.title': 'Prigioni Ticino sovraffollate: marcato peggioramento',
     'blog.article.prigioni-ticino-sovraffollate-2026.excerpt': 'Le strutture carcerarie ticinesi segnalano livelli di occupazione estremamente elevati, con margini di manovra pressoché nulli.',
     'blog.article.prigioni-ticino-sovraffollate-2026.imageAlt': 'Vista aerea di una prigione sovraffollata in Ticino',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.title': 'Folgorato alla stazione di Bellinzona, morto un uomo',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.excerpt': 'Incidente mortale alla stazione di Bellinzona: un uomo folgorato da una scarica elettrica. Le cause sono in fase di accertamento.',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.imageAlt': 'Stazione ferroviaria di Bellinzona di notte con luci di emergenza e presenza della polizia',
 };
 
 export default blogMetaIt;

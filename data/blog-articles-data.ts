@@ -19334,4 +19334,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'folgorato-stazione-bellinzona-morto-uomo',
+ category: 'novita',
+ date: '2026-05-05T04:18:35.789Z',
+ image: '/images/blog/folgorato-stazione-bellinzona-morto-uomo.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

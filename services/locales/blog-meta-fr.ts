@@ -5988,6 +5988,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.prigioni-ticino-sovraffollate-2026.title': 'Prisons du Tessin surpeuplées: aggravation marquée',
     'blog.article.prigioni-ticino-sovraffollate-2026.excerpt': 'Les établissements pénitentiaires tessinois signalent des niveaux d\'occupation extrêmement élevés, avec des marges de manœuvre quasi nulles.',
     'blog.article.prigioni-ticino-sovraffollate-2026.imageAlt': 'Vue aérienne d\'une prison surpeuplée au Tessin',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.title': 'Un homme électrocuté à la gare de Bellinzona',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.excerpt': 'Accident mortel à la gare de Bellinzona : un homme électrocuté par une décharge électrique. Les causes sont en cours d\'examen.',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.imageAlt': 'Gare de Bellinzona la nuit avec des lumières d\'urgence et la présence de la police',
 };
 
 export default blogMetaFr;

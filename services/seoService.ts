@@ -3238,6 +3238,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-scontri-lugano-politica-toni': { name: 'Novità', path: '/articoli-frontaliere/scontri-lugano-politica-toni', parent: 'blog' },
     'blog-svizzera-istruzioni-uso-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/svizzera-istruzioni-uso-frontalieri', parent: 'blog' },
     'blog-prigioni-ticino-sovraffollate-2026': { name: 'Prigioni Ticino', path: '/articoli-frontaliere/prigioni-ticino-sovraffollate-2026', parent: 'blog' },
+    'blog-folgorato-stazione-bellinzona-morto-uomo': { name: 'Novità', path: '/articoli-frontaliere/folgorato-stazione-bellinzona-morto-uomo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

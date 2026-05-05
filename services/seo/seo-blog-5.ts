@@ -17577,6 +17577,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-folgorato-stazione-bellinzona-morto-uomo': {
+    title: 'Folgorato alla stazione di Bellinzona, morto un uomo',
+    description: 'Incidente mortale alla stazione di Bellinzona: un uomo folgorato da una scarica elettrica. Le cause sono in fase di accertamento. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, folgorato, alla, stazione, bellinzona',
+    ogTitle: 'Folgorato alla stazione di Bellinzona, morto un uomo',
+    ogDescription: 'Incidente mortale alla stazione di Bellinzona: un uomo folgorato da una scarica elettrica. Le cause sono in fase di accertamento.',
+    canonicalPath: '/articoli-frontaliere/folgorato-stazione-bellinzona-morto-uomo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Folgorato alla stazione di Bellinzona, morto un uomo",
+      "description": "Incidente mortale alla stazione di Bellinzona: un uomo folgorato da una scarica elettrica. Le cause sono in fase di accertamento. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/folgorato-stazione-bellinzona-morto-uomo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Bellinzona di notte con luci di emergenza e presenza della polizia"
+      },
+      "datePublished": "2026-05-05T04:18:35+00:00",
+      "dateModified": "2026-05-05T04:18:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/folgorato-stazione-bellinzona-morto-uomo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

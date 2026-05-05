@@ -5987,6 +5987,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.prigioni-ticino-sovraffollate-2026.title': 'Overcrowded prisons in Ticino: sharp deterioration',
     'blog.article.prigioni-ticino-sovraffollate-2026.excerpt': 'Ticino\'s prison facilities report extremely high occupancy levels, with virtually no room for maneuver.',
     'blog.article.prigioni-ticino-sovraffollate-2026.imageAlt': 'Aerial view of an overcrowded prison in Ticino',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.title': 'Man electrocuted at Bellinzona station',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.excerpt': 'Fatal accident at Bellinzona station: a man was electrocuted by an electric discharge. The causes are being investigated.',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.imageAlt': 'Bellinzona train station at night with emergency lights and police presence',
 };
 
 export default blogMetaEn;

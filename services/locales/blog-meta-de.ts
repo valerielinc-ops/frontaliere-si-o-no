@@ -5987,6 +5987,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prigioni-ticino-sovraffollate-2026.title': 'Überfüllte Gefängnisse im Tessin: deutliche Verschlechterung',
     'blog.article.prigioni-ticino-sovraffollate-2026.excerpt': 'Die Gefängnisse im Tessin melden extrem hohe Auslastungsgrade, mit kaum noch Spielraum.',
     'blog.article.prigioni-ticino-sovraffollate-2026.imageAlt': 'Luftaufnahme eines überfüllten Gefängnisses im Tessin',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.title': 'Mann in Bellinzona durch Stromschlag getötet',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.excerpt': 'Tödlicher Unfall am Bahnhof Bellinzona: Ein Mann wurde durch einen Stromschlag getötet. Die Ursachen werden noch untersucht.',
+    'blog.article.folgorato-stazione-bellinzona-morto-uomo.imageAlt': 'Bellinzona Bahnhof in der Nacht mit Notlichtern und Polizeipräsenz',
 };
 
 export default blogMetaDe;
