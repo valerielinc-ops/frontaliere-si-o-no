@@ -1440,6 +1440,79 @@ function renderFuelTodayMethodologyAndScenarios(args: {
   </section>`;
 }
 
+/**
+ * "Recent months archive" navigator block on the daily fuel page.
+ *
+ * The monthly archive pages emitted by {@link generateFuelArchivePages}
+ * (paths built via {@link buildFuelArchivePath}) were previously linked
+ * from no internal `<a>` — the BFS audit flagged them as orphan in
+ * `sitemap-fuel-daily.xml`. This helper renders a compact list of links
+ * to the most-recent N past months for each (zone, fuel) pair so every
+ * archive page is reachable at BFS depth 2 from `/`.
+ *
+ * Behaviour:
+ *  - Regional today page (zone === null): emits one row per Ticino zone
+ *    × the last 6 past months it has data for (60 links total in the
+ *    worst case — 5 zones × N months × 1 fuel per page).
+ *  - Per-zone today page: emits the last 6 past months for the same zone.
+ *
+ * Skips the current month (those URLs are 404 — archives only emit for
+ * past months, and the current month is served by the today page itself).
+ */
+function renderRecentMonthsArchiveNav(args: {
+  locale: FuelDailyLocale;
+  fuel: FuelType;
+  zone: FuelZone | null;
+  history: HistorySnapshot[];
+  today: Date;
+  maxMonths?: number;
+}): string {
+  const { locale, fuel, zone, history, today } = args;
+  const maxMonths = args.maxMonths ?? 6;
+  const currentMonth = today.toISOString().slice(0, 7);
+
+  // Collect distinct YYYY-MM keys present in history, excluding the
+  // current month (today page covers it; archive page would 404).
+  const monthsAvailable = new Set<string>();
+  for (const snap of history) {
+    if (typeof snap.date === 'string' && snap.date.length >= 7) {
+      const m = snap.date.slice(0, 7);
+      if (m < currentMonth) monthsAvailable.add(m);
+    }
+  }
+  if (monthsAvailable.size === 0) return '';
+
+  const recentMonths = Array.from(monthsAvailable).sort().reverse().slice(0, maxMonths);
+  const zonesToList: FuelZone[] = zone ? [zone] : [...FUEL_ZONES];
+
+  const heading = COPY[locale].archiveLabel; // already localised: "Archivio mensile" / "Monthly archive" / "Monatsarchiv" / "Archive mensuelle"
+
+  // Group structure: one <ul> per zone (or single zone for per-zone pages)
+  // with month-key links.
+  const groups = zonesToList
+    .map((z) => {
+      const zoneLabel = FUEL_ZONE_DISPLAY[z];
+      const lis = recentMonths
+        .map((monthKey) => {
+          const href = buildFuelArchivePath(locale, fuel, z, monthKey);
+          return `<li style="margin:0"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(monthKey)}</a></li>`;
+        })
+        .join('');
+      // For regional pages, include zone label; for per-zone pages, omit
+      // (the section already implies the zone).
+      const zoneHeader = zone
+        ? ''
+        : `<p style="margin:12px 0 6px;font-weight:700;color:var(--color-heading);font-size:14px">${esc(zoneLabel)}</p>`;
+      return `${zoneHeader}<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px">${lis}</ul>`;
+    })
+    .join('');
+
+  return `<aside style="${CARD_STYLE};margin:24px 0;padding:18px 20px" aria-labelledby="fuelArchiveNav">
+    <h2 id="fuelArchiveNav" style="${H2_STYLE};margin:0 0 8px;font-size:18px">${esc(heading)}</h2>
+    ${groups}
+  </aside>`;
+}
+
 function renderPage(inp: PageInputs): string {
   const { locale, fuel, zone, dataset, history, canonicalPath, today, alternates, distDir, rootDir } = inp;
   const copy = COPY[locale];
@@ -1715,6 +1788,7 @@ function renderPage(inp: PageInputs): string {
       })
     : ''}
   ${renderFuelIndexHubLinks({ locale, fuel })}
+  ${renderRecentMonthsArchiveNav({ locale, fuel, zone, history, today })}
   ${renderDiscoverMore(locale, FUEL_DAILY_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'fuel_daily', { fuelType: fuel, fuelZone: zone ?? undefined, city: zone ?? undefined })}
   <section style="margin-top:32px" aria-label="advertisement">
