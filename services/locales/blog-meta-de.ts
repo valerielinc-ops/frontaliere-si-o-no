@@ -6200,6 +6200,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tragedia-braunwald-camminatore-disperso.title': 'Tragödie in Braunwald: Wanderer nach Unfall vermisst',
     'blog.article.tragedia-braunwald-camminatore-disperso.excerpt': 'Ein Wanderer ist nach einem Unfall in Braunwald verschwunden. Die Behörden suchen weiterhin nach dem Vermissten.',
     'blog.article.tragedia-braunwald-camminatore-disperso.imageAlt': 'Rettungsteams im Einsatz in der Nähe von Braunwald nach der Tragödie des vermissten Wanderers',
+    'blog.article.20mila-firme-autostrada-pedaggio.title': '20.000 Unterschriften gegen Maut in Lombardei',
+    'blog.article.20mila-firme-autostrada-pedaggio.excerpt': 'Angelo Orsenigo und Gigi Ponti, Regionalräte der Pd, haben 20.000 Unterschriften gegen die Maut auf der Pedemontana Milano-Meda gesammelt',
+    'blog.article.20mila-firme-autostrada-pedaggio.imageAlt': 'Luftaufnahme einer belebten Autobahn in der Lombardei mit Schildern für eine neue Mautstraße',
 };
 
 export default blogMetaDe;

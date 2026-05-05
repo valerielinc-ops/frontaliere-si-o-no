@@ -6201,6 +6201,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tragedia-braunwald-camminatore-disperso.title': 'Tragédie à Braunwald : un randonneur disparu après un accident',
     'blog.article.tragedia-braunwald-camminatore-disperso.excerpt': 'Un randonneur a disparu après un accident à Braunwald. Les autorités recherchent toujours le disparu.',
     'blog.article.tragedia-braunwald-camminatore-disperso.imageAlt': 'Équipes de secours en action près de Braunwald après la tragédie du randonneur disparu',
+    'blog.article.20mila-firme-autostrada-pedaggio.title': '20 000 signatures contre l\'autoroute à péage en Lombardie',
+    'blog.article.20mila-firme-autostrada-pedaggio.excerpt': 'Angelo Orsenigo et Gigi Ponti, conseillers régionaux du Pd, ont recueilli 20 000 signatures contre le péage sur la Pedemontana Milan-Meda',
+    'blog.article.20mila-firme-autostrada-pedaggio.imageAlt': 'Vue aérienne d\'une autoroute fréquentée en Lombardie avec des panneaux pour une nouvelle autoroute à péage',
 };
 
 export default blogMetaFr;

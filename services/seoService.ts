@@ -3309,6 +3309,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aarau-arresto-somalier-auto-delitto': { name: 'Aarau: 23enne somalo arrestato', path: '/articoli-frontaliere/aarau-arresto-somalier-auto-delitto', parent: 'blog' },
     'blog-expat-ticino-sventa-truffa-hacker': { name: 'Truffe online', path: '/articoli-frontaliere/expat-ticino-sventa-truffa-hacker', parent: 'blog' },
     'blog-tragedia-braunwald-camminatore-disperso': { name: 'Novità', path: '/articoli-frontaliere/tragedia-braunwald-camminatore-disperso', parent: 'blog' },
+    'blog-20mila-firme-autostrada-pedaggio': { name: 'Novità', path: '/articoli-frontaliere/20mila-firme-autostrada-pedaggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -6201,6 +6201,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tragedia-braunwald-camminatore-disperso.title': 'Tragedia a Braunwald: camminatore disperso dopo un incidente',
     'blog.article.tragedia-braunwald-camminatore-disperso.excerpt': 'Un camminatore è scomparso dopo un incidente a Braunwald. Le autorità sono ancora alla ricerca del disperso.',
     'blog.article.tragedia-braunwald-camminatore-disperso.imageAlt': 'Soccorritori in azione nella zona di Braunwald dopo la tragedia del camminatore disperso',
+    'blog.article.20mila-firme-autostrada-pedaggio.title': '20mila firme contro l\'autostrada a pagamento in Lombardia',
+    'blog.article.20mila-firme-autostrada-pedaggio.excerpt': 'Angelo Orsenigo e Gigi Ponti, consiglieri regionali del Pd, hanno raccolto 20mila firme contro il pedaggio sulla Pedemontana Milano-Meda',
+    'blog.article.20mila-firme-autostrada-pedaggio.imageAlt': 'Vista aerea di un\'autostrada trafficata in Lombardia con segnalazioni per una nuova autostrada a pedaggio',
 };
 
 export default blogMetaIt;

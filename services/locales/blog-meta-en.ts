@@ -6200,6 +6200,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tragedia-braunwald-camminatore-disperso.title': 'Tragedy in Braunwald: Hiker Missing After Accident',
     'blog.article.tragedia-braunwald-camminatore-disperso.excerpt': 'A hiker has gone missing after an incident in Braunwald. Authorities are still searching for the missing person.',
     'blog.article.tragedia-braunwald-camminatore-disperso.imageAlt': 'Rescue teams in action near Braunwald after the tragedy of the missing hiker',
+    'blog.article.20mila-firme-autostrada-pedaggio.title': '20,000 signatures against Lombardy toll road',
+    'blog.article.20mila-firme-autostrada-pedaggio.excerpt': 'Angelo Orsenigo and Gigi Ponti, regional councilors of the Pd, have collected 20,000 signatures against the toll on the Milan-Meda Pedemontana',
+    'blog.article.20mila-firme-autostrada-pedaggio.imageAlt': 'Aerial view of a busy highway in Lombardy with signs for a new toll road',
 };
 
 export default blogMetaEn;

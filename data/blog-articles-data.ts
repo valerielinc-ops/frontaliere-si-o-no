@@ -19973,4 +19973,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: '20mila-firme-autostrada-pedaggio',
+ category: 'novita',
+ date: '2026-05-05T22:14:58.250Z',
+ image: '/images/blog/20mila-firme-autostrada-pedaggio.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
