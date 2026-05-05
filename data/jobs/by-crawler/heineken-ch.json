@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-05-04T22:02:25.251Z",
+  "assembledAt": "2026-05-05T10:49:04.502Z",
   "jobs": [
     {
       "id": "heineken-ch-4f6eb0ce9007",
@@ -47,7 +47,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382246633/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:22.609Z",
+      "crawledAt": "2026-05-05T10:49:02.073Z",
       "previousSlugs": [
         "title-truck-driver-heineken-ch-content-width-device-width",
         "truck-driver-heineken-ch-baltschieder",
@@ -127,7 +127,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382487733/?locale=fr_FR",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T22:02:21.987Z",
+      "crawledAt": "2026-05-05T10:49:01.417Z",
       "requirementsByLocale": {
         "it": [
           "Esperienza di vendita nel servizio esterno e nell'industria dei beni di consumo",
@@ -252,7 +252,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1292599001/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:21.334Z",
+      "crawledAt": "2026-05-05T10:49:00.761Z",
       "requirementsByLocale": {
         "it": [
           "Formazione completata WSET Level 2 o 3 corso (Vini e Spiriti) desiderabile",
@@ -293,6 +293,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -352,7 +353,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1383306433/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:20.716Z",
+      "crawledAt": "2026-05-05T10:49:00.077Z",
       "previousSlugs": [
         "title-lernende-r-logistik-in-domat-ems-heineken-ch-content-width-device-width",
         "lernende-r-logistik-in-domat-ems-heineken-ch",
@@ -436,7 +437,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1383258233/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:20.090Z",
+      "crawledAt": "2026-05-05T10:48:59.378Z",
       "previousSlugs": [
         "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
         "autista-c-e-heineken-switzerland-luzern",
@@ -539,7 +540,10 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1383484533/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:19.460Z",
+      "crawledAt": "2026-05-05T10:48:58.706Z",
+      "previousSlugs": [
+        "bezeichnung-lernende-r-logistik-in-domat-ems-heineken-ch-content-width-device-width"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "bezeichnung-lernende-r-logistik-in-domat-ems-heineken-ch-content-width-device-width"
@@ -551,9 +555,6 @@
           "bezeichnung-lernende-r-logistik-in-domat-ems-heineken-ch-content-width-device-width"
         ]
       },
-      "previousSlugs": [
-        "bezeichnung-lernende-r-logistik-in-domat-ems-heineken-ch-content-width-device-width"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-04T11:00:15.993Z",
       "salaryMin": 41600,
@@ -615,7 +616,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366138833/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:18.829Z",
+      "crawledAt": "2026-05-05T10:48:58.048Z",
       "requirementsByLocale": {
         "it": [
           "Formazione professionale completata, preferibilmente come Logisticista/Logisticista",
@@ -667,6 +668,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -726,7 +728,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1385805733/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:18.189Z",
+      "crawledAt": "2026-05-05T10:48:57.387Z",
       "previousSlugs": [
         "bezeichnung-teamleiter-in-logistik-getrankelager-heineken-ch-content-width-device-width",
         "teamleiter-in-logistik-getrankelager-heineken-ch-luzern",
@@ -810,7 +812,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366711633/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:17.574Z",
+      "crawledAt": "2026-05-05T10:48:56.710Z",
       "requirementsByLocale": {
         "it": [
           "Piacere nel trattare con le persone",
@@ -857,6 +859,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -916,7 +919,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1378113133/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:16.939Z",
+      "crawledAt": "2026-05-05T10:48:56.047Z",
       "previousSlugs": [
         "logistician-heineken-ch-denges",
         "title-logistician-heineken-ch-content-width-device-width",
@@ -939,6 +942,7 @@
         ]
       },
       "firstSeenAt": "2026-04-22T21:49:11.241Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -998,7 +1002,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1283406601/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-04T22:02:16.168Z",
+      "crawledAt": "2026-05-05T10:48:55.378Z",
       "requirementsByLocale": {
         "it": [
           "Formazione come brauer o tecnologo alimentare specializzato in birrificio",
@@ -1033,6 +1037,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
