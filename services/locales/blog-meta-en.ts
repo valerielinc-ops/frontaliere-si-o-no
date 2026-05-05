@@ -6002,6 +6002,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tensioni-geopolitiche-elettrico-ticino.title': 'Geopolitical tensions drive Ticino towards electric',
     'blog.article.tensioni-geopolitiche-elettrico-ticino.excerpt': 'Electric car sales in Ticino are growing, but at a slower pace than the rest of Switzerland.',
     'blog.article.tensioni-geopolitiche-elettrico-ticino.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.crans-montana-disgelo-italia-svizzera.title': 'Crans-Montana, thaw between Italy and Switzerland',
+    'blog.article.crans-montana-disgelo-italia-svizzera.excerpt': 'After months of tension, Ambassador Cornado softens the tone. Gianini: some statements have been counterproductive.',
+    'blog.article.crans-montana-disgelo-italia-svizzera.imageAlt': 'Crans-Montana landscape with Italian and Swiss flags',
 };
 
 export default blogMetaEn;

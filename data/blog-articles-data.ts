@@ -19379,4 +19379,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'crans-montana-disgelo-italia-svizzera',
+ category: 'novita',
+ date: '2026-05-05T05:47:42.927Z',
+ image: '/images/blog/crans-montana-disgelo-italia-svizzera.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

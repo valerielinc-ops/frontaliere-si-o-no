@@ -6003,6 +6003,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tensioni-geopolitiche-elettrico-ticino.title': 'Tensioni geopolitiche spingono verso l\'elettrico in Ticino',
     'blog.article.tensioni-geopolitiche-elettrico-ticino.excerpt': 'Le vendite di auto elettriche in Ticino crescono, ma con ritmi più lenti rispetto al resto della Svizzera.',
     'blog.article.tensioni-geopolitiche-elettrico-ticino.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.crans-montana-disgelo-italia-svizzera.title': 'Crans-Montana, disgelo tra Italia e Svizzera',
+    'blog.article.crans-montana-disgelo-italia-svizzera.excerpt': 'Dopo mesi di tensioni, l\'ambasciatore Cornado smorza i toni. Gianini: alcune uscite sono state controproducenti.',
+    'blog.article.crans-montana-disgelo-italia-svizzera.imageAlt': 'Paesaggio di Crans-Montana con bandiere italiana e svizzera',
 };
 
 export default blogMetaIt;

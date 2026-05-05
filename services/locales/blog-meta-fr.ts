@@ -6003,6 +6003,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tensioni-geopolitiche-elettrico-ticino.title': 'Tensions géopolitiques poussent vers l’électrique au Tessin',
     'blog.article.tensioni-geopolitiche-elettrico-ticino.excerpt': 'Les ventes de voitures électriques au Tessin augmentent, mais à un rythme plus lent que dans le reste de la Suisse.',
     'blog.article.tensioni-geopolitiche-elettrico-ticino.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.crans-montana-disgelo-italia-svizzera.title': 'Crans-Montana, détente entre l\'Italie et la Suisse',
+    'blog.article.crans-montana-disgelo-italia-svizzera.excerpt': 'Après des mois de tensions, l\'ambassadeur Cornado adoucit les tons. Gianini: certaines déclarations ont été contre-productives.',
+    'blog.article.crans-montana-disgelo-italia-svizzera.imageAlt': 'Paysage de Crans-Montana avec les drapeaux italien et suisse',
 };
 
 export default blogMetaFr;
