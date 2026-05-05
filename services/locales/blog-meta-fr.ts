@@ -6174,6 +6174,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.servizio-civile-legge-nefasta-frontalieri.title': 'Service civil: l\'alliance du non alerte sur les risques',
     'blog.article.servizio-civile-legge-nefasta-frontalieri.excerpt': 'Réduction de 40% des effectifs mettrait en péril les maisons de retraite, les écoles et l\'environnement. Vote le 14 juin',
     'blog.article.servizio-civile-legge-nefasta-frontalieri.imageAlt': 'Volontaire du service civil en action au bord du lac de Lugano',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.title': 'Deux Marocains arrêtés pour vol au Carrefour',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.excerpt': 'Deux citoyens marocains sans domicile fixe ont été arrêtés pour tentative de vol et vol aggravé après un épisode au Carrefour de via Recchi.',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.imageAlt': 'Police de Côme au Carrefour de la via Recchi la nuit',
 };
 
 export default blogMetaFr;

@@ -19892,4 +19892,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'furto-carrefour-como-marocchini-arrestati',
+ category: 'novita',
+ date: '2026-05-05T20:01:05.335Z',
+ image: '/images/blog/furto-carrefour-como-marocchini-arrestati.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

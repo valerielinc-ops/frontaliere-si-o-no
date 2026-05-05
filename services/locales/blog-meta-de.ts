@@ -6173,6 +6173,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.servizio-civile-legge-nefasta-frontalieri.title': 'Zivilschutz: Allianz warnt vor Risiken',
     'blog.article.servizio-civile-legge-nefasta-frontalieri.excerpt': 'Reduktion der Einsatzkräfte um 40% gefährdet Altersheime, Schulen und Umwelt. Abstimmung am 14. Juni',
     'blog.article.servizio-civile-legge-nefasta-frontalieri.imageAlt': 'Zivildienst-Freiwilliger bei einer Veranstaltung am Luganersee',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.title': 'Zwei Marokkaner in Como wegen Carrefour-Diebstahl festgenommen',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.excerpt': 'Zwei marokkanische Staatsbürger ohne festen Wohnsitz wurden nach einem Vorfall im Carrefour in der Via Recchi wegen versuchten Raubes und schweren Diebstahls festgenommen.',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.imageAlt': 'Polizei von Como beim Carrefour an der via Recchi nachts',
 };
 
 export default blogMetaDe;

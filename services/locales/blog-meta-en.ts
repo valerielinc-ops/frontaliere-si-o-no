@@ -6173,6 +6173,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.servizio-civile-legge-nefasta-frontalieri.title': 'Civil service: No alliance warns of risks',
     'blog.article.servizio-civile-legge-nefasta-frontalieri.excerpt': '40% reduction in personnel would put nursing homes, schools, and the environment at risk. Vote on June 14',
     'blog.article.servizio-civile-legge-nefasta-frontalieri.imageAlt': 'Civil service volunteer working at Lugano lakeside event',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.title': 'Two Moroccans arrested for Carrefour theft in Como',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.excerpt': 'Two homeless Moroccan citizens were arrested for attempted robbery and aggravated theft after an incident at the Carrefour on via Recchi.',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.imageAlt': 'Como Police at Carrefour on via Recchi at night',
 };
 
 export default blogMetaEn;

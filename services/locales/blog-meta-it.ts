@@ -6174,6 +6174,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.servizio-civile-legge-nefasta-frontalieri.title': 'Servizio civile: alleanza del no avverte sui rischi',
     'blog.article.servizio-civile-legge-nefasta-frontalieri.excerpt': 'Riduzione del 40% degli effettivi metterebbe a rischio case anziani, scuole e ambiente. Voto il 14 giugno',
     'blog.article.servizio-civile-legge-nefasta-frontalieri.imageAlt': 'Volontario del servizio civile in azione sul lungolago di Lugano',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.title': 'Como, arrestati due marocchini per furto al Carrefour',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.excerpt': 'Due cittadini marocchini senza fissa dimora sono stati arrestati per tentata rapina e furto aggravato dopo un episodio al Carrefour di via Recchi.',
+    'blog.article.furto-carrefour-como-marocchini-arrestati.imageAlt': 'Polizia di Stato di Como presso il Carrefour di via Recchi di notte',
 };
 
 export default blogMetaIt;
