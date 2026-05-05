@@ -301,6 +301,8 @@ jobs:
             npm run audit:news-sitemap
           spawn_capped audit:title-length            /tmp/g17.log \
             npm run audit:title-length
+          spawn_capped audit:title-no-disambig-hash  /tmp/g17b.log \
+            npm run audit:title-no-disambig-hash
           spawn_capped audit:image-object-license    /tmp/g18.log \
             npm run audit:image-object-license
           spawn_capped audit:max-bfs-depth           /tmp/g19.log \
