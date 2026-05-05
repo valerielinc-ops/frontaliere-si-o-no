@@ -6122,6 +6122,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.title': 'Universitätsspital Zürich: Schwere Mängel in Herzchirurgie',
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.excerpt': 'Das Universitätsspital Zürich räumt schwere Mängel in der Herzchirurgie zwischen 2016 und 2020 ein, mit Dutzenden unerwarteten Todesfällen und Fällen, die der Staatsanwaltschaft gemeldet wurden.',
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.imageAlt': 'Luftansicht von Castelgrande in Bellinzona, Tessin, Schweiz',
+    'blog.article.libretto-digitale-militare-ticino-2026.title': 'Digitaler Dienstausweis: Änderungen für Militär und Zivilschutz',
+    'blog.article.libretto-digitale-militare-ticino-2026.excerpt': 'Ab dem 1. Juni 2026 wird der Dienstausweis digital. Hier erfahren Sie, was sich für Militär und Zivilschutz ändert.',
+    'blog.article.libretto-digitale-militare-ticino-2026.imageAlt': 'Digitaler Militärbuch mit Castelgrande im Hintergrund',
 };
 
 export default blogMetaDe;

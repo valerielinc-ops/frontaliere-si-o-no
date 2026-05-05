@@ -6123,6 +6123,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.title': 'Hôpital universitaire de Zurich, graves lacunes en chirurgie cardiaque',
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.excerpt': 'L\'Hôpital universitaire de Zurich admet de graves lacunes en chirurgie cardiaque entre 2016 et 2020, avec des dizaines de décès inattendus et des cas signalés au procureur.',
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.imageAlt': 'Vue aérienne du Castelgrande à Bellinzone, Tessin, Suisse',
+    'blog.article.libretto-digitale-militare-ticino-2026.title': 'Carnets de service numériques : ce qui change pour les militaires',
+    'blog.article.libretto-digitale-militare-ticino-2026.excerpt': 'À partir du 1er juin 2026, le carnet de service devient numérique. Voici ce qui change pour les militaires et la protection civile.',
+    'blog.article.libretto-digitale-militare-ticino-2026.imageAlt': 'Livre numérique militaire avec Castelgrande en arrière-plan',
 };
 
 export default blogMetaFr;

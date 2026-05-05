@@ -6123,6 +6123,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.title': 'Ospedale universitario di Zurigo, gravi mancanze in cardiochirurgia',
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.excerpt': 'L\'Ospedale universitario di Zurigo ammette gravi mancanze nella cardiochirurgia tra il 2016 e il 2020, con decine di decessi inattesi e casi segnalati alla procura.',
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.imageAlt': 'Vista aerea del Castelgrande a Bellinzona, Ticino, Svizzera',
+    'blog.article.libretto-digitale-militare-ticino-2026.title': 'Libretto di servizio digitale: cosa cambia per i militari',
+    'blog.article.libretto-digitale-militare-ticino-2026.excerpt': 'Dal 1° giugno 2026 il libretto di servizio diventa digitale. Ecco cosa cambia per i militari e la protezione civile.',
+    'blog.article.libretto-digitale-militare-ticino-2026.imageAlt': 'Libretto digitale militare con Castelgrande sullo sfondo',
 };
 
 export default blogMetaIt;

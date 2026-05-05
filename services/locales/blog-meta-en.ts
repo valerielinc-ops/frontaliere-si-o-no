@@ -6122,6 +6122,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.title': 'Zurich University Hospital, serious shortcomings in cardiac surgery',
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.excerpt': 'Zurich University Hospital admits serious shortcomings in cardiac surgery between 2016 and 2020, with dozens of unexpected deaths and cases reported to the prosecutor\'s office.',
     'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland',
+    'blog.article.libretto-digitale-militare-ticino-2026.title': 'Digital service book: changes for military personnel',
+    'blog.article.libretto-digitale-militare-ticino-2026.excerpt': 'As of June 1, 2026, the service book will become digital. Here\'s what changes for military personnel and civil protection.',
+    'blog.article.libretto-digitale-militare-ticino-2026.imageAlt': 'Digital military booklet with Castelgrande in the background',
 };
 
 export default blogMetaEn;
