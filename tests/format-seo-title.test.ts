@@ -15,6 +15,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   clampSiteSuffix,
+  differentiateH1FromTitle,
   formatSeoH1,
   formatSeoTitle,
 } from '@/build-plugins/shared/seoContentTokens';
@@ -191,5 +192,52 @@ describe('formatSeoH1', () => {
     });
     expect(out.toLowerCase()).not.toBe('Lavoro Educatori'.toLowerCase());
     expect(out).toContain('Lavoro Educatori');
+  });
+});
+
+describe('differentiateH1FromTitle', () => {
+  const COSTO = 'Costo della vita Bellinzona 2026: affitti, spesa, trasporti';
+  const TITLE_WITH_BRAND = `${COSTO} | Frontaliere Ticino`;
+
+  it('returns the H1 verbatim when it already differs from the title', () => {
+    const h1 = 'Quanto costa vivere a Bellinzona';
+    expect(differentiateH1FromTitle(h1, TITLE_WITH_BRAND, 'it')).toBe(h1);
+  });
+
+  it('appends an IT differentiator when title (after brand-strip) ≡ H1', () => {
+    const out = differentiateH1FromTitle(COSTO, TITLE_WITH_BRAND, 'it');
+    expect(out).not.toBe(COSTO);
+    expect(out.toLowerCase()).not.toBe(COSTO.toLowerCase());
+    expect(out).toContain(COSTO);
+    expect(out).toMatch(/\(guida frontaliere\)$/);
+  });
+
+  it('handles a brand-stripped title (no trailing " | Frontaliere Ticino")', () => {
+    // The audit normalises both sides — a title that already lost its brand
+    // suffix (because buildTitleWithBrand dropped it) must still be detected.
+    const out = differentiateH1FromTitle(COSTO, COSTO, 'it');
+    expect(out).not.toBe(COSTO);
+    expect(out).toMatch(/\(guida frontaliere\)$/);
+  });
+
+  it('uses locale-specific tags for en/de/fr', () => {
+    const en = differentiateH1FromTitle('About Us — Frontaliere Ticino: Cross-Border Workers Guide', 'About Us — Frontaliere Ticino: Cross-Border Workers Guide', 'en');
+    expect(en).toMatch(/\(cross-border guide\)$/);
+    const de = differentiateH1FromTitle('Lebenshaltungskosten Bellinzona 2026', 'Lebenshaltungskosten Bellinzona 2026', 'de');
+    expect(de).toMatch(/\(Grenzgänger-Leitfaden\)$/);
+    const fr = differentiateH1FromTitle('Coût de la vie à Bellinzona 2026', 'Coût de la vie à Bellinzona 2026', 'fr');
+    expect(fr).toMatch(/\(guide frontalier\)$/);
+  });
+
+  it('is case + whitespace insensitive when comparing', () => {
+    const h1 = '  Costo  della  vita  Bellinzona  2026  ';
+    const title = 'COSTO DELLA VITA BELLINZONA 2026';
+    const out = differentiateH1FromTitle(h1, title, 'it');
+    expect(out).toMatch(/\(guida frontaliere\)$/);
+  });
+
+  it('returns the H1 verbatim when either input is empty', () => {
+    expect(differentiateH1FromTitle('', 'Some title', 'it')).toBe('');
+    expect(differentiateH1FromTitle('Some H1', '', 'it')).toBe('Some H1');
   });
 });

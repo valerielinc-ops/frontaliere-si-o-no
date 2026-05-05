@@ -103,6 +103,7 @@ import {
   TABLE_HEAD_STYLE,
   TABLE_STYLE,
   renderDiscoverMore,
+  differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
@@ -1228,7 +1229,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const hasWeekly = history.length >= 7;
 
   // Content pieces
-  const h1 = copy.leafH1(crossingDisplay, dateStamp);
+  let h1 = copy.leafH1(crossingDisplay, dateStamp);
   const intro = copy.intro(crossingDisplay, statusWord, waitFmt, dateStamp);
   const paragraph = copy.paragraph(crossingDisplay, direction, bestHour, worstHour);
 
@@ -1545,6 +1546,8 @@ function renderLeafPage(inp: LeafInputs): string {
     return (lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced).replace(/[\s—–-]+$/, '');
   })();
   const title = `${titleH1} | Frontaliere Ticino`;
+  // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
+  h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
   // Related-links helper context
@@ -1682,7 +1685,7 @@ function renderHubPage(inp: HubInputs): string {
       : copy.regionalLabelTicinoVarese
     : '';
 
-  const h1 = region ? copy.regionalH1(regionDisplay) : copy.rootH1;
+  let h1 = region ? copy.regionalH1(regionDisplay) : copy.rootH1;
   const introParagraph = region
     ? copy.regionalIntro(regionDisplay, crossingsInScope.length)
     : copy.rootIntro;
@@ -1771,6 +1774,8 @@ function renderHubPage(inp: HubInputs): string {
   });
 
   const title = `${h1} | Frontaliere Ticino`;
+  // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
+  h1 = differentiateH1FromTitle(h1, title, locale);
   const description = introParagraph.slice(0, 180);
 
   // Secondary editorial paragraph for word-count
@@ -1954,7 +1959,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
           perHour.flat().reduce((a, b) => a + b, 0) / perHour.flat().length,
         );
 
-  const h1 =
+  let h1 =
     locale === 'it'
       ? `Archivio tempi attesa ${crossingDisplay} — ${monthKey}`
       : locale === 'de'
@@ -1982,6 +1987,8 @@ function renderArchivePage(inp: ArchiveInputs): string {
     .join('');
 
   const title = `${h1} | Frontaliere Ticino`;
+  // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
+  h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
   const breadcrumbLd = JSON.stringify({
