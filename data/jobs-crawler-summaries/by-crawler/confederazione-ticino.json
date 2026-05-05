@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-05-05T10:24:56.430Z",
+  "generatedAt": "2026-05-05T21:32:58.949Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1779,
-  "avgDurationMs": 1779,
+  "durationMs": 1625,
+  "avgDurationMs": 1625,
   "durationHistory": [
-    1779
+    1625
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -117,8 +117,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 2,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
