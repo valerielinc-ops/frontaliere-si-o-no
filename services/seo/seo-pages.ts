@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2080,
+ "numberOfItems": 2081,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6722,7 +6722,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2077, "name": "Stagflazione: allarme per le imprese varesine", "url": `${BASE_URL}/articoli-frontaliere/stagflazione-imprese-varesine-2026` },
           { "@type": "ListItem", "position": 2078, "name": "Grigioni: Nuove regole sui permessi di dimora d...", "url": `${BASE_URL}/articoli-frontaliere/permessi-dimora-grigioni-mafie` },
           { "@type": "ListItem", "position": 2079, "name": "Caseifici aperti in Ticino: 18 aziende da visitare", "url": `${BASE_URL}/articoli-frontaliere/caseifici-aperti-ticino-2026` },
-          { "@type": "ListItem", "position": 2080, "name": "DSS lancia campagna per prestazioni sanitarie c...", "url": `${BASE_URL}/articoli-frontaliere/campagna-dss-appropriatezza-sanitaria` }
+          { "@type": "ListItem", "position": 2080, "name": "DSS lancia campagna per prestazioni sanitarie c...", "url": `${BASE_URL}/articoli-frontaliere/campagna-dss-appropriatezza-sanitaria` },
+          { "@type": "ListItem", "position": 2081, "name": "Parco del Ticino: controlli intensificati per i...", "url": `${BASE_URL}/articoli-frontaliere/parco-ticino-controlli-maggio-2026` }
  ]
  },
  {

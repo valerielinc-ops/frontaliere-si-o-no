@@ -6084,6 +6084,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.campagna-dss-appropriatezza-sanitaria.title': 'DSS lancia campagna per prestazioni sanitarie consapevoli',
     'blog.article.campagna-dss-appropriatezza-sanitaria.excerpt': 'Il DSS promuove un utilizzo più consapevole delle prestazioni sanitarie con una nuova campagna digitale ispirata a Choosing Wisely',
     'blog.article.campagna-dss-appropriatezza-sanitaria.imageAlt': 'Manifesti digitali a Lugano promuovono una campagna sanitaria consapevole',
+    'blog.article.parco-ticino-controlli-maggio-2026.title': 'Parco del Ticino: controlli intensificati per il weekend del Primo maggio',
+    'blog.article.parco-ticino-controlli-maggio-2026.excerpt': 'Grazie ai controlli e alla sensibilizzazione, i comportamenti incivili sono diminuiti nel Parco del Ticino durante il weekend del Primo maggio.',
+    'blog.article.parco-ticino-controlli-maggio-2026.imageAlt': 'Vista aerea del Parco del Ticino con visitatori che godono del paesaggio naturale',
 };
 
 export default blogMetaIt;

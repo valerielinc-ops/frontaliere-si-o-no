@@ -6083,6 +6083,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.campagna-dss-appropriatezza-sanitaria.title': 'DSS startet Kampagne für bewusste Gesundheitsleistungen',
     'blog.article.campagna-dss-appropriatezza-sanitaria.excerpt': 'Der DSS fördert eine bewussteren Einsatz von Gesundheitsleistungen mit einer neuen digitalen Kampagne, inspiriert von Choosing Wisely',
     'blog.article.campagna-dss-appropriatezza-sanitaria.imageAlt': 'Digitale Plakate in Lugano fördern eine bewusste Gesundheitskampagne',
+    'blog.article.parco-ticino-controlli-maggio-2026.title': 'Parco del Ticino: controlli intensificati per il Primo maggio',
+    'blog.article.parco-ticino-controlli-maggio-2026.excerpt': 'Grazie ai controlli e alla sensibilizzazione, i comportamenti incivili sono diminuiti nel Parco del Ticino durante il weekend del Primo maggio.',
+    'blog.article.parco-ticino-controlli-maggio-2026.imageAlt': 'Luftaufnahme des Parco del Ticino mit Besuchern, die die Naturlandschaft genießen',
 };
 
 export default blogMetaDe;

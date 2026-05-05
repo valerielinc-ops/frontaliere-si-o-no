@@ -19622,4 +19622,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'parco-ticino-controlli-maggio-2026',
+ category: 'novita',
+ date: '2026-05-05T10:01:44.225Z',
+ image: '/images/blog/parco-ticino-controlli-maggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
