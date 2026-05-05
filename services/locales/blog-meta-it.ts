@@ -5970,6 +5970,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.moria-pesci-berneck-2026.title': 'Moria di pesci a Berneck: liquame in torrente',
     'blog.article.moria-pesci-berneck-2026.excerpt': 'Una ventina di pesci morti a causa di liquame in un torrente a Berneck, Canton San Gallo. L\'agricoltore responsabile sarà denunciato.',
     'blog.article.moria-pesci-berneck-2026.imageAlt': 'Vista aerea di un torrente inquinato a Berneck, Canton San Gallo, con pesci morti galleggianti sulla superficie.',
+    'blog.article.festival-meraviglia-laveno-luino-2026.title': 'Festival della Meraviglia: arte, musica e incontri tra Laveno e Luino',
+    'blog.article.festival-meraviglia-laveno-luino-2026.excerpt': 'Dal 8 al 15 maggio, cinque serate tra arte, musica e filosofia con ospiti internazionali. Scopri il programma completo.',
+    'blog.article.festival-meraviglia-laveno-luino-2026.imageAlt': 'Festival culturale sulle rive del Lago Maggiore con arte, musica e incontri filosofici',
 };
 
 export default blogMetaIt;

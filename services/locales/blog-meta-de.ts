@@ -5969,6 +5969,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.moria-pesci-berneck-2026.title': 'Fischsterben in Berneck: Abwasser im Bach',
     'blog.article.moria-pesci-berneck-2026.excerpt': 'Etwa zwanzig Fische starben aufgrund von Abwasser in einem Bach in Berneck, Kanton St. Gallen. Der verantwortliche Landwirt wird angezeigt werden.',
     'blog.article.moria-pesci-berneck-2026.imageAlt': 'Luftaufnahme eines verschmutzten Bachs in Berneck, Kanton St. Gallen, mit toten Fischen, die auf der Oberfläche schwimmen.',
+    'blog.article.festival-meraviglia-laveno-luino-2026.title': 'Festival der Wunder: Kunst, Musik und Begegnungen zwischen Laveno und Luino',
+    'blog.article.festival-meraviglia-laveno-luino-2026.excerpt': 'Vom 8. bis 15. Mai: fünf Abende mit Kunst, Musik und Philosophie mit internationalen Gästen. Entdecken Sie das vollständige Programm.',
+    'blog.article.festival-meraviglia-laveno-luino-2026.imageAlt': 'Kulturelles Festival an den Ufern des Lago Maggiore mit Kunst, Musik und philosophischen Gesprächen',
 };
 
 export default blogMetaDe;

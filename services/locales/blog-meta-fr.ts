@@ -5970,6 +5970,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.moria-pesci-berneck-2026.title': 'Mort de poissons à Berneck: des eaux usées dans un torrent',
     'blog.article.moria-pesci-berneck-2026.excerpt': 'Une vingtaine de poissons morts à cause des eaux usées dans un torrent à Berneck, canton de Saint-Gall. L\'agriculteur responsable sera dénoncé.',
     'blog.article.moria-pesci-berneck-2026.imageAlt': 'Vue aérienne d\'un ruisseau pollué à Berneck, canton de Saint-Gall, avec des poissons morts flottant à la surface.',
+    'blog.article.festival-meraviglia-laveno-luino-2026.title': 'Festival de la Meraviglia: art, musique et rencontres',
+    'blog.article.festival-meraviglia-laveno-luino-2026.excerpt': 'Du 8 au 15 mai, cinq soirées entre art, musique et philosophie avec des invités internationaux. Découvrez le programme complet.',
+    'blog.article.festival-meraviglia-laveno-luino-2026.imageAlt': 'Festival culturel sur les rives du Lac Majeur avec art, musique et discussions philosophiques',
 };
 
 export default blogMetaFr;

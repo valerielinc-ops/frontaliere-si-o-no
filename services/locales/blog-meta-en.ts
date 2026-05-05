@@ -5969,6 +5969,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.moria-pesci-berneck-2026.title': 'Fish die-off in Berneck: sewage in stream',
     'blog.article.moria-pesci-berneck-2026.excerpt': 'About twenty fish died due to sewage in a stream in Berneck, Canton St. Gallen. The responsible farmer will be reported.',
     'blog.article.moria-pesci-berneck-2026.imageAlt': 'Aerial view of a polluted stream in Berneck, Canton St. Gallen, with dead fish floating on the surface.',
+    'blog.article.festival-meraviglia-laveno-luino-2026.title': 'Festival of Wonder: Art, Music & Meetings in Laveno and Luino',
+    'blog.article.festival-meraviglia-laveno-luino-2026.excerpt': 'From May 8 to 15, five evenings of art, music, and philosophy with international guests. Discover the full program.',
+    'blog.article.festival-meraviglia-laveno-luino-2026.imageAlt': 'Cultural festival on the shores of Lake Maggiore with art, music, and philosophical discussions',
 };
 
 export default blogMetaEn;
