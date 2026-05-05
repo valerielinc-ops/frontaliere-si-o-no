@@ -19595,4 +19595,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'permessi-dimora-grigioni-mafie',
+ category: 'novita',
+ date: '2026-05-05T09:45:01.809Z',
+ image: '/images/blog/permessi-dimora-grigioni-mafie.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

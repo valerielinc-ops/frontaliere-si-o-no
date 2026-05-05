@@ -6075,6 +6075,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stagflazione-imprese-varesine-2026.title': 'Stagflazione: allarme per le imprese varesine',
     'blog.article.stagflazione-imprese-varesine-2026.excerpt': 'Le imprese varesine affrontano una fase complessa tra inflazione e rallentamento produttivo. Ecco cosa cambia e come adattarsi',
     'blog.article.stagflazione-imprese-varesine-2026.imageAlt': 'Vista aerea di Mendrisio, Svizzera, con il confine italiano sullo sfondo',
+    'blog.article.permessi-dimora-grigioni-mafie.title': 'Grigioni: Nuove regole sui permessi di dimora dopo infiltrazioni mafiose',
+    'blog.article.permessi-dimora-grigioni-mafie.excerpt': 'Il Canton Grigioni introduce restrizioni sui permessi di dimora dopo arresti legati alla criminalità organizzata a Roveredo.',
+    'blog.article.permessi-dimora-grigioni-mafie.imageAlt': 'Vista panoramica di Roveredo nei Grigioni con montagne sullo sfondo.',
 };
 
 export default blogMetaIt;

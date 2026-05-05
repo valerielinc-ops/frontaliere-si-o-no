@@ -6074,6 +6074,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stagflazione-imprese-varesine-2026.title': 'Stagflation: Alarm für Unternehmen in Varese',
     'blog.article.stagflazione-imprese-varesine-2026.excerpt': 'Die Unternehmen in Varese durchleben eine komplexe Phase zwischen Inflation und Produktionsrückgang. Hier erfahren Sie, was sich ändert und wie man sich anpasst',
     'blog.article.stagflazione-imprese-varesine-2026.imageAlt': 'Luftaufnahme von Mendrisio, Schweiz, mit der italienischen Grenze im Hintergrund',
+    'blog.article.permessi-dimora-grigioni-mafie.title': 'Graubünden: Neue Regeln für Aufenthaltsbewilligungen',
+    'blog.article.permessi-dimora-grigioni-mafie.excerpt': 'Der Kanton Graubünden führt Einschränkungen für Aufenthaltsbewilligungen ein, nachdem in Roveredo Verhaftungen im Zusammenhang mit organisierter Kriminalität erfolgt sind.',
+    'blog.article.permessi-dimora-grigioni-mafie.imageAlt': 'Panoramablick auf Roveredo im Kanton Graubünden mit Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

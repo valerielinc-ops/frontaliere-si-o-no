@@ -6075,6 +6075,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stagflazione-imprese-varesine-2026.title': 'Stagflation : alarme pour les entreprises varésanes',
     'blog.article.stagflazione-imprese-varesine-2026.excerpt': 'Les entreprises varésanes font face à une phase complexe entre inflation et ralentissement de la production. Voici ce qui change et comment s\'adapter',
     'blog.article.stagflazione-imprese-varesine-2026.imageAlt': 'Vue aérienne de Mendrisio, Suisse, avec la frontière italienne en arrière-plan',
+    'blog.article.permessi-dimora-grigioni-mafie.title': 'Grisons: nouvelles règles sur les permis de séjour après infiltrations mafieuses',
+    'blog.article.permessi-dimora-grigioni-mafie.excerpt': 'Le canton des Grisons introduit des restrictions sur les permis de séjour après des arrestations liées à la criminalité organisée à Roveredo.',
+    'blog.article.permessi-dimora-grigioni-mafie.imageAlt': 'Vue panoramique de Roveredo dans les Grisons avec montagnes en arrière-plan.',
 };
 
 export default blogMetaFr;

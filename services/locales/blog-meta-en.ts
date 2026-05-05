@@ -6074,6 +6074,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stagflazione-imprese-varesine-2026.title': 'Stagflation: alarm for Varesine businesses',
     'blog.article.stagflazione-imprese-varesine-2026.excerpt': 'Varesine businesses face a complex phase between inflation and productive slowdown. Here\'s what changes and how to adapt',
     'blog.article.stagflazione-imprese-varesine-2026.imageAlt': 'Aerial view of Mendrisio, Switzerland, with the Italian border in the background',
+    'blog.article.permessi-dimora-grigioni-mafie.title': 'Grisons: New residency permit rules after mafia infiltrations',
+    'blog.article.permessi-dimora-grigioni-mafie.excerpt': 'The Canton of Grisons introduces restrictions on residency permits after arrests linked to organized crime in Roveredo.',
+    'blog.article.permessi-dimora-grigioni-mafie.imageAlt': 'Panoramic view of Roveredo in Grisons with mountains in the background.',
 };
 
 export default blogMetaEn;
