@@ -6209,6 +6209,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-spacciatore-arresto-frontalieri.title': 'Varese: arrested dealer loses serious job',
     'blog.article.varese-spacciatore-arresto-frontalieri.excerpt': 'A young Albanian was arrested in Mendrisio with cocaine in his car. A case involving cross-border workers and transnational work dynamics.',
     'blog.article.varese-spacciatore-arresto-frontalieri.imageAlt': 'A bustling street in Varese, Italy, near the Swiss border, with a mix of Italian and Swiss elements.',
+    'blog.article.incendio-cassano-magnago-sgombero.title': 'Cassano Magnago: balcony fire forces evacuation',
+    'blog.article.incendio-cassano-magnago-sgombero.excerpt': 'A fire hit a balcony in Cassano Magnago, Varese, forcing the forced evacuation of the residents.',
+    'blog.article.incendio-cassano-magnago-sgombero.imageAlt': 'Aerial view of Lake Lugano with surrounding buildings and mountains',
 };
 
 export default blogMetaEn;

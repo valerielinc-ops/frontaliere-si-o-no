@@ -6209,6 +6209,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-spacciatore-arresto-frontalieri.title': 'Varese: Dealer verhaftet, Job verloren',
     'blog.article.varese-spacciatore-arresto-frontalieri.excerpt': 'Ein junger Albaner wurde in Mendrisio mit Kokain im Auto festgenommen. Ein Fall, der Grenzgänger und die Dynamik der grenzüberschreitenden Arbeit betrifft.',
     'blog.article.varese-spacciatore-arresto-frontalieri.imageAlt': 'Eine belebte Straße in Varese, Italien, in der Nähe der Schweizer Grenze, mit einer Mischung aus italienischen und schweizerischen Elementen.',
+    'blog.article.incendio-cassano-magnago-sgombero.title': 'Cassano Magnago: Balkon in Flammen, Zwangsevakuierung',
+    'blog.article.incendio-cassano-magnago-sgombero.excerpt': 'Ein Feuer hat einen Balkon in Cassano Magnago, Varese, getroffen und die Bewohner zur Zwangsevakuierung gezwungen.',
+    'blog.article.incendio-cassano-magnago-sgombero.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Gebäuden und Bergen',
 };
 
 export default blogMetaDe;

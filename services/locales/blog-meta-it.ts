@@ -6210,6 +6210,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-spacciatore-arresto-frontalieri.title': 'Varese: spacciatore arrestato, lavoro serio perso',
     'blog.article.varese-spacciatore-arresto-frontalieri.excerpt': 'Un giovane albanese è stato arrestato a Mendrisio con cocaina in auto. Un caso che coinvolge i frontalieri e le dinamiche del lavoro transfrontaliero.',
     'blog.article.varese-spacciatore-arresto-frontalieri.imageAlt': 'Una strada affollata a Varese, Italia, vicino al confine svizzero, con una miscela di elementi italiani e svizzeri.',
+    'blog.article.incendio-cassano-magnago-sgombero.title': 'Cassano Magnago: balcone in fiamme, sgombero forzato',
+    'blog.article.incendio-cassano-magnago-sgombero.excerpt': 'Un incendio ha colpito un balcone a Cassano Magnago, Varese, costringendo allo sgombero forzato degli abitanti.',
+    'blog.article.incendio-cassano-magnago-sgombero.imageAlt': 'Vista aerea del Lago di Lugano con edifici circostanti e montagne',
 };
 
 export default blogMetaIt;

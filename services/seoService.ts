@@ -3312,6 +3312,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-20mila-firme-autostrada-pedaggio': { name: 'Novità', path: '/articoli-frontaliere/20mila-firme-autostrada-pedaggio', parent: 'blog' },
     'blog-incendio-casciago-varese-2026': { name: 'Incendio Casciago', path: '/articoli-frontaliere/incendio-casciago-varese-2026', parent: 'blog' },
     'blog-varese-spacciatore-arresto-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/varese-spacciatore-arresto-frontalieri', parent: 'blog' },
+    'blog-incendio-cassano-magnago-sgombero': { name: 'Novità', path: '/articoli-frontaliere/incendio-cassano-magnago-sgombero', parent: 'blog' },
  };
 
  const info = sectionNames[section];
