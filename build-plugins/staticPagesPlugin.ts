@@ -1844,7 +1844,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(
  `<p style="margin:1rem 0 .5rem;padding:.9rem 1rem;background:#eef2ff;border-left:4px solid #3730a3;border-radius:4px;font-size:.95rem"><strong>Vai al <a href="/calcola-stipendio/" style="color:#1e3a8a;text-decoration:underline;font-weight:700">calcolatore stipendio netto</a></strong> per una simulazione personalizzata: inserisci lordo, stato civile, figli e tipo di frontaliere per ottenere il tuo netto mensile aggiornato al 2026.</p>`,
  );
- } else if (canonicalPath.startsWith('/calcola-stipendio/')) {
+ } else if (canonicalPath.startsWith('/calcola-stipendio/') && !isCalcStipendioIndex) {
  editorialBlocks.push(
  `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come calcolare lo stipendio netto in Svizzera</h2>`,
  `Lo strumento di calcolo utilizza i parametri fiscali e previdenziali aggiornati al 2026 per la Svizzera e l'Italia, applicando le regole del Nuovo Accordo sulla tassazione dei frontalieri entrato in vigore nel 2024.`,
@@ -2131,7 +2131,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `La scelta tra permesso G e B dipende dalla distanza dal confine, dalla situazione familiare e fiscale, e dalla durata prevista dell'impiego in Svizzera. Lo strumento aiuta a valutare i pro e i contro di ogni scenario.`,
  `Il confronto include anche le implicazioni previdenziali (AVS, LPP, disoccupazione), la differenza nei diritti di soggiorno per familiari e l'impatto sulla tassazione italiana e svizzera.`,
  );
- } else if (canonicalPath.startsWith('/guida-frontaliere/tempi-attesa-dogana/')) {
+ } else if (/^\/guida-frontaliere\/tempi-attesa-dogana\/[^/]+/.test(canonicalPath)) {
  editorialBlocks.push(
  `I tempi di attesa ai valichi di confine vengono stimati in base ai dati storici e alle fasce orarie tipiche: ingresso mattutino (6:30–8:30) e uscita serale (17:00–18:30) sono le finestre con maggiore congestione.`,
  `Per ogni valico vengono forniti consigli pratici su orari alternativi, percorsi secondari e strumenti di monitoraggio in tempo reale (webcam, app traffico) per ridurre i tempi di pendolarismo quotidiano.`,
