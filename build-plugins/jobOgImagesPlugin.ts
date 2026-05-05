@@ -18,13 +18,16 @@
  * regeneration. To force regeneration of one job, delete its PNG.
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import type { Plugin } from 'vite';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 
 const OUT_SUBDIR = 'og/jobs';
+// Persistent cache dir survives `dist/` cleanup. Cache step in deploy.yml
+// restores this between CI runs so unchanged jobs keep their PNG.
+const CACHE_SUBDIR = '.cache/og-jobs';
 const PNG_WIDTH = 1200;
 const PNG_HEIGHT = 630;
 
@@ -436,7 +439,9 @@ export default function jobOgImagesPlugin(): Plugin {
 
       const manifest = readLogosManifest(rootDir);
       const outRoot = path.join(rootDir, outDir, OUT_SUBDIR);
+      const cacheRoot = path.join(rootDir, CACHE_SUBDIR);
       mkdirSync(outRoot, { recursive: true });
+      mkdirSync(cacheRoot, { recursive: true });
 
       const fonts = [
         { name: 'Roboto', data: fontPair.regular, weight: 400 as const, style: 'normal' as const },
@@ -453,10 +458,30 @@ export default function jobOgImagesPlugin(): Plugin {
           continue;
         }
         const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
+        const cachePath = path.join(cacheRoot, `${slug}.png`);
+
+        // Cache hit: copy from .cache → dist, no rerender needed.
+        if (existsSync(cachePath)) {
+          try {
+            mkdirSync(path.dirname(outPath), { recursive: true });
+            copyFileSync(cachePath, outPath);
+            stats.cached += 1;
+            continue;
+          } catch {
+            /* fall through to rerender */
+          }
+        }
+        // Already in dist (rare: same-build retry) → also count as cached.
         if (existsSync(outPath)) {
+          try {
+            // Promote dist copy back to cache for future runs.
+            mkdirSync(path.dirname(cachePath), { recursive: true });
+            copyFileSync(outPath, cachePath);
+          } catch { /* ignore */ }
           stats.cached += 1;
           continue;
         }
+
         try {
           const logoMfPath = job.companyKey ? manifest[job.companyKey] : undefined;
           const model: CardModel = {
@@ -482,7 +507,10 @@ export default function jobOgImagesPlugin(): Plugin {
           })
             .render()
             .asPng();
+          // Write both to cache (persistent across builds) AND dist (deployed).
+          mkdirSync(path.dirname(cachePath), { recursive: true });
           mkdirSync(path.dirname(outPath), { recursive: true });
+          writeFileSync(cachePath, png);
           writeFileSync(outPath, png);
           stats.rendered += 1;
         } catch (err) {

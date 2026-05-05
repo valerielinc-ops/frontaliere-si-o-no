@@ -128,6 +128,20 @@ jobs:
           restore-keys: |
             assemble-jobs-${{ runner.os }}-
 
+      - name: Cache per-job OG images
+        uses: actions/cache@v5
+        with:
+          path: .cache/og-jobs
+          # Invalidate the FULL cache (forcing all 2100 cards to re-render)
+          # only when the design changes: plugin source, fonts, or the logo
+          # manifest (visual content). New jobs hit the restore-keys cascade
+          # and get their PNG rendered on-demand without invalidating the
+          # rest. The restore-keys ensure we always start with the most
+          # recent OS-matching cache when the exact key misses.
+          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
+          restore-keys: |
+            og-jobs-${{ runner.os }}-
+
       - name: Assemble jobs dataset from per-crawler slices
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
