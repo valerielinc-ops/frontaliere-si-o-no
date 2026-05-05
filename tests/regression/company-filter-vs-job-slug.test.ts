@@ -87,20 +87,20 @@ describe('seededJobMatchesSlug', () => {
   let originalExpiredData: unknown;
 
   beforeEach(() => {
-    originalExpiredData = (window as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+    originalExpiredData = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
   });
 
   afterEach(() => {
-    (window as Record<string, unknown>).__EXPIRED_JOB_DATA__ = originalExpiredData;
+    (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__ = originalExpiredData;
   });
 
   it('returns false when no seeded data is present', () => {
-    delete (window as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+    delete (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
     expect(seededJobMatchesSlug('azienda-migros')).toBe(false);
   });
 
   it('returns true when seeded slug matches exactly', () => {
-    (window as Record<string, unknown>).__EXPIRED_JOB_DATA__ = {
+    (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__ = {
       slug: 'azienda-multiservizi-bellinzona-amb',
       title: 'Addetto magazzino',
       company: 'Azienda Multiservizi Bellinzona AMB',
@@ -111,7 +111,7 @@ describe('seededJobMatchesSlug', () => {
   it('returns false for a different slug (prevents stale SPA window global false positive)', () => {
     // Simulates navigating from an expired job page to /azienda-migros/ within the SPA:
     // window.__EXPIRED_JOB_DATA__ retains the previous page's data but the slug won't match.
-    (window as Record<string, unknown>).__EXPIRED_JOB_DATA__ = {
+    (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__ = {
       slug: 'azienda-multiservizi-bellinzona-amb',
       title: 'Addetto magazzino',
       company: 'Azienda Multiservizi Bellinzona AMB',
@@ -120,7 +120,7 @@ describe('seededJobMatchesSlug', () => {
   });
 
   it('returns true when seeded slug matches via slugByLocale', () => {
-    (window as Record<string, unknown>).__EXPIRED_JOB_DATA__ = {
+    (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__ = {
       slug: 'azienda-multiservizi-bellinzona-amb',
       slugByLocale: { en: 'azienda-multiservizi-amb-en', de: 'unternehmen-multiservizi-bellinzona' },
       title: 'Addetto magazzino',

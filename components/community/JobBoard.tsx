@@ -197,7 +197,7 @@ type ContractType = 'full-time' | 'part-time' | 'temporary' | 'internship' | 'co
 type JobCategory = 'tech' | 'finance' | 'health' | 'engineering' | 'admin' | 'hospitality' | 'sales' | 'other';
 type DateRange = 'all' | '24h' | '3d' | '7d' | '30d' | '90d';
 
-interface JobListing {
+export interface JobListing {
  id: string;
  slug?: string;
  slugByLocale?: Partial<Record<Locale, string>>;
