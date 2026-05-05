@@ -6023,6 +6023,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rischio-benzina-svizzera-frontalieri.title': 'Fuel risk in Switzerland: crossing the border may not be enough',
     'blog.article.rischio-benzina-svizzera-frontalieri.excerpt': 'Switzerland could face a fuel shortage. Florence Schurch of Suissenégoce warns of a high risk and possible repercussions for cross-border workers',
     'blog.article.rischio-benzina-svizzera-frontalieri.imageAlt': 'View of Lake Lugano with the cityscape in the background and a line of cars at a gas station',
+    'blog.article.mense-scolastiche-ticino-prezzi-2026.title': 'School canteens at popular prices: students waiting for answers',
+    'blog.article.mense-scolastiche-ticino-prezzi-2026.excerpt': 'The SISA denounces the inaction of the Ticino government on the increase in school canteen prices',
+    'blog.article.mense-scolastiche-ticino-prezzi-2026.imageAlt': 'Students eating in a school canteen in Lugano, with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

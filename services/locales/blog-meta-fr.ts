@@ -6024,6 +6024,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rischio-benzina-svizzera-frontalieri.title': 'Pénurie d\'essence en Suisse: franchir la frontière ne suffira peut-être pas',
     'blog.article.rischio-benzina-svizzera-frontalieri.excerpt': 'La Suisse pourrait faire face à une pénurie de carburant. Florence Schurch de Suissenégoce avertit d\'un risque élevé et de possibles répercussions pour les frontaliers',
     'blog.article.rischio-benzina-svizzera-frontalieri.imageAlt': 'Vue du lac de Lugano avec le paysage urbain en arrière-plan et une file de voitures à une station-service',
+    'blog.article.mense-scolastiche-ticino-prezzi-2026.title': 'Cantines scolaires à prix populaires : les élèves attendent des réponses',
+    'blog.article.mense-scolastiche-ticino-prezzi-2026.excerpt': 'Le SISA dénonce l\'immobilisme du gouvernement tessinois face à la hausse des prix des cantines scolaires',
+    'blog.article.mense-scolastiche-ticino-prezzi-2026.imageAlt': 'Des étudiants mangent dans une cantine scolaire à Lugano, avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

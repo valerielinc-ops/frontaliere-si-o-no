@@ -3250,6 +3250,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-questionario-scuole-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/questionario-scuole-ticino-2026', parent: 'blog' },
     'blog-scuola-como-chiusura-socco': { name: 'Scuola Como', path: '/articoli-frontaliere/scuola-como-chiusura-socco', parent: 'blog' },
     'blog-rischio-benzina-svizzera-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/rischio-benzina-svizzera-frontalieri', parent: 'blog' },
+    'blog-mense-scolastiche-ticino-prezzi-2026': { name: 'Mense scolastiche', path: '/articoli-frontaliere/mense-scolastiche-ticino-prezzi-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

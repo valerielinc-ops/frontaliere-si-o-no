@@ -17985,6 +17985,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mense-scolastiche-ticino-prezzi-2026': {
+    title: 'Mense scolastiche a prezzi popolari: studenti in attesa di risposte',
+    description: 'Il SISA denuncia l\'immobilismo del governo ticinese sull\'aumento dei prezzi delle mense scolastiche. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, mense, scolastiche, prezzi, popolari',
+    ogTitle: 'Mense scolastiche a prezzi popolari: studenti in attesa di risposte',
+    ogDescription: 'Il SISA denuncia l\'immobilismo del governo ticinese sull\'aumento dei prezzi delle mense scolastiche. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/mense-scolastiche-ticino-prezzi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mense scolastiche a prezzi popolari: studenti in attesa di risposte",
+      "description": "Il SISA denuncia l'immobilismo del governo ticinese sull'aumento dei prezzi delle mense scolastiche. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mense-scolastiche-ticino-prezzi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti che mangiano in una mensa scolastica a Lugano, con vista sul lago di Lugano"
+      },
+      "datePublished": "2026-05-05T06:53:06+00:00",
+      "dateModified": "2026-05-05T06:53:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mense-scolastiche-ticino-prezzi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

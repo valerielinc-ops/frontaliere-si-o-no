@@ -6023,6 +6023,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rischio-benzina-svizzera-frontalieri.title': 'Benzinmangel in der Schweiz: Grenzübertritt könnte nicht reichen',
     'blog.article.rischio-benzina-svizzera-frontalieri.excerpt': 'Die Schweiz könnte einen Kraftstoffmangel erleben. Florence Schurch von Suissenégoce warnt vor einem hohen Risiko und möglichen Auswirkungen für Grenzgänger.',
     'blog.article.rischio-benzina-svizzera-frontalieri.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund und einer Schlange von Autos an einer Tankstelle',
+    'blog.article.mense-scolastiche-ticino-prezzi-2026.title': 'Schulgemeinschaften zu günstigen Preisen: Schüler warten auf Antworten',
+    'blog.article.mense-scolastiche-ticino-prezzi-2026.excerpt': 'Der SISA kritisiert die Untätigkeit der Regierung des Tessin bei der Erhöhung der Preise für Schulgemeinschaften',
+    'blog.article.mense-scolastiche-ticino-prezzi-2026.imageAlt': 'Schüler essen in einer Schulkantine in Lugano mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

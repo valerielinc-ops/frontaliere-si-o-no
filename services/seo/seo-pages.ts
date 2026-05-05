@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2060,
+ "numberOfItems": 2061,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6703,7 +6703,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2057, "name": "Lugano ingaggia Olle Lycksell fino al 2029", "url": `${BASE_URL}/articoli-frontaliere/lugano-ingaggia-olle-lycksell-2026` },
           { "@type": "ListItem", "position": 2058, "name": "Questionario per allievi e docenti: strumento u...", "url": `${BASE_URL}/articoli-frontaliere/questionario-scuole-ticino-2026` },
           { "@type": "ListItem", "position": 2059, "name": "Scuola Como: chiusura plesso Socco, genitori in...", "url": `${BASE_URL}/articoli-frontaliere/scuola-como-chiusura-socco` },
-          { "@type": "ListItem", "position": 2060, "name": "Rischio benzina in Svizzera: varcare il confine...", "url": `${BASE_URL}/articoli-frontaliere/rischio-benzina-svizzera-frontalieri` }
+          { "@type": "ListItem", "position": 2060, "name": "Rischio benzina in Svizzera: varcare il confine...", "url": `${BASE_URL}/articoli-frontaliere/rischio-benzina-svizzera-frontalieri` },
+          { "@type": "ListItem", "position": 2061, "name": "Mense scolastiche a prezzi popolari: studenti i...", "url": `${BASE_URL}/articoli-frontaliere/mense-scolastiche-ticino-prezzi-2026` }
  ]
  },
  {
