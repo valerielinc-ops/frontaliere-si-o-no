@@ -5985,6 +5985,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-istruzioni-uso-frontalieri.title': 'Suisse, mode d\'emploi : ce qui change pour les frontaliers',
     'blog.article.svizzera-istruzioni-uso-frontalieri.excerpt': 'De la péréquation financière aux coupes universitaires, voici les nouveautés qui impactent les frontaliers au Tessin',
     'blog.article.svizzera-istruzioni-uso-frontalieri.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
+    'blog.article.prigioni-ticino-sovraffollate-2026.title': 'Prisons du Tessin surpeuplées: aggravation marquée',
+    'blog.article.prigioni-ticino-sovraffollate-2026.excerpt': 'Les établissements pénitentiaires tessinois signalent des niveaux d\'occupation extrêmement élevés, avec des marges de manœuvre quasi nulles.',
+    'blog.article.prigioni-ticino-sovraffollate-2026.imageAlt': 'Vue aérienne d\'une prison surpeuplée au Tessin',
 };
 
 export default blogMetaFr;

@@ -5984,6 +5984,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-istruzioni-uso-frontalieri.title': 'Switzerland, user guide: changes for cross-border workers',
     'blog.article.svizzera-istruzioni-uso-frontalieri.excerpt': 'From financial equalization to university cuts, here are the news affecting cross-border workers in Ticino',
     'blog.article.svizzera-istruzioni-uso-frontalieri.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
+    'blog.article.prigioni-ticino-sovraffollate-2026.title': 'Overcrowded prisons in Ticino: sharp deterioration',
+    'blog.article.prigioni-ticino-sovraffollate-2026.excerpt': 'Ticino\'s prison facilities report extremely high occupancy levels, with virtually no room for maneuver.',
+    'blog.article.prigioni-ticino-sovraffollate-2026.imageAlt': 'Aerial view of an overcrowded prison in Ticino',
 };
 
 export default blogMetaEn;

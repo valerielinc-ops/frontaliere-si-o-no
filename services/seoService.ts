@@ -3237,6 +3237,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-udc-cultura-indipendente-spesa-giustificata': { name: 'Novità', path: '/articoli-frontaliere/udc-cultura-indipendente-spesa-giustificata', parent: 'blog' },
     'blog-scontri-lugano-politica-toni': { name: 'Novità', path: '/articoli-frontaliere/scontri-lugano-politica-toni', parent: 'blog' },
     'blog-svizzera-istruzioni-uso-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/svizzera-istruzioni-uso-frontalieri', parent: 'blog' },
+    'blog-prigioni-ticino-sovraffollate-2026': { name: 'Prigioni Ticino', path: '/articoli-frontaliere/prigioni-ticino-sovraffollate-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

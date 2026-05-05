@@ -5984,6 +5984,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-istruzioni-uso-frontalieri.title': 'Schweiz, Gebrauchsanweisung: Was sich für Grenzgänger ändert',
     'blog.article.svizzera-istruzioni-uso-frontalieri.excerpt': 'Von der Finanzausgleich bis zu den Universitätskürzungen, hier sind die Neuigkeiten, die die Grenzgänger im Tessin betreffen',
     'blog.article.svizzera-istruzioni-uso-frontalieri.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
+    'blog.article.prigioni-ticino-sovraffollate-2026.title': 'Überfüllte Gefängnisse im Tessin: deutliche Verschlechterung',
+    'blog.article.prigioni-ticino-sovraffollate-2026.excerpt': 'Die Gefängnisse im Tessin melden extrem hohe Auslastungsgrade, mit kaum noch Spielraum.',
+    'blog.article.prigioni-ticino-sovraffollate-2026.imageAlt': 'Luftaufnahme eines überfüllten Gefängnisses im Tessin',
 };
 
 export default blogMetaDe;

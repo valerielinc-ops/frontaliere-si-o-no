@@ -5985,6 +5985,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-istruzioni-uso-frontalieri.title': 'Svizzera, istruzioni per l\'uso: cosa cambia per i frontalieri',
     'blog.article.svizzera-istruzioni-uso-frontalieri.excerpt': 'Dalla perequazione finanziaria ai tagli universitari, ecco le novità che impattano i frontalieri in Ticino',
     'blog.article.svizzera-istruzioni-uso-frontalieri.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
+    'blog.article.prigioni-ticino-sovraffollate-2026.title': 'Prigioni Ticino sovraffollate: marcato peggioramento',
+    'blog.article.prigioni-ticino-sovraffollate-2026.excerpt': 'Le strutture carcerarie ticinesi segnalano livelli di occupazione estremamente elevati, con margini di manovra pressoché nulli.',
+    'blog.article.prigioni-ticino-sovraffollate-2026.imageAlt': 'Vista aerea di una prigione sovraffollata in Ticino',
 };
 
 export default blogMetaIt;
