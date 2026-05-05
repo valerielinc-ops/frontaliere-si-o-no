@@ -42,6 +42,9 @@ jobs:
       - name: Load secrets from RC
         run: node scripts/load-rc-env.mjs
 
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
       - name: Schedule FB jobs
         env:
           FB_JOB_VOLUME: ${{ github.event.inputs.volume || '24' }}
