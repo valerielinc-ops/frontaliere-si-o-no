@@ -6105,6 +6105,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026-axa.title': 'Vol de voitures en Ticino: les données AXA révèlent une hausse',
     'blog.article.furti-auto-ticino-2026-axa.excerpt': 'Les vols de voitures en Ticino sont en augmentation, le canton étant au-dessus de la moyenne suisse. AXA signale des cas presque doublés par rapport à l\'époque pré-pandémie.',
     'blog.article.furti-auto-ticino-2026-axa.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
+    'blog.article.malpensafiere-hub-imprese-2026.title': 'Focus Day Nouveaux Entreprises 2026 à MalpensaFiere: guide pratique',
+    'blog.article.malpensafiere-hub-imprese-2026.excerpt': 'Jeudi 14 mai 2026 à MalpensaFiere: assistance pour démarrer une entreprise, focus sur l\'agriculture et la restauration à domicile. Participation gratuite.',
+    'blog.article.malpensafiere-hub-imprese-2026.imageAlt': 'MalpensaFiere pendant l\'événement Focus Day Nuove Imprese 2026',
 };
 
 export default blogMetaFr;

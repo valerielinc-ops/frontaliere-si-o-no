@@ -19685,4 +19685,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'malpensafiere-hub-imprese-2026',
+ category: 'novita',
+ date: '2026-05-05T11:00:06.246Z',
+ image: '/images/blog/malpensafiere-hub-imprese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

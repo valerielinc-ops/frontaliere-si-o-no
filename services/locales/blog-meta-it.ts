@@ -6105,6 +6105,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026-axa.title': 'Furti d\'auto in Ticino: dati AXA rivelano impennata',
     'blog.article.furti-auto-ticino-2026-axa.excerpt': 'I furti d\'auto in Ticino sono in aumento, con il Cantone sopra la media svizzera. AXA segnala casi quasi raddoppiati rispetto al pre-pandemia.',
     'blog.article.furti-auto-ticino-2026-axa.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
+    'blog.article.malpensafiere-hub-imprese-2026.title': 'Focus Day Nuove Imprese 2026 a MalpensaFiere: guida pratica',
+    'blog.article.malpensafiere-hub-imprese-2026.excerpt': 'Giovedì 14 maggio 2026 a MalpensaFiere: assistenza per avviare un\'impresa, focus su agricoltura e home food. Partecipazione gratuita.',
+    'blog.article.malpensafiere-hub-imprese-2026.imageAlt': 'MalpensaFiere durante l\'evento Focus Day Nuove Imprese 2026',
 };
 
 export default blogMetaIt;

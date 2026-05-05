@@ -3277,6 +3277,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cornaredo-miliardo-promesse-cemento': { name: 'Cornaredo Lugano', path: '/articoli-frontaliere/cornaredo-miliardo-promesse-cemento', parent: 'blog' },
     'blog-ladies-run-lugano-chiusure-stradali-2026': { name: 'Chiusure stradali', path: '/articoli-frontaliere/ladies-run-lugano-chiusure-stradali-2026', parent: 'blog' },
     'blog-furti-auto-ticino-2026-axa': { name: 'Furti auto Ticino', path: '/articoli-frontaliere/furti-auto-ticino-2026-axa', parent: 'blog' },
+    'blog-malpensafiere-hub-imprese-2026': { name: 'Focus Day Nuove Imprese', path: '/articoli-frontaliere/malpensafiere-hub-imprese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

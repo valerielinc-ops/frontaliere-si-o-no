@@ -6104,6 +6104,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026-axa.title': 'Autodiebstähle im Tessin: AXA meldet starken Anstieg',
     'blog.article.furti-auto-ticino-2026-axa.excerpt': 'Die Autodiebstähle im Tessin nehmen zu, wobei der Kanton über dem Schweizer Durchschnitt liegt. AXA meldet fast doppelt so viele Fälle wie vor der Pandemie.',
     'blog.article.furti-auto-ticino-2026-axa.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
+    'blog.article.malpensafiere-hub-imprese-2026.title': 'Focus Tag Neue Unternehmen 2026 in MalpensaFiere: praktische Anleitung',
+    'blog.article.malpensafiere-hub-imprese-2026.excerpt': 'Donnerstag, 14. Mai 2026 in MalpensaFiere: Unterstützung für die Gründung eines Unternehmens, Schwerpunkt auf Landwirtschaft und Home Food. Teilnahme kostenlos.',
+    'blog.article.malpensafiere-hub-imprese-2026.imageAlt': 'MalpensaFiere während der Focus Day Nuove Imprese 2026 Veranstaltung',
 };
 
 export default blogMetaDe;
