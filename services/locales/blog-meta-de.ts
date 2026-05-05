@@ -5978,6 +5978,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.udc-cultura-indipendente-spesa-giustificata.title': 'SVP fordert Rechenschaft über Kulturförderung',
     'blog.article.udc-cultura-indipendente-spesa-giustificata.excerpt': 'Interpellation der SVP zur kantonalen Finanzierung unabhängiger Kulturräume. Zweifel an Wirksamkeit und finanzieller Nachhaltigkeit',
     'blog.article.udc-cultura-indipendente-spesa-giustificata.imageAlt': 'Kulturzentrum LAC in Lugano mit einer laufenden Vorstellung',
+    'blog.article.scontri-lugano-politica-toni.title': 'Auseinandersetzungen in Lugano: Politik soll die Töne senken',
+    'blog.article.scontri-lugano-politica-toni.excerpt': 'Karin Valenzano Rossi, Sicherheitsvorsteherin von Lugano, kommentiert die Auseinandersetzungen im Busbahnhof, die zu Verletzungen von zwei Personen führten.',
+    'blog.article.scontri-lugano-politica-toni.imageAlt': 'Spannende Situation am Bahnhof Lugano mit streitenden Menschen und Polizeipräsenz',
 };
 
 export default blogMetaDe;

@@ -5978,6 +5978,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.udc-cultura-indipendente-spesa-giustificata.title': 'UDC questions funding for independent cultural spaces',
     'blog.article.udc-cultura-indipendente-spesa-giustificata.excerpt': 'UDC interpellation on cantonal funding for independent cultural spaces. Doubts about effectiveness and financial sustainability',
     'blog.article.udc-cultura-indipendente-spesa-giustificata.imageAlt': 'LAC cultural center in Lugano with a performance taking place',
+    'blog.article.scontri-lugano-politica-toni.title': 'Clashes in Lugano bus stop, politicians must tone down',
+    'blog.article.scontri-lugano-politica-toni.excerpt': 'Karin Valenzano Rossi, head of security for Lugano, comments on the clashes that occurred in the bus stop, which resulted in two people being injured.',
+    'blog.article.scontri-lugano-politica-toni.imageAlt': 'Tense situation at Lugano train station with people arguing and police presence',
 };
 
 export default blogMetaEn;

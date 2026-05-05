@@ -17475,6 +17475,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scontri-lugano-politica-toni': {
+    title: 'Scontri in pensilina a Lugano, la politica deve abbassare i toni',
+    description: 'Karin Valenzano Rossi, capodicastero sicurezza di Lugano, commenta gli scontri avvenuti in pensilina che hanno portato al ferimento di due persone.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scontri, pensilina, lugano, politica',
+    ogTitle: 'Scontri in pensilina a Lugano, la politica deve abbassare i toni',
+    ogDescription: 'Karin Valenzano Rossi, capodicastero sicurezza di Lugano, commenta gli scontri avvenuti in pensilina che hanno portato al ferimento di due persone.',
+    canonicalPath: '/articoli-frontaliere/scontri-lugano-politica-toni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scontri in pensilina a Lugano, la politica deve abbassare i toni",
+      "description": "Karin Valenzano Rossi, capodicastero sicurezza di Lugano, commenta gli scontri avvenuti in pensilina che hanno portato al ferimento di due persone.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scontri-lugano-politica-toni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Situazione tesa alla stazione di Lugano con persone che discutono e presenza della polizia"
+      },
+      "datePublished": "2026-05-05T03:42:39+00:00",
+      "dateModified": "2026-05-05T03:42:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontri-lugano-politica-toni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

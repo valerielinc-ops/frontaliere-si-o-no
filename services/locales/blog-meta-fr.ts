@@ -5979,6 +5979,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.udc-cultura-indipendente-spesa-giustificata.title': 'UDC questionne sur les dépenses culturelles indépendantes : « Justifiées ? »',
     'blog.article.udc-cultura-indipendente-spesa-giustificata.excerpt': 'Interpellation de l\'UDC sur le financement cantonal pour les espaces culturels indépendants. Doutes sur l\'efficacité et la durabilité financière',
     'blog.article.udc-cultura-indipendente-spesa-giustificata.imageAlt': 'Centre culturel LAC à Lugano avec une performance en cours',
+    'blog.article.scontri-lugano-politica-toni.title': 'Affrontements à Lugano, la politique doit baisser le ton',
+    'blog.article.scontri-lugano-politica-toni.excerpt': 'Karin Valenzano Rossi, cheffe du département sécurité de Lugano, commente les affrontements survenus dans la gare qui ont entraîné le blessure de deux personnes.',
+    'blog.article.scontri-lugano-politica-toni.imageAlt': 'Situation tendue à la gare de Lugano avec des personnes en train de se disputer et la présence de la police',
 };
 
 export default blogMetaFr;
