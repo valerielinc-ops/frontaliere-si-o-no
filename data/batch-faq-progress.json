@@ -732,7 +732,9 @@
     "bellinzona-2025-consuntivo-risultati",
     "concerto-luino-vivaldi-bach-2026",
     "juve-verona-1-1-frontalieri-2026",
-    "parcheggi-cernobbio-ticino-residenti"
+    "parcheggi-cernobbio-ticino-residenti",
+    "italia-sospetti-var-minetti-quirinale",
+    "parcheggio-abusivo-como-villa-olmo"
   ],
   "failed": [
     {
@@ -6504,8 +6506,23 @@
       "id": "parcheggio-abusivo-como-villa-olmo",
       "error": "Unterminated string in JSON at position 724 (line 8 column 135)",
       "at": "2026-05-04T04:18:45.924Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 280 (line 4 column 136)",
+      "at": "2026-05-05T03:57:02.151Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 208 (line 4 column 126)",
+      "at": "2026-05-05T03:57:21.427Z"
+    },
+    {
+      "id": "hodler-dipinto-eredita-frontalieri",
+      "error": "Unterminated string in JSON at position 1903 (line 20 column 11)",
+      "at": "2026-05-05T03:57:40.141Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-04T04:18:45.924Z"
+  "updatedAt": "2026-05-05T03:57:59.031Z"
 }
