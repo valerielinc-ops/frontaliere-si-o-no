@@ -6165,6 +6165,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-svizzera-indennita.title': 'I frontalieri disoccupati potrebbero ricevere le indennità dalla Svizzera',
     'blog.article.frontalieri-disoccupati-svizzera-indennita.excerpt': 'Una riforma europea vuole cambiare le regole sulla disoccupazione dei frontalieri: in futuro l\'indennità verrebbe pagata dal Paese dell\'ultimo impiego e non più da quello di residenza.',
     'blog.article.frontalieri-disoccupati-svizzera-indennita.imageAlt': 'Una persona che guarda un computer con una schermata di un ufficio di collocamento',
+    'blog.article.somministrazione-occupazione-qualita-bottini.title': 'Bottini: Somministrazione crea occupazione di qualità',
+    'blog.article.somministrazione-occupazione-qualita-bottini.excerpt': 'Il nuovo Ccnl per i lavoratori in somministrazione, rinnovato a luglio 2025, garantisce occupazione di qualità con formazione e welfare.',
+    'blog.article.somministrazione-occupazione-qualita-bottini.imageAlt': 'Lago di Lugano con vista panoramica della città',
 };
 
 export default blogMetaIt;

@@ -19152,6 +19152,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-somministrazione-occupazione-qualita-bottini': {
+    title: 'Bottini: Somministrazione crea occupazione di qualità',
+    description: 'Il nuovo Ccnl per i lavoratori in somministrazione, rinnovato a luglio 2025, garantisce occupazione di qualità con formazione e welfare. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, bottini, somministrazione, crea, occupazione',
+    ogTitle: 'Bottini: Somministrazione crea occupazione di qualità',
+    ogDescription: 'Il nuovo Ccnl per i lavoratori in somministrazione, rinnovato a luglio 2025, garantisce occupazione di qualità con formazione e welfare.',
+    canonicalPath: '/articoli-frontaliere/somministrazione-occupazione-qualita-bottini',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bottini: Somministrazione crea occupazione di qualità",
+      "description": "Il nuovo Ccnl per i lavoratori in somministrazione, rinnovato a luglio 2025, garantisce occupazione di qualità con formazione e welfare. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/somministrazione-occupazione-qualita-bottini.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista panoramica della città"
+      },
+      "datePublished": "2026-05-05T19:09:31+00:00",
+      "dateModified": "2026-05-05T19:09:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/somministrazione-occupazione-qualita-bottini`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

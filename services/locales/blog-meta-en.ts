@@ -6164,6 +6164,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-svizzera-indennita.title': 'Cross-Border Workers May Receive Unemployment Benefits from Switzerland',
     'blog.article.frontalieri-disoccupati-svizzera-indennita.excerpt': 'A European reform aims to change the rules on cross-border unemployment: in the future, the unemployment benefit would be paid by the country of the last employment and not by the country of residence. ',
     'blog.article.frontalieri-disoccupati-svizzera-indennita.imageAlt': 'A person looking at a computer with a job center screen',
+    'blog.article.somministrazione-occupazione-qualita-bottini.title': 'Bottini: Quality jobs through temporary work',
+    'blog.article.somministrazione-occupazione-qualita-bottini.excerpt': 'The new collective agreement for temporary workers, renewed in July 2025, ensures quality employment with training and welfare.',
+    'blog.article.somministrazione-occupazione-qualita-bottini.imageAlt': 'Lake Lugano with panoramic city view',
 };
 
 export default blogMetaEn;

@@ -3297,6 +3297,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-ccnl-assolavoro-welfare-lavoratori': { name: 'Novità', path: '/articoli-frontaliere/nuovo-ccnl-assolavoro-welfare-lavoratori', parent: 'blog' },
     'blog-dipendenti-cantonali-soddisfazione-erre-dipi': { name: 'Dipendenti cantonali', path: '/articoli-frontaliere/dipendenti-cantonali-soddisfazione-erre-dipi', parent: 'blog' },
     'blog-frontalieri-disoccupati-svizzera-indennita': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-disoccupati-svizzera-indennita', parent: 'blog' },
+    'blog-somministrazione-occupazione-qualita-bottini': { name: 'Novità', path: '/articoli-frontaliere/somministrazione-occupazione-qualita-bottini', parent: 'blog' },
  };
 
  const info = sectionNames[section];

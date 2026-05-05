@@ -19865,4 +19865,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'somministrazione-occupazione-qualita-bottini',
+ category: 'novita',
+ date: '2026-05-05T19:09:31.235Z',
+ image: '/images/blog/somministrazione-occupazione-qualita-bottini.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

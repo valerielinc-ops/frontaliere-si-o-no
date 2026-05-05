@@ -6165,6 +6165,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-svizzera-indennita.title': 'Les frontaliers sans emploi pourraient recevoir des indemnités de la Suisse',
     'blog.article.frontalieri-disoccupati-svizzera-indennita.excerpt': 'Une réforme européenne veut changer les règles sur le chômage des frontaliers : à l\'avenir, l\'indemnité serait versée par le pays de l\'emploi dernier et non plus par celui de résidence.',
     'blog.article.frontalieri-disoccupati-svizzera-indennita.imageAlt': 'Une personne regardant un ordinateur avec un écran d\'un centre d\'emploi',
+    'blog.article.somministrazione-occupazione-qualita-bottini.title': 'Bottini: L\'emploi de qualité grâce à la somministrazione',
+    'blog.article.somministrazione-occupazione-qualita-bottini.excerpt': 'Le nouveau Ccnl pour les travailleurs en somministrazione, renouvelé en juillet 2025, garantit un emploi de qualité avec formation et welfare.',
+    'blog.article.somministrazione-occupazione-qualita-bottini.imageAlt': 'Lac de Lugano avec vue panoramique sur la ville',
 };
 
 export default blogMetaFr;

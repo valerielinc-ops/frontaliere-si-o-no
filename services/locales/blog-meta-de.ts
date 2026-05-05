@@ -6164,6 +6164,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-svizzera-indennita.title': 'Grenzgänger ohne Arbeit könnten Schadensersatz von der Schweiz erhalten',
     'blog.article.frontalieri-disoccupati-svizzera-indennita.excerpt': 'Eine europäische Reform will die Regeln für die Arbeitslosigkeit von Grenzgängern ändern: In Zukunft würde die Entschädigung vom Land des letzten Arbeitgebers und nicht mehr vom Wohnsitzland gezahlt werden.',
     'blog.article.frontalieri-disoccupati-svizzera-indennita.imageAlt': 'Eine Person schaut auf einen Computer mit einem Bildschirm eines Arbeitsvermittlungszentrums',
+    'blog.article.somministrazione-occupazione-qualita-bottini.title': 'Bottini: Zeitarbeit schafft Qualitätsarbeitsplätze',
+    'blog.article.somministrazione-occupazione-qualita-bottini.excerpt': 'Der neue Gesamtarbeitsvertrag für Zeitarbeiter, der im Juli 2025 erneuert wurde, garantiert Qualitätsarbeitsplätze mit Ausbildung und Sozialleistungen.',
+    'blog.article.somministrazione-occupazione-qualita-bottini.imageAlt': 'Luganersee mit Panoramablick auf die Stadt',
 };
 
 export default blogMetaDe;
