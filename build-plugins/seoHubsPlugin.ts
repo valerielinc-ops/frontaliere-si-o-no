@@ -899,18 +899,32 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const itArticles = readArticleSlugs(fs, np, rootDir, 'it');
       const localeArticles = locale === 'it' ? itArticles : readArticleSlugs(fs, np, rootDir, locale);
       const localeBySlug = new Map(localeArticles.map((a) => [a.slug, a.title]));
+      const itBySlug = new Map(itArticles.map((a) => [a.slug, a.title]));
       const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir);
       const blogSection = locale === 'it' ? 'articoli-frontaliere'
         : locale === 'en' ? 'cross-border-articles'
         : locale === 'de' ? 'grenzgaenger-artikel'
         : 'articles-frontalier';
       const prefix = locale === 'it' ? '' : `/${locale}`;
-      for (const a of itArticles) {
-        const label = localeBySlug.get(a.slug) ?? a.title;
+
+      // Master list = UNION of `blog-meta-it.ts` slugs and `BLOG_SLUGS` keys
+      // from `routerBlogData.ts`. The sitemap is built off `BLOG_SLUGS`, so any
+      // article registered there MUST appear in the archive — otherwise it
+      // ends up listed in `sitemap-blog.xml` but unreachable via internal `<a>`
+      // BFS, tripping the orphan-pages-in-sitemaps audit.
+      // (May 2026 regression: `iniziativa-salari-ticino` and
+      //  `cantieri-traffico-a9-ticino` had BLOG_SLUGS entries but no
+      //  blog-meta-it title — sitemap +2 orphan.)
+      const masterSlugs = new Set<string>(itArticles.map((a) => a.slug));
+      for (const slug of Object.keys(blogUrlSlugs)) masterSlugs.add(slug);
+
+      for (const slug of masterSlugs) {
+        // Label preference: locale title → IT title → humanized slug.
+        const label = localeBySlug.get(slug) ?? itBySlug.get(slug) ?? humanizeSlug(slug);
         // Resolve URL slug for this locale via BLOG_SLUGS; fall back to the
         // BlogArticleId itself when the article is missing from BLOG_SLUGS
         // (older articles or auto-generated entries can lag the slug map).
-        const urlSlug = blogUrlSlugs[a.slug]?.[locale] ?? a.slug;
+        const urlSlug = blogUrlSlugs[slug]?.[locale] ?? slug;
         items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label });
       }
     }
