@@ -6195,6 +6195,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aarau-arresto-somalier-auto-delitto.title': 'Aarau: un Somalien de 23 ans arrêté avec une voiture volée',
     'blog.article.aarau-arresto-somalier-auto-delitto.excerpt': 'La police d\'Aarau a arrêté un Somalien de 23 ans trouvé au volant d\'une voiture volée avec de la marchandise volée à l\'intérieur.',
     'blog.article.aarau-arresto-somalier-auto-delitto.imageAlt': 'Police d\'Aarau lors d\'une opération de contrôle sur une voiture suspecte',
+    'blog.article.expat-ticino-sventa-truffa-hacker.title': 'Frontalier ticinois déjoue une arnaque : « J\'avais l\'arme secrète »',
+    'blog.article.expat-ticino-sventa-truffa-hacker.excerpt': 'Un frontalier tessinois a évité une arnaque grâce à un code secret, après avoir été piraté.',
+    'blog.article.expat-ticino-sventa-truffa-hacker.imageAlt': 'Expat travaillant sur un ordinateur portable à Lugano, avec une alerte de sécurité à l\'écran',
 };
 
 export default blogMetaFr;

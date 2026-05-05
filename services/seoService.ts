@@ -3307,6 +3307,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mistero-palazzo-como-7-milioni': { name: 'Novità', path: '/articoli-frontaliere/mistero-palazzo-como-7-milioni', parent: 'blog' },
     'blog-palestre-svizzera-record-2026': { name: 'Novità', path: '/articoli-frontaliere/palestre-svizzera-record-2026', parent: 'blog' },
     'blog-aarau-arresto-somalier-auto-delitto': { name: 'Aarau: 23enne somalo arrestato', path: '/articoli-frontaliere/aarau-arresto-somalier-auto-delitto', parent: 'blog' },
+    'blog-expat-ticino-sventa-truffa-hacker': { name: 'Truffe online', path: '/articoli-frontaliere/expat-ticino-sventa-truffa-hacker', parent: 'blog' },
  };
 
  const info = sectionNames[section];

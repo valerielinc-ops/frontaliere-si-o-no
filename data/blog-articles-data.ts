@@ -19955,4 +19955,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'expat-ticino-sventa-truffa-hacker',
+ category: 'pratico',
+ date: '2026-05-05T22:02:48.245Z',
+ image: '/images/blog/expat-ticino-sventa-truffa-hacker.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

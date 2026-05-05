@@ -19532,6 +19532,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-expat-ticino-sventa-truffa-hacker': {
+    title: 'Expat ticinese sventa truffa: «Hackerato, ma avevo l\'arma segreta»',
+    description: 'Un expat ticinese ha evitato una truffa online grazie a un codice segreto. Scopri come proteggerti dalle truffe online. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, expat, ticinese, sventa, truffa',
+    ogTitle: 'Expat ticinese sventa truffa: «Hackerato, ma avevo l\'arma segreta»',
+    ogDescription: 'Un expat ticinese ha evitato una truffa online grazie a un codice segreto. Scopri come proteggerti dalle truffe online.',
+    canonicalPath: '/articoli-frontaliere/expat-ticino-sventa-truffa-hacker',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Expat ticinese sventa truffa: «Hackerato, ma avevo l'arma segreta»",
+      "description": "Un expat ticinese ha evitato una truffa online grazie a un codice segreto. Scopri come proteggerti dalle truffe online. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/expat-ticino-sventa-truffa-hacker.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Expat lavoratore al laptop a Lugano, con allarme di sicurezza sullo schermo"
+      },
+      "datePublished": "2026-05-05T22:02:48+00:00",
+      "dateModified": "2026-05-05T22:02:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/expat-ticino-sventa-truffa-hacker`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
