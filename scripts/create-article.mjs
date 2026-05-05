@@ -3754,6 +3754,140 @@ function preFlightEvergreenCheck(keyword) {
   return { duplicate: false };
 }
 
+// ── Pre-flight news headline check ──────────────────────────
+// Catches semantic duplicates of news headlines BEFORE we burn 6 LLM cycles
+// that would hard-fail at the title-collision gate in optimizeSeoMetadata.
+// The URL dedup misses these: same news re-published on a different URL slug
+// (e.g. follow-up commentary on cdt.ch the day after the breaking news on
+// tio.ch) slips through.
+//
+// Primary signal is **containment against the article-ID slug** (e.g.
+// `salario-minimo-ticino-2029-4000-franchi`). Article IDs are deliberately
+// distilled to ~4-7 distinguishing tokens, so if a headline contains 70 %+
+// of an existing ID's stemmed tokens, it's almost certainly the same topic.
+// Pure Jaccard against the long, noisy title text is too weak (real
+// duplicates score 0.42-0.67, well below the 0.58 evergreen threshold).
+function preFlightHeadlineCheck(headline) {
+  const blogItSrc = read('services/locales/blog-meta-it.ts');
+  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
+
+  const STOP_WORDS_IT = new Set([
+    'il', 'lo', 'la', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'a', 'da',
+    'in', 'con', 'su', 'per', 'tra', 'fra', 'e', 'o', 'ma', 'che', 'non',
+    'del', 'al', 'dal', 'nel', 'sul', 'dello', 'alla', 'della', 'dei', 'degli',
+    'delle', 'ai', 'dai', 'nei', 'sui', 'è', 'sono', 'come', 'più', 'anche',
+    'già', 'ancora', 'questo', 'questa', 'questi', 'queste', 'quello', 'quella',
+    'molto', 'poco', 'tutto', 'tutti', 'ogni', 'altro', 'altra', 'altri', 'altre',
+    'suo', 'sua', 'suoi', 'sue', 'loro', 'chi', 'cosa', 'dove', 'quando',
+    'mentre', 'dopo', 'prima', 'tra', 'fino', 'solo', 'nuovo', 'nuova', 'nuovi',
+    'base', 'rispetto', 'ultimo', 'ultima', 'ultimi', 'ultime',
+  ]);
+
+  function stemIt(word) {
+    if (word.length <= 3) return word;
+    const suffixes = [
+      'izzazione', 'izzazioni', 'amento', 'amenti', 'imento', 'imenti',
+      'zione', 'zioni', 'sione', 'sioni', 'abile', 'ibili', 'mente',
+      'iere', 'ieri', 'iera', 'ance', 'enza', 'enze', 'ante', 'anti',
+      'ente', 'enti', 'ario', 'aria', 'ari', 'tore', 'tori', 'trice', 'trici',
+      'ista', 'isti', 'iste', 'oso', 'osa', 'osi', 'ose', 'ale', 'ali', 'ile', 'ili',
+      'ato', 'ata', 'ati', 'ate', 'ito', 'ita', 'iti', 'ite',
+      'ano', 'ana', 'ani', 'ane', 'ino', 'ina', 'ini', 'ine',
+      'one', 'oni', 'ore', 'ori', 'ura', 'ure', 'io', 'ia', 'ie',
+      'à', 'tà', 'ere', 'are', 'ire',
+    ];
+    for (const s of suffixes) {
+      if (word.endsWith(s) && (word.length - s.length) >= 3) return word.slice(0, -s.length);
+    }
+    if (/[aeiou]$/.test(word) && word.length > 4) return word.slice(0, -1);
+    return word;
+  }
+
+  // Same synonym groups as preFlightEvergreenCheck — kept in sync intentionally
+  const SYNONYM_GROUPS = [
+    ['maternità', 'maternita', 'paternità', 'paternita', 'congedo', 'parentale', 'genitoriale', 'nascita', 'neonato', 'gestante', 'puerperio'],
+    ['imposta', 'tassa', 'tasse', 'fiscale', 'fiscali', 'fisco', 'tributario', 'tributaria', 'irpef', 'imposizione'],
+    ['stipendio', 'salario', 'retribuzione', 'busta', 'paga', 'reddito', 'ral', 'compenso', 'emolumento'],
+    ['frontaliere', 'frontalieri', 'frontaliera', 'transfrontaliero', 'transfrontaliera', 'pendolare', 'pendolari', 'cross-border'],
+    ['assicurazione', 'assicurazioni', 'copertura', 'polizza', 'lamal', 'cassa', 'malati', 'premio', 'premi'],
+    ['pensione', 'pensioni', 'pensionamento', 'previdenza', 'avs', 'lpp', 'pilastro', 'rendita', 'rendite'],
+    ['permesso', 'permessi', 'autorizzazione', 'autorizzazioni', 'visto'],
+    ['trasporto', 'trasporti', 'mobilità', 'mobilita', 'pendolarismo', 'treno', 'treni', 'bus', 'auto', 'traffico'],
+    ['casa', 'abitazione', 'alloggio', 'affitto', 'immobiliare', 'immobile', 'appartamento'],
+    ['banca', 'bancario', 'bancaria', 'conto', 'finanza', 'finanziario', 'finanziaria'],
+    ['lavoro', 'lavorare', 'lavoratore', 'lavoratori', 'lavoratrice', 'occupazione', 'impiego', 'mestiere'],
+    ['figlio', 'figli', 'figlia', 'figlie', 'bambino', 'bambini', 'bambina', 'bambine', 'minore', 'minori'],
+    ['svizzera', 'svizzero', 'elvetico', 'elvetica', 'confederazione', 'ch'],
+    ['italia', 'italiano', 'italiana', 'italiani', 'italiane', 'tricolore', 'belpaese'],
+    ['cambio', 'valuta', 'tasso', 'conversione', 'forex', 'chf', 'eur', 'euro', 'franco', 'franchi'],
+    ['costo', 'costi', 'spesa', 'spese', 'prezzo', 'prezzi', 'tariffa', 'tariffe'],
+    ['guida', 'tutorial', 'manuale', 'istruzioni', 'procedura', 'procedure', 'howto'],
+    ['scuola', 'scolastico', 'scolastica', 'istruzione', 'educazione', 'asilo', 'nido'],
+    ['sanità', 'sanita', 'sanitario', 'sanitaria', 'salute', 'medico', 'medica', 'ospedale', 'clinica'],
+    ['lavori', 'cantiere', 'cantieri', 'risanamento', 'manutenzione', 'interventi', 'costruzione', 'ristrutturazione', 'rifacimento', 'pavimentazione'],
+    ['strada', 'stradale', 'stradali', 'autostrada', 'autostradale', 'viabilità', 'viabilita', 'carreggiata', 'corsia'],
+  ];
+  const synonymMap = new Map();
+  for (const group of SYNONYM_GROUPS) for (const w of group) synonymMap.set(w, group[0]);
+
+  function normalize(word) {
+    if (synonymMap.has(word)) return synonymMap.get(word);
+    const stemmed = stemIt(word);
+    return synonymMap.has(stemmed) ? synonymMap.get(stemmed) : stemmed;
+  }
+  function getWords(text) {
+    return text.toLowerCase()
+      .replace(/[^a-zàáèéìíòóùú0-9\s-]/g, ' ')
+      .split(/[\s-]+/)
+      .filter(w => w.length > 2 && !STOP_WORDS_IT.has(w))
+      .map(normalize);
+  }
+  function jaccard(a, b) {
+    const sa = new Set(a), sb = new Set(b);
+    if (sa.size === 0 && sb.size === 0) return 0;
+    const inter = [...sa].filter(w => sb.has(w)).length;
+    const union = new Set([...sa, ...sb]).size;
+    return union === 0 ? 0 : inter / union;
+  }
+  /** Containment: fraction of `needle` tokens present in `haystack`. */
+  function containment(needle, haystack) {
+    const sb = new Set(haystack);
+    if (needle.length === 0) return 0;
+    return [...new Set(needle)].filter(w => sb.has(w)).length / new Set(needle).size;
+  }
+
+  const headlineWords = getWords(headline);
+  if (headlineWords.length < 3) return { duplicate: false }; // too short to compare reliably
+
+  // Thresholds tuned on the May 2026 "salario minimo 4000 dal 2029" recurrence.
+  // ID containment is the primary signal: identical headlines score 1.00,
+  // rephrasings 0.75-1.00, while unrelated headlines stay at 0. Requiring a
+  // 4-token minimum on the ID skips truncated/generic IDs like
+  // `processo-mendrisio-19-capit` (3 tokens after stemming) where short
+  // stem collisions ("capit" vs "capitale") produce false positives.
+  const ID_CONTAINMENT_THRESHOLD = 0.75;
+  const ID_MIN_TOKENS = 4;
+  const TITLE_JACCARD_THRESHOLD = 0.55;
+
+  for (const m of titleMatches) {
+    const existingId = m[1];
+    const existingTitle = m[2];
+    const idWords = getWords(existingId);
+    if (idWords.length < ID_MIN_TOKENS) continue;
+
+    const idContainment = containment(idWords, headlineWords);
+    if (idContainment >= ID_CONTAINMENT_THRESHOLD) {
+      return { duplicate: true, signal: 'id_containment', sim: idContainment, existingId, existingTitle };
+    }
+
+    const titleSim = jaccard(headlineWords, getWords(existingTitle));
+    if (titleSim >= TITLE_JACCARD_THRESHOLD) {
+      return { duplicate: true, signal: 'title_jaccard', sim: titleSim, existingId, existingTitle };
+    }
+  }
+  return { duplicate: false };
+}
+
 // ── Step 3a.2: Programmatic duplicate detection (multi-signal) ──
 function checkForDuplicates(data) {
   // Read existing article titles AND excerpts from blog-meta-it.ts
@@ -5375,6 +5509,24 @@ async function main() {
       });
       if (beforeSourceFilter > headlines.length) {
         console.error(`  📋 Post-filtro URL: ${headlines.length}/${beforeSourceFilter} headline rimanenti\n`);
+      }
+
+      // ── Pre-filter: remove headlines whose TOPIC matches an existing article ──
+      // Same news re-published on a different URL slips past the URL dedup. The
+      // article-ID containment check (Italian stemmer + synonyms) catches
+      // semantic duplicates BEFORE we burn 6 LLM cycles that would hard-fail
+      // at the title-collision gate in optimizeSeoMetadata.
+      const beforeTopicFilter = headlines.length;
+      headlines = headlines.filter(h => {
+        const check = preFlightHeadlineCheck(h.headline);
+        if (check.duplicate) {
+          console.error(`  📰 Headline scartata (topic già coperto → ${check.existingId}, ${check.signal}=${check.sim.toFixed(2)}): ${h.headline.slice(0, 60)}…`);
+          return false;
+        }
+        return true;
+      });
+      if (beforeTopicFilter > headlines.length) {
+        console.error(`  📋 Post-filtro topic: ${headlines.length}/${beforeTopicFilter} headline rimanenti\n`);
       }
 
       const quotaPools = buildSourceQuotaPools(headlines);
