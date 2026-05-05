@@ -397,6 +397,25 @@ function ogPathForSlug(slug: string): string {
   return path.join(OUT_SUBDIR, `${slug}.png`);
 }
 
+/**
+ * The cache filename uses `job.id` directly — the crawler emits IDs of
+ * the form `<companyKey>-<contentHash12>` (e.g. "tether-163fdd7ecddc")
+ * where the trailing 12 hex chars are a content-derived hash that
+ * already changes whenever a job's title/company/salary/etc. is
+ * updated. So caching by ID gives content-aware invalidation for free,
+ * without us having to maintain our own field-set + hash function.
+ *
+ * Slug changes that don't change content → same ID → cache hit, just
+ * copies the PNG to the new slug filename in dist.
+ * Content changes → new ID → cache miss → fresh render.
+ */
+function cacheKeyForJob(job: JobMinimal): string | null {
+  if (!job?.id || typeof job.id !== 'string') return null;
+  // Sanitize: IDs are crawler-emitted but paranoia is cheap. Replace any
+  // path-unsafe character with `_` to keep filenames sane.
+  return job.id.replace(/[^A-Za-z0-9._-]/g, '_');
+}
+
 export function jobOgImageUrl(baseUrl: string, slug: string | null): string | null {
   if (!slug) return null;
   return `${baseUrl}/${OUT_SUBDIR}/${slug}.png`;
@@ -453,12 +472,17 @@ export default function jobOgImagesPlugin(): Plugin {
 
       for (const job of jobs) {
         const slug = deriveSlug(job);
-        if (!slug || !job?.title) {
+        const cacheKey = cacheKeyForJob(job);
+        if (!slug || !cacheKey || !job?.title) {
           stats.skipped += 1;
           continue;
         }
         const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
-        const cachePath = path.join(cacheRoot, `${slug}.png`);
+        // Cache filename = job.id (which already encodes a content hash
+        // emitted by the crawler — e.g. "tether-163fdd7ecddc"). When
+        // content changes the crawler bumps the trailing 12 hex →
+        // different cacheKey → cache miss → fresh render.
+        const cachePath = path.join(cacheRoot, `${cacheKey}.png`);
 
         // Cache hit: copy from .cache → dist, no rerender needed.
         if (existsSync(cachePath)) {
@@ -470,16 +494,6 @@ export default function jobOgImagesPlugin(): Plugin {
           } catch {
             /* fall through to rerender */
           }
-        }
-        // Already in dist (rare: same-build retry) → also count as cached.
-        if (existsSync(outPath)) {
-          try {
-            // Promote dist copy back to cache for future runs.
-            mkdirSync(path.dirname(cachePath), { recursive: true });
-            copyFileSync(outPath, cachePath);
-          } catch { /* ignore */ }
-          stats.cached += 1;
-          continue;
         }
 
         try {
