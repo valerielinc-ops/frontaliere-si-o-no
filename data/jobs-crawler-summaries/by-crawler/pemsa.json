@@ -1,18 +1,79 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-05-04T22:28:10.931Z",
-  "total": 45,
-  "newCount": 0,
+  "generatedAt": "2026-05-05T11:15:07.561Z",
+  "total": 47,
+  "newCount": 2,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 35,
-  "durationMs": 110601,
-  "avgDurationMs": 110601,
+  "durationMs": 117977,
+  "avgDurationMs": 117977,
   "durationHistory": [
-    110601
+    117977
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Manovali Edili",
+      "slug": "manovali-edili-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/manovali-edili-2673141/",
+      "applyUrl": "https://www.pemsa.ch/it/job/manovali-edili-2673141/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-05",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-05-20",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 14,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Sondatore",
+      "slug": "sondatore-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/sondatore-2673122/",
+      "applyUrl": "https://www.pemsa.ch/it/job/sondatore-2673122/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-05",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-01",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 14,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Saldatore/metalcostruttore",
