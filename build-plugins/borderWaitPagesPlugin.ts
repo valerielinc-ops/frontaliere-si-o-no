@@ -1931,6 +1931,105 @@ interface ArchiveInputs {
   distDir?: string;
 }
 
+/**
+ * Page-specific prose for the monthly archive template. Adds methodology,
+ * commuter-context interpretation of the aggregated data, and a 2-question
+ * FAQ. Each block interpolates the actual crossing name, month, region and
+ * mean wait so output is unique per page (no boilerplate). Structural
+ * insurance for the text-to-HTML ratio gate: the table-only template was
+ * dipping below the 10% floor as chrome grew (ImageObject license fields,
+ * hreflang, cross-links).
+ */
+function renderArchiveContextProse(
+  locale: BorderWaitLocale,
+  crossingLabel: string,
+  monthKey: string,
+  region: BorderCrossingRegion,
+  peakWindow: string,
+  overallAvg: number | null,
+  observedDays: number,
+): string {
+  const regionDisplay =
+    region === 'ticino-como' ? COPY[locale].regionalLabelTicinoComo : COPY[locale].regionalLabelTicinoVarese;
+  const meanTxt = overallAvg === null
+    ? (locale === 'it' ? 'non disponibile per il mese'
+      : locale === 'en' ? 'not available for the month'
+      : locale === 'de' ? 'für den Monat nicht verfügbar'
+      : 'non disponible pour le mois')
+    : `${overallAvg} min`;
+  const peakDefault = peakWindow || (locale === 'fr' ? '6h30–8h30 et 17h00–19h00' : '6:30–8:30 and 17:00–19:00');
+
+  const headline =
+    locale === 'it' ? `Come leggere lo storico ${crossingLabel} (${monthKey})`
+    : locale === 'en' ? `How to read the ${crossingLabel} archive (${monthKey})`
+    : locale === 'de' ? `Wie das ${crossingLabel}-Archiv (${monthKey}) zu lesen ist`
+    : `Comment lire les archives ${crossingLabel} (${monthKey})`;
+
+  const paragraphs = locale === 'it' ? [
+    `La tabella aggrega ${observedDays} giorni di osservazioni TomTom per ${crossingLabel} nel mese ${monthKey}. Ogni cella della colonna "minuti d'attesa" è la media oraria su tutti i giorni feriali e festivi del mese a quell'ora: la cella delle 07:00 racchiude tutte le rilevazioni fatte tra le 07:00 e le 07:59 di ogni giorno. La media mensile complessiva è ${meanTxt}, calcolata sull'intera giornata 24/24. Le ore con "—" non hanno raccolto abbastanza polling per produrre una stima affidabile (tipicamente le notti profonde, 02:00–04:00, sui valichi minori senza copertura BAZG).`,
+    `Per pianificare un viaggio futuro a ${crossingLabel}, confronta le ore di picco osservate con la finestra teorica della zona ${regionDisplay} (${peakDefault} CET). Le ore con valori sopra la media indicano una congestione stabile, prevedibile mese dopo mese e principalmente trainata dal flusso pendolare frontaliere; le ore con valori bassi rappresentano finestre operative — utili per anticipare la partenza al mattino, posticipare il rientro alla sera, o programmare uno spostamento atipico (visita medica, appuntamento, viaggio non lavorativo). Lo storico copre solo il segmento di approccio + checkpoint del valico: la percorrenza dell'autostrada A2 da Lugano fino a ${crossingLabel} non è inclusa e va sommata a parte (12–25 minuti tipici).`,
+    `Per scegliere il valico migliore in un dato giorno, confronta lo storico di ${crossingLabel} con quello dei valichi alternativi della stessa zona ${regionDisplay}: nel mese ${monthKey} le code possono spostarsi da un valico all'altro a seconda di cantieri sull'A2, manifestazioni a Como o eventi pendolari atipici. La pagina di dettaglio "oggi" del valico mostra il dato live aggiornato ogni 10–15 minuti durante le fasce di picco, mentre lo storico mensile resta utile come baseline contro cui confrontare l'anomalia del giorno.`,
+  ] : locale === 'en' ? [
+    `The table aggregates ${observedDays} days of TomTom observations for ${crossingLabel} in ${monthKey}. Each cell in the "wait minutes" column is the hourly average over every weekday and weekend in the month at that time: the 07:00 cell pools every reading taken between 07:00 and 07:59 each day. The monthly mean is ${meanTxt}, computed over the full 24-hour day. Hours showing "—" lack enough polling samples to produce a reliable estimate (typically deep night, 02:00–04:00, at minor crossings without BAZG coverage).`,
+    `To plan a future trip via ${crossingLabel}, compare the observed peak hours against the theoretical window for the ${regionDisplay} cluster (${peakDefault} CET). Hours above the monthly mean signal stable congestion, repeatable month after month and primarily driven by cross-border commuter flow; hours below the mean represent operational windows — useful for an earlier morning departure, a later evening return, or an atypical trip (medical appointment, non-work travel). The archive covers only the approach + checkpoint segment of the crossing: A2 motorway travel time from Lugano to ${crossingLabel} is not included and must be added separately (typically 12–25 minutes).`,
+    `To pick the best crossing for a given day, compare the ${crossingLabel} archive with the same-month archive of nearby crossings in the ${regionDisplay} cluster: in ${monthKey} queues can shift between crossings depending on A2 roadworks, events in Como or atypical commuter peaks. The crossing's "today" detail page shows the live value, refreshed every 10–15 minutes during peak windows, while the monthly archive stays useful as a baseline to detect day-of-week anomalies.`,
+  ] : locale === 'de' ? [
+    `Die Tabelle aggregiert ${observedDays} Beobachtungstage von TomTom für ${crossingLabel} im Monat ${monthKey}. Jede Zelle der Spalte "Wartezeit (Min.)" ist der Stundendurchschnitt über alle Werk- und Wochenendtage des Monats zur jeweiligen Stunde: Die 07:00-Zelle bündelt jede Messung zwischen 07:00 und 07:59 pro Tag. Der Monatsdurchschnitt liegt bei ${meanTxt}, gerechnet über die ganze 24-Stunden-Spanne. Stunden mit "—" haben zu wenig Polling-Proben für eine verlässliche Schätzung (typischerweise tiefe Nacht, 02:00–04:00, bei kleineren Übergängen ohne BAZG-Abdeckung).`,
+    `Zur Planung einer künftigen Fahrt über ${crossingLabel} vergleichen Sie die beobachteten Spitzenzeiten mit dem theoretischen Fenster der Zone ${regionDisplay} (${peakDefault} MEZ). Stunden über dem Monatsdurchschnitt signalisieren stabile Stauungen, monatlich wiederkehrend und hauptsächlich vom Grenzgänger-Pendlerstrom getrieben; Stunden unter dem Durchschnitt stellen operative Fenster dar — nützlich für einen früheren Morgenstart, eine spätere Rückfahrt am Abend oder eine atypische Fahrt (Arzttermin, nicht-arbeitsbezogene Reise). Das Archiv erfasst nur das Annäherungs- + Kontrollsegment: Die A2-Fahrzeit von Lugano nach ${crossingLabel} ist nicht enthalten und muss separat addiert werden (typisch 12–25 Minuten).`,
+    `Um an einem bestimmten Tag den besten Übergang zu wählen, vergleichen Sie das ${crossingLabel}-Archiv mit dem Archiv benachbarter Übergänge in der Zone ${regionDisplay}: Im Monat ${monthKey} können sich Staus zwischen Übergängen verschieben, abhängig von A2-Baustellen, Veranstaltungen in Como oder atypischen Pendlerspitzen. Die "heute"-Detailseite des Übergangs zeigt den Live-Wert, alle 10–15 Minuten in Spitzenzeiten aktualisiert, während das Monatsarchiv als Baseline dient, um wochentags-spezifische Anomalien zu erkennen.`,
+  ] : [
+    `Le tableau agrège ${observedDays} jours d'observations TomTom pour ${crossingLabel} au mois ${monthKey}. Chaque cellule de la colonne « minutes d'attente » est la moyenne horaire sur tous les jours ouvrés et week-ends du mois à cette heure : la cellule 07h00 regroupe chaque mesure prise entre 07h00 et 07h59 chaque jour. La moyenne mensuelle est de ${meanTxt}, calculée sur les 24 heures de la journée. Les heures affichant « — » manquent de suffisamment d'échantillons de polling pour produire une estimation fiable (typiquement nuit profonde, 02h00–04h00, sur les passages mineurs sans couverture BAZG).`,
+    `Pour planifier un futur trajet par ${crossingLabel}, comparez les heures de pointe observées à la fenêtre théorique du secteur ${regionDisplay} (${peakDefault} CET). Les heures au-dessus de la moyenne signalent une congestion stable, reproductible d'un mois à l'autre et principalement portée par le flux pendulaire frontalier ; les heures en dessous représentent des fenêtres opérationnelles — utiles pour un départ matinal anticipé, un retour du soir tardif ou un trajet atypique (rendez-vous médical, voyage non professionnel). L'archive couvre uniquement le segment d'approche + contrôle : le temps de trajet A2 de Lugano à ${crossingLabel} n'est pas inclus et doit être additionné séparément (12–25 minutes typiques).`,
+    `Pour choisir le meilleur passage un jour donné, comparez l'archive ${crossingLabel} avec l'archive du même mois des passages voisins du secteur ${regionDisplay} : au mois ${monthKey} les files peuvent se déplacer entre passages selon les chantiers sur l'A2, les événements à Côme ou des pics pendulaires atypiques. La page de détail « aujourd'hui » du passage affiche la valeur live, rafraîchie toutes les 10–15 minutes en heures de pointe, alors que l'archive mensuelle reste utile comme référence pour détecter les anomalies propres au jour de la semaine.`,
+  ];
+
+  const faqLabels = locale === 'it'
+    ? {
+        title: `Domande sull'archivio ${monthKey}`,
+        q1: `Come è calcolata la media oraria di ${crossingLabel}?`,
+        a1: `Per ogni ora della giornata raggruppiamo tutte le misure TomTom dei ${observedDays} giorni del mese ${monthKey} a quell'ora (un campione ogni 10–15 minuti nelle fasce di punta, ogni 30–60 minuti fuori picco) e calcoliamo la media aritmetica. Le ore senza dati sufficienti restano "—" invece di mostrare un valore inaffidabile.`,
+        q2: `Posso usare questi dati per pianificare il rientro serale?`,
+        a2: `Sì: confronta la riga delle 17:00–19:00 con la finestra di picco osservata per ${crossingLabel} (${peakDefault} CET). Se la media è inferiore al picco di altre zone, ${crossingLabel} è una buona opzione per il rientro pendolare. Aggiungi sempre 12–25 minuti per la percorrenza autostradale Lugano–${crossingLabel} non inclusa nel dato di coda.`,
+      }
+    : locale === 'en'
+    ? {
+        title: `${monthKey} archive FAQ`,
+        q1: `How is the hourly mean for ${crossingLabel} computed?`,
+        a1: `For every hour of the day we pool all TomTom samples taken in the ${observedDays} days of ${monthKey} at that hour (one sample every 10–15 minutes during peak windows, every 30–60 minutes off peak) and average them. Hours without enough samples stay at "—" instead of surfacing an unreliable value.`,
+        q2: `Can I use this data to plan an evening return?`,
+        a2: `Yes: compare the 17:00–19:00 row with the observed peak window for ${crossingLabel} (${peakDefault} CET). If the mean is below the peak of other clusters, ${crossingLabel} is a good option for the commuter return. Always add 12–25 minutes for the Lugano–${crossingLabel} motorway leg, which is not included in the queue figure.`,
+      }
+    : locale === 'de'
+    ? {
+        title: `FAQ zum Archiv ${monthKey}`,
+        q1: `Wie wird der Stundendurchschnitt für ${crossingLabel} berechnet?`,
+        a1: `Für jede Stunde des Tages bündeln wir alle TomTom-Proben aus den ${observedDays} Tagen des Monats ${monthKey} zu dieser Stunde (eine Probe alle 10–15 Minuten in Spitzenzeiten, alle 30–60 Minuten ausserhalb) und mitteln sie. Stunden ohne ausreichende Proben bleiben auf "—" stehen statt einen unzuverlässigen Wert anzuzeigen.`,
+        q2: `Kann ich diese Daten zur Planung der Abendrückfahrt nutzen?`,
+        a2: `Ja: Vergleichen Sie die 17:00–19:00-Zeile mit dem beobachteten Spitzenfenster von ${crossingLabel} (${peakDefault} MEZ). Liegt der Durchschnitt unter dem Spitzenwert anderer Zonen, ist ${crossingLabel} eine gute Option für die Pendlerrückfahrt. Addieren Sie immer 12–25 Minuten für die Autobahnstrecke Lugano–${crossingLabel}, die nicht in der Wartezahl enthalten ist.`,
+      }
+    : {
+        title: `FAQ archives ${monthKey}`,
+        q1: `Comment la moyenne horaire pour ${crossingLabel} est-elle calculée ?`,
+        a1: `Pour chaque heure de la journée, nous regroupons tous les échantillons TomTom des ${observedDays} jours du mois ${monthKey} à cette heure (un échantillon toutes les 10–15 minutes en heures de pointe, toutes les 30–60 minutes hors pointe) et calculons la moyenne. Les heures sans échantillons suffisants restent à « — » au lieu d'afficher une valeur peu fiable.`,
+        q2: `Puis-je utiliser ces données pour planifier le retour du soir ?`,
+        a2: `Oui : comparez la ligne 17h00–19h00 avec la fenêtre de pointe observée pour ${crossingLabel} (${peakDefault} CET). Si la moyenne est inférieure au pic d'autres secteurs, ${crossingLabel} est une bonne option pour le retour pendulaire. Ajoutez toujours 12–25 minutes pour le tronçon autoroutier Lugano–${crossingLabel}, non inclus dans la valeur de file.`,
+      };
+
+  return `<section style="margin:24px 0 0;padding:18px 22px;border-radius:14px;border:1px solid var(--color-edge);background:var(--color-surface-alt)" aria-labelledby="archiveContext">
+    <h2 id="archiveContext" style="${H2_STYLE}">${esc(headline)}</h2>
+    ${paragraphs.map((p) => `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(p)}</p>`).join('\n    ')}
+    <h3 style="margin:14px 0 10px;font-size:16px;font-weight:700;color:var(--color-heading)">${esc(faqLabels.title)}</h3>
+    <details style="${CARD_STYLE};margin-bottom:8px">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(faqLabels.q1)}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(faqLabels.a1)}</p>
+    </details>
+    <details style="${CARD_STYLE};margin-bottom:0">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(faqLabels.q2)}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(faqLabels.a2)}</p>
+    </details>
+  </section>`;
+}
+
 function renderArchivePage(inp: ArchiveInputs): string {
   const { locale, crossing, monthKey, history, today, distDir } = inp;
   const copy = COPY[locale];
@@ -2016,6 +2115,25 @@ function renderArchivePage(inp: ArchiveInputs): string {
     dateModified: today.toISOString(),
   });
 
+  // Methodology + commuter-context prose + FAQ. Structural insurance for the
+  // text-to-HTML ratio gate: archive pages are otherwise just a 24-row
+  // numeric table, and recent chrome growth (ImageObject license fields,
+  // hub-root cross-links, hreflang) pushes them under the 10% floor without
+  // explanatory body copy. Each block uses the actual crossing name and
+  // monthKey so per-page content is unique, not boilerplate.
+  const region = CROSSING_TO_REGION[crossing];
+  const reg = crossingRegistry(crossing);
+  const peakWindow = reg?.peak ?? '';
+  const archiveProse = renderArchiveContextProse(
+    locale,
+    crossingDisplay,
+    monthKey,
+    region,
+    peakWindow,
+    overallAvg,
+    daysInMonth.length,
+  );
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
         <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
           <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -2038,6 +2156,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
             <tbody>${rows}</tbody>
           </table>
         </section>
+        ${archiveProse}
         <section style="margin-top:32px" aria-label="advertisement">
           ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
         </section>
