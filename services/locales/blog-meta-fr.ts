@@ -6069,6 +6069,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026.title': 'Vol de voitures au Tessin: Land Rover, Alfa Romeo et Porsche les plus touchées',
     'blog.article.furti-auto-ticino-2026.excerpt': 'Les vols de voitures augmentent en Suisse, avec le Tessin au-dessus de la moyenne nationale. Voici ce qu\'il faut savoir et comment se protéger.',
     'blog.article.furti-auto-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des voitures modernes garées le long de la rive, Tessin, Suisse.',
+    'blog.article.lamone-nono-mcdonalds-ticino.title': 'À Lamone, le neuvième McDonald\'s tessinois',
+    'blog.article.lamone-nono-mcdonalds-ticino.excerpt': 'Nouvelle ouverture à Lamone, 35 emplois et 85% d\'ingrédients locaux. Voici ce qui change pour les frontaliers',
+    'blog.article.lamone-nono-mcdonalds-ticino.imageAlt': 'McDonald\'s à Lamone, Tessin, avec vue sur les montagnes',
 };
 
 export default blogMetaFr;

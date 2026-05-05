@@ -6068,6 +6068,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026.title': 'Car thefts in Ticino: Land Rover, Alfa Romeo, and Porsche most targeted',
     'blog.article.furti-auto-ticino-2026.excerpt': 'Car thefts are increasing in Switzerland, with Ticino above the national average. Here\'s what you need to know and how to protect yourself.',
     'blog.article.furti-auto-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with modern cars parked along the shore, Ticino, Switzerland.',
+    'blog.article.lamone-nono-mcdonalds-ticino.title': 'Lamone\'s ninth McDonald\'s in Ticino',
+    'blog.article.lamone-nono-mcdonalds-ticino.excerpt': 'New opening in Lamone, 35 jobs and 85% local ingredients. Here\'s what changes for cross-border workers',
+    'blog.article.lamone-nono-mcdonalds-ticino.imageAlt': 'McDonald\'s in Lamone, Ticino, with mountain view',
 };
 
 export default blogMetaEn;

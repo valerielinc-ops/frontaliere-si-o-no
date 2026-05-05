@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2075,
+ "numberOfItems": 2076,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6717,7 +6717,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2072, "name": "Benzina supera 1,9 euro al litro: prima volta i...", "url": `${BASE_URL}/articoli-frontaliere/benzina-19-euro-5-maggio-2026` },
           { "@type": "ListItem", "position": 2073, "name": "Passo del San Gottardo riaperto da venerdì", "url": `${BASE_URL}/articoli-frontaliere/passo-gottardo-riaperto-ascensione` },
           { "@type": "ListItem", "position": 2074, "name": "Passo del Gottardo riapre in anticipo l'8 maggio", "url": `${BASE_URL}/articoli-frontaliere/passo-gottardo-riapre-anticipo-8-maggio` },
-          { "@type": "ListItem", "position": 2075, "name": "Furti d'auto in Ticino: Land Rover, Alfa Romeo ...", "url": `${BASE_URL}/articoli-frontaliere/furti-auto-ticino-2026` }
+          { "@type": "ListItem", "position": 2075, "name": "Furti d'auto in Ticino: Land Rover, Alfa Romeo ...", "url": `${BASE_URL}/articoli-frontaliere/furti-auto-ticino-2026` },
+          { "@type": "ListItem", "position": 2076, "name": "A Lamone il nono McDonald's ticinese", "url": `${BASE_URL}/articoli-frontaliere/lamone-nono-mcdonalds-ticino` }
  ]
  },
  {

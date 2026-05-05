@@ -6068,6 +6068,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026.title': 'Autodiebstähle: Land Rover, Alfa Romeo, Porsche',
     'blog.article.furti-auto-ticino-2026.excerpt': 'Die Autodiebstähle in der Schweiz nehmen zu, wobei das Tessin über dem nationalen Durchschnitt liegt. Hier erfahren Sie, was Sie wissen müssen und wie Sie sich schützen können.',
     'blog.article.furti-auto-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit modernen Autos am Ufer, Tessin, Schweiz.',
+    'blog.article.lamone-nono-mcdonalds-ticino.title': 'In Lamone der neunte McDonald\'s im Tessin',
+    'blog.article.lamone-nono-mcdonalds-ticino.excerpt': 'Neue Eröffnung in Lamone, 35 Arbeitsplätze und 85% lokale Zutaten. Was sich für Grenzgänger ändert',
+    'blog.article.lamone-nono-mcdonalds-ticino.imageAlt': 'McDonald\'s in Lamone, Tessin, mit Bergblick',
 };
 
 export default blogMetaDe;

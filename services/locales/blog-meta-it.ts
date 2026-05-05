@@ -6069,6 +6069,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-auto-ticino-2026.title': 'Furti d\'auto in Ticino: Land Rover, Alfa Romeo e Porsche le più colpite',
     'blog.article.furti-auto-ticino-2026.excerpt': 'Aumentano i furti d\'auto in Svizzera, con il Ticino sopra la media nazionale. Ecco cosa sapere e come proteggersi.',
     'blog.article.furti-auto-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con auto moderne parcheggiate lungo la riva, Ticino, Svizzera.',
+    'blog.article.lamone-nono-mcdonalds-ticino.title': 'A Lamone il nono McDonald\'s ticinese',
+    'blog.article.lamone-nono-mcdonalds-ticino.excerpt': 'Nuova apertura a Lamone, 35 posti di lavoro e 85% ingredienti locali. Ecco cosa cambia per i frontalieri',
+    'blog.article.lamone-nono-mcdonalds-ticino.imageAlt': 'McDonald\'s di Lamone, Ticino, con vista sulle montagne',
 };
 
 export default blogMetaIt;

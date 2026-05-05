@@ -17936,6 +17936,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lamone-nono-mcdonalds-ticino': {
+    title: 'A Lamone il nono McDonald\'s ticinese | Frontaliere Ticino',
+    description: 'Nuova apertura a Lamone, 35 posti di lavoro e 85% ingredienti locali. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lamone, nono, mcdonald, ticinese',
+    ogTitle: 'A Lamone il nono McDonald\'s ticinese',
+    ogDescription: 'Nuova apertura a Lamone, 35 posti di lavoro e 85% ingredienti locali. Ecco cosa cambia per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/lamone-nono-mcdonalds-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Lamone il nono McDonald's ticinese",
+      "description": "Nuova apertura a Lamone, 35 posti di lavoro e 85% ingredienti locali. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/lamone-nono-mcdonalds-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "McDonald's di Lamone, Ticino, con vista sulle montagne"
+      },
+      "datePublished": "2026-05-05T09:18:43+00:00",
+      "dateModified": "2026-05-05T09:18:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lamone-nono-mcdonalds-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

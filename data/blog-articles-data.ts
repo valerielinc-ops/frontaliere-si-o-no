@@ -19577,4 +19577,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lamone-nono-mcdonalds-ticino',
+ category: 'novita',
+ date: '2026-05-05T09:18:43.141Z',
+ image: '/images/blog/lamone-nono-mcdonalds-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
