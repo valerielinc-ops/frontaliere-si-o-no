@@ -368,8 +368,8 @@
       },
       "descriptionByLocale": {
         "de": "## Descrizione\nStarte am 1. August 2027 mit der dreijährigen\n\n## Aufgaben\n- Du pflegst Patientinnen und Patienten im stationären Bereich und unterstützt sie im Alltag\n- Du führst medizinaltechnische Verrichtungen wie zum Beispiel Blutentnahmen, Medikamentenabgaben oder Blutdruckmessungen sorgfältig und fachgerecht aus\n- Du förderst das körperliche, soziale und psychische Wohlbefinden der Patientinnen und Patienten und richtest dein Handeln stets nach ihren individuellen Bedürfnissen aus\n- Du übernimmst administrative und logistische Aufgaben, die für einen reibungslosen Arbeitsalltag wichtig sind\n\n## Anforderungen\n- Du hast die obligatorische Schulzeit abgeschlossen und bist bereit für deinen Einstieg in die Berufswelt\n- Du unterstützt pflege‑ und hilfsbedürftige Menschen und gestaltest ihren Alltag aktiv mit\n- Du bist verantwortungsbewusst, flexibel, teamfähig und belastbar – sowohl körperlich als auch psychisch\n- Du hast eine gute Beobachtungs‑ und Wahrnehmungsgabe und kannst Situationen schnell einschätzen\n\n## Du kannst etwas, was andere nicht können?\n- Du machst den Unterschied aus?\n- Dann gehörst du zu uns!",
-        "it": "Descrizione Avviare su 1. Agosto 2027 con i compiti di tre anni ## - Ti preoccupi per i pazienti nell'area stazionaria e li supporta nella vita di tutti i giorni - Esegue dispositivi medici come, ad esempio, prelievi di sangue, oneri di droga o misurazioni della pressione sanguigna con attenzione e professionalmente - Supporti l'assistenza sanitaria fisica, sociale e mentale dei pazienti e gestisci sempre le tue azioni secondo le loro esigenze individuali - hai svolto compiti amministrativi e logistici - Allora appartieni a noi!",
-        "en": "Descrizione Start on 1. August 2027 with the three-year-old ## Tasks - You care for patients in the stationary area and support them in everyday life - You carry out medical devices such as, for example, blood withdrawals, drug charges or blood pressure measurements carefully and professionally - You support the physical, social and mental health care of the patients and you always manage your actions according to their individual needs - you have taken administrative and logistical tasks - Then you belong to us!",
+        "it": "##STR1###\nIniziare su 1. Agosto 2027 con il triennio\n\nCompiti\n- Ti preoccupi per i pazienti nella zona stazionaria e li sostenga nella vita quotidiana\n- Effettuare trattamenti medici come prelievi di sangue, consegna di farmaci o misurazioni della pressione sanguigna con attenzione e professionalmente\n- Promuovi il benessere fisico, sociale e psicologico dei pazienti e giudichi sempre le tue azioni secondo le loro esigenze individuali\n- Lei svolge compiti amministrativi e logistici che sono importanti per una giornata di lavoro regolare\n\n= Requisiti\n- Hai completato la scuola obbligatoria e sei pronto per il tuo ingresso nel mondo professionale\n- Supporti le persone che hanno bisogno di cure e aiuto e forma attivamente la loro vita quotidiana\n- Sei responsabile, flessibile, collaborabile e resiliente – sia fisicamente che mentalmente\n- Hai una buona osservazione e percezione e puoi valutare rapidamente le situazioni\n\n## Puoi fare qualcosa che gli altri non possono?\n- Fai la differenza?\n- Allora appartieni a noi!",
+        "en": "##STR1##\nStart on 1. August 2027 with the three-year\n\nTasks\n- You care for patients in the stationary area and support them in everyday life\n- You carry out medical treatments such as blood withdrawals, drug delivery or blood pressure measurements carefully and professionally\n- You promote the physical, social and psychological well-being of patients and always judge your actions according to their individual needs\n- You carry out administrative and logistical tasks that are important for a smooth working day\n\n= Requirements\n- You have completed compulsory schooling and are ready for your entry into the professional world\n- You support people in need of care and help and actively shape their everyday lives\n- You are responsible, flexible, teamable and resilient – both physically and mentally\n- You have good observation and perception and can quickly assess situations\n\n## You can do something that others can't?\n- You make the difference?\n- Then you belong to us!",
         "fr": "Descrizione Commencez sur 1. Août 2027 avec les trois ans ## Tâches - Vous prenez soin des patients dans la zone stationnaire et les soutenir dans la vie quotidienne - Vous effectuez des dispositifs médicaux tels que, par exemple, des prélèvements sanguins, des charges de médicaments ou des mesures de pression artérielle soigneusement et professionnellement - Vous soutenez les soins de santé physique, sociale et mentale des patients et vous gérez toujours vos actions selon leurs besoins individuels - vous avez pris des tâches administratives et logistiques - Alors tu nous appartiens !"
       },
       "baseSalary": {
@@ -391,7 +391,6 @@
           "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -523,12 +522,13 @@
           "berufslehre-medizinische-r-praxisassistent-in-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-04T11:09:50.180Z"
+      "firstSeenAt": "2026-05-04T11:09:50.180Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "10019067",
@@ -839,7 +839,8 @@
       "featured": false,
       "previousSlugs": [
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
-        "diet-chef-kantonsspital-graubunden-chur"
+        "diet-chef-kantonsspital-graubunden-chur",
+        "berufslehre-kochin-koch-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
@@ -1490,12 +1491,13 @@
           "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-20T21:51:49.023Z"
+      "firstSeenAt": "2026-04-20T21:51:49.023Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "10002111",
@@ -1746,7 +1748,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3008,7 +3009,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-interdisziplinares-ambulatorium-kantonsspital-graubunden-walenstadt"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3269,7 +3269,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5656,7 +5655,8 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
@@ -5724,7 +5724,6 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6049,7 +6048,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-o-fachexpertin-fachexperte-onkologiepflege-ambulant-kantonsspital-graubunden-chur"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6425,7 +6423,7 @@
       "descriptionByLocale": {
         "de": "## Descrizione\n\nStarte nach Vereinbarung als\n\n## Mansioni\n- Du rotierst an alle Modalitäten (CT, MRT, konventionelle Radiologie, interventionelle Radiologie)\n- Du überwachst den technischen Ablauf der Untersuchungen und legst dabei stets grossen Wert auf das Wohl der Patientinnen und Patienten\n- Du begleitest Studierende während ihrer Ausbildung\n- Du übernimmst administrative Aufgaben und sorgst für eine ordnungsgemässe Dokumentation\n\n## Requisiti\n- Du bist dipl. Radiologiefachperson HF/FH (MTRA) oder hast ein äquivalentes ausländisches Diplom\n- Du bist bereit, unregelmässige Tag-, Wochenend-, Feiertags- und Nachtdienste zu leisten\n- Du bist zuverlässig und bereicherst unser Team mit deiner offenen und kooperativen Art\n\n## Cosa offriamo\n- Du kannst etwas, was andere nicht können?\n- Du machst den Unterschied aus?\n- Dann gehörst du zu uns!\n\n## Contatto\n(nessun testo disponibile)",
         "it": "Avvio di accordo\n\nCompiti:\n- Si ruota a tutte le modalità (CT, MRT, radiologia convenzionale, radiologia interventistica)\n- Monitorate il processo tecnico dell'indagine e attribuite sempre grande importanza al benessere dei pazienti\n- accompagni gli studenti durante la loro formazione\n- Tu prendi compiti amministrativi e assicurati di essere adeguatamente documentato\n\nRequisiti:\n- Sei dipl. Specialista di radiologia HF/FH (MTRA) o con un diploma straniero equivalente\n- Siete pronti a fornire servizi irregolari giorno, fine settimana, vacanza e notte\n- Sei affidabile e arricchisci il nostro team con il tuo modo aperto e cooperativo\n\nPuoi fare qualcosa che gli altri non possono fare?\nFai la differenza?\nAllora appartieni a noi!",
-        "en": "##STR1##\n\nStart by agreement as\n\n# Mansioni\n- You rotate to all modalities (CT, MRT, conventional radiology, interventional radiology)\n- You monitor the technical process of the investigation and always attach great importance to the well-being of patients\n- You accompany students during their training\n- You carry out administrative tasks and ensure proper documentation\n\n##\n- You're dipl. Radiology specialist HF/FH (MTRA) or have an equivalent foreign diploma\n- You are ready to provide irregular day, weekend, holiday and night services\n- You are reliable and enrich our team with your open and cooperative way\n\n##\n- You can do something that others can't?\n- You make the difference?\n- Then you belong to us!\n\n# Contatto\n(nessun testo disponibile)",
+        "en": "##STR1##\n\nStart by agreement as\n\n# Mansioni\n- You rotate to all modalities (CT, MRT, conventional radiology, interventional radiology)\n- You monitor the technical process of the investigation and always attach great importance to the well-being of patients\n- You accompany students during their training\n- You carry out administrative tasks and ensure proper documentation\n\n## Requisiti\n- You're dipl. Radiology specialist HF/FH (MTRA) or have an equivalent foreign diploma\n- You are ready to provide irregular day, weekend, holiday and night services\n- You are reliable and enrich our team with your open and cooperative way\n\n## Cosa offriamo\n- You can do something that others can't?\n- You make the difference?\n- Then you belong to us!\n\n# Contatto\n(nessun testo disponibile)",
         "fr": "Commencer par un accord\n\nTâches :\n- Vous passez à toutes les modalités (CT, MRT, radiologie conventionnelle, radiologie interventionnelle)\n- Vous surveillez le processus technique de l'enquête et attachez toujours une grande importance au bien-être des patients\n- Vous accompagnez les étudiants pendant leur formation\n- Vous prenez des tâches administratives et assurez-vous que vous êtes correctement documenté\n\nExigences:\n- Vous êtes dipl. Spécialiste en radiologie HF/FH (MTRA) ou diplôme étranger équivalent\n- Vous êtes prêt à fournir des services de jour, week-end, vacances et nuit irréguliers\n- Vous êtes fiable et enrichissez notre équipe de votre manière ouverte et coopérative\n\nTu peux faire quelque chose que les autres ne peuvent pas faire ?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
@@ -6439,7 +6437,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -7029,7 +7026,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
