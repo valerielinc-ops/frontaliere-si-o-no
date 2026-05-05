@@ -6138,6 +6138,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.education-day-varese-studenti.title': 'Education Day : 300 élèves à Varèse',
     'blog.article.education-day-varese-studenti.excerpt': 'Plus de 300 élèves des écoles primaires et secondaires ont participé à la troisième édition de l\'Education Day de Confindustria Varèse.',
     'blog.article.education-day-varese-studenti.imageAlt': 'Groupe d\'élèves présentant leurs projets lors de l\'événement Education Day à Varese',
+    'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.title': 'Truck éthique à Varèse avec visières 3D',
+    'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.excerpt': 'Lundi 11 mai sur la place Monte Grappa à Varèse, le Truck du travail éthique et sûr offre orientation et opportunités pour étudiants et chômeurs.',
+    'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.imageAlt': 'Camion de travail éthique et sûr sur la place de Varese avec des entreprises, des étudiants et des lunettes 3D',
 };
 
 export default blogMetaFr;

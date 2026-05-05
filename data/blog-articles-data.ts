@@ -19784,4 +19784,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'truck-lavoro-etico-varese-studenti-visori-3d',
+ category: 'novita',
+ date: '2026-05-05T12:40:21.644Z',
+ image: '/images/blog/truck-lavoro-etico-varese-studenti-visori-3d.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

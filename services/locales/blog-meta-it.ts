@@ -6138,6 +6138,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.education-day-varese-studenti.title': 'Education Day: 300 studenti protagonisti a Varese',
     'blog.article.education-day-varese-studenti.excerpt': 'Oltre 300 studenti delle scuole primarie e secondarie hanno partecipato alla terza edizione dell\'Education Day di Confindustria Varese.',
     'blog.article.education-day-varese-studenti.imageAlt': 'Gruppo di studenti che presentano i loro progetti all\'evento Education Day a Varese',
+    'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.title': 'Truck del lavoro etico e sicuro a Varese con aziende, studenti e visori 3D',
+    'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.excerpt': 'Lunedì 11 maggio in piazza Monte Grappa a Varese, il Truck del lavoro etico e sicuro offre orientamento e opportunità per studenti e disoccupati.',
+    'blog.article.truck-lavoro-etico-varese-studenti-visori-3d.imageAlt': 'Truck del lavoro etico e sicuro in piazza a Varese con aziende, studenti e visori 3D',
 };
 
 export default blogMetaIt;
