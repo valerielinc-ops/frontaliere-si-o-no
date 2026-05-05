@@ -2307,6 +2307,26 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const FR_SALAIRE_LINKS: ReadonlyArray<{ href: string; label: string }> = [
  { href: '/fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/', label: 'Calcul salaire net frontalier (FR)' },
  ];
+ // Root-hub anchors. These are top-of-hierarchy pages whose entire
+ // descendant tree was previously unreachable from BFS-from-`/` because
+ // no other indexed page linked them. Adding them to /mappa-del-sito/
+ // (which IS reachable from `/` via the main nav) cascades reachability
+ // through each hub's existing internal navigation:
+ //   /premi-cassa-malati/        → 26 cantoni → 7 fasce d'età ciascuno  (~183 URL)
+ //   /traffico-dogane/           → 24 valichi × 4 locale × oggi  (~96 URL)
+ //   /prezzi-diesel/oggi/        → 5 città Ticino × stazioni  (~45 URL)
+ //   /prezzi-benzina/oggi/       → idem  (~45 URL)
+ //   /aziende-che-assumono/tutte/ → ~2 pagine paginazione + 233 schede azienda
+ // Closes the bulk of sitemap-health-premiums.xml (171), sitemap-border-wait.xml
+ // (23), sitemap-fuel-daily.xml (40), and the residual sitemap-jobs.xml (118)
+ // offenders in the May-2026 baseline ratchet.
+ const HUB_ROOT_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/premi-cassa-malati/', label: 'Premi LAMal — comparatore per cantone' },
+ { href: '/traffico-dogane/', label: 'Tempi attesa dogane (live) — tutti i valichi' },
+ { href: '/prezzi-diesel/oggi/', label: 'Prezzi diesel Svizzera — oggi' },
+ { href: '/prezzi-benzina/oggi/', label: 'Prezzi benzina Svizzera — oggi' },
+ { href: '/aziende-che-assumono/tutte/', label: 'Aziende che assumono — indice completo' },
+ ];
 
  const renderHubLinks = (heading: string, items: ReadonlyArray<{ href: string; label: string }>): string =>
  items.length
@@ -2359,6 +2379,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  renderHubLinks('Prezzi carburante città italiane', FUEL_IT_CITY_LINKS),
  renderHubLinks('Guide PDF scaricabili', GUIDE_PDF_LINKS),
  renderHubLinks('Risorse in altre lingue', FR_SALAIRE_LINKS),
+ renderHubLinks('Hub root — alberi di pagine cascading', HUB_ROOT_LINKS),
  `<p style="margin-top:1rem;color:#64748b;font-size:0.85rem">Pagine root non in elenco: <a href="/" style="color:#2563eb;text-decoration:none">homepage</a>, <a href="/cerca-lavoro-ticino/" style="color:#2563eb;text-decoration:none">job-board</a>, <a href="/articoli-frontaliere/" style="color:#2563eb;text-decoration:none">archivio articoli</a>, <a href="/glossario-frontaliere/" style="color:#2563eb;text-decoration:none">glossario</a>, <a href="/domande-frequenti-frontalieri/" style="color:#2563eb;text-decoration:none">FAQ</a>.</p>`,
  );
  } else if (canonicalPath === '/glossario-frontaliere/') {
