@@ -16,6 +16,7 @@ import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
 import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
 import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
+import jobOgImagesPlugin from './build-plugins/jobOgImagesPlugin';
 import { jobRecencyPagesPlugin } from './build-plugins/jobRecencyPagesPlugin';
 import { jobSectorPagesPlugin } from './build-plugins/jobSectorPagesPlugin';
 import { orphanQueryLandingPlugin } from './build-plugins/orphanQueryLandingPlugin';
@@ -117,6 +118,10 @@ export default defineConfig(({ mode }) => {
  ...(isFastBuild ? [] : [
  ogPagesPlugin(__dirname),
  jobsSeoPagesPlugin(__dirname),
+ // Per-job OG images (1200×630) for FB/LinkedIn previews. Reads
+ // data/jobs.json + company-logos-manifest, writes dist/og/jobs/<slug>.png.
+ // Idempotent: existing PNGs are re-used. ~1-2 min to render 2100 jobs.
+ ...(process.env.SKIP_JOB_OG_IMAGES !== '1' ? [jobOgImagesPlugin()] : []),
  jobRecencyPagesPlugin(__dirname),
  jobSectorPagesPlugin(__dirname),
  fuelDailyPagesPlugin(__dirname),
