@@ -69,4 +69,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/fb-posted-jobs.json
           git commit -m "chore(fb): track posted jobs [skip ci]"
-          bash scripts/lib/git-push-with-retry.sh
+          # In-place resolver merges by job-id when another commit lands
+          # on main mid-run (e.g. a concurrent article workflow or a
+          # parallel orchestrator's ledger reset). Without this the
+          # workflow exits 1 and the ledger goes out-of-sync with the
+          # FB Page's actual scheduled queue.
+          bash scripts/lib/git-push-with-retry.sh \
+            --in-place-resolver-cmd "node scripts/lib/resolve-fb-posted-jobs-conflict.mjs && git add -A"
