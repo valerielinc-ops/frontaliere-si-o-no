@@ -11,11 +11,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+import { requireDataPath, ROOT } from './lib/resolve-data-path.mjs';
 
 /* ── German-only word patterns (not found in Italian/English job titles) ── */
 const GERMAN_SLUG_WORDS = /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehrstelle|lehre|mitarbeiter|leiter|stellvertretend|verkauf|lernend|chauffeu|gartencenter|befristet|ablosen|disponentin|disponent|ladenleit|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|bauleiter|zeichner|fachrichtung|ingenieurbau|tunnelbau|tiefbau|innendienst|generalagentur|vorsorge|vermogen|wissenschaftlich|detailhandels|bekampfung|japankafer|lager)(?:-|$)/i;
@@ -77,7 +73,9 @@ function slugifySimple(str) {
 }
 
 function run() {
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const dataJobs = requireDataPath('jobs.json', 'validate-jobs-quality');
+  console.log(`Reading jobs dataset from: ${path.relative(ROOT, dataJobs)}`);
+  const jobs = JSON.parse(fs.readFileSync(dataJobs, 'utf-8'));
   const errors = [];
   const warnings = [];
 
