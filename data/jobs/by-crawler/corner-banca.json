@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "corner-banca-b69f1f79bbe3",
-      "slug": "customer-advisor-40-corner-banca-wallisellen",
+      "slug": "consulente-clienti-40-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-advisor-40-corner-banca-wallisellen",
+        "it": "consulente-clienti-40-corner-banca-wallisellen",
         "en": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
         "de": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
         "fr": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
@@ -85,7 +85,15 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-05T21:39:18.874Z"
+      "firstSeenAt": "2026-05-05T21:39:18.874Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-advisor-40-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "customer-advisor-40-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-f803e5cc9fe2",

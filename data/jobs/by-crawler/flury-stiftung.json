@@ -1140,12 +1140,12 @@
     },
     {
       "id": "flury-stiftung-c43c82a5fef5",
-      "slug": "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch",
+      "slug": "dipl-assistente-sanitario-hf-fh-50-100-casa-di-riposo-jenaz-flury-stiftung-jenaz",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch",
-        "it": "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch",
+        "it": "dipl-assistente-sanitario-hf-fh-50-100-casa-di-riposo-jenaz-flury-stiftung-jenaz",
         "en": "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
+        "fr": "dipl-auxiliaire-de-sante-hf-fh-50-100-maison-de-retraite-jenaz-flury-stiftung-jenaz"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -1203,7 +1203,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-05T21:48:57.020Z"
+      "firstSeenAt": "2026-05-05T21:48:57.020Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
+      ]
     },
     {
       "id": "flury-stiftung-09e6f7077792",

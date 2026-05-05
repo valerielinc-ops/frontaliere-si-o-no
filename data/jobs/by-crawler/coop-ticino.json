@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-uwtky9",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden",
+      "slug": "macellaio-specialista-della-carne-coop-genossenschaft-klosters-serneus",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Klosters-Serneus",
@@ -41,10 +41,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
+        "it": "macellaio-specialista-della-carne-coop-genossenschaft-klosters-serneus",
+        "en": "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9"
+        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus"
       },
       "addressLocality": "Klosters-Serneus",
       "sourceLang": "de",
@@ -59,11 +59,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden"
+      ]
     },
     {
       "id": "company-9hhhzy",
-      "slug": "verkaufer-in-kassen-services-coop-zernez-graubunden",
+      "slug": "venditore-in-contanti-servizi-coop-genossenschaft-zernez",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Zernez",
@@ -111,10 +127,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-zernez-graubunden-9hhhzy",
-        "en": "verkaufer-in-kassen-services-coop-zernez-graubunden-9hhhzy",
+        "it": "venditore-in-contanti-servizi-coop-genossenschaft-zernez",
+        "en": "seller-in-cash-services-coop-genossenschaft-zernez",
         "de": "verkaufer-in-kassen-services-coop-zernez-graubunden-9hhhzy",
-        "fr": "verkaufer-in-kassen-services-coop-zernez-graubunden-9hhhzy"
+        "fr": "vendeur-en-especes-services-coop-genossenschaft-zernez"
       },
       "addressLocality": "Zernez",
       "sourceLang": "de",
@@ -129,7 +145,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-coop-zernez-graubunden-9hhhzy",
+          "verkaufer-in-kassen-services-coop-zernez-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-zernez-graubunden-9hhhzy"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-zernez-graubunden-9hhhzy"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-coop-zernez-graubunden-9hhhzy",
+        "verkaufer-in-kassen-services-coop-zernez-graubunden"
+      ]
     },
     {
       "id": "company-ogdpev",
@@ -299,8 +331,7 @@
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
       ]
     },
     {
@@ -388,8 +419,7 @@
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d",
-        "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"
       ]
     },
     {
@@ -635,19 +665,16 @@
       "previousSlugsByLocale": {
         "en": [
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-          "dr-sales-services-f-m-d-coop-genossenschaft-caslano",
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
           "dr-sales-services-f-m-d-coop-genossenschaft-caslano-1d319f"
         ],
         "de": [
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-          "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano",
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
           "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano-1d319f"
         ],
         "fr": [
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-          "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano",
           "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
           "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano-1d319f"
         ],
@@ -657,10 +684,7 @@
       },
       "previousSlugs": [
         "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-h131f0",
-        "dr-sales-services-f-m-d-coop-genossenschaft-caslano",
         "dr-venditrice-tore-casse-servizi-m-w-d-coop-caslano-ticino-ogdpev",
-        "dr-vertrieb-dienstleistungen-f-m-d-coop-genossenschaft-caslano",
-        "ventes-services-de-rd-f-m-d-coop-genossenschaft-caslano",
         "venditrice-tore-casse-servizi-jumbo-sant-antonino-ticino",
         "venditrice-tore-casse-servizi-jumbo-sant-antonino-ticino-bv5moc",
         "seller-cash-registers-services-jumbo-divisione-di-coop-societa-cooperativa-sant-antonino",

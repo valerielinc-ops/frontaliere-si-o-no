@@ -209,10 +209,10 @@
     },
     {
       "id": "fusalp-9fd3fdf0afbe",
-      "slug": "conseiller-de-vente-h-f-sales-consultant-w-m-fusalp-aubonne",
+      "slug": "consulente-commerciale-h-f-consulente-vendite-w-m-fusalp-aubonne",
       "slugByLocale": {
         "fr": "conseiller-de-vente-h-f-sales-consultant-w-m-fusalp-aubonne",
-        "it": "conseiller-de-vente-h-f-sales-consultant-w-m-fusalp-aubonne",
+        "it": "consulente-commerciale-h-f-consulente-vendite-w-m-fusalp-aubonne",
         "en": "conseiller-de-vente-h-f-sales-consultant-w-m-fusalp-aubonne",
         "de": "conseiller-de-vente-h-f-sales-consultant-w-m-fusalp-aubonne"
       },
@@ -270,7 +270,15 @@
         }
       },
       "firstSeenAt": "2026-05-05T21:50:28.461Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-h-f-sales-consultant-w-m-fusalp-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-h-f-sales-consultant-w-m-fusalp-aubonne"
+      ]
     }
   ]
 }

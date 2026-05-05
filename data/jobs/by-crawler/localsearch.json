@@ -3027,12 +3027,12 @@
     },
     {
       "id": "localsearch-125a3b777f24",
-      "slug": "product-owner-product-engineering-80-100-localsearch-ch",
+      "slug": "proprietario-del-prodotto-ingegneria-del-prodotto-80-100-localsearch-zurich",
       "slugByLocale": {
         "en": "product-owner-product-engineering-80-100-localsearch-ch",
-        "it": "product-owner-product-engineering-80-100-localsearch-ch",
+        "it": "proprietario-del-prodotto-ingegneria-del-prodotto-80-100-localsearch-zurich",
         "de": "product-owner-product-engineering-80-100-localsearch-ch",
-        "fr": "product-owner-product-engineering-80-100-localsearch-ch"
+        "fr": "proprietaire-produit-ingenierie-80-100-localsearch-zurich"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -3086,7 +3086,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-05T22:10:09.370Z"
+      "firstSeenAt": "2026-05-05T22:10:09.370Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-product-engineering-80-100-localsearch-ch"
+        ],
+        "fr": [
+          "product-owner-product-engineering-80-100-localsearch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-product-engineering-80-100-localsearch-ch"
+      ]
     }
   ]
 }

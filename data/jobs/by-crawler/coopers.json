@@ -197,12 +197,12 @@
     },
     {
       "id": "coopers-37a85ee20e7e",
-      "slug": "category-buyer-m-w-d-coopers-wallis",
+      "slug": "categoria-compratore-m-w-d-coopers-group-ag-wallis",
       "slugByLocale": {
         "de": "category-buyer-m-w-d-coopers-wallis",
-        "it": "category-buyer-m-w-d-coopers-wallis",
+        "it": "categoria-compratore-m-w-d-coopers-group-ag-wallis",
         "en": "category-buyer-m-w-d-coopers-wallis",
-        "fr": "category-buyer-m-w-d-coopers-wallis"
+        "fr": "categorie-acheteur-m-w-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -277,7 +277,18 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-05T21:37:47.439Z"
+      "firstSeenAt": "2026-05-05T21:37:47.439Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "category-buyer-m-w-d-coopers-wallis"
+        ],
+        "fr": [
+          "category-buyer-m-w-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "category-buyer-m-w-d-coopers-wallis"
+      ]
     }
   ]
 }

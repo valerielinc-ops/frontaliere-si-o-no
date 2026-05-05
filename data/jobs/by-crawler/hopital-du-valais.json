@@ -550,9 +550,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -601,12 +601,12 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
@@ -3327,12 +3327,12 @@
     },
     {
       "id": "hopital-du-valais-b251ff1d9ecc",
-      "slug": "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-",
+      "slug": "infermiera-responsabile-psichiatria-e-psicoterapia-pki-90-hopital-du-valais-monthey",
       "slugByLocale": {
         "fr": "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-",
-        "it": "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-",
-        "en": "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-",
-        "de": "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-"
+        "it": "infermiera-responsabile-psichiatria-e-psicoterapia-pki-90-hopital-du-valais-monthey",
+        "en": "nurse-head-of-psychiatry-and-psychotherapy-pki-90-hopital-du-valais-monthey",
+        "de": "krankenschwester-leiterin-psychiatrie-und-psychotherapie-pki-90-hopital-du-valais-monthey"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3388,7 +3388,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-05T21:59:05.039Z"
+      "firstSeenAt": "2026-05-05T21:59:05.039Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-"
+        ],
+        "en": [
+          "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-"
+        ],
+        "de": [
+          "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-"
+      ]
     },
     {
       "id": "hopital-du-valais-52fd4a2a9204",
@@ -3459,12 +3473,12 @@
     },
     {
       "id": "hopital-du-valais-6b4230c38cbe",
-      "slug": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
+      "slug": "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais-si",
       "slugByLocale": {
         "fr": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanence-medicale-de-l-hopital-de-sie",
-        "it": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
-        "en": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
-        "de": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+        "it": "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais-si",
+        "en": "medical-clinic-chiefs-or-hospital-doctors-between-20-and-100-for-the-medical-clinic-of-the-hospital-of-sierre-hopital-du",
+        "de": "klinikleiter-oder-krankenhausarzte-zwischen-20-und-100-fur-die-medizinische-klinik-des-krankenhauses-von-sierre-hopital-"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3522,7 +3536,21 @@
         }
       },
       "firstSeenAt": "2026-05-05T21:59:04.286Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+        ],
+        "en": [
+          "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+        ],
+        "de": [
+          "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+        ]
+      },
+      "previousSlugs": [
+        "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+      ]
     }
   ]
 }

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-418e046ef2bf",
-      "slug": "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen",
+      "slug": "responsabile-commissione-oensingen-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "it": "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "en": "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "fr": "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen"
+        "it": "responsabile-commissione-oensingen-bell-schweiz-ag-oensingen",
+        "en": "commissioning-team-leader-oensingen-bell-schweiz-ag-oensingen",
+        "fr": "responsable-de-la-commission-oensingen-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -48,14 +48,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-hilcona-oensingen"
+          "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-hilcona-oensingen",
+          "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen"
         ],
         "de": [
           "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-hilcona-oensingen"
+        ],
+        "en": [
+          "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-hilcona-oensingen"
+        "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-hilcona-oensingen",
+        "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
