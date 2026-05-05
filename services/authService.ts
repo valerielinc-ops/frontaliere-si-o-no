@@ -1352,6 +1352,48 @@ export async function initOneTap(): Promise<boolean> {
 /**
  * Handle One Tap credential response
  */
+/**
+ * Persist a newsletter_subscribers/{email} record for a One Tap signin.
+ *
+ * The desktop popup + mobile redirect flows rely on the App.tsx auth listener
+ * to fire `upsertNewsletterSubscriber` after `onAuthStateChanged` updates
+ * `authEmail`. One Tap signs the user in via `signInWithCredential` without
+ * routing through that listener path (the listener is lazy and may not be
+ * attached, and the flow does not set `auth_redirect_provider`), so we mirror
+ * the popup-flow upsert here directly.
+ */
+async function persistOneTapSubscriber(user: { email?: string | null; displayName?: string | null }): Promise<void> {
+ const rawEmail = user?.email?.toLowerCase().trim();
+ if (!rawEmail || !rawEmail.includes('@')) return;
+ if (typeof window !== 'undefined' && window.localStorage?.getItem('newsletter_subscribed') === 'true') return;
+ try {
+ const [{ getFirestore }, { getApp }, newsletterModule] = await Promise.all([
+ import('firebase/firestore'),
+ import('@/services/firebase'),
+ import('@/services/newsletterSubscribers'),
+ ]);
+ const db = getFirestore(await getApp());
+ const normalizedEmail = newsletterModule.normalizeNewsletterEmail(rawEmail);
+ if (!normalizedEmail) return;
+ await newsletterModule.upsertNewsletterSubscriber(db, {
+ email: normalizedEmail,
+ name: user.displayName || null,
+ preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+ source: 'signup',
+ sourceChannel: 'auth_google',
+ sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
+ sourceCta: 'one_tap',
+ sourceComponent: 'auth_one_tap',
+ locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
+ isActive: true,
+ });
+ try { window.localStorage?.setItem('newsletter_subscribed', 'true'); } catch { /* ignore */ }
+ } catch (err) {
+ // Best-effort: don't break sign-in if Firestore write fails (e.g., rate-limit, offline)
+ reportCaughtError(err, 'auth.persistOneTapSubscriber');
+ }
+}
+
 async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  try {
  await ensureFirebaseAuth();
@@ -1361,7 +1403,13 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  const result = await _authModule.signInWithCredential(authInstance, credential);
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'google', 'login', 'onetap');
- console.log('✅ One Tap sign-in successful:', result.user.email);
+
+ // Mirror the popup-flow side effects: profile enrich + full subscriber upsert.
+ // Without these, One Tap creates an Auth user without any newsletter_subscribers
+ // doc, so the user never receives the newsletter (regression introduced when
+ // ea096801e7 fixed the GSI loader and One Tap actually started firing).
+ saveUserProfileToFirestore(result.user, 'google').catch(() => { /* best-effort */ });
+ persistOneTapSubscriber(result.user).catch(() => { /* best-effort */ });
 
  // Redirect to saved path if present (e.g., expired/bridge job → listing)
  const savedPath = sessionStorage.getItem('auth_redirect_path');
@@ -1371,7 +1419,6 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  window.dispatchEvent(new PopStateEvent('popstate'));
  }
  } catch (error) {
- console.warn('⚠️ One Tap credential error:', error);
  reportCaughtError(error, 'auth.oneTapCredential');
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'google', 'login', 'onetap-error');
