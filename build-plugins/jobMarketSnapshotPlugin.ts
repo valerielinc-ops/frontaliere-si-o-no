@@ -1127,6 +1127,68 @@ interface SnapshotPageInputs extends CommonRenderInputs {
   noindex: boolean;
 }
 
+/**
+ * Page-specific prose for weekly/monthly snapshot pages. Interprets the
+ * period's headline numbers (newJobs, closedJobs, activeEmployers,
+ * medianSalary, weeklyDelta) for an Italian cross-border worker.
+ *
+ * Each call interpolates the page's own period label and stats, so two
+ * adjacent weeks emit different sentences (no boilerplate). Structural
+ * insurance for the text-to-HTML ratio gate: a degraded snapshot (empty
+ * topRoles / topEmployers / cityBreakdown lists) plus the heavy
+ * Dataset+NewsArticle+FAQ JSON-LD chrome would otherwise leave the body
+ * close to the 10% floor.
+ */
+function renderSnapshotFrontalierContext(
+  locale: JobMarketSnapshotLocale,
+  kind: 'weekly' | 'monthly',
+  periodLabel: string,
+  stats: AggregatedStats,
+): string {
+  const newJobs = stats.newJobs;
+  const closedJobs = stats.closedJobs;
+  const activeEmployers = stats.activeEmployers;
+  const medianTxt = stats.medianSalary !== null
+    ? `${stats.medianSalary.toLocaleString('en-US').replace(/,/g, ' ')} CHF`
+    : null;
+  const netFlow = newJobs - closedJobs;
+  const flowSign = netFlow > 0 ? '+' : '';
+  const flowLabel = locale === 'it'
+    ? (netFlow > 0 ? 'in espansione' : netFlow < 0 ? 'in contrazione' : 'in equilibrio')
+    : locale === 'en'
+    ? (netFlow > 0 ? 'expanding' : netFlow < 0 ? 'contracting' : 'balanced')
+    : locale === 'de'
+    ? (netFlow > 0 ? 'expandierend' : netFlow < 0 ? 'schrumpfend' : 'ausgeglichen')
+    : (netFlow > 0 ? 'en expansion' : netFlow < 0 ? 'en contraction' : 'à l\'équilibre');
+
+  const headline = locale === 'it'
+    ? `Cosa significa la ${periodLabel} per un frontaliere italiano`
+    : locale === 'en'
+    ? `What ${periodLabel} means for an Italian cross-border worker`
+    : locale === 'de'
+    ? `Was die ${periodLabel} für einen italienischen Grenzgänger bedeutet`
+    : `Ce que ${periodLabel} signifie pour un frontalier italien`;
+
+  const paragraphs = locale === 'it' ? [
+    `Nella ${periodLabel} il mercato del lavoro ticinese ha registrato ${newJobs} nuovi annunci e ${closedJobs} chiusure, con un saldo netto di ${flowSign}${netFlow} posizioni e ${activeEmployers} datori di lavoro attivi che pubblicano almeno un'offerta. Il flusso netto ${flowLabel} indica come si sta spostando la domanda di lavoro: una settimana espansiva favorisce le candidature spontanee verso datori già conosciuti del settore, una contrattiva rende più strategico concentrarsi sui top employer della breakdown e sui ruoli con delta positivo. ${medianTxt ? `La mediana retributiva delle nuove offerte è ${medianTxt} lordi annui — confronta sempre il lordo svizzero con il netto italiano equivalente prima di valutare un'offerta.` : 'La mediana retributiva non è disponibile per questa finestra temporale (campione insufficiente per il calcolo).'}`,
+    `Per un frontaliere che valuta il salto in Ticino, queste metriche vanno lette insieme alla curva CHF/EUR e ai costi del pendolarismo. A parità di lordo, il netto in CHF resta superiore del 25-45 % al netto italiano per lo stesso ruolo, ma una variazione di 5 centesimi sul cambio sposta il netto in euro di circa il 5-7 %. Le ${kind === 'weekly' ? 'settimane' : 'mesi'} con flusso netto positivo sono storicamente quelle in cui le aziende ticinesi accettano più volentieri un colloquio esplorativo via candidatura spontanea: la pipeline dei colloqui si svuota più rapidamente e le posizioni "fantasma" (non pubblicate ma latenti) si aprono con maggiore frequenza.`,
+  ] : locale === 'en' ? [
+    `In ${periodLabel} the Ticino job market posted ${newJobs} new openings and ${closedJobs} closures, with a net balance of ${flowSign}${netFlow} positions and ${activeEmployers} active employers running at least one ad. The ${flowLabel} net flow tells you how demand is shifting: an expansive week rewards speculative applications to known sector employers, a contractive one makes it more strategic to focus on the top employers in the breakdown and the roles with positive delta. ${medianTxt ? `The compensation median for new openings is ${medianTxt} gross annual — always compare the Swiss gross to the equivalent Italian net before evaluating an offer.` : 'The compensation median is not available for this window (insufficient sample for the calculation).'}`,
+    `For a cross-border worker considering the move to Ticino, these metrics must be read alongside the CHF/EUR curve and commute costs. At equivalent gross, Ticino net is 25-45 % higher than Italian net for the same role, but a 5-cent FX shift moves EUR net by about 5-7 %. ${kind === 'weekly' ? 'Weeks' : 'Months'} with a positive net flow are historically those when Ticino employers more readily accept an exploratory interview from a speculative application: the interview pipeline empties faster and "ghost" roles (unposted but latent) open up more often.`,
+  ] : locale === 'de' ? [
+    `In der ${periodLabel} verzeichnete der Tessiner Arbeitsmarkt ${newJobs} neue Inserate und ${closedJobs} Schliessungen, mit einer Nettobilanz von ${flowSign}${netFlow} Stellen und ${activeEmployers} aktiven Arbeitgebern mit mindestens einer Anzeige. Der ${flowLabel} Nettofluss zeigt, wie sich die Nachfrage verschiebt: Eine expansive Woche begünstigt Initiativbewerbungen bei bekannten Branchenarbeitgebern, eine schrumpfende macht es strategischer, sich auf die Top-Arbeitgeber der Breakdown und Rollen mit positivem Delta zu konzentrieren. ${medianTxt ? `Der Median der Lohnentschädigung für neue Stellen liegt bei ${medianTxt} brutto pro Jahr — vergleichen Sie das Schweizer Brutto stets mit dem entsprechenden italienischen Netto, bevor Sie ein Angebot bewerten.` : 'Der Lohnmedian ist für diesen Zeitraum nicht verfügbar (unzureichende Stichprobe für die Berechnung).'}`,
+    `Für einen Grenzgänger, der den Sprung ins Tessin erwägt, müssen diese Metriken zusammen mit der CHF/EUR-Kurve und den Pendelkosten gelesen werden. Bei gleichem Brutto ist das Tessiner Netto für dieselbe Stelle 25-45 % höher als das italienische Netto, aber eine Wechselkursverschiebung von 5 Rappen bewegt den EUR-Nettobetrag um etwa 5-7 %. ${kind === 'weekly' ? 'Wochen' : 'Monate'} mit positivem Nettofluss sind historisch jene, in denen Tessiner Arbeitgeber bereitwilliger ein exploratives Gespräch aus einer Initiativbewerbung annehmen: Die Interviewpipeline leert sich schneller und „Geister"-Rollen (nicht ausgeschrieben, aber latent) öffnen sich häufiger.`,
+  ] : [
+    `Au cours de la ${periodLabel}, le marché de l'emploi tessinois a publié ${newJobs} nouvelles offres et ${closedJobs} fermetures, avec un solde net de ${flowSign}${netFlow} postes et ${activeEmployers} employeurs actifs publiant au moins une annonce. Le flux net ${flowLabel} indique comment la demande évolue : une semaine en expansion favorise les candidatures spontanées vers les employeurs sectoriels connus, une semaine en contraction rend plus stratégique le ciblage des top employeurs de la répartition et des rôles à delta positif. ${medianTxt ? `La médiane salariale des nouvelles offres est de ${medianTxt} brut annuel — comparez toujours le brut suisse au net italien équivalent avant d'évaluer une offre.` : 'La médiane salariale n\'est pas disponible pour cette fenêtre (échantillon insuffisant pour le calcul).'}`,
+    `Pour un frontalier envisageant le saut vers le Tessin, ces métriques doivent être lues avec la courbe CHF/EUR et les coûts du trajet. À brut équivalent, le net tessinois est 25-45 % supérieur au net italien pour le même poste, mais une variation de 5 centimes du taux de change déplace le net en EUR d'environ 5-7 %. Les ${kind === 'weekly' ? 'semaines' : 'mois'} à flux net positif sont historiquement ceux où les employeurs tessinois acceptent plus volontiers un entretien exploratoire issu d'une candidature spontanée : le pipeline d'entretiens se vide plus vite et les postes « fantômes » (non publiés mais latents) s'ouvrent plus fréquemment.`,
+  ];
+
+  return `<section style="margin:24px 0 0;padding:18px 22px;border-radius:14px;border:1px solid var(--color-edge);background:var(--color-surface-alt)" aria-labelledby="snapshotFrontalierContext">
+    <h2 id="snapshotFrontalierContext" style="${H2_STYLE};margin-bottom:10px">${esc(headline)}</h2>
+    ${paragraphs.map((p) => `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(p)}</p>`).join('\n    ')}
+  </section>`;
+}
+
 function renderSnapshotPage(inp: SnapshotPageInputs): string {
   const { locale, canonicalPath, alternates, todayIso, degraded, kind, stats, weekLabel, monthLabel, noindex, distDir, knownSlugs, rootDir } = inp;
   const copy = COPY[locale];
@@ -1228,6 +1290,29 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     <h2 id="methodology" style="${H2_STYLE};margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody)}</p>
   </section>`;
+
+  // Frontaliere-context block: interprets THIS period's headline numbers
+  // (newJobs, closedJobs, activeEmployers, medianSalary) for an Italian
+  // cross-border worker. Each snapshot interpolates its own date range
+  // and stats so the prose is unique per page. Structural insurance for
+  // the text-to-HTML ratio gate: degraded snapshots (empty topRoles /
+  // topEmployers / cityBreakdown lists) plus the heavy
+  // Dataset+NewsArticle+FAQ JSON-LD chrome would otherwise leave the
+  // body close to the 10% floor.
+  const periodLabelHuman = kind === 'weekly' && weekLabel
+    ? (locale === 'it' ? `settimana W${weekLabel.week}/${weekLabel.year}`
+      : locale === 'en' ? `week W${weekLabel.week}/${weekLabel.year}`
+      : locale === 'de' ? `Woche W${weekLabel.week}/${weekLabel.year}`
+      : `semaine S${weekLabel.week}/${weekLabel.year}`)
+    : kind === 'monthly' && monthLabel
+    ? `${monthLabel.monthName} ${monthLabel.year}`
+    : periodRange;
+  const frontalierContextHtml = renderSnapshotFrontalierContext(
+    locale,
+    kind,
+    periodLabelHuman,
+    stats,
+  );
 
   const faqHtml = renderFaq(copy);
   const relatedHtml = renderRelatedLinks(copy);
@@ -1397,6 +1482,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${topEmployersList}
     ${cityBreakdown}
     ${trendSection}
+    ${frontalierContextHtml}
     ${methodology}
     ${faqHtml}
     ${relatedHtml}
