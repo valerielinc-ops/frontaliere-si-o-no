@@ -8,7 +8,7 @@ import { useUIState } from '@/hooks/useUIState';
 import { TabContentContext } from '@/services/TabContentContext';
 import type { TabContentState } from '@/services/TabContentContext';
 
-import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
+import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
 
 import { reportCaughtError } from '@/services/errorReporter';
 // Gamification lazily loaded — all calls are fire-and-forget
@@ -1773,6 +1773,12 @@ const App: React.FC = () => {
  </div>
 
  {/* Actions — slim on mobile (search + locale + hamburger), full on md+ */}
+ {/* SilentErrorBoundary: contains React #31 / render errors in this nav-actions
+  *  cluster (lazy-loaded LanguageSelector, WhatsNewBell, SiteSearch, profile
+  *  menu) so a transient render failure in any header widget does not blank
+  *  the whole homepage. The error is still reported to Analytics with a
+  *  `nav-actions` boundary tag so we keep visibility on root causes. */}
+ <SilentErrorBoundary boundary="nav-actions" fallback={<div className="w-9 h-9" aria-hidden="true" />}>
  <div className="flex items-center gap-0.5 sm:gap-1.5 pl-2 sm:pl-4 border-l border-edge shrink-0 min-w-fit">
  {/* Search — always visible */}
  {showDeferredHomeWidgets ? (
@@ -1869,6 +1875,7 @@ const App: React.FC = () => {
  {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
  </button>
  </div>
+ </SilentErrorBoundary>
  </div>
 
  {/* Mobile slide-down drawer */}
