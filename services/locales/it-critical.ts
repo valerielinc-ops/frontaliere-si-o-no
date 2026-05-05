@@ -1,31 +1,34 @@
 // Critical above-the-fold Italian translations — loaded synchronously in the main bundle.
 // This avoids the 3s skeleton timeout on mobile. All other translations are lazy-loaded.
 // Generated from it-core.ts — keep in sync when updating translations.
+//
+// Trimming policy: this file should ONLY contain keys rendered in the first
+// paint of the homepage (`/`) on a 375px mobile viewport AND on the calculator
+// landing (`/calcola-stipendio`). Anything that lives in modals, the footer,
+// sub-tab navigation under non-calculator tabs, or conditional banners belongs
+// in `it-core.ts` (or the per-tab chunk) — the fallback chain in `t()` will
+// pick those up once the lazy chunks resolve.
+//
+// Notably moved out of critical (May 2026):
+// - `consent.*` (cookie banner is disabled site-wide; analytics is silently granted).
+// - `app.fullscreen` / `app.exitFullscreen` / `app.resetConfirm` (no component references).
+// - `cta.*` (rendered at the bottom of the calculator page, after results).
+// - `common.*` (used in modals, dialogs and post-interaction UI — not first-paint).
+// - `footer.*` (footer is below the fold by definition).
+// - `guide.tabs.*`, `comparators.*`, `strumenti.*`, `stats.tab*`, `pension.pillar3`,
+//   `taxCredit.navLabel`, `withholdingRates.navLabel`, `newFrontierTaxSim.navLabel`,
+//   `salaryQuiz.navLabel` — sub-tab labels for non-calculator tabs; the SiteSearch
+//   modal that references them is lazy-loaded, and the sub-tab navigation only
+//   renders inside the corresponding lazy tab content.
+// - `profile.title`, `profile.signIn`, `nav.dashboard`, `nav.blog`, `nav.support`,
+//   `nav.strumenti`, `common.day` — not on first paint of `/`.
 const criticalTranslations: Record<string, string> = {
+ // App header / theme toggle (visible in navbar above the fold)
  'app.title': 'Frontaliere Ticino',
  'app.subtitle': 'Calcola e confronta il tuo stipendio netto come lavoratore frontaliero',
- 'app.fullscreen': 'Schermo intero',
- 'app.exitFullscreen': 'Esci da Schermo intero',
  'app.lightMode': 'Attiva tema chiaro',
  'app.darkMode': 'Attiva tema scuro',
- 'app.resetConfirm': 'Vuoi svuotare cache, cookie e dati locali? Il sito si ricaricherà come alla prima visita.',
- 'consent.title': 'Cookie e Privacy',
- 'consent.description': 'Utilizziamo cookie per analisi del traffico e pubblicità. I cookie essenziali (tema, lingua) sono sempre attivi.',
- 'consent.privacyLink': 'Informativa privacy',
- 'consent.essential': 'Cookie essenziali',
- 'consent.alwaysOn': 'Sempre attivi',
- 'consent.analytics': 'Cookie analitici (Google Analytics)',
- 'consent.advertising': 'Cookie pubblicitari (Google AdSense)',
- 'consent.acceptAll': 'Accetta tutti',
- 'consent.rejectAll': 'Rifiuta non essenziali',
- 'consent.customize': 'Personalizza',
- 'consent.savePreferences': 'Salva preferenze',
- 'cta.tryAlso': 'Prova anche',
- 'cta.confrontiDesc': 'Confronta servizi, costi e opzioni per frontalieri',
- 'cta.whatif': 'Simulatore What-If',
- 'cta.whatifDesc': 'Cosa cambia se modifichi stipendio, figli o cantone?',
- 'cta.fiscalDesc': 'Tasse, pensione AVS/LPP e terzo pilastro',
- 'cta.guidaDesc': 'Guida pratica per il primo giorno e oltre',
+ // Top-level navigation tabs (desktop navbar) — IMMEDIATELY visible
  'nav.simulator': 'Calcolatore',
  'nav.calculator': 'Calcolatore',
  'nav.comparators': 'Comparatori',
@@ -36,126 +39,19 @@ const criticalTranslations: Record<string, string> = {
  'nav.guida': 'Guida Pratica',
  'nav.vita': 'Vita Quotidiana',
  'nav.stats': 'Statistiche',
+ // Mobile bottom-nav (visible above the fold on mobile)
  'nav.simulator.mobile': 'Calcolo',
  'nav.confronti.mobile': 'Confronti',
  'nav.fisco.mobile': 'Fisco',
  'nav.guida.mobile': 'Guida',
  'nav.vita.mobile': 'Vita',
  'nav.stats.mobile': 'Stats',
- 'nav.strumenti': 'Strumenti',
- 'nav.support': 'Aiutaci a Migliorare',
+ // Navbar tagline under the brand
  'nav.subtitle': 'Analisi Fiscale 2026',
- 'common.loading': 'Caricamento...',
- 'common.error': 'Errore',
- 'common.save': 'Salva',
- 'common.cancel': 'Annulla',
- 'common.close': 'Chiudi',
- 'common.back': 'Indietro',
- 'common.next': 'Avanti',
- 'common.reset': 'Reset',
- 'common.monthly': 'Mensile',
- 'common.annual': 'Annuale',
- 'common.years': 'anni',
- 'common.share': 'Condividi',
- 'common.linkCopied': 'Link copiato!',
- 'common.months': 'mesi',
- 'common.chf': 'CHF',
- 'common.eur': 'EUR',
- 'common.yes': 'Sì',
- 'common.no': 'No',
- 'common.disclaimer': 'Disclaimer',
- 'common.update': 'Aggiorna',
- 'common.subscribe': 'Iscriviti',
- 'common.unsubscribe': 'Disiscriviti',
- 'common.email': 'Email',
- 'common.send': 'Invia',
- 'footer.copyright': '© 2026 Frontaliere Ticino',
- 'footer.disclaimer': 'Il primo portale italiano di supporto per frontalieri in Svizzera — stipendi, tasse, confronti e guida completa.',
- 'footer.privacy': 'Privacy Policy',
- 'footer.securityBadge': 'Dati protetti · Calcolo locale · Nessun tracciamento',
- 'footer.apiStatus': 'Stato API',
- 'footer.fuelPrices': 'Prezzi benzina confine',
- 'footer.morningDashboard': 'Buongiorno Frontaliere',
- 'footer.followUs': 'Seguici su',
- 'footer.followFacebook': 'Seguici su Facebook',
- 'footer.contactTitle': 'Contattaci',
- 'footer.aboutUs': 'Chi Siamo',
- 'footer.contactDescription': 'Hai domande sul lavoro frontaliero, sulle tasse o sulla pensione? Vuoi un chiarimento su come usare il simulatore? Scrivici, siamo qui per aiutarti!',
- 'footer.contactFacebook': 'Scrivici su Facebook',
- 'footer.improveTitle': 'Aiutaci a Migliorare',
- 'footer.improveDescription': 'Hai trovato un errore o vuoi suggerire una nuova funzionalità? Apri una segnalazione su GitHub e aiutaci a rendere lo strumento sempre migliore.',
- 'footer.improveButton': 'Segnala o Suggerisci',
- 'footer.linksTitle': 'Link Utili',
- 'common.day': 'giorno',
- 'nav.dashboard': 'Dashboard',
- 'nav.blog': 'Articoli',
- // ─── Sub-tab labels (visible in navbar & footer before lazy chunks load) ───
- // guide.tabs.* (from it-guide.ts)
- 'guide.tabs.municipalities': 'Comuni Frontalieri',
- 'guide.tabs.border': 'Dogane & Tempi',
- 'guide.tabs.costs': 'Costi & Consumi',
- 'guide.tabs.livingCH': 'Vivere in CH',
- 'guide.tabs.livingIT': 'Vivere in IT',
- 'guide.tabs.calendar': 'Scadenze Fiscali',
- 'guide.tabs.holidays': 'Festività Ticino 2026',
- 'guide.tabs.permits': 'Permessi Lavoro',
- 'guide.tabs.companies': 'Aziende {canton}',
- 'guide.tabs.shopping': 'Spesa Transfrontaliera',
- 'guide.tabs.costOfLiving': 'Costo della Vita',
- 'guide.tabs.places': 'Posti da Visitare',
- 'guide.tabs.schools': 'Scuole in Ticino',
- 'guide.tabs.unemployment': 'Disoccupazione',
- 'guide.tabs.firstDay': 'Primo Giorno',
- 'guide.tabs.morning': 'Buongiorno',
- 'guide.tabs.carTransfer': 'Auto in CH',
- 'guide.tabs.quiz': 'Quiz Fiscale',
- 'guide.tabs.salarySurvey': 'Stipendi',
- 'guide.tabs.glossary': 'Glossario',
- 'guide.tabs.faq': 'FAQ',
- 'guide.tabs.ristorni': 'Ristorni',
- // comparators/simulator (from it-core.ts — duplicated here for sync availability)
- 'comparators.exchange': 'Cambio Valuta',
- 'comparators.mobile': 'Telefonia Mobile',
- 'comparators.banks': 'Conti Correnti',
- 'comparators.health': 'Assicurazione Sanitaria',
- 'comparators.transport': 'Costi Trasporto',
- 'comparators.jobs': 'Offerte Lavoro',
- 'comparators.shopping': 'Spesa Transfrontaliera',
- 'comparators.costOfLiving': 'Costo della Vita',
- 'comparators.ral': 'RAL Netta',
- 'comparators.parentalLeave': 'Congedo Genitoriale',
- 'comparators.borderMap': 'Mappa Comuni',
- 'comparators.residency': 'Cambio Residenza',
- 'comparators.taxReturn': 'Dichiarazione',
- 'comparators.nursery': 'Asili Nido',
- 'comparators.bonus': 'Calcolo Bonus',
- 'comparators.renovation': 'Ristrutturazione',
+ // Calculator sub-tabs (rendered immediately on `/` since calculator is the default tab)
  'simulator.calculator': 'Calcolatore',
  'simulator.whatif': '✨ Cosa cambia se...',
- // strumenti.* (from it-comparatori.ts)
- 'strumenti.payslip': 'Busta Paga',
- 'strumenti.carCost': 'Costo Auto',
- 'strumenti.permitCompare': 'G vs B',
- 'strumenti.livability': 'Vivibilità',
- 'strumenti.salaryCompare': 'Stipendi',
- // stats.* (from it-core.ts)
- 'stats.tabOverview': 'Panoramica',
- 'stats.tabJobsObservatory': 'Osservatorio lavoro',
- 'stats.tabUnemployment': 'Disoccupazione',
- 'stats.tabMortgage': 'Mutui',
- 'stats.tabFuelPrices': 'Carburanti',
- 'stats.tabHealthPremiums': 'Premi Malattia',
- 'stats.trafficHistory': 'Storico Traffico',
- 'salaryQuiz.navLabel': 'Quiz Stipendio',
- // fisco sub-tab labels (from it-fisco.ts)
- 'pension.pillar3': '3° Pilastro',
- 'taxCredit.navLabel': 'Credito Imposta',
- 'withholdingRates.navLabel': 'Aliquote Fonte',
- 'newFrontierTaxSim.navLabel': 'Tasse Nuovi',
- // profile (from it-vita.ts — visible in navbar)
- 'profile.title': 'Il tuo Profilo',
- 'profile.signIn': 'Accedi',
- // Homepage H1 — above-the-fold SEO heading (from it-core.ts)
+ // Homepage H1 — above-the-fold SEO heading
  'seoContent.calculator.title': 'Calcolatore Stipendio Frontaliere Svizzera 2026',
  'seoContent.calculator.subtitle': 'Strumenti di simulazione fiscale precisi per lavoratori frontalieri: calcola stipendio netto, busta paga, pensione AVS/LPP e deduzioni fiscali.',
 };
