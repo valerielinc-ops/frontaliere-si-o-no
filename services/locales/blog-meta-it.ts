@@ -6213,6 +6213,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-cassano-magnago-sgombero.title': 'Cassano Magnago: balcone in fiamme, sgombero forzato',
     'blog.article.incendio-cassano-magnago-sgombero.excerpt': 'Un incendio ha colpito un balcone a Cassano Magnago, Varese, costringendo allo sgombero forzato degli abitanti.',
     'blog.article.incendio-cassano-magnago-sgombero.imageAlt': 'Vista aerea del Lago di Lugano con edifici circostanti e montagne',
+    'blog.article.furti-auto-ticino-2026-axa-segnalazioni.title': 'Furti auto in Ticino: AXA segnala un aumento',
+    'blog.article.furti-auto-ticino-2026-axa-segnalazioni.excerpt': 'AXA segnala un aumento dei furti di auto in Svizzera, soprattutto nei cantoni di confine come il Ticino. Ecco cosa sapere e come proteggersi.',
+    'blog.article.furti-auto-ticino-2026-axa-segnalazioni.imageAlt': 'Veduta aerea di Lugano e del Lago di Lugano',
 };
 
 export default blogMetaIt;

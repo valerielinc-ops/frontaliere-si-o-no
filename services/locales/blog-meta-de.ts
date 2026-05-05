@@ -6212,6 +6212,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-cassano-magnago-sgombero.title': 'Cassano Magnago: Balkon in Flammen, Zwangsevakuierung',
     'blog.article.incendio-cassano-magnago-sgombero.excerpt': 'Ein Feuer hat einen Balkon in Cassano Magnago, Varese, getroffen und die Bewohner zur Zwangsevakuierung gezwungen.',
     'blog.article.incendio-cassano-magnago-sgombero.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Gebäuden und Bergen',
+    'blog.article.furti-auto-ticino-2026-axa-segnalazioni.title': 'Autodiebstahl im Tessin: AXA meldet Anstieg',
+    'blog.article.furti-auto-ticino-2026-axa-segnalazioni.excerpt': 'AXA meldet einen Anstieg der Autodiebstähle in der Schweiz, insbesondere in den Grenzregionen wie dem Tessin. Hier erfahren Sie, was Sie wissen müssen und wie Sie sich schützen können.',
+    'blog.article.furti-auto-ticino-2026-axa-segnalazioni.imageAlt': 'Luftansicht von Lugano und dem Luganersee',
 };
 
 export default blogMetaDe;

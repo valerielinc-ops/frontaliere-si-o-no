@@ -19760,6 +19760,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-auto-ticino-2026-axa-segnalazioni': {
+    title: 'Furti auto in Ticino: AXA segnala un aumento | Frontaliere Ticino',
+    description: 'AXA segnala un aumento dei furti di auto in Svizzera, soprattutto nei cantoni di confine come il Ticino. Ecco cosa sapere e come proteggersi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, auto, segnala, aumento',
+    ogTitle: 'Furti auto in Ticino: AXA segnala un aumento',
+    ogDescription: 'AXA segnala un aumento dei furti di auto in Svizzera, soprattutto nei cantoni di confine come il Ticino. Ecco cosa sapere e come proteggersi.',
+    canonicalPath: '/articoli-frontaliere/furti-auto-ticino-2026-axa-segnalazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furti auto in Ticino: AXA segnala un aumento",
+      "description": "AXA segnala un aumento dei furti di auto in Svizzera, soprattutto nei cantoni di confine come il Ticino. Ecco cosa sapere e come proteggersi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/furti-auto-ticino-2026-axa-segnalazioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Lugano e del Lago di Lugano"
+      },
+      "datePublished": "2026-05-05T22:44:31+00:00",
+      "dateModified": "2026-05-05T22:44:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-auto-ticino-2026-axa-segnalazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

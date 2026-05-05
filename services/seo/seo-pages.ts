@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2123,
+ "numberOfItems": 2124,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6765,7 +6765,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2120, "name": "20mila firme contro l'autostrada a pagamento in...", "url": `${BASE_URL}/articoli-frontaliere/20mila-firme-autostrada-pedaggio` },
           { "@type": "ListItem", "position": 2121, "name": "Incendio a Casciago, Varese: situazione sotto c...", "url": `${BASE_URL}/articoli-frontaliere/incendio-casciago-varese-2026` },
           { "@type": "ListItem", "position": 2122, "name": "Varese: spacciatore arrestato, lavoro serio perso", "url": `${BASE_URL}/articoli-frontaliere/varese-spacciatore-arresto-frontalieri` },
-          { "@type": "ListItem", "position": 2123, "name": "Cassano Magnago: balcone in fiamme, sgombero fo...", "url": `${BASE_URL}/articoli-frontaliere/incendio-cassano-magnago-sgombero` }
+          { "@type": "ListItem", "position": 2123, "name": "Cassano Magnago: balcone in fiamme, sgombero fo...", "url": `${BASE_URL}/articoli-frontaliere/incendio-cassano-magnago-sgombero` },
+          { "@type": "ListItem", "position": 2124, "name": "Furti auto in Ticino: AXA segnala un aumento", "url": `${BASE_URL}/articoli-frontaliere/furti-auto-ticino-2026-axa-segnalazioni` }
  ]
  },
  {

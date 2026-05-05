@@ -3313,6 +3313,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-casciago-varese-2026': { name: 'Incendio Casciago', path: '/articoli-frontaliere/incendio-casciago-varese-2026', parent: 'blog' },
     'blog-varese-spacciatore-arresto-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/varese-spacciatore-arresto-frontalieri', parent: 'blog' },
     'blog-incendio-cassano-magnago-sgombero': { name: 'Novità', path: '/articoli-frontaliere/incendio-cassano-magnago-sgombero', parent: 'blog' },
+    'blog-furti-auto-ticino-2026-axa-segnalazioni': { name: 'Furti auto', path: '/articoli-frontaliere/furti-auto-ticino-2026-axa-segnalazioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

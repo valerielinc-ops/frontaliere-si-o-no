@@ -20009,4 +20009,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'furti-auto-ticino-2026-axa-segnalazioni',
+ category: 'pratico',
+ date: '2026-05-05T22:44:31.110Z',
+ image: '/images/blog/furti-auto-ticino-2026-axa-segnalazioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

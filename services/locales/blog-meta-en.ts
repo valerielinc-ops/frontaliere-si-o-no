@@ -6212,6 +6212,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-cassano-magnago-sgombero.title': 'Cassano Magnago: balcony fire forces evacuation',
     'blog.article.incendio-cassano-magnago-sgombero.excerpt': 'A fire hit a balcony in Cassano Magnago, Varese, forcing the forced evacuation of the residents.',
     'blog.article.incendio-cassano-magnago-sgombero.imageAlt': 'Aerial view of Lake Lugano with surrounding buildings and mountains',
+    'blog.article.furti-auto-ticino-2026-axa-segnalazioni.title': 'Car thefts rise in Ticino: AXA reports an increase',
+    'blog.article.furti-auto-ticino-2026-axa-segnalazioni.excerpt': 'AXA reports a rise in car thefts in Switzerland, particularly in border cantons like Ticino. Here\'s what you need to know and how to protect yourself.',
+    'blog.article.furti-auto-ticino-2026-axa-segnalazioni.imageAlt': 'Aerial view of Lugano and Lake Lugano',
 };
 
 export default blogMetaEn;
