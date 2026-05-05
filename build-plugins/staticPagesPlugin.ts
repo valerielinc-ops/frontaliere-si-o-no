@@ -1705,6 +1705,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/compara-servizi/cambio-franco-euro/', label: 'Cambio Valuta' },
  { href: '/compara-servizi/confronta-casse-malati/', label: 'Assicurazioni Salute' },
  { href: '/compara-servizi/confronta-banche/', label: 'Confronto Banche' },
+ // Hub-root cross-links (depth-shortening for May-2026 ratchet — see
+ // commit 767150f669 + ac4471b354). /compara-servizi/ is at depth 1
+ // from `/`; linking these hub roots from here puts them at depth 2,
+ // their child pages at depth 3, and the leaf URLs at depth 4 ≤
+ // MAX_DEPTH (audit:max-bfs-depth gate).
+ { href: '/premi-cassa-malati/', label: 'Premi LAMal per cantone' },
+ { href: '/aziende-che-assumono/tutte/', label: 'Aziende che assumono' },
  );
  } else if (canonicalPath.startsWith('/calcola-stipendio/')) {
  contextualLinks.push(
@@ -1723,6 +1730,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/guida-frontaliere/primo-giorno-lavoro/', label: 'Primo Giorno' },
  { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi Lavoro' },
  { href: '/guida-frontaliere/tempi-attesa-dogana/', label: 'Tempi Dogana' },
+ // Hub-root cross-links — same depth-shortening rationale as above.
+ { href: '/traffico-dogane/', label: 'Tempi attesa dogane (live)' },
+ { href: '/prezzi-diesel/oggi/', label: 'Prezzi diesel oggi' },
+ { href: '/prezzi-benzina/oggi/', label: 'Prezzi benzina oggi' },
  );
  }
  // Deduplicate (don't repeat links already in main nav or pointing to self)
