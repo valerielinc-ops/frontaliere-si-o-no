@@ -79,6 +79,7 @@ import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { JOB_RECENCY_LANDING_SLUGS } from './jobRecencyLanding';
 import { adSlotHtml } from './lib/adSlotHtml';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
   WEEKLY_EMPLOYERS_CURRENT_SLUG,
   WEEKLY_EMPLOYERS_LOCALE_PREFIX,
@@ -1265,10 +1266,9 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
       url: BASE_URL,
-      logo: {
-        '@type': 'ImageObject',
+      logo: imageObjectLd({
         url: `${BASE_URL}/logo-512.png`,
-      },
+      }),
     },
     mainEntityOfPage: canonicalUrl,
     inLanguage: locale,

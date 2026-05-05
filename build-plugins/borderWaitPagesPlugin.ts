@@ -75,6 +75,7 @@ import {
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { adSlotHtml } from './lib/adSlotHtml';
+import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
 import {
   FUEL_LOCALE_PREFIX,
   FUEL_SECTION_SLUG,
@@ -1505,19 +1506,24 @@ function renderLeafPage(inp: LeafInputs): string {
   // ImageObject — the webcam subject is a still JPEG snapshot refreshed on a
   // polling interval, not a continuous video stream, so VideoObject +
   // BroadcastEvent (isLiveBroadcast: true) is inappropriate. Emit a single
-  // ImageObject with the required fields. License is included when present;
-  // creditText is included when the source provides it.
+  // ImageObject with the required fields, including the GSC-required
+  // license-quartet (acquireLicensePage / copyrightNotice / license / creator),
+  // sourced from the webcam provider when available.
   const imageLd = webcams.length > 0
-    ? JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'ImageObject',
+    ? JSON.stringify(imageObjectLdDocument({
         contentUrl: webcams[0].imageUrl,
         caption: `${copy.webcamLabel} — ${crossingDisplay}`,
-        ...(webcams[0].sourceName ? { creditText: webcams[0].sourceName } : {}),
-        ...(webcams[0].license ? { license: webcams[0].license } : {}),
+        creditText: webcams[0].sourceName,
+        license: webcams[0].license,
+        creator: webcams[0].sourceName
+          ? { '@type': 'Organization', name: webcams[0].sourceName }
+          : undefined,
+        copyrightNotice: webcams[0].sourceName
+          ? `© ${webcams[0].sourceName}`
+          : undefined,
         datePublished: `${dateStamp}T00:00:00Z`,
         inLanguage: locale,
-      })
+      }))
     : '';
 
   // Title — the h1 embeds an ISO date and a crossing name. Combined with

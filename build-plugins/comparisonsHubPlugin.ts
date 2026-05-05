@@ -55,6 +55,7 @@ import {
   type LamalCantonRow,
 } from './comparisonsHubAggregate';
 import { COMPARISONS_HUB_COPY, type ComparisonsHubCopy } from './comparisonsHubCopy';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -459,12 +460,11 @@ function renderPage(opts: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
       url: BASE_URL,
-      logo: {
-        '@type': 'ImageObject',
+      logo: imageObjectLd({
         url: `${BASE_URL}/icons/icon-512x512.png`,
         width: 512,
         height: 512,
-      },
+      }),
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
     abstract: copy.tldrParagraphs[0],

@@ -45,6 +45,7 @@ import {
   getFaqHubByCategory,
 } from '../data/faq-hub';
 import type { FaqHubCategory, FaqHubEntry, FaqHubLocale } from '../data/faq-hub';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 // ── Locale-specific static copy ────────────────────────────────────
 
@@ -413,12 +414,11 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
       url: BASE_URL,
-      logo: {
-        '@type': 'ImageObject',
+      logo: imageObjectLd({
         url: `${BASE_URL}/icons/icon-512x512.png`,
         width: 512,
         height: 512,
-      },
+      }),
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
     abstract: copy.tldrParagraphs[0],

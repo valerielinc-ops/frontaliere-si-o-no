@@ -40,6 +40,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
   BREADCRUMB_STYLE,
   BREADCRUMB_LINK_STYLE,
@@ -264,12 +265,11 @@ function renderPage(opts: RenderOpts): RenderResult {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
       url: BASE_URL,
-      logo: {
-        '@type': 'ImageObject',
+      logo: imageObjectLd({
         url: `${BASE_URL}/icons/icon-512x512.png`,
         width: 512,
         height: 512,
-      },
+      }),
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });

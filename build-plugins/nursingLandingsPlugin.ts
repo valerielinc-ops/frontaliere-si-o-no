@@ -55,6 +55,7 @@ import {
 } from './nursingLandingsData';
 import { NURSING_LANDING_COPY, type NursingLandingCopy } from './nursingLandingsCopy';
 import { buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 // CTA target sector for each landing id — null means "fall back to the
 // unfiltered job-board hub" (used by `healthcare-ticino`, whose CTA copy
@@ -243,12 +244,11 @@ function renderPage(opts: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
       url: BASE_URL,
-      logo: {
-        '@type': 'ImageObject',
+      logo: imageObjectLd({
         url: `${BASE_URL}/icons/icon-512x512.png`,
         width: 512,
         height: 512,
-      },
+      }),
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });

@@ -57,6 +57,7 @@ import {
 import { ARTICLES } from '../data/blog-articles-data';
 import { BLOG_SLUGS } from '../services/routerBlogData';
 import type { BlogArticleId } from '../services/router';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -1042,12 +1043,11 @@ function renderSectionPage(opts: {
       '@type': 'Organization',
       name: localeCopy.editorialOrg,
       url: BASE_URL,
-      logo: {
-        '@type': 'ImageObject',
+      logo: imageObjectLd({
         url: `${BASE_URL}/icons/icon-512x512.png`,
         width: 512,
         height: 512,
-      },
+      }),
     },
     dateModified: dateStamp,
     mainEntity: buildItemListLd(articles, locale),

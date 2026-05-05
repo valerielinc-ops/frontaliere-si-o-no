@@ -303,6 +303,56 @@ to **add internal links**.
 
 ---
 
+# SEO content gate — ImageObject license fields
+
+**Why it exists.** Google Search Console flags every `ImageObject` in
+JSON-LD that omits the four licensable-image fields:
+`acquireLicensePage`, `copyrightNotice`, `license`, `creator`. The May 2026
+audit caught 3,871 offending ImageObjects across blog articles, SPA shells
+(de/en/fr), and several SEO landing pages. Without these fields the image
+is ineligible for licensable-image rich results and the page surfaces as
+"Migliora l'aspetto degli elementi" in GSC.
+
+**Where it runs.** Three places:
+- Helper: `services/seo/imageObjectLd.ts` — every new emitter MUST go through
+  `imageObjectLd()` / `imageObjectLdDocument()`. The helper always populates
+  the four fields (defaults to the site Organization as creator + the
+  `/termini-di-servizio#licenza-immagini` license URL).
+- Local audit: `npm run audit:image-object-license` (after a build).
+  Exits 1 if any ImageObject in `dist/` is missing one of the four.
+- CI: `audit:image-object-license` step in
+  `.github/workflows/post-deploy-validation.yml` (capped-parallel pool with
+  the other dist gates), blocking deploy on regression.
+- Vitest: `tests/seo/image-object-license-fields.test.ts` runs in pre-push
+  when `RUN_DIST_GATES=1` is set.
+
+**Hard rule.** Zero tolerance — any single offending ImageObject fails the
+gate. There is no ratchet/baseline because the helper makes 0 the only
+acceptable count. If you need a third-party license URL (webcam feeds,
+press photos), pass `license` / `creator` / `copyrightNotice` overrides
+to `imageObjectLd()`; never strip the fields.
+
+**If the gate fails:**
+
+1. Run `npm run audit:image-object-license` locally to see the offending
+   pages, missing fields, and current keys.
+2. Find the emitter — usually a build plugin or `services/seo/seo-blog*.ts`
+   entry that emits an inline `'@type': 'ImageObject'` literal.
+3. Either route through the helper (`imageObjectLd({ url, width, height })`)
+   or, for auto-generated blog entries, regenerate via `create-article.mjs`
+   which already injects the four fields.
+4. For third-party images (webcams), pass explicit overrides:
+   ```ts
+   imageObjectLd({
+     contentUrl: webcam.imageUrl,
+     creator: { '@type': 'Organization', name: webcam.sourceName },
+     license: webcam.license,
+     copyrightNotice: `© ${webcam.sourceName}`,
+   })
+   ```
+
+---
+
 # Completion Checklist — Before Every PR
 
 - [ ] All tests pass: `npx vitest run`
@@ -314,6 +364,7 @@ to **add internal links**.
 - [ ] No `dark:` color prefixes — use semantic tokens from `index.css` (enforced by `no-dark-color-classes.test.ts`)
 - [ ] If user-facing feature, new release entry in `WhatsNewModal.tsx`
 - [ ] Text-to-HTML ratio gate passes: `npm run audit:text-html-ratio` (see *SEO content gate* above for the playbook on regression)
+- [ ] ImageObject license-fields gate passes: `npm run audit:image-object-license` (zero tolerance — every ImageObject in JSON-LD must have `acquireLicensePage`, `copyrightNotice`, `license`, `creator`; route through `services/seo/imageObjectLd.ts`)
 
 ## Auto-push Rule
 

@@ -43,6 +43,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import { adSlotHtml } from './lib/adSlotHtml';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
   STAT_TILE_BASE,
   STAT_TILE_LABEL,
@@ -574,12 +575,11 @@ function renderReport(opts: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
       url: BASE_URL,
-      logo: {
-        '@type': 'ImageObject',
+      logo: imageObjectLd({
         url: `${BASE_URL}/icons/icon-512x512.png`,
         width: 512,
         height: 512,
-      },
+      }),
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });

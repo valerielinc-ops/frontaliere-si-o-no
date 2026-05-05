@@ -97,6 +97,21 @@ export const TermsOfService: React.FC = () => {
  Gli articoli e i contenuti editoriali sono pubblicati a scopo informativo. La riproduzione è consentita con
  attribuzione e link alla fonte originale, nel rispetto delle normative vigenti sul diritto d'autore.
  </p>
+ <div id="licenza-immagini" className="pt-2">
+ <h3 className="text-base font-semibold text-strong mb-1">3.1 Licenza delle immagini</h3>
+ <p>
+ Le immagini pubblicate sul sito (grafiche, copertine articoli, anteprime social, mappe e illustrazioni)
+ sono protette da diritto d&apos;autore e di proprietà di Frontaliere Ticino, salvo diversa indicazione
+ nella didascalia o nel campo <code>creditText</code>. L&apos;uso non autorizzato è vietato.
+ </p>
+ <p>
+ Per richiedere una licenza d&apos;uso (editoriale, commerciale o di archivio) o per concordare un&apos;attribuzione
+ specifica, scrivere a <a href="mailto:info@frontaliereticino.ch" className="underline">info@frontaliereticino.ch</a>{' '}
+ indicando l&apos;URL dell&apos;immagine, l&apos;ambito d&apos;uso previsto e la durata richiesta. Le immagini di terze
+ parti (es. webcam di confine fornite da operatori esterni) sono soggette alle condizioni dei rispettivi
+ detentori dei diritti, riportate nei metadati strutturati di ciascuna pagina.
+ </p>
+ </div>
  </div>
  </div>
 

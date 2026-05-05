@@ -301,6 +301,8 @@ jobs:
             npm run audit:news-sitemap
           spawn_capped audit:title-length            /tmp/g17.log \
             npm run audit:title-length
+          spawn_capped audit:image-object-license    /tmp/g18.log \
+            npm run audit:image-object-license
           spawn_capped live:post-deploy-smoke        /tmp/live-smoke.log \
             bash -lc 'node scripts/wait-for-pages-propagation.mjs && npm run probe:5xx && LIVE_BASE_URL=https://frontaliereticino.ch npm run test:e2e:live'
 

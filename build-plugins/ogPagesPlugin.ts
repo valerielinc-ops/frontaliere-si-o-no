@@ -13,6 +13,7 @@ import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './consta
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -648,12 +649,11 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  '@type': 'Event',
  name: sdStr('name') || localizedTitle,
  description: sdStr('description') || localizedDesc,
- image: {
- '@type': 'ImageObject',
+ image: imageObjectLd({
  url: imgU,
  width: 1200,
  height: 675,
- },
+ }),
  url: full,
  inLanguage: locale,
  author: authorObj,
@@ -711,10 +711,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  '@type': 'Organization',
  name: 'Frontaliere Ticino',
  url: BASE_URL,
- logo: {
- '@type': 'ImageObject',
+ logo: imageObjectLd({
  url: `${BASE_URL}/images/logo-192.png`,
- },
+ }),
  },
  mainEntityOfPage: full,
  isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },

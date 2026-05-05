@@ -4893,6 +4893,10 @@ function modifySeoService(data) {
       "description": "${String(data.seo.description || '').replace(/"/g, '\\"')}",
       "image": {
         "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "url": \`\${BASE_URL}/${imagePath}\`,
         "width": ${data._generatedImagePath ? 1200 : 1200},
         "height": ${data._generatedImagePath ? 675 : 563},
@@ -5018,7 +5022,14 @@ function validateStructuredData(data) {
     url: `${BASE}${cp}`,
     publisher: {
       '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE,
-      logo: { '@type': 'ImageObject', url: `${BASE}/icons/icon-512x512.png` }
+      logo: {
+        '@type': 'ImageObject',
+        acquireLicensePage: 'https://frontaliereticino.ch/termini-di-servizio#licenza-immagini',
+        copyrightNotice: '© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.',
+        license: 'https://frontaliereticino.ch/termini-di-servizio#licenza-immagini',
+        creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE },
+        url: `${BASE}/icons/icon-512x512.png`,
+      },
     },
     author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE },
     mainEntityOfPage: `${BASE}${cp}`,
