@@ -6021,6 +6021,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scuola-como-chiusura-socco.title': 'Scuola Como: chiusura plesso Socco, genitori in rivolta',
     'blog.article.scuola-como-chiusura-socco.excerpt': 'Genitori e comitato cittadino protestano contro la chiusura della scuola primaria di Socco a Fino Mornasco',
     'blog.article.scuola-como-chiusura-socco.imageAlt': 'Genitori e studenti davanti alla scuola primaria di Socco a Fino Mornasco',
+    'blog.article.rischio-benzina-svizzera-frontalieri.title': 'Rischio benzina in Svizzera: varcare il confine potrebbe non bastare',
+    'blog.article.rischio-benzina-svizzera-frontalieri.excerpt': 'La Svizzera potrebbe affrontare una carenza di carburante. Florence Schurch di Suissenégoce avverte di un rischio elevato e di possibili ripercussioni per i frontalieri',
+    'blog.article.rischio-benzina-svizzera-frontalieri.imageAlt': 'Vista del Lago di Lugano con la città sullo sfondo e una fila di auto a un distributore di benzina',
 };
 
 export default blogMetaIt;

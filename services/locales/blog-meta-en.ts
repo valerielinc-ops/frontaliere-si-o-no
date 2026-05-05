@@ -6020,6 +6020,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scuola-como-chiusura-socco.title': 'Como School: Socco building closure, parents revolt',
     'blog.article.scuola-como-chiusura-socco.excerpt': 'Parents and citizens\' committee protest against the closure of Socco primary school in Fino Mornasco',
     'blog.article.scuola-como-chiusura-socco.imageAlt': 'Parents and students in front of the primary school in Socco, Fino Mornasco',
+    'blog.article.rischio-benzina-svizzera-frontalieri.title': 'Fuel risk in Switzerland: crossing the border may not be enough',
+    'blog.article.rischio-benzina-svizzera-frontalieri.excerpt': 'Switzerland could face a fuel shortage. Florence Schurch of Suissenégoce warns of a high risk and possible repercussions for cross-border workers',
+    'blog.article.rischio-benzina-svizzera-frontalieri.imageAlt': 'View of Lake Lugano with the cityscape in the background and a line of cars at a gas station',
 };
 
 export default blogMetaEn;

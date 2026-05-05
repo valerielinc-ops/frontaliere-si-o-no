@@ -17951,6 +17951,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rischio-benzina-svizzera-frontalieri': {
+    title: 'Rischio benzina in Svizzera: varcare il confine potrebbe non bastare',
+    description: 'La Svizzera rischia una carenza di carburante. Florence Schurch di Suissenégoce avverte di un rischio elevato e di possibili ripercussioni per i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, rischio, benzina, varcare, confine',
+    ogTitle: 'Rischio benzina in Svizzera: varcare il confine potrebbe non bastare',
+    ogDescription: 'La Svizzera rischia una carenza di carburante. Florence Schurch di Suissenégoce avverte di un rischio elevato e di possibili ripercussioni per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/rischio-benzina-svizzera-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rischio benzina in Svizzera: varcare il confine potrebbe non bastare",
+      "description": "La Svizzera rischia una carenza di carburante. Florence Schurch di Suissenégoce avverte di un rischio elevato e di possibili ripercussioni per i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rischio-benzina-svizzera-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con la città sullo sfondo e una fila di auto a un distributore di benzina"
+      },
+      "datePublished": "2026-05-05T06:43:19+00:00",
+      "dateModified": "2026-05-05T06:43:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rischio-benzina-svizzera-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

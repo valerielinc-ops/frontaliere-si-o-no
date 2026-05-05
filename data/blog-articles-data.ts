@@ -19433,4 +19433,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rischio-benzina-svizzera-frontalieri',
+ category: 'novita',
+ date: '2026-05-05T06:43:19.410Z',
+ image: '/images/blog/rischio-benzina-svizzera-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

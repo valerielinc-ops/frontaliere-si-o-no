@@ -6021,6 +6021,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scuola-como-chiusura-socco.title': 'École de Côme: fermeture de l\'école Socco, parents en colère',
     'blog.article.scuola-como-chiusura-socco.excerpt': 'Les parents et un comité de citoyens protestent contre la fermeture de l\'école primaire de Socco à Fino Mornasco',
     'blog.article.scuola-como-chiusura-socco.imageAlt': 'Parents et élèves devant l\'école primaire de Socco, Fino Mornasco',
+    'blog.article.rischio-benzina-svizzera-frontalieri.title': 'Pénurie d\'essence en Suisse: franchir la frontière ne suffira peut-être pas',
+    'blog.article.rischio-benzina-svizzera-frontalieri.excerpt': 'La Suisse pourrait faire face à une pénurie de carburant. Florence Schurch de Suissenégoce avertit d\'un risque élevé et de possibles répercussions pour les frontaliers',
+    'blog.article.rischio-benzina-svizzera-frontalieri.imageAlt': 'Vue du lac de Lugano avec le paysage urbain en arrière-plan et une file de voitures à une station-service',
 };
 
 export default blogMetaFr;

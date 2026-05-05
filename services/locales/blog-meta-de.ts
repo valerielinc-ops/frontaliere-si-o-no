@@ -6020,6 +6020,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scuola-como-chiusura-socco.title': 'Schule Como: Schließung der Socco-Filiale, Eltern revoltieren',
     'blog.article.scuola-como-chiusura-socco.excerpt': 'Eltern und Bürgerkomitee protestieren gegen die Schließung der Grundschule Socco in Fino Mornasco',
     'blog.article.scuola-como-chiusura-socco.imageAlt': 'Eltern und Schüler vor der Grundschule in Socco, Fino Mornasco',
+    'blog.article.rischio-benzina-svizzera-frontalieri.title': 'Benzinmangel in der Schweiz: Grenzübertritt könnte nicht reichen',
+    'blog.article.rischio-benzina-svizzera-frontalieri.excerpt': 'Die Schweiz könnte einen Kraftstoffmangel erleben. Florence Schurch von Suissenégoce warnt vor einem hohen Risiko und möglichen Auswirkungen für Grenzgänger.',
+    'blog.article.rischio-benzina-svizzera-frontalieri.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund und einer Schlange von Autos an einer Tankstelle',
 };
 
 export default blogMetaDe;
