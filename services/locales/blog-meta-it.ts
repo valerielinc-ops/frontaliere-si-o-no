@@ -5943,6 +5943,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.auto-truccate-polizia-zugo-2026.title': 'Auto truccate nel mirino della polizia a Zugo',
     'blog.article.auto-truccate-polizia-zugo-2026.excerpt': 'Controlli alla Stierenmarkt: 4 auto con scarichi modificati, 5 sequestrate per tuning software non autorizzato. Ecco cosa rischiano i proprietari',
     'blog.article.auto-truccate-polizia-zugo-2026.imageAlt': 'Polizia controlla auto modificate a un raduno in Ticino',
+    'blog.article.spirometrie-gratuite-bambini-varese-2026.title': 'Spirometrie gratuite per bambini a Varese',
+    'blog.article.spirometrie-gratuite-bambini-varese-2026.excerpt': 'In occasione della Giornata Mondiale dell’Asma 2026, l’Ambulatorio di Pneumologia e Allergologia Pediatrica dell’Ospedale F. Del Ponte di Varese offre spirometrie gratuite ai bambini',
+    'blog.article.spirometrie-gratuite-bambini-varese-2026.imageAlt': 'Un bambino riceve una spirometria in un ambulatorio pediatrico a Varese',
 };
 
 export default blogMetaIt;

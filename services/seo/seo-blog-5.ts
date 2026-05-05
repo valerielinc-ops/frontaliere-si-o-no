@@ -17067,6 +17067,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spirometrie-gratuite-bambini-varese-2026': {
+    title: 'Spirometrie gratuite per bambini a Varese | Frontaliere Ticino',
+    description: 'In occasione della Giornata Mondiale dell’Asma 2026, l’Ambulatorio di Pneumologia e Allergologia Pediatrica dell’Ospedale F. Del Ponte di Varese offre',
+    keywords: 'frontalieri, ticino, svizzera, italia, spirometrie, gratuite, bambini, varese',
+    ogTitle: 'Spirometrie gratuite per i bambini a Varese per la Giornata Mondiale dell’Asma 2026',
+    ogDescription: 'In occasione della Giornata Mondiale dell’Asma 2026, l’Ambulatorio di Pneumologia e Allergologia Pediatrica dell’Ospedale F. Del Ponte di Varese offre',
+    canonicalPath: '/articoli-frontaliere/spirometrie-gratuite-bambini-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spirometrie gratuite per bambini a Varese",
+      "description": "In occasione della Giornata Mondiale dell’Asma 2026, l’Ambulatorio di Pneumologia e Allergologia Pediatrica dell’Ospedale F. Del Ponte di Varese offre",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spirometrie-gratuite-bambini-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un bambino riceve una spirometria in un ambulatorio pediatrico a Varese"
+      },
+      "datePublished": "2026-05-05T00:16:22+00:00",
+      "dateModified": "2026-05-05T00:16:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spirometrie-gratuite-bambini-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5942,6 +5942,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.auto-truccate-polizia-zugo-2026.title': 'Polizei in Zug kontrolliert getunte Autos',
     'blog.article.auto-truccate-polizia-zugo-2026.excerpt': 'Kontrollen am Stierenmarkt: 4 Autos mit manipulierten Auspuffen, 5 wegen nicht zugelassener Tuning-Software beschlagnahmt. Was die Besitzer riskieren',
     'blog.article.auto-truccate-polizia-zugo-2026.imageAlt': 'Polizei überprüft modifizierte Autos bei einer Versammlung in Tessin',
+    'blog.article.spirometrie-gratuite-bambini-varese-2026.title': 'Kostenlose Spirometrie für Kinder in Varese',
+    'blog.article.spirometrie-gratuite-bambini-varese-2026.excerpt': 'Anlässlich des Welt-Asthma-Tags 2026 bietet das Ambulatorium für Pädiatrische Pneumologie und Allergologie des F. Del Ponte Krankenhauses in Varese kostenlose Spirometrien für Kinder an',
+    'blog.article.spirometrie-gratuite-bambini-varese-2026.imageAlt': 'Ein Kind erhält eine Spirometrie in einer Kinderklinik in Varese',
 };
 
 export default blogMetaDe;
