@@ -19613,4 +19613,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'campagna-dss-appropriatezza-sanitaria',
+ category: 'novita',
+ date: '2026-05-05T09:56:45.299Z',
+ image: '/images/blog/campagna-dss-appropriatezza-sanitaria.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

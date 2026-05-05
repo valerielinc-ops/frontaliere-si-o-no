@@ -6080,6 +6080,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caseifici-aperti-ticino-2026.title': 'Käsereien im Tessin: 18 Betriebe zum Besuchen',
     'blog.article.caseifici-aperti-ticino-2026.excerpt': 'Am Samstag, 9. und Sonntag, 10. Mai 2026 öffnen 18 Tessiner Käsereien ihre Türen für die Öffentlichkeit zur 13. Ausgabe von Caseifici Aperti.',
     'blog.article.caseifici-aperti-ticino-2026.imageAlt': 'Traditionelle Schweizer Käsefabrik in Tessin mit Alpenblick',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.title': 'DSS startet Kampagne für bewusste Gesundheitsleistungen',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.excerpt': 'Der DSS fördert eine bewussteren Einsatz von Gesundheitsleistungen mit einer neuen digitalen Kampagne, inspiriert von Choosing Wisely',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.imageAlt': 'Digitale Plakate in Lugano fördern eine bewusste Gesundheitskampagne',
 };
 
 export default blogMetaDe;

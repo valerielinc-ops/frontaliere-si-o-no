@@ -6080,6 +6080,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caseifici-aperti-ticino-2026.title': 'Open dairies in Ticino: 18 farms to visit',
     'blog.article.caseifici-aperti-ticino-2026.excerpt': 'On Saturday 9 and Sunday 10 May 2026, 18 dairies in Ticino open their doors to the public for the 13th edition of Open Dairies',
     'blog.article.caseifici-aperti-ticino-2026.imageAlt': 'Traditional Swiss cheese dairy in Ticino with Alpine view',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.title': 'DSS launches campaign for mindful healthcare services',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.excerpt': 'The DSS promotes more mindful use of healthcare services with a new digital campaign inspired by Choosing Wisely',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.imageAlt': 'Digital billboards in Lugano promote a conscious healthcare campaign',
 };
 
 export default blogMetaEn;

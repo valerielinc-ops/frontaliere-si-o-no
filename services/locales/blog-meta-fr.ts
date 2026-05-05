@@ -6081,6 +6081,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.caseifici-aperti-ticino-2026.title': 'Fromageries ouvertes au Tessin: 18 entreprises à visiter',
     'blog.article.caseifici-aperti-ticino-2026.excerpt': 'Samedi 9 et dimanche 10 mai 2026, 18 fromageries tessinoises ouvrent leurs portes au public pour la 13e édition de Fromageries Ouvertes',
     'blog.article.caseifici-aperti-ticino-2026.imageAlt': 'Fromagerie traditionnelle en Tessin avec vue sur les Alpes',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.title': 'Le DSS lance une campagne pour des soins de santé conscients',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.excerpt': 'Le DSS promeut une utilisation plus consciente des prestations sanitaires avec une nouvelle campagne digitale inspirée de Choosing Wisely',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.imageAlt': 'Des panneaux d\'affichage numériques à Lugano promeuvent une campagne de santé consciente',
 };
 
 export default blogMetaFr;

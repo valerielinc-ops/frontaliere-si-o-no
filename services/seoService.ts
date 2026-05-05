@@ -3269,6 +3269,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stagflazione-imprese-varesine-2026': { name: 'Stagflazione', path: '/articoli-frontaliere/stagflazione-imprese-varesine-2026', parent: 'blog' },
     'blog-permessi-dimora-grigioni-mafie': { name: 'Permessi Grigioni', path: '/articoli-frontaliere/permessi-dimora-grigioni-mafie', parent: 'blog' },
     'blog-caseifici-aperti-ticino-2026': { name: 'Caseifici aperti', path: '/articoli-frontaliere/caseifici-aperti-ticino-2026', parent: 'blog' },
+    'blog-campagna-dss-appropriatezza-sanitaria': { name: 'Novità', path: '/articoli-frontaliere/campagna-dss-appropriatezza-sanitaria', parent: 'blog' },
  };
 
  const info = sectionNames[section];

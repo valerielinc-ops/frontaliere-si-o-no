@@ -6081,6 +6081,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caseifici-aperti-ticino-2026.title': 'Caseifici aperti in Ticino: 18 aziende da visitare',
     'blog.article.caseifici-aperti-ticino-2026.excerpt': 'Sabato 9 e domenica 10 maggio 2026, 18 caseifici ticinesi aprono le porte al pubblico per la 13esima edizione di Caseifici Aperti',
     'blog.article.caseifici-aperti-ticino-2026.imageAlt': 'Caseificio tradizionale in Ticino con vista sulle Alpi',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.title': 'DSS lancia campagna per prestazioni sanitarie consapevoli',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.excerpt': 'Il DSS promuove un utilizzo più consapevole delle prestazioni sanitarie con una nuova campagna digitale ispirata a Choosing Wisely',
+    'blog.article.campagna-dss-appropriatezza-sanitaria.imageAlt': 'Manifesti digitali a Lugano promuovono una campagna sanitaria consapevole',
 };
 
 export default blogMetaIt;
