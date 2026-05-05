@@ -296,13 +296,39 @@ jobs:
             ) &
           }
 
+          # ── audit:dist-multi-* serialized chain ──
+          # The 3 dist-multi audits each walk the full dist/ HTML tree
+          # (~132k files) and individually peak ~2-3 GB RSS. Running 2-3
+          # concurrently on the 7 GB ubuntu-latest free runner triggers
+          # the kernel OOM killer (post-deploy run 25393472881 SIGABRT'd
+          # `audit:dist-multi-light` and `audit:title-uniqueness` at rc=134).
+          #
+          # Fix: serialize the 3 dist-multi audits inside a single background
+          # subshell so only ONE runs at a time, while the rest of the
+          # `spawn_capped` pool keeps running in parallel alongside it.
+          # OS page cache helps a lot — sequential dist-multi-* is barely
+          # slower than parallel because the dist/ tree is hot after the
+          # first walker. Bookkeeping (timings + failures files) mirrors
+          # `spawn_capped` so failures are still captured uniformly.
+          (
+            set +e
+            for variant in ratio heavy light; do
+              logfile="/tmp/g-dist-multi-${variant}.log"
+              start=$(date +%s.%N)
+              env AUDIT_DIST_MULTI_GROUP="$variant" npm run audit:dist-multi \
+                > "$logfile" 2>&1
+              rc=$?
+              end=$(date +%s.%N)
+              awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"audit:dist-multi-${variant}\", $end-$start, $rc}" \
+                >> /tmp/post-build-timings.txt
+              if [ $rc -ne 0 ]; then
+                echo "audit:dist-multi-${variant} $logfile" >> /tmp/post-build-failures.txt
+              fi
+            done
+          ) &
+          DIST_MULTI_PID=$!
+
           # LPT order: slowest tasks first so the tail is shorter.
-          spawn_capped audit:dist-multi-ratio        /tmp/g5.log \
-            env AUDIT_DIST_MULTI_GROUP=ratio npm run audit:dist-multi
-          spawn_capped audit:dist-multi-heavy        /tmp/g6.log \
-            env AUDIT_DIST_MULTI_GROUP=heavy npm run audit:dist-multi
-          spawn_capped audit:dist-multi-light        /tmp/g7.log \
-            env AUDIT_DIST_MULTI_GROUP=light npm run audit:dist-multi
           spawn_capped audit:content-duplicates      /tmp/g8.log \
             npm run audit:content-duplicates
           spawn_capped audit:orphan-sitemap-pages    /tmp/g9.log \
@@ -340,6 +366,12 @@ jobs:
           spawn_capped live:post-deploy-smoke        /tmp/live-smoke.log \
             bash -lc 'node scripts/wait-for-pages-propagation.mjs && npm run probe:5xx && LIVE_BASE_URL=https://frontaliereticino.ch npm run test:e2e:live'
 
+          # Wait for the serialized dist-multi chain explicitly, then the
+          # rest of the spawn_capped pool. Two `wait` calls (one targeted,
+          # one bare) — `wait $PID` returns the chain's rc but we already
+          # captured per-variant rc into /tmp/post-build-failures.txt
+          # inside the subshell, so the FAIL aggregator below sees them.
+          wait "$DIST_MULTI_PID" || true
           wait
 
           echo ""
