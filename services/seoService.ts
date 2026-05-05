@@ -3258,6 +3258,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-il-valore-del-vicino-ciclo-incontri-economia-prossimita': { name: 'Economia della prossimità', path: '/articoli-frontaliere/il-valore-del-vicino-ciclo-incontri-economia-prossimita', parent: 'blog' },
     'blog-carburante-svizzera-scorte-2026': { name: 'Carburante Svizzera', path: '/articoli-frontaliere/carburante-svizzera-scorte-2026', parent: 'blog' },
     'blog-como-nuoto-750mila-euro-tribunale': { name: 'Novità', path: '/articoli-frontaliere/como-nuoto-750mila-euro-tribunale', parent: 'blog' },
+    'blog-arresto-cocaina-mendrisio-albanese': { name: 'Novità', path: '/articoli-frontaliere/arresto-cocaina-mendrisio-albanese', parent: 'blog' },
  };
 
  const info = sectionNames[section];

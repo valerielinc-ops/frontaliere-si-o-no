@@ -6047,6 +6047,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-nuoto-750mila-euro-tribunale.title': 'Como Swimming, 750k euros in court: minority report',
     'blog.article.como-nuoto-750mila-euro-tribunale.excerpt': 'Minority councilors of the Como municipality have filed a report with the Prosecutor\'s Office for the management of 750,000 euros for the Geno Avenue swimming pool.',
     'blog.article.como-nuoto-750mila-euro-tribunale.imageAlt': 'Como swimming pool with city view',
+    'blog.article.arresto-cocaina-mendrisio-albanese.title': '24-year-old Albanian arrested with cocaine in Mendrisio',
+    'blog.article.arresto-cocaina-mendrisio-albanese.excerpt': 'A young Albanian was arrested in Mendrisio with cocaine in his car. Here are the details of the operation.',
+    'blog.article.arresto-cocaina-mendrisio-albanese.imageAlt': 'Mendrisio, Ticino, with a view of the surrounding mountains',
 };
 
 export default blogMetaEn;

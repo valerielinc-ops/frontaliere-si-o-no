@@ -6048,6 +6048,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-nuoto-750mila-euro-tribunale.title': 'Como Natation, 750\'000 euros en justice: plainte des minorités',
     'blog.article.como-nuoto-750mila-euro-tribunale.excerpt': 'Les conseillers de minorité de la commune de Como ont déposé une plainte auprès du parquet pour la gestion de 750\'000 euros pour la piscine du viale Geno.',
     'blog.article.como-nuoto-750mila-euro-tribunale.imageAlt': 'Piscine de Côme avec vue sur la ville',
+    'blog.article.arresto-cocaina-mendrisio-albanese.title': 'Un Albanais de 24 ans arrêté avec de la cocaïne à Mendrisio',
+    'blog.article.arresto-cocaina-mendrisio-albanese.excerpt': 'Un jeune Albanais a été arrêté à Mendrisio avec de la cocaïne dans sa voiture. Voici les détails de l\'opération.',
+    'blog.article.arresto-cocaina-mendrisio-albanese.imageAlt': 'Mendrisio, Tessin, avec vue sur les montagnes environnantes',
 };
 
 export default blogMetaFr;

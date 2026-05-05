@@ -6047,6 +6047,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-nuoto-750mila-euro-tribunale.title': 'Como Schwimmen: 750.000 Euro vor Gericht',
     'blog.article.como-nuoto-750mila-euro-tribunale.excerpt': 'Die Minderheitsräte der Gemeinde Como haben eine Anzeige bei der Staatsanwaltschaft wegen der Verwaltung von 750.000 Euro für das Schwimmbad in der Viale Geno eingereicht.',
     'blog.article.como-nuoto-750mila-euro-tribunale.imageAlt': 'Schwimmbad in Como mit Stadtblick',
+    'blog.article.arresto-cocaina-mendrisio-albanese.title': '24-jähriger Albaner mit Kokain in Mendrisio festgenommen',
+    'blog.article.arresto-cocaina-mendrisio-albanese.excerpt': 'Ein junger Albaner wurde in Mendrisio mit Kokain im Auto festgenommen. Hier sind die Details der Operation.',
+    'blog.article.arresto-cocaina-mendrisio-albanese.imageAlt': 'Mendrisio, Tessin, mit Blick auf die umliegenden Berge',
 };
 
 export default blogMetaDe;

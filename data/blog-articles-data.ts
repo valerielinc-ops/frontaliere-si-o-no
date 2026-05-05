@@ -19514,4 +19514,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'arresto-cocaina-mendrisio-albanese',
+ category: 'novita',
+ date: '2026-05-05T08:11:55.314Z',
+ image: '/images/blog/arresto-cocaina-mendrisio-albanese.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

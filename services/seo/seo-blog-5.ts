@@ -18257,6 +18257,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-cocaina-mendrisio-albanese': {
+    title: 'Arrestato 24enne albanese con cocaina a Mendrisio | Frontaliere Ticino',
+    description: 'Un giovane albanese è stato arrestato a Mendrisio con cocaina a bordo dell\'auto. Ecco i dettagli dell\'operazione e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, arrestato, 24enne, albanese, cocaina',
+    ogTitle: 'Arrestato 24enne albanese con cocaina a Mendrisio',
+    ogDescription: 'Un giovane albanese è stato arrestato a Mendrisio con cocaina a bordo dell\'auto. Ecco i dettagli dell\'operazione e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/arresto-cocaina-mendrisio-albanese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Arrestato 24enne albanese con cocaina a Mendrisio",
+      "description": "Un giovane albanese è stato arrestato a Mendrisio con cocaina a bordo dell'auto. Ecco i dettagli dell'operazione e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/arresto-cocaina-mendrisio-albanese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mendrisio, Ticino, con vista sulle montagne circostanti"
+      },
+      "datePublished": "2026-05-05T08:11:55+00:00",
+      "dateModified": "2026-05-05T08:11:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-cocaina-mendrisio-albanese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -6048,6 +6048,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-nuoto-750mila-euro-tribunale.title': 'Como Nuoto, 750mila euro in tribunale: esposto delle minoranze',
     'blog.article.como-nuoto-750mila-euro-tribunale.excerpt': 'I consiglieri di minoranza del Comune di Como hanno depositato un esposto alla Procura per la gestione di 750mila euro per la piscina di viale Geno.',
     'blog.article.como-nuoto-750mila-euro-tribunale.imageAlt': 'Piscina di Como con vista sulla città',
+    'blog.article.arresto-cocaina-mendrisio-albanese.title': 'Arrestato 24enne albanese con cocaina a Mendrisio',
+    'blog.article.arresto-cocaina-mendrisio-albanese.excerpt': 'Un giovane albanese è stato arrestato a Mendrisio con cocaina a bordo dell\'auto. Ecco i dettagli dell\'operazione.',
+    'blog.article.arresto-cocaina-mendrisio-albanese.imageAlt': 'Mendrisio, Ticino, con vista sulle montagne circostanti',
 };
 
 export default blogMetaIt;
