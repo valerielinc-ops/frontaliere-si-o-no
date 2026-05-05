@@ -1,51 +1,18 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-05-05T10:01:34.442Z",
+  "generatedAt": "2026-05-05T21:10:14.852Z",
   "total": 2,
   "newCount": 3,
   "updatedCount": 0,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 2701,
-  "avgDurationMs": 2701,
+  "durationMs": 3514,
+  "avgDurationMs": 3514,
   "durationHistory": [
-    2701
+    3514
   ],
   "newJobs": [
-    {
-      "id": "alpiq-61d919b0f8e1",
-      "slug": "functional-business-analyst-trading-origination-all-100-alpiq-olten",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Functional Business Analyst, Trading & Origination (all) 100%",
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9474",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9474&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-05T10:01:32.612Z",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
     {
       "id": "alpiq-70d91ad872b7",
       "slug": "electricien-ne-automaticien-ne-alpiq-martigny",
@@ -70,13 +37,46 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T10:01:32.614Z",
+      "crawledAt": "2026-05-05T21:10:12.466Z",
       "_qualityScore": 43,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
         "translation": 4,
         "completeness": 14
+      }
+    },
+    {
+      "id": "alpiq-3452a89e108f",
+      "slug": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Legal Counsel / Senior Legal Counsel (all)",
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9486",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9486&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-05T21:10:12.467Z",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 4,
+        "completeness": 17
       }
     },
     {
@@ -103,7 +103,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9510&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T10:01:32.614Z",
+      "crawledAt": "2026-05-05T21:10:12.467Z",
       "_qualityScore": 56,
       "_qualityBreakdown": {
         "cleanliness": 25,
