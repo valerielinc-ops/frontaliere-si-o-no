@@ -43,7 +43,7 @@ const CACHE_SUBDIR = '.cache/og-jobs';
  * re-renders. Old cached PNGs become orphaned and age out automatically
  * when the GitHub Actions cache evicts them (~7-day TTL).
  */
-const OG_RENDER_VERSION = 'v1-2026-05-05';
+const OG_RENDER_VERSION = 'v2-2026-05-05';
 const PNG_WIDTH = 1200;
 const PNG_HEIGHT = 630;
 
@@ -59,6 +59,7 @@ const SURFACE = '#FFFFFF';
 interface JobMinimal {
   id: string;
   title?: string;
+  titleByLocale?: Record<string, string>;
   company?: string;
   companyKey?: string;
   hiringOrganization?: { name?: string };
@@ -534,7 +535,15 @@ export default function jobOgImagesPlugin(): Plugin {
 
         const logoMfPath = job.companyKey ? manifest[job.companyKey] : undefined;
         const model: CardModel = {
-          title: truncateText(job.title, 110),
+          // Prefer the Italian-translated title when present. The plugin's
+          // audience is Italian-speaking frontalieri, the slug is built from
+          // titleByLocale.it, and the OG meta `og:title` on the linked page
+          // is the IT version — using the raw `job.title` (often German or
+          // English source) leaks the wrong language into the social card.
+          title: truncateText(
+            job.titleByLocale?.it ?? job.title ?? '',
+            110,
+          ),
           company: deriveCompany(job),
           city: deriveCity(job),
           salary: deriveSalary(job),
