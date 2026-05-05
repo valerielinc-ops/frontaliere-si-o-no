@@ -2957,14 +2957,43 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `Lo storico delle interruzioni e la disponibilità media di ciascun servizio sono visibili in questa pagina, insieme alla latenza media delle API e alla frequenza di aggiornamento dei dati.`,
  );
  } else {
- // Fallback for pages without a specific section match
+ // Fallback for pages without a specific section match.
+ //
+ // Structural insurance for the SEO text-to-HTML ratio gate: previously
+ // this branch emitted six identical paragraphs across every fallback
+ // page, which Google flags as template-wide boilerplate (and which
+ // dragged spa-other below the 10% floor in CI run 25393472881, +42
+ // regression). Interpolate the page's own slug + section so two
+ // fallback pages produce demonstrably different prose, while still
+ // staying coherent and topically relevant to the frontaliere domain.
+ const segments = canonicalPath.split('/').filter(Boolean);
+ const leafSlug = segments[segments.length - 1] || 'home';
+ const leafLabel = leafSlug.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
+ const sectionSlug = segments[0] || '';
+ const sectionLabel = BREADCRUMB_NAMES[sectionSlug] || sectionSlug.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()) || 'Frontaliere Ticino';
+ // Cross-references chosen by section root so the recommended next step
+ // is always topically adjacent, not a generic homepage link.
+ const sectionCrossRefs: Record<string, string> = {
+ 'glossario-frontaliere': '<a href="/calcola-stipendio/" style="color:#2563eb;text-decoration:none">calcolatore di stipendio</a> e <a href="/articoli-frontaliere/" style="color:#2563eb;text-decoration:none">archivio articoli</a>',
+ 'articoli-frontaliere': '<a href="/articoli-frontaliere/tutti/" style="color:#2563eb;text-decoration:none">indice completo degli articoli</a> e <a href="/calcola-stipendio/" style="color:#2563eb;text-decoration:none">calcolatore di stipendio</a>',
+ 'compara-servizi': '<a href="/compara-servizi/cambio-franco-euro/" style="color:#2563eb;text-decoration:none">cambio CHF/EUR</a>, <a href="/compara-servizi/confronta-casse-malati/" style="color:#2563eb;text-decoration:none">casse malati</a> e <a href="/compara-servizi/confronta-banche/" style="color:#2563eb;text-decoration:none">conti bancari</a>',
+ 'tasse-e-pensione': '<a href="/calcola-stipendio/" style="color:#2563eb;text-decoration:none">calcolatore di stipendio</a> e <a href="/tasse-e-pensione/calcola-previdenza/" style="color:#2563eb;text-decoration:none">simulatore di previdenza</a>',
+ 'guida-frontaliere': '<a href="/guida-frontaliere/permessi-di-lavoro/" style="color:#2563eb;text-decoration:none">guida ai permessi G/B/L</a> e <a href="/traffico-dogane/" style="color:#2563eb;text-decoration:none">tempi di attesa ai valichi</a>',
+ 'vita-in-ticino': '<a href="/compara-servizi/costo-vita-ticino/" style="color:#2563eb;text-decoration:none">costo della vita in Ticino</a> e <a href="/cerca-lavoro-ticino/" style="color:#2563eb;text-decoration:none">offerte di lavoro</a>',
+ 'statistiche': '<a href="/statistiche/" style="color:#2563eb;text-decoration:none">dashboard statistiche</a> e <a href="/mercato-lavoro-ticino/" style="color:#2563eb;text-decoration:none">mercato del lavoro Ticino</a>',
+ };
+ const crossRefsHtml = sectionCrossRefs[sectionSlug]
+ || '<a href="/calcola-stipendio/" style="color:#2563eb;text-decoration:none">calcolatore di stipendio</a>, <a href="/compara-servizi/" style="color:#2563eb;text-decoration:none">comparatori</a> e <a href="/guida-frontaliere/" style="color:#2563eb;text-decoration:none">guida frontaliere</a>';
+
  editorialBlocks.push(
- `Questa pagina fa parte della piattaforma Frontaliere Ticino, il punto di riferimento per chi lavora in Svizzera (Canton Ticino) e vive in Italia. Troverai strumenti pratici, dati aggiornati e informazioni verificate.`,
- `I contenuti sono pensati per aiutare i frontalieri a prendere decisioni informate su tassazione, previdenza, trasporti, costi della vita e procedure amministrative legate al lavoro transfrontaliero.`,
- `Il sito è aggiornato quotidianamente con le ultime novità legislative, offerte di lavoro verificate e dati di mercato. Tutti gli strumenti sono gratuiti e utilizzabili senza registrazione.`,
- `I frontalieri che lavorano nel Canton Ticino beneficiano di stipendi svizzeri significativamente superiori alla media italiana, con una differenza tipica del 60-150% a seconda del settore. I fattori finanziari chiave includono l'aliquota dell'imposta alla fonte, i contributi sociali (AVS/AI/IPG, AD, LAINF, IJM, LPP), la scelta dell'assicurazione malattia e il tasso di cambio CHF-EUR.`,
- `Il Nuovo Accordo Fiscale Bilaterale 2026 tra Svizzera e Italia ha introdotto regole diverse per i nuovi frontalieri (assunti dopo il 17 luglio 2023) rispetto ai vecchi frontalieri. La distanza dalla frontiera svizzera (entro o oltre 20 km) determina il meccanismo di tassazione: i comuni entro 20 km beneficiano della ripartizione 80%/20% dell'imposta alla fonte, mentre i comuni oltre 20 km vedono l'intera imposta trattenuta in Svizzera.`,
- `Tutti gli strumenti della piattaforma sono utilizzabili gratuitamente e senza registrazione. I risultati vengono calcolati interamente nel browser per garantire la massima privacy dei dati finanziari personali, e sono presentati sia in franchi svizzeri che in euro per un confronto immediato con la propria situazione economica in Italia.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">${esc(leafLabel)} per frontalieri Ticino</h2>`,
+ `Questa pagina ${esc(leafLabel.toLowerCase())} fa parte della sezione ${esc(sectionLabel)} di Frontaliere Ticino, la piattaforma di riferimento per chi lavora in Canton Ticino e mantiene la residenza in un comune italiano della zona di frontiera. I contenuti aiutano a prendere decisioni concrete su tassazione, previdenza, costi del pendolarismo e procedure amministrative legate al lavoro transfrontaliero, applicando le regole del Nuovo Accordo Fiscale 2026 e i parametri retributivi aggiornati al cantone.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Cosa puoi fare da qui</h2>`,
+ `Da questa pagina puoi muoverti rapidamente verso gli strumenti più rilevanti per la sezione ${esc(sectionLabel)}: ${crossRefsHtml}. Ogni strumento è gratuito, non richiede registrazione e calcola i risultati nel browser per garantire la massima privacy dei dati finanziari personali. I valori sono presentati sia in franchi svizzeri che in euro al cambio attuale, con la possibilità di forzare un cambio personalizzato per simulare scenari di volatilità.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come applicare queste informazioni alla tua situazione</h2>`,
+ `Per un frontaliere italiano, il vantaggio economico del lavoro in Ticino dipende da quattro variabili che interagiscono fra loro: aliquota di imposta alla fonte (variabile per cantone, stato civile, figli e fascia di reddito), contributi sociali svizzeri (AVS/AI/IPG al 5,3 %, disoccupazione 1,1 %, infortunio non professionale, indennità giornaliera di malattia, LPP per fascia d'età), scelta dell'assicurazione malattia (LAMal in Svizzera o opzione di rimanere in CMU/SSN nel sistema italiano per i nuovi frontalieri post-17 luglio 2023), e cambio CHF-EUR. Una variazione di 5 centesimi sul cambio sposta il netto in euro di circa il 5-7 % a parità di lordo svizzero.`,
+ `Il Nuovo Accordo Fiscale Bilaterale 2026 tra Svizzera e Italia introduce regole diverse per i nuovi frontalieri (assunti dopo il 17 luglio 2023): l'imposta alla fonte resta interamente in Svizzera, mentre i vecchi frontalieri continuano a beneficiare della ripartizione 80 %/20 % per chi risiede entro 20 km dal confine. La distanza dalla frontiera (entro o oltre 20 km misurati come strada percorribile, non in linea d'aria) e la data di prima assunzione sono i due discriminanti principali per scegliere fra calcolatore "vecchio frontaliere" e "nuovo frontaliere" nelle sezioni di simulazione.`,
+ `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Aggiornato secondo le tabelle <a href="https://www4.ti.ch/dfe/dc/" style="color:#2563eb;text-decoration:none;" rel="noopener">Divisione delle contribuzioni del Canton Ticino</a> per l'anno fiscale 2026.</p>`,
  );
  }
 
