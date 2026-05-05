@@ -1,18 +1,53 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-05-05T10:42:26.262Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-05-05T21:50:36.657Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9426,
-  "avgDurationMs": 9426,
+  "durationMs": 9735,
+  "avgDurationMs": 9735,
   "durationHistory": [
-    9426
+    9735
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "fusalp-9fd3fdf0afbe",
+      "slug": "conseiller-de-vente-h-f-sales-consultant-w-m-fusalp-aubonne",
+      "company": "Fusalp",
+      "companyKey": "fusalp",
+      "companyDomain": "fusalp.com",
+      "title": "Conseiller de vente H/F /Sales consultant W/M",
+      "location": "Aubonne",
+      "canton": "VD",
+      "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f-sales-consultant-w-m_aubonne",
+      "source": "Fusalp Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-05T21:50:28.461Z",
+      "addressLocality": "Aubonne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1170",
+      "category": "Commerciale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Moda / Abbigliamento sportivo",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "applyUrl": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f-sales-consultant-w-m_aubonne",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "fusalp-d7bea2b46c42",
@@ -26,7 +61,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-store-manager-m-w_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T10:42:20.871Z",
+      "crawledAt": "2026-05-05T21:50:32.028Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -61,7 +96,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-05T10:42:21.907Z",
+      "crawledAt": "2026-05-05T21:50:32.939Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
