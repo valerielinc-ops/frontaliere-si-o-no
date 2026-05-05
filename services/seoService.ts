@@ -3224,6 +3224,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lot-polish-60-anni-malpensa-varsavia': { name: 'Novità', path: '/articoli-frontaliere/lot-polish-60-anni-malpensa-varsavia', parent: 'blog' },
     'blog-auto-truccate-polizia-zugo-2026': { name: 'Novità', path: '/articoli-frontaliere/auto-truccate-polizia-zugo-2026', parent: 'blog' },
     'blog-spirometrie-gratuite-bambini-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/spirometrie-gratuite-bambini-varese-2026', parent: 'blog' },
+    'blog-blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani': { name: 'Blackdamp: memoria, sacrificio ed', path: '/articoli-frontaliere/blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani', parent: 'blog' },
  };
 
  const info = sectionNames[section];

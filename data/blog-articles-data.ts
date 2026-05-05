@@ -19208,4 +19208,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani',
+ category: 'novita',
+ date: '2026-05-05T00:26:23.725Z',
+ image: '/images/blog/blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

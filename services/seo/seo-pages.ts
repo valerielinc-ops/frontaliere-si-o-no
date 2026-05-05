@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2034,
+ "numberOfItems": 2035,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6677,7 +6677,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2031, "name": "Camminata enogastronomica a Cazzago Brabbia", "url": `${BASE_URL}/articoli-frontaliere/cazzago-brabbia-camminan-mangiando-2026` },
           { "@type": "ListItem", "position": 2032, "name": "Lot Polish Airlines festeggia 60 anni di voli t...", "url": `${BASE_URL}/articoli-frontaliere/lot-polish-60-anni-malpensa-varsavia` },
           { "@type": "ListItem", "position": 2033, "name": "Auto truccate nel mirino della polizia a Zugo", "url": `${BASE_URL}/articoli-frontaliere/auto-truccate-polizia-zugo-2026` },
-          { "@type": "ListItem", "position": 2034, "name": "Spirometrie gratuite per bambini a Varese", "url": `${BASE_URL}/articoli-frontaliere/spirometrie-gratuite-bambini-varese-2026` }
+          { "@type": "ListItem", "position": 2034, "name": "Spirometrie gratuite per bambini a Varese", "url": `${BASE_URL}/articoli-frontaliere/spirometrie-gratuite-bambini-varese-2026` },
+          { "@type": "ListItem", "position": 2035, "name": "Blackdamp: memoria, sacrificio e emigrazione", "url": `${BASE_URL}/articoli-frontaliere/blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani` }
  ]
  },
  {

@@ -17101,6 +17101,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani': {
+    title: 'Blackdamp: memoria, sacrificio e emigrazione | Frontaliere Ticino',
+    description: 'Il nuovo romanzo storico di Lucia Tiziani, \'Blackdamp\', esplora l\'emigrazione italiana e il sacrificio di Ferdinando Tiziani. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, blackdamp, memoria, sacrificio, emigrazione',
+    ogTitle: 'Blackdamp: memoria, sacrificio ed emigrazione nel nuovo romanzo storico di Lucia Tiziani',
+    ogDescription: 'Il nuovo romanzo storico di Lucia Tiziani, \'Blackdamp\', esplora l\'emigrazione italiana e il sacrificio di Ferdinando Tiziani.',
+    canonicalPath: '/articoli-frontaliere/blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Blackdamp: memoria, sacrificio e emigrazione",
+      "description": "Il nuovo romanzo storico di Lucia Tiziani, 'Blackdamp', esplora l'emigrazione italiana e il sacrificio di Ferdinando Tiziani. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano vista dal lago"
+      },
+      "datePublished": "2026-05-05T00:26:23+00:00",
+      "dateModified": "2026-05-05T00:26:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

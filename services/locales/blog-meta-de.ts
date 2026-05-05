@@ -5945,6 +5945,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spirometrie-gratuite-bambini-varese-2026.title': 'Kostenlose Spirometrie für Kinder in Varese',
     'blog.article.spirometrie-gratuite-bambini-varese-2026.excerpt': 'Anlässlich des Welt-Asthma-Tags 2026 bietet das Ambulatorium für Pädiatrische Pneumologie und Allergologie des F. Del Ponte Krankenhauses in Varese kostenlose Spirometrien für Kinder an',
     'blog.article.spirometrie-gratuite-bambini-varese-2026.imageAlt': 'Ein Kind erhält eine Spirometrie in einer Kinderklinik in Varese',
+    'blog.article.blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani.title': 'Blackdamp: Erinnerung, Opfer und Auswanderung',
+    'blog.article.blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani.excerpt': 'Der neue historische Roman von Lucia Tiziani untersucht die italienische Auswanderung und das Opfer von Ferdinando Tiziani.',
+    'blog.article.blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani.imageAlt': 'Lugano aus dem See',
 };
 
 export default blogMetaDe;
