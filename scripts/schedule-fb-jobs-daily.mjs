@@ -487,16 +487,80 @@ export function loadPlaceIds(repoRoot) {
  * suffix (e.g. "Aesch (ZH)" → "Aesch"). Returns null when no match.
  * Pure: takes the flat lookup map produced by `loadPlaceIds`.
  */
+// French/English/Italian aliases for Swiss municipalities whose canonical
+// name in the BFS list is the German/native form. Crawler `location`
+// fields often arrive in alternate languages (e.g. job boards from the
+// Romandy serve "Geneva" / "Genève", not the BFS entry "Genève" exactly).
+const SWISS_CITY_ALIASES = {
+  Geneva: 'Genève',
+  Genf: 'Genève',
+  Berne: 'Bern',
+  Berna: 'Bern',
+  Basle: 'Basel',
+  Bâle: 'Basel',
+  Basilea: 'Basel',
+  Lucerne: 'Luzern',
+  Lucerna: 'Luzern',
+  Zurich: 'Zürich',
+  Zurigo: 'Zürich',
+  Zuerich: 'Zürich',
+  Coira: 'Chur',
+  Coire: 'Chur',
+  Sankt: 'St. Gallen', // sometimes "Sankt Gallen"
+  'Sankt Gallen': 'St. Gallen',
+  'Saint-Gall': 'St. Gallen',
+  'San Gallo': 'St. Gallen',
+  Sion: 'Sion',
+  Sitten: 'Sion',
+  Bienne: 'Biel/Bienne',
+  Biel: 'Biel/Bienne',
+  Lozanna: 'Lausanne',
+  Losanna: 'Lausanne',
+  Friburgo: 'Fribourg',
+  Freiburg: 'Fribourg',
+  Soletta: 'Solothurn',
+  Sciaffusa: 'Schaffhausen',
+  Turgovia: 'Frauenfeld', // canton TG capital — proxy
+};
+
 export function lookupPlaceId(location, placeIds) {
   if (!location || !placeIds) return null;
-  const direct = placeIds[location];
-  if (direct) return direct;
-  // Strip trailing " (XX)" canton suffix
-  const stripped = location.replace(/\s*\([^)]*\)\s*$/, '').trim();
-  if (stripped !== location && placeIds[stripped]) return placeIds[stripped];
-  // Strip trailing "/<alt-name>" forms (e.g., "Biel/Bienne" -> "Biel")
-  const slashStripped = location.split('/')[0].trim();
-  if (slashStripped !== location && placeIds[slashStripped]) return placeIds[slashStripped];
+  const tryLookup = (name) => {
+    if (!name) return null;
+    if (placeIds[name]) return placeIds[name];
+    const alias = SWISS_CITY_ALIASES[name];
+    if (alias && placeIds[alias]) return placeIds[alias];
+    return null;
+  };
+  // 1. Direct match.
+  let hit = tryLookup(location);
+  if (hit) return hit;
+  // 2. Strip trailing " (XX)" canton suffix → "Aesch (BL)" → "Aesch".
+  const noParens = location.replace(/\s*\([^)]*\)\s*$/, '').trim();
+  hit = tryLookup(noParens);
+  if (hit) return hit;
+  // 3. Strip trailing ", <region>" (Italian + English suffixes commonly
+  //    leaked by job boards: "Geneva, Switzerland", "Lugano, Ticino",
+  //    "Bern, Schweiz", "Basel, Switzerland").
+  const noTail = location.split(',')[0].trim();
+  hit = tryLookup(noTail);
+  if (hit) return hit;
+  // 4. Strip trailing "/<alt-name>" forms ("Biel/Bienne" → "Biel"). The
+  //    Biel/Bienne entry is the canonical BFS form, so we try BOTH the
+  //    pre-slash and the post-slash token, with alias fallback.
+  for (const part of location.split('/')) {
+    hit = tryLookup(part.trim());
+    if (hit) return hit;
+  }
+  // 5. Pick the FIRST plausible city-shaped token from a composite
+  //    location like "EMEA · CHE · Stabio · VF Campus VF1": split on
+  //    `·`, `-`, ` ` (space) and try each up to length 30. Prevents
+  //    burning thousands of tokens when the location is junk.
+  const tokens = location.split(/[·\-\s]+/).map((t) => t.trim()).filter((t) => t.length >= 3 && t.length <= 30);
+  for (const t of tokens) {
+    hit = tryLookup(t);
+    if (hit) return hit;
+  }
   return null;
 }
 
