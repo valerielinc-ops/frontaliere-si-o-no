@@ -120,6 +120,44 @@ function stripHtml(s) {
     .trim();
 }
 
+// Section labels that often leak into the body when a job description
+// uses HTML headings/lists. Stripped only when they appear at the very start
+// of the body, optionally followed by `:` or `-`.
+const LEADING_SECTION_LABELS = [
+  'descrizione',
+  'description',
+  'descrição',
+  'beschreibung',
+  'beschrijving',
+  'mansioni',
+  'compiti',
+  'profilo',
+  'profile',
+  'profil',
+  'requisiti',
+  'requirements',
+  'about us',
+  'chi siamo',
+  'who we are',
+  'job description',
+  'about the job',
+  'company description',
+  "l'offerta",
+  'l offerta',
+  'la posizione',
+  'le tue mansioni',
+  'i tuoi compiti',
+  'le tue responsabilità',
+];
+
+function stripLeadingSectionLabel(s) {
+  if (!s) return '';
+  const sorted = [...LEADING_SECTION_LABELS].sort((a, b) => b.length - a.length);
+  const escaped = sorted.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const re = new RegExp(`^(?:${escaped.join('|')})\\s*[:\\-–—]?\\s+`, 'i');
+  return s.replace(re, '').trim();
+}
+
 function stripDiacritics(s) {
   if (!s) return '';
   // Strip U+0300–U+036F (Combining Diacritical Marks) after NFD decomposition.
@@ -233,7 +271,7 @@ export function buildJobCaption(job) {
 
   // Body
   const rawBody = job?.descriptionByLocale?.it || job?.description || '';
-  const body = truncateBody(stripHtml(rawBody), 140);
+  const body = truncateBody(stripLeadingSectionLabel(stripHtml(rawBody)), 140);
 
   // Hashtags
   const hashtags = buildJobHashtags(job);
