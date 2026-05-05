@@ -6077,6 +6077,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permessi-dimora-grigioni-mafie.title': 'Graubünden: Neue Regeln für Aufenthaltsbewilligungen',
     'blog.article.permessi-dimora-grigioni-mafie.excerpt': 'Der Kanton Graubünden führt Einschränkungen für Aufenthaltsbewilligungen ein, nachdem in Roveredo Verhaftungen im Zusammenhang mit organisierter Kriminalität erfolgt sind.',
     'blog.article.permessi-dimora-grigioni-mafie.imageAlt': 'Panoramablick auf Roveredo im Kanton Graubünden mit Bergen im Hintergrund.',
+    'blog.article.caseifici-aperti-ticino-2026.title': 'Käsereien im Tessin: 18 Betriebe zum Besuchen',
+    'blog.article.caseifici-aperti-ticino-2026.excerpt': 'Am Samstag, 9. und Sonntag, 10. Mai 2026 öffnen 18 Tessiner Käsereien ihre Türen für die Öffentlichkeit zur 13. Ausgabe von Caseifici Aperti.',
+    'blog.article.caseifici-aperti-ticino-2026.imageAlt': 'Traditionelle Schweizer Käsefabrik in Tessin mit Alpenblick',
 };
 
 export default blogMetaDe;

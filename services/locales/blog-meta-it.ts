@@ -6078,6 +6078,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permessi-dimora-grigioni-mafie.title': 'Grigioni: Nuove regole sui permessi di dimora dopo infiltrazioni mafiose',
     'blog.article.permessi-dimora-grigioni-mafie.excerpt': 'Il Canton Grigioni introduce restrizioni sui permessi di dimora dopo arresti legati alla criminalità organizzata a Roveredo.',
     'blog.article.permessi-dimora-grigioni-mafie.imageAlt': 'Vista panoramica di Roveredo nei Grigioni con montagne sullo sfondo.',
+    'blog.article.caseifici-aperti-ticino-2026.title': 'Caseifici aperti in Ticino: 18 aziende da visitare',
+    'blog.article.caseifici-aperti-ticino-2026.excerpt': 'Sabato 9 e domenica 10 maggio 2026, 18 caseifici ticinesi aprono le porte al pubblico per la 13esima edizione di Caseifici Aperti',
+    'blog.article.caseifici-aperti-ticino-2026.imageAlt': 'Caseificio tradizionale in Ticino con vista sulle Alpi',
 };
 
 export default blogMetaIt;

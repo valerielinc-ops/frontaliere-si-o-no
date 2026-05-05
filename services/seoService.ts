@@ -3268,6 +3268,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lamone-nono-mcdonalds-ticino': { name: 'Novità', path: '/articoli-frontaliere/lamone-nono-mcdonalds-ticino', parent: 'blog' },
     'blog-stagflazione-imprese-varesine-2026': { name: 'Stagflazione', path: '/articoli-frontaliere/stagflazione-imprese-varesine-2026', parent: 'blog' },
     'blog-permessi-dimora-grigioni-mafie': { name: 'Permessi Grigioni', path: '/articoli-frontaliere/permessi-dimora-grigioni-mafie', parent: 'blog' },
+    'blog-caseifici-aperti-ticino-2026': { name: 'Caseifici aperti', path: '/articoli-frontaliere/caseifici-aperti-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

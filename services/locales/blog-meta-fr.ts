@@ -6078,6 +6078,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permessi-dimora-grigioni-mafie.title': 'Grisons: nouvelles règles sur les permis de séjour après infiltrations mafieuses',
     'blog.article.permessi-dimora-grigioni-mafie.excerpt': 'Le canton des Grisons introduit des restrictions sur les permis de séjour après des arrestations liées à la criminalité organisée à Roveredo.',
     'blog.article.permessi-dimora-grigioni-mafie.imageAlt': 'Vue panoramique de Roveredo dans les Grisons avec montagnes en arrière-plan.',
+    'blog.article.caseifici-aperti-ticino-2026.title': 'Fromageries ouvertes au Tessin: 18 entreprises à visiter',
+    'blog.article.caseifici-aperti-ticino-2026.excerpt': 'Samedi 9 et dimanche 10 mai 2026, 18 fromageries tessinoises ouvrent leurs portes au public pour la 13e édition de Fromageries Ouvertes',
+    'blog.article.caseifici-aperti-ticino-2026.imageAlt': 'Fromagerie traditionnelle en Tessin avec vue sur les Alpes',
 };
 
 export default blogMetaFr;

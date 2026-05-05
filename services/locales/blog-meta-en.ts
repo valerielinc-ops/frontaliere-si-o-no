@@ -6077,6 +6077,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permessi-dimora-grigioni-mafie.title': 'Grisons: New residency permit rules after mafia infiltrations',
     'blog.article.permessi-dimora-grigioni-mafie.excerpt': 'The Canton of Grisons introduces restrictions on residency permits after arrests linked to organized crime in Roveredo.',
     'blog.article.permessi-dimora-grigioni-mafie.imageAlt': 'Panoramic view of Roveredo in Grisons with mountains in the background.',
+    'blog.article.caseifici-aperti-ticino-2026.title': 'Open dairies in Ticino: 18 farms to visit',
+    'blog.article.caseifici-aperti-ticino-2026.excerpt': 'On Saturday 9 and Sunday 10 May 2026, 18 dairies in Ticino open their doors to the public for the 13th edition of Open Dairies',
+    'blog.article.caseifici-aperti-ticino-2026.imageAlt': 'Traditional Swiss cheese dairy in Ticino with Alpine view',
 };
 
 export default blogMetaEn;
