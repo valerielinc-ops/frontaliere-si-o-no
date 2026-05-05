@@ -6171,6 +6171,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.misoexperience-festival-sport-2024.title': 'MisoXperience 2024: il festival degli sport all\'aperto in Mesolcina',
     'blog.article.misoexperience-festival-sport-2024.excerpt': 'Dal 9 al 17 maggio, la valle Mesolcina ospita il MisoXperience Festival con kayak, bouldering e parapendio. Ecco il programma completo',
     'blog.article.misoexperience-festival-sport-2024.imageAlt': 'Vista aerea del fiume Moesa nella valle di Mesolcina, Svizzera, con attività sportive all\'aperto e tende del festival',
+    'blog.article.servizio-civile-legge-nefasta-frontalieri.title': 'Servizio civile: alleanza del no avverte sui rischi',
+    'blog.article.servizio-civile-legge-nefasta-frontalieri.excerpt': 'Riduzione del 40% degli effettivi metterebbe a rischio case anziani, scuole e ambiente. Voto il 14 giugno',
+    'blog.article.servizio-civile-legge-nefasta-frontalieri.imageAlt': 'Volontario del servizio civile in azione sul lungolago di Lugano',
 };
 
 export default blogMetaIt;

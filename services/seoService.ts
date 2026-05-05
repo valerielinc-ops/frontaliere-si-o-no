@@ -3299,6 +3299,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-disoccupati-svizzera-indennita': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-disoccupati-svizzera-indennita', parent: 'blog' },
     'blog-somministrazione-occupazione-qualita-bottini': { name: 'Novità', path: '/articoli-frontaliere/somministrazione-occupazione-qualita-bottini', parent: 'blog' },
     'blog-misoexperience-festival-sport-2024': { name: 'Festival sportivi', path: '/articoli-frontaliere/misoexperience-festival-sport-2024', parent: 'blog' },
+    'blog-servizio-civile-legge-nefasta-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/servizio-civile-legge-nefasta-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

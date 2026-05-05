@@ -19883,4 +19883,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'servizio-civile-legge-nefasta-frontalieri',
+ category: 'novita',
+ date: '2026-05-05T19:50:33.830Z',
+ image: '/images/blog/servizio-civile-legge-nefasta-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2109,
+ "numberOfItems": 2110,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6751,7 +6751,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2106, "name": "Dipendenti cantonali in Ticino: ErreDiPi richie...", "url": `${BASE_URL}/articoli-frontaliere/dipendenti-cantonali-soddisfazione-erre-dipi` },
           { "@type": "ListItem", "position": 2107, "name": "I frontalieri disoccupati potrebbero ricevere l...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-svizzera-indennita` },
           { "@type": "ListItem", "position": 2108, "name": "Bottini: Somministrazione crea occupazione di q...", "url": `${BASE_URL}/articoli-frontaliere/somministrazione-occupazione-qualita-bottini` },
-          { "@type": "ListItem", "position": 2109, "name": "MisoXperience 2024: il festival degli sport all...", "url": `${BASE_URL}/articoli-frontaliere/misoexperience-festival-sport-2024` }
+          { "@type": "ListItem", "position": 2109, "name": "MisoXperience 2024: il festival degli sport all...", "url": `${BASE_URL}/articoli-frontaliere/misoexperience-festival-sport-2024` },
+          { "@type": "ListItem", "position": 2110, "name": "Servizio civile: alleanza del no avverte sui ri...", "url": `${BASE_URL}/articoli-frontaliere/servizio-civile-legge-nefasta-frontalieri` }
  ]
  },
  {
