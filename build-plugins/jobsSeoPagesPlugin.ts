@@ -1602,6 +1602,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ? String(perLocaleSlug[locale] || job.slug || job.id || '')
  : '';
  const title = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken);
+ // Clean variant for og:title / twitter:title — same as `title` minus
+ // the trailing " (#abcd1234)" disambiguator hash. The hash is needed in
+ // the HTML <title> for SEO uniqueness (Semrush gate, Google SERPs) but
+ // looks awful when FB/LinkedIn render it inside the social card.
+ const ogTitle = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, '');
  const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
  const localizedDescription = normalizeText(localizedDescriptionRaw);
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
@@ -1919,7 +1924,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:type" content="article">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(title)}">
+ <meta property="og:title" content="${esc(ogTitle)}">
  <meta property="og:description" content="${esc(description)}">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.png` : `${BASE_URL}/og-image.png`}">
@@ -1927,7 +1932,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(title)}">
+ <meta name="twitter:title" content="${esc(ogTitle)}">
  <meta name="twitter:description" content="${esc(description)}">
  <meta name="twitter:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.png` : `${BASE_URL}/og-image.png`}">
  <meta name="twitter:site" content="@frontaliereticino">
