@@ -517,7 +517,11 @@ export function appendPosted(repoRoot, entries) {
 // ── Pre-flight: occupied scheduled-posts ────────────────────
 
 async function fetchScheduledPostMinutes({ pageId, token, fetchImpl, log }) {
-  const url = `${GRAPH_BASE}/${pageId}/scheduled_posts?fields=scheduled_publish_time&limit=200&access_token=${encodeURIComponent(token)}`;
+  // FB rejects limit > 100 with error #100. Even at volume=144 we only
+  // need to read the queue to detect minute-collisions, not exhaustively
+  // page through it — the next free :05/:15/… slot ≥ now+10min is what
+  // pickNextSlots picks anyway.
+  const url = `${GRAPH_BASE}/${pageId}/scheduled_posts?fields=scheduled_publish_time&limit=100&access_token=${encodeURIComponent(token)}`;
   try {
     const res = await fetchImpl(url);
     const data = await res.json();
@@ -618,6 +622,7 @@ export async function run(opts = {}) {
   // 5. Build payloads (with FB Place ID lookup per job's location)
   const placeIds = loadPlaceIds(repoRoot);
   let placedCount = 0;
+  const unmappedCities = new Map(); // city → count
   const payloads = [];
   for (let i = 0; i < usable; i++) {
     const job = candidates[i];
@@ -628,7 +633,11 @@ export async function run(opts = {}) {
     }
     const message = buildJobCaption(job);
     const placeId = lookupPlaceId(job.location, placeIds);
-    if (placeId) placedCount += 1;
+    if (placeId) {
+      placedCount += 1;
+    } else if (job.location) {
+      unmappedCities.set(job.location, (unmappedCities.get(job.location) || 0) + 1);
+    }
     payloads.push({
       jobId: job.id,
       url,
@@ -638,6 +647,16 @@ export async function run(opts = {}) {
     });
   }
   log('📍', `place tag resolved for ${placedCount}/${payloads.length} payloads`);
+  if (unmappedCities.size > 0) {
+    // Log top unmapped locations so we can extend lookupPlaceId aliases
+    // or add them to data/fb-place-ids.json over time.
+    const top = [...unmappedCities.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([c, n]) => `${c}(${n})`)
+      .join(', ');
+    log('🔍', `unmapped cities (top 10): ${top}`);
+  }
 
   // 6. Dry-run vs real POST
   if (dryRun) {
