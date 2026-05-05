@@ -3293,6 +3293,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-assicurazione-dentaria-obbligatoria-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/assicurazione-dentaria-obbligatoria-ticino-2026', parent: 'blog' },
     'blog-incidente-fornasette-2026': { name: 'Incidente Fornasette', path: '/articoli-frontaliere/incidente-fornasette-2026', parent: 'blog' },
     'blog-lavoro-agenzia-lombardia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/lavoro-agenzia-lombardia-frontalieri', parent: 'blog' },
+    'blog-condizioni-utilizzo-tvsvizzera': { name: 'Nuove regole TV Svizzera', path: '/articoli-frontaliere/condizioni-utilizzo-tvsvizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

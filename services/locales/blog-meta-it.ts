@@ -6153,6 +6153,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-agenzia-lombardia-frontalieri.title': '1 su 3 lavoratori tramite agenzia in Lombardia è frontaliere',
     'blog.article.lavoro-agenzia-lombardia-frontalieri.excerpt': 'Dati Assolavoro rivelano che un terzo dei lavoratori tramite agenzia in Lombardia sono frontalieri. Impatto su AVS, LPP e imposta alla fonte.',
     'blog.article.lavoro-agenzia-lombardia-frontalieri.imageAlt': 'Confine di Brogeda tra Italia e Svizzera con persone e auto in transito',
+    'blog.article.condizioni-utilizzo-tvsvizzera.title': 'TV Svizzera: nuove regole per i commenti e l\'uso del sito',
+    'blog.article.condizioni-utilizzo-tvsvizzera.excerpt': 'TV Svizzera introduce linee guida per i commenti e l\'uso del sito, con nuove regole per la comunità.',
+    'blog.article.condizioni-utilizzo-tvsvizzera.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

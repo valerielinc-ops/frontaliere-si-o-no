@@ -19829,4 +19829,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'condizioni-utilizzo-tvsvizzera',
+ category: 'novita',
+ date: '2026-05-05T18:28:54.240Z',
+ image: '/images/blog/condizioni-utilizzo-tvsvizzera.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

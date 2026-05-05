@@ -6152,6 +6152,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-agenzia-lombardia-frontalieri.title': '1 von 3 Arbeitnehmern über Agentur in der Lombardei sind Grenzgänger',
     'blog.article.lavoro-agenzia-lombardia-frontalieri.excerpt': 'Daten von Assolavoro zeigen, dass ein Drittel der Arbeitnehmer über Agentur in der Lombardei Grenzgänger sind. Auswirkungen auf AVS, LPP und Quellensteuer.',
     'blog.article.lavoro-agenzia-lombardia-frontalieri.imageAlt': 'Grenzübergang Brogeda zwischen Italien und der Schweiz mit Menschen und Autos im Transit',
+    'blog.article.condizioni-utilizzo-tvsvizzera.title': 'SRF: Neue Regeln für Kommentare und Website-Nutzung',
+    'blog.article.condizioni-utilizzo-tvsvizzera.excerpt': 'SRF führt Richtlinien für Kommentare und Website-Nutzung ein, mit neuen Regeln für die Community.',
+    'blog.article.condizioni-utilizzo-tvsvizzera.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

@@ -19000,6 +19000,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-condizioni-utilizzo-tvsvizzera': {
+    title: 'TV Svizzera: nuove regole per i commenti e l\'uso del sito',
+    description: 'TV Svizzera introduce nuove linee guida per i commenti e l\'uso del sito web e delle pagine social. Scopri cosa è incoraggiato e cosa non è tollerato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, regole, commenti, sito',
+    ogTitle: 'TV Svizzera: nuove regole per i commenti e l\'uso del sito',
+    ogDescription: 'TV Svizzera introduce nuove linee guida per i commenti e l\'uso del sito web e delle pagine social. Scopri cosa è incoraggiato e cosa non è tollerato.',
+    canonicalPath: '/articoli-frontaliere/condizioni-utilizzo-tvsvizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TV Svizzera: nuove regole per i commenti e l'uso del sito",
+      "description": "TV Svizzera introduce nuove linee guida per i commenti e l'uso del sito web e delle pagine social. Scopri cosa è incoraggiato e cosa non è tollerato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/condizioni-utilizzo-tvsvizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-05T18:28:54+00:00",
+      "dateModified": "2026-05-05T18:28:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/condizioni-utilizzo-tvsvizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

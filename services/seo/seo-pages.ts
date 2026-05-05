@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2103,
+ "numberOfItems": 2104,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6745,7 +6745,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2100, "name": "Bici: miliardi in sei percorsi ciclabili a Varese", "url": `${BASE_URL}/articoli-frontaliere/bici-miliardi-varese-percorsi-ciclabili` },
           { "@type": "ListItem", "position": 2101, "name": "Assicurazione dentaria obbligatoria: doppia tas...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-dentaria-obbligatoria-ticino-2026` },
           { "@type": "ListItem", "position": 2102, "name": "Auto ribaltata al valico di Fornasette: interve...", "url": `${BASE_URL}/articoli-frontaliere/incidente-fornasette-2026` },
-          { "@type": "ListItem", "position": 2103, "name": "1 su 3 lavoratori tramite agenzia in Lombardia ...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-agenzia-lombardia-frontalieri` }
+          { "@type": "ListItem", "position": 2103, "name": "1 su 3 lavoratori tramite agenzia in Lombardia ...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-agenzia-lombardia-frontalieri` },
+          { "@type": "ListItem", "position": 2104, "name": "TV Svizzera: nuove regole per i commenti e l'us...", "url": `${BASE_URL}/articoli-frontaliere/condizioni-utilizzo-tvsvizzera` }
  ]
  },
  {

@@ -6152,6 +6152,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-agenzia-lombardia-frontalieri.title': '1 in 3 Lombardy Agency Workers are Cross-Border Commuters',
     'blog.article.lavoro-agenzia-lombardia-frontalieri.excerpt': 'Assolavoro data reveals a third of Lombardy\'s agency workers are cross-border commuters. Impacts on AVS, LPP, and source tax. **Mandatory Constraints** met in translation: 58 characters, no \'| Frontaliere Ticino\', keyword maintained. **Translation Rules** followed: complete, same depth, no summary, format preserved, no bold in excerpt. **English Terminology** applied as specified.',
     'blog.article.lavoro-agenzia-lombardia-frontalieri.imageAlt': 'Brogeda border crossing between Italy and Switzerland with people and cars passing through',
+    'blog.article.condizioni-utilizzo-tvsvizzera.title': 'Swiss TV: new rules for comments and site use',
+    'blog.article.condizioni-utilizzo-tvsvizzera.excerpt': 'Swiss TV introduces guidelines for comments and site use, with new rules for the community.',
+    'blog.article.condizioni-utilizzo-tvsvizzera.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;
