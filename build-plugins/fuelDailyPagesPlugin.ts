@@ -105,6 +105,7 @@ import {
   TABLE_HEAD_STYLE,
   TABLE_STYLE,
   clampSiteSuffix,
+  differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
@@ -1844,7 +1845,7 @@ function renderArchive(inp: ArchiveInputs): string {
   const prices = rows.map((r) => r.price).filter((p): p is number => typeof p === 'number');
   const avg = mean(prices);
 
-  const h1 = locale === 'it'
+  let h1 = locale === 'it'
     ? `Archivio prezzo ${fuelLabel.toLowerCase()} a ${zoneLabel} — ${monthKey}`
     : locale === 'en'
     ? `${fuelLabel} price archive for ${zoneLabel} — ${monthKey}`
@@ -1902,6 +1903,11 @@ function renderArchive(inp: ArchiveInputs): string {
 
   const dateStamp = today.toISOString().slice(0, 10);
   const title = clampSiteSuffix(h1, 'Frontaliere Ticino');
+  // Archive pages: H1 includes the month-key tail, but if the headline is
+  // long enough that buildTitleWithBrand drops the brand from <title>, the
+  // two strings collide. Differentiate the H1 so audit:h1-title-duplicates
+  // accepts the page (baseline 0).
+  h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
   const breadcrumbLd = JSON.stringify({
@@ -2395,7 +2401,7 @@ function renderStationPage(opts: {
   const deltaZone = zoneAvg !== null ? Number((price - zoneAvg).toFixed(3)) : null;
   const deltaZoneFmt = formatDelta(deltaZone, locale);
 
-  const h1 = copy.h1(ctx.brandDisplay, ctx.streetDisplay, ctx.city, fuelLabel);
+  let h1 = copy.h1(ctx.brandDisplay, ctx.streetDisplay, ctx.city, fuelLabel);
   const intro = copy.intro(ctx.brandDisplay, ctx.city, priceFmt, fuelLabel);
   const paragraph = copy.paragraph(ctx.brandDisplay, ctx.city, priceFmt, zoneAvgFmt, fuelLabel);
   const rankingLine = copy.ranking(rankLabel, total, ctx.city);
@@ -2506,6 +2512,9 @@ function renderStationPage(opts: {
   // then optionally add the brand suffix only when room remains.
   const withDate = (safeBase + dateBadge).length <= titleBudget ? safeBase + dateBadge : safeBase;
   const title = clampSiteSuffix(withDate, 'Frontaliere Ticino', titleBudget);
+  // Guarantee H1 ≠ <title> after brand-strip — see Italian-station branch
+  // for the full rationale (audit:h1-title-duplicates ratchet baseline 0).
+  h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
@@ -2909,7 +2918,7 @@ function renderItalianCityPage(opts: {
     .filter((p): p is number => typeof p === 'number');
   const cityAvgToday = mean(numericPrices);
 
-  const h1 = copy.h1(fuelLabel, entry.display);
+  let h1 = copy.h1(fuelLabel, entry.display);
   const intro = copy.intro(fuelLabel, entry.display, minPriceFmt);
   const paragraph = copy.paragraph(fuelLabel, entry.display, minPriceFmt, nearestZoneLabel);
 
@@ -3024,6 +3033,8 @@ function renderItalianCityPage(opts: {
     return dated.length <= 60 ? dated : h1;
   })();
   const title = clampSiteSuffix(titleWithDate60, 'Frontaliere Ticino');
+  // Differentiate H1 ↔ <title> after brand drop. See station-detail branch.
+  h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
@@ -3609,7 +3620,7 @@ function renderItalianStationPage(opts: {
   const deltaCity = cityAvg !== null ? Number((price - cityAvg).toFixed(3)) : null;
   const deltaCityFmt = formatDelta(deltaCity, locale).replace('CHF', 'EUR');
 
-  const h1 = copy.h1(ctx.brandDisplay, ctx.streetDisplay, cityName, fuelLabel);
+  let h1 = copy.h1(ctx.brandDisplay, ctx.streetDisplay, cityName, fuelLabel);
   const intro = copy.intro(ctx.brandDisplay, cityName, priceFmt, fuelLabel);
   const paragraph = copy.paragraph(ctx.brandDisplay, cityName, priceFmt, cityAvgFmt, fuelLabel);
   const rankingLine = copy.ranking(rankLabel, total, cityName);
@@ -3683,6 +3694,11 @@ function renderItalianStationPage(opts: {
   const dated = `${trimmedH1} (${dateStamp})`;
   const withDate = dated.length <= titleBudget ? dated : trimmedH1;
   const title = clampSiteSuffix(withDate, 'Frontaliere Ticino', titleBudget);
+  // When buildTitleWithBrand drops the brand suffix (headline + brand > 66
+  // chars), the rendered <title> collapses to the H1 string verbatim. The
+  // helper appends a locale-aware narrative tag so the
+  // `audit:h1-title-duplicates` ratchet (baseline 0) accepts the page.
+  h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
   const nearestZoneLabel = FUEL_ZONE_DISPLAY[ctx.cityEntry.nearestZone];

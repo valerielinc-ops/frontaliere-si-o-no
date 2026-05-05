@@ -63,6 +63,7 @@ import {
   LINK_ACCENT_STYLE,
   CTA_PRIMARY_STYLE,
   HERO_EYEBROW_STYLE,
+  differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 
 // ── Escape ─────────────────────────────────────────────────────────
@@ -119,7 +120,9 @@ function renderPage(opts: {
 
   const title = L.title(cityName);
   const description = L.description(cityName, paired);
-  const h1 = L.h1(cityName);
+  // Visible H1 — guaranteed to differ from <title> after brand-strip so the
+  // `audit:h1-title-duplicates` ratchet (baseline 0) accepts the page.
+  const h1 = differentiateH1FromTitle(L.h1(cityName), title, locale);
 
   // Hreflang — 4 locales + x-default (IT canonical).
   const hreflangLines = COL_LOCALES.map(

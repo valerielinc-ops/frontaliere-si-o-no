@@ -30,6 +30,7 @@ import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubL
 // Universal rule: headline VERBATIM, brand suffix appended only when total
 // stays within TITLE_MAX_CHARS (70). See build-plugins/shared/titleSuffix.ts.
 import { buildTitleWithBrand } from './shared/titleSuffix';
+import { differentiateH1FromTitle } from './shared/seoContentTokens';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 function capTitle70(s: string): string {
  if (!s) return s;
@@ -3111,11 +3112,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const h1Fallback = stripBrand(seoData.ogT) || seoData.ogT;
  // Last-resort discriminator: if title == fallback (page that lacks the
  // brand suffix entirely), append a separator so the strings still differ.
- const h1Text = (seoData.h1 && seoData.h1.trim().length > 0)
+ // Apply via differentiateH1FromTitle (locale-aware) so the same protection
+ // covers both the seoData.h1-override and the ogT-fallback paths — without
+ // it, en/de/fr SPA shells with a long IT-suffix-free title hit the
+ // audit:h1-title-duplicates ratchet.
+ const h1Locale: 'it' | 'en' | 'de' | 'fr' =
+ locale === 'en' || locale === 'de' || locale === 'fr' ? locale : 'it';
+ const h1RawText = (seoData.h1 && seoData.h1.trim().length > 0)
  ? seoData.h1
- : (h1Fallback.toLowerCase() === stripBrand(seoData.title).toLowerCase()
- ? `${h1Fallback} – Frontaliere Ticino`
- : h1Fallback);
+ : h1Fallback;
+ const h1Text = differentiateH1FromTitle(h1RawText, capTitle70(seoData.title), h1Locale);
  if (comparatorSlugs.includes(firstSeg)) {
  rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  } else if (guideSlugs.includes(firstSeg)) {
@@ -3228,7 +3234,7 @@ ${hrefTags}
  <body>
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
  <main>
- <h1>${esc((seoData.h1 && seoData.h1.trim().length > 0 ? seoData.h1 : seoData.title).replace(' | Frontaliere Ticino', ''))}</h1>
+ <h1>${esc(differentiateH1FromTitle((seoData.h1 && seoData.h1.trim().length > 0 ? seoData.h1 : seoData.title).replace(' | Frontaliere Ticino', ''), capTitle70(seoData.title), (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it'))}</h1>
  <p class="byline">By <a href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a> · Last updated: <time datetime="2026-04-10">April 10, 2026</time></p>
  <div>${editorialHtml}</div>
  </main>
