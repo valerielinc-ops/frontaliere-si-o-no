@@ -1,18 +1,53 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-05-05T10:29:34.041Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-05-05T21:37:52.063Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5463,
-  "avgDurationMs": 5463,
+  "durationMs": 6612,
+  "avgDurationMs": 6612,
   "durationHistory": [
-    5463
+    6612
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "coopers-37a85ee20e7e",
+      "slug": "category-buyer-m-w-d-coopers-wallis",
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Category Buyer (m/w/d)",
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=LB3C09",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-05T21:37:47.439Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=LB3C09",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "coopers-96c3c9554410",
@@ -26,7 +61,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WZQ556",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-05T10:29:30.507Z",
+      "crawledAt": "2026-05-05T21:37:48.683Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -61,7 +96,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T10:29:31.766Z",
+      "crawledAt": "2026-05-05T21:37:49.899Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
