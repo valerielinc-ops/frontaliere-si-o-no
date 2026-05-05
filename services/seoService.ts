@@ -3282,6 +3282,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-swiss-voice-tour-tenero-2026': { name: 'Swiss Voice Tour', path: '/articoli-frontaliere/swiss-voice-tour-tenero-2026', parent: 'blog' },
     'blog-guida-svizzera-frontalieri-2026': { name: 'Guida Svizzera', path: '/articoli-frontaliere/guida-svizzera-frontalieri-2026', parent: 'blog' },
     'blog-iniziativa-caos-comitato-ticino-2026': { name: 'Iniziativa del caos', path: '/articoli-frontaliere/iniziativa-caos-comitato-ticino-2026', parent: 'blog' },
+    'blog-ospedale-zurigo-mancanze-cardiochirurgia': { name: 'Novità', path: '/articoli-frontaliere/ospedale-zurigo-mancanze-cardiochirurgia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

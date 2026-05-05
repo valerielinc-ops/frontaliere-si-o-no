@@ -6120,6 +6120,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.iniziativa-caos-comitato-ticino-2026.title': 'Initiative du chaos : le comité tessinois s\'oppose',
     'blog.article.iniziativa-caos-comitato-ticino-2026.excerpt': 'Le comité unitaire tessinois contre l\'initiative \'Non à une Suisse de 10 millions\' s\'est réuni pour contrer le projet',
     'blog.article.iniziativa-caos-comitato-ticino-2026.imageAlt': 'Conférence de presse à Bellinzona contre l\'initiative du chaos',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.title': 'Hôpital universitaire de Zurich, graves lacunes en chirurgie cardiaque',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.excerpt': 'L\'Hôpital universitaire de Zurich admet de graves lacunes en chirurgie cardiaque entre 2016 et 2020, avec des dizaines de décès inattendus et des cas signalés au procureur.',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.imageAlt': 'Vue aérienne du Castelgrande à Bellinzone, Tessin, Suisse',
 };
 
 export default blogMetaFr;

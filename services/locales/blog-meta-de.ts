@@ -6119,6 +6119,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iniziativa-caos-comitato-ticino-2026.title': 'Chaos-Initiative: Tessin-Komitee wehrt sich',
     'blog.article.iniziativa-caos-comitato-ticino-2026.excerpt': 'Das einheitliche Tessin-Komitee gegen die Initiative \'Nein zu einer Schweiz mit 10 Millionen\' hat sich getroffen, um das Projekt zu bekämpfen',
     'blog.article.iniziativa-caos-comitato-ticino-2026.imageAlt': 'Pressekonferenz in Bellinzona gegen die Chaos-Initiative',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.title': 'Universitätsspital Zürich: Schwere Mängel in Herzchirurgie',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.excerpt': 'Das Universitätsspital Zürich räumt schwere Mängel in der Herzchirurgie zwischen 2016 und 2020 ein, mit Dutzenden unerwarteten Todesfällen und Fällen, die der Staatsanwaltschaft gemeldet wurden.',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.imageAlt': 'Luftansicht von Castelgrande in Bellinzona, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

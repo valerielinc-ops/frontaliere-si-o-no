@@ -19730,4 +19730,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ospedale-zurigo-mancanze-cardiochirurgia',
+ category: 'novita',
+ date: '2026-05-05T11:46:53.953Z',
+ image: '/images/blog/ospedale-zurigo-mancanze-cardiochirurgia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

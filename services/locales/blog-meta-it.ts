@@ -6120,6 +6120,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziativa-caos-comitato-ticino-2026.title': 'Iniziativa del caos: il comitato ticinese si oppone',
     'blog.article.iniziativa-caos-comitato-ticino-2026.excerpt': 'Il comitato unitario ticinese contro l\'iniziativa \'No a una Svizzera da 10 milioni\' si è riunito per contrastare il progetto',
     'blog.article.iniziativa-caos-comitato-ticino-2026.imageAlt': 'Conferenza stampa a Bellinzona contro l\'iniziativa del caos',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.title': 'Ospedale universitario di Zurigo, gravi mancanze in cardiochirurgia',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.excerpt': 'L\'Ospedale universitario di Zurigo ammette gravi mancanze nella cardiochirurgia tra il 2016 e il 2020, con decine di decessi inattesi e casi segnalati alla procura.',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.imageAlt': 'Vista aerea del Castelgrande a Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

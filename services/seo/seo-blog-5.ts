@@ -18582,6 +18582,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ospedale-zurigo-mancanze-cardiochirurgia': {
+    title: 'Ospedale universitario di Zurigo, gravi mancanze in cardiochirurgia',
+    description: 'L’Ospedale universitario di Zurigo ammette gravi mancanze nella cardiochirurgia tra il 2016 e il 2020, con decine di decessi inattesi e casi segnalati alla',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedale, universitario, zurigo, gravi',
+    ogTitle: 'Ospedale universitario di Zurigo, gravi mancanze in cardiochirurgia',
+    ogDescription: 'L’Ospedale universitario di Zurigo ammette gravi mancanze nella cardiochirurgia tra il 2016 e il 2020, con decine di decessi inattesi e casi segnalati alla',
+    canonicalPath: '/articoli-frontaliere/ospedale-zurigo-mancanze-cardiochirurgia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedale universitario di Zurigo, gravi mancanze in cardiochirurgia",
+      "description": "L’Ospedale universitario di Zurigo ammette gravi mancanze nella cardiochirurgia tra il 2016 e il 2020, con decine di decessi inattesi e casi segnalati alla",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/ospedale-zurigo-mancanze-cardiochirurgia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Castelgrande a Bellinzona, Ticino, Svizzera"
+      },
+      "datePublished": "2026-05-05T11:46:54+00:00",
+      "dateModified": "2026-05-05T11:46:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ospedale-zurigo-mancanze-cardiochirurgia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

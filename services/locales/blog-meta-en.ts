@@ -6119,6 +6119,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iniziativa-caos-comitato-ticino-2026.title': 'Chaos initiative: Ticino committee opposes',
     'blog.article.iniziativa-caos-comitato-ticino-2026.excerpt': 'The united Ticino committee against the \'No to a 10 million Switzerland\' initiative has gathered to counter the project',
     'blog.article.iniziativa-caos-comitato-ticino-2026.imageAlt': 'Press conference in Bellinzona against the chaos initiative',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.title': 'Zurich University Hospital, serious shortcomings in cardiac surgery',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.excerpt': 'Zurich University Hospital admits serious shortcomings in cardiac surgery between 2016 and 2020, with dozens of unexpected deaths and cases reported to the prosecutor\'s office.',
+    'blog.article.ospedale-zurigo-mancanze-cardiochirurgia.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland',
 };
 
 export default blogMetaEn;
