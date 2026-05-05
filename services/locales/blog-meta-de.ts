@@ -6101,6 +6101,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ladies-run-lugano-chiusure-stradali-2026.title': 'Ladies Run 2026: Straßensperrungen in Lugano',
     'blog.article.ladies-run-lugano-chiusure-stradali-2026.excerpt': 'Änderungen im Verkehrsaufkommen für den Lauf am 9. Mai 2026. Was sich für Autofahrer und Grenzgänger ändert',
     'blog.article.ladies-run-lugano-chiusure-stradali-2026.imageAlt': 'Ladies Run Veranstaltung in Lugano, Schweiz, entlang des Sees',
+    'blog.article.furti-auto-ticino-2026-axa.title': 'Autodiebstähle im Tessin: AXA meldet starken Anstieg',
+    'blog.article.furti-auto-ticino-2026-axa.excerpt': 'Die Autodiebstähle im Tessin nehmen zu, wobei der Kanton über dem Schweizer Durchschnitt liegt. AXA meldet fast doppelt so viele Fälle wie vor der Pandemie.',
+    'blog.article.furti-auto-ticino-2026-axa.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

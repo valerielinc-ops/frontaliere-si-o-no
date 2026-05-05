@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2086,
+ "numberOfItems": 2087,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6728,7 +6728,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2083, "name": "Rancate, nasce il Mercatino di quartiere: appun...", "url": `${BASE_URL}/articoli-frontaliere/mercatino-rancate-mendrisio-2026` },
           { "@type": "ListItem", "position": 2084, "name": "KOF: migliorano le prospettive d’impiego in Tic...", "url": `${BASE_URL}/articoli-frontaliere/kof-prospettive-lavoro-ticino-2026` },
           { "@type": "ListItem", "position": 2085, "name": "Cornaredo: un miliardo di promesse e un milione...", "url": `${BASE_URL}/articoli-frontaliere/cornaredo-miliardo-promesse-cemento` },
-          { "@type": "ListItem", "position": 2086, "name": "Ladies Run 2026: chiusure stradali a Lugano", "url": `${BASE_URL}/articoli-frontaliere/ladies-run-lugano-chiusure-stradali-2026` }
+          { "@type": "ListItem", "position": 2086, "name": "Ladies Run 2026: chiusure stradali a Lugano", "url": `${BASE_URL}/articoli-frontaliere/ladies-run-lugano-chiusure-stradali-2026` },
+          { "@type": "ListItem", "position": 2087, "name": "Furti d'auto in Ticino: dati AXA rivelano impen...", "url": `${BASE_URL}/articoli-frontaliere/furti-auto-ticino-2026-axa` }
  ]
  },
  {

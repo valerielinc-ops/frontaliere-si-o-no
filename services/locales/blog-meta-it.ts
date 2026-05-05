@@ -6102,6 +6102,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ladies-run-lugano-chiusure-stradali-2026.title': 'Ladies Run 2026: chiusure stradali a Lugano',
     'blog.article.ladies-run-lugano-chiusure-stradali-2026.excerpt': 'Modifiche alla viabilità per la manifestazione podistica del 9 maggio 2026. Ecco cosa cambia per automobilisti e frontalieri',
     'blog.article.ladies-run-lugano-chiusure-stradali-2026.imageAlt': 'Corsa podistica Ladies Run a Lugano, lungo il lago',
+    'blog.article.furti-auto-ticino-2026-axa.title': 'Furti d\'auto in Ticino: dati AXA rivelano impennata',
+    'blog.article.furti-auto-ticino-2026-axa.excerpt': 'I furti d\'auto in Ticino sono in aumento, con il Cantone sopra la media svizzera. AXA segnala casi quasi raddoppiati rispetto al pre-pandemia.',
+    'blog.article.furti-auto-ticino-2026-axa.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
 };
 
 export default blogMetaIt;
