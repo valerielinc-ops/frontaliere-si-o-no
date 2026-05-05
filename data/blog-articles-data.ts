@@ -19343,4 +19343,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lupo-tempo-attesa-finito-agire',
+ category: 'novita',
+ date: '2026-05-05T04:28:41.084Z',
+ image: '/images/blog/lupo-tempo-attesa-finito-agire.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

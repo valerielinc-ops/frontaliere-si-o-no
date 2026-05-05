@@ -5990,6 +5990,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.title': 'Mann in Bellinzona durch Stromschlag getötet',
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.excerpt': 'Tödlicher Unfall am Bahnhof Bellinzona: Ein Mann wurde durch einen Stromschlag getötet. Die Ursachen werden noch untersucht.',
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.imageAlt': 'Bellinzona Bahnhof in der Nacht mit Notlichtern und Polizeipräsenz',
+    'blog.article.lupo-tempo-attesa-finito-agire.title': 'Wolf im Tessin: Es ist Zeit zu handeln',
+    'blog.article.lupo-tempo-attesa-finito-agire.excerpt': 'Die Gemeinde Onsernone schlägt Alarm: Die Bergdörfer gefährden ihre Identität durch die Anwesenheit des Wolfs.',
+    'blog.article.lupo-tempo-attesa-finito-agire.imageAlt': 'Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

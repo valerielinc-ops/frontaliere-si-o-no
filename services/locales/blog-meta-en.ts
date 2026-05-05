@@ -5990,6 +5990,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.title': 'Man electrocuted at Bellinzona station',
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.excerpt': 'Fatal accident at Bellinzona station: a man was electrocuted by an electric discharge. The causes are being investigated.',
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.imageAlt': 'Bellinzona train station at night with emergency lights and police presence',
+    'blog.article.lupo-tempo-attesa-finito-agire.title': 'Wolf in Ticino: action needed, waiting time is over',
+    'blog.article.lupo-tempo-attesa-finito-agire.excerpt': 'Onsernone Municipality raises an alarm: mountain communities risk losing their identity due to the presence of the wolf.',
+    'blog.article.lupo-tempo-attesa-finito-agire.imageAlt': 'Castelgrande in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

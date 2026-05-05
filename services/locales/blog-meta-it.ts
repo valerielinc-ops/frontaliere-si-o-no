@@ -5991,6 +5991,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.title': 'Folgorato alla stazione di Bellinzona, morto un uomo',
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.excerpt': 'Incidente mortale alla stazione di Bellinzona: un uomo folgorato da una scarica elettrica. Le cause sono in fase di accertamento.',
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.imageAlt': 'Stazione ferroviaria di Bellinzona di notte con luci di emergenza e presenza della polizia',
+    'blog.article.lupo-tempo-attesa-finito-agire.title': 'Lupo in Ticino: il tempo dell\'attesa è finito, occorre agire',
+    'blog.article.lupo-tempo-attesa-finito-agire.excerpt': 'Il Municipio di Onsernone lancia un allarme: le comunità di montagna rischiano di perdere la loro identità a causa della presenza del lupo.',
+    'blog.article.lupo-tempo-attesa-finito-agire.imageAlt': 'Castelgrande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

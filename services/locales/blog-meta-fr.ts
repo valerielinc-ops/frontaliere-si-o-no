@@ -5991,6 +5991,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.title': 'Un homme électrocuté à la gare de Bellinzona',
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.excerpt': 'Accident mortel à la gare de Bellinzona : un homme électrocuté par une décharge électrique. Les causes sont en cours d\'examen.',
     'blog.article.folgorato-stazione-bellinzona-morto-uomo.imageAlt': 'Gare de Bellinzona la nuit avec des lumières d\'urgence et la présence de la police',
+    'blog.article.lupo-tempo-attesa-finito-agire.title': 'Loup en Ticino: l\'heure de l\'action a sonné',
+    'blog.article.lupo-tempo-attesa-finito-agire.excerpt': 'La municipalité d\'Onsernone lance une alerte: les communautés de montagne risquent de perdre leur identité à cause de la présence du loup.',
+    'blog.article.lupo-tempo-attesa-finito-agire.imageAlt': 'Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;

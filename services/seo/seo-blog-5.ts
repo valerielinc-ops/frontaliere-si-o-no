@@ -17611,6 +17611,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lupo-tempo-attesa-finito-agire': {
+    title: 'Lupo in Ticino: il tempo dell\'attesa è finito, occorre agire',
+    description: 'Il Municipio di Onsernone lancia un allarme: le comunità di montagna rischiano di perdere la loro identità a causa della presenza del lupo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lupo, tempo, dell, attesa',
+    ogTitle: 'Lupo in Ticino: il tempo dell\'attesa è finito, occorre agire',
+    ogDescription: 'Il Municipio di Onsernone lancia un allarme: le comunità di montagna rischiano di perdere la loro identità a causa della presenza del lupo.',
+    canonicalPath: '/articoli-frontaliere/lupo-tempo-attesa-finito-agire',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lupo in Ticino: il tempo dell'attesa è finito, occorre agire",
+      "description": "Il Municipio di Onsernone lancia un allarme: le comunità di montagna rischiano di perdere la loro identità a causa della presenza del lupo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lupo-tempo-attesa-finito-agire.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-05-05T04:28:41+00:00",
+      "dateModified": "2026-05-05T04:28:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lupo-tempo-attesa-finito-agire`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
