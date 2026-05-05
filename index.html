@@ -133,16 +133,13 @@
 
 
     <!-- PERFORMANCE: Preload critical fonts before CSS loads.
-         Inter is self-hosted (see @font-face below) — we drop Inter from the
-         Google Fonts request to avoid a redundant CSS+woff2 fetch from
-         fonts.gstatic.com on the LCP critical path. Space Grotesk remains
-         via async-loaded Google Fonts CSS (TODO: self-host Space Grotesk
-         once a font license check is completed). -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         Both Inter and Space Grotesk are self-hosted (see @font-face below)
+         to avoid cross-origin CSS+woff2 round-trips on the LCP critical path.
+         Space Grotesk's latin subset is a variable font — a single 22KB
+         woff2 covers weights 300-700. License: SIL Open Font License 1.1,
+         which permits redistribution. -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <script>
       // Enforce non-www canonical domain — redirect www visitors to apex domain
       if (location.hostname === 'www.frontaliereticino.ch') {
@@ -175,6 +172,14 @@
         ascent-override: 90%;
         descent-override: 22%;
         line-gap-override: 0%;
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Space Grotesk';
+        font-style: normal;
+        font-weight: 300 700;
+        font-display: swap;
+        src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif; }
