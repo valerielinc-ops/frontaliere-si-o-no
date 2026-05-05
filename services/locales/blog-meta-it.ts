@@ -6129,6 +6129,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bici-bellinzona-valli-strategia.title': 'Bellinzona e Valli punta sulla bici: percorsi, eventi e collaborazioni',
     'blog.article.bici-bellinzona-valli-strategia.excerpt': 'Nuova strategia per attrarre ciclisti di ogni livello con 13 percorsi di mountain bike e eventi internazionali',
     'blog.article.bici-bellinzona-valli-strategia.imageAlt': 'Paesaggio di Bellinzona e Valli con ciclisti su vari percorsi',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.title': 'Dipendenti statali Ticino: dati soddisfazione 2026',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.excerpt': 'Il Comitato ErreDiPi contesta i dati del sondaggio ISMAT 2025 sulla soddisfazione dei dipendenti cantonali',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.imageAlt': 'Interno del LAC di Lugano durante un concerto',
 };
 
 export default blogMetaIt;

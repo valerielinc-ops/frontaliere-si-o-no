@@ -6128,6 +6128,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bici-bellinzona-valli-strategia.title': 'Bellinzona and Valleys focus on cycling: routes, events and collaborations',
     'blog.article.bici-bellinzona-valli-strategia.excerpt': 'New strategy to attract cyclists of all levels with 13 mountain bike routes and international events',
     'blog.article.bici-bellinzona-valli-strategia.imageAlt': 'Landscape of Bellinzona and its valleys with cyclists on various trails',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.title': 'Ticino public sector staff: 2026 satisfaction data',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.excerpt': 'The ErreDiPi committee disputes the 2025 ISMAT survey data on cantonal employees\' satisfaction',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.imageAlt': 'Interior of LAC Lugano during a concert',
 };
 
 export default blogMetaEn;

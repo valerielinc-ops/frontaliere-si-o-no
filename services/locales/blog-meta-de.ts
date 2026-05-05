@@ -6128,6 +6128,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bici-bellinzona-valli-strategia.title': 'Bellinzona und Täler setzt auf Fahrrad: Routen, Events und Kooperationen',
     'blog.article.bici-bellinzona-valli-strategia.excerpt': 'Neue Strategie, um Radfahrer aller Niveaus anzuziehen, mit 13 Mountainbike-Routen und internationalen Events',
     'blog.article.bici-bellinzona-valli-strategia.imageAlt': 'Landschaft von Bellinzona und Täler mit Radfahrern auf verschiedenen Wegen',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.title': 'Tessin-Angestellte: Zufriedenheitsdaten 2026',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.excerpt': 'Der Komitee ErreDiPi beanstandet die ISMAT-Umfragedaten 2025 zur Zufriedenheit der kantonalen Angestellten',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.imageAlt': 'Innenansicht des LAC Lugano während eines Konzerts',
 };
 
 export default blogMetaDe;

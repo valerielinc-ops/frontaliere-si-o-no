@@ -3285,6 +3285,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ospedale-zurigo-mancanze-cardiochirurgia': { name: 'Novità', path: '/articoli-frontaliere/ospedale-zurigo-mancanze-cardiochirurgia', parent: 'blog' },
     'blog-libretto-digitale-militare-ticino-2026': { name: 'Libretto digitale', path: '/articoli-frontaliere/libretto-digitale-militare-ticino-2026', parent: 'blog' },
     'blog-bici-bellinzona-valli-strategia': { name: 'Novità', path: '/articoli-frontaliere/bici-bellinzona-valli-strategia', parent: 'blog' },
+    'blog-dipendenti-statali-ticino-soddisfazione-2026': { name: 'Dipendenti statali Ticino', path: '/articoli-frontaliere/dipendenti-statali-ticino-soddisfazione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

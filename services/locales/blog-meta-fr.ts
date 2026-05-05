@@ -6129,6 +6129,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bici-bellinzona-valli-strategia.title': 'Bellinzone et Valli mise sur le vélo: parcours, événements et collaborations',
     'blog.article.bici-bellinzona-valli-strategia.excerpt': 'Nouvelle stratégie pour attirer les cyclistes de tous niveaux avec 13 parcours de VTT et des événements internationaux',
     'blog.article.bici-bellinzona-valli-strategia.imageAlt': 'Paysage de Bellinzona et ses vallées avec des cyclistes sur divers sentiers',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.title': 'Employés du canton du Tessin : données satisfaction 2026',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.excerpt': 'Le comité ErreDiPi conteste les données de l\'enquête ISMAT 2025 sur la satisfaction des employés cantonaux',
+    'blog.article.dipendenti-statali-ticino-soddisfazione-2026.imageAlt': 'Intérieur du LAC de Lugano pendant un concert',
 };
 
 export default blogMetaFr;
