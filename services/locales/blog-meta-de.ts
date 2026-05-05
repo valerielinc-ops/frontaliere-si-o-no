@@ -6095,6 +6095,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.kof-prospettive-lavoro-ticino-2026.title': 'KOF: Beschäftigungsaussichten im Tessin über dem langjährigen Durchschnitt',
     'blog.article.kof-prospettive-lavoro-ticino-2026.excerpt': 'Der Beschäftigungsindikator des KOF steigt im zweiten Quartal 2026 auf 2,2 Punkte und zeigt eine Verbesserung gegenüber dem Zeitraum Januar-März.',
     'blog.article.kof-prospettive-lavoro-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze im Hintergrund',
+    'blog.article.cornaredo-miliardo-promesse-cemento.title': 'Cornaredo: Eine Milliarde Versprechen und eine Million Kubikmeter Beton',
+    'blog.article.cornaredo-miliardo-promesse-cemento.excerpt': 'Diskussionen zur Wiederbelebung des Cornaredo-Areals in Lugano, mit Kritik an der extremen Verdichtung und nicht eingehaltenen Versprechen',
+    'blog.article.cornaredo-miliardo-promesse-cemento.imageAlt': 'Luftansicht des Cornaredo-Viertels in Lugano mit laufenden Bauarbeiten und städtischer Entwicklung',
 };
 
 export default blogMetaDe;

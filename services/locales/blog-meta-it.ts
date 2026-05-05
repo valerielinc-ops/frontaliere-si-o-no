@@ -6096,6 +6096,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kof-prospettive-lavoro-ticino-2026.title': 'KOF: migliorano le prospettive d’impiego in Ticino, oltre la media pluriennale',
     'blog.article.kof-prospettive-lavoro-ticino-2026.excerpt': 'L’indicatore dell’occupazione del KOF sale a 2,2 punti nel secondo trimestre 2026, segnando un miglioramento rispetto al periodo gennaio-marzo.',
     'blog.article.kof-prospettive-lavoro-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano sullo sfondo',
+    'blog.article.cornaredo-miliardo-promesse-cemento.title': 'Cornaredo: un miliardo di promesse e un milione di metri cubi di cemento',
+    'blog.article.cornaredo-miliardo-promesse-cemento.excerpt': 'Discussioni sul rilancio del comparto di Cornaredo a Lugano, con critiche alla densificazione estrema e alle promesse non mantenute',
+    'blog.article.cornaredo-miliardo-promesse-cemento.imageAlt': 'Vista aerea del quartiere Cornaredo a Lugano con cantieri in corso e sviluppo urbano',
 };
 
 export default blogMetaIt;

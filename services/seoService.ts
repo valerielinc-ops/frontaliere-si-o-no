@@ -3274,6 +3274,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pasto-vegetale-gratis-ticino-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/pasto-vegetale-gratis-ticino-2026', parent: 'blog' },
     'blog-mercatino-rancate-mendrisio-2026': { name: 'Novità', path: '/articoli-frontaliere/mercatino-rancate-mendrisio-2026', parent: 'blog' },
     'blog-kof-prospettive-lavoro-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/kof-prospettive-lavoro-ticino-2026', parent: 'blog' },
+    'blog-cornaredo-miliardo-promesse-cemento': { name: 'Cornaredo Lugano', path: '/articoli-frontaliere/cornaredo-miliardo-promesse-cemento', parent: 'blog' },
  };
 
  const info = sectionNames[section];

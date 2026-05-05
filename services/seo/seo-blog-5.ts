@@ -18278,6 +18278,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cornaredo-miliardo-promesse-cemento': {
+    title: 'Cornaredo: un miliardo di promesse e un milione di metri cubi di cemento',
+    description: 'Discussioni sul rilancio del comparto di Cornaredo a Lugano, con critiche alla densificazione estrema e alle promesse non mantenute. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cornaredo, miliardo, promesse, milione',
+    ogTitle: 'Cornaredo: un miliardo di promesse e un milione di metri cubi di cemento',
+    ogDescription: 'Discussioni sul rilancio del comparto di Cornaredo a Lugano, con critiche alla densificazione estrema e alle promesse non mantenute',
+    canonicalPath: '/articoli-frontaliere/cornaredo-miliardo-promesse-cemento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cornaredo: un miliardo di promesse e un milione di metri cubi di cemento",
+      "description": "Discussioni sul rilancio del comparto di Cornaredo a Lugano, con critiche alla densificazione estrema e alle promesse non mantenute. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/cornaredo-miliardo-promesse-cemento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del quartiere Cornaredo a Lugano con cantieri in corso e sviluppo urbano"
+      },
+      "datePublished": "2026-05-05T10:37:52+00:00",
+      "dateModified": "2026-05-05T10:37:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cornaredo-miliardo-promesse-cemento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
