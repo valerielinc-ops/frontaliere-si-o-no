@@ -1,100 +1,30 @@
 name: Post-deploy Validation
 
+# Reusable workflow called by deploy.yml as `needs: build-and-deploy`. Running
+# in the same run as the deploy makes `github.sha` invariant (no more
+# workflow_run.head_sha drift), and any cancellation of the deploy propagates
+# automatically — no orphan post-deploys cancelled by concurrency races.
+#
+# Migration history: previously triggered by `on: workflow_run`. That model
+# silently passed an audit:title-length regression in run 25377607613 because
+# `workflow_run.head_sha` resolved to an older SHA than the deploy was built
+# from, so the validate job checked out the wrong source (with a stale
+# `--threshold=90` npm wrapper) while auditing the right dist. See commit
+# 53cf789d94 and the follow-up that introduced this workflow_call refactor.
 on:
-  workflow_run:
-    workflows: ["Deploy to GitHub Pages"]
-    types: [completed]
-
-concurrency:
-  # 1:1 alignment with the deploy workflow — each deploy run gets its own
-  # validation that runs to completion. Keying the concurrency group on the
-  # triggering deploy's run ID guarantees no two post-deploys ever share a
-  # group, so `cancel-in-progress` (still true as a defensive default) only
-  # ever fires on a re-run of the same deploy.
-  #
-  # Previous setting `group: post-deploy-validation` with cancel-in-progress
-  # killed validation A mid-flight whenever validation B started (regardless
-  # of whether deploy A had already succeeded). For workflow_dispatch flows
-  # that publish articles to Facebook/LinkedIn, this dropped posts whenever
-  # two articles deployed back-to-back. The new key isolates each run.
-  group: post-deploy-validation-${{ github.event.workflow_run.id }}
-  cancel-in-progress: true
+  workflow_call:
+    inputs:
+      deploy_run_id:
+        description: 'Run ID of the calling deploy workflow. Used to download the github-pages artifact, winners artifact, and pre-deploy snapshot. Pass `${{ github.run_id }}` from the caller.'
+        required: true
+        type: string
+      deploy_event_name:
+        description: 'github.event_name from the caller. Used to gate Facebook/LinkedIn posting and live-meta wait to workflow_dispatch deploys (article publishing pipeline).'
+        required: true
+        type: string
 
 jobs:
-  # Quick pre-check: did the deploy actually succeed and produce a Pages
-  # artifact?
-  #
-  # Mirroring contract — every deploy run produces exactly one
-  # post-deploy run with the SAME terminal conclusion:
-  #   - deploy success   → post-deploy continues to validate (success on green)
-  #   - deploy cancelled → post-deploy cancels itself via `gh run cancel`
-  #     so the Actions UI shows "cancelled", not the misleading "skipped"
-  #     that a job-level `if` evaluates-false would produce
-  #   - deploy failure   → post-deploy fails (exit 1) so the UI shows
-  #     "failure", again preserving the deploy's terminal state
-  #   - profile-only run → post-deploy succeeds with a no-op (the only
-  #     case where mirroring deliberately diverges, because a profile run
-  #     never reaches a deployable artifact and there is nothing to validate)
-  #
-  # Why mirror at all: a 1:1 deploy↔post-deploy alignment makes the
-  # Actions UI a faithful audit log. When you see 8 deploy runs and 8
-  # post-deploys, each pair shares a status, you can scan the list and
-  # immediately tell "every red here matches a red there" instead of
-  # decoding "skipped" as either "deploy succeeded but profile run" or
-  # "deploy cancelled by concurrency" or "validation gated off".
-  pre-check:
-    runs-on: ubuntu-latest
-    outputs:
-      deployable: ${{ steps.check.outputs.deployable }}
-    permissions:
-      actions: write   # gh run cancel on this run when deploy was cancelled
-    steps:
-      - name: Mirror deploy conclusion (cancel/fail to match deploy terminal state)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEPLOY_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
-        run: |
-          echo "Triggering deploy concluded with: $DEPLOY_CONCLUSION"
-          case "$DEPLOY_CONCLUSION" in
-            success)
-              echo "Deploy succeeded — proceeding to artifact check + validation."
-              ;;
-            cancelled)
-              echo "Deploy was cancelled — cancelling this post-deploy run to mirror."
-              gh run cancel "${{ github.run_id }}" -R "${{ github.repository }}"
-              # `gh run cancel` is async; sleep so the runner sees SIGTERM
-              # before the next step starts. exit 1 is a belt-and-suspenders
-              # in case cancel doesn't land in time — the run still ends red,
-              # which matches the deploy's red better than a green "skipped".
-              sleep 30
-              exit 1
-              ;;
-            *)
-              # failure / timed_out / action_required / stale / null etc.
-              # Fail loud so the UI status mirrors the deploy's failure.
-              echo "Deploy did not succeed — failing this post-deploy run to mirror."
-              exit 1
-              ;;
-          esac
-
-      - name: Check for GitHub Pages artifact
-        id: check
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          count=$(gh api \
-            "repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}/artifacts" \
-            --jq "[.artifacts[] | select(.name == \"github-pages\")] | length")
-          if [ "${count:-0}" -gt 0 ]; then
-            echo "deployable=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "deployable=false" >> "$GITHUB_OUTPUT"
-            echo "No github-pages artifact — profile-only run. Skipping validation."
-          fi
-
   validate:
-    needs: pre-check
-    if: ${{ needs.pre-check.outputs.deployable == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write   # for git commit/push in sync-previous-slug-winners
@@ -102,32 +32,12 @@ jobs:
     env:
       PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
     steps:
-      # Resolve the deploy's actual head_sha via the gh API instead of trusting
-      # `github.event.workflow_run.head_sha`. The event payload value can drift
-      # from the deploy's true head_sha when concurrent/cancelled deploys race
-      # (observed: post-deploy run 25377607613 had event head_sha=2ee881e while
-      # the deploy run 25377550358 was actually built from 4187b27792). The
-      # gh API on the deploy run is stable.
-      - name: Resolve actual deploy SHA
-        id: deploy-sha
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          api_sha=$(gh api \
-            "repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}" \
-            --jq .head_sha)
-          event_sha="${{ github.event.workflow_run.head_sha }}"
-          echo "Deploy run ${{ github.event.workflow_run.id }} → API head_sha: $api_sha"
-          if [ "$api_sha" != "$event_sha" ]; then
-            echo "::warning::workflow_run.head_sha drift — event=$event_sha api=$api_sha (using API)"
-          fi
-          echo "sha=$api_sha" >> "$GITHUB_OUTPUT"
-
+      # Same run as the deploy → github.sha is the deploy's SHA by
+      # construction. No need to resolve via workflow_run event payload.
       - name: Checkout (same SHA as deploy)
         uses: actions/checkout@v5
         with:
-          ref: ${{ steps.deploy-sha.outputs.sha }}
+          ref: ${{ github.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -179,7 +89,7 @@ jobs:
       - name: Source validators + download GitHub Pages artifact (parallel)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           : > /tmp/source-val-failures.txt
 
@@ -491,13 +401,13 @@ jobs:
         continue-on-error: true
         run: |
           DATA=$(node scripts/deploy-registry.mjs get \
-            --run-id="${{ github.event.workflow_run.id }}" 2>/dev/null || echo '{}')
+            --run-id="${{ inputs.deploy_run_id }}" 2>/dev/null || echo '{}')
           echo "data=$DATA" >> "$GITHUB_OUTPUT"
 
       - name: Wait for live article metadata
         if: |
           success() &&
-          github.event.workflow_run.event == 'workflow_dispatch' &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl != null
         id: wait_live_meta
         continue-on-error: true
@@ -514,7 +424,7 @@ jobs:
       - name: Post to Facebook Page
         if: |
           success() &&
-          github.event.workflow_run.event == 'workflow_dispatch' &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
@@ -535,7 +445,7 @@ jobs:
       - name: Post to LinkedIn Company Page
         if: |
           success() &&
-          github.event.workflow_run.event == 'workflow_dispatch' &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
@@ -593,8 +503,8 @@ jobs:
         if: success()
         run: |
           node scripts/deploy-registry.mjs set-good \
-            --run-id="${{ github.event.workflow_run.id }}" \
-            --sha="${{ github.event.workflow_run.head_sha }}"
+            --run-id="${{ inputs.deploy_run_id }}" \
+            --sha="${{ github.sha }}"
 
       - name: Report failure to Linear
         if: failure()
@@ -603,10 +513,10 @@ jobs:
           node scripts/lib/linear-issue-creator.mjs \
             --title "Validation Failure: post-deploy-validation — run ${{ github.run_number }}" \
             --description "## Validazione post-deploy fallita
-          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Branch:** ${{ github.event.workflow_run.head_branch }}
-          **SHA:** ${{ github.event.workflow_run.head_sha }}" \
+          **Branch:** ${{ github.ref_name }}
+          **SHA:** ${{ github.sha }}" \
             --priority 1 \
             --label Bug \
             --workflow "Post-deploy Validation"
@@ -705,12 +615,12 @@ jobs:
           if [ "${{ steps.rollback_deploy.outcome }}" = "success" ]; then
             MSG="## Rollback eseguito
           **Rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
-          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           else
             MSG="## Rollback fallito
           **Tentato rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
-          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           fi
           node scripts/lib/linear-issue-creator.mjs \
