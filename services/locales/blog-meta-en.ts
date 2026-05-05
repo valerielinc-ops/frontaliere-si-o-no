@@ -6203,6 +6203,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.20mila-firme-autostrada-pedaggio.title': '20,000 signatures against Lombardy toll road',
     'blog.article.20mila-firme-autostrada-pedaggio.excerpt': 'Angelo Orsenigo and Gigi Ponti, regional councilors of the Pd, have collected 20,000 signatures against the toll on the Milan-Meda Pedemontana',
     'blog.article.20mila-firme-autostrada-pedaggio.imageAlt': 'Aerial view of a busy highway in Lombardy with signs for a new toll road',
+    'blog.article.incendio-casciago-varese-2026.title': 'Fire in Casciago, Varese: situation under control',
+    'blog.article.incendio-casciago-varese-2026.excerpt': 'A building catches fire in Casciago, Varese. The situation is under control. No injuries reported.',
+    'blog.article.incendio-casciago-varese-2026.imageAlt': 'Firefighters working at a building fire in Casciago, Varese',
 };
 
 export default blogMetaEn;

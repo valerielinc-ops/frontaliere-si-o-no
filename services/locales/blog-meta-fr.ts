@@ -6204,6 +6204,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.20mila-firme-autostrada-pedaggio.title': '20 000 signatures contre l\'autoroute à péage en Lombardie',
     'blog.article.20mila-firme-autostrada-pedaggio.excerpt': 'Angelo Orsenigo et Gigi Ponti, conseillers régionaux du Pd, ont recueilli 20 000 signatures contre le péage sur la Pedemontana Milan-Meda',
     'blog.article.20mila-firme-autostrada-pedaggio.imageAlt': 'Vue aérienne d\'une autoroute fréquentée en Lombardie avec des panneaux pour une nouvelle autoroute à péage',
+    'blog.article.incendio-casciago-varese-2026.title': 'Incendie à Casciago, Varèse : sous contrôle',
+    'blog.article.incendio-casciago-varese-2026.excerpt': 'Un bâtiment prend feu à Casciago, Varèse. La situation est sous contrôle. Aucun blessé signalé.',
+    'blog.article.incendio-casciago-varese-2026.imageAlt': 'Pompiers en action lors d\'un incendie dans un bâtiment à Casciago, Varèse',
 };
 
 export default blogMetaFr;

@@ -6204,6 +6204,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.20mila-firme-autostrada-pedaggio.title': '20mila firme contro l\'autostrada a pagamento in Lombardia',
     'blog.article.20mila-firme-autostrada-pedaggio.excerpt': 'Angelo Orsenigo e Gigi Ponti, consiglieri regionali del Pd, hanno raccolto 20mila firme contro il pedaggio sulla Pedemontana Milano-Meda',
     'blog.article.20mila-firme-autostrada-pedaggio.imageAlt': 'Vista aerea di un\'autostrada trafficata in Lombardia con segnalazioni per una nuova autostrada a pedaggio',
+    'blog.article.incendio-casciago-varese-2026.title': 'Incendio a Casciago, Varese: situazione sotto controllo',
+    'blog.article.incendio-casciago-varese-2026.excerpt': 'Un edificio va a fuoco a Casciago, Varese. La situazione è sotto controllo. Nessun ferito segnalato.',
+    'blog.article.incendio-casciago-varese-2026.imageAlt': 'Vigili del fuoco al lavoro durante un incendio in un edificio a Casciago, Varese',
 };
 
 export default blogMetaIt;

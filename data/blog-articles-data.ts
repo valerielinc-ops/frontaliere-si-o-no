@@ -19982,4 +19982,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incendio-casciago-varese-2026',
+ category: 'novita',
+ date: '2026-05-05T22:26:16.677Z',
+ image: '/images/blog/incendio-casciago-varese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

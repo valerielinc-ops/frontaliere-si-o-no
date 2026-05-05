@@ -6203,6 +6203,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.20mila-firme-autostrada-pedaggio.title': '20.000 Unterschriften gegen Maut in Lombardei',
     'blog.article.20mila-firme-autostrada-pedaggio.excerpt': 'Angelo Orsenigo und Gigi Ponti, Regionalräte der Pd, haben 20.000 Unterschriften gegen die Maut auf der Pedemontana Milano-Meda gesammelt',
     'blog.article.20mila-firme-autostrada-pedaggio.imageAlt': 'Luftaufnahme einer belebten Autobahn in der Lombardei mit Schildern für eine neue Mautstraße',
+    'blog.article.incendio-casciago-varese-2026.title': 'Brand in Casciago, Varese: Situation unter Kontrolle',
+    'blog.article.incendio-casciago-varese-2026.excerpt': 'Ein Gebäude steht in Casciago, Varese, in Flammen. Die Situation ist unter Kontrolle. Keine Verletzten gemeldet.',
+    'blog.article.incendio-casciago-varese-2026.imageAlt': 'Feuerwehrleute bei einem Gebäudebrand in Casciago, Varese',
 };
 
 export default blogMetaDe;

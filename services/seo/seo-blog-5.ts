@@ -19646,6 +19646,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-casciago-varese-2026': {
+    title: 'Incendio a Casciago, Varese: situazione sotto controllo',
+    description: 'Un edificio va a fuoco a Casciago, Varese. La situazione è sotto controllo. Nessun ferito segnalato. Implicazioni per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, casciago, varese, situazione',
+    ogTitle: 'Incendio a Casciago, Varese: situazione sotto controllo',
+    ogDescription: 'Un edificio va a fuoco a Casciago, Varese. La situazione è sotto controllo. Nessun ferito segnalato. Implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/incendio-casciago-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio a Casciago, Varese: situazione sotto controllo",
+      "description": "Un edificio va a fuoco a Casciago, Varese. La situazione è sotto controllo. Nessun ferito segnalato. Implicazioni per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/incendio-casciago-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vigili del fuoco al lavoro durante un incendio in un edificio a Casciago, Varese"
+      },
+      "datePublished": "2026-05-05T22:26:16+00:00",
+      "dateModified": "2026-05-05T22:26:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-casciago-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
