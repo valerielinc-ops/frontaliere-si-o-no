@@ -19820,4 +19820,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavoro-agenzia-lombardia-frontalieri',
+ category: 'novita',
+ date: '2026-05-05T18:11:28.030Z',
+ image: '/images/blog/lavoro-agenzia-lombardia-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

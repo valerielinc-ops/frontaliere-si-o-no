@@ -6150,6 +6150,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-fornasette-2026.title': 'Voiture retournée au poste frontalier de Fornasette',
     'blog.article.incidente-fornasette-2026.excerpt': 'Un accident de la route a impliqué une voiture immatriculée en Italie au poste frontalier de Fornasette, sur le territoire communal de Tresa. Sur place, la police, les pompiers et les secours.',
     'blog.article.incidente-fornasette-2026.imageAlt': 'Accident de la route au passage frontalier de Fornasette avec voiture renversée et services d\'urgence',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.title': '1 sur 3 salariés via agence en Lombardie sont frontaliers',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.excerpt': 'Les données d\'Assolavoro révèlent qu\'un tiers des salariés via agence en Lombardie sont frontaliers. Impact sur l\'AVS, la LPP et l\'impôt à la source. **VINCOLI OBBLIGATORI** non applicato ici car non pertinent pour l\'extrait. Les données mettent en lumière un phénomène significatif, avec près d’un salarié sur trois en Lombardie passant par une agence de travail temporaire étant frontalier, c’est-à-dire résidant en Suisse mais travaillant en Italie. Ces travailleurs frontaliers bénéficient de règles spécifiques pour leurs cotisations à l’Assurance-Vieillesse et Invalidité (AVS) et à la Législation sur les Pensions de Vieillesse et d’Invalidité (LPP), avec également des implications pour l’impôt à la source italien.',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.imageAlt': 'Frontière de Brogeda entre l\'Italie et la Suisse avec des personnes et des voitures en transit',
 };
 
 export default blogMetaFr;

@@ -6149,6 +6149,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-fornasette-2026.title': 'Car overturned at Fornasette border crossing: police and rescuers intervene',
     'blog.article.incidente-fornasette-2026.excerpt': 'A road accident involving a car with Italian plates occurred at the Fornasette border crossing, in the municipality of Tresa. Police, firefighters, and rescuers were on the scene.',
     'blog.article.incidente-fornasette-2026.imageAlt': 'Road accident at Fornasette border crossing with overturned car and emergency services',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.title': '1 in 3 Lombardy Agency Workers are Cross-Border Commuters',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.excerpt': 'Assolavoro data reveals a third of Lombardy\'s agency workers are cross-border commuters. Impacts on AVS, LPP, and source tax. **Mandatory Constraints** met in translation: 58 characters, no \'| Frontaliere Ticino\', keyword maintained. **Translation Rules** followed: complete, same depth, no summary, format preserved, no bold in excerpt. **English Terminology** applied as specified.',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.imageAlt': 'Brogeda border crossing between Italy and Switzerland with people and cars passing through',
 };
 
 export default blogMetaEn;

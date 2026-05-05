@@ -6149,6 +6149,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-fornasette-2026.title': 'Auto überschlagen an der Grenze von Fornasette',
     'blog.article.incidente-fornasette-2026.excerpt': 'Ein Verkehrsunfall mit einem italienischen Auto ereignete sich an der Grenze von Fornasette, im Gemeindegebiet von Tresa. Vor Ort waren Polizei, Feuerwehr und Rettungskräfte.',
     'blog.article.incidente-fornasette-2026.imageAlt': 'Verkehrsunfall am Grenzübergang Fornasette mit umgestürztem Auto und Rettungskräften',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.title': '1 von 3 Arbeitnehmern über Agentur in der Lombardei sind Grenzgänger',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.excerpt': 'Daten von Assolavoro zeigen, dass ein Drittel der Arbeitnehmer über Agentur in der Lombardei Grenzgänger sind. Auswirkungen auf AVS, LPP und Quellensteuer.',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.imageAlt': 'Grenzübergang Brogeda zwischen Italien und der Schweiz mit Menschen und Autos im Transit',
 };
 
 export default blogMetaDe;

@@ -18962,6 +18962,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-agenzia-lombardia-frontalieri': {
+    title: '1 su 3 lavoratori tramite agenzia in Lombardia è frontaliere',
+    description: 'Dati Assolavoro rivelano che un terzo dei lavoratori tramite agenzia in Lombardia sono frontalieri. Impatto su AVS, LPP e imposta alla fonte. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoratori, tramite, agenzia, lombardia',
+    ogTitle: '1 su 3 lavoratori tramite agenzia in Lombardia è frontaliere',
+    ogDescription: 'Dati Assolavoro rivelano che un terzo dei lavoratori tramite agenzia in Lombardia sono frontalieri. Impatto su AVS, LPP e imposta alla fonte.',
+    canonicalPath: '/articoli-frontaliere/lavoro-agenzia-lombardia-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "1 su 3 lavoratori tramite agenzia in Lombardia è frontaliere",
+      "description": "Dati Assolavoro rivelano che un terzo dei lavoratori tramite agenzia in Lombardia sono frontalieri. Impatto su AVS, LPP e imposta alla fonte. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/lavoro-agenzia-lombardia-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confine di Brogeda tra Italia e Svizzera con persone e auto in transito"
+      },
+      "datePublished": "2026-05-05T18:11:28+00:00",
+      "dateModified": "2026-05-05T18:11:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-agenzia-lombardia-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

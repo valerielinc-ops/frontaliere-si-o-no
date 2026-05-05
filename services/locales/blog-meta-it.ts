@@ -6150,6 +6150,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-fornasette-2026.title': 'Auto ribaltata al valico di Fornasette: intervento di polizia e soccorritori',
     'blog.article.incidente-fornasette-2026.excerpt': 'Un incidente stradale ha coinvolto un\'auto con targhe italiane al valico di Fornasette, nel territorio comunale di Tresa. Sul posto polizia, pompieri e soccorritori.',
     'blog.article.incidente-fornasette-2026.imageAlt': 'Incidente stradale al valico di Fornasette con auto ribaltata e soccorsi',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.title': '1 su 3 lavoratori tramite agenzia in Lombardia è frontaliere',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.excerpt': 'Dati Assolavoro rivelano che un terzo dei lavoratori tramite agenzia in Lombardia sono frontalieri. Impatto su AVS, LPP e imposta alla fonte.',
+    'blog.article.lavoro-agenzia-lombardia-frontalieri.imageAlt': 'Confine di Brogeda tra Italia e Svizzera con persone e auto in transito',
 };
 
 export default blogMetaIt;
