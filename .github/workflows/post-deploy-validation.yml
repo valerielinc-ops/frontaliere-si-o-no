@@ -272,15 +272,19 @@ jobs:
           # blow-ups when walking ~132k HTML files.
           NODE_OPTIONS: '--max-old-space-size=4096'
         run: |
-          # MAX_PARALLEL=2 (was 4) to give the heavy-walker serial chain
-          # (audit:dist-multi-{ratio,heavy,light} + audit:title-uniqueness)
-          # enough RAM headroom on the 7 GB ubuntu-latest free runner.
-          # Each heavy walker peaks ~2-3 GB; 4 concurrent pool audits each at
-          # ~0.5-1 GB pushed total RSS to 4-7 GB, OOM-killing dist-multi-light
-          # and title-uniqueness in run 25400905401 even after they had been
-          # serialized into the chain. Halving the pool gives chain (~3 GB) +
-          # pool (~1.5 GB) = ~4.5 GB peak, safely under the cap.
-          MAX_PARALLEL=2
+          # MAX_PARALLEL=1 — fully serialise the pool. After 5 iterations
+          # (runs 25400905401, 25402597503, 25404549152, 25406916097,
+          # 25408263066) post-deploy still OOM-killed audit:title-uniqueness
+          # at rc=134 with chain isolated, dist-multi removed, and
+          # NODE_OPTIONS=--max-old-space-size=4096. The 7 GB ubuntu-latest
+          # free runner can't reliably host TWO Node processes that each
+          # walk 132k HTML files, even with heap cap. With MAX_PARALLEL=1
+          # only the chain audit + at most one pool audit run at any
+          # moment; two 4 GB-cap Node processes plus OS overhead = ~5-6 GB
+          # peak, comfortably under the 7 GB ceiling. Wall-time penalty:
+          # pool tail = sum of pool durations ≈ 200 s vs. ~100 s parallel,
+          # but reliability wins.
+          MAX_PARALLEL=1
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
