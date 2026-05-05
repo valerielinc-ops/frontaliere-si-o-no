@@ -67,6 +67,19 @@ const EMPLOYMENT_TYPE_LABEL = {
   TEMPORARY: 'Temporaneo',
 };
 
+// Canton ISO 2-letter code → full name (used for the fallback hashtag
+// when a job has no `sector` field). Italian/local form preferred so
+// the hashtag matches how Italian speakers search.
+const CANTON_NAME_BY_CODE = {
+  AG: 'Argovia', AI: 'AppenzelloInterno', AR: 'AppenzelloEsterno',
+  BE: 'Berna', BL: 'BasileaCampagna', BS: 'BasileaCitta',
+  FR: 'Friburgo', GE: 'Ginevra', GL: 'Glarona', GR: 'Grigioni',
+  JU: 'Giura', LU: 'Lucerna', NE: 'Neuchatel', NW: 'Nidvaldo',
+  OW: 'Obvaldo', SG: 'SanGallo', SH: 'Sciaffusa', SO: 'Soletta',
+  SZ: 'Svitto', TG: 'Turgovia', TI: 'Ticino', UR: 'Uri',
+  VD: 'Vaud', VS: 'Vallese', ZG: 'Zugo', ZH: 'Zurigo',
+};
+
 // Coarse role-keyword whitelist for hashtag extraction. First match in the
 // title (case-insensitive, word-boundary) wins.
 const ROLE_KEYWORDS = [
@@ -229,7 +242,18 @@ export function pickNextSlots(volume, occupied, now) {
  */
 export function selectUnpostedJobs(jobs, postedSet, limit) {
   if (!Array.isArray(jobs)) return [];
-  const list = jobs.filter((j) => j && j.id && !postedSet.has(j.id));
+  const list = jobs.filter((j) => {
+    if (!j || !j.id) return false;
+    if (postedSet.has(j.id)) return false;
+    // Skip jobs flagged by the translate-pending workflow as still
+    // needing translation. Without this, the FB scheduler picks up
+    // German/French source titles and emits e.g. "Verkäufer*in" or
+    // "Transportdisponent*in" as the post headline — wrong language
+    // for an Italian audience. CLAUDE.md documents this same flag for
+    // locale-completeness checks.
+    if (j.needsRetranslation === true) return false;
+    return true;
+  });
   list.sort((a, b) => recencyTs(b) - recencyTs(a));
   return list.slice(0, Math.max(0, limit | 0));
 }
@@ -371,9 +395,16 @@ export function buildJobHashtags(job) {
     if (cityTag) tags.push(`#${cityTag}`);
   }
 
-  // Sector (fallback Ticino)
+  // Sector (fallback to canton, then Ticino).
+  // Many production jobs are in non-Ticino cantons (ZH, AG, GR, …). The
+  // hard-coded `#Ticino` fallback was misleading for, e.g., a Pfungen-ZH
+  // posting. Now we prefer sector → canton (full name) → Ticino default.
   const sectorRaw = (job?.sector || '').trim();
-  const sectorTag = sectorRaw ? sanitizeHashtagWord(sectorRaw) : 'Ticino';
+  let sectorTag = sectorRaw ? sanitizeHashtagWord(sectorRaw) : '';
+  if (!sectorTag) {
+    const cantonName = CANTON_NAME_BY_CODE[job?.canton] || '';
+    sectorTag = cantonName ? sanitizeHashtagWord(cantonName) : 'Ticino';
+  }
   if (sectorTag) tags.push(`#${sectorTag}`);
 
   // Always-on
@@ -637,8 +668,24 @@ export async function run(opts = {}) {
   const TRANSIENT_FB_ERROR_CODES = new Set([1, 2, 4, 17]);
   const sleepMs = (ms) => new Promise(r => setTimeout(r, ms));
 
+  // Force-rescrape OG metadata for each job URL before scheduling. FB's
+  // OG cache holds whatever it scraped last (potentially before the
+  // per-job OG image was deployed), which on first deploys produces FB
+  // cards with the generic `/og-image.png` instead of the per-job
+  // image. The scrape call is fire-and-forget — failures don't block
+  // scheduling.
+  async function rescrapeOg(url) {
+    try {
+      const u = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true&access_token=${encodeURIComponent(token)}`;
+      await fetchImpl(u, { method: 'POST' });
+    } catch {
+      /* ignore — rescrape is best-effort */
+    }
+  }
+
   let scheduled = 0;
   for (const p of payloads) {
+    await rescrapeOg(p.url);
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => {
       const b = new URLSearchParams({

@@ -623,6 +623,10 @@ describe('run() — DRY_RUN mode', () => {
       if (u.includes('/scheduled_posts')) {
         return new Response(JSON.stringify({ data: [] }), { status: 200 });
       }
+      // OG rescrape call (best-effort, fire-and-forget).
+      if (u.includes('scrape=true')) {
+        return new Response(JSON.stringify({ scraped: true }), { status: 200 });
+      }
       // /feed POST call.
       expect(init?.method).toBe('POST');
       return new Response(JSON.stringify({ id: 'pid_postid_1' }), { status: 200 });
@@ -639,8 +643,8 @@ describe('run() — DRY_RUN mode', () => {
 
     expect(result.scheduled).toBe(1);
     expect(result.ok).toBe(true);
-    // Pre-flight + 1 POST = 2 fetch calls.
-    expect(fetchSpy).toHaveBeenCalledTimes(2);
+    // Pre-flight + OG rescrape + /feed POST = 3 fetch calls.
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
 
     // Ledger has the entry now.
     const ledger = loadPosted(tmp);
