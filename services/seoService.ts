@@ -3252,6 +3252,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rischio-benzina-svizzera-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/rischio-benzina-svizzera-frontalieri', parent: 'blog' },
     'blog-mense-scolastiche-ticino-prezzi-2026': { name: 'Mense scolastiche', path: '/articoli-frontaliere/mense-scolastiche-ticino-prezzi-2026', parent: 'blog' },
     'blog-inflazione-ticino-aprile-2026': { name: 'Inflazione Svizzera', path: '/articoli-frontaliere/inflazione-ticino-aprile-2026', parent: 'blog' },
+    'blog-pubblicita-ambiente-amsterdam-svizzera': { name: 'Novità', path: '/articoli-frontaliere/pubblicita-ambiente-amsterdam-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

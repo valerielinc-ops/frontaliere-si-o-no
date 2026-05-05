@@ -6030,6 +6030,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inflazione-ticino-aprile-2026.title': 'Inflazione in Svizzera: +0,6% ad aprile 2026',
     'blog.article.inflazione-ticino-aprile-2026.excerpt': 'L\'inflazione in Svizzera sale allo 0,6% ad aprile 2026, trainata dai prezzi dei beni importati. Ecco cosa cambia per i frontalieri.',
     'blog.article.inflazione-ticino-aprile-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
+    'blog.article.pubblicita-ambiente-amsterdam-svizzera.title': 'Pubblicità e impatto ambientale: il dibattito in Svizzera',
+    'blog.article.pubblicita-ambiente-amsterdam-svizzera.excerpt': 'Amsterdam vieta pubblicità di carne e combustibili fossili. In Svizzera, il dibattito è acceso tra ambientalisti e sostenitori della libertà di mercato.',
+    'blog.article.pubblicita-ambiente-amsterdam-svizzera.imageAlt': 'Vista aerea del Lago di Lugano con acque cristalline, circondato da montagne e edifici, che mostra il bellissimo paesaggio del Ticino.',
 };
 
 export default blogMetaIt;

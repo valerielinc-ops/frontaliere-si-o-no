@@ -6030,6 +6030,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inflazione-ticino-aprile-2026.title': 'Inflation en Suisse: +0,6% en avril 2026',
     'blog.article.inflazione-ticino-aprile-2026.excerpt': 'L\'inflation en Suisse atteint 0,6% en avril 2026, tirée par les prix des biens importés. Voici ce qui change pour les frontaliers.',
     'blog.article.inflazione-ticino-aprile-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.pubblicita-ambiente-amsterdam-svizzera.title': 'Publicité et impact environnemental: le débat en Suisse',
+    'blog.article.pubblicita-ambiente-amsterdam-svizzera.excerpt': 'Amsterdam interdit la publicité pour la viande et les combustibles fossiles. En Suisse, le débat est vif entre les écologistes et les partisans de la liberté du marché.',
+    'blog.article.pubblicita-ambiente-amsterdam-svizzera.imageAlt': 'Vue aérienne du lac de Lugano avec des eaux cristallines, entouré de montagnes et de bâtiments, montrant le beau paysage du Tessin.',
 };
 
 export default blogMetaFr;

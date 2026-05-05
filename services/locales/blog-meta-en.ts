@@ -6029,6 +6029,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inflazione-ticino-aprile-2026.title': 'Switzerland inflation: +0.6% in April 2026',
     'blog.article.inflazione-ticino-aprile-2026.excerpt': 'Switzerland\'s inflation rises to 0.6% in April 2026, driven by imported goods prices. Here\'s what changes for cross-border workers.',
     'blog.article.inflazione-ticino-aprile-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background',
+    'blog.article.pubblicita-ambiente-amsterdam-svizzera.title': 'Advertising and environmental impact: the debate in Switzerland',
+    'blog.article.pubblicita-ambiente-amsterdam-svizzera.excerpt': 'Amsterdam bans ads for meat and fossil fuels. In Switzerland, the debate is heated between environmentalists and free market supporters.',
+    'blog.article.pubblicita-ambiente-amsterdam-svizzera.imageAlt': 'Aerial view of Lake Lugano with clear blue waters, surrounded by mountains and buildings, showcasing the beautiful landscape of Ticino.',
 };
 
 export default blogMetaEn;

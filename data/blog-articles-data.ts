@@ -19460,4 +19460,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pubblicita-ambiente-amsterdam-svizzera',
+ category: 'novita',
+ date: '2026-05-05T07:09:20.820Z',
+ image: '/images/blog/pubblicita-ambiente-amsterdam-svizzera.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

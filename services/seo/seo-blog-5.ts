@@ -18053,6 +18053,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pubblicita-ambiente-amsterdam-svizzera': {
+    title: 'Pubblicità e impatto ambientale: il dibattito in Svizzera',
+    description: 'Amsterdam vieta pubblicità di carne e combustibili fossili. In Svizzera, il dibattito è acceso tra ambientalisti e sostenitori della libertà di mercato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pubblicità, impatto, ambientale, dibattito',
+    ogTitle: 'Pubblicità e impatto ambientale: il dibattito in Svizzera',
+    ogDescription: 'Amsterdam vieta pubblicità di carne e combustibili fossili. In Svizzera, il dibattito è acceso tra ambientalisti e sostenitori della libertà di mercato.',
+    canonicalPath: '/articoli-frontaliere/pubblicita-ambiente-amsterdam-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pubblicità e impatto ambientale: il dibattito in Svizzera",
+      "description": "Amsterdam vieta pubblicità di carne e combustibili fossili. In Svizzera, il dibattito è acceso tra ambientalisti e sostenitori della libertà di mercato.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pubblicita-ambiente-amsterdam-svizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con acque cristalline, circondato da montagne e edifici, che mostra il bellissimo paesaggio del Ticino."
+      },
+      "datePublished": "2026-05-05T07:09:20+00:00",
+      "dateModified": "2026-05-05T07:09:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pubblicita-ambiente-amsterdam-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
