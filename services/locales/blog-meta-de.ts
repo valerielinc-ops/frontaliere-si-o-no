@@ -6089,6 +6089,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pasto-vegetale-gratis-ticino-2026.title': 'Ein vegetarisches Mahl (kostenlos) in Lugano entdecken',
     'blog.article.pasto-vegetale-gratis-ticino-2026.excerpt': 'Greenpeace bietet in Lugano ein kostenloses vegetarisches Mahl an, um eine nachhaltige Ernährung zu fördern. Erfahren Sie mehr über die Initiative.',
     'blog.article.pasto-vegetale-gratis-ticino-2026.imageAlt': 'Ein Outdoor-Event in Lugano mit Menschen, die ein kostenloses vegetarisches Mahl genießen, vor dem Hintergrund von Stadtarchitektur und Grünflächen.',
+    'blog.article.mercatino-rancate-mendrisio-2026.title': 'Rancate: Quartiermarkt startet monatlich',
+    'blog.article.mercatino-rancate-mendrisio-2026.excerpt': 'In Rancate, Mendrisio, wurde der Quartiermarkt ins Leben gerufen, eine Initiative der Stadt Mendrisio und Pro Senectute Ticino und Moesano.',
+    'blog.article.mercatino-rancate-mendrisio-2026.imageAlt': 'Nachbarschaftsmarkt in Rancate, Mendrisio, mit Menschen, die einkaufen und sich in einer lebhaften Atmosphäre unterhalten',
 };
 
 export default blogMetaDe;

@@ -6089,6 +6089,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pasto-vegetale-gratis-ticino-2026.title': 'A free 100% plant-based meal to discover in Lugano',
     'blog.article.pasto-vegetale-gratis-ticino-2026.excerpt': 'Greenpeace offers a free plant-based meal in Lugano to promote sustainable eating. Discover the details of the initiative.',
     'blog.article.pasto-vegetale-gratis-ticino-2026.imageAlt': 'An outdoor event in Lugano with people enjoying a free vegetarian meal, set against a backdrop of urban architecture and greenery.',
+    'blog.article.mercatino-rancate-mendrisio-2026.title': 'Rancate: monthly neighborhood market opens',
+    'blog.article.mercatino-rancate-mendrisio-2026.excerpt': 'In Rancate, Mendrisio, the neighborhood market has opened, an initiative promoted by the City of Mendrisio and Pro Senectute Ticino and Moesano',
+    'blog.article.mercatino-rancate-mendrisio-2026.imageAlt': 'Neighborhood market in Rancate, Mendrisio, with people shopping and socializing in a lively atmosphere',
 };
 
 export default blogMetaEn;

@@ -18202,6 +18202,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercatino-rancate-mendrisio-2026': {
+    title: 'Rancate, nasce il Mercatino di quartiere: appuntamento mensile',
+    description: 'A Rancate, Mendrisio, è nato il Mercatino di quartiere, un\'iniziativa promossa dalla Città di Mendrisio e Pro Senectute Ticino e Moesano. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, rancate, nasce, mercatino, quartiere',
+    ogTitle: 'Mercatino di quartiere a Rancate: appuntamento mensile',
+    ogDescription: 'A Rancate, Mendrisio, è nato il Mercatino di quartiere, un\'iniziativa promossa dalla Città di Mendrisio e Pro Senectute Ticino e Moesano',
+    canonicalPath: '/articoli-frontaliere/mercatino-rancate-mendrisio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rancate, nasce il Mercatino di quartiere: appuntamento mensile",
+      "description": "A Rancate, Mendrisio, è nato il Mercatino di quartiere, un'iniziativa promossa dalla Città di Mendrisio e Pro Senectute Ticino e Moesano. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/mercatino-rancate-mendrisio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercatino di quartiere a Rancate, Mendrisio, con persone che acquistano e socializzano in un'atmosfera vivace"
+      },
+      "datePublished": "2026-05-05T10:21:41+00:00",
+      "dateModified": "2026-05-05T10:21:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercatino-rancate-mendrisio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

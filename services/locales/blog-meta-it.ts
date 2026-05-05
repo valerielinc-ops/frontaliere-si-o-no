@@ -6090,6 +6090,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pasto-vegetale-gratis-ticino-2026.title': 'Un pasto 100% vegetale (gratis) tutto da scoprire a Lugano',
     'blog.article.pasto-vegetale-gratis-ticino-2026.excerpt': 'Greenpeace offre un pasto vegetale gratuito a Lugano per promuovere un\'alimentazione sostenibile. Scopri i dettagli dell\'iniziativa.',
     'blog.article.pasto-vegetale-gratis-ticino-2026.imageAlt': 'Un evento all\'aperto a Lugano con persone che gustano un pasto vegetale gratuito, con uno sfondo di architettura urbana e verde.',
+    'blog.article.mercatino-rancate-mendrisio-2026.title': 'Rancate, nasce il Mercatino di quartiere: appuntamento mensile',
+    'blog.article.mercatino-rancate-mendrisio-2026.excerpt': 'A Rancate, Mendrisio, è nato il Mercatino di quartiere, un\'iniziativa promossa dalla Città di Mendrisio e Pro Senectute Ticino e Moesano',
+    'blog.article.mercatino-rancate-mendrisio-2026.imageAlt': 'Mercatino di quartiere a Rancate, Mendrisio, con persone che acquistano e socializzano in un\'atmosfera vivace',
 };
 
 export default blogMetaIt;

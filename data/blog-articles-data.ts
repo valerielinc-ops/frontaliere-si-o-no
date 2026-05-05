@@ -19640,4 +19640,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mercatino-rancate-mendrisio-2026',
+ category: 'novita',
+ date: '2026-05-05T10:21:41.175Z',
+ image: '/images/blog/mercatino-rancate-mendrisio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
