@@ -6240,6 +6240,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.title': 'A13 Lumino-San Vittore : visite des mesures compensatoires',
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.excerpt': 'Samedi 9 mai 2026, visite guidée des mesures compensatoires environnementales le long de l\'A13 entre Lumino et San Vittore.',
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.imageAlt': 'Vue aérienne de l\'autoroute A13 près de Lumino et San Vittore dans le canton du Tessin, Suisse, montrant les travaux de compensation environnementale.',
+    'blog.article.divieto-petardi-svizzera-frontalieri.title': 'Interdiction des pétards en Suisse: ce qui change pour les frontaliers',
+    'blog.article.divieto-petardi-svizzera-frontalieri.excerpt': 'La Commission de la science, de l\'éducation et de la culture approuve l\'interdiction des pétards en Suisse. Voici les implications pour les frontaliers',
+    'blog.article.divieto-petardi-svizzera-frontalieri.imageAlt': 'Feux d\'artifice au-dessus du lac de Lugano la nuit',
 };
 
 export default blogMetaFr;

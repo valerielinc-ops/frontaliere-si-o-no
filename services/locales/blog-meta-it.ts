@@ -6240,6 +6240,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.title': 'A13 Lumino-San Vittore: porte aperte alla compensazione ambientale',
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.excerpt': 'Sabato 9 maggio 2026, visita guidata alle opere di compensazione ambientale lungo l\'A13 tra Lumino e San Vittore.',
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.imageAlt': 'Vista aerea dell\'autostrada A13 vicino a Lumino e San Vittore in Ticino, Svizzera, che mostra i lavori di compensazione ambientale.',
+    'blog.article.divieto-petardi-svizzera-frontalieri.title': 'Divieto petardi Svizzera: cosa cambia per i frontalieri',
+    'blog.article.divieto-petardi-svizzera-frontalieri.excerpt': 'La Commissione della scienza, educazione e cultura approva il divieto di petardi in Svizzera. Ecco le implicazioni per i frontalieri',
+    'blog.article.divieto-petardi-svizzera-frontalieri.imageAlt': 'Fuochi d\'artificio sopra il lago di Lugano di notte',
 };
 
 export default blogMetaIt;

@@ -6239,6 +6239,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.title': 'A13 Lumino-San Vittore: Umweltausgleich öffnet Türen',
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.excerpt': 'Samstag, 9. Mai 2026, geführte Besichtigung der Umweltausgleichsmaßnahmen entlang der A13 zwischen Lumino und San Vittore.',
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.imageAlt': 'Luftaufnahme der Autobahn A13 in der Nähe von Lumino und San Vittore in Ticino, Schweiz, die Umweltausgleichsarbeiten zeigt.',
+    'blog.article.divieto-petardi-svizzera-frontalieri.title': 'Feuerwerksverbot in der Schweiz: Was sich für Grenzgänger ändert',
+    'blog.article.divieto-petardi-svizzera-frontalieri.excerpt': 'Die Kommission für Wissenschaft, Bildung und Kultur genehmigt das Feuerwerksverbot in der Schweiz. Hier sind die Auswirkungen für Grenzgänger',
+    'blog.article.divieto-petardi-svizzera-frontalieri.imageAlt': 'Feuerwerk über dem Luganersee in der Nacht',
 };
 
 export default blogMetaDe;

@@ -6239,6 +6239,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.title': 'A13 Lumino-San Vittore: open day for environmental compensation',
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.excerpt': 'On Saturday, May 9, 2026, guided tours of the environmental compensation works along the A13 between Lumino and San Vittore.',
     'blog.article.a13-lumino-san-vittore-compensazione-ambientale.imageAlt': 'Aerial view of the A13 highway near Lumino and San Vittore in Ticino, Switzerland, showcasing environmental compensation works.',
+    'blog.article.divieto-petardi-svizzera-frontalieri.title': 'Fireworks ban in Switzerland: what changes for cross-border workers',
+    'blog.article.divieto-petardi-svizzera-frontalieri.excerpt': 'The Commission for Science, Education and Culture approves the ban on fireworks in Switzerland. Here are the implications for cross-border workers',
+    'blog.article.divieto-petardi-svizzera-frontalieri.imageAlt': 'Fireworks over Lake Lugano at night',
 };
 
 export default blogMetaEn;

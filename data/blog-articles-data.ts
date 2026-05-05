@@ -20090,4 +20090,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'divieto-petardi-svizzera-frontalieri',
+ category: 'novita',
+ date: '2026-05-05T23:39:18.035Z',
+ image: '/images/blog/divieto-petardi-svizzera-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
