@@ -3301,6 +3301,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-misoexperience-festival-sport-2024': { name: 'Festival sportivi', path: '/articoli-frontaliere/misoexperience-festival-sport-2024', parent: 'blog' },
     'blog-servizio-civile-legge-nefasta-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/servizio-civile-legge-nefasta-frontalieri', parent: 'blog' },
     'blog-furto-carrefour-como-marocchini-arrestati': { name: 'Novità', path: '/articoli-frontaliere/furto-carrefour-como-marocchini-arrestati', parent: 'blog' },
+    'blog-svizzera-italia-nuova-fase-relazioni': { name: 'Novità', path: '/articoli-frontaliere/svizzera-italia-nuova-fase-relazioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

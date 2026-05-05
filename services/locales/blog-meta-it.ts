@@ -6177,6 +6177,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furto-carrefour-como-marocchini-arrestati.title': 'Como, arrestati due marocchini per furto al Carrefour',
     'blog.article.furto-carrefour-como-marocchini-arrestati.excerpt': 'Due cittadini marocchini senza fissa dimora sono stati arrestati per tentata rapina e furto aggravato dopo un episodio al Carrefour di via Recchi.',
     'blog.article.furto-carrefour-como-marocchini-arrestati.imageAlt': 'Polizia di Stato di Como presso il Carrefour di via Recchi di notte',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.title': 'Svizzera-Italia: nuova fase nelle relazioni dopo Crans-Montana',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.excerpt': 'Guy Parmelin a Roma per discutere delle cure ai feriti italiani. Possibile soluzione con deroga UE.',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.imageAlt': 'Lago di Lugano con vista sul confine italo-svizzero',
 };
 
 export default blogMetaIt;

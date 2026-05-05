@@ -6176,6 +6176,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furto-carrefour-como-marocchini-arrestati.title': 'Zwei Marokkaner in Como wegen Carrefour-Diebstahl festgenommen',
     'blog.article.furto-carrefour-como-marocchini-arrestati.excerpt': 'Zwei marokkanische Staatsbürger ohne festen Wohnsitz wurden nach einem Vorfall im Carrefour in der Via Recchi wegen versuchten Raubes und schweren Diebstahls festgenommen.',
     'blog.article.furto-carrefour-como-marocchini-arrestati.imageAlt': 'Polizei von Como beim Carrefour an der via Recchi nachts',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.title': 'Schweiz-Italien: Neuer Abschnitt in den Beziehungen nach Crans-Montana',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.excerpt': 'Guy Parmelin in Rom, um über die Behandlung der italienischen Verletzten zu sprechen. Mögliche Lösung mit EU-Entschuldigung.',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.imageAlt': 'Luganersee mit Blick auf die schweizerisch-italienische Grenze',
 };
 
 export default blogMetaDe;

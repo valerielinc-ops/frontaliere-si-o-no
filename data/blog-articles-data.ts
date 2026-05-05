@@ -19901,4 +19901,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-italia-nuova-fase-relazioni',
+ category: 'novita',
+ date: '2026-05-05T20:07:27.464Z',
+ image: '/images/blog/svizzera-italia-nuova-fase-relazioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

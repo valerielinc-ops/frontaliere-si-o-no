@@ -6176,6 +6176,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furto-carrefour-como-marocchini-arrestati.title': 'Two Moroccans arrested for Carrefour theft in Como',
     'blog.article.furto-carrefour-como-marocchini-arrestati.excerpt': 'Two homeless Moroccan citizens were arrested for attempted robbery and aggravated theft after an incident at the Carrefour on via Recchi.',
     'blog.article.furto-carrefour-como-marocchini-arrestati.imageAlt': 'Como Police at Carrefour on via Recchi at night',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.title': 'Switzerland-Italy: New Phase in Relations After Crans-Montana',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.excerpt': 'Swiss President Guy Parmelin in Rome to discuss treatment of Italian injured. Possible solution with EU derogation.',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.imageAlt': 'Lake Lugano with view of the Swiss-Italian border',
 };
 
 export default blogMetaEn;

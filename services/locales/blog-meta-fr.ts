@@ -6177,6 +6177,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furto-carrefour-como-marocchini-arrestati.title': 'Deux Marocains arrêtés pour vol au Carrefour',
     'blog.article.furto-carrefour-como-marocchini-arrestati.excerpt': 'Deux citoyens marocains sans domicile fixe ont été arrêtés pour tentative de vol et vol aggravé après un épisode au Carrefour de via Recchi.',
     'blog.article.furto-carrefour-como-marocchini-arrestati.imageAlt': 'Police de Côme au Carrefour de la via Recchi la nuit',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.title': 'Suisse-Italie',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.excerpt': 'Guy Parmelin à Rome pour discuter des soins aux blessés italiens. Une solution possible avec dérogation UE.',
+    'blog.article.svizzera-italia-nuova-fase-relazioni.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
 };
 
 export default blogMetaFr;
