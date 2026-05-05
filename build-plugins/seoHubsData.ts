@@ -17,7 +17,13 @@ export const HUB_LOCALES: readonly HubLocale[] = ['it', 'en', 'de', 'fr'] as con
 
 // ── Per-hub page sizes (tuned for crawl depth + reasonable HTML byte size) ──
 export const JOBS_PAGE_SIZE = 100;
-export const COMPANIES_PAGE_SIZE = 200;
+// 100 keeps the page-1 HTML under the 200 KB hard cap enforced by
+// `audit:page-weight`. The previous value (200) emitted ~270 KB pages
+// for IT/EN/DE/FR `companies/all/page-1`, blocking deploys on the
+// post-deploy validation gate. Doubling the page count (more page-N
+// URLs) is harmless — the BFS-depth audit allows up to depth 4 and
+// the hub navigator already links every page-N directly.
+export const COMPANIES_PAGE_SIZE = 100;
 export const ARTICLES_PAGE_SIZE = 100;
 
 // ── Per-locale slug tables. Mirrors patterns already in services/router.ts ──
