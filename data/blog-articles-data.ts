@@ -20045,4 +20045,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'hondius-hantavirus-frontalieri',
+ category: 'novita',
+ date: '2026-05-05T23:06:59.232Z',
+ image: '/images/blog/hondius-hantavirus-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6225,6 +6225,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agricoltura-precisione-pesticidi-2026.title': 'Agricoltura di precisione: meno pesticidi in Svizzera',
     'blog.article.agricoltura-precisione-pesticidi-2026.excerpt': 'Un progetto pilota riduce del 25% l\'uso di pesticidi grazie alla tecnologia. Scopri come cambia l\'agricoltura in Ticino e Grigioni',
     'blog.article.agricoltura-precisione-pesticidi-2026.imageAlt': 'Agricoltura di precisione in Ticino con sensori e droni per monitoraggio colture',
+    'blog.article.hondius-hantavirus-frontalieri.title': 'Hantavirus sulla Hondius: trasmissione uomo-uomo confermata',
+    'blog.article.hondius-hantavirus-frontalieri.excerpt': 'L\'OMS conferma la trasmissione da uomo a uomo dell\'hantavirus sulla nave da crociera Hondius. Tre morti e cinque casi sospetti.',
+    'blog.article.hondius-hantavirus-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
