@@ -6062,6 +6062,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.passo-gottardo-riaperto-ascensione.title': 'St. Gotthard Pass reopens Friday',
     'blog.article.passo-gottardo-riaperto-ascensione.excerpt': 'The St. Gotthard Pass reopens to traffic on Friday at 11 AM, in time for the Ascension and Pentecost bank holidays, easing traffic on the A2 motorway.',
     'blog.article.passo-gottardo-riaperto-ascensione.imageAlt': 'Aerial view of the San Gottardo Pass in Ticino, Switzerland, with clear skies and open roads, showcasing the mountainous landscape and the reopening of the pass for traffic.',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.title': 'Gottardo Pass reopens early on May 8th',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.excerpt': 'Thanks to favorable weather conditions, the Gottardo Pass reopens as early as Friday, May 8th, easing traffic ahead of the long weekend',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.imageAlt': 'Aerial view of the Gotthard Pass in Ticino, Switzerland, with clear skies and open road',
 };
 
 export default blogMetaEn;

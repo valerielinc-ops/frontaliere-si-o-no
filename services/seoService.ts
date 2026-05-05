@@ -3263,6 +3263,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavori-soddisfazione-svizzeri-ticino': { name: 'Lavoro e soddisfazione', path: '/articoli-frontaliere/lavori-soddisfazione-svizzeri-ticino', parent: 'blog' },
     'blog-benzina-19-euro-5-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/benzina-19-euro-5-maggio-2026', parent: 'blog' },
     'blog-passo-gottardo-riaperto-ascensione': { name: 'Novità', path: '/articoli-frontaliere/passo-gottardo-riaperto-ascensione', parent: 'blog' },
+    'blog-passo-gottardo-riapre-anticipo-8-maggio': { name: 'Novità', path: '/articoli-frontaliere/passo-gottardo-riapre-anticipo-8-maggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

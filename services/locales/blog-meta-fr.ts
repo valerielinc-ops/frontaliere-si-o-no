@@ -6063,6 +6063,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.passo-gottardo-riaperto-ascensione.title': 'Le col du Saint-Gothard rouvre vendredi',
     'blog.article.passo-gottardo-riaperto-ascensione.excerpt': 'Le col du Saint-Gothard rouvre à la circulation vendredi à 11h, à temps pour les fêtes de l\'Ascension et de la Pentecôte, soulageant l\'autoroute A2.',
     'blog.article.passo-gottardo-riaperto-ascensione.imageAlt': 'Vue aérienne du col du Saint-Gothard en Tessin, Suisse, avec des ciels dégagés et des routes ouvertes, montrant le paysage montagneux et la réouverture du col à la circulation.',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.title': 'Le col du Gothard rouvre le 8 mai',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.excerpt': 'Grâce aux conditions météo favorables, le col du Gothard rouvre déjà vendredi 8 mai, soulageant le trafic en vue des jours fériés',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.imageAlt': 'Vue aérienne du col du Gothard dans le Tessin, Suisse, avec ciel dégagé et route ouverte',
 };
 
 export default blogMetaFr;

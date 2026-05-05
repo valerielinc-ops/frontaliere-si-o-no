@@ -6062,6 +6062,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.passo-gottardo-riaperto-ascensione.title': 'San Gottardo wieder ab Freitag geöffnet',
     'blog.article.passo-gottardo-riaperto-ascensione.excerpt': 'Der San Gottardo Pass öffnet am Freitag um 11 Uhr für den Verkehr, rechtzeitig zu den Feiertagen Christi Himmelfahrt und Pfingsten, und entlastet die Autobahn A2.',
     'blog.article.passo-gottardo-riaperto-ascensione.imageAlt': 'Luftaufnahme des San-Gottardo-Passes in Tessin, Schweiz, mit klarem Himmel und offenen Straßen, die die Berglandschaft und die Wiedereröffnung des Passes für den Verkehr zeigt.',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.title': 'Gottardpass öffnet früher am 8. Mai',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.excerpt': 'Dank des guten Wetters öffnet der Gottardpass bereits am Freitag, dem 8. Mai, und entlastet den Verkehr vor den Feiertagen',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.imageAlt': 'Luftaufnahme des Gotthardpasses in Tessin, Schweiz, mit klarem Himmel und offener Straße',
 };
 
 export default blogMetaDe;

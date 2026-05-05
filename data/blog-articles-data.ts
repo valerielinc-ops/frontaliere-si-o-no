@@ -19559,4 +19559,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'passo-gottardo-riapre-anticipo-8-maggio',
+ category: 'novita',
+ date: '2026-05-05T09:01:01.171Z',
+ image: '/images/blog/passo-gottardo-riapre-anticipo-8-maggio.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

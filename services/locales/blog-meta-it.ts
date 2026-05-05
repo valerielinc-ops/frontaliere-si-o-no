@@ -6063,6 +6063,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.passo-gottardo-riaperto-ascensione.title': 'Passo del San Gottardo riaperto da venerdì',
     'blog.article.passo-gottardo-riaperto-ascensione.excerpt': 'Il passo del San Gottardo riapre al traffico venerdì alle 11, in tempo per le festività dell\'Ascensione e di Pentecoste, alleggerendo l\'autostrada A2.',
     'blog.article.passo-gottardo-riaperto-ascensione.imageAlt': 'Vista aerea del Passo del San Gottardo in Ticino, Svizzera, con cieli sereni e strade aperte, che mostra il paesaggio montano e la riapertura del passo al traffico.',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.title': 'Passo del Gottardo riapre in anticipo l\'8 maggio',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.excerpt': 'Grazie alle condizioni meteo favorevoli, il Passo del Gottardo riapre già venerdì 8 maggio, alleggerendo il traffico in vista delle festività',
+    'blog.article.passo-gottardo-riapre-anticipo-8-maggio.imageAlt': 'Vista aerea del Passo del Gottardo in Ticino, Svizzera, con cielo sereno e strada aperta',
 };
 
 export default blogMetaIt;
