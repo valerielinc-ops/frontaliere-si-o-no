@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-05-04T22:49:23.819Z",
-  "total": 20,
+  "generatedAt": "2026-05-05T11:36:25.996Z",
+  "total": 19,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 19,
-  "durationMs": 30796,
-  "avgDurationMs": 30796,
+  "removedCount": 1,
+  "unchangedCount": 18,
+  "durationMs": 26603,
+  "avgDurationMs": 26603,
   "durationHistory": [
-    30796
+    26603
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -55,8 +55,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
@@ -96,7 +95,9 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
