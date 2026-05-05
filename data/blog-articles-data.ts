@@ -19838,4 +19838,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuovo-ccnl-assolavoro-welfare-lavoratori',
+ category: 'novita',
+ date: '2026-05-05T18:39:25.133Z',
+ image: '/images/blog/nuovo-ccnl-assolavoro-welfare-lavoratori.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

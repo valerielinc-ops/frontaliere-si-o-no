@@ -6156,6 +6156,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.condizioni-utilizzo-tvsvizzera.title': 'TV Suisse: nouvelles règles pour les commentaires et l\'utilisation du site',
     'blog.article.condizioni-utilizzo-tvsvizzera.excerpt': 'TV Suisse introduit des lignes directrices pour les commentaires et l\'utilisation du site, avec de nouvelles règles pour la communauté.',
     'blog.article.condizioni-utilizzo-tvsvizzera.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.title': 'Baroni (Assolavoro): Nouveau Ccnl, plus de welfare et services',
+    'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.excerpt': 'Le nouveau Contrat Collectif National de Travail pour les travailleurs en intérim introduit des mesures innovantes en matière de welfare et services.',
+    'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

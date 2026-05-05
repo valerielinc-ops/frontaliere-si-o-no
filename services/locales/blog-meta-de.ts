@@ -6155,6 +6155,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.condizioni-utilizzo-tvsvizzera.title': 'SRF: Neue Regeln für Kommentare und Website-Nutzung',
     'blog.article.condizioni-utilizzo-tvsvizzera.excerpt': 'SRF führt Richtlinien für Kommentare und Website-Nutzung ein, mit neuen Regeln für die Community.',
     'blog.article.condizioni-utilizzo-tvsvizzera.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.title': 'Baroni (Assolavoro): Neuer Ccnl mit mehr Welfare und Dienstleistungen',
+    'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.excerpt': 'Der neue nationale Kollektivvertrag für Leiharbeiter führt innovative Maßnahmen in Welfare und Dienstleistungen ein.',
+    'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

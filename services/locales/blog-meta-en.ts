@@ -6155,6 +6155,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.condizioni-utilizzo-tvsvizzera.title': 'Swiss TV: new rules for comments and site use',
     'blog.article.condizioni-utilizzo-tvsvizzera.excerpt': 'Swiss TV introduces guidelines for comments and site use, with new rules for the community.',
     'blog.article.condizioni-utilizzo-tvsvizzera.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.title': 'Baroni (Assolavoro): New Ccnl with more welfare and services',
+    'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.excerpt': 'The new Collective National Labour Contract for temporary workers introduces innovative measures in welfare and services.',
+    'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;
