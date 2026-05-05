@@ -1,22 +1,88 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-05-04T21:21:32.903Z",
+  "generatedAt": "2026-05-05T10:08:19.068Z",
   "total": 2,
-  "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "newCount": 2,
+  "updatedCount": 0,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 809,
-  "avgDurationMs": 809,
+  "durationMs": 1085,
+  "avgDurationMs": 1085,
   "durationHistory": [
-    809
+    1085
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "title": "Monteur/in Solar (w/m/d)",
+      "slug": "monteur-in-solar-w-m-d-39279aac-087f-4276-82c6-17889d02aef8",
+      "url": "https://ckw.teamtailor.com/jobs/7650161-monteur-in-solar-w-m-d",
+      "applyUrl": "https://ckw.teamtailor.com/jobs/7650161-monteur-in-solar-w-m-d",
+      "company": "CKW",
+      "companyKey": "axpo-group",
+      "companyDomain": "axpo.com",
+      "location": "Domat/Ems",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Utilities",
+      "department": "Solartechnik",
+      "source": "axpo-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-28",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "crawledAt": "2026-05-05T10:08:19.009Z",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 0,
+        "completeness": 14
+      }
+    },
     {
       "title": "Stakeholder &amp; Asset Manager Hydroenergie &amp; Biomasse Graubünden  (w/m/d)",
       "slug": "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815",
+      "url": "https://careers.axpo.com/jobs/7620350-stakeholder-asset-manager-hydroenergie-biomasse-graubunden-w-m-d",
+      "applyUrl": "https://careers.axpo.com/jobs/7620350-stakeholder-asset-manager-hydroenergie-biomasse-graubunden-w-m-d",
+      "company": "Axpo Group",
+      "companyKey": "axpo-group",
+      "companyDomain": "axpo.com",
+      "location": "Domat/Ems",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "energy",
+      "sector": "Energia & Utilities",
+      "department": "Strategy / Business Development",
+      "source": "axpo-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-23",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "crawledAt": "2026-05-05T10:08:19.031Z",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 24,
+        "translation": 0,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Stakeholder & Asset Manager Hydroenergie & Biomasse Graubünden  (w/m/d)",
+      "slug": "stakeholder-asset-manager-hydroenergy-biotechnologie-grigioni-m-d-axpo-group-domat-ems",
       "url": "https://careers.axpo.com/jobs/7620350-stakeholder-asset-manager-hydroenergie-biomasse-graubuenden-w-m-d",
       "applyUrl": "https://careers.axpo.com/jobs/7620350-stakeholder-asset-manager-hydroenergie-biomasse-graubuenden-w-m-d",
       "company": "Axpo Group",
@@ -45,17 +111,17 @@
       "streetAddress": "Viale Stazione 31",
       "postalCode": "6500",
       "firstSeenAt": "2026-04-23T09:32:35.456Z",
-      "_qualityScore": 92,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 24,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "title": "Logisticien de Maintenance (f/m/d)",
-      "slug": "logisticien-de-maintenance-f-m-d-feca2680-9ce8-49e2-af09-ac77e3fab9ff",
+      "slug": "logisticien-de-maintenance-f-m-d-axpo-group-riddes",
       "url": "https://careers.axpo.com/jobs/7457468-logisticien-de-maintenance-f-m-d",
       "applyUrl": "https://careers.axpo.com/jobs/7457468-logisticien-de-maintenance-f-m-d",
       "company": "Axpo Group",
@@ -93,6 +159,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
