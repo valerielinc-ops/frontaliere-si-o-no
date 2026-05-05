@@ -6107,6 +6107,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malpensafiere-hub-imprese-2026.title': 'Focus Day New Businesses 2026 at MalpensaFiere: practical guide',
     'blog.article.malpensafiere-hub-imprese-2026.excerpt': 'Thursday, May 14, 2026 at MalpensaFiere: assistance to start a business, focus on agriculture and home food. Free participation.',
     'blog.article.malpensafiere-hub-imprese-2026.imageAlt': 'MalpensaFiere during the Focus Day Nuove Imprese 2026 event',
+    'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.title': 'Olgiate Olona: smart home for disabled via Pnrr funds',
+    'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.excerpt': 'A smart home for people with disabilities has been inaugurated in Olgiate Olona, funded by the Pnrr. Goal: housing and work autonomy.',
+    'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.imageAlt': 'Domotic apartment for people with disabilities in Olgiate Olona',
 };
 
 export default blogMetaEn;

@@ -19694,4 +19694,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'olgiate-olona-alloggio-domotico-disabili-2026',
+ category: 'novita',
+ date: '2026-05-05T11:14:11.785Z',
+ image: '/images/blog/olgiate-olona-alloggio-domotico-disabili-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

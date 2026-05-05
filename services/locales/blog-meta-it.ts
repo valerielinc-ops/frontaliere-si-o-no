@@ -6108,6 +6108,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malpensafiere-hub-imprese-2026.title': 'Focus Day Nuove Imprese 2026 a MalpensaFiere: guida pratica',
     'blog.article.malpensafiere-hub-imprese-2026.excerpt': 'Giovedì 14 maggio 2026 a MalpensaFiere: assistenza per avviare un\'impresa, focus su agricoltura e home food. Partecipazione gratuita.',
     'blog.article.malpensafiere-hub-imprese-2026.imageAlt': 'MalpensaFiere durante l\'evento Focus Day Nuove Imprese 2026',
+    'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.title': 'Olgiate Olona: nuovo alloggio domotico per disabili con fondi Pnrr',
+    'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.excerpt': 'Inaugurato a Olgiate Olona un appartamento domotico per persone con disabilità, finanziato dal Pnrr. Obiettivo: autonomia abitativa e lavorativa.',
+    'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.imageAlt': 'Appartamento domotico per persone con disabilità a Olgiate Olona',
 };
 
 export default blogMetaIt;

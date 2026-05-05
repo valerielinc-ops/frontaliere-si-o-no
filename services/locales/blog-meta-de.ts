@@ -6107,6 +6107,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malpensafiere-hub-imprese-2026.title': 'Focus Tag Neue Unternehmen 2026 in MalpensaFiere: praktische Anleitung',
     'blog.article.malpensafiere-hub-imprese-2026.excerpt': 'Donnerstag, 14. Mai 2026 in MalpensaFiere: Unterstützung für die Gründung eines Unternehmens, Schwerpunkt auf Landwirtschaft und Home Food. Teilnahme kostenlos.',
     'blog.article.malpensafiere-hub-imprese-2026.imageAlt': 'MalpensaFiere während der Focus Day Nuove Imprese 2026 Veranstaltung',
+    'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.title': 'Olgiate Olona: smarte Wohnung für Menschen mit Behinderungen dank Pnrr',
+    'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.excerpt': 'In Olgiate Olona wurde eine smarte Wohnung für Menschen mit Behinderungen eröffnet, die vom Pnrr finanziert wird. Ziel ist die Wohn- und Arbeitsautonomie.',
+    'blog.article.olgiate-olona-alloggio-domotico-disabili-2026.imageAlt': 'Domotische Wohnung für Menschen mit Behinderungen in Olgiate Olona',
 };
 
 export default blogMetaDe;
