@@ -3271,6 +3271,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-caseifici-aperti-ticino-2026': { name: 'Caseifici aperti', path: '/articoli-frontaliere/caseifici-aperti-ticino-2026', parent: 'blog' },
     'blog-campagna-dss-appropriatezza-sanitaria': { name: 'Novità', path: '/articoli-frontaliere/campagna-dss-appropriatezza-sanitaria', parent: 'blog' },
     'blog-parco-ticino-controlli-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/parco-ticino-controlli-maggio-2026', parent: 'blog' },
+    'blog-pasto-vegetale-gratis-ticino-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/pasto-vegetale-gratis-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

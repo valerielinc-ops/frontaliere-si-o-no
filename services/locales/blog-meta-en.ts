@@ -6086,6 +6086,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parco-ticino-controlli-maggio-2026.title': 'Ticino Park: intensified checks for May Day weekend',
     'blog.article.parco-ticino-controlli-maggio-2026.excerpt': 'Thanks to checks and awareness, uncivil behaviors have decreased in Ticino Park during the May Day weekend.',
     'blog.article.parco-ticino-controlli-maggio-2026.imageAlt': 'Aerial view of Parco del Ticino with visitors enjoying the natural landscape',
+    'blog.article.pasto-vegetale-gratis-ticino-2026.title': 'A free 100% plant-based meal to discover in Lugano',
+    'blog.article.pasto-vegetale-gratis-ticino-2026.excerpt': 'Greenpeace offers a free plant-based meal in Lugano to promote sustainable eating. Discover the details of the initiative.',
+    'blog.article.pasto-vegetale-gratis-ticino-2026.imageAlt': 'An outdoor event in Lugano with people enjoying a free vegetarian meal, set against a backdrop of urban architecture and greenery.',
 };
 
 export default blogMetaEn;

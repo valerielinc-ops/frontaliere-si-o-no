@@ -6086,6 +6086,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parco-ticino-controlli-maggio-2026.title': 'Parco del Ticino: controlli intensificati per il Primo maggio',
     'blog.article.parco-ticino-controlli-maggio-2026.excerpt': 'Grazie ai controlli e alla sensibilizzazione, i comportamenti incivili sono diminuiti nel Parco del Ticino durante il weekend del Primo maggio.',
     'blog.article.parco-ticino-controlli-maggio-2026.imageAlt': 'Luftaufnahme des Parco del Ticino mit Besuchern, die die Naturlandschaft genießen',
+    'blog.article.pasto-vegetale-gratis-ticino-2026.title': 'Ein vegetarisches Mahl (kostenlos) in Lugano entdecken',
+    'blog.article.pasto-vegetale-gratis-ticino-2026.excerpt': 'Greenpeace bietet in Lugano ein kostenloses vegetarisches Mahl an, um eine nachhaltige Ernährung zu fördern. Erfahren Sie mehr über die Initiative.',
+    'blog.article.pasto-vegetale-gratis-ticino-2026.imageAlt': 'Ein Outdoor-Event in Lugano mit Menschen, die ein kostenloses vegetarisches Mahl genießen, vor dem Hintergrund von Stadtarchitektur und Grünflächen.',
 };
 
 export default blogMetaDe;

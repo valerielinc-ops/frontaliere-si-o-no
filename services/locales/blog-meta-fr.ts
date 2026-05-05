@@ -6087,6 +6087,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parco-ticino-controlli-maggio-2026.title': 'Parc du Tessin: contrôles renforcés pour le week-end du 1er mai',
     'blog.article.parco-ticino-controlli-maggio-2026.excerpt': 'Grâce aux contrôles et à la sensibilisation, les comportements incivils ont diminué dans le Parc du Tessin pendant le week-end du 1er mai.',
     'blog.article.parco-ticino-controlli-maggio-2026.imageAlt': 'Vue aérienne du Parco del Ticino avec des visiteurs profitant du paysage naturel',
+    'blog.article.pasto-vegetale-gratis-ticino-2026.title': 'Un repas 100% végétal (gratuit) à découvrir à Lugano',
+    'blog.article.pasto-vegetale-gratis-ticino-2026.excerpt': 'Greenpeace offre un repas végétal gratuit à Lugano pour promouvoir une alimentation durable. Découvrez les détails de l\'initiative.',
+    'blog.article.pasto-vegetale-gratis-ticino-2026.imageAlt': 'Un événement en plein air à Lugano avec des personnes dégustant un repas végétarien gratuit, avec en arrière-plan l\'architecture urbaine et la verdure.',
 };
 
 export default blogMetaFr;

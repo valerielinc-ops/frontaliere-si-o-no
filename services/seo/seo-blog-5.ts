@@ -18164,6 +18164,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pasto-vegetale-gratis-ticino-2026': {
+    title: 'Un pasto 100% vegetale (gratis) tutto da scoprire a Lugano',
+    description: 'Greenpeace offre un pasto vegetale gratuito a Lugano per promuovere un\'alimentazione sostenibile. Scopri i dettagli dell\'iniziativa. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pasto, vegetale, gratis, tutto',
+    ogTitle: 'Un pasto 100% vegetale (gratis) tutto da scoprire a Lugano',
+    ogDescription: 'Greenpeace offre un pasto vegetale gratuito a Lugano per promuovere un\'alimentazione sostenibile. Scopri i dettagli dell\'iniziativa.',
+    canonicalPath: '/articoli-frontaliere/pasto-vegetale-gratis-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Un pasto 100% vegetale (gratis) tutto da scoprire a Lugano",
+      "description": "Greenpeace offre un pasto vegetale gratuito a Lugano per promuovere un'alimentazione sostenibile. Scopri i dettagli dell'iniziativa. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/pasto-vegetale-gratis-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un evento all'aperto a Lugano con persone che gustano un pasto vegetale gratuito, con uno sfondo di architettura urbana e verde."
+      },
+      "datePublished": "2026-05-05T10:13:35+00:00",
+      "dateModified": "2026-05-05T10:13:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pasto-vegetale-gratis-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
