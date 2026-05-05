@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2106,
+ "numberOfItems": 2107,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6748,7 +6748,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2103, "name": "1 su 3 lavoratori tramite agenzia in Lombardia ...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-agenzia-lombardia-frontalieri` },
           { "@type": "ListItem", "position": 2104, "name": "TV Svizzera: nuove regole per i commenti e l'us...", "url": `${BASE_URL}/articoli-frontaliere/condizioni-utilizzo-tvsvizzera` },
           { "@type": "ListItem", "position": 2105, "name": "Baroni (Assolavoro): Nuovo Ccnl innovativo, più...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-ccnl-assolavoro-welfare-lavoratori` },
-          { "@type": "ListItem", "position": 2106, "name": "Dipendenti cantonali in Ticino: ErreDiPi richie...", "url": `${BASE_URL}/articoli-frontaliere/dipendenti-cantonali-soddisfazione-erre-dipi` }
+          { "@type": "ListItem", "position": 2106, "name": "Dipendenti cantonali in Ticino: ErreDiPi richie...", "url": `${BASE_URL}/articoli-frontaliere/dipendenti-cantonali-soddisfazione-erre-dipi` },
+          { "@type": "ListItem", "position": 2107, "name": "I frontalieri disoccupati potrebbero ricevere l...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-svizzera-indennita` }
  ]
  },
  {

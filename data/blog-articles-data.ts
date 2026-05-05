@@ -19856,4 +19856,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-disoccupati-svizzera-indennita',
+ category: 'novita',
+ date: '2026-05-05T18:59:30.679Z',
+ image: '/images/blog/frontalieri-disoccupati-svizzera-indennita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
