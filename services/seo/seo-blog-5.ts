@@ -17305,6 +17305,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comano-run-record-2026': {
+    title: 'Comano Run 2026: record di partecipanti e nuovo percorso',
+    description: 'Oltre 800 partecipanti alla sesta edizione della Comano Run, con nuovi record nel percorso e nelle categorie giovanili. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, comano, record, partecipanti, nuovo',
+    ogTitle: 'Comano Run 2026: record di partecipanti e nuovo percorso',
+    ogDescription: 'Oltre 800 partecipanti alla sesta edizione della Comano Run, con nuovi record nel percorso e nelle categorie giovanili.',
+    canonicalPath: '/articoli-frontaliere/comano-run-record-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comano Run 2026: record di partecipanti e nuovo percorso",
+      "description": "Oltre 800 partecipanti alla sesta edizione della Comano Run, con nuovi record nel percorso e nelle categorie giovanili. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comano-run-record-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido, giornata di sole"
+      },
+      "datePublished": "2026-05-05T01:44:31+00:00",
+      "dateModified": "2026-05-05T01:44:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comano-run-record-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

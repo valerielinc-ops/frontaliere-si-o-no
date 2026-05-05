@@ -5963,6 +5963,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comanorun-record-801-iscritti.title': 'ComanoRun 2026: record with 801 entries and new achievements',
     'blog.article.comanorun-record-801-iscritti.excerpt': 'The sixth edition of ComanoRun saw a record of 801 participants and new achievements in the men\'s and women\'s categories.',
     'blog.article.comanorun-record-801-iscritti.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.comano-run-record-2026.title': 'Comano Run 2026: record participants and new route',
+    'blog.article.comano-run-record-2026.excerpt': 'Over 800 participants in the sixth edition of the Comano Run, with new records in the route and youth categories.',
+    'blog.article.comano-run-record-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky, sunny day',
 };
 
 export default blogMetaEn;

@@ -5964,6 +5964,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comanorun-record-801-iscritti.title': 'ComanoRun 2026 : record de 801 inscrits et nouveaux records',
     'blog.article.comanorun-record-801-iscritti.excerpt': 'La sixième édition de la ComanoRun a vu un record de 801 participants et de nouveaux records dans les catégories masculine et féminine.',
     'blog.article.comanorun-record-801-iscritti.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.comano-run-record-2026.title': 'Comano Run 2026 : record de participants et nouveau parcours',
+    'blog.article.comano-run-record-2026.excerpt': 'Plus de 800 participants à la sixième édition de la Comano Run, avec de nouveaux records dans le parcours et les catégories jeunes.',
+    'blog.article.comano-run-record-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, ciel bleu clair, journée ensoleillée',
 };
 
 export default blogMetaFr;

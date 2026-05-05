@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2040,
+ "numberOfItems": 2041,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6683,7 +6683,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2037, "name": "Elicottero precipita a Mezzovico: diversi feriti", "url": `${BASE_URL}/articoli-frontaliere/elicottero-mezzovico-incidente-2026` },
           { "@type": "ListItem", "position": 2038, "name": "Inarzo: natura, favole e drag queen alla Festa ...", "url": `${BASE_URL}/articoli-frontaliere/inarzo-festa-oasi-palude-brabbia-2026` },
           { "@type": "ListItem", "position": 2039, "name": "Josi, Niederreiter, Hischier e Meier ai Mondial...", "url": `${BASE_URL}/articoli-frontaliere/mondiali-hockey-svizzera-2026` },
-          { "@type": "ListItem", "position": 2040, "name": "ComanoRun 2026: record di 801 iscritti e nuovi ...", "url": `${BASE_URL}/articoli-frontaliere/comanorun-record-801-iscritti` }
+          { "@type": "ListItem", "position": 2040, "name": "ComanoRun 2026: record di 801 iscritti e nuovi ...", "url": `${BASE_URL}/articoli-frontaliere/comanorun-record-801-iscritti` },
+          { "@type": "ListItem", "position": 2041, "name": "Comano Run 2026: record di partecipanti e nuovo...", "url": `${BASE_URL}/articoli-frontaliere/comano-run-record-2026` }
  ]
  },
  {
