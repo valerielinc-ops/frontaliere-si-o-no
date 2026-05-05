@@ -5972,6 +5972,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.festival-meraviglia-laveno-luino-2026.title': 'Festival of Wonder: Art, Music & Meetings in Laveno and Luino',
     'blog.article.festival-meraviglia-laveno-luino-2026.excerpt': 'From May 8 to 15, five evenings of art, music, and philosophy with international guests. Discover the full program.',
     'blog.article.festival-meraviglia-laveno-luino-2026.imageAlt': 'Cultural festival on the shores of Lake Maggiore with art, music, and philosophical discussions',
+    'blog.article.meraviglia-festival-laveno-luino-2026.title': 'Festival of Wonder 2026: Stories Shaping the Present',
+    'blog.article.meraviglia-festival-laveno-luino-2026.excerpt': 'From May 8 to 24, Laveno Mombello and Luino host the Festival of Wonder with cultural events and meetings on history, science, and art.',
+    'blog.article.meraviglia-festival-laveno-luino-2026.imageAlt': 'Meraviglia Festival in Laveno Mombello and Luino, Lake Maggiore',
 };
 
 export default blogMetaEn;

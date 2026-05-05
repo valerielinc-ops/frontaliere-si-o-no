@@ -5972,6 +5972,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.festival-meraviglia-laveno-luino-2026.title': 'Festival der Wunder: Kunst, Musik und Begegnungen zwischen Laveno und Luino',
     'blog.article.festival-meraviglia-laveno-luino-2026.excerpt': 'Vom 8. bis 15. Mai: fünf Abende mit Kunst, Musik und Philosophie mit internationalen Gästen. Entdecken Sie das vollständige Programm.',
     'blog.article.festival-meraviglia-laveno-luino-2026.imageAlt': 'Kulturelles Festival an den Ufern des Lago Maggiore mit Kunst, Musik und philosophischen Gesprächen',
+    'blog.article.meraviglia-festival-laveno-luino-2026.title': 'Festival der Wunder 2026: Geschichten, die die Gegenwart prägen',
+    'blog.article.meraviglia-festival-laveno-luino-2026.excerpt': 'Vom 8. bis 24. Mai finden in Laveno Mombello und Luino das Festival der Wunder mit kulturellen Veranstaltungen und Begegnungen zu Geschichte, Wissenschaft und Kunst statt.',
+    'blog.article.meraviglia-festival-laveno-luino-2026.imageAlt': 'Meraviglia-Festival in Laveno Mombello und Luino, Lago Maggiore',
 };
 
 export default blogMetaDe;

@@ -17407,6 +17407,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-meraviglia-festival-laveno-luino-2026': {
+    title: 'Festival della Meraviglia 2026: storie che costruiscono il presente',
+    description: 'Dal 8 al 24 maggio, Laveno Mombello e Luino ospitano il Festival della Meraviglia con eventi culturali e incontri su storia, scienza e arte. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, festival, meraviglia, storie, costruiscono',
+    ogTitle: 'Festival Meraviglia 2026: storie che costruiscono il presente',
+    ogDescription: 'Dal 8 al 24 maggio, Laveno Mombello e Luino ospitano il Festival della Meraviglia con eventi culturali e incontri su storia, scienza e arte.',
+    canonicalPath: '/articoli-frontaliere/meraviglia-festival-laveno-luino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festival della Meraviglia 2026: storie che costruiscono il presente",
+      "description": "Dal 8 al 24 maggio, Laveno Mombello e Luino ospitano il Festival della Meraviglia con eventi culturali e incontri su storia, scienza e arte. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/meraviglia-festival-laveno-luino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festival della Meraviglia a Laveno Mombello e Luino, Lago Maggiore"
+      },
+      "datePublished": "2026-05-05T03:19:51+00:00",
+      "dateModified": "2026-05-05T03:19:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/meraviglia-festival-laveno-luino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5973,6 +5973,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.festival-meraviglia-laveno-luino-2026.title': 'Festival de la Meraviglia: art, musique et rencontres',
     'blog.article.festival-meraviglia-laveno-luino-2026.excerpt': 'Du 8 au 15 mai, cinq soirées entre art, musique et philosophie avec des invités internationaux. Découvrez le programme complet.',
     'blog.article.festival-meraviglia-laveno-luino-2026.imageAlt': 'Festival culturel sur les rives du Lac Majeur avec art, musique et discussions philosophiques',
+    'blog.article.meraviglia-festival-laveno-luino-2026.title': 'Festival de la Meraviglia 2026 : des histoires qui construisent le présent',
+    'blog.article.meraviglia-festival-laveno-luino-2026.excerpt': 'Du 8 au 24 mai, Laveno Mombello et Luino accueillent le Festival de la Meraviglia avec des événements culturels et des rencontres sur l\'histoire, la science et l\'art.',
+    'blog.article.meraviglia-festival-laveno-luino-2026.imageAlt': 'Festival de la Meraviglia à Laveno Mombello et Luino, Lac Majeur',
 };
 
 export default blogMetaFr;

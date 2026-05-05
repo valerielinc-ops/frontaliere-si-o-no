@@ -5973,6 +5973,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.festival-meraviglia-laveno-luino-2026.title': 'Festival della Meraviglia: arte, musica e incontri tra Laveno e Luino',
     'blog.article.festival-meraviglia-laveno-luino-2026.excerpt': 'Dal 8 al 15 maggio, cinque serate tra arte, musica e filosofia con ospiti internazionali. Scopri il programma completo.',
     'blog.article.festival-meraviglia-laveno-luino-2026.imageAlt': 'Festival culturale sulle rive del Lago Maggiore con arte, musica e incontri filosofici',
+    'blog.article.meraviglia-festival-laveno-luino-2026.title': 'Festival della Meraviglia 2026: storie che costruiscono il presente',
+    'blog.article.meraviglia-festival-laveno-luino-2026.excerpt': 'Dal 8 al 24 maggio, Laveno Mombello e Luino ospitano il Festival della Meraviglia con eventi culturali e incontri su storia, scienza e arte.',
+    'blog.article.meraviglia-festival-laveno-luino-2026.imageAlt': 'Festival della Meraviglia a Laveno Mombello e Luino, Lago Maggiore',
 };
 
 export default blogMetaIt;
