@@ -14,11 +14,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+import { requireDataPath, ROOT } from './lib/resolve-data-path.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_TITLE_CHARS = 3;
@@ -26,10 +22,8 @@ const MIN_DESCRIPTION_CHARS = 120;
 const SAMPLE_LIMIT = 10;
 
 /* ── Load jobs ── */
-if (!fs.existsSync(DATA_JOBS)) {
-  console.error(`❌ Jobs file not found: ${DATA_JOBS}`);
-  process.exit(1);
-}
+const DATA_JOBS = requireDataPath('jobs.json', 'validate-translation-completeness');
+console.log(`Reading jobs dataset from: ${path.relative(ROOT, DATA_JOBS)}`);
 
 let jobs;
 try {

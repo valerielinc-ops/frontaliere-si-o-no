@@ -11,38 +11,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, '..');
-
-/**
- * Resolve the jobs dataset path across the three contexts in which this
- * validator runs:
- *   1. Local dev / pre-push hook: source-of-truth at `data/jobs.json` (gitignored,
- *      assembled by `scripts/assemble-jobs-dataset.mjs`).
- *   2. CI deploy.yml `build:ci` step: same as above (assemble runs first).
- *   3. CI post-deploy-validation.yml: only the GitHub Pages artifact is restored,
- *      so the file lives at `dist/data/jobs.json` (or `public/data/jobs.json` after
- *      the workflow's compatibility copy at deploy.yml line ~218).
- *
- * Falling through these in priority order keeps a single validator working in all
- * three environments without each caller having to symlink or copy the file. If
- * none exists, fail with a CI-friendly error that distinguishes "infra missing"
- * (no dataset reachable) from "data invalid" (validation rules tripped).
- */
-const JOBS_CANDIDATES = [
-  path.resolve(ROOT, 'data', 'jobs.json'),
-  path.resolve(ROOT, 'dist', 'data', 'jobs.json'),
-  path.resolve(ROOT, 'public', 'data', 'jobs.json'),
-];
-
-function resolveJobsPath() {
-  for (const candidate of JOBS_CANDIDATES) {
-    if (fs.existsSync(candidate)) return candidate;
-  }
-  return null;
-}
+import { requireDataPath, ROOT } from './lib/resolve-data-path.mjs';
 
 /* ── German-only word patterns (not found in Italian/English job titles) ── */
 const GERMAN_SLUG_WORDS = /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehrstelle|lehre|mitarbeiter|leiter|stellvertretend|verkauf|lernend|chauffeu|gartencenter|befristet|ablosen|disponentin|disponent|ladenleit|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|bauleiter|zeichner|fachrichtung|ingenieurbau|tunnelbau|tiefbau|innendienst|generalagentur|vorsorge|vermogen|wissenschaftlich|detailhandels|bekampfung|japankafer|lager)(?:-|$)/i;
@@ -104,20 +73,7 @@ function slugifySimple(str) {
 }
 
 function run() {
-  const dataJobs = resolveJobsPath();
-  if (!dataJobs) {
-    console.error('❌ validate-jobs-quality: no jobs dataset found.');
-    console.error('   Tried (in priority order):');
-    for (const candidate of JOBS_CANDIDATES) {
-      console.error(`     - ${candidate}`);
-    }
-    console.error('   This is an infra/sequencing problem (missing input file),');
-    console.error('   not a data-quality regression. In local/pre-push, run');
-    console.error('   `node scripts/assemble-jobs-dataset.mjs --stats` first.');
-    console.error('   In post-deploy-validation, ensure the GitHub Pages artifact');
-    console.error('   was downloaded and expanded into dist/ before this step.');
-    process.exit(2);
-  }
+  const dataJobs = requireDataPath('jobs.json', 'validate-jobs-quality');
   console.log(`Reading jobs dataset from: ${path.relative(ROOT, dataJobs)}`);
   const jobs = JSON.parse(fs.readFileSync(dataJobs, 'utf-8'));
   const errors = [];
