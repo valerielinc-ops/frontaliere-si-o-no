@@ -109,7 +109,14 @@ function placeIdsPath(repoRoot) {
 function stripHtml(s) {
   if (!s || typeof s !== 'string') return '';
   return s
-    .replace(/<[^>]+>/g, ' ')   // tags
+    .replace(/<[^>]+>/g, ' ')                  // HTML tags
+    // Markdown headings — match at line start (multiline) AND inline
+    // (after whitespace) so leftovers from HTML→text flattening like
+    // "Avviare... ## Tasks - Si installa..." are also cleaned.
+    .replace(/(^|\s)#{1,6}\s+/gm, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')         // markdown bold
+    .replace(/\*([^*]+)\*/g, '$1')             // markdown italic
+    .replace(/(^|\s)[-*+]\s+/gm, '$1')         // markdown list bullets
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
@@ -249,7 +256,10 @@ function recencyTs(job) {
  *   #tag1 #tag2 ...
  */
 export function buildJobCaption(job) {
-  const title = (job?.title || '').trim();
+  // Prefer the Italian-translated title (the audience reads Italian, the
+  // landing page's og:title is also IT). Fall back to the raw `job.title`
+  // for jobs that haven't been translated yet.
+  const title = (job?.titleByLocale?.it || job?.title || '').trim();
   const company = (job?.hiringOrganization?.name || job?.company || '').trim();
   const city = (job?.jobLocation?.address?.addressLocality
     || job?.location
