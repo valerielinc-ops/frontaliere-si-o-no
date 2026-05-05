@@ -19388,4 +19388,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'thun-vince-calcio-programmazione',
+ category: 'novita',
+ date: '2026-05-05T05:56:58.659Z',
+ image: '/images/blog/thun-vince-calcio-programmazione.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

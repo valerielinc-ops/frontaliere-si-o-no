@@ -3244,6 +3244,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gianni-morandi-locarno-2026': { name: 'Concerto Gianni Morandi', path: '/articoli-frontaliere/gianni-morandi-locarno-2026', parent: 'blog' },
     'blog-tensioni-geopolitiche-elettrico-ticino': { name: 'Novità', path: '/articoli-frontaliere/tensioni-geopolitiche-elettrico-ticino', parent: 'blog' },
     'blog-crans-montana-disgelo-italia-svizzera': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-disgelo-italia-svizzera', parent: 'blog' },
+    'blog-thun-vince-calcio-programmazione': { name: 'Novità', path: '/articoli-frontaliere/thun-vince-calcio-programmazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

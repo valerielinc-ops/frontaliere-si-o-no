@@ -6005,6 +6005,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-disgelo-italia-svizzera.title': 'Crans-Montana, thaw between Italy and Switzerland',
     'blog.article.crans-montana-disgelo-italia-svizzera.excerpt': 'After months of tension, Ambassador Cornado softens the tone. Gianini: some statements have been counterproductive.',
     'blog.article.crans-montana-disgelo-italia-svizzera.imageAlt': 'Crans-Montana landscape with Italian and Swiss flags',
+    'blog.article.thun-vince-calcio-programmazione.title': 'Thun wins the championship: a programming lesson for Swiss football',
+    'blog.article.thun-vince-calcio-programmazione.excerpt': 'Livio Bordoli comments on Thun\'s victory: \'They made the phrase \'let the coach work\' concrete\'',
+    'blog.article.thun-vince-calcio-programmazione.imageAlt': 'Thun stadium during a football match, with cheering fans and players celebrating a goal',
 };
 
 export default blogMetaEn;

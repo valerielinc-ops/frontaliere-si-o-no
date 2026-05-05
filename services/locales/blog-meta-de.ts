@@ -6005,6 +6005,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-disgelo-italia-svizzera.title': 'Crans-Montana: Tauwetter zwischen Italien und der Schweiz',
     'blog.article.crans-montana-disgelo-italia-svizzera.excerpt': 'Nach Monaten der Spannungen dämpft Botschafter Cornado die Töne. Gianini: Einige Aussagen waren kontraproduktiv.',
     'blog.article.crans-montana-disgelo-italia-svizzera.imageAlt': 'Crans-Montana-Landschaft mit italienischer und Schweizer Flagge',
+    'blog.article.thun-vince-calcio-programmazione.title': 'Thun gewinnt die Meisterschaft: Eine Lektion für den Schweizer Fussball',
+    'blog.article.thun-vince-calcio-programmazione.excerpt': 'Livio Bordoli kommentiert den Sieg von Thun: «Sie haben den Satz \'Lassen wir den Trainer arbeiten\' konkret umgesetzt»',
+    'blog.article.thun-vince-calcio-programmazione.imageAlt': 'Thun-Stadion während eines Fußballspiels, mit jubelnden Fans und Spielern, die ein Tor feiern',
 };
 
 export default blogMetaDe;

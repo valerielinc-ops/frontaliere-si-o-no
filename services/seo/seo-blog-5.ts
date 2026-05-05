@@ -17781,6 +17781,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-thun-vince-calcio-programmazione': {
+    title: 'Thun vince il campionato: la lezione di programmazione per il calcio svizzero',
+    description: 'Livio Bordoli commenta la vittoria del Thun: «Hanno dato concretezza alla frase \'lasciamo lavorare l’allenatore\'». Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, thun, vince, campionato, lezione',
+    ogTitle: 'Thun vince il campionato: la lezione di programmazione per il calcio svizzero',
+    ogDescription: 'Livio Bordoli commenta la vittoria del Thun: «Hanno dato concretezza alla frase \'lasciamo lavorare l’allenatore\'»',
+    canonicalPath: '/articoli-frontaliere/thun-vince-calcio-programmazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Thun vince il campionato: la lezione di programmazione per il calcio svizzero",
+      "description": "Livio Bordoli commenta la vittoria del Thun: «Hanno dato concretezza alla frase 'lasciamo lavorare l’allenatore'». Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/thun-vince-calcio-programmazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio del Thun durante una partita di calcio, con tifosi festanti e giocatori in campo"
+      },
+      "datePublished": "2026-05-05T05:56:58+00:00",
+      "dateModified": "2026-05-05T05:56:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/thun-vince-calcio-programmazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
