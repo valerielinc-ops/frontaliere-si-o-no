@@ -19,15 +19,31 @@
  */
 
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { cpus } from 'os';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
-import satori from 'satori';
-import { Resvg } from '@resvg/resvg-js';
 
 const OUT_SUBDIR = 'og/jobs';
 // Persistent cache dir survives `dist/` cleanup. Cache step in deploy.yml
 // restores this between CI runs so unchanged jobs keep their PNG.
 const CACHE_SUBDIR = '.cache/og-jobs';
+
+/**
+ * Bump this string when the rendering pipeline changes shape (layout,
+ * colors, fonts, brand wordmark, chip style, …). Embedded into every
+ * cached PNG's filename so layout-only changes invalidate the cache
+ * cleanly even when the actions/cache restore-keys cascade rehydrates
+ * an older cache layer. Same pattern used by pdfWhitepapersPlugin
+ * (PDF_RENDER_VERSION).
+ *
+ * Cache filename is `<jobId>.<OG_RENDER_VERSION>.png`. When this version
+ * bumps, the new build looks for new filenames, doesn't find them, and
+ * re-renders. Old cached PNGs become orphaned and age out automatically
+ * when the GitHub Actions cache evicts them (~7-day TTL).
+ */
+const OG_RENDER_VERSION = 'v1-2026-05-05';
 const PNG_WIDTH = 1200;
 const PNG_HEIGHT = 630;
 
@@ -462,14 +478,22 @@ export default function jobOgImagesPlugin(): Plugin {
       mkdirSync(outRoot, { recursive: true });
       mkdirSync(cacheRoot, { recursive: true });
 
-      const fonts = [
-        { name: 'Roboto', data: fontPair.regular, weight: 400 as const, style: 'normal' as const },
-        { name: 'Roboto', data: fontPair.bold, weight: 700 as const, style: 'normal' as const },
-      ];
-
       const stats: Stats = { rendered: 0, cached: 0, skipped: 0, errors: 0 };
       const startMs = Date.now();
 
+      // ── Pass 1: drain the cache (synchronous I/O, no satori needed) ──
+      // For each job, decide whether we already have a fresh PNG. If yes,
+      // copy cache → dist and skip. If no, queue for render in pass 2.
+      interface RenderJob {
+        jobId: string;
+        slug: string;
+        outPath: string;
+        cachePath: string;
+        // Pre-built satori tree (computed in pass 1 to avoid re-deriving
+        // model fields when the worker pool dispatches).
+        tree: unknown;
+      }
+      const renderQueue: RenderJob[] = [];
       for (const job of jobs) {
         const slug = deriveSlug(job);
         const cacheKey = cacheKeyForJob(job);
@@ -478,13 +502,14 @@ export default function jobOgImagesPlugin(): Plugin {
           continue;
         }
         const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
-        // Cache filename = job.id (which already encodes a content hash
-        // emitted by the crawler — e.g. "tether-163fdd7ecddc"). When
-        // content changes the crawler bumps the trailing 12 hex →
-        // different cacheKey → cache miss → fresh render.
-        const cachePath = path.join(cacheRoot, `${cacheKey}.png`);
+        // Cache filename combines (a) job.id (crawler-emitted content
+        // hash) AND (b) OG_RENDER_VERSION (our design version). When
+        // either changes the filename changes → cache miss → re-render.
+        const cachePath = path.join(
+          cacheRoot,
+          `${cacheKey}.${OG_RENDER_VERSION}.png`,
+        );
 
-        // Cache hit: copy from .cache → dist, no rerender needed.
         if (existsSync(cachePath)) {
           try {
             mkdirSync(path.dirname(outPath), { recursive: true });
@@ -492,51 +517,141 @@ export default function jobOgImagesPlugin(): Plugin {
             stats.cached += 1;
             continue;
           } catch {
-            /* fall through to rerender */
+            /* fall through to enqueue for render */
           }
         }
 
-        try {
-          const logoMfPath = job.companyKey ? manifest[job.companyKey] : undefined;
-          const model: CardModel = {
-            title: truncateText(job.title, 110),
-            company: deriveCompany(job),
-            city: deriveCity(job),
-            salary: deriveSalary(job),
-            employmentLabel: job.employmentType
-              ? EMPLOYMENT_LABEL_IT[job.employmentType] ?? null
-              : null,
-            logoDataUrl: logoMfPath ? logoDataUrl(rootDir, logoMfPath) : null,
-          };
-          const tree = buildCardJsx(model);
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const svg = await satori(tree as any, {
-            width: PNG_WIDTH,
-            height: PNG_HEIGHT,
-            fonts,
-          });
-          const png = new Resvg(svg, {
-            background: BRAND_BG_FROM,
-            fitTo: { mode: 'width', value: PNG_WIDTH },
-          })
-            .render()
-            .asPng();
-          // Write both to cache (persistent across builds) AND dist (deployed).
-          mkdirSync(path.dirname(cachePath), { recursive: true });
-          mkdirSync(path.dirname(outPath), { recursive: true });
-          writeFileSync(cachePath, png);
-          writeFileSync(outPath, png);
-          stats.rendered += 1;
-        } catch (err) {
-          stats.errors += 1;
-          if (stats.errors <= 5) {
-            // eslint-disable-next-line no-console
-            console.warn(
-              `[job-og-images] render failed for ${slug}: ${(err as Error).message}`,
-            );
-          }
-        }
+        const logoMfPath = job.companyKey ? manifest[job.companyKey] : undefined;
+        const model: CardModel = {
+          title: truncateText(job.title, 110),
+          company: deriveCompany(job),
+          city: deriveCity(job),
+          salary: deriveSalary(job),
+          employmentLabel: job.employmentType
+            ? EMPLOYMENT_LABEL_IT[job.employmentType] ?? null
+            : null,
+          logoDataUrl: logoMfPath ? logoDataUrl(rootDir, logoMfPath) : null,
+        };
+        renderQueue.push({
+          jobId: cacheKey,
+          slug,
+          outPath,
+          cachePath,
+          tree: buildCardJsx(model),
+        });
       }
+
+      // ── Pass 2: render the queue across a worker pool ─────────
+      if (renderQueue.length > 0) {
+        const workerCount = Math.max(
+          1,
+          Math.min(
+            renderQueue.length,
+            Number(process.env.OG_WORKER_COUNT) || cpus().length || 2,
+            // Cap at 4 — diminishing returns beyond that on a 2-core CI
+            // runner, and font buffers are duplicated per worker (2× 45KB).
+            4,
+          ),
+        );
+        // eslint-disable-next-line no-console
+        console.log(
+          `[job-og-images] rendering ${renderQueue.length} cards across ${workerCount} workers (cache hits: ${stats.cached}/${jobs.length})`,
+        );
+
+        // Resolve worker URL relative to this file, so the build path
+        // (dist or source) doesn't matter at runtime.
+        const here = path.dirname(fileURLToPath(import.meta.url));
+        const workerPath = path.join(here, 'og-render-worker.mjs');
+
+        const writeResult = (job: RenderJob, png: Buffer) => {
+          try {
+            mkdirSync(path.dirname(job.cachePath), { recursive: true });
+            mkdirSync(path.dirname(job.outPath), { recursive: true });
+            writeFileSync(job.cachePath, png);
+            writeFileSync(job.outPath, png);
+            stats.rendered += 1;
+          } catch (err) {
+            stats.errors += 1;
+            if (stats.errors <= 5) {
+              // eslint-disable-next-line no-console
+              console.warn(
+                `[job-og-images] write failed for ${job.slug}: ${(err as Error).message}`,
+              );
+            }
+          }
+        };
+
+        await new Promise<void>((resolve) => {
+          let nextIdx = 0;
+          let liveWorkers = workerCount;
+
+          const dispatch = (worker: Worker) => {
+            if (nextIdx >= renderQueue.length) {
+              worker.postMessage('shutdown');
+              return false;
+            }
+            const job = renderQueue[nextIdx];
+            nextIdx += 1;
+            // Tag worker → in-flight job via WeakMap-equivalent on the
+            // worker instance. Simpler: store on a property.
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (worker as any).__inflight = job;
+            worker.postMessage({ jobId: job.jobId, tree: job.tree });
+            return true;
+          };
+
+          for (let i = 0; i < workerCount; i++) {
+            const worker = new Worker(workerPath, {
+              workerData: {
+                fontRegular: fontPair.regular,
+                fontBold: fontPair.bold,
+                brandBgFrom: BRAND_BG_FROM,
+                width: PNG_WIDTH,
+                height: PNG_HEIGHT,
+              },
+            });
+
+            worker.on(
+              'message',
+              (
+                msg:
+                  | { jobId: string; ok: true; png: Buffer }
+                  | { jobId: string; ok: false; error: string },
+              ) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const job: RenderJob = (worker as any).__inflight;
+                if (msg.ok === true) {
+                  writeResult(job, msg.png);
+                } else {
+                  stats.errors += 1;
+                  if (stats.errors <= 5) {
+                    // eslint-disable-next-line no-console
+                    console.warn(
+                      `[job-og-images] render failed for ${job.slug}: ${msg.error}`,
+                    );
+                  }
+                }
+                if (!dispatch(worker)) {
+                  worker.terminate();
+                }
+              },
+            );
+            worker.on('error', (err) => {
+              stats.errors += 1;
+              // eslint-disable-next-line no-console
+              console.warn(`[job-og-images] worker error: ${err.message}`);
+            });
+            worker.on('exit', () => {
+              liveWorkers -= 1;
+              if (liveWorkers === 0) resolve();
+            });
+
+            // Prime the worker with its first job.
+            dispatch(worker);
+          }
+        });
+      }
+
       const elapsedMs = Date.now() - startMs;
       // eslint-disable-next-line no-console
       console.log(

@@ -74,6 +74,11 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # GitHub free runners cap at 360 min — match it explicitly so cold-start
+    # builds (e.g. first run with a heavy plugin like jobOgImagesPlugin
+    # rendering ~2100 PNGs from scratch) don't fail on the default 6 h
+    # ceiling and the failure mode is obvious in the logs if it happens.
+    timeout-minutes: 360
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
