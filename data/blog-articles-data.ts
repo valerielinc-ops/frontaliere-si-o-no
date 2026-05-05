@@ -20081,4 +20081,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'a13-lumino-san-vittore-compensazione-ambientale',
+ category: 'novita',
+ date: '2026-05-05T23:32:13.422Z',
+ image: '/images/blog/a13-lumino-san-vittore-compensazione-ambientale.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

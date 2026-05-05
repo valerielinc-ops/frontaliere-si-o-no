@@ -6237,6 +6237,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.udc-sostenibilita-lavoro-ticino-2026.title': 'UDC: «Les travailleurs tessinois ne seront pas sacrifiés»',
     'blog.article.udc-sostenibilita-lavoro-ticino-2026.excerpt': 'Le comité cantonal UDC recommande le oui à l\'initiative «Non à une Suisse de 10 millions» et critique la libre circulation.',
     'blog.article.udc-sostenibilita-lavoro-ticino-2026.imageAlt': 'Vue aérienne de Bellinzona avec Castelgrande et les Alpes en arrière-plan',
+    'blog.article.a13-lumino-san-vittore-compensazione-ambientale.title': 'A13 Lumino-San Vittore : visite des mesures compensatoires',
+    'blog.article.a13-lumino-san-vittore-compensazione-ambientale.excerpt': 'Samedi 9 mai 2026, visite guidée des mesures compensatoires environnementales le long de l\'A13 entre Lumino et San Vittore.',
+    'blog.article.a13-lumino-san-vittore-compensazione-ambientale.imageAlt': 'Vue aérienne de l\'autoroute A13 près de Lumino et San Vittore dans le canton du Tessin, Suisse, montrant les travaux de compensation environnementale.',
 };
 
 export default blogMetaFr;

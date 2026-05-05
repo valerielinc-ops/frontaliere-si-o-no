@@ -6237,6 +6237,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.udc-sostenibilita-lavoro-ticino-2026.title': 'UDC: «I lavoratori ticinesi non saranno sacrificati»',
     'blog.article.udc-sostenibilita-lavoro-ticino-2026.excerpt': 'Il Comitato cantonale UDC raccomanda il sì all\'iniziativa «No a una Svizzera da 10 milioni» e critica la libera circolazione.',
     'blog.article.udc-sostenibilita-lavoro-ticino-2026.imageAlt': 'Vista aerea di Bellinzona con il Castelgrande e le Alpi sullo sfondo',
+    'blog.article.a13-lumino-san-vittore-compensazione-ambientale.title': 'A13 Lumino-San Vittore: porte aperte alla compensazione ambientale',
+    'blog.article.a13-lumino-san-vittore-compensazione-ambientale.excerpt': 'Sabato 9 maggio 2026, visita guidata alle opere di compensazione ambientale lungo l\'A13 tra Lumino e San Vittore.',
+    'blog.article.a13-lumino-san-vittore-compensazione-ambientale.imageAlt': 'Vista aerea dell\'autostrada A13 vicino a Lumino e San Vittore in Ticino, Svizzera, che mostra i lavori di compensazione ambientale.',
 };
 
 export default blogMetaIt;

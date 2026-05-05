@@ -3321,6 +3321,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tajani-parmelin-crans-montana-2026': { name: 'Novità', path: '/articoli-frontaliere/tajani-parmelin-crans-montana-2026', parent: 'blog' },
     'blog-carburante-ticino-guerra-2026': { name: 'Carburante in Ticino', path: '/articoli-frontaliere/carburante-ticino-guerra-2026', parent: 'blog' },
     'blog-udc-sostenibilita-lavoro-ticino-2026': { name: 'UDC sostenibilità', path: '/articoli-frontaliere/udc-sostenibilita-lavoro-ticino-2026', parent: 'blog' },
+    'blog-a13-lumino-san-vittore-compensazione-ambientale': { name: 'Novità', path: '/articoli-frontaliere/a13-lumino-san-vittore-compensazione-ambientale', parent: 'blog' },
  };
 
  const info = sectionNames[section];

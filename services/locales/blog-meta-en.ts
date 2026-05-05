@@ -6236,6 +6236,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.udc-sostenibilita-lavoro-ticino-2026.title': 'UDC: \'Ticino workers won\'t be sacrificed\'',
     'blog.article.udc-sostenibilita-lavoro-ticino-2026.excerpt': 'The UDC cantonal committee recommends a yes to the initiative \'No to a Switzerland of 10 million\' and criticizes free movement.',
     'blog.article.udc-sostenibilita-lavoro-ticino-2026.imageAlt': 'Aerial view of Bellinzona with Castelgrande and the Alps in the background',
+    'blog.article.a13-lumino-san-vittore-compensazione-ambientale.title': 'A13 Lumino-San Vittore: open day for environmental compensation',
+    'blog.article.a13-lumino-san-vittore-compensazione-ambientale.excerpt': 'On Saturday, May 9, 2026, guided tours of the environmental compensation works along the A13 between Lumino and San Vittore.',
+    'blog.article.a13-lumino-san-vittore-compensazione-ambientale.imageAlt': 'Aerial view of the A13 highway near Lumino and San Vittore in Ticino, Switzerland, showcasing environmental compensation works.',
 };
 
 export default blogMetaEn;
