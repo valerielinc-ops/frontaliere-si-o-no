@@ -5948,6 +5948,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani.title': 'Blackdamp: Erinnerung, Opfer und Auswanderung',
     'blog.article.blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani.excerpt': 'Der neue historische Roman von Lucia Tiziani untersucht die italienische Auswanderung und das Opfer von Ferdinando Tiziani.',
     'blog.article.blackdamp-memoria-sacrificio-ed-emigrazione-nuovo-romanzo-storico-lucia-tiziani.imageAlt': 'Lugano aus dem See',
+    'blog.article.incidente-a8-castellanza-busto-arsizio-2026.title': 'Unfall auf der A8 zwischen Castellanza und Busto Arsizio: Stau Richtung Varese',
+    'blog.article.incidente-a8-castellanza-busto-arsizio-2026.excerpt': 'Ein Unfall auf der A8 zwischen Castellanza und Busto Arsizio verursacht Staus von bis zu 4 km Richtung Varese. Zwei Verletzte wurden vom Rettungsdienst versorgt.',
+    'blog.article.incidente-a8-castellanza-busto-arsizio-2026.imageAlt': 'Autobahn A8 mit starkem Verkehr, Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

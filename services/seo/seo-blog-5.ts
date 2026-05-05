@@ -17135,6 +17135,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-a8-castellanza-busto-arsizio-2026': {
+    title: 'Incidente in A8 tra Castellanza e Busto Arsizio: lunghe code verso Varese',
+    description: 'Incidente in A8 tra Castellanza e Busto Arsizio causa code fino a 4 km verso Varese. Due feriti soccorsi dal 118. Impatto sui frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, castellanza, busto, arsizio',
+    ogTitle: 'Incidente in A8 tra Castellanza e Busto Arsizio: lunghe code verso Varese',
+    ogDescription: 'Incidente in A8 tra Castellanza e Busto Arsizio causa code fino a 4 km verso Varese. Due feriti soccorsi dal 118. Impatto sui frontalieri.',
+    canonicalPath: '/articoli-frontaliere/incidente-a8-castellanza-busto-arsizio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente in A8 tra Castellanza e Busto Arsizio: lunghe code verso Varese",
+      "description": "Incidente in A8 tra Castellanza e Busto Arsizio causa code fino a 4 km verso Varese. Due feriti soccorsi dal 118. Impatto sui frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-a8-castellanza-busto-arsizio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A8 con traffico intenso, vista dal lago di Lugano"
+      },
+      "datePublished": "2026-05-05T00:37:30+00:00",
+      "dateModified": "2026-05-05T00:37:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-a8-castellanza-busto-arsizio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
