@@ -17815,6 +17815,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cliche-politici-giovani-ticino': {
+    title: 'Cliché politici: cosa pensano i giovani di destra e sinistra',
+    description: 'I giovani del Ticino hanno idee ben precise su cosa rappresenti la destra e la sinistra, dai vestiti alle abitudini quotidiane. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cliché, politici, cosa, pensano',
+    ogTitle: 'Cliché politici: cosa pensano i giovani di destra e sinistra',
+    ogDescription: 'I giovani del Ticino hanno idee ben precise su cosa rappresenti la destra e la sinistra, dai vestiti alle abitudini quotidiane.',
+    canonicalPath: '/articoli-frontaliere/cliche-politici-giovani-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cliché politici: cosa pensano i giovani di destra e sinistra",
+      "description": "I giovani del Ticino hanno idee ben precise su cosa rappresenti la destra e la sinistra, dai vestiti alle abitudini quotidiane. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cliche-politici-giovani-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani discutono di politica in una piazza del Ticino con vista sul Lago Maggiore e le Alpi"
+      },
+      "datePublished": "2026-05-05T06:06:44+00:00",
+      "dateModified": "2026-05-05T06:06:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cliche-politici-giovani-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

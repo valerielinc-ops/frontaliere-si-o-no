@@ -19397,4 +19397,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cliche-politici-giovani-ticino',
+ category: 'novita',
+ date: '2026-05-05T06:06:44.293Z',
+ image: '/images/blog/cliche-politici-giovani-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

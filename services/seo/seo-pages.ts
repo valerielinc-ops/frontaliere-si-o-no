@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2055,
+ "numberOfItems": 2056,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6698,7 +6698,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2052, "name": "Gianni Morandi a Locarno: concerto al Palexpo F...", "url": `${BASE_URL}/articoli-frontaliere/gianni-morandi-locarno-2026` },
           { "@type": "ListItem", "position": 2053, "name": "Tensioni geopolitiche spingono verso l'elettric...", "url": `${BASE_URL}/articoli-frontaliere/tensioni-geopolitiche-elettrico-ticino` },
           { "@type": "ListItem", "position": 2054, "name": "Crans-Montana, disgelo tra Italia e Svizzera", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-disgelo-italia-svizzera` },
-          { "@type": "ListItem", "position": 2055, "name": "Thun vince il campionato: la lezione di program...", "url": `${BASE_URL}/articoli-frontaliere/thun-vince-calcio-programmazione` }
+          { "@type": "ListItem", "position": 2055, "name": "Thun vince il campionato: la lezione di program...", "url": `${BASE_URL}/articoli-frontaliere/thun-vince-calcio-programmazione` },
+          { "@type": "ListItem", "position": 2056, "name": "Cliché politici: cosa pensano i giovani di dest...", "url": `${BASE_URL}/articoli-frontaliere/cliche-politici-giovani-ticino` }
  ]
  },
  {

@@ -6009,6 +6009,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.thun-vince-calcio-programmazione.title': 'Thun vince il campionato: la lezione di programmazione per il calcio svizzero',
     'blog.article.thun-vince-calcio-programmazione.excerpt': 'Livio Bordoli commenta la vittoria del Thun: «Hanno dato concretezza alla frase \'lasciamo lavorare l’allenatore\'»',
     'blog.article.thun-vince-calcio-programmazione.imageAlt': 'Stadio del Thun durante una partita di calcio, con tifosi festanti e giocatori in campo',
+    'blog.article.cliche-politici-giovani-ticino.title': 'Cliché politici: cosa pensano i giovani di destra e sinistra',
+    'blog.article.cliche-politici-giovani-ticino.excerpt': 'I giovani del Ticino hanno idee ben precise su cosa rappresenti la destra e la sinistra, dai vestiti alle abitudini quotidiane.',
+    'blog.article.cliche-politici-giovani-ticino.imageAlt': 'Giovani discutono di politica in una piazza del Ticino con vista sul Lago Maggiore e le Alpi',
 };
 
 export default blogMetaIt;

@@ -6008,6 +6008,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.thun-vince-calcio-programmazione.title': 'Thun wins the championship: a programming lesson for Swiss football',
     'blog.article.thun-vince-calcio-programmazione.excerpt': 'Livio Bordoli comments on Thun\'s victory: \'They made the phrase \'let the coach work\' concrete\'',
     'blog.article.thun-vince-calcio-programmazione.imageAlt': 'Thun stadium during a football match, with cheering fans and players celebrating a goal',
+    'blog.article.cliche-politici-giovani-ticino.title': 'Political clichés: what young people think of left and right',
+    'blog.article.cliche-politici-giovani-ticino.excerpt': 'Young people in Ticino have clear ideas about what the right and left represent, from clothing to daily habits.',
+    'blog.article.cliche-politici-giovani-ticino.imageAlt': 'Young people discussing politics in a Ticino square with a view of Lake Maggiore and the Alps',
 };
 
 export default blogMetaEn;
