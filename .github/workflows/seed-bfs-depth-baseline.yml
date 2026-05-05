@@ -91,11 +91,23 @@ jobs:
           echo "==== baseline preview ===="
           head -50 data/bfs-depth-baseline.json
 
-      - name: Upload baseline JSON
+      - name: Generate diagnostic JSON (per-sitemap top 30 offenders)
+        run: |
+          node scripts/audit-bfs-depth.mjs \
+            --max-depth=${{ inputs.max_depth }} \
+            --limit=30 \
+            --json > /tmp/bfs-depth-diagnostic.json
+          echo ""
+          echo "==== diagnostic preview (first 80 lines) ===="
+          head -80 /tmp/bfs-depth-diagnostic.json
+
+      - name: Upload baseline + diagnostic JSON
         uses: actions/upload-artifact@v7
         with:
           name: bfs-depth-baseline-${{ github.run_id }}
-          path: data/bfs-depth-baseline.json
+          path: |
+            data/bfs-depth-baseline.json
+            /tmp/bfs-depth-diagnostic.json
           retention-days: 14
           if-no-files-found: error
 
