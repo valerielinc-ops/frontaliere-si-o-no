@@ -6132,6 +6132,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.title': 'Dipendenti statali Ticino: dati soddisfazione 2026',
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.excerpt': 'Il Comitato ErreDiPi contesta i dati del sondaggio ISMAT 2025 sulla soddisfazione dei dipendenti cantonali',
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.imageAlt': 'Interno del LAC di Lugano durante un concerto',
+    'blog.article.fitness-ticino-record-2026.title': 'Fitness in Ticino: record 2026, 1 adulto su 5 iscritto',
+    'blog.article.fitness-ticino-record-2026.excerpt': 'Nel 2025, 1,45 milioni di svizzeri iscritti a centri fitness. Ticino 6° per densità palestre. Giovani 20-29 anni la fascia più attiva.',
+    'blog.article.fitness-ticino-record-2026.imageAlt': 'Vista aerea del Lago di Lugano con appassionati di fitness che si allenano lungo la riva, Ticino, Svizzera.',
 };
 
 export default blogMetaIt;

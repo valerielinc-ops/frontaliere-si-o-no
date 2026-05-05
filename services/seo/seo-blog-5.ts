@@ -18734,6 +18734,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fitness-ticino-record-2026': {
+    title: 'Fitness in Ticino: record 2026, 1 adulto su 5 iscritto',
+    description: 'Nel 2025, 1,45 milioni di svizzeri iscritti a centri fitness. Ticino 6° per densità palestre. Giovani 20-29 anni la fascia più attiva. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, fitness, record, adulto, iscritto',
+    ogTitle: 'Fitness in Ticino: record 2026, 1 adulto su 5 iscritto',
+    ogDescription: 'Nel 2025, 1,45 milioni di svizzeri iscritti a centri fitness. Ticino 6° per densità palestre. Giovani 20-29 anni la fascia più attiva.',
+    canonicalPath: '/articoli-frontaliere/fitness-ticino-record-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fitness in Ticino: record 2026, 1 adulto su 5 iscritto",
+      "description": "Nel 2025, 1,45 milioni di svizzeri iscritti a centri fitness. Ticino 6° per densità palestre. Giovani 20-29 anni la fascia più attiva. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/fitness-ticino-record-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con appassionati di fitness che si allenano lungo la riva, Ticino, Svizzera."
+      },
+      "datePublished": "2026-05-05T12:18:25+00:00",
+      "dateModified": "2026-05-05T12:18:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fitness-ticino-record-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

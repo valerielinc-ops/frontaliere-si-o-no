@@ -6131,6 +6131,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.title': 'Ticino public sector staff: 2026 satisfaction data',
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.excerpt': 'The ErreDiPi committee disputes the 2025 ISMAT survey data on cantonal employees\' satisfaction',
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.imageAlt': 'Interior of LAC Lugano during a concert',
+    'blog.article.fitness-ticino-record-2026.title': 'Fitness in Ticino: 1 in 5 adults signed up by 2026',
+    'blog.article.fitness-ticino-record-2026.excerpt': 'In 2025, 1.45 million Swiss people will be members of fitness centers. Ticino ranks 6th for gym density. The 20-29 age group is the most active.',
+    'blog.article.fitness-ticino-record-2026.imageAlt': 'Aerial view of Lake Lugano with fitness enthusiasts exercising along the shore, Ticino, Switzerland.',
 };
 
 export default blogMetaEn;

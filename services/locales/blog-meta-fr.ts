@@ -6132,6 +6132,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.title': 'Employés du canton du Tessin : données satisfaction 2026',
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.excerpt': 'Le comité ErreDiPi conteste les données de l\'enquête ISMAT 2025 sur la satisfaction des employés cantonaux',
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.imageAlt': 'Intérieur du LAC de Lugano pendant un concert',
+    'blog.article.fitness-ticino-record-2026.title': 'Fitness au Tessin : record 2026, 1 adulte sur 5 inscrit',
+    'blog.article.fitness-ticino-record-2026.excerpt': 'En 2025, 1,45 million de Suisses inscrits dans des centres de fitness. Le Tessin est 6e pour la densité de salles de sport. Les jeunes de 20 à 29 ans sont la tranche d\'âge la plus active.',
+    'blog.article.fitness-ticino-record-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des passionnés de fitness qui s\'entraînent le long de la rive, Tessin, Suisse.',
 };
 
 export default blogMetaFr;

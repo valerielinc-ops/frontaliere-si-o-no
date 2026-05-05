@@ -6131,6 +6131,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.title': 'Tessin-Angestellte: Zufriedenheitsdaten 2026',
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.excerpt': 'Der Komitee ErreDiPi beanstandet die ISMAT-Umfragedaten 2025 zur Zufriedenheit der kantonalen Angestellten',
     'blog.article.dipendenti-statali-ticino-soddisfazione-2026.imageAlt': 'Innenansicht des LAC Lugano während eines Konzerts',
+    'blog.article.fitness-ticino-record-2026.title': 'Fitness im Tessin: Rekord 2026, 1 Erwachsener auf 5 angemeldet',
+    'blog.article.fitness-ticino-record-2026.excerpt': 'Im Jahr 2025 sind 1,45 Millionen Schweizer in Fitnesszentren angemeldet. Das Tessin liegt auf Platz 6 bei der Dichte der Fitnessstudios. Die Altersgruppe der 20- bis 29-Jährigen ist die aktivste.',
+    'blog.article.fitness-ticino-record-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Fitnessbegeisterten, die sich am Ufer aufhalten, Tessin, Schweiz.',
 };
 
 export default blogMetaDe;

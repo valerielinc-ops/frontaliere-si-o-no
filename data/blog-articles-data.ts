@@ -19766,4 +19766,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fitness-ticino-record-2026',
+ category: 'novita',
+ date: '2026-05-05T12:18:25.250Z',
+ image: '/images/blog/fitness-ticino-record-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
