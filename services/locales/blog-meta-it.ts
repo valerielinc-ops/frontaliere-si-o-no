@@ -6012,6 +6012,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cliche-politici-giovani-ticino.title': 'Cliché politici: cosa pensano i giovani di destra e sinistra',
     'blog.article.cliche-politici-giovani-ticino.excerpt': 'I giovani del Ticino hanno idee ben precise su cosa rappresenti la destra e la sinistra, dai vestiti alle abitudini quotidiane.',
     'blog.article.cliche-politici-giovani-ticino.imageAlt': 'Giovani discutono di politica in una piazza del Ticino con vista sul Lago Maggiore e le Alpi',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.title': 'Lugano ingaggia Olle Lycksell fino al 2029',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.excerpt': 'Il centro-ala svedese arriva in Ticino con un contratto triennale. Ecco cosa cambia per i tifosi bianconeri',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.imageAlt': 'Stadio del Lugano Hockey Club con pista di ghiaccio e giocatori',
 };
 
 export default blogMetaIt;

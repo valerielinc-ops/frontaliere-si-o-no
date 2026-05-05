@@ -17849,6 +17849,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-ingaggia-olle-lycksell-2026': {
+    title: 'Lugano ingaggia Olle Lycksell fino al 2029 | Frontaliere Ticino',
+    description: 'Il centro-ala svedese firma con l\'HC Lugano un contratto triennale. Ecco cosa cambia per i tifosi bianconeri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, ingaggia, olle, lycksell',
+    ogTitle: 'Lugano ingaggia Olle Lycksell fino al 2029',
+    ogDescription: 'Il centro-ala svedese firma con l\'HC Lugano un contratto triennale. Ecco cosa cambia per i tifosi bianconeri',
+    canonicalPath: '/articoli-frontaliere/lugano-ingaggia-olle-lycksell-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano ingaggia Olle Lycksell fino al 2029",
+      "description": "Il centro-ala svedese firma con l'HC Lugano un contratto triennale. Ecco cosa cambia per i tifosi bianconeri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-ingaggia-olle-lycksell-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio del Lugano Hockey Club con pista di ghiaccio e giocatori"
+      },
+      "datePublished": "2026-05-05T06:15:29+00:00",
+      "dateModified": "2026-05-05T06:15:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-ingaggia-olle-lycksell-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

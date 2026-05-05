@@ -6012,6 +6012,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cliche-politici-giovani-ticino.title': 'Clichés politiques : les jeunes de droite et de gauche',
     'blog.article.cliche-politici-giovani-ticino.excerpt': 'Les jeunes du Tessin ont des idées bien précises sur ce que représentent la droite et la gauche, des vêtements aux habitudes quotidiennes.',
     'blog.article.cliche-politici-giovani-ticino.imageAlt': 'Jeunes gens discutant de politique dans une place du Tessin avec vue sur le Lac Majeur et les Alpes',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.title': 'Lugano engage Lycksell jusqu\'en 2029',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.excerpt': 'L\'ailier suédois arrive en Suisse avec un contrat de trois ans. Voici ce qui change pour les supporters bianconeri.',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.imageAlt': 'Stade du HC Lugano avec patinoire et joueurs',
 };
 
 export default blogMetaFr;

@@ -3246,6 +3246,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-disgelo-italia-svizzera': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-disgelo-italia-svizzera', parent: 'blog' },
     'blog-thun-vince-calcio-programmazione': { name: 'Novità', path: '/articoli-frontaliere/thun-vince-calcio-programmazione', parent: 'blog' },
     'blog-cliche-politici-giovani-ticino': { name: 'Cliché politici', path: '/articoli-frontaliere/cliche-politici-giovani-ticino', parent: 'blog' },
+    'blog-lugano-ingaggia-olle-lycksell-2026': { name: 'Novità Lugano', path: '/articoli-frontaliere/lugano-ingaggia-olle-lycksell-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

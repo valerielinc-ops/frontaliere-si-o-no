@@ -6011,6 +6011,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cliche-politici-giovani-ticino.title': 'Politische Klischees: Was junge Linke und Rechte denken',
     'blog.article.cliche-politici-giovani-ticino.excerpt': 'Die Jugendlichen aus dem Tessin haben klare Vorstellungen davon, was die Rechte und die Linke ausmacht – von der Kleidung bis zu den täglichen Gewohnheiten.',
     'blog.article.cliche-politici-giovani-ticino.imageAlt': 'Junge Menschen diskutieren über Politik in einem Platz im Tessin mit Blick auf den Lago Maggiore und die Alpen',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.title': 'Lugano verpflichtet Lycksell bis 2029',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.excerpt': 'Der schwedische Flügelstürmer kommt in den Tessin mit einem Dreijahresvertrag. Hier ist, was sich für die Bianconeri-Fans ändert',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.imageAlt': 'Lugano Hockey Club Stadion mit Eisbahn und Spielern',
 };
 
 export default blogMetaDe;

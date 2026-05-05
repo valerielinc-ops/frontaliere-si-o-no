@@ -6011,6 +6011,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cliche-politici-giovani-ticino.title': 'Political clichés: what young people think of left and right',
     'blog.article.cliche-politici-giovani-ticino.excerpt': 'Young people in Ticino have clear ideas about what the right and left represent, from clothing to daily habits.',
     'blog.article.cliche-politici-giovani-ticino.imageAlt': 'Young people discussing politics in a Ticino square with a view of Lake Maggiore and the Alps',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.title': 'Lugano signs Olle Lycksell until 2029',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.excerpt': 'The Swedish winger joins Ticino with a three-year contract. Here\'s what changes for the Bianconeri fans',
+    'blog.article.lugano-ingaggia-olle-lycksell-2026.imageAlt': 'Lugano Hockey Club stadium with ice rink and players',
 };
 
 export default blogMetaEn;
