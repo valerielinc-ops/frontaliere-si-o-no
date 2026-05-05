@@ -336,21 +336,19 @@ jobs:
           # by the chain (~10-12 min).
           (
             set +e
-            for variant in ratio heavy light; do
-              logfile="/tmp/g-dist-multi-${variant}.log"
-              start=$(date +%s.%N)
-              env AUDIT_DIST_MULTI_GROUP="$variant" npm run audit:dist-multi \
-                > "$logfile" 2>&1
-              rc=$?
-              end=$(date +%s.%N)
-              awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"audit:dist-multi-${variant}\", $end-$start, $rc}" \
-                >> /tmp/post-build-timings.txt
-              if [ $rc -ne 0 ]; then
-                echo "audit:dist-multi-${variant} $logfile" >> /tmp/post-build-failures.txt
-              fi
-            done
-            # All other dist-walking audits — same RSS profile, same OOM
-            # behaviour when concurrent with the chain. Serialize them all.
+            # NOTE: We DO NOT run `audit:dist-multi` (ratio/heavy/light)
+            # aggregators here. Each aggregator runs 3-5 sub-audits in a
+            # SINGLE Node process while walking 132k HTML files; that combined
+            # working set blows past 4 GB even with NODE_OPTIONS heap cap,
+            # consistently OOM-killing dist-multi-light at rc=134
+            # (runs 25400905401, 25402597503, 25404549152, 25406916097).
+            # Every sub-audit has a standalone equivalent
+            # (text-html-ratio, page-weight, h1-title-duplicates,
+            # content-duplicates, title-length, title-uniqueness, hreflang)
+            # already in this chain or the pool below — running them as
+            # separate Node processes lets V8 release memory between audits
+            # and avoids the 5-in-1 RSS spike. Wall time is comparable
+            # because the OS page cache stays hot across walkers.
             for chain_step in \
               "audit:text-html-ratio|/tmp/g10.log|npm run audit:text-html-ratio" \
               "audit:page-weight|/tmp/g12.log|npm run audit:page-weight" \
