@@ -1,21 +1,21 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-05-05T11:30:01.036Z",
+  "generatedAt": "2026-05-05T22:37:58.173Z",
   "total": 1,
   "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25311,
-  "avgDurationMs": 25311,
+  "durationMs": 25053,
+  "avgDurationMs": 25053,
   "durationHistory": [
-    25311
+    25053
   ],
   "newJobs": [
     {
       "id": "company-7uavcj",
-      "slug": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st",
+      "slug": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj",
       "company": "Omega Ltd.",
       "title": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZERMATT",
       "location": "Bahnhofstrasse 30a 3920 Zermatt (Valais) Schweiz Firmenadresse Omega AG Jakob-St",
@@ -31,14 +31,21 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-05-05T11:30:00.908Z",
       "firstSeenAt": "2026-05-05T11:30:00.908Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 59,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Lengnau",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 2,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
