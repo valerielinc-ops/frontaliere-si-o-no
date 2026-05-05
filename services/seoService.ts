@@ -3231,6 +3231,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mondiali-hockey-svizzera-2026': { name: 'Mondiali Hockey', path: '/articoli-frontaliere/mondiali-hockey-svizzera-2026', parent: 'blog' },
     'blog-comanorun-record-801-iscritti': { name: 'ComanoRun 2026', path: '/articoli-frontaliere/comanorun-record-801-iscritti', parent: 'blog' },
     'blog-comano-run-record-2026': { name: 'Comano Run', path: '/articoli-frontaliere/comano-run-record-2026', parent: 'blog' },
+    'blog-moria-pesci-berneck-2026': { name: 'Novità', path: '/articoli-frontaliere/moria-pesci-berneck-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

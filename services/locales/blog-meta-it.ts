@@ -5967,6 +5967,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comano-run-record-2026.title': 'Comano Run 2026: record di partecipanti e nuovo percorso',
     'blog.article.comano-run-record-2026.excerpt': 'Oltre 800 partecipanti alla sesta edizione della Comano Run, con nuovi record nel percorso e nelle categorie giovanili.',
     'blog.article.comano-run-record-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido, giornata di sole',
+    'blog.article.moria-pesci-berneck-2026.title': 'Moria di pesci a Berneck: liquame in torrente',
+    'blog.article.moria-pesci-berneck-2026.excerpt': 'Una ventina di pesci morti a causa di liquame in un torrente a Berneck, Canton San Gallo. L\'agricoltore responsabile sarà denunciato.',
+    'blog.article.moria-pesci-berneck-2026.imageAlt': 'Vista aerea di un torrente inquinato a Berneck, Canton San Gallo, con pesci morti galleggianti sulla superficie.',
 };
 
 export default blogMetaIt;

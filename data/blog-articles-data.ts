@@ -19271,4 +19271,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'moria-pesci-berneck-2026',
+ category: 'novita',
+ date: '2026-05-05T02:27:37.377Z',
+ image: '/images/blog/moria-pesci-berneck-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

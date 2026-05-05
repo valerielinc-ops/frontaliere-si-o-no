@@ -5966,6 +5966,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comano-run-record-2026.title': 'Comano Run 2026: record participants and new route',
     'blog.article.comano-run-record-2026.excerpt': 'Over 800 participants in the sixth edition of the Comano Run, with new records in the route and youth categories.',
     'blog.article.comano-run-record-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky, sunny day',
+    'blog.article.moria-pesci-berneck-2026.title': 'Fish die-off in Berneck: sewage in stream',
+    'blog.article.moria-pesci-berneck-2026.excerpt': 'About twenty fish died due to sewage in a stream in Berneck, Canton St. Gallen. The responsible farmer will be reported.',
+    'blog.article.moria-pesci-berneck-2026.imageAlt': 'Aerial view of a polluted stream in Berneck, Canton St. Gallen, with dead fish floating on the surface.',
 };
 
 export default blogMetaEn;
