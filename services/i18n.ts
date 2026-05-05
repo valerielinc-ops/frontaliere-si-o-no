@@ -329,6 +329,7 @@ export function t(key: string, paramsOrFallback?: string | Record<string, string
  translation = loadedLocales[currentLocale]?.[key] || itTranslations[key] || loadedLocales['it']?.[key];
  }
  if (!translation) translation = fallback ?? key;
+ if (typeof translation !== 'string') translation = fallback ?? key;
  if (!params) return translation;
  return Object.entries(params).reduce(
  (str, [k, v]) => str.replace(new RegExp(`\\{${k}\\}`, 'g'), String(v)),
