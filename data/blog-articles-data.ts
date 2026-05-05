@@ -19775,4 +19775,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'education-day-varese-studenti',
+ category: 'novita',
+ date: '2026-05-05T12:33:38.859Z',
+ image: '/images/blog/education-day-varese-studenti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

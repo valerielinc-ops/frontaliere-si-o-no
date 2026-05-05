@@ -3287,6 +3287,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bici-bellinzona-valli-strategia': { name: 'Novità', path: '/articoli-frontaliere/bici-bellinzona-valli-strategia', parent: 'blog' },
     'blog-dipendenti-statali-ticino-soddisfazione-2026': { name: 'Dipendenti statali Ticino', path: '/articoli-frontaliere/dipendenti-statali-ticino-soddisfazione-2026', parent: 'blog' },
     'blog-fitness-ticino-record-2026': { name: 'Fitness Ticino', path: '/articoli-frontaliere/fitness-ticino-record-2026', parent: 'blog' },
+    'blog-education-day-varese-studenti': { name: 'Education Day', path: '/articoli-frontaliere/education-day-varese-studenti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

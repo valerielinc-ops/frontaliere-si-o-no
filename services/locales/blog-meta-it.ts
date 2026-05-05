@@ -6135,6 +6135,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fitness-ticino-record-2026.title': 'Fitness in Ticino: record 2026, 1 adulto su 5 iscritto',
     'blog.article.fitness-ticino-record-2026.excerpt': 'Nel 2025, 1,45 milioni di svizzeri iscritti a centri fitness. Ticino 6° per densità palestre. Giovani 20-29 anni la fascia più attiva.',
     'blog.article.fitness-ticino-record-2026.imageAlt': 'Vista aerea del Lago di Lugano con appassionati di fitness che si allenano lungo la riva, Ticino, Svizzera.',
+    'blog.article.education-day-varese-studenti.title': 'Education Day: 300 studenti protagonisti a Varese',
+    'blog.article.education-day-varese-studenti.excerpt': 'Oltre 300 studenti delle scuole primarie e secondarie hanno partecipato alla terza edizione dell\'Education Day di Confindustria Varese.',
+    'blog.article.education-day-varese-studenti.imageAlt': 'Gruppo di studenti che presentano i loro progetti all\'evento Education Day a Varese',
 };
 
 export default blogMetaIt;

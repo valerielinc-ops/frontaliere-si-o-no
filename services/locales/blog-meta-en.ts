@@ -6134,6 +6134,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fitness-ticino-record-2026.title': 'Fitness in Ticino: 1 in 5 adults signed up by 2026',
     'blog.article.fitness-ticino-record-2026.excerpt': 'In 2025, 1.45 million Swiss people will be members of fitness centers. Ticino ranks 6th for gym density. The 20-29 age group is the most active.',
     'blog.article.fitness-ticino-record-2026.imageAlt': 'Aerial view of Lake Lugano with fitness enthusiasts exercising along the shore, Ticino, Switzerland.',
+    'blog.article.education-day-varese-studenti.title': 'Education Day: 300 students shine in Varese',
+    'blog.article.education-day-varese-studenti.excerpt': 'Over 300 primary and secondary school students participated in the third edition of Confindustria Varese\'s Education Day.',
+    'blog.article.education-day-varese-studenti.imageAlt': 'Group of students presenting their projects at the Education Day event in Varese',
 };
 
 export default blogMetaEn;

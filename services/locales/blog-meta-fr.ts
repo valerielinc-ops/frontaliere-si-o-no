@@ -6135,6 +6135,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fitness-ticino-record-2026.title': 'Fitness au Tessin : record 2026, 1 adulte sur 5 inscrit',
     'blog.article.fitness-ticino-record-2026.excerpt': 'En 2025, 1,45 million de Suisses inscrits dans des centres de fitness. Le Tessin est 6e pour la densité de salles de sport. Les jeunes de 20 à 29 ans sont la tranche d\'âge la plus active.',
     'blog.article.fitness-ticino-record-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des passionnés de fitness qui s\'entraînent le long de la rive, Tessin, Suisse.',
+    'blog.article.education-day-varese-studenti.title': 'Education Day : 300 élèves à Varèse',
+    'blog.article.education-day-varese-studenti.excerpt': 'Plus de 300 élèves des écoles primaires et secondaires ont participé à la troisième édition de l\'Education Day de Confindustria Varèse.',
+    'blog.article.education-day-varese-studenti.imageAlt': 'Groupe d\'élèves présentant leurs projets lors de l\'événement Education Day à Varese',
 };
 
 export default blogMetaFr;
