@@ -19076,6 +19076,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dipendenti-cantonali-soddisfazione-erre-dipi': {
+    title: 'Dipendenti cantonali in Ticino: ErreDiPi richiede analisi più approfondita',
+    description: 'Il comitato ErreDiPi analizza il rapporto sulla soddisfazione del personale cantonale, evidenziando limiti metodologici e temi critici come stress e',
+    keywords: 'frontalieri, ticino, svizzera, italia, dipendenti, cantonali, erredipi, richiede',
+    ogTitle: 'Dipendenti cantonali in Ticino: ErreDiPi richiede analisi più approfondita',
+    ogDescription: 'Il comitato ErreDiPi analizza il rapporto sulla soddisfazione del personale cantonale, evidenziando limiti metodologici e temi critici come stress e',
+    canonicalPath: '/articoli-frontaliere/dipendenti-cantonali-soddisfazione-erre-dipi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dipendenti cantonali in Ticino: ErreDiPi richiede analisi più approfondita",
+      "description": "Il comitato ErreDiPi analizza il rapporto sulla soddisfazione del personale cantonale, evidenziando limiti metodologici e temi critici come stress e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/dipendenti-cantonali-soddisfazione-erre-dipi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale di Bellinzona con vista sul Lago Maggiore"
+      },
+      "datePublished": "2026-05-05T18:48:42+00:00",
+      "dateModified": "2026-05-05T18:48:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dipendenti-cantonali-soddisfazione-erre-dipi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

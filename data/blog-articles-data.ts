@@ -19847,4 +19847,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dipendenti-cantonali-soddisfazione-erre-dipi',
+ category: 'pratico',
+ date: '2026-05-05T18:48:42.700Z',
+ image: '/images/blog/dipendenti-cantonali-soddisfazione-erre-dipi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

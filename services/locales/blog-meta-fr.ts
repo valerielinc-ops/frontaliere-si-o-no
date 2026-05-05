@@ -6159,6 +6159,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.title': 'Baroni (Assolavoro): Nouveau Ccnl, plus de welfare et services',
     'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.excerpt': 'Le nouveau Contrat Collectif National de Travail pour les travailleurs en intérim introduit des mesures innovantes en matière de welfare et services.',
     'blog.article.nuovo-ccnl-assolavoro-welfare-lavoratori.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.title': 'Employés cantonaux en Ticino: ErreDiPi demande une analyse plus approfondie',
+    'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.excerpt': 'Le comité ErreDiPi analyse le rapport sur la satisfaction du personnel cantonal, mettant en évidence des limites méthodologiques et des thèmes critiques comme le stress et la rémunération.',
+    'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.imageAlt': 'Office cantonal de Bellinzona avec vue sur le lac Majeur',
 };
 
 export default blogMetaFr;
