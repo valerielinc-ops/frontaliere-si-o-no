@@ -19684,6 +19684,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-spacciatore-arresto-frontalieri': {
+    title: 'Varese: spacciatore arrestato, lavoro serio perso',
+    description: 'Un giovane albanese è stato arrestato a Mendrisio con cocaina in auto. Un caso che coinvolge i frontalieri e le dinamiche del lavoro transfrontaliero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, spacciatore, arrestato, lavoro',
+    ogTitle: 'Varese: spacciatore arrestato, lavoro serio perso',
+    ogDescription: 'Un giovane albanese è stato arrestato a Mendrisio con cocaina in auto. Un caso che coinvolge i frontalieri e le dinamiche del lavoro transfrontaliero.',
+    canonicalPath: '/articoli-frontaliere/varese-spacciatore-arresto-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: spacciatore arrestato, lavoro serio perso",
+      "description": "Un giovane albanese è stato arrestato a Mendrisio con cocaina in auto. Un caso che coinvolge i frontalieri e le dinamiche del lavoro transfrontaliero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/varese-spacciatore-arresto-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una strada affollata a Varese, Italia, vicino al confine svizzero, con una miscela di elementi italiani e svizzeri."
+      },
+      "datePublished": "2026-05-05T22:31:51+00:00",
+      "dateModified": "2026-05-05T22:31:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-spacciatore-arresto-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

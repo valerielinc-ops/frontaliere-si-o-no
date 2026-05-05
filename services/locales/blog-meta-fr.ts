@@ -6207,6 +6207,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-casciago-varese-2026.title': 'Incendie à Casciago, Varèse : sous contrôle',
     'blog.article.incendio-casciago-varese-2026.excerpt': 'Un bâtiment prend feu à Casciago, Varèse. La situation est sous contrôle. Aucun blessé signalé.',
     'blog.article.incendio-casciago-varese-2026.imageAlt': 'Pompiers en action lors d\'un incendie dans un bâtiment à Casciago, Varèse',
+    'blog.article.varese-spacciatore-arresto-frontalieri.title': 'Varèse : un trafiquant arrêté, un emploi sérieux perdu',
+    'blog.article.varese-spacciatore-arresto-frontalieri.excerpt': 'Un jeune Albanais a été arrêté à Mendrisio avec de la cocaïne dans sa voiture. Un cas qui implique les travailleurs frontaliers et les dynamiques du travail transfrontalier.',
+    'blog.article.varese-spacciatore-arresto-frontalieri.imageAlt': 'Une rue animée à Varese, en Italie, près de la frontière suisse, avec un mélange d\'éléments italiens et suisses.',
 };
 
 export default blogMetaFr;

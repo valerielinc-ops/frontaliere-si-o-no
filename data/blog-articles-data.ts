@@ -19991,4 +19991,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-spacciatore-arresto-frontalieri',
+ category: 'novita',
+ date: '2026-05-05T22:31:50.966Z',
+ image: '/images/blog/varese-spacciatore-arresto-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

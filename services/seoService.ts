@@ -3311,6 +3311,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tragedia-braunwald-camminatore-disperso': { name: 'Novità', path: '/articoli-frontaliere/tragedia-braunwald-camminatore-disperso', parent: 'blog' },
     'blog-20mila-firme-autostrada-pedaggio': { name: 'Novità', path: '/articoli-frontaliere/20mila-firme-autostrada-pedaggio', parent: 'blog' },
     'blog-incendio-casciago-varese-2026': { name: 'Incendio Casciago', path: '/articoli-frontaliere/incendio-casciago-varese-2026', parent: 'blog' },
+    'blog-varese-spacciatore-arresto-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/varese-spacciatore-arresto-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

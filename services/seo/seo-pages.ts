@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2121,
+ "numberOfItems": 2122,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6763,7 +6763,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2118, "name": "Expat ticinese sventa truffa: «Hackerato, ma av...", "url": `${BASE_URL}/articoli-frontaliere/expat-ticino-sventa-truffa-hacker` },
           { "@type": "ListItem", "position": 2119, "name": "Tragedia a Braunwald: camminatore disperso dopo...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-braunwald-camminatore-disperso` },
           { "@type": "ListItem", "position": 2120, "name": "20mila firme contro l'autostrada a pagamento in...", "url": `${BASE_URL}/articoli-frontaliere/20mila-firme-autostrada-pedaggio` },
-          { "@type": "ListItem", "position": 2121, "name": "Incendio a Casciago, Varese: situazione sotto c...", "url": `${BASE_URL}/articoli-frontaliere/incendio-casciago-varese-2026` }
+          { "@type": "ListItem", "position": 2121, "name": "Incendio a Casciago, Varese: situazione sotto c...", "url": `${BASE_URL}/articoli-frontaliere/incendio-casciago-varese-2026` },
+          { "@type": "ListItem", "position": 2122, "name": "Varese: spacciatore arrestato, lavoro serio perso", "url": `${BASE_URL}/articoli-frontaliere/varese-spacciatore-arresto-frontalieri` }
  ]
  },
  {

@@ -6206,6 +6206,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-casciago-varese-2026.title': 'Brand in Casciago, Varese: Situation unter Kontrolle',
     'blog.article.incendio-casciago-varese-2026.excerpt': 'Ein Gebäude steht in Casciago, Varese, in Flammen. Die Situation ist unter Kontrolle. Keine Verletzten gemeldet.',
     'blog.article.incendio-casciago-varese-2026.imageAlt': 'Feuerwehrleute bei einem Gebäudebrand in Casciago, Varese',
+    'blog.article.varese-spacciatore-arresto-frontalieri.title': 'Varese: Dealer verhaftet, Job verloren',
+    'blog.article.varese-spacciatore-arresto-frontalieri.excerpt': 'Ein junger Albaner wurde in Mendrisio mit Kokain im Auto festgenommen. Ein Fall, der Grenzgänger und die Dynamik der grenzüberschreitenden Arbeit betrifft.',
+    'blog.article.varese-spacciatore-arresto-frontalieri.imageAlt': 'Eine belebte Straße in Varese, Italien, in der Nähe der Schweizer Grenze, mit einer Mischung aus italienischen und schweizerischen Elementen.',
 };
 
 export default blogMetaDe;
