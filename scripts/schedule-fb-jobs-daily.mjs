@@ -22,7 +22,7 @@
  * Env:
  *   FB_PAGE_ID, FB_PAGE_ACCESS_TOKEN — Graph API credentials (required for
  *     non-dry-run mode).
- *   FB_JOB_VOLUME=24|72|144  — daily post count, default 24.
+ *   FB_JOB_VOLUME=1|24|72|144  — daily post count, default 144 (one every 10 min).
  *   DRY_RUN=1                — log payloads, no API call.
  *
  * Soft-fail: every error path logs and `process.exit(0)`. The workflow's
@@ -498,8 +498,8 @@ export async function run(opts = {}) {
   const warn = opts.warn || console.warn;
 
   const dryRun = env.DRY_RUN === '1' || env.DRY_RUN === 'true';
-  const volumeRaw = Number(env.FB_JOB_VOLUME || 24);
-  const volume = VOLUME_MINUTES[volumeRaw] ? volumeRaw : 24;
+  const volumeRaw = Number(env.FB_JOB_VOLUME || 144);
+  const volume = VOLUME_MINUTES[volumeRaw] ? volumeRaw : 144;
   const pageId = env.FB_PAGE_ID;
   const token = env.FB_PAGE_ACCESS_TOKEN;
 

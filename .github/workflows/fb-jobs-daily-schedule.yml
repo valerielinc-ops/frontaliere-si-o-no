@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       volume:
-        description: 'Posts to schedule (1=smoke-test, 24/72/144=ramp tiers)'
+        description: 'Posts to schedule (1=smoke-test, 24/72/144 = 1/h, 1/20m, 1/10m)'
         required: false
-        default: '24'
+        default: '144'
         type: choice
         options: ['1', '24', '72', '144']
       dry_run:
