@@ -19478,4 +19478,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'internazionali-ticino-2026',
+ category: 'novita',
+ date: '2026-05-05T07:27:31.601Z',
+ image: '/images/blog/internazionali-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

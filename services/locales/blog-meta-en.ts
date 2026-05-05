@@ -6035,6 +6035,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-tunisino-denunciato-aggressione.title': 'Tunisian man injures himself after attacking a youth in Como',
     'blog.article.como-tunisino-denunciato-aggressione.excerpt': 'A Tunisian citizen attacked a young man in Como, injuring himself and ending up reported to local authorities.',
     'blog.article.como-tunisino-denunciato-aggressione.imageAlt': 'Police scene in Como after an assault',
+    'blog.article.internazionali-ticino-2026.title': 'Internazionali d\'Italia 2026: TV schedule and where to watch',
+    'blog.article.internazionali-ticino-2026.excerpt': 'The tennis tournament in Rome starts today. Here\'s the first day\'s schedule and where to watch it on TV',
+    'blog.article.internazionali-ticino-2026.imageAlt': 'Lake Lugano with a tennis court in the foreground, professional players in action, clear blue sky',
 };
 
 export default blogMetaEn;

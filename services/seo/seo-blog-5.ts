@@ -18121,6 +18121,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-internazionali-ticino-2026': {
+    title: 'Internazionali d\'Italia 2026: programma e dove vederli in tv',
+    description: 'Inizia oggi il torneo di tennis a Roma. Ecco il programma della prima giornata e dove seguirlo in tv. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, internazionali, programma, dove, vederli',
+    ogTitle: 'Internazionali d\'Italia 2026: programma e dove vederli in tv',
+    ogDescription: 'Inizia oggi il torneo di tennis a Roma. Ecco il programma della prima giornata e dove seguirlo in tv',
+    canonicalPath: '/articoli-frontaliere/internazionali-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Internazionali d'Italia 2026: programma e dove vederli in tv",
+      "description": "Inizia oggi il torneo di tennis a Roma. Ecco il programma della prima giornata e dove seguirlo in tv. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/internazionali-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un campo da tennis in primo piano, giocatori professionisti in azione, cielo azzurro limpido"
+      },
+      "datePublished": "2026-05-05T07:27:31+00:00",
+      "dateModified": "2026-05-05T07:27:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/internazionali-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

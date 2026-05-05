@@ -6036,6 +6036,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-tunisino-denunciato-aggressione.title': 'Como: tunisino aggredisce un giovane, si ferisce e si ritrova denunciato',
     'blog.article.como-tunisino-denunciato-aggressione.excerpt': 'Un cittadino tunisino ha aggredito un giovane a Como, ferendosi e finendo per essere denunciato dalle autorità locali.',
     'blog.article.como-tunisino-denunciato-aggressione.imageAlt': 'Scena di polizia a Como dopo un\'aggressione',
+    'blog.article.internazionali-ticino-2026.title': 'Internazionali d\'Italia 2026: programma e dove vederli in tv',
+    'blog.article.internazionali-ticino-2026.excerpt': 'Inizia oggi il torneo di tennis a Roma. Ecco il programma della prima giornata e dove seguirlo in tv',
+    'blog.article.internazionali-ticino-2026.imageAlt': 'Lago di Lugano con un campo da tennis in primo piano, giocatori professionisti in azione, cielo azzurro limpido',
 };
 
 export default blogMetaIt;

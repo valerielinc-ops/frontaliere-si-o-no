@@ -6035,6 +6035,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-tunisino-denunciato-aggressione.title': 'Tunesier greift Jugendlichen an und wird angezeigt',
     'blog.article.como-tunisino-denunciato-aggressione.excerpt': 'Ein tunesischer Staatsbürger hat in Como einen Jugendlichen angegriffen, sich verletzt und wurde schließlich von den örtlichen Behörden angezeigt.',
     'blog.article.como-tunisino-denunciato-aggressione.imageAlt': 'Polizeiszene in Como nach einem Angriff',
+    'blog.article.internazionali-ticino-2026.title': 'Internazionali d\'Italia 2026: Programm und TV-Übertragung',
+    'blog.article.internazionali-ticino-2026.excerpt': 'Heute beginnt das Tennisturnier in Rom. Hier ist das Programm für den ersten Tag und wo man es im Fernsehen verfolgen kann',
+    'blog.article.internazionali-ticino-2026.imageAlt': 'Luganersee mit einem Tennisplatz im Vordergrund, professionelle Spieler im Einsatz, klarer blauer Himmel',
 };
 
 export default blogMetaDe;

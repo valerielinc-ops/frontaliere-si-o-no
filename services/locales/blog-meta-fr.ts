@@ -6036,6 +6036,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-tunisino-denunciato-aggressione.title': 'Como : un Tunisien blesse un jeune et est dénoncé',
     'blog.article.como-tunisino-denunciato-aggressione.excerpt': 'Un citoyen tunisien a agressé un jeune à Côme, se blessant et finissant par être dénoncé par les autorités locales.',
     'blog.article.como-tunisino-denunciato-aggressione.imageAlt': 'Scène de police à Côme après une agression',
+    'blog.article.internazionali-ticino-2026.title': 'Internationaux d\'Italie 2026 : programme et diffusion TV',
+    'blog.article.internazionali-ticino-2026.excerpt': 'Le tournoi de tennis à Rome commence aujourd\'hui. Voici le programme de la première journée et où le suivre à la télévision.',
+    'blog.article.internazionali-ticino-2026.imageAlt': 'Lac de Lugano avec un court de tennis au premier plan, joueurs professionnels en action, ciel bleu clair',
 };
 
 export default blogMetaFr;

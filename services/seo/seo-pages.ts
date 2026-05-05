@@ -4667,7 +4667,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2064,
+ "numberOfItems": 2065,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6707,7 +6707,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2061, "name": "Mense scolastiche a prezzi popolari: studenti i...", "url": `${BASE_URL}/articoli-frontaliere/mense-scolastiche-ticino-prezzi-2026` },
           { "@type": "ListItem", "position": 2062, "name": "Inflazione in Svizzera: +0,6% ad aprile 2026", "url": `${BASE_URL}/articoli-frontaliere/inflazione-ticino-aprile-2026` },
           { "@type": "ListItem", "position": 2063, "name": "Pubblicità e impatto ambientale: il dibattito i...", "url": `${BASE_URL}/articoli-frontaliere/pubblicita-ambiente-amsterdam-svizzera` },
-          { "@type": "ListItem", "position": 2064, "name": "Como: tunisino aggredisce un giovane, si ferisc...", "url": `${BASE_URL}/articoli-frontaliere/como-tunisino-denunciato-aggressione` }
+          { "@type": "ListItem", "position": 2064, "name": "Como: tunisino aggredisce un giovane, si ferisc...", "url": `${BASE_URL}/articoli-frontaliere/como-tunisino-denunciato-aggressione` },
+          { "@type": "ListItem", "position": 2065, "name": "Internazionali d'Italia 2026: programma e dove ...", "url": `${BASE_URL}/articoli-frontaliere/internazionali-ticino-2026` }
  ]
  },
  {
