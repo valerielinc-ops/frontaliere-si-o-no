@@ -353,6 +353,61 @@ to `imageObjectLd()`; never strip the fields.
 
 ---
 
+# SEO content gate — BFS depth from `/`
+
+**Why it exists.** Real crawlers (Ahrefs, Googlebot) cap their crawl depth.
+A URL only reachable at BFS depth ≥ 5 from `/` is effectively orphan from
+their perspective even if our `audit:orphan-sitemap-pages` gate (which
+walks transitively through "next" pagination) accepts it. The May 2026
+Ahrefs audit caught 1,854 IT blog articles in this exact gap: linked from
+`/articoli-frontaliere/tutti/page-3..21/` chain, passing the existing
+gate, flagged orphan by Ahrefs.
+
+**Where it runs.** Two places:
+- Local: `npm run audit:max-bfs-depth` (after `npm run build`).
+- CI: `audit:max-bfs-depth` step in `.github/workflows/post-deploy-validation.yml`,
+  blocking deploy on regression.
+
+**The gate is a ratchet.** It compares the current dist/ per-sitemap
+"URLs at depth > MAX_DEPTH" count to `data/bfs-depth-baseline.json` and
+FAILS only when any sitemap's count goes UP. Improvements (count drops)
+are accepted but do NOT auto-rebaseline; run
+`npm run audit:max-bfs-depth:rebaseline` after a deliberate improvement
+and commit the new baseline together with the linking change.
+
+**MAX_DEPTH** is baked into the baseline. Default is 4 (depth 0=`/`,
+1=tab, 2=hub index, 3=archive page, 4=leaf URL — articles, jobs, etc.).
+Running with a different `--max-depth` than the baseline refuses to
+compare.
+
+**If the gate fails, here is the playbook:**
+
+1. Reproduce locally: `npm run build && npm run audit:max-bfs-depth`.
+   Stdout names which sitemap regressed and shows the deepest URLs.
+2. The cause is almost always:
+   - **Compact pagination ate the link graph**: the section index links
+     only `page-1, current-1, current, current+1, last` — pages 3..N-2
+     end up reachable only via chained "next" clicks (depth ≥ 5). Fix:
+     emit a full page navigator on the section index that links every
+     `page-N` directly. See commit `aa987d38f7` for the
+     `/articoli-frontaliere/` fix as a reference pattern.
+   - **Hub page lost a child-list section**: e.g. `/mercato-lavoro-ticino/`
+     stopped listing per-sector snapshot pages. Fix: add a child-list
+     `<section>` to the hub render function so each child page is at
+     depth 2 from `/`.
+3. Rebuild and rerun the audit. Once the regression is gone:
+   ```
+   npm run audit:max-bfs-depth:rebaseline
+   ```
+   Commit the updated `data/bfs-depth-baseline.json` together with the
+   linking change in the same PR.
+
+**Hard rule.** Per CLAUDE.md non-negotiable rule #5, **never** "fix" a
+deep URL by setting `noindex` without explicit approval. The default
+fix is to **add internal links** from a hub at depth ≤ MAX_DEPTH-1.
+
+---
+
 # Completion Checklist — Before Every PR
 
 - [ ] All tests pass: `npx vitest run`
@@ -365,6 +420,7 @@ to `imageObjectLd()`; never strip the fields.
 - [ ] If user-facing feature, new release entry in `WhatsNewModal.tsx`
 - [ ] Text-to-HTML ratio gate passes: `npm run audit:text-html-ratio` (see *SEO content gate* above for the playbook on regression)
 - [ ] ImageObject license-fields gate passes: `npm run audit:image-object-license` (zero tolerance — every ImageObject in JSON-LD must have `acquireLicensePage`, `copyrightNotice`, `license`, `creator`; route through `services/seo/imageObjectLd.ts`)
+- [ ] BFS-depth gate passes: `npm run audit:max-bfs-depth` (per-sitemap ratchet — every URL must be reachable from `/` at BFS depth ≤ 4 via `<a href>` chain. Fix regressions by adding internal links from a hub at depth ≤ 3, never noindex)
 
 ## Auto-push Rule
 

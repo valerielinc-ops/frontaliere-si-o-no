@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "generatedAt": "2026-05-05T00:00:00.000Z",
+  "maxDepth": 4,
+  "perSitemap": {},
+  "_comment": "Bootstrap placeholder. perSitemap is intentionally empty — the audit-bfs-depth.mjs gate will pass for every sitemap because the loop only flags sitemaps already present in the baseline (`if (!prev) continue`). This lets the gate ship enabled. After the first full production deploy lands, regenerate the baseline against a clean dist/ via `npm run audit:max-bfs-depth:rebaseline` and commit the populated JSON. From that point onward the ratchet is live: any sitemap whose atDepthGtMax goes UP fails the gate. Numbers must only DECREASE — per CLAUDE.md non-negotiable rule #5, orphans are fixed via internal links, never noindex."
+}
