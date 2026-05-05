@@ -3295,6 +3295,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-agenzia-lombardia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/lavoro-agenzia-lombardia-frontalieri', parent: 'blog' },
     'blog-condizioni-utilizzo-tvsvizzera': { name: 'Nuove regole TV Svizzera', path: '/articoli-frontaliere/condizioni-utilizzo-tvsvizzera', parent: 'blog' },
     'blog-nuovo-ccnl-assolavoro-welfare-lavoratori': { name: 'Novità', path: '/articoli-frontaliere/nuovo-ccnl-assolavoro-welfare-lavoratori', parent: 'blog' },
+    'blog-dipendenti-cantonali-soddisfazione-erre-dipi': { name: 'Dipendenti cantonali', path: '/articoli-frontaliere/dipendenti-cantonali-soddisfazione-erre-dipi', parent: 'blog' },
  };
 
  const info = sectionNames[section];
