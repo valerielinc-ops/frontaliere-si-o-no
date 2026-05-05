@@ -64,6 +64,8 @@ const {
   buildJobUrl,
   loadPosted,
   appendPosted,
+  loadPlaceIds,
+  lookupPlaceId,
   run,
 } = scheduler as unknown as {
   pickNextSlots: (
@@ -81,6 +83,11 @@ const {
   buildJobUrl: (job: JobLike) => string | null;
   loadPosted: (repoRoot: string) => PostedLedger;
   appendPosted: (repoRoot: string, entries: PostedEntry[]) => void;
+  loadPlaceIds: (repoRoot: string) => Record<string, string>;
+  lookupPlaceId: (
+    location: string | null | undefined,
+    placeIds: Record<string, string>,
+  ) => string | null;
   run: (opts: {
     env?: Record<string, string | undefined>;
     now?: Date;
@@ -644,6 +651,62 @@ describe('run() — DRY_RUN mode', () => {
     });
     expect(result.scheduled).toBe(0);
     expect(result.payloads).toEqual([]);
+  });
+});
+
+describe('loadPlaceIds + lookupPlaceId', () => {
+  it('returns {} when fb-place-ids.json is missing', () => {
+    const tmp = mkdtempSync(join(tmpdir(), 'fb-place-miss-'));
+    expect(loadPlaceIds(tmp)).toEqual({});
+  });
+
+  it('returns flat name → id map from valid file', () => {
+    const tmp = mkdtempSync(join(tmpdir(), 'fb-place-ok-'));
+    mkdirSync(join(tmp, 'data'), { recursive: true });
+    writeFileSync(
+      join(tmp, 'data', 'fb-place-ids.json'),
+      JSON.stringify({
+        schemaVersion: 1,
+        places: {
+          Lugano: { id: '106534719384213', name: 'Lugano, Switzerland' },
+          Bern: { id: '122996511681850', name: 'Bern, Switzerland' },
+          Broken: { name: 'no-id-key' },
+        },
+      }),
+    );
+    const map = loadPlaceIds(tmp);
+    expect(map.Lugano).toBe('106534719384213');
+    expect(map.Bern).toBe('122996511681850');
+    expect(map.Broken).toBeUndefined();
+  });
+
+  it('returns {} on malformed JSON, never throws', () => {
+    const tmp = mkdtempSync(join(tmpdir(), 'fb-place-bad-'));
+    mkdirSync(join(tmp, 'data'), { recursive: true });
+    writeFileSync(join(tmp, 'data', 'fb-place-ids.json'), '{not-json');
+    expect(loadPlaceIds(tmp)).toEqual({});
+  });
+
+  it('lookupPlaceId: exact match', () => {
+    const map = { Lugano: '106534719384213', Bern: '122996511681850' };
+    expect(lookupPlaceId('Lugano', map)).toBe('106534719384213');
+  });
+
+  it('lookupPlaceId: strips canton suffix " (XX)"', () => {
+    const map = { Aesch: '111', Erlenbach: '222' };
+    expect(lookupPlaceId('Aesch (BL)', map)).toBe('111');
+    expect(lookupPlaceId('Erlenbach (ZH)', map)).toBe('222');
+  });
+
+  it('lookupPlaceId: handles slash forms (e.g., "Biel/Bienne" → "Biel")', () => {
+    const map = { Biel: '999' };
+    expect(lookupPlaceId('Biel/Bienne', map)).toBe('999');
+  });
+
+  it('lookupPlaceId: returns null when no match', () => {
+    expect(lookupPlaceId('Nowhere', { Lugano: '1' })).toBeNull();
+    expect(lookupPlaceId(null, { Lugano: '1' })).toBeNull();
+    expect(lookupPlaceId('Lugano', null as unknown as Record<string, string>)).toBeNull();
   });
 });
 

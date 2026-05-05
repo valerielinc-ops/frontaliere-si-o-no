@@ -98,6 +98,10 @@ function postedPath(repoRoot) {
   return resolve(repoRoot, 'data', 'fb-posted-jobs.json');
 }
 
+function placeIdsPath(repoRoot) {
+  return resolve(repoRoot, 'data', 'fb-place-ids.json');
+}
+
 // ── Sanitization helpers ────────────────────────────────────
 
 function stripHtml(s) {
@@ -374,6 +378,48 @@ export function loadPosted(repoRoot) {
 }
 
 /**
+ * Load FB Place ID map from `data/fb-place-ids.json`. Returns `{}` on
+ * missing file or malformed JSON — never throws. Shape:
+ *   { schemaVersion, places: { "Lugano": { id, name }, ... } }
+ * Returned shape: flat `{ "Lugano": "106534719384213", ... }` for fast lookup.
+ */
+export function loadPlaceIds(repoRoot) {
+  const file = placeIdsPath(repoRoot);
+  try {
+    if (!existsSync(file)) return {};
+    const parsed = JSON.parse(readFileSync(file, 'utf-8'));
+    const places = parsed?.places && typeof parsed.places === 'object' ? parsed.places : null;
+    if (!places) return {};
+    const out = {};
+    for (const [name, value] of Object.entries(places)) {
+      if (value && typeof value.id === 'string') out[name] = value.id;
+    }
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * Resolve a job's `location` field to a FB Place ID.
+ * Tries exact match first, then strips a trailing parenthesized canton
+ * suffix (e.g. "Aesch (ZH)" → "Aesch"). Returns null when no match.
+ * Pure: takes the flat lookup map produced by `loadPlaceIds`.
+ */
+export function lookupPlaceId(location, placeIds) {
+  if (!location || !placeIds) return null;
+  const direct = placeIds[location];
+  if (direct) return direct;
+  // Strip trailing " (XX)" canton suffix
+  const stripped = location.replace(/\s*\([^)]*\)\s*$/, '').trim();
+  if (stripped !== location && placeIds[stripped]) return placeIds[stripped];
+  // Strip trailing "/<alt-name>" forms (e.g., "Biel/Bienne" -> "Biel")
+  const slashStripped = location.split('/')[0].trim();
+  if (slashStripped !== location && placeIds[slashStripped]) return placeIds[slashStripped];
+  return null;
+}
+
+/**
  * Append entries to the ledger and write it back. Trims to last
  * POSTED_TRIM_LIMIT entries. Each entry: {id, url, ts, fbPostId}.
  */
@@ -488,7 +534,9 @@ export async function run(opts = {}) {
     return { ok: true, scheduled: 0, dryRun, payloads: [] };
   }
 
-  // 5. Build payloads
+  // 5. Build payloads (with FB Place ID lookup per job's location)
+  const placeIds = loadPlaceIds(repoRoot);
+  let placedCount = 0;
   const payloads = [];
   for (let i = 0; i < usable; i++) {
     const job = candidates[i];
@@ -498,19 +546,24 @@ export async function run(opts = {}) {
       continue;
     }
     const message = buildJobCaption(job);
+    const placeId = lookupPlaceId(job.location, placeIds);
+    if (placeId) placedCount += 1;
     payloads.push({
       jobId: job.id,
       url,
       message,
+      placeId,
       scheduled_publish_time: slots[i],
     });
   }
+  log('📍', `place tag resolved for ${placedCount}/${payloads.length} payloads`);
 
   // 6. Dry-run vs real POST
   if (dryRun) {
     log('🏃', `DRY_RUN=1 — would schedule ${payloads.length} posts`);
     for (const p of payloads) {
-      log('  •', `${new Date(p.scheduled_publish_time * 1000).toISOString()} → ${p.url}`);
+      const placeTag = p.placeId ? ` [place=${p.placeId}]` : '';
+      log('  •', `${new Date(p.scheduled_publish_time * 1000).toISOString()} → ${p.url}${placeTag}`);
     }
     return { ok: true, scheduled: 0, dryRun: true, payloads };
   }
@@ -537,6 +590,7 @@ export async function run(opts = {}) {
         scheduled_publish_time: String(p.scheduled_publish_time),
         access_token: token,
       });
+      if (p.placeId) body.append('place', p.placeId);
       const res = await fetchImpl(apiUrl, { method: 'POST', body });
       const data = await res.json();
       if (res.ok && data?.id) {
