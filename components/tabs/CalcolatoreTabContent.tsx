@@ -14,6 +14,7 @@ import {
 } from '@/components/shared/Skeletons';
 import AiExtractableTable from '@/components/shared/AiExtractableTable';
 import FaqAccordion from '@/components/shared/FaqAccordion';
+import { SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
 
 // Eagerly load InputCard in THIS chunk so it parses only when CalcolatoreTabContent loads.
 // This removes InputCard and MobileCalcLayout from the main App bundle.
@@ -64,6 +65,18 @@ export default function CalcolatoreTabContent() {
  </p>
 
  {showDeferredHomeWidgets ? (
+ // SilentErrorBoundary contains React #31 / render errors in the home
+ // widgets cluster (NewsFeed, DailyDialectPhrase, job-board CTA) so a
+ // transient failure does not blank the whole homepage. Errors are still
+ // reported to Analytics with a `home-widgets-desktop` label.
+ <SilentErrorBoundary boundary="home-widgets-desktop" fallback={
+ <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
+ <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
+ <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
+ <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" /></div>
+ </div>
+ </div>
+ }>
  <div className="hidden md:block space-y-2 mb-4">
  <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
  <div className="md:col-span-13 h-full">
@@ -99,6 +112,7 @@ export default function CalcolatoreTabContent() {
  </a>
  </div>
  </div>
+ </SilentErrorBoundary>
  ) : (
  <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
  <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
@@ -158,7 +172,17 @@ export default function CalcolatoreTabContent() {
  {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap */}
  <div className="md:hidden space-y-2 mt-6 min-h-[160px]">
  {showDeferredHomeWidgets ? (
- <>
+ // Same as desktop: contain render errors in mobile home widgets so a
+ // failure does not blank the homepage on small screens. The whole
+ // results-and-input layout above stays usable even if widgets crash.
+ <SilentErrorBoundary boundary="home-widgets-mobile" fallback={
+ <div aria-hidden="true" className="space-y-2">
+ <SkeletonNewsTicker />
+ <SkeletonWeeklyFact />
+ <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
+ <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
+ </div>
+ }>
  <Suspense fallback={<SkeletonNewsTicker />}>
  <NewsFeed onNavigate={(tab, article) => {
  setActiveTab(tab as ActiveTab);
@@ -184,7 +208,7 @@ export default function CalcolatoreTabContent() {
  <Suspense fallback={<div className="h-[34px]" />}>
  <DailyDialectPhrase />
  </Suspense>
- </>
+ </SilentErrorBoundary>
  ) : (
  <div aria-hidden="true" className="space-y-2">
  <SkeletonNewsTicker />

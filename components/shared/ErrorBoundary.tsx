@@ -225,3 +225,64 @@ export class ErrorBoundary extends Component<Props, State> {
  return (this as React.Component<Props, State>).props.children;
  }
 }
+
+// ─── SilentErrorBoundary ─────────────────────────────────────────────
+// Granular boundary for non-essential UI clusters (e.g. homepage widgets).
+// Catches a render error and replaces only the wrapped subtree with the
+// supplied fallback (default: nothing) instead of crashing the whole page.
+// Reports the error to Analytics so we still get visibility on React #31
+// and similar "objects rendered as children" failures, plus a label that
+// identifies WHICH cluster failed (header, news-feed, home-job-cta, etc.).
+//
+// Used around homepage button rows / widgets where a React #31 from a
+// transiently-malformed value (e.g. translation chunk arriving mid-render
+// with an unexpected shape) would otherwise blank the entire page for the
+// user. The top-level ErrorBoundary still wraps the app for unrecoverable
+// failures.
+
+interface SilentBoundaryProps {
+ children: ReactNode;
+ /** Stable label (no PII) — appears in Analytics so we can pinpoint the
+  *  failing cluster from telemetry. */
+ boundary: string;
+ /** Optional fallback rendered when the subtree errors. Default: null. */
+ fallback?: ReactNode;
+}
+
+interface SilentBoundaryState {
+ hasError: boolean;
+}
+
+export class SilentErrorBoundary extends Component<SilentBoundaryProps, SilentBoundaryState> {
+ public state: SilentBoundaryState = { hasError: false };
+
+ public static getDerivedStateFromError(): SilentBoundaryState {
+ return { hasError: true };
+ }
+
+ public componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+ const decoded = decodeReactError(error?.message || '');
+ const stack = errorInfo.componentStack?.slice(0, 300) || '';
+ const props = (this as React.Component<SilentBoundaryProps, SilentBoundaryState>).props;
+ try {
+ Analytics.trackAppError('error_boundary', {
+ message: `[SilentBoundary:${props.boundary}] ${error.name}: ${decoded.slice(0, 160)}`,
+ stack: error.stack?.slice(0, 500) || '',
+ componentStack: stack,
+ pagePath: typeof window !== 'undefined' ? window.location.href : '',
+ pageTitle: typeof document !== 'undefined' ? document.title : '',
+ fatal: false,
+ });
+ } catch {
+ /* analytics may be unavailable */
+ }
+ }
+
+ public render(): ReactNode {
+ const props = (this as React.Component<SilentBoundaryProps, SilentBoundaryState>).props;
+ if (this.state.hasError) {
+ return props.fallback ?? null;
+ }
+ return props.children;
+ }
+}
