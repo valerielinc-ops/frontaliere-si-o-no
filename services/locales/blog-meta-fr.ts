@@ -6189,6 +6189,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mistero-palazzo-como-7-milioni.title': 'Mystère autour de l\'achat du palais communal de Côme',
     'blog.article.mistero-palazzo-como-7-milioni.excerpt': 'Vingt jours après la vente, l\'identité de l\'acheteur de l\'ancien orphelinat de la via Tommaso Grossi reste inconnue.',
     'blog.article.mistero-palazzo-como-7-milioni.imageAlt': 'Palais communal à Côme, mystère autour de la vente de 7 millions d\'euros',
+    'blog.article.palestre-svizzera-record-2026.title': 'Salles de sport en Suisse: record d\'inscrits en 2026',
+    'blog.article.palestre-svizzera-record-2026.excerpt': 'Un adulte sur cinq en Suisse fréquente une salle de sport. Le Tessin est sixième en termes de densité de structures avec 17 centres pour 100 000 habitants.',
+    'blog.article.palestre-svizzera-record-2026.imageAlt': 'Centre de fitness moderne sur le lac de Lugano, vue depuis la promenade',
 };
 
 export default blogMetaFr;

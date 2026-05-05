@@ -3305,6 +3305,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-moschea-cantu-frontalieri-2026': { name: 'Moschea Cantù', path: '/articoli-frontaliere/moschea-cantu-frontalieri-2026', parent: 'blog' },
     'blog-lago-como-monte-san-primo-5-milioni': { name: 'Ambiente', path: '/articoli-frontaliere/lago-como-monte-san-primo-5-milioni', parent: 'blog' },
     'blog-mistero-palazzo-como-7-milioni': { name: 'Novità', path: '/articoli-frontaliere/mistero-palazzo-como-7-milioni', parent: 'blog' },
+    'blog-palestre-svizzera-record-2026': { name: 'Novità', path: '/articoli-frontaliere/palestre-svizzera-record-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

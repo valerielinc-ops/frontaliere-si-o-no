@@ -6188,6 +6188,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mistero-palazzo-como-7-milioni.title': 'Rätsel um 7 Millionen: Wer kaufte das Rathaus von Como?',
     'blog.article.mistero-palazzo-como-7-milioni.excerpt': '20 Tage nach dem Verkauf bleibt die Identität des Käufers des ehemaligen Waisenhauses in der Via Tommaso Grossi unbekannt.',
     'blog.article.mistero-palazzo-como-7-milioni.imageAlt': 'Rathaus in Como, Geheimnis um den Verkauf für 7 Millionen Euro',
+    'blog.article.palestre-svizzera-record-2026.title': 'Gymnastik in der Schweiz: Rekord bei den Mitgliedern 2026',
+    'blog.article.palestre-svizzera-record-2026.excerpt': 'Ein Erwachsener auf fünf besucht in der Schweiz die Turnhalle. Der Kanton Tessin ist der sechste bei der Dichte von Einrichtungen mit 17 Zentren pro 100.000 Einwohnern.',
+    'blog.article.palestre-svizzera-record-2026.imageAlt': 'Moderne Fitnessanlage am Luganersee, Blick von der Uferpromenade',
 };
 
 export default blogMetaDe;

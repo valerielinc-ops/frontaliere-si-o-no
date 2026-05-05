@@ -19937,4 +19937,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'palestre-svizzera-record-2026',
+ category: 'novita',
+ date: '2026-05-05T21:48:00.395Z',
+ image: '/images/blog/palestre-svizzera-record-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

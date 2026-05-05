@@ -6188,6 +6188,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mistero-palazzo-como-7-milioni.title': '7 million mystery: who bought Como\'s town hall?',
     'blog.article.mistero-palazzo-como-7-milioni.excerpt': 'After 20 days since the sale, the identity of the buyer of the former orphanage on via Tommaso Grossi remains unknown.',
     'blog.article.mistero-palazzo-como-7-milioni.imageAlt': 'Municipal palace in Como, mystery over the 7 million euro sale',
+    'blog.article.palestre-svizzera-record-2026.title': 'Swiss Gyms See Record Number of Subscribers in 2026',
+    'blog.article.palestre-svizzera-record-2026.excerpt': 'One in five adults in Switzerland visits the gym. The Ticino region ranks sixth in terms of gym density, with 17 centers per 100,000 inhabitants.',
+    'blog.article.palestre-svizzera-record-2026.imageAlt': 'Modern fitness center on Lake Lugano, view from the promenade',
 };
 
 export default blogMetaEn;

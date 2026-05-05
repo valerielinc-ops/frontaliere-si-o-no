@@ -19456,6 +19456,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-palestre-svizzera-record-2026': {
+    title: 'Palestre in Svizzera: record di iscritti nel 2026',
+    description: 'Un adulto su cinque in Svizzera ha un abbonamento fitness. Il Ticino è sesto per densità di strutture con 17 centri ogni 100.000 abitanti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, palestre, record, iscritti, adulto',
+    ogTitle: 'Palestre in Svizzera: record di iscritti nel 2026',
+    ogDescription: 'Un adulto su cinque in Svizzera ha un abbonamento fitness. Il Ticino è sesto per densità di strutture con 17 centri ogni 100.000 abitanti',
+    canonicalPath: '/articoli-frontaliere/palestre-svizzera-record-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Palestre in Svizzera: record di iscritti nel 2026",
+      "description": "Un adulto su cinque in Svizzera ha un abbonamento fitness. Il Ticino è sesto per densità di strutture con 17 centri ogni 100.000 abitanti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/palestre-svizzera-record-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palestra moderna sul Lago di Lugano, vista dal lungolago"
+      },
+      "datePublished": "2026-05-05T21:48:00+00:00",
+      "dateModified": "2026-05-05T21:48:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/palestre-svizzera-record-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

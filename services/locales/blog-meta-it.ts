@@ -6189,6 +6189,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mistero-palazzo-como-7-milioni.title': 'Mistero da 7 milioni: chi ha comprato il palazzo comunale di Como?',
     'blog.article.mistero-palazzo-como-7-milioni.excerpt': 'Dopo 20 giorni dalla vendita, l\'identità dell\'acquirente dell\'ex orfanotrofio di via Tommaso Grossi rimane sconosciuta.',
     'blog.article.mistero-palazzo-como-7-milioni.imageAlt': 'Palazzo comunale a Como, mistero sulla vendita per 7 milioni di euro',
+    'blog.article.palestre-svizzera-record-2026.title': 'Palestre in Svizzera: record di iscritti nel 2026',
+    'blog.article.palestre-svizzera-record-2026.excerpt': 'Un adulto su cinque in Svizzera va in palestra. Il Ticino è sesto per densità di strutture con 17 centri ogni 100.000 abitanti',
+    'blog.article.palestre-svizzera-record-2026.imageAlt': 'Palestra moderna sul Lago di Lugano, vista dal lungolago',
 };
 
 export default blogMetaIt;
