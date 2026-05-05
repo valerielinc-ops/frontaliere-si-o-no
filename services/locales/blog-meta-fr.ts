@@ -6144,6 +6144,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.title': 'Varèse: milliards pour six pistes cyclables',
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.excerpt': 'La région Lombardie investit des dizaines de millions d\'euros dans des pistes cyclables, avec six itinéraires traversant la province de Varèse, un carrefour stratégique pour le cyclotourisme.',
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.imageAlt': 'Un cycliste roulant le long des rives du lac de Lugano, au Tessin, en Suisse. L\'image capture la beauté sereine du lac avec les Alpes en arrière-plan, mettant en avant les itinéraires pittoresques qui attirent les cyclistes.',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.title': 'Assurance dentaire obligatoire : double taxe pour les Tessinois',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.excerpt': 'Le comité No à l\'initiative sur les soins dentaires explique pourquoi la proposition est coûteuse et disproportionnée',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.imageAlt': 'Vue du lac de Lugano avec une clinique dentaire moderne',
 };
 
 export default blogMetaFr;

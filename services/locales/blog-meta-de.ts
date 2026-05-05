@@ -6143,6 +6143,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.title': 'Radwege: Milliarden für sechs Routen in Varese',
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.excerpt': 'Die Region Lombardei investiert Dutzende Millionen Euro in Radwege, mit sechs Routen, die die Provinz Varese durchqueren, ein strategischer Knotenpunkt für den Radtourismus.',
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.imageAlt': 'Ein Radfahrer, der entlang der Ufer des Luganersees in der Schweiz fährt. Das Bild zeigt die ruhige Schönheit des Sees mit den Alpen im Hintergrund und präsentiert die malerischen Routen, die Radfahrer anziehen.',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.title': 'Zahnversicherungspflicht: Doppelte Abgaben für Tessin-Bewohner',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.excerpt': 'Der Komitee Nein zur Zahnmedizin-Initiative erklärt, warum der Vorschlag teuer und unverhältnismäßig ist',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.imageAlt': 'Blick auf den Luganersee mit einer modernen Zahnklinik',
 };
 
 export default blogMetaDe;

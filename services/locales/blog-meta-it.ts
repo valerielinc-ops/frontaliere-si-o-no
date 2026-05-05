@@ -6144,6 +6144,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.title': 'Bici: miliardi in sei percorsi ciclabili a Varese',
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.excerpt': 'La Regione Lombardia investe decine di milioni di euro in percorsi ciclabili, con sei itinerari che attraversano la provincia di Varese, un crocevia strategico per il cicloturismo.',
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.imageAlt': 'Un ciclista che pedala lungo le rive del Lago di Lugano, in Ticino, Svizzera. L\'immagine cattura la bellezza serena del lago con le Alpi sullo sfondo, mostrando i percorsi panoramici che attirano i ciclisti.',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.title': 'Assicurazione dentaria obbligatoria: doppia tassa per i ticinesi',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.excerpt': 'Il comitato No all\'iniziativa sulle cure dentarie spiega perché la proposta è costosa e sproporzionata',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.imageAlt': 'Vista del lago di Lugano con una clinica dentale moderna',
 };
 
 export default blogMetaIt;

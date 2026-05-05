@@ -6143,6 +6143,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.title': 'Bikes: billions in six cycling routes in Varese',
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.excerpt': 'The Lombardy Region is investing tens of millions of euros in cycling paths, with six routes crossing the province of Varese, a strategic hub for cycle tourism.',
     'blog.article.bici-miliardi-varese-percorsi-ciclabili.imageAlt': 'A cyclist riding along the shores of Lake Lugano, Ticino, Switzerland. The image captures the serene beauty of the lake with the Alps in the background, showcasing the scenic routes that attract cyclists.',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.title': 'Mandatory dental insurance: double tax for Ticino residents',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.excerpt': 'The No to the dental care initiative committee explains why the proposal is costly and disproportionate',
+    'blog.article.assicurazione-dentaria-obbligatoria-ticino-2026.imageAlt': 'View of Lake Lugano with a modern dental clinic',
 };
 
 export default blogMetaEn;

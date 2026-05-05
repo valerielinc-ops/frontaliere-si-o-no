@@ -19802,4 +19802,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'assicurazione-dentaria-obbligatoria-ticino-2026',
+ category: 'novita',
+ date: '2026-05-05T12:55:50.759Z',
+ image: '/images/blog/assicurazione-dentaria-obbligatoria-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
