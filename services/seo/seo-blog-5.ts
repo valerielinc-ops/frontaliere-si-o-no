@@ -17237,6 +17237,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mondiali-hockey-svizzera-2026': {
+    title: 'Josi, Niederreiter, Hischier e Meier ai Mondiali 2026',
+    description: 'Quattro stelle NHL si aggiungono alla squadra svizzera per i Mondiali di hockey 2026 a Zurigo e Friburgo. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, josi, niederreiter, hischier, meier',
+    ogTitle: 'Josi, Niederreiter, Hischier e Meier ai Mondiali 2026',
+    ogDescription: 'Quattro stelle NHL si aggiungono alla squadra svizzera per i Mondiali di hockey 2026 a Zurigo e Friburgo. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/mondiali-hockey-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Josi, Niederreiter, Hischier e Meier ai Mondiali 2026",
+      "description": "Quattro stelle NHL si aggiungono alla squadra svizzera per i Mondiali di hockey 2026 a Zurigo e Friburgo. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mondiali-hockey-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pista di hockey a Lugano con giocatori in azione"
+      },
+      "datePublished": "2026-05-05T01:20:06+00:00",
+      "dateModified": "2026-05-05T01:20:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mondiali-hockey-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

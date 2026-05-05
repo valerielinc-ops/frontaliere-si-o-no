@@ -5957,6 +5957,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inarzo-festa-oasi-palude-brabbia-2026.title': 'Inarzo: Nature, Tales & Drag Queens at Oasi Festival',
     'blog.article.inarzo-festa-oasi-palude-brabbia-2026.excerpt': 'On Sunday, May 10, 2026, the LIPU Reserve in Inarzo opens its doors with workshops, guided tours, and shows for all ages.',
     'blog.article.inarzo-festa-oasi-palude-brabbia-2026.imageAlt': 'Palude Brabbia nature reserve in Inarzo, featuring flora and fauna up close',
+    'blog.article.mondiali-hockey-svizzera-2026.title': 'Josi, Niederreiter, Hischier and Meier for 2026 Worlds',
+    'blog.article.mondiali-hockey-svizzera-2026.excerpt': 'Four NHL stars join Switzerland\'s team for the 2026 hockey Worlds in Zurich and Fribourg',
+    'blog.article.mondiali-hockey-svizzera-2026.imageAlt': 'Hockey rink in Lugano with players in action',
 };
 
 export default blogMetaEn;

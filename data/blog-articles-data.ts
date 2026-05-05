@@ -19244,4 +19244,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mondiali-hockey-svizzera-2026',
+ category: 'novita',
+ date: '2026-05-05T01:20:06.025Z',
+ image: '/images/blog/mondiali-hockey-svizzera-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

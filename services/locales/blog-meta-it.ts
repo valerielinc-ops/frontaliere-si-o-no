@@ -5958,6 +5958,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inarzo-festa-oasi-palude-brabbia-2026.title': 'Inarzo: natura, favole e drag queen alla Festa Oasi della Palude Brabbia',
     'blog.article.inarzo-festa-oasi-palude-brabbia-2026.excerpt': 'Domenica 10 maggio 2026 la Riserva LIPU di Inarzo apre le porte con laboratori, visite guidate e spettacoli per tutte le età.',
     'blog.article.inarzo-festa-oasi-palude-brabbia-2026.imageAlt': 'Riserva naturale Palude Brabbia a Inarzo, con flora e fauna in primo piano',
+    'blog.article.mondiali-hockey-svizzera-2026.title': 'Josi, Niederreiter, Hischier e Meier ai Mondiali 2026',
+    'blog.article.mondiali-hockey-svizzera-2026.excerpt': 'Quattro stelle NHL si aggiungono alla squadra svizzera per i Mondiali di hockey 2026 a Zurigo e Friburgo',
+    'blog.article.mondiali-hockey-svizzera-2026.imageAlt': 'Pista di hockey a Lugano con giocatori in azione',
 };
 
 export default blogMetaIt;
