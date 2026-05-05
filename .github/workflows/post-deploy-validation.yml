@@ -261,6 +261,16 @@ jobs:
       # parallel. This keeps the critical path close to the slowest dist audit
       # instead of paying an extra tail for CDN propagation + probe + live E2E.
       - name: Post-build validations + SEO audits (capped parallel)
+        env:
+          # Cap each audit's V8 heap at 4 GB. Without this the GitHub
+          # ubuntu-latest free runner (~7 GB usable) was still OOM-killing
+          # `audit:dist-multi-light` and `audit:title-uniqueness` at
+          # rc=134 even after every heavy walker had been moved into the
+          # serial chain. The runner has 7 GB but Node's default
+          # max-old-space-size grows opportunistically under pressure;
+          # capping it forces aggressive GC and prevents single-process
+          # blow-ups when walking ~132k HTML files.
+          NODE_OPTIONS: '--max-old-space-size=4096'
         run: |
           # MAX_PARALLEL=2 (was 4) to give the heavy-walker serial chain
           # (audit:dist-multi-{ratio,heavy,light} + audit:title-uniqueness)
