@@ -6186,6 +6186,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lago-como-monte-san-primo-5-milioni.title': 'Lago di Como, monte da salvare senza impianti',
     'blog.article.lago-como-monte-san-primo-5-milioni.excerpt': 'Il Coordinamento Salviamo il Monte San Primo si batte contro nuovi impianti sciistici a bassa quota. Interrogazione in Regione per riqualificazione ambientale.',
     'blog.article.lago-como-monte-san-primo-5-milioni.imageAlt': 'Vista aerea del Lago di Como con il Monte San Primo sullo sfondo',
+    'blog.article.mistero-palazzo-como-7-milioni.title': 'Mistero da 7 milioni: chi ha comprato il palazzo comunale di Como?',
+    'blog.article.mistero-palazzo-como-7-milioni.excerpt': 'Dopo 20 giorni dalla vendita, l\'identità dell\'acquirente dell\'ex orfanotrofio di via Tommaso Grossi rimane sconosciuta.',
+    'blog.article.mistero-palazzo-como-7-milioni.imageAlt': 'Palazzo comunale a Como, mistero sulla vendita per 7 milioni di euro',
 };
 
 export default blogMetaIt;

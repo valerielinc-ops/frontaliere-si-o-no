@@ -6185,6 +6185,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lago-como-monte-san-primo-5-milioni.title': 'Lake Como: Save the Mountain Without Ski Lifts',
     'blog.article.lago-como-monte-san-primo-5-milioni.excerpt': 'The \'Save Monte San Primo\' committee opposes new low-altitude ski lifts. Regional question for environmental requalification.',
     'blog.article.lago-como-monte-san-primo-5-milioni.imageAlt': 'Aerial view of Lake Como with Monte San Primo in the background',
+    'blog.article.mistero-palazzo-como-7-milioni.title': '7 million mystery: who bought Como\'s town hall?',
+    'blog.article.mistero-palazzo-como-7-milioni.excerpt': 'After 20 days since the sale, the identity of the buyer of the former orphanage on via Tommaso Grossi remains unknown.',
+    'blog.article.mistero-palazzo-como-7-milioni.imageAlt': 'Municipal palace in Como, mystery over the 7 million euro sale',
 };
 
 export default blogMetaEn;

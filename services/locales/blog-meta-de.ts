@@ -6185,6 +6185,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lago-como-monte-san-primo-5-milioni.title': 'Comer See: Berg ohne Skipisten retten',
     'blog.article.lago-como-monte-san-primo-5-milioni.excerpt': 'Das Koordinationsbüro \'Rettet den Monte San Primo\' kämpft gegen neue Skianlagen in tieferen Lagen. Anfrage in der Region für eine ökologische Aufwertung.',
     'blog.article.lago-como-monte-san-primo-5-milioni.imageAlt': 'Luftaufnahme des Comer Sees mit dem Monte San Primo im Hintergrund',
+    'blog.article.mistero-palazzo-como-7-milioni.title': 'Rätsel um 7 Millionen: Wer kaufte das Rathaus von Como?',
+    'blog.article.mistero-palazzo-como-7-milioni.excerpt': '20 Tage nach dem Verkauf bleibt die Identität des Käufers des ehemaligen Waisenhauses in der Via Tommaso Grossi unbekannt.',
+    'blog.article.mistero-palazzo-como-7-milioni.imageAlt': 'Rathaus in Como, Geheimnis um den Verkauf für 7 Millionen Euro',
 };
 
 export default blogMetaDe;

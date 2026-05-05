@@ -6186,6 +6186,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lago-como-monte-san-primo-5-milioni.title': 'Lac de Côme, montagne à sauver sans installations',
     'blog.article.lago-como-monte-san-primo-5-milioni.excerpt': 'Le Coordinamento Salviamo il Monte San Primo lutte contre de nouvelles installations de ski à basse altitude. Interpellation en Région pour la requalification environnementale.',
     'blog.article.lago-como-monte-san-primo-5-milioni.imageAlt': 'Vue aérienne du lac de Côme avec le Monte San Primo en arrière-plan',
+    'blog.article.mistero-palazzo-como-7-milioni.title': 'Mystère autour de l\'achat du palais communal de Côme',
+    'blog.article.mistero-palazzo-como-7-milioni.excerpt': 'Vingt jours après la vente, l\'identité de l\'acheteur de l\'ancien orphelinat de la via Tommaso Grossi reste inconnue.',
+    'blog.article.mistero-palazzo-como-7-milioni.imageAlt': 'Palais communal à Côme, mystère autour de la vente de 7 millions d\'euros',
 };
 
 export default blogMetaFr;

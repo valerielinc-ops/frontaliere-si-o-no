@@ -19928,4 +19928,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mistero-palazzo-como-7-milioni',
+ category: 'novita',
+ date: '2026-05-05T21:35:21.283Z',
+ image: '/images/blog/mistero-palazzo-como-7-milioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
