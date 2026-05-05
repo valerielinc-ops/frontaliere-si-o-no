@@ -629,35 +629,63 @@ export async function run(opts = {}) {
 
   // 7. POST one per slot. Append to ledger after each success so a partial
   //    failure still records what got through.
+  // Transient FB error codes that get one retry after 2s:
+  //   1  — generic "Please reduce data" (often FB's OG scraper timed out)
+  //   2  — temporary service issue
+  //   4  — application request limit reached (rate-limit, brief)
+  //   17 — user request limit reached
+  const TRANSIENT_FB_ERROR_CODES = new Set([1, 2, 4, 17]);
+  const sleepMs = (ms) => new Promise(r => setTimeout(r, ms));
+
   let scheduled = 0;
   for (const p of payloads) {
-    try {
-      const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
-      const body = new URLSearchParams({
+    const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
+    const buildBody = () => {
+      const b = new URLSearchParams({
         message: p.message,
         link: p.url,
         published: 'false',
         scheduled_publish_time: String(p.scheduled_publish_time),
         access_token: token,
       });
-      if (p.placeId) body.append('place', p.placeId);
-      const res = await fetchImpl(apiUrl, { method: 'POST', body });
-      const data = await res.json();
-      if (res.ok && data?.id) {
-        scheduled += 1;
-        appendPosted(repoRoot, [{
-          id: p.jobId,
-          url: p.url,
-          ts: new Date().toISOString(),
-          fbPostId: data.id,
-          scheduledFor: new Date(p.scheduled_publish_time * 1000).toISOString(),
-        }]);
-        log('✅', `${p.jobId} → ${data.id} @ ${new Date(p.scheduled_publish_time * 1000).toISOString()}`);
-      } else {
-        warn('⚠️', `FB API error for ${p.jobId}: ${JSON.stringify(data).slice(0, 300)}`);
+      if (p.placeId) b.append('place', p.placeId);
+      return b;
+    };
+
+    let data = null;
+    let res = null;
+    let attempt = 0;
+    while (attempt < 2) {
+      attempt += 1;
+      try {
+        res = await fetchImpl(apiUrl, { method: 'POST', body: buildBody() });
+        data = await res.json();
+      } catch (err) {
+        warn('⚠️', `POST failed for ${p.jobId} (attempt ${attempt}): ${err.message}`);
+        data = null;
       }
-    } catch (err) {
-      warn('⚠️', `POST failed for ${p.jobId}: ${err.message}`);
+      if (res?.ok && data?.id) break;
+      const code = data?.error?.code;
+      if (attempt < 2 && TRANSIENT_FB_ERROR_CODES.has(code)) {
+        warn('⏳', `FB transient error ${code} for ${p.jobId}, retrying in 2s`);
+        await sleepMs(2000);
+        continue;
+      }
+      break;
+    }
+
+    if (res?.ok && data?.id) {
+      scheduled += 1;
+      appendPosted(repoRoot, [{
+        id: p.jobId,
+        url: p.url,
+        ts: new Date().toISOString(),
+        fbPostId: data.id,
+        scheduledFor: new Date(p.scheduled_publish_time * 1000).toISOString(),
+      }]);
+      log('✅', `${p.jobId} → ${data.id} @ ${new Date(p.scheduled_publish_time * 1000).toISOString()}`);
+    } else {
+      warn('⚠️', `FB API error for ${p.jobId}: ${JSON.stringify(data).slice(0, 300)}`);
     }
   }
 

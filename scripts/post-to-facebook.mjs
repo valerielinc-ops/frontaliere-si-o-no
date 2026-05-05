@@ -134,6 +134,12 @@ async function main() {
       link: articleUrl,
       access_token: FB_PAGE_ACCESS_TOKEN,
     });
+    // Geo anchor for FB Search discovery. Articles cover cross-border
+    // CH-IT topics; Lugano is the canonical city for the frontaliere
+    // audience. Override per-article in the future if we want sub-region
+    // targeting (e.g., a Mendrisio-specific article).
+    // Place ID 106534719384213 = "Lugano, Switzerland" (verified live).
+    body.append('place', '106534719384213');
 
     const response = await fetch(url, {
       method: 'POST',
