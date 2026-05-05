@@ -19,6 +19,7 @@
  */
 
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { createHash } from 'crypto';
 import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -414,22 +415,48 @@ function ogPathForSlug(slug: string): string {
 }
 
 /**
- * The cache filename uses `job.id` directly — the crawler emits IDs of
- * the form `<companyKey>-<contentHash12>` (e.g. "tether-163fdd7ecddc")
- * where the trailing 12 hex chars are a content-derived hash that
- * already changes whenever a job's title/company/salary/etc. is
- * updated. So caching by ID gives content-aware invalidation for free,
- * without us having to maintain our own field-set + hash function.
+ * The cache filename combines `job.id` (URL-derived, stable across
+ * content edits — see scripts/lib/dedicated-crawler-common.mjs:1187:
+ * `id = companyKey + sha1(url)[:12]`) AND a hash of the visual fields
+ * that drive the OG card.
  *
- * Slug changes that don't change content → same ID → cache hit, just
- * copies the PNG to the new slug filename in dist.
- * Content changes → new ID → cache miss → fresh render.
+ * Why both:
+ * - `job.id` alone is insufficient. The crawler ID hashes the URL only,
+ *   so the same URL repurposed by the company for a different role keeps
+ *   the same ID even though title/salary/employment changed. We've seen
+ *   the same `a-group-6cbebae3da1d` go from "Receptionist" to
+ *   "Consulente Legal Jr." in production.
+ * - Hash alone (no ID) would invalidate cache on every URL/companyKey
+ *   tweak, even when the rendered card is identical.
+ *
+ * Cache filename: `<jobId>.<visualHash>.<OG_RENDER_VERSION>.png`
+ *
+ * URL stable + content stable      → same filename → cache hit
+ * URL stable + content edit        → new visualHash → re-render
+ * URL renamed (rare)               → new jobId → re-render
+ * Plugin design version bump       → new OG_RENDER_VERSION → re-render
+ *
+ * Old cache entries become orphaned in `.cache/og-jobs/` and age out
+ * naturally via the GitHub Actions cache TTL (~7 days).
  */
 function cacheKeyForJob(job: JobMinimal): string | null {
   if (!job?.id || typeof job.id !== 'string') return null;
-  // Sanitize: IDs are crawler-emitted but paranoia is cheap. Replace any
-  // path-unsafe character with `_` to keep filenames sane.
+  // Sanitize: IDs are crawler-emitted but paranoia is cheap.
   return job.id.replace(/[^A-Za-z0-9._-]/g, '_');
+}
+
+function visualHashForCard(model: CardModel, logoMfPath: string | undefined): string {
+  // Hash exactly the inputs that affect rendered pixels. If you add a
+  // new field to CardModel that's drawn on the card, add it here too.
+  const sig = JSON.stringify({
+    t: model.title,
+    c: model.company,
+    ct: model.city,
+    s: model.salary,
+    e: model.employmentLabel,
+    l: logoMfPath ?? null,
+  });
+  return createHash('sha256').update(sig).digest('hex').slice(0, 8);
 }
 
 export function jobOgImageUrl(baseUrl: string, slug: string | null): string | null {
@@ -501,13 +528,27 @@ export default function jobOgImagesPlugin(): Plugin {
           stats.skipped += 1;
           continue;
         }
+        // Build the model first so the visual hash sees the same values
+        // the renderer would (post-truncation, locale-derived city, etc.)
+        const logoMfPath = job.companyKey ? manifest[job.companyKey] : undefined;
+        const model: CardModel = {
+          title: truncateText(job.title, 110),
+          company: deriveCompany(job),
+          city: deriveCity(job),
+          salary: deriveSalary(job),
+          employmentLabel: job.employmentType
+            ? EMPLOYMENT_LABEL_IT[job.employmentType] ?? null
+            : null,
+          logoDataUrl: logoMfPath ? logoDataUrl(rootDir, logoMfPath) : null,
+        };
+        const visualHash = visualHashForCard(model, logoMfPath);
+
         const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
-        // Cache filename combines (a) job.id (crawler-emitted content
-        // hash) AND (b) OG_RENDER_VERSION (our design version). When
-        // either changes the filename changes → cache miss → re-render.
+        // Filename = jobId + visualHash + design version. See cacheKeyForJob
+        // doc for why all three components are required.
         const cachePath = path.join(
           cacheRoot,
-          `${cacheKey}.${OG_RENDER_VERSION}.png`,
+          `${cacheKey}.${visualHash}.${OG_RENDER_VERSION}.png`,
         );
 
         if (existsSync(cachePath)) {
@@ -521,17 +562,6 @@ export default function jobOgImagesPlugin(): Plugin {
           }
         }
 
-        const logoMfPath = job.companyKey ? manifest[job.companyKey] : undefined;
-        const model: CardModel = {
-          title: truncateText(job.title, 110),
-          company: deriveCompany(job),
-          city: deriveCity(job),
-          salary: deriveSalary(job),
-          employmentLabel: job.employmentType
-            ? EMPLOYMENT_LABEL_IT[job.employmentType] ?? null
-            : null,
-          logoDataUrl: logoMfPath ? logoDataUrl(rootDir, logoMfPath) : null,
-        };
         renderQueue.push({
           jobId: cacheKey,
           slug,
