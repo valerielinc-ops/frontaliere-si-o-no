@@ -18291,6 +18291,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guerra-frena-viaggi-estero-2026': {
+    title: 'Guerra frena viaggi all\'estero: un terzo degli svizzeri rinuncia',
+    description: 'Secondo il TCS, un terzo degli svizzeri non si sente sicuro per le vacanze fuori dai confini. Spagna e Portogallo sono le mete preferite. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, guerra, frena, viaggi, estero',
+    ogTitle: 'Guerra frena viaggi all\'estero: un terzo degli svizzeri rinuncia',
+    ogDescription: 'Secondo il TCS, un terzo degli svizzeri non si sente sicuro per le vacanze fuori dai confini. Spagna e Portogallo sono le mete preferite.',
+    canonicalPath: '/articoli-frontaliere/guerra-frena-viaggi-estero-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guerra frena viaggi all'estero: un terzo degli svizzeri rinuncia",
+      "description": "Secondo il TCS, un terzo degli svizzeri non si sente sicuro per le vacanze fuori dai confini. Spagna e Portogallo sono le mete preferite. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guerra-frena-viaggi-estero-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena del Lago di Lugano con le montagne circostanti"
+      },
+      "datePublished": "2026-05-05T08:23:35+00:00",
+      "dateModified": "2026-05-05T08:23:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guerra-frena-viaggi-estero-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

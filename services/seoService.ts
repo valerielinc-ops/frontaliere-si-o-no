@@ -3259,6 +3259,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-carburante-svizzera-scorte-2026': { name: 'Carburante Svizzera', path: '/articoli-frontaliere/carburante-svizzera-scorte-2026', parent: 'blog' },
     'blog-como-nuoto-750mila-euro-tribunale': { name: 'Novità', path: '/articoli-frontaliere/como-nuoto-750mila-euro-tribunale', parent: 'blog' },
     'blog-arresto-cocaina-mendrisio-albanese': { name: 'Novità', path: '/articoli-frontaliere/arresto-cocaina-mendrisio-albanese', parent: 'blog' },
+    'blog-guerra-frena-viaggi-estero-2026': { name: 'Novità', path: '/articoli-frontaliere/guerra-frena-viaggi-estero-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

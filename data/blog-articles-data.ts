@@ -19523,4 +19523,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'guerra-frena-viaggi-estero-2026',
+ category: 'novita',
+ date: '2026-05-05T08:23:35.505Z',
+ image: '/images/blog/guerra-frena-viaggi-estero-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

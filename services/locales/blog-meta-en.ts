@@ -6050,6 +6050,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-cocaina-mendrisio-albanese.title': '24-year-old Albanian arrested with cocaine in Mendrisio',
     'blog.article.arresto-cocaina-mendrisio-albanese.excerpt': 'A young Albanian was arrested in Mendrisio with cocaine in his car. Here are the details of the operation.',
     'blog.article.arresto-cocaina-mendrisio-albanese.imageAlt': 'Mendrisio, Ticino, with a view of the surrounding mountains',
+    'blog.article.guerra-frena-viaggi-estero-2026.title': 'War halts foreign travel: a third of Swiss cancel plans',
+    'blog.article.guerra-frena-viaggi-estero-2026.excerpt': 'According to TCS, a third of Swiss don\'t feel safe for holidays outside their borders. Spain and Portugal are the preferred destinations.',
+    'blog.article.guerra-frena-viaggi-estero-2026.imageAlt': 'Serene view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

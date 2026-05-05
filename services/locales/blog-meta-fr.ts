@@ -6051,6 +6051,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-cocaina-mendrisio-albanese.title': 'Un Albanais de 24 ans arrêté avec de la cocaïne à Mendrisio',
     'blog.article.arresto-cocaina-mendrisio-albanese.excerpt': 'Un jeune Albanais a été arrêté à Mendrisio avec de la cocaïne dans sa voiture. Voici les détails de l\'opération.',
     'blog.article.arresto-cocaina-mendrisio-albanese.imageAlt': 'Mendrisio, Tessin, avec vue sur les montagnes environnantes',
+    'blog.article.guerra-frena-viaggi-estero-2026.title': 'Guerre freine les voyages à l\'étranger: un tiers des Suisses renonce',
+    'blog.article.guerra-frena-viaggi-estero-2026.excerpt': 'Selon le TCS, un tiers des Suisses ne se sent pas en sécurité pour des vacances hors des frontières. L\'Espagne et le Portugal sont les destinations préférées.',
+    'blog.article.guerra-frena-viaggi-estero-2026.imageAlt': 'Vue sereine du lac de Lugano avec les montagnes environnantes',
 };
 
 export default blogMetaFr;
