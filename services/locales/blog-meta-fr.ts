@@ -6093,6 +6093,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mercatino-rancate-mendrisio-2026.title': 'Rancate: le marché mensuel du quartier est né',
     'blog.article.mercatino-rancate-mendrisio-2026.excerpt': 'À Rancate, Mendrisio, le marché de quartier est né, une initiative promue par la Ville de Mendrisio et Pro Senectute Ticino et Moesano',
     'blog.article.mercatino-rancate-mendrisio-2026.imageAlt': 'Marché de quartier à Rancate, Mendrisio, avec des personnes faisant leurs achats et socialisant dans une ambiance animée',
+    'blog.article.kof-prospettive-lavoro-ticino-2026.title': 'KOF: amélioration des perspectives d\'emploi en Suisse italienne',
+    'blog.article.kof-prospettive-lavoro-ticino-2026.excerpt': 'L\'indicateur de l\'emploi du KOF atteint 2,2 points au deuxième trimestre 2026, marquant une amélioration par rapport à la période janvier-mars.',
+    'blog.article.kof-prospettive-lavoro-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en arrière-plan',
 };
 
 export default blogMetaFr;

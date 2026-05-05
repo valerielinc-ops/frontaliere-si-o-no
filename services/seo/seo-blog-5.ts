@@ -18240,6 +18240,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-kof-prospettive-lavoro-ticino-2026': {
+    title: 'KOF: migliorano le prospettive d’impiego in Ticino, oltre la media pluriennale',
+    description: 'L’indicatore dell’occupazione del KOF sale a 2,2 punti nel secondo trimestre 2026, segnando un miglioramento rispetto al periodo gennaio-marzo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, migliorano, prospettive, impiego, oltre',
+    ogTitle: 'KOF: migliorano le prospettive d’impiego in Ticino, oltre la media pluriennale',
+    ogDescription: 'L’indicatore dell’occupazione del KOF sale a 2,2 punti nel secondo trimestre 2026, segnando un miglioramento rispetto al periodo gennaio-marzo.',
+    canonicalPath: '/articoli-frontaliere/kof-prospettive-lavoro-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "KOF: migliorano le prospettive d’impiego in Ticino, oltre la media pluriennale",
+      "description": "L’indicatore dell’occupazione del KOF sale a 2,2 punti nel secondo trimestre 2026, segnando un miglioramento rispetto al periodo gennaio-marzo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/kof-prospettive-lavoro-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano sullo sfondo"
+      },
+      "datePublished": "2026-05-05T10:28:12+00:00",
+      "dateModified": "2026-05-05T10:28:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kof-prospettive-lavoro-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

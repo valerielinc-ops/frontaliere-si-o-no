@@ -6092,6 +6092,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercatino-rancate-mendrisio-2026.title': 'Rancate: Quartiermarkt startet monatlich',
     'blog.article.mercatino-rancate-mendrisio-2026.excerpt': 'In Rancate, Mendrisio, wurde der Quartiermarkt ins Leben gerufen, eine Initiative der Stadt Mendrisio und Pro Senectute Ticino und Moesano.',
     'blog.article.mercatino-rancate-mendrisio-2026.imageAlt': 'Nachbarschaftsmarkt in Rancate, Mendrisio, mit Menschen, die einkaufen und sich in einer lebhaften Atmosphäre unterhalten',
+    'blog.article.kof-prospettive-lavoro-ticino-2026.title': 'KOF: Beschäftigungsaussichten im Tessin über dem langjährigen Durchschnitt',
+    'blog.article.kof-prospettive-lavoro-ticino-2026.excerpt': 'Der Beschäftigungsindikator des KOF steigt im zweiten Quartal 2026 auf 2,2 Punkte und zeigt eine Verbesserung gegenüber dem Zeitraum Januar-März.',
+    'blog.article.kof-prospettive-lavoro-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze im Hintergrund',
 };
 
 export default blogMetaDe;

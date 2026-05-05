@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2083,
+ "numberOfItems": 2084,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6725,7 +6725,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2080, "name": "DSS lancia campagna per prestazioni sanitarie c...", "url": `${BASE_URL}/articoli-frontaliere/campagna-dss-appropriatezza-sanitaria` },
           { "@type": "ListItem", "position": 2081, "name": "Parco del Ticino: controlli intensificati per i...", "url": `${BASE_URL}/articoli-frontaliere/parco-ticino-controlli-maggio-2026` },
           { "@type": "ListItem", "position": 2082, "name": "Un pasto 100% vegetale (gratis) tutto da scopri...", "url": `${BASE_URL}/articoli-frontaliere/pasto-vegetale-gratis-ticino-2026` },
-          { "@type": "ListItem", "position": 2083, "name": "Rancate, nasce il Mercatino di quartiere: appun...", "url": `${BASE_URL}/articoli-frontaliere/mercatino-rancate-mendrisio-2026` }
+          { "@type": "ListItem", "position": 2083, "name": "Rancate, nasce il Mercatino di quartiere: appun...", "url": `${BASE_URL}/articoli-frontaliere/mercatino-rancate-mendrisio-2026` },
+          { "@type": "ListItem", "position": 2084, "name": "KOF: migliorano le prospettive d’impiego in Tic...", "url": `${BASE_URL}/articoli-frontaliere/kof-prospettive-lavoro-ticino-2026` }
  ]
  },
  {
