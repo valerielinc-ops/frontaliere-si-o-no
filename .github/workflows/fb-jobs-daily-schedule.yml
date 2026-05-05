@@ -6,11 +6,11 @@ on:
   workflow_dispatch:
     inputs:
       volume:
-        description: 'Posts to schedule (24/72/144)'
+        description: 'Posts to schedule (1=smoke-test, 24/72/144=ramp tiers)'
         required: false
         default: '24'
         type: choice
-        options: ['24', '72', '144']
+        options: ['1', '24', '72', '144']
       dry_run:
         description: 'Skip Graph API call (preview only)'
         required: false

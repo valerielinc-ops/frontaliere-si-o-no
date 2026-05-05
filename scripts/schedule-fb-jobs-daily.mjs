@@ -51,7 +51,9 @@ const FB_MESSAGE_HARD_LIMIT = 5000;
 const POSTED_TRIM_LIMIT = 1000;
 
 // Volume → minute-of-hour list mapping.
+// `1` is a smoke-test volume: schedules a single post on the next :05.
 const VOLUME_MINUTES = {
+  1: [5],
   24: [5],
   72: [5, 25, 45],
   144: [5, 15, 25, 35, 45, 55],
