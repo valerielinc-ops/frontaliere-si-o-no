@@ -19190,6 +19190,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-misoexperience-festival-sport-2024': {
+    title: 'MisoXperience 2024: il festival degli sport all\'aperto in Mesolcina',
+    description: 'Dal 9 al 17 maggio, la valle Mesolcina ospita il MisoXperience Festival con kayak, bouldering e parapendio. Scopri il programma completo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, misoxperience, 2024, festival, sport',
+    ogTitle: 'MisoXperience 2024: il festival degli sport all\'aperto in Mesolcina',
+    ogDescription: 'Dal 9 al 17 maggio, la valle Mesolcina ospita il MisoXperience Festival con kayak, bouldering e parapendio. Scopri il programma completo',
+    canonicalPath: '/articoli-frontaliere/misoexperience-festival-sport-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "MisoXperience 2024: il festival degli sport all'aperto in Mesolcina",
+      "description": "Dal 9 al 17 maggio, la valle Mesolcina ospita il MisoXperience Festival con kayak, bouldering e parapendio. Scopri il programma completo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/misoexperience-festival-sport-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del fiume Moesa nella valle di Mesolcina, Svizzera, con attività sportive all'aperto e tende del festival"
+      },
+      "datePublished": "2026-05-05T19:17:57+00:00",
+      "dateModified": "2026-05-05T19:17:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/misoexperience-festival-sport-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

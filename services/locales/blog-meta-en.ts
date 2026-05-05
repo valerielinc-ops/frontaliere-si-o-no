@@ -6167,6 +6167,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.somministrazione-occupazione-qualita-bottini.title': 'Bottini: Quality jobs through temporary work',
     'blog.article.somministrazione-occupazione-qualita-bottini.excerpt': 'The new collective agreement for temporary workers, renewed in July 2025, ensures quality employment with training and welfare.',
     'blog.article.somministrazione-occupazione-qualita-bottini.imageAlt': 'Lake Lugano with panoramic city view',
+    'blog.article.misoexperience-festival-sport-2024.title': 'Mesolcina Hosts MisoXperience 2024: Outdoor Sports Festival',
+    'blog.article.misoexperience-festival-sport-2024.excerpt': 'From May 9 to 17, the Mesolcina valley will host the MisoXperience Festival featuring kayak, bouldering, and paragliding. Here is the complete program.',
+    'blog.article.misoexperience-festival-sport-2024.imageAlt': 'Aerial view of the Moesa River in Mesolcina Valley, Switzerland, with outdoor sports activities and festival tents',
 };
 
 export default blogMetaEn;

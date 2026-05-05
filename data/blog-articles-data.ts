@@ -19874,4 +19874,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'misoexperience-festival-sport-2024',
+ category: 'novita',
+ date: '2026-05-05T19:17:57.904Z',
+ image: '/images/blog/misoexperience-festival-sport-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6168,6 +6168,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.somministrazione-occupazione-qualita-bottini.title': 'Bottini: Somministrazione crea occupazione di qualità',
     'blog.article.somministrazione-occupazione-qualita-bottini.excerpt': 'Il nuovo Ccnl per i lavoratori in somministrazione, rinnovato a luglio 2025, garantisce occupazione di qualità con formazione e welfare.',
     'blog.article.somministrazione-occupazione-qualita-bottini.imageAlt': 'Lago di Lugano con vista panoramica della città',
+    'blog.article.misoexperience-festival-sport-2024.title': 'MisoXperience 2024: il festival degli sport all\'aperto in Mesolcina',
+    'blog.article.misoexperience-festival-sport-2024.excerpt': 'Dal 9 al 17 maggio, la valle Mesolcina ospita il MisoXperience Festival con kayak, bouldering e parapendio. Ecco il programma completo',
+    'blog.article.misoexperience-festival-sport-2024.imageAlt': 'Vista aerea del fiume Moesa nella valle di Mesolcina, Svizzera, con attività sportive all\'aperto e tende del festival',
 };
 
 export default blogMetaIt;
