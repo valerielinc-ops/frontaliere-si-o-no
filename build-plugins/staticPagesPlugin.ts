@@ -24,7 +24,7 @@ import {
  type JobBoardLocale,
 } from './jobBoardSeo';
 import { emitSeoHubs } from './seoHubsPlugin';
-import { ARTICLES_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubLocale as ArchiveHubLocale } from './seoHubsData';
+import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubLocale as ArchiveHubLocale } from './seoHubsData';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
@@ -674,6 +674,21 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  articlesTotalPages = Math.max(1, Math.ceil(titleKeys.size / ARTICLES_PAGE_SIZE));
  } catch (e) {
  console.warn('[static-pages] Could not compute articlesTotalPages from blog-meta-it.ts:', e);
+ }
+
+ // Same for the jobs hub: emit a deep-link navigator on /cerca-lavoro-ticino/
+ // so every /tutti/page-K/ archive page is at depth 2 from `/`. With ~30k
+ // job slugs at 100/page, totalPages is ~304 — far too many for a flat list,
+ // so the navigator goes inside a <details> collapsible (UX-fold, SEO-flat).
+ // Closes ~1330 of the 1843 baseline offenders that live in
+ // sitemap-jobs.xml + sitemap-seo-hubs.xml.
+ let jobsTotalPages = 1;
+ try {
+ const jobSlugsRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/all-known-job-slugs.json'), 'utf-8'));
+ const slugCount = (jobSlugsRaw && typeof jobSlugsRaw === 'object') ? Object.keys(jobSlugsRaw).length : 0;
+ jobsTotalPages = Math.max(1, Math.ceil(slugCount / JOBS_PAGE_SIZE));
+ } catch (e) {
+ console.warn('[static-pages] Could not compute jobsTotalPages from all-known-job-slugs.json:', e);
  }
 
  /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */
@@ -2574,6 +2589,30 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Offerte di Lavoro in Ticino \u2014 Bacheca Lavoro per Frontalieri</h2>`,
  `<p style="margin:.5rem 0;font-weight:500;font-size:1rem;line-height:1.7">Cerchi <strong>lavoro in Ticino</strong>? Questa bacheca raccoglie oltre 1.500 <strong>offerte di lavoro</strong> attive da pi\u00f9 di 100 aziende del Canton Ticino, aggiornate ogni 12 ore. Le posizioni coprono tutti i principali settori \u2014 banca, pharma, IT, edilizia, sanit\u00e0, logistica \u2014 e sono disponibili in italiano, inglese, tedesco e francese. Ogni annuncio \u00e8 collegato direttamente al sito ufficiale dell\u2019azienda per la candidatura.</p>`,
  );
+ // Deep-link archive navigator \u2014 same methodology as the blog fix
+ // (commit f53d7fea5c). With ~30k job slugs paginated at 100/page,
+ // totalPages is ~304 \u2014 too many for a flat visible list, so the anchors
+ // are wrapped in a <details> collapsible. Visually a single "Sfoglia
+ // tutto l'archivio per pagina" toggle; semantically every /tutti/page-K/
+ // archive sits at depth 2 from `/`, putting every company/job listed
+ // there at depth 3. Closes the bulk of sitemap-jobs.xml (1030 offenders)
+ // and sitemap-seo-hubs.xml (302 offenders) in the May-2026 baseline.
+ if (jobsTotalPages > 1) {
+ const jobsArchiveBase = HUB_SLUGS[locale as ArchiveHubLocale]?.jobsAll ?? '/cerca-lavoro-ticino/tutti/';
+ const jobsNavLabel = locale === 'it' ? 'Sfoglia tutto l\'archivio offerte per pagina'
+   : locale === 'en' ? 'Browse the full job archive by page'
+   : locale === 'de' ? 'Vollst\u00e4ndiges Stellenarchiv nach Seite durchsuchen'
+   : 'Parcourir toutes les offres par page';
+ const jobsPageWord = locale === 'it' ? 'Pagina' : locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : 'Page';
+ const jobsAnchors: string[] = [];
+ for (let p = 1; p <= jobsTotalPages; p++) {
+ const href = paginatedPath(jobsArchiveBase, p);
+ jobsAnchors.push(`<a href="${href}" style="display:inline-block;padding:3px 8px;margin:1px;border-radius:4px;background:#f1f5f9;color:#1e293b;text-decoration:none;font-size:12px;border:1px solid #e2e8f0">${jobsPageWord}&nbsp;${p}</a>`);
+ }
+ editorialBlocks.push(
+ `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(jobsNavLabel)} (${jobsTotalPages} pagine)</summary><nav aria-label="${esc(jobsNavLabel)}" style="margin-top:.5rem;line-height:1.8">${jobsAnchors.join('')}</nav></details>`,
+ );
+ }
  editorialBlocks.push(
  `La sezione <strong>offerte lavoro Ticino</strong> raccoglie annunci pubblicati su fonti aziendali ufficiali, con normalizzazione dei dati principali per facilitare il confronto tra ruolo, sede, contratto e coerenza con il proprio profilo professionale. Gli annunci provengono da oltre 100 aziende ticinesi monitorate quotidianamente da crawler dedicati.`,
  `Per ogni posizione vengono mantenuti metadati utili alla valutazione: data di pubblicazione, azienda, località, requisiti richiesti e collegamento diretto alla candidatura sul sito originale del datore di lavoro. Le offerte sono filtrate per il Canton Ticino e vengono aggiornate ogni 12 ore.`,
