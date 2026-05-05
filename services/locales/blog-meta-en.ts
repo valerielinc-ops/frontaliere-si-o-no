@@ -6221,6 +6221,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gottardo-riapre-8-maggio-2026.title': 'Gottardo reopens May 8: Easier traffic for cross-border workers',
     'blog.article.gottardo-riapre-8-maggio-2026.excerpt': 'The Gotthard Pass reopens on May 8, 2026, two weeks earlier than planned. Special lanes for Airolo and Gotthard and Novena passes.',
     'blog.article.gottardo-riapre-8-maggio-2026.imageAlt': 'Gottard Pass in spring, Switzerland',
+    'blog.article.agricoltura-precisione-pesticidi-2026.title': 'Precision farming cuts pesticide use in Switzerland',
+    'blog.article.agricoltura-precisione-pesticidi-2026.excerpt': 'A pilot project reduces pesticide use by 25% thanks to technology. See how agriculture is changing in Ticino and Grisons',
+    'blog.article.agricoltura-precisione-pesticidi-2026.imageAlt': 'Precision farming in Ticino with sensors and drones for crop monitoring',
 };
 
 export default blogMetaEn;

@@ -6221,6 +6221,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gottardo-riapre-8-maggio-2026.title': 'Gottardpass öffnet am 8. Mai: Erleichterungen für Grenzgänger',
     'blog.article.gottardo-riapre-8-maggio-2026.excerpt': 'Der Gottardpass öffnet am 8. Mai 2026, zwei Wochen früher als geplant. Spezielle Spuren für Airolo und die Pässe Gottard und Novena.',
     'blog.article.gottardo-riapre-8-maggio-2026.imageAlt': 'Gotthardpass im Frühling, Schweiz',
+    'blog.article.agricoltura-precisione-pesticidi-2026.title': 'Präzisionslandwirtschaft: Weniger Pestizide in der Schweiz',
+    'blog.article.agricoltura-precisione-pesticidi-2026.excerpt': 'Ein Pilotprojekt reduziert den Pestizideinsatz um 25 % dank Technologie. Entdecken Sie, wie sich die Landwirtschaft in Ticino und Graubünden verändert',
+    'blog.article.agricoltura-precisione-pesticidi-2026.imageAlt': 'Präzisionslandwirtschaft in Ticino mit Sensoren und Drohnen zur Überwachung der Kulturen',
 };
 
 export default blogMetaDe;

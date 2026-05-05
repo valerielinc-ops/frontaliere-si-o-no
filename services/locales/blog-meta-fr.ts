@@ -6222,6 +6222,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gottardo-riapre-8-maggio-2026.title': 'Le col du Gothard rouvre le 8 mai: trafic facilité pour les frontaliers',
     'blog.article.gottardo-riapre-8-maggio-2026.excerpt': 'Le col du Gothard rouvre le 8 mai 2026, deux semaines plus tôt que prévu. Voies spéciales pour Airolo et les cols du Gothard et de la Novena.',
     'blog.article.gottardo-riapre-8-maggio-2026.imageAlt': 'Col du Gothard au printemps, Suisse',
+    'blog.article.agricoltura-precisione-pesticidi-2026.title': 'Agriculture de précision: moins de pesticides en Suisse',
+    'blog.article.agricoltura-precisione-pesticidi-2026.excerpt': 'Un projet pilote réduit de 25% l\'utilisation des pesticides grâce à la technologie. Découvrez comment l\'agriculture change en Ticino et Grisons',
+    'blog.article.agricoltura-precisione-pesticidi-2026.imageAlt': 'Agriculture de précision dans le Tessin avec des capteurs et des drones pour la surveillance des cultures',
 };
 
 export default blogMetaFr;

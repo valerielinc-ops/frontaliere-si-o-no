@@ -19874,6 +19874,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agricoltura-precisione-pesticidi-2026': {
+    title: 'Agricoltura di precisione: meno pesticidi in Svizzera',
+    description: 'Un progetto pilota riduce del 25% l\'uso di pesticidi grazie alla tecnologia. Scopri come cambia l\'agricoltura in Ticino e Grigioni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, agricoltura, precisione, meno, pesticidi',
+    ogTitle: 'Agricoltura di precisione: meno pesticidi in Svizzera',
+    ogDescription: 'Un progetto pilota riduce del 25% l\'uso di pesticidi grazie alla tecnologia. Scopri come cambia l\'agricoltura in Ticino e Grigioni',
+    canonicalPath: '/articoli-frontaliere/agricoltura-precisione-pesticidi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agricoltura di precisione: meno pesticidi in Svizzera",
+      "description": "Un progetto pilota riduce del 25% l'uso di pesticidi grazie alla tecnologia. Scopri come cambia l'agricoltura in Ticino e Grigioni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/agricoltura-precisione-pesticidi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agricoltura di precisione in Ticino con sensori e droni per monitoraggio colture"
+      },
+      "datePublished": "2026-05-05T23:01:44+00:00",
+      "dateModified": "2026-05-05T23:01:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agricoltura-precisione-pesticidi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -6222,6 +6222,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gottardo-riapre-8-maggio-2026.title': 'Passo del Gottardo riapre l’8 maggio: traffico agevolato per frontalieri',
     'blog.article.gottardo-riapre-8-maggio-2026.excerpt': 'Il passo del Gottardo riapre il 8 maggio 2026, due settimane prima del previsto. Corsie speciali per Airolo e passi del Gottardo e della Novena.',
     'blog.article.gottardo-riapre-8-maggio-2026.imageAlt': 'Passo del Gottardo in primavera, Svizzera',
+    'blog.article.agricoltura-precisione-pesticidi-2026.title': 'Agricoltura di precisione: meno pesticidi in Svizzera',
+    'blog.article.agricoltura-precisione-pesticidi-2026.excerpt': 'Un progetto pilota riduce del 25% l\'uso di pesticidi grazie alla tecnologia. Scopri come cambia l\'agricoltura in Ticino e Grigioni',
+    'blog.article.agricoltura-precisione-pesticidi-2026.imageAlt': 'Agricoltura di precisione in Ticino con sensori e droni per monitoraggio colture',
 };
 
 export default blogMetaIt;

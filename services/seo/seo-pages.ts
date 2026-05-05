@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2126,
+ "numberOfItems": 2127,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6768,7 +6768,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2123, "name": "Cassano Magnago: balcone in fiamme, sgombero fo...", "url": `${BASE_URL}/articoli-frontaliere/incendio-cassano-magnago-sgombero` },
           { "@type": "ListItem", "position": 2124, "name": "Furti auto in Ticino: AXA segnala un aumento", "url": `${BASE_URL}/articoli-frontaliere/furti-auto-ticino-2026-axa-segnalazioni` },
           { "@type": "ListItem", "position": 2125, "name": "Minoteries chiude sito a Zollbrück, 28 dipenden...", "url": `${BASE_URL}/articoli-frontaliere/minoteries-chiude-zollbruck-28-dipendenti` },
-          { "@type": "ListItem", "position": 2126, "name": "Passo del Gottardo riapre l’8 maggio: traffico ...", "url": `${BASE_URL}/articoli-frontaliere/gottardo-riapre-8-maggio-2026` }
+          { "@type": "ListItem", "position": 2126, "name": "Passo del Gottardo riapre l’8 maggio: traffico ...", "url": `${BASE_URL}/articoli-frontaliere/gottardo-riapre-8-maggio-2026` },
+          { "@type": "ListItem", "position": 2127, "name": "Agricoltura di precisione: meno pesticidi in Sv...", "url": `${BASE_URL}/articoli-frontaliere/agricoltura-precisione-pesticidi-2026` }
  ]
  },
  {
