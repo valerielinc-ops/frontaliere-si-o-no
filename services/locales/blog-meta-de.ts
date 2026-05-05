@@ -6032,6 +6032,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.title': 'Werbung und Umwelteinfluss: Die Debatte in der Schweiz',
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.excerpt': 'Amsterdam verbietet Werbung für Fleisch und fossile Brennstoffe. In der Schweiz ist die Debatte zwischen Umweltschützern und Befürwortern der Marktwirtschaft hitzig.',
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.imageAlt': 'Luftaufnahme des Luganersees mit klaren blauen Gewässern, umgeben von Bergen und Gebäuden, die die schöne Landschaft des Tessin zeigt.',
+    'blog.article.como-tunisino-denunciato-aggressione.title': 'Tunesier greift Jugendlichen an und wird angezeigt',
+    'blog.article.como-tunisino-denunciato-aggressione.excerpt': 'Ein tunesischer Staatsbürger hat in Como einen Jugendlichen angegriffen, sich verletzt und wurde schließlich von den örtlichen Behörden angezeigt.',
+    'blog.article.como-tunisino-denunciato-aggressione.imageAlt': 'Polizeiszene in Como nach einem Angriff',
 };
 
 export default blogMetaDe;

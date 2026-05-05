@@ -6033,6 +6033,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.title': 'Pubblicità e impatto ambientale: il dibattito in Svizzera',
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.excerpt': 'Amsterdam vieta pubblicità di carne e combustibili fossili. In Svizzera, il dibattito è acceso tra ambientalisti e sostenitori della libertà di mercato.',
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.imageAlt': 'Vista aerea del Lago di Lugano con acque cristalline, circondato da montagne e edifici, che mostra il bellissimo paesaggio del Ticino.',
+    'blog.article.como-tunisino-denunciato-aggressione.title': 'Como: tunisino aggredisce un giovane, si ferisce e si ritrova denunciato',
+    'blog.article.como-tunisino-denunciato-aggressione.excerpt': 'Un cittadino tunisino ha aggredito un giovane a Como, ferendosi e finendo per essere denunciato dalle autorità locali.',
+    'blog.article.como-tunisino-denunciato-aggressione.imageAlt': 'Scena di polizia a Como dopo un\'aggressione',
 };
 
 export default blogMetaIt;

@@ -6033,6 +6033,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.title': 'Publicité et impact environnemental: le débat en Suisse',
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.excerpt': 'Amsterdam interdit la publicité pour la viande et les combustibles fossiles. En Suisse, le débat est vif entre les écologistes et les partisans de la liberté du marché.',
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.imageAlt': 'Vue aérienne du lac de Lugano avec des eaux cristallines, entouré de montagnes et de bâtiments, montrant le beau paysage du Tessin.',
+    'blog.article.como-tunisino-denunciato-aggressione.title': 'Como : un Tunisien blesse un jeune et est dénoncé',
+    'blog.article.como-tunisino-denunciato-aggressione.excerpt': 'Un citoyen tunisien a agressé un jeune à Côme, se blessant et finissant par être dénoncé par les autorités locales.',
+    'blog.article.como-tunisino-denunciato-aggressione.imageAlt': 'Scène de police à Côme après une agression',
 };
 
 export default blogMetaFr;

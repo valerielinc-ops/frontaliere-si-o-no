@@ -6032,6 +6032,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.title': 'Advertising and environmental impact: the debate in Switzerland',
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.excerpt': 'Amsterdam bans ads for meat and fossil fuels. In Switzerland, the debate is heated between environmentalists and free market supporters.',
     'blog.article.pubblicita-ambiente-amsterdam-svizzera.imageAlt': 'Aerial view of Lake Lugano with clear blue waters, surrounded by mountains and buildings, showcasing the beautiful landscape of Ticino.',
+    'blog.article.como-tunisino-denunciato-aggressione.title': 'Tunisian man injures himself after attacking a youth in Como',
+    'blog.article.como-tunisino-denunciato-aggressione.excerpt': 'A Tunisian citizen attacked a young man in Como, injuring himself and ending up reported to local authorities.',
+    'blog.article.como-tunisino-denunciato-aggressione.imageAlt': 'Police scene in Como after an assault',
 };
 
 export default blogMetaEn;
