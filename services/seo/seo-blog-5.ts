@@ -19836,6 +19836,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gottardo-riapre-8-maggio-2026': {
+    title: 'Passo del Gottardo riapre l’8 maggio: traffico agevolato per frontalieri',
+    description: 'Il passo del Gottardo riapre l’8 maggio 2026, due settimane prima del previsto. Corsie speciali per Airolo e passi del Gottardo e della Novena. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, passo, gottardo, riapre, maggio',
+    ogTitle: 'Passo del Gottardo riapre l’8 maggio 2026: traffico agevolato per frontalieri',
+    ogDescription: 'Il passo del Gottardo riapre l’8 maggio 2026, due settimane prima del previsto. Corsie speciali per Airolo e passi del Gottardo e della Novena.',
+    canonicalPath: '/articoli-frontaliere/gottardo-riapre-8-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Passo del Gottardo riapre l’8 maggio: traffico agevolato per frontalieri",
+      "description": "Il passo del Gottardo riapre l’8 maggio 2026, due settimane prima del previsto. Corsie speciali per Airolo e passi del Gottardo e della Novena. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/gottardo-riapre-8-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passo del Gottardo in primavera, Svizzera"
+      },
+      "datePublished": "2026-05-05T22:56:28+00:00",
+      "dateModified": "2026-05-05T22:56:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gottardo-riapre-8-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

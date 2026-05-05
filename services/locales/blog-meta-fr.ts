@@ -6219,6 +6219,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.minoteries-chiude-zollbruck-28-dipendenti.title': 'Minoteries ferme son site à Zollbrück, 28 employés concernés',
     'blog.article.minoteries-chiude-zollbruck-28-dipendenti.excerpt': 'Le Groupe Minoteries ferme le moulin Steiner à Zollbrück au premier semestre 2027, touchant 28 employés.',
     'blog.article.minoteries-chiude-zollbruck-28-dipendenti.imageAlt': 'Vue aérienne d\'une zone industrielle suisse avec un moulin fermé et le paysage environnant',
+    'blog.article.gottardo-riapre-8-maggio-2026.title': 'Le col du Gothard rouvre le 8 mai: trafic facilité pour les frontaliers',
+    'blog.article.gottardo-riapre-8-maggio-2026.excerpt': 'Le col du Gothard rouvre le 8 mai 2026, deux semaines plus tôt que prévu. Voies spéciales pour Airolo et les cols du Gothard et de la Novena.',
+    'blog.article.gottardo-riapre-8-maggio-2026.imageAlt': 'Col du Gothard au printemps, Suisse',
 };
 
 export default blogMetaFr;

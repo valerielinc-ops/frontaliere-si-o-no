@@ -6218,6 +6218,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.minoteries-chiude-zollbruck-28-dipendenti.title': 'Minoteries to close Zollbrück mill, 28 jobs affected',
     'blog.article.minoteries-chiude-zollbruck-28-dipendenti.excerpt': 'The Minoteries Group will close the Steiner mill in Zollbrück in the first half of 2027, affecting 28 employees.',
     'blog.article.minoteries-chiude-zollbruck-28-dipendenti.imageAlt': 'Aerial view of a Swiss industrial area with a closed mill and surrounding landscape',
+    'blog.article.gottardo-riapre-8-maggio-2026.title': 'Gottardo reopens May 8: Easier traffic for cross-border workers',
+    'blog.article.gottardo-riapre-8-maggio-2026.excerpt': 'The Gotthard Pass reopens on May 8, 2026, two weeks earlier than planned. Special lanes for Airolo and Gotthard and Novena passes.',
+    'blog.article.gottardo-riapre-8-maggio-2026.imageAlt': 'Gottard Pass in spring, Switzerland',
 };
 
 export default blogMetaEn;

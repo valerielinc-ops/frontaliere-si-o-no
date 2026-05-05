@@ -6219,6 +6219,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.minoteries-chiude-zollbruck-28-dipendenti.title': 'Minoteries chiude sito a Zollbrück, 28 dipendenti interessati',
     'blog.article.minoteries-chiude-zollbruck-28-dipendenti.excerpt': 'Il Gruppo Minoteries chiude il mulino Steiner a Zollbrück nel primo semestre 2027, interessando 28 dipendenti.',
     'blog.article.minoteries-chiude-zollbruck-28-dipendenti.imageAlt': 'Vista aerea di un\'area industriale svizzera con un mulino chiuso e il paesaggio circostante',
+    'blog.article.gottardo-riapre-8-maggio-2026.title': 'Passo del Gottardo riapre l’8 maggio: traffico agevolato per frontalieri',
+    'blog.article.gottardo-riapre-8-maggio-2026.excerpt': 'Il passo del Gottardo riapre il 8 maggio 2026, due settimane prima del previsto. Corsie speciali per Airolo e passi del Gottardo e della Novena.',
+    'blog.article.gottardo-riapre-8-maggio-2026.imageAlt': 'Passo del Gottardo in primavera, Svizzera',
 };
 
 export default blogMetaIt;

@@ -3315,6 +3315,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-cassano-magnago-sgombero': { name: 'Novità', path: '/articoli-frontaliere/incendio-cassano-magnago-sgombero', parent: 'blog' },
     'blog-furti-auto-ticino-2026-axa-segnalazioni': { name: 'Furti auto', path: '/articoli-frontaliere/furti-auto-ticino-2026-axa-segnalazioni', parent: 'blog' },
     'blog-minoteries-chiude-zollbruck-28-dipendenti': { name: 'Novità', path: '/articoli-frontaliere/minoteries-chiude-zollbruck-28-dipendenti', parent: 'blog' },
+    'blog-gottardo-riapre-8-maggio-2026': { name: 'Passo Gottardo', path: '/articoli-frontaliere/gottardo-riapre-8-maggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
