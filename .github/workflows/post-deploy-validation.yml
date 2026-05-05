@@ -262,7 +262,15 @@ jobs:
       # instead of paying an extra tail for CDN propagation + probe + live E2E.
       - name: Post-build validations + SEO audits (capped parallel)
         run: |
-          MAX_PARALLEL=4
+          # MAX_PARALLEL=2 (was 4) to give the heavy-walker serial chain
+          # (audit:dist-multi-{ratio,heavy,light} + audit:title-uniqueness)
+          # enough RAM headroom on the 7 GB ubuntu-latest free runner.
+          # Each heavy walker peaks ~2-3 GB; 4 concurrent pool audits each at
+          # ~0.5-1 GB pushed total RSS to 4-7 GB, OOM-killing dist-multi-light
+          # and title-uniqueness in run 25400905401 even after they had been
+          # serialized into the chain. Halving the pool gives chain (~3 GB) +
+          # pool (~1.5 GB) = ~4.5 GB peak, safely under the cap.
+          MAX_PARALLEL=2
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
