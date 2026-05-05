@@ -6179,6 +6179,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-italia-nuova-fase-relazioni.title': 'Switzerland-Italy: New Phase in Relations After Crans-Montana',
     'blog.article.svizzera-italia-nuova-fase-relazioni.excerpt': 'Swiss President Guy Parmelin in Rome to discuss treatment of Italian injured. Possible solution with EU derogation.',
     'blog.article.svizzera-italia-nuova-fase-relazioni.imageAlt': 'Lake Lugano with view of the Swiss-Italian border',
+    'blog.article.moschea-cantu-frontalieri-2026.title': 'Mosque in Cantù: victory for Assalam after 12 years',
+    'blog.article.moschea-cantu-frontalieri-2026.excerpt': 'The State Council has recognized Assalam\'s right to build a mosque in Cantù, ordering the Municipality to pay the costs.',
+    'blog.article.moschea-cantu-frontalieri-2026.imageAlt': 'Aerial view of Cantù, Italy, with the Swiss border in the background.',
 };
 
 export default blogMetaEn;

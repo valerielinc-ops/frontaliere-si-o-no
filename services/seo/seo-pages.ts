@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2112,
+ "numberOfItems": 2113,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6754,7 +6754,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2109, "name": "MisoXperience 2024: il festival degli sport all...", "url": `${BASE_URL}/articoli-frontaliere/misoexperience-festival-sport-2024` },
           { "@type": "ListItem", "position": 2110, "name": "Servizio civile: alleanza del no avverte sui ri...", "url": `${BASE_URL}/articoli-frontaliere/servizio-civile-legge-nefasta-frontalieri` },
           { "@type": "ListItem", "position": 2111, "name": "Como, arrestati due marocchini per furto al Car...", "url": `${BASE_URL}/articoli-frontaliere/furto-carrefour-como-marocchini-arrestati` },
-          { "@type": "ListItem", "position": 2112, "name": "Svizzera-Italia: nuova fase nelle relazioni dop...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-italia-nuova-fase-relazioni` }
+          { "@type": "ListItem", "position": 2112, "name": "Svizzera-Italia: nuova fase nelle relazioni dop...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-italia-nuova-fase-relazioni` },
+          { "@type": "ListItem", "position": 2113, "name": "Moschea a Cantù: vittoria per Assalam dopo 12 anni", "url": `${BASE_URL}/articoli-frontaliere/moschea-cantu-frontalieri-2026` }
  ]
  },
  {

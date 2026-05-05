@@ -6179,6 +6179,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-italia-nuova-fase-relazioni.title': 'Schweiz-Italien: Neuer Abschnitt in den Beziehungen nach Crans-Montana',
     'blog.article.svizzera-italia-nuova-fase-relazioni.excerpt': 'Guy Parmelin in Rom, um über die Behandlung der italienischen Verletzten zu sprechen. Mögliche Lösung mit EU-Entschuldigung.',
     'blog.article.svizzera-italia-nuova-fase-relazioni.imageAlt': 'Luganersee mit Blick auf die schweizerisch-italienische Grenze',
+    'blog.article.moschea-cantu-frontalieri-2026.title': 'Moschee in Cantù: Sieg für Assalam nach 12 Jahren',
+    'blog.article.moschea-cantu-frontalieri-2026.excerpt': 'Der Staatsrat hat das Recht von Assalam anerkannt, eine Moschee in Cantù zu bauen, und die Gemeinde verurteilt, die Kosten zu tragen.',
+    'blog.article.moschea-cantu-frontalieri-2026.imageAlt': 'Luftaufnahme von Cantù, Italien, mit der Schweizer Grenze im Hintergrund.',
 };
 
 export default blogMetaDe;

@@ -6180,6 +6180,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-italia-nuova-fase-relazioni.title': 'Svizzera-Italia: nuova fase nelle relazioni dopo Crans-Montana',
     'blog.article.svizzera-italia-nuova-fase-relazioni.excerpt': 'Guy Parmelin a Roma per discutere delle cure ai feriti italiani. Possibile soluzione con deroga UE.',
     'blog.article.svizzera-italia-nuova-fase-relazioni.imageAlt': 'Lago di Lugano con vista sul confine italo-svizzero',
+    'blog.article.moschea-cantu-frontalieri-2026.title': 'Moschea a Cantù: vittoria per Assalam dopo 12 anni',
+    'blog.article.moschea-cantu-frontalieri-2026.excerpt': 'Il Consiglio di Stato ha riconosciuto il diritto di Assalam a costruire una moschea a Cantù, condannando il Comune a pagare le spese.',
+    'blog.article.moschea-cantu-frontalieri-2026.imageAlt': 'Vista aerea di Cantù, Italia, con il confine svizzero sullo sfondo.',
 };
 
 export default blogMetaIt;

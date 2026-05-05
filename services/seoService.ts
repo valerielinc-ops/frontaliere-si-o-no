@@ -3302,6 +3302,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-servizio-civile-legge-nefasta-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/servizio-civile-legge-nefasta-frontalieri', parent: 'blog' },
     'blog-furto-carrefour-como-marocchini-arrestati': { name: 'Novità', path: '/articoli-frontaliere/furto-carrefour-como-marocchini-arrestati', parent: 'blog' },
     'blog-svizzera-italia-nuova-fase-relazioni': { name: 'Novità', path: '/articoli-frontaliere/svizzera-italia-nuova-fase-relazioni', parent: 'blog' },
+    'blog-moschea-cantu-frontalieri-2026': { name: 'Moschea Cantù', path: '/articoli-frontaliere/moschea-cantu-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

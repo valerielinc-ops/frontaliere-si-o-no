@@ -6180,6 +6180,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-italia-nuova-fase-relazioni.title': 'Suisse-Italie',
     'blog.article.svizzera-italia-nuova-fase-relazioni.excerpt': 'Guy Parmelin à Rome pour discuter des soins aux blessés italiens. Une solution possible avec dérogation UE.',
     'blog.article.svizzera-italia-nuova-fase-relazioni.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
+    'blog.article.moschea-cantu-frontalieri-2026.title': 'Mosquée à Cantù : victoire pour Assalam après 12 ans',
+    'blog.article.moschea-cantu-frontalieri-2026.excerpt': 'Le Conseil d\'État a reconnu le droit d\'Assalam de construire une mosquée à Cantù, condamnant la commune à payer les frais.',
+    'blog.article.moschea-cantu-frontalieri-2026.imageAlt': 'Vue aérienne de Cantù, Italie, avec la frontière suisse en arrière-plan.',
 };
 
 export default blogMetaFr;
