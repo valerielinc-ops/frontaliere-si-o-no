@@ -17883,6 +17883,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-questionario-scuole-ticino-2026': {
+    title: 'Questionario per allievi e docenti: strumento utile e dissuasivo',
+    description: 'Il Decs ha testato un questionario per allievi e docenti in una scuola professionale ticinese per migliorare il benessere scolastico. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, questionario, allievi, docenti, strumento',
+    ogTitle: 'Questionario scuole Ticino 2026: strumento utile e dissuasivo',
+    ogDescription: 'Il Decs ha testato un questionario per allievi e docenti in una scuola professionale ticinese per migliorare il benessere scolastico.',
+    canonicalPath: '/articoli-frontaliere/questionario-scuole-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Questionario per allievi e docenti: strumento utile e dissuasivo",
+      "description": "Il Decs ha testato un questionario per allievi e docenti in una scuola professionale ticinese per migliorare il benessere scolastico. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/questionario-scuole-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una classe di una scuola professionale ticinese con studenti e docenti che discutono un questionario"
+      },
+      "datePublished": "2026-05-05T06:27:44+00:00",
+      "dateModified": "2026-05-05T06:27:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/questionario-scuole-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

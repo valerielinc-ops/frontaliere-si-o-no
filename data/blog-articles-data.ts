@@ -19415,4 +19415,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'questionario-scuole-ticino-2026',
+ category: 'novita',
+ date: '2026-05-05T06:27:44.603Z',
+ image: '/images/blog/questionario-scuole-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

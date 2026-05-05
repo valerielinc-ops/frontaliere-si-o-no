@@ -6014,6 +6014,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lugano-ingaggia-olle-lycksell-2026.title': 'Lugano verpflichtet Lycksell bis 2029',
     'blog.article.lugano-ingaggia-olle-lycksell-2026.excerpt': 'Der schwedische Flügelstürmer kommt in den Tessin mit einem Dreijahresvertrag. Hier ist, was sich für die Bianconeri-Fans ändert',
     'blog.article.lugano-ingaggia-olle-lycksell-2026.imageAlt': 'Lugano Hockey Club Stadion mit Eisbahn und Spielern',
+    'blog.article.questionario-scuole-ticino-2026.title': 'Umfrage für Schüler und Lehrer: nützlich und abschreckend',
+    'blog.article.questionario-scuole-ticino-2026.excerpt': 'Das Decs hat einen Fragebogen in einer Berufsschule im Tessin getestet, um die Kommunikationskanäle und Prävention zu stärken',
+    'blog.article.questionario-scuole-ticino-2026.imageAlt': 'Ein Klassenzimmer in einer Berufsschule im Tessin mit Schülern und Lehrern, die einen Fragebogen diskutieren',
 };
 
 export default blogMetaDe;

@@ -6014,6 +6014,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lugano-ingaggia-olle-lycksell-2026.title': 'Lugano signs Olle Lycksell until 2029',
     'blog.article.lugano-ingaggia-olle-lycksell-2026.excerpt': 'The Swedish winger joins Ticino with a three-year contract. Here\'s what changes for the Bianconeri fans',
     'blog.article.lugano-ingaggia-olle-lycksell-2026.imageAlt': 'Lugano Hockey Club stadium with ice rink and players',
+    'blog.article.questionario-scuole-ticino-2026.title': 'Survey for students and teachers: useful and deterrent tool',
+    'blog.article.questionario-scuole-ticino-2026.excerpt': 'The State Secretariat for Education, Research and Innovation tested a survey in a Ticino vocational school to strengthen listening channels and prevention',
+    'blog.article.questionario-scuole-ticino-2026.imageAlt': 'A classroom in a Ticino professional school with students and teachers discussing a questionnaire',
 };
 
 export default blogMetaEn;

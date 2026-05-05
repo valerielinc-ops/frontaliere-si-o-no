@@ -6015,6 +6015,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lugano-ingaggia-olle-lycksell-2026.title': 'Lugano ingaggia Olle Lycksell fino al 2029',
     'blog.article.lugano-ingaggia-olle-lycksell-2026.excerpt': 'Il centro-ala svedese arriva in Ticino con un contratto triennale. Ecco cosa cambia per i tifosi bianconeri',
     'blog.article.lugano-ingaggia-olle-lycksell-2026.imageAlt': 'Stadio del Lugano Hockey Club con pista di ghiaccio e giocatori',
+    'blog.article.questionario-scuole-ticino-2026.title': 'Questionario per allievi e docenti: strumento utile e dissuasivo',
+    'blog.article.questionario-scuole-ticino-2026.excerpt': 'Il Decs ha testato un questionario in una scuola professionale ticinese per rafforzare canali di ascolto e prevenzione',
+    'blog.article.questionario-scuole-ticino-2026.imageAlt': 'Una classe di una scuola professionale ticinese con studenti e docenti che discutono un questionario',
 };
 
 export default blogMetaIt;
