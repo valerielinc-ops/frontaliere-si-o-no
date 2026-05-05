@@ -6242,6 +6242,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divieto-petardi-svizzera-frontalieri.title': 'Fireworks ban in Switzerland: what changes for cross-border workers',
     'blog.article.divieto-petardi-svizzera-frontalieri.excerpt': 'The Commission for Science, Education and Culture approves the ban on fireworks in Switzerland. Here are the implications for cross-border workers',
     'blog.article.divieto-petardi-svizzera-frontalieri.imageAlt': 'Fireworks over Lake Lugano at night',
+    'blog.article.salotto-ciani-lugano-2026.title': 'Il Salotto lights up Asilo Ciani in Lugano',
+    'blog.article.salotto-ciani-lugano-2026.excerpt': 'On Saturday, May 9, 2026, Asilo Ciani in Lugano hosts \'Il Salotto\', an event combining art and music with local young artists.',
+    'blog.article.salotto-ciani-lugano-2026.imageAlt': 'Cultural event at Asilo Ciani in Lugano with artists and musicians on stage',
 };
 
 export default blogMetaEn;

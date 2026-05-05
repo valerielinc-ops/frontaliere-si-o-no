@@ -6243,6 +6243,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divieto-petardi-svizzera-frontalieri.title': 'Divieto petardi Svizzera: cosa cambia per i frontalieri',
     'blog.article.divieto-petardi-svizzera-frontalieri.excerpt': 'La Commissione della scienza, educazione e cultura approva il divieto di petardi in Svizzera. Ecco le implicazioni per i frontalieri',
     'blog.article.divieto-petardi-svizzera-frontalieri.imageAlt': 'Fuochi d\'artificio sopra il lago di Lugano di notte',
+    'blog.article.salotto-ciani-lugano-2026.title': 'Il Salotto accende l\'Asilo Ciani a Lugano',
+    'blog.article.salotto-ciani-lugano-2026.excerpt': 'Sabato 9 maggio 2026, l\'Asilo Ciani di Lugano ospita \'Il Salotto\', un evento che unisce arte e musica con giovani artisti locali.',
+    'blog.article.salotto-ciani-lugano-2026.imageAlt': 'Evento culturale all\'Asilo Ciani a Lugano con artisti e musicisti sul palco',
 };
 
 export default blogMetaIt;

@@ -20140,6 +20140,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salotto-ciani-lugano-2026': {
+    title: 'Il Salotto accende l\'Asilo Ciani a Lugano | Frontaliere Ticino',
+    description: 'Sabato 9 maggio 2026, l\'Asilo Ciani di Lugano ospita \'Il Salotto\', un evento che unisce arte e musica con giovani artisti locali. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, salotto, accende, asilo, ciani',
+    ogTitle: 'Il Salotto accende l\'Asilo Ciani a Lugano',
+    ogDescription: 'Sabato 9 maggio 2026, l\'Asilo Ciani di Lugano ospita \'Il Salotto\', un evento che unisce arte e musica con giovani artisti locali.',
+    canonicalPath: '/articoli-frontaliere/salotto-ciani-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Salotto accende l'Asilo Ciani a Lugano",
+      "description": "Sabato 9 maggio 2026, l'Asilo Ciani di Lugano ospita 'Il Salotto', un evento che unisce arte e musica con giovani artisti locali. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/salotto-ciani-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento culturale all'Asilo Ciani a Lugano con artisti e musicisti sul palco"
+      },
+      "datePublished": "2026-05-05T23:45:19+00:00",
+      "dateModified": "2026-05-05T23:45:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salotto-ciani-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

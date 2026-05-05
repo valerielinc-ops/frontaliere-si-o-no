@@ -6243,6 +6243,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.divieto-petardi-svizzera-frontalieri.title': 'Interdiction des pétards en Suisse: ce qui change pour les frontaliers',
     'blog.article.divieto-petardi-svizzera-frontalieri.excerpt': 'La Commission de la science, de l\'éducation et de la culture approuve l\'interdiction des pétards en Suisse. Voici les implications pour les frontaliers',
     'blog.article.divieto-petardi-svizzera-frontalieri.imageAlt': 'Feux d\'artifice au-dessus du lac de Lugano la nuit',
+    'blog.article.salotto-ciani-lugano-2026.title': 'Le Salon illumine l\'Asilo Ciani à Lugano',
+    'blog.article.salotto-ciani-lugano-2026.excerpt': 'Samedi 9 mai 2026, l\'Asilo Ciani de Lugano accueille \'Le Salon\', un événement qui unit l\'art et la musique avec de jeunes artistes locaux.',
+    'blog.article.salotto-ciani-lugano-2026.imageAlt': 'Événement culturel à l\'Asilo Ciani à Lugano avec des artistes et des musiciens sur scène',
 };
 
 export default blogMetaFr;

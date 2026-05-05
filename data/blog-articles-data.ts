@@ -20099,4 +20099,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'salotto-ciani-lugano-2026',
+ category: 'novita',
+ date: '2026-05-05T23:45:18.962Z',
+ image: '/images/blog/salotto-ciani-lugano-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
