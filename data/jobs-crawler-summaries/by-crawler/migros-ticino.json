@@ -1,16 +1,16 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-04T22:20:38.294Z",
-  "total": 28,
+  "generatedAt": "2026-05-05T11:07:40.164Z",
+  "total": 27,
   "newCount": 0,
-  "updatedCount": 26,
+  "updatedCount": 25,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 34773,
-  "avgDurationMs": 34773,
+  "durationMs": 39791,
+  "avgDurationMs": 39791,
   "durationHistory": [
-    34773
+    39791
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -213,54 +213,6 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-fa8to6",
-      "slug": "collaboratore-trice-in-restaurant-migros-restaurant-chur-fa8to6",
-      "company": "Migros Restaurant",
-      "title": "Mitarbeiter*in Restaurant",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-28",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-restaurant/ca3e0cbd-3df2-444d-b07f-9c174e7968a9",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Du präsentierst die Speisen im Salat- und Kuchenbuffet kreativ und passend zur Tageszeit sowie zur Saison, um den Gästen ein optisches und kulinarisches Erlebnis zu bieten",
-        "Du betreust, berätst und bedienst unsere Kunden im Restaurant und an der Kasse mit Professionalität und Herzlichkeit",
-        "Du achtest darauf, dass die Hygienevorschriften gemäss Food Safety eingehalten und konsequent umgesetzt werden und führst diverse Reinigungsarbeiten durch, um einen rundum gepflegten Betrieb zu garantieren"
-      ],
-      "_migrosBenefits": [
-        "Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung",
-        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
-        "Versicherungen: Vorteilskonditionen bei diversen Versicherungsgesellschaften",
-        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde"
-      ],
-      "_migrosWorkPercentage": "",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-04-29T22:18:50.098Z",
-      "firstSeenAt": "2026-04-29T22:18:50.098Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
