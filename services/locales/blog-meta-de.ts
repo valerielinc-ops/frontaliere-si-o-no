@@ -6191,6 +6191,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.palestre-svizzera-record-2026.title': 'Gymnastik in der Schweiz: Rekord bei den Mitgliedern 2026',
     'blog.article.palestre-svizzera-record-2026.excerpt': 'Ein Erwachsener auf fünf besucht in der Schweiz die Turnhalle. Der Kanton Tessin ist der sechste bei der Dichte von Einrichtungen mit 17 Zentren pro 100.000 Einwohnern.',
     'blog.article.palestre-svizzera-record-2026.imageAlt': 'Moderne Fitnessanlage am Luganersee, Blick von der Uferpromenade',
+    'blog.article.aarau-arresto-somalier-auto-delitto.title': 'Aarau: 23-jähriger Somalier mit gestohlenem Auto festgenommen',
+    'blog.article.aarau-arresto-somalier-auto-delitto.excerpt': 'Die Polizei von Aarau hat einen 23-jährigen Somalier festgenommen, der mit einem gestohlenen Auto und mutmaßlicher Beute im Inneren angetroffen wurde.',
+    'blog.article.aarau-arresto-somalier-auto-delitto.imageAlt': 'Polizei Aarau während einer Kontrollaktion an einem verdächtigen Auto',
 };
 
 export default blogMetaDe;

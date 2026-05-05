@@ -6192,6 +6192,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.palestre-svizzera-record-2026.title': 'Salles de sport en Suisse: record d\'inscrits en 2026',
     'blog.article.palestre-svizzera-record-2026.excerpt': 'Un adulte sur cinq en Suisse fréquente une salle de sport. Le Tessin est sixième en termes de densité de structures avec 17 centres pour 100 000 habitants.',
     'blog.article.palestre-svizzera-record-2026.imageAlt': 'Centre de fitness moderne sur le lac de Lugano, vue depuis la promenade',
+    'blog.article.aarau-arresto-somalier-auto-delitto.title': 'Aarau: un Somalien de 23 ans arrêté avec une voiture volée',
+    'blog.article.aarau-arresto-somalier-auto-delitto.excerpt': 'La police d\'Aarau a arrêté un Somalien de 23 ans trouvé au volant d\'une voiture volée avec de la marchandise volée à l\'intérieur.',
+    'blog.article.aarau-arresto-somalier-auto-delitto.imageAlt': 'Police d\'Aarau lors d\'une opération de contrôle sur une voiture suspecte',
 };
 
 export default blogMetaFr;

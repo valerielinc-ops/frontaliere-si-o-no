@@ -19946,4 +19946,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aarau-arresto-somalier-auto-delitto',
+ category: 'novita',
+ date: '2026-05-05T21:56:24.791Z',
+ image: '/images/blog/aarau-arresto-somalier-auto-delitto.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

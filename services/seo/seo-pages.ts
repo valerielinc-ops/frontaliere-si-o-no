@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2116,
+ "numberOfItems": 2117,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6758,7 +6758,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2113, "name": "Moschea a Cantù: vittoria per Assalam dopo 12 anni", "url": `${BASE_URL}/articoli-frontaliere/moschea-cantu-frontalieri-2026` },
           { "@type": "ListItem", "position": 2114, "name": "Lago di Como, monte da salvare senza impianti", "url": `${BASE_URL}/articoli-frontaliere/lago-como-monte-san-primo-5-milioni` },
           { "@type": "ListItem", "position": 2115, "name": "Mistero da 7 milioni: chi ha comprato il palazz...", "url": `${BASE_URL}/articoli-frontaliere/mistero-palazzo-como-7-milioni` },
-          { "@type": "ListItem", "position": 2116, "name": "Palestre in Svizzera: record di iscritti nel 2026", "url": `${BASE_URL}/articoli-frontaliere/palestre-svizzera-record-2026` }
+          { "@type": "ListItem", "position": 2116, "name": "Palestre in Svizzera: record di iscritti nel 2026", "url": `${BASE_URL}/articoli-frontaliere/palestre-svizzera-record-2026` },
+          { "@type": "ListItem", "position": 2117, "name": "Aarau: 23enne somalo arrestato con auto rubata ...", "url": `${BASE_URL}/articoli-frontaliere/aarau-arresto-somalier-auto-delitto` }
  ]
  },
  {

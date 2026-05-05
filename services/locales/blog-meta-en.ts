@@ -6191,6 +6191,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.palestre-svizzera-record-2026.title': 'Swiss Gyms See Record Number of Subscribers in 2026',
     'blog.article.palestre-svizzera-record-2026.excerpt': 'One in five adults in Switzerland visits the gym. The Ticino region ranks sixth in terms of gym density, with 17 centers per 100,000 inhabitants.',
     'blog.article.palestre-svizzera-record-2026.imageAlt': 'Modern fitness center on Lake Lugano, view from the promenade',
+    'blog.article.aarau-arresto-somalier-auto-delitto.title': 'Aarau: 23-year-old Somali arrested with stolen car and loot',
+    'blog.article.aarau-arresto-somalier-auto-delitto.excerpt': 'Aarau police arrested a 23-year-old Somali found driving a stolen car with alleged loot inside.',
+    'blog.article.aarau-arresto-somalier-auto-delitto.imageAlt': 'Aarau police during a control operation on a suspicious car',
 };
 
 export default blogMetaEn;

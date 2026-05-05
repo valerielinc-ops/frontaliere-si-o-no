@@ -6192,6 +6192,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.palestre-svizzera-record-2026.title': 'Palestre in Svizzera: record di iscritti nel 2026',
     'blog.article.palestre-svizzera-record-2026.excerpt': 'Un adulto su cinque in Svizzera va in palestra. Il Ticino è sesto per densità di strutture con 17 centri ogni 100.000 abitanti',
     'blog.article.palestre-svizzera-record-2026.imageAlt': 'Palestra moderna sul Lago di Lugano, vista dal lungolago',
+    'blog.article.aarau-arresto-somalier-auto-delitto.title': 'Aarau: 23enne somalo arrestato con auto rubata e refurtiva',
+    'blog.article.aarau-arresto-somalier-auto-delitto.excerpt': 'La polizia di Aarau ha arrestato un 23enne somalo trovato alla guida di un\'auto rubata con presunta refurtiva all\'interno.',
+    'blog.article.aarau-arresto-somalier-auto-delitto.imageAlt': 'Polizia di Aarau durante un\'operazione di controllo su un\'auto sospetta',
 };
 
 export default blogMetaIt;
