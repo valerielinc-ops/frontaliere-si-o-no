@@ -3033,7 +3033,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
- const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${authorLine}${editorialBlocks.map((b) => /^<(h2|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b) ? b : `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
+ const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${authorLine}${editorialBlocks.map((b) => /^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b) ? b : `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
 
  // Detect page section from URL for skeleton-aligned static content
  const urlSegs = urlPath.split('/').filter(Boolean);
