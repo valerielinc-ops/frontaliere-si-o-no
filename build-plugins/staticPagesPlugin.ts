@@ -2364,6 +2364,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/prezzi-benzina/oggi/', label: 'Prezzi benzina Svizzera — oggi' },
  { href: '/aziende-che-assumono/tutte/', label: 'Aziende che assumono — indice completo' },
  ];
+ // Orphan-query landings hub. Each locale's hub page (emitted by
+ // build-plugins/orphanQueryLandingPlugin.ts) lists EVERY indexable
+ // cluster page in that locale — so cron-published clusters become
+ // BFS-reachable at depth 3 from `/` without manual link-graph upkeep.
+ const ORPHAN_LANDING_HUB_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/ricerca/', label: 'Ricerche correlate frontalieri (italiano)' },
+ { href: '/en/search/', label: 'Cross-border worker job searches (English)' },
+ { href: '/de/suche/', label: 'Grenzgänger-Jobsuche — Index (Deutsch)' },
+ { href: '/fr/recherche/', label: 'Recherches d\'emploi pour frontaliers (Français)' },
+ ];
 
  const renderHubLinks = (heading: string, items: ReadonlyArray<{ href: string; label: string }>): string =>
  items.length
@@ -2417,6 +2427,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  renderHubLinks('Guide PDF scaricabili', GUIDE_PDF_LINKS),
  renderHubLinks('Risorse in altre lingue', FR_SALAIRE_LINKS),
  renderHubLinks('Hub root — alberi di pagine cascading', HUB_ROOT_LINKS),
+ renderHubLinks('Ricerche correlate (orphan landings)', ORPHAN_LANDING_HUB_LINKS),
  `<p style="margin-top:1rem;color:#64748b;font-size:0.85rem">Pagine root non in elenco: <a href="/" style="color:#2563eb;text-decoration:none">homepage</a>, <a href="/cerca-lavoro-ticino/" style="color:#2563eb;text-decoration:none">job-board</a>, <a href="/articoli-frontaliere/" style="color:#2563eb;text-decoration:none">archivio articoli</a>, <a href="/glossario-frontaliere/" style="color:#2563eb;text-decoration:none">glossario</a>, <a href="/domande-frequenti-frontalieri/" style="color:#2563eb;text-decoration:none">FAQ</a>.</p>`,
  );
  } else if (canonicalPath === '/glossario-frontaliere/') {

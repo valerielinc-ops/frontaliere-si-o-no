@@ -671,6 +671,13 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       let pagesGenerated = 0;
       let pagesIndexable = 0;
 
+      // Track every indexable cluster per locale so the hub index can list
+      // ALL of them (closing the BFS-orphan gap when cron-published
+      // clusters arrive without any inbound `<a>` link).
+      const indexableByLocale: Record<OrphanLandingLocale, Array<{ slug: string; query: string; path: string }>> = {
+        it: [], en: [], de: [], fr: [],
+      };
+
       for (const cluster of clusters) {
         const matching = filterMatchingJobs(jobs, cluster, 15);
         const render = renderPage({
@@ -702,7 +709,147 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           sitemapEntries.push(
             `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`,
           );
+          indexableByLocale[cluster.locale].push({
+            slug: cluster.canonicalSlug,
+            query: cluster.canonicalQuery,
+            path: render.urlPath,
+          });
         }
+      }
+
+      // ── Hub pages — one per locale, listing ALL indexable orphan-landings.
+      // Without this hub, every cron-published cluster lands in
+      // `sitemap-orphan-landings.xml` with zero `<a>` inbound and trips the
+      // orphan-pages-in-sitemaps audit. The hub is added to the same sitemap
+      // and is itself reachable from `/mappa-del-sito/` (linked in
+      // staticPagesPlugin's renderHubLinks block), so each cluster is at
+      // BFS depth 3 from `/`.
+      const HUB_COPY: Record<OrphanLandingLocale, { title: string; description: string; h1: string; intro: string; breadcrumbHome: string; sectionLabel: string }> = {
+        it: {
+          title: 'Ricerche correlate per frontalieri',
+          description: 'Indice completo delle pagine di ricerca lavoro generate da query reali dei frontalieri italo-svizzeri.',
+          h1: 'Ricerche correlate per frontalieri',
+          intro: 'Questo indice raccoglie tutte le pagine di ricerca lavoro indicizzate, generate a partire dalle query effettive dei frontalieri italo-svizzeri.',
+          breadcrumbHome: 'Home',
+          sectionLabel: 'Ricerche correlate',
+        },
+        en: {
+          title: 'Cross-border worker job searches',
+          description: 'Full index of indexable job search landing pages generated from real cross-border worker queries.',
+          h1: 'Cross-border worker job searches',
+          intro: 'This index lists every indexable search landing page, generated from actual cross-border worker queries.',
+          breadcrumbHome: 'Home',
+          sectionLabel: 'Search landings',
+        },
+        de: {
+          title: 'Grenzgänger-Jobsuche — Index',
+          description: 'Vollständiger Index der indexierbaren Such-Landingpages, erzeugt aus echten Grenzgänger-Suchanfragen.',
+          h1: 'Grenzgänger-Jobsuche — Index',
+          intro: 'Dieser Index enthält alle indexierbaren Suchlandingpages, erzeugt aus echten Grenzgänger-Suchanfragen.',
+          breadcrumbHome: 'Home',
+          sectionLabel: 'Suchseiten',
+        },
+        fr: {
+          title: 'Recherches d\'emploi pour frontaliers',
+          description: 'Index complet des pages d\'atterrissage de recherche indexables, générées à partir de vraies requêtes de frontaliers.',
+          h1: 'Recherches d\'emploi pour frontaliers',
+          intro: 'Cet index liste toutes les pages d\'atterrissage de recherche indexables, générées à partir de vraies requêtes de frontaliers.',
+          breadcrumbHome: 'Home',
+          sectionLabel: 'Pages de recherche',
+        },
+      };
+
+      for (const loc of ORPHAN_LANDING_LOCALES) {
+        const list = indexableByLocale[loc];
+        if (list.length === 0) continue;
+        const sorted = [...list].sort((a, b) => a.query.localeCompare(b.query, loc));
+        const copy = HUB_COPY[loc];
+        const prefix = ORPHAN_LANDING_LOCALE_PREFIX[loc];
+        const section = ORPHAN_LANDING_SECTION[loc];
+        const hubPath = `${prefix}/${section}/`.replace(/\/+/g, '/');
+        const canonicalUrl = `${BASE_URL}${hubPath}`;
+
+        const itemsHtml = sorted
+          .map((it) => `<li style="margin:0"><a href="${esc(it.path)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(cap(it.query))}</a></li>`)
+          .join('');
+
+        const breadcrumbLd = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: copy.sectionLabel, item: canonicalUrl },
+          ],
+        });
+        const collectionLd = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: copy.title,
+          url: canonicalUrl,
+          description: copy.description,
+          inLanguage: loc,
+          dateModified: new Date().toISOString(),
+          mainEntity: {
+            '@type': 'ItemList',
+            numberOfItems: sorted.length,
+            itemListElement: sorted.slice(0, 100).map((it, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: cap(it.query),
+              url: `${BASE_URL}${it.path}`,
+            })),
+          },
+        });
+
+        const hreflangHtml = ORPHAN_LANDING_LOCALES
+          .filter((alt) => indexableByLocale[alt].length > 0)
+          .map((alt) => {
+            const altPrefix = ORPHAN_LANDING_LOCALE_PREFIX[alt];
+            const altSection = ORPHAN_LANDING_SECTION[alt];
+            const altUrl = `${BASE_URL}${altPrefix}/${altSection}/`.replace(/\/+/g, '/');
+            return `    <link rel="alternate" hreflang="${alt}" href="${altUrl}">`;
+          })
+          .join('\n');
+
+        const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+          <nav style="${BREADCRUMB_STYLE}">
+            <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+            <span> / </span>
+            <span>${esc(copy.sectionLabel)}</span>
+          </nav>
+          <header style="margin-bottom:22px">
+            <h1 style="margin:0 0 14px;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15">${esc(copy.h1)}</h1>
+            <p style="margin:0 0 14px;color:var(--color-body);font-size:17px;line-height:1.6;max-width:860px">${esc(copy.intro)}</p>
+            <p style="margin:0;color:var(--color-subtle);font-size:13px">${sorted.length} · ${esc(dateStamp)}</p>
+          </header>
+          <section style="margin:24px 0">
+            <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${itemsHtml}</ul>
+          </section>
+        </article>`;
+
+        const hubHtml = buildSeoPageHtml({
+          disableAutoAds: true,
+          locale: loc,
+          title: clampSiteSuffix(copy.title, 'Frontaliere Ticino'),
+          description: copy.description,
+          canonicalUrl,
+          robots: 'index,follow',
+          ogType: 'website',
+          ogLocale: ORPHAN_LANDING_OG_LOCALE[loc],
+          hreflangHtml,
+          extraHeadHtml: '',
+          jsonLdScripts: [breadcrumbLd, collectionLd],
+          bodyHtml,
+          distDir,
+          hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
+        });
+
+        collector.add(path.join(distDir, hubPath, 'index.html'), hubHtml);
+        collector.add(path.join(distDir, hubPath.replace(/\/+$/, '') + '.html'), hubHtml);
+
+        sitemapEntries.push(
+          `  <url>\n    <loc>${canonicalUrl}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+        );
       }
 
       // Write dedicated sitemap + patch master sitemap index.
