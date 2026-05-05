@@ -24,6 +24,7 @@ import {
  type JobBoardLocale,
 } from './jobBoardSeo';
 import { emitSeoHubs } from './seoHubsPlugin';
+import { ARTICLES_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubLocale as ArchiveHubLocale } from './seoHubsData';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
@@ -655,6 +656,24 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  } catch {
  console.warn('[static-pages] Could not parse seo-blog.ts — will fall back to fs.existsSync for blog pages');
+ }
+
+ /* ── 0bis. Total IT article count → article archive page count ──
+  * Used by the section-index editorial block to render a deep-link
+  * navigator covering every paginated archive page (page-1..page-N) so
+  * crawlers don't have to follow the "next" chain to reach articles on
+  * later pages. Closes the Ahrefs "orphan page (no incoming internal
+  * links)" report for the blog bucket — see CLAUDE.md SEO content gate. */
+ let articlesTotalPages = 1;
+ try {
+ const blogMetaSrc = fs.readFileSync(np.resolve(rootDir, 'services/locales/blog-meta-it.ts'), 'utf-8');
+ const titleKeys = new Set<string>();
+ const titleRx = /'blog\.article\.([^']+?)\.title'/g;
+ let tm: RegExpExecArray | null;
+ while ((tm = titleRx.exec(blogMetaSrc)) !== null) titleKeys.add(tm[1]);
+ articlesTotalPages = Math.max(1, Math.ceil(titleKeys.size / ARTICLES_PAGE_SIZE));
+ } catch (e) {
+ console.warn('[static-pages] Could not compute articlesTotalPages from blog-meta-it.ts:', e);
  }
 
  /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */
@@ -2562,6 +2581,30 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(
  `<p style="margin:1rem 0"><a href="/articoli-frontaliere/tutti/" style="display:inline-block;padding:.5rem 1rem;border-radius:6px;background:#2563eb;color:#fff;text-decoration:none;font-weight:600">Vedi l'archivio completo →</a></p>`,
  );
+ // Deep-link navigator: emit one anchor per archive page (1..N) so every
+ // /tutti/page-K/ is reachable at depth-2 from `/`, instead of forcing
+ // crawlers to follow the compact "next" chain (page-1 → page-2 → page-3 …
+ // is depth ~5 by the time you reach page-3, well beyond Ahrefs' /
+ // Googlebot's effective crawl depth for low-PR pages). Each archive page
+ // lists 100 articles, so this single navigator pulls every blog article
+ // to depth-3 from `/`, eliminating the 1854 "orphan blog article" false
+ // positives in Ahrefs' May-2026 audit.
+ const articlesArchiveBase = HUB_SLUGS[locale as ArchiveHubLocale]?.articlesAll ?? '/articoli-frontaliere/tutti/';
+ const navLabel = locale === 'it' ? 'Sfoglia tutto l\'archivio articoli per pagina'
+   : locale === 'en' ? 'Browse the full article archive by page'
+   : locale === 'de' ? 'Vollständiges Artikelarchiv nach Seite durchsuchen'
+   : 'Parcourir toutes les archives par page';
+ const pageWord = locale === 'it' ? 'Pagina' : locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : 'Page';
+ if (articlesTotalPages > 1) {
+ const pageAnchors: string[] = [];
+ for (let p = 1; p <= articlesTotalPages; p++) {
+ const href = paginatedPath(articlesArchiveBase, p);
+ pageAnchors.push(`<a href="${href}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#f1f5f9;color:#1e293b;text-decoration:none;font-size:13px;border:1px solid #e2e8f0">${pageWord}&nbsp;${p}</a>`);
+ }
+ editorialBlocks.push(
+ `<nav aria-label="${esc(navLabel)}" style="margin:.75rem 0 1rem"><p style="margin:.25rem 0;font-size:.85rem;color:#64748b">${esc(navLabel)}:</p>${pageAnchors.join('')}</nav>`,
+ );
+ }
  editorialBlocks.push(
  `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come è organizzata la redazione di Frontaliere Ticino</h2>`,
  `La sezione articoli è costruita come hub editoriale: ogni contenuto approfondisce un tema operativo e collega strumenti o guide utili per passare rapidamente dalla notizia alla simulazione numerica. I temi spaziano dalla fiscalità del Nuovo Accordo 2026 alle guide pratiche sull'apertura del conto bancario svizzero, dalla pianificazione del terzo pilastro 3a al confronto tra LAMal svizzera e SSN italiano per i figli residenti in Italia.`,
@@ -2872,7 +2915,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
- const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${authorLine}${editorialBlocks.map((b) => b.startsWith('<h2') || b.startsWith('<p') ? b : `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
+ const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${authorLine}${editorialBlocks.map((b) => /^<(h2|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b) ? b : `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
 
  // Detect page section from URL for skeleton-aligned static content
  const urlSegs = urlPath.split('/').filter(Boolean);
