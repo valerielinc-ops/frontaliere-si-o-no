@@ -6162,6 +6162,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.title': 'Employés cantonaux en Ticino: ErreDiPi demande une analyse plus approfondie',
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.excerpt': 'Le comité ErreDiPi analyse le rapport sur la satisfaction du personnel cantonal, mettant en évidence des limites méthodologiques et des thèmes critiques comme le stress et la rémunération.',
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.imageAlt': 'Office cantonal de Bellinzona avec vue sur le lac Majeur',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.title': 'Les frontaliers sans emploi pourraient recevoir des indemnités de la Suisse',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.excerpt': 'Une réforme européenne veut changer les règles sur le chômage des frontaliers : à l\'avenir, l\'indemnité serait versée par le pays de l\'emploi dernier et non plus par celui de résidence.',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.imageAlt': 'Une personne regardant un ordinateur avec un écran d\'un centre d\'emploi',
 };
 
 export default blogMetaFr;

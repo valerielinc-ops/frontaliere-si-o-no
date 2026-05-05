@@ -19114,6 +19114,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-disoccupati-svizzera-indennita': {
+    title: 'I frontalieri disoccupati potrebbero ricevere le indennità dalla Svizzera',
+    description: 'Una riforma europea vuole cambiare le regole sulla disoccupazione dei frontalieri: in futuro l\'indennità verrebbe pagata dal Paese dell\'ultimo impiego e non più',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupati, potrebbero, ricevere, indennità',
+    ogTitle: 'I frontalieri disoccupati potrebbero ricevere le indennità dalla Svizzera',
+    ogDescription: 'Una riforma europea vuole cambiare le regole sulla disoccupazione dei frontalieri: in futuro l\'indennità verrebbe pagata dal Paese dell\'ultimo impiego e non più',
+    canonicalPath: '/articoli-frontaliere/frontalieri-disoccupati-svizzera-indennita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I frontalieri disoccupati potrebbero ricevere le indennità dalla Svizzera",
+      "description": "Una riforma europea vuole cambiare le regole sulla disoccupazione dei frontalieri: in futuro l'indennità verrebbe pagata dal Paese dell'ultimo impiego e non più",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/frontalieri-disoccupati-svizzera-indennita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona che guarda un computer con una schermata di un ufficio di collocamento"
+      },
+      "datePublished": "2026-05-05T18:59:30+00:00",
+      "dateModified": "2026-05-05T18:59:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-svizzera-indennita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

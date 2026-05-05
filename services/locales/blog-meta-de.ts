@@ -6161,6 +6161,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.title': 'ErreDiPi fordert tiefere Analyse zum Kantonspersonal im Tessin',
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.excerpt': 'Der ErreDiPi-Komitee analysiert den Bericht zur Zufriedenheit des kantonalen Personals und hebt methodische Schwächen sowie kritische Themen wie Stress und Bezahlung hervor.',
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.imageAlt': 'Kantonsamt in Bellinzona mit Blick auf Lago Maggiore',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.title': 'Grenzgänger ohne Arbeit könnten Schadensersatz von der Schweiz erhalten',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.excerpt': 'Eine europäische Reform will die Regeln für die Arbeitslosigkeit von Grenzgängern ändern: In Zukunft würde die Entschädigung vom Land des letzten Arbeitgebers und nicht mehr vom Wohnsitzland gezahlt werden.',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.imageAlt': 'Eine Person schaut auf einen Computer mit einem Bildschirm eines Arbeitsvermittlungszentrums',
 };
 
 export default blogMetaDe;

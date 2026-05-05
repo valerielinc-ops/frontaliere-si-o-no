@@ -6162,6 +6162,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.title': 'Dipendenti cantonali in Ticino: ErreDiPi richiede analisi più approfondita',
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.excerpt': 'Il comitato ErreDiPi analizza il rapporto sulla soddisfazione del personale cantonale, evidenziando limiti metodologici e temi critici come stress e retribuzione.',
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.imageAlt': 'Ufficio cantonale di Bellinzona con vista sul Lago Maggiore',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.title': 'I frontalieri disoccupati potrebbero ricevere le indennità dalla Svizzera',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.excerpt': 'Una riforma europea vuole cambiare le regole sulla disoccupazione dei frontalieri: in futuro l\'indennità verrebbe pagata dal Paese dell\'ultimo impiego e non più da quello di residenza.',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.imageAlt': 'Una persona che guarda un computer con una schermata di un ufficio di collocamento',
 };
 
 export default blogMetaIt;

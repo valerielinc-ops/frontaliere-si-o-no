@@ -6161,6 +6161,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.title': 'Ticino staff satisfaction: ErreDiPi calls for deeper analysis',
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.excerpt': 'The ErreDiPi committee reviews the canton\'s staff satisfaction report, highlighting methodological limitations and critical issues like stress and wages.',
     'blog.article.dipendenti-cantonali-soddisfazione-erre-dipi.imageAlt': 'Canton office in Bellinzona with view of Lake Maggiore',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.title': 'Cross-Border Workers May Receive Unemployment Benefits from Switzerland',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.excerpt': 'A European reform aims to change the rules on cross-border unemployment: in the future, the unemployment benefit would be paid by the country of the last employment and not by the country of residence. ',
+    'blog.article.frontalieri-disoccupati-svizzera-indennita.imageAlt': 'A person looking at a computer with a job center screen',
 };
 
 export default blogMetaEn;
