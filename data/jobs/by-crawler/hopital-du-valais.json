@@ -1158,7 +1158,6 @@
           "pflegefachperson-60-80-rehabilitation-2-west-hopital-du-valais-brig"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-20T10:47:50.886Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1172,8 +1171,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-702424b48585",
@@ -1713,7 +1711,6 @@
           "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-28T11:03:21.611Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1727,8 +1724,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-bedb3edb0e24",
@@ -2011,7 +2007,6 @@
         "famille": "Management",
         "site": "BRIG"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-29T22:02:17.900Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -2025,8 +2020,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-9f9bbbeabd09",

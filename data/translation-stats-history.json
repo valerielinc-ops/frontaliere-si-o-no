@@ -1,109 +1,5 @@
 [
   {
-    "timestamp": "2026-04-20T22:34:54.473Z",
-    "label": "before",
-    "total": 2608,
-    "needsRetranslation": 1094,
-    "incomplete": 66,
-    "complete": 2542,
-    "missingByLocale": {
-      "it": 53,
-      "en": 28,
-      "de": 39,
-      "fr": 60
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "AFRY",
-        "pending": 5
-      },
-      {
-        "company": "Denner",
-        "pending": 5
-      },
-      {
-        "company": "Lonza",
-        "pending": 4
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 3
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "TALLY WEiJL",
-        "pending": 3
-      },
-      {
-        "company": "Otis SA",
-        "pending": 2
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-20T23:52:08.037Z",
-    "label": "after",
-    "total": 2608,
-    "needsRetranslation": 75,
-    "incomplete": 28,
-    "complete": 2580,
-    "missingByLocale": {
-      "it": 22,
-      "en": 3,
-      "de": 25,
-      "fr": 28
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 2
-      },
-      {
-        "company": "AFRY",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-21T02:39:41.923Z",
     "label": "before",
     "total": 2608,
@@ -8620,6 +8516,118 @@
     "label": "after",
     "total": 2609,
     "needsRetranslation": 88,
+    "incomplete": 27,
+    "complete": 2582,
+    "missingByLocale": {
+      "it": 22,
+      "en": 9,
+      "de": 14,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 3
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Denner",
+        "pending": 2
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-05T03:55:07.508Z",
+    "label": "before",
+    "total": 2609,
+    "needsRetranslation": 88,
+    "incomplete": 27,
+    "complete": 2582,
+    "missingByLocale": {
+      "it": 22,
+      "en": 9,
+      "de": 14,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 3
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Denner",
+        "pending": 2
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-05T04:08:49.909Z",
+    "label": "after",
+    "total": 2609,
+    "needsRetranslation": 51,
     "incomplete": 27,
     "complete": 2582,
     "missingByLocale": {
