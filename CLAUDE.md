@@ -408,6 +408,107 @@ fix is to **add internal links** from a hub at depth ≤ MAX_DEPTH-1.
 
 ---
 
+# SEO content gate — `<title>` length (60 + 10 % tolerance)
+
+**Why it exists.** Google's SERP-display budget is ~60 char on most
+queries; titles past it get visually truncated or rewritten by Google,
+costing keyword visibility. The May 2026 Semrush audit flagged 2 740
+indexable pages above the 60-char floor — almost all with the
+`" | Frontaliere Ticino"` brand suffix (22 char) appended on top of an
+already-near-cap headline.
+
+**Where it runs.**
+- Helper: `build-plugins/shared/titleSuffix.ts` exports
+  `TITLE_TARGET_CHARS = 60`, `TITLE_MAX_CHARS = 66` (target + 10 %
+  tolerance), and `buildTitleWithBrand()`. The helper **drops the
+  brand suffix** when `headline + brand > 66` instead of truncating
+  mid-headline. NEVER reintroduce mid-`…` truncation: it tanked CTR on
+  `/calcola-stipendio/` 4.8 % → 0.99 % during the cap=70 era.
+- Local audit: `npm run audit:title-length` (after a build). Threshold
+  66, per-feature ratchet against `data/title-length-baseline.json`.
+- CI: `audit:title-length` step in shard 3 of
+  `scripts/lib/post-build-tasks.sh`, blocking deploy on regression.
+
+**The gate is a ratchet.** Counts can only go DOWN per feature bucket.
+Improvements never auto-rebaseline; run
+`npm run audit:title-length:rebaseline` after an intentional drop and
+commit the new baseline together with the template change.
+
+**Job-board exception.** `composeJobPageTitle` in
+`build-plugins/jobsSeoPagesPlugin.ts` passes `JOB_TITLE_MAX = 70`
+explicitly to `buildTitleWithBrand` to preserve the city-preserving
+job-detail structure (job title + company + city + (#hash)
+disambiguator). Job pages account for the bulk of the baseline by
+design.
+
+**If the gate fails:**
+
+1. Reproduce locally: `FAST_BUILD= npx vite build && npm run audit:title-length`
+   (FAST_BUILD env trap — see *Developer Workflows* in this file).
+   Stdout names which feature bucket regressed and shows the worst
+   offenders.
+2. The cause is almost always:
+   - **A new template added a brand-preserving caller**: a build plugin
+     copied the old "always append brand and truncate" pattern instead
+     of going through `buildTitleWithBrand`. Fix: route through the
+     helper so the brand drops automatically.
+   - **AI-generated headline drift**: blog `create-article.mjs` AI
+     prompts started returning ~70-char headlines. Fix the prompt to
+     target 50-60 char (see `scripts/create-article.mjs` headline
+     guidance section).
+   - **Cap intentionally raised**: someone bumped `TITLE_MAX_CHARS`
+     past 66. Reject — never widen the cap to mute the audit.
+3. Rebuild and rerun. Once regression cleared:
+   ```
+   npm run audit:title-length:rebaseline
+   ```
+
+---
+
+# SEO content gate — `(#hash)` disambiguator visible in `<title>`
+
+**Why it exists.** When two articles produce the same base `<title>`,
+the og-pages plugin appends a runtime disambiguator
+(`build-plugins/ogPagesPlugin.ts:articleHashFromSlug`). The disambiguator
+prefers a HUMAN-READABLE token (year `(2026)`, known city
+`— Bellinzona`, trailing slug word) and falls back to an FNV-1a
+8-hex hash `(#abcd1234)` only as last resort. The May 2026 Semrush audit
+caught **935 IT blog pages** with the hash visible in SERP — kills CTR
+and brand perception. Goal: drive the count to 0 by deduping at source.
+
+**Where it runs.**
+- Local: `npm run audit:title-no-disambig-hash` (after a build). Greps
+  `dist/` for `\(#[0-9a-f]{8}\)` inside `<title>`. Per-feature ratchet
+  vs `data/title-no-disambig-hash-baseline.json`.
+- CI: shard 3 of `scripts/lib/post-build-tasks.sh`.
+- Preventive: `scripts/create-article.mjs:optimizeSeoMetadata` checks
+  the new article's IT title against existing `blog-meta-it.ts` titles
+  AT CREATE TIME and auto-appends year/city to the headline if a
+  collision is detected. Hard-fails (per CLAUDE.md rule #1) when
+  year+city are insufficient — the author must manually add a more
+  specific qualifier (source, sub-topic, edition) to `content.it.title`.
+
+**If the gate fails:**
+
+1. Reproduce: `FAST_BUILD= npx vite build && npm run audit:title-no-disambig-hash`.
+   Stdout shows offending pages with their hash and base title.
+2. Find the colliding pair: grep `services/locales/blog-meta-it.ts`
+   for the base title (without the brand suffix). Two articles with
+   the same `'.title'` value will be the cause.
+3. Fix at source by editing one article's `'.title'` in all four
+   locale meta files (`blog-meta-{it,en,de,fr}.ts`). Add a year, city,
+   or source qualifier that makes the title self-explaining
+   (e.g. `"Primo Maggio a Varese"` →
+   `"Primo Maggio a Varese 2026: corteo CGIL"`). NEVER widen the
+   `audit:title-no-disambig-hash` baseline as a workaround — the
+   ratchet only goes DOWN.
+4. Rebuild and rerun. Once gone:
+   ```
+   npm run audit:title-no-disambig-hash:rebaseline
+   ```
+
+---
+
 # Completion Checklist — Before Every PR
 
 - [ ] All tests pass: `npx vitest run`

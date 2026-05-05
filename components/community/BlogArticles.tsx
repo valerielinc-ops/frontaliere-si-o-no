@@ -822,6 +822,22 @@ function getRelatedJobsForArticle(articleId: string, jobs: JobPreview[], locale:
  };
  const catWords = article ? (categoryKeywords[article.category] ?? []) : [];
 
+ // Deterministic per-(article, job) FNV-1a hash. Used as the TIEBREAKER inside
+ // a score tier so different articles surface different jobs when the
+ // catWords fallback ties dozens of jobs at score=2 (the symptom users
+ // reported: "every news article shows the same 2 manager/specialist jobs").
+ // Combining articleId + jobId per pair guarantees each article sees an
+ // independent shuffle while keeping relevance (score) as the primary sort.
+ const pairHash = (jobKey: string): number => {
+ const s = `${articleId}:${jobKey}`;
+ let h = 0x811c9dc5;
+ for (let i = 0; i < s.length; i++) {
+ h ^= s.charCodeAt(i);
+ h = Math.imul(h, 0x01000193) >>> 0;
+ }
+ return h >>> 0;
+ };
+
  const scored = jobs
  .filter(j => j.slug)
  .map(job => {
@@ -849,11 +865,16 @@ function getRelatedJobsForArticle(articleId: string, jobs: JobPreview[], locale:
  }
 
  const freshness = new Date(job.crawledAt || job.postedDate).getTime();
- return { job, score, freshness };
+ const tieKey = pairHash(job.slug || job.id);
+ return { job, score, freshness, tieKey };
  })
  .filter(x => x.score >= 2);
 
- scored.sort((a, b) => b.score - a.score || b.freshness - a.freshness);
+ // Score is the primary signal. Inside a tier, prefer the per-article
+ // tiebreaker over freshness — freshness alone caused every novita article
+ // to surface the same 2-3 most recent manager/specialist roles. With the
+ // tiebreaker, freshness still acts as a final disambiguator on hash ties.
+ scored.sort((a, b) => b.score - a.score || a.tieKey - b.tieKey || b.freshness - a.freshness);
  return scored.slice(0, count).map(x => x.job);
 }
 

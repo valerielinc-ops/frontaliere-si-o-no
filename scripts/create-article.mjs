@@ -3484,9 +3484,105 @@ function enforceStrongInternalLinks(data) {
   return data;
 }
 
+/** Lazy-loaded set of normalized existing IT blog titles (lowercased, trimmed,
+ * brand suffix stripped). Populated on first call to detectTitleCollision. */
+let _existingItTitlesCache = null;
+function loadExistingItTitlesExcluding(currentArticleId) {
+  if (_existingItTitlesCache === null) {
+    const src = read('services/locales/blog-meta-it.ts');
+    const map = new Map(); // articleId -> normalizedTitle
+    const rx = /'blog\.article\.([^']+)\.title'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+    let m;
+    while ((m = rx.exec(src)) !== null) {
+      const articleId = m[1];
+      const rawTitle = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+      const normalized = rawTitle
+        .replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase();
+      map.set(articleId, normalized);
+    }
+    _existingItTitlesCache = map;
+  }
+  // Build the set of "other articles' titles" — excluding the current
+  // article so re-running on an existing slug doesn't false-positive collide.
+  const others = new Set();
+  for (const [articleId, normalized] of _existingItTitlesCache) {
+    if (articleId !== currentArticleId) others.add(normalized);
+  }
+  return others;
+}
+
+/** Extract a 4-digit year from data.date or data.id (slug). */
+function extractArticleYear(data) {
+  if (data.date) {
+    const d = new Date(data.date);
+    if (!isNaN(d.getTime())) return String(d.getFullYear());
+  }
+  const m = String(data.id || '').match(/\b(20[2-3]\d)\b/);
+  return m ? m[1] : '';
+}
+
+/** Extract a known city/region token from the slug (best-effort). */
+function extractArticleCity(slug) {
+  const KNOWN = [
+    { key: 'lugano', name: 'Lugano' },
+    { key: 'mendrisio', name: 'Mendrisio' },
+    { key: 'bellinzona', name: 'Bellinzona' },
+    { key: 'locarno', name: 'Locarno' },
+    { key: 'chiasso', name: 'Chiasso' },
+    { key: 'ticino', name: 'Ticino' },
+    { key: 'milano', name: 'Milano' },
+    { key: 'como', name: 'Como' },
+    { key: 'varese', name: 'Varese' },
+    { key: 'lombardia', name: 'Lombardia' },
+  ];
+  const cleaned = String(slug || '').toLowerCase();
+  for (const c of KNOWN) {
+    if (cleaned.includes(c.key)) return c.name;
+  }
+  return '';
+}
+
 function optimizeSeoMetadata(data) {
   const it = data.content?.it || {};
   if (!data.seo) data.seo = {};
+
+  // ── Collision prevention (mirror og-pages runtime disambiguator) ──
+  // The og-pages plugin appends " (2026)" / " — Bellinzona" / FNV hash at
+  // build time when two articles produce the same base <title>. Prevent
+  // those runtime disambiguators by mutating it.title HERE — at create
+  // time — so the base title is unique by construction. Tracked by the
+  // audit:title-no-disambig-hash ratchet (data/title-no-disambig-hash-baseline.json).
+  const initialItTitle = String(it.title || data.id || 'Articolo frontalieri')
+    .replace(/\s*\|\s*Frontaliere Ticino$/i, '')
+    .trim();
+  const existingTitles = loadExistingItTitlesExcluding(data.id);
+  if (existingTitles.has(initialItTitle.toLowerCase())) {
+    const year = extractArticleYear(data);
+    const city = extractArticleCity(data.id);
+    let mutated = initialItTitle;
+    if (year && !mutated.includes(year)) {
+      mutated = `${mutated} (${year})`;
+      console.error(`  🪪 Collisione titolo IT — aggiunto anno: "${mutated}"`);
+    } else if (city && !mutated.toLowerCase().includes(city.toLowerCase())) {
+      mutated = `${mutated} — ${city}`;
+      console.error(`  🪪 Collisione titolo IT — aggiunta città: "${mutated}"`);
+    }
+    if (mutated !== initialItTitle && !existingTitles.has(mutated.toLowerCase())) {
+      it.title = mutated;
+    } else {
+      // Anno e città non sufficienti (o già nel titolo). Hard fail per
+      // non-negotiable rule #1: non pubblicare contenuto dubbio. L'autore
+      // deve modificare manualmente content.it.title con un qualificatore
+      // più specifico (fonte, sottotema, numero di edizione).
+      console.error(`  ❌ FATAL: titolo IT "${initialItTitle}" collide con un articolo esistente.`);
+      console.error(`     Modifica content.it.title aggiungendo un qualificatore (fonte, sottotema, edizione).`);
+      console.error(`     Anno (${year || 'n/a'}) e città (${city || 'n/a'}) non bastano a disambiguare.`);
+      process.exit(1);
+    }
+  }
 
   // Universal rule (mirrors build-plugins/shared/titleSuffix.ts):
   // headline VERBATIM; brand suffix appended only when the total stays
