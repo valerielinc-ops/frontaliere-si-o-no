@@ -6246,6 +6246,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salotto-ciani-lugano-2026.title': 'Le Salon illumine l\'Asilo Ciani à Lugano',
     'blog.article.salotto-ciani-lugano-2026.excerpt': 'Samedi 9 mai 2026, l\'Asilo Ciani de Lugano accueille \'Le Salon\', un événement qui unit l\'art et la musique avec de jeunes artistes locaux.',
     'blog.article.salotto-ciani-lugano-2026.imageAlt': 'Événement culturel à l\'Asilo Ciani à Lugano avec des artistes et des musiciens sur scène',
+    'blog.article.hockey-lugano-nuovi-giocatori-2026.title': 'Hockey Lugano : nouveaux joueurs suédois pour 2026',
+    'blog.article.hockey-lugano-nuovi-giocatori-2026.excerpt': 'Innala et Lycksell, deux nouveaux joueurs suédois, rejoignent le HC Lugano pour la saison 2026. Découvrez leurs histoires et leurs attentes.',
+    'blog.article.hockey-lugano-nuovi-giocatori-2026.imageAlt': 'Joueurs de hockey sur la glace à Lugano, Suisse',
 };
 
 export default blogMetaFr;

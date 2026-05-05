@@ -3324,6 +3324,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-a13-lumino-san-vittore-compensazione-ambientale': { name: 'Novità', path: '/articoli-frontaliere/a13-lumino-san-vittore-compensazione-ambientale', parent: 'blog' },
     'blog-divieto-petardi-svizzera-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/divieto-petardi-svizzera-frontalieri', parent: 'blog' },
     'blog-salotto-ciani-lugano-2026': { name: 'Eventi culturali', path: '/articoli-frontaliere/salotto-ciani-lugano-2026', parent: 'blog' },
+    'blog-hockey-lugano-nuovi-giocatori-2026': { name: 'Novità Hockey', path: '/articoli-frontaliere/hockey-lugano-nuovi-giocatori-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
