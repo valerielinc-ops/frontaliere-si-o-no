@@ -1,133 +1,38 @@
 name: Post-deploy Validation
 
+# Reusable workflow called from deploy.yml as the `post-deploy` job.
+# Same-run model:
+#   • github.sha is invariant — no more workflow_run.head_sha drift
+#   • actions/download-artifact@v5 with run-id same-run → no API lag
+#   • 1:1 deploy↔validate mapping in the Actions UI by construction;
+#     no more "cancelled" post-deploys for cancelled/skipped deploys
+#     (the parent gates this entire workflow with `if: success()`)
+#   • the parent `build-and-deploy` job has job-level concurrency on
+#     `pages-deploy` so the lock is released as soon as deploy finishes,
+#     and the next deploy can build while validate runs in parallel
 on:
-  workflow_run:
-    workflows: ["Deploy to GitHub Pages"]
-    types: [completed]
-
-concurrency:
-  # 1:1 alignment with the deploy workflow — each deploy run gets its own
-  # validation that runs to completion. Keying the concurrency group on the
-  # triggering deploy's run ID guarantees no two post-deploys ever share a
-  # group, so `cancel-in-progress` (still true as a defensive default) only
-  # ever fires on a re-run of the same deploy.
-  #
-  # Previous setting `group: post-deploy-validation` with cancel-in-progress
-  # killed validation A mid-flight whenever validation B started (regardless
-  # of whether deploy A had already succeeded). For workflow_dispatch flows
-  # that publish articles to Facebook/LinkedIn, this dropped posts whenever
-  # two articles deployed back-to-back. The new key isolates each run.
-  group: post-deploy-validation-${{ github.event.workflow_run.id }}
-  cancel-in-progress: true
+  workflow_call:
+    inputs:
+      deploy_run_id:
+        description: 'Run ID of the calling deploy workflow run (= ${{ github.run_id }} in the caller).'
+        required: true
+        type: string
+      deploy_event_name:
+        description: 'github.event_name from the caller. Used to gate Facebook/LinkedIn posting and live-meta wait to workflow_dispatch deploys (article publishing pipeline).'
+        required: true
+        type: string
 
 jobs:
-  # Quick pre-check: did the deploy actually succeed and produce a Pages
-  # artifact?
-  #
-  # Mirroring contract — every deploy run produces exactly one
-  # post-deploy run with the SAME terminal conclusion:
-  #   - deploy success   → post-deploy continues to validate (success on green)
-  #   - deploy cancelled → post-deploy cancels itself via `gh run cancel`
-  #     so the Actions UI shows "cancelled", not the misleading "skipped"
-  #     that a job-level `if` evaluates-false would produce
-  #   - deploy failure   → post-deploy fails (exit 1) so the UI shows
-  #     "failure", again preserving the deploy's terminal state
-  #   - profile-only run → post-deploy succeeds with a no-op (the only
-  #     case where mirroring deliberately diverges, because a profile run
-  #     never reaches a deployable artifact and there is nothing to validate)
-  #
-  # Why mirror at all: a 1:1 deploy↔post-deploy alignment makes the
-  # Actions UI a faithful audit log. When you see 8 deploy runs and 8
-  # post-deploys, each pair shares a status, you can scan the list and
-  # immediately tell "every red here matches a red there" instead of
-  # decoding "skipped" as either "deploy succeeded but profile run" or
-  # "deploy cancelled by concurrency" or "validation gated off".
-  pre-check:
-    runs-on: ubuntu-latest
-    outputs:
-      deployable: ${{ steps.check.outputs.deployable }}
-    permissions:
-      actions: write   # gh run cancel on this run when deploy was cancelled
-    steps:
-      - name: Mirror deploy conclusion (cancel/fail to match deploy terminal state)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEPLOY_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
-        run: |
-          echo "Triggering deploy concluded with: $DEPLOY_CONCLUSION"
-          case "$DEPLOY_CONCLUSION" in
-            success)
-              echo "Deploy succeeded — proceeding to artifact check + validation."
-              ;;
-            cancelled)
-              echo "Deploy was cancelled — cancelling this post-deploy run to mirror."
-              gh run cancel "${{ github.run_id }}" -R "${{ github.repository }}"
-              # `gh run cancel` is async; sleep so the runner sees SIGTERM
-              # before the next step starts. exit 1 is a belt-and-suspenders
-              # in case cancel doesn't land in time — the run still ends red,
-              # which matches the deploy's red better than a green "skipped".
-              sleep 30
-              exit 1
-              ;;
-            *)
-              # failure / timed_out / action_required / stale / null etc.
-              # Fail loud so the UI status mirrors the deploy's failure.
-              echo "Deploy did not succeed — failing this post-deploy run to mirror."
-              exit 1
-              ;;
-          esac
-
-      - name: Check for GitHub Pages artifact
-        id: check
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          count=$(gh api \
-            "repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}/artifacts" \
-            --jq "[.artifacts[] | select(.name == \"github-pages\")] | length")
-          if [ "${count:-0}" -gt 0 ]; then
-            echo "deployable=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "deployable=false" >> "$GITHUB_OUTPUT"
-            echo "No github-pages artifact — profile-only run. Skipping validation."
-          fi
-
   validate:
-    needs: pre-check
-    if: ${{ needs.pre-check.outputs.deployable == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write   # for git commit/push in sync-previous-slug-winners
-      actions: read     # for artifact download from triggering run
+      actions: read     # for download-artifact same-run
     env:
       PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
     steps:
-      # Resolve the deploy's actual head_sha via the gh API instead of trusting
-      # `github.event.workflow_run.head_sha`. The event payload value can drift
-      # from the deploy's true head_sha when concurrent/cancelled deploys race
-      # (observed: post-deploy run 25377607613 had event head_sha=2ee881e while
-      # the deploy run 25377550358 was actually built from 4187b27792). The
-      # gh API on the deploy run is stable.
-      - name: Resolve actual deploy SHA
-        id: deploy-sha
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          api_sha=$(gh api \
-            "repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}" \
-            --jq .head_sha)
-          event_sha="${{ github.event.workflow_run.head_sha }}"
-          echo "Deploy run ${{ github.event.workflow_run.id }} → API head_sha: $api_sha"
-          if [ "$api_sha" != "$event_sha" ]; then
-            echo "::warning::workflow_run.head_sha drift — event=$event_sha api=$api_sha (using API)"
-          fi
-          echo "sha=$api_sha" >> "$GITHUB_OUTPUT"
-
-      - name: Checkout (same SHA as deploy)
+      - name: Checkout (same SHA as deploy — invariant in workflow_call)
         uses: actions/checkout@v5
-        with:
-          ref: ${{ steps.deploy-sha.outputs.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -189,62 +94,57 @@ jobs:
       # Sequential layout: download → tar → run each validator one at a time
       # and emit a per-gate ✅/❌ row. Adds ~10-15s wall vs parallel but is
       # deterministic, easier to reason about, and avoids the race entirely.
-      - name: Download GitHub Pages artifact + run source validators
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
-          REPO: ${{ github.repository }}
+      # Same-run artifact download. `actions/download-artifact@v5` reads
+      # from the current run's artifact storage synchronously — no API
+      # propagation lag, no retry, no `gh run download --name` lookup
+      # quirks. This is the architectural payoff of unifying deploy +
+      # validate in one workflow.
+      - name: Download GitHub Pages artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+          path: /tmp/github-pages-artifact
+
+      - name: Download pre-deploy sitemap snapshot (optional)
+        uses: actions/download-artifact@v5
+        continue-on-error: true   # snapshot is optional — IndexNow diff falls back gracefully
+        with:
+          name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
+          path: /tmp/pre-deploy-snapshot
+
+      - name: Download previous-slug winners (optional)
+        uses: actions/download-artifact@v5
+        continue-on-error: true   # winners file uploaded only when changed
+        with:
+          name: winners-${{ inputs.deploy_run_id }}
+          path: /tmp/winners
+
+      - name: Extract dist/ + restore data files from artifact
+        run: |
+          # Pages artifact wraps a single artifact.tar — extract into dist/.
+          rm -rf dist && mkdir -p dist
+          tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
+
+          # Expose jobs.json to scripts that expect public/data/jobs.json
+          # (the file is gitignored; dist/data/jobs.json is the built copy).
+          mkdir -p public/data
+          cp -f dist/data/jobs.json public/data/jobs.json 2>/dev/null || true
+          # validate:crawler-summaries reads data/jobs-crawler-summaries.json,
+          # gitignored and produced by `assemble-jobs-dataset.mjs` during
+          # build (then copied into dist/data/ by vite). Same pattern.
+          cp -f dist/data/jobs-crawler-summaries.json data/jobs-crawler-summaries.json 2>/dev/null || true
+
+          # Optional artifacts — copy if present.
+          if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
+            cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
+          fi
+          if [ -f /tmp/winners/previous-slug-winners.json ]; then
+            cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
+          fi
+
+      - name: Run source validators sequentially
         run: |
           : > /tmp/source-val-results.txt
-
-          # Resolve the artifact's metadata directly via the runs/{id}/artifacts
-          # API (which is consistent immediately after upload — verified
-          # empirically: artifacts appeared as `expired=false` here while
-          # `gh run download --name` still returned "no artifact matches" for
-          # ~60-120s). Then stream the zip via the artifact's blob endpoint.
-          # Bypasses the lookup-by-name lag entirely — no retry loop, no
-          # sleep, deterministic behaviour even when the post-deploy starts
-          # within seconds of upload.
-          download_artifact_by_name() {
-            local name="$1" dir="$2" required="$3"
-            mkdir -p "$dir"
-
-            local artifact_id
-            artifact_id=$(gh api "repos/${REPO}/actions/runs/${DEPLOY_RUN_ID}/artifacts" \
-              --jq ".artifacts[] | select(.name == \"$name\") | .id" | head -1)
-
-            if [ -z "$artifact_id" ]; then
-              if [ "$required" = "required" ]; then
-                echo "::error::artifact '$name' not present on run ${DEPLOY_RUN_ID}"
-                gh api "repos/${REPO}/actions/runs/${DEPLOY_RUN_ID}/artifacts" \
-                  --jq '.artifacts[].name' >&2 || true
-                return 1
-              fi
-              echo "ℹ️ optional artifact '$name' not present on run ${DEPLOY_RUN_ID} — skipping"
-              return 0
-            fi
-
-            # `gh api .../artifacts/{id}/zip` follows the redirect to the
-            # signed blob URL and streams the body to stdout. The output
-            # extension here doesn't matter — we treat it as zip below
-            # (and as tar for the `github-pages` artifact, which is
-            # internally a tar wrapped in zip by upload-pages-artifact;
-            # we extract artifact.tar directly from the zip).
-            local zip_path="${dir}/__artifact.zip"
-            if ! gh api "repos/${REPO}/actions/artifacts/${artifact_id}/zip" \
-                 > "$zip_path" 2>/tmp/dl-err.log; then
-              if [ "$required" = "required" ]; then
-                echo "::error::artifact '$name' (id=$artifact_id) blob download failed"
-                cat /tmp/dl-err.log >&2 || true
-                return 1
-              fi
-              echo "⚠️ optional artifact '$name' (id=$artifact_id) blob download failed — skipping"
-              return 0
-            fi
-
-            unzip -q -o "$zip_path" -d "$dir"
-            rm -f "$zip_path"
-          }
 
           # Run a single validator and append one row to
           # /tmp/source-val-results.txt: "<name>  <wall_s>  rc=<code>".
@@ -269,36 +169,6 @@ jobs:
             return 0   # never let a single fail short-circuit the chain
           }
 
-          # ── 1. Download Pages artifact + extract dist/ ──
-          rm -rf /tmp/github-pages-artifact dist
-          mkdir -p /tmp/github-pages-artifact dist
-          download_artifact_by_name github-pages /tmp/github-pages-artifact/ required
-          tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
-
-          # Expose jobs.json to scripts that expect public/data/jobs.json
-          # (the file is gitignored; dist/data/jobs.json is the built copy).
-          mkdir -p public/data
-          cp -f dist/data/jobs.json public/data/jobs.json 2>/dev/null || true
-          # validate:crawler-summaries reads data/jobs-crawler-summaries.json,
-          # which is gitignored and produced by `assemble-jobs-dataset.mjs`
-          # during the build (then copied into dist/data/ by vite). Restore
-          # it from the artifact so the validator can read it. Same pattern
-          # as the jobs.json copy above.
-          cp -f dist/data/jobs-crawler-summaries.json data/jobs-crawler-summaries.json 2>/dev/null || true
-
-          # Pre-deploy sitemap snapshot (for IndexNow diff baseline) +
-          # winners registry update. Both optional — the retry helper returns
-          # 0 even if 5 attempts fail.
-          download_artifact_by_name "pre-deploy-snapshot-${DEPLOY_RUN_ID}" /tmp/pre-deploy-snapshot/ optional
-          if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
-            cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
-          fi
-          download_artifact_by_name "winners-${DEPLOY_RUN_ID}" /tmp/winners/ optional
-          if [ -f /tmp/winners/previous-slug-winners.json ]; then
-            cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
-          fi
-
-          # ── 2. Run validators sequentially (deterministic order) ──
           # Order: cheap dist-readers first (they fail fast and surface a
           # clean error), then the expensive source-only walk (gate:seo-source
           # ~110s, no dist dependency).
@@ -631,13 +501,13 @@ jobs:
         continue-on-error: true
         run: |
           DATA=$(node scripts/deploy-registry.mjs get \
-            --run-id="${{ github.event.workflow_run.id }}" 2>/dev/null || echo '{}')
+            --run-id="${{ inputs.deploy_run_id }}" 2>/dev/null || echo '{}')
           echo "data=$DATA" >> "$GITHUB_OUTPUT"
 
       - name: Wait for live article metadata
         if: |
           success() &&
-          github.event.workflow_run.event == 'workflow_dispatch' &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl != null
         id: wait_live_meta
         continue-on-error: true
@@ -654,7 +524,7 @@ jobs:
       - name: Post to Facebook Page
         if: |
           success() &&
-          github.event.workflow_run.event == 'workflow_dispatch' &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
@@ -675,7 +545,7 @@ jobs:
       - name: Post to LinkedIn Company Page
         if: |
           success() &&
-          github.event.workflow_run.event == 'workflow_dispatch' &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
           fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
           steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
@@ -733,8 +603,8 @@ jobs:
         if: success()
         run: |
           node scripts/deploy-registry.mjs set-good \
-            --run-id="${{ github.event.workflow_run.id }}" \
-            --sha="${{ github.event.workflow_run.head_sha }}"
+            --run-id="${{ inputs.deploy_run_id }}" \
+            --sha="${{ github.sha }}"
 
       - name: Report failure to Linear
         if: failure()
@@ -743,10 +613,10 @@ jobs:
           node scripts/lib/linear-issue-creator.mjs \
             --title "Validation Failure: post-deploy-validation — run ${{ github.run_number }}" \
             --description "## Validazione post-deploy fallita
-          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Branch:** ${{ github.event.workflow_run.head_branch }}
-          **SHA:** ${{ github.event.workflow_run.head_sha }}" \
+          **Branch:** ${{ github.ref_name }}
+          **SHA:** ${{ github.sha }}" \
             --priority 1 \
             --label Bug \
             --workflow "Post-deploy Validation"
@@ -792,7 +662,41 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
 
+      # Still-live guard. Validate runs in parallel with the next deploy
+      # (job-level concurrency on `pages-deploy` releases the lock when
+      # build-and-deploy finishes). So when this rollback fires, a NEWER
+      # deploy may already be live on GitHub Pages — in which case
+      # reverting our own (failed) deploy would clobber a perfectly good
+      # one. Check the live Pages deployment's SHA: if it isn't ours,
+      # skip rollback and just alert (the next deploy already replaced
+      # the bad one).
+      - name: Verify our deploy is still live (still-live guard)
+        id: still-live
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Get the latest github-pages environment deployment SHA.
+          live_sha=$(gh api \
+            "repos/${{ github.repository }}/deployments?environment=github-pages&per_page=1" \
+            --jq '.[0].sha // empty')
+          my_sha="${{ github.sha }}"
+          echo "Live Pages deployment SHA: ${live_sha:-(unknown)}"
+          echo "My deploy SHA:             $my_sha"
+          if [ -z "$live_sha" ]; then
+            echo "::warning::Could not resolve live deployment SHA — proceeding with rollback as best-effort"
+            echo "still_live=true" >> "$GITHUB_OUTPUT"
+          elif [ "$live_sha" = "$my_sha" ]; then
+            echo "✅ My deploy is still live — rollback is the right action."
+            echo "still_live=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ℹ️ A newer deploy ($live_sha) has already replaced mine on Pages."
+            echo "   Rollback is a no-op — skipping. The newer deploy already removed the bad version."
+            echo "still_live=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Get last known good deploy
+        if: steps.still-live.outputs.still_live == 'true'
         id: last-good
         run: |
           DATA=$(node scripts/deploy-registry.mjs get-good 2>/dev/null || echo '{}')
@@ -807,26 +711,29 @@ jobs:
           fi
 
       - name: Fail if no last known good deploy is available
-        if: steps.last-good.outputs.run-id == ''
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id == ''
         run: |
           echo "::error::No last_known_good deploy found in Firestore. Cannot perform rollback."
           exit 1
 
       - name: Download last known good GitHub Pages artifact
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh run download "${{ steps.last-good.outputs.run-id }}" \
-            --name github-pages \
-            --dir ./rollback-archive/
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != ''
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+          path: ./rollback-archive
+          run-id: ${{ steps.last-good.outputs.run-id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Reconstruct rollback site from downloaded Pages artifact
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != ''
         run: |
           test -f ./rollback-archive/artifact.tar
           mkdir -p ./rollback-dist
           tar -xf ./rollback-archive/artifact.tar -C ./rollback-dist
 
       - name: Re-upload last known good artifact for Pages
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != ''
         uses: actions/upload-pages-artifact@v5
         # Note: rollback path — compression-level 9 would be ideal here too
         # but upload-pages-artifact does not expose that parameter. The rollback
@@ -835,6 +742,7 @@ jobs:
           path: ./rollback-dist
 
       - name: Deploy last known good to GitHub Pages
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != ''
         id: rollback_deploy
         uses: actions/deploy-pages@v5
 
@@ -845,12 +753,12 @@ jobs:
           if [ "${{ steps.rollback_deploy.outcome }}" = "success" ]; then
             MSG="## Rollback eseguito
           **Rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
-          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           else
             MSG="## Rollback fallito
           **Tentato rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
-          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           fi
           node scripts/lib/linear-issue-creator.mjs \
