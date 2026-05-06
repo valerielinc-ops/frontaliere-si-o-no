@@ -6510,6 +6510,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assegni-figli-frontalieri-2026.title': 'Assegni figli frontalieri: problemi con l\'INPS ma i pagamenti continuano',
     'blog.article.assegni-figli-frontalieri-2026.excerpt': 'Il Consiglio federale respinge la proposta di Lorenzo Quadri di sospendere i versamenti agli italiani che lavorano in Ticino.',
     'blog.article.assegni-figli-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido.',
+    'blog.article.integrazione-studenti-gaza-italia-2026.title': 'Studenti da Gaza nelle scuole italiane: 1,5 milioni per l\'integrazione',
+    'blog.article.integrazione-studenti-gaza-italia-2026.excerpt': 'Il Ministero dell\'Istruzione stanzia 1,5 milioni per l\'integrazione degli studenti provenienti da Gaza nelle scuole italiane.',
+    'blog.article.integrazione-studenti-gaza-italia-2026.imageAlt': 'Una classe in Ticino con studenti di diverse origini, tra cui alcuni da Gaza, impegnati in attività di apprendimento.',
 };
 
 export default blogMetaIt;

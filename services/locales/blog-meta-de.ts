@@ -6509,6 +6509,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assegni-figli-frontalieri-2026.title': 'Kinderzulagen für Grenzgänger: Probleme mit INPS, Zahlungen laufen weiter',
     'blog.article.assegni-figli-frontalieri-2026.excerpt': 'Der Bundesrat lehnt den Vorschlag von Lorenzo Quadri ab, die Zahlungen an Italiener, die im Tessin arbeiten, auszusetzen.',
     'blog.article.assegni-figli-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund, klarer blauer Himmel.',
+    'blog.article.integrazione-studenti-gaza-italia-2026.title': 'Gaza-Schüler in italienischen Schulen: 1,5 Millionen für Integration',
+    'blog.article.integrazione-studenti-gaza-italia-2026.excerpt': 'Das Bildungsministerium stellt 1,5 Millionen für die Integration von Schülern aus Gaza in italienischen Schulen bereit.',
+    'blog.article.integrazione-studenti-gaza-italia-2026.imageAlt': 'Ein Klassenzimmer in Ticino mit Schülern aus verschiedenen Hintergründen, darunter einige aus Gaza, die an Lernaktivitäten teilnehmen.',
 };
 
 export default blogMetaDe;

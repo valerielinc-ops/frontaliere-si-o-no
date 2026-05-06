@@ -6510,6 +6510,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assegni-figli-frontalieri-2026.title': 'Allocations enfants: problèmes INPS',
     'blog.article.assegni-figli-frontalieri-2026.excerpt': 'Le Conseil fédéral rejette la proposition de Lorenzo Quadri de suspendre les versements aux Italiens travaillant au Tessin.',
     'blog.article.assegni-figli-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan, ciel bleu clair.',
+    'blog.article.integrazione-studenti-gaza-italia-2026.title': 'Étudiants de Gaza dans les écoles italiennes: 1,5 million pour l\'intégration',
+    'blog.article.integrazione-studenti-gaza-italia-2026.excerpt': 'Le Ministère de l\'Éducation alloue 1,5 million pour l\'intégration des étudiants venant de Gaza dans les écoles italiennes.',
+    'blog.article.integrazione-studenti-gaza-italia-2026.imageAlt': 'Une salle de classe en Ticino avec des élèves de divers horizons, dont certains de Gaza, engagés dans des activités d\'apprentissage.',
 };
 
 export default blogMetaFr;

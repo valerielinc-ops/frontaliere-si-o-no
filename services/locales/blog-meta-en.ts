@@ -6509,6 +6509,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assegni-figli-frontalieri-2026.title': 'Child allowances for cross-border workers: INPS issues but payments continue',
     'blog.article.assegni-figli-frontalieri-2026.excerpt': 'The Federal Council rejects Lorenzo Quadri\'s proposal to suspend payments to Italians working in Ticino.',
     'blog.article.assegni-figli-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, clear blue sky.',
+    'blog.article.integrazione-studenti-gaza-italia-2026.title': 'Gaza students in Italian schools: 1.5 million for integration',
+    'blog.article.integrazione-studenti-gaza-italia-2026.excerpt': 'The Ministry of Education allocates 1.5 million for the integration of students from Gaza in Italian schools.',
+    'blog.article.integrazione-studenti-gaza-italia-2026.imageAlt': 'A classroom in Ticino with students from diverse backgrounds, including some from Gaza, engaged in learning activities.',
 };
 
 export default blogMetaEn;
