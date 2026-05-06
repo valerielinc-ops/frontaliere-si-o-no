@@ -1,0 +1,78 @@
+name: Articles Performance Snapshot
+# Weekly: pull GSC + GA4 + PostHog + AdSense for every blog article URL,
+# compute composite score, write data/article-performance.json. The next
+# scheduled article generator run reads this file and injects the
+# winnerFingerprint into its LLM prompt.
+#
+# Spec: docs/superpowers/specs/2026-05-06-smarter-article-generator-design.md
+on:
+  schedule:
+    - cron: '0 4 * * 1'  # Every Monday at 04:00 UTC (before topic-candidates @ 22:00 Sun and before generator)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: article-performance-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write Firebase service-account JSON to /tmp
+        # Reused by GSC + GA4 fetchers via google-auth-library.
+        # Empty secret -> empty file -> sources skip gracefully.
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::notice::No FIREBASE_SERVICE_ACCOUNT_JSON — GSC + GA4 will be skipped gracefully."
+          fi
+
+      - name: Fetch article performance snapshot
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
+          POSTHOG_PROJECT_ID: ${{ secrets.POSTHOG_PROJECT_ID }}
+          POSTHOG_HOST: ${{ secrets.POSTHOG_HOST }}
+          ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
+          ADSENSE_CLIENT_SECRET: ${{ secrets.ADSENSE_CLIENT_SECRET }}
+          ADSENSE_REFRESH_TOKEN: ${{ secrets.ADSENSE_REFRESH_TOKEN }}
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+        run: node scripts/fetch-article-performance.mjs
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/article-performance.json
+          if git diff --cached --quiet; then
+            echo "No change to article-performance.json"
+            exit 0
+          fi
+          git commit -m "chore: refresh article performance snapshot"
+
+          # Push with rebase-and-retry. The fetcher is fully deterministic
+          # given the same source data — safe to regenerate on rebase.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/fetch-article-performance.mjs && git add data/article-performance.json"
