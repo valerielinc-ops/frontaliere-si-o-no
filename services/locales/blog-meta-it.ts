@@ -6414,6 +6414,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-immigrazione-frontalieri-2026.title': 'Tassa immigrazione: possibile ma con pochi benefici',
     'blog.article.tassa-immigrazione-frontalieri-2026.excerpt': 'Il Consiglio federale ha adottato un rapporto che analizza la fattibilità di una tassa d\'immigrazione in Svizzera.',
     'blog.article.tassa-immigrazione-frontalieri-2026.imageAlt': 'Vista del Lago di Lugano con un edificio moderno sullo sfondo',
+    'blog.article.bilaterali-iii-modifica-costituzionale.title': 'Bilaterali III: necessaria modifica costituzionale',
+    'blog.article.bilaterali-iii-modifica-costituzionale.excerpt': 'La Commissione delle istituzioni politiche del Consiglio degli Stati propone una modifica costituzionale per l\'approvazione degli accordi con l\'UE.',
+    'blog.article.bilaterali-iii-modifica-costituzionale.imageAlt': 'Bellinzona, Svizzera, con un focus sull\'architettura storica della città e le montagne circostanti',
 };
 
 export default blogMetaIt;

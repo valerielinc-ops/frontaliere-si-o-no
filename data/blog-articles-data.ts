@@ -20612,4 +20612,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'bilaterali-iii-modifica-costituzionale',
+ category: 'novita',
+ date: '2026-05-06T10:18:34.632Z',
+ image: '/images/blog/bilaterali-iii-modifica-costituzionale.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

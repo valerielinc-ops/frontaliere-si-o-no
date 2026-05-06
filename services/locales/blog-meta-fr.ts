@@ -6414,6 +6414,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-immigrazione-frontalieri-2026.title': 'Taxe sur l\'immigration: possible mais peu avantageuse',
     'blog.article.tassa-immigrazione-frontalieri-2026.excerpt': 'Le Conseil fédéral a adopté un rapport analysant la faisabilité d\'une taxe sur l\'immigration en Suisse.',
     'blog.article.tassa-immigrazione-frontalieri-2026.imageAlt': 'Vue du lac de Lugano avec un bâtiment moderne en arrière-plan',
+    'blog.article.bilaterali-iii-modifica-costituzionale.title': 'Accords bilatéraux III : modification constitutionnelle nécessaire',
+    'blog.article.bilaterali-iii-modifica-costituzionale.excerpt': 'La Commission des institutions politiques du Conseil des États propose une modification constitutionnelle pour l\'approbation des accords avec l\'UE.',
+    'blog.article.bilaterali-iii-modifica-costituzionale.imageAlt': 'Bellinzona, Suisse, avec un focus sur l\'architecture historique de la ville et les montagnes environnantes',
 };
 
 export default blogMetaFr;

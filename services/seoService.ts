@@ -3380,6 +3380,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vittima-folgorata-bellinzona-2026': { name: 'Vittima folgorata', path: '/articoli-frontaliere/vittima-folgorata-bellinzona-2026', parent: 'blog' },
     'blog-bilaterali-iii-doppia-maggioranza': { name: 'Bilaterali III', path: '/articoli-frontaliere/bilaterali-iii-doppia-maggioranza', parent: 'blog' },
     'blog-tassa-immigrazione-frontalieri-2026': { name: 'Tassa immigrazione', path: '/articoli-frontaliere/tassa-immigrazione-frontalieri-2026', parent: 'blog' },
+    'blog-bilaterali-iii-modifica-costituzionale': { name: 'Bilaterali III', path: '/articoli-frontaliere/bilaterali-iii-modifica-costituzionale', parent: 'blog' },
  };
 
  const info = sectionNames[section];

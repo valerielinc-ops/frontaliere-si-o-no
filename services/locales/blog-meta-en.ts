@@ -6413,6 +6413,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-immigrazione-frontalieri-2026.title': 'Immigration tax: possible but with few benefits',
     'blog.article.tassa-immigrazione-frontalieri-2026.excerpt': 'The Federal Council has adopted a report that analyzes the feasibility of an immigration tax in Switzerland.',
     'blog.article.tassa-immigrazione-frontalieri-2026.imageAlt': 'View of Lake Lugano with a modern building in the background',
+    'blog.article.bilaterali-iii-modifica-costituzionale.title': 'III Bilateral Agreements: Constitutional Amendment Needed',
+    'blog.article.bilaterali-iii-modifica-costituzionale.excerpt': 'The Political Institutions Committee of the Council of States proposes a constitutional amendment for the approval of agreements with the EU.',
+    'blog.article.bilaterali-iii-modifica-costituzionale.imageAlt': 'Bellinzona, Switzerland, with a focus on the city\'s historic architecture and the surrounding mountains',
 };
 
 export default blogMetaEn;

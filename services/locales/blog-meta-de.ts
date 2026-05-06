@@ -6413,6 +6413,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-immigrazione-frontalieri-2026.title': 'Einwanderungssteuer: möglich, aber mit wenig Nutzen',
     'blog.article.tassa-immigrazione-frontalieri-2026.excerpt': 'Der Bundesrat hat einen Bericht verabschiedet, der die Machbarkeit einer Einwanderungssteuer in der Schweiz analysiert.',
     'blog.article.tassa-immigrazione-frontalieri-2026.imageAlt': 'Blick auf den Luganersee mit einem modernen Gebäude im Hintergrund',
+    'blog.article.bilaterali-iii-modifica-costituzionale.title': 'Bilaterale III: Verfassungsänderung nötig',
+    'blog.article.bilaterali-iii-modifica-costituzionale.excerpt': 'Die Kommission für Politik der Ständeräte schlägt eine Verfassungsänderung zur Genehmigung der Abkommen mit der EU vor.',
+    'blog.article.bilaterali-iii-modifica-costituzionale.imageAlt': 'Bellinzona, Schweiz, mit Fokus auf der historischen Architektur der Stadt und den umliegenden Bergen',
 };
 
 export default blogMetaDe;
