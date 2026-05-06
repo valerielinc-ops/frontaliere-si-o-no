@@ -204,19 +204,23 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       }
     });
 
-    it('mobile-fold: <section class="job-list"> precedes any <details> in source order', () => {
+    it('mobile-fold: <h1> precedes any <details> in source order', () => {
+      // The static body no longer renders the JobCard grid (the SPA renders
+      // it on hydrate inside `#root`). Mobile-first compliance is therefore
+      // checked at the heading-hierarchy level: H1 must precede any
+      // collapsed-prose `<details>` filler in source order.
       const offenders: string[] = [];
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc, 50)) {
-          const jobListIdx = page.html.indexOf('class="job-list"');
+          const h1Idx = page.html.indexOf('<h1');
           const detailsIdx = page.html.indexOf('<details');
-          if (jobListIdx === -1) {
-            offenders.push(`${page.file} — no <section class="job-list"> found`);
+          if (h1Idx === -1) {
+            offenders.push(`${page.file} — no <h1> found`);
             continue;
           }
-          if (detailsIdx !== -1 && detailsIdx < jobListIdx) {
+          if (detailsIdx !== -1 && detailsIdx < h1Idx) {
             offenders.push(
-              `${page.file} — <details> appears at offset ${detailsIdx} BEFORE <section class="job-list"> at offset ${jobListIdx}`,
+              `${page.file} — <details> appears at offset ${detailsIdx} BEFORE <h1> at offset ${h1Idx}`,
             );
           }
         }
@@ -271,14 +275,15 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
     });
 
-    it('JSON-LD: every page emits ItemList + BreadcrumbList', () => {
+    it('JSON-LD: every page emits BreadcrumbList', () => {
+      // ItemList intentionally NOT emitted — the static body no longer
+      // visibly lists the jobs (Google's structured-data policy requires
+      // structured data to match visible content). The job listings are
+      // surfaced via the SPA-rendered JobCard grid post-hydration.
       const offenders: string[] = [];
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc, 50)) {
           const nodes = extractLdJson(page.html);
-          if (!findByType(nodes, 'ItemList')) {
-            offenders.push(`${page.file} — missing ItemList JSON-LD`);
-          }
           if (!findByType(nodes, 'BreadcrumbList')) {
             offenders.push(`${page.file} — missing BreadcrumbList JSON-LD`);
           }

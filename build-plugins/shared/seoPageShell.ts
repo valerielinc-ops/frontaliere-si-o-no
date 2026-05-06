@@ -178,6 +178,19 @@ export interface SeoPageShellOpts {
    * impressions.
    */
   disableAutoAds?: boolean;
+  /**
+   * Class applied to the `<main>` wrapper emitted around `bodyHtml` when
+   * {@link seoContentOutsideRoot} is true. Defaults to `'seo-static-content'`,
+   * which the SPA's `useNavigationState` hook detects to switch to lite-shell
+   * mode (header + footer only, leaves static content visible).
+   *
+   * Pass a different class (e.g. `'cluster-seo-prose'`) to opt OUT of
+   * lite-shell — the SPA hydrates `#root` with its full UI and the static
+   * `<main>` lives below `#root` purely as crawler-facing prose. Used by
+   * the per-cluster related-search pages whose interactive UI (working
+   * searchbar + filters) is rendered by the SPA's JobBoard component.
+   */
+  seoMainClass?: string;
 }
 
 /**
@@ -215,6 +228,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     seoContentOutsideRoot = true,
     hubChrome,
     disableAutoAds = false,
+    seoMainClass,
   } = opts;
 
   const assets = distDir ? resolveEntryAssets(distDir) : { entryJs: '', entryCss: '' };
@@ -250,6 +264,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     skipMainWrap,
     seoContentOutsideRoot,
     disableAutoAds,
+    ...(seoMainClass !== undefined ? { seoMainClass } : {}),
   };
 
   return buildSimplePage(simpleOpts);

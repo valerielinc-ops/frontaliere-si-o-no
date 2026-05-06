@@ -54,11 +54,6 @@ import {
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import {
-  renderJobCardListHtml,
-  type JobCardJob,
-  type JobCardListItem,
-} from './shared/jobCardHtml';
-import {
   renderJobBoardCommuterContext,
   renderSearchQueryIntro,
   buildJobBoardCommuterFaqLd,
@@ -447,53 +442,12 @@ const CHROME_COPY: Record<Locale, ClusterChromeCopy> = {
   },
 };
 
-/**
- * Render the SPA-style searchbar replica. Static HTML, not functional —
- * the SPA hydrates the real search input on top once the bundle loads,
- * so there's no visible re-render flash on direct visits.
- *
- * Inline styles use only `var(--color-*)` semantic tokens so the markup
- * works in light + dark mode without `dark:` class prefixes (CLAUDE.md).
- */
-function renderStaticSearchbar(query: string, copy: ClusterChromeCopy): string {
-  const safeQ = esc(query);
-  return `<div class="rsc-searchbar" style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--color-surface);border:2px solid var(--color-edge);border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,0.04);max-width:720px;margin:0 0 12px">
-    <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-muted);flex-shrink:0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-    <span style="flex:1;color:var(--color-heading);font-size:16px;line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span style="color:var(--color-muted);font-size:13px;margin-right:6px">${esc(copy.searchingFor)}:</span>${safeQ}</span>
-    <button type="button" aria-label="${esc(copy.searchPlaceholder)}" style="background:transparent;border:none;padding:4px;color:var(--color-muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center" tabindex="-1">
-      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    </button>
-  </div>`;
-}
-
-/**
- * Render the SPA-style active-filter chip showing the query with an X
- * stub. Mirrors the SPA filter-chip pill (rounded pill, accent fill,
- * X icon to clear).
- */
-function renderActiveFilterChip(query: string, copy: ClusterChromeCopy): string {
-  const safeQ = esc(query);
-  return `<div role="group" aria-label="${esc(copy.activeFiltersLabel)}" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 16px">
-    <span class="rsc-filter-chip" style="display:inline-flex;align-items:center;gap:6px;padding:6px 10px;background:var(--color-accent-strong);color:var(--color-on-accent);border-radius:9999px;font-size:13px;font-weight:600">
-      <span style="opacity:0.85;font-weight:500">${esc(copy.filterChipPrefix)}:</span>
-      ${safeQ}
-      <svg aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    </span>
-  </div>`;
-}
-
-/** Build job-card list items from raw jobs. */
-function buildJobCardItems(jobs: ReadonlyArray<RawJob>, locale: Locale): JobCardListItem[] {
-  return jobs.slice(0, MAX_JOBS_PER_PAGE).map((j) => {
-    const localizedTitle = j.titleByLocale?.[locale] || j.title || '';
-    const enrichedJob: JobCardJob = {
-      ...(j as unknown as JobCardJob),
-      title: localizedTitle,
-      titleByLocale: { ...(j.titleByLocale as JobCardJob['titleByLocale']), [locale]: localizedTitle },
-    };
-    return { job: enrichedJob, href: jobLocalizedUrl(j, locale) };
-  });
-}
+// Cluster page rendering deliberately does NOT emit a static searchbar
+// replica, active-filter chip, or JobCard grid in the body. The SPA's
+// JobBoard component renders all of those (and they actually function)
+// on hydration via `parseSearchSlugFilter`. The previous static replicas
+// looked interactive but were dead — UX regression. The static body now
+// contains only crawler-facing prose; see `renderClusterPage` below.
 
 /** Build all JSON-LD scripts for a cluster page. */
 function buildJsonLd(opts: {
@@ -509,19 +463,11 @@ function buildJsonLd(opts: {
   const copy = COPY[locale];
   const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
 
-  const itemList = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: headline,
-    numberOfItems: ctx.matchingJobs.length,
-    itemListElement: ctx.matchingJobs.slice(0, MAX_JOBS_PER_PAGE).map((j, idx) => ({
-      '@type': 'ListItem',
-      position: idx + 1,
-      url: jobLocalizedUrl(j, locale),
-      name: j.titleByLocale?.[locale] || j.title || headline,
-    })),
-  });
-
+  // ItemList JSON-LD intentionally NOT emitted: the static body no longer
+  // visibly lists the jobs (the SPA renders them via JobBoard hydration),
+  // and Google's structured-data policy requires structured data to match
+  // visible content. Job listings are still surfaced via the SPA-rendered
+  // JobCard grid, which Google indexes after JS execution.
   const breadcrumb = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -532,7 +478,7 @@ function buildJsonLd(opts: {
     ],
   });
 
-  const out = [breadcrumb, itemList];
+  const out = [breadcrumb];
 
   // FAQPage from AI-enriched data (when present).
   if (enriched?.faqs && enriched.faqs.length >= 1) {

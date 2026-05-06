@@ -123,6 +123,21 @@ export interface SimplePageOpts {
   * health premiums — bounce ≥97%, dwell <5s).
   */
  disableAutoAds?: boolean;
+ /**
+  * Class applied to the `<main>` wrapper emitted around `bodyHtml` when
+  * {@link seoContentOutsideRoot} is true. Defaults to `'seo-static-content'`,
+  * which is the marker the SPA's `useNavigationState` hook detects to switch
+  * to lite-shell mode (header + footer only, leaves static content visible).
+  *
+  * Callers may opt OUT of lite-shell mode by passing a different class
+  * (e.g. `'cluster-seo-prose'`). With a non-`seo-static-content` class the
+  * SPA does NOT detect lite-shell and hydrates `#root` with its full UI as
+  * it would on any other route. The static `<main>` then lives below
+  * `#root` purely as crawler-facing prose. Used by per-cluster
+  * related-search pages (the SPA's JobBoard already renders the working
+  * search-query UI for those URLs).
+  */
+ seoMainClass?: string;
 }
 
 export function buildSimplePage(opts: SimplePageOpts): string {
@@ -144,6 +159,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  seoContentOutsideRoot = false,
  preMainHtml = '',
  disableAutoAds = false,
+ seoMainClass = 'seo-static-content',
  } = opts;
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
@@ -171,7 +187,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  const preMainSection = preMainHtml ? `\n${preMainHtml}` : '';
  const bodySection = seoContentOutsideRoot
    ? ` <div id="root"></div>${preMainSection}
- <main class="seo-static-content">
+ <main class="${seoMainClass}">
 ${bodyHtml}
  </main>
  <div id="footer-root"></div>`
