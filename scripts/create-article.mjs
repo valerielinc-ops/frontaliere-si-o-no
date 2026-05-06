@@ -5523,6 +5523,29 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     }
     optimizeSeoMetadata(data);
 
+    // Step 3a.0-skip: bail early when the chosen source has zero frontaliere
+    // signal. Detected on attempt 1 only — across retries the source URL is
+    // identical, so density==0 means the topic itself is non-relevant
+    // (e.g. Italian-only labour-law news with no Swiss/cross-border angle).
+    // More retries cannot fix the source; they only burn LLM quotas before
+    // crashing on fact-check or JSON parse errors. Skip cleanly so the next
+    // cron tick picks a different headline. Per CLAUDE.md rule #5: fix the
+    // root cause (wrong topic), don't lower the validation bar.
+    if (attempt === 1) {
+      const itBodyEarly = `${data.content?.it?.body1 || ''} ${data.content?.it?.body2 || ''} ${data.content?.it?.body3 || ''}`;
+      const earlyDensity = checkFrontaliereDensity(itBodyEarly);
+      if (earlyDensity.hits === 0 && earlyDensity.wordCount > 0) {
+        console.error(`\n⏭️  Topic non frontaliere-rilevante: 0 keyword density su ${earlyDensity.wordCount} parole (URL: ${url}). Salto questo run, il prossimo cron selezionerà un topic diverso.`);
+        finalizeRunReport('skipped', {
+          notes: [
+            ...RUN_REPORT.notes,
+            `Topic skipped: 0 frontaliere-density hits on attempt 1 (url=${url})`,
+          ],
+        });
+        process.exit(0);
+      }
+    }
+
     // Step 3a.0-headline: Google News compliance — A5
     //
     // Validate the IT title (which becomes both the JSON-LD `headline` and
