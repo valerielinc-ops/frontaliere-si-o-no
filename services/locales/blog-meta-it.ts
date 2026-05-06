@@ -6315,6 +6315,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cnhi-mendrisio-dipendenti-allarme.title': 'CNHI potrebbe lasciare Mendrisio: dipendenti in allarme',
     'blog.article.cnhi-mendrisio-dipendenti-allarme.excerpt': 'La CNHI International SA valuta un trasferimento della sede ticinese, con possibili ripercussioni per gli 80-100 dipendenti. Valutazioni in corso.',
     'blog.article.cnhi-mendrisio-dipendenti-allarme.imageAlt': 'Vista aerea di Mendrisio, Ticino, Svizzera, con edifici moderni e il paesaggio circostante.',
+    'blog.article.swiss-made-regole-frontalieri.title': 'Swiss Made: cosa cambia per i frontalieri con le nuove regole',
+    'blog.article.swiss-made-regole-frontalieri.excerpt': 'Nuove regole per l\'uso del marchio Swiss Made: cosa significa per i frontalieri in Ticino e quali prodotti possono ora fregiarsi della croce svizzera',
+    'blog.article.swiss-made-regole-frontalieri.imageAlt': 'Etichetta Swiss Made con croce svizzera su sfondo di Mendrisio, Ticino',
 };
 
 export default blogMetaIt;

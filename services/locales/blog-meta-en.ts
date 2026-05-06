@@ -6314,6 +6314,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cnhi-mendrisio-dipendenti-allarme.title': 'CNHI may leave Mendrisio: staff on alert',
     'blog.article.cnhi-mendrisio-dipendenti-allarme.excerpt': 'CNHI International SA is considering moving its Ticino headquarters, potentially affecting 80-100 employees. Evaluations ongoing.',
     'blog.article.cnhi-mendrisio-dipendenti-allarme.imageAlt': 'Aerial view of Mendrisio, Ticino, Switzerland, with modern office buildings and the surrounding landscape.',
+    'blog.article.swiss-made-regole-frontalieri.title': 'Swiss Made: new rules for cross-border workers',
+    'blog.article.swiss-made-regole-frontalieri.excerpt': 'New rules for using the Swiss Made label: what it means for cross-border workers in Ticino and which products can now display the Swiss cross',
+    'blog.article.swiss-made-regole-frontalieri.imageAlt': 'Swiss Made label with Swiss cross against the backdrop of Mendrisio, Ticino',
 };
 
 export default blogMetaEn;
