@@ -1,18 +1,19 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-05-06T10:13:20.682Z",
+  "generatedAt": "2026-05-06T21:14:16.521Z",
   "total": 9,
-  "newCount": 4,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15369,
-  "avgDurationMs": 15369,
+  "durationMs": 13996,
+  "avgDurationMs": 13996,
   "durationHistory": [
-    15369
+    13996
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Software Engineer Expert - R&D",
       "slug": "software-engineer-expert-r-d-agie-charmilles-biel-bienne",
@@ -36,12 +37,19 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 74,
+      "id": "agie-charmilles-24a01c95baf5",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "firstSeenAt": "2026-05-06T10:13:20.681Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -67,12 +75,19 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 72,
+      "id": "agie-charmilles-ca96021ad15c",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "firstSeenAt": "2026-05-06T10:13:20.681Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -98,12 +113,19 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 74,
+      "id": "agie-charmilles-3709aa7e95e4",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "firstSeenAt": "2026-05-06T10:13:20.681Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -129,16 +151,21 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 72,
+      "id": "agie-charmilles-e9ad10358b65",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "firstSeenAt": "2026-05-06T10:13:20.681Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "SAP Developer",
       "slug": "sap-developer-agie-charmilles-biel-bienne",
