@@ -24,6 +24,11 @@
  * No code is emitted to dist/ — this is read-only audit.
  */
 
+// NOTE: The helper functions and RELATED_SEARCH_STOPWORDS in this script
+// are duplicated from services/relatedSearchClusters.ts because this file
+// is .mjs and the source is .ts. Keep the two in sync — when you change
+// one, mirror to the other.
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
