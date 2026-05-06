@@ -6542,6 +6542,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fondazione-bignasca-aiuti-2026.title': 'Bignasca Foundation: over 20,000 francs for those in need',
     'blog.article.fondazione-bignasca-aiuti-2026.excerpt': 'The Giuliano Bignasca Foundation has granted over 20,000 francs in 2025 to support families and individuals in financial difficulty in the Canton of Ticino.',
     'blog.article.fondazione-bignasca-aiuti-2026.imageAlt': 'Aerial view of Lake Lugano with the cityscape in the background, featuring modern buildings and the serene blue waters of the lake.',
+    'blog.article.lusso-immobiliare-svizzera-2026.title': 'Luxury homes in Switzerland: record prices in 2026',
+    'blog.article.lusso-immobiliare-svizzera-2026.excerpt': 'UBS study: high-end real estate growing at 3% annually, with peaks of 6% in the Alps. St. Moritz is the most expensive. Ticino stagnating.',
+    'blog.article.lusso-immobiliare-svizzera-2026.imageAlt': 'Luxury real estate market in Switzerland, villas on Lake Lugano',
 };
 
 export default blogMetaEn;

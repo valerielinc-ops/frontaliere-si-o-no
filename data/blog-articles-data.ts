@@ -20999,4 +20999,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lusso-immobiliare-svizzera-2026',
+ category: 'fiscale',
+ date: '2026-05-06T17:39:28.077Z',
+ image: '/images/blog/lusso-immobiliare-svizzera-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

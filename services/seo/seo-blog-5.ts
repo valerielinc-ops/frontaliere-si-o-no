@@ -23940,6 +23940,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lusso-immobiliare-svizzera-2026': {
+    title: 'Case di lusso in Svizzera: prezzi record nel 2026',
+    description: 'Studio UBS: immobili di pregio +3% annuo, Alpi +6%. St. Moritz la più cara (52.000 CHF/mq). Ticino stagnante ma stabile grazie a investitori italiani e finanza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, case, lusso, prezzi, record',
+    ogTitle: 'Case lusso Svizzera: prezzi record nel 2026',
+    ogDescription: 'Studio UBS: immobili di pregio +3% annuo, Alpi +6%. St. Moritz la più cara (52.000 CHF/mq). Ticino stagnante ma stabile grazie a investitori italiani e finanza.',
+    canonicalPath: '/articoli-frontaliere/lusso-immobiliare-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Case di lusso in Svizzera: prezzi record nel 2026",
+      "description": "Studio UBS: immobili di pregio +3% annuo, Alpi +6%. St. Moritz la più cara (52.000 CHF/mq). Ticino stagnante ma stabile grazie a investitori italiani e finanza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/lusso-immobiliare-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato immobiliare di lusso in Svizzera, ville sul Lago di Lugano"
+      },
+      "datePublished": "2026-05-06T17:39:28+00:00",
+      "dateModified": "2026-05-06T17:39:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lusso-immobiliare-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -6543,6 +6543,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fondazione-bignasca-aiuti-2026.title': 'Fondazione Bignasca: oltre 20.000 franchi in aiuti per i più bisognosi',
     'blog.article.fondazione-bignasca-aiuti-2026.excerpt': 'La Fondazione Giuliano Bignasca ha erogato oltre 20.000 franchi nel 2025 per sostenere famiglie e persone in difficoltà economica nel Canton Ticino.',
     'blog.article.fondazione-bignasca-aiuti-2026.imageAlt': 'Vista aerea del Lago di Lugano con il panorama cittadino sullo sfondo, che mostra edifici moderni e le acque serene del lago.',
+    'blog.article.lusso-immobiliare-svizzera-2026.title': 'Case di lusso in Svizzera: prezzi record nel 2026',
+    'blog.article.lusso-immobiliare-svizzera-2026.excerpt': 'Studio UBS: immobiliare di pregio in crescita del 3% annuo, con picchi del 6% nelle Alpi. St. Moritz la più cara. Ticino in stagnazione.',
+    'blog.article.lusso-immobiliare-svizzera-2026.imageAlt': 'Mercato immobiliare di lusso in Svizzera, ville sul Lago di Lugano',
 };
 
 export default blogMetaIt;

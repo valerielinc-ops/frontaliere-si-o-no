@@ -6542,6 +6542,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fondazione-bignasca-aiuti-2026.title': 'Stiftung Bignasca: Über 20.000 Franken für Bedürftige',
     'blog.article.fondazione-bignasca-aiuti-2026.excerpt': 'Die Giuliano-Bignasca-Stiftung hat 2025 über 20.000 Franken für Familien und Personen in finanzieller Not im Kanton Tessin bereitgestellt.',
     'blog.article.fondazione-bignasca-aiuti-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadtkulisse im Hintergrund, die moderne Gebäude und die ruhigen blauen Gewässer des Sees zeigt.',
+    'blog.article.lusso-immobiliare-svizzera-2026.title': 'Luxusimmobilien in der Schweiz: Rekordpreise 2026',
+    'blog.article.lusso-immobiliare-svizzera-2026.excerpt': 'UBS-Studie: Premium-Immobilien wachsen jährlich um 3%, in den Alpen bis zu 6%. St. Moritz ist am teuersten. Im Tessin stagniert der Markt.',
+    'blog.article.lusso-immobiliare-svizzera-2026.imageAlt': 'Luxusimmobilienmarkt in der Schweiz, Villen am Luganersee',
 };
 
 export default blogMetaDe;
