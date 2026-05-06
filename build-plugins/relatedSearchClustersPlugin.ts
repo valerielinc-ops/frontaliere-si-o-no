@@ -50,7 +50,6 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
-  CTA_PRIMARY_STYLE,
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
@@ -59,6 +58,11 @@ import {
   type JobCardJob,
   type JobCardListItem,
 } from './shared/jobCardHtml';
+import {
+  renderJobBoardCommuterContext,
+  renderSearchQueryIntro,
+  buildJobBoardCommuterFaqLd,
+} from './shared/jobBoardCommuterContext';
 import {
   getJobBoardSectionSlug,
   getSearchSlugPrefix,
@@ -70,7 +74,6 @@ import {
   LOCALE_PREFIX,
   OG_LOCALE,
   SUPPORTED_LOCALES,
-  buildTemplateIntro,
   type CandidateEntry,
   type CandidatesFile,
   type EnrichedEntry,
@@ -341,6 +344,144 @@ function buildDescription(ctx: ClusterContext, locale: Locale): string {
   return out.length > 158 ? `${out.slice(0, 157)}…` : out;
 }
 
+/**
+ * Detect a high-level sector label from the keyword. Used to vary the FAQ
+ * copy in `renderJobBoardCommuterContext` so 1,400 cluster pages don't all
+ * surface the same "Are Italian qualifications recognised?" answer text.
+ *
+ * Returns null when no confident match — the helper falls back to a
+ * locale-agnostic generic in that case.
+ */
+function detectSectorLabel(keyword: string, locale: Locale): string | null {
+  const k = normalizeText(keyword);
+  // Healthcare cluster (covers nurses, doctors, OSS, paramedics).
+  if (/(nurs|inferm|oss|sanit|health|krank|gesund|sant|medic|doctor|arzt)/.test(k)) {
+    return locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé';
+  }
+  // Tech / engineering cluster.
+  if (/(tech|dev|engin|ingegn|sviluppo|software|data|IT|informatic|programm)/.test(k)) {
+    return locale === 'it' ? 'tecnologia' : locale === 'en' ? 'technology' : locale === 'de' ? 'Technologie' : 'technologie';
+  }
+  // Banking / finance cluster.
+  if (/(bank|financ|wealth|fiscal|conta|account|gestione patrimoni|finanz)/.test(k)) {
+    return locale === 'it' ? 'banche e finanza' : locale === 'en' ? 'banking and finance' : locale === 'de' ? 'Banken und Finanzen' : 'banque et finance';
+  }
+  // Logistics / transport.
+  if (/(autista|logistic|transport|driver|fahrer|chauffeur|magazz|warehouse)/.test(k)) {
+    return locale === 'it' ? 'logistica e trasporti' : locale === 'en' ? 'logistics and transport' : locale === 'de' ? 'Logistik und Transport' : 'logistique et transport';
+  }
+  // Hospitality / restaurants.
+  if (/(cuoc|chef|cameri|hotel|ristor|gastro|restaur|kellner|serveur)/.test(k)) {
+    return locale === 'it' ? 'ristorazione e ospitalità' : locale === 'en' ? 'hospitality' : locale === 'de' ? 'Gastronomie und Hotellerie' : 'restauration et hôtellerie';
+  }
+  // Construction / manual.
+  if (/(muratore|builder|constru|bau|carpent|elettricista|electric|idraulic|plumb)/.test(k)) {
+    return locale === 'it' ? 'edilizia' : locale === 'en' ? 'construction' : locale === 'de' ? 'Bauwesen' : 'bâtiment';
+  }
+  // Education.
+  if (/(insegn|teach|docent|lehr|prof|education|formaz)/.test(k)) {
+    return locale === 'it' ? 'istruzione' : locale === 'en' ? 'education' : locale === 'de' ? 'Bildung' : 'éducation';
+  }
+  return null;
+}
+
+/** Localised copy for the cluster page (search bar, chrome, fallbacks). */
+interface ClusterChromeCopy {
+  searchPlaceholder: string;
+  /** "Searching for" pseudo-label inside the searchbar (visible cue). */
+  searchingFor: string;
+  /** Active-filter chip label prefix (e.g. "query:"). */
+  filterChipPrefix: string;
+  /** "Read more about this search" summary on the bottom <details>. */
+  contextSummary: string;
+  /** Region fallback when no city is detected (used for commuter copy). */
+  regionFallback: string;
+  /** "Frontaliere region" — used inside H1 to differ from <title>. */
+  regionH1Suffix: string;
+  /** Aria label for active filters group. */
+  activeFiltersLabel: string;
+  /** Visually-hidden label announcing the result count. */
+  resultsCountLabel: (n: number) => string;
+}
+
+const CHROME_COPY: Record<Locale, ClusterChromeCopy> = {
+  it: {
+    searchPlaceholder: 'Cerca per ruolo, azienda o città…',
+    searchingFor: 'Risultati per',
+    filterChipPrefix: 'ricerca',
+    contextSummary: 'Approfondimento: come funziona questa ricerca per i frontalieri',
+    regionFallback: 'Ticino',
+    regionH1Suffix: 'in Ticino',
+    activeFiltersLabel: 'Filtri attivi',
+    resultsCountLabel: (n) => `${n} ${n === 1 ? 'offerta trovata' : 'offerte trovate'}`,
+  },
+  en: {
+    searchPlaceholder: 'Search by role, company or city…',
+    searchingFor: 'Results for',
+    filterChipPrefix: 'search',
+    contextSummary: 'More about this search for cross-border applicants',
+    regionFallback: 'Ticino',
+    regionH1Suffix: 'in Ticino',
+    activeFiltersLabel: 'Active filters',
+    resultsCountLabel: (n) => `${n} ${n === 1 ? 'job found' : 'jobs found'}`,
+  },
+  de: {
+    searchPlaceholder: 'Suche nach Rolle, Unternehmen oder Stadt…',
+    searchingFor: 'Ergebnisse für',
+    filterChipPrefix: 'Suche',
+    contextSummary: 'Mehr zu dieser Suche für Grenzgänger',
+    regionFallback: 'Tessin',
+    regionH1Suffix: 'im Tessin',
+    activeFiltersLabel: 'Aktive Filter',
+    resultsCountLabel: (n) => `${n} ${n === 1 ? 'Stelle gefunden' : 'Stellen gefunden'}`,
+  },
+  fr: {
+    searchPlaceholder: 'Recherche par poste, entreprise ou ville…',
+    searchingFor: 'Résultats pour',
+    filterChipPrefix: 'recherche',
+    contextSummary: 'En savoir plus sur cette recherche pour les frontaliers',
+    regionFallback: 'Tessin',
+    regionH1Suffix: 'au Tessin',
+    activeFiltersLabel: 'Filtres actifs',
+    resultsCountLabel: (n) => `${n} ${n === 1 ? 'offre trouvée' : 'offres trouvées'}`,
+  },
+};
+
+/**
+ * Render the SPA-style searchbar replica. Static HTML, not functional —
+ * the SPA hydrates the real search input on top once the bundle loads,
+ * so there's no visible re-render flash on direct visits.
+ *
+ * Inline styles use only `var(--color-*)` semantic tokens so the markup
+ * works in light + dark mode without `dark:` class prefixes (CLAUDE.md).
+ */
+function renderStaticSearchbar(query: string, copy: ClusterChromeCopy): string {
+  const safeQ = esc(query);
+  return `<div class="rsc-searchbar" style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--color-surface);border:2px solid var(--color-edge);border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,0.04);max-width:720px;margin:0 0 12px">
+    <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-muted);flex-shrink:0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <span style="flex:1;color:var(--color-heading);font-size:16px;line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span style="color:var(--color-muted);font-size:13px;margin-right:6px">${esc(copy.searchingFor)}:</span>${safeQ}</span>
+    <button type="button" aria-label="${esc(copy.searchPlaceholder)}" style="background:transparent;border:none;padding:4px;color:var(--color-muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center" tabindex="-1">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>`;
+}
+
+/**
+ * Render the SPA-style active-filter chip showing the query with an X
+ * stub. Mirrors the SPA filter-chip pill (rounded pill, accent fill,
+ * X icon to clear).
+ */
+function renderActiveFilterChip(query: string, copy: ClusterChromeCopy): string {
+  const safeQ = esc(query);
+  return `<div role="group" aria-label="${esc(copy.activeFiltersLabel)}" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 16px">
+    <span class="rsc-filter-chip" style="display:inline-flex;align-items:center;gap:6px;padding:6px 10px;background:var(--color-accent-strong);color:var(--color-on-accent);border-radius:9999px;font-size:13px;font-weight:600">
+      <span style="opacity:0.85;font-weight:500">${esc(copy.filterChipPrefix)}:</span>
+      ${safeQ}
+      <svg aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </span>
+  </div>`;
+}
+
 /** Build job-card list items from raw jobs. */
 function buildJobCardItems(jobs: ReadonlyArray<RawJob>, locale: Locale): JobCardListItem[] {
   return jobs.slice(0, MAX_JOBS_PER_PAGE).map((j) => {
@@ -360,8 +501,10 @@ function buildJsonLd(opts: {
   canonicalUrl: string;
   enriched: EnrichedEntry | undefined;
   locale: Locale;
+  commuterLocation: string;
+  sectorLabel: string | null;
 }): string[] {
-  const { ctx, canonicalUrl, enriched, locale } = opts;
+  const { ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel } = opts;
   const headline = buildHeadline(ctx.keyword, ctx.city);
   const copy = COPY[locale];
   const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
@@ -391,7 +534,7 @@ function buildJsonLd(opts: {
 
   const out = [breadcrumb, itemList];
 
-  // FAQPage: only when enrichment provides FAQs (no fake content).
+  // FAQPage from AI-enriched data (when present).
   if (enriched?.faqs && enriched.faqs.length >= 1) {
     out.push(JSON.stringify({
       '@context': 'https://schema.org',
@@ -403,6 +546,17 @@ function buildJsonLd(opts: {
       })),
     }));
   }
+
+  // Commuter-context FAQPage: a separate JSON-LD object containing the
+  // 4 frontaliere-relevant Q&A from `renderJobBoardCommuterContext`.
+  // Google merges multiple FAQPage entries on the same page, so emitting
+  // both alongside the AI block is safe and surfaces more rich-result
+  // candidates.
+  out.push(buildJobBoardCommuterFaqLd({
+    locale: locale as 'it' | 'en' | 'de' | 'fr',
+    location: commuterLocation,
+    sectorOrType: sectorLabel,
+  }));
 
   return out;
 }
@@ -435,87 +589,145 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
   const { candidate } = ctx;
   const locale = candidate.locale;
   const copy = COPY[locale];
+  const chrome = CHROME_COPY[locale];
 
   const urlPath = buildClusterPath(locale, candidate.slug);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const headline = buildHeadline(ctx.keyword, ctx.city);
   const tagline = copy.taglineSingular(ctx.matchingJobs.length, ctx.keyword, ctx.city);
   const description = buildDescription(ctx, locale);
-  const introBody = enriched?.intro || buildTemplateIntro({
-    locale,
-    jobCount: ctx.matchingJobs.length,
-    keyword: ctx.keyword,
-    city: ctx.city,
-    topCompanies: ctx.topCompanies,
-  });
-  const jsonLdScripts = buildJsonLd({ ctx, canonicalUrl, enriched, locale });
+
+  // Resolve the location used by the commuter-context helper. When the
+  // cluster has a city, use it directly (the helper recognises Lugano,
+  // Mendrisio, Chiasso, Bellinzona, Locarno, Stabio and surfaces TILO/
+  // crossing data). Otherwise fall back to the regional name and pass
+  // omitCommute to skip the city-specific table.
+  const commuterLocation = ctx.city || chrome.regionFallback;
+  const sectorLabel = detectSectorLabel(ctx.keyword, locale);
+
+  const jsonLdScripts = buildJsonLd({ ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel });
   const hreflangHtml = renderHreflang(hreflang, canonicalUrl);
 
-  // Job list — REAL CONTENT FIRST (mobile-first source order).
+  // ── TOP: SPA JobBoard search-query layout (visible at first paint) ──
+  // Job list — REAL CONTENT FIRST (mobile-first source order). The cards
+  // are rendered through `renderJobCardListHtml` which emits the same
+  // SPA-style markup the JobBoard uses, so client-side hydration of the
+  // SPA on top of the static page does not produce a visible re-flow.
   const cardItems = buildJobCardItems(ctx.matchingJobs, locale);
   const jobListHtml = renderJobCardListHtml(cardItems, { locale });
 
-  // Related searches (top 8 same-city / different-keyword). Inline styles
-  // dropped (audit:text-html-ratio).
+  const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
+
+  // H1 must differ from <title> (audit:h1-title-duplicates is zero-tolerance).
+  // Append a city/region suffix + count so the H1 (e.g. "Data Center
+  // Technician — 12 offerte aperte in Ticino") never matches the title
+  // (which is just the headline + brand) under the audit's case+whitespace-
+  // insensitive comparison.
+  const regionPart = ctx.city ? '' : ` ${chrome.regionH1Suffix}`;
+  const headlineH1 = `${headline} — ${ctx.matchingJobs.length} ${copy.jobsHeading.toLowerCase()}${regionPart}`;
+
+  // Top companies / cities for the search-query intro paragraph (used by
+  // `renderSearchQueryIntro` to vary opening framing per page).
+  const topCities = Array.from(
+    new Set(
+      ctx.matchingJobs
+        .map((j) => (j.location || '').trim())
+        .filter((l) => l.length > 0),
+    ),
+  ).slice(0, 5);
+
+  // ── BOTTOM: SEO prose block (collapsed by default on mobile) ─────
+  // Source-order placement: AFTER the job grid + CTA so mobile users
+  // see meaty content first (CLAUDE.md non-negotiable rule #14). The
+  // <details> wraps both the AI intro (when present) / search-query
+  // template and the commuter-context block — combined ~5-7 KB of
+  // unique prose per page (varies by query/city/sector hash so 1,400
+  // pages don't share boilerplate).
+  const aiIntroHtml = enriched?.intro
+    ? `<p style="margin:0 0 14px;line-height:1.65">${esc(enriched.intro)}</p>`
+    : renderSearchQueryIntro(
+        locale as 'it' | 'en' | 'de' | 'fr',
+        ctx.keyword,
+        ctx.matchingJobs.length,
+        ctx.topCompanies,
+        topCities,
+      );
+
+  // AI-enriched FAQ block (when available). Rendered as <dl> for clarity;
+  // FAQPage JSON-LD for these is emitted separately via `buildJsonLd`.
+  const aiFaqHtml = enriched?.faqs && enriched.faqs.length > 0
+    ? `<section style="margin:24px 0 0">
+        <h3 style="font-size:18px;font-weight:700;color:var(--color-heading);margin:0 0 10px">${esc(copy.faqSummary)}</h3>
+        ${enriched.faqs.map((q) =>
+          `<details style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:12px;padding:12px 14px;margin-bottom:6px"><summary style="font-weight:600;cursor:pointer;color:var(--color-heading)">${esc(q.question)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.6">${esc(q.answer)}</p></details>`,
+        ).join('')}
+      </section>`
+    : '';
+
+  // Commuter-context prose: 5-7 KB methodology + city-specific commute
+  // table + salary breakdown + scenario callout + 4-FAQ + cross-links.
+  const commuterContextHtml = renderJobBoardCommuterContext({
+    locale: locale as 'it' | 'en' | 'de' | 'fr',
+    location: commuterLocation,
+    sectorOrType: sectorLabel,
+    omitCommute: !ctx.city,
+  });
+
+  // Related-search cross-links (same-city, different-keyword) — kept at
+  // the bottom of the prose block for crawlability and to avoid pushing
+  // editorial filler above the fold.
   const relatedHtml = related.length > 0
-    ? `<nav aria-label="${esc(copy.relatedHeading)}" class="rsc-related">
-        <h2>${esc(copy.relatedHeading)}</h2>
-        <ul>${related.map((r) => `<li><a href="${esc(r.url)}">${esc(r.keyword)}</a></li>`).join('')}</ul>
+    ? `<nav aria-label="${esc(copy.relatedHeading)}" class="rsc-related" style="margin:24px 0 0;padding:18px 0;border-top:1px solid var(--color-edge)">
+        <h3 style="margin:0 0 10px;font-size:18px;font-weight:700;color:var(--color-heading)">${esc(copy.relatedHeading)}</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px">${related.map((r) => `<li><a href="${esc(r.url)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:4px 10px;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:9999px;font-size:13px">${esc(r.keyword)}</a></li>`).join('')}</ul>
       </nav>`
     : '';
 
-  // FAQ block (only when enrichment exists — no fake content). Inline styles
-  // dropped (audit:text-html-ratio).
-  const faqHtml = enriched?.faqs && enriched.faqs.length > 0
-    ? `<details class="related-search-faq">
-        <summary>${esc(copy.faqSummary)}</summary>
-        <dl>${enriched.faqs.map((q) => `<dt>${esc(q.question)}</dt><dd>${esc(q.answer)}</dd>`).join('')}</dl>
-      </details>`
-    : '';
+  const seoContextBlock = `<details class="cluster-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
+    <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${esc(chrome.contextSummary)}</summary>
+    <div style="padding:8px 0 0">
+      <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+        ${aiIntroHtml}
+      </section>
+      ${aiFaqHtml}
+      ${commuterContextHtml}
+      ${relatedHtml}
+    </div>
+  </details>`;
 
-  const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
-  const calculatorUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
-
-  // H1 must differ from <title> (audit:h1-title-duplicates is zero-tolerance).
-  // Append the localized "N positions" / "N offerte" suffix to H1 so that
-  // title (headline only) ≠ H1 (headline + counter) under the audit's
-  // case+whitespace-insensitive comparison.
-  const headlineH1 = `${headline} — ${ctx.matchingJobs.length} ${copy.jobsHeading.toLowerCase()}`;
-
-  // Body — JOB LIST FIRST, editorial filler in <details> below.
-  // Inline styles dropped (audit:text-html-ratio): the global stylesheet
-  // injected by buildSeoPageHtml provides the var(--color-*) tokens; default
-  // browser rendering of h1/h2/p/ol is acceptable, and stripping ~1KB of
-  // presentational style="…" attributes per page brings the visible-text /
-  // total-HTML ratio above the 10% Semrush threshold.
-  const bodyHtml = `<article class="related-search-cluster">
-    <nav aria-label="${esc(copy.searchBreadcrumb)}" class="rsc-breadcrumb">
-      <a href="${BASE_URL}/">${esc(copy.homeBreadcrumb)}</a>
+  // ── Body ────────────────────────────────────────────────────────
+  // Layout (mobile-first source order):
+  //   1. Breadcrumb
+  //   2. H1 + datestamp + 1-line tagline (≤ 120 chars)
+  //   3. SPA-style searchbar replica with the query pre-filled
+  //   4. Active-filter chip pill
+  //   5. JobCard grid (real content)
+  //   6. "All open positions" CTA
+  //   7. <details> with the SEO prose (collapsed)
+  const bodyHtml = `<div class="related-search-cluster" style="max-width:1100px;margin:0 auto;padding:24px 16px 56px;color:var(--color-body)">
+    <nav aria-label="${esc(copy.searchBreadcrumb)}" style="${BREADCRUMB_STYLE}">
+      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.homeBreadcrumb)}</a>
       <span> / </span>
-      <a href="${esc(sectionUrl)}">${esc(copy.jobsBreadcrumb)}</a>
+      <a href="${esc(sectionUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.jobsBreadcrumb)}</a>
       <span> / </span>
       <span>${esc(headline)}</span>
     </nav>
-    <header class="rsc-header">
-      <p class="rsc-datestamp">${esc(dateStamp)}</p>
-      <h1>${esc(headlineH1)}</h1>
-      <p class="lede">${esc(tagline)}</p>
+    <header style="margin-bottom:18px">
+      <p style="margin:0 0 6px;color:var(--color-subtle);font-size:13px">${esc(dateStamp)}</p>
+      <h1 style="margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.18;color:var(--color-heading)">${esc(headlineH1)}</h1>
+      <p style="margin:0;color:var(--color-body);font-size:15px;line-height:1.55;max-width:820px">${esc(tagline)}</p>
     </header>
-    <section class="job-list" aria-labelledby="job-list-heading">
-      <h2 id="job-list-heading">${esc(copy.jobsHeading)}</h2>
+    ${renderStaticSearchbar(ctx.keyword, chrome)}
+    ${renderActiveFilterChip(ctx.keyword, chrome)}
+    <section aria-labelledby="rsc-results-heading">
+      <h2 id="rsc-results-heading" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">${esc(chrome.resultsCountLabel(ctx.matchingJobs.length))}</h2>
       ${jobListHtml}
     </section>
-    <details class="related-search-intro">
-      <summary>${esc(copy.introSummary)}</summary>
-      <p>${esc(introBody)}</p>
-    </details>
-    ${faqHtml}
-    ${relatedHtml}
-    <section class="rsc-cta">
-      <a href="${esc(sectionUrl)}" class="rsc-cta-primary">${esc(copy.ctaAllJobs)}</a>
-      <a href="${esc(calculatorUrl)}" class="rsc-cta-secondary">${esc(copy.ctaCalculator)}</a>
-    </section>
-  </article>`;
+    <p style="margin:20px 0 0;text-align:center">
+      <a href="${esc(sectionUrl)}" style="display:inline-block;padding:10px 18px;background:var(--color-accent-strong);color:var(--color-on-accent);text-decoration:none;border-radius:9999px;font-weight:600;font-size:14px">${esc(copy.ctaAllJobs)} →</a>
+    </p>
+    ${seoContextBlock}
+  </div>`;
 
   const title = buildTitleWithBrand(headline);
 
