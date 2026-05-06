@@ -393,3 +393,64 @@ Each agent output must include:
 - Quora/Telegram/forum scrape.
 - Embedding-store winner-similarity ranker (Direzione 3).
 - Newsletter A/B on candidate-sourced articles vs evergreen.
+
+---
+
+## Known limitations after the first CI run (2026-05-06 21:00 UTC)
+
+Documented at orchestration end after running both workflows on real GH Actions IPs
+with whatever secrets were actually configured.
+
+### Quality / signal bugs
+
+1. **Winner `cluster` is `null` for every article** → fingerprint topClusters
+   collapses to `[{cluster:"unknown", weight:1.0}]`, removing the cluster prior.
+   Root cause: `scripts/lib/perf-sources/articleDiscovery.mjs` doesn't read
+   `articleSection` from `services/seo/seo-blog-*.ts` per slug — it only parses
+   blog-meta titles. Fix: add a second parse pass that maps slug → articleSection
+   from the seo-blog files (already discovered, just not joined with winner data).
+   Impact: medium — fingerprint loses cluster guidance but still has angles +
+   keywords + question patterns + averageWordCount.
+
+2. **Top-keywords are news-y rather than evergreen frontalieri terms**
+   (`angeli`, `grandine`, `pastori`, `posata`, `mutuo`, `pastori`, `contatto`,
+   `dichiarazione`, `onore`). Root cause: TF-IDF runs over ALL article titles,
+   so news-of-the-day articles that briefly ranked dominate. Fix: weight by
+   article age (recency-decay), and/or restrict TF-IDF input to the top-20
+   winners only (already do this for fingerprint compute, but the IDF normalizer
+   uses the full corpus — re-check).
+
+3. **Reddit returns 403 for every subreddit on the GitHub Actions IP range.**
+   The Playwright fallback exists but hasn't engaged for 403 (only for 429).
+   Fix: extend the fallback trigger to include 403, AND consider rotating
+   User-Agent header to a recent Chrome on Linux instead of `frontaliereticino-bot`.
+   Without Reddit, candidate quality drops noticeably (Reddit was the highest
+   per-source candidate count locally: 23/1/9 IT/Lugano/Switzerland).
+
+### Secrets to add (graceful skip today, signal will lift when added)
+
+The fetcher / miner gracefully skip these. Adding them via `gh secret set …` 
+turns each on:
+
+- `GA4_PROPERTY_ID` — turns on GA4 metrics (pageviews, engagement, scroll depth).
+- `POSTHOG_PERSONAL_API_KEY`, `POSTHOG_PROJECT_ID` (`POSTHOG_HOST` defaults to
+  `https://eu.posthog.com`) — adds PostHog event-based metrics.
+- `ADSENSE_REFRESH_TOKEN` (+ `ADSENSE_CLIENT_ID`, `ADSENSE_CLIENT_SECRET`) —
+  enables per-channel revenue distribution per article. See
+  `scripts/revenue-monitor.mjs:122` for the OAuth setup.
+- `FB_PAGE_ACCESS_TOKEN` for `pages_read_engagement` permission — enables
+  Facebook public-page mining (already used for `post-to-facebook.mjs`, may
+  need a permission scope upgrade).
+
+### Verified working in CI
+
+- ✅ GSC pulled 1390 rows with the existing `FIREBASE_SERVICE_ACCOUNT_JSON`
+  (the same SA also has Search Console permissions).
+- ✅ 540 articles scored, 20 winners + 50 losers identified.
+- ✅ Google Trends Italy-Lombardia + Switzerland each returned 18 candidates.
+- ✅ GSC orphan queries contributed 2 candidates.
+- ✅ Both workflows committed their artifacts (`data/article-performance.json`
+  + `data/topic-candidates.json`) via `git-push-with-retry.sh` rebase pattern.
+- ✅ `create-article.mjs` integration is wired but a generate-article CI run
+  must observe the candidate path being exercised (news takes priority and
+  is plentiful — Phase 1.5 exercise may need a slow-news day to fire).
