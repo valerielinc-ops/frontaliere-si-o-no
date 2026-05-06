@@ -24016,6 +24016,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-governance-partecipativa-ssn-2026': {
+    title: 'Governance partecipativa, presentato consensus paper per Ssn equo e sostenibile',
+    description: 'Presentato al Senato il Consensus Paper per una sanità partecipata, equa e sostenibile. Coinvolgimento attivo di cittadini e pazienti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, governance, partecipativa, presentato, consensus',
+    ogTitle: 'Governance partecipativa, presentato consensus paper per Ssn equo e sostenibile',
+    ogDescription: 'Presentato al Senato il Consensus Paper per una sanità partecipata, equa e sostenibile. Coinvolgimento attivo di cittadini e pazienti.',
+    canonicalPath: '/articoli-frontaliere/governance-partecipativa-ssn-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Governance partecipativa, presentato consensus paper per Ssn equo e sostenibile",
+      "description": "Presentato al Senato il Consensus Paper per una sanità partecipata, equa e sostenibile. Coinvolgimento attivo di cittadini e pazienti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/governance-partecipativa-ssn-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne sullo sfondo, fotografato con una fotocamera DSLR. Cielo azzurro limpido, acqua calma e alcune barche in lontananza."
+      },
+      "datePublished": "2026-05-06T18:10:36+00:00",
+      "dateModified": "2026-05-06T18:10:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/governance-partecipativa-ssn-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

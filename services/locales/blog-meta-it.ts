@@ -6549,6 +6549,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-valore-economico-aggregazione.title': 'Chiasso rivaluta il suo valore economico con l\'aggregazione',
     'blog.article.chiasso-valore-economico-aggregazione.excerpt': 'L\'operazione contabile straordinaria restituisce un risultato positivo da 23 milioni, ma l\'ordinario resta nelle cifre rosse.',
     'blog.article.chiasso-valore-economico-aggregazione.imageAlt': 'Vista aerea di Chiasso, Ticino, Svizzera, con il paesaggio urbano moderno e le montagne circostanti.',
+    'blog.article.governance-partecipativa-ssn-2026.title': 'Governance partecipativa, presentato consensus paper per Ssn equo e sostenibile',
+    'blog.article.governance-partecipativa-ssn-2026.excerpt': 'Presentato al Senato il Consensus Paper per una sanità partecipata, equa e sostenibile. Coinvolgimento attivo dei cittadini e pazienti.',
+    'blog.article.governance-partecipativa-ssn-2026.imageAlt': 'Lago di Lugano con montagne sullo sfondo, fotografato con una fotocamera DSLR. Cielo azzurro limpido, acqua calma e alcune barche in lontananza.',
 };
 
 export default blogMetaIt;

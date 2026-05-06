@@ -6548,6 +6548,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-valore-economico-aggregazione.title': 'Chiasso steigert seinen wirtschaftlichen Wert durch Zusammenlegung',
     'blog.article.chiasso-valore-economico-aggregazione.excerpt': 'Die außerordentliche Buchungsoperation ergibt ein positives Ergebnis von 23 Millionen Franken, doch das ordentliche bleibt in den roten Zahlen.',
     'blog.article.chiasso-valore-economico-aggregazione.imageAlt': 'Luftaufnahme von Chiasso, Tessin, Schweiz, mit der modernen Stadtlandschaft und den umliegenden Bergen.',
+    'blog.article.governance-partecipativa-ssn-2026.title': 'Konsenspapier für faire und nachhaltige Gesundheitsversorgung vorgestellt',
+    'blog.article.governance-partecipativa-ssn-2026.excerpt': 'Im Senat wurde das Konsenspapier für eine partizipative, faire und nachhaltige Gesundheitsversorgung vorgestellt. Aktive Einbindung von Bürger*innen und Patient*innen.',
+    'blog.article.governance-partecipativa-ssn-2026.imageAlt': 'Luganersee mit Bergen im Hintergrund, fotografiert mit einer DSLR-Kamera. Klarer blauer Himmel, ruhiges Wasser und einige Boote in der Ferne.',
 };
 
 export default blogMetaDe;

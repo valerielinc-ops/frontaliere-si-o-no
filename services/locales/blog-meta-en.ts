@@ -6548,6 +6548,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-valore-economico-aggregazione.title': 'Chiasso revalues with economic aggregation',
     'blog.article.chiasso-valore-economico-aggregazione.excerpt': 'The extraordinary accounting operation yields a positive result of 23 million, but the ordinary remains in the red.',
     'blog.article.chiasso-valore-economico-aggregazione.imageAlt': 'Aerial view of Chiasso, Ticino, Switzerland, with the modern cityscape and surrounding mountains.',
+    'blog.article.governance-partecipativa-ssn-2026.title': 'Consensus paper for fair and sustainable healthcare',
+    'blog.article.governance-partecipativa-ssn-2026.excerpt': 'A Consensus Paper for participatory, fair, and sustainable healthcare was presented at the Senate. Active involvement of citizens and patients.',
+    'blog.article.governance-partecipativa-ssn-2026.imageAlt': 'Lake Lugano with mountains in the background, photographed with a DSLR camera. Clear blue sky, calm water, and a few boats in the distance.',
 };
 
 export default blogMetaEn;

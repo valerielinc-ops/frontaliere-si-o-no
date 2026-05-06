@@ -21017,4 +21017,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'governance-partecipativa-ssn-2026',
+ category: 'novita',
+ date: '2026-05-06T18:10:36.630Z',
+ image: '/images/blog/governance-partecipativa-ssn-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

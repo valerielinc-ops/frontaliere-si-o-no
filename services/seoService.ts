@@ -3425,6 +3425,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fondazione-bignasca-aiuti-2026': { name: 'Fondazione Bignasca', path: '/articoli-frontaliere/fondazione-bignasca-aiuti-2026', parent: 'blog' },
     'blog-lusso-immobiliare-svizzera-2026': { name: 'Lusso Immobiliare Svizzera', path: '/articoli-frontaliere/lusso-immobiliare-svizzera-2026', parent: 'blog' },
     'blog-chiasso-valore-economico-aggregazione': { name: 'Novità', path: '/articoli-frontaliere/chiasso-valore-economico-aggregazione', parent: 'blog' },
+    'blog-governance-partecipativa-ssn-2026': { name: 'Novità', path: '/articoli-frontaliere/governance-partecipativa-ssn-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
