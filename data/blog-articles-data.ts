@@ -21035,4 +21035,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'hantavirus-crociera-isolamento',
+ category: 'novita',
+ date: '2026-05-06T19:21:34.305Z',
+ image: '/images/blog/hantavirus-crociera-isolamento.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

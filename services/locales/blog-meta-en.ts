@@ -6554,6 +6554,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ssn-accessibile-frontalieri-ticino-2026.title': 'NHS accessible to all: news for Ticino cross-border workers',
     'blog.article.ssn-accessibile-frontalieri-ticino-2026.excerpt': 'Guido Quintino Liris (Fdi) announces reforms to make the National Health Service accessible to all, with a focus on prevention and local care',
     'blog.article.ssn-accessibile-frontalieri-ticino-2026.imageAlt': 'Modern healthcare facility in Bellinzona, Ticino, with people accessing services',
+    'blog.article.hantavirus-crociera-isolamento.title': 'Hantavirus: isolation to contain the outbreak',
+    'blog.article.hantavirus-crociera-isolamento.excerpt': 'Pietro Antonini, infectious diseases consultant, explains how hantavirus is transmitted and what measures to take to contain it.',
+    'blog.article.hantavirus-crociera-isolamento.imageAlt': 'Lake Lugano with a view of the surrounding mountains',
 };
 
 export default blogMetaEn;

@@ -3427,6 +3427,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiasso-valore-economico-aggregazione': { name: 'Novità', path: '/articoli-frontaliere/chiasso-valore-economico-aggregazione', parent: 'blog' },
     'blog-governance-partecipativa-ssn-2026': { name: 'Novità', path: '/articoli-frontaliere/governance-partecipativa-ssn-2026', parent: 'blog' },
     'blog-ssn-accessibile-frontalieri-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ssn-accessibile-frontalieri-ticino-2026', parent: 'blog' },
+    'blog-hantavirus-crociera-isolamento': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-crociera-isolamento', parent: 'blog' },
  };
 
  const info = sectionNames[section];
