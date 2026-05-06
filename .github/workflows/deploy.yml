@@ -57,22 +57,32 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  # GitHub Pages allows only one active deployment at a time. Every trigger —
-  # push to main, workflow_dispatch from articles/crawlers/etc. — must share a
-  # single queue so deploys run strictly serially. cancel-in-progress is false
-  # so each successful deploy can finish publishing and emit its artifacts for
-  # the downstream post-deploy validation workflow.
-  #
-  # Exception: a workflow_dispatch with profile_sequential=true is a build-only
-  # investigation run that skips the deploy steps. It uses a per-run group so
-  # the long sequential profile can complete without being cancelled by the
-  # next push to main, and without blocking real deploys behind it.
-  group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-deploy-profile-{0}', github.run_id) || 'pages-deploy' }}
-  cancel-in-progress: false
-
 jobs:
   build-and-deploy:
+    # JOB-LEVEL concurrency. Critical: must be on the JOB, not on the
+    # workflow. With job-level concurrency the lock is released as soon
+    # as `build-and-deploy` finishes, even when the `post-deploy` job
+    # below (validate + rollback) is still running. Workflow-level
+    # concurrency would hold the lock for the entire run, including
+    # validate + rollback — blocking the next deploy unnecessarily.
+    # This is the architectural unblock that lets the next push start
+    # building while the previous run is still validating.
+    #
+    # GitHub Pages allows only one active deployment at a time. Every
+    # trigger — push to main, workflow_dispatch from articles/crawlers
+    # /etc. — must share a single queue so deploys run strictly serially.
+    # cancel-in-progress is false so each successful deploy can finish
+    # publishing and emit its artifacts for the downstream post-deploy
+    # validation job.
+    #
+    # Exception: a workflow_dispatch with profile_sequential=true is a
+    # build-only investigation run that skips the deploy steps. It uses
+    # a per-run group so the long sequential profile can complete
+    # without being cancelled by the next push to main, and without
+    # blocking real deploys behind it.
+    concurrency:
+      group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-deploy-profile-{0}', github.run_id) || 'pages-deploy' }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     # GitHub free runners cap at 360 min — match it explicitly so cold-start
     # builds (e.g. first run with a heavy plugin like jobOgImagesPlugin
@@ -527,3 +537,31 @@ jobs:
             --priority 1 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+  # Validation runs as a downstream job in this same workflow run, NOT as a
+  # separate workflow_run-triggered run. Same-run validation:
+  #   • removes the workflow_run.head_sha drift (github.sha is invariant);
+  #   • removes the cross-workflow `gh run download` lookup lag (we use
+  #     actions/download-artifact@v5 against the current run id);
+  #   • produces a 1:1 deploy ↔ validate mapping in the Actions UI (no
+  #     more "cancelled" post-deploys for cancelled/skipped deploys).
+  #
+  # The lock on `pages-deploy` is released by `build-and-deploy` above as
+  # soon as it completes (job-level concurrency). Validation can therefore
+  # run in parallel with the *next* deploy, which is the whole point of
+  # this refactor for cron-driven content (~15 min cadence).
+  post-deploy:
+    needs: build-and-deploy
+    if: |
+      success() &&
+      github.event.inputs.profile_sequential != 'true'
+    uses: ./.github/workflows/post-deploy-validation.yml
+    with:
+      deploy_run_id: ${{ github.run_id }}
+      deploy_event_name: ${{ github.event_name }}
+    secrets: inherit
+    permissions:
+      contents: write   # sync-previous-slug-winners + git push
+      actions: read     # download-artifact same-run
+      pages: write      # rollback redeploy
+      id-token: write   # rollback redeploy
