@@ -20711,4 +20711,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fondi-europei-ticino-2026',
+ category: 'novita',
+ date: '2026-05-06T11:41:59.297Z',
+ image: '/images/blog/fondi-europei-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

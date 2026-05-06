@@ -6447,6 +6447,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.partita-cornaredo-blocchi-stradali-2026.title': 'Partita a Cornaredo: blocchi stradali e deviazioni previste',
     'blog.article.partita-cornaredo-blocchi-stradali-2026.excerpt': 'Domenica 10 maggio 2026, la partita tra FC Lugano e FC San Gallo causerà blocchi stradali a Cornaredo/Molino Nuovo. Ecco i dettagli.',
     'blog.article.partita-cornaredo-blocchi-stradali-2026.imageAlt': 'Stadio di Cornaredo a Lugano con tifosi per una partita di calcio',
+    'blog.article.fondi-europei-ticino-2026.title': 'Fondi europei in Ticino: FSE, FESR, PNRR e Horizon',
+    'blog.article.fondi-europei-ticino-2026.excerpt': 'Scopri come i fondi europei FSE, FESR, PNRR e Horizon finanziano progetti in Ticino e Lombardia, con esempi concreti e opportunità per imprese e cittadini.',
+    'blog.article.fondi-europei-ticino-2026.imageAlt': 'Lago di Lugano con montagne sullo sfondo e persone che camminano lungo la riva',
 };
 
 export default blogMetaIt;

@@ -6447,6 +6447,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.partita-cornaredo-blocchi-stradali-2026.title': 'Match à Cornaredo: perturbations routières prévues',
     'blog.article.partita-cornaredo-blocchi-stradali-2026.excerpt': 'Dimanche 10 mai 2026, le match entre le FC Lugano et le FC Saint-Gall entraînera des perturbations routières à Cornaredo/Molino Nuovo. Voici les détails.',
     'blog.article.partita-cornaredo-blocchi-stradali-2026.imageAlt': 'Stade de Cornaredo à Lugano avec des supporters pour un match de football',
+    'blog.article.fondi-europei-ticino-2026.title': 'Fonds européens au Tessin: FSE, FESR, PNRR et Horizon',
+    'blog.article.fondi-europei-ticino-2026.excerpt': 'Découvrez comment les fonds européens FSE, FESR, PNRR et Horizon financent des projets au Tessin et en Lombardie, avec des exemples concrets et des opportunités pour les entreprises et les citoyens.',
+    'blog.article.fondi-europei-ticino-2026.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan et des personnes marchant le long de la rive',
 };
 
 export default blogMetaFr;

@@ -3391,6 +3391,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trump-export-limits-petrol-2026': { name: 'Novità', path: '/articoli-frontaliere/trump-export-limits-petrol-2026', parent: 'blog' },
     'blog-riapertura-bagno-bellinzona-2026': { name: 'Novità Bellinzona', path: '/articoli-frontaliere/riapertura-bagno-bellinzona-2026', parent: 'blog' },
     'blog-partita-cornaredo-blocchi-stradali-2026': { name: 'Novità', path: '/articoli-frontaliere/partita-cornaredo-blocchi-stradali-2026', parent: 'blog' },
+    'blog-fondi-europei-ticino-2026': { name: 'Fondi europei', path: '/articoli-frontaliere/fondi-europei-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
