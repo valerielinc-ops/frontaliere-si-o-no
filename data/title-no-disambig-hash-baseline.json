@@ -1,17 +1,17 @@
 {
-  "generated": "2026-05-05T14:21:42.692Z",
+  "generated": "2026-05-06T01:19:31.096Z",
   "_note": "Per-feature ratchet for the (#abcdef12) disambiguator visible in <title>. Counts can only go DOWN. Fix at source by renaming colliding articles (year, city, source qualifier) so the base title is unique without the hash.",
-  "total": 62410,
+  "total": 62631,
   "byFeature": {
     "blog": 539,
-    "job-board": 61795,
-    "spa-other": 58,
-    "weekly-employers": 18
+    "job-board": 62021,
+    "spa-other": 54,
+    "weekly-employers": 17
   },
   "byLocale": {
-    "it": 16619,
-    "de": 15780,
-    "en": 14966,
-    "fr": 15045
+    "it": 16678,
+    "de": 15719,
+    "en": 15053,
+    "fr": 15181
   }
 }

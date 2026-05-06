@@ -1,19 +1,18 @@
 {
-  "generated": "2026-05-05T14:20:52.148Z",
-  "_note": "Real numbers from prod dist (seed-title-baselines run 25381905225, deploy 25377776239). job-board accounts for 99.6% of offenders by design — JOB_TITLE_MAX=70 in build-plugins/jobsSeoPagesPlugin.ts preserves the city-preserving structure (job title + company + city + (#hash) disambiguator) inside a 70-char cap, which exceeds the audit threshold of 66 by up to 4 char on every job page. Non-job buckets stayed near zero — the drop-brand fix in build-plugins/shared/titleSuffix.ts:buildTitleWithBrand caught nearly everything else. Counts can only go DOWN; rebaseline via the seed-title-baselines workflow after a deliberate improvement.",
+  "generated": "2026-05-06T01:18:39.983Z",
   "threshold": 66,
-  "total": 53546,
+  "total": 53671,
   "byFeature": {
     "spa-locale": 25,
-    "spa-other": 174,
-    "job-board": 53330,
-    "weekly-employers": 16,
+    "spa-other": 171,
+    "job-board": 53462,
+    "weekly-employers": 12,
     "fuel-daily": 1
   },
   "byLocale": {
-    "en": 13782,
-    "it": 12427,
-    "fr": 13927,
-    "de": 13410
+    "en": 13802,
+    "it": 12446,
+    "fr": 13957,
+    "de": 13466
   }
 }
