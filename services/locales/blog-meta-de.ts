@@ -6506,6 +6506,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fondazione-bignasca-aiuti-2025.title': 'Stiftung Giuliano Bignasca: über 20\'000 Franken Hilfe 2025',
     'blog.article.fondazione-bignasca-aiuti-2025.excerpt': 'Die Stiftung Giuliano Bignasca hat 2025 über 20\'000 Franken an direkte Hilfen ausgezahlt, darunter Einkaufsgutscheine und Unterstützung für Mieten und Krankenkassenprämien.',
     'blog.article.fondazione-bignasca-aiuti-2025.imageAlt': 'Luganersee mit Bergen im Hintergrund',
+    'blog.article.assegni-figli-frontalieri-2026.title': 'Kinderzulagen für Grenzgänger: Probleme mit INPS, Zahlungen laufen weiter',
+    'blog.article.assegni-figli-frontalieri-2026.excerpt': 'Der Bundesrat lehnt den Vorschlag von Lorenzo Quadri ab, die Zahlungen an Italiener, die im Tessin arbeiten, auszusetzen.',
+    'blog.article.assegni-figli-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund, klarer blauer Himmel.',
 };
 
 export default blogMetaDe;

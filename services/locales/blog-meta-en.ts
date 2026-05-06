@@ -6506,6 +6506,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fondazione-bignasca-aiuti-2025.title': 'Giuliano Bignasca Foundation: over 20,000 CHF in aid in 2025',
     'blog.article.fondazione-bignasca-aiuti-2025.excerpt': 'The Giuliano Bignasca Foundation provided over 20,000 francs in direct aid in 2025, including grocery vouchers and support for rent and health insurance premiums.',
     'blog.article.fondazione-bignasca-aiuti-2025.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.assegni-figli-frontalieri-2026.title': 'Child allowances for cross-border workers: INPS issues but payments continue',
+    'blog.article.assegni-figli-frontalieri-2026.excerpt': 'The Federal Council rejects Lorenzo Quadri\'s proposal to suspend payments to Italians working in Ticino.',
+    'blog.article.assegni-figli-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, clear blue sky.',
 };
 
 export default blogMetaEn;

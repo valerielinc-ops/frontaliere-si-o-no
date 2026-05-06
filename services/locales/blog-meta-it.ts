@@ -6507,6 +6507,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fondazione-bignasca-aiuti-2025.title': 'Fondazione Giuliano Bignasca: oltre 20 mila franchi di aiuti nel 2025',
     'blog.article.fondazione-bignasca-aiuti-2025.excerpt': 'La Fondazione Giuliano Bignasca ha erogato oltre 20 mila franchi in aiuti diretti nel 2025, tra buoni spesa e sostegno per pigioni e premi di cassa malati.',
     'blog.article.fondazione-bignasca-aiuti-2025.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
+    'blog.article.assegni-figli-frontalieri-2026.title': 'Assegni figli frontalieri: problemi con l\'INPS ma i pagamenti continuano',
+    'blog.article.assegni-figli-frontalieri-2026.excerpt': 'Il Consiglio federale respinge la proposta di Lorenzo Quadri di sospendere i versamenti agli italiani che lavorano in Ticino.',
+    'blog.article.assegni-figli-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido.',
 };
 
 export default blogMetaIt;

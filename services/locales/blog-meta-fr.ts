@@ -6507,6 +6507,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fondazione-bignasca-aiuti-2025.title': 'Fondation Giuliano Bignasca: plus de 20 000 francs d\'aides en 2025',
     'blog.article.fondazione-bignasca-aiuti-2025.excerpt': 'La Fondation Giuliano Bignasca a versé plus de 20 000 francs en aides directes en 2025, entre bons d\'achat et soutien pour les loyers et les primes d\'assurance maladie.',
     'blog.article.fondazione-bignasca-aiuti-2025.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.assegni-figli-frontalieri-2026.title': 'Allocations enfants: problèmes INPS',
+    'blog.article.assegni-figli-frontalieri-2026.excerpt': 'Le Conseil fédéral rejette la proposition de Lorenzo Quadri de suspendre les versements aux Italiens travaillant au Tessin.',
+    'blog.article.assegni-figli-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan, ciel bleu clair.',
 };
 
 export default blogMetaFr;

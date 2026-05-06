@@ -3411,6 +3411,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-poliani-digital-innovation-hub-2026': { name: 'Novità', path: '/articoli-frontaliere/poliani-digital-innovation-hub-2026', parent: 'blog' },
     'blog-nespresso-svizzera-dazi-2026': { name: 'Novità', path: '/articoli-frontaliere/nespresso-svizzera-dazi-2026', parent: 'blog' },
     'blog-fondazione-bignasca-aiuti-2025': { name: 'Novità', path: '/articoli-frontaliere/fondazione-bignasca-aiuti-2025', parent: 'blog' },
+    'blog-assegni-figli-frontalieri-2026': { name: 'Assegni figli', path: '/articoli-frontaliere/assegni-figli-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
