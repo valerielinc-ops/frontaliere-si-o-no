@@ -13,7 +13,6 @@
  */
 
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error - imported from .mjs script (no type defs needed)
 import { applyNoStructureRatchet } from '../../scripts/audit-parser-quality.mjs';
 
 type Issue = {

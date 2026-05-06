@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error - parser is a .mjs file without type declarations
 import { htmlToStructuredText, parseJobCards, parseDetailPage } from '../../scripts/lib/pdgr-job-parser.mjs';
 
 describe('htmlToStructuredText', () => {
