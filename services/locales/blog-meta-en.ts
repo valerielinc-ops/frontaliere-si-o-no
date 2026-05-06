@@ -6533,6 +6533,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.alessandro-logistica-swissskills-2025.title': 'From logistics to SwissSkills 2025: Alessandro\'s journey',
     'blog.article.alessandro-logistica-swissskills-2025.excerpt': 'Discover Alessandro\'s work and study journey, a 19-year-old logistics employee at the Cardiocentro in Lugano and participant in SwissSkills 2025.',
     'blog.article.alessandro-logistica-swissskills-2025.imageAlt': 'Alessandro working in the logistics department of the Cardiocentro in Lugano',
+    'blog.article.ladri-auto-lusso-ticino-2026.title': 'Thieves recruited to steal luxury cars in Switzerland',
+    'blog.article.ladri-auto-lusso-ticino-2026.excerpt': 'Cantons create a task force to combat luxury car thefts. Discover the details and implications for cross-border workers.',
+    'blog.article.ladri-auto-lusso-ticino-2026.imageAlt': 'Aerial view of Lugano city and lake, Switzerland. Clear day, DSLR photography.',
 };
 
 export default blogMetaEn;

@@ -23826,6 +23826,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ladri-auto-lusso-ticino-2026': {
+    title: 'Ladri reclutati per rubare auto di lusso in Svizzera',
+    description: 'Scopri come i cantoni svizzeri stanno creando una task force per contrastare i furti di auto di lusso e le implicazioni per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, ladri, reclutati, rubare, auto',
+    ogTitle: 'Ladri reclutati per rubare auto di lusso in Svizzera',
+    ogDescription: 'Scopri come i cantoni svizzeri stanno creando una task force per contrastare i furti di auto di lusso e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ladri-auto-lusso-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ladri reclutati per rubare auto di lusso in Svizzera",
+      "description": "Scopri come i cantoni svizzeri stanno creando una task force per contrastare i furti di auto di lusso e le implicazioni per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/ladri-auto-lusso-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano e del lago, Svizzera. Giornata di sole, fotografia DSLR."
+      },
+      "datePublished": "2026-05-06T17:09:39+00:00",
+      "dateModified": "2026-05-06T17:09:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ladri-auto-lusso-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

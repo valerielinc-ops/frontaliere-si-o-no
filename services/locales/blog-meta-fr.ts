@@ -6534,6 +6534,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.alessandro-logistica-swissskills-2025.title': 'De la logistique aux SwissSkills 2025 : le parcours d\'Alessandro',
     'blog.article.alessandro-logistica-swissskills-2025.excerpt': 'Découvrez le parcours professionnel et scolaire d\'Alessandro, 19 ans, employé en logistique au Cardiocentro de Lugano et participant aux SwissSkills 2025.',
     'blog.article.alessandro-logistica-swissskills-2025.imageAlt': 'Alessandro travaillant dans le département de la logistique du Cardiocentre à Lugano',
+    'blog.article.ladri-auto-lusso-ticino-2026.title': 'Des voleurs recrutés pour voler des voitures de luxe en Suisse',
+    'blog.article.ladri-auto-lusso-ticino-2026.excerpt': 'Les cantons créent une task force pour lutter contre le vol de voitures de luxe. Découvrez les détails et les implications pour les frontaliers.',
+    'blog.article.ladri-auto-lusso-ticino-2026.imageAlt': 'Vue aérienne de la ville et du lac de Lugano, Suisse. Journée ensoleillée, photographie DSLR.',
 };
 
 export default blogMetaFr;

@@ -20972,4 +20972,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ladri-auto-lusso-ticino-2026',
+ category: 'novita',
+ date: '2026-05-06T17:09:39.924Z',
+ image: '/images/blog/ladri-auto-lusso-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2230,
+ "numberOfItems": 2231,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6872,7 +6872,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2227, "name": "Senza immigrazione, la Svizzera invecchierebbe ...", "url": `${BASE_URL}/articoli-frontaliere/immigrazione-svizzera-invecchiamento-2026` },
           { "@type": "ListItem", "position": 2228, "name": "Bocconi avvelenati in Ticino: 18 segnalazioni i...", "url": `${BASE_URL}/articoli-frontaliere/bocconi-avvelenati-ticino-segnalazioni` },
           { "@type": "ListItem", "position": 2229, "name": "Nuova vita per l’ex Albergo Corecco di Quinto", "url": `${BASE_URL}/articoli-frontaliere/nuova-vita-albergo-corecco-quinto` },
-          { "@type": "ListItem", "position": 2230, "name": "Dalla logistica agli SwissSkills 2025: il perco...", "url": `${BASE_URL}/articoli-frontaliere/alessandro-logistica-swissskills-2025` }
+          { "@type": "ListItem", "position": 2230, "name": "Dalla logistica agli SwissSkills 2025: il perco...", "url": `${BASE_URL}/articoli-frontaliere/alessandro-logistica-swissskills-2025` },
+          { "@type": "ListItem", "position": 2231, "name": "Ladri reclutati per rubare auto di lusso in Svi...", "url": `${BASE_URL}/articoli-frontaliere/ladri-auto-lusso-ticino-2026` }
  ]
  },
  {

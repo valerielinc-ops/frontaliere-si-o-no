@@ -3420,6 +3420,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bocconi-avvelenati-ticino-segnalazioni': { name: 'Novità', path: '/articoli-frontaliere/bocconi-avvelenati-ticino-segnalazioni', parent: 'blog' },
     'blog-nuova-vita-albergo-corecco-quinto': { name: 'Nuova vita Albergo Corecco', path: '/articoli-frontaliere/nuova-vita-albergo-corecco-quinto', parent: 'blog' },
     'blog-alessandro-logistica-swissskills-2025': { name: 'Novità', path: '/articoli-frontaliere/alessandro-logistica-swissskills-2025', parent: 'blog' },
+    'blog-ladri-auto-lusso-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ladri-auto-lusso-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
