@@ -24244,6 +24244,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-liberta-dovery-autocensura-mendrisio': {
+    title: 'Libertà, doveri e autocensura: bocciata a Mendrisio la risoluzione',
+    description: 'La maggioranza del Consiglio comunale di Mendrisio ha bocciato una risoluzione sulla tutela dei politici locali, con divisioni nell\'area progressista.',
+    keywords: 'frontalieri, ticino, svizzera, italia, libertà, doveri, autocensura, bocciata',
+    ogTitle: 'Libertà, doveri e autocensura: bocciata a Mendrisio la risoluzione',
+    ogDescription: 'La maggioranza del Consiglio comunale di Mendrisio ha bocciato una risoluzione sulla tutela dei politici locali, con divisioni nell\'area progressista.',
+    canonicalPath: '/articoli-frontaliere/liberta-dovery-autocensura-mendrisio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Libertà, doveri e autocensura: bocciata a Mendrisio la risoluzione",
+      "description": "La maggioranza del Consiglio comunale di Mendrisio ha bocciato una risoluzione sulla tutela dei politici locali, con divisioni nell'area progressista.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/liberta-dovery-autocensura-mendrisio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Ticino, Svizzera, con le montagne circostanti e il confine italiano sullo sfondo."
+      },
+      "datePublished": "2026-05-06T23:09:22+00:00",
+      "dateModified": "2026-05-06T23:09:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/liberta-dovery-autocensura-mendrisio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

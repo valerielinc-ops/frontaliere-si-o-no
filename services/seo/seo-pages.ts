@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2241,
+ "numberOfItems": 2242,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6883,7 +6883,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2238, "name": "Hantavirus: isolamento per contenere l'epidemia", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-crociera-isolamento` },
           { "@type": "ListItem", "position": 2239, "name": "Nuovo tunnel al Lukmanier per più sicurezza", "url": `${BASE_URL}/articoli-frontaliere/nuovo-tunnel-lukmanier-sicurezza` },
           { "@type": "ListItem", "position": 2240, "name": "Hantavirus, l'OMS cerca passeggeri di un volo p...", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-oms-passeggeri-sudafrica` },
-          { "@type": "ListItem", "position": 2241, "name": "La Contrabbandiera 2026: ciclismo vintage tra I...", "url": `${BASE_URL}/articoli-frontaliere/contrabbandiera-ciclostorica-2026` }
+          { "@type": "ListItem", "position": 2241, "name": "La Contrabbandiera 2026: ciclismo vintage tra I...", "url": `${BASE_URL}/articoli-frontaliere/contrabbandiera-ciclostorica-2026` },
+          { "@type": "ListItem", "position": 2242, "name": "Libertà, doveri e autocensura: bocciata a Mendr...", "url": `${BASE_URL}/articoli-frontaliere/liberta-dovery-autocensura-mendrisio` }
  ]
  },
  {

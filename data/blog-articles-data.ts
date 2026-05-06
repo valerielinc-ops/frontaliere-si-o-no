@@ -21071,4 +21071,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'liberta-dovery-autocensura-mendrisio',
+ category: 'novita',
+ date: '2026-05-06T23:09:22.333Z',
+ image: '/images/blog/liberta-dovery-autocensura-mendrisio.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

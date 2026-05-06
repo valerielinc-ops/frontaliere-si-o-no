@@ -6567,6 +6567,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contrabbandiera-ciclostorica-2026.title': 'La Contrabbandiera 2026: ciclismo vintage tra Italia e Svizzera',
     'blog.article.contrabbandiera-ciclostorica-2026.excerpt': 'Domenica 24 maggio 2026, a Uggiate con Ronago, si terrà la ciclostorica La Contrabbandiera, un evento che unisce passione per il ciclismo d\'epoca e paesaggi di confine.',
     'blog.article.contrabbandiera-ciclostorica-2026.imageAlt': 'Ciclisti in abiti vintage partecipano a una gara di ciclismo d\'epoca lungo il confine tra Italia e Svizzera, con panorami suggestivi di colline e laghi.',
+    'blog.article.liberta-dovery-autocensura-mendrisio.title': 'Libertà, doveri e autocensura: bocciata a Mendrisio la risoluzione',
+    'blog.article.liberta-dovery-autocensura-mendrisio.excerpt': 'La maggioranza del Consiglio comunale di Mendrisio ha bocciato una risoluzione sulla tutela dei politici locali, con divisioni nell\'area progressista.',
+    'blog.article.liberta-dovery-autocensura-mendrisio.imageAlt': 'Vista aerea di Mendrisio, Ticino, Svizzera, con le montagne circostanti e il confine italiano sullo sfondo.',
 };
 
 export default blogMetaIt;
