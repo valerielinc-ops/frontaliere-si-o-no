@@ -531,7 +531,7 @@ function renderHreflang(
 
 /** Render a single cluster page. */
 function renderClusterPage(inputs: PageInputs): PageOutput {
-  const { ctx, enriched, hreflang, related, distDir, dateStamp } = inputs;
+  const { ctx, enriched, hreflang, related, distDir } = inputs;
   const { candidate } = ctx;
   const locale = candidate.locale;
   const copy = COPY[locale];
@@ -540,7 +540,6 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
   const urlPath = buildClusterPath(locale, candidate.slug);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const headline = buildHeadline(ctx.keyword, ctx.city);
-  const tagline = copy.taglineSingular(ctx.matchingJobs.length, ctx.keyword, ctx.city);
   const description = buildDescription(ctx, locale);
 
   // Resolve the location used by the commuter-context helper. When the
@@ -562,8 +561,6 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
   // (working searchbar + filter chips + JobCard grid + pagination from
   // `parseSearchSlugFilter`). User sees a fully-functional search-results
   // view; crawlers index the prose section that lives below `#root`.
-
-  const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
 
   // H1 must differ from <title> (audit:h1-title-duplicates is zero-tolerance).
   // Append a city/region suffix + count so the H1 (e.g. "Data Center
@@ -644,25 +641,22 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
 
   // ── Body ────────────────────────────────────────────────────────
   // Crawler-facing static body (lives in `<main class="cluster-seo-prose">`
-  // BELOW `#root`). Source order: breadcrumb + H1 + tagline (heading
-  // hierarchy for SEO), then the collapsed prose `<details>`. Users see
-  // the SPA's hydrated JobBoard UI inside `#root` ABOVE this main; the
-  // prose is below the fold and folds out only when expanded — satisfies
-  // CLAUDE.md non-negotiable rule #14 (filler must not push real content
-  // below the fold).
-  const bodyHtml = `<div class="related-search-cluster" style="max-width:1100px;margin:0 auto;padding:24px 16px 56px;color:var(--color-body)">
-    <nav aria-label="${esc(copy.searchBreadcrumb)}" style="${BREADCRUMB_STYLE}">
-      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.homeBreadcrumb)}</a>
-      <span> / </span>
-      <a href="${esc(sectionUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.jobsBreadcrumb)}</a>
-      <span> / </span>
-      <span>${esc(headline)}</span>
-    </nav>
-    <header style="margin-bottom:18px">
-      <p style="margin:0 0 6px;color:var(--color-subtle);font-size:13px">${esc(dateStamp)}</p>
-      <h1 style="margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.18;color:var(--color-heading)">${esc(headlineH1)}</h1>
-      <p style="margin:0;color:var(--color-body);font-size:15px;line-height:1.55;max-width:820px">${esc(tagline)}</p>
-    </header>
+  // BELOW `#root`). Strategy: the SPA's hydrated JobBoard renders the
+  // breadcrumb (via hubChrome), the H1 (in the JobCard header), and
+  // the active search-query UI for users — duplicating any of that here
+  // would double-render visually. So this body emits ONLY:
+  //   1. A screen-reader-only <h1> with the keyword for SEO heading
+  //      hierarchy (positioned off-screen via clip-rect; readable by
+  //      Googlebot + assistive tech, invisible to sighted users).
+  //   2. The collapsed prose `<details>` (~9KB methodology + commuter +
+  //      4-FAQ + cross-links). User sees only a small "Approfondimento"
+  //      summary at the bottom of the page; click expands the prose.
+  // No visual breadcrumb / tagline / datestamp — those are SPA chrome.
+  // Mobile-first per CLAUDE.md non-negotiable rule #14: the SPA's real
+  // job grid stays at the top, our SEO filler is collapsed at the foot.
+  const srOnlyStyle = 'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0';
+  const bodyHtml = `<div class="related-search-cluster" style="max-width:1100px;margin:0 auto;padding:0 16px 32px;color:var(--color-body)">
+    <h1 style="${srOnlyStyle}">${esc(headlineH1)}</h1>
     ${seoContextBlock}
   </div>`;
 
