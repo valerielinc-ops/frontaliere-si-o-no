@@ -23864,6 +23864,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tuberkulose-caso-saint-maurice-2024': {
+    title: 'Tuberkulosefall an Primarschule in Saint-Maurice',
+    description: 'Un caso di tubercolosi segnalato in una scuola primaria a Saint-Maurice, Canton Vallese. Le autorità sanitarie intervengono. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tuberkulosefall, primarschule, saint-maurice, caso',
+    ogTitle: 'Tuberkulosefall an Primarschule in Saint-Maurice',
+    ogDescription: 'Un caso di tubercolosi segnalato in una scuola primaria a Saint-Maurice, Canton Vallese. Le autorità sanitarie intervengono.',
+    canonicalPath: '/articoli-frontaliere/tuberkulose-caso-saint-maurice-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tuberkulosefall an Primarschule in Saint-Maurice",
+      "description": "Un caso di tubercolosi segnalato in una scuola primaria a Saint-Maurice, Canton Vallese. Le autorità sanitarie intervengono. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/tuberkulose-caso-saint-maurice-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sul confine italo-svizzero"
+      },
+      "datePublished": "2026-05-06T17:19:39+00:00",
+      "dateModified": "2026-05-06T17:19:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tuberkulose-caso-saint-maurice-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

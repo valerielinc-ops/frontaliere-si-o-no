@@ -6536,6 +6536,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ladri-auto-lusso-ticino-2026.title': 'Diebe rekrutiert, um Luxusautos in der Schweiz zu stehlen',
     'blog.article.ladri-auto-lusso-ticino-2026.excerpt': 'Die Kantone bilden eine Taskforce, um Diebstähle von Luxusautos zu bekämpfen. Erfahren Sie die Details und die Auswirkungen auf Grenzgänger.',
     'blog.article.ladri-auto-lusso-ticino-2026.imageAlt': 'Luftaufnahme von Lugano und dem See, Schweiz. Klarer Tag, DSLR-Fotografie.',
+    'blog.article.tuberkulose-caso-saint-maurice-2024.title': 'Tuberkulosefall an Primarschule in Saint-Maurice',
+    'blog.article.tuberkulose-caso-saint-maurice-2024.excerpt': 'Ein Tuberkulosefall in einer Primarschule in Saint-Maurice, Kanton Wallis. Die Gesundheitsbehörden greifen ein.',
+    'blog.article.tuberkulose-caso-saint-maurice-2024.imageAlt': 'Luganersee mit Blick auf die schweizerisch-italienische Grenze',
 };
 
 export default blogMetaDe;

@@ -20981,4 +20981,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tuberkulose-caso-saint-maurice-2024',
+ category: 'novita',
+ date: '2026-05-06T17:19:39.815Z',
+ image: '/images/blog/tuberkulose-caso-saint-maurice-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

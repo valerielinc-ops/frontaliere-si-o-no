@@ -3421,6 +3421,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuova-vita-albergo-corecco-quinto': { name: 'Nuova vita Albergo Corecco', path: '/articoli-frontaliere/nuova-vita-albergo-corecco-quinto', parent: 'blog' },
     'blog-alessandro-logistica-swissskills-2025': { name: 'Novità', path: '/articoli-frontaliere/alessandro-logistica-swissskills-2025', parent: 'blog' },
     'blog-ladri-auto-lusso-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ladri-auto-lusso-ticino-2026', parent: 'blog' },
+    'blog-tuberkulose-caso-saint-maurice-2024': { name: 'Novità', path: '/articoli-frontaliere/tuberkulose-caso-saint-maurice-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

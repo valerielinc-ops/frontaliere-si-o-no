@@ -6537,6 +6537,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ladri-auto-lusso-ticino-2026.title': 'Ladri reclutati per rubare auto di lusso in Svizzera',
     'blog.article.ladri-auto-lusso-ticino-2026.excerpt': 'I cantoni creano una task force per contrastare i furti di auto di lusso. Scopri i dettagli e le implicazioni per i frontalieri.',
     'blog.article.ladri-auto-lusso-ticino-2026.imageAlt': 'Vista aerea di Lugano e del lago, Svizzera. Giornata di sole, fotografia DSLR.',
+    'blog.article.tuberkulose-caso-saint-maurice-2024.title': 'Tuberkulosefall an Primarschule in Saint-Maurice',
+    'blog.article.tuberkulose-caso-saint-maurice-2024.excerpt': 'Un caso di tubercolosi segnalato in una scuola primaria a Saint-Maurice, Canton Vallese. Le autorità sanitarie intervengono.',
+    'blog.article.tuberkulose-caso-saint-maurice-2024.imageAlt': 'Lago di Lugano con vista sul confine italo-svizzero',
 };
 
 export default blogMetaIt;
