@@ -6303,6 +6303,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cure-dentarie-ticino-2026.title': 'Cure dentarie in Ticino: 150 milioni in più, ma senza miglioramenti',
     'blog.article.cure-dentarie-ticino-2026.excerpt': 'Si vota il 14 giugno 2026 sull\'iniziativa per le cure dentarie. Un comitato denuncia un doppio colpo: più prelievi e imposte',
     'blog.article.cure-dentarie-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
+    'blog.article.bilancio-voto-canone-ssr-2026.title': 'Bilancio dopo il voto sul canone SSR: cosa cambia per i frontalieri',
+    'blog.article.bilancio-voto-canone-ssr-2026.excerpt': 'L\'Assemblea generale della SSR Svizzera italiana del 9 maggio fa il punto sul voto del 8 marzo. Focus su Enavant e autonomia editoriale.',
+    'blog.article.bilancio-voto-canone-ssr-2026.imageAlt': 'Palazzo dei Congressi di Lugano, assemblea SSR Svizzera italiana',
 };
 
 export default blogMetaIt;

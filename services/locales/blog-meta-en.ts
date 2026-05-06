@@ -6302,6 +6302,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cure-dentarie-ticino-2026.title': 'Dental care in Ticino: 150 million more, but no improvements',
     'blog.article.cure-dentarie-ticino-2026.excerpt': 'Voting on June 14, 2026 on the dental care initiative. A committee denounces a double blow: more deductions and taxes',
     'blog.article.cure-dentarie-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.bilancio-voto-canone-ssr-2026.title': 'SSR fee vote: what changes for cross-border workers',
+    'blog.article.bilancio-voto-canone-ssr-2026.excerpt': 'The SSR Svizzera italiana general assembly on May 9 reviews the March 8 vote. Focus on Enavant and editorial autonomy.',
+    'blog.article.bilancio-voto-canone-ssr-2026.imageAlt': 'Palazzo dei Congressi di Lugano, SSR Svizzera italiana assembly',
 };
 
 export default blogMetaEn;

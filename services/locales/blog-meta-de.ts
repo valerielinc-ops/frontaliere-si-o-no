@@ -6302,6 +6302,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cure-dentarie-ticino-2026.title': 'Zahnmedizin im Tessin: 150 Mio. mehr, aber keine Verbesserungen',
     'blog.article.cure-dentarie-ticino-2026.excerpt': 'Am 14. Juni 2026 wird über die Zahnmedizin-Initiative abgestimmt. Ein Komitee beklagt einen doppelten Schlag: höhere Abzüge und Steuern',
     'blog.article.cure-dentarie-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.bilancio-voto-canone-ssr-2026.title': 'Bilanz nach der SSR-Gebührenabstimmung: Was ändert sich für Grenzgänger?',
+    'blog.article.bilancio-voto-canone-ssr-2026.excerpt': 'Die Generalversammlung der SSR Svizzera italiana vom 9. Mai zieht Bilanz über die Abstimmung vom 8. März. Fokus auf Enavant und redaktionelle Unabhängigkeit.',
+    'blog.article.bilancio-voto-canone-ssr-2026.imageAlt': 'Palazzo dei Congressi di Lugano, SSR Svizzera italiana Versammlung',
 };
 
 export default blogMetaDe;
