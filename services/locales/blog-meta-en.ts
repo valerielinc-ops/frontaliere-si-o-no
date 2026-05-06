@@ -6317,6 +6317,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-made-regole-frontalieri.title': 'Swiss Made: new rules for cross-border workers',
     'blog.article.swiss-made-regole-frontalieri.excerpt': 'New rules for using the Swiss Made label: what it means for cross-border workers in Ticino and which products can now display the Swiss cross',
     'blog.article.swiss-made-regole-frontalieri.imageAlt': 'Swiss Made label with Swiss cross against the backdrop of Mendrisio, Ticino',
+    'blog.article.cucina-tipica-lombarda-legge-2026.title': 'Lombard cuisine bill advances in region',
+    'blog.article.cucina-tipica-lombarda-legge-2026.excerpt': 'The bill to promote Lombard cuisine advances in Lombardy region with a first allocation of 600,000 euros.',
+    'blog.article.cucina-tipica-lombarda-legge-2026.imageAlt': 'Traditional Lombard kitchen with chefs working in a market in Mendrisio, Ticino',
 };
 
 export default blogMetaEn;

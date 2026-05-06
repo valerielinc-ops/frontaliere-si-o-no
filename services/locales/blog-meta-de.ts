@@ -6317,6 +6317,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swiss-made-regole-frontalieri.title': 'Swiss Made: Neue Regeln für Grenzgänger',
     'blog.article.swiss-made-regole-frontalieri.excerpt': 'Neue Regeln für die Verwendung des Labels Swiss Made: Was bedeutet das für Grenzgänger im Tessin und welche Produkte dürfen sich jetzt mit dem Schweizer Kreuz schmücken?',
     'blog.article.swiss-made-regole-frontalieri.imageAlt': 'Swiss Made Etikett mit Schweizer Kreuz vor dem Hintergrund von Mendrisio, Tessin',
+    'blog.article.cucina-tipica-lombarda-legge-2026.title': 'Lombardische Küche: Gesetzesvorhaben macht Fortschritte',
+    'blog.article.cucina-tipica-lombarda-legge-2026.excerpt': 'Das Gesetzesvorhaben zur Förderung der typisch lombardischen Küche kommt in der Region Lombardei voran, mit einer ersten Bereitstellung von 600.000 Euro.',
+    'blog.article.cucina-tipica-lombarda-legge-2026.imageAlt': 'Traditionelle lombardische Küche mit Köchen auf einem Markt in Mendrisio, Tessin',
 };
 
 export default blogMetaDe;

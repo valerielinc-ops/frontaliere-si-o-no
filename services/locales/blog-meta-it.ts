@@ -6318,6 +6318,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-made-regole-frontalieri.title': 'Swiss Made: cosa cambia per i frontalieri con le nuove regole',
     'blog.article.swiss-made-regole-frontalieri.excerpt': 'Nuove regole per l\'uso del marchio Swiss Made: cosa significa per i frontalieri in Ticino e quali prodotti possono ora fregiarsi della croce svizzera',
     'blog.article.swiss-made-regole-frontalieri.imageAlt': 'Etichetta Swiss Made con croce svizzera su sfondo di Mendrisio, Ticino',
+    'blog.article.cucina-tipica-lombarda-legge-2026.title': 'Cucina tipica lombarda: passi avanti per il progetto di legge in Regione',
+    'blog.article.cucina-tipica-lombarda-legge-2026.excerpt': 'Il progetto di legge per la valorizzazione della cucina tipica lombarda avanza in Regione Lombardia con un primo stanziamento di 600mila euro.',
+    'blog.article.cucina-tipica-lombarda-legge-2026.imageAlt': 'Cucina tipica lombarda con chef al lavoro in un mercato di Mendrisio, Ticino',
 };
 
 export default blogMetaIt;

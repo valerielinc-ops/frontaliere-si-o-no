@@ -3348,6 +3348,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casa-artigianato-dongio-sostegno': { name: 'Novità', path: '/articoli-frontaliere/casa-artigianato-dongio-sostegno', parent: 'blog' },
     'blog-cnhi-mendrisio-dipendenti-allarme': { name: 'Novità', path: '/articoli-frontaliere/cnhi-mendrisio-dipendenti-allarme', parent: 'blog' },
     'blog-swiss-made-regole-frontalieri': { name: 'Swiss Made', path: '/articoli-frontaliere/swiss-made-regole-frontalieri', parent: 'blog' },
+    'blog-cucina-tipica-lombarda-legge-2026': { name: 'Novità', path: '/articoli-frontaliere/cucina-tipica-lombarda-legge-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
