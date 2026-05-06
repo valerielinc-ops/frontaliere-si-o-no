@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2160,
+ "numberOfItems": 2161,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6802,7 +6802,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2157, "name": "CNHI potrebbe lasciare Mendrisio: dipendenti in...", "url": `${BASE_URL}/articoli-frontaliere/cnhi-mendrisio-dipendenti-allarme` },
           { "@type": "ListItem", "position": 2158, "name": "Swiss Made: cosa cambia per i frontalieri con l...", "url": `${BASE_URL}/articoli-frontaliere/swiss-made-regole-frontalieri` },
           { "@type": "ListItem", "position": 2159, "name": "Cucina tipica lombarda: passi avanti per il pro...", "url": `${BASE_URL}/articoli-frontaliere/cucina-tipica-lombarda-legge-2026` },
-          { "@type": "ListItem", "position": 2160, "name": "Estate 2026 a Chiasso: un evento al giorno", "url": `${BASE_URL}/articoli-frontaliere/estate-chiasso-2026-eventi` }
+          { "@type": "ListItem", "position": 2160, "name": "Estate 2026 a Chiasso: un evento al giorno", "url": `${BASE_URL}/articoli-frontaliere/estate-chiasso-2026-eventi` },
+          { "@type": "ListItem", "position": 2161, "name": "Inflazione Svizzera: balzo a +0,6% per il petrolio", "url": `${BASE_URL}/articoli-frontaliere/petrolio-inflazione-svizzera-2026` }
  ]
  },
  {

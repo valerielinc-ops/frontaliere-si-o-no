@@ -6323,6 +6323,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.estate-chiasso-2026-eventi.title': 'Sommer 2026 in Chiasso: täglich ein Event',
     'blog.article.estate-chiasso-2026-eventi.excerpt': 'Über einhundert Veranstaltungen beleben den Sommer in Chiasso von Mai bis September 2026. Entdecke das Programm und was dich erwartet.',
     'blog.article.estate-chiasso-2026-eventi.imageAlt': 'Sommerveranstaltungen in Chiasso, Schweiz, mit Menschen, die verschiedene Aktivitäten auf dem Marktplatz genießen.',
+    'blog.article.petrolio-inflazione-svizzera-2026.title': 'Schweizer Inflation: Sprung auf +0,6% durch Ölpreise',
+    'blog.article.petrolio-inflazione-svizzera-2026.excerpt': 'Der Anstieg der Ölpreise lässt die Inflation in der Schweiz im April auf +0,6% steigen. Experten beruhigen: Bisher ist keine Ausbreitung auf andere Sektoren zu befürchten.',
+    'blog.article.petrolio-inflazione-svizzera-2026.imageAlt': 'Luganersee mit Blick auf Benzinpumpen und Schweizer Flagge',
 };
 
 export default blogMetaDe;
