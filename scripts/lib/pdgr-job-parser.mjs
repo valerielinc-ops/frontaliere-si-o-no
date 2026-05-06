@@ -41,6 +41,31 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Convert HTML to plain text while preserving <li> bullets and basic line structure.
+ * - <li> → "\n- "
+ * - <br>, </p>, </div>, </ul>, </ol> → "\n"
+ * - Other tags stripped; basic HTML entities decoded.
+ */
+export function htmlToStructuredText(html = '') {
+  return String(html || '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(p|div|ul|ol)>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '')
+    .replace(/<[^>]*>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\n[ \t]+/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -178,8 +203,9 @@ async function fetchListingPage() {
  *     </div>
  *   </div>
  */
-function parseJobCards(html = '') {
+export function parseJobCards(html = '') {
   const cards = [];
+  let skippedNonJobCards = 0;
 
   // Match each job card div with its data attributes and inner content
   const cardRegex = /<div\s+class="[^"]*jobs-post\s+grid-item\s+([^"]*)"[^>]*data-efrom="(\d+)"[^>]*data-eto="(\d+)"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/g;
@@ -194,6 +220,13 @@ function parseJobCards(html = '') {
     // Extract detail link
     const linkMatch = content.match(/<a\s+href="([^"]+)"/);
     const detailUrl = linkMatch ? linkMatch[1] : '';
+
+    // Skip non-job cards (info/CTA cards point to /jobs-uebersicht/ or anchor-only URLs).
+    // Real job detail pages have shape: https://www.pdgr.ch/jobs/{slug}/
+    if (!detailUrl || !/^https:\/\/www\.pdgr\.ch\/jobs\/[^#?\/]+\/?$/.test(detailUrl)) {
+      skippedNonJobCards++;
+      continue;
+    }
 
     // Extract title from <p class="mb-0 job-title"><b>...</b></p>
     const titleMatch = content.match(/<p[^>]*class="[^"]*job-title[^"]*"[^>]*><b>([\s\S]*?)<\/b><\/p>/);
@@ -224,6 +257,8 @@ function parseJobCards(html = '') {
       pensumTo,
     });
   }
+
+  if (skippedNonJobCards > 0) console.log(`  ⚠ Skipped ${skippedNonJobCards} non-job cards (info/CTA links)`);
 
   return cards;
 }
@@ -268,7 +303,7 @@ async function fetchDetailPage(url) {
  *
  * Also extracts data from Yoast JSON-LD when available.
  */
-function parseDetailPage(html = '') {
+export function parseDetailPage(html = '') {
   const result = {
     description: '',
     datePosted: '',
@@ -291,14 +326,14 @@ function parseDetailPage(html = '') {
     const regex = new RegExp(`<span\\s+id="${field.id}"[^>]*>([\\s\\S]*?)</span>`, 'i');
     const m = html.match(regex);
     if (m) {
-      const text = normalizeSpace(stripHtml(m[1]));
+      const text = htmlToStructuredText(m[1]);
       if (text.length > 10) {
-        sections.push(`${field.heading}: ${text}`);
+        sections.push(`${field.heading}:\n${text}`);
       }
     }
   }
 
-  result.description = sections.join(' | ');
+  result.description = sections.join('\n\n');
 
   // Extract employmentType from hidden div
   const empMatch = html.match(/<div[^>]*id="acf_jobs_employment"[^>]*>([\s\S]*?)<\/div>/i);
@@ -378,7 +413,7 @@ export async function fetchAllPdgrJobs() {
 
     // Build description: prefer detail page content, fall back to card metadata + boilerplate
     let descriptionText = detail.description;
-    if (!descriptionText || descriptionText.length < 150) {
+    if (!descriptionText || descriptionText.length < 200) {
       const parts = [`${title} — Psychiatrische Dienste Graubünden (PDGR)`];
       if (card.department) parts.push(`Fachgebiet: ${card.department}`);
       if (card.facility) parts.push(`Bereich: ${card.facility}`);
