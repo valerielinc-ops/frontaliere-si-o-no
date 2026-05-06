@@ -24,9 +24,16 @@ test.use({ viewport: { width: 1280, height: 800 } });
 
 for (const c of CASES) {
   test(`visual baseline: ${c.name}`, async ({ page }) => {
-    await page.goto(c.url, { waitUntil: 'networkidle' });
+    // `networkidle` is unreliable on SPAs with analytics/polling
+    // (home/calculator never settle). Use `domcontentloaded` + wait for
+    // the <main> element to be attached + fonts ready, which is what
+    // visual stability actually requires.
+    await page.goto(c.url, { waitUntil: 'domcontentloaded', timeout: 30_000 });
+    await page.locator('main').first().waitFor({ state: 'attached', timeout: 30_000 });
     await page.evaluate(() => document.fonts.ready);
     await page.evaluate(() => window.scrollTo(0, 0));
+    // Brief settle: wait for layout shift to stabilize after font load.
+    await page.waitForTimeout(500);
     await expect(page.locator('main').first()).toHaveScreenshot(`${c.name}.png`, {
       maxDiffPixelRatio: 0.02,
       animations: 'disabled',
