@@ -6458,6 +6458,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.title': 'Lausanne introduces secure e-bike parking',
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.excerpt': 'The city of Lausanne installs Vélobox to counter the rise in electric bike thefts. Pro Vélo Lausanne welcomes the initiative.',
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.imageAlt': 'Secure bike parking area in Lausanne with modern Vélobox containers',
+    'blog.article.furti-serie-automobili-luganese-arrestato.title': 'Series of car thefts: 40-year-old from Lugano area arrested',
+    'blog.article.furti-serie-automobili-luganese-arrestato.excerpt': 'A 40-year-old from the Lugano area has been arrested for car thefts. Suspicious items and thousands of francs in cash were found.',
+    'blog.article.furti-serie-automobili-luganese-arrestato.imageAlt': 'Broken car window in a quiet Ticino neighborhood with the Swiss Alps in the background',
 };
 
 export default blogMetaEn;

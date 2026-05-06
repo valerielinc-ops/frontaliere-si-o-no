@@ -22876,6 +22876,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-serie-automobili-luganese-arrestato': {
+    title: 'Furti in serie in auto: arrestato un 40enne del Luganese',
+    description: 'Un 40enne del Luganese è stato arrestato per furti in auto. Scoperti oggetti di dubbia provenienza e migliaia di franchi in contanti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, serie, auto, arrestato',
+    ogTitle: 'Furti in serie in auto: arrestato un 40enne del Luganese',
+    ogDescription: 'Un 40enne del Luganese è stato arrestato per furti in auto. Scoperti oggetti di dubbia provenienza e migliaia di franchi in contanti.',
+    canonicalPath: '/articoli-frontaliere/furti-serie-automobili-luganese-arrestato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furti in serie in auto: arrestato un 40enne del Luganese",
+      "description": "Un 40enne del Luganese è stato arrestato per furti in auto. Scoperti oggetti di dubbia provenienza e migliaia di franchi in contanti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/furti-serie-automobili-luganese-arrestato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Finestrino di un'auto rotto in un quartiere tranquillo del Ticino con le Alpi svizzere sullo sfondo"
+      },
+      "datePublished": "2026-05-06T12:22:23+00:00",
+      "dateModified": "2026-05-06T12:22:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-serie-automobili-luganese-arrestato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

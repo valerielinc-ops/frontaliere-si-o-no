@@ -6459,6 +6459,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.title': 'Lausanne installe des Vélobox pour les vélos électriques',
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.excerpt': 'La ville de Lausanne installe des Vélobox pour contrer l\'augmentation des vols de vélos électriques. Pro Vélo Lausanne accueille favorablement l\'initiative.',
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.imageAlt': 'Zone de stationnement sécurisé pour vélos à Lausanne avec des conteneurs Vélobox modernes',
+    'blog.article.furti-serie-automobili-luganese-arrestato.title': 'Série de vols de voitures : un quadragénaire du Luganais arrêté',
+    'blog.article.furti-serie-automobili-luganese-arrestato.excerpt': 'Un quadragénaire du Luganais a été arrêté pour des vols de voitures. Des objets de provenance douteuse et des milliers de francs en espèces ont été découverts.',
+    'blog.article.furti-serie-automobili-luganese-arrestato.imageAlt': 'Fenêtre de voiture cassée dans un quartier tranquille du Tessin avec les Alpes suisses en arrière-plan',
 };
 
 export default blogMetaFr;

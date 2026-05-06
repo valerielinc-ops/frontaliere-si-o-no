@@ -3395,6 +3395,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-friborgo-hockey-mondiale-2026': { name: 'Novità', path: '/articoli-frontaliere/friborgo-hockey-mondiale-2026', parent: 'blog' },
     'blog-pagare-vittime-crans-montana-2026': { name: 'Novità', path: '/articoli-frontaliere/pagare-vittime-crans-montana-2026', parent: 'blog' },
     'blog-e-bike-parcheggi-sicuri-losanna-2026': { name: 'Novità', path: '/articoli-frontaliere/e-bike-parcheggi-sicuri-losanna-2026', parent: 'blog' },
+    'blog-furti-serie-automobili-luganese-arrestato': { name: 'Furti in auto', path: '/articoli-frontaliere/furti-serie-automobili-luganese-arrestato', parent: 'blog' },
  };
 
  const info = sectionNames[section];

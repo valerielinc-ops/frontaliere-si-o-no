@@ -20747,4 +20747,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'furti-serie-automobili-luganese-arrestato',
+ category: 'novita',
+ date: '2026-05-06T12:22:23.463Z',
+ image: '/images/blog/furti-serie-automobili-luganese-arrestato.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

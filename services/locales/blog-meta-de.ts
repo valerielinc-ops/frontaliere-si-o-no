@@ -6458,6 +6458,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.title': 'Losanna installiert sichere E-Bike-Parkplätze',
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.excerpt': 'Die Stadt Losanna installiert Véloboxen, um die steigende Zahl von E-Bike-Diebstählen zu bekämpfen. Pro Vélo Lausanne begrüßt die Initiative.',
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.imageAlt': 'Sicherer Fahrradparkplatz in Lausanne mit modernen Vélobox-Containern',
+    'blog.article.furti-serie-automobili-luganese-arrestato.title': 'Serien von Autodiebstählen: 40-Jähriger aus Lugano verhaftet',
+    'blog.article.furti-serie-automobili-luganese-arrestato.excerpt': 'Ein 40-jähriger Mann aus dem Luganesen wurde wegen Autodiebstählen verhaftet. Es wurden Gegenstände mit zweifelhaftem Ursprung und tausende Franken in bar gefunden.',
+    'blog.article.furti-serie-automobili-luganese-arrestato.imageAlt': 'Zerbrochenes Autofenster in einer ruhigen Nachbarschaft im Tessin mit den Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

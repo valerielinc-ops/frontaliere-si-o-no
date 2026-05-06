@@ -6459,6 +6459,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.title': 'Losanna introduce parcheggi sicuri per e-bike',
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.excerpt': 'La città di Losanna installa Vélobox per contrastare l\'aumento dei furti di biciclette elettriche. Pro Vélo Losanna accoglie positivamente l\'iniziativa.',
     'blog.article.e-bike-parcheggi-sicuri-losanna-2026.imageAlt': 'Area di parcheggio sicura per bici a Losanna con container Vélobox moderni',
+    'blog.article.furti-serie-automobili-luganese-arrestato.title': 'Furti in serie in auto: arrestato un 40enne del Luganese',
+    'blog.article.furti-serie-automobili-luganese-arrestato.excerpt': 'Un 40enne del Luganese è stato arrestato per furti in auto. Scoperti oggetti di dubbia provenienza e migliaia di franchi in contanti.',
+    'blog.article.furti-serie-automobili-luganese-arrestato.imageAlt': 'Finestrino di un\'auto rotto in un quartiere tranquillo del Ticino con le Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaIt;
