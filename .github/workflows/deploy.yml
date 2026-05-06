@@ -728,61 +728,38 @@ jobs:
       actions: read     # download small artifacts (sitemaps, winners)
 
   # ───────────────────────────────────────────────────────────────────────
-  # mark-last-good: register THIS run as the rollback target ONLY when
-  # all gates have actually passed. Previously the marking lived inside
-  # validate-live (`if: success()` of that job) — which marked the run
-  # as soon as validate-live succeeded, even when validate-dist later
-  # failed. Run 25431484293 self-rolled back this way: validate-live
-  # succeeded → marked itself → validate-dist failed → rollback picked
-  # itself as last_known_good → re-deployed the same bad dist.
+  # publish: side-effects + mark last_known_good. Runs ONLY when build,
+  # deploy, validate-dist, AND validate-live have all succeeded.
   #
-  # This standalone job has `needs: [deploy, validate-dist, validate-live]`
-  # without `always()` and without `if:`, so by GitHub Actions default
-  # semantics it runs ONLY when every dependency succeeded. Same SHA
-  # (`github.sha`) and run-id (`github.run_id`) as the parent run.
+  # Side-effects covered:
+  #   - Sync previous-slug-winners.json (git push)
+  #   - Post to Facebook + LinkedIn (workflow_dispatch only)
+  #   - Submit URLs to Google Indexing API + IndexNow + GSC
+  #   - Mark this run as last_known_good (rollback target)
+  #
+  # Why gated AFTER validate-dist (not just deploy): these are
+  # IRREVERSIBLE. If validate-dist failed AFTER validate-live succeeded,
+  # rollback fired but FB/LinkedIn had already announced URLs that now
+  # point to the rolled-back dist (mismatch or 404). IndexNow had pinged
+  # Bing on the bad-dist URLs, baking the bad version into search engines.
+  #
+  # Marking last_known_good is also part of publish so a failed
+  # validate-dist can never accidentally mark a bad dist as the rollback
+  # target (the original 25431484293 self-rollback bug).
   # ───────────────────────────────────────────────────────────────────────
-  mark-last-good:
+  publish:
     needs: [deploy, validate-dist, validate-live]
     if: |
       success() &&
       github.event.inputs.profile_sequential != 'true'
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/post-deploy-publish.yml
+    with:
+      deploy_run_id: ${{ github.run_id }}
+      deploy_event_name: ${{ github.event_name }}
+    secrets: inherit
     permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: '22'
-
-      - name: Cache node_modules
-        id: node-modules-cache
-        uses: actions/cache@v5
-        with:
-          path: node_modules
-          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
-
-      - name: Install dependencies
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        run: npm ci
-
-      - name: Prepare Firebase credentials
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          fi
-
-      - name: Mark this deploy as last_known_good
-        run: |
-          node scripts/deploy-registry.mjs set-good \
-            --run-id="${{ github.run_id }}" \
-            --sha="${{ github.sha }}"
+      contents: write   # sync previous-slug winners (git push)
+      actions: read     # download small artifacts (sitemaps, winners)
 
   # ───────────────────────────────────────────────────────────────────────
   # rollback: revert Pages to last_known_good if either validate fails.

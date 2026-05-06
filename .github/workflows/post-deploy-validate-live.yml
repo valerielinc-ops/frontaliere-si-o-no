@@ -2,22 +2,21 @@ name: Post-deploy Validate (live)
 
 # Reusable workflow called from deploy.yml as the `validate-live` job.
 # Runs AFTER `actions/deploy-pages@v5` has published the new dist to
-# GitHub Pages. Everything here needs the live site (smoke E2E, OG meta
-# scraping, social posting, indexing submission).
+# GitHub Pages. READ-ONLY by design: live smoke (probe 5xx + e2e:live)
+# fetched directly from the deployed site.
 #
-# By design, this job does NOT download the 1.5 GB github-pages artifact:
-# every step here either fetches the live site directly or reads small
-# JSON artifacts (winners, sitemaps snapshot). That keeps the job light
-# and lets it run in parallel with `validate-dist` (which holds the
-# dist).
+# Side-effects (Facebook/LinkedIn post, IndexNow/GSC submission, winners
+# git push, mark last_known_good) used to live here but were extracted
+# to `post-deploy-publish.yml` because they fired BEFORE validate-dist
+# completed. If validate-dist later failed, rollback fired but FB had
+# already announced URLs that now point to the rolled-back dist (mismatch
+# or 404). The publish workflow gates on BOTH validate-dist AND
+# validate-live success.
 #
 # Inputs:
 #   deploy_run_id     — caller's github.run_id (for cross-job artifact
-#                       names like winners-${run_id})
-#   deploy_event_name — caller's github.event_name; used to gate
-#                       Facebook/LinkedIn posting + live-meta wait to
-#                       workflow_dispatch deploys (article publishing
-#                       pipeline only).
+#                       names like sitemaps-${run_id})
+#   deploy_event_name — kept for parity with publish.yml signature.
 on:
   workflow_call:
     inputs:
@@ -34,7 +33,7 @@ jobs:
   validate-live:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # for git push in sync-previous-slug-winners
+      contents: read    # read-only — winners git push moved to publish.yml
       actions: read     # for download-artifact same-run
     steps:
       - name: Checkout (same SHA as deploy — invariant in workflow_call)
@@ -67,59 +66,22 @@ jobs:
             echo "⚠️ Firebase secrets not set — registry operations will be skipped."
           fi
 
-      # Hydrate the runner env with secrets pulled from Firebase Remote
-      # Config so the social-media post steps below see FB / LinkedIn
-      # tokens as `process.env.*`. Without this, post-to-facebook.mjs
-      # finds nothing and silently exits with a "missing token" warning,
-      # appearing green in the UI but never publishing.
-      - name: Load secrets from Remote Config (FB + LinkedIn tokens)
-        run: node scripts/load-rc-env.mjs
-
-      # Small JSON artifacts only — NO github-pages download here.
-      # The pre-deploy-snapshot is consumed by submit-indexnow.js
-      # (diff against new live site for IndexNow submission).
-      - name: Download pre-deploy sitemap snapshot (optional)
-        uses: actions/download-artifact@v5
-        continue-on-error: true
-        with:
-          name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
-          path: /tmp/pre-deploy-snapshot
-
-      - name: Download previous-slug winners (optional)
-        uses: actions/download-artifact@v5
-        continue-on-error: true
-        with:
-          name: winners-${{ inputs.deploy_run_id }}
-          path: /tmp/winners
-
-      # `sitemaps-${run_id}` bundles pre-deploy snapshot + new sitemap
-      # URLs + build-id.txt. build-id is consumed by
+      # `sitemaps-${run_id}` bundles build-id.txt which is consumed by
       # `wait-for-pages-propagation.mjs` to verify the live site is
       # serving THIS deploy — so validate-live doesn't need to download
       # the 1.5 GB github-pages artifact just for build-id.
-      - name: Download sitemaps bundle (pre-deploy + new + build-id)
+      - name: Download sitemaps bundle (for build-id.txt)
         uses: actions/download-artifact@v5
         continue-on-error: true
         with:
           name: sitemaps-${{ inputs.deploy_run_id }}
           path: /tmp/sitemaps-bundle
 
-      - name: Stage downloaded data files
+      - name: Stage build-id.txt into dist/
         run: |
-          # Prefer the bundle; fall back to the standalone snapshot
-          # artifact for backward compat.
-          if [ -f /tmp/sitemaps-bundle/pre-deploy-sitemap-urls.json ]; then
-            cp /tmp/sitemaps-bundle/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
-          elif [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
-            cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
-          fi
-          # Stage build-id.txt into dist/ where wait-for-pages-propagation.mjs expects it.
           if [ -f /tmp/sitemaps-bundle/build-id.txt ]; then
             mkdir -p dist
             cp /tmp/sitemaps-bundle/build-id.txt dist/build-id.txt
-          fi
-          if [ -f /tmp/winners/previous-slug-winners.json ]; then
-            cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
 
       # Live smoke — Playwright fetches the deployed site directly.
@@ -146,139 +108,6 @@ jobs:
           node scripts/wait-for-pages-propagation.mjs
           npm run probe:5xx
           npm run test:e2e:live
-
-      - name: Sync previous-slug winners registry
-        # The build in deploy.yml may update data/previous-slug-winners.json.
-        # The updated file is downloaded from the winners artifact above.
-        # If it changed relative to HEAD, commit and push it here.
-        if: success()
-        shell: bash
-        run: |
-          set -euo pipefail
-          if git diff --quiet data/previous-slug-winners.json; then
-            echo "[previous-slug-winners] no changes to commit"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/previous-slug-winners.json
-          git commit -m "chore(seo): sync previous-slug winners registry"
-          git stash push --keep-index --include-untracked -m "validation-build-tree" || true
-          bash scripts/lib/git-push-with-retry.sh \
-            --in-place-resolver-cmd "node scripts/lib/resolve-winners-conflict.mjs && git add -A"
-          git stash pop || true
-
-      - name: Read deploy metadata from Firestore
-        id: deploy-meta
-        continue-on-error: true
-        run: |
-          DATA=$(node scripts/deploy-registry.mjs get \
-            --run-id="${{ inputs.deploy_run_id }}" 2>/dev/null || echo '{}')
-          echo "data=$DATA" >> "$GITHUB_OUTPUT"
-
-      - name: Wait for live article metadata
-        if: |
-          success() &&
-          inputs.deploy_event_name == 'workflow_dispatch' &&
-          fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl != null
-        id: wait_live_meta
-        continue-on-error: true
-        env:
-          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
-          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
-          OG_IMAGE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogImage }}
-        run: |
-          node scripts/wait-for-live-article-meta.mjs \
-            "$ARTICLE_URL" \
-            "$OG_TITLE" \
-            "$OG_IMAGE"
-
-      - name: Post to Facebook Page
-        if: |
-          success() &&
-          inputs.deploy_event_name == 'workflow_dispatch' &&
-          fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
-          steps.wait_live_meta.outcome == 'success'
-        continue-on-error: true
-        env:
-          ARTICLE_ID: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleId }}
-          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
-          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
-          OG_DESCRIPTION: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogDescription }}
-          ARTICLE_CATEGORY: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleCategory }}
-        run: |
-          node scripts/post-to-facebook.mjs \
-            "$ARTICLE_ID" \
-            "$ARTICLE_URL" \
-            "$OG_TITLE" \
-            "$OG_DESCRIPTION" \
-            "$ARTICLE_CATEGORY"
-
-      - name: Post to LinkedIn Company Page
-        if: |
-          success() &&
-          inputs.deploy_event_name == 'workflow_dispatch' &&
-          fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
-          steps.wait_live_meta.outcome == 'success'
-        continue-on-error: true
-        env:
-          ARTICLE_ID: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleId }}
-          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
-          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
-          OG_DESCRIPTION: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogDescription }}
-          ARTICLE_CATEGORY: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleCategory }}
-        run: |
-          node scripts/post-to-linkedin.mjs \
-            "$ARTICLE_ID" \
-            "$ARTICLE_URL" \
-            "$OG_TITLE" \
-            "$OG_DESCRIPTION" \
-            "$ARTICLE_CATEGORY"
-
-      - name: Restore indexing API daily tracker
-        id: indexing-cache
-        uses: actions/cache@v5
-        with:
-          path: /tmp/indexing-api-submitted-today.json
-          key: indexing-api-${{ github.run_id }}
-          restore-keys: |
-            indexing-api-
-
-      - name: Post-deploy indexing (parallel)
-        if: success()
-        continue-on-error: true
-        timeout-minutes: 5
-        env:
-          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
-        run: |
-          timeout 90 node scripts/submit-google-indexing-jobs.js &
-          PID_GOOGLE=$!
-          timeout 90 node scripts/submit-indexnow.js &
-          PID_INDEXNOW=$!
-          timeout 180 node scripts/submit-google-indexing.js &
-          PID_GSC=$!
-          timeout 90 node scripts/verify-post-deploy-seo.mjs &
-          PID_SEO=$!
-
-          FAIL=0
-          wait $PID_GOOGLE  || { echo "⚠️ Google Indexing API failed"; FAIL=1; }
-          wait $PID_INDEXNOW || { echo "⚠️ IndexNow submission failed"; FAIL=1; }
-          wait $PID_GSC     || { echo "⚠️ GSC submission failed"; FAIL=1; }
-          wait $PID_SEO     || { echo "⚠️ Post-deploy SEO verification failed"; FAIL=1; }
-
-          if [ $FAIL -ne 0 ]; then
-            echo "::warning::Some post-deploy indexing steps failed (non-blocking)"
-          fi
-          echo "✅ Post-deploy indexing complete"
-
-      # NOTE: `Mark last_known_good` was here but moved to a dedicated
-      # `mark-last-good` job in deploy.yml that gates on BOTH validate-dist
-      # AND validate-live success. With the marking inline here, run
-      # 25431484293 self-rolled back: validate-live succeeded → marked
-      # itself as last_known_good → validate-dist failed → rollback
-      # picked the same run as last_known_good and tried to re-deploy
-      # the very dist that had just failed validation. The standalone
-      # job in deploy.yml runs only when ALL prior gates pass.
 
       - name: Report failure to Linear
         if: failure()

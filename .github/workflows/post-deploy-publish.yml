@@ -1,0 +1,263 @@
+name: Post-deploy Publish (side-effects + mark good)
+
+# Reusable workflow called from deploy.yml as the `publish` job.
+# Runs ONLY when build + deploy + validate-dist + validate-live have all
+# succeeded — i.e. the new dist is live AND has passed every gate. This
+# is the right place for IRREVERSIBLE side-effects:
+#
+#   - Sync previous-slug-winners.json (git push)
+#   - Post to Facebook + LinkedIn (workflow_dispatch only)
+#   - Submit URLs to Google Indexing API + IndexNow + GSC
+#   - Mark this run as last_known_good (rollback target)
+#
+# Previously these lived inside `validate-live`. Problem: validate-live
+# completed BEFORE validate-dist (which holds the SEO ratchet gates). If
+# validate-dist failed AFTER validate-live succeeded, rollback fired but
+# Facebook/LinkedIn had already announced URLs that now point to the
+# rolled-back dist (mismatch or 404). IndexNow had pinged Bing on the
+# bad-dist URLs, baking the bad version into search engines.
+#
+# Inputs match validate-live (deploy_run_id + deploy_event_name).
+on:
+  workflow_call:
+    inputs:
+      deploy_run_id:
+        description: 'Run ID of the calling deploy workflow run.'
+        required: true
+        type: string
+      deploy_event_name:
+        description: 'github.event_name from the caller (workflow_dispatch / push / etc.)'
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # for git push in sync-previous-slug-winners
+      actions: read     # for download-artifact same-run
+    steps:
+      - name: Checkout (same SHA as deploy — invariant in workflow_call)
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — registry operations will be skipped."
+          fi
+
+      # Hydrate the runner env with secrets pulled from Firebase Remote
+      # Config so the social-media post steps below see FB / LinkedIn
+      # tokens as `process.env.*`.
+      - name: Load secrets from Remote Config (FB + LinkedIn tokens)
+        run: node scripts/load-rc-env.mjs
+
+      # Small JSON artifacts only — NO github-pages download here.
+      - name: Download pre-deploy sitemap snapshot (optional)
+        uses: actions/download-artifact@v5
+        continue-on-error: true
+        with:
+          name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
+          path: /tmp/pre-deploy-snapshot
+
+      - name: Download previous-slug winners (optional)
+        uses: actions/download-artifact@v5
+        continue-on-error: true
+        with:
+          name: winners-${{ inputs.deploy_run_id }}
+          path: /tmp/winners
+
+      - name: Download sitemaps bundle (pre-deploy + new + build-id)
+        uses: actions/download-artifact@v5
+        continue-on-error: true
+        with:
+          name: sitemaps-${{ inputs.deploy_run_id }}
+          path: /tmp/sitemaps-bundle
+
+      - name: Stage downloaded data files
+        run: |
+          if [ -f /tmp/sitemaps-bundle/pre-deploy-sitemap-urls.json ]; then
+            cp /tmp/sitemaps-bundle/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
+          elif [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
+            cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
+          fi
+          if [ -f /tmp/winners/previous-slug-winners.json ]; then
+            cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
+          fi
+
+      - name: Sync previous-slug winners registry
+        # The build in deploy.yml may update data/previous-slug-winners.json.
+        # The updated file is downloaded from the winners artifact above.
+        # If it changed relative to HEAD, commit and push it here.
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/previous-slug-winners.json; then
+            echo "[previous-slug-winners] no changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/previous-slug-winners.json
+          git commit -m "chore(seo): sync previous-slug winners registry"
+          git stash push --keep-index --include-untracked -m "validation-build-tree" || true
+          bash scripts/lib/git-push-with-retry.sh \
+            --in-place-resolver-cmd "node scripts/lib/resolve-winners-conflict.mjs && git add -A"
+          git stash pop || true
+
+      - name: Read deploy metadata from Firestore
+        id: deploy-meta
+        continue-on-error: true
+        run: |
+          DATA=$(node scripts/deploy-registry.mjs get \
+            --run-id="${{ inputs.deploy_run_id }}" 2>/dev/null || echo '{}')
+          echo "data=$DATA" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for live article metadata
+        if: |
+          success() &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
+          fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl != null
+        id: wait_live_meta
+        continue-on-error: true
+        env:
+          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
+          OG_IMAGE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogImage }}
+        run: |
+          node scripts/wait-for-live-article-meta.mjs \
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_IMAGE"
+
+      - name: Post to Facebook Page
+        if: |
+          success() &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
+          fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
+          steps.wait_live_meta.outcome == 'success'
+        continue-on-error: true
+        env:
+          ARTICLE_ID: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleId }}
+          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
+          OG_DESCRIPTION: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogDescription }}
+          ARTICLE_CATEGORY: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleCategory }}
+        run: |
+          node scripts/post-to-facebook.mjs \
+            "$ARTICLE_ID" \
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_DESCRIPTION" \
+            "$ARTICLE_CATEGORY"
+
+      - name: Post to LinkedIn Company Page
+        if: |
+          success() &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
+          fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
+          steps.wait_live_meta.outcome == 'success'
+        continue-on-error: true
+        env:
+          ARTICLE_ID: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleId }}
+          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
+          OG_DESCRIPTION: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogDescription }}
+          ARTICLE_CATEGORY: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleCategory }}
+        run: |
+          node scripts/post-to-linkedin.mjs \
+            "$ARTICLE_ID" \
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_DESCRIPTION" \
+            "$ARTICLE_CATEGORY"
+
+      - name: Restore indexing API daily tracker
+        id: indexing-cache
+        uses: actions/cache@v5
+        with:
+          path: /tmp/indexing-api-submitted-today.json
+          key: indexing-api-${{ github.run_id }}
+          restore-keys: |
+            indexing-api-
+
+      - name: Post-deploy indexing (parallel)
+        if: success()
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+        run: |
+          timeout 90 node scripts/submit-google-indexing-jobs.js &
+          PID_GOOGLE=$!
+          timeout 90 node scripts/submit-indexnow.js &
+          PID_INDEXNOW=$!
+          timeout 180 node scripts/submit-google-indexing.js &
+          PID_GSC=$!
+          timeout 90 node scripts/verify-post-deploy-seo.mjs &
+          PID_SEO=$!
+
+          FAIL=0
+          wait $PID_GOOGLE  || { echo "⚠️ Google Indexing API failed"; FAIL=1; }
+          wait $PID_INDEXNOW || { echo "⚠️ IndexNow submission failed"; FAIL=1; }
+          wait $PID_GSC     || { echo "⚠️ GSC submission failed"; FAIL=1; }
+          wait $PID_SEO     || { echo "⚠️ Post-deploy SEO verification failed"; FAIL=1; }
+
+          if [ $FAIL -ne 0 ]; then
+            echo "::warning::Some post-deploy indexing steps failed (non-blocking)"
+          fi
+          echo "✅ Post-deploy indexing complete"
+
+      # Last step: register the run as last_known_good in the deploy
+      # registry. Must come AFTER side-effects so a partial publish
+      # failure (FB token revoked, IndexNow 5xx, etc.) doesn't poison
+      # the rollback target — but since each side-effect step is
+      # `continue-on-error: true`, this step runs even when one of them
+      # fails. That's intentional: a deploy that survived dist+live
+      # gates is "good enough" to roll back to even if FB/LI API hiccups.
+      - name: Mark this deploy as last_known_good
+        if: success()
+        run: |
+          node scripts/deploy-registry.mjs set-good \
+            --run-id="${{ github.run_id }}" \
+            --sha="${{ github.sha }}"
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "Publish post-deploy fallita — run ${{ github.run_number }}" \
+            --description "## Publish post-deploy fallita
+          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
+          **Publish run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **SHA:** ${{ github.sha }}
+
+          Side-effects (FB/LinkedIn/IndexNow) o marking last_known_good fallito.
+          Il deploy resta live (validate-dist + validate-live già passati)." \
+            --priority 2 \
+            --label Bug \
+            --workflow "Post-deploy Publish"
