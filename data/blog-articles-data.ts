@@ -20873,4 +20873,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nespresso-svizzera-dazi-2026',
+ category: 'novita',
+ date: '2026-05-06T13:54:09.024Z',
+ image: '/images/blog/nespresso-svizzera-dazi-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

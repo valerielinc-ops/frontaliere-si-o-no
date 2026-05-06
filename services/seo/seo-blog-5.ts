@@ -23408,6 +23408,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nespresso-svizzera-dazi-2026': {
+    title: 'Nespresso resta in Svizzera malgrado i dazi USA',
+    description: 'Nestlé conferma la produzione Nespresso in Svizzera nonostante i dazi americani. Tagli di 16\'000 posti entro 2027. Implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nespresso, resta, malgrado, dazi',
+    ogTitle: 'Nespresso resta in Svizzera malgrado i dazi USA',
+    ogDescription: 'Nestlé conferma la produzione Nespresso in Svizzera nonostante i dazi americani. Tagli di 16\'000 posti entro 2027. Implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/nespresso-svizzera-dazi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nespresso resta in Svizzera malgrado i dazi USA",
+      "description": "Nestlé conferma la produzione Nespresso in Svizzera nonostante i dazi americani. Tagli di 16'000 posti entro 2027. Implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/nespresso-svizzera-dazi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con Monte Brè sullo sfondo"
+      },
+      "datePublished": "2026-05-06T13:54:09+00:00",
+      "dateModified": "2026-05-06T13:54:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nespresso-svizzera-dazi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

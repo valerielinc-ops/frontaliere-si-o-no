@@ -6500,6 +6500,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.poliani-digital-innovation-hub-2026.title': 'Poliani bleibt Leiter des Digital Innovation Hub',
     'blog.article.poliani-digital-innovation-hub-2026.excerpt': 'Der Unternehmer wird den Verband für das Triennium 2026-2028 leiten, mit dem Ziel, KMUs in Richtung künstliche Intelligenz zu begleiten',
     'blog.article.poliani-digital-innovation-hub-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.nespresso-svizzera-dazi-2026.title': 'Nespresso bleibt in der Schweiz trotz US-Zöllen',
+    'blog.article.nespresso-svizzera-dazi-2026.excerpt': 'Nestlé bestätigt die Treue zur Schweiz für die Nespresso-Produktion, trotz US-Zöllen. 16\'000 Stellen bis 2027 gestrichen.',
+    'blog.article.nespresso-svizzera-dazi-2026.imageAlt': 'Blick auf den Luganersee mit Monte Brè im Hintergrund',
 };
 
 export default blogMetaDe;
