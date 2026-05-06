@@ -20,6 +20,7 @@ import jobOgImagesPlugin from './build-plugins/jobOgImagesPlugin';
 import { jobRecencyPagesPlugin } from './build-plugins/jobRecencyPagesPlugin';
 import { jobSectorPagesPlugin } from './build-plugins/jobSectorPagesPlugin';
 import { orphanQueryLandingPlugin } from './build-plugins/orphanQueryLandingPlugin';
+import { relatedSearchClustersPlugin } from './build-plugins/relatedSearchClustersPlugin';
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
@@ -162,6 +163,10 @@ export default defineConfig(({ mode }) => {
  // articles per section. Static-only (no SPA route, no nav-tab impact).
  ...(process.env.SKIP_SECTION_PAGES !== '1' ? [sectionPagesPlugin()] : []),
  orphanQueryLandingPlugin(__dirname),
+ // Related-search cluster landings (B2). Self-gated by
+ // SKIP_RELATED_SEARCH_CLUSTERS=1 (no outer wrapper needed); skipped in
+ // typical agent sessions via .claude/settings.json env block.
+ relatedSearchClustersPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
