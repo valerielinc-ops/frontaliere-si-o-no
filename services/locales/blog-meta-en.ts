@@ -6263,6 +6263,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nathan-borradori-ambri-2030.title': 'Nathan Borradori extends with Ambrì-Piotta until 2030',
     'blog.article.nathan-borradori-ambri-2030.excerpt': 'The 2006-born forward will stay with the club until the end of the 2029/30 season, with an option for an additional year',
     'blog.article.nathan-borradori-ambri-2030.imageAlt': 'Hockey game at Gottardo Arena, Ambrì-Piotta players in action',
+    'blog.article.conducente-folla-ricoverato-psichiatria-2026.title': 'Driver mows down crowd in Leipzig, sent to psychiatric ward',
+    'blog.article.conducente-folla-ricoverato-psichiatria-2026.excerpt': 'The 33-year-old man, already hospitalized in April, was arrested after hitting two people in Leipzig. Authorities rule out political motives.',
+    'blog.article.conducente-folla-ricoverato-psichiatria-2026.imageAlt': 'Crowd in Lugano after a car incident',
 };
 
 export default blogMetaEn;

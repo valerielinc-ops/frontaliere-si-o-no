@@ -6264,6 +6264,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nathan-borradori-ambri-2030.title': 'Nathan Borradori, rinnovo con l\'Ambrì Piotta fino al 2030',
     'blog.article.nathan-borradori-ambri-2030.excerpt': 'L\'attaccante classe 2006 resterà in biancoblù fino al termine della stagione 2029/30 con opzione per un ulteriore anno',
     'blog.article.nathan-borradori-ambri-2030.imageAlt': 'Partita di hockey alla Gottardo Arena, giocatori dell\'Ambrì-Piotta in azione',
+    'blog.article.conducente-folla-ricoverato-psichiatria-2026.title': 'Conducente falcia folla a Lipsia, ricoverato in psichiatria',
+    'blog.article.conducente-folla-ricoverato-psichiatria-2026.excerpt': 'L\'uomo di 33 anni, già ricoverato in aprile, è stato arrestato dopo aver investito due persone a Lipsia. Le autorità escludono motivazioni politiche.',
+    'blog.article.conducente-folla-ricoverato-psichiatria-2026.imageAlt': 'Folla a Lugano dopo un incidente con un\'auto',
 };
 
 export default blogMetaIt;

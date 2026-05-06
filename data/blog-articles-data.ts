@@ -20162,4 +20162,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'conducente-folla-ricoverato-psichiatria-2026',
+ category: 'novita',
+ date: '2026-05-06T00:56:59.546Z',
+ image: '/images/blog/conducente-folla-ricoverato-psichiatria-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

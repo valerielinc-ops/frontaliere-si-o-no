@@ -6263,6 +6263,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nathan-borradori-ambri-2030.title': 'Nathan Borradori verlängert bis 2030 beim Ambrì Piotta',
     'blog.article.nathan-borradori-ambri-2030.excerpt': 'Der Stürmer der Jahrgangs 2006 bleibt bis zum Ende der Saison 2029/30 in den Diensten des Clubs, mit der Option auf ein weiteres Jahr.',
     'blog.article.nathan-borradori-ambri-2030.imageAlt': 'Eishockeyspiel in der Gottardo Arena, Ambrì-Piotta-Spieler im Einsatz',
+    'blog.article.conducente-folla-ricoverato-psichiatria-2026.title': 'Fahrer fährt in Leipzig Menschen um, in Psychiatrie eingewiesen',
+    'blog.article.conducente-folla-ricoverato-psichiatria-2026.excerpt': 'Der 33-jährige Mann, bereits im April eingewiesen, wurde nach dem Überfahren von zwei Personen in Leipzig festgenommen. Die Behörden schließen politische Motive aus.',
+    'blog.article.conducente-folla-ricoverato-psichiatria-2026.imageAlt': 'Menschenmenge in Lugano nach einem Autounfall',
 };
 
 export default blogMetaDe;
