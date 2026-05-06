@@ -1,0 +1,663 @@
+{
+  "generatedAt": "2026-05-06T20:58:11.992Z",
+  "sources": {
+    "gscOrphans": {
+      "ok": true,
+      "candidates": 2
+    },
+    "googleTrendsIt": {
+      "ok": false,
+      "candidates": 0,
+      "reason": "Unexpected token '<', \"<html lang\"... is not valid JSON"
+    },
+    "googleTrendsItLombardia": {
+      "ok": true,
+      "candidates": 18
+    },
+    "googleTrendsCh": {
+      "ok": true,
+      "candidates": 18
+    },
+    "redditTicino": {
+      "ok": false,
+      "candidates": 0,
+      "reason": "reddit 403"
+    },
+    "redditItaly": {
+      "ok": false,
+      "candidates": 0,
+      "reason": "reddit 403"
+    },
+    "redditLugano": {
+      "ok": false,
+      "candidates": 0,
+      "reason": "reddit 403"
+    },
+    "redditSwitzerland": {
+      "ok": false,
+      "candidates": 0,
+      "reason": "reddit 403"
+    },
+    "facebookPages": {
+      "ok": false,
+      "candidates": 0,
+      "reason": "no FB_PAGE_ACCESS_TOKEN"
+    }
+  },
+  "candidates": [
+    {
+      "id": "9df7e9ba",
+      "keyword": "lavoro ticino",
+      "normalizedKeyword": "lavoro ticino",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 32,
+        "gscClicks": 1,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 32 imps in last window — quick-win zone",
+      "demandScore": 0.064,
+      "noveltyScore": 0.75,
+      "totalScore": 0.338
+    },
+    {
+      "id": "ad78e28f",
+      "keyword": "coronavirus frontalieri",
+      "normalizedKeyword": "coronavirus frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "61debf97",
+      "keyword": "frontalieri 2023",
+      "normalizedKeyword": "frontalieri 2023",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "50d1f935",
+      "keyword": "frontalieri news",
+      "normalizedKeyword": "frontalieri news",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia",
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ? | Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "2ae56760",
+      "keyword": "frontalieri svizzeri",
+      "normalizedKeyword": "frontalieri svizzeri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "a6ec8c89",
+      "keyword": "frontalieri tassazione",
+      "normalizedKeyword": "frontalieri tassazione",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "52f23cb4",
+      "keyword": "frontalieri valchiavenna",
+      "normalizedKeyword": "frontalieri valchiavenna",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "20e18995",
+      "keyword": "lavoratori frontalieri",
+      "normalizedKeyword": "lavoratori frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "8e3916b9",
+      "keyword": "ocst frontalieri",
+      "normalizedKeyword": "ocst frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia",
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ? | Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "d38994ea",
+      "keyword": "sanità frontalieri",
+      "normalizedKeyword": "sanita frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "0caa8b0d",
+      "keyword": "nuovi frontalieri",
+      "normalizedKeyword": "nuovi frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia",
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ? | Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.778,
+      "totalScore": 0.311
+    },
+    {
+      "id": "5a9a0498",
+      "keyword": "doppia tassazione frontalieri",
+      "normalizedKeyword": "doppia tassazione frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.75,
+      "totalScore": 0.3
+    },
+    {
+      "id": "89246e8f",
+      "keyword": "tassazione frontalieri svizzera",
+      "normalizedKeyword": "tassazione frontalieri svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.75,
+      "totalScore": 0.3
+    },
+    {
+      "id": "c8bf5f5d",
+      "keyword": "tassazione svizzera frontalieri",
+      "normalizedKeyword": "tassazione svizzera frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.75,
+      "totalScore": 0.3
+    },
+    {
+      "id": "3a002cfc",
+      "keyword": "tasse frontalieri svizzera",
+      "normalizedKeyword": "tasse frontalieri svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.75,
+      "totalScore": 0.3
+    },
+    {
+      "id": "66bace87",
+      "keyword": "frontalieri canton ticino",
+      "normalizedKeyword": "frontalieri canton ticino",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.714,
+      "totalScore": 0.286
+    },
+    {
+      "id": "f8e4c27d",
+      "keyword": "lavoro in svizzera",
+      "normalizedKeyword": "lavoro in svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 36,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 36 imps in last window — quick-win zone",
+      "demandScore": 0.072,
+      "noveltyScore": 0.571,
+      "totalScore": 0.272
+    },
+    {
+      "id": "591044d5",
+      "keyword": "comuni frontalieri svizzera",
+      "normalizedKeyword": "comuni frontalieri svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.667,
+      "totalScore": 0.267
+    },
+    {
+      "id": "8c986d81",
+      "keyword": "frontalieri telelavoro",
+      "normalizedKeyword": "frontalieri telelavoro",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.667,
+      "totalScore": 0.267
+    },
+    {
+      "id": "10e42319",
+      "keyword": "permesso g frontalieri",
+      "normalizedKeyword": "permesso g frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia",
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ? | Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.667,
+      "totalScore": 0.267
+    },
+    {
+      "id": "b3499073",
+      "keyword": "telelavoro frontalieri",
+      "normalizedKeyword": "telelavoro frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.667,
+      "totalScore": 0.267
+    },
+    {
+      "id": "ceccbbec",
+      "keyword": "ticino frontalieri",
+      "normalizedKeyword": "ticino frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.667,
+      "totalScore": 0.267
+    },
+    {
+      "id": "9ff26329",
+      "keyword": "cassa malati frontalieri",
+      "normalizedKeyword": "cassa malati frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.625,
+      "totalScore": 0.25
+    },
+    {
+      "id": "9b176e5f",
+      "keyword": "accordo frontalieri",
+      "normalizedKeyword": "accordo frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.6,
+      "totalScore": 0.24
+    },
+    {
+      "id": "58307f5d",
+      "keyword": "comuni frontalieri",
+      "normalizedKeyword": "comuni frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia",
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ? | Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.6,
+      "totalScore": 0.24
+    },
+    {
+      "id": "7f202ae0",
+      "keyword": "disoccupazione frontalieri",
+      "normalizedKeyword": "disoccupazione frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.6,
+      "totalScore": 0.24
+    },
+    {
+      "id": "df812823",
+      "keyword": "accordo italia svizzera frontalieri",
+      "normalizedKeyword": "accordo italia svizzera frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia",
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ? | Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.571,
+      "totalScore": 0.228
+    },
+    {
+      "id": "7b844c7d",
+      "keyword": "frontalieri in svizzera",
+      "normalizedKeyword": "frontalieri in svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.571,
+      "totalScore": 0.228
+    },
+    {
+      "id": "ada84792",
+      "keyword": "frontalieri italia svizzera",
+      "normalizedKeyword": "frontalieri italia svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.571,
+      "totalScore": 0.228
+    },
+    {
+      "id": "c4bf3a30",
+      "keyword": "frontalieri smart working",
+      "normalizedKeyword": "frontalieri smart working",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.571,
+      "totalScore": 0.228
+    },
+    {
+      "id": "a786a787",
+      "keyword": "frontalieri in ticino",
+      "normalizedKeyword": "frontalieri in ticino",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.5,
+      "totalScore": 0.2
+    },
+    {
+      "id": "18bc18cc",
+      "keyword": "tassa salute frontalieri",
+      "normalizedKeyword": "tassa salute frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": null,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (CH, seed \"frontalieri\") — score ?",
+      "demandScore": 0,
+      "noveltyScore": 0.4,
+      "totalScore": 0.16
+    }
+  ]
+}
