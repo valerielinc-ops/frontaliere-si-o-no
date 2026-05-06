@@ -6384,6 +6384,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.volandia-record-presenze-maggio-2026.title': 'Volandia: record de visiteurs pendant le pont de mai',
     'blog.article.volandia-record-presenze-maggio-2026.excerpt': 'Plus de 2.200 visiteurs en trois jours, 400 baptêmes de l\'air en hélicoptère. Le musée de l\'aviation à Somma Lombardo confirme son succès',
     'blog.article.volandia-record-presenze-maggio-2026.imageAlt': 'Vue aérienne du Lac de Lugano avec ciel bleu clair et montagnes environnantes',
+    'blog.article.swissquote-trading-day-lugano-2026.title': 'Swissquote Trading Day à Lugano : experts et stratégies financières',
+    'blog.article.swissquote-trading-day-lugano-2026.excerpt': 'Le 13 mai au LAC de Lugano, Swissquote organise le Trading Day avec des experts du secteur financier. Focus sur la volatilité, les cryptomonnaies et les stratégies d\'investissement.',
+    'blog.article.swissquote-trading-day-lugano-2026.imageAlt': 'Événement de trading au LAC de Lugano, Suisse',
 };
 
 export default blogMetaFr;

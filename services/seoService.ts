@@ -3370,6 +3370,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-posta-castel-san-pietro-negozio-alimentari': { name: 'Novità', path: '/articoli-frontaliere/posta-castel-san-pietro-negozio-alimentari', parent: 'blog' },
     'blog-sicuritalia-assunzioni-lombardia-veneto-2026': { name: 'Novità', path: '/articoli-frontaliere/sicuritalia-assunzioni-lombardia-veneto-2026', parent: 'blog' },
     'blog-volandia-record-presenze-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/volandia-record-presenze-maggio-2026', parent: 'blog' },
+    'blog-swissquote-trading-day-lugano-2026': { name: 'Swissquote Trading Day', path: '/articoli-frontaliere/swissquote-trading-day-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

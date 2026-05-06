@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2180,
+ "numberOfItems": 2181,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6822,7 +6822,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2177, "name": "Lavori a Chiasso: nuove chiusure in via Franscini", "url": `${BASE_URL}/articoli-frontaliere/lavori-chiasso-franscini-2026` },
           { "@type": "ListItem", "position": 2178, "name": "La Posta si trasferisce al negozio di alimentar...", "url": `${BASE_URL}/articoli-frontaliere/posta-castel-san-pietro-negozio-alimentari` },
           { "@type": "ListItem", "position": 2179, "name": "Sicuritalia assume 150 guardie giurate in Lomba...", "url": `${BASE_URL}/articoli-frontaliere/sicuritalia-assunzioni-lombardia-veneto-2026` },
-          { "@type": "ListItem", "position": 2180, "name": "Volandia: record di presenze nel ponte di maggio", "url": `${BASE_URL}/articoli-frontaliere/volandia-record-presenze-maggio-2026` }
+          { "@type": "ListItem", "position": 2180, "name": "Volandia: record di presenze nel ponte di maggio", "url": `${BASE_URL}/articoli-frontaliere/volandia-record-presenze-maggio-2026` },
+          { "@type": "ListItem", "position": 2181, "name": "Swissquote Trading Day a Lugano: esperti e stra...", "url": `${BASE_URL}/articoli-frontaliere/swissquote-trading-day-lugano-2026` }
  ]
  },
  {

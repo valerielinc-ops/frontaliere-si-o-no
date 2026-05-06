@@ -21926,6 +21926,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swissquote-trading-day-lugano-2026': {
+    title: 'Swissquote Trading Day a Lugano: esperti e strategie finanziarie',
+    description: 'Il 13 maggio al LAC di Lugano, Swissquote organizza il Trading Day con esperti del settore finanziario. Focus su volatilità, criptovalute e strategie di',
+    keywords: 'frontalieri, ticino, svizzera, italia, swissquote, trading, lugano, esperti',
+    ogTitle: 'Swissquote Trading Day a Lugano: esperti e strategie finanziarie',
+    ogDescription: 'Il 13 maggio al LAC di Lugano, Swissquote organizza il Trading Day con esperti del settore finanziario. Focus su volatilità, criptovalute e strategie di',
+    canonicalPath: '/articoli-frontaliere/swissquote-trading-day-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swissquote Trading Day a Lugano: esperti e strategie finanziarie",
+      "description": "Il 13 maggio al LAC di Lugano, Swissquote organizza il Trading Day con esperti del settore finanziario. Focus su volatilità, criptovalute e strategie di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/swissquote-trading-day-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento di trading al LAC di Lugano, Svizzera"
+      },
+      "datePublished": "2026-05-06T08:57:15+00:00",
+      "dateModified": "2026-05-06T08:57:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swissquote-trading-day-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
