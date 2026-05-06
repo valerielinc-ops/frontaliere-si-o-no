@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-05-06T11:06:27.786Z",
+  "generatedAt": "2026-05-06T22:06:47.870Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 51767,
-  "avgDurationMs": 51767,
+  "durationMs": 42775,
+  "avgDurationMs": 42775,
   "durationHistory": [
-    51767
+    42775
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -154,8 +154,8 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-29T10:54:36.310Z",
+      "retranslationAttempts": 1,
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
