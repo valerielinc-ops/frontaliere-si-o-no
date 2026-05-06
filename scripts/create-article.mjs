@@ -67,6 +67,29 @@ import path from 'node:path';
 import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores } from './lib/ai-models.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
+import {
+  PERFORMANCE_PATH as ARTICLE_PERF_PATH,
+  CANDIDATES_PATH as TOPIC_CANDIDATES_PATH,
+  CONSUMED_PATH as CONSUMED_TRACKER_PATH,
+  loadJsonSafe as _topicLoadJsonSafe,
+  loadExistingItTitles as _topicLoadExistingItTitles,
+  loadConsumedTracker as _topicLoadConsumedTracker,
+  appendConsumedId as _topicAppendConsumedId,
+  persistConsumedTracker as _topicPersistConsumedTracker,
+  pickTopCandidate as _topicPickTopCandidate,
+  buildWinnerFingerprintMessage as _topicBuildFingerprintMessage,
+} from './lib/article-topic-selector.mjs';
+
+// ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
+// data/article-performance.json is produced weekly by Phase 1A.
+// data/topic-candidates.json is produced weekly by Phase 1B.
+// Both are OPTIONAL — when absent, generator behaves byte-identically
+// to today (no fingerprint injection, no candidate pool).
+const _articlePerformance = _topicLoadJsonSafe(ARTICLE_PERF_PATH);
+const _topicCandidates = _topicLoadJsonSafe(TOPIC_CANDIDATES_PATH);
+const _winnerFingerprintMessage = _articlePerformance
+  ? _topicBuildFingerprintMessage(_articlePerformance)
+  : null;
 
 // ── C1 News Sitemap Whitelist ──────────────────────────────────
 // Loaded by parsing data/news-sitemap-whitelist.ts at startup so we don't
@@ -2449,6 +2472,10 @@ REGOLA FONDAMENTALE: Ogni fatto, dato, legge, data, cifra e istituzione nel tuo 
 QUANDO LA FONTE NON CONTIENE UN DATO: scrivi "non ancora specificato", "in fase di definizione", o ometti il dettaglio. NON inventare numeri, date o riferimenti normativi per riempire il testo.
 
 Rispondi SOLO con JSON valido, senza markdown.` },
+    // Phase 3 prior: inject winner-fingerprint as additive system context.
+    // Skipped when data/article-performance.json is missing or empty so the
+    // prompt is byte-identical to today's behavior.
+    ...(_winnerFingerprintMessage ? [{ role: 'system', content: _winnerFingerprintMessage }] : []),
     { role: 'user', content: prompt + minWordsInstruction + headlineRefinementInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.${primaryLocale} (title, excerpt, body1, body2, body3, faq), seo.\n${otherLocalesNote}` }
   ];
 
@@ -5193,6 +5220,11 @@ function gitAddAll(data) {
   if (existsSync(resolve(SOURCE_URLS_FILE))) {
     files.push(SOURCE_URLS_FILE);
   }
+  // Phase 3 — Smarter generator: stage the topic-candidates consumed tracker
+  // when it exists (created by the topic-candidate selection branch in main).
+  if (existsSync(resolve(CONSUMED_TRACKER_PATH))) {
+    files.push(CONSUMED_TRACKER_PATH);
+  }
   // Include generated blog image if it exists (web path → filesystem path under public/)
   // Also stage the .webp sidecar emitted by optimizeImageToJpeg so the build
   // can skip the closeBundle webp-conversion step on subsequent deploys.
@@ -5337,8 +5369,50 @@ async function main() {
       console.error('⚠️  Nessun headline trovato da nessuna fonte.\n');
     }
 
+    // ── Phase 1.5: Topic-candidate pool (Phase 3 — spec 2026-05-06) ──
+    // Consulted between news and evergreen. Skipped when topic-candidates.json
+    // is missing (current behavior). Picks the highest-scoring candidate that
+    // (a) hasn't been consumed before and (b) isn't structurally similar to an
+    // existing IT article title.
+    let candidateSuccess = false;
+    if (!newsSuccess && _topicCandidates && Array.isArray(_topicCandidates.candidates) && _topicCandidates.candidates.length > 0) {
+      console.error('🎯 Fase 1.5: Topic-candidate pool — provo candidato di alto punteggio...\n');
+      const consumed = _topicLoadConsumedTracker(CONSUMED_TRACKER_PATH);
+      const existingTitles = _topicLoadExistingItTitles();
+      const candidate = _topicPickTopCandidate(_topicCandidates, { consumed, existingTitles });
+      if (!candidate) {
+        console.error('   ⏭️  Nessun candidato eleggibile (tutti consumati, score basso, o duplicati) — fallback evergreen.\n');
+      } else {
+        console.error(`   ✅ Candidato selezionato: "${candidate.keyword}" (score=${candidate.totalScore?.toFixed?.(2) ?? candidate.totalScore})`);
+        if (candidate.angle) console.error(`      Angolo: ${candidate.angle}`);
+        try {
+          RUN_REPORT.selectedArticleType = 'topic_candidate';
+          RUN_REPORT.selectedSource = 'topic-candidates';
+          RUN_REPORT.selectedUrl = `evergreen://${encodeURIComponent(candidate.keyword)}`;
+          url = `evergreen://${encodeURIComponent(candidate.keyword)}`;
+          process.env._EVERGREEN_ANGLE = candidate.angle || candidate.keyword;
+          process.env._EVERGREEN_KEYWORD = candidate.keyword;
+          await generateAndValidateArticle(url, { headline: candidate.keyword, source: 'topic-candidates', relatedHeadlines: [] });
+          // Persist consumed tracker so this id is not picked next run.
+          const updated = _topicAppendConsumedId(consumed, candidate.id);
+          _topicPersistConsumedTracker(updated, CONSUMED_TRACKER_PATH);
+          candidateSuccess = true;
+          return; // Success — exit main
+        } catch (e) {
+          const isDuplicate = e.message.includes('DUPLICATO');
+          if (isDuplicate) captureDuplicateReasons(e.message);
+          const isQualityReject = /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
+          if (!isDuplicate && !isQualityReject) throw e;
+          console.error(`   ⚠️  Candidato fallito (${isDuplicate ? 'duplicato' : 'qualità'}) — fallback evergreen.\n`);
+          // Mark this candidate as consumed so we don't pick it again next run.
+          const updated = _topicAppendConsumedId(consumed, candidate.id);
+          _topicPersistConsumedTracker(updated, CONSUMED_TRACKER_PATH);
+        }
+      }
+    }
+
     // ── Phase 2: Evergreen fallback — only reached if news scan produced nothing usable ──
-    if (!newsSuccess) {
+    if (!newsSuccess && !candidateSuccess) {
       console.error('📚 Fase 2: Fallback evergreen — generazione articolo SEO long-tail...\n');
 
       // Pick an evergreen topic based on week number, with rotation on duplicate.
