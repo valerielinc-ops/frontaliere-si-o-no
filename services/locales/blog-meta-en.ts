@@ -6569,6 +6569,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.liberta-dovery-autocensura-mendrisio.title': 'Freedom, duties and self-censorship: Mendrisio rejects resolution',
     'blog.article.liberta-dovery-autocensura-mendrisio.excerpt': 'The majority of Mendrisio\'s City Council has rejected a resolution on the protection of local politicians, with divisions in the progressive area.',
     'blog.article.liberta-dovery-autocensura-mendrisio.imageAlt': 'Aerial view of Mendrisio, Ticino, Switzerland, with the surrounding mountains and the Italian border in the background.',
+    'blog.article.case-lusso-svizzera-2026.title': 'Luxury homes in Switzerland: prices still high but trend slowing',
+    'blog.article.case-lusso-svizzera-2026.excerpt': 'Prices of luxury real estate in Switzerland rose by 3% in 2025, but the market shows signs of weakening. Here\'s what changes for cross-border workers.',
+    'blog.article.case-lusso-svizzera-2026.imageAlt': 'Luxury villa on Lake Lugano with mountain view',
 };
 
 export default blogMetaEn;

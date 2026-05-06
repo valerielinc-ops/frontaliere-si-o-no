@@ -6569,6 +6569,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.liberta-dovery-autocensura-mendrisio.title': 'Freiheit, Pflichten und Selbstzensur: Resolution in Mendrisio abgelehnt',
     'blog.article.liberta-dovery-autocensura-mendrisio.excerpt': 'Die Mehrheit des Gemeinderats von Mendrisio hat eine Resolution zum Schutz der lokalen Politiker abgelehnt, mit Spaltungen im progressiven Lager.',
     'blog.article.liberta-dovery-autocensura-mendrisio.imageAlt': 'Luftaufnahme von Mendrisio, Tessin, Schweiz, mit den umliegenden Bergen und der italienischen Grenze im Hintergrund.',
+    'blog.article.case-lusso-svizzera-2026.title': 'Luxusimmobilien in der Schweiz: Preise hoch, aber Trend schwächt sich ab',
+    'blog.article.case-lusso-svizzera-2026.excerpt': 'Die Preise für Luxusimmobilien in der Schweiz sind 2025 um 3% gestiegen, doch der Markt zeigt Anzeichen von Schwäche. Was sich für Grenzgänger ändert.',
+    'blog.article.case-lusso-svizzera-2026.imageAlt': 'Luxusvilla am Luganersee mit Bergblick',
 };
 
 export default blogMetaDe;

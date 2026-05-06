@@ -6570,6 +6570,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.liberta-dovery-autocensura-mendrisio.title': 'Libertà, doveri e autocensura: bocciata a Mendrisio la risoluzione',
     'blog.article.liberta-dovery-autocensura-mendrisio.excerpt': 'La maggioranza del Consiglio comunale di Mendrisio ha bocciato una risoluzione sulla tutela dei politici locali, con divisioni nell\'area progressista.',
     'blog.article.liberta-dovery-autocensura-mendrisio.imageAlt': 'Vista aerea di Mendrisio, Ticino, Svizzera, con le montagne circostanti e il confine italiano sullo sfondo.',
+    'blog.article.case-lusso-svizzera-2026.title': 'Case di lusso in Svizzera: prezzi ancora alti ma trend in rallentamento',
+    'blog.article.case-lusso-svizzera-2026.excerpt': 'I prezzi degli immobili di lusso in Svizzera sono aumentati del 3% nel 2025, ma il mercato mostra segni di indebolimento. Ecco cosa cambia per i frontalieri.',
+    'blog.article.case-lusso-svizzera-2026.imageAlt': 'Villa di lusso sul Lago di Lugano con vista sulle montagne',
 };
 
 export default blogMetaIt;
