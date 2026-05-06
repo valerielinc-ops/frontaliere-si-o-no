@@ -3357,6 +3357,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-goldbarren-zurigo-zoll-confiscati': { name: 'Novità', path: '/articoli-frontaliere/goldbarren-zurigo-zoll-confiscati', parent: 'blog' },
     'blog-negozio-danese-arese-2026': { name: 'Novità', path: '/articoli-frontaliere/negozio-danese-arese-2026', parent: 'blog' },
     'blog-varese-summer-experience-2026-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/varese-summer-experience-2026-frontalieri', parent: 'blog' },
+    'blog-malpensa-rumore-casorate-sempione-2026': { name: 'Novità', path: '/articoli-frontaliere/malpensa-rumore-casorate-sempione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

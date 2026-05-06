@@ -20405,4 +20405,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'malpensa-rumore-casorate-sempione-2026',
+ category: 'novita',
+ date: '2026-05-06T06:38:08.177Z',
+ image: '/images/blog/malpensa-rumore-casorate-sempione-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

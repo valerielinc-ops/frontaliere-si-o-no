@@ -6344,6 +6344,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-summer-experience-2026-frontalieri.title': 'Varese: Sommererlebnisse 2026 im Freien',
     'blog.article.varese-summer-experience-2026-frontalieri.excerpt': 'Varese Corsi startet die Sommererlebnisse: Kurse im Freien in historischen Villen und Parks für Wohlbefinden und Bewegung. Entdecken Sie die Aktivitäten und Orte',
     'blog.article.varese-summer-experience-2026-frontalieri.imageAlt': 'Gruppe von Menschen, die in einem Park in Varese Yoga übt, mit Blick auf die Alpen',
+    'blog.article.malpensa-rumore-casorate-sempione-2026.title': 'Lärmspitzen in Casorate: vorübergehend',
+    'blog.article.malpensa-rumore-casorate-sempione-2026.excerpt': 'Umweltaktivisten melden Lärmspitzen bis zu 90,5 dBA. Bürgermeister Cassani bestätigt die Belastung, beruhigt aber: Die Situation ist vorübergehend.',
+    'blog.article.malpensa-rumore-casorate-sempione-2026.imageAlt': 'Luftaufnahme des Flughafens Malpensa mit startenden Flugzeugen, umgeben von Wohngebieten',
 };
 
 export default blogMetaDe;

@@ -6345,6 +6345,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-summer-experience-2026-frontalieri.title': 'Varese: estate all\'aperto con le Summer Experience 2026',
     'blog.article.varese-summer-experience-2026-frontalieri.excerpt': 'Varese Corsi lancia le Summer Experience: corsi all\'aperto in ville storiche e parchi per benessere e movimento. Scopri le attività e i luoghi',
     'blog.article.varese-summer-experience-2026-frontalieri.imageAlt': 'Gruppo di persone che pratica yoga in un parco di Varese, con vista sulle Alpi',
+    'blog.article.malpensa-rumore-casorate-sempione-2026.title': 'Malpensa, picchi di rumore a Casorate Sempione. Sindaco: situazione temporanea',
+    'blog.article.malpensa-rumore-casorate-sempione-2026.excerpt': 'Gli ambientalisti denunciano picchi di rumore fino a 90.5 dBA. Il sindaco Cassani conferma il disagio ma rassicura: la situazione è temporanea.',
+    'blog.article.malpensa-rumore-casorate-sempione-2026.imageAlt': 'Vista aerea dell\'aeroporto di Malpensa con aerei in decollo, circondato da aree residenziali',
 };
 
 export default blogMetaIt;
