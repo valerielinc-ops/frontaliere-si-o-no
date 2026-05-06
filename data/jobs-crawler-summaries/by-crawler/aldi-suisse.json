@@ -1,21 +1,20 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-05-05T21:08:25.130Z",
-  "total": 2,
+  "generatedAt": "2026-05-06T10:15:18.801Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8485,
-  "avgDurationMs": 8485,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 4867,
+  "avgDurationMs": 4867,
   "durationHistory": [
-    8485
+    4867
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "aldi-suisse-75eae9a09a65",
       "slug": "impiegato-vendita-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -42,7 +41,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-05-05T21:08:23.236Z",
       "firstSeenAt": "2026-04-13T09:52:47.610Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "_qualityScore": 96,
@@ -52,7 +50,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "aldi-suisse-2b7849368ea3",
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -77,7 +77,7 @@
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-05T21:08:23.230Z",
+      "crawledAt": "2026-05-06T10:15:16.939Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-04T10:11:40.390Z",
       "salaryMin": 59000,
