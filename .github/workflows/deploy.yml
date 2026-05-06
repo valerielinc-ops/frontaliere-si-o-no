@@ -413,12 +413,17 @@ jobs:
             console.log('📦 Packed ' + out._allUrls.length + ' new sitemap URLs across ' + Object.keys(perSitemap).length + ' files → /tmp/new-sitemap-urls.json');
           "
 
-      - name: Stage sitemaps bundle (pre-deploy + new)
+      - name: Stage sitemaps bundle (pre-deploy + new + build-id)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
         run: |
           mkdir -p /tmp/sitemaps-bundle
           cp -f /tmp/pre-deploy-sitemap-urls.json /tmp/sitemaps-bundle/ 2>/dev/null || true
+          # build-id.txt is consumed by `wait-for-pages-propagation.mjs`
+          # in validate-live to verify the live site is serving THIS deploy.
+          # Bundling it here means validate-live can run without
+          # downloading the 1.5 GB github-pages artifact.
+          cp -f dist/build-id.txt /tmp/sitemaps-bundle/ 2>/dev/null || true
           cp -f /tmp/new-sitemap-urls.json /tmp/sitemaps-bundle/ 2>/dev/null || true
           ls -la /tmp/sitemaps-bundle/
 

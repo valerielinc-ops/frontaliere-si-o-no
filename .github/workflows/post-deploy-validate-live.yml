@@ -92,10 +92,31 @@ jobs:
           name: winners-${{ inputs.deploy_run_id }}
           path: /tmp/winners
 
+      # `sitemaps-${run_id}` bundles pre-deploy snapshot + new sitemap
+      # URLs + build-id.txt. build-id is consumed by
+      # `wait-for-pages-propagation.mjs` to verify the live site is
+      # serving THIS deploy — so validate-live doesn't need to download
+      # the 1.5 GB github-pages artifact just for build-id.
+      - name: Download sitemaps bundle (pre-deploy + new + build-id)
+        uses: actions/download-artifact@v5
+        continue-on-error: true
+        with:
+          name: sitemaps-${{ inputs.deploy_run_id }}
+          path: /tmp/sitemaps-bundle
+
       - name: Stage downloaded data files
         run: |
-          if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
+          # Prefer the bundle; fall back to the standalone snapshot
+          # artifact for backward compat.
+          if [ -f /tmp/sitemaps-bundle/pre-deploy-sitemap-urls.json ]; then
+            cp /tmp/sitemaps-bundle/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
+          elif [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
             cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
+          fi
+          # Stage build-id.txt into dist/ where wait-for-pages-propagation.mjs expects it.
+          if [ -f /tmp/sitemaps-bundle/build-id.txt ]; then
+            mkdir -p dist
+            cp /tmp/sitemaps-bundle/build-id.txt dist/build-id.txt
           fi
           if [ -f /tmp/winners/previous-slug-winners.json ]; then
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
