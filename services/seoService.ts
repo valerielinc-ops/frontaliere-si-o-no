@@ -3413,6 +3413,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fondazione-bignasca-aiuti-2025': { name: 'Novità', path: '/articoli-frontaliere/fondazione-bignasca-aiuti-2025', parent: 'blog' },
     'blog-assegni-figli-frontalieri-2026': { name: 'Assegni figli', path: '/articoli-frontaliere/assegni-figli-frontalieri-2026', parent: 'blog' },
     'blog-integrazione-studenti-gaza-italia-2026': { name: 'Novità', path: '/articoli-frontaliere/integrazione-studenti-gaza-italia-2026', parent: 'blog' },
+    'blog-ladro-seriale-ticino-arresto-carte-credito': { name: 'Cronaca Ticino', path: '/articoli-frontaliere/ladro-seriale-ticino-arresto-carte-credito', parent: 'blog' },
  };
 
  const info = sectionNames[section];

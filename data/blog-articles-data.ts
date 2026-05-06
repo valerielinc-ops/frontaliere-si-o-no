@@ -20909,4 +20909,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ladro-seriale-ticino-arresto-carte-credito',
+ category: 'novita',
+ date: '2026-05-06T14:31:49.578Z',
+ image: '/images/blog/ladro-seriale-ticino-arresto-carte-credito.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

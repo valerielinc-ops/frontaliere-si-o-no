@@ -6513,6 +6513,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.integrazione-studenti-gaza-italia-2026.title': 'Studenti da Gaza nelle scuole italiane: 1,5 milioni per l\'integrazione',
     'blog.article.integrazione-studenti-gaza-italia-2026.excerpt': 'Il Ministero dell\'Istruzione stanzia 1,5 milioni per l\'integrazione degli studenti provenienti da Gaza nelle scuole italiane.',
     'blog.article.integrazione-studenti-gaza-italia-2026.imageAlt': 'Una classe in Ticino con studenti di diverse origini, tra cui alcuni da Gaza, impegnati in attività di apprendimento.',
+    'blog.article.ladro-seriale-ticino-arresto-carte-credito.title': 'Ladro seriale dal Luganese all\'intero Ticino: incastrato dalle carte di credito',
+    'blog.article.ladro-seriale-ticino-arresto-carte-credito.excerpt': 'Un ladro seriale attivo tra Lugano e Bellinzona è stato arrestato grazie alle carte di credito rubate. Ecco i dettagli dell\'operazione.',
+    'blog.article.ladro-seriale-ticino-arresto-carte-credito.imageAlt': 'Veduta aerea di Bellinzona, Ticino, con i suoi tre castelli e il fiume Ticino',
 };
 
 export default blogMetaIt;
