@@ -1,69 +1,5 @@
 [
   {
-    "timestamp": "2026-04-22T03:45:40.825Z",
-    "label": "before",
-    "total": 2639,
-    "needsRetranslation": 44,
-    "incomplete": 25,
-    "complete": 2614,
-    "missingByLocale": {
-      "it": 23,
-      "en": 2,
-      "de": 24,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 3
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-22T04:04:46.007Z",
-    "label": "after",
-    "total": 2639,
-    "needsRetranslation": 24,
-    "incomplete": 25,
-    "complete": 2614,
-    "missingByLocale": {
-      "it": 23,
-      "en": 2,
-      "de": 24,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 3
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-22T05:36:39.416Z",
     "label": "before",
     "total": 2639,
@@ -8919,6 +8855,118 @@
       },
       {
         "company": "Heineken Switzerland",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-06T11:58:22.725Z",
+    "label": "before",
+    "total": 2642,
+    "needsRetranslation": 1091,
+    "incomplete": 190,
+    "complete": 2452,
+    "missingByLocale": {
+      "it": 63,
+      "en": 102,
+      "de": 84,
+      "fr": 116
+    },
+    "topPending": [
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "Jumbo",
+        "pending": 11
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 7
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 6
+      },
+      {
+        "company": "PEMSA",
+        "pending": 5
+      },
+      {
+        "company": "AGIE Charmilles SA",
+        "pending": 4
+      },
+      {
+        "company": "Board International",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Denner",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-06T13:07:55.651Z",
+    "label": "after",
+    "total": 2642,
+    "needsRetranslation": 156,
+    "incomplete": 91,
+    "complete": 2551,
+    "missingByLocale": {
+      "it": 27,
+      "en": 21,
+      "de": 21,
+      "fr": 32
+    },
+    "topPending": [
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 7
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 5
+      },
+      {
+        "company": "Board International",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Lonza",
+        "pending": 4
+      },
+      {
+        "company": "Groupe Mutuel",
+        "pending": 2
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
         "pending": 1
       }
     ]
