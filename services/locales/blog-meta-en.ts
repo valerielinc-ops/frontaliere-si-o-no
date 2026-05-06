@@ -6395,6 +6395,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sicurezza-commerciali-locarno-2026.title': 'Commercial safety: informative evening in Locarno',
     'blog.article.sicurezza-commerciali-locarno-2026.excerpt': 'On Wednesday, May 27, 2026, an informative evening on commercial safety will be held in Locarno, with interventions from the Police and Firefighters.',
     'blog.article.sicurezza-commerciali-locarno-2026.imageAlt': 'Locarno cityscape with Lake Maggiore in the background, safe and secure commercial activities',
+    'blog.article.roveredo-carnevale-tutti-2026.title': 'Roveredo, initiative for an inclusive Carnival',
+    'blog.article.roveredo-carnevale-tutti-2026.excerpt': 'A group of citizens from Roveredo launches an initiative to make the Lingera Carnival more inclusive and transparent',
+    'blog.article.roveredo-carnevale-tutti-2026.imageAlt': 'View of Roveredo during the Lingera carnival, with people of all ages participating in the celebrations in the square',
 };
 
 export default blogMetaEn;

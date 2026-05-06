@@ -6396,6 +6396,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicurezza-commerciali-locarno-2026.title': 'Sicurezza nelle attività commerciali: serata informativa a Locarno',
     'blog.article.sicurezza-commerciali-locarno-2026.excerpt': 'Mercoledì 27 maggio 2026 a Locarno si terrà una serata informativa sulla sicurezza nelle attività commerciali, con interventi di Polizia e Pompieri.',
     'blog.article.sicurezza-commerciali-locarno-2026.imageAlt': 'Panorama di Locarno con il Lago Maggiore sullo sfondo, attività commerciali sicure e serene',
+    'blog.article.roveredo-carnevale-tutti-2026.title': 'Roveredo, iniziativa popolare per un Carnevale accessibile a tutti',
+    'blog.article.roveredo-carnevale-tutti-2026.excerpt': 'Un gruppo di cittadini di Roveredo lancia un\'iniziativa per rendere il Carnevale Lingera più inclusivo e trasparente',
+    'blog.article.roveredo-carnevale-tutti-2026.imageAlt': 'Vista di Roveredo durante il Carnevale Lingera, con persone di tutte le età che partecipano alle celebrazioni in piazza',
 };
 
 export default blogMetaIt;

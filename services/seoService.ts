@@ -3374,6 +3374,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-liberalizzazione-cannabis-minori-tutelati': { name: 'Novità', path: '/articoli-frontaliere/liberalizzazione-cannabis-minori-tutelati', parent: 'blog' },
     'blog-afghano-arresto-zug-chiasso': { name: 'Notizie dal Ticino', path: '/articoli-frontaliere/afghano-arresto-zug-chiasso', parent: 'blog' },
     'blog-sicurezza-commerciali-locarno-2026': { name: 'Sicurezza commerciale', path: '/articoli-frontaliere/sicurezza-commerciali-locarno-2026', parent: 'blog' },
+    'blog-roveredo-carnevale-tutti-2026': { name: 'Iniziativa Carnevale', path: '/articoli-frontaliere/roveredo-carnevale-tutti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

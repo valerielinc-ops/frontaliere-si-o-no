@@ -6395,6 +6395,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sicurezza-commerciali-locarno-2026.title': 'Sicherheit im Einzelhandel: Informationsabend in Locarno',
     'blog.article.sicurezza-commerciali-locarno-2026.excerpt': 'Am Mittwoch, den 27. Mai 2026, findet in Locarno ein Informationsabend zur Sicherheit im Einzelhandel statt, mit Beiträgen von der Polizei und den Feuerwehr.',
     'blog.article.sicurezza-commerciali-locarno-2026.imageAlt': 'Stadtbild von Locarno mit dem Lago Maggiore im Hintergrund, sichere und geschützte Geschäftsaktivitäten',
+    'blog.article.roveredo-carnevale-tutti-2026.title': 'Roveredo: Initiative für einen inklusiven Karneval',
+    'blog.article.roveredo-carnevale-tutti-2026.excerpt': 'Eine Gruppe von Bürgern aus Roveredo startet eine Initiative, um den Lingera-Karneval inklusiver und transparenter zu gestalten',
+    'blog.article.roveredo-carnevale-tutti-2026.imageAlt': 'Ansicht von Roveredo während des Lingera-Karnevals, mit Menschen jeden Alters, die an den Feierlichkeiten auf dem Platz teilnehmen',
 };
 
 export default blogMetaDe;

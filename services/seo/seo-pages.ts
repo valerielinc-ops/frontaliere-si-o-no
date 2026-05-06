@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2184,
+ "numberOfItems": 2185,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6826,7 +6826,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2181, "name": "Swissquote Trading Day a Lugano: esperti e stra...", "url": `${BASE_URL}/articoli-frontaliere/swissquote-trading-day-lugano-2026` },
           { "@type": "ListItem", "position": 2182, "name": "Liberalizzazione cannabis: minori da tutelare «...", "url": `${BASE_URL}/articoli-frontaliere/liberalizzazione-cannabis-minori-tutelati` },
           { "@type": "ListItem", "position": 2183, "name": "Afghano aggredisce donna in treno a Chiasso: ar...", "url": `${BASE_URL}/articoli-frontaliere/afghano-arresto-zug-chiasso` },
-          { "@type": "ListItem", "position": 2184, "name": "Sicurezza nelle attività commerciali: serata in...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-commerciali-locarno-2026` }
+          { "@type": "ListItem", "position": 2184, "name": "Sicurezza nelle attività commerciali: serata in...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-commerciali-locarno-2026` },
+          { "@type": "ListItem", "position": 2185, "name": "Roveredo, iniziativa popolare per un Carnevale ...", "url": `${BASE_URL}/articoli-frontaliere/roveredo-carnevale-tutti-2026` }
  ]
  },
  {
