@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-05-05T21:26:18.891Z",
-  "total": 6,
+  "generatedAt": "2026-05-06T10:33:26.687Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 17263,
-  "avgDurationMs": 17263,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 16830,
+  "avgDurationMs": 16830,
   "durationHistory": [
-    17263
+    16830
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -220,8 +220,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_784092",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_784092",
@@ -236,7 +235,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate",
-      "slug": "store-manager-landquart-capri-holdings",
+      "slug": "direttore-del-negozio-landquart-capri-holdings-michael-kors-versace-graubunden",
       "category": "retail",
       "datePosted": "2026-05-05",
       "source": "capri-holdings-workday-crawler",
@@ -250,19 +249,19 @@
         "location": "Graubünden"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "capri-holdings-0989dc6c82fd",
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-05T10:17:59.326Z",
-      "_qualityScore": 81,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 18,
+        "translation": 25,
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
