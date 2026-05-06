@@ -271,12 +271,14 @@ jobs:
           fi
           echo "✅ Post-deploy indexing complete"
 
-      - name: Mark deploy as last known good
-        if: success()
-        run: |
-          node scripts/deploy-registry.mjs set-good \
-            --run-id="${{ inputs.deploy_run_id }}" \
-            --sha="${{ github.sha }}"
+      # NOTE: `Mark last_known_good` was here but moved to a dedicated
+      # `mark-last-good` job in deploy.yml that gates on BOTH validate-dist
+      # AND validate-live success. With the marking inline here, run
+      # 25431484293 self-rolled back: validate-live succeeded → marked
+      # itself as last_known_good → validate-dist failed → rollback
+      # picked the same run as last_known_good and tried to re-deploy
+      # the very dist that had just failed validation. The standalone
+      # job in deploy.yml runs only when ALL prior gates pass.
 
       - name: Report failure to Linear
         if: failure()
