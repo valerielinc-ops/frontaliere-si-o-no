@@ -6363,6 +6363,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crociere-ticino-rodano-senna-2026.title': 'Francia sui fiumi: estate sul Rodano e autunno sulla Senna',
     'blog.article.crociere-ticino-rodano-senna-2026.excerpt': 'Scopri le crociere fluviali accompagnate dal Ticino sulle navi Excellence, esplorando il Rodano in estate e la Senna in autunno.',
     'blog.article.crociere-ticino-rodano-senna-2026.imageAlt': 'Vista panoramica del Lago di Lugano con una nave da crociera in primo piano, circondata da montagne e cieli azzurri cristallini.',
+    'blog.article.tunesier-algerier-autoknacker-wuerenlos.title': 'Tunisini e algerini arrestati per furti d\'auto a Würenlos',
+    'blog.article.tunesier-algerier-autoknacker-wuerenlos.excerpt': 'Due individui sono stati arrestati per furti d\'auto a Würenlos. Scopri i dettagli dell\'operazione.',
+    'blog.article.tunesier-algerier-autoknacker-wuerenlos.imageAlt': 'Scena di furto d\'auto a Würenlos, Svizzera',
 };
 
 export default blogMetaIt;

@@ -20459,4 +20459,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tunesier-algerier-autoknacker-wuerenlos',
+ category: 'novita',
+ date: '2026-05-06T07:31:42.312Z',
+ image: '/images/blog/tunesier-algerier-autoknacker-wuerenlos.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

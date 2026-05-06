@@ -6362,6 +6362,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crociere-ticino-rodano-senna-2026.title': 'Frankreich auf den Flüssen: Sommer auf der Rhône und Herbst auf der Seine',
     'blog.article.crociere-ticino-rodano-senna-2026.excerpt': 'Entdecken Sie die Flusskreuzfahrten mit Begleitung aus dem Tessin auf den Excellence-Schiffen und erkunden Sie die Rhône im Sommer und die Seine im Herbst.',
     'blog.article.crociere-ticino-rodano-senna-2026.imageAlt': 'Panoramablick auf den Luganersee mit einem Kreuzfahrtschiff im Vordergrund, umgeben von Bergen und klarem blauen Himmel.',
+    'blog.article.tunesier-algerier-autoknacker-wuerenlos.title': 'Tunesier und Algerier wegen Autodiebstahl in Würenlos verhaftet',
+    'blog.article.tunesier-algerier-autoknacker-wuerenlos.excerpt': 'Zwei Personen wurden wegen Autodiebstahl in Würenlos verhaftet. Erfahren Sie mehr über die Operation.',
+    'blog.article.tunesier-algerier-autoknacker-wuerenlos.imageAlt': 'Autodiebstahl-Szene in Würenlos, Schweiz',
 };
 
 export default blogMetaDe;

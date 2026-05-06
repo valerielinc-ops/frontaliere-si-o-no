@@ -21660,6 +21660,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tunesier-algerier-autoknacker-wuerenlos': {
+    title: 'Tunisini e algerini arrestati per furti d\'auto a Würenlos',
+    description: 'Due individui sono stati arrestati per furti d\'auto a Würenlos. Scopri i dettagli dell\'operazione e le misure preventive per proteggere il tuo veicolo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tunisini, algerini, arrestati, furti',
+    ogTitle: 'Tunisini e algerini arrestati per furti d\'auto a Würenlos',
+    ogDescription: 'Due individui sono stati arrestati per furti d\'auto a Würenlos. Scopri i dettagli dell\'operazione e le misure preventive per proteggere il tuo veicolo.',
+    canonicalPath: '/articoli-frontaliere/tunesier-algerier-autoknacker-wuerenlos',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tunisini e algerini arrestati per furti d'auto a Würenlos",
+      "description": "Due individui sono stati arrestati per furti d'auto a Würenlos. Scopri i dettagli dell'operazione e le misure preventive per proteggere il tuo veicolo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/tunesier-algerier-autoknacker-wuerenlos.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di furto d'auto a Würenlos, Svizzera"
+      },
+      "datePublished": "2026-05-06T07:31:42+00:00",
+      "dateModified": "2026-05-06T07:31:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tunesier-algerier-autoknacker-wuerenlos`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

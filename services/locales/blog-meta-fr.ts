@@ -6363,6 +6363,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crociere-ticino-rodano-senna-2026.title': 'France sur les rivières : été sur le Rhône et automne sur la Seine',
     'blog.article.crociere-ticino-rodano-senna-2026.excerpt': 'Découvrez les croisières fluviales accompagnées par le Ticino sur les navires Excellence, explorant le Rhône en été et la Seine en automne.',
     'blog.article.crociere-ticino-rodano-senna-2026.imageAlt': 'Vue panoramique du Lac de Lugano avec un navire de croisière au premier plan, entouré de montagnes et de ciels bleus cristallins.',
+    'blog.article.tunesier-algerier-autoknacker-wuerenlos.title': 'Deux Tunisiens et Algériens arrêtés pour vols de voitures à Würenlos',
+    'blog.article.tunesier-algerier-autoknacker-wuerenlos.excerpt': 'Deux individus ont été arrêtés pour vols de voitures à Würenlos. Découvrez les détails de l\'opération.',
+    'blog.article.tunesier-algerier-autoknacker-wuerenlos.imageAlt': 'Scène de vol de voiture à Würenlos, Suisse',
 };
 
 export default blogMetaFr;
