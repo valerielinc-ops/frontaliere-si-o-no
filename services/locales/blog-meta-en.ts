@@ -6254,6 +6254,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accesso-dossier-mengele.title': 'Access to Mengele dossier: what changes for cross-border workers',
     'blog.article.accesso-dossier-mengele.excerpt': 'Swiss intelligence services now allow access to the Mengele dossier at the Federal Archives, in accordance with the 2001 decision.',
     'blog.article.accesso-dossier-mengele.imageAlt': 'Panoramic view of Lake Lugano with natural and urban environments in Ticino',
+    'blog.article.tragedia-stazione-bellinzona-frontalieri.title': 'Tragedy at Bellinzona station: victim identified',
+    'blog.article.tragedia-stazione-bellinzona-frontalieri.excerpt': 'The victim of the tragedy at Bellinzona station has been identified: she was 33 years old',
+    'blog.article.tragedia-stazione-bellinzona-frontalieri.imageAlt': 'Bellinzona train station',
 };
 
 export default blogMetaEn;

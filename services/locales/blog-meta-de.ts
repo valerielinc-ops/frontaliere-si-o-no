@@ -6254,6 +6254,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accesso-dossier-mengele.title': 'Zugang zum Mengele-Dossier: Was ändert sich für Grenzgänger',
     'blog.article.accesso-dossier-mengele.excerpt': 'Die Schweizer Geheimdienste ermöglichen jetzt die Einsicht in das Mengele-Dossier im Bundesarchiv, gemäß der Entscheidung von 2001.',
     'blog.article.accesso-dossier-mengele.imageAlt': 'Panoramablick auf den Lago di Lugano mit Natur- und Stadtlandschaften in Ticino',
+    'blog.article.tragedia-stazione-bellinzona-frontalieri.title': 'Tragödie in Bellinzona: Opfer identifiziert',
+    'blog.article.tragedia-stazione-bellinzona-frontalieri.excerpt': 'Das Opfer der Tragödie in Bellinzona wurde identifiziert: Es war 33 Jahre alt',
+    'blog.article.tragedia-stazione-bellinzona-frontalieri.imageAlt': 'Bahnhof Bellinzona',
 };
 
 export default blogMetaDe;

@@ -20135,4 +20135,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tragedia-stazione-bellinzona-frontalieri',
+ category: 'novita',
+ date: '2026-05-06T00:26:13.810Z',
+ image: '/images/blog/tragedia-stazione-bellinzona-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

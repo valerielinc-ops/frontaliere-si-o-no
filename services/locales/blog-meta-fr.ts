@@ -6255,6 +6255,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accesso-dossier-mengele.title': 'Accès au dossier Mengele : ce qui change pour les frontaliers',
     'blog.article.accesso-dossier-mengele.excerpt': 'Les services secrets suisses permettent désormais la consultation du dossier Mengele aux Archives fédérales, conformément à la décision de 2001.',
     'blog.article.accesso-dossier-mengele.imageAlt': 'Vue panoramique du lac de Lugano avec environnements naturels et urbains dans le Tessin',
+    'blog.article.tragedia-stazione-bellinzona-frontalieri.title': 'Tragédie à la gare de Bellinzona: la victime identifiée',
+    'blog.article.tragedia-stazione-bellinzona-frontalieri.excerpt': 'La victime de la tragédie à la gare de Bellinzona a été identifiée: elle avait 33 ans',
+    'blog.article.tragedia-stazione-bellinzona-frontalieri.imageAlt': 'Gare de Bellinzona',
 };
 
 export default blogMetaFr;

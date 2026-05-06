@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2137,
+ "numberOfItems": 2138,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6779,7 +6779,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2134, "name": "Il Salotto accende l'Asilo Ciani a Lugano", "url": `${BASE_URL}/articoli-frontaliere/salotto-ciani-lugano-2026` },
           { "@type": "ListItem", "position": 2135, "name": "Hockey Lugano: nuovi giocatori svedesi per la s...", "url": `${BASE_URL}/articoli-frontaliere/hockey-lugano-nuovi-giocatori-2026` },
           { "@type": "ListItem", "position": 2136, "name": "Tresa: auto si ribalta prima del valico di Forn...", "url": `${BASE_URL}/articoli-frontaliere/incidente-fornasette-2026-ribaltamento-auto` },
-          { "@type": "ListItem", "position": 2137, "name": "Accesso al dossier Mengele: cosa cambia per i f...", "url": `${BASE_URL}/articoli-frontaliere/accesso-dossier-mengele` }
+          { "@type": "ListItem", "position": 2137, "name": "Accesso al dossier Mengele: cosa cambia per i f...", "url": `${BASE_URL}/articoli-frontaliere/accesso-dossier-mengele` },
+          { "@type": "ListItem", "position": 2138, "name": "Tragedia in stazione a Bellinzona: identificata...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-stazione-bellinzona-frontalieri` }
  ]
  },
  {
