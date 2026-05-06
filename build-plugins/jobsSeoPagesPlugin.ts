@@ -3034,7 +3034,14 @@ ${hreflangHtml}
  ].join('\n');
 
  // Apply curated meta overrides so brand-queried SERPs show branded titles.
- if (curatedMetaTitle) title = curatedMetaTitle;
+ // Route through buildTitleWithBrand so the " | Frontaliere Ticino" suffix
+ // baked into employerBrands metaTitle drops automatically when the
+ // headline already exceeds the 66-char audit cap (e.g. EOC entry hits
+ // 72 char with brand → drops to 51 char base).
+ if (curatedMetaTitle) {
+ const stripped = curatedMetaTitle.replace(/\s*\|\s*Frontaliere Ticino\s*$/, '');
+ title = buildTitleWithBrand(stripped);
+ }
  if (curatedMetaDescription) description = curatedMetaDescription;
  } else {
  organizationLd = JSON.stringify(orgLdObj);
@@ -5157,7 +5164,7 @@ ${alternates}
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
  entryJs: hasSpaBundle ? entryJs : undefined,
  entryCss: hasSpaBundle ? entryCss : undefined,
- bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}`,
+ bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true }))}`,
  });
  const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
  activeJobDirs.add(pgCanonicalPath.slice(1).replace(/\/+$/, ''));

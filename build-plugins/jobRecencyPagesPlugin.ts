@@ -44,6 +44,7 @@ import {
   type JobCardListItem,
 } from './shared/jobCardHtml';
 import { renderRecencyHubProse } from './shared/jobListingProse';
+import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { windowDaysForVariant } from './jobRecencyLanding';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
@@ -346,6 +347,23 @@ ${alternates}
       </section>
       ${proseHtml}
       ${faqHtml}
+      ${(() => {
+        const summary = ({
+          it: 'Guida frontalieri: salario, permesso G, fisco, rientro',
+          en: 'Cross-border guide: salary, G permit, tax, weekly return',
+          de: 'Grenzgänger-Leitfaden: Lohn, G-Bewilligung, Steuer, Rückkehr',
+          fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
+        } as Record<JobLandingLocale, string>)[locale];
+        const inner = renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true });
+        return `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
+          <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${summary}</summary>
+          <div style="padding:8px 0 0">
+            <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+              ${inner}
+            </section>
+          </div>
+        </details>`;
+      })()}
     </main>
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
