@@ -3400,6 +3400,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bellinzona-bagno-pubblico-riapre-2026': { name: 'Novità', path: '/articoli-frontaliere/bellinzona-bagno-pubblico-riapre-2026', parent: 'blog' },
     'blog-udc-bilaterali-2026-frontalieri': { name: 'Iniziativa UDC', path: '/articoli-frontaliere/udc-bilaterali-2026-frontalieri', parent: 'blog' },
     'blog-centro-pasture-balerna-asilo': { name: 'Novità', path: '/articoli-frontaliere/centro-pasture-balerna-asilo', parent: 'blog' },
+    'blog-300-persone-pasto-vegetale-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/300-persone-pasto-vegetale-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

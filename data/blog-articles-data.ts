@@ -20792,4 +20792,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: '300-persone-pasto-vegetale-lugano-2026',
+ category: 'novita',
+ date: '2026-05-06T12:57:13.217Z',
+ image: '/images/blog/300-persone-pasto-vegetale-lugano-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

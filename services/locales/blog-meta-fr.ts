@@ -6474,6 +6474,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.centro-pasture-balerna-asilo.title': 'Aucune expérience avec les demandeurs d\'asile à Pasture',
     'blog.article.centro-pasture-balerna-asilo.excerpt': 'La motion Marchesi-Fonio-Gianini demande le consentement du Canton et des Communes pour des projets pilotes de la SEM à Balerna.',
     'blog.article.centro-pasture-balerna-asilo.imageAlt': 'Centre fédéral de Pasture à Balerna, Tessin',
+    'blog.article.300-persone-pasto-vegetale-lugano-2026.title': '300 personnes en file pour un repas végétal à Lugano',
+    'blog.article.300-persone-pasto-vegetale-lugano-2026.excerpt': 'Une initiative de Greenpeace Suisse pour promouvoir une alimentation durable. 300 bols végétaux servis au Campus Est USI-SUPSI.',
+    'blog.article.300-persone-pasto-vegetale-lugano-2026.imageAlt': '300 personnes en file pour un repas végétarien à Lugano',
 };
 
 export default blogMetaFr;

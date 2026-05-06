@@ -6473,6 +6473,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.centro-pasture-balerna-asilo.title': 'No asylum seeker experiments in Pasture',
     'blog.article.centro-pasture-balerna-asilo.excerpt': 'The Marchesi-Fonio-Gianini motion requests Cantonal and Municipal consent for SEM pilot projects in Balerna.',
     'blog.article.centro-pasture-balerna-asilo.imageAlt': 'Pasture federal asylum center in Balerna, Ticino',
+    'blog.article.300-persone-pasto-vegetale-lugano-2026.title': '300 people queue for a vegan meal in Lugano',
+    'blog.article.300-persone-pasto-vegetale-lugano-2026.excerpt': 'A Greenpeace Switzerland initiative to promote sustainable eating. 300 vegan bowls served at the USI-SUPSI East Campus.',
+    'blog.article.300-persone-pasto-vegetale-lugano-2026.imageAlt': '300 people lining up for a vegetarian meal in Lugano',
 };
 
 export default blogMetaEn;
