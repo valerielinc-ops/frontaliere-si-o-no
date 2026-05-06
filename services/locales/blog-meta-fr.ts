@@ -6330,6 +6330,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.negozi-varese-frontalieri-occupazione.title': 'Varèse: 1.602 commerces de proximité perdus en 10 ans, mais l\'emploi augmente',
     'blog.article.negozi-varese-frontalieri-occupazione.excerpt': 'Dans la province de Varèse, entre 2015 et 2025, 1.602 commerces de proximité ont disparu, mais l\'emploi a augmenté de 18,3%.',
     'blog.article.negozi-varese-frontalieri-occupazione.imageAlt': 'Vue aérienne du centre-ville de Varese avec des magasins et des personnes qui marchent',
+    'blog.article.app-guida-ticino-silicon-valley-2026.title': 'Application tessinoise pour la conduite vise la Silicon Valley',
+    'blog.article.app-guida-ticino-silicon-valley-2026.excerpt': 'SteerBudd, l\'application créée par Gioele Cavallo, utilise le GPS et les données d\'apprentissage pour optimiser les leçons de conduite.',
+    'blog.article.app-guida-ticino-silicon-valley-2026.imageAlt': 'Un étudiant à Lugano utilise une application pour s\'entraîner à la conduite avec un mentor, avec le lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaFr;

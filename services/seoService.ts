@@ -3352,6 +3352,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-estate-chiasso-2026-eventi': { name: 'Estate Chiasso', path: '/articoli-frontaliere/estate-chiasso-2026-eventi', parent: 'blog' },
     'blog-petrolio-inflazione-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/petrolio-inflazione-svizzera-2026', parent: 'blog' },
     'blog-negozi-varese-frontalieri-occupazione': { name: 'Novità', path: '/articoli-frontaliere/negozi-varese-frontalieri-occupazione', parent: 'blog' },
+    'blog-app-guida-ticino-silicon-valley-2026': { name: 'Novità', path: '/articoli-frontaliere/app-guida-ticino-silicon-valley-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

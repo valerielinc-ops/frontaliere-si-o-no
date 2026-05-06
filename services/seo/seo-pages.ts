@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2162,
+ "numberOfItems": 2163,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6804,7 +6804,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2159, "name": "Cucina tipica lombarda: passi avanti per il pro...", "url": `${BASE_URL}/articoli-frontaliere/cucina-tipica-lombarda-legge-2026` },
           { "@type": "ListItem", "position": 2160, "name": "Estate 2026 a Chiasso: un evento al giorno", "url": `${BASE_URL}/articoli-frontaliere/estate-chiasso-2026-eventi` },
           { "@type": "ListItem", "position": 2161, "name": "Inflazione Svizzera: balzo a +0,6% per il petrolio", "url": `${BASE_URL}/articoli-frontaliere/petrolio-inflazione-svizzera-2026` },
-          { "@type": "ListItem", "position": 2162, "name": "Varese: 1.602 negozi di vicinato persi in 10 an...", "url": `${BASE_URL}/articoli-frontaliere/negozi-varese-frontalieri-occupazione` }
+          { "@type": "ListItem", "position": 2162, "name": "Varese: 1.602 negozi di vicinato persi in 10 an...", "url": `${BASE_URL}/articoli-frontaliere/negozi-varese-frontalieri-occupazione` },
+          { "@type": "ListItem", "position": 2163, "name": "App ticinese per la guida punta alla Silicon Va...", "url": `${BASE_URL}/articoli-frontaliere/app-guida-ticino-silicon-valley-2026` }
  ]
  },
  {

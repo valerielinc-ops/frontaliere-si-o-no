@@ -6329,6 +6329,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.negozi-varese-frontalieri-occupazione.title': 'Varese: 1,602 neighborhood shops lost in 10 years, but employment grows',
     'blog.article.negozi-varese-frontalieri-occupazione.excerpt': 'In the province of Varese, between 2015 and 2025, 1,602 neighborhood shops were lost, but employment increased by 18.3%.',
     'blog.article.negozi-varese-frontalieri-occupazione.imageAlt': 'Aerial view of Varese city center with shops and people walking',
+    'blog.article.app-guida-ticino-silicon-valley-2026.title': 'Ticino driving app targets Silicon Valley',
+    'blog.article.app-guida-ticino-silicon-valley-2026.excerpt': 'SteerBudd, the app created by Gioele Cavallo, uses GPS and learning data to optimize driving lessons.',
+    'blog.article.app-guida-ticino-silicon-valley-2026.imageAlt': 'A student in Lugano uses an app to practice driving with a mentor, with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

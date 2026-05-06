@@ -20360,4 +20360,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'app-guida-ticino-silicon-valley-2026',
+ category: 'novita',
+ date: '2026-05-06T05:56:08.259Z',
+ image: '/images/blog/app-guida-ticino-silicon-valley-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

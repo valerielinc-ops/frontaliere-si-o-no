@@ -6329,6 +6329,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.negozi-varese-frontalieri-occupazione.title': 'Varese: 1.602 Nahversorger verloren, aber Beschäftigung gestiegen',
     'blog.article.negozi-varese-frontalieri-occupazione.excerpt': 'In der Provinz Varese wurden zwischen 2015 und 2025 1.602 Nahversorger verloren, aber die Beschäftigung stieg um 18,3%.',
     'blog.article.negozi-varese-frontalieri-occupazione.imageAlt': 'Luftaufnahme des Stadtzentrums von Varese mit Geschäften und Menschen, die gehen',
+    'blog.article.app-guida-ticino-silicon-valley-2026.title': 'Ticino-App fürs Fahren zielt auf Silicon Valley',
+    'blog.article.app-guida-ticino-silicon-valley-2026.excerpt': 'SteerBudd, die App von Gioele Cavallo, nutzt GPS und Lern-Daten, um Fahrstunden zu optimieren.',
+    'blog.article.app-guida-ticino-silicon-valley-2026.imageAlt': 'Ein Student in Lugano nutzt eine App, um mit einem Mentor Fahrpraxis zu sammeln, mit dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaDe;

@@ -6330,6 +6330,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.negozi-varese-frontalieri-occupazione.title': 'Varese: 1.602 negozi di vicinato persi in 10 anni, ma cresce l\'occupazione',
     'blog.article.negozi-varese-frontalieri-occupazione.excerpt': 'In provincia di Varese, tra il 2015 e il 2025, sono stati persi 1.602 negozi di vicinato, ma l\'occupazione è aumentata del 18,3%.',
     'blog.article.negozi-varese-frontalieri-occupazione.imageAlt': 'Vista aerea del centro di Varese con negozi e persone che camminano',
+    'blog.article.app-guida-ticino-silicon-valley-2026.title': 'App ticinese per la guida punta alla Silicon Valley',
+    'blog.article.app-guida-ticino-silicon-valley-2026.excerpt': 'SteerBudd, l\'app creata da Gioele Cavallo, usa GPS e dati di apprendimento per ottimizzare le lezioni di guida.',
+    'blog.article.app-guida-ticino-silicon-valley-2026.imageAlt': 'Uno studente a Lugano usa un\'app per esercitarsi alla guida con un mentore, con il Lago di Lugano sullo sfondo.',
 };
 
 export default blogMetaIt;
