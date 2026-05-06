@@ -6545,6 +6545,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lusso-immobiliare-svizzera-2026.title': 'Luxusimmobilien in der Schweiz: Rekordpreise 2026',
     'blog.article.lusso-immobiliare-svizzera-2026.excerpt': 'UBS-Studie: Premium-Immobilien wachsen jährlich um 3%, in den Alpen bis zu 6%. St. Moritz ist am teuersten. Im Tessin stagniert der Markt.',
     'blog.article.lusso-immobiliare-svizzera-2026.imageAlt': 'Luxusimmobilienmarkt in der Schweiz, Villen am Luganersee',
+    'blog.article.chiasso-valore-economico-aggregazione.title': 'Chiasso steigert seinen wirtschaftlichen Wert durch Zusammenlegung',
+    'blog.article.chiasso-valore-economico-aggregazione.excerpt': 'Die außerordentliche Buchungsoperation ergibt ein positives Ergebnis von 23 Millionen Franken, doch das ordentliche bleibt in den roten Zahlen.',
+    'blog.article.chiasso-valore-economico-aggregazione.imageAlt': 'Luftaufnahme von Chiasso, Tessin, Schweiz, mit der modernen Stadtlandschaft und den umliegenden Bergen.',
 };
 
 export default blogMetaDe;

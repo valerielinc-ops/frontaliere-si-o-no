@@ -6545,6 +6545,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lusso-immobiliare-svizzera-2026.title': 'Luxury homes in Switzerland: record prices in 2026',
     'blog.article.lusso-immobiliare-svizzera-2026.excerpt': 'UBS study: high-end real estate growing at 3% annually, with peaks of 6% in the Alps. St. Moritz is the most expensive. Ticino stagnating.',
     'blog.article.lusso-immobiliare-svizzera-2026.imageAlt': 'Luxury real estate market in Switzerland, villas on Lake Lugano',
+    'blog.article.chiasso-valore-economico-aggregazione.title': 'Chiasso revalues with economic aggregation',
+    'blog.article.chiasso-valore-economico-aggregazione.excerpt': 'The extraordinary accounting operation yields a positive result of 23 million, but the ordinary remains in the red.',
+    'blog.article.chiasso-valore-economico-aggregazione.imageAlt': 'Aerial view of Chiasso, Ticino, Switzerland, with the modern cityscape and surrounding mountains.',
 };
 
 export default blogMetaEn;

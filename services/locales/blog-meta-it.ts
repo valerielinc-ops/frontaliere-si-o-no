@@ -6546,6 +6546,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lusso-immobiliare-svizzera-2026.title': 'Case di lusso in Svizzera: prezzi record nel 2026',
     'blog.article.lusso-immobiliare-svizzera-2026.excerpt': 'Studio UBS: immobiliare di pregio in crescita del 3% annuo, con picchi del 6% nelle Alpi. St. Moritz la più cara. Ticino in stagnazione.',
     'blog.article.lusso-immobiliare-svizzera-2026.imageAlt': 'Mercato immobiliare di lusso in Svizzera, ville sul Lago di Lugano',
+    'blog.article.chiasso-valore-economico-aggregazione.title': 'Chiasso rivaluta il suo valore economico con l\'aggregazione',
+    'blog.article.chiasso-valore-economico-aggregazione.excerpt': 'L\'operazione contabile straordinaria restituisce un risultato positivo da 23 milioni, ma l\'ordinario resta nelle cifre rosse.',
+    'blog.article.chiasso-valore-economico-aggregazione.imageAlt': 'Vista aerea di Chiasso, Ticino, Svizzera, con il paesaggio urbano moderno e le montagne circostanti.',
 };
 
 export default blogMetaIt;

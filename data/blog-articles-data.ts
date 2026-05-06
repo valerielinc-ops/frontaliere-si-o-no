@@ -21008,4 +21008,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'chiasso-valore-economico-aggregazione',
+ category: 'novita',
+ date: '2026-05-06T18:02:28.760Z',
+ image: '/images/blog/chiasso-valore-economico-aggregazione.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

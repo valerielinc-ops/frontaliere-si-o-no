@@ -3424,6 +3424,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tuberkulose-caso-saint-maurice-2024': { name: 'Novità', path: '/articoli-frontaliere/tuberkulose-caso-saint-maurice-2024', parent: 'blog' },
     'blog-fondazione-bignasca-aiuti-2026': { name: 'Fondazione Bignasca', path: '/articoli-frontaliere/fondazione-bignasca-aiuti-2026', parent: 'blog' },
     'blog-lusso-immobiliare-svizzera-2026': { name: 'Lusso Immobiliare Svizzera', path: '/articoli-frontaliere/lusso-immobiliare-svizzera-2026', parent: 'blog' },
+    'blog-chiasso-valore-economico-aggregazione': { name: 'Novità', path: '/articoli-frontaliere/chiasso-valore-economico-aggregazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];
