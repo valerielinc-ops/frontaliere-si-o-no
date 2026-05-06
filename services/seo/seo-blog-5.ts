@@ -22762,6 +22762,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-friborgo-hockey-mondiale-2026': {
+    title: 'Friborgo vive di hockey come il Ticino: Mondiale 2026 alla BCF Arena',
+    description: 'Friborgo ospiterà il Mondiale di hockey 2026 alla BCF Arena. John Gobbi: "80mila persone per la festa del titolo del Gottéron". Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, friborgo, vive, hockey, mondiale',
+    ogTitle: 'Friborgo vive di hockey come il Ticino: Mondiale 2026 alla BCF Arena',
+    ogDescription: 'Friborgo ospiterà il Mondiale di hockey 2026 alla BCF Arena. John Gobbi: "80mila persone per la festa del titolo del Gottéron"',
+    canonicalPath: '/articoli-frontaliere/friborgo-hockey-mondiale-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Friborgo vive di hockey come il Ticino: Mondiale 2026 alla BCF Arena",
+      "description": "Friborgo ospiterà il Mondiale di hockey 2026 alla BCF Arena. John Gobbi: \"80mila persone per la festa del titolo del Gottéron\". Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/friborgo-hockey-mondiale-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di hockey alla BCF Arena di Friburgo, Svizzera. Tifosi entusiasti durante una partita internazionale."
+      },
+      "datePublished": "2026-05-06T11:47:06+00:00",
+      "dateModified": "2026-05-06T11:47:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/friborgo-hockey-mondiale-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

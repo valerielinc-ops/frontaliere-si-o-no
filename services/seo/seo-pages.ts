@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2202,
+ "numberOfItems": 2203,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6844,7 +6844,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2199, "name": "Trump valuta limiti alle esportazioni di petrol...", "url": `${BASE_URL}/articoli-frontaliere/trump-export-limits-petrol-2026` },
           { "@type": "ListItem", "position": 2200, "name": "Bagno pubblico di Bellinzona riapre il 9 maggio...", "url": `${BASE_URL}/articoli-frontaliere/riapertura-bagno-bellinzona-2026` },
           { "@type": "ListItem", "position": 2201, "name": "Partita a Cornaredo: blocchi stradali e deviazi...", "url": `${BASE_URL}/articoli-frontaliere/partita-cornaredo-blocchi-stradali-2026` },
-          { "@type": "ListItem", "position": 2202, "name": "Fondi europei in Ticino: FSE, FESR, PNRR e Horizon", "url": `${BASE_URL}/articoli-frontaliere/fondi-europei-ticino-2026` }
+          { "@type": "ListItem", "position": 2202, "name": "Fondi europei in Ticino: FSE, FESR, PNRR e Horizon", "url": `${BASE_URL}/articoli-frontaliere/fondi-europei-ticino-2026` },
+          { "@type": "ListItem", "position": 2203, "name": "Friborgo vive di hockey come il Ticino: Mondial...", "url": `${BASE_URL}/articoli-frontaliere/friborgo-hockey-mondiale-2026` }
  ]
  },
  {

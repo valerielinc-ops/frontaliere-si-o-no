@@ -20720,4 +20720,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'friborgo-hockey-mondiale-2026',
+ category: 'novita',
+ date: '2026-05-06T11:47:06.016Z',
+ image: '/images/blog/friborgo-hockey-mondiale-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

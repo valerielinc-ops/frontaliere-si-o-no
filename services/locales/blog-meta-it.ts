@@ -6450,6 +6450,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fondi-europei-ticino-2026.title': 'Fondi europei in Ticino: FSE, FESR, PNRR e Horizon',
     'blog.article.fondi-europei-ticino-2026.excerpt': 'Scopri come i fondi europei FSE, FESR, PNRR e Horizon finanziano progetti in Ticino e Lombardia, con esempi concreti e opportunità per imprese e cittadini.',
     'blog.article.fondi-europei-ticino-2026.imageAlt': 'Lago di Lugano con montagne sullo sfondo e persone che camminano lungo la riva',
+    'blog.article.friborgo-hockey-mondiale-2026.title': 'Friborgo vive di hockey come il Ticino: Mondiale 2026 alla BCF Arena',
+    'blog.article.friborgo-hockey-mondiale-2026.excerpt': 'Friborgo ospiterà il Mondiale di hockey 2026 con 30 partite del Gruppo B. John Gobbi: "80mila persone per la festa del titolo"',
+    'blog.article.friborgo-hockey-mondiale-2026.imageAlt': 'Partita di hockey alla BCF Arena di Friburgo, Svizzera. Tifosi entusiasti durante una partita internazionale.',
 };
 
 export default blogMetaIt;

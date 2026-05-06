@@ -6449,6 +6449,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fondi-europei-ticino-2026.title': 'Europäische Fonds im Tessin: FSE, FESR, PNRR und Horizon',
     'blog.article.fondi-europei-ticino-2026.excerpt': 'Entdecken Sie, wie die europäischen Fonds FSE, FESR, PNRR und Horizon Projekte im Tessin und in der Lombardei finanzieren, mit konkreten Beispielen und Chancen für Unternehmen und Bürger.',
     'blog.article.fondi-europei-ticino-2026.imageAlt': 'Luganersee mit Bergen im Hintergrund und Menschen, die am Ufer spazieren gehen',
+    'blog.article.friborgo-hockey-mondiale-2026.title': 'Fribourg vit de hockey comme le Tessin: Mondial 2026 à la BCF Arena',
+    'blog.article.friborgo-hockey-mondiale-2026.excerpt': 'Fribourg accueillera le Mondial de hockey 2026 avec 30 matchs du Groupe B. John Gobbi: \'80\'000 personnes pour la fête du titre\'',
+    'blog.article.friborgo-hockey-mondiale-2026.imageAlt': 'Eishockeyspiel in der BCF Arena in Freiburg, Schweiz. Fans jubeln während eines internationalen Spiels.',
 };
 
 export default blogMetaDe;
