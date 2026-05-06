@@ -20558,6 +20558,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-food-truck-festival-locarno-2026': {
+    title: 'Food Truck Festival Locarno 2026: 5\'000 visitatori in Piazza Grande',
+    description: 'Oltre 5\'000 visitatori hanno partecipato all\'8ª edizione del Food Truck Festival Locarno, con street food, concerti gratuiti e tanto sole. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, food, truck, festival, locarno',
+    ogTitle: 'Food Truck Festival Locarno 2026: 5\'000 visitatori in Piazza Grande',
+    ogDescription: 'Oltre 5\'000 visitatori hanno partecipato all\'8ª edizione del Food Truck Festival Locarno, con street food, concerti gratuiti e tanto sole.',
+    canonicalPath: '/articoli-frontaliere/food-truck-festival-locarno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Food Truck Festival Locarno 2026: 5'000 visitatori in Piazza Grande",
+      "description": "Oltre 5'000 visitatori hanno partecipato all'8ª edizione del Food Truck Festival Locarno, con street food, concerti gratuiti e tanto sole. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/food-truck-festival-locarno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Food Truck Festival Locarno, Piazza Grande, gente che gusta street food e musica dal vivo"
+      },
+      "datePublished": "2026-05-06T01:26:12+00:00",
+      "dateModified": "2026-05-06T01:26:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/food-truck-festival-locarno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

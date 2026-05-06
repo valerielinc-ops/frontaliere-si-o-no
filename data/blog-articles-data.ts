@@ -20198,4 +20198,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'food-truck-festival-locarno-2026',
+ category: 'novita',
+ date: '2026-05-06T01:26:12.420Z',
+ image: '/images/blog/food-truck-festival-locarno-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

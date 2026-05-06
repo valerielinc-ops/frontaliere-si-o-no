@@ -6275,6 +6275,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.morto-rene-groebli-fotografo-98-anni.title': 'Internationale Fotograf René Groebli gestorben',
     'blog.article.morto-rene-groebli-fotografo-98-anni.excerpt': 'Der Zürcher Fotograf René Groebli ist im Alter von 98 Jahren verstorben. Er war ein Innovator der Kriegsfotografie und schuf berühmte Foto-Serien.',
     'blog.article.morto-rene-groebli-fotografo-98-anni.imageAlt': 'Luftaufnahme von Lugano mit dem See und der Stadt im Hintergrund',
+    'blog.article.food-truck-festival-locarno-2026.title': 'Food Truck Festival Locarno 2026: 5\'000 Besucher auf der Piazza Grande',
+    'blog.article.food-truck-festival-locarno-2026.excerpt': 'Über 5\'000 Besucher nahmen am 8. Food Truck Festival Locarno teil, mit Street Food, kostenlosen Konzerten und viel Sonne.',
+    'blog.article.food-truck-festival-locarno-2026.imageAlt': 'Locarno Food Truck Festival, Piazza Grande, Menschen genießen Street Food und Live-Musik',
 };
 
 export default blogMetaDe;

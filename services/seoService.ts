@@ -3334,6 +3334,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dipendenti-cantonali-soddisfazione-2026': { name: 'Dipendenti cantonali', path: '/articoli-frontaliere/dipendenti-cantonali-soddisfazione-2026', parent: 'blog' },
     'blog-casse-malati-ticino-leghista-socialista': { name: 'Casse malati Ticino', path: '/articoli-frontaliere/casse-malati-ticino-leghista-socialista', parent: 'blog' },
     'blog-morto-rene-groebli-fotografo-98-anni': { name: 'Novità', path: '/articoli-frontaliere/morto-rene-groebli-fotografo-98-anni', parent: 'blog' },
+    'blog-food-truck-festival-locarno-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/food-truck-festival-locarno-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
