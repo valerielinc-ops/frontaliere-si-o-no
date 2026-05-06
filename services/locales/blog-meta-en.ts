@@ -6440,6 +6440,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trump-export-limits-petrol-2026.title': 'Trump considers limiting US oil exports',
     'blog.article.trump-export-limits-petrol-2026.excerpt': 'Fuel prices in the US have risen by 50% since the start of the war in Iran, opening the possibility of limiting exports.',
     'blog.article.trump-export-limits-petrol-2026.imageAlt': 'A gas station in Ticino with a sign showing rising petrol prices, set against the backdrop of the Swiss Alps.',
+    'blog.article.riapertura-bagno-bellinzona-2026.title': 'Bellinzona public pool reopens May 9, 2026',
+    'blog.article.riapertura-bagno-bellinzona-2026.excerpt': '2026 season news: online payment, renewed catering and updated hours. Rates unchanged after the 20% increase in 2025',
+    'blog.article.riapertura-bagno-bellinzona-2026.imageAlt': 'Bellinzona public baths reopening in May 2026',
 };
 
 export default blogMetaEn;

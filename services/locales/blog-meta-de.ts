@@ -6440,6 +6440,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trump-export-limits-petrol-2026.title': 'Trump erwägt Exportbeschränkungen für US-Öl',
     'blog.article.trump-export-limits-petrol-2026.excerpt': 'Die Kraftstoffpreise in den USA sind seit Beginn des Iran-Krieges um 50% gestiegen, was die Möglichkeit eröffnet, die Exporte zu begrenzen.',
     'blog.article.trump-export-limits-petrol-2026.imageAlt': 'Eine Tankstelle in Tessin mit einem Schild, das steigende Benzinpreise anzeigt, vor dem Hintergrund der Schweizer Alpen.',
+    'blog.article.riapertura-bagno-bellinzona-2026.title': 'Öffentliches Bad Bellinzona öffnet am 9. Mai 2026',
+    'blog.article.riapertura-bagno-bellinzona-2026.excerpt': 'Neuheiten für die Saison 2026: Online-Bezahlung, erneuerte Gastronomie und aktualisierte Öffnungszeiten. Die Preise bleiben nach der Erhöhung von 20% im Jahr 2025 unverändert.',
+    'blog.article.riapertura-bagno-bellinzona-2026.imageAlt': 'Öffentliches Bad in Bellinzona eröffnet im Mai 2026',
 };
 
 export default blogMetaDe;

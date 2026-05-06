@@ -6441,6 +6441,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trump-export-limits-petrol-2026.title': 'Trump valuta limiti alle esportazioni di petrolio USA',
     'blog.article.trump-export-limits-petrol-2026.excerpt': 'I prezzi dei carburanti negli USA sono aumentati del 50% da inizio guerra in Iran, aprendo alla possibilità di limitare le esportazioni.',
     'blog.article.trump-export-limits-petrol-2026.imageAlt': 'Una stazione di servizio in Ticino con un cartello che mostra i prezzi del petrolio in aumento, sullo sfondo delle Alpi svizzere.',
+    'blog.article.riapertura-bagno-bellinzona-2026.title': 'Bagno pubblico di Bellinzona riapre il 9 maggio 2026',
+    'blog.article.riapertura-bagno-bellinzona-2026.excerpt': 'Novità per la stagione 2026: pagamento online, ristorazione rinnovata e orari aggiornati. Tariffe invariate dopo l\'aumento del 20% del 2025',
+    'blog.article.riapertura-bagno-bellinzona-2026.imageAlt': 'Bagno pubblico di Bellinzona riapre nel maggio 2026',
 };
 
 export default blogMetaIt;
