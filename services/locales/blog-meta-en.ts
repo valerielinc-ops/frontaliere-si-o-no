@@ -6422,6 +6422,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.g7-evian-controlli-frontiere-ticino.title': 'G7 in Evian: stricter border checks with France',
     'blog.article.g7-evian-controlli-frontiere-ticino.excerpt': 'From June 10 to 19, enhanced checks at crossings with France for the G7 summit in Evian-les-Bains',
     'blog.article.g7-evian-controlli-frontiere-ticino.imageAlt': 'Lake Lugano shoreline with Swiss and Italian flags, G7 security measures visible in the background',
+    'blog.article.menaggio-test-automobilisti-guai.title': 'Menaggio says no to tests: six drivers in trouble',
+    'blog.article.menaggio-test-automobilisti-guai.excerpt': 'Six drivers ended up in trouble for refusing tests in Menaggio, near the border with Ticino.',
+    'blog.article.menaggio-test-automobilisti-guai.imageAlt': 'A car inspection station near the Swiss-Italian border with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

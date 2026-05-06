@@ -20639,4 +20639,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'menaggio-test-automobilisti-guai',
+ category: 'pratico',
+ date: '2026-05-06T10:37:23.021Z',
+ image: '/images/blog/menaggio-test-automobilisti-guai.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

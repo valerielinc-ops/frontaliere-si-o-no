@@ -22420,6 +22420,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-menaggio-test-automobilisti-guai': {
+    title: 'Menaggio dice no ai test: sei automobilisti nei guai',
+    description: 'Sei automobilisti nei guai per rifiuto test a Menaggio, vicino al confine con il Ticino. Implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, menaggio, dice, test, automobilisti',
+    ogTitle: 'Menaggio dice no ai test: sei automobilisti nei guai',
+    ogDescription: 'Sei automobilisti nei guai per rifiuto test a Menaggio, vicino al confine con il Ticino. Implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/menaggio-test-automobilisti-guai',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Menaggio dice no ai test: sei automobilisti nei guai",
+      "description": "Sei automobilisti nei guai per rifiuto test a Menaggio, vicino al confine con il Ticino. Implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/menaggio-test-automobilisti-guai.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una stazione di controllo automobilistico vicino al confine italo-svizzero con il Lago di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-05-06T10:37:23+00:00",
+      "dateModified": "2026-05-06T10:37:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/menaggio-test-automobilisti-guai`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

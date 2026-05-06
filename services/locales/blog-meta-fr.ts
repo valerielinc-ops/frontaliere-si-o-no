@@ -6423,6 +6423,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.g7-evian-controlli-frontiere-ticino.title': 'G7 à Evian: contrôles renforcés aux frontières',
     'blog.article.g7-evian-controlli-frontiere-ticino.excerpt': 'Du 10 au 19 juin, contrôles renforcés aux postes frontaliers avec la France pour le sommet du G7 à Evian-les-Bains',
     'blog.article.g7-evian-controlli-frontiere-ticino.imageAlt': 'Rive du lac de Lugano avec drapeaux suisses et italiens, mesures de sécurité du G7 visibles en arrière-plan',
+    'blog.article.menaggio-test-automobilisti-guai.title': 'Menaggio refuse les tests : six automobilistes en difficulté',
+    'blog.article.menaggio-test-automobilisti-guai.excerpt': 'Six automobilistes ont eu des problèmes pour avoir refusé les tests à Menaggio, près de la frontière avec le Ticino.',
+    'blog.article.menaggio-test-automobilisti-guai.imageAlt': 'Un poste de contrôle automobile près de la frontière suisse-italienne avec le lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaFr;
