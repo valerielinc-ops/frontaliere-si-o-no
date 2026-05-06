@@ -6486,6 +6486,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-300-uscite-volontarie-2026.title': 'Swiss elimina 300 posti di lavoro con uscite volontarie',
     'blog.article.swiss-300-uscite-volontarie-2026.excerpt': 'La compagnia aerea offre incentivi per ridurre il personale di cabina senza licenziamenti',
     'blog.article.swiss-300-uscite-volontarie-2026.imageAlt': 'Vista aerea del Lago di Lugano con le rive svizzere e italiane, cielo azzurro limpido',
+    'blog.article.parmelin-stop-fatture-mediche-crans-montana.title': 'Parmelin conferma: stop alle fatture mediche per le vittime di Crans-Montana',
+    'blog.article.parmelin-stop-fatture-mediche-crans-montana.excerpt': 'Il presidente svizzero Guy Parmelin ha ribadito che non saranno più inviate fatture per le spese sanitarie ai familiari delle vittime dell\'incendio di Capodanno a Crans-Montana.',
+    'blog.article.parmelin-stop-fatture-mediche-crans-montana.imageAlt': 'Crans-Montana, Svizzera, paesaggio invernale',
 };
 
 export default blogMetaIt;

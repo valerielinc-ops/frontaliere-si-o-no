@@ -20828,4 +20828,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'parmelin-stop-fatture-mediche-crans-montana',
+ category: 'novita',
+ date: '2026-05-06T13:22:18.080Z',
+ image: '/images/blog/parmelin-stop-fatture-mediche-crans-montana.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

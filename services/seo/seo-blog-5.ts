@@ -23218,6 +23218,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parmelin-stop-fatture-mediche-crans-montana': {
+    title: 'Parmelin conferma: stop alle fatture mediche per le vittime di Crans-Montana',
+    description: 'Il presidente svizzero Guy Parmelin ha ribadito che non saranno più inviate fatture per le spese sanitarie ai familiari delle vittime dell\'incendio di Capodanno',
+    keywords: 'frontalieri, ticino, svizzera, italia, parmelin, conferma, stop, alle',
+    ogTitle: 'Parmelin conferma stop alle fatture mediche per le vittime di Crans-Montana',
+    ogDescription: 'Il presidente svizzero Guy Parmelin ha ribadito che non saranno più inviate fatture per le spese sanitarie ai familiari delle vittime dell\'incendio di Capodanno',
+    canonicalPath: '/articoli-frontaliere/parmelin-stop-fatture-mediche-crans-montana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parmelin conferma: stop alle fatture mediche per le vittime di Crans-Montana",
+      "description": "Il presidente svizzero Guy Parmelin ha ribadito che non saranno più inviate fatture per le spese sanitarie ai familiari delle vittime dell'incendio di Capodanno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/parmelin-stop-fatture-mediche-crans-montana.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Crans-Montana, Svizzera, paesaggio invernale"
+      },
+      "datePublished": "2026-05-06T13:22:18+00:00",
+      "dateModified": "2026-05-06T13:22:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parmelin-stop-fatture-mediche-crans-montana`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

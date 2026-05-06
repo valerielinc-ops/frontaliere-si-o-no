@@ -3404,6 +3404,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-treno-multa-20000-franchi': { name: 'Novità', path: '/articoli-frontaliere/svizzera-treno-multa-20000-franchi', parent: 'blog' },
     'blog-decreto-lavoro-coldiretti-varese-2026': { name: 'Decreto Lavoro', path: '/articoli-frontaliere/decreto-lavoro-coldiretti-varese-2026', parent: 'blog' },
     'blog-swiss-300-uscite-volontarie-2026': { name: 'Novità', path: '/articoli-frontaliere/swiss-300-uscite-volontarie-2026', parent: 'blog' },
+    'blog-parmelin-stop-fatture-mediche-crans-montana': { name: 'Novità', path: '/articoli-frontaliere/parmelin-stop-fatture-mediche-crans-montana', parent: 'blog' },
  };
 
  const info = sectionNames[section];

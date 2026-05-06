@@ -6485,6 +6485,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swiss-300-uscite-volontarie-2026.title': 'Swiss streicht 300 Jobs durch freiwillige Kündigungen',
     'blog.article.swiss-300-uscite-volontarie-2026.excerpt': 'Die Fluggesellschaft bietet Anreize, um das Kabinenpersonal ohne Entlassungen zu reduzieren',
     'blog.article.swiss-300-uscite-volontarie-2026.imageAlt': 'Luftaufnahme des Luganersees mit Schweizer und italienischen Ufern, klarer blauer Himmel',
+    'blog.article.parmelin-stop-fatture-mediche-crans-montana.title': 'Parmelin bestätigt: Keine Rechnungen für Crans-Montana-Opfer',
+    'blog.article.parmelin-stop-fatture-mediche-crans-montana.excerpt': 'Der Schweizer Präsident Guy Parmelin hat bestätigt, dass den Angehörigen der Opfer des Silvesterbrands in Crans-Montana keine Rechnungen für die Gesundheitskosten mehr zugestellt werden.',
+    'blog.article.parmelin-stop-fatture-mediche-crans-montana.imageAlt': 'Crans-Montana, Schweiz, Winterlandschaft',
 };
 
 export default blogMetaDe;
