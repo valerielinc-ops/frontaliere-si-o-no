@@ -6468,6 +6468,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-bagno-pubblico-riapre-2026.title': 'Bellinzona: riapre il Bagno Pubblico con nuove attrazioni',
     'blog.article.bellinzona-bagno-pubblico-riapre-2026.excerpt': 'Il Bagno Pubblico di Bellinzona riapre il 9 maggio con pagamento online, nuovo ristorante e intrattenimento. Orari e tariffe aggiornate.',
     'blog.article.bellinzona-bagno-pubblico-riapre-2026.imageAlt': 'Vista aerea del Bagno Pubblico di Bellinzona in una giornata di sole',
+    'blog.article.udc-bilaterali-2026-frontalieri.title': 'NO all\'iniziativa UDC che minaccia gli accordi bilaterali con l\'UE',
+    'blog.article.udc-bilaterali-2026-frontalieri.excerpt': 'Il 14 giugno gli svizzeri votano sull\'iniziativa UDC che potrebbe isolare la Svizzera e colpire i diritti dei frontalieri',
+    'blog.article.udc-bilaterali-2026-frontalieri.imageAlt': 'Lago di Lugano con edifici moderni e lavoratori frontalieri in transito',
 };
 
 export default blogMetaIt;

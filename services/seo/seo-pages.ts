@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2208,
+ "numberOfItems": 2209,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6850,7 +6850,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2205, "name": "Losanna introduce parcheggi sicuri per e-bike", "url": `${BASE_URL}/articoli-frontaliere/e-bike-parcheggi-sicuri-losanna-2026` },
           { "@type": "ListItem", "position": 2206, "name": "Furti in serie in auto: arrestato un 40enne del...", "url": `${BASE_URL}/articoli-frontaliere/furti-serie-automobili-luganese-arrestato` },
           { "@type": "ListItem", "position": 2207, "name": "Como, taccheggio al supermercato si trasforma i...", "url": `${BASE_URL}/articoli-frontaliere/como-taccheggio-rapina-doppio-arresto` },
-          { "@type": "ListItem", "position": 2208, "name": "Bellinzona: riapre il Bagno Pubblico con nuove ...", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-bagno-pubblico-riapre-2026` }
+          { "@type": "ListItem", "position": 2208, "name": "Bellinzona: riapre il Bagno Pubblico con nuove ...", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-bagno-pubblico-riapre-2026` },
+          { "@type": "ListItem", "position": 2209, "name": "NO all'iniziativa UDC che minaccia gli accordi ...", "url": `${BASE_URL}/articoli-frontaliere/udc-bilaterali-2026-frontalieri` }
  ]
  },
  {
