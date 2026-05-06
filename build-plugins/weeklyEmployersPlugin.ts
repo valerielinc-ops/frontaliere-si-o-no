@@ -1619,6 +1619,14 @@ export interface WeeklyEmployersPageInputs {
    * the city hub it belongs to. Empty array (or omit) disables the section.
    */
   cityLeaves?: ReadonlyArray<{ companySlug: string; employer: string }>;
+  /**
+   * All past-week archive entries available across snapshots, sorted newest
+   * first. When supplied, the page emits a flat `<a>` list reaching every
+   * `settimana-NN-YYYY` page at BFS depth ≤ 3 from the locale top hub.
+   * Required to keep the `audit:max-bfs-depth` ratchet flat on
+   * `sitemap-weekly-employers.xml`. Empty array (or omit) disables the section.
+   */
+  availableArchives?: ReadonlyArray<{ weekNum: number; year: number }>;
 }
 
 // ── Top hub + cross-locale linking helpers (orphan-graph closure) ─────────
@@ -1648,6 +1656,10 @@ const LINKING_COPY: Record<
     localeSwitchTitle: string;
     parentHubLabel: string;
     localeLabels: Record<WeeklyEmployersLocale, string>;
+    /** H2 for the per-city archive list block (links every past week page). */
+    archiveListTitle: (city: string) => string;
+    /** Anchor label for a single archive entry, e.g. "Settimana 15 · 2026". */
+    archiveItemLabel: (weekNum: number, year: number) => string;
   }
 > = {
   it: {
@@ -1658,6 +1670,8 @@ const LINKING_COPY: Record<
     localeSwitchTitle: 'Disponibile anche in',
     parentHubLabel: 'Tutte le città — aziende che assumono',
     localeLabels: { it: 'Italiano', en: 'English', de: 'Deutsch', fr: 'Français' },
+    archiveListTitle: (c) => `Archivio settimanale — ${c}`,
+    archiveItemLabel: (w, y) => `Settimana ${String(w).padStart(2, '0')} · ${y}`,
   },
   en: {
     topHubTitle: 'Companies hiring in Ticino',
@@ -1667,6 +1681,8 @@ const LINKING_COPY: Record<
     localeSwitchTitle: 'Also available in',
     parentHubLabel: 'All cities — companies hiring',
     localeLabels: { it: 'Italiano', en: 'English', de: 'Deutsch', fr: 'Français' },
+    archiveListTitle: (c) => `Weekly archive — ${c}`,
+    archiveItemLabel: (w, y) => `Week ${String(w).padStart(2, '0')} · ${y}`,
   },
   de: {
     topHubTitle: 'Unternehmen, die im Tessin einstellen',
@@ -1676,6 +1692,8 @@ const LINKING_COPY: Record<
     localeSwitchTitle: 'Auch verfügbar in',
     parentHubLabel: 'Alle Städte — einstellende Unternehmen',
     localeLabels: { it: 'Italiano', en: 'English', de: 'Deutsch', fr: 'Français' },
+    archiveListTitle: (c) => `Wöchentliches Archiv — ${c}`,
+    archiveItemLabel: (w, y) => `Woche ${String(w).padStart(2, '0')} · ${y}`,
   },
   fr: {
     topHubTitle: 'Entreprises qui recrutent au Tessin',
@@ -1685,6 +1703,8 @@ const LINKING_COPY: Record<
     localeSwitchTitle: 'Disponible aussi en',
     parentHubLabel: 'Toutes les villes — entreprises qui recrutent',
     localeLabels: { it: 'Italiano', en: 'English', de: 'Deutsch', fr: 'Français' },
+    archiveListTitle: (c) => `Archive hebdomadaire — ${c}`,
+    archiveItemLabel: (w, y) => `Semaine ${String(w).padStart(2, '0')} · ${y}`,
   },
 };
 
@@ -1708,6 +1728,42 @@ function renderCityHubsListBlock(
   return `<section style="margin:0 0 28px" aria-labelledby="weCityHubs">
     <h2 id="weCityHubs" style="${H2_STYLE}">${esc(t.cityHubsTitle)}</h2>
     <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:4px 16px">${items}</ul>
+  </section>`;
+}
+
+/**
+ * Renders a `<section>` with one `<a>` per past archive week for the given
+ * (locale, city). Without this, BFS from `/` only reaches the *current-week*
+ * page (depth 2 from the locale top hub) and the per-employer leaves; the
+ * `settimana-NN-YYYY` archive pages end up at depth ≥ 5 — flagged by the
+ * `audit:max-bfs-depth` ratchet on `sitemap-weekly-employers.xml`.
+ *
+ * Self-link suppression: if `currentWeek` is provided, that entry is skipped
+ * so an archive page does not link to itself.
+ */
+function renderWeeklyArchiveListBlock(
+  locale: WeeklyEmployersLocale,
+  city: WeeklyEmployersCity,
+  archives: ReadonlyArray<{ weekNum: number; year: number }>,
+  currentWeek?: { weekNum: number; year: number },
+): string {
+  if (archives.length === 0) return '';
+  const t = LINKING_COPY[locale];
+  const cityDisplay = WEEKLY_EMPLOYERS_CITY_DISPLAY[city];
+  const filtered = currentWeek
+    ? archives.filter((a) => !(a.weekNum === currentWeek.weekNum && a.year === currentWeek.year))
+    : archives;
+  if (filtered.length === 0) return '';
+  const items = filtered
+    .map((a) => {
+      const href = buildArchiveWeekPath(locale, city, a.weekNum, a.year);
+      const label = t.archiveItemLabel(a.weekNum, a.year);
+      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE}">${esc(label)}</a></li>`;
+    })
+    .join('');
+  return `<section style="margin:0 0 28px" aria-labelledby="weArchives">
+    <h2 id="weArchives" style="${H2_STYLE}">${esc(t.archiveListTitle(cityDisplay))}</h2>
+    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:4px 16px">${items}</ul>
   </section>`;
 }
 
@@ -2352,6 +2408,12 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   ${renderWeeklyEmployersFrontalierContext({ locale, cityDisplay, isRegional, jobsCount, companiesCount })}
   ${renderCompanyLeavesForCityBlock(locale, city, cityLeaves ?? [])}
   ${renderCityHubsListBlock(locale, city)}
+  ${renderWeeklyArchiveListBlock(
+    locale,
+    city,
+    inp.availableArchives ?? [],
+    variant === 'archive' ? { weekNum, year } : undefined,
+  )}
   ${renderLocaleSwitcherBlock(locale, (alt) => (variant === 'current' ? buildCurrentWeekPath(alt, city) : buildArchiveWeekPath(alt, city, weekNum, year)))}
   <section style="margin:0 0 28px" aria-labelledby="relatedLinks">
     <h2 id="relatedLinks" style="${H2_STYLE}">${esc(copy.relatedLinksTitle)}</h2>
@@ -3033,6 +3095,25 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   const olderSnapshots = opts.snapshots.slice(0, Math.max(0, opts.snapshots.length - 1));
   const hasHistoricalDelta = opts.snapshots.length >= 2;
 
+  // Enumerate every past archive week (excluding the current ISO week) so
+  // each city hub renders one flat <a> per `settimana-NN-YYYY` page. Without
+  // this list, BFS from `/` only reaches archive pages via per-employer
+  // leaves (depth ≥ 5) and the `audit:max-bfs-depth` ratchet on
+  // sitemap-weekly-employers.xml regresses every time a new ISO week rolls
+  // in (run 25415108203: 151 vs baseline 148, all newly-rolled
+  // `settimana-18-2026/<city>` URLs).
+  const availableArchives = opts.snapshots
+    .map((snap) => {
+      const m = /^(\d{4})-(\d{2})$/.exec(snap.week);
+      if (!m) return null;
+      const year = Number.parseInt(m[1], 10);
+      const weekNum = Number.parseInt(m[2], 10);
+      if (year === currentYear && weekNum === currentWeek) return null;
+      return { weekNum, year };
+    })
+    .filter((x): x is { weekNum: number; year: number } => x !== null)
+    .sort((a, b) => (a.year !== b.year ? b.year - a.year : b.weekNum - a.weekNum));
+
   const pages: GeneratedPage[] = [];
 
   // Pre-compute per (locale × city) and per (city × employerKey) job
@@ -3114,6 +3195,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         knownSlugs,
         rootDir: opts.rootDir,
         cityLeaves,
+        availableArchives,
       });
       pages.push({ path: canonicalPath, html, indexable: true });
       __weProfRecord('render-current-week', __tCur);
@@ -3189,6 +3271,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
             distDir,
             knownSlugs,
             rootDir: opts.rootDir,
+            availableArchives,
           });
           pages.push({ path: canonicalPath, html, indexable });
           __weProfRecord('render-archive-week', __tArc);
