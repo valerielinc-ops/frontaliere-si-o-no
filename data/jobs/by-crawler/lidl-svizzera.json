@@ -1,10 +1,10 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-05-06T11:16:16.211Z",
+  "assembledAt": "2026-05-06T22:16:57.300Z",
   "jobs": [
     {
       "id": "company-xsgjt1",
-      "slug": "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno-xsgjt1",
+      "slug": "268-venditore-sellere-con-responsabilita-del-turno-m-e-d-60-80-lidl-svizzera-cadenazzo",
       "company": "Lidl Svizzera",
       "title": "268_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
       "location": "Locarno",
@@ -30,10 +30,10 @@
       "crawledAt": "2026-05-06T11:16:15.873Z",
       "firstSeenAt": "2026-05-06T11:16:15.873Z",
       "slugByLocale": {
-        "it": "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno-xsgjt1",
+        "it": "268-venditore-sellere-con-responsabilita-del-turno-m-e-d-60-80-lidl-svizzera-cadenazzo",
         "en": "salesperson-with-shift-responsibility-m-f-d-60-80-lidl-svizzera-locarno",
         "de": "verkaufer-in-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-locarno",
-        "fr": "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno-xsgjt1"
+        "fr": "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-cadenazzo"
       },
       "titleByLocale": {
         "fr": "268_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
@@ -74,11 +74,23 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno-xsgjt1"
+        ],
+        "fr": [
+          "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno-xsgjt1"
+        ]
+      },
+      "previousSlugs": [
+        "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno-xsgjt1"
+      ]
     },
     {
       "id": "company-xsgkhv",
-      "slug": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
+      "slug": "343-venditore-venditrice-m-f-d-20-40-lidl-svizzera-cadenazzo",
       "company": "Lidl Svizzera",
       "title": "343_Venditore / Venditrice (m/f/d) 20-40%",
       "location": "Minusio",
@@ -104,15 +116,15 @@
       "crawledAt": "2026-05-06T11:16:15.873Z",
       "firstSeenAt": "2026-05-06T11:16:15.873Z",
       "slugByLocale": {
-        "it": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
-        "en": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
+        "it": "343-venditore-venditrice-m-f-d-20-40-lidl-svizzera-cadenazzo",
+        "en": "343-venditore-venditrice-m-f-d-20-40-lidl-svizzera-cadenazzo",
         "de": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
-        "fr": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv"
+        "fr": "343-venditeur-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv"
       },
       "titleByLocale": {
         "en": "343_Venditore / Venditrice (m/f/d) 20-40%",
         "it": "343 Venditore / Venditrice (m/f/d) 20-40%",
-        "de": "343 Venditore / Venditrice (m/f/d) 20-40%",
+        "de": "343_Venditore / Venditrice (m/f/d) 20-40%",
         "fr": "343 Venditeur / Venditrice (m/f/d) 20-40%"
       },
       "descriptionByLocale": {
@@ -148,7 +160,19 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv"
+        ],
+        "en": [
+          "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv"
+        ]
+      }
     },
     {
       "id": "company-alqha9",
@@ -316,7 +340,8 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-tyv50x",
@@ -436,7 +461,8 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
-      "qualityScore": 97
+      "qualityScore": 97,
+      "needsRetranslation": true
     },
     {
       "id": "company-3t5gz5",
@@ -550,7 +576,8 @@
         "apprentissage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-biasca"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
-      "qualityScore": 97
+      "qualityScore": 97,
+      "needsRetranslation": true
     },
     {
       "id": "company-kscbfg",
@@ -663,7 +690,8 @@
         "retail-trainee-program-cfp-or-afc-start-2026-lidl-svizzera-locarno",
         "einzelhandelslehre-cfp-oder-afc-start-2026-lidl-svizzera-locarno",
         "retail-apprentice-cfp-or-afc-start-2026-lidl-svizzera-locarno"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-zdpsyo",
@@ -767,7 +795,8 @@
         "einzelhandelslehre-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione",
         "retail-apprentice-cfp-or-afc-start-2026-lidl-svizzera-arbedo-castione",
         "apprenti-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-arbedo-castione"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-ethzl9",
@@ -884,7 +913,8 @@
         "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-lidl-svizzera-lugano"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
-      "qualityScore": 97
+      "qualityScore": 97,
+      "needsRetranslation": true
     },
     {
       "id": "company-kp8dxh",
@@ -1005,7 +1035,8 @@
         "apprenti-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
-      "qualityScore": 97
+      "qualityScore": 97,
+      "needsRetranslation": true
     },
     {
       "id": "company-7p9uz6",
