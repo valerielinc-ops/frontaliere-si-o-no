@@ -6401,6 +6401,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fnma-recruiting-day-saronno-2026.title': 'FNMA seeks drivers and mechanics: meet on May 12 in Saronno',
     'blog.article.fnma-recruiting-day-saronno-2026.excerpt': 'FNMA organizes a Recruiting Day in Saronno on May 12 to hire drivers and mechanics. Direct interviews and company presentation.',
     'blog.article.fnma-recruiting-day-saronno-2026.imageAlt': 'FNMA recruitment event at Villa Gianetti, Saronno',
+    'blog.article.sportello-energetico-verbano-2026.title': 'Free energy advice for Verbano Valley residents',
+    'blog.article.sportello-energetico-verbano-2026.excerpt': 'Bill savings, incentives, and renewables: researchers from the University of Insubria are available to help make your home more efficient',
+    'blog.article.sportello-energetico-verbano-2026.imageAlt': 'A modern energy consultation office with a consultant explaining energy-saving measures to a client, with a view of Lake Lugano in the background',
 };
 
 export default blogMetaEn;
