@@ -14,7 +14,7 @@ on:
   workflow_call:
     inputs:
       deploy_run_id:
-        description: 'Run ID of the calling deploy workflow run (= ${{ github.run_id }} in the caller).'
+        description: 'Run ID of the calling deploy workflow run (pass github.run_id from the caller).'
         required: true
         type: string
       deploy_event_name:
