@@ -6261,6 +6261,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pompieri-lugano-24-ore-2026.title': 'Pompieri Lugano operativi 24/7: record interventi 2025',
     'blog.article.pompieri-lugano-24-ore-2026.excerpt': 'Record di interventi per i pompieri di Lugano nel 2025. Operatività 24 ore su 24 dal 2026.',
     'blog.article.pompieri-lugano-24-ore-2026.imageAlt': 'Panorama di Lugano con il Lago e le montagne',
+    'blog.article.nathan-borradori-ambri-2030.title': 'Nathan Borradori, rinnovo con l\'Ambrì Piotta fino al 2030',
+    'blog.article.nathan-borradori-ambri-2030.excerpt': 'L\'attaccante classe 2006 resterà in biancoblù fino al termine della stagione 2029/30 con opzione per un ulteriore anno',
+    'blog.article.nathan-borradori-ambri-2030.imageAlt': 'Partita di hockey alla Gottardo Arena, giocatori dell\'Ambrì-Piotta in azione',
 };
 
 export default blogMetaIt;

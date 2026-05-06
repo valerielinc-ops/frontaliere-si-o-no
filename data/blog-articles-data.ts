@@ -20153,4 +20153,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nathan-borradori-ambri-2030',
+ category: 'novita',
+ date: '2026-05-06T00:48:37.515Z',
+ image: '/images/blog/nathan-borradori-ambri-2030.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

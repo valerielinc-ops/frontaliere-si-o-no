@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2139,
+ "numberOfItems": 2140,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6781,7 +6781,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2136, "name": "Tresa: auto si ribalta prima del valico di Forn...", "url": `${BASE_URL}/articoli-frontaliere/incidente-fornasette-2026-ribaltamento-auto` },
           { "@type": "ListItem", "position": 2137, "name": "Accesso al dossier Mengele: cosa cambia per i f...", "url": `${BASE_URL}/articoli-frontaliere/accesso-dossier-mengele` },
           { "@type": "ListItem", "position": 2138, "name": "Tragedia in stazione a Bellinzona: identificata...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-stazione-bellinzona-frontalieri` },
-          { "@type": "ListItem", "position": 2139, "name": "Pompieri Lugano operativi 24/7: record interven...", "url": `${BASE_URL}/articoli-frontaliere/pompieri-lugano-24-ore-2026` }
+          { "@type": "ListItem", "position": 2139, "name": "Pompieri Lugano operativi 24/7: record interven...", "url": `${BASE_URL}/articoli-frontaliere/pompieri-lugano-24-ore-2026` },
+          { "@type": "ListItem", "position": 2140, "name": "Nathan Borradori, rinnovo con l'Ambrì Piotta fi...", "url": `${BASE_URL}/articoli-frontaliere/nathan-borradori-ambri-2030` }
  ]
  },
  {

@@ -6260,6 +6260,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pompieri-lugano-24-ore-2026.title': 'Feuerwehr Lugano: Rekord-Einsätze 2025',
     'blog.article.pompieri-lugano-24-ore-2026.excerpt': 'Rekordzahl an Einsätzen für die Feuerwehr von Lugano im Jahr 2025. Ab 2026 rund um die Uhr im Einsatz.',
     'blog.article.pompieri-lugano-24-ore-2026.imageAlt': 'Stadtpanorama von Lugano mit dem Luganersee und Bergen',
+    'blog.article.nathan-borradori-ambri-2030.title': 'Nathan Borradori verlängert bis 2030 beim Ambrì Piotta',
+    'blog.article.nathan-borradori-ambri-2030.excerpt': 'Der Stürmer der Jahrgangs 2006 bleibt bis zum Ende der Saison 2029/30 in den Diensten des Clubs, mit der Option auf ein weiteres Jahr.',
+    'blog.article.nathan-borradori-ambri-2030.imageAlt': 'Eishockeyspiel in der Gottardo Arena, Ambrì-Piotta-Spieler im Einsatz',
 };
 
 export default blogMetaDe;
