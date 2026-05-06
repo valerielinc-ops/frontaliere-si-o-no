@@ -6332,6 +6332,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.app-guida-ticino-silicon-valley-2026.title': 'Ticino-App fürs Fahren zielt auf Silicon Valley',
     'blog.article.app-guida-ticino-silicon-valley-2026.excerpt': 'SteerBudd, die App von Gioele Cavallo, nutzt GPS und Lern-Daten, um Fahrstunden zu optimieren.',
     'blog.article.app-guida-ticino-silicon-valley-2026.imageAlt': 'Ein Student in Lugano nutzt eine App, um mit einem Mentor Fahrpraxis zu sammeln, mit dem Luganersee im Hintergrund.',
+    'blog.article.mesolcina-festival-sport-2026.title': 'MisoXperience: Sportfestival in der Mesolcina',
+    'blog.article.mesolcina-festival-sport-2026.excerpt': 'Vom 9. bis 17. Mai 2026 findet die sechste Ausgabe von MisoXperience in der Mesolcina mit Kajak, Bouldern und Paragliding statt.',
+    'blog.article.mesolcina-festival-sport-2026.imageAlt': 'Outdoor-Sportfestival in Mesolcina, Tessin',
 };
 
 export default blogMetaDe;

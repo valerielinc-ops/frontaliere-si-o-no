@@ -21280,6 +21280,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mesolcina-festival-sport-2026': {
+    title: 'Torna il festival degli sport all\'aperto in Mesolcina',
+    description: 'Dal 9 al 17 maggio 2026, la Mesolcina ospita la sesta edizione di MisoXperience con kayak, bouldering e parapendio. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, torna, festival, sport, aperto',
+    ogTitle: 'Torna il festival degli sport all\'aperto in Mesolcina',
+    ogDescription: 'Dal 9 al 17 maggio 2026, la Mesolcina ospita la sesta edizione di MisoXperience con kayak, bouldering e parapendio.',
+    canonicalPath: '/articoli-frontaliere/mesolcina-festival-sport-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Torna il festival degli sport all'aperto in Mesolcina",
+      "description": "Dal 9 al 17 maggio 2026, la Mesolcina ospita la sesta edizione di MisoXperience con kayak, bouldering e parapendio. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/mesolcina-festival-sport-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festival sportivo all'aperto in Mesolcina, Ticino"
+      },
+      "datePublished": "2026-05-06T06:00:49+00:00",
+      "dateModified": "2026-05-06T06:00:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mesolcina-festival-sport-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
