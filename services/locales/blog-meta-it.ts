@@ -6321,6 +6321,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cucina-tipica-lombarda-legge-2026.title': 'Cucina tipica lombarda: passi avanti per il progetto di legge in Regione',
     'blog.article.cucina-tipica-lombarda-legge-2026.excerpt': 'Il progetto di legge per la valorizzazione della cucina tipica lombarda avanza in Regione Lombardia con un primo stanziamento di 600mila euro.',
     'blog.article.cucina-tipica-lombarda-legge-2026.imageAlt': 'Cucina tipica lombarda con chef al lavoro in un mercato di Mendrisio, Ticino',
+    'blog.article.estate-chiasso-2026-eventi.title': 'Estate 2026 a Chiasso: un evento al giorno',
+    'blog.article.estate-chiasso-2026-eventi.excerpt': 'Oltre un centinaio di eventi animeranno l\'estate di Chiasso dal maggio al settembre 2026. Scopri il programma e cosa aspettarti.',
+    'blog.article.estate-chiasso-2026-eventi.imageAlt': 'Eventi estivi a Chiasso, Svizzera, con persone che partecipano a diverse attività nella piazza del paese.',
 };
 
 export default blogMetaIt;

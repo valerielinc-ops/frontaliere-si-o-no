@@ -6320,6 +6320,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cucina-tipica-lombarda-legge-2026.title': 'Lombardische Küche: Gesetzesvorhaben macht Fortschritte',
     'blog.article.cucina-tipica-lombarda-legge-2026.excerpt': 'Das Gesetzesvorhaben zur Förderung der typisch lombardischen Küche kommt in der Region Lombardei voran, mit einer ersten Bereitstellung von 600.000 Euro.',
     'blog.article.cucina-tipica-lombarda-legge-2026.imageAlt': 'Traditionelle lombardische Küche mit Köchen auf einem Markt in Mendrisio, Tessin',
+    'blog.article.estate-chiasso-2026-eventi.title': 'Sommer 2026 in Chiasso: täglich ein Event',
+    'blog.article.estate-chiasso-2026-eventi.excerpt': 'Über einhundert Veranstaltungen beleben den Sommer in Chiasso von Mai bis September 2026. Entdecke das Programm und was dich erwartet.',
+    'blog.article.estate-chiasso-2026-eventi.imageAlt': 'Sommerveranstaltungen in Chiasso, Schweiz, mit Menschen, die verschiedene Aktivitäten auf dem Marktplatz genießen.',
 };
 
 export default blogMetaDe;

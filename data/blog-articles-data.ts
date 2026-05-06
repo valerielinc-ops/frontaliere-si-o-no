@@ -20333,4 +20333,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'estate-chiasso-2026-eventi',
+ category: 'novita',
+ date: '2026-05-06T05:36:58.020Z',
+ image: '/images/blog/estate-chiasso-2026-eventi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
