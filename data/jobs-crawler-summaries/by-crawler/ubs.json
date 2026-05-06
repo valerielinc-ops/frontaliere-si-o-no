@@ -1,16 +1,16 @@
 {
   "key": "ubs",
   "label": "UBS",
-  "generatedAt": "2026-05-05T22:43:22.456Z",
+  "generatedAt": "2026-05-06T11:51:15.206Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3917,
-  "avgDurationMs": 3917,
+  "durationMs": 3449,
+  "avgDurationMs": 3449,
   "durationHistory": [
-    3917
+    3449
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343139&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-05T22:43:20.503Z",
+      "crawledAt": "2026-05-06T11:51:13.373Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -69,7 +69,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340734&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-05T22:43:20.504Z",
+      "crawledAt": "2026-05-06T11:51:13.374Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -112,7 +112,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=334400&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-05T22:43:20.504Z",
+      "crawledAt": "2026-05-06T11:51:13.374Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -144,52 +144,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "ubs-c000205c5eea",
-      "slug": "responsabile-di-filiale-clientela-privata-affluent-gstaad-80-100-ubs-gstaad",
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Geschäftsstellenleiter/in Privatkunden Affluent Gstaad, 80 - 100%",
-      "location": "Gstaad",
-      "canton": "BE",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341103&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-05T11:35:33.900Z",
-      "addressLocality": "Gstaad",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3780",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-13",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341103&PageType=jobdetails",
-      "_ubsMeta": {
-        "reqId": "341103",
-        "department": "Global Wealth Management",
-        "region": "Schweiz - Mittelland",
-        "cities": "Gstaad",
-        "categoryRaw": "Kundenberatung / Relationship Management",
-        "jobType": ""
-      },
-      "firstSeenAt": "2026-04-13T11:28:17.433Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
