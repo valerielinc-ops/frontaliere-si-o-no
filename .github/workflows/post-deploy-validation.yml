@@ -173,52 +173,37 @@ jobs:
       - name: Load secrets from Remote Config (FB + LinkedIn tokens)
         run: node scripts/load-rc-env.mjs
 
-      # Source validators (run on repo source, no dist/ needed) are launched in
-      # background while the GitHub Pages artifact downloads in the foreground.
-      # Saves 30-60s vs running them sequentially after the download.
-      - name: Source validators + download GitHub Pages artifact (parallel)
+      # Download GitHub Pages artifact + run source validators sequentially.
+      #
+      # Previously the 4 source validators were launched as `run_bg ... &` in
+      # parallel with the artifact download, to save ~30-60s. That race
+      # caused `validate:translation-completeness` and
+      # `validate:crawler-summaries` (which read `dist/data/jobs.json` and
+      # `data/jobs-crawler-summaries.json` from the unpacked artifact) to
+      # fail in <1s with "file not found" — the tar -xf hadn't run yet.
+      # The whole step exited 1 before the post-build pool could start, the
+      # validate job rolled back, and the BFS-depth gate never got tested.
+      # Run 25419353305 (sha e9f03ab9) was the last to confirm this race
+      # under the previous parallel layout.
+      #
+      # Sequential layout: download → tar → run each validator one at a time
+      # and emit a per-gate ✅/❌ row. Adds ~10-15s wall vs parallel but is
+      # deterministic, easier to reason about, and avoids the race entirely.
+      - name: Download GitHub Pages artifact + run source validators
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
         run: |
-          : > /tmp/source-val-failures.txt
           : > /tmp/source-val-results.txt
-
-          run_bg() {
-            local name=$1 log=$2; shift 2
-            (
-              set +e
-              start=$(date +%s.%N)
-              "$@" > "$log" 2>&1
-              rc=$?
-              end=$(date +%s.%N)
-              awk -v n="$name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
-                >> /tmp/source-val-results.txt
-              if [ $rc -ne 0 ]; then
-                echo "$name $log" >> /tmp/source-val-failures.txt
-              fi
-            ) &
-          }
-
-          run_bg validate:translation-completeness /tmp/v10.log \
-            node scripts/validate-translation-completeness.mjs
-          run_bg validate:crawler-summaries /tmp/v11.log \
-            npm run validate:crawler-summaries
-          run_bg validate:third-party-secrets /tmp/v12.log \
-            npm run validate:third-party-secrets
-          run_bg gate:seo-source /tmp/v27.log \
-            npm run gate:seo-source
 
           # `gh run download` cross-workflow has a propagation lag between
           # "artifact uploaded successfully in the deploy run" and "artifact
-          # visible to a different workflow_run via the API". Empirically the
-          # first call within ~60-120s of upload returns
-          # `no artifact matches any of the names or patterns provided` even
-          # though the artifact exists and is non-expired (verified by
-          # `gh api .../artifacts`). Wrap each download in a 5×30s retry
-          # loop so the gates can run instead of falling through to rollback.
-          # Total worst-case wait per artifact: ~2.5 min, well under the
-          # 5-min indexing-cache TTL.
+          # visible to a different workflow_run via the API". Empirically
+          # `no artifact matches any of the names or patterns provided` can
+          # appear within ~60-120s of upload even though the artifact exists
+          # and is non-expired (verified by `gh api .../artifacts`). Wrap
+          # each download in a 5×30s retry loop. Total worst-case wait per
+          # artifact: ~2.5 min.
           download_artifact_with_retry() {
             local name="$1" dir="$2" required="$3"
             for attempt in 1 2 3 4 5; do
@@ -242,41 +227,72 @@ jobs:
             return 0
           }
 
-          # Download the exact Pages artifact that was deployed, then expand
-          # artifact.tar back into dist/ for the file-based validators.
+          # Run a single validator and append one row to
+          # /tmp/source-val-results.txt: "<name>  <wall_s>  rc=<code>".
+          # The summary block at the end reads this file to print the
+          # per-gate ✅/❌ table.
+          run_validator() {
+            local name=$1 logfile=$2; shift 2
+            local start end rc
+            start=$(date +%s.%N)
+            set +e
+            "$@" > "$logfile" 2>&1
+            rc=$?
+            set -e
+            end=$(date +%s.%N)
+            awk -v n="$name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
+              >> /tmp/source-val-results.txt
+            if [ "$rc" -ne 0 ]; then
+              echo "──── $name failed (rc=$rc) ────"
+              cat "$logfile"
+              echo "──── end $name ────"
+            fi
+            return 0   # never let a single fail short-circuit the chain
+          }
+
+          # ── 1. Download Pages artifact + extract dist/ ──
           rm -rf /tmp/github-pages-artifact dist
           mkdir -p /tmp/github-pages-artifact dist
           download_artifact_with_retry github-pages /tmp/github-pages-artifact/ required
           tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
 
           # Expose jobs.json to scripts that expect public/data/jobs.json
-          # (the file is gitignored; dist/data/jobs.json is the built copy)
+          # (the file is gitignored; dist/data/jobs.json is the built copy).
           mkdir -p public/data
           cp -f dist/data/jobs.json public/data/jobs.json 2>/dev/null || true
 
-          # Download pre-deploy sitemap snapshot (for IndexNow diff baseline)
+          # Pre-deploy sitemap snapshot (for IndexNow diff baseline) +
+          # winners registry update. Both optional — the retry helper returns
+          # 0 even if 5 attempts fail.
           download_artifact_with_retry "pre-deploy-snapshot-${DEPLOY_RUN_ID}" /tmp/pre-deploy-snapshot/ optional
           if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
             cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
           fi
-
-          # Also download the updated previous-slug winners produced by the build.
           download_artifact_with_retry "winners-${DEPLOY_RUN_ID}" /tmp/winners/ optional
-
           if [ -f /tmp/winners/previous-slug-winners.json ]; then
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
 
-          wait
+          # ── 2. Run validators sequentially (deterministic order) ──
+          # Order: cheap dist-readers first (they fail fast and surface a
+          # clean error), then the expensive source-only walk (gate:seo-source
+          # ~110s, no dist dependency).
+          run_validator validate:translation-completeness /tmp/v10.log \
+            node scripts/validate-translation-completeness.mjs
+          run_validator validate:crawler-summaries        /tmp/v11.log \
+            npm run validate:crawler-summaries
+          run_validator validate:third-party-secrets      /tmp/v12.log \
+            npm run validate:third-party-secrets
+          run_validator gate:seo-source                   /tmp/v27.log \
+            npm run gate:seo-source
 
+          # ── 3. Print summary table + decide pass/fail ──
           echo ""
           echo "══════════════════════════════════════════════════════════════"
           echo "Source validators — per-gate results"
           echo "══════════════════════════════════════════════════════════════"
           SRC_PASS=0
           SRC_FAIL=0
-          # Sort by wall_s DESC so the slowest gate is the first thing the eye
-          # catches in the log.
           while IFS= read -r line; do
             rc=$(printf '%s' "$line" | grep -oE 'rc=[0-9]+$' | sed 's/rc=//')
             if [ "$rc" = "0" ]; then
@@ -292,11 +308,8 @@ jobs:
           echo "══════════════════════════════════════════════════════════════"
           echo ""
 
-          if [ -s /tmp/source-val-failures.txt ]; then
-            while read -r name logfile; do
-              echo "::error::$name failed"
-              cat "$logfile"
-            done < /tmp/source-val-failures.txt
+          if [ "$SRC_FAIL" -gt 0 ]; then
+            echo "::error::${SRC_FAIL} source validator(s) failed — see per-gate output above"
             exit 1
           fi
           echo "✅ Source validators + Pages artifact download complete"
