@@ -268,23 +268,20 @@ export function truncateJobCorePreservingCity(
  * tokens without conditional logic.
  */
 export function buildTitleDisambiguator(token: string): string {
- // Keep hyphens: stripping them collapses semantically-different slugs like
- // `gastronomie-assistentin` and `gastronomieassistent-in` (different word
- // boundaries) onto the same hash, re-tripping Semrush. Hyphens are
- // information-bearing in slugs.
- const cleaned = String(token || '')
-  .toLowerCase()
-  .replace(/[^a-z0-9-]+/g, '');
+ // Format the disambiguator as ` · ${token}`. This used to emit an
+ // FNV-1a 8-hex hash like ` (#abcd1234)` but Semrush's `<title>` audit
+ // flags those as "low-CTR auto-disambiguator". We now expect callers
+ // (see `pickJobDisambiguator` below) to pass a HUMAN-READABLE token
+ // such as "80%", "CHF 60-75k", "apr 2027", or "rif. abc123" — a
+ // compact, locale-friendly fragment that carries actual information.
+ //
+ // The token is rendered verbatim (after trimming + collapsing
+ // whitespace) so callers control the localization. An empty token
+ // returns an empty string so callers can pass through optional
+ // disambiguators without conditional logic.
+ const cleaned = String(token || '').trim().replace(/\s+/g, ' ');
  if (!cleaned) return '';
- // FNV-1a 32-bit hash — deterministic, no deps, well-distributed for short strings.
- let h = 0x811c9dc5;
- for (let i = 0; i < cleaned.length; i++) {
-  h ^= cleaned.charCodeAt(i);
-  // 32-bit FNV prime multiply (kept in unsigned 32-bit range via Math.imul + >>> 0).
-  h = Math.imul(h, 0x01000193) >>> 0;
- }
- const hex = (h >>> 0).toString(16).padStart(8, '0');
- return ` (#${hex})`;
+ return ` · ${cleaned}`;
 }
 
 /**
@@ -329,6 +326,162 @@ export function composeJobPageTitle(
 export function composeJobPageH1(jobTitle: string, company: string): string {
  const cleanCompany = (company || '').trim();
  return cleanCompany ? `${jobTitle} — ${cleanCompany}` : jobTitle;
+}
+
+// ─── Human-readable disambiguator cascade ─────────────────────────────────
+//
+// When two job postings share the same `<title>` base (job-title + company
+// + city + locale), we append a compact, parlante token to disambiguate.
+// Goals: (a) parlante (carries info, never an opaque hash), (b) unique
+// enough across the colliding-title cohort, (c) short to keep the title
+// inside JOB_TITLE_MAX (70). Cascade order, most-specific first:
+//
+//   1. workHours / employmentType-as-percentage   "80%", "60-100%"
+//   2. employmentType label (non-default)         "Part-time", "Stagionale"
+//   3. salary range (compact)                     "CHF 60-75k"
+//   4. posted month                               "apr 2027"
+//   5. job-id reference (always-unique fallback)  "rif. abc123"
+//
+// At each step we SKIP the token if it would duplicate text already in the
+// base title (case-insensitive substring match). Token is human-readable,
+// so the audit-title-no-disambig-hash gate (which scans only `(#abcdef12)`
+// patterns) never flags it.
+
+const EMPLOYMENT_TYPE_LABEL: Record<string, Record<string, string>> = {
+ it: {
+  PART_TIME: 'Part-time',
+  TEMPORARY: 'Temporaneo',
+  CONTRACTOR: 'Contratto',
+  APPRENTICESHIP: 'Apprendistato',
+  INTERN: 'Tirocinio',
+  INTERNSHIP: 'Tirocinio',
+  OTHER: '',
+ },
+ en: {
+  PART_TIME: 'Part-time',
+  TEMPORARY: 'Temporary',
+  CONTRACTOR: 'Contract',
+  APPRENTICESHIP: 'Apprenticeship',
+  INTERN: 'Internship',
+  INTERNSHIP: 'Internship',
+  OTHER: '',
+ },
+ de: {
+  PART_TIME: 'Teilzeit',
+  TEMPORARY: 'Befristet',
+  CONTRACTOR: 'Auftrag',
+  APPRENTICESHIP: 'Lehre',
+  INTERN: 'Praktikum',
+  INTERNSHIP: 'Praktikum',
+  OTHER: '',
+ },
+ fr: {
+  PART_TIME: 'Temps partiel',
+  TEMPORARY: 'Temporaire',
+  CONTRACTOR: 'Contrat',
+  APPRENTICESHIP: 'Apprentissage',
+  INTERN: 'Stage',
+  INTERNSHIP: 'Stage',
+  OTHER: '',
+ },
+};
+
+const MONTH_LABEL: Record<string, readonly string[]> = {
+ it: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
+ en: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+ de: ['jan', 'feb', 'mär', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dez'],
+ fr: ['janv', 'févr', 'mars', 'avr', 'mai', 'juin', 'juil', 'août', 'sept', 'oct', 'nov', 'déc'],
+};
+
+const REF_LABEL: Record<string, string> = {
+ it: 'rif.',
+ en: 'ref.',
+ de: 'Ref.',
+ fr: 'réf.',
+};
+
+/**
+ * Pick a human-readable disambiguator string for a job whose <title>
+ * collides with another job in the same locale. The empty string is
+ * returned when no usable token exists (caller can fall back to the
+ * job slug + buildTitleDisambiguator hash).
+ *
+ * @param job        The raw job object from data/jobs.json
+ * @param locale     'it' | 'en' | 'de' | 'fr'
+ * @param baseTitle  The collision-prone base title (without disambig).
+ *                   Used to skip tokens that would duplicate text
+ *                   already in the title (case-insensitive substring).
+ */
+export function pickJobDisambiguator(
+ job: Record<string, unknown>,
+ locale: string,
+ baseTitle: string,
+): string {
+ const titleLc = String(baseTitle || '').toLowerCase();
+ const empLabels = EMPLOYMENT_TYPE_LABEL[locale] || EMPLOYMENT_TYPE_LABEL.it;
+ const months = MONTH_LABEL[locale] || MONTH_LABEL.it;
+ const refLabel = REF_LABEL[locale] || REF_LABEL.it;
+
+ const empRaw = String(job.employmentType ?? '').trim();
+
+ // (1) employmentType-as-percentage. Many crawlers stuff workHours into
+ // employmentType: "80%", "80 _ 100%", "60 _ 100%". Detect and format.
+ // Skip "100%", "100 _ 100%", "VOLLZEIT, ..." (effectively full-time).
+ const pctMatch = empRaw.match(/^(\d{2,3})(?:\s*[_\-–—]\s*(\d{2,3}))?\s*%/i);
+ if (pctMatch) {
+  const lo = Number(pctMatch[1]);
+  const hi = pctMatch[2] ? Number(pctMatch[2]) : null;
+  const isFullTime = lo >= 100 && (hi === null || hi >= 100);
+  if (!isFullTime && lo > 0) {
+   const formatted = hi && hi !== lo ? `${lo}-${hi}%` : `${lo}%`;
+   if (!titleLc.includes(formatted)) return formatted;
+  }
+ }
+
+ // (2) employmentType label (non-default; FULL_TIME is the default and
+ // ~73 % of the corpus, so it's a useless disambig).
+ const empNorm = empRaw.toUpperCase().replace(/-/g, '_');
+ if (empNorm && empNorm !== 'FULL_TIME' && empLabels[empNorm]) {
+  const label = empLabels[empNorm];
+  if (label && !titleLc.includes(label.toLowerCase())) return label;
+ }
+
+ // (3) salary range — compact "CHF 60-75k". 100 % coverage in current
+ // dataset, so almost always usable. Skip when min === max (no range).
+ const sMin = Number(job.salaryMin);
+ const sMax = Number(job.salaryMax);
+ if (Number.isFinite(sMin) && sMin >= 20000 && Number.isFinite(sMax) && sMax > sMin) {
+  const lok = Math.round(sMin / 1000);
+  const hik = Math.round(sMax / 1000);
+  const ccy = String(job.currency || 'CHF');
+  const compact = `${ccy} ${lok}-${hik}k`;
+  if (!titleLc.includes(`${ccy.toLowerCase()} `) && !/\d{2,3}\s*[-–]\s*\d{2,3}\s*k\b/i.test(titleLc)) {
+   return compact;
+  }
+ }
+
+ // (4) posted month — "apr 2027". Always available, very compact.
+ const dateStr = String(job.postedDate ?? '');
+ const dateMatch = dateStr.match(/^(\d{4})-(\d{2})/);
+ if (dateMatch) {
+  const year = dateMatch[1];
+  const monthIdx = Number(dateMatch[2]) - 1;
+  if (monthIdx >= 0 && monthIdx < 12) {
+   const monthLabel = months[monthIdx];
+   const monthYear = `${monthLabel} ${year}`;
+   if (!titleLc.includes(monthLabel) && !titleLc.includes(year)) return monthYear;
+  }
+ }
+
+ // (5) job-id reference — last fallback, always unique by construction.
+ // Uses the trailing slug fragment (after the last hyphen) which is
+ // typically a short hex identifier the crawler emitted: stable, no
+ // PII, distinguishable. e.g. "tally-weijl-5010e3f8aec3" → "5010e3f8".
+ const id = String(job.id ?? '');
+ const tail = (id.split('-').pop() || id).slice(0, 8);
+ if (tail) return `${refLabel} ${tail}`;
+
+ return '';
 }
 
 export function jobsSeoPagesPlugin(rootDir: string): Plugin {
@@ -1602,14 +1755,20 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // titles untouched.
  const baseTitleProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale);
  const collidesInLocale = (titleCollisionByLocale[locale].get(baseTitleProbe) || 0) > 1;
+ // Build a HUMAN-READABLE disambiguator from the job's metadata (cascade:
+ // workHours/percentage → employmentType label → salary range → posted
+ // month → job-id reference). Replaces the previous opaque
+ // ` (#abcd1234)` FNV hash, which Semrush flagged as a low-CTR
+ // auto-disambiguator pattern. See `pickJobDisambiguator` above for the
+ // full selection logic.
  const disambiguatorToken = collidesInLocale
- ? String(perLocaleSlug[locale] || job.slug || job.id || '')
+ ? pickJobDisambiguator(job as Record<string, unknown>, locale, baseTitleProbe)
  : '';
  const title = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken);
  // Clean variant for og:title / twitter:title — same as `title` minus
- // the trailing " (#abcd1234)" disambiguator hash. The hash is needed in
- // the HTML <title> for SEO uniqueness (Semrush gate, Google SERPs) but
- // looks awful when FB/LinkedIn render it inside the social card.
+ // the trailing " · {disambiguator}". The disambig is needed in the
+ // HTML <title> for SEO uniqueness, but the social cards look better
+ // without the trailing extra metadata.
  const ogTitle = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, '');
  const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
  const localizedDescription = normalizeText(localizedDescriptionRaw);

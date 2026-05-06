@@ -5,6 +5,7 @@ import {
  truncateTitleCore,
  composeJobPageTitle,
  composeJobPageH1,
+ pickJobDisambiguator,
 } from '../build-plugins/jobsSeoPagesPlugin';
 
 describe('safeIsoDate', () => {
@@ -190,24 +191,85 @@ describe('composeJobPageTitle', () => {
  });
 
  it('keeps multi-slug jobs distinct via disambiguator inside the 70-char cap', () => {
- // Same role + company + city, two different per-locale slugs (e.g. a
- // long original slug + a short hashed sibling). Disambiguator must land
- // inside the cap so the audit:title-uniqueness gate stays green.
- const a = composeJobPageTitle('Stage', 'Lidl', 'Lugano', 'it', 'stage-vendite-lidl-lugano-2026-cassiere-magazziniere');
- const b = composeJobPageTitle('Stage', 'Lidl', 'Lugano', 'it', 'stage-vendite-lidl-lugano-2026-cassiere-magazziniere-213zbv');
+ // Same role + company + city, two different human-readable disambig
+ // tokens (e.g. salary range vs work-hours percentage). Each disambig
+ // must land inside the cap so audit:title-uniqueness stays green.
+ // Disambiguator now formatted as ` · ${token}` (was a hash before).
+ const a = composeJobPageTitle('Stage', 'Lidl', 'Lugano', 'it', '80%');
+ const b = composeJobPageTitle('Stage', 'Lidl', 'Lugano', 'it', 'CHF 30-45k');
  expect(a).not.toBe(b);
  expect(a.length).toBeLessThanOrEqual(MAX);
  expect(b.length).toBeLessThanOrEqual(MAX);
- // The 8-hex disambiguator must be present in both.
- expect(a).toMatch(/\(#[0-9a-f]{8}\)/);
- expect(b).toMatch(/\(#[0-9a-f]{8}\)/);
+ // The "· {token}" separator must be present (not the legacy "(#hash8)").
+ expect(a).toContain(' · 80%');
+ expect(b).toContain(' · CHF 30-45k');
  });
 
  it('keeps the disambiguator even when jobTitle + company + city overflow the cap', () => {
  const longJob = 'Specialist Senior Software Engineer Backend Distributed Systems';
- const out = composeJobPageTitle(longJob, 'International Consulting Group AG', 'Lugano', 'it', 'unique-slug-token-xyz');
+ const out = composeJobPageTitle(longJob, 'International Consulting Group AG', 'Lugano', 'it', 'apr 2027');
  expect(out.length).toBeLessThanOrEqual(MAX);
- expect(out).toMatch(/\(#[0-9a-f]{8}\)/);
+ expect(out).toContain(' · apr 2027');
+ });
+});
+
+describe('pickJobDisambiguator (human-readable cascade)', () => {
+ const baseTitle = 'Receptionist — Migros, Lugano';
+
+ it('picks workHours percentage when employmentType encodes "80 _ 100%"', () => {
+  const job = { employmentType: '80 _ 100%', salaryMin: 50000, salaryMax: 70000, postedDate: '2027-04-01', id: 'migros-lugano-recept-abc1' };
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('80-100%');
+ });
+
+ it('picks single percentage when employmentType is "80%"', () => {
+  const job = { employmentType: '80%', salaryMin: 50000, salaryMax: 70000, postedDate: '2027-04-01', id: 'migros-lugano-recept-abc1' };
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('80%');
+ });
+
+ it('skips workHours when 100% (effectively full-time)', () => {
+  const job = { employmentType: '100%', salaryMin: 50000, salaryMax: 70000, postedDate: '2027-04-01', id: 'migros-lugano-recept-abc1' };
+  // Should fall through to salary
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('CHF 50-70k');
+ });
+
+ it('picks employmentType label (PART_TIME → "Part-time" in IT)', () => {
+  const job = { employmentType: 'PART_TIME', salaryMin: 50000, salaryMax: 70000, postedDate: '2027-04-01', id: 'migros-lugano-recept-abc1' };
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('Part-time');
+ });
+
+ it('skips FULL_TIME (default) and falls through to salary', () => {
+  const job = { employmentType: 'FULL_TIME', salaryMin: 60000, salaryMax: 85000, postedDate: '2027-04-01', id: 'migros-lugano-recept-abc1' };
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('CHF 60-85k');
+ });
+
+ it('localizes employmentType labels per locale', () => {
+  const job = { employmentType: 'TEMPORARY' };
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('Temporaneo');
+  expect(pickJobDisambiguator(job, 'de', baseTitle)).toBe('Befristet');
+  expect(pickJobDisambiguator(job, 'fr', baseTitle)).toBe('Temporaire');
+  expect(pickJobDisambiguator(job, 'en', baseTitle)).toBe('Temporary');
+ });
+
+ it('falls through to posted month when no salary', () => {
+  const job = { employmentType: 'FULL_TIME', postedDate: '2027-04-01', id: 'migros-lugano-recept-abc1' };
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('apr 2027');
+ });
+
+ it('falls through to job-id reference as last resort', () => {
+  const job = { employmentType: 'FULL_TIME', id: 'migros-lugano-recept-abc1' };
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('rif. abc1');
+ });
+
+ it('skips a token already present in the base title (case-insensitive)', () => {
+  // baseTitle already contains "Part-time"
+  const job = { employmentType: 'PART_TIME', salaryMin: 50000, salaryMax: 70000, postedDate: '2027-04-01' };
+  const out = pickJobDisambiguator(job, 'it', 'Receptionist Part-time — Migros, Lugano');
+  expect(out).toBe('CHF 50-70k');  // skipped Part-time, fell through
+ });
+
+ it('returns empty string when nothing usable is available', () => {
+  const job = {};
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('');
  });
 });
 
