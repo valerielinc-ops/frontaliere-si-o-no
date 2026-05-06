@@ -7054,7 +7054,18 @@ ${hreflangLinks}
  const jobDatePosted = String(ejData?.datePosted || '');
  const jobExpiredAt = String(ejData?.expiredAt || '');
  const displayCanton = CANTON_DISPLAY[jobCanton] || jobCanton;
- const expiredDisambiguator = buildTitleDisambiguator(slug);
+ // Compact human-readable disambiguator for expired/soft-landing pages.
+ // Use ONLY the LAST slug token (typically the crawler-emitted unique-id
+ // suffix, e.g. "5010e3f8") capped at 10 chars. The previous version
+ // hashed the full slug, but with `buildTitleDisambiguator` now emitting
+ // ` · ${literal}` (no hashing) the full slug would land verbatim in
+ // the <title>, blowing past JOB_TITLE_MAX (run 25434391277 produced
+ // 84,501 job-board pages with 184-char titles when the entire slug
+ // was injected this way).
+ const _expiredSlugTail = (slug.split('-').filter(Boolean).pop() || '').slice(0, 10);
+ const expiredDisambiguator = _expiredSlugTail
+  ? buildTitleDisambiguator(`rif. ${_expiredSlugTail}`)
+  : '';
  const sameCompanyActiveJobs = jobCompany
  ? (companyActiveJobsMap.get(jobCompany.toLowerCase()) || [])
  : [];
