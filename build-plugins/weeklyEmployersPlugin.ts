@@ -85,6 +85,7 @@ import {
   renderEntityCard,
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
 import { renderJobCardHtml, type JobCardJob } from './shared/jobCardHtml';
@@ -1982,7 +1983,7 @@ ${faqHtml}
   ${renderLocaleSwitcherBlock(locale, (alt) => topHubPath(alt))}
 </article>`;
 
-  const title = clampSiteSuffix(t.topHubTitle, 'Frontaliere Ticino');
+  const title = buildTitleWithBrand(t.topHubTitle);
   const description = lede[locale].slice(0, 180);
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -2360,7 +2361,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     return titleQualifier ? `${parts} — ${titleQualifier}` : parts;
   })();
   const cityTitleClamped = titleBase.length <= 60 ? titleBase : titleBase.slice(0, 60).replace(/[\s,—-]+$/u, '');
-  const title = clampSiteSuffix(cityTitleClamped, 'Frontaliere Ticino');
+  const title = buildTitleWithBrand(cityTitleClamped);
   // H1 narrative differs from title (Semrush W3): keep the locale-specific
   // verbose phrasing already in COPY[] which always carries "questa settimana"
   // / "this week" / "diese Woche" / "cette semaine".
@@ -2840,7 +2841,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     return `${cityDisplay} — ${employer} — ${qualifier}`;
   })();
   const compactClamped = compactBase.length <= 60 ? compactBase : compactBase.slice(0, 60).replace(/[\s,—-]+$/u, '');
-  const title = clampSiteSuffix(compactClamped, 'Frontaliere Ticino');
+  const title = buildTitleWithBrand(compactClamped);
   const description = heroSummary.slice(0, 180);
 
   const archiveNote =

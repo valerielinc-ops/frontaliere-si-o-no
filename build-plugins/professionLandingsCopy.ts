@@ -536,8 +536,7 @@ interface LocaleShell {
 }
 
 const IT_SHELL: LocaleShell = {
-  titleTemplate: (role) =>
-    `Lavoro da ${role} in Ticino 2026: stipendi, CCL, riconoscimento titoli | Frontaliere Ticino`,
+  titleTemplate: (role) => `Lavoro da ${role} in Ticino 2026`,
   descriptionTemplate: (role, median) =>
     `Guida 2026 per frontalieri al lavoro da ${role} in Ticino: salario medio CHF ${median.toLocaleString('it-CH')}, CCL applicabile, riconoscimento titolo italiano, principali datori di lavoro. Aggiornato aprile 2026.`,
   h1Template: (role) => `Lavoro da ${role} in Ticino: guida 2026 per frontalieri`,
@@ -572,7 +571,7 @@ const IT_SHELL: LocaleShell = {
 
 const EN_SHELL: LocaleShell = {
   titleTemplate: (role) =>
-    `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs in Ticino 2026: salary, CCL, diploma recognition | Frontaliere Ticino`,
+    `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs Ticino 2026`,
   descriptionTemplate: (role, median) =>
     `2026 cross-border guide to ${role} jobs in Ticino: average CHF ${median.toLocaleString('en-CH')} gross per year, applicable collective agreement, Italian diploma recognition, top employers.`,
   h1Template: (role) =>
@@ -607,8 +606,7 @@ const EN_SHELL: LocaleShell = {
 };
 
 const DE_SHELL: LocaleShell = {
-  titleTemplate: (role) =>
-    `${role} im Tessin 2026: Lohn, GAV, Diplom-Anerkennung | Frontaliere Ticino`,
+  titleTemplate: (role) => `${role} im Tessin 2026`,
   descriptionTemplate: (role, median) =>
     `Grenzgänger-Leitfaden 2026 für ${role} im Tessin: Durchschnittslohn CHF ${median.toLocaleString('de-CH')} brutto/Jahr, geltender GAV, Anerkennung italienischer Diplome, wichtigste Arbeitgeber.`,
   h1Template: (role) => `${role} im Tessin: Grenzgänger-Leitfaden 2026`,
@@ -643,7 +641,7 @@ const DE_SHELL: LocaleShell = {
 
 const FR_SHELL: LocaleShell = {
   titleTemplate: (role) =>
-    `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin 2026 : salaire, CCT, reconnaissance | Frontaliere Ticino`,
+    `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin 2026`,
   descriptionTemplate: (role, median) =>
     `Guide frontalier 2026 pour les postes de ${role} au Tessin : salaire moyen CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, reconnaissance du diplôme italien, principaux employeurs.`,
   h1Template: (role) =>

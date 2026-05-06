@@ -97,6 +97,30 @@ import { startTimer, recordEmit, printSummary as printJobsSeoProfile } from './s
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+const HUB_SEO_CONTEXT_SUMMARY: Record<'it' | 'en' | 'de' | 'fr', string> = {
+ it: 'Guida frontalieri: salario, permesso G, fisco, rientro',
+ en: 'Cross-border guide: salary, G permit, tax, weekly return',
+ de: 'Grenzgänger-Leitfaden: Lohn, G-Bewilligung, Steuer, Rückkehr',
+ fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
+};
+
+/**
+ * Wrap commuter-context block in a collapsed `<details>` accordion below
+ * the real hub content (mobile-first per CLAUDE.md rule #14). Lifts the
+ * crawler-facing prose out of the markup-heavy hub list page so the
+ * audit:text-html-ratio gate stays above the 10% Semrush threshold.
+ */
+function wrapHubSeoContext(locale: 'it' | 'en' | 'de' | 'fr', innerHtml: string): string {
+ return `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
+ <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${HUB_SEO_CONTEXT_SUMMARY[locale]}</summary>
+ <div style="padding:8px 0 0">
+ <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+ ${innerHtml}
+ </section>
+ </div>
+ </details>`;
+}
+
 export function pickSearchLandingFallbackJobs<T>(
  matchingJobsByLocale: Record<(typeof JOB_SEO_LOCALES)[number], T[]>,
 ): T[] {
@@ -3796,7 +3820,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.partTime.label)}</h2>
  ${renderJobList(model.sections.partTime.jobs)}
  </section>
- ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true })}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -3953,7 +3977,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div style="display:grid;gap:12px">${faqHtml}</div>
  </section>
- ${renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true })}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4116,7 +4140,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div style="display:grid;gap:12px">${faqHtml}</div>
  </section>
- ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true })}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4285,7 +4309,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div style="display:grid;gap:12px">${faqHtml}</div>
  </section>
- ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true })}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4447,7 +4471,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante')}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
  </section>
- ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé' })}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé' }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4639,7 +4663,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Settori a ${location}` : locale === 'en' ? `Sectors in ${location}` : locale === 'de' ? `Branchen in ${location}` : `Secteurs a ${location}`)}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${sectorLinks}</div>
  </section>
- ${renderJobBoardCommuterContext({ locale, location })}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4858,7 +4882,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Altri tipi di lavoro a ${location}` : locale === 'en' ? `Other job types in ${location}` : locale === 'de' ? `Weitere Jobtypen in ${location}` : `Autres types d'emploi a ${location}`)}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
  </section>
- ${renderJobBoardCommuterContext({ locale, location, sectorOrType: model.typeLabel })}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location, sectorOrType: model.typeLabel }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -5021,7 +5045,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Altri settori a ${location}` : locale === 'en' ? `Other sectors in ${location}` : locale === 'de' ? `Weitere Branchen in ${location}` : `Autres secteurs a ${location}`)}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
  </section>
- ${renderJobBoardCommuterContext({ locale, location, sectorOrType: model.sectorLabel })}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location, sectorOrType: model.sectorLabel }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -5267,7 +5291,7 @@ ${alternates}
  title: catTitle,
  };
  const catH1 = formatSeoH1(catLocaleParts) + (catPage > 1 ? (locale === 'it' ? ` — Pagina ${catPage}` : locale === 'de' ? ` — Seite ${catPage}` : locale === 'fr' ? ` — Page ${catPage}` : ` — Page ${catPage}`) : '');
- return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav style="margin:20px 0;font-size:14px">${catNavLabel}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n ${renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true, sectorOrType: catLabel })}`;
+ return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav style="margin:20px 0;font-size:14px">${catNavLabel}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true, sectorOrType: catLabel }))}`;
  })(),
  });
  const catOutDir = np.join(distDir, catCanonicalPath.slice(1));
@@ -5386,12 +5410,12 @@ ${alternates}
  return null;
  })();
  const kwQueryIntro = renderSearchQueryIntro(locale, _kwQuery, kwJobs.length, kwUniqueCompanies, kwUniqueLocations);
- const kwCommuterBlock = renderJobBoardCommuterContext({
+ const kwCommuterBlock = wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({
  locale,
  location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : 'Ticino',
  sectorOrType: _kwQuery || null,
  omitCommute: !_kwCity,
- });
+ }));
  const kwHtml = buildSimplePage({
  locale,
  title: kwTitle,
@@ -5516,12 +5540,12 @@ ${alternates}
  // queries (Chur, Zurich, etc.) we fall back to general-Ticino prose.
  const _isTicino = isKnownTicinoCommuterCity(name);
  searchBodyParts.unshift(renderSearchQueryIntro(locale, name, matchingJobs.length, uniqueCompanies, uniqueLocations));
- searchBodyParts.push(renderJobBoardCommuterContext({
+ searchBodyParts.push(wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({
  locale,
  location: _isTicino ? name : 'Ticino',
  sectorOrType: _isTicino ? null : name,
  omitCommute: !_isTicino,
- }));
+ })));
  }
  const _sHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const _sListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
@@ -5665,12 +5689,12 @@ ${alternates}
  })();
  const _comboQuery = String(copy.heading || '').trim();
  comboBodyParts.unshift(renderSearchQueryIntro(locale, _comboQuery, matchingJobs.length, cUniqueCompanies, cUniqueLocations));
- comboBodyParts.push(renderJobBoardCommuterContext({
+ comboBodyParts.push(wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({
  locale,
  location: _comboCity ? _comboCity.charAt(0).toUpperCase() + _comboCity.slice(1) : 'Ticino',
  sectorOrType: _comboQuery || null,
  omitCommute: !_comboCity,
- }));
+ })));
  }
  const _cHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const _cListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;

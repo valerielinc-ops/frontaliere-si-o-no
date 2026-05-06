@@ -52,8 +52,7 @@ export interface CareerLandingCopy {
 // ─────────────────────────────────────────────────────────────────
 
 const IT_AGENZIE: CareerLandingCopy = {
-  title:
-    'Agenzie del lavoro a Lugano 2026: elenco SECO, come sceglierle, diritti del frontaliere | Frontaliere Ticino',
+  title: 'Agenzie del lavoro a Lugano: guida SECO 2026',
   description:
     'Guida alle agenzie del lavoro (collocamento e prestito di personale) attive a Lugano nel 2026: come verificare l\'autorizzazione SECO, cosa controllare nel contratto interinale, diritti del frontaliere con permesso G e differenze con le agenzie italiane.',
   h1: 'Agenzie del lavoro a Lugano: guida 2026 per frontalieri',
@@ -146,8 +145,7 @@ const IT_AGENZIE: CareerLandingCopy = {
 };
 
 const IT_CONCORSI: CareerLandingCopy = {
-  title:
-    'Concorsi pubblici a Lugano e in Ticino 2026: elenco aggiornato, requisiti, stipendi | Frontaliere Ticino',
+  title: 'Concorsi pubblici aperti in Ticino 2026',
   description:
     'Concorsi pubblici aperti in Canton Ticino nel 2026: infermieri OSC, amministrativi, medici assistenti, aiuto cucina, stage cantonali. Elenco aggiornato dalla fonte ufficiale concorsi.ti.ch, requisiti per frontalieri e procedura di candidatura.',
   h1: 'Concorsi pubblici aperti in Ticino: guida 2026',
@@ -236,8 +234,7 @@ const IT_CONCORSI: CareerLandingCopy = {
 };
 
 const IT_STAGE: CareerLandingCopy = {
-  title:
-    'Stage a Lugano 2026: opportunità per frontalieri, indennità, CCL, come candidarsi | Frontaliere Ticino',
+  title: 'Stage a Lugano 2026: guida per frontalieri',
   description:
     'Come trovare uno stage a Lugano: aziende svizzere aperte a tirocinanti italiani, indennità di stage (stipendio) tipiche in Canton Ticino, aspetti contrattuali e fiscali per frontalieri con permesso G, procedura ufficiale cantonale.',
   h1: 'Stage a Lugano: guida 2026 per frontalieri e studenti italiani',
@@ -325,8 +322,7 @@ const IT_STAGE: CareerLandingCopy = {
 };
 
 const IT_CONTRATTI: CareerLandingCopy = {
-  title:
-    'Contratti di lavoro per frontalieri 2026: CCL, accordo fiscale, tutele, modelli | Frontaliere Ticino',
+  title: 'Contratti lavoro frontalieri 2026: guida CCL',
   description:
     'Guida completa ai contratti di lavoro per frontalieri italiani in Ticino: CCL applicabili per settore, imposta alla fonte e nuovo accordo fiscale Italia-Svizzera, diritti su ferie, malattia, tredicesima e LPP, clausole da controllare prima di firmare.',
   h1: 'Contratti di lavoro per frontalieri: guida 2026 al CCL e all\'accordo fiscale',
@@ -513,32 +509,28 @@ const META_BY_LOCALE_AND_ID: Record<
 > = {
   en: {
     'agenzie-lavoro-lugano': {
-      title:
-        'Staffing agencies in Lugano 2026: SECO-authorised list, contracts, cross-border rights | Frontaliere Ticino',
+      title: 'Staffing agencies in Lugano: 2026 SECO guide',
       description:
         'Guide to staffing and placement agencies operating in Lugano: how to verify SECO authorisation, what to check in a temporary-work contract, rights for Italian cross-border workers with permit G, and the official SECO registry.',
       h1: 'Staffing agencies in Lugano: a 2026 cross-border worker guide',
       lede: 'Dozens of staffing and placement agencies operate in Lugano, all supervised by SECO. This guide explains how to recognise an authorised agency, what a temporary-work contract must state for an Italian cross-border worker on permit G, which are the main brands with a Lugano branch, and where to find the official, always-up-to-date SECO list.',
     },
     'concorsi-pubblici-lugano': {
-      title:
-        'Public sector jobs (concorsi) in Lugano and Ticino 2026: list, eligibility, salaries | Frontaliere Ticino',
+      title: 'Public-sector jobs in Ticino 2026: guide',
       description:
         'Open public-sector positions in Canton Ticino 2026: nurses, administrative staff, assistant doctors, kitchen helpers, university interns. Official source: concorsi.ti.ch. Requirements, application procedure and fit for Italian cross-border workers.',
       h1: 'Open public-sector jobs in Ticino: 2026 guide',
       lede: 'The Ticino cantonal administration publishes hundreds of competitions per year for administrative, healthcare, school and technical roles. This guide lists the currently open ones, with deadlines, hiring bodies and application links. Most roles are open to Italian cross-border workers with permit G.',
     },
     'stage-lugano': {
-      title:
-        'Internships in Lugano 2026: roles for Italian cross-border students, pay, contracts | Frontaliere Ticino',
+      title: 'Internships in Lugano: 2026 guide',
       description:
         'How to find an internship in Lugano: Swiss employers open to Italian trainees, typical stipends in Canton Ticino, contract and tax aspects for cross-border workers with permit G, and the official cantonal procedure.',
       h1: 'Internships in Lugano: a 2026 guide for Italian students',
       lede: 'A Swiss internship often is the first step to a permanent contract. In Lugano banks, law firms, audit firms, tech companies and the cantonal administration offer structured internships with meaningful stipends. This guide explains how to apply, how much you earn, the tax aspects for cross-border workers and where to find open offers.',
     },
     'contratti-lavoro-frontalieri': {
-      title:
-        'Cross-border employment contracts 2026: collective agreements, tax treaty, rights | Frontaliere Ticino',
+      title: 'Cross-border contracts 2026: CCL & tax guide',
       description:
         'Complete guide to cross-border employment contracts in Ticino: collective agreements per sector, source tax and the new Italy-Switzerland 2020 treaty, rights on vacation, sick leave, 13th salary and LPP, contract clauses to check before signing.',
       h1: 'Cross-border employment contracts: 2026 guide to collective agreements and the tax treaty',
@@ -547,32 +539,28 @@ const META_BY_LOCALE_AND_ID: Record<
   },
   de: {
     'agenzie-lavoro-lugano': {
-      title:
-        'Personalvermittlung in Lugano 2026: SECO-Liste, Verträge, Grenzgängerrechte | Frontaliere Ticino',
+      title: 'Personalvermittlung Lugano: SECO 2026',
       description:
         'Leitfaden zu Personalverleih- und Vermittlungsfirmen in Lugano 2026: SECO-Autorisierung prüfen, Temporärvertrag-Checkliste, Rechte italienischer Grenzgänger mit G-Bewilligung, offizielles SECO-Verzeichnis.',
       h1: 'Personalvermittler in Lugano: Grenzgänger-Leitfaden 2026',
       lede: 'Dutzende Personalverleih- und Vermittlungsfirmen sind in Lugano tätig, alle SECO-beaufsichtigt. Dieser Leitfaden erklärt, wie man eine autorisierte Firma erkennt, was ein Temporärvertrag für italienische Grenzgänger enthalten muss, welche grossen Marken eine Lugano-Filiale haben und wo die offizielle, immer aktuelle SECO-Liste zu finden ist.',
     },
     'concorsi-pubblici-lugano': {
-      title:
-        'Öffentliche Stellen (Concorsi) in Lugano und Tessin 2026: Liste, Voraussetzungen | Frontaliere Ticino',
+      title: 'Öffentliche Stellen Tessin 2026: Leitfaden',
       description:
         'Offene öffentliche Stellen im Kanton Tessin 2026: Pflege, Verwaltung, Assistenzärzte, Küchenhilfe, Hochschulpraktika. Offizielle Quelle: concorsi.ti.ch. Anforderungen, Bewerbungsablauf, Eignung italienischer Grenzgänger.',
       h1: 'Offene öffentliche Stellen im Tessin: Leitfaden 2026',
       lede: 'Die Tessiner Kantonsverwaltung schreibt jedes Jahr Hunderte von Concorsi aus: Verwaltung, Pflege, Schule, Technik. Dieser Leitfaden listet die aktuell offenen Stellen mit Fristen, Vergabestellen und Bewerbungslinks. Die meisten Rollen sind auch für italienische Grenzgänger mit G-Bewilligung zugänglich.',
     },
     'stage-lugano': {
-      title:
-        'Praktikum in Lugano 2026: Stellen für italienische Studierende, Vergütung, Verträge | Frontaliere Ticino',
+      title: 'Praktikum in Lugano 2026: Leitfaden',
       description:
         'Wie man ein Praktikum in Lugano findet: Schweizer Unternehmen für italienische Praktikanten, übliche Vergütungen in Tessin, Vertrag- und Steueraspekte für Grenzgänger mit G-Bewilligung, kantonaler Bewerbungsablauf.',
       h1: 'Praktikum in Lugano: Leitfaden 2026 für italienische Studierende',
       lede: 'Ein Praktikum in der Schweiz ist oft der erste Schritt zu einer Festanstellung. In Lugano bieten Banken, Anwaltskanzleien, Treuhand- und IT-Firmen sowie die Kantonsverwaltung strukturierte Praktika mit spürbarer Vergütung. Dieser Leitfaden zeigt, wie man sich bewirbt, wie viel man verdient, die Steueraspekte für Grenzgänger und wo offene Stellen zu finden sind.',
     },
     'contratti-lavoro-frontalieri': {
-      title:
-        'Grenzgänger-Arbeitsverträge 2026: GAV, Steuerabkommen, Rechte | Frontaliere Ticino',
+      title: 'Grenzgänger-Verträge 2026: GAV & Steuern',
       description:
         'Vollständiger Leitfaden zu Arbeitsverträgen italienischer Grenzgänger im Tessin: GAV pro Sektor, Quellensteuer und neues Italien-Schweiz-Abkommen 2020, Rechte auf Ferien, Krankheit, 13. Monatslohn und BVG, zu prüfende Klauseln.',
       h1: 'Grenzgänger-Arbeitsverträge: Leitfaden 2026 zu GAV und Steuerabkommen',
@@ -581,32 +569,28 @@ const META_BY_LOCALE_AND_ID: Record<
   },
   fr: {
     'agenzie-lavoro-lugano': {
-      title:
-        "Agences d'intérim à Lugano 2026: liste SECO, contrats, droits frontaliers | Frontaliere Ticino",
+      title: "Agences d'intérim Lugano 2026: liste SECO",
       description:
         "Guide des agences de placement et d'intérim actives à Lugano en 2026: vérifier l'autorisation SECO, contrôler un contrat temporaire, droits des frontaliers italiens avec permis G, registre officiel SECO.",
       h1: "Agences d'intérim à Lugano: guide 2026 pour frontaliers",
       lede: "Des dizaines d'agences de placement et d'intérim opèrent à Lugano, toutes sous supervision SECO. Ce guide explique comment reconnaître une agence autorisée, ce qu'un contrat temporaire doit contenir pour un frontalier italien avec permis G, quelles sont les principales marques présentes à Lugano et où trouver la liste officielle SECO toujours à jour.",
     },
     'concorsi-pubblici-lugano': {
-      title:
-        'Concours publics à Lugano et au Tessin 2026: liste, conditions, salaires | Frontaliere Ticino',
+      title: 'Concours publics Tessin 2026: guide',
       description:
         "Postes publics ouverts au Canton Tessin 2026: infirmiers, administratifs, médecins assistants, aide-cuisine, stages universitaires. Source officielle: concorsi.ti.ch. Conditions et procédure pour frontaliers italiens.",
       h1: 'Concours publics ouverts au Tessin: guide 2026',
       lede: "L'administration cantonale tessinoise publie chaque année des centaines de concorsi: administratif, soins, école, technique. Ce guide liste les concours actuellement ouverts, avec échéances, autorités recruteuses et liens de candidature. La plupart des postes sont accessibles aux frontaliers italiens avec permis G.",
     },
     'stage-lugano': {
-      title:
-        'Stages à Lugano 2026: postes pour étudiants italiens, rémunération, contrats | Frontaliere Ticino',
+      title: 'Stages à Lugano 2026: guide frontaliers',
       description:
         "Comment trouver un stage à Lugano: entreprises suisses ouvertes aux stagiaires italiens, indemnités typiques au Tessin, aspects contractuels et fiscaux pour frontaliers avec permis G, procédure cantonale officielle.",
       h1: 'Stages à Lugano: guide 2026 pour étudiants italiens frontaliers',
       lede: "Un stage en Suisse est souvent le premier pas vers un contrat permanent. À Lugano, banques, études d'avocats, fiduciaires, sociétés tech et administration cantonale proposent des stages structurés avec indemnités significatives. Ce guide explique comment postuler, combien on gagne, les aspects fiscaux pour frontaliers et où trouver les offres ouvertes.",
     },
     'contratti-lavoro-frontalieri': {
-      title:
-        "Contrats de travail frontaliers 2026: conventions collectives, accord fiscal, droits | Frontaliere Ticino",
+      title: 'Contrats travail frontaliers 2026: guide CCT',
       description:
         "Guide complet aux contrats de travail pour frontaliers italiens au Tessin: CCT par secteur, impôt à la source et nouvel accord Italie-Suisse 2020, droits aux vacances, maladie, 13e salaire et LPP, clauses à vérifier.",
       h1: 'Contrats de travail frontaliers: guide 2026 aux CCT et à l\'accord fiscal',

@@ -66,6 +66,7 @@ import {
   CTA_PRIMARY_STYLE,
   HERO_EYEBROW_STYLE,
 } from './shared/seoContentTokens';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -322,7 +323,7 @@ function renderPage(opts: {
 
   const html = buildSeoPageHtml({
     locale,
-    title: copy.title,
+    title: buildTitleWithBrand(copy.title),
     description: copy.description,
     canonicalUrl,
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',

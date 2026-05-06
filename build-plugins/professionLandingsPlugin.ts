@@ -44,6 +44,7 @@ import {
   TABLE_HEAD_STYLE,
   TABLE_CELL_STYLE,
 } from './shared/seoContentTokens';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 import {
   PROFESSION_LOCALES,
   PROFESSION_IDS,
@@ -376,7 +377,7 @@ function renderPage(opts: {
 
   const html = buildSeoPageHtml({
     locale,
-    title: copy.title,
+    title: buildTitleWithBrand(copy.title),
     description: copy.description,
     canonicalUrl,
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
