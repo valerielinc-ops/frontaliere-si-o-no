@@ -1,57 +1,20 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-05-06T10:15:18.801Z",
+  "generatedAt": "2026-05-06T21:16:07.779Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4867,
-  "avgDurationMs": 4867,
+  "durationMs": 6394,
+  "avgDurationMs": 6394,
   "durationHistory": [
-    4867
+    6394
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "aldi-suisse-75eae9a09a65",
-      "slug": "impiegato-vendita-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Mitarbeiter Verkauf (m/w/d)",
-      "location": "en in elf Ländern weltweit. Seit dem",
-      "postalCode": "6928",
-      "canton": "TI",
-      "addressLocality": "en in elf Ländern weltweit. Seit dem",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "streetAddress": "Centro Monda 8",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "url": "https://www.jobs.aldi.ch/job/1266137901",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-05T21:08:23.236Z",
-      "firstSeenAt": "2026-04-13T09:52:47.610Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "aldi-suisse-2b7849368ea3",
@@ -77,7 +40,7 @@
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T10:15:16.939Z",
+      "crawledAt": "2026-05-06T21:16:05.651Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-04T10:11:40.390Z",
       "salaryMin": 59000,
