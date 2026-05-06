@@ -23,6 +23,16 @@ These directives have the highest priority. No exceptions, workarounds, or "temp
 11. **GitHub: always use `gh` CLI** for all GitHub operations (issues, PRs, repos, actions, API calls). Never use any MCP GitHub tools — they route to GitHub Enterprise and will 404 on this repo. The `gh` CLI is pre-authenticated and targets `github.com` by default.
 12. **NEVER run `send-newsletter.mjs --send` locally.** Real newsletter sends to subscribers MUST go through the `send-newsletter` GitHub Actions workflow (`gh workflow run send-newsletter.yml`). For local testing, use `--preview` (stdout, no Firebase) or `--test --target-email <email>` (sends only to that one address). Running `--send` locally bypasses the workflow guardrails and sends to all subscribers.
 
+## Mobile-First Content Positioning
+
+13. **75% of traffic is mobile — design and verify mobile-first.** Real visitors come on small screens; the meaty content (job listings, calculator output, comparison tables, fiscal data) must be the first interactive element after the H1. Every new page must be checked at mobile viewport (≤414px) before declaring done.
+14. **Editorial/SEO filler text must NEVER push real content below the fold.** AI-generated intros, "Cosa cercare quando…" sections, marketing copy, methodology paragraphs, FAQ blocks needed for the text-to-HTML ratio gate, and similar filler MUST be either:
+    - **Below the main content** (full prose at the bottom for crawlers), or
+    - **Collapsed in an accordion** ("Leggi di più" toggle, expanded only on user action), or
+    - **Sidebar on desktop, bottom on mobile** (responsive split — mobile always sees content first).
+
+    Acceptable mobile layout: `H1 → 1-line tagline (≤120 chars) → real content → filler`. Forbidden: `H1 → 80-word intro → content`. This rule applies to **all new pages**: SEO landings, search clusters, comparator pages, blog articles with chart data, anything that has both filler and "ciccia" content.
+
 ---
 
 # Project Overview

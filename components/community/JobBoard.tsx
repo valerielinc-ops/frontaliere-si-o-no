@@ -2356,11 +2356,43 @@ function syncQueryParamsToUrl(updates: Record<string, string | null>) {
  } catch { /* non-critical */ }
 }
 
+// Tokens are filtered by `t.length >= 4` upstream, so 1-3 char stopwords are
+// excluded by the length gate (no need to list `il`, `la`, `da`, `di`, etc.).
+// Kept in this set: 4+ char function words across IT/EN/DE/FR + domain noise
+// that leaks from job-description boilerplate (e.g. "vous", "dans", "sind",
+// "have"). Without these, slugs like /recherche-vous-chur/ get emitted as real
+// anchor links on every Chur job in French — high-frequency, zero search
+// intent, doorway-page risk if promoted to canonical landings.
 const RELATED_SEARCH_STOPWORDS = new Set([
+ // IT
  'della', 'delle', 'dello', 'degli', 'dell', 'alla', 'alle', 'allo', 'agli', 'con', 'per', 'nel', 'nella', 'nelle',
  'sul', 'sulla', 'sulle', 'dei', 'del', 'di', 'da', 'tra', 'fra', 'che', 'chi', 'con', 'su', 'il', 'lo', 'la', 'i', 'gli', 'le',
- 'the', 'and', 'for', 'with', 'from', 'der', 'die', 'das', 'und', 'pour', 'avec', 'des', 'les',
- 'lavoro', 'offerta', 'annuncio', 'job', 'stelle', 'emploi', 'posto', 'ruolo', 'position', 'ticino', 'svizzera',
+ 'anche', 'ancora', 'sempre', 'ogni', 'tutto', 'tutta', 'tutti', 'tutte', 'dopo', 'prima', 'sotto', 'sopra',
+ 'dentro', 'fuori', 'senza', 'molto', 'poco', 'tanto', 'questo', 'questa', 'questi', 'queste', 'quello', 'quella',
+ 'quelli', 'quelle', 'come', 'quando', 'dove', 'mentre', 'perche', 'hanno', 'sono', 'siamo', 'siete', 'sara',
+ 'saranno', 'noi', 'voi', 'loro', 'nostro', 'nostra', 'nostri', 'nostre', 'vostro', 'vostra', 'vostri', 'vostre',
+ // EN
+ 'the', 'and', 'for', 'with', 'from', 'this', 'that', 'these', 'those', 'have', 'will', 'would', 'could', 'should',
+ 'only', 'even', 'also', 'some', 'more', 'most', 'much', 'many', 'well', 'your', 'ours', 'them', 'they', 'their',
+ 'into', 'after', 'before', 'about', 'where', 'while', 'when', 'than', 'what', 'which', 'been', 'were', 'being',
+ // DE
+ 'der', 'die', 'das', 'und', 'sein', 'sind', 'ihre', 'ihren', 'deren', 'ihnen', 'haben', 'hatte', 'wird', 'werden',
+ 'wurde', 'worden', 'nicht', 'kein', 'keine', 'keinen', 'alle', 'alles', 'allen', 'aber', 'oder', 'doch', 'schon',
+ 'sehr', 'mehr', 'immer', 'noch', 'beim', 'dies', 'diese', 'dieser', 'dieses', 'diesen', 'ohne', 'gegen', 'durch',
+ 'sich', 'nach', 'wenn', 'dann', 'unter', 'ueber',
+ 'eine', 'einer', 'eines', 'einen', 'einem', 'deine', 'deiner', 'deinen', 'deinem', 'mein', 'meine', 'meiner', 'meinen',
+ // FR
+ 'pour', 'avec', 'des', 'les', 'vous', 'votre', 'vos', 'nous', 'notre', 'nos', 'leur', 'leurs', 'dans', 'sans',
+ 'sous', 'vers', 'chez', 'mais', 'aussi', 'ainsi', 'encore', 'plus', 'sont', 'sera', 'seront', 'etre', 'avoir',
+ 'faire', 'autre', 'autres', 'meme', 'memes', 'cette', 'celle', 'celui', 'ceux', 'entre', 'avant', 'apres',
+ 'depuis', 'durant', 'lorsque', 'quand', 'comme', 'parce', 'alors', 'donc', 'ensuite', 'puis', 'toujours',
+ 'jamais', 'tres', 'bien', 'mieux', 'tout', 'tous', 'toute', 'toutes', 'aucun', 'chaque', 'plusieurs', 'certains',
+ // Domain noise
+ 'lavoro', 'offerta', 'annuncio', 'job', 'jobs', 'stelle', 'emploi', 'emplois', 'posto', 'ruolo', 'position', 'ticino', 'svizzera',
+ 'team', 'teams', 'candidato', 'candidata', 'candidat', 'candidate', 'candidates', 'kandidat', 'kandidatin',
+ 'azienda', 'aziende', 'unternehmen', 'entreprise', 'company', 'companies', 'societa', 'societe',
+ 'experience', 'esperienza', 'erfahrung', 'erfahrungen',
+ 'client', 'clients', 'clienti', 'cliente', 'kunde', 'kunden', 'customer', 'customers',
 ]);
 
 function extractRelatedTopicTokens(value: string, max = 8): string[] {
@@ -2462,7 +2494,15 @@ function buildRelatedSearches(params: {
  const shortTitle = title.split(/[-–—|•·]/)[0]?.trim() || title;
  const location = String(job.location || '').trim();
  const company = String(job.company || '').trim();
- const bodyTokens = extractRelatedTopicTokens(`${summary.join(' ')} ${requirements.join(' ')}`, 6);
+ // Strip body tokens that equal the location itself (avoids self-duplicating
+ // slugs like /suche-gossau-gossau/ when a job in Gossau mentions "Gossau" in
+ // the description and the token-extractor pulls it as a "topic").
+ const locationToken = String(location || DEFAULT_CANTON_DISPLAY)
+ .toLowerCase()
+ .normalize('NFD')
+ .replace(/[̀-ͯ]/g, '');
+ const bodyTokens = extractRelatedTopicTokens(`${summary.join(' ')} ${requirements.join(' ')}`, 6)
+ .filter((token) => token !== locationToken);
 
  const generated = locale === 'it'
  ? bodyTokens.map((token) => `${token} ${location || DEFAULT_CANTON_DISPLAY.toLowerCase()}`.trim())
