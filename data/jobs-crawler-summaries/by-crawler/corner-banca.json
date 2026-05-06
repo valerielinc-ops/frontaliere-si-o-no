@@ -1,47 +1,18 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-05-05T21:39:21.523Z",
+  "generatedAt": "2026-05-06T10:45:17.901Z",
   "total": 12,
-  "newCount": 1,
-  "updatedCount": 11,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 12,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2793,
-  "avgDurationMs": 2793,
+  "durationMs": 2301,
+  "avgDurationMs": 2301,
   "durationHistory": [
-    2793
+    2301
   ],
-  "newJobs": [
-    {
-      "id": "corner-banca-b69f1f79bbe3",
-      "slug": "customer-advisor-40-corner-banca-wallisellen",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor 40%",
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-03",
-      "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.874Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 19,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "corner-banca-0a05fbf90698",
@@ -62,7 +33,7 @@
       "url": "https://jobs.corner.ch/o/aml-monitoring",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.864Z",
+      "crawledAt": "2026-05-06T10:45:15.942Z",
       "firstSeenAt": "2026-04-28T10:42:06.718Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -91,7 +62,7 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.865Z",
+      "crawledAt": "2026-05-06T10:45:15.943Z",
       "firstSeenAt": "2026-04-15T21:25:24.685Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -120,7 +91,7 @@
       "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.866Z",
+      "crawledAt": "2026-05-06T10:45:15.945Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
@@ -150,7 +121,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.867Z",
+      "crawledAt": "2026-05-06T10:45:15.946Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -179,7 +150,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.868Z",
+      "crawledAt": "2026-05-06T10:45:15.947Z",
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -208,7 +179,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.869Z",
+      "crawledAt": "2026-05-06T10:45:15.948Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -237,7 +208,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.870Z",
+      "crawledAt": "2026-05-06T10:45:15.949Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -266,7 +237,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T21:39:18.871Z",
+      "crawledAt": "2026-05-06T10:45:15.950Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -295,7 +266,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.872Z",
+      "crawledAt": "2026-05-06T10:45:15.951Z",
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -324,12 +295,41 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-05T21:39:18.873Z",
+      "crawledAt": "2026-05-06T10:45:15.952Z",
       "firstSeenAt": "2026-04-13T10:22:37.694Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "corner-banca-b69f1f79bbe3",
+      "slug": "customer-advisor-40-corner-banca-wallisellen",
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Advisor 40%",
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-03",
+      "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-06T10:45:15.954Z",
+      "firstSeenAt": "2026-05-05T21:39:18.874Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
         "translation": 25,
         "completeness": 14
       }
@@ -353,7 +353,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T21:39:18.874Z",
+      "crawledAt": "2026-05-06T10:45:15.954Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -364,42 +364,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "corner-banca-acebb12b2bb7",
-      "slug": "consulente-clienti-60-team-zurigo-corner-banca-wallisellen",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor 60% Team Zurich",
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-16",
-      "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-05T10:30:04.229Z",
-      "firstSeenAt": "2026-04-17T21:20:43.257Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
