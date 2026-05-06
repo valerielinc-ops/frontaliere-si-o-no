@@ -21053,4 +21053,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'hantavirus-oms-passeggeri-sudafrica',
+ category: 'novita',
+ date: '2026-05-06T22:51:53.676Z',
+ image: '/images/blog/hantavirus-oms-passeggeri-sudafrica.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

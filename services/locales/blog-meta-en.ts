@@ -6560,6 +6560,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-tunnel-lukmanier-sicurezza.title': 'New Lukmanier tunnel for better road safety',
     'blog.article.nuovo-tunnel-lukmanier-sicurezza.excerpt': 'A new tunnel will be built at Lukmanier to improve road safety.',
     'blog.article.nuovo-tunnel-lukmanier-sicurezza.imageAlt': 'The new Lukmanier tunnel for increased safety',
+    'blog.article.hantavirus-oms-passeggeri-sudafrica.title': 'WHO seeks passengers on a flight to South Africa',
+    'blog.article.hantavirus-oms-passeggeri-sudafrica.excerpt': 'WHO is looking for passengers on a flight to South Africa after the death of a Dutch woman infected with hantavirus.',
+    'blog.article.hantavirus-oms-passeggeri-sudafrica.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

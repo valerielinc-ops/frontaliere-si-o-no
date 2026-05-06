@@ -6561,6 +6561,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-tunnel-lukmanier-sicurezza.title': 'Nuovo tunnel al Lukmanier per più sicurezza',
     'blog.article.nuovo-tunnel-lukmanier-sicurezza.excerpt': 'Un nuovo tunnel verrà costruito al Lukmanier per migliorare la sicurezza stradale.',
     'blog.article.nuovo-tunnel-lukmanier-sicurezza.imageAlt': 'Il nuovo tunnel di Lukmanier per una maggiore sicurezza',
+    'blog.article.hantavirus-oms-passeggeri-sudafrica.title': 'Hantavirus, l\'OMS cerca passeggeri di un volo per il Sudafrica',
+    'blog.article.hantavirus-oms-passeggeri-sudafrica.excerpt': 'L\'OMS cerca passeggeri di un volo per il Sudafrica dopo la morte di una donna olandese affetta da hantavirus.',
+    'blog.article.hantavirus-oms-passeggeri-sudafrica.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti',
 };
 
 export default blogMetaIt;

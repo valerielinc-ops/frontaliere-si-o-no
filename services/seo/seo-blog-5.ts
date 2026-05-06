@@ -24168,6 +24168,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hantavirus-oms-passeggeri-sudafrica': {
+    title: 'Hantavirus, l\'OMS cerca passeggeri di un volo per il Sudafrica',
+    description: 'L\'OMS cerca passeggeri di un volo per il Sudafrica dopo la morte di una donna olandese affetta da hantavirus. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, hantavirus, cerca, passeggeri, volo',
+    ogTitle: 'Hantavirus, l\'OMS cerca passeggeri di un volo per il Sudafrica',
+    ogDescription: 'L\'OMS cerca passeggeri di un volo per il Sudafrica dopo la morte di una donna olandese affetta da hantavirus.',
+    canonicalPath: '/articoli-frontaliere/hantavirus-oms-passeggeri-sudafrica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hantavirus, l'OMS cerca passeggeri di un volo per il Sudafrica",
+      "description": "L'OMS cerca passeggeri di un volo per il Sudafrica dopo la morte di una donna olandese affetta da hantavirus. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/hantavirus-oms-passeggeri-sudafrica.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne circostanti"
+      },
+      "datePublished": "2026-05-06T22:51:53+00:00",
+      "dateModified": "2026-05-06T22:51:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hantavirus-oms-passeggeri-sudafrica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
