@@ -21508,6 +21508,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bambini-tecnologia-varese-2026': {
+    title: 'Bambini e tecnologia: incontro gratuito a Varese su smartphone e tablet',
+    description: 'Incontro gratuito a Varese con la psicologa Cristiana De Porcellinis per guidare i genitori nell\'uso consapevole di smartphone e tablet per i bambini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bambini, tecnologia, incontro, gratuito',
+    ogTitle: 'Bambini e tecnologia: incontro gratuito a Varese',
+    ogDescription: 'Incontro gratuito a Varese con la psicologa Cristiana De Porcellinis per guidare i genitori nell\'uso consapevole di smartphone e tablet per i bambini.',
+    canonicalPath: '/articoli-frontaliere/bambini-tecnologia-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bambini e tecnologia: incontro gratuito a Varese su smartphone e tablet",
+      "description": "Incontro gratuito a Varese con la psicologa Cristiana De Porcellinis per guidare i genitori nell'uso consapevole di smartphone e tablet per i bambini.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/bambini-tecnologia-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Genitore e bambino usano un tablet insieme in un ambiente domestico accogliente nel Ticino"
+      },
+      "datePublished": "2026-05-06T06:54:14+00:00",
+      "dateModified": "2026-05-06T06:54:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bambini-tecnologia-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

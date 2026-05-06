@@ -6350,6 +6350,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-monito-svizzera-10-milioni.title': '1. Mai: Tausende gegen UDC-Initiative',
     'blog.article.primo-maggio-monito-svizzera-10-milioni.excerpt': 'Nationale Mobilisierung zum Schutz der Arbeiterrechte und gegen die UDC-Initiative \'Nein zu einer Schweiz mit 10 Millionen!\'',
     'blog.article.primo-maggio-monito-svizzera-10-milioni.imageAlt': 'Demonstranten auf dem Platz am 1. Mai gegen die UDC-Initiative in der Schweiz',
+    'blog.article.bambini-tecnologia-varese-2026.title': 'Kinder & Technologie: Gratis-Event in Varese',
+    'blog.article.bambini-tecnologia-varese-2026.excerpt': 'Eine kostenlose Veranstaltung in Varese mit der Psychologin Cristiana De Porcellinis, um Eltern im bewussten Umgang mit Smartphones und Tablets für Kinder zu begleiten.',
+    'blog.article.bambini-tecnologia-varese-2026.imageAlt': 'Elternteil und Kind nutzen ein Tablet zusammen in einer gemütlichen Wohnumgebung im Tessin',
 };
 
 export default blogMetaDe;

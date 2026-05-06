@@ -6351,6 +6351,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-monito-svizzera-10-milioni.title': '1° maggio: migliaia in piazza contro l\'iniziativa UDC',
     'blog.article.primo-maggio-monito-svizzera-10-milioni.excerpt': 'Mobilitazione nazionale per difendere i diritti dei lavoratori e contrastare l\'iniziativa UDC \'No a una Svizzera da 10 milioni!\'',
     'blog.article.primo-maggio-monito-svizzera-10-milioni.imageAlt': 'Manifestanti in piazza per il 1° maggio contro l\'iniziativa UDC in Svizzera',
+    'blog.article.bambini-tecnologia-varese-2026.title': 'Bambini e tecnologia: incontro gratuito a Varese su smartphone e tablet',
+    'blog.article.bambini-tecnologia-varese-2026.excerpt': 'Un incontro gratuito a Varese con la psicologa Cristiana De Porcellinis per guidare i genitori nell\'uso consapevole di smartphone e tablet per i bambini.',
+    'blog.article.bambini-tecnologia-varese-2026.imageAlt': 'Genitore e bambino usano un tablet insieme in un ambiente domestico accogliente nel Ticino',
 };
 
 export default blogMetaIt;

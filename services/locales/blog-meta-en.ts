@@ -6350,6 +6350,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-monito-svizzera-10-milioni.title': 'May 1st: thousands protest UDC initiative',
     'blog.article.primo-maggio-monito-svizzera-10-milioni.excerpt': 'National mobilization to defend workers\' rights and counter the UDC initiative \'No to a 10 million Switzerland!\'',
     'blog.article.primo-maggio-monito-svizzera-10-milioni.imageAlt': 'Protesters in the square for May 1st against the UDC initiative in Switzerland',
+    'blog.article.bambini-tecnologia-varese-2026.title': 'Children and technology: free event in Varese on smartphones and tablets',
+    'blog.article.bambini-tecnologia-varese-2026.excerpt': 'A free event in Varese with psychologist Cristiana De Porcellinis to guide parents in the conscious use of smartphones and tablets for children.',
+    'blog.article.bambini-tecnologia-varese-2026.imageAlt': 'Parent and child using a tablet together in a cozy home setting in Ticino',
 };
 
 export default blogMetaEn;

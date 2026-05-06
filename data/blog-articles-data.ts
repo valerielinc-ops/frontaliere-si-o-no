@@ -20423,4 +20423,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bambini-tecnologia-varese-2026',
+ category: 'pratico',
+ date: '2026-05-06T06:54:14.397Z',
+ image: '/images/blog/bambini-tecnologia-varese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
