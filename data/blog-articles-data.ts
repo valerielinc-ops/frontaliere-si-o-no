@@ -20243,4 +20243,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'colombi-addio-corriere-ticino',
+ category: 'novita',
+ date: '2026-05-06T02:15:14.202Z',
+ image: '/images/blog/colombi-addio-corriere-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

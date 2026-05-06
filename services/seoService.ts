@@ -3339,6 +3339,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bper-risiko-bancario-crescita-mercato': { name: 'Bper e i lupi', path: '/articoli-frontaliere/bper-risiko-bancario-crescita-mercato', parent: 'blog' },
     'blog-svizzeri-felici-salute-mentale-costi': { name: 'Salute mentale', path: '/articoli-frontaliere/svizzeri-felici-salute-mentale-costi', parent: 'blog' },
     'blog-liuc-innovazione-2026-frontalieri': { name: 'Settimana dell\'Innovazione', path: '/articoli-frontaliere/liuc-innovazione-2026-frontalieri', parent: 'blog' },
+    'blog-colombi-addio-corriere-ticino': { name: 'Novità', path: '/articoli-frontaliere/colombi-addio-corriere-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

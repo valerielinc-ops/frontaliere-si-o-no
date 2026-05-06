@@ -6291,6 +6291,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.liuc-innovazione-2026-frontalieri.title': 'LIUC : Semaine de l\'Innovation 2026 sur l\'IA et les startups',
     'blog.article.liuc-innovazione-2026-frontalieri.excerpt': 'Du 12 au 15 mai 2026, la LIUC de Castellanza accueille la Semaine de l\'Innovation avec des ateliers sur l\'IA, les startups et les nouvelles compétences demandées par le marché.',
     'blog.article.liuc-innovazione-2026-frontalieri.imageAlt': 'Auditorium de l\'Université LIUC à Castellanza lors d\'un événement d\'innovation',
+    'blog.article.colombi-addio-corriere-ticino.title': 'Alessandro Colombi quitte le Groupe Corriere del Ticino',
+    'blog.article.colombi-addio-corriere-ticino.excerpt': 'Après douze ans de collaboration, Alessandro Colombi quitte le Groupe Corriere del Ticino. Le Conseil de Fondation et le Conseil d\'Administration le remercient pour sa contribution significative.',
+    'blog.article.colombi-addio-corriere-ticino.imageAlt': 'LAC Lugano, centre culturel sur le lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

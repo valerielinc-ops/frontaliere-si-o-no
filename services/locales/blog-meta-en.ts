@@ -6290,6 +6290,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.liuc-innovazione-2026-frontalieri.title': 'LIUC: Innovation Week 2026 focuses on AI and startups',
     'blog.article.liuc-innovazione-2026-frontalieri.excerpt': 'From May 12 to 15, 2026, LIUC in Castellanza hosts Innovation Week with workshops on AI, startups, and new skills demanded by the market.',
     'blog.article.liuc-innovazione-2026-frontalieri.imageAlt': 'LIUC University auditorium in Castellanza during an innovation event',
+    'blog.article.colombi-addio-corriere-ticino.title': 'Alessandro Colombi leaves Corriere del Ticino Group',
+    'blog.article.colombi-addio-corriere-ticino.excerpt': 'After twelve years of collaboration, Alessandro Colombi leaves the Corriere del Ticino Group. The Foundation Board and the Board of Directors thank him for his significant contribution.',
+    'blog.article.colombi-addio-corriere-ticino.imageAlt': 'LAC Lugano, cultural center on Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;
