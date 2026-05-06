@@ -6428,6 +6428,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.votazioni-ticino-14-giugno-2024.title': 'Abstimmungen vom 14. Juni: ungewisses Ergebnis für beide Vorlagen',
     'blog.article.votazioni-ticino-14-giugno-2024.excerpt': 'Umfrage von YouGov Schweiz zeigt ein Kopf-an-Kopf-Rennen zwischen Befürwortern und Gegnern der SVP-Initiative und der Änderung des Gesetzes über den Zivildienst',
     'blog.article.votazioni-ticino-14-giugno-2024.imageAlt': 'Luftaufnahme des Luganer Sees mit der Landschaft des Tessin',
+    'blog.article.borse-ticino-londra-verde.title': 'Aktien steigen, außer London: Auswirkungen für Grenzgänger',
+    'blog.article.borse-ticino-londra-verde.excerpt': 'Die europäischen Börsen schließen im Plus, außer London. Analyse der Auswirkungen für die Grenzgänger im Tessin.',
+    'blog.article.borse-ticino-londra-verde.imageAlt': 'Blick auf den Luganersee mit der Stadt und Bergen',
 };
 
 export default blogMetaDe;

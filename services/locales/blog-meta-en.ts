@@ -6428,6 +6428,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.votazioni-ticino-14-giugno-2024.title': 'June 14 vote: uncertain outcome for both issues',
     'blog.article.votazioni-ticino-14-giugno-2024.excerpt': 'YouGov Switzerland poll reveals a tight race between supporters and opponents for the SVP initiative and the amendment to the civil service law',
     'blog.article.votazioni-ticino-14-giugno-2024.imageAlt': 'Aerial view of Lake Lugano with Ticino\'s landscape',
+    'blog.article.borse-ticino-londra-verde.title': 'Stocks rise except London: what changes for cross-border workers',
+    'blog.article.borse-ticino-londra-verde.excerpt': 'European stock markets close in the green, except London. Analysis of the implications for Ticino cross-border workers.',
+    'blog.article.borse-ticino-londra-verde.imageAlt': 'View of Lake Lugano with the city and mountains',
 };
 
 export default blogMetaEn;

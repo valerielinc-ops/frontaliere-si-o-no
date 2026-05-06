@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2195,
+ "numberOfItems": 2196,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6837,7 +6837,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2192, "name": "Screening mammografico a 45 anni: cosa cambia i...", "url": `${BASE_URL}/articoli-frontaliere/screening-senologico-45-anni-ticino` },
           { "@type": "ListItem", "position": 2193, "name": "G7 a Evian: più controlli alle frontiere con la...", "url": `${BASE_URL}/articoli-frontaliere/g7-evian-controlli-frontiere-ticino` },
           { "@type": "ListItem", "position": 2194, "name": "Menaggio dice no ai test: sei automobilisti nei...", "url": `${BASE_URL}/articoli-frontaliere/menaggio-test-automobilisti-guai` },
-          { "@type": "ListItem", "position": 2195, "name": "Votazioni del 14 giugno: esito incerto per entr...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-ticino-14-giugno-2024` }
+          { "@type": "ListItem", "position": 2195, "name": "Votazioni del 14 giugno: esito incerto per entr...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-ticino-14-giugno-2024` },
+          { "@type": "ListItem", "position": 2196, "name": "Borse in rialzo, eccetto Londra: cosa cambia pe...", "url": `${BASE_URL}/articoli-frontaliere/borse-ticino-londra-verde` }
  ]
  },
  {

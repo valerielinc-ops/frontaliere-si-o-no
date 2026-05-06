@@ -6429,6 +6429,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.votazioni-ticino-14-giugno-2024.title': 'Votations du 14 juin: résultat incertain pour les deux objets',
     'blog.article.votazioni-ticino-14-giugno-2024.excerpt': 'Un sondage YouGov Suisse révèle un match serré entre les partisans et les opposants à l\'initiative UDC et à la modification de la loi sur le service civil',
     'blog.article.votazioni-ticino-14-giugno-2024.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
+    'blog.article.borse-ticino-londra-verde.title': 'Bourses en hausse, sauf Londres: ce qui change pour les frontaliers',
+    'blog.article.borse-ticino-londra-verde.excerpt': 'Les Bourses européennes ferment en vert, sauf Londres. Analyse des implications pour les frontaliers du Tessin.',
+    'blog.article.borse-ticino-londra-verde.imageAlt': 'Vue du lac de Lugano avec la ville et les montagnes',
 };
 
 export default blogMetaFr;

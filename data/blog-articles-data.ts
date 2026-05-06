@@ -20657,4 +20657,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'borse-ticino-londra-verde',
+ category: 'fiscale',
+ date: '2026-05-06T10:54:57.559Z',
+ image: '/images/blog/borse-ticino-londra-verde.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

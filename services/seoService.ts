@@ -3385,6 +3385,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-g7-evian-controlli-frontiere-ticino': { name: 'G7 Evian', path: '/articoli-frontaliere/g7-evian-controlli-frontiere-ticino', parent: 'blog' },
     'blog-menaggio-test-automobilisti-guai': { name: 'Menaggio Test', path: '/articoli-frontaliere/menaggio-test-automobilisti-guai', parent: 'blog' },
     'blog-votazioni-ticino-14-giugno-2024': { name: 'Votazioni Ticino', path: '/articoli-frontaliere/votazioni-ticino-14-giugno-2024', parent: 'blog' },
+    'blog-borse-ticino-londra-verde': { name: 'Borse e frontalieri', path: '/articoli-frontaliere/borse-ticino-londra-verde', parent: 'blog' },
  };
 
  const info = sectionNames[section];
