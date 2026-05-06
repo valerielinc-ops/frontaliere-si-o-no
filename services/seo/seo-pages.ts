@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2212,
+ "numberOfItems": 2213,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6854,7 +6854,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2209, "name": "NO all'iniziativa UDC che minaccia gli accordi ...", "url": `${BASE_URL}/articoli-frontaliere/udc-bilaterali-2026-frontalieri` },
           { "@type": "ListItem", "position": 2210, "name": "Nessun esperimento con richiedenti asilo proble...", "url": `${BASE_URL}/articoli-frontaliere/centro-pasture-balerna-asilo` },
           { "@type": "ListItem", "position": 2211, "name": "300 persone in fila per un pasto vegetale a Lugano", "url": `${BASE_URL}/articoli-frontaliere/300-persone-pasto-vegetale-lugano-2026` },
-          { "@type": "ListItem", "position": 2212, "name": "Svizzera, 20mila franchi di multa per un viaggi...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-treno-multa-20000-franchi` }
+          { "@type": "ListItem", "position": 2212, "name": "Svizzera, 20mila franchi di multa per un viaggi...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-treno-multa-20000-franchi` },
+          { "@type": "ListItem", "position": 2213, "name": "Decreto Lavoro, Coldiretti Varese: misure per l...", "url": `${BASE_URL}/articoli-frontaliere/decreto-lavoro-coldiretti-varese-2026` }
  ]
  },
  {

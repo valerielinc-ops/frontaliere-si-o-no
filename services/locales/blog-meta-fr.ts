@@ -6480,6 +6480,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-treno-multa-20000-franchi.title': 'Suisse, 20 000 francs d\'amende pour un voyage sans billet',
     'blog.article.svizzera-treno-multa-20000-franchi.excerpt': 'Un homme de 40 ans du canton de Schwytz a été condamné à 20 000 francs pour avoir voyagé sans billet et falsifié des documents.',
     'blog.article.svizzera-treno-multa-20000-franchi.imageAlt': 'Une personne qui se fait verbaliser dans un train suisse avec vue sur le lac de Lugano',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.title': 'Décret Travail, Coldiretti Varese: mesures pour la stabilité de l\'emploi',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.excerpt': 'Coldiretti Varese soutient le Décret Travail, estimant que les mesures adoptées sont un pas important pour renforcer la stabilité et la qualité de l\'emploi dans le secteur agricole.',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -6480,6 +6480,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-treno-multa-20000-franchi.title': 'Svizzera, 20mila franchi di multa per un viaggio senza biglietto',
     'blog.article.svizzera-treno-multa-20000-franchi.excerpt': 'Un uomo di 40 anni del Canton Svitto è stato condannato a 20mila franchi per aver viaggiato senza biglietto e falsificato documenti.',
     'blog.article.svizzera-treno-multa-20000-franchi.imageAlt': 'Una persona multata su un treno svizzero con vista sul Lago di Lugano',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.title': 'Decreto Lavoro, Coldiretti Varese: misure per la stabilità dell\'occupazione',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.excerpt': 'Coldiretti Varese promuove il Decreto Lavoro, ritenendo le misure adottate un passo importante per rafforzare la stabilità e la qualità dell\'occupazione nel settore agricolo.',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

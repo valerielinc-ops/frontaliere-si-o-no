@@ -6479,6 +6479,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-treno-multa-20000-franchi.title': 'Switzerland: 20,000 francs fine for traveling without a ticket',
     'blog.article.svizzera-treno-multa-20000-franchi.excerpt': 'A 40-year-old man from the Canton of Schwyz was fined 20,000 francs for traveling without a ticket and forging documents.',
     'blog.article.svizzera-treno-multa-20000-franchi.imageAlt': 'A person being fined on a Swiss train with a view of Lake Lugano',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.title': 'Labour Decree, Coldiretti Varese: measures for job stability',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.excerpt': 'Coldiretti Varese supports the Labour Decree, considering the adopted measures an important step to strengthen job stability and quality in the agricultural sector.',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;

@@ -3402,6 +3402,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-centro-pasture-balerna-asilo': { name: 'Novità', path: '/articoli-frontaliere/centro-pasture-balerna-asilo', parent: 'blog' },
     'blog-300-persone-pasto-vegetale-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/300-persone-pasto-vegetale-lugano-2026', parent: 'blog' },
     'blog-svizzera-treno-multa-20000-franchi': { name: 'Novità', path: '/articoli-frontaliere/svizzera-treno-multa-20000-franchi', parent: 'blog' },
+    'blog-decreto-lavoro-coldiretti-varese-2026': { name: 'Decreto Lavoro', path: '/articoli-frontaliere/decreto-lavoro-coldiretti-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

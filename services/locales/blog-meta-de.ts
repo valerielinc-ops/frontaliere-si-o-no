@@ -6479,6 +6479,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-treno-multa-20000-franchi.title': 'Schweiz: 20.000 Franken Strafe für Fahrt ohne Ticket',
     'blog.article.svizzera-treno-multa-20000-franchi.excerpt': 'Ein 40-jähriger Mann aus dem Kanton Schwyz wurde zu 20.000 Franken verurteilt, weil er ohne Ticket reiste und Dokumente fälschte.',
     'blog.article.svizzera-treno-multa-20000-franchi.imageAlt': 'Eine Person, die auf einem Schweizer Zug mit Blick auf den Luganersee gebüsst wird',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.title': 'Arbeitsdekrets: Coldiretti Varese für Arbeitsplatzsicherheit',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.excerpt': 'Coldiretti Varese begrüßt das Arbeitsdekrets und sieht darin einen wichtigen Schritt zur Stärkung der Stabilität und Qualität der Beschäftigung im Agrarsektor.',
+    'blog.article.decreto-lavoro-coldiretti-varese-2026.imageAlt': 'Luftansicht des Luganersees mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;
