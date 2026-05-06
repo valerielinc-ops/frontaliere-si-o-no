@@ -6491,6 +6491,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.luino-sanita-massarenti-2026.title': 'Luino: Massarenti kritisiert Gesundheitsdaten der Region Lombardei',
     'blog.article.luino-sanita-massarenti-2026.excerpt': 'Marco Massarenti, Kandidat von \'La nostra Luino\', kritisiert die von der Region Lombardei präsentierten Gesundheitsdaten und hebt Ungleichheiten und strukturelle Probleme hervor.',
     'blog.article.luino-sanita-massarenti-2026.imageAlt': 'Luftaufnahme von Luino, Italien, in der Nähe der Schweizer Grenze, mit dem Luganersee im Hintergrund, klarer blauer Himmel, herbstliche Farben.',
+    'blog.article.siss-problemi-lombardia-frontalieri.title': 'SISS Lombardei: Astuti kritisiert chronische Probleme und Untätigkeit',
+    'blog.article.siss-problemi-lombardia-frontalieri.excerpt': 'Der regionale PD-Rat Samuele Astuti greift die lombardische Regierung wegen der Funktionsstörungen des sozio-sanitären Informationssystems an',
+    'blog.article.siss-problemi-lombardia-frontalieri.imageAlt': 'Luftaufnahme von Bellinzona mit den drei Burgen und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

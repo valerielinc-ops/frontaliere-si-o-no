@@ -23294,6 +23294,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-siss-problemi-lombardia-frontalieri': {
+    title: 'SISS Lombardia: Astuti denuncia problemi cronici e inazione',
+    description: 'Il consigliere regionale PD Samuele Astuti attacca la giunta lombarda per i malfunzionamenti del sistema informativo socio-sanitario. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, siss, lombardia, astuti, denuncia',
+    ogTitle: 'SISS Lombardia: Astuti denuncia problemi cronici e inazione',
+    ogDescription: 'Il consigliere regionale PD Samuele Astuti attacca la giunta lombarda per i malfunzionamenti del sistema informativo socio-sanitario',
+    canonicalPath: '/articoli-frontaliere/siss-problemi-lombardia-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SISS Lombardia: Astuti denuncia problemi cronici e inazione",
+      "description": "Il consigliere regionale PD Samuele Astuti attacca la giunta lombarda per i malfunzionamenti del sistema informativo socio-sanitario. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/siss-problemi-lombardia-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Bellinzona con i tre castelli e le montagne circostanti"
+      },
+      "datePublished": "2026-05-06T13:36:15+00:00",
+      "dateModified": "2026-05-06T13:36:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/siss-problemi-lombardia-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

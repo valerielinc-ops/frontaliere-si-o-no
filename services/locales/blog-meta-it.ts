@@ -6492,6 +6492,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.luino-sanita-massarenti-2026.title': 'Luino: Massarenti denuncia il trucco delle percentuali nella sanità pubblica',
     'blog.article.luino-sanita-massarenti-2026.excerpt': 'Marco Massarenti, candidato di \'La nostra Luino\', critica i dati presentati dalla Regione Lombardia sulla sanità, evidenziando disparità e problemi strutturali.',
     'blog.article.luino-sanita-massarenti-2026.imageAlt': 'Vista aerea di Luino, Italia, vicino al confine svizzero, con il Lago di Lugano sullo sfondo, cielo azzurro limpido, colori autunnali.',
+    'blog.article.siss-problemi-lombardia-frontalieri.title': 'SISS Lombardia: Astuti denuncia problemi cronici e inazione',
+    'blog.article.siss-problemi-lombardia-frontalieri.excerpt': 'Il consigliere regionale PD Samuele Astuti attacca la giunta lombarda per i malfunzionamenti del sistema informativo socio-sanitario',
+    'blog.article.siss-problemi-lombardia-frontalieri.imageAlt': 'Veduta aerea di Bellinzona con i tre castelli e le montagne circostanti',
 };
 
 export default blogMetaIt;

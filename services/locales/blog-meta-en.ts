@@ -6491,6 +6491,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.luino-sanita-massarenti-2026.title': 'Luino: Massarenti accuses Lombardy of healthcare data manipulation',
     'blog.article.luino-sanita-massarenti-2026.excerpt': 'Marco Massarenti, candidate for \'La nostra Luino\', criticizes data presented by the Lombardy Region on healthcare, highlighting disparities and structural problems.',
     'blog.article.luino-sanita-massarenti-2026.imageAlt': 'Aerial view of Luino, Italy, near the Swiss border, with Lake Lugano in the background, clear blue sky, autumn colors.',
+    'blog.article.siss-problemi-lombardia-frontalieri.title': 'SISS Lombardy: Astuti reports chronic issues and inaction',
+    'blog.article.siss-problemi-lombardia-frontalieri.excerpt': 'PD regional councilor Samuele Astuti criticizes the Lombardy government for the malfunctions of the socio-health information system',
+    'blog.article.siss-problemi-lombardia-frontalieri.imageAlt': 'Aerial view of Bellinzona with the three castles and surrounding mountains',
 };
 
 export default blogMetaEn;

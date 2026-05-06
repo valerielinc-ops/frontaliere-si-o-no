@@ -20846,4 +20846,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'siss-problemi-lombardia-frontalieri',
+ category: 'novita',
+ date: '2026-05-06T13:36:15.196Z',
+ image: '/images/blog/siss-problemi-lombardia-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
