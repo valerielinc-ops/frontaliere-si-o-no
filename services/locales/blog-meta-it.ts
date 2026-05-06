@@ -6360,6 +6360,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nomine-meloni-consob-antitrust-2026.title': 'Meloni al vertice su Consob e Antitrust: nomine in gioco',
     'blog.article.nomine-meloni-consob-antitrust-2026.excerpt': 'Vertice a Palazzo Chigi per le nomine alle autorità indipendenti. Meloni cerca sintesi tra alleati.',
     'blog.article.nomine-meloni-consob-antitrust-2026.imageAlt': 'Veduta panoramica di Lugano con il lago Ceresio in primo piano',
+    'blog.article.crociere-ticino-rodano-senna-2026.title': 'Francia sui fiumi: estate sul Rodano e autunno sulla Senna',
+    'blog.article.crociere-ticino-rodano-senna-2026.excerpt': 'Scopri le crociere fluviali accompagnate dal Ticino sulle navi Excellence, esplorando il Rodano in estate e la Senna in autunno.',
+    'blog.article.crociere-ticino-rodano-senna-2026.imageAlt': 'Vista panoramica del Lago di Lugano con una nave da crociera in primo piano, circondata da montagne e cieli azzurri cristallini.',
 };
 
 export default blogMetaIt;

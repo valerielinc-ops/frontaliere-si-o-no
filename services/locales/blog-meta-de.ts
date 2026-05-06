@@ -6359,6 +6359,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nomine-meloni-consob-antitrust-2026.title': 'Meloni beim Gipfel zu Consob und Antitrust: Ernennungen in Aussicht',
     'blog.article.nomine-meloni-consob-antitrust-2026.excerpt': 'Gipfel im Palazzo Chigi für die Ernennungen zu den unabhängigen Behörden. Meloni sucht nach einem Kompromiss zwischen den Verbündeten.',
     'blog.article.nomine-meloni-consob-antitrust-2026.imageAlt': 'Panoramablick auf Lugano mit dem Ceresio-See im Vordergrund',
+    'blog.article.crociere-ticino-rodano-senna-2026.title': 'Frankreich auf den Flüssen: Sommer auf der Rhône und Herbst auf der Seine',
+    'blog.article.crociere-ticino-rodano-senna-2026.excerpt': 'Entdecken Sie die Flusskreuzfahrten mit Begleitung aus dem Tessin auf den Excellence-Schiffen und erkunden Sie die Rhône im Sommer und die Seine im Herbst.',
+    'blog.article.crociere-ticino-rodano-senna-2026.imageAlt': 'Panoramablick auf den Luganersee mit einem Kreuzfahrtschiff im Vordergrund, umgeben von Bergen und klarem blauen Himmel.',
 };
 
 export default blogMetaDe;

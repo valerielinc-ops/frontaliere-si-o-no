@@ -6359,6 +6359,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nomine-meloni-consob-antitrust-2026.title': 'Meloni at summit on Consob and Antitrust: appointments at stake',
     'blog.article.nomine-meloni-consob-antitrust-2026.excerpt': 'Summit at Palazzo Chigi for appointments to independent authorities. Meloni seeks consensus among allies.',
     'blog.article.nomine-meloni-consob-antitrust-2026.imageAlt': 'Panoramic view of Lugano with Lake Ceresio in the foreground',
+    'blog.article.crociere-ticino-rodano-senna-2026.title': 'France on the rivers: summer on the Rhone and autumn on the Seine',
+    'blog.article.crociere-ticino-rodano-senna-2026.excerpt': 'Discover the river cruises accompanied by Ticino on the Excellence ships, exploring the Rhone in summer and the Seine in autumn.',
+    'blog.article.crociere-ticino-rodano-senna-2026.imageAlt': 'Panoramic view of Lake Lugano with a cruise ship in the foreground, surrounded by mountains and clear blue skies.',
 };
 
 export default blogMetaEn;
