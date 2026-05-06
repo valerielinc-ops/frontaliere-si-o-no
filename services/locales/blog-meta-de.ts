@@ -6248,6 +6248,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hockey-lugano-nuovi-giocatori-2026.title': 'HC Lugano: Neue schwedische Spieler für die Saison 2026',
     'blog.article.hockey-lugano-nuovi-giocatori-2026.excerpt': 'Innala und Lycksell, zwei neue schwedische Spieler, stoßen zum HC Lugano für die Saison 2026. Entdecken Sie ihre Geschichten und Erwartungen.',
     'blog.article.hockey-lugano-nuovi-giocatori-2026.imageAlt': 'Eishockeyspieler auf dem Eis in Lugano, Schweiz',
+    'blog.article.incidente-fornasette-2026-ribaltamento-auto.title': 'Tresa: Auto überschlägt sich vor Fornasette, eine Person verletzt',
+    'blog.article.incidente-fornasette-2026-ribaltamento-auto.excerpt': 'Verkehrsunfall mit überschlagendem Auto in der Nähe des Grenzübergangs Fornasette, ein italienischer Fahrer verletzt',
+    'blog.article.incidente-fornasette-2026-ribaltamento-auto.imageAlt': 'Autounfall mit umgekipptem Fahrzeug in der Nähe der Fornasette-Grenze',
 };
 
 export default blogMetaDe;

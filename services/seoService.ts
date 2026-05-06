@@ -3325,6 +3325,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-divieto-petardi-svizzera-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/divieto-petardi-svizzera-frontalieri', parent: 'blog' },
     'blog-salotto-ciani-lugano-2026': { name: 'Eventi culturali', path: '/articoli-frontaliere/salotto-ciani-lugano-2026', parent: 'blog' },
     'blog-hockey-lugano-nuovi-giocatori-2026': { name: 'Novità Hockey', path: '/articoli-frontaliere/hockey-lugano-nuovi-giocatori-2026', parent: 'blog' },
+    'blog-incidente-fornasette-2026-ribaltamento-auto': { name: 'Incidente Fornasette', path: '/articoli-frontaliere/incidente-fornasette-2026-ribaltamento-auto', parent: 'blog' },
  };
 
  const info = sectionNames[section];

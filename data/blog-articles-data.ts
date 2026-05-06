@@ -20117,4 +20117,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-fornasette-2026-ribaltamento-auto',
+ category: 'novita',
+ date: '2026-05-05T23:58:00.699Z',
+ image: '/images/blog/incidente-fornasette-2026-ribaltamento-auto.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
