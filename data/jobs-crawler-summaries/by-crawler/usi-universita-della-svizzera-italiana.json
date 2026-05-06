@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-05-05T22:44:08.855Z",
-  "total": 19,
+  "generatedAt": "2026-05-06T11:51:47.215Z",
+  "total": 18,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 18,
-  "durationMs": 24590,
-  "avgDurationMs": 24590,
+  "removedCount": 1,
+  "unchangedCount": 17,
+  "durationMs": 19159,
+  "avgDurationMs": 19159,
   "durationHistory": [
-    24590
+    19159
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -55,7 +55,48 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/logistica-lugano/logistica-lugano-collab-tecnico-imp-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/logistica-lugano/logistica-lugano-collab-tecnico-imp-2026.pdf",
+      "title": "Collaboratore/trice Logistica - Tecnico impiantista",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "collaboratore-trice-logistica-tecnico-impiantista-usi-lugano",
+      "department": "Servizio logistica e sicurezza",
+      "category": "staff",
+      "datePosted": "2026-03-29",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "id": "usi-universita-della-svizzera-italiana-5786c4fb1ec9",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
@@ -648,46 +689,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-e17590d2cde8",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/logistica-lugano/logistica-lugano-collab-tecnico-imp-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/logistica-lugano/logistica-lugano-collab-tecnico-imp-2026.pdf",
-      "title": "Collaboratore/trice Logistica - Tecnico impiantista",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "collaboratore-trice-logistica-tecnico-impiantista-usi-lugano",
-      "department": "Servizio logistica e sicurezza",
-      "category": "staff",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-5786c4fb1ec9",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
