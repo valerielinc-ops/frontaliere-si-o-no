@@ -6426,6 +6426,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.menaggio-test-automobilisti-guai.title': 'Menaggio refuse les tests : six automobilistes en difficulté',
     'blog.article.menaggio-test-automobilisti-guai.excerpt': 'Six automobilistes ont eu des problèmes pour avoir refusé les tests à Menaggio, près de la frontière avec le Ticino.',
     'blog.article.menaggio-test-automobilisti-guai.imageAlt': 'Un poste de contrôle automobile près de la frontière suisse-italienne avec le lac de Lugano en arrière-plan.',
+    'blog.article.votazioni-ticino-14-giugno-2024.title': 'Votations du 14 juin: résultat incertain pour les deux objets',
+    'blog.article.votazioni-ticino-14-giugno-2024.excerpt': 'Un sondage YouGov Suisse révèle un match serré entre les partisans et les opposants à l\'initiative UDC et à la modification de la loi sur le service civil',
+    'blog.article.votazioni-ticino-14-giugno-2024.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
 };
 
 export default blogMetaFr;

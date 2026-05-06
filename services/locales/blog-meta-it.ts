@@ -6426,6 +6426,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.menaggio-test-automobilisti-guai.title': 'Menaggio dice no ai test: sei automobilisti nei guai',
     'blog.article.menaggio-test-automobilisti-guai.excerpt': 'Sei automobilisti sono finiti nei guai per aver rifiutato i test a Menaggio, vicino al confine con il Ticino.',
     'blog.article.menaggio-test-automobilisti-guai.imageAlt': 'Una stazione di controllo automobilistico vicino al confine italo-svizzero con il Lago di Lugano sullo sfondo.',
+    'blog.article.votazioni-ticino-14-giugno-2024.title': 'Votazioni del 14 giugno: esito incerto per entrambi gli oggetti',
+    'blog.article.votazioni-ticino-14-giugno-2024.excerpt': 'Sondaggio YouGov Svizzera rivela un testa a testa tra favorevoli e contrari per l\'iniziativa UDC e la modifica della legge sul servizio civile',
+    'blog.article.votazioni-ticino-14-giugno-2024.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
 };
 
 export default blogMetaIt;

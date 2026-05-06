@@ -22458,6 +22458,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazioni-ticino-14-giugno-2024': {
+    title: 'Votazioni del 14 giugno: esito incerto per entrambi gli oggetti',
+    description: 'Sondaggio YouGov Svizzera rivela un testa a testa tra favorevoli e contrari per l\'iniziativa UDC e la modifica della legge sul servizio civile. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, giugno, esito, incerto',
+    ogTitle: 'Votazioni Ticino 14 giugno: esito incerto per entrambi gli oggetti',
+    ogDescription: 'Sondaggio YouGov Svizzera rivela un testa a testa tra favorevoli e contrari per l\'iniziativa UDC e la modifica della legge sul servizio civile',
+    canonicalPath: '/articoli-frontaliere/votazioni-ticino-14-giugno-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni del 14 giugno: esito incerto per entrambi gli oggetti",
+      "description": "Sondaggio YouGov Svizzera rivela un testa a testa tra favorevoli e contrari per l'iniziativa UDC e la modifica della legge sul servizio civile. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/votazioni-ticino-14-giugno-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il paesaggio del Ticino"
+      },
+      "datePublished": "2026-05-06T10:43:44+00:00",
+      "dateModified": "2026-05-06T10:43:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-ticino-14-giugno-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

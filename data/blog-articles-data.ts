@@ -20648,4 +20648,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'votazioni-ticino-14-giugno-2024',
+ category: 'novita',
+ date: '2026-05-06T10:43:44.834Z',
+ image: '/images/blog/votazioni-ticino-14-giugno-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6425,6 +6425,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.menaggio-test-automobilisti-guai.title': 'Menaggio lehnt Tests ab: Sechs Autofahrer in Schwierigkeiten',
     'blog.article.menaggio-test-automobilisti-guai.excerpt': 'Sechs Autofahrer gerieten in Schwierigkeiten, weil sie in Menaggio, nahe der Grenze zum Tessin, Tests abgelehnt hatten.',
     'blog.article.menaggio-test-automobilisti-guai.imageAlt': 'Eine Fahrzeugkontrollstation in der Nähe der Schweizer-Italienischen Grenze mit dem Luganersee im Hintergrund.',
+    'blog.article.votazioni-ticino-14-giugno-2024.title': 'Abstimmungen vom 14. Juni: ungewisses Ergebnis für beide Vorlagen',
+    'blog.article.votazioni-ticino-14-giugno-2024.excerpt': 'Umfrage von YouGov Schweiz zeigt ein Kopf-an-Kopf-Rennen zwischen Befürwortern und Gegnern der SVP-Initiative und der Änderung des Gesetzes über den Zivildienst',
+    'blog.article.votazioni-ticino-14-giugno-2024.imageAlt': 'Luftaufnahme des Luganer Sees mit der Landschaft des Tessin',
 };
 
 export default blogMetaDe;
