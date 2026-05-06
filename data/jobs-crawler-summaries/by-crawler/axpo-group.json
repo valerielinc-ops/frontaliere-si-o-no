@@ -1,16 +1,16 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-05-06T10:23:21.305Z",
+  "generatedAt": "2026-05-06T21:24:05.011Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1122,
-  "avgDurationMs": 1122,
+  "durationMs": 895,
+  "avgDurationMs": 895,
   "durationHistory": [
-    1122
+    895
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-06T10:23:21.239Z",
+      "crawledAt": "2026-05-06T21:24:04.948Z",
       "id": "axpo-group-398e3c105b36",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -76,7 +76,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-06T10:23:21.264Z",
+      "crawledAt": "2026-05-06T21:24:04.969Z",
       "id": "axpo-group-e14223a1a63c",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -84,11 +84,11 @@
       "streetAddress": "Viale Stazione 31",
       "postalCode": "6500",
       "firstSeenAt": "2026-05-05T10:08:19.031Z",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     }
