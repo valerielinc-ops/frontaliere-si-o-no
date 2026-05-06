@@ -6444,6 +6444,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riapertura-bagno-bellinzona-2026.title': 'Bagno pubblico di Bellinzona riapre il 9 maggio 2026',
     'blog.article.riapertura-bagno-bellinzona-2026.excerpt': 'Novità per la stagione 2026: pagamento online, ristorazione rinnovata e orari aggiornati. Tariffe invariate dopo l\'aumento del 20% del 2025',
     'blog.article.riapertura-bagno-bellinzona-2026.imageAlt': 'Bagno pubblico di Bellinzona riapre nel maggio 2026',
+    'blog.article.partita-cornaredo-blocchi-stradali-2026.title': 'Partita a Cornaredo: blocchi stradali e deviazioni previste',
+    'blog.article.partita-cornaredo-blocchi-stradali-2026.excerpt': 'Domenica 10 maggio 2026, la partita tra FC Lugano e FC San Gallo causerà blocchi stradali a Cornaredo/Molino Nuovo. Ecco i dettagli.',
+    'blog.article.partita-cornaredo-blocchi-stradali-2026.imageAlt': 'Stadio di Cornaredo a Lugano con tifosi per una partita di calcio',
 };
 
 export default blogMetaIt;

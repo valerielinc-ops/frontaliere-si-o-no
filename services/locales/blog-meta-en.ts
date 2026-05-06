@@ -6443,6 +6443,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riapertura-bagno-bellinzona-2026.title': 'Bellinzona public pool reopens May 9, 2026',
     'blog.article.riapertura-bagno-bellinzona-2026.excerpt': '2026 season news: online payment, renewed catering and updated hours. Rates unchanged after the 20% increase in 2025',
     'blog.article.riapertura-bagno-bellinzona-2026.imageAlt': 'Bellinzona public baths reopening in May 2026',
+    'blog.article.partita-cornaredo-blocchi-stradali-2026.title': 'Match in Cornaredo: road closures and diversions expected',
+    'blog.article.partita-cornaredo-blocchi-stradali-2026.excerpt': 'On Sunday, May 10, 2026, the match between FC Lugano and FC St. Gallen will cause road closures in Cornaredo/Molino Nuovo. Here are the details.',
+    'blog.article.partita-cornaredo-blocchi-stradali-2026.imageAlt': 'Cornaredo Stadium in Lugano with fans for a football match',
 };
 
 export default blogMetaEn;

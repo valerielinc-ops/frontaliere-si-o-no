@@ -6443,6 +6443,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riapertura-bagno-bellinzona-2026.title': 'Öffentliches Bad Bellinzona öffnet am 9. Mai 2026',
     'blog.article.riapertura-bagno-bellinzona-2026.excerpt': 'Neuheiten für die Saison 2026: Online-Bezahlung, erneuerte Gastronomie und aktualisierte Öffnungszeiten. Die Preise bleiben nach der Erhöhung von 20% im Jahr 2025 unverändert.',
     'blog.article.riapertura-bagno-bellinzona-2026.imageAlt': 'Öffentliches Bad in Bellinzona eröffnet im Mai 2026',
+    'blog.article.partita-cornaredo-blocchi-stradali-2026.title': 'Spiel in Cornaredo: Straßensperrungen und Umleitungen geplant',
+    'blog.article.partita-cornaredo-blocchi-stradali-2026.excerpt': 'Am Sonntag, den 10. Mai 2026, wird das Spiel zwischen dem FC Lugano und dem FC St. Gallen zu Straßensperrungen in Cornaredo/Molino Nuovo führen. Hier sind die Details.',
+    'blog.article.partita-cornaredo-blocchi-stradali-2026.imageAlt': 'Cornaredo-Stadion in Lugano mit Fans für ein Fußballspiel',
 };
 
 export default blogMetaDe;
