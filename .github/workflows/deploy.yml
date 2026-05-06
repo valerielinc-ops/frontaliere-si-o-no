@@ -59,22 +59,30 @@ permissions:
 
 jobs:
   build:
-    # NO concurrency on `build`. Build of multiple runs can proceed in
-    # parallel — each run uploads its own `github-pages` artifact under
-    # its own run-id, so `actions/upload-pages-artifact@v5` is NOT a
-    # repo-wide singleton. The `pages-deploy` lock applies only to the
-    # `deploy` job below (actions/deploy-pages publishing to Pages).
+    # `pages-build` concurrency group with cancel-in-progress: TRUE.
+    # Last-write-wins semantics: every new cron commit cancels any
+    # currently-running build for an older commit. Builds are 12-15 min
+    # of heavy CPU each, and a cron site publishes content every ~15
+    # min — without this guard, 5+ builds would stack up running in
+    # parallel for stale commits, wasting compute on revisions that
+    # are about to be obsoleted by the very next cron.
     #
-    # Earlier design put `concurrency: pages-deploy` here too, intending
-    # to "serialize the entire pipeline". That broke the run on
-    # 25425625029.deploy: GitHub Actions concurrency permits 1 running
-    # + 1 pending max in a group — any THIRD pending entry cancels the
-    # PREVIOUSLY pending. With cron commits arriving every ~15 min we
-    # accumulate >1 pending, so the queued `deploy` jobs got cancelled
-    # by every new build that landed on the lock.
+    # Why a SEPARATE group from `deploy`'s `pages-deploy`:
+    #   GitHub Actions concurrency permits 1 running + 1 pending max
+    #   per group. With both jobs sharing `pages-deploy`, every cron
+    #   commit landing while a deploy was queued cancelled the
+    #   previously-queued deploy of a still-valid earlier run
+    #   (run 25425625029.deploy was killed this way). Splitting into
+    #   `pages-build` (last-wins) + `pages-deploy` (1+1 publish lock)
+    #   keeps each group lightly populated and avoids the cross-job
+    #   queue-cancellation cascade.
     #
-    # Profile-only runs (profile_sequential=true) skip the `deploy`
-    # job entirely (job-level `if:`), so they never need the lock.
+    # Profile-only runs (profile_sequential=true) use a per-run group
+    # so the long sequential profile can complete without being
+    # cancelled by the next push to main.
+    concurrency:
+      group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-build-profile-{0}', github.run_id) || 'pages-build' }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     # GitHub free runners cap at 360 min — match it explicitly so cold-start
     # builds (e.g. first run with a heavy plugin like jobOgImagesPlugin
