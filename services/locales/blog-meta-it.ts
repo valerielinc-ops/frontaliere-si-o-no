@@ -6576,6 +6576,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-conti-2025-disavanzo-avanzo.title': 'Chiasso 2025: disavanzo ordinario ridotto e avanzo eccezionale',
     'blog.article.chiasso-conti-2025-disavanzo-avanzo.excerpt': 'I conti 2025 di Chiasso mostrano un disavanzo ordinario ridotto a 2,8 milioni e un avanzo eccezionale di 23,1 milioni grazie a rivalutazioni',
     'blog.article.chiasso-conti-2025-disavanzo-avanzo.imageAlt': 'Vista aerea di Chiasso, Svizzera, con il confine con l\'Italia e il paesaggio urbano',
+    'blog.article.quartiere-gera-iragna-pianificazione.title': 'Nuovo quartiere Gera a Iragna: pianificazione conforme alle normative',
+    'blog.article.quartiere-gera-iragna-pianificazione.excerpt': 'Il Municipio di Riviera conferma che la pianificazione del nuovo quartiere Gera a Iragna rispetta i valori limite di elettromagnetismo.',
+    'blog.article.quartiere-gera-iragna-pianificazione.imageAlt': 'Vista del quartiere Gera a Iragna, Ticino, con le nuove abitazioni vicino agli elettrodotti ad alta tensione',
 };
 
 export default blogMetaIt;

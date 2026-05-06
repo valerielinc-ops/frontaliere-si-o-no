@@ -24358,6 +24358,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-quartiere-gera-iragna-pianificazione': {
+    title: 'Nuovo quartiere Gera a Iragna: pianificazione conforme alle normative',
+    description: 'Il Municipio di Riviera conferma che la pianificazione del nuovo quartiere Gera a Iragna rispetta i valori limite di elettromagnetismo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, quartiere, gera, iragna',
+    ogTitle: 'Nuovo quartiere Gera a Iragna: pianificazione conforme alle normative',
+    ogDescription: 'Il Municipio di Riviera conferma che la pianificazione del nuovo quartiere Gera a Iragna rispetta i valori limite di elettromagnetismo.',
+    canonicalPath: '/articoli-frontaliere/quartiere-gera-iragna-pianificazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo quartiere Gera a Iragna: pianificazione conforme alle normative",
+      "description": "Il Municipio di Riviera conferma che la pianificazione del nuovo quartiere Gera a Iragna rispetta i valori limite di elettromagnetismo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/quartiere-gera-iragna-pianificazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del quartiere Gera a Iragna, Ticino, con le nuove abitazioni vicino agli elettrodotti ad alta tensione"
+      },
+      "datePublished": "2026-05-06T23:34:50+00:00",
+      "dateModified": "2026-05-06T23:34:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quartiere-gera-iragna-pianificazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2244,
+ "numberOfItems": 2245,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6886,7 +6886,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2241, "name": "La Contrabbandiera 2026: ciclismo vintage tra I...", "url": `${BASE_URL}/articoli-frontaliere/contrabbandiera-ciclostorica-2026` },
           { "@type": "ListItem", "position": 2242, "name": "Libertà, doveri e autocensura: bocciata a Mendr...", "url": `${BASE_URL}/articoli-frontaliere/liberta-dovery-autocensura-mendrisio` },
           { "@type": "ListItem", "position": 2243, "name": "Case di lusso in Svizzera: prezzi ancora alti m...", "url": `${BASE_URL}/articoli-frontaliere/case-lusso-svizzera-2026` },
-          { "@type": "ListItem", "position": 2244, "name": "Chiasso 2025: disavanzo ordinario ridotto e ava...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-conti-2025-disavanzo-avanzo` }
+          { "@type": "ListItem", "position": 2244, "name": "Chiasso 2025: disavanzo ordinario ridotto e ava...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-conti-2025-disavanzo-avanzo` },
+          { "@type": "ListItem", "position": 2245, "name": "Nuovo quartiere Gera a Iragna: pianificazione c...", "url": `${BASE_URL}/articoli-frontaliere/quartiere-gera-iragna-pianificazione` }
  ]
  },
  {

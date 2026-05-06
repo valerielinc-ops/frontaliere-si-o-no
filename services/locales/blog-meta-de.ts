@@ -6575,6 +6575,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-conti-2025-disavanzo-avanzo.title': 'Chiasso 2025: Geringeres Defizit und außerordentliches Plus',
     'blog.article.chiasso-conti-2025-disavanzo-avanzo.excerpt': 'Die Bilanz 2025 von Chiasso zeigt ein ordentliches Defizit von 2,8 Millionen Franken und einen außerordentlichen Überschuss von 23,1 Millionen Franken dank Wertaufbesserungen',
     'blog.article.chiasso-conti-2025-disavanzo-avanzo.imageAlt': 'Luftaufnahme von Chiasso, Schweiz, mit der italienischen Grenze und Stadtlandschaft',
+    'blog.article.quartiere-gera-iragna-pianificazione.title': 'Neues Quartier Gera in Iragna: Planung entspricht Vorschriften',
+    'blog.article.quartiere-gera-iragna-pianificazione.excerpt': 'Der Gemeinderat von Riviera bestätigt, dass die Planung des neuen Quartiers Gera in Iragna die Grenzwerte für elektromagnetische Felder einhält.',
+    'blog.article.quartiere-gera-iragna-pianificazione.imageAlt': 'Ansicht des Gera-Viertels in Iragna, Tessin, mit neuen Häusern in der Nähe von Hochspannungsleitungen',
 };
 
 export default blogMetaDe;

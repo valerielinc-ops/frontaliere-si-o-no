@@ -3434,6 +3434,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-liberta-dovery-autocensura-mendrisio': { name: 'Novità', path: '/articoli-frontaliere/liberta-dovery-autocensura-mendrisio', parent: 'blog' },
     'blog-case-lusso-svizzera-2026': { name: 'Immobiliare', path: '/articoli-frontaliere/case-lusso-svizzera-2026', parent: 'blog' },
     'blog-chiasso-conti-2025-disavanzo-avanzo': { name: 'Finanze comunali', path: '/articoli-frontaliere/chiasso-conti-2025-disavanzo-avanzo', parent: 'blog' },
+    'blog-quartiere-gera-iragna-pianificazione': { name: 'Pianificazione quartiere Gera', path: '/articoli-frontaliere/quartiere-gera-iragna-pianificazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

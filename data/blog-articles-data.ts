@@ -21098,4 +21098,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'quartiere-gera-iragna-pianificazione',
+ category: 'pratico',
+ date: '2026-05-06T23:34:50.622Z',
+ image: '/images/blog/quartiere-gera-iragna-pianificazione.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
