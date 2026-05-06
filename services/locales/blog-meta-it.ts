@@ -6432,6 +6432,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.borse-ticino-londra-verde.title': 'Borse in rialzo, eccetto Londra: cosa cambia per i frontalieri',
     'blog.article.borse-ticino-londra-verde.excerpt': 'Le Borse europee chiudono in verde, tranne Londra. Analisi delle implicazioni per i frontalieri Ticino.',
     'blog.article.borse-ticino-londra-verde.imageAlt': 'Vista del lago di Lugano con la città e le montagne',
+    'blog.article.bagni-bellinzona-riaprono-novita-2026.title': 'Bagni pubblici di Bellinzona riaprono con novità 2026',
+    'blog.article.bagni-bellinzona-riaprono-novita-2026.excerpt': 'Dalla prenotazione online agli ammodernamenti, ecco le novità per la stagione estiva 2026',
+    'blog.article.bagni-bellinzona-riaprono-novita-2026.imageAlt': 'Vista aerea dei Bagni pubblici di Bellinzona con le recenti novità e persone che si godono le strutture',
 };
 
 export default blogMetaIt;

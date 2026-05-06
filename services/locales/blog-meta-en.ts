@@ -6431,6 +6431,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.borse-ticino-londra-verde.title': 'Stocks rise except London: what changes for cross-border workers',
     'blog.article.borse-ticino-londra-verde.excerpt': 'European stock markets close in the green, except London. Analysis of the implications for Ticino cross-border workers.',
     'blog.article.borse-ticino-londra-verde.imageAlt': 'View of Lake Lugano with the city and mountains',
+    'blog.article.bagni-bellinzona-riaprono-novita-2026.title': 'Bellinzona public pools reopen with 2026 updates',
+    'blog.article.bagni-bellinzona-riaprono-novita-2026.excerpt': 'From online booking to modernizations, here are the novelties for the 2026 summer season',
+    'blog.article.bagni-bellinzona-riaprono-novita-2026.imageAlt': 'Aerial view of Bellinzona public baths with recent innovations and people enjoying the facilities',
 };
 
 export default blogMetaEn;

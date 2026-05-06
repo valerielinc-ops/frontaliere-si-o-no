@@ -3386,6 +3386,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-menaggio-test-automobilisti-guai': { name: 'Menaggio Test', path: '/articoli-frontaliere/menaggio-test-automobilisti-guai', parent: 'blog' },
     'blog-votazioni-ticino-14-giugno-2024': { name: 'Votazioni Ticino', path: '/articoli-frontaliere/votazioni-ticino-14-giugno-2024', parent: 'blog' },
     'blog-borse-ticino-londra-verde': { name: 'Borse e frontalieri', path: '/articoli-frontaliere/borse-ticino-londra-verde', parent: 'blog' },
+    'blog-bagni-bellinzona-riaprono-novita-2026': { name: 'Novità Bagni Bellinzona', path: '/articoli-frontaliere/bagni-bellinzona-riaprono-novita-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

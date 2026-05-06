@@ -20666,4 +20666,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'bagni-bellinzona-riaprono-novita-2026',
+ category: 'novita',
+ date: '2026-05-06T11:02:29.091Z',
+ image: '/images/blog/bagni-bellinzona-riaprono-novita-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
