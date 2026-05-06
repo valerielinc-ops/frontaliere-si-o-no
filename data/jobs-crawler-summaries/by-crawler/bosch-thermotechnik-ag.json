@@ -1,51 +1,18 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-06T10:30:56.746Z",
-  "total": 1,
+  "generatedAt": "2026-05-06T21:31:35.974Z",
+  "total": 2,
   "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 8607,
-  "avgDurationMs": 8607,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 10266,
+  "avgDurationMs": 10266,
   "durationHistory": [
-    8607
+    10266
   ],
   "newJobs": [
-    {
-      "title": "Teamleader Production 100% (w/m/div.) - REF284854K",
-      "slug": "teamleader-production-100-w-m-div-ref284854k-bosch-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF284854K-teamleader-production-100-w-m-div-ref284854k",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124828419-teamleader-production-100-w-m-div-ref284854k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-06",
-      "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
     {
       "title": "Mechaniker (w/m/div.)",
       "slug": "mechaniker-w-m-div-bosch-st-niklaus",
@@ -68,21 +35,54 @@
       "sourceLang": "de",
       "postedDate": "2026-04-28",
       "validThrough": "",
-      "id": "bosch-thermotechnik-ag-6d2b9135be2d",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "title": "Teamleader Production 100% (w/m/div.) - REF284854K",
+      "slug": "teamleader-production-100-w-m-div-ref284854k-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF284854K-teamleader-production-100-w-m-div-ref284854k",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124828419-teamleader-production-100-w-m-div-ref284854k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-06",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-5b7190836571",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-05T10:15:44.822Z",
-      "_qualityScore": 88,
+      "firstSeenAt": "2026-05-06T10:30:56.746Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 16,
         "completeness": 22
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
