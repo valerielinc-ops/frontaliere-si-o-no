@@ -1,0 +1,62 @@
+name: Topic candidates mining
+
+# Weekly mining of external demand sources (GSC orphans + Google Trends +
+# Reddit + Facebook public pages) into data/topic-candidates.json. Phase 2
+# of the smarter-article-generator design.
+#
+# Resilience: the script always exits 0 — every external source is wrapped
+# in try/catch and graceful-degrades on missing secrets / rate-limits /
+# network failures.
+
+on:
+  schedule:
+    - cron: '0 22 * * 0' # Sunday 22:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: topic-candidates-mining
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  mine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Mine topic candidates
+        env:
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: node scripts/mine-topic-candidates.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/topic-candidates.json
+          if git diff --cached --quiet; then
+            echo "No changes to data/topic-candidates.json"
+            exit 0
+          fi
+          git commit -m "chore: refresh topic candidates"
+          bash scripts/lib/git-push-with-retry.sh
