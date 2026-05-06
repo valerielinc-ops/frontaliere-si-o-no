@@ -3351,6 +3351,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cucina-tipica-lombarda-legge-2026': { name: 'Novità', path: '/articoli-frontaliere/cucina-tipica-lombarda-legge-2026', parent: 'blog' },
     'blog-estate-chiasso-2026-eventi': { name: 'Estate Chiasso', path: '/articoli-frontaliere/estate-chiasso-2026-eventi', parent: 'blog' },
     'blog-petrolio-inflazione-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/petrolio-inflazione-svizzera-2026', parent: 'blog' },
+    'blog-negozi-varese-frontalieri-occupazione': { name: 'Novità', path: '/articoli-frontaliere/negozi-varese-frontalieri-occupazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

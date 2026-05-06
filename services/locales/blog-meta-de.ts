@@ -6326,6 +6326,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.petrolio-inflazione-svizzera-2026.title': 'Schweizer Inflation: Sprung auf +0,6% durch Ölpreise',
     'blog.article.petrolio-inflazione-svizzera-2026.excerpt': 'Der Anstieg der Ölpreise lässt die Inflation in der Schweiz im April auf +0,6% steigen. Experten beruhigen: Bisher ist keine Ausbreitung auf andere Sektoren zu befürchten.',
     'blog.article.petrolio-inflazione-svizzera-2026.imageAlt': 'Luganersee mit Blick auf Benzinpumpen und Schweizer Flagge',
+    'blog.article.negozi-varese-frontalieri-occupazione.title': 'Varese: 1.602 Nahversorger verloren, aber Beschäftigung gestiegen',
+    'blog.article.negozi-varese-frontalieri-occupazione.excerpt': 'In der Provinz Varese wurden zwischen 2015 und 2025 1.602 Nahversorger verloren, aber die Beschäftigung stieg um 18,3%.',
+    'blog.article.negozi-varese-frontalieri-occupazione.imageAlt': 'Luftaufnahme des Stadtzentrums von Varese mit Geschäften und Menschen, die gehen',
 };
 
 export default blogMetaDe;

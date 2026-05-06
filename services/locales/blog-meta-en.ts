@@ -6326,6 +6326,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petrolio-inflazione-svizzera-2026.title': 'Swiss inflation jumps to +0.6% due to oil',
     'blog.article.petrolio-inflazione-svizzera-2026.excerpt': 'The rise in oil prices pushes Swiss inflation to +0.6% in April. Experts reassure: for now, there\'s no fear of contagion to other sectors.',
     'blog.article.petrolio-inflazione-svizzera-2026.imageAlt': 'Lake Lugano with view of petrol pumps and Swiss flag',
+    'blog.article.negozi-varese-frontalieri-occupazione.title': 'Varese: 1,602 neighborhood shops lost in 10 years, but employment grows',
+    'blog.article.negozi-varese-frontalieri-occupazione.excerpt': 'In the province of Varese, between 2015 and 2025, 1,602 neighborhood shops were lost, but employment increased by 18.3%.',
+    'blog.article.negozi-varese-frontalieri-occupazione.imageAlt': 'Aerial view of Varese city center with shops and people walking',
 };
 
 export default blogMetaEn;

@@ -6327,6 +6327,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.petrolio-inflazione-svizzera-2026.title': 'Inflation suisse: hausse de +0,6% due au pétrole',
     'blog.article.petrolio-inflazione-svizzera-2026.excerpt': 'La hausse du prix du pétrole fait grimper l\'inflation en Suisse à +0,6% en avril. Les experts rassurent: pour l\'instant, on ne craint pas la contagion à d\'autres secteurs.',
     'blog.article.petrolio-inflazione-svizzera-2026.imageAlt': 'Lac de Lugano avec vue sur les pompes à essence et le drapeau suisse',
+    'blog.article.negozi-varese-frontalieri-occupazione.title': 'Varèse: 1.602 commerces de proximité perdus en 10 ans, mais l\'emploi augmente',
+    'blog.article.negozi-varese-frontalieri-occupazione.excerpt': 'Dans la province de Varèse, entre 2015 et 2025, 1.602 commerces de proximité ont disparu, mais l\'emploi a augmenté de 18,3%.',
+    'blog.article.negozi-varese-frontalieri-occupazione.imageAlt': 'Vue aérienne du centre-ville de Varese avec des magasins et des personnes qui marchent',
 };
 
 export default blogMetaFr;

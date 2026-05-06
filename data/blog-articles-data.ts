@@ -20351,4 +20351,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'negozi-varese-frontalieri-occupazione',
+ category: 'novita',
+ date: '2026-05-06T05:49:14.989Z',
+ image: '/images/blog/negozi-varese-frontalieri-occupazione.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

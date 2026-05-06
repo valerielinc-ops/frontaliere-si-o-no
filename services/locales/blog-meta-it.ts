@@ -6327,6 +6327,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.petrolio-inflazione-svizzera-2026.title': 'Inflazione Svizzera: balzo a +0,6% per il petrolio',
     'blog.article.petrolio-inflazione-svizzera-2026.excerpt': 'Il rialzo del prezzo del petrolio fa salire l\'inflazione in Svizzera a +0,6% in aprile. Gli esperti rassicurano: per ora non si teme il contagio ad altri settori.',
     'blog.article.petrolio-inflazione-svizzera-2026.imageAlt': 'Lago di Lugano con vista su pompe di benzina e bandiera svizzera',
+    'blog.article.negozi-varese-frontalieri-occupazione.title': 'Varese: 1.602 negozi di vicinato persi in 10 anni, ma cresce l\'occupazione',
+    'blog.article.negozi-varese-frontalieri-occupazione.excerpt': 'In provincia di Varese, tra il 2015 e il 2025, sono stati persi 1.602 negozi di vicinato, ma l\'occupazione è aumentata del 18,3%.',
+    'blog.article.negozi-varese-frontalieri-occupazione.imageAlt': 'Vista aerea del centro di Varese con negozi e persone che camminano',
 };
 
 export default blogMetaIt;
