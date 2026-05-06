@@ -1,18 +1,19 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-05-05T10:08:19.068Z",
+  "generatedAt": "2026-05-06T10:23:21.305Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1085,
-  "avgDurationMs": 1085,
+  "durationMs": 1122,
+  "avgDurationMs": 1122,
   "durationHistory": [
-    1085
+    1122
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Monteur/in Solar (w/m/d)",
       "slug": "monteur-in-solar-w-m-d-39279aac-087f-4276-82c6-17889d02aef8",
@@ -36,13 +37,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-05T10:08:19.009Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-05-06T10:23:21.239Z",
+      "id": "axpo-group-398e3c105b36",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Viale Stazione 31",
+      "postalCode": "6500",
+      "firstSeenAt": "2026-05-05T10:08:19.009Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 0,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -68,96 +76,23 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-05T10:08:19.031Z",
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 24,
-        "translation": 0,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Stakeholder & Asset Manager Hydroenergie & Biomasse Graubünden  (w/m/d)",
-      "slug": "stakeholder-asset-manager-hydroenergy-biotechnologie-grigioni-m-d-axpo-group-domat-ems",
-      "url": "https://careers.axpo.com/jobs/7620350-stakeholder-asset-manager-hydroenergie-biomasse-graubuenden-w-m-d",
-      "applyUrl": "https://careers.axpo.com/jobs/7620350-stakeholder-asset-manager-hydroenergie-biomasse-graubuenden-w-m-d",
-      "company": "Axpo Group",
-      "companyKey": "axpo-group",
-      "companyDomain": "axpo.com",
-      "location": "Domat/Ems",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "energy",
-      "sector": "Energia & Utilities",
-      "department": "Strategy / Business Development",
-      "source": "axpo-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-23",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-05-04T21:21:32.848Z",
-      "id": "axpo-group-8e7945d74b5c",
+      "crawledAt": "2026-05-06T10:23:21.264Z",
+      "id": "axpo-group-e14223a1a63c",
       "salaryMin": 96000,
       "salaryMax": 146500,
       "currency": "CHF",
       "streetAddress": "Viale Stazione 31",
       "postalCode": "6500",
-      "firstSeenAt": "2026-04-23T09:32:35.456Z",
-      "_qualityScore": 99,
+      "firstSeenAt": "2026-05-05T10:08:19.031Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Logisticien de Maintenance (f/m/d)",
-      "slug": "logisticien-de-maintenance-f-m-d-axpo-group-riddes",
-      "url": "https://careers.axpo.com/jobs/7457468-logisticien-de-maintenance-f-m-d",
-      "applyUrl": "https://careers.axpo.com/jobs/7457468-logisticien-de-maintenance-f-m-d",
-      "company": "Axpo Group",
-      "companyKey": "axpo-group",
-      "companyDomain": "axpo.com",
-      "location": "Riddes",
-      "addressLocality": "Riddes",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "operations",
-      "sector": "Energia & Utilities",
-      "department": "Operation / Production",
-      "source": "axpo-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-03-25",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-05-04T21:21:32.862Z",
-      "id": "axpo-group-8fe260efb3ca",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T10:00:39.876Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
