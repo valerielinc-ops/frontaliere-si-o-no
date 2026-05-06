@@ -20207,4 +20207,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'hendsichen-arresto-francese-autodiebstahl',
+ category: 'novita',
+ date: '2026-05-06T01:37:59.878Z',
+ image: '/images/blog/hendsichen-arresto-francese-autodiebstahl.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6278,6 +6278,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.food-truck-festival-locarno-2026.title': 'Locarno 2026 Food Truck Festival: 5,000 visitors in Piazza Grande',
     'blog.article.food-truck-festival-locarno-2026.excerpt': 'Over 5,000 visitors attended the 8th edition of the Locarno Food Truck Festival, featuring street food, free concerts, and plenty of sunshine.',
     'blog.article.food-truck-festival-locarno-2026.imageAlt': 'Locarno Food Truck Festival, Piazza Grande, people enjoying street food and live music',
+    'blog.article.hendsichen-arresto-francese-autodiebstahl.title': 'Hendschiken: 19-year-old Frenchman arrested for car theft and escape',
+    'blog.article.hendsichen-arresto-francese-autodiebstahl.excerpt': 'A 19-year-old Frenchman was arrested in Hendschiken after a car theft and escape. Here are the details of the incident.',
+    'blog.article.hendsichen-arresto-francese-autodiebstahl.imageAlt': 'Castelgrande in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

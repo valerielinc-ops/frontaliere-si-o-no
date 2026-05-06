@@ -6279,6 +6279,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.food-truck-festival-locarno-2026.title': 'Festival Food Truck Locarno 2026: 5\'000 visiteurs en Piazza Grande',
     'blog.article.food-truck-festival-locarno-2026.excerpt': 'Plus de 5\'000 visiteurs ont participé à la 8ème édition du Festival Food Truck Locarno, avec de la street food, des concerts gratuits et beaucoup de soleil.',
     'blog.article.food-truck-festival-locarno-2026.imageAlt': 'Festival des camions-restaurants de Locarno, Piazza Grande, personnes profitant de la street food et de la musique live',
+    'blog.article.hendsichen-arresto-francese-autodiebstahl.title': 'Hendschiken : un Français de 19 ans arrêté pour vol de voiture',
+    'blog.article.hendsichen-arresto-francese-autodiebstahl.excerpt': 'Un jeune Français de 19 ans a été arrêté à Hendschiken après un vol de voiture et une fuite. Voici les détails de l\'incident.',
+    'blog.article.hendsichen-arresto-francese-autodiebstahl.imageAlt': 'Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;
