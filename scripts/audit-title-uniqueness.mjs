@@ -169,6 +169,16 @@ function main() {
   const titlesByLocale = new Map();
   let totalPages = 0;
   let missingTitles = 0;
+  let processedThisGcCycle = 0;
+
+  // V8 holds string-slice references to the parent string until it
+  // decides to flatten — under heap pressure that means a 132k-file walk
+  // can pin 10+ GB of HTML content in old-space before the GC catches up.
+  // On the 7 GB ubuntu-latest free runner that consistently OOMs the
+  // process at SIGABRT (rc=134). Run with `node --expose-gc` and call
+  // `globalThis.gc()` every N files to force regular collection cycles.
+  const GC_INTERVAL = 5000;
+  const explicitGc = typeof globalThis.gc === 'function' ? globalThis.gc : null;
 
   for (const abs of walkHtmlFiles(DIST_DIR)) {
     // Skip 0-byte files — these are OOM crash artifacts, not real pages.
@@ -217,6 +227,17 @@ function main() {
       byCanonical.set(canonicalKey, []);
     }
     byCanonical.get(canonicalKey).push(rel);
+
+    // Force GC every GC_INTERVAL pages so V8 releases the string-slice
+    // references that pin parent HTML buffers in old-space. Without this
+    // the heap grows monotonically and SIGABRTs on memory pressure.
+    if (explicitGc) {
+      processedThisGcCycle += 1;
+      if (processedThisGcCycle >= GC_INTERVAL) {
+        explicitGc();
+        processedThisGcCycle = 0;
+      }
+    }
   }
 
   // Tally collisions per locale — only count TRUE duplicates after collapsing
