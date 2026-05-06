@@ -20710,6 +20710,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-liuc-innovazione-2026-frontalieri': {
+    title: 'LIUC: Settimana dell\'Innovazione 2026 con focus su IA e startup',
+    description: 'Dal 12 al 15 maggio 2026, la LIUC di Castellanza ospita la Settimana dell\'Innovazione con workshop su IA, startup e nuove competenze richieste dal mercato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, liuc, settimana, dell, innovazione',
+    ogTitle: 'LIUC: Settimana dell\'Innovazione 2026 con focus su IA e startup',
+    ogDescription: 'Dal 12 al 15 maggio 2026, la LIUC di Castellanza ospita la Settimana dell\'Innovazione con workshop su IA, startup e nuove competenze richieste dal mercato.',
+    canonicalPath: '/articoli-frontaliere/liuc-innovazione-2026-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LIUC: Settimana dell'Innovazione 2026 con focus su IA e startup",
+      "description": "Dal 12 al 15 maggio 2026, la LIUC di Castellanza ospita la Settimana dell'Innovazione con workshop su IA, startup e nuove competenze richieste dal mercato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/liuc-innovazione-2026-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auditorium dell'Università LIUC a Castellanza durante un evento di innovazione"
+      },
+      "datePublished": "2026-05-06T02:08:58+00:00",
+      "dateModified": "2026-05-06T02:08:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/liuc-innovazione-2026-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

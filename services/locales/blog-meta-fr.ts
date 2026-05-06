@@ -6288,6 +6288,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzeri-felici-salute-mentale-costi.title': 'Suisse: la santé mentale coûte de plus en plus cher',
     'blog.article.svizzeri-felici-salute-mentale-costi.excerpt': 'Augmentation des dépenses pour la santé mentale en Suisse, avec des coûts en hausse et un recours accru aux soins chez les jeunes.',
     'blog.article.svizzeri-felici-salute-mentale-costi.imageAlt': 'Vue sereine du lac de Lugano avec des montagnes en arrière-plan, mettant en valeur la beauté du Tessin.',
+    'blog.article.liuc-innovazione-2026-frontalieri.title': 'LIUC : Semaine de l\'Innovation 2026 sur l\'IA et les startups',
+    'blog.article.liuc-innovazione-2026-frontalieri.excerpt': 'Du 12 au 15 mai 2026, la LIUC de Castellanza accueille la Semaine de l\'Innovation avec des ateliers sur l\'IA, les startups et les nouvelles compétences demandées par le marché.',
+    'blog.article.liuc-innovazione-2026-frontalieri.imageAlt': 'Auditorium de l\'Université LIUC à Castellanza lors d\'un événement d\'innovation',
 };
 
 export default blogMetaFr;

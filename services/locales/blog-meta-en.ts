@@ -6287,6 +6287,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzeri-felici-salute-mentale-costi.title': 'Switzerland: mental health costs keep rising',
     'blog.article.svizzeri-felici-salute-mentale-costi.excerpt': 'Increasing expenses for mental health in Switzerland, with rising costs and more young people seeking treatment.',
     'blog.article.svizzeri-felici-salute-mentale-costi.imageAlt': 'Serene view of Lake Lugano with mountains in the background, showcasing the beauty of Ticino.',
+    'blog.article.liuc-innovazione-2026-frontalieri.title': 'LIUC: Innovation Week 2026 focuses on AI and startups',
+    'blog.article.liuc-innovazione-2026-frontalieri.excerpt': 'From May 12 to 15, 2026, LIUC in Castellanza hosts Innovation Week with workshops on AI, startups, and new skills demanded by the market.',
+    'blog.article.liuc-innovazione-2026-frontalieri.imageAlt': 'LIUC University auditorium in Castellanza during an innovation event',
 };
 
 export default blogMetaEn;

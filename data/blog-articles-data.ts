@@ -20234,4 +20234,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'liuc-innovazione-2026-frontalieri',
+ category: 'novita',
+ date: '2026-05-06T02:08:58.587Z',
+ image: '/images/blog/liuc-innovazione-2026-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

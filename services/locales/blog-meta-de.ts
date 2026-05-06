@@ -6287,6 +6287,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzeri-felici-salute-mentale-costi.title': 'Schweiz: psychische Gesundheit wird teurer',
     'blog.article.svizzeri-felici-salute-mentale-costi.excerpt': 'Die Ausgaben für die psychische Gesundheit in der Schweiz steigen, mit höheren Kosten und mehr Inanspruchnahme von Behandlungen bei jungen Menschen.',
     'blog.article.svizzeri-felici-salute-mentale-costi.imageAlt': 'Ruhevolle Aussicht auf den Luganersee mit Bergen im Hintergrund, die die Schönheit des Tessin zeigt.',
+    'blog.article.liuc-innovazione-2026-frontalieri.title': 'LIUC: Innovationswoche 2026 mit Fokus auf KI und Startups',
+    'blog.article.liuc-innovazione-2026-frontalieri.excerpt': 'Vom 12. bis 15. Mai 2026 findet an der LIUC in Castellanza die Innovationswoche mit Workshops zu KI, Startups und neuen Marktkompetenzen statt.',
+    'blog.article.liuc-innovazione-2026-frontalieri.imageAlt': 'Auditorium der LIUC-Universität in Castellanza während einer Innovationsveranstaltung',
 };
 
 export default blogMetaDe;
