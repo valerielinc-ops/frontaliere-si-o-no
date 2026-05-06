@@ -1,18 +1,19 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-05-06T11:40:06.814Z",
+  "generatedAt": "2026-05-06T22:40:19.801Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8446,
-  "avgDurationMs": 8446,
+  "durationMs": 7881,
+  "avgDurationMs": 7881,
   "durationHistory": [
-    8446
+    7881
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "somedia-b1a7615c5298",
       "slug": "grafiker-in-80-100-somedia-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.somedia.ch/Grafikerin-80-100-de-j387.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T11:40:04.236Z",
+      "crawledAt": "2026-05-06T22:40:17.468Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -46,16 +47,16 @@
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-06T11:40:04.236Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 18,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "somedia-bac9018286e2",
       "slug": "leiter-in-people-culture-leiter-in-hr-100-somedia-ch",
@@ -68,7 +69,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-People-Culture-Leiterin-HR-100-de-j371.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T11:40:03.221Z",
+      "crawledAt": "2026-05-06T22:40:16.576Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +111,7 @@
       "url": "https://jobs.somedia.ch/Projektleiterin-Marketing-80100-de-j385.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T11:40:01.061Z",
+      "crawledAt": "2026-05-06T22:40:14.622Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,7 +153,7 @@
       "url": "https://jobs.somedia.ch/Praktikantin-Multimediaproduktion-100-de-j374.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T11:40:02.145Z",
+      "crawledAt": "2026-05-06T22:40:15.600Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -194,7 +195,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-80-100-de-j380.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T11:39:59.984Z",
+      "crawledAt": "2026-05-06T22:40:13.627Z",
       "addressLocality": "Uznach",
       "addressCountry": "CH",
       "country": "CH",
