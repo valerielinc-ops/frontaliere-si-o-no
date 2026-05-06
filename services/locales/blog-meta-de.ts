@@ -6416,6 +6416,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bilaterali-iii-modifica-costituzionale.title': 'Bilaterale III: Verfassungsänderung nötig',
     'blog.article.bilaterali-iii-modifica-costituzionale.excerpt': 'Die Kommission für Politik der Ständeräte schlägt eine Verfassungsänderung zur Genehmigung der Abkommen mit der EU vor.',
     'blog.article.bilaterali-iii-modifica-costituzionale.imageAlt': 'Bellinzona, Schweiz, mit Fokus auf der historischen Architektur der Stadt und den umliegenden Bergen',
+    'blog.article.screening-senologico-45-anni-ticino.title': 'Mammographie-Screening ab 45 Jahren: Was sich im Tessin ändert',
+    'blog.article.screening-senologico-45-anni-ticino.excerpt': 'Drei Schweizer Gesellschaften empfehlen, das Brustkrebs-Screening auf 45 Jahre vorzuziehen. Hier erfahren Sie, was sich für Frauen im Tessin ändert.',
+    'blog.article.screening-senologico-45-anni-ticino.imageAlt': 'Luganersee mit Bergen und blauem Himmel',
 };
 
 export default blogMetaDe;

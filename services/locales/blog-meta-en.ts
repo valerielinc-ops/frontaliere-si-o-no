@@ -6416,6 +6416,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bilaterali-iii-modifica-costituzionale.title': 'III Bilateral Agreements: Constitutional Amendment Needed',
     'blog.article.bilaterali-iii-modifica-costituzionale.excerpt': 'The Political Institutions Committee of the Council of States proposes a constitutional amendment for the approval of agreements with the EU.',
     'blog.article.bilaterali-iii-modifica-costituzionale.imageAlt': 'Bellinzona, Switzerland, with a focus on the city\'s historic architecture and the surrounding mountains',
+    'blog.article.screening-senologico-45-anni-ticino.title': 'Breast cancer screening at 45: changes in Ticino',
+    'blog.article.screening-senologico-45-anni-ticino.excerpt': 'Three Swiss societies recommend bringing forward breast cancer screening to 45. Here\'s what changes for women in Ticino.',
+    'blog.article.screening-senologico-45-anni-ticino.imageAlt': 'Lake Lugano with mountains and blue sky',
 };
 
 export default blogMetaEn;

@@ -22344,6 +22344,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-screening-senologico-45-anni-ticino': {
+    title: 'Screening mammografico a 45 anni: cosa cambia in Ticino',
+    description: 'Tre società svizzere raccomandano di anticipare lo screening del tumore al seno a 45 anni. Ecco cosa cambia per le donne in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, screening, mammografico, anni, cosa',
+    ogTitle: 'Screening mammografico a 45 anni in Ticino',
+    ogDescription: 'Tre società svizzere raccomandano di anticipare lo screening del tumore al seno a 45 anni. Ecco cosa cambia per le donne in Ticino.',
+    canonicalPath: '/articoli-frontaliere/screening-senologico-45-anni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Screening mammografico a 45 anni: cosa cambia in Ticino",
+      "description": "Tre società svizzere raccomandano di anticipare lo screening del tumore al seno a 45 anni. Ecco cosa cambia per le donne in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/screening-senologico-45-anni-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne e cielo azzurro"
+      },
+      "datePublished": "2026-05-06T10:25:43+00:00",
+      "dateModified": "2026-05-06T10:25:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/screening-senologico-45-anni-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

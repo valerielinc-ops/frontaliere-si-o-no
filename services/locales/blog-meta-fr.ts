@@ -6417,6 +6417,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bilaterali-iii-modifica-costituzionale.title': 'Accords bilatéraux III : modification constitutionnelle nécessaire',
     'blog.article.bilaterali-iii-modifica-costituzionale.excerpt': 'La Commission des institutions politiques du Conseil des États propose une modification constitutionnelle pour l\'approbation des accords avec l\'UE.',
     'blog.article.bilaterali-iii-modifica-costituzionale.imageAlt': 'Bellinzona, Suisse, avec un focus sur l\'architecture historique de la ville et les montagnes environnantes',
+    'blog.article.screening-senologico-45-anni-ticino.title': 'Dépistage du cancer du sein à 45 ans: ce qui change au Tessin',
+    'blog.article.screening-senologico-45-anni-ticino.excerpt': 'Trois sociétés suisses recommandent d\'avancer le dépistage du cancer du sein à 45 ans. Voici ce qui change pour les femmes au Tessin.',
+    'blog.article.screening-senologico-45-anni-ticino.imageAlt': 'Lac de Lugano avec montagnes et ciel bleu',
 };
 
 export default blogMetaFr;

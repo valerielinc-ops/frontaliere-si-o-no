@@ -20621,4 +20621,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'screening-senologico-45-anni-ticino',
+ category: 'novita',
+ date: '2026-05-06T10:25:43.287Z',
+ image: '/images/blog/screening-senologico-45-anni-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

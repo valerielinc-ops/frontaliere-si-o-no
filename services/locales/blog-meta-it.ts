@@ -6417,6 +6417,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bilaterali-iii-modifica-costituzionale.title': 'Bilaterali III: necessaria modifica costituzionale',
     'blog.article.bilaterali-iii-modifica-costituzionale.excerpt': 'La Commissione delle istituzioni politiche del Consiglio degli Stati propone una modifica costituzionale per l\'approvazione degli accordi con l\'UE.',
     'blog.article.bilaterali-iii-modifica-costituzionale.imageAlt': 'Bellinzona, Svizzera, con un focus sull\'architettura storica della città e le montagne circostanti',
+    'blog.article.screening-senologico-45-anni-ticino.title': 'Screening mammografico a 45 anni: cosa cambia in Ticino',
+    'blog.article.screening-senologico-45-anni-ticino.excerpt': 'Tre società svizzere raccomandano di anticipare lo screening del tumore al seno a 45 anni. Ecco cosa cambia per le donne in Ticino.',
+    'blog.article.screening-senologico-45-anni-ticino.imageAlt': 'Lago di Lugano con montagne e cielo azzurro',
 };
 
 export default blogMetaIt;
