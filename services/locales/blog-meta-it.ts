@@ -6270,6 +6270,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dipendenti-cantonali-soddisfazione-2026.title': 'Dipendenti cantonali: dati ISMAT 2025 svelano malcontento',
     'blog.article.dipendenti-cantonali-soddisfazione-2026.excerpt': 'Comitato ErreDiPi critica rapporto ISMAT: solo il 44% vede possibilità di crescita, 55% si sente non riconosciuto',
     'blog.article.dipendenti-cantonali-soddisfazione-2026.imageAlt': 'Veduta di Bellinzona con il Castelgrande sullo sfondo',
+    'blog.article.casse-malati-ticino-leghista-socialista.title': 'Casse malati in Ticino: la proposta leghista avanza',
+    'blog.article.casse-malati-ticino-leghista-socialista.excerpt': 'La Commissione della gestione del Canton Ticino discute la divisione delle iniziative sulle casse malati, con la proposta leghista in vantaggio.',
+    'blog.article.casse-malati-ticino-leghista-socialista.imageAlt': 'Lago di Lugano con vista sulla città',
 };
 
 export default blogMetaIt;

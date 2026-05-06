@@ -6270,6 +6270,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dipendenti-cantonali-soddisfazione-2026.title': 'Employés cantonaux: données ISMAT 2025 révèlent mécontentement',
     'blog.article.dipendenti-cantonali-soddisfazione-2026.excerpt': 'Comité ErreDiPi critique le rapport ISMAT: seulement 44% voit des possibilités de croissance, 55% se sent non reconnu',
     'blog.article.dipendenti-cantonali-soddisfazione-2026.imageAlt': 'Vue de Bellinzone avec le château de Castelgrande en arrière-plan',
+    'blog.article.casse-malati-ticino-leghista-socialista.title': 'Assurances maladie au Tessin: la proposition de la Ligue avance',
+    'blog.article.casse-malati-ticino-leghista-socialista.excerpt': 'La Commission de gestion du Canton du Tessin discute de la division des initiatives sur les assurances maladie, avec la proposition de la Ligue en tête.',
+    'blog.article.casse-malati-ticino-leghista-socialista.imageAlt': 'Lac de Lugano avec vue sur la ville',
 };
 
 export default blogMetaFr;

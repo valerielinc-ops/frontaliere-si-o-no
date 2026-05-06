@@ -6269,6 +6269,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dipendenti-cantonali-soddisfazione-2026.title': 'Cantonal employees: ISMAT 2025 data reveals dissatisfaction',
     'blog.article.dipendenti-cantonali-soddisfazione-2026.excerpt': 'ErreDiPi Committee criticizes ISMAT report: only 44% see growth opportunities, 55% feel unrecognized',
     'blog.article.dipendenti-cantonali-soddisfazione-2026.imageAlt': 'View of Bellinzona with Castelgrande in the background',
+    'blog.article.casse-malati-ticino-leghista-socialista.title': 'Health insurers in Ticino: Lega\'s proposal advances',
+    'blog.article.casse-malati-ticino-leghista-socialista.excerpt': 'The Management Commission of the Canton Ticino discusses the division of initiatives on health insurers, with the Lega\'s proposal in the lead.',
+    'blog.article.casse-malati-ticino-leghista-socialista.imageAlt': 'Lake Lugano with city view',
 };
 
 export default blogMetaEn;

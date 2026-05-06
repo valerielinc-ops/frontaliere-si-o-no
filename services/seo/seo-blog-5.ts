@@ -20482,6 +20482,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casse-malati-ticino-leghista-socialista': {
+    title: 'Casse malati in Ticino: la proposta leghista avanza',
+    description: 'La Commissione della gestione del Canton Ticino discute la divisione delle iniziative sulle casse malati, con la proposta leghista in vantaggio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, malati, proposta, leghista',
+    ogTitle: 'Casse malati in Ticino: la proposta leghista avanza',
+    ogDescription: 'La Commissione della gestione del Canton Ticino discute la divisione delle iniziative sulle casse malati, con la proposta leghista in vantaggio.',
+    canonicalPath: '/articoli-frontaliere/casse-malati-ticino-leghista-socialista',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse malati in Ticino: la proposta leghista avanza",
+      "description": "La Commissione della gestione del Canton Ticino discute la divisione delle iniziative sulle casse malati, con la proposta leghista in vantaggio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/casse-malati-ticino-leghista-socialista.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulla città"
+      },
+      "datePublished": "2026-05-06T01:09:24+00:00",
+      "dateModified": "2026-05-06T01:09:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casse-malati-ticino-leghista-socialista`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

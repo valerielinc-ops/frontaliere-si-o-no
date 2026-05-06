@@ -6269,6 +6269,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dipendenti-cantonali-soddisfazione-2026.title': 'Kantonale Mitarbeiter: ISMAT 2025 zeigt Unzufriedenheit',
     'blog.article.dipendenti-cantonali-soddisfazione-2026.excerpt': 'Komitee ErreDiPi kritisiert ISMAT-Bericht: Nur 44% sehen Wachstumschancen, 55% fühlen sich nicht anerkannt',
     'blog.article.dipendenti-cantonali-soddisfazione-2026.imageAlt': 'Bellinzona mit Blick auf die Burg Castelgrande',
+    'blog.article.casse-malati-ticino-leghista-socialista.title': 'Krankenkassen in Ticino: Lega-Initiative im Vorteil',
+    'blog.article.casse-malati-ticino-leghista-socialista.excerpt': 'Die Kommission für Verwaltung des Kantons Ticino diskutiert die Aufteilung der Initiativen zu den Krankenkassen, wobei die Lega-Initiative in Führung liegt.',
+    'blog.article.casse-malati-ticino-leghista-socialista.imageAlt': 'Luganersee mit Stadtblick',
 };
 
 export default blogMetaDe;

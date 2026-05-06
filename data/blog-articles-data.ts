@@ -20180,4 +20180,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casse-malati-ticino-leghista-socialista',
+ category: 'pratico',
+ date: '2026-05-06T01:09:24.448Z',
+ image: '/images/blog/casse-malati-ticino-leghista-socialista.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
