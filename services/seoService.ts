@@ -3382,6 +3382,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-immigrazione-frontalieri-2026': { name: 'Tassa immigrazione', path: '/articoli-frontaliere/tassa-immigrazione-frontalieri-2026', parent: 'blog' },
     'blog-bilaterali-iii-modifica-costituzionale': { name: 'Bilaterali III', path: '/articoli-frontaliere/bilaterali-iii-modifica-costituzionale', parent: 'blog' },
     'blog-screening-senologico-45-anni-ticino': { name: 'Screening mammografico', path: '/articoli-frontaliere/screening-senologico-45-anni-ticino', parent: 'blog' },
+    'blog-g7-evian-controlli-frontiere-ticino': { name: 'G7 Evian', path: '/articoli-frontaliere/g7-evian-controlli-frontiere-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

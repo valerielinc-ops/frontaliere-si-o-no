@@ -6420,6 +6420,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.screening-senologico-45-anni-ticino.title': 'Dépistage du cancer du sein à 45 ans: ce qui change au Tessin',
     'blog.article.screening-senologico-45-anni-ticino.excerpt': 'Trois sociétés suisses recommandent d\'avancer le dépistage du cancer du sein à 45 ans. Voici ce qui change pour les femmes au Tessin.',
     'blog.article.screening-senologico-45-anni-ticino.imageAlt': 'Lac de Lugano avec montagnes et ciel bleu',
+    'blog.article.g7-evian-controlli-frontiere-ticino.title': 'G7 à Evian: contrôles renforcés aux frontières',
+    'blog.article.g7-evian-controlli-frontiere-ticino.excerpt': 'Du 10 au 19 juin, contrôles renforcés aux postes frontaliers avec la France pour le sommet du G7 à Evian-les-Bains',
+    'blog.article.g7-evian-controlli-frontiere-ticino.imageAlt': 'Rive du lac de Lugano avec drapeaux suisses et italiens, mesures de sécurité du G7 visibles en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -6419,6 +6419,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.screening-senologico-45-anni-ticino.title': 'Breast cancer screening at 45: changes in Ticino',
     'blog.article.screening-senologico-45-anni-ticino.excerpt': 'Three Swiss societies recommend bringing forward breast cancer screening to 45. Here\'s what changes for women in Ticino.',
     'blog.article.screening-senologico-45-anni-ticino.imageAlt': 'Lake Lugano with mountains and blue sky',
+    'blog.article.g7-evian-controlli-frontiere-ticino.title': 'G7 in Evian: stricter border checks with France',
+    'blog.article.g7-evian-controlli-frontiere-ticino.excerpt': 'From June 10 to 19, enhanced checks at crossings with France for the G7 summit in Evian-les-Bains',
+    'blog.article.g7-evian-controlli-frontiere-ticino.imageAlt': 'Lake Lugano shoreline with Swiss and Italian flags, G7 security measures visible in the background',
 };
 
 export default blogMetaEn;

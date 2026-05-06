@@ -6420,6 +6420,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.screening-senologico-45-anni-ticino.title': 'Screening mammografico a 45 anni: cosa cambia in Ticino',
     'blog.article.screening-senologico-45-anni-ticino.excerpt': 'Tre società svizzere raccomandano di anticipare lo screening del tumore al seno a 45 anni. Ecco cosa cambia per le donne in Ticino.',
     'blog.article.screening-senologico-45-anni-ticino.imageAlt': 'Lago di Lugano con montagne e cielo azzurro',
+    'blog.article.g7-evian-controlli-frontiere-ticino.title': 'G7 a Evian: più controlli alle frontiere con la Francia',
+    'blog.article.g7-evian-controlli-frontiere-ticino.excerpt': 'Dal 10 al 19 giugno controlli rafforzati ai valichi con la Francia per il vertice del G7 a Evian-les-Bains',
+    'blog.article.g7-evian-controlli-frontiere-ticino.imageAlt': 'Vista del lago di Lugano con bandiere svizzere e italiane, misure di sicurezza G7 in lontananza',
 };
 
 export default blogMetaIt;

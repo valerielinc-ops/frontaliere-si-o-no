@@ -20630,4 +20630,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'g7-evian-controlli-frontiere-ticino',
+ category: 'novita',
+ date: '2026-05-06T10:30:30.186Z',
+ image: '/images/blog/g7-evian-controlli-frontiere-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

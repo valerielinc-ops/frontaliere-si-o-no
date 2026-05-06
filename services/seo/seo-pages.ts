@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2192,
+ "numberOfItems": 2193,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6834,7 +6834,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2189, "name": "Bilaterali III: richiesta doppia maggioranza pe...", "url": `${BASE_URL}/articoli-frontaliere/bilaterali-iii-doppia-maggioranza` },
           { "@type": "ListItem", "position": 2190, "name": "Tassa immigrazione: possibile ma con pochi bene...", "url": `${BASE_URL}/articoli-frontaliere/tassa-immigrazione-frontalieri-2026` },
           { "@type": "ListItem", "position": 2191, "name": "Bilaterali III: necessaria modifica costituzionale", "url": `${BASE_URL}/articoli-frontaliere/bilaterali-iii-modifica-costituzionale` },
-          { "@type": "ListItem", "position": 2192, "name": "Screening mammografico a 45 anni: cosa cambia i...", "url": `${BASE_URL}/articoli-frontaliere/screening-senologico-45-anni-ticino` }
+          { "@type": "ListItem", "position": 2192, "name": "Screening mammografico a 45 anni: cosa cambia i...", "url": `${BASE_URL}/articoli-frontaliere/screening-senologico-45-anni-ticino` },
+          { "@type": "ListItem", "position": 2193, "name": "G7 a Evian: più controlli alle frontiere con la...", "url": `${BASE_URL}/articoli-frontaliere/g7-evian-controlli-frontiere-ticino` }
  ]
  },
  {

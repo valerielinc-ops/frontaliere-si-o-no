@@ -22382,6 +22382,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-g7-evian-controlli-frontiere-ticino': {
+    title: 'G7 a Evian: più controlli alle frontiere con la Francia',
+    description: 'Dal 10 al 19 giugno controlli rafforzati ai valichi con la Francia per il vertice del G7 a Evian-les-Bains. Impatto sui frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, evian, controlli, alle, frontiere',
+    ogTitle: 'G7 Evian: controlli frontiere Svizzera-Francia dal 10 giugno',
+    ogDescription: 'Dal 10 al 19 giugno controlli rafforzati ai valichi con la Francia per il vertice del G7 a Evian-les-Bains. Impatto sui frontalieri',
+    canonicalPath: '/articoli-frontaliere/g7-evian-controlli-frontiere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "G7 a Evian: più controlli alle frontiere con la Francia",
+      "description": "Dal 10 al 19 giugno controlli rafforzati ai valichi con la Francia per il vertice del G7 a Evian-les-Bains. Impatto sui frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/g7-evian-controlli-frontiere-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con bandiere svizzere e italiane, misure di sicurezza G7 in lontananza"
+      },
+      "datePublished": "2026-05-06T10:30:30+00:00",
+      "dateModified": "2026-05-06T10:30:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/g7-evian-controlli-frontiere-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
