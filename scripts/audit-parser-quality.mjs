@@ -19,12 +19,58 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+const BASELINE_PATH = path.join(ROOT, 'data', 'parser-quality-no-structure-baseline.json');
+
+export function loadNoStructureBaseline(p = BASELINE_PATH) {
+  try {
+    return JSON.parse(fs.readFileSync(p, 'utf8'));
+  } catch {
+    return { generatedAt: null, perCrawler: {} };
+  }
+}
+
+/**
+ * Apply the no-structured-content ratchet to a parser-quality report.
+ *
+ * Mutates entries in `report` in place: any crawler whose
+ * `no-structured-content` count has increased above its baseline (or that
+ * appears NEW at >=95% / >=10 jobs) is escalated to severity CRITICAL.
+ *
+ * @param {Record<string, { total: number, issues: Array<any>, severity?: string, action?: string }>} report
+ * @param {{ generatedAt: string | null, perCrawler: Record<string, { noStructureCount: number, total: number }> }} baseline
+ * @returns {Array<{ key: string, was: number, now: number, total: number }>} regressions
+ */
+export function applyNoStructureRatchet(report, baseline) {
+  const regressions = [];
+  for (const [key, entry] of Object.entries(report)) {
+    const issue = entry.issues.find((i) => i.type === 'no-structured-content');
+    if (!issue) continue;
+    const baseRecord = baseline?.perCrawler?.[key];
+    const baseCount = baseRecord?.noStructureCount ?? 0;
+    const ratio = issue.count / issue.total;
+    const isNew = !baseRecord;
+    const regressed = !!baseRecord && issue.count > baseCount;
+    // New crawler entering 95%+ flat territory, or any existing crawler going UP, triggers CRITICAL
+    const newOffender = isNew && ratio >= 0.95 && issue.total >= 10;
+    if (newOffender || regressed) {
+      entry.severity = 'CRITICAL';
+      issue.message += newOffender
+        ? ` [NEW OFFENDER: ${issue.count}/${issue.total} flat, no baseline tolerance]`
+        : ` [REGRESSION: was ${baseCount}, now ${issue.count}]`;
+      const ratchetAction = `Parser strips list structure — descriptions are flat prose. Either preserve <ul><li> in the parser, or rebaseline if intentional via: npm run audit:parser-quality:rebaseline`;
+      entry.action = `${entry.action ? entry.action + ' ' : ''}${ratchetAction}`;
+      regressions.push({ key, was: baseCount, now: issue.count, total: issue.total });
+    }
+  }
+  return regressions;
+}
 
 /* ── Args ──────────────────────────────────────────────────── */
 const args = process.argv.slice(2);
 const skipUrls = !args.includes('--check-urls');
 const crawlerFlag = args.find((a) => a.startsWith('--crawler='));
 const onlyCrawler = crawlerFlag ? crawlerFlag.split('=')[1] : null;
+const rebaseline = args.includes('--rebaseline');
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function stripHtml(html) {
@@ -290,6 +336,27 @@ async function main() {
     }
   }
 
+  // ── Ratchet: regression in no-structured-content escalates to CRITICAL ──
+  const noStructBaseline = loadNoStructureBaseline();
+  const regressions = applyNoStructureRatchet(report, noStructBaseline);
+  if (regressions.length > 0) {
+    console.log(`\n🛑 No-structure ratchet: ${regressions.length} crawler(s) regressed or newly flat:`);
+    for (const r of regressions) console.log(`   ${r.key}: ${r.was} → ${r.now}/${r.total}`);
+  }
+
+  // ── Rebaseline mode: write baseline and exit ──
+  if (rebaseline) {
+    const perCrawler = {};
+    for (const [key, entry] of Object.entries(report)) {
+      const issue = entry.issues.find((i) => i.type === 'no-structured-content');
+      if (issue) perCrawler[key] = { noStructureCount: issue.count, total: issue.total };
+    }
+    const newBaseline = { generatedAt: new Date().toISOString(), perCrawler };
+    fs.writeFileSync(BASELINE_PATH, JSON.stringify(newBaseline, null, 2) + '\n');
+    console.log(`\n✓ Baseline written to data/parser-quality-no-structure-baseline.json with ${Object.keys(perCrawler).length} entries.`);
+    process.exit(0);
+  }
+
   // Print report
   printReport(report);
 
@@ -362,7 +429,10 @@ function printReport(report) {
   }
 }
 
-main().catch((err) => {
-  console.error('Audit failed:', err);
-  process.exit(1);
-});
+const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (isMain) {
+  main().catch((err) => {
+    console.error('Audit failed:', err);
+    process.exit(1);
+  });
+}

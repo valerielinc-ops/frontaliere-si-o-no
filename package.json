@@ -254,6 +254,8 @@
     "audit:orphan-sitemap-pages": "node scripts/audit-orphan-pages-in-sitemaps.mjs",
     "audit:orphan-sitemap-pages:rebaseline": "node scripts/audit-orphan-pages-in-sitemaps.mjs --rebaseline",
     "audit:image-object-license": "node scripts/audit-image-object-license.mjs",
+    "audit:parser-quality": "node scripts/audit-parser-quality.mjs",
+    "audit:parser-quality:rebaseline": "node scripts/audit-parser-quality.mjs --rebaseline",
     "audit:news-sitemap": "node scripts/cleanup-news-sitemap.mjs --dry-run",
     "sanitize:news-sitemap": "node scripts/cleanup-news-sitemap.mjs --apply",
     "probe:5xx": "node scripts/probe-5xx.mjs",
