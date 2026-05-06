@@ -6456,6 +6456,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pagare-vittime-crans-montana-2026.title': 'Berna non è d\'accordo sul risarcimento per le vittime di Crans-Montana',
     'blog.article.pagare-vittime-crans-montana-2026.excerpt': 'La Svizzera valuta di coprire le spese sanitarie per le vittime italiane del rogo di Crans-Montana, ma l\'idea divide a Berna.',
     'blog.article.pagare-vittime-crans-montana-2026.imageAlt': 'Vista del resort di Crans-Montana dopo l\'incendio del 1° gennaio 2026',
+    'blog.article.e-bike-parcheggi-sicuri-losanna-2026.title': 'Losanna introduce parcheggi sicuri per e-bike',
+    'blog.article.e-bike-parcheggi-sicuri-losanna-2026.excerpt': 'La città di Losanna installa Vélobox per contrastare l\'aumento dei furti di biciclette elettriche. Pro Vélo Losanna accoglie positivamente l\'iniziativa.',
+    'blog.article.e-bike-parcheggi-sicuri-losanna-2026.imageAlt': 'Area di parcheggio sicura per bici a Losanna con container Vélobox moderni',
 };
 
 export default blogMetaIt;

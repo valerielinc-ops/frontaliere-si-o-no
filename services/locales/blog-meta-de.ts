@@ -6455,6 +6455,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pagare-vittime-crans-montana-2026.title': 'Berner Streit um Entschädigung für Crans-Montana-Opfer',
     'blog.article.pagare-vittime-crans-montana-2026.excerpt': 'Die Schweiz prüft, die Gesundheitskosten für die italienischen Opfer des Brandes in Crans-Montana zu übernehmen, doch die Idee spaltet Bern.',
     'blog.article.pagare-vittime-crans-montana-2026.imageAlt': 'Ansicht des Resorts Crans-Montana nach dem Brand am 1. Januar 2026',
+    'blog.article.e-bike-parcheggi-sicuri-losanna-2026.title': 'Losanna installiert sichere E-Bike-Parkplätze',
+    'blog.article.e-bike-parcheggi-sicuri-losanna-2026.excerpt': 'Die Stadt Losanna installiert Véloboxen, um die steigende Zahl von E-Bike-Diebstählen zu bekämpfen. Pro Vélo Lausanne begrüßt die Initiative.',
+    'blog.article.e-bike-parcheggi-sicuri-losanna-2026.imageAlt': 'Sicherer Fahrradparkplatz in Lausanne mit modernen Vélobox-Containern',
 };
 
 export default blogMetaDe;

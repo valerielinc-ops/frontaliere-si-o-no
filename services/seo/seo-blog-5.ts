@@ -22838,6 +22838,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-e-bike-parcheggi-sicuri-losanna-2026': {
+    title: 'Losanna introduce parcheggi sicuri per e-bike | Frontaliere Ticino',
+    description: 'La città di Losanna installa Vélobox per contrastare l\'aumento dei furti di biciclette elettriche. Pro Vélo Losanna accoglie positivamente l\'iniziativa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, losanna, introduce, parcheggi, sicuri',
+    ogTitle: 'Losanna introduce parcheggi sicuri per e-bike',
+    ogDescription: 'La città di Losanna installa Vélobox per contrastare l\'aumento dei furti di biciclette elettriche. Pro Vélo Losanna accoglie positivamente l\'iniziativa.',
+    canonicalPath: '/articoli-frontaliere/e-bike-parcheggi-sicuri-losanna-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Losanna introduce parcheggi sicuri per e-bike",
+      "description": "La città di Losanna installa Vélobox per contrastare l'aumento dei furti di biciclette elettriche. Pro Vélo Losanna accoglie positivamente l'iniziativa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/e-bike-parcheggi-sicuri-losanna-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area di parcheggio sicura per bici a Losanna con container Vélobox moderni"
+      },
+      "datePublished": "2026-05-06T12:15:51+00:00",
+      "dateModified": "2026-05-06T12:15:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/e-bike-parcheggi-sicuri-losanna-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

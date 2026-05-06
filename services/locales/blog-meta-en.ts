@@ -6455,6 +6455,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pagare-vittime-crans-montana-2026.title': 'Switzerland disagrees on Crans-Montana fire compensation',
     'blog.article.pagare-vittime-crans-montana-2026.excerpt': 'Switzerland is considering covering healthcare costs for Italian victims of the Crans-Montana fire, but the idea is dividing opinions in Bern.',
     'blog.article.pagare-vittime-crans-montana-2026.imageAlt': 'View of Crans-Montana resort after the fire on January 1, 2026',
+    'blog.article.e-bike-parcheggi-sicuri-losanna-2026.title': 'Lausanne introduces secure e-bike parking',
+    'blog.article.e-bike-parcheggi-sicuri-losanna-2026.excerpt': 'The city of Lausanne installs Vélobox to counter the rise in electric bike thefts. Pro Vélo Lausanne welcomes the initiative.',
+    'blog.article.e-bike-parcheggi-sicuri-losanna-2026.imageAlt': 'Secure bike parking area in Lausanne with modern Vélobox containers',
 };
 
 export default blogMetaEn;

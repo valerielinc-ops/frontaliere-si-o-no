@@ -20738,4 +20738,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'e-bike-parcheggi-sicuri-losanna-2026',
+ category: 'novita',
+ date: '2026-05-06T12:15:51.599Z',
+ image: '/images/blog/e-bike-parcheggi-sicuri-losanna-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
