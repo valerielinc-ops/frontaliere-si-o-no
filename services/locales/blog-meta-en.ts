@@ -6557,6 +6557,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.hantavirus-crociera-isolamento.title': 'Hantavirus: isolation to contain the outbreak',
     'blog.article.hantavirus-crociera-isolamento.excerpt': 'Pietro Antonini, infectious diseases consultant, explains how hantavirus is transmitted and what measures to take to contain it.',
     'blog.article.hantavirus-crociera-isolamento.imageAlt': 'Lake Lugano with a view of the surrounding mountains',
+    'blog.article.nuovo-tunnel-lukmanier-sicurezza.title': 'New Lukmanier tunnel for better road safety',
+    'blog.article.nuovo-tunnel-lukmanier-sicurezza.excerpt': 'A new tunnel will be built at Lukmanier to improve road safety.',
+    'blog.article.nuovo-tunnel-lukmanier-sicurezza.imageAlt': 'The new Lukmanier tunnel for increased safety',
 };
 
 export default blogMetaEn;

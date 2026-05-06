@@ -6558,6 +6558,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.hantavirus-crociera-isolamento.title': 'Hantavirus : isolement pour contenir l\'épidémie',
     'blog.article.hantavirus-crociera-isolamento.excerpt': 'Pietro Antonini, consultant en maladies infectieuses, explique comment se transmet l\'hantavirus et quelles mesures adopter pour le contenir.',
     'blog.article.hantavirus-crociera-isolamento.imageAlt': 'Lac de Lugano avec vue sur les montagnes environnantes',
+    'blog.article.nuovo-tunnel-lukmanier-sicurezza.title': 'Nouveau tunnel au Lukmanier pour plus de sécurité',
+    'blog.article.nuovo-tunnel-lukmanier-sicurezza.excerpt': 'Un nouveau tunnel sera construit au Lukmanier pour améliorer la sécurité routière.',
+    'blog.article.nuovo-tunnel-lukmanier-sicurezza.imageAlt': 'Le nouveau tunnel de Lukmanier pour une sécurité accrue',
 };
 
 export default blogMetaFr;

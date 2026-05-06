@@ -3428,6 +3428,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-governance-partecipativa-ssn-2026': { name: 'Novità', path: '/articoli-frontaliere/governance-partecipativa-ssn-2026', parent: 'blog' },
     'blog-ssn-accessibile-frontalieri-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ssn-accessibile-frontalieri-ticino-2026', parent: 'blog' },
     'blog-hantavirus-crociera-isolamento': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-crociera-isolamento', parent: 'blog' },
+    'blog-nuovo-tunnel-lukmanier-sicurezza': { name: 'Tunnel Lukmanier', path: '/articoli-frontaliere/nuovo-tunnel-lukmanier-sicurezza', parent: 'blog' },
  };
 
  const info = sectionNames[section];

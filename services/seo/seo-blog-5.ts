@@ -24130,6 +24130,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-tunnel-lukmanier-sicurezza': {
+    title: 'Nuovo tunnel al Lukmanier per più sicurezza | Frontaliere Ticino',
+    description: 'Un nuovo tunnel verrà costruito al Lukmanier per migliorare la sicurezza stradale. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, tunnel, lukmanier, sicurezza',
+    ogTitle: 'Nuovo tunnel al Lukmanier per più sicurezza',
+    ogDescription: 'Un nuovo tunnel verrà costruito al Lukmanier per migliorare la sicurezza stradale.',
+    canonicalPath: '/articoli-frontaliere/nuovo-tunnel-lukmanier-sicurezza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo tunnel al Lukmanier per più sicurezza",
+      "description": "Un nuovo tunnel verrà costruito al Lukmanier per migliorare la sicurezza stradale. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/nuovo-tunnel-lukmanier-sicurezza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il nuovo tunnel di Lukmanier per una maggiore sicurezza"
+      },
+      "datePublished": "2026-05-06T20:17:22+00:00",
+      "dateModified": "2026-05-06T20:17:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-tunnel-lukmanier-sicurezza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

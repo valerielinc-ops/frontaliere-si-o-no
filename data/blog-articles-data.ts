@@ -21044,4 +21044,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuovo-tunnel-lukmanier-sicurezza',
+ category: 'novita',
+ date: '2026-05-06T20:17:22.474Z',
+ image: '/images/blog/nuovo-tunnel-lukmanier-sicurezza.jpg',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

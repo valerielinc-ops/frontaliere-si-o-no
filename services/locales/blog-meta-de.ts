@@ -6557,6 +6557,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hantavirus-crociera-isolamento.title': 'Hantavirus: Isolierung zur Eindämmung der Epidemie',
     'blog.article.hantavirus-crociera-isolamento.excerpt': 'Pietro Antonini, Berater für Infektionskrankheiten, erklärt, wie sich das Hantavirus überträgt und welche Maßnahmen zur Eindämmung ergriffen werden sollten.',
     'blog.article.hantavirus-crociera-isolamento.imageAlt': 'Luganersee mit Blick auf die umliegenden Berge',
+    'blog.article.nuovo-tunnel-lukmanier-sicurezza.title': 'Neuer Lukmanier-Tunnel für mehr Sicherheit',
+    'blog.article.nuovo-tunnel-lukmanier-sicurezza.excerpt': 'Ein neuer Tunnel wird am Lukmanier gebaut, um die Verkehrssicherheit zu verbessern.',
+    'blog.article.nuovo-tunnel-lukmanier-sicurezza.imageAlt': 'Der neue Lukmanier-Tunnel für mehr Sicherheit',
 };
 
 export default blogMetaDe;

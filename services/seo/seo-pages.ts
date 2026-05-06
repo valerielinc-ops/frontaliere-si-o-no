@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2238,
+ "numberOfItems": 2239,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6880,7 +6880,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2235, "name": "Chiasso rivaluta il suo valore economico con l'...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-valore-economico-aggregazione` },
           { "@type": "ListItem", "position": 2236, "name": "Governance partecipativa, presentato consensus ...", "url": `${BASE_URL}/articoli-frontaliere/governance-partecipativa-ssn-2026` },
           { "@type": "ListItem", "position": 2237, "name": "SSN accessibile a tutti: le novità per i fronta...", "url": `${BASE_URL}/articoli-frontaliere/ssn-accessibile-frontalieri-ticino-2026` },
-          { "@type": "ListItem", "position": 2238, "name": "Hantavirus: isolamento per contenere l'epidemia", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-crociera-isolamento` }
+          { "@type": "ListItem", "position": 2238, "name": "Hantavirus: isolamento per contenere l'epidemia", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-crociera-isolamento` },
+          { "@type": "ListItem", "position": 2239, "name": "Nuovo tunnel al Lukmanier per più sicurezza", "url": `${BASE_URL}/articoli-frontaliere/nuovo-tunnel-lukmanier-sicurezza` }
  ]
  },
  {
