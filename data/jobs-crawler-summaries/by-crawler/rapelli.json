@@ -1,18 +1,19 @@
 {
   "key": "rapelli",
   "label": "Rapelli",
-  "generatedAt": "2026-05-05T22:23:57.582Z",
+  "generatedAt": "2026-05-06T11:31:35.366Z",
   "total": 9,
-  "newCount": 2,
-  "updatedCount": 7,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5096,
-  "avgDurationMs": 5096,
+  "durationMs": 6758,
+  "avgDurationMs": 6758,
   "durationHistory": [
-    5096
+    6758
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rapelli-cdc8de86cdd6",
       "slug": "collaboratore-spedizione-100-rapelli-stabio",
@@ -33,12 +34,13 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Spedizione%2C-100-TI/1390401733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:53.593Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-05-06T11:31:30.163Z",
+      "firstSeenAt": "2026-05-05T22:23:53.593Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,17 +64,16 @@
       "url": "https://careers.orior.ch/job/Stabio-Controller-junior%2C-100-TI/1373974233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:55.679Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-05-06T11:31:33.209Z",
+      "firstSeenAt": "2026-05-05T22:23:55.679Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 23,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "rapelli-85e9378f6294",
       "slug": "digital-order-edi-specialist-50-80-rapelli-stabio",
@@ -93,7 +94,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:53.893Z",
+      "crawledAt": "2026-05-06T11:31:30.549Z",
       "firstSeenAt": "2026-05-04T11:27:16.075Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -123,7 +124,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Chief-Financial-Officer%2C-100-%28mwd%29-TI/1386501233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-05T22:23:54.150Z",
+      "crawledAt": "2026-05-06T11:31:30.889Z",
       "firstSeenAt": "2026-04-22T22:15:54.204Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -153,7 +154,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:54.423Z",
+      "crawledAt": "2026-05-06T11:31:31.490Z",
       "firstSeenAt": "2026-04-13T11:08:41.431Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -183,42 +184,12 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:54.669Z",
+      "crawledAt": "2026-05-06T11:31:31.821Z",
       "firstSeenAt": "2026-04-13T11:08:42.246Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "rapelli-8201a0349335",
-      "slug": "buyer-ingredienti-trade-100-rapelli-stabio",
-      "company": "Rapelli - ORIOR Food AG",
-      "companyKey": "rapelli",
-      "companyDomain": "rapelli.ch",
-      "title": "Buyer ingredienti & trade, 100%",
-      "location": "Stabio",
-      "canton": "TI",
-      "addressLocality": "Stabio",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
-      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:54.916Z",
-      "firstSeenAt": "2026-04-13T11:08:41.140Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 14
       }
@@ -243,7 +214,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare%2C-100-TI/1375846933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:55.154Z",
+      "crawledAt": "2026-05-06T11:31:32.188Z",
       "firstSeenAt": "2026-04-13T11:08:41.972Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -273,7 +244,7 @@
       "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:55.396Z",
+      "crawledAt": "2026-05-06T11:31:32.500Z",
       "firstSeenAt": "2026-04-13T11:08:41.714Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -282,16 +253,14 @@
         "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "id": "rapelli-eef49fb6a6c9",
-      "slug": "controller-al-100-rapelli-orior-food-ag-stabio",
+      "id": "rapelli-8201a0349335",
+      "slug": "buyer-ingredienti-trade-100-rapelli-stabio",
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
       "companyDomain": "rapelli.ch",
-      "title": "Controller, 100%",
+      "title": "Buyer ingredienti & trade, 100%",
       "location": "Stabio",
       "canton": "TI",
       "addressLocality": "Stabio",
@@ -302,23 +271,21 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-04-27",
-      "url": "https://careers.orior.ch/job/Stabio-Controller%2C-100-TI/1373974233/",
+      "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T11:15:58.159Z",
-      "firstSeenAt": "2026-04-13T11:08:42.525Z",
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "postalCode": "6855",
-      "_qualityScore": 90,
+      "crawledAt": "2026-05-06T11:31:32.847Z",
+      "firstSeenAt": "2026-04-13T11:08:41.140Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 14
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "rapelli-37006691a463",
@@ -340,16 +307,51 @@
       "url": "https://careers.orior.ch/job/Stabio-Controller-junior%2C-100-TI/1373974233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:55.679Z",
+      "crawledAt": "2026-05-06T11:31:33.209Z",
+      "firstSeenAt": "2026-05-05T22:23:55.679Z",
       "needsRetranslation": true,
       "salaryMin": 42640,
       "salaryMax": 54000,
       "postalCode": "6855",
-      "_qualityScore": 81,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 23,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "rapelli-8201a0349335",
+      "slug": "buyer-ingredienti-trade-100-rapelli-stabio",
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Buyer ingredienti & trade, 100%",
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-06T11:31:32.847Z",
+      "firstSeenAt": "2026-04-13T11:08:41.140Z",
+      "needsRetranslation": true,
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "postalCode": "6855",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -373,7 +375,7 @@
       "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:55.396Z",
+      "crawledAt": "2026-05-06T11:31:32.500Z",
       "firstSeenAt": "2026-04-13T11:08:41.714Z",
       "needsRetranslation": true,
       "salaryMin": 55500,
@@ -407,7 +409,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare%2C-100-TI/1375846933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:55.154Z",
+      "crawledAt": "2026-05-06T11:31:32.188Z",
       "firstSeenAt": "2026-04-13T11:08:41.972Z",
       "needsRetranslation": true,
       "salaryMin": 55500,
@@ -417,40 +419,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "rapelli-8201a0349335",
-      "slug": "buyer-ingredienti-trade-100-rapelli-stabio",
-      "company": "Rapelli - ORIOR Food AG",
-      "companyKey": "rapelli",
-      "companyDomain": "rapelli.ch",
-      "title": "Buyer ingredienti & trade, 100%",
-      "location": "Stabio",
-      "canton": "TI",
-      "addressLocality": "Stabio",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
-      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:54.916Z",
-      "firstSeenAt": "2026-04-13T11:08:41.140Z",
-      "needsRetranslation": true,
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "postalCode": "6855",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 22
       }
@@ -475,7 +443,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:54.669Z",
+      "crawledAt": "2026-05-06T11:31:31.821Z",
       "firstSeenAt": "2026-04-13T11:08:42.246Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -508,7 +476,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:54.423Z",
+      "crawledAt": "2026-05-06T11:31:31.490Z",
       "firstSeenAt": "2026-04-13T11:08:41.431Z",
       "needsRetranslation": true,
       "salaryMin": 55500,
@@ -542,7 +510,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Chief-Financial-Officer%2C-100-%28mwd%29-TI/1386501233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-05T22:23:54.150Z",
+      "crawledAt": "2026-05-06T11:31:30.889Z",
       "firstSeenAt": "2026-04-22T22:15:54.204Z",
       "salaryMin": 98000,
       "salaryMax": 132000,
@@ -575,7 +543,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:53.893Z",
+      "crawledAt": "2026-05-06T11:31:30.549Z",
       "firstSeenAt": "2026-05-04T11:27:16.075Z",
       "needsRetranslation": true,
       "salaryMin": 55500,
@@ -609,16 +577,17 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Spedizione%2C-100-TI/1390401733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-05T22:23:53.593Z",
+      "crawledAt": "2026-05-06T11:31:30.163Z",
+      "firstSeenAt": "2026-05-05T22:23:53.593Z",
       "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "postalCode": "6855",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
