@@ -3304,6 +3304,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  return parts.join('\n');
  })()}
  ${curatedBodyHtml ? `<p style="margin-top:24px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(copy.editorial)}</p>` : ''}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: primaryLocation || 'Ticino', omitCommute: !primaryLocation }))}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
