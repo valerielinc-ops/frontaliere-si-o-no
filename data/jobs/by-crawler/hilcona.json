@@ -81,9 +81,9 @@
     },
     {
       "id": "hilcona-b7b9fd6857d6",
-      "slug": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
+      "slug": "azienda-installatrice-azienda-installatrice-hilcona-ag-schaan",
       "slugByLocale": {
-        "it": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
+        "it": "azienda-installatrice-azienda-installatrice-hilcona-ag-schaan",
         "en": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
         "de": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
         "fr": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan"
@@ -136,7 +136,15 @@
         }
       },
       "postalCode": "7000",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan"
+      ]
     },
     {
       "id": "hilcona-a8510787b77f",
@@ -284,9 +292,9 @@
     },
     {
       "id": "hilcona-723aa50101ac",
-      "slug": "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
+      "slug": "camionista-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
-        "it": "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
+        "it": "camionista-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "en": "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
         "de": "lkw-fahrer-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "fr": "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
@@ -339,13 +347,21 @@
         }
       },
       "postalCode": "7000",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
+        ]
+      },
+      "previousSlugs": [
+        "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
+      ]
     },
     {
       "id": "hilcona-28be9dde2fb5",
-      "slug": "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "responsabile-diretto-produzione-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
-        "it": "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "it": "responsabile-diretto-produzione-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "en": "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
         "fr": "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
@@ -384,11 +400,13 @@
       "crawledAt": "2026-05-05T21:58:25.765Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt"
+        "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
+        "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt"
+          "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
+          "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "needsRetranslation": true,
@@ -557,10 +575,10 @@
     },
     {
       "id": "hilcona-a9d83f30438c",
-      "slug": "fachspezialistin-fachspezialist-payroll-60-70-hilcona-schaan",
+      "slug": "stipendi-specialisti-60-70-hilcona-ag-schaan",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-payroll-60-70-hilcona-schaan",
-        "it": "fachspezialistin-fachspezialist-payroll-60-70-hilcona-schaan",
+        "it": "stipendi-specialisti-60-70-hilcona-ag-schaan",
         "en": "fachspezialistin-fachspezialist-payroll-60-70-hilcona-schaan",
         "fr": "fachspezialistin-fachspezialist-payroll-60-70-hilcona-schaan"
       },
@@ -614,7 +632,15 @@
       },
       "postalCode": "7000",
       "firstSeenAt": "2026-05-05T21:58:25.026Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-payroll-60-70-hilcona-schaan"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-payroll-60-70-hilcona-schaan"
+      ]
     },
     {
       "id": "hilcona-2a2f1d6dfd55",
