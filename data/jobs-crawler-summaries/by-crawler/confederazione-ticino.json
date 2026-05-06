@@ -1,18 +1,49 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-05-06T10:40:04.356Z",
-  "total": 8,
-  "newCount": 0,
+  "generatedAt": "2026-05-06T21:40:53.578Z",
+  "total": 9,
+  "newCount": 1,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1856,
-  "avgDurationMs": 1856,
+  "durationMs": 1480,
+  "avgDurationMs": 1480,
   "durationHistory": [
-    1856
+    1480
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Polizeiliche/-r Fachspezialist/-in",
+      "slug": "polizeiliche-r-fachspezialist-in-confederazione-bern",
+      "url": "https://jobs.admin.ch/posti-vacanti/polizeiliche-r-fachspezialist-in/5bebf8c1-8200-4289-97c5-20516c5ebfa0",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18954",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "public-administration",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-06",
+      "validThrough": "2028-05-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Greffier/greffière de langue française, pour la Cour des affaires pénales",
@@ -117,8 +148,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
+      "retranslationAttempts": 2,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
