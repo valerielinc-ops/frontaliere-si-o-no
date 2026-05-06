@@ -3379,6 +3379,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sportello-energetico-verbano-2026': { name: 'Sportello energetico', path: '/articoli-frontaliere/sportello-energetico-verbano-2026', parent: 'blog' },
     'blog-vittima-folgorata-bellinzona-2026': { name: 'Vittima folgorata', path: '/articoli-frontaliere/vittima-folgorata-bellinzona-2026', parent: 'blog' },
     'blog-bilaterali-iii-doppia-maggioranza': { name: 'Bilaterali III', path: '/articoli-frontaliere/bilaterali-iii-doppia-maggioranza', parent: 'blog' },
+    'blog-tassa-immigrazione-frontalieri-2026': { name: 'Tassa immigrazione', path: '/articoli-frontaliere/tassa-immigrazione-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

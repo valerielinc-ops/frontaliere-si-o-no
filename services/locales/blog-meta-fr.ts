@@ -6411,6 +6411,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bilaterali-iii-doppia-maggioranza.title': 'Bilatérales III: double majorité requise',
     'blog.article.bilaterali-iii-doppia-maggioranza.excerpt': 'La commission des États demande l\'inscription du paquet Bilatérales III dans la Constitution fédérale, exigeant une double majorité',
     'blog.article.bilaterali-iii-doppia-maggioranza.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les bâtiments environnants',
+    'blog.article.tassa-immigrazione-frontalieri-2026.title': 'Taxe sur l\'immigration: possible mais peu avantageuse',
+    'blog.article.tassa-immigrazione-frontalieri-2026.excerpt': 'Le Conseil fédéral a adopté un rapport analysant la faisabilité d\'une taxe sur l\'immigration en Suisse.',
+    'blog.article.tassa-immigrazione-frontalieri-2026.imageAlt': 'Vue du lac de Lugano avec un bâtiment moderne en arrière-plan',
 };
 
 export default blogMetaFr;

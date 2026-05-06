@@ -6410,6 +6410,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bilaterali-iii-doppia-maggioranza.title': 'Bilaterale III: Doppelte Mehrheit gefordert',
     'blog.article.bilaterali-iii-doppia-maggioranza.excerpt': 'Die Staatskommission fordert die Aufnahme des Bilateralen III-Pakets in die Bundesverfassung und verlangt eine doppelte Mehrheit.',
     'blog.article.bilaterali-iii-doppia-maggioranza.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Gebäuden',
+    'blog.article.tassa-immigrazione-frontalieri-2026.title': 'Einwanderungssteuer: möglich, aber mit wenig Nutzen',
+    'blog.article.tassa-immigrazione-frontalieri-2026.excerpt': 'Der Bundesrat hat einen Bericht verabschiedet, der die Machbarkeit einer Einwanderungssteuer in der Schweiz analysiert.',
+    'blog.article.tassa-immigrazione-frontalieri-2026.imageAlt': 'Blick auf den Luganersee mit einem modernen Gebäude im Hintergrund',
 };
 
 export default blogMetaDe;

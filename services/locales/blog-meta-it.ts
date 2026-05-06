@@ -6411,6 +6411,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bilaterali-iii-doppia-maggioranza.title': 'Bilaterali III: richiesta doppia maggioranza per l\'approvazione',
     'blog.article.bilaterali-iii-doppia-maggioranza.excerpt': 'La commissione degli Stati chiede l\'inserimento del pacchetto Bilaterali III nella Costituzione federale, richiedendo doppia maggioranza',
     'blog.article.bilaterali-iii-doppia-maggioranza.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
+    'blog.article.tassa-immigrazione-frontalieri-2026.title': 'Tassa immigrazione: possibile ma con pochi benefici',
+    'blog.article.tassa-immigrazione-frontalieri-2026.excerpt': 'Il Consiglio federale ha adottato un rapporto che analizza la fattibilità di una tassa d\'immigrazione in Svizzera.',
+    'blog.article.tassa-immigrazione-frontalieri-2026.imageAlt': 'Vista del Lago di Lugano con un edificio moderno sullo sfondo',
 };
 
 export default blogMetaIt;

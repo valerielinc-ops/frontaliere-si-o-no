@@ -6410,6 +6410,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bilaterali-iii-doppia-maggioranza.title': 'III Bilaterals: double majority requested for approval',
     'blog.article.bilaterali-iii-doppia-maggioranza.excerpt': 'The States\' Commission asks for the III Bilaterals package to be included in the Federal Constitution, requiring a double majority',
     'blog.article.bilaterali-iii-doppia-maggioranza.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
+    'blog.article.tassa-immigrazione-frontalieri-2026.title': 'Immigration tax: possible but with few benefits',
+    'blog.article.tassa-immigrazione-frontalieri-2026.excerpt': 'The Federal Council has adopted a report that analyzes the feasibility of an immigration tax in Switzerland.',
+    'blog.article.tassa-immigrazione-frontalieri-2026.imageAlt': 'View of Lake Lugano with a modern building in the background',
 };
 
 export default blogMetaEn;

@@ -20603,4 +20603,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tassa-immigrazione-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-05-06T10:10:59.750Z',
+ image: '/images/blog/tassa-immigrazione-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
