@@ -555,6 +555,27 @@ jobs:
           [ $FAIL -eq 0 ] || exit 1
           echo "✅ All post-build validators + audits passed"
 
+      # Print the bfs-depth baseline candidate (current dist counts) so the
+      # ratchet can be tightened without downloading artifacts. The audit
+      # gate above only verifies count <= baseline; it doesn't surface the
+      # actual current count when the gate passes. With the JSON dumped here,
+      # `npm run audit:max-bfs-depth:rebaseline` becomes a copy-paste from
+      # the log into data/bfs-depth-baseline.json — no artifact download,
+      # no re-run of the seed workflow. Informational only — never fails.
+      - name: Dump bfs-depth baseline candidate (informational)
+        if: success()
+        continue-on-error: true
+        run: |
+          echo "══════════════════════════════════════════════════════════════"
+          echo "bfs-depth baseline candidate (current dist counts)"
+          echo "══════════════════════════════════════════════════════════════"
+          echo "Paste this into data/bfs-depth-baseline.json to ratchet down"
+          echo "the gate after a deliberate improvement. Counts must only"
+          echo "ever DECREASE — this gate is a ratchet."
+          echo "──────────────────────────────────────────────────────────────"
+          node scripts/audit-bfs-depth.mjs --max-depth=4 --dist=dist --json || true
+          echo "══════════════════════════════════════════════════════════════"
+
       - name: E2E visual regression (if linux baselines present)
         if: hashFiles('tests/e2e/seo-visual-regression.spec.ts-snapshots/*-linux.png') != ''
         run: npm run test:e2e:visual
