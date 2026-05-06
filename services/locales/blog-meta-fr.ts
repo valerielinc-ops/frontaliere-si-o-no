@@ -6372,6 +6372,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parita-salariale-ticino-2026.title': 'Égalité salariale au Tessin: un objectif encore lointain',
     'blog.article.parita-salariale-ticino-2026.excerpt': 'Au Tessin, plus de 90% de l\'écart salarial entre hommes et femmes n\'a pas d\'explication. Découvrez les implications pour les frontaliers.',
     'blog.article.parita-salariale-ticino-2026.imageAlt': 'Groupe de travailleurs dans un bureau moderne à Lugano, Tessin, axé sur l\'égalité salariale',
+    'blog.article.lavori-chiasso-franscini-2026.title': 'Travaux à Chiasso: nouvelles fermetures en via Franscini',
+    'blog.article.lavori-chiasso-franscini-2026.excerpt': 'À partir du lundi 11 mai, fermeture partielle en via Franscini, détours pour voitures et transports publics, durée estimée 4 semaines.',
+    'blog.article.lavori-chiasso-franscini-2026.imageAlt': 'Chantier à Chiasso, quartier Franscini avec déviations routières',
 };
 
 export default blogMetaFr;

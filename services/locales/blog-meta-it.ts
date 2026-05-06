@@ -6372,6 +6372,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parita-salariale-ticino-2026.title': 'Parità salariale in Ticino: ancora un traguardo lontano',
     'blog.article.parita-salariale-ticino-2026.excerpt': 'In Ticino, oltre il 90% della disparità salariale tra uomini e donne non trova spiegazione. Scopri le implicazioni per i frontalieri.',
     'blog.article.parita-salariale-ticino-2026.imageAlt': 'Gruppo di lavoratori in un ufficio moderno a Lugano, Ticino, con focus sulla parità salariale',
+    'blog.article.lavori-chiasso-franscini-2026.title': 'Lavori a Chiasso: nuove chiusure in via Franscini',
+    'blog.article.lavori-chiasso-franscini-2026.excerpt': 'Da lunedì 11 maggio chiusura parziale in via Franscini, deviazioni per auto e mezzi pubblici, durata stimata 4 settimane.',
+    'blog.article.lavori-chiasso-franscini-2026.imageAlt': 'Cantiere a Chiasso nel comparto Franscini con deviazioni viarie',
 };
 
 export default blogMetaIt;

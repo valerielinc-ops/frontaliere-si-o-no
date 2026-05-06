@@ -6371,6 +6371,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parita-salariale-ticino-2026.title': 'Lohnungleichheit im Tessin: noch ein fernes Ziel',
     'blog.article.parita-salariale-ticino-2026.excerpt': 'Im Tessin ist bei über 90% der Lohnungleichheit zwischen Männern und Frauen keine Erklärung zu finden. Erfahren Sie die Auswirkungen auf Grenzgänger.',
     'blog.article.parita-salariale-ticino-2026.imageAlt': 'Gruppe von Arbeitnehmern in einem modernen Büro in Lugano, Tessin, mit Fokus auf Lohngleichheit',
+    'blog.article.lavori-chiasso-franscini-2026.title': 'Arbeiten in Chiasso: neue Sperrungen in der Franscini-Straße',
+    'blog.article.lavori-chiasso-franscini-2026.excerpt': 'Ab Montag, 11. Mai, teilweise Sperrung in der Franscini-Straße, Umleitungen für Autos und öffentlichen Verkehr, geschätzte Dauer 4 Wochen.',
+    'blog.article.lavori-chiasso-franscini-2026.imageAlt': 'Baustelle in Chiasso, Bereich Franscini mit Umleitungen',
 };
 
 export default blogMetaDe;

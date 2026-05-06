@@ -6371,6 +6371,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parita-salariale-ticino-2026.title': 'Gender pay gap in Ticino: still a distant goal',
     'blog.article.parita-salariale-ticino-2026.excerpt': 'In Ticino, over 90% of the gender pay gap between men and women has no explanation. Discover the implications for cross-border workers.',
     'blog.article.parita-salariale-ticino-2026.imageAlt': 'Group of workers in a modern office in Lugano, Ticino, focusing on wage equality',
+    'blog.article.lavori-chiasso-franscini-2026.title': 'Roadworks in Chiasso: new closures on Via Franscini',
+    'blog.article.lavori-chiasso-franscini-2026.excerpt': 'Partial closure on Via Franscini starting Monday, May 11th. Detours for cars and public transport. Estimated duration: 4 weeks.',
+    'blog.article.lavori-chiasso-franscini-2026.imageAlt': 'Construction site in Chiasso, Franscini area with traffic detours',
 };
 
 export default blogMetaEn;
