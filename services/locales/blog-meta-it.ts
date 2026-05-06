@@ -6579,6 +6579,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quartiere-gera-iragna-pianificazione.title': 'Nuovo quartiere Gera a Iragna: pianificazione conforme alle normative',
     'blog.article.quartiere-gera-iragna-pianificazione.excerpt': 'Il Municipio di Riviera conferma che la pianificazione del nuovo quartiere Gera a Iragna rispetta i valori limite di elettromagnetismo.',
     'blog.article.quartiere-gera-iragna-pianificazione.imageAlt': 'Vista del quartiere Gera a Iragna, Ticino, con le nuove abitazioni vicino agli elettrodotti ad alta tensione',
+    'blog.article.crans-montana-italia-risarcimento-300000-euro.title': 'Crans-Montana, l’Italia chiede un risarcimento di almeno 300.000 euro',
+    'blog.article.crans-montana-italia-risarcimento-300000-euro.excerpt': 'La Repubblica italiana ha depositato una richiesta di costituirsi parte civile per un risarcimento di almeno 300.000 euro nel procedimento penale relativo all\'incendio di Capodanno a Crans-Montana.',
+    'blog.article.crans-montana-italia-risarcimento-300000-euro.imageAlt': 'Panorama aereo di Crans-Montana, Svizzera, con montagne innevate e un resort sciistico in primo piano',
 };
 
 export default blogMetaIt;

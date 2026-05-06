@@ -6578,6 +6578,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.quartiere-gera-iragna-pianificazione.title': 'Neues Quartier Gera in Iragna: Planung entspricht Vorschriften',
     'blog.article.quartiere-gera-iragna-pianificazione.excerpt': 'Der Gemeinderat von Riviera bestätigt, dass die Planung des neuen Quartiers Gera in Iragna die Grenzwerte für elektromagnetische Felder einhält.',
     'blog.article.quartiere-gera-iragna-pianificazione.imageAlt': 'Ansicht des Gera-Viertels in Iragna, Tessin, mit neuen Häusern in der Nähe von Hochspannungsleitungen',
+    'blog.article.crans-montana-italia-risarcimento-300000-euro.title': 'Italien fordert 300.000 Euro Entschädigung für Crans-Montana',
+    'blog.article.crans-montana-italia-risarcimento-300000-euro.excerpt': 'Die Italienische Republik hat eine Zivilklage auf mindestens 300.000 Euro Entschädigung im Strafverfahren zum Silvesterbrand in Crans-Montana eingereicht.',
+    'blog.article.crans-montana-italia-risarcimento-300000-euro.imageAlt': 'Luftaufnahme von Crans-Montana, Schweiz, mit schneebedeckten Bergen und einem Skigebiet im Vordergrund',
 };
 
 export default blogMetaDe;

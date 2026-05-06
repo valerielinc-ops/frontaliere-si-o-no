@@ -24396,6 +24396,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-italia-risarcimento-300000-euro': {
+    title: 'Crans-Montana, l’Italia chiede un risarcimento di almeno 300.000 euro',
+    description: 'La Repubblica italiana ha depositato una richiesta di costituirsi parte civile per un risarcimento di almeno 300.000 euro nel procedimento penale relativo',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, chiede, risarcimento, almeno',
+    ogTitle: 'Crans-Montana, l\'Italia chiede un risarcimento di almeno 300.000 euro',
+    ogDescription: 'La Repubblica italiana ha depositato una richiesta di costituirsi parte civile per un risarcimento di almeno 300.000 euro nel procedimento penale relativo',
+    canonicalPath: '/articoli-frontaliere/crans-montana-italia-risarcimento-300000-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana, l’Italia chiede un risarcimento di almeno 300.000 euro",
+      "description": "La Repubblica italiana ha depositato una richiesta di costituirsi parte civile per un risarcimento di almeno 300.000 euro nel procedimento penale relativo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/crans-montana-italia-risarcimento-300000-euro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama aereo di Crans-Montana, Svizzera, con montagne innevate e un resort sciistico in primo piano"
+      },
+      "datePublished": "2026-05-06T23:50:36+00:00",
+      "dateModified": "2026-05-06T23:50:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-italia-risarcimento-300000-euro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

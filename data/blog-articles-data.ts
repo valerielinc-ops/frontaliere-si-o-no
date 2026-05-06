@@ -21107,4 +21107,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'crans-montana-italia-risarcimento-300000-euro',
+ category: 'novita',
+ date: '2026-05-06T23:50:36.165Z',
+ image: '/images/blog/crans-montana-italia-risarcimento-300000-euro.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
