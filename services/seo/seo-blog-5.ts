@@ -22040,6 +22040,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-commerciali-locarno-2026': {
+    title: 'Sicurezza nelle attività commerciali: serata informativa a Locarno',
+    description: 'Mercoledì 27 maggio 2026 a Locarno si terrà una serata informativa sulla sicurezza nelle attività commerciali, con interventi di Polizia e Pompieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, nelle, attività, commerciali',
+    ogTitle: 'Sicurezza nelle attività commerciali: serata informativa a Locarno',
+    ogDescription: 'Mercoledì 27 maggio 2026 a Locarno si terrà una serata informativa sulla sicurezza nelle attività commerciali, con interventi di Polizia e Pompieri.',
+    canonicalPath: '/articoli-frontaliere/sicurezza-commerciali-locarno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza nelle attività commerciali: serata informativa a Locarno",
+      "description": "Mercoledì 27 maggio 2026 a Locarno si terrà una serata informativa sulla sicurezza nelle attività commerciali, con interventi di Polizia e Pompieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/sicurezza-commerciali-locarno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Locarno con il Lago Maggiore sullo sfondo, attività commerciali sicure e serene"
+      },
+      "datePublished": "2026-05-06T09:15:18+00:00",
+      "dateModified": "2026-05-06T09:15:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-commerciali-locarno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

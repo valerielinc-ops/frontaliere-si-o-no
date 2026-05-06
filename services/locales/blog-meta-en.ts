@@ -6392,6 +6392,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.afghano-arresto-zug-chiasso.title': 'Afghan man assaults woman on train in Chiasso: arrested',
     'blog.article.afghano-arresto-zug-chiasso.excerpt': 'An Afghan man assaulted a woman on a train in Chiasso, pushing her against a hedge. The man was arrested.',
     'blog.article.afghano-arresto-zug-chiasso.imageAlt': 'A train station in Chiasso, Ticino, with an arrest taking place',
+    'blog.article.sicurezza-commerciali-locarno-2026.title': 'Commercial safety: informative evening in Locarno',
+    'blog.article.sicurezza-commerciali-locarno-2026.excerpt': 'On Wednesday, May 27, 2026, an informative evening on commercial safety will be held in Locarno, with interventions from the Police and Firefighters.',
+    'blog.article.sicurezza-commerciali-locarno-2026.imageAlt': 'Locarno cityscape with Lake Maggiore in the background, safe and secure commercial activities',
 };
 
 export default blogMetaEn;

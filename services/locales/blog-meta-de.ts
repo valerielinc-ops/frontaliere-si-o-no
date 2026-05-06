@@ -6392,6 +6392,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.afghano-arresto-zug-chiasso.title': 'Afghane greift Frau in Zug bei Chiasso an: Festnahme',
     'blog.article.afghano-arresto-zug-chiasso.excerpt': 'Ein Afghane hat eine Frau in einem Zug bei Chiasso angegriffen und gegen eine Hecke gestoßen. Der Mann wurde festgenommen.',
     'blog.article.afghano-arresto-zug-chiasso.imageAlt': 'Ein Bahnhof in Chiasso, Tessin, mit einer Festnahme im Gange',
+    'blog.article.sicurezza-commerciali-locarno-2026.title': 'Sicherheit im Einzelhandel: Informationsabend in Locarno',
+    'blog.article.sicurezza-commerciali-locarno-2026.excerpt': 'Am Mittwoch, den 27. Mai 2026, findet in Locarno ein Informationsabend zur Sicherheit im Einzelhandel statt, mit Beiträgen von der Polizei und den Feuerwehr.',
+    'blog.article.sicurezza-commerciali-locarno-2026.imageAlt': 'Stadtbild von Locarno mit dem Lago Maggiore im Hintergrund, sichere und geschützte Geschäftsaktivitäten',
 };
 
 export default blogMetaDe;

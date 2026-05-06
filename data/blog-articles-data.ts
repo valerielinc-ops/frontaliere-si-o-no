@@ -20549,4 +20549,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sicurezza-commerciali-locarno-2026',
+ category: 'pratico',
+ date: '2026-05-06T09:15:18.722Z',
+ image: '/images/blog/sicurezza-commerciali-locarno-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

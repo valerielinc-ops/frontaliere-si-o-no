@@ -6393,6 +6393,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.afghano-arresto-zug-chiasso.title': 'Afghano aggredisce donna in treno a Chiasso: arrestato',
     'blog.article.afghano-arresto-zug-chiasso.excerpt': 'Un afghano ha aggredito una donna in un treno a Chiasso, spingendola contro una siepe. L\'uomo è stato arrestato.',
     'blog.article.afghano-arresto-zug-chiasso.imageAlt': 'Una stazione ferroviaria a Chiasso, Ticino, con un arresto in corso',
+    'blog.article.sicurezza-commerciali-locarno-2026.title': 'Sicurezza nelle attività commerciali: serata informativa a Locarno',
+    'blog.article.sicurezza-commerciali-locarno-2026.excerpt': 'Mercoledì 27 maggio 2026 a Locarno si terrà una serata informativa sulla sicurezza nelle attività commerciali, con interventi di Polizia e Pompieri.',
+    'blog.article.sicurezza-commerciali-locarno-2026.imageAlt': 'Panorama di Locarno con il Lago Maggiore sullo sfondo, attività commerciali sicure e serene',
 };
 
 export default blogMetaIt;
