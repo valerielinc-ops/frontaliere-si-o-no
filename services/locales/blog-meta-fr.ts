@@ -6381,6 +6381,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.title': 'Sicuritalia recrute 150 gardes en Lombardie et Vénétie',
     'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.excerpt': 'Le groupe leader en sécurité en Italie ouvre 200 postes, avec 100 embauches en Lombardie et 50 en Vénétie. Contrats à durée indéterminée.',
     'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.imageAlt': 'Un salon de l\'emploi animé au Tessin avec des personnes discutant des opportunités d\'emploi, situé dans une ville frontalière suisse-italienne moderne.',
+    'blog.article.volandia-record-presenze-maggio-2026.title': 'Volandia: record de visiteurs pendant le pont de mai',
+    'blog.article.volandia-record-presenze-maggio-2026.excerpt': 'Plus de 2.200 visiteurs en trois jours, 400 baptêmes de l\'air en hélicoptère. Le musée de l\'aviation à Somma Lombardo confirme son succès',
+    'blog.article.volandia-record-presenze-maggio-2026.imageAlt': 'Vue aérienne du Lac de Lugano avec ciel bleu clair et montagnes environnantes',
 };
 
 export default blogMetaFr;

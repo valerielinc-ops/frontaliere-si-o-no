@@ -20513,4 +20513,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'volandia-record-presenze-maggio-2026',
+ category: 'novita',
+ date: '2026-05-06T08:52:23.584Z',
+ image: '/images/blog/volandia-record-presenze-maggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

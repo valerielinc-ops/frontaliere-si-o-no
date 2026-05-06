@@ -6381,6 +6381,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.title': 'Sicuritalia assume 150 guardie giurate in Lombardia e Veneto',
     'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.excerpt': 'Il gruppo leader nella sicurezza in Italia apre 200 posizioni, con 100 assunzioni in Lombardia e 50 in Veneto. Contratti a tempo indeterminato.',
     'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.imageAlt': 'Una fiera del lavoro affollata in Ticino con persone che discutono di opportunità di lavoro, ambientata in una città di confine svizzero-italiana moderna.',
+    'blog.article.volandia-record-presenze-maggio-2026.title': 'Volandia: record di presenze nel ponte di maggio',
+    'blog.article.volandia-record-presenze-maggio-2026.excerpt': 'Oltre 2.200 visitatori in tre giorni, 400 battesimi del volo in elicottero. Il museo del volo a Somma Lombardo conferma il suo successo',
+    'blog.article.volandia-record-presenze-maggio-2026.imageAlt': 'Vista aerea del Lago di Lugano con cielo azzurro e montagne circostanti',
 };
 
 export default blogMetaIt;

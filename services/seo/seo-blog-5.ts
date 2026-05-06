@@ -21888,6 +21888,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-volandia-record-presenze-maggio-2026': {
+    title: 'Volandia: record di presenze nel ponte di maggio',
+    description: 'Oltre 2.200 visitatori in tre giorni, 400 battesimi del volo in elicottero. Il museo del volo a Somma Lombardo conferma il suo successo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, volandia, record, presenze, ponte',
+    ogTitle: 'Volandia: record di presenze nel ponte di maggio',
+    ogDescription: 'Oltre 2.200 visitatori in tre giorni, 400 battesimi del volo in elicottero. Il museo del volo a Somma Lombardo conferma il suo successo',
+    canonicalPath: '/articoli-frontaliere/volandia-record-presenze-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Volandia: record di presenze nel ponte di maggio",
+      "description": "Oltre 2.200 visitatori in tre giorni, 400 battesimi del volo in elicottero. Il museo del volo a Somma Lombardo conferma il suo successo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/volandia-record-presenze-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con cielo azzurro e montagne circostanti"
+      },
+      "datePublished": "2026-05-06T08:52:23+00:00",
+      "dateModified": "2026-05-06T08:52:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/volandia-record-presenze-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

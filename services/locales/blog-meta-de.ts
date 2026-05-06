@@ -6380,6 +6380,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.title': 'Sicuritalia stellt 150 Wachleute in Lombardei und Venetien ein',
     'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.excerpt': 'Die in Italien führende Sicherheitsgruppe eröffnet 200 Stellen, mit 100 Einstellungen in der Lombardei und 50 im Veneto. Unbefristete Verträge.',
     'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.imageAlt': 'Eine belebte Jobmesse im Tessin mit Menschen, die über Beschäftigungsmöglichkeiten diskutieren, in einer modernen Schweizer-Italienischen Grenzstadt.',
+    'blog.article.volandia-record-presenze-maggio-2026.title': 'Volandia: Besucherrekord an den Brückentagen im Mai',
+    'blog.article.volandia-record-presenze-maggio-2026.excerpt': 'Über 2.200 Besucher in drei Tagen, 400 Taufen beim Hubschrauberflug. Das Flugmuseum in Somma Lombardo bestätigt seinen Erfolg.',
+    'blog.article.volandia-record-presenze-maggio-2026.imageAlt': 'Luftaufnahme des Luganersees mit klarem blauem Himmel und umliegenden Bergen',
 };
 
 export default blogMetaDe;
