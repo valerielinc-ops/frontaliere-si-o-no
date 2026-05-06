@@ -3401,6 +3401,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-udc-bilaterali-2026-frontalieri': { name: 'Iniziativa UDC', path: '/articoli-frontaliere/udc-bilaterali-2026-frontalieri', parent: 'blog' },
     'blog-centro-pasture-balerna-asilo': { name: 'Novità', path: '/articoli-frontaliere/centro-pasture-balerna-asilo', parent: 'blog' },
     'blog-300-persone-pasto-vegetale-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/300-persone-pasto-vegetale-lugano-2026', parent: 'blog' },
+    'blog-svizzera-treno-multa-20000-franchi': { name: 'Novità', path: '/articoli-frontaliere/svizzera-treno-multa-20000-franchi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

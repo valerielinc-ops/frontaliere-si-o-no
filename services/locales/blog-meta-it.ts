@@ -6477,6 +6477,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.300-persone-pasto-vegetale-lugano-2026.title': '300 persone in fila per un pasto vegetale a Lugano',
     'blog.article.300-persone-pasto-vegetale-lugano-2026.excerpt': 'Un\'iniziativa di Greenpeace Svizzera per promuovere un\'alimentazione sostenibile. 300 bowl vegetali servite al Campus Est USI-SUPSI.',
     'blog.article.300-persone-pasto-vegetale-lugano-2026.imageAlt': '300 persone in fila per un pasto vegetale a Lugano',
+    'blog.article.svizzera-treno-multa-20000-franchi.title': 'Svizzera, 20mila franchi di multa per un viaggio senza biglietto',
+    'blog.article.svizzera-treno-multa-20000-franchi.excerpt': 'Un uomo di 40 anni del Canton Svitto è stato condannato a 20mila franchi per aver viaggiato senza biglietto e falsificato documenti.',
+    'blog.article.svizzera-treno-multa-20000-franchi.imageAlt': 'Una persona multata su un treno svizzero con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

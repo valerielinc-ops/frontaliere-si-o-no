@@ -20801,4 +20801,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-treno-multa-20000-franchi',
+ category: 'novita',
+ date: '2026-05-06T13:02:27.217Z',
+ image: '/images/blog/svizzera-treno-multa-20000-franchi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
