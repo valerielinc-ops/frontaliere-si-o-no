@@ -193,38 +193,57 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
+          REPO: ${{ github.repository }}
         run: |
           : > /tmp/source-val-results.txt
 
-          # `gh run download` cross-workflow has a propagation lag between
-          # "artifact uploaded successfully in the deploy run" and "artifact
-          # visible to a different workflow_run via the API". Empirically
-          # `no artifact matches any of the names or patterns provided` can
-          # appear within ~60-120s of upload even though the artifact exists
-          # and is non-expired (verified by `gh api .../artifacts`). Wrap
-          # each download in a 5×30s retry loop. Total worst-case wait per
-          # artifact: ~2.5 min.
-          download_artifact_with_retry() {
+          # Resolve the artifact's metadata directly via the runs/{id}/artifacts
+          # API (which is consistent immediately after upload — verified
+          # empirically: artifacts appeared as `expired=false` here while
+          # `gh run download --name` still returned "no artifact matches" for
+          # ~60-120s). Then stream the zip via the artifact's blob endpoint.
+          # Bypasses the lookup-by-name lag entirely — no retry loop, no
+          # sleep, deterministic behaviour even when the post-deploy starts
+          # within seconds of upload.
+          download_artifact_by_name() {
             local name="$1" dir="$2" required="$3"
-            for attempt in 1 2 3 4 5; do
-              if gh run download "$DEPLOY_RUN_ID" \
-                   --name "$name" --dir "$dir" 2>/tmp/dl-err.log; then
-                if [ "$attempt" -gt 1 ]; then
-                  echo "✅ artifact '$name' downloaded on attempt $attempt"
-                fi
-                return 0
+            mkdir -p "$dir"
+
+            local artifact_id
+            artifact_id=$(gh api "repos/${REPO}/actions/runs/${DEPLOY_RUN_ID}/artifacts" \
+              --jq ".artifacts[] | select(.name == \"$name\") | .id" | head -1)
+
+            if [ -z "$artifact_id" ]; then
+              if [ "$required" = "required" ]; then
+                echo "::error::artifact '$name' not present on run ${DEPLOY_RUN_ID}"
+                gh api "repos/${REPO}/actions/runs/${DEPLOY_RUN_ID}/artifacts" \
+                  --jq '.artifacts[].name' >&2 || true
+                return 1
               fi
-              if [ "$attempt" -lt 5 ]; then
-                echo "⏳ artifact '$name' not yet visible (attempt $attempt/5) — retrying in 30s"
-                sleep 30
-              fi
-            done
-            if [ "$required" = "required" ]; then
-              echo "::error::artifact '$name' not downloadable after 5 attempts"
-              cat /tmp/dl-err.log >&2 || true
-              return 1
+              echo "ℹ️ optional artifact '$name' not present on run ${DEPLOY_RUN_ID} — skipping"
+              return 0
             fi
-            return 0
+
+            # `gh api .../artifacts/{id}/zip` follows the redirect to the
+            # signed blob URL and streams the body to stdout. The output
+            # extension here doesn't matter — we treat it as zip below
+            # (and as tar for the `github-pages` artifact, which is
+            # internally a tar wrapped in zip by upload-pages-artifact;
+            # we extract artifact.tar directly from the zip).
+            local zip_path="${dir}/__artifact.zip"
+            if ! gh api "repos/${REPO}/actions/artifacts/${artifact_id}/zip" \
+                 > "$zip_path" 2>/tmp/dl-err.log; then
+              if [ "$required" = "required" ]; then
+                echo "::error::artifact '$name' (id=$artifact_id) blob download failed"
+                cat /tmp/dl-err.log >&2 || true
+                return 1
+              fi
+              echo "⚠️ optional artifact '$name' (id=$artifact_id) blob download failed — skipping"
+              return 0
+            fi
+
+            unzip -q -o "$zip_path" -d "$dir"
+            rm -f "$zip_path"
           }
 
           # Run a single validator and append one row to
@@ -253,7 +272,7 @@ jobs:
           # ── 1. Download Pages artifact + extract dist/ ──
           rm -rf /tmp/github-pages-artifact dist
           mkdir -p /tmp/github-pages-artifact dist
-          download_artifact_with_retry github-pages /tmp/github-pages-artifact/ required
+          download_artifact_by_name github-pages /tmp/github-pages-artifact/ required
           tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
 
           # Expose jobs.json to scripts that expect public/data/jobs.json
@@ -264,11 +283,11 @@ jobs:
           # Pre-deploy sitemap snapshot (for IndexNow diff baseline) +
           # winners registry update. Both optional — the retry helper returns
           # 0 even if 5 attempts fail.
-          download_artifact_with_retry "pre-deploy-snapshot-${DEPLOY_RUN_ID}" /tmp/pre-deploy-snapshot/ optional
+          download_artifact_by_name "pre-deploy-snapshot-${DEPLOY_RUN_ID}" /tmp/pre-deploy-snapshot/ optional
           if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
             cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
           fi
-          download_artifact_with_retry "winners-${DEPLOY_RUN_ID}" /tmp/winners/ optional
+          download_artifact_by_name "winners-${DEPLOY_RUN_ID}" /tmp/winners/ optional
           if [ -f /tmp/winners/previous-slug-winners.json ]; then
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
