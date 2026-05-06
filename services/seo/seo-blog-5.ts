@@ -20824,6 +20824,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-locarno-abitanti-domiciliati-2026': {
+    title: 'Locarno: record abitanti, ma domiciliati in calo',
+    description: 'La Gestione del Consiglio comunale di Locarno invita a usare toni meno trionfalistici nonostante l\'aumento degli abitanti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, locarno, record, abitanti, domiciliati',
+    ogTitle: 'Locarno: record abitanti, ma domiciliati in calo',
+    ogDescription: 'La Gestione del Consiglio comunale di Locarno invita a usare toni meno trionfalistici nonostante l\'aumento degli abitanti.',
+    canonicalPath: '/articoli-frontaliere/locarno-abitanti-domiciliati-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Locarno: record abitanti, ma domiciliati in calo",
+      "description": "La Gestione del Consiglio comunale di Locarno invita a usare toni meno trionfalistici nonostante l'aumento degli abitanti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/locarno-abitanti-domiciliati-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Locarno con il Lago Maggiore"
+      },
+      "datePublished": "2026-05-06T03:44:22+00:00",
+      "dateModified": "2026-05-06T03:44:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-abitanti-domiciliati-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

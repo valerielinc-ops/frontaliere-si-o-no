@@ -6297,6 +6297,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.title': 'Scandalo cardiochirurgia Zurigo: 70 pazienti sarebbero sopravvissuti',
     'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.excerpt': 'Un\'inchiesta rivela gravi mancanze nella cardiochirurgia dell\'Ospedale universitario di Zurigo. 70 pazienti potrebbero essere sopravvissuti altrove.',
     'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.imageAlt': 'Ospedale in Ticino con montagne sullo sfondo',
+    'blog.article.locarno-abitanti-domiciliati-2026.title': 'Locarno: record abitanti, ma domiciliati in calo',
+    'blog.article.locarno-abitanti-domiciliati-2026.excerpt': 'La Gestione del Consiglio comunale di Locarno invita a usare toni meno trionfalistici nonostante l\'aumento degli abitanti.',
+    'blog.article.locarno-abitanti-domiciliati-2026.imageAlt': 'Vista aerea di Locarno con il Lago Maggiore',
 };
 
 export default blogMetaIt;

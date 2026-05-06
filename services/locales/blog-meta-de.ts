@@ -6296,6 +6296,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.title': 'Skandal Kardiologie Zürich: 70 Patienten hätten überleben können',
     'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.excerpt': 'Eine Untersuchung deckt gravierende Mängel in der Kardiologie des Universitätsspitals Zürich auf. 70 Patienten hätten anderswo überleben können.',
     'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.imageAlt': 'Krankenhaus in Tessin mit Bergen im Hintergrund',
+    'blog.article.locarno-abitanti-domiciliati-2026.title': 'Locarno: Rekord bei Einwohnern, aber weniger Meldungen',
+    'blog.article.locarno-abitanti-domiciliati-2026.excerpt': 'Die Verwaltung des Gemeinderats von Locarno lädt dazu ein, weniger triumphalistische Töne zu verwenden, trotz des Anstiegs der Einwohner.',
+    'blog.article.locarno-abitanti-domiciliati-2026.imageAlt': 'Luftaufnahme von Locarno mit dem Lago Maggiore',
 };
 
 export default blogMetaDe;

@@ -6296,6 +6296,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.title': 'Zurich cardiothoracic scandal: 70 patients could have survived',
     'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.excerpt': 'An investigation reveals serious shortcomings in cardiothoracic surgery at Zurich University Hospital. 70 patients might have survived elsewhere.',
     'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.imageAlt': 'Hospital in Ticino with mountains in the background',
+    'blog.article.locarno-abitanti-domiciliati-2026.title': 'Locarno: population record, but fewer residents',
+    'blog.article.locarno-abitanti-domiciliati-2026.excerpt': 'Locarno\'s municipal council asks for less triumphalist tones despite the increase in inhabitants.',
+    'blog.article.locarno-abitanti-domiciliati-2026.imageAlt': 'Aerial view of Locarno with Lake Maggiore',
 };
 
 export default blogMetaEn;

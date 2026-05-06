@@ -3341,6 +3341,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-liuc-innovazione-2026-frontalieri': { name: 'Settimana dell\'Innovazione', path: '/articoli-frontaliere/liuc-innovazione-2026-frontalieri', parent: 'blog' },
     'blog-colombi-addio-corriere-ticino': { name: 'Novità', path: '/articoli-frontaliere/colombi-addio-corriere-ticino', parent: 'blog' },
     'blog-ospedale-zurigo-cardiochirurgia-scandalo': { name: 'Scandalo cardiochirurgia', path: '/articoli-frontaliere/ospedale-zurigo-cardiochirurgia-scandalo', parent: 'blog' },
+    'blog-locarno-abitanti-domiciliati-2026': { name: 'Locarno abitanti', path: '/articoli-frontaliere/locarno-abitanti-domiciliati-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
