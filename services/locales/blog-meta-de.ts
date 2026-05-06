@@ -6299,6 +6299,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.locarno-abitanti-domiciliati-2026.title': 'Locarno: Rekord bei Einwohnern, aber weniger Meldungen',
     'blog.article.locarno-abitanti-domiciliati-2026.excerpt': 'Die Verwaltung des Gemeinderats von Locarno lädt dazu ein, weniger triumphalistische Töne zu verwenden, trotz des Anstiegs der Einwohner.',
     'blog.article.locarno-abitanti-domiciliati-2026.imageAlt': 'Luftaufnahme von Locarno mit dem Lago Maggiore',
+    'blog.article.cure-dentarie-ticino-2026.title': 'Zahnmedizin im Tessin: 150 Mio. mehr, aber keine Verbesserungen',
+    'blog.article.cure-dentarie-ticino-2026.excerpt': 'Am 14. Juni 2026 wird über die Zahnmedizin-Initiative abgestimmt. Ein Komitee beklagt einen doppelten Schlag: höhere Abzüge und Steuern',
+    'blog.article.cure-dentarie-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;

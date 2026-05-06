@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2152,
+ "numberOfItems": 2153,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6794,7 +6794,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2149, "name": "LIUC: Settimana dell'Innovazione 2026 con focus...", "url": `${BASE_URL}/articoli-frontaliere/liuc-innovazione-2026-frontalieri` },
           { "@type": "ListItem", "position": 2150, "name": "Alessandro Colombi lascia il Gruppo Corriere de...", "url": `${BASE_URL}/articoli-frontaliere/colombi-addio-corriere-ticino` },
           { "@type": "ListItem", "position": 2151, "name": "Scandalo cardiochirurgia Zurigo: 70 pazienti sa...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-zurigo-cardiochirurgia-scandalo` },
-          { "@type": "ListItem", "position": 2152, "name": "Locarno: record abitanti, ma domiciliati in calo", "url": `${BASE_URL}/articoli-frontaliere/locarno-abitanti-domiciliati-2026` }
+          { "@type": "ListItem", "position": 2152, "name": "Locarno: record abitanti, ma domiciliati in calo", "url": `${BASE_URL}/articoli-frontaliere/locarno-abitanti-domiciliati-2026` },
+          { "@type": "ListItem", "position": 2153, "name": "Cure dentarie in Ticino: 150 milioni in più, ma...", "url": `${BASE_URL}/articoli-frontaliere/cure-dentarie-ticino-2026` }
  ]
  },
  {

@@ -20862,6 +20862,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cure-dentarie-ticino-2026': {
+    title: 'Cure dentarie in Ticino: 150 milioni in più, ma senza miglioramenti',
+    description: 'Si vota il 14 giugno 2026 sull\'iniziativa per le cure dentarie. Un comitato denuncia un doppio colpo: più prelievi e imposte. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cure, dentarie, milioni, senza',
+    ogTitle: 'Cure dentarie in Ticino: 150 milioni in più, ma senza miglioramenti',
+    ogDescription: 'Si vota il 14 giugno 2026 sull\'iniziativa per le cure dentarie. Un comitato denuncia un doppio colpo: più prelievi e imposte',
+    canonicalPath: '/articoli-frontaliere/cure-dentarie-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cure dentarie in Ticino: 150 milioni in più, ma senza miglioramenti",
+      "description": "Si vota il 14 giugno 2026 sull'iniziativa per le cure dentarie. Un comitato denuncia un doppio colpo: più prelievi e imposte. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/cure-dentarie-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-05-06T03:55:12+00:00",
+      "dateModified": "2026-05-06T03:55:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-dentarie-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

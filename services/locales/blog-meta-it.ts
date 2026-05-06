@@ -6300,6 +6300,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.locarno-abitanti-domiciliati-2026.title': 'Locarno: record abitanti, ma domiciliati in calo',
     'blog.article.locarno-abitanti-domiciliati-2026.excerpt': 'La Gestione del Consiglio comunale di Locarno invita a usare toni meno trionfalistici nonostante l\'aumento degli abitanti.',
     'blog.article.locarno-abitanti-domiciliati-2026.imageAlt': 'Vista aerea di Locarno con il Lago Maggiore',
+    'blog.article.cure-dentarie-ticino-2026.title': 'Cure dentarie in Ticino: 150 milioni in più, ma senza miglioramenti',
+    'blog.article.cure-dentarie-ticino-2026.excerpt': 'Si vota il 14 giugno 2026 sull\'iniziativa per le cure dentarie. Un comitato denuncia un doppio colpo: più prelievi e imposte',
+    'blog.article.cure-dentarie-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;
