@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-df46320e2132",
-      "slug": "linienfuehrer-linienfuehrerin-kommissionierung-bell-schweiz-ag-oensingen",
+      "slug": "responsabile-linea-di-spedizione-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "linienfuehrer-linienfuehrerin-kommissionierung-bell-schweiz-ag-oensingen",
-        "it": "linienfuehrer-linienfuehrerin-kommissionierung-bell-schweiz-ag-oensingen",
-        "en": "linienfuehrer-linienfuehrerin-kommissionierung-bell-schweiz-ag-oensingen",
-        "fr": "linienfuehrer-linienfuehrerin-kommissionierung-bell-schweiz-ag-oensingen"
+        "it": "responsabile-linea-di-spedizione-bell-schweiz-ag-oensingen",
+        "en": "picking-line-leader-bell-schweiz-ag-oensingen",
+        "fr": "responsable-de-ligne-de-preparation-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -48,14 +48,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "linienfuehrer-linienfuehrerin-kommissionierung-hilcona-oensingen"
+          "linienfuehrer-linienfuehrerin-kommissionierung-hilcona-oensingen",
+          "linienfuehrer-linienfuehrerin-kommissionierung-bell-schweiz-ag-oensingen"
         ],
         "de": [
           "linienfuehrer-linienfuehrerin-kommissionierung-hilcona-oensingen"
+        ],
+        "en": [
+          "linienfuehrer-linienfuehrerin-kommissionierung-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "linienfuehrer-linienfuehrerin-kommissionierung-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "linienfuehrer-linienfuehrerin-kommissionierung-hilcona-oensingen"
+        "linienfuehrer-linienfuehrerin-kommissionierung-hilcona-oensingen",
+        "linienfuehrer-linienfuehrerin-kommissionierung-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

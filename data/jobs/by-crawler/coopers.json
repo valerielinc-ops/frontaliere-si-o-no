@@ -111,12 +111,12 @@
     },
     {
       "id": "coopers-208b4c7c95ef",
-      "slug": "document-control-specialist-m-f-d-coopers-wallis",
+      "slug": "specialista-di-controllo-del-documento-m-f-d-coopers-group-ag-wallis",
       "slugByLocale": {
         "en": "document-control-specialist-m-f-d-coopers-wallis",
-        "it": "document-control-specialist-m-f-d-coopers-wallis",
-        "de": "document-control-specialist-m-f-d-coopers-wallis",
-        "fr": "document-control-specialist-m-f-d-coopers-wallis"
+        "it": "specialista-di-controllo-del-documento-m-f-d-coopers-group-ag-wallis",
+        "de": "sachbearbeiter-m-w-d-coopers-group-ag-wallis",
+        "fr": "specialiste-du-controle-des-documents-m-f-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -177,7 +177,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-06T10:44:53.480Z"
+      "firstSeenAt": "2026-05-06T10:44:53.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "document-control-specialist-m-f-d-coopers-wallis"
+        ],
+        "de": [
+          "document-control-specialist-m-f-d-coopers-wallis"
+        ],
+        "fr": [
+          "document-control-specialist-m-f-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "document-control-specialist-m-f-d-coopers-wallis"
+      ]
     },
     {
       "id": "coopers-37a85ee20e7e",
@@ -275,12 +289,12 @@
     },
     {
       "id": "coopers-6ff86072a5f2",
-      "slug": "project-buyer-capex-m-f-d-coopers-wallis",
+      "slug": "acquirente-di-progetto-capex-m-f-d-coopers-group-ag-wallis",
       "slugByLocale": {
         "en": "project-buyer-capex-m-f-d-coopers-wallis",
-        "it": "project-buyer-capex-m-f-d-coopers-wallis",
-        "de": "project-buyer-capex-m-f-d-coopers-wallis",
-        "fr": "project-buyer-capex-m-f-d-coopers-wallis"
+        "it": "acquirente-di-progetto-capex-m-f-d-coopers-group-ag-wallis",
+        "de": "projekttrager-capex-m-f-d-coopers-group-ag-wallis",
+        "fr": "acheteur-de-projet-capex-m-f-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -345,7 +359,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-06T10:44:50.919Z"
+      "firstSeenAt": "2026-05-06T10:44:50.919Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-buyer-capex-m-f-d-coopers-wallis"
+        ],
+        "de": [
+          "project-buyer-capex-m-f-d-coopers-wallis"
+        ],
+        "fr": [
+          "project-buyer-capex-m-f-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "project-buyer-capex-m-f-d-coopers-wallis"
+      ]
     }
   ]
 }

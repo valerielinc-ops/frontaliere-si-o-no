@@ -9,7 +9,7 @@
         "de": "senior-sales-business-controller-w-m-d-laderach-bilten",
         "it": "senior-sales-business-controller-w-m-d-laderach-bilten",
         "en": "senior-sales-business-controller-w-m-d-laderach-bilten",
-        "fr": "senior-sales-business-controller-w-m-d-laderach-bilten"
+        "fr": "controleur-principal-des-ventes-w-m-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -62,10 +62,10 @@
     },
     {
       "id": "laderach-de2127c8bfa6",
-      "slug": "sachbearbeiter-aussenhandel-w-m-d-laderach-bilten",
+      "slug": "projektmanager-m-d-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "de": "sachbearbeiter-aussenhandel-w-m-d-laderach-bilten",
-        "it": "sachbearbeiter-aussenhandel-w-m-d-laderach-bilten",
+        "it": "projektmanager-m-d-laderach-schweiz-ag-bilten",
         "en": "sachbearbeiter-aussenhandel-w-m-d-laderach-bilten",
         "fr": "sachbearbeiter-aussenhandel-w-m-d-laderach-bilten"
       },
@@ -116,7 +116,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-06T11:15:06.339Z"
+      "firstSeenAt": "2026-05-06T11:15:06.339Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-aussenhandel-w-m-d-laderach-bilten"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-aussenhandel-w-m-d-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-7b25031f1167",

@@ -1520,12 +1520,12 @@
     },
     {
       "id": "siegfried-4b6c9cd7c2b2",
-      "slug": "global-head-drug-product-development-technology-siegfried-ch",
+      "slug": "sviluppo-e-tecnologia-dei-prodotti-della-testa-globale-siegfried-zofingen",
       "slugByLocale": {
         "en": "global-head-drug-product-development-technology-siegfried-ch",
-        "it": "global-head-drug-product-development-technology-siegfried-ch",
+        "it": "sviluppo-e-tecnologia-dei-prodotti-della-testa-globale-siegfried-zofingen",
         "de": "global-head-drug-product-development-technology-siegfried-ch",
-        "fr": "global-head-drug-product-development-technology-siegfried-ch"
+        "fr": "developpement-et-technologie-de-produits-pharmaceutiques-a-l-echelle-mondiale-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1581,7 +1581,18 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-05-06T11:37:26.706Z"
+      "firstSeenAt": "2026-05-06T11:37:26.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-head-drug-product-development-technology-siegfried-ch"
+        ],
+        "fr": [
+          "global-head-drug-product-development-technology-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-head-drug-product-development-technology-siegfried-ch"
+      ]
     }
   ]
 }

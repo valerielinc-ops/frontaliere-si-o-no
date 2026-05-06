@@ -658,12 +658,12 @@
     },
     {
       "id": "tschuggen-9d2cf0abe326",
-      "slug": "etagen-portier-m-w-d-tschuggen-ch",
+      "slug": "account-manager-m-w-d-tschuggen-collection-ascona",
       "slugByLocale": {
         "de": "etagen-portier-m-w-d-tschuggen-collection-ascona",
-        "it": "etagen-portier-m-w-d-tschuggen-ch",
+        "it": "account-manager-m-w-d-tschuggen-collection-ascona",
         "en": "etagen-portier-m-w-d-tschuggen-ch",
-        "fr": "etagen-portier-m-w-d-tschuggen-ch"
+        "fr": "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -718,7 +718,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-06T11:50:09.955Z"
+      "firstSeenAt": "2026-05-06T11:50:09.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "etagen-portier-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
+          "etagen-portier-m-w-d-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "etagen-portier-m-w-d-tschuggen-ch"
+      ]
     }
   ]
 }
