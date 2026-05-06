@@ -20594,4 +20594,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bilaterali-iii-doppia-maggioranza',
+ category: 'novita',
+ date: '2026-05-06T10:05:43.855Z',
+ image: '/images/blog/bilaterali-iii-doppia-maggioranza.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6408,6 +6408,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vittima-folgorata-bellinzona-2026.title': 'Vittima folgorata a Bellinzona: chi era il 33enne del Bellinzonese',
     'blog.article.vittima-folgorata-bellinzona-2026.excerpt': 'Un 33enne svizzero del Bellinzonese è la vittima dell\'infortunio mortale alla stazione di Bellinzona. L\'inchiesta è ancora in corso.',
     'blog.article.vittima-folgorata-bellinzona-2026.imageAlt': 'Stazione ferroviaria di Bellinzona di notte, con un\'atmosfera cupa e un focus sull\'area della piattaforma dove è avvenuto l\'incidente',
+    'blog.article.bilaterali-iii-doppia-maggioranza.title': 'Bilaterali III: richiesta doppia maggioranza per l\'approvazione',
+    'blog.article.bilaterali-iii-doppia-maggioranza.excerpt': 'La commissione degli Stati chiede l\'inserimento del pacchetto Bilaterali III nella Costituzione federale, richiedendo doppia maggioranza',
+    'blog.article.bilaterali-iii-doppia-maggioranza.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;

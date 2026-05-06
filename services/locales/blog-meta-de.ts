@@ -6407,6 +6407,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vittima-folgorata-bellinzona-2026.title': '33-Jähriger in Bellinzona durch Stromschlag getötet',
     'blog.article.vittima-folgorata-bellinzona-2026.excerpt': 'Ein 33-jähriger Schweizer aus dem Bellinzonese ist das Opfer des tödlichen Unfalls am Bahnhof Bellinzona. Die Ermittlungen sind noch im Gange.',
     'blog.article.vittima-folgorata-bellinzona-2026.imageAlt': 'Bellinzona Bahnhof bei Nacht, mit einer düsteren Atmosphäre und einem Fokus auf den Bahnsteigbereich, wo der Vorfall stattfand',
+    'blog.article.bilaterali-iii-doppia-maggioranza.title': 'Bilaterale III: Doppelte Mehrheit gefordert',
+    'blog.article.bilaterali-iii-doppia-maggioranza.excerpt': 'Die Staatskommission fordert die Aufnahme des Bilateralen III-Pakets in die Bundesverfassung und verlangt eine doppelte Mehrheit.',
+    'blog.article.bilaterali-iii-doppia-maggioranza.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

@@ -6408,6 +6408,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vittima-folgorata-bellinzona-2026.title': 'Un homme de 33 ans électrocuté à Bellinzone',
     'blog.article.vittima-folgorata-bellinzona-2026.excerpt': 'Un Suisse de 33 ans du Bellinzonais est la victime de l\'accident mortel à la gare de Bellinzone. L\'enquête est toujours en cours.',
     'blog.article.vittima-folgorata-bellinzona-2026.imageAlt': 'Gare de Bellinzona la nuit, avec une atmosphère sombre et un focus sur la zone de la plateforme où l\'incident s\'est produit',
+    'blog.article.bilaterali-iii-doppia-maggioranza.title': 'Bilatérales III: double majorité requise',
+    'blog.article.bilaterali-iii-doppia-maggioranza.excerpt': 'La commission des États demande l\'inscription du paquet Bilatérales III dans la Constitution fédérale, exigeant une double majorité',
+    'blog.article.bilaterali-iii-doppia-maggioranza.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les bâtiments environnants',
 };
 
 export default blogMetaFr;

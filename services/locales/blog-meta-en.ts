@@ -6407,6 +6407,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vittima-folgorata-bellinzona-2026.title': '33-year-old from Bellinzona struck by lightning',
     'blog.article.vittima-folgorata-bellinzona-2026.excerpt': 'A 33-year-old Swiss man from the Bellinzona area is the victim of the fatal accident at Bellinzona station. The investigation is still ongoing.',
     'blog.article.vittima-folgorata-bellinzona-2026.imageAlt': 'Bellinzona train station at night, with a somber atmosphere and a focus on the platform area where the incident occurred',
+    'blog.article.bilaterali-iii-doppia-maggioranza.title': 'III Bilaterals: double majority requested for approval',
+    'blog.article.bilaterali-iii-doppia-maggioranza.excerpt': 'The States\' Commission asks for the III Bilaterals package to be included in the Federal Constitution, requiring a double majority',
+    'blog.article.bilaterali-iii-doppia-maggioranza.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;
