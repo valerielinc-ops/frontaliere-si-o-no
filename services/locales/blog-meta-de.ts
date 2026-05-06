@@ -6272,6 +6272,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casse-malati-ticino-leghista-socialista.title': 'Krankenkassen in Ticino: Lega-Initiative im Vorteil',
     'blog.article.casse-malati-ticino-leghista-socialista.excerpt': 'Die Kommission für Verwaltung des Kantons Ticino diskutiert die Aufteilung der Initiativen zu den Krankenkassen, wobei die Lega-Initiative in Führung liegt.',
     'blog.article.casse-malati-ticino-leghista-socialista.imageAlt': 'Luganersee mit Stadtblick',
+    'blog.article.morto-rene-groebli-fotografo-98-anni.title': 'Internationale Fotograf René Groebli gestorben',
+    'blog.article.morto-rene-groebli-fotografo-98-anni.excerpt': 'Der Zürcher Fotograf René Groebli ist im Alter von 98 Jahren verstorben. Er war ein Innovator der Kriegsfotografie und schuf berühmte Foto-Serien.',
+    'blog.article.morto-rene-groebli-fotografo-98-anni.imageAlt': 'Luftaufnahme von Lugano mit dem See und der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

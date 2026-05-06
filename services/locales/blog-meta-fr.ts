@@ -6273,6 +6273,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casse-malati-ticino-leghista-socialista.title': 'Assurances maladie au Tessin: la proposition de la Ligue avance',
     'blog.article.casse-malati-ticino-leghista-socialista.excerpt': 'La Commission de gestion du Canton du Tessin discute de la division des initiatives sur les assurances maladie, avec la proposition de la Ligue en tête.',
     'blog.article.casse-malati-ticino-leghista-socialista.imageAlt': 'Lac de Lugano avec vue sur la ville',
+    'blog.article.morto-rene-groebli-fotografo-98-anni.title': 'Décès de René Groebli, photographe suisse de renommée internationale',
+    'blog.article.morto-rene-groebli-fotografo-98-anni.excerpt': 'Le photographe zurichois René Groebli est décédé à l\'âge de 98 ans. Innovateur de la photographie de guerre et auteur de célèbres séries photographiques.',
+    'blog.article.morto-rene-groebli-fotografo-98-anni.imageAlt': 'Vue aérienne de Lugano avec le lac et la ville en arrière-plan',
 };
 
 export default blogMetaFr;

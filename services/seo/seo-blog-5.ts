@@ -20520,6 +20520,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-morto-rene-groebli-fotografo-98-anni': {
+    title: 'Morto René Groebli, fotografo svizzero di fama internazionale',
+    description: 'Il fotografo zurighese René Groebli è deceduto all\'età di 98 anni. Innovatore della fotografia di guerra e autore di celebri serie fotografiche. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, morto, rené, groebli, fotografo',
+    ogTitle: 'Morto René Groebli, fotografo svizzero di fama internazionale',
+    ogDescription: 'Il fotografo zurighese René Groebli è deceduto all\'età di 98 anni. Innovatore della fotografia di guerra e autore di celebri serie fotografiche.',
+    canonicalPath: '/articoli-frontaliere/morto-rene-groebli-fotografo-98-anni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Morto René Groebli, fotografo svizzero di fama internazionale",
+      "description": "Il fotografo zurighese René Groebli è deceduto all'età di 98 anni. Innovatore della fotografia di guerra e autore di celebri serie fotografiche. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/morto-rene-groebli-fotografo-98-anni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e la città sullo sfondo"
+      },
+      "datePublished": "2026-05-06T01:15:55+00:00",
+      "dateModified": "2026-05-06T01:15:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/morto-rene-groebli-fotografo-98-anni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

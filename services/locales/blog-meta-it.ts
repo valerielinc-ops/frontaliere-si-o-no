@@ -6273,6 +6273,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casse-malati-ticino-leghista-socialista.title': 'Casse malati in Ticino: la proposta leghista avanza',
     'blog.article.casse-malati-ticino-leghista-socialista.excerpt': 'La Commissione della gestione del Canton Ticino discute la divisione delle iniziative sulle casse malati, con la proposta leghista in vantaggio.',
     'blog.article.casse-malati-ticino-leghista-socialista.imageAlt': 'Lago di Lugano con vista sulla città',
+    'blog.article.morto-rene-groebli-fotografo-98-anni.title': 'Morto René Groebli, fotografo svizzero di fama internazionale',
+    'blog.article.morto-rene-groebli-fotografo-98-anni.excerpt': 'Il fotografo zurighese René Groebli è deceduto all\'età di 98 anni. Innovatore della fotografia di guerra e autore di celebri serie fotografiche.',
+    'blog.article.morto-rene-groebli-fotografo-98-anni.imageAlt': 'Vista aerea di Lugano con il lago e la città sullo sfondo',
 };
 
 export default blogMetaIt;

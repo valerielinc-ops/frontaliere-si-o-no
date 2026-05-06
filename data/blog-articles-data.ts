@@ -20189,4 +20189,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'morto-rene-groebli-fotografo-98-anni',
+ category: 'novita',
+ date: '2026-05-06T01:15:55.047Z',
+ image: '/images/blog/morto-rene-groebli-fotografo-98-anni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
