@@ -20783,4 +20783,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'centro-pasture-balerna-asilo',
+ category: 'novita',
+ date: '2026-05-06T12:52:10.422Z',
+ image: '/images/blog/centro-pasture-balerna-asilo.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6471,6 +6471,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.udc-bilaterali-2026-frontalieri.title': 'NO all\'iniziativa UDC che minaccia gli accordi bilaterali con l\'UE',
     'blog.article.udc-bilaterali-2026-frontalieri.excerpt': 'Il 14 giugno gli svizzeri votano sull\'iniziativa UDC che potrebbe isolare la Svizzera e colpire i diritti dei frontalieri',
     'blog.article.udc-bilaterali-2026-frontalieri.imageAlt': 'Lago di Lugano con edifici moderni e lavoratori frontalieri in transito',
+    'blog.article.centro-pasture-balerna-asilo.title': 'Nessun esperimento con richiedenti asilo problematici a Pasture',
+    'blog.article.centro-pasture-balerna-asilo.excerpt': 'La mozione Marchesi-Fonio-Gianini chiede il consenso del Cantone e dei Comuni per progetti pilota della SEM a Balerna.',
+    'blog.article.centro-pasture-balerna-asilo.imageAlt': 'Centro federale di Pasture a Balerna, Ticino',
 };
 
 export default blogMetaIt;

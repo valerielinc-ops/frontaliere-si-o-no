@@ -6470,6 +6470,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.udc-bilaterali-2026-frontalieri.title': 'NO to UDC initiative threatening EU bilateral deals',
     'blog.article.udc-bilaterali-2026-frontalieri.excerpt': 'On June 14, Swiss voters will decide on the UDC initiative that could isolate Switzerland and impact cross-border workers\' rights',
     'blog.article.udc-bilaterali-2026-frontalieri.imageAlt': 'Lake Lugano with modern buildings and cross-border workers',
+    'blog.article.centro-pasture-balerna-asilo.title': 'No asylum seeker experiments in Pasture',
+    'blog.article.centro-pasture-balerna-asilo.excerpt': 'The Marchesi-Fonio-Gianini motion requests Cantonal and Municipal consent for SEM pilot projects in Balerna.',
+    'blog.article.centro-pasture-balerna-asilo.imageAlt': 'Pasture federal asylum center in Balerna, Ticino',
 };
 
 export default blogMetaEn;
