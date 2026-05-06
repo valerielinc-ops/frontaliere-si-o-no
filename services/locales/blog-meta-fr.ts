@@ -6339,6 +6339,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.goldbarren-zurigo-zoll-confiscati.title': 'Des lingots d\'or contrefaits de Chine saisis à Zurich',
     'blog.article.goldbarren-zurigo-zoll-confiscati.excerpt': 'Les autorités suisses ont découvert et saisi des lingots d\'or contrefaits en provenance de Chine à Zurich. Voici les détails de l\'opération.',
     'blog.article.goldbarren-zurigo-zoll-confiscati.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les bâtiments environnants',
+    'blog.article.negozio-danese-arese-2026.title': 'Arese : ouverture du magasin Normal avec chasse au trésor',
+    'blog.article.negozio-danese-arese-2026.excerpt': 'Le célèbre magasin danois Normal inaugure son nouveau magasin à Arese avec des prix fixes et une expérience de shopping unique.',
+    'blog.article.negozio-danese-arese-2026.imageAlt': 'Centre commercial Il Centro à Arese avec le nouveau magasin Normal',
 };
 
 export default blogMetaFr;

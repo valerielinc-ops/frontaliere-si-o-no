@@ -20387,4 +20387,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'negozio-danese-arese-2026',
+ category: 'novita',
+ date: '2026-05-06T06:24:04.640Z',
+ image: '/images/blog/negozio-danese-arese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

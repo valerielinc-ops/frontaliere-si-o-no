@@ -6338,6 +6338,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.goldbarren-zurigo-zoll-confiscati.title': 'Falsche Goldbarren aus China in Zürich beschlagnahmt',
     'blog.article.goldbarren-zurigo-zoll-confiscati.excerpt': 'Die Schweizer Behörden haben in Zürich gefälschte Goldbarren aus China entdeckt und beschlagnahmt. Hier sind die Details der Operation.',
     'blog.article.goldbarren-zurigo-zoll-confiscati.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Gebäuden',
+    'blog.article.negozio-danese-arese-2026.title': 'Arese: Neuer Normal-Store mit niedrigen Preisen und Schatzsuche',
+    'blog.article.negozio-danese-arese-2026.excerpt': 'Der berühmte dänische Laden Normal eröffnet seinen neuen Store in Arese mit festen Preisen und einem einzigartigen Einkaufserlebnis.',
+    'blog.article.negozio-danese-arese-2026.imageAlt': 'Einkaufszentrum Il Centro in Arese mit dem neuen Normal-Laden',
 };
 
 export default blogMetaDe;

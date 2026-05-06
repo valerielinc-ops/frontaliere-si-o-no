@@ -6338,6 +6338,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.goldbarren-zurigo-zoll-confiscati.title': 'Fake gold bars from China seized in Zurich: customs intervenes',
     'blog.article.goldbarren-zurigo-zoll-confiscati.excerpt': 'Swiss authorities have discovered and seized counterfeit gold bars from China in Zurich. Here are the details of the operation.',
     'blog.article.goldbarren-zurigo-zoll-confiscati.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
+    'blog.article.negozio-danese-arese-2026.title': 'Arese: Danish Normal store opens with low prices and treasure hunt',
+    'blog.article.negozio-danese-arese-2026.excerpt': 'The famous Danish store Normal opens its new store in Arese with fixed prices and a unique shopping experience.',
+    'blog.article.negozio-danese-arese-2026.imageAlt': 'Il Centro shopping mall in Arese with the new Normal store',
 };
 
 export default blogMetaEn;

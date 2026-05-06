@@ -6339,6 +6339,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.goldbarren-zurigo-zoll-confiscati.title': 'Goldbarren falsi dalla Cina sequestrati a Zurigo: il Zoll interviene',
     'blog.article.goldbarren-zurigo-zoll-confiscati.excerpt': 'Le autorità svizzere hanno scoperto e sequestrato goldbarren contraffatti provenienti dalla Cina a Zurigo. Ecco i dettagli dell\'operazione.',
     'blog.article.goldbarren-zurigo-zoll-confiscati.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
+    'blog.article.negozio-danese-arese-2026.title': 'Arese: apre il nuovo negozio danese Normal con prezzi bassi e caccia al tesoro',
+    'blog.article.negozio-danese-arese-2026.excerpt': 'Il famoso negozio danese Normal inaugura il suo nuovo store ad Arese con prezzi fissi e un\'esperienza di shopping unica.',
+    'blog.article.negozio-danese-arese-2026.imageAlt': 'Centro commerciale Il Centro di Arese con il nuovo negozio Normal',
 };
 
 export default blogMetaIt;
