@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2187,
+ "numberOfItems": 2188,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6829,7 +6829,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2184, "name": "Sicurezza nelle attività commerciali: serata in...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-commerciali-locarno-2026` },
           { "@type": "ListItem", "position": 2185, "name": "Roveredo, iniziativa popolare per un Carnevale ...", "url": `${BASE_URL}/articoli-frontaliere/roveredo-carnevale-tutti-2026` },
           { "@type": "ListItem", "position": 2186, "name": "FNMA cerca autisti e meccanici: appuntamento il...", "url": `${BASE_URL}/articoli-frontaliere/fnma-recruiting-day-saronno-2026` },
-          { "@type": "ListItem", "position": 2187, "name": "Sportello energetico gratuito per i cittadini d...", "url": `${BASE_URL}/articoli-frontaliere/sportello-energetico-verbano-2026` }
+          { "@type": "ListItem", "position": 2187, "name": "Sportello energetico gratuito per i cittadini d...", "url": `${BASE_URL}/articoli-frontaliere/sportello-energetico-verbano-2026` },
+          { "@type": "ListItem", "position": 2188, "name": "Vittima folgorata a Bellinzona: chi era il 33en...", "url": `${BASE_URL}/articoli-frontaliere/vittima-folgorata-bellinzona-2026` }
  ]
  },
  {

@@ -3377,6 +3377,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-roveredo-carnevale-tutti-2026': { name: 'Iniziativa Carnevale', path: '/articoli-frontaliere/roveredo-carnevale-tutti-2026', parent: 'blog' },
     'blog-fnma-recruiting-day-saronno-2026': { name: 'Novità', path: '/articoli-frontaliere/fnma-recruiting-day-saronno-2026', parent: 'blog' },
     'blog-sportello-energetico-verbano-2026': { name: 'Sportello energetico', path: '/articoli-frontaliere/sportello-energetico-verbano-2026', parent: 'blog' },
+    'blog-vittima-folgorata-bellinzona-2026': { name: 'Vittima folgorata', path: '/articoli-frontaliere/vittima-folgorata-bellinzona-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

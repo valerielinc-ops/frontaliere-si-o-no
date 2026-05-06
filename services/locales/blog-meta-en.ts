@@ -6404,6 +6404,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sportello-energetico-verbano-2026.title': 'Free energy advice for Verbano Valley residents',
     'blog.article.sportello-energetico-verbano-2026.excerpt': 'Bill savings, incentives, and renewables: researchers from the University of Insubria are available to help make your home more efficient',
     'blog.article.sportello-energetico-verbano-2026.imageAlt': 'A modern energy consultation office with a consultant explaining energy-saving measures to a client, with a view of Lake Lugano in the background',
+    'blog.article.vittima-folgorata-bellinzona-2026.title': '33-year-old from Bellinzona struck by lightning',
+    'blog.article.vittima-folgorata-bellinzona-2026.excerpt': 'A 33-year-old Swiss man from the Bellinzona area is the victim of the fatal accident at Bellinzona station. The investigation is still ongoing.',
+    'blog.article.vittima-folgorata-bellinzona-2026.imageAlt': 'Bellinzona train station at night, with a somber atmosphere and a focus on the platform area where the incident occurred',
 };
 
 export default blogMetaEn;

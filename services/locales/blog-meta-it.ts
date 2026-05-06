@@ -6405,6 +6405,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sportello-energetico-verbano-2026.title': 'Sportello energetico gratuito per i cittadini delle Valli del Verbano',
     'blog.article.sportello-energetico-verbano-2026.excerpt': 'Risparmio in bolletta, incentivi e rinnovabili: i ricercatori dell’Università dell’Insubria a disposizione di chi vuole rendere la propria casa più efficiente',
     'blog.article.sportello-energetico-verbano-2026.imageAlt': 'Uno sportello energetico moderno con un consulente che spiega misure di risparmio energetico a un cliente, con vista sul Lago di Lugano',
+    'blog.article.vittima-folgorata-bellinzona-2026.title': 'Vittima folgorata a Bellinzona: chi era il 33enne del Bellinzonese',
+    'blog.article.vittima-folgorata-bellinzona-2026.excerpt': 'Un 33enne svizzero del Bellinzonese è la vittima dell\'infortunio mortale alla stazione di Bellinzona. L\'inchiesta è ancora in corso.',
+    'blog.article.vittima-folgorata-bellinzona-2026.imageAlt': 'Stazione ferroviaria di Bellinzona di notte, con un\'atmosfera cupa e un focus sull\'area della piattaforma dove è avvenuto l\'incidente',
 };
 
 export default blogMetaIt;

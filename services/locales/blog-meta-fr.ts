@@ -6405,6 +6405,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sportello-energetico-verbano-2026.title': 'Gratuit: conseil énergétique pour les habitants des Vallées du Verban',
     'blog.article.sportello-energetico-verbano-2026.excerpt': 'Économies sur la facture, incitations et énergies renouvelables: les chercheurs de l\'Université de l\'Insubria à disposition de ceux qui veulent rendre leur maison plus efficace',
     'blog.article.sportello-energetico-verbano-2026.imageAlt': 'Un bureau de conseil énergétique moderne avec un conseiller expliquant des mesures d\'économie d\'énergie à un client, avec vue sur le lac de Lugano',
+    'blog.article.vittima-folgorata-bellinzona-2026.title': 'Un homme de 33 ans électrocuté à Bellinzone',
+    'blog.article.vittima-folgorata-bellinzona-2026.excerpt': 'Un Suisse de 33 ans du Bellinzonais est la victime de l\'accident mortel à la gare de Bellinzone. L\'enquête est toujours en cours.',
+    'blog.article.vittima-folgorata-bellinzona-2026.imageAlt': 'Gare de Bellinzona la nuit, avec une atmosphère sombre et un focus sur la zone de la plateforme où l\'incident s\'est produit',
 };
 
 export default blogMetaFr;

@@ -6404,6 +6404,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sportello-energetico-verbano-2026.title': 'Kostenlose Energieberatung für die Bewohner der Verbanogebiete',
     'blog.article.sportello-energetico-verbano-2026.excerpt': 'Sparen beim Stromverbrauch, Anreize und erneuerbare Energien: Forscher der Universität Insubria stehen allen zur Verfügung, die ihr Zuhause effizienter gestalten möchten',
     'blog.article.sportello-energetico-verbano-2026.imageAlt': 'Ein modernes Energieberatungsbüro mit einem Berater, der einem Kunden Energiesparmaßnahmen erklärt, mit Blick auf den Luganersee',
+    'blog.article.vittima-folgorata-bellinzona-2026.title': '33-Jähriger in Bellinzona durch Stromschlag getötet',
+    'blog.article.vittima-folgorata-bellinzona-2026.excerpt': 'Ein 33-jähriger Schweizer aus dem Bellinzonese ist das Opfer des tödlichen Unfalls am Bahnhof Bellinzona. Die Ermittlungen sind noch im Gange.',
+    'blog.article.vittima-folgorata-bellinzona-2026.imageAlt': 'Bellinzona Bahnhof bei Nacht, mit einer düsteren Atmosphäre und einem Fokus auf den Bahnsteigbereich, wo der Vorfall stattfand',
 };
 
 export default blogMetaDe;

@@ -22192,6 +22192,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vittima-folgorata-bellinzona-2026': {
+    title: 'Vittima folgorata a Bellinzona: chi era il 33enne del Bellinzonese',
+    description: 'Un 33enne svizzero del Bellinzonese è la vittima dell\'infortunio mortale alla stazione di Bellinzona. L\'inchiesta è ancora in corso. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, vittima, folgorata, bellinzona, 33enne',
+    ogTitle: 'Vittima folgorata a Bellinzona: chi era il 33enne del Bellinzonese',
+    ogDescription: 'Un 33enne svizzero del Bellinzonese è la vittima dell\'infortunio mortale alla stazione di Bellinzona. L\'inchiesta è ancora in corso.',
+    canonicalPath: '/articoli-frontaliere/vittima-folgorata-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vittima folgorata a Bellinzona: chi era il 33enne del Bellinzonese",
+      "description": "Un 33enne svizzero del Bellinzonese è la vittima dell'infortunio mortale alla stazione di Bellinzona. L'inchiesta è ancora in corso. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/vittima-folgorata-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Bellinzona di notte, con un'atmosfera cupa e un focus sull'area della piattaforma dove è avvenuto l'incidente"
+      },
+      "datePublished": "2026-05-06T09:48:07+00:00",
+      "dateModified": "2026-05-06T09:48:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vittima-folgorata-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
