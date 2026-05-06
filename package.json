@@ -255,7 +255,7 @@
     "audit:title-no-disambig-hash:rebaseline": "node scripts/audit-title-no-disambig-hash.mjs --write-baseline=data/title-no-disambig-hash-baseline.json",
     "audit:orphan-sitemap-pages": "node scripts/audit-orphan-pages-in-sitemaps.mjs",
     "audit:orphan-sitemap-pages:rebaseline": "node scripts/audit-orphan-pages-in-sitemaps.mjs --rebaseline",
-    "audit:related-search-candidates": "node scripts/audit-related-search-candidates.mjs",
+    "data:related-search-candidates": "node scripts/audit-related-search-candidates.mjs",
     "audit:image-object-license": "node scripts/audit-image-object-license.mjs",
     "audit:parser-quality": "node scripts/audit-parser-quality.mjs",
     "audit:parser-quality:rebaseline": "node scripts/audit-parser-quality.mjs --rebaseline",
