@@ -40,6 +40,7 @@ import {
   type JobCardJob,
   type JobCardListItem,
 } from './shared/jobCardHtml';
+import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import type { JobBoardLocale } from './jobBoardSeo';
 import {
   SECTOR_HUB_KEYS,
@@ -203,6 +204,26 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   </section>`
     : '';
 
+  // Crawler-facing commuter-context prose in a collapsed accordion below
+  // the real content (CLAUDE.md rule #14, mobile-first). Bumps the
+  // text-to-HTML ratio above the 10% Semrush floor — sector hub pages have
+  // ~45 KB of JobCard markup with ~5 KB of prose, landing at 5-7% ratio
+  // without this.
+  const hubContextSummary: Record<JobBoardLocale, string> = {
+    it: 'Guida frontalieri: salario, permesso G, fisco, rientro',
+    en: 'Cross-border guide: salary, G permit, tax, weekly return',
+    de: 'Grenzgänger-Leitfaden: Lohn, G-Bewilligung, Steuer, Rückkehr',
+    fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
+  };
+  const sectorContextHtml = `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
+    <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${hubContextSummary[locale]}</summary>
+    <div style="padding:8px 0 0">
+      <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+        ${renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true, sectorOrType: proseDisplayName })}
+      </section>
+    </div>
+  </details>`;
+
   const sectionRootUrl = `${BASE_URL}${withSlash(
     `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}`.replace(/\/+/g, '/'),
   )}`;
@@ -341,6 +362,7 @@ ${alternates}
           ${jobsHtml}
         </section>
         ${faqHtml}
+        ${sectorContextHtml}
       </main>
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>

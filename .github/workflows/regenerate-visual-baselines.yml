@@ -1,0 +1,82 @@
+name: Regenerate visual-regression baselines
+
+# Manually-dispatched workflow that runs the visual-regression spec
+# against the LIVE site with `--update-snapshots`, captures fresh
+# Linux baseline PNGs, and commits them to the repo. The next deploy
+# pickup the new baselines and starts comparing against them in
+# `validate-live`.
+#
+# WHEN to run:
+#   - First-time setup (no *-linux.png present yet)
+#   - After an INTENTIONAL design / copy change that invalidates the
+#     existing baselines (the audit will be flagging it as a regression)
+#
+# DO NOT run after a flaky failure — investigate root cause first.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+        with:
+          path: /home/runner/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Generate fresh baselines against live site
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: npm run test:e2e:visual:update
+
+      - name: Commit and push new baselines
+        run: |
+          set -euo pipefail
+          if git diff --quiet tests/e2e/seo-visual-regression.spec.ts-snapshots/; then
+            echo "No baseline changes — already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/e2e/seo-visual-regression.spec.ts-snapshots/*-linux.png
+          git commit -m "chore(visual): regenerate linux baselines
+
+          Manually triggered via regenerate-visual-baselines.yml.
+          See workflow run for context."
+          git push

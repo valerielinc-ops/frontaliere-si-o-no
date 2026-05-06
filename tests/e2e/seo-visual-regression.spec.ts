@@ -1,19 +1,23 @@
-// Visual regression baselines for the 3 fixed SEO page families.
-// Baselines are OS-sensitive (darwin vs linux). Set RUN_VISUAL_REGRESSION=1
-// to opt in; otherwise the suite is skipped so the default `playwright test`
-// invocation stays green on machines without matching baselines.
-// Regenerate baselines with: `RUN_VISUAL_REGRESSION=1 npm run test:e2e:visual:update`.
+// Visual regression baselines for STABLE primary pages — run against the
+// LIVE deployed site (post-deploy gate inside `validate-live`). When a
+// regression is detected the deploy rolls back automatically: the previous
+// dist (which by definition matched the baseline) is restored on Pages.
+//
+// Cases were chosen for their stability — pages that change visually only
+// when intentional design / copy edits happen. Cron-generated pages
+// (fuel-daily, weekly-employers, border-wait) were removed because their
+// content updates daily and would produce false positives on every deploy.
+//
+// Regenerate baselines on demand via the
+// `regenerate-visual-baselines.yml` workflow_dispatch (runs on Linux,
+// commits *-linux.png to the repo).
 import { test, expect } from 'playwright/test';
 
-test.skip(
-  !process.env.RUN_VISUAL_REGRESSION,
-  'Set RUN_VISUAL_REGRESSION=1 to run visual regression (OS-specific baselines required)',
-);
-
 const CASES = [
-  { name: 'border-wait-root', url: '/traffico-dogane/' },
-  { name: 'fuel-daily-ticino', url: '/prezzi-benzina/oggi/' },
-  { name: 'weekly-employers-hub', url: '/aziende-che-assumono/ticino/settimana-corrente/' },
+  { name: 'home', url: '/' },
+  { name: 'salary-calculator', url: '/calcola-stipendio/' },
+  { name: 'currency-comparator', url: '/comparatori/cambio-valuta/' },
+  { name: 'job-board', url: '/cerca-lavoro-ticino/' },
 ];
 
 test.use({ viewport: { width: 1280, height: 800 } });
@@ -21,7 +25,6 @@ test.use({ viewport: { width: 1280, height: 800 } });
 for (const c of CASES) {
   test(`visual baseline: ${c.name}`, async ({ page }) => {
     await page.goto(c.url, { waitUntil: 'networkidle' });
-    // Freeze dynamic bits: scroll to top, wait for fonts
     await page.evaluate(() => document.fonts.ready);
     await page.evaluate(() => window.scrollTo(0, 0));
     await expect(page.locator('main').first()).toHaveScreenshot(`${c.name}.png`, {

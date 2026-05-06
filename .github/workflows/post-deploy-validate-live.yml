@@ -109,6 +109,34 @@ jobs:
           npm run probe:5xx
           npm run test:e2e:live
 
+      # Visual regression on the LIVE site. Skipped until linux baselines
+      # are committed (run regenerate-visual-baselines.yml workflow_dispatch
+      # to generate them). On failure, validate-live fails → rollback fires
+      # and restores the previous dist (which by definition matched the
+      # baseline).
+      - name: E2E visual regression (live)
+        if: hashFiles('tests/e2e/seo-visual-regression.spec.ts-snapshots/*-linux.png') != ''
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: npx playwright test tests/e2e/seo-visual-regression.spec.ts
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report-live
+          path: playwright-report/
+          retention-days: 14
+
+      - name: Upload visual diffs on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-diffs-live
+          path: test-results/
+          retention-days: 14
+
       - name: Report failure to Linear
         if: failure()
         continue-on-error: true
