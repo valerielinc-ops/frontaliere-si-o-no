@@ -734,7 +734,9 @@
     "juve-verona-1-1-frontalieri-2026",
     "parcheggi-cernobbio-ticino-residenti",
     "italia-sospetti-var-minetti-quirinale",
-    "parcheggio-abusivo-como-villa-olmo"
+    "parcheggio-abusivo-como-villa-olmo",
+    "hodler-dipinto-eredita-frontalieri",
+    "tensioni-geopolitiche-elettrico-ticino"
   ],
   "failed": [
     {
@@ -6521,8 +6523,28 @@
       "id": "hodler-dipinto-eredita-frontalieri",
       "error": "Unterminated string in JSON at position 1903 (line 20 column 11)",
       "at": "2026-05-05T03:57:40.141Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 275 (line 4 column 135)",
+      "at": "2026-05-06T04:13:20.249Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 218 (line 4 column 130)",
+      "at": "2026-05-06T04:13:39.799Z"
+    },
+    {
+      "id": "hendsichen-arresto-francese-autodiebstahl",
+      "error": "Unterminated string in JSON at position 291 (line 4 column 185)",
+      "at": "2026-05-06T04:13:58.152Z"
+    },
+    {
+      "id": "udc-sostenibilita-lavoro-ticino-2026",
+      "error": "Unterminated string in JSON at position 184 (line 4 column 93)",
+      "at": "2026-05-06T04:14:34.587Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-05T03:57:59.031Z"
+  "updatedAt": "2026-05-06T04:14:34.587Z"
 }
