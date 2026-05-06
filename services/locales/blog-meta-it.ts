@@ -6336,6 +6336,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mesolcina-festival-sport-2026.title': 'Torna il festival degli sport all\'aperto in Mesolcina',
     'blog.article.mesolcina-festival-sport-2026.excerpt': 'Dal 9 al 17 maggio 2026, la Mesolcina ospita la sesta edizione di MisoXperience con kayak, bouldering e parapendio.',
     'blog.article.mesolcina-festival-sport-2026.imageAlt': 'Festival sportivo all\'aperto in Mesolcina, Ticino',
+    'blog.article.goldbarren-zurigo-zoll-confiscati.title': 'Goldbarren falsi dalla Cina sequestrati a Zurigo: il Zoll interviene',
+    'blog.article.goldbarren-zurigo-zoll-confiscati.excerpt': 'Le autorità svizzere hanno scoperto e sequestrato goldbarren contraffatti provenienti dalla Cina a Zurigo. Ecco i dettagli dell\'operazione.',
+    'blog.article.goldbarren-zurigo-zoll-confiscati.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;

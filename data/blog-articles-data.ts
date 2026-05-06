@@ -20378,4 +20378,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'goldbarren-zurigo-zoll-confiscati',
+ category: 'novita',
+ date: '2026-05-06T06:06:09.051Z',
+ image: '/images/blog/goldbarren-zurigo-zoll-confiscati.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

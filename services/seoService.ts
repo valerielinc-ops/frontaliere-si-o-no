@@ -3354,6 +3354,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-negozi-varese-frontalieri-occupazione': { name: 'Novità', path: '/articoli-frontaliere/negozi-varese-frontalieri-occupazione', parent: 'blog' },
     'blog-app-guida-ticino-silicon-valley-2026': { name: 'Novità', path: '/articoli-frontaliere/app-guida-ticino-silicon-valley-2026', parent: 'blog' },
     'blog-mesolcina-festival-sport-2026': { name: 'Festival Sportivo', path: '/articoli-frontaliere/mesolcina-festival-sport-2026', parent: 'blog' },
+    'blog-goldbarren-zurigo-zoll-confiscati': { name: 'Novità', path: '/articoli-frontaliere/goldbarren-zurigo-zoll-confiscati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

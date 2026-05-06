@@ -6335,6 +6335,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mesolcina-festival-sport-2026.title': 'MisoXperience: Sportfestival in der Mesolcina',
     'blog.article.mesolcina-festival-sport-2026.excerpt': 'Vom 9. bis 17. Mai 2026 findet die sechste Ausgabe von MisoXperience in der Mesolcina mit Kajak, Bouldern und Paragliding statt.',
     'blog.article.mesolcina-festival-sport-2026.imageAlt': 'Outdoor-Sportfestival in Mesolcina, Tessin',
+    'blog.article.goldbarren-zurigo-zoll-confiscati.title': 'Falsche Goldbarren aus China in Zürich beschlagnahmt',
+    'blog.article.goldbarren-zurigo-zoll-confiscati.excerpt': 'Die Schweizer Behörden haben in Zürich gefälschte Goldbarren aus China entdeckt und beschlagnahmt. Hier sind die Details der Operation.',
+    'blog.article.goldbarren-zurigo-zoll-confiscati.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

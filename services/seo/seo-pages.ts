@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2164,
+ "numberOfItems": 2165,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6806,7 +6806,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2161, "name": "Inflazione Svizzera: balzo a +0,6% per il petrolio", "url": `${BASE_URL}/articoli-frontaliere/petrolio-inflazione-svizzera-2026` },
           { "@type": "ListItem", "position": 2162, "name": "Varese: 1.602 negozi di vicinato persi in 10 an...", "url": `${BASE_URL}/articoli-frontaliere/negozi-varese-frontalieri-occupazione` },
           { "@type": "ListItem", "position": 2163, "name": "App ticinese per la guida punta alla Silicon Va...", "url": `${BASE_URL}/articoli-frontaliere/app-guida-ticino-silicon-valley-2026` },
-          { "@type": "ListItem", "position": 2164, "name": "Torna il festival degli sport all'aperto in Mes...", "url": `${BASE_URL}/articoli-frontaliere/mesolcina-festival-sport-2026` }
+          { "@type": "ListItem", "position": 2164, "name": "Torna il festival degli sport all'aperto in Mes...", "url": `${BASE_URL}/articoli-frontaliere/mesolcina-festival-sport-2026` },
+          { "@type": "ListItem", "position": 2165, "name": "Goldbarren falsi dalla Cina sequestrati a Zurig...", "url": `${BASE_URL}/articoli-frontaliere/goldbarren-zurigo-zoll-confiscati` }
  ]
  },
  {

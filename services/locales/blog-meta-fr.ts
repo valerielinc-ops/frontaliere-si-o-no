@@ -6336,6 +6336,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mesolcina-festival-sport-2026.title': 'Le festival des sports en plein air revient en Mesolcina',
     'blog.article.mesolcina-festival-sport-2026.excerpt': 'Du 9 au 17 mai 2026, la Mesolcina accueille la sixième édition de MisoXperience avec du kayak, de l\'escalade et du parapente.',
     'blog.article.mesolcina-festival-sport-2026.imageAlt': 'Festival de sports en plein air à Mesolcina, Tessin',
+    'blog.article.goldbarren-zurigo-zoll-confiscati.title': 'Des lingots d\'or contrefaits de Chine saisis à Zurich',
+    'blog.article.goldbarren-zurigo-zoll-confiscati.excerpt': 'Les autorités suisses ont découvert et saisi des lingots d\'or contrefaits en provenance de Chine à Zurich. Voici les détails de l\'opération.',
+    'blog.article.goldbarren-zurigo-zoll-confiscati.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les bâtiments environnants',
 };
 
 export default blogMetaFr;
