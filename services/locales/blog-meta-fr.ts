@@ -6465,6 +6465,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-taccheggio-rapina-doppio-arresto.title': 'Como : un vol à l\'étalage se transforme en braquage',
     'blog.article.como-taccheggio-rapina-doppio-arresto.excerpt': 'Deux individus ont été arrêtés à Côme après qu\'une tentative de vol à l\'étalage s\'est transformée en braquage avec menace d\'arme.',
     'blog.article.como-taccheggio-rapina-doppio-arresto.imageAlt': 'Supermarché à Côme avec présence policière',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.title': 'Bellinzone: réouverture du bain public avec nouvelles attractions',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.excerpt': 'Le bain public de Bellinzone rouvre le 9 mai avec paiement en ligne, nouveau restaurant et divertissement. Horaires et tarifs mis à jour.',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.imageAlt': 'Vue aérienne de la piscine publique de Bellinzona par une journée ensoleillée',
 };
 
 export default blogMetaFr;

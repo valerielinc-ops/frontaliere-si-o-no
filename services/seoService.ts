@@ -3397,6 +3397,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-e-bike-parcheggi-sicuri-losanna-2026': { name: 'Novità', path: '/articoli-frontaliere/e-bike-parcheggi-sicuri-losanna-2026', parent: 'blog' },
     'blog-furti-serie-automobili-luganese-arrestato': { name: 'Furti in auto', path: '/articoli-frontaliere/furti-serie-automobili-luganese-arrestato', parent: 'blog' },
     'blog-como-taccheggio-rapina-doppio-arresto': { name: 'Novità', path: '/articoli-frontaliere/como-taccheggio-rapina-doppio-arresto', parent: 'blog' },
+    'blog-bellinzona-bagno-pubblico-riapre-2026': { name: 'Novità', path: '/articoli-frontaliere/bellinzona-bagno-pubblico-riapre-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

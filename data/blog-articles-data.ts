@@ -20765,4 +20765,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bellinzona-bagno-pubblico-riapre-2026',
+ category: 'novita',
+ date: '2026-05-06T12:35:24.694Z',
+ image: '/images/blog/bellinzona-bagno-pubblico-riapre-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

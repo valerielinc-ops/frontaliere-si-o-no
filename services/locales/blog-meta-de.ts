@@ -6464,6 +6464,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-taccheggio-rapina-doppio-arresto.title': 'Como: Ladendiebstahl eskaliert zu Raub mit Waffe',
     'blog.article.como-taccheggio-rapina-doppio-arresto.excerpt': 'Zwei Personen wurden in Como festgenommen, nachdem ein Ladendiebstahl in einen Raub mit Waffendrohung eskalierte.',
     'blog.article.como-taccheggio-rapina-doppio-arresto.imageAlt': 'Supermarkt in Como mit Polizeianwesenheit',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.title': 'Bellinzona: Öffentliches Bad mit neuen Attraktionen wiedereröffnet',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.excerpt': 'Das Öffentliche Bad von Bellinzona öffnet am 9. Mai wieder mit Online-Zahlung, neuem Restaurant und Unterhaltung. Aktualisierte Öffnungszeiten und Tarife.',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.imageAlt': 'Luftaufnahme des öffentlichen Schwimmbads von Bellinzona an einem sonnigen Tag',
 };
 
 export default blogMetaDe;

@@ -6465,6 +6465,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-taccheggio-rapina-doppio-arresto.title': 'Como, taccheggio al supermercato si trasforma in rapina: doppio arresto',
     'blog.article.como-taccheggio-rapina-doppio-arresto.excerpt': 'Due individui sono stati arrestati a Como dopo che un tentativo di taccheggio si è trasformato in rapina con minaccia di arma.',
     'blog.article.como-taccheggio-rapina-doppio-arresto.imageAlt': 'Supermercato a Como con presenza di forze dell\'ordine',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.title': 'Bellinzona: riapre il Bagno Pubblico con nuove attrazioni',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.excerpt': 'Il Bagno Pubblico di Bellinzona riapre il 9 maggio con pagamento online, nuovo ristorante e intrattenimento. Orari e tariffe aggiornate.',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.imageAlt': 'Vista aerea del Bagno Pubblico di Bellinzona in una giornata di sole',
 };
 
 export default blogMetaIt;

@@ -6464,6 +6464,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-taccheggio-rapina-doppio-arresto.title': 'Como: shoplifting turns into armed robbery, two arrests',
     'blog.article.como-taccheggio-rapina-doppio-arresto.excerpt': 'Two individuals were arrested in Como after a shoplifting attempt turned into a robbery with a weapon threat.',
     'blog.article.como-taccheggio-rapina-doppio-arresto.imageAlt': 'Supermarket in Como with police presence',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.title': 'Bellinzona: Public Baths reopen with new attractions',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.excerpt': 'Bellinzona\'s Public Baths reopen on May 9th with online payment, a new restaurant, and entertainment. Updated opening hours and rates.',
+    'blog.article.bellinzona-bagno-pubblico-riapre-2026.imageAlt': 'Aerial view of Bellinzona\'s public swimming pool on a sunny day',
 };
 
 export default blogMetaEn;
