@@ -20144,4 +20144,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pompieri-lugano-24-ore-2026',
+ category: 'novita',
+ date: '2026-05-06T00:37:03.089Z',
+ image: '/images/blog/pompieri-lugano-24-ore-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

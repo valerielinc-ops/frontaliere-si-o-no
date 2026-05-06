@@ -3328,6 +3328,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-fornasette-2026-ribaltamento-auto': { name: 'Incidente Fornasette', path: '/articoli-frontaliere/incidente-fornasette-2026-ribaltamento-auto', parent: 'blog' },
     'blog-accesso-dossier-mengele': { name: 'Dossier Mengele', path: '/articoli-frontaliere/accesso-dossier-mengele', parent: 'blog' },
     'blog-tragedia-stazione-bellinzona-frontalieri': { name: 'Tragedia in stazione a Bellinzona', path: '/articoli-frontaliere/tragedia-stazione-bellinzona-frontalieri', parent: 'blog' },
+    'blog-pompieri-lugano-24-ore-2026': { name: 'Novità', path: '/articoli-frontaliere/pompieri-lugano-24-ore-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

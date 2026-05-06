@@ -6258,6 +6258,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tragedia-stazione-bellinzona-frontalieri.title': 'Tragédie à la gare de Bellinzona: la victime identifiée',
     'blog.article.tragedia-stazione-bellinzona-frontalieri.excerpt': 'La victime de la tragédie à la gare de Bellinzona a été identifiée: elle avait 33 ans',
     'blog.article.tragedia-stazione-bellinzona-frontalieri.imageAlt': 'Gare de Bellinzona',
+    'blog.article.pompieri-lugano-24-ore-2026.title': 'Pompiers de Lugano opérationnels 24/7 : record d\'interventions en 2025',
+    'blog.article.pompieri-lugano-24-ore-2026.excerpt': 'Record d\'interventions pour les pompiers de Lugano en 2025. Opérationnalité 24 heures sur 24 à partir de 2026.',
+    'blog.article.pompieri-lugano-24-ore-2026.imageAlt': 'Panorama de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaFr;

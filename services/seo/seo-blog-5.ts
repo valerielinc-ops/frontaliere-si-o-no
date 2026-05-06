@@ -20330,6 +20330,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pompieri-lugano-24-ore-2026': {
+    title: 'Pompieri Lugano operativi 24/7: record interventi 2025',
+    description: 'Record di interventi per i pompieri di Lugano nel 2025. Operatività 24 ore su 24 dal 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pompieri, lugano, operativi, record',
+    ogTitle: 'Pompieri Lugano operativi 24/7: record interventi 2025',
+    ogDescription: 'Record di interventi per i pompieri di Lugano nel 2025. Operatività 24 ore su 24 dal 2026.',
+    canonicalPath: '/articoli-frontaliere/pompieri-lugano-24-ore-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pompieri Lugano operativi 24/7: record interventi 2025",
+      "description": "Record di interventi per i pompieri di Lugano nel 2025. Operatività 24 ore su 24 dal 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/pompieri-lugano-24-ore-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il Lago e le montagne"
+      },
+      "datePublished": "2026-05-06T00:37:03+00:00",
+      "dateModified": "2026-05-06T00:37:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pompieri-lugano-24-ore-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
