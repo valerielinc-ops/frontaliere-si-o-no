@@ -6522,6 +6522,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.centri-famiglia-altovaresotto-2026.title': 'Centri per la famiglia in Alto Varesotto: supporto alle famiglie in difficoltà',
     'blog.article.centri-famiglia-altovaresotto-2026.excerpt': 'I Centri per la famiglia in Alto Varesotto offrono supporto alle famiglie con nuove emergenze e disorientamento, con servizi di ascolto, consulenze e laboratori.',
     'blog.article.centri-famiglia-altovaresotto-2026.imageAlt': 'Centro per la famiglia in una cittadina del Ticino',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.title': 'Senza immigrazione, la Svizzera invecchierebbe rapidamente',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.excerpt': 'L\'immigrazione rallenta l\'invecchiamento demografico della Svizzera, con effetti diretti su AVS e premi assicurativi',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.imageAlt': 'Confine di Brogeda tra Italia e Svizzera, con persone e auto in transito',
 };
 
 export default blogMetaIt;

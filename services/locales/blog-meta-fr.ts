@@ -6522,6 +6522,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.centri-famiglia-altovaresotto-2026.title': 'Centres familiaux en Haute-Varèse : soutien aux familles en difficulté',
     'blog.article.centri-famiglia-altovaresotto-2026.excerpt': 'Les Centres pour la famille en Haute-Varèse offrent un soutien aux familles confrontées à de nouvelles urgences et à un désarroi, avec des services d\'écoute, des consultations et des ateliers.',
     'blog.article.centri-famiglia-altovaresotto-2026.imageAlt': 'Centre de soutien familial dans une ville du Tessin',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.title': 'Sans immigration, la Suisse vieillirait rapidement',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.excerpt': 'L\'immigration ralentit le vieillissement démographique de la Suisse, avec des effets directs sur l\'AVS et les primes d\'assurance',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.imageAlt': 'Frontière de Brogeda entre l\'Italie et la Suisse, avec des personnes et des voitures en transit',
 };
 
 export default blogMetaFr;

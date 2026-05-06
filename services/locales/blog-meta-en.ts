@@ -6521,6 +6521,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.centri-famiglia-altovaresotto-2026.title': 'Family centers in Alto Varesotto: support for struggling families',
     'blog.article.centri-famiglia-altovaresotto-2026.excerpt': 'Family centers in Alto Varesotto offer support to families facing new emergencies and disorientation, with listening services, consultations, and workshops.',
     'blog.article.centri-famiglia-altovaresotto-2026.imageAlt': 'Family support center in a Ticino town',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.title': 'Switzerland would age rapidly without immigration',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.excerpt': 'Immigration slows Switzerland\'s demographic aging, with direct effects on AHV and insurance premiums',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.imageAlt': 'Brogeda border crossing between Italy and Switzerland, with people and cars passing through',
 };
 
 export default blogMetaEn;

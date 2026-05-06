@@ -20936,4 +20936,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'immigrazione-svizzera-invecchiamento-2026',
+ category: 'novita',
+ date: '2026-05-06T15:00:44.457Z',
+ image: '/images/blog/immigrazione-svizzera-invecchiamento-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6521,6 +6521,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.centri-famiglia-altovaresotto-2026.title': 'Familienzentren im oberen Varesotto: Unterstützung für Familien in Not',
     'blog.article.centri-famiglia-altovaresotto-2026.excerpt': 'Die Familienzentren im oberen Varesotto bieten Unterstützung für Familien mit neuen Notfällen und Orientierungslosigkeit, mit Dienstleistungen wie Beratung, Hörstationen und Workshops.',
     'blog.article.centri-famiglia-altovaresotto-2026.imageAlt': 'Familienzentrum in einer Stadt im Tessin',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.title': 'Ohne Einwanderung altert die Schweiz schnell',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.excerpt': 'Die Einwanderung verlangsamt die demografische Alterung der Schweiz, mit direkten Auswirkungen auf die AHV und die Versicherungsprämien',
+    'blog.article.immigrazione-svizzera-invecchiamento-2026.imageAlt': 'Grenze von Brogeda zwischen Italien und der Schweiz, mit Menschen und Autos im Transit',
 };
 
 export default blogMetaDe;
