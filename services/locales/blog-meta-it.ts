@@ -6390,6 +6390,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.liberalizzazione-cannabis-minori-tutelati.title': 'Liberalizzazione cannabis: minori da tutelare «fin dall\'inizio»',
     'blog.article.liberalizzazione-cannabis-minori-tutelati.excerpt': 'La Commissione della sanità del Consiglio nazionale svizzero esamina il progetto di legge sulla liberalizzazione della cannabis, con misure per proteggere i minori.',
     'blog.article.liberalizzazione-cannabis-minori-tutelati.imageAlt': 'Gruppo di persone discute la liberalizzazione della cannabis in un ufficio a Lugano',
+    'blog.article.afghano-arresto-zug-chiasso.title': 'Afghano aggredisce donna in treno a Chiasso: arrestato',
+    'blog.article.afghano-arresto-zug-chiasso.excerpt': 'Un afghano ha aggredito una donna in un treno a Chiasso, spingendola contro una siepe. L\'uomo è stato arrestato.',
+    'blog.article.afghano-arresto-zug-chiasso.imageAlt': 'Una stazione ferroviaria a Chiasso, Ticino, con un arresto in corso',
 };
 
 export default blogMetaIt;

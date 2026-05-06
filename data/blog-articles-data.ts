@@ -20540,4 +20540,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'afghano-arresto-zug-chiasso',
+ category: 'novita',
+ date: '2026-05-06T09:09:26.776Z',
+ image: '/images/blog/afghano-arresto-zug-chiasso.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

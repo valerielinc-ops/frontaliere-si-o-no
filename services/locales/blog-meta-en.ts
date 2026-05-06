@@ -6389,6 +6389,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.liberalizzazione-cannabis-minori-tutelati.title': 'Cannabis liberalization: protect minors from the start',
     'blog.article.liberalizzazione-cannabis-minori-tutelati.excerpt': 'The Swiss National Council\'s health commission examines the cannabis legalization bill, with measures to protect minors.',
     'blog.article.liberalizzazione-cannabis-minori-tutelati.imageAlt': 'Group of people discussing cannabis liberalization in an office in Lugano',
+    'blog.article.afghano-arresto-zug-chiasso.title': 'Afghan man assaults woman on train in Chiasso: arrested',
+    'blog.article.afghano-arresto-zug-chiasso.excerpt': 'An Afghan man assaulted a woman on a train in Chiasso, pushing her against a hedge. The man was arrested.',
+    'blog.article.afghano-arresto-zug-chiasso.imageAlt': 'A train station in Chiasso, Ticino, with an arrest taking place',
 };
 
 export default blogMetaEn;

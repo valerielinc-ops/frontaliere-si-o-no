@@ -3372,6 +3372,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-volandia-record-presenze-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/volandia-record-presenze-maggio-2026', parent: 'blog' },
     'blog-swissquote-trading-day-lugano-2026': { name: 'Swissquote Trading Day', path: '/articoli-frontaliere/swissquote-trading-day-lugano-2026', parent: 'blog' },
     'blog-liberalizzazione-cannabis-minori-tutelati': { name: 'Novità', path: '/articoli-frontaliere/liberalizzazione-cannabis-minori-tutelati', parent: 'blog' },
+    'blog-afghano-arresto-zug-chiasso': { name: 'Notizie dal Ticino', path: '/articoli-frontaliere/afghano-arresto-zug-chiasso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

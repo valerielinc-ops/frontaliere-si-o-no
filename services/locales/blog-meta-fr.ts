@@ -6390,6 +6390,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.liberalizzazione-cannabis-minori-tutelati.title': 'Libéralisation du cannabis : protéger les mineurs dès le départ',
     'blog.article.liberalizzazione-cannabis-minori-tutelati.excerpt': 'La Commission de la santé du Conseil national suisse examine le projet de loi sur la libéralisation du cannabis, avec des mesures pour protéger les mineurs.',
     'blog.article.liberalizzazione-cannabis-minori-tutelati.imageAlt': 'Groupe de personnes discutant de la libéralisation du cannabis dans un bureau à Lugano',
+    'blog.article.afghano-arresto-zug-chiasso.title': 'Un Afghan agressé une femme dans un train à Chiasso: arrêté',
+    'blog.article.afghano-arresto-zug-chiasso.excerpt': 'Un Afghan a agressé une femme dans un train à Chiasso, la poussant contre une haie. L\'homme a été arrêté.',
+    'blog.article.afghano-arresto-zug-chiasso.imageAlt': 'Une gare à Chiasso, Tessin, avec une arrestation en cours',
 };
 
 export default blogMetaFr;
