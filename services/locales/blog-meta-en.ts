@@ -6386,6 +6386,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swissquote-trading-day-lugano-2026.title': 'Swissquote Trading Day in Lugano: financial experts and strategies',
     'blog.article.swissquote-trading-day-lugano-2026.excerpt': 'On May 13 at LAC Lugano, Swissquote organizes the Trading Day with financial sector experts. Focus on volatility, cryptocurrencies and investment strategies.',
     'blog.article.swissquote-trading-day-lugano-2026.imageAlt': 'Trading event at LAC Lugano, Switzerland',
+    'blog.article.liberalizzazione-cannabis-minori-tutelati.title': 'Cannabis liberalization: protect minors from the start',
+    'blog.article.liberalizzazione-cannabis-minori-tutelati.excerpt': 'The Swiss National Council\'s health commission examines the cannabis legalization bill, with measures to protect minors.',
+    'blog.article.liberalizzazione-cannabis-minori-tutelati.imageAlt': 'Group of people discussing cannabis liberalization in an office in Lugano',
 };
 
 export default blogMetaEn;

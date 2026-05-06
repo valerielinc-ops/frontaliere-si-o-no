@@ -21964,6 +21964,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-liberalizzazione-cannabis-minori-tutelati': {
+    title: 'Liberalizzazione cannabis: minori da tutelare «fin dall\'inizio»',
+    description: 'La Commissione della sanità del Consiglio nazionale svizzero esamina il progetto di legge sulla liberalizzazione della cannabis, con misure per proteggere i',
+    keywords: 'frontalieri, ticino, svizzera, italia, liberalizzazione, cannabis, minori, tutelare',
+    ogTitle: 'Liberalizzazione cannabis: minori da tutelare «fin dall\'inizio»',
+    ogDescription: 'La Commissione della sanità del Consiglio nazionale svizzero esamina il progetto di legge sulla liberalizzazione della cannabis, con misure per proteggere i',
+    canonicalPath: '/articoli-frontaliere/liberalizzazione-cannabis-minori-tutelati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Liberalizzazione cannabis: minori da tutelare «fin dall'inizio»",
+      "description": "La Commissione della sanità del Consiglio nazionale svizzero esamina il progetto di legge sulla liberalizzazione della cannabis, con misure per proteggere i",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/liberalizzazione-cannabis-minori-tutelati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone discute la liberalizzazione della cannabis in un ufficio a Lugano"
+      },
+      "datePublished": "2026-05-06T09:02:14+00:00",
+      "dateModified": "2026-05-06T09:02:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/liberalizzazione-cannabis-minori-tutelati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

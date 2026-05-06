@@ -20531,4 +20531,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'liberalizzazione-cannabis-minori-tutelati',
+ category: 'novita',
+ date: '2026-05-06T09:02:14.168Z',
+ image: '/images/blog/liberalizzazione-cannabis-minori-tutelati.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
