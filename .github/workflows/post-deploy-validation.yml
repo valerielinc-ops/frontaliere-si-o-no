@@ -92,12 +92,18 @@ jobs:
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           : > /tmp/source-val-failures.txt
+          : > /tmp/source-val-results.txt
 
           run_bg() {
             local name=$1 log=$2; shift 2
             (
+              set +e
+              start=$(date +%s.%N)
               "$@" > "$log" 2>&1
               rc=$?
+              end=$(date +%s.%N)
+              awk -v n="$name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
+                >> /tmp/source-val-results.txt
               if [ $rc -ne 0 ]; then
                 echo "$name $log" >> /tmp/source-val-failures.txt
               fi
@@ -145,6 +151,29 @@ jobs:
           fi
 
           wait
+
+          echo ""
+          echo "══════════════════════════════════════════════════════════════"
+          echo "Source validators — per-gate results"
+          echo "══════════════════════════════════════════════════════════════"
+          SRC_PASS=0
+          SRC_FAIL=0
+          # Sort by wall_s DESC so the slowest gate is the first thing the eye
+          # catches in the log.
+          while IFS= read -r line; do
+            rc=$(printf '%s' "$line" | grep -oE 'rc=[0-9]+$' | sed 's/rc=//')
+            if [ "$rc" = "0" ]; then
+              printf "✅ PASS  %s\n" "$line"
+              SRC_PASS=$((SRC_PASS + 1))
+            else
+              printf "❌ FAIL  %s\n" "$line"
+              SRC_FAIL=$((SRC_FAIL + 1))
+            fi
+          done < <(sort -k2 -gr /tmp/source-val-results.txt)
+          echo "──────────────────────────────────────────────────────────────"
+          echo "Source validators summary: ${SRC_PASS} passed, ${SRC_FAIL} failed"
+          echo "══════════════════════════════════════════════════════════════"
+          echo ""
 
           if [ -s /tmp/source-val-failures.txt ]; then
             while read -r name logfile; do
@@ -330,9 +359,25 @@ jobs:
           wait
 
           echo ""
-          echo "── Post-build per-task wall_s (MAX_PARALLEL=$MAX_PARALLEL, sorted DESC) ──"
-          sort -k2 -gr /tmp/post-build-timings.txt
-          echo "─────────────────────────────────────────────────────────────────────"
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo "Post-build gates — per-gate results (MAX_PARALLEL=$MAX_PARALLEL, sorted DESC)"
+          echo "══════════════════════════════════════════════════════════════════════"
+          PB_PASS=0
+          PB_FAIL=0
+          while IFS= read -r line; do
+            rc=$(printf '%s' "$line" | grep -oE 'rc=[0-9]+$' | sed 's/rc=//')
+            if [ "$rc" = "0" ]; then
+              printf "✅ PASS  %s\n" "$line"
+              PB_PASS=$((PB_PASS + 1))
+            else
+              printf "❌ FAIL  %s\n" "$line"
+              PB_FAIL=$((PB_FAIL + 1))
+            fi
+          done < <(sort -k2 -gr /tmp/post-build-timings.txt)
+          echo "──────────────────────────────────────────────────────────────────────"
+          echo "Post-build summary: ${PB_PASS} passed, ${PB_FAIL} failed"
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo ""
 
           FAIL=0
           if [ -s /tmp/post-build-failures.txt ]; then
