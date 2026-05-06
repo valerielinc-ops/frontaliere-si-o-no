@@ -59,30 +59,40 @@ permissions:
 
 jobs:
   build:
-    # `pages-build` concurrency group with cancel-in-progress: TRUE.
-    # Last-write-wins semantics: every new cron commit cancels any
-    # currently-running build for an older commit. Builds are 12-15 min
-    # of heavy CPU each, and a cron site publishes content every ~15
-    # min — without this guard, 5+ builds would stack up running in
-    # parallel for stale commits, wasting compute on revisions that
-    # are about to be obsoleted by the very next cron.
+    # `pages-build` concurrency group with cancel-in-progress: FALSE.
+    # Builds are 12-15 min of heavy CPU each. We need:
+    #   1. NOT to run 5+ builds in parallel for stale cron commits
+    #      (each will be obsoleted by the next cron)
+    #   2. NOT to cancel a build in-flight at the 14-minute mark just
+    #      because a new cron landed (wasting all that CPU). Run
+    #      25428278837 was killed this way: build started 09:51:34,
+    #      cron 827241b2 landed at 10:08:30 (8 SECONDS before the
+    #      build would have completed), cancel-in-progress: true
+    #      killed it at 10:08:38.
+    #
+    # cancel-in-progress: false gives both:
+    #   - in-flight build finishes normally (no wasted CPU)
+    #   - new cron arrivals enter the queue as pending; if a third
+    #     pending lands, GitHub's 1+1 cap drops the MIDDLE one. This
+    #     is fine: every cron commit is cumulative (it includes all
+    #     prior cron commits in main), so the LAST entry in the queue
+    #     is always a superset of the dropped middles.
     #
     # Why a SEPARATE group from `deploy`'s `pages-deploy`:
-    #   GitHub Actions concurrency permits 1 running + 1 pending max
-    #   per group. With both jobs sharing `pages-deploy`, every cron
-    #   commit landing while a deploy was queued cancelled the
-    #   previously-queued deploy of a still-valid earlier run
-    #   (run 25425625029.deploy was killed this way). Splitting into
-    #   `pages-build` (last-wins) + `pages-deploy` (1+1 publish lock)
-    #   keeps each group lightly populated and avoids the cross-job
-    #   queue-cancellation cascade.
+    #   With both jobs sharing one group, every cron commit landing
+    #   while a deploy was queued cancelled the previously-queued
+    #   deploy of a still-valid earlier run (run 25425625029.deploy
+    #   was killed this way). Splitting:
+    #     - `pages-build`  serializes builds  (1+1, last-wins on overflow)
+    #     - `pages-deploy` serializes deploys (1+1, last-wins on overflow)
+    #   keeps each group lightly populated.
     #
     # Profile-only runs (profile_sequential=true) use a per-run group
     # so the long sequential profile can complete without being
     # cancelled by the next push to main.
     concurrency:
       group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-build-profile-{0}', github.run_id) || 'pages-build' }}
-      cancel-in-progress: true
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     # GitHub free runners cap at 360 min — match it explicitly so cold-start
     # builds (e.g. first run with a heavy plugin like jobOgImagesPlugin
