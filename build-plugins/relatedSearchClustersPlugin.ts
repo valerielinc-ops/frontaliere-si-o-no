@@ -640,23 +640,18 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
   </details>`;
 
   // ── Body ────────────────────────────────────────────────────────
-  // Crawler-facing static body (lives in `<main class="cluster-seo-prose">`
-  // BELOW `#root`). Strategy: the SPA's hydrated JobBoard renders the
-  // breadcrumb (via hubChrome), the H1 (in the JobCard header), and
-  // the active search-query UI for users — duplicating any of that here
-  // would double-render visually. So this body emits ONLY:
-  //   1. A screen-reader-only <h1> with the keyword for SEO heading
-  //      hierarchy (positioned off-screen via clip-rect; readable by
-  //      Googlebot + assistive tech, invisible to sighted users).
-  //   2. The collapsed prose `<details>` (~9KB methodology + commuter +
-  //      4-FAQ + cross-links). User sees only a small "Approfondimento"
-  //      summary at the bottom of the page; click expands the prose.
-  // No visual breadcrumb / tagline / datestamp — those are SPA chrome.
-  // Mobile-first per CLAUDE.md non-negotiable rule #14: the SPA's real
-  // job grid stays at the top, our SEO filler is collapsed at the foot.
+  // 100% crawler-only. The SPA's hydrated JobBoard renders all visible
+  // chrome for users (sub-nav, breadcrumb, search-query header, JobCard
+  // grid, footer) inside `#root`. This static body holds the H1 + ~9KB
+  // prose ONLY for crawlers + screen readers — wrapped in an off-screen
+  // (clip-rect) container so sighted users see absolutely nothing from
+  // the static layer. No `hubChrome` is passed below either, so the
+  // sub-nav strip we previously emitted as a static sibling is gone.
+  // SEO content stays in DOM (Googlebot indexes it with the same weight
+  // as standard `<details>` accordion content per Search Central docs).
   const srOnlyStyle = 'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0';
-  const bodyHtml = `<div class="related-search-cluster" style="max-width:1100px;margin:0 auto;padding:0 16px 32px;color:var(--color-body)">
-    <h1 style="${srOnlyStyle}">${esc(headlineH1)}</h1>
+  const bodyHtml = `<div class="related-search-cluster" style="${srOnlyStyle}">
+    <h1>${esc(headlineH1)}</h1>
     ${seoContextBlock}
   </div>`;
 
@@ -674,11 +669,13 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
     jsonLdScripts,
     bodyHtml,
     distDir,
-    hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
+    // No hubChrome: the SPA renders its own sub-nav inside `#root`. A
+    // duplicate static sub-nav would render visually below the footer.
     // Opt OUT of `seo-static-content` lite-shell trigger so the SPA
     // hydrates `#root` and renders the working JobBoard search-query UI
     // (parseSearchSlugFilter populates the searchbar, JobBoard renders
-    // results, filters work). The static `<main>` below is crawler-only.
+    // results, filters work). The static `<main>` below is crawler-only
+    // and screen-reader-only via the off-screen wrapper above.
     seoMainClass: 'cluster-seo-prose',
   });
 
