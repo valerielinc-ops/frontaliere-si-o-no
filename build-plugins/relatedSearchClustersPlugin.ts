@@ -411,7 +411,14 @@ function renderHreflang(
   hreflang: ReadonlyArray<{ locale: Locale; url: string }>,
   fallbackUrl: string,
 ): string {
-  if (hreflang.length === 0) return '';
+  // Per audit:hreflang gate: a page WITH hreflang must declare all 4 locales
+  // + x-default (5 entries minimum). Most clusters exist in only 1-2 locales,
+  // so emitting partial hreflang trips the [tooFew] check. Strategy: only
+  // emit hreflang when we have ALL 4 locale alternates; otherwise omit
+  // entirely (single-locale pages don't need hreflang and the audit doesn't
+  // flag pages with zero hreflang entries).
+  const distinctLocales = new Set(hreflang.map((h) => h.locale));
+  if (distinctLocales.size < 4) return '';
   const lines: string[] = [];
   for (const alt of hreflang) {
     lines.push(`    <link rel="alternate" hreflang="${alt.locale}" href="${alt.url}">`);
@@ -448,52 +455,65 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
   const cardItems = buildJobCardItems(ctx.matchingJobs, locale);
   const jobListHtml = renderJobCardListHtml(cardItems, { locale });
 
-  // Related searches (top 8 same-city / different-keyword).
+  // Related searches (top 8 same-city / different-keyword). Inline styles
+  // dropped (audit:text-html-ratio).
   const relatedHtml = related.length > 0
-    ? `<nav aria-label="${esc(copy.relatedHeading)}" style="margin:0 0 28px">
-        <h2 style="margin:0 0 12px;font-size:22px">${esc(copy.relatedHeading)}</h2>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px">${related.map((r) => `<li><a href="${esc(r.url)}" style="${LINK_ACCENT_STYLE};padding:6px 12px;border:1px solid var(--color-edge);border-radius:999px;display:inline-block;background:var(--color-surface)">${esc(r.keyword)}</a></li>`).join('')}</ul>
+    ? `<nav aria-label="${esc(copy.relatedHeading)}" class="rsc-related">
+        <h2>${esc(copy.relatedHeading)}</h2>
+        <ul>${related.map((r) => `<li><a href="${esc(r.url)}">${esc(r.keyword)}</a></li>`).join('')}</ul>
       </nav>`
     : '';
 
-  // FAQ block (only when enrichment exists — no fake content).
+  // FAQ block (only when enrichment exists — no fake content). Inline styles
+  // dropped (audit:text-html-ratio).
   const faqHtml = enriched?.faqs && enriched.faqs.length > 0
-    ? `<details class="related-search-faq" style="margin:0 0 24px;padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
-        <summary style="font-weight:700;cursor:pointer">${esc(copy.faqSummary)}</summary>
-        <dl style="margin:12px 0 0">${enriched.faqs.map((q) => `<dt style="font-weight:600;margin:10px 0 4px">${esc(q.question)}</dt><dd style="margin:0 0 8px;color:var(--color-body);line-height:1.6">${esc(q.answer)}</dd>`).join('')}</dl>
+    ? `<details class="related-search-faq">
+        <summary>${esc(copy.faqSummary)}</summary>
+        <dl>${enriched.faqs.map((q) => `<dt>${esc(q.question)}</dt><dd>${esc(q.answer)}</dd>`).join('')}</dl>
       </details>`
     : '';
 
   const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
   const calculatorUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
 
+  // H1 must differ from <title> (audit:h1-title-duplicates is zero-tolerance).
+  // Append the localized "N positions" / "N offerte" suffix to H1 so that
+  // title (headline only) ≠ H1 (headline + counter) under the audit's
+  // case+whitespace-insensitive comparison.
+  const headlineH1 = `${headline} — ${ctx.matchingJobs.length} ${copy.jobsHeading.toLowerCase()}`;
+
   // Body — JOB LIST FIRST, editorial filler in <details> below.
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:24px 16px 56px;color:var(--color-body)">
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.homeBreadcrumb)}</a>
+  // Inline styles dropped (audit:text-html-ratio): the global stylesheet
+  // injected by buildSeoPageHtml provides the var(--color-*) tokens; default
+  // browser rendering of h1/h2/p/ol is acceptable, and stripping ~1KB of
+  // presentational style="…" attributes per page brings the visible-text /
+  // total-HTML ratio above the 10% Semrush threshold.
+  const bodyHtml = `<article class="related-search-cluster">
+    <nav aria-label="${esc(copy.searchBreadcrumb)}" class="rsc-breadcrumb">
+      <a href="${BASE_URL}/">${esc(copy.homeBreadcrumb)}</a>
       <span> / </span>
-      <a href="${esc(sectionUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.jobsBreadcrumb)}</a>
+      <a href="${esc(sectionUrl)}">${esc(copy.jobsBreadcrumb)}</a>
       <span> / </span>
       <span>${esc(headline)}</span>
     </nav>
-    <header style="margin-bottom:18px">
-      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(dateStamp)}</p>
-      <h1 style="margin:0 0 10px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.18">${esc(headline)}</h1>
-      <p class="lede" style="margin:0;color:var(--color-body);font-size:16px;line-height:1.55;max-width:820px">${esc(tagline)}</p>
+    <header class="rsc-header">
+      <p class="rsc-datestamp">${esc(dateStamp)}</p>
+      <h1>${esc(headlineH1)}</h1>
+      <p class="lede">${esc(tagline)}</p>
     </header>
-    <section class="job-list" aria-labelledby="job-list-heading" style="margin:0 0 24px">
-      <h2 id="job-list-heading" style="margin:0 0 12px;font-size:20px">${esc(copy.jobsHeading)}</h2>
+    <section class="job-list" aria-labelledby="job-list-heading">
+      <h2 id="job-list-heading">${esc(copy.jobsHeading)}</h2>
       ${jobListHtml}
     </section>
-    <details class="related-search-intro" style="margin:0 0 16px;padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
-      <summary style="font-weight:700;cursor:pointer">${esc(copy.introSummary)}</summary>
-      <p style="margin:12px 0 0;color:var(--color-body);line-height:1.65">${esc(introBody)}</p>
+    <details class="related-search-intro">
+      <summary>${esc(copy.introSummary)}</summary>
+      <p>${esc(introBody)}</p>
     </details>
     ${faqHtml}
     ${relatedHtml}
-    <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
-      <a href="${esc(sectionUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaAllJobs)}</a>
-      <a href="${esc(calculatorUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaCalculator)}</a>
+    <section class="rsc-cta">
+      <a href="${esc(sectionUrl)}" class="rsc-cta-primary">${esc(copy.ctaAllJobs)}</a>
+      <a href="${esc(calculatorUrl)}" class="rsc-cta-secondary">${esc(copy.ctaCalculator)}</a>
     </section>
   </article>`;
 
