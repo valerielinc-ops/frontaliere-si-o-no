@@ -6365,6 +6365,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tunesier-algerier-autoknacker-wuerenlos.title': 'Tunesier und Algerier wegen Autodiebstahl in Würenlos verhaftet',
     'blog.article.tunesier-algerier-autoknacker-wuerenlos.excerpt': 'Zwei Personen wurden wegen Autodiebstahl in Würenlos verhaftet. Erfahren Sie mehr über die Operation.',
     'blog.article.tunesier-algerier-autoknacker-wuerenlos.imageAlt': 'Autodiebstahl-Szene in Würenlos, Schweiz',
+    'blog.article.servizio-civile-errore-voto-2026.title': 'Zivilschutz: Fehler in den Abstimmungsinformationen',
+    'blog.article.servizio-civile-errore-voto-2026.excerpt': 'Ein Fehler im Informationsheft des Bundesrates für die Abstimmungen vom 14. Juni 2026 betrifft die Gesuche für den Zivildienst.',
+    'blog.article.servizio-civile-errore-voto-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

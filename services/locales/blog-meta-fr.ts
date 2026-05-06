@@ -6366,6 +6366,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tunesier-algerier-autoknacker-wuerenlos.title': 'Deux Tunisiens et Algériens arrêtés pour vols de voitures à Würenlos',
     'blog.article.tunesier-algerier-autoknacker-wuerenlos.excerpt': 'Deux individus ont été arrêtés pour vols de voitures à Würenlos. Découvrez les détails de l\'opération.',
     'blog.article.tunesier-algerier-autoknacker-wuerenlos.imageAlt': 'Scène de vol de voiture à Würenlos, Suisse',
+    'blog.article.servizio-civile-errore-voto-2026.title': 'Service civil: erreur dans les explications de vote',
+    'blog.article.servizio-civile-errore-voto-2026.excerpt': 'Une erreur dans le dépliant informatif du Conseil fédéral pour les votations du 14 juin 2026 concerne les demandes d\'admission au service civil.',
+    'blog.article.servizio-civile-errore-voto-2026.imageAlt': 'Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;

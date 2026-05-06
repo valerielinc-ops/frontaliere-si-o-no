@@ -20468,4 +20468,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'servizio-civile-errore-voto-2026',
+ category: 'novita',
+ date: '2026-05-06T07:38:13.706Z',
+ image: '/images/blog/servizio-civile-errore-voto-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

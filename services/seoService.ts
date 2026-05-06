@@ -3364,6 +3364,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nomine-meloni-consob-antitrust-2026': { name: 'Novità', path: '/articoli-frontaliere/nomine-meloni-consob-antitrust-2026', parent: 'blog' },
     'blog-crociere-ticino-rodano-senna-2026': { name: 'Viaggi & Turismo', path: '/articoli-frontaliere/crociere-ticino-rodano-senna-2026', parent: 'blog' },
     'blog-tunesier-algerier-autoknacker-wuerenlos': { name: 'Novità', path: '/articoli-frontaliere/tunesier-algerier-autoknacker-wuerenlos', parent: 'blog' },
+    'blog-servizio-civile-errore-voto-2026': { name: 'Servizio civile', path: '/articoli-frontaliere/servizio-civile-errore-voto-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
