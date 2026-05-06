@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rapelli",
-  "assembledAt": "2026-05-06T11:31:35.365Z",
+  "assembledAt": "2026-05-06T22:32:05.245Z",
   "jobs": [
     {
       "id": "rapelli-37006691a463",
@@ -43,7 +43,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Controller-junior%2C-100-TI/1373974233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T11:31:33.209Z",
+      "crawledAt": "2026-05-06T22:32:03.318Z",
       "previousSlugs": [
         "controller-100-rapelli-stabio"
       ],
@@ -53,6 +53,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T22:23:55.679Z",
+      "needsRetranslation": true,
       "salaryMin": 42640,
       "salaryMax": 54000,
       "baseSalary": {
@@ -108,12 +109,13 @@
       "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T11:31:32.847Z",
+      "crawledAt": "2026-05-06T22:32:03.061Z",
       "previousSlugs": [
         "buyer-ingredienti-trade-100-rapelli-orior-food-ag-stabio",
         "ingredienti-d-acquisto-e-commercio-100-rapelli-orior-food-ag-stabio"
       ],
       "firstSeenAt": "2026-04-13T11:08:41.140Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -169,7 +171,7 @@
       "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T11:31:32.500Z",
+      "crawledAt": "2026-05-06T22:32:02.803Z",
       "previousSlugs": [
         "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
         "manutentore-maintenance-technician-100-rapelli-orior-food-ag-stabio"
@@ -180,6 +182,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:41.714Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -235,7 +238,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare%2C-100-TI/1375846933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T11:31:32.188Z",
+      "crawledAt": "2026-05-06T22:32:02.551Z",
       "previousSlugs": [
         "tecnologia-alimentare-100-rapelli-orior-food-ag-stabio",
         "tecnologo-alimentare-100-rapelli-orior-food-ag-stabio"
@@ -256,6 +259,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:41.972Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -311,7 +315,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T11:31:31.821Z",
+      "crawledAt": "2026-05-06T22:32:02.297Z",
       "previousSlugs": [
         "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio"
       ],
@@ -385,7 +389,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T11:31:31.490Z",
+      "crawledAt": "2026-05-06T22:32:02.042Z",
       "previousSlugs": [
         "chaine-d-approvisionnement-planner-100-rapelli-orior-food-ag-stabio",
         "pianificatore-della-supply-chain-al-100-rapelli-orior-food-ag-stabio",
@@ -407,6 +411,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:08:41.431Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -462,7 +467,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Chief-Financial-Officer%2C-100-%28mwd%29-TI/1386501233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T11:31:30.889Z",
+      "crawledAt": "2026-05-06T22:32:01.761Z",
       "firstSeenAt": "2026-04-22T22:15:54.204Z",
       "salaryMin": 98000,
       "salaryMax": 132000,
@@ -519,8 +524,9 @@
       "url": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T11:31:30.549Z",
+      "crawledAt": "2026-05-06T22:32:01.505Z",
       "firstSeenAt": "2026-05-04T11:27:16.075Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -536,33 +542,35 @@
       "postalCode": "6855"
     },
     {
-      "id": "rapelli-cdc8de86cdd6",
-      "slug": "collaboratore-spedizione-100-rapelli-stabio",
+      "id": "rapelli-7cba533711b8",
+      "slug": "collaboratrice-collaboratore-spedizione-100-rapelli-stabio",
       "slugByLocale": {
-        "it": "collaboratore-spedizione-100-rapelli-stabio",
-        "en": "shipping-collaborator-100-rapelli-orior-food-ag-stabio",
-        "de": "versandmitarbeiter-100-rapelli-orior-food-ag-stabio",
-        "fr": "collaborateur-livraison-100-rapelli-orior-food-ag-stabio"
+        "it": "collaboratrice-collaboratore-spedizione-100-rapelli-stabio",
+        "en": "collaboratore-spedizione-100-rapelli-stabio",
+        "de": "collaboratore-spedizione-100-rapelli-stabio",
+        "fr": "collaboratore-spedizione-100-rapelli-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
       "companyDomain": "rapelli.ch",
-      "title": "Collaboratore Spedizione, 100%",
+      "title": "Collaboratrice/collaboratore Spedizione, 100%",
       "titleByLocale": {
-        "it": "Collaboratore Spedizione, 100%",
-        "en": "Shipping Collaborator, 100%",
-        "de": "Versandmitarbeiter, 100%",
-        "fr": "Collaborateur Livraison, 100%"
+        "it": "Collaboratrice/collaboratore Spedizione, 100%",
+        "en": "Collaboratrice/collaboratore Spedizione, 100%",
+        "de": "Collaboratrice/collaboratore Spedizione, 100%",
+        "fr": "Collaboratrice/collaboratore Spedizione, 100%"
       },
-      "description": "Responsabilità \n\n \n \n\n \n \n\n• Eseguire attività di picking, etichettatura e movimentazione casse e cartoni \n \n\n• Eseguire attività di controllo sui processi \n \n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare \n \n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali \n \n\n• Lavorare su due turni in ambiente a temperatura controllata \n \n\n• Disponibilità ad adattamento ad alti carichi lavorativi \n \n \n \n\n \n \n\n \n Competenze \n\n \n \n\n \n \n\n• Esperienza, anche breve, in contesto industriale/produttivo \n \n\n• Esperienza in logistica \n \n\n• Capacità di seguire istruzioni operative e procedure definite \n \n\n• Ottima autonomia nello svolgimento delle attività assegnate \n \n\n• Patente del muletto svizzera (plus) \n \n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie \n \n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di logistica \n \n \n \n\n \n \n\n \n Sede di lavoro: Stabio (Ticino, Svizzera) \n\n \n \n\n \n \n\n \n Le candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi. \n\n \n \n\n \n \n\n \n Saranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti .",
+      "description": "Rapelli, azienda storica della salumeria ticinese dal 1929 e parte del Gruppo ORIOR, rafforza il proprio team Finance presso la sede di Stabio .Per sostenere lo sviluppo e il monitoraggio delle performance aziendali, siamo alla ricerca di un/una Business Controller con solida esperienza in controllo di gestione e analisi finanziaria in contesti industriali .Il ruolo offre un’interessante opportunità di collaborazione diretta con il management locale e il Controlling di Gruppo, contribuendo al supporto decisionale e all’ottimizzazione dei processi aziendali.\n\n \n \n\n \n Cerchiamo, con inizio immediato o da concordare, per il nostro team di spedizione una/un\n\n \n \n Collaboratrice/collaboratore Spedizione, 100% \n\n \n \n\n \n Responsabilità \n\n \n \n\n• Eseguire attività di picking, etichettatura e movimentazione casse e cartoni\n \n\n• Eseguire attività di controllo sui processi\n \n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare\n \n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali\n \n\n• Lavorare su due turni in ambiente a temperatura controllata\n \n\n• Disponibilità ad adattamento ad alti carichi lavorativi\n \n \n \n Competenze \n\n \n \n\n• Esperienza, anche breve, in contesto industriale/produttivo\n \n\n• Esperienza in logistica\n \n\n• Capacità di seguire istruzioni operative e procedure definite\n \n\n• Ottima autonomia nello svolgimento delle attività assegnate\n \n\n• Patente del muletto svizzera (plus)\n \n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie\n \n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di logistica\n \n \n \n Offriamo \nDa Rapelli ti aspetta un ambiente di lavoro moderno e piacevole, caratterizzato da una cultura aziendale cordiale e rispettosa. La nostra caffetteria interna offre ogni giorno un'ampia scelta di menù freschi e caffè appena preparato dal barista. Inoltre, potrai beneficiare di interessanti sconti sui prodotti del nostro assortimento. Grazie alla stazione ferroviaria di Stabio, situata proprio accanto allo stabile, siamo facilmente raggiungibili; inoltre, incoraggiamo il car pooling per facilitare gli spostamenti casa-lavoro. Ti aspetta un ambiente dinamico con team motivati, in cui la collaborazione e il benessere sono al primo posto.\n\n \n \nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\n \n \nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
       "descriptionByLocale": {
-        "it": "Responsabilità • Eseguire attività di picking, etichettatura e movimentazione casse e cartoni • Eseguire attività di controllo sui processi • Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare • Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali • Lavorare su due turni in ambiente a temperatura controllata • Disponibilità ad adattamento ad alti carichi lavorativi ## Competenze • Esperienza, anche breve, in contesto industriale/produttivo • Esperienza in logistica • Capacità di seguire istruzioni operative e procedure definite • Ottima autonomia nello svolgimento delle attività assegnate • Patente del muletto svizzera (plus) • Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie • Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di logistica ## Sede di lavoro: Stabio (Ticino, Svizzera) Le candidature possono essere inviate tramite il link “",
-        "en": "Responsibility • Perform picking, labelling and handling cases and cartons • Perform process control • Ensuring compliance with the high standards of hygiene, quality and safety provided in the food plant • Reporting anomalies, non-compliance or need for intervention to the supervisor, operating in compliance with company procedures • Working on two shifts at controlled temperature • Availability to adapt to high working loads ## Competenze • Experience, also short Stabio (Ticino, Switzerland) Applications can be sent via the link “",
-        "de": "• Durchführung von Kommissionier-, Etikettier- und Handhabungsfällen und -kartons • Durchführung der Prozesskontrolle • Sicherstellung der Einhaltung der hohen Hygiene-, Qualitäts- und Sicherheitsstandards in der Lebensmittelfabrik • Meldung von Anomalien, Nichteinhaltung oder Interventionsbedarf an den Vorgesetzten, die in Übereinstimmung mit den Betriebsverfahren tätig sind • Arbeiten an zwei Schichten bei kontrollierter Temperatur • Verfügbarkeit an hohe Arbeitsbelastungen",
-        "fr": "Responsabilité • Effectuer la cueillette, l'étiquetage et la manipulation des caisses et des cartons • Effectuer le contrôle des procédés • Assurer le respect des normes élevées d'hygiène, de qualité et de sécurité prévues dans l'usine alimentaire • Signaler les anomalies, la non-conformité ou la nécessité d'intervenir auprès du superviseur, dans le respect des procédures de l'entreprise • Travailler sur deux postes à température contrôlée • Disponibilité pour s'adapter aux charges de travail élevées ## Competenze • Expérience, aussi courte Stabio (Ticino, Suisse) Les applications peuvent être envoyées via le lien -"
+        "it": "Rapelli, azienda storica della salumeria ticinese dal 1929 e parte del Gruppo ORIOR, rafforza il proprio team Finance presso la sede di Stabio .Per sostenere lo sviluppo e il monitoraggio delle performance aziendali, siamo alla ricerca di un/una Business Controller con solida esperienza in controllo di gestione e analisi finanziaria in contesti industriali .Il ruolo offre un’interessante opportunità di collaborazione diretta con il management locale e il Controlling di Gruppo, contribuendo al supporto decisionale e all’ottimizzazione dei processi aziendali.\n\n \n \n\n \n Cerchiamo, con inizio immediato o da concordare, per il nostro team di spedizione una/un\n\n \n \n Collaboratrice/collaboratore Spedizione, 100% \n\n \n \n\n \n Responsabilità \n\n \n \n\n• Eseguire attività di picking, etichettatura e movimentazione casse e cartoni\n \n\n• Eseguire attività di controllo sui processi\n \n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare\n \n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali\n \n\n• Lavorare su due turni in ambiente a temperatura controllata\n \n\n• Disponibilità ad adattamento ad alti carichi lavorativi\n \n \n \n Competenze \n\n \n \n\n• Esperienza, anche breve, in contesto industriale/produttivo\n \n\n• Esperienza in logistica\n \n\n• Capacità di seguire istruzioni operative e procedure definite\n \n\n• Ottima autonomia nello svolgimento delle attività assegnate\n \n\n• Patente del muletto svizzera (plus)\n \n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie\n \n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di logistica\n \n \n \n Offriamo \nDa Rapelli ti aspetta un ambiente di lavoro moderno e piacevole, caratterizzato da una cultura aziendale cordiale e rispettosa. La nostra caffetteria interna offre ogni giorno un'ampia scelta di menù freschi e caffè appena preparato dal barista. Inoltre, potrai beneficiare di interessanti sconti sui prodotti del nostro assortimento. Grazie alla stazione ferroviaria di Stabio, situata proprio accanto allo stabile, siamo facilmente raggiungibili; inoltre, incoraggiamo il car pooling per facilitare gli spostamenti casa-lavoro. Ti aspetta un ambiente dinamico con team motivati, in cui la collaborazione e il benessere sono al primo posto.\n\n \n \nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\n \n \nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
+        "en": "Rapelli, azienda storica della salumeria ticinese dal 1929 e parte del Gruppo ORIOR, rafforza il proprio team Finance presso la sede di Stabio .Per sostenere lo sviluppo e il monitoraggio delle performance aziendali, siamo alla ricerca di un/una Business Controller con solida esperienza in controllo di gestione e analisi finanziaria in contesti industriali .Il ruolo offre un’interessante opportunità di collaborazione diretta con il management locale e il Controlling di Gruppo, contribuendo al supporto decisionale e all’ottimizzazione dei processi aziendali.\n\n \n \n\n \n Cerchiamo, con inizio immediato o da concordare, per il nostro team di spedizione una/un\n\n \n \n Collaboratrice/collaboratore Spedizione, 100% \n\n \n \n\n \n Responsabilità \n\n \n \n\n• Eseguire attività di picking, etichettatura e movimentazione casse e cartoni\n \n\n• Eseguire attività di controllo sui processi\n \n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare\n \n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali\n \n\n• Lavorare su due turni in ambiente a temperatura controllata\n \n\n• Disponibilità ad adattamento ad alti carichi lavorativi\n \n \n \n Competenze \n\n \n \n\n• Esperienza, anche breve, in contesto industriale/produttivo\n \n\n• Esperienza in logistica\n \n\n• Capacità di seguire istruzioni operative e procedure definite\n \n\n• Ottima autonomia nello svolgimento delle attività assegnate\n \n\n• Patente del muletto svizzera (plus)\n \n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie\n \n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di logistica\n \n \n \n Offriamo \nDa Rapelli ti aspetta un ambiente di lavoro moderno e piacevole, caratterizzato da una cultura aziendale cordiale e rispettosa. La nostra caffetteria interna offre ogni giorno un'ampia scelta di menù freschi e caffè appena preparato dal barista. Inoltre, potrai beneficiare di interessanti sconti sui prodotti del nostro assortimento. Grazie alla stazione ferroviaria di Stabio, situata proprio accanto allo stabile, siamo facilmente raggiungibili; inoltre, incoraggiamo il car pooling per facilitare gli spostamenti casa-lavoro. Ti aspetta un ambiente dinamico con team motivati, in cui la collaborazione e il benessere sono al primo posto.\n\n \n \nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\n \n \nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
+        "de": "Rapelli, azienda storica della salumeria ticinese dal 1929 e parte del Gruppo ORIOR, rafforza il proprio team Finance presso la sede di Stabio .Per sostenere lo sviluppo e il monitoraggio delle performance aziendali, siamo alla ricerca di un/una Business Controller con solida esperienza in controllo di gestione e analisi finanziaria in contesti industriali .Il ruolo offre un’interessante opportunità di collaborazione diretta con il management locale e il Controlling di Gruppo, contribuendo al supporto decisionale e all’ottimizzazione dei processi aziendali.\n\n \n \n\n \n Cerchiamo, con inizio immediato o da concordare, per il nostro team di spedizione una/un\n\n \n \n Collaboratrice/collaboratore Spedizione, 100% \n\n \n \n\n \n Responsabilità \n\n \n \n\n• Eseguire attività di picking, etichettatura e movimentazione casse e cartoni\n \n\n• Eseguire attività di controllo sui processi\n \n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare\n \n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali\n \n\n• Lavorare su due turni in ambiente a temperatura controllata\n \n\n• Disponibilità ad adattamento ad alti carichi lavorativi\n \n \n \n Competenze \n\n \n \n\n• Esperienza, anche breve, in contesto industriale/produttivo\n \n\n• Esperienza in logistica\n \n\n• Capacità di seguire istruzioni operative e procedure definite\n \n\n• Ottima autonomia nello svolgimento delle attività assegnate\n \n\n• Patente del muletto svizzera (plus)\n \n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie\n \n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di logistica\n \n \n \n Offriamo \nDa Rapelli ti aspetta un ambiente di lavoro moderno e piacevole, caratterizzato da una cultura aziendale cordiale e rispettosa. La nostra caffetteria interna offre ogni giorno un'ampia scelta di menù freschi e caffè appena preparato dal barista. Inoltre, potrai beneficiare di interessanti sconti sui prodotti del nostro assortimento. Grazie alla stazione ferroviaria di Stabio, situata proprio accanto allo stabile, siamo facilmente raggiungibili; inoltre, incoraggiamo il car pooling per facilitare gli spostamenti casa-lavoro. Ti aspetta un ambiente dinamico con team motivati, in cui la collaborazione e il benessere sono al primo posto.\n\n \n \nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\n \n \nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
+        "fr": "Rapelli, azienda storica della salumeria ticinese dal 1929 e parte del Gruppo ORIOR, rafforza il proprio team Finance presso la sede di Stabio .Per sostenere lo sviluppo e il monitoraggio delle performance aziendali, siamo alla ricerca di un/una Business Controller con solida esperienza in controllo di gestione e analisi finanziaria in contesti industriali .Il ruolo offre un’interessante opportunità di collaborazione diretta con il management locale e il Controlling di Gruppo, contribuendo al supporto decisionale e all’ottimizzazione dei processi aziendali.\n\n \n \n\n \n Cerchiamo, con inizio immediato o da concordare, per il nostro team di spedizione una/un\n\n \n \n Collaboratrice/collaboratore Spedizione, 100% \n\n \n \n\n \n Responsabilità \n\n \n \n\n• Eseguire attività di picking, etichettatura e movimentazione casse e cartoni\n \n\n• Eseguire attività di controllo sui processi\n \n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare\n \n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali\n \n\n• Lavorare su due turni in ambiente a temperatura controllata\n \n\n• Disponibilità ad adattamento ad alti carichi lavorativi\n \n \n \n Competenze \n\n \n \n\n• Esperienza, anche breve, in contesto industriale/produttivo\n \n\n• Esperienza in logistica\n \n\n• Capacità di seguire istruzioni operative e procedure definite\n \n\n• Ottima autonomia nello svolgimento delle attività assegnate\n \n\n• Patente del muletto svizzera (plus)\n \n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie\n \n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di logistica\n \n \n \n Offriamo \nDa Rapelli ti aspetta un ambiente di lavoro moderno e piacevole, caratterizzato da una cultura aziendale cordiale e rispettosa. La nostra caffetteria interna offre ogni giorno un'ampia scelta di menù freschi e caffè appena preparato dal barista. Inoltre, potrai beneficiare di interessanti sconti sui prodotti del nostro assortimento. Grazie alla stazione ferroviaria di Stabio, situata proprio accanto allo stabile, siamo facilmente raggiungibili; inoltre, incoraggiamo il car pooling per facilitare gli spostamenti casa-lavoro. Ti aspetta un ambiente dinamico con team motivati, in cui la collaborazione e il benessere sono al primo posto.\n\n \n \nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\n \n \nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti."
       },
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "it": []
+      },
       "location": "Stabio",
       "canton": "TI",
       "addressLocality": "Stabio",
@@ -572,12 +580,20 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-05",
-      "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Spedizione%2C-100-TI/1390401733/",
+      "postedDate": "2026-05-06",
+      "url": "https://careers.orior.ch/job/Stabio-Collaboratricecollaboratore-Spedizione%2C-100-TI/1390401733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T11:31:30.163Z",
-      "firstSeenAt": "2026-05-05T22:23:53.593Z",
+      "crawledAt": "2026-05-06T22:32:01.168Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-spedizione-100-rapelli-stabio"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratore-spedizione-100-rapelli-stabio"
+      ],
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -590,7 +606,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6855"
+      "postalCode": "6855",
+      "firstSeenAt": "2026-05-06T22:32:01.168Z"
     }
   ]
 }
