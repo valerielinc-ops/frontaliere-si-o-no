@@ -20963,4 +20963,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'alessandro-logistica-swissskills-2025',
+ category: 'novita',
+ date: '2026-05-06T15:51:16.587Z',
+ image: '/images/blog/alessandro-logistica-swissskills-2025.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

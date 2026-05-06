@@ -6530,6 +6530,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuova-vita-albergo-corecco-quinto.title': 'Neues Leben für das ehemalige Hotel Corecco in Quinto',
     'blog.article.nuova-vita-albergo-corecco-quinto.excerpt': 'Rettung und Aufwertung des ehemaligen Hotels Corecco in Lurengo, Quinto, mit der Schaffung einer Wellnesseinrichtung.',
     'blog.article.nuova-vita-albergo-corecco-quinto.imageAlt': 'Panoramablick auf das ehemalige Albergo Corecco in Lurengo, Quinto, Tessin',
+    'blog.article.alessandro-logistica-swissskills-2025.title': 'Von der Logistik zu SwissSkills 2025: Alessandro\'s Weg',
+    'blog.article.alessandro-logistica-swissskills-2025.excerpt': 'Entdecken Sie die berufliche und schulische Reise von Alessandro, einem 19-jährigen Logistikmitarbeiter am Cardiocentro in Lugano und Teilnehmer der SwissSkills 2025.',
+    'blog.article.alessandro-logistica-swissskills-2025.imageAlt': 'Alessandro arbeitet in der Logistikabteilung des Cardiocenters in Lugano',
 };
 
 export default blogMetaDe;

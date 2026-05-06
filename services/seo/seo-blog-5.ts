@@ -23788,6 +23788,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-alessandro-logistica-swissskills-2025': {
+    title: 'Dalla logistica agli SwissSkills 2025: il percorso di Alessandro',
+    description: 'Scopri il viaggio lavorativo e di studio di Alessandro, 19enne impiegato in logistica al Cardiocentro di Lugano e partecipante agli SwissSkills 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dalla, logistica, agli, swissskills',
+    ogTitle: 'Dalla logistica agli SwissSkills 2025: il percorso di Alessandro',
+    ogDescription: 'Scopri il viaggio lavorativo e di studio di Alessandro, 19enne impiegato in logistica al Cardiocentro di Lugano e partecipante agli SwissSkills 2025.',
+    canonicalPath: '/articoli-frontaliere/alessandro-logistica-swissskills-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dalla logistica agli SwissSkills 2025: il percorso di Alessandro",
+      "description": "Scopri il viaggio lavorativo e di studio di Alessandro, 19enne impiegato in logistica al Cardiocentro di Lugano e partecipante agli SwissSkills 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/alessandro-logistica-swissskills-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Alessandro al lavoro nel reparto logistica del Cardiocentro di Lugano"
+      },
+      "datePublished": "2026-05-06T15:51:16+00:00",
+      "dateModified": "2026-05-06T15:51:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/alessandro-logistica-swissskills-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
