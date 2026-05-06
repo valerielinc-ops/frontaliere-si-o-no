@@ -6375,6 +6375,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-chiasso-franscini-2026.title': 'Travaux à Chiasso: nouvelles fermetures en via Franscini',
     'blog.article.lavori-chiasso-franscini-2026.excerpt': 'À partir du lundi 11 mai, fermeture partielle en via Franscini, détours pour voitures et transports publics, durée estimée 4 semaines.',
     'blog.article.lavori-chiasso-franscini-2026.imageAlt': 'Chantier à Chiasso, quartier Franscini avec déviations routières',
+    'blog.article.posta-castel-san-pietro-negozio-alimentari.title': 'La Poste déménage au magasin d\'alimentation à Castel San Pietro',
+    'blog.article.posta-castel-san-pietro-negozio-alimentari.excerpt': 'À partir du 8 juin, les services postaux seront hébergés au magasin d\'alimentation à Largo Bernasconi. Horaires étendus et services à domicile.',
+    'blog.article.posta-castel-san-pietro-negozio-alimentari.imageAlt': 'Épicerie à Castel San Pietro avec service postal',
 };
 
 export default blogMetaFr;

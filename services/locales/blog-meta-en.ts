@@ -6374,6 +6374,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-chiasso-franscini-2026.title': 'Roadworks in Chiasso: new closures on Via Franscini',
     'blog.article.lavori-chiasso-franscini-2026.excerpt': 'Partial closure on Via Franscini starting Monday, May 11th. Detours for cars and public transport. Estimated duration: 4 weeks.',
     'blog.article.lavori-chiasso-franscini-2026.imageAlt': 'Construction site in Chiasso, Franscini area with traffic detours',
+    'blog.article.posta-castel-san-pietro-negozio-alimentari.title': 'Swiss Post moves to Castel San Pietro grocery store',
+    'blog.article.posta-castel-san-pietro-negozio-alimentari.excerpt': 'Starting June 8th, postal services will be available at the grocery store in Largo Bernasconi. Extended hours and home delivery services.',
+    'blog.article.posta-castel-san-pietro-negozio-alimentari.imageAlt': 'Grocery store in Castel San Pietro with postal service',
 };
 
 export default blogMetaEn;

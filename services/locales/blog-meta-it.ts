@@ -6375,6 +6375,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-chiasso-franscini-2026.title': 'Lavori a Chiasso: nuove chiusure in via Franscini',
     'blog.article.lavori-chiasso-franscini-2026.excerpt': 'Da lunedì 11 maggio chiusura parziale in via Franscini, deviazioni per auto e mezzi pubblici, durata stimata 4 settimane.',
     'blog.article.lavori-chiasso-franscini-2026.imageAlt': 'Cantiere a Chiasso nel comparto Franscini con deviazioni viarie',
+    'blog.article.posta-castel-san-pietro-negozio-alimentari.title': 'La Posta si trasferisce al negozio di alimentari a Castel San Pietro',
+    'blog.article.posta-castel-san-pietro-negozio-alimentari.excerpt': 'A partire dall\'8 giugno, i servizi postali saranno ospitati presso il negozio di alimentari in Largo Bernasconi. Orari estesi e servizi a domicilio.',
+    'blog.article.posta-castel-san-pietro-negozio-alimentari.imageAlt': 'Negozio di alimentari a Castel San Pietro con servizio postale',
 };
 
 export default blogMetaIt;

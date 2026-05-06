@@ -20495,4 +20495,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'posta-castel-san-pietro-negozio-alimentari',
+ category: 'novita',
+ date: '2026-05-06T08:26:35.441Z',
+ image: '/images/blog/posta-castel-san-pietro-negozio-alimentari.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

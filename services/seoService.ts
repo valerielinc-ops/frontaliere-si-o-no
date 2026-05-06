@@ -3367,6 +3367,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-servizio-civile-errore-voto-2026': { name: 'Servizio civile', path: '/articoli-frontaliere/servizio-civile-errore-voto-2026', parent: 'blog' },
     'blog-parita-salariale-ticino-2026': { name: 'Parità salariale', path: '/articoli-frontaliere/parita-salariale-ticino-2026', parent: 'blog' },
     'blog-lavori-chiasso-franscini-2026': { name: 'Lavori a Chiasso', path: '/articoli-frontaliere/lavori-chiasso-franscini-2026', parent: 'blog' },
+    'blog-posta-castel-san-pietro-negozio-alimentari': { name: 'Novità', path: '/articoli-frontaliere/posta-castel-san-pietro-negozio-alimentari', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2177,
+ "numberOfItems": 2178,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6819,7 +6819,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2174, "name": "Tunisini e algerini arrestati per furti d'auto ...", "url": `${BASE_URL}/articoli-frontaliere/tunesier-algerier-autoknacker-wuerenlos` },
           { "@type": "ListItem", "position": 2175, "name": "Servizio civile: errore nelle spiegazioni di voto", "url": `${BASE_URL}/articoli-frontaliere/servizio-civile-errore-voto-2026` },
           { "@type": "ListItem", "position": 2176, "name": "Parità salariale in Ticino: ancora un traguardo...", "url": `${BASE_URL}/articoli-frontaliere/parita-salariale-ticino-2026` },
-          { "@type": "ListItem", "position": 2177, "name": "Lavori a Chiasso: nuove chiusure in via Franscini", "url": `${BASE_URL}/articoli-frontaliere/lavori-chiasso-franscini-2026` }
+          { "@type": "ListItem", "position": 2177, "name": "Lavori a Chiasso: nuove chiusure in via Franscini", "url": `${BASE_URL}/articoli-frontaliere/lavori-chiasso-franscini-2026` },
+          { "@type": "ListItem", "position": 2178, "name": "La Posta si trasferisce al negozio di alimentar...", "url": `${BASE_URL}/articoli-frontaliere/posta-castel-san-pietro-negozio-alimentari` }
  ]
  },
  {

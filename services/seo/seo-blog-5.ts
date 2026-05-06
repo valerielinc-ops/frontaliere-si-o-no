@@ -21812,6 +21812,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-posta-castel-san-pietro-negozio-alimentari': {
+    title: 'La Posta si trasferisce al negozio di alimentari a Castel San Pietro',
+    description: 'A partire dall\'8 giugno, i servizi postali saranno ospitati presso il negozio di alimentari in Largo Bernasconi. Orari estesi e servizi a domicilio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, posta, trasferisce, negozio, alimentari',
+    ogTitle: 'La Posta si trasferisce al negozio di alimentari a Castel San Pietro',
+    ogDescription: 'A partire dall\'8 giugno, i servizi postali saranno ospitati presso il negozio di alimentari in Largo Bernasconi. Orari estesi e servizi a domicilio.',
+    canonicalPath: '/articoli-frontaliere/posta-castel-san-pietro-negozio-alimentari',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Posta si trasferisce al negozio di alimentari a Castel San Pietro",
+      "description": "A partire dall'8 giugno, i servizi postali saranno ospitati presso il negozio di alimentari in Largo Bernasconi. Orari estesi e servizi a domicilio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/posta-castel-san-pietro-negozio-alimentari.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Negozio di alimentari a Castel San Pietro con servizio postale"
+      },
+      "datePublished": "2026-05-06T08:26:35+00:00",
+      "dateModified": "2026-05-06T08:26:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/posta-castel-san-pietro-negozio-alimentari`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
