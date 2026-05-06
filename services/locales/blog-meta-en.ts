@@ -6572,6 +6572,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.case-lusso-svizzera-2026.title': 'Luxury homes in Switzerland: prices still high but trend slowing',
     'blog.article.case-lusso-svizzera-2026.excerpt': 'Prices of luxury real estate in Switzerland rose by 3% in 2025, but the market shows signs of weakening. Here\'s what changes for cross-border workers.',
     'blog.article.case-lusso-svizzera-2026.imageAlt': 'Luxury villa on Lake Lugano with mountain view',
+    'blog.article.chiasso-conti-2025-disavanzo-avanzo.title': 'Chiasso 2025: reduced deficit and exceptional surplus',
+    'blog.article.chiasso-conti-2025-disavanzo-avanzo.excerpt': 'Chiasso\'s 2025 accounts show a reduced ordinary deficit of 2.8 million and an exceptional surplus of 23.1 million thanks to revaluations',
+    'blog.article.chiasso-conti-2025-disavanzo-avanzo.imageAlt': 'Aerial view of Chiasso, Switzerland, with the Italian border and urban landscape',
 };
 
 export default blogMetaEn;

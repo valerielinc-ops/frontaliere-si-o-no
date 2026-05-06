@@ -6573,6 +6573,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.case-lusso-svizzera-2026.title': 'Maisons de luxe en Suisse: prix élevés mais tendance en ralentissement',
     'blog.article.case-lusso-svizzera-2026.excerpt': 'Les prix des biens immobiliers de luxe en Suisse ont augmenté de 3% en 2025, mais le marché montre des signes de faiblesse. Voici ce qui change pour les frontaliers.',
     'blog.article.case-lusso-svizzera-2026.imageAlt': 'Villa de luxe sur le lac de Lugano avec vue sur les montagnes',
+    'blog.article.chiasso-conti-2025-disavanzo-avanzo.title': 'Chiasso 2025 : déficit réduit et excédent exceptionnel',
+    'blog.article.chiasso-conti-2025-disavanzo-avanzo.excerpt': 'Les comptes 2025 de Chiasso montrent un déficit ordinaire réduit à 2,8 millions et un excédent exceptionnel de 23,1 millions grâce à des réévaluations',
+    'blog.article.chiasso-conti-2025-disavanzo-avanzo.imageAlt': 'Vue aérienne de Chiasso, Suisse, avec la frontière italienne et le paysage urbain',
 };
 
 export default blogMetaFr;

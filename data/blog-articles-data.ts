@@ -21089,4 +21089,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'chiasso-conti-2025-disavanzo-avanzo',
+ category: 'fiscale',
+ date: '2026-05-06T23:23:36.464Z',
+ image: '/images/blog/chiasso-conti-2025-disavanzo-avanzo.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

@@ -24320,6 +24320,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-conti-2025-disavanzo-avanzo': {
+    title: 'Chiasso 2025: disavanzo ordinario ridotto e avanzo eccezionale',
+    description: 'I conti 2025 di Chiasso mostrano un disavanzo ordinario ridotto a 2,8 milioni e un avanzo eccezionale di 23,1 milioni grazie a rivalutazioni. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, 2025, disavanzo, ordinario',
+    ogTitle: 'Chiasso 2025: disavanzo ordinario ridotto e avanzo eccezionale',
+    ogDescription: 'I conti 2025 di Chiasso mostrano un disavanzo ordinario ridotto a 2,8 milioni e un avanzo eccezionale di 23,1 milioni grazie a rivalutazioni',
+    canonicalPath: '/articoli-frontaliere/chiasso-conti-2025-disavanzo-avanzo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso 2025: disavanzo ordinario ridotto e avanzo eccezionale",
+      "description": "I conti 2025 di Chiasso mostrano un disavanzo ordinario ridotto a 2,8 milioni e un avanzo eccezionale di 23,1 milioni grazie a rivalutazioni. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/chiasso-conti-2025-disavanzo-avanzo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Chiasso, Svizzera, con il confine con l'Italia e il paesaggio urbano"
+      },
+      "datePublished": "2026-05-06T23:23:36+00:00",
+      "dateModified": "2026-05-06T23:23:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-conti-2025-disavanzo-avanzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
