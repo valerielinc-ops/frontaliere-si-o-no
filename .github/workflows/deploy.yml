@@ -50,17 +50,12 @@ on:
         default: false
 
 permissions:
-  # build-and-deploy itself only uploads artifacts and publishes to Pages.
-  # The wider scopes here are caps for the reusable post-deploy-validate job
-  # called below as `needs: build-and-deploy`:
-  #   - contents: write — sync previous-slug-winners commit/push
-  #   - actions:  read  — download github-pages / winners / snapshot artifacts
-  # The build-and-deploy job inherits them but does not exercise the extra
-  # write/read capabilities; only the post-deploy validate/rollback jobs do.
-  contents: write
+  # This workflow only needs repository read access: the previous-slug winners
+  # sync moved to post-deploy-validation.yml, while the deploy itself only
+  # uploads artifacts and publishes to GitHub Pages.
+  contents: read
   pages: write
   id-token: write
-  actions: read
 
 concurrency:
   # GitHub Pages allows only one active deployment at a time. Every trigger —
@@ -532,28 +527,3 @@ jobs:
             --priority 1 \
             --label Bug \
             --workflow "${{ github.workflow }}"
-
-  # Post-deploy validation runs as a reusable workflow in the SAME run as the
-  # deploy. This makes `github.sha` invariant (no more workflow_run.head_sha
-  # drift — see commit 53cf789d94 for the regression that motivated it) and
-  # any cancellation of the deploy propagates automatically without spawning
-  # an orphan post-deploy that has to be cancelled by a sibling concurrency
-  # group.
-  #
-  # Skipped on profile-only investigation runs (build-only, no Pages artifact).
-  # On deploy failure, this job is skipped automatically by `needs:` semantics
-  # — that is the desired UI behaviour: red deploy, skipped post-deploy, no
-  # confusing orphan run to interpret.
-  post-deploy-validate:
-    needs: build-and-deploy
-    if: github.event.inputs.profile_sequential != 'true'
-    uses: ./.github/workflows/post-deploy-validation.yml
-    permissions:
-      contents: write   # sync-previous-slug-winners commit/push
-      pages: write      # rollback re-deploy via actions/deploy-pages
-      id-token: write   # rollback deploy-pages OIDC
-      actions: read     # gh run download (github-pages / winners / snapshot)
-    secrets: inherit
-    with:
-      deploy_run_id: ${{ github.run_id }}
-      deploy_event_name: ${{ github.event_name }}
