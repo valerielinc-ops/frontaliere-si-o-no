@@ -6435,6 +6435,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bagni-bellinzona-riaprono-novita-2026.title': 'Bains publics de Bellinzona rouvrent avec des nouveautés 2026',
     'blog.article.bagni-bellinzona-riaprono-novita-2026.excerpt': 'De la réservation en ligne aux modernisations, voici les nouveautés pour la saison estivale 2026',
     'blog.article.bagni-bellinzona-riaprono-novita-2026.imageAlt': 'Vue aérienne des bains publics de Bellinzona avec les dernières nouveautés et des personnes profitant des installations',
+    'blog.article.swiss-market-index-entusiasmo-2026.title': 'L\'indice Swiss Market progresse de 2,3% à Zurich',
+    'blog.article.swiss-market-index-entusiasmo-2026.excerpt': 'L\'indice Swiss Market Index s\'envole à environ 13\'352 points, avec une progression de 2,30%. Le podium est occupé par Richemont, Amrize et Holcim.',
+    'blog.article.swiss-market-index-entusiasmo-2026.imageAlt': 'Graphique Swiss Market Index avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

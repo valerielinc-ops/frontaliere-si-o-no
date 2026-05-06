@@ -6434,6 +6434,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bagni-bellinzona-riaprono-novita-2026.title': 'Bellinzona public pools reopen with 2026 updates',
     'blog.article.bagni-bellinzona-riaprono-novita-2026.excerpt': 'From online booking to modernizations, here are the novelties for the 2026 summer season',
     'blog.article.bagni-bellinzona-riaprono-novita-2026.imageAlt': 'Aerial view of Bellinzona public baths with recent innovations and people enjoying the facilities',
+    'blog.article.swiss-market-index-entusiasmo-2026.title': 'Swiss Market Index up 2.3% in Zurich',
+    'blog.article.swiss-market-index-entusiasmo-2026.excerpt': 'The Swiss Market Index soars to around 13,352 points, with a 2.30% increase. The podium is occupied by Richemont, Amrize, and Holcim.',
+    'blog.article.swiss-market-index-entusiasmo-2026.imageAlt': 'Swiss Market Index chart with view of Lake Lugano',
 };
 
 export default blogMetaEn;
