@@ -369,7 +369,9 @@
       },
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
-      "firstSeenAt": "2026-05-05T10:47:32.993Z"
+      "firstSeenAt": "2026-05-05T10:47:32.993Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Assembly Operator 80 - 100 % (w/m/d)",
@@ -454,7 +456,9 @@
       },
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
-      "firstSeenAt": "2026-05-05T10:47:33.734Z"
+      "firstSeenAt": "2026-05-05T10:47:33.734Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Technical Leader Assembly 80 - 100 % (w/m/d)",
@@ -991,7 +995,9 @@
       },
       "previousSlugs": [
         "lean-project-manager-80-100-w-m-d-jr-5560"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Inside Sales Specialist 80 - 100 % (w/m/d)",
@@ -1936,7 +1942,9 @@
           "operateur-de-montage-80-100-m-j-hamilton-bonaduz-ag-bonaduz-1e2249"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:48:40.651Z"
+      "firstSeenAt": "2026-04-13T21:48:40.651Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     }
   ]
 }
