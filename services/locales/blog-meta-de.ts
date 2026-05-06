@@ -6353,6 +6353,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bambini-tecnologia-varese-2026.title': 'Kinder & Technologie: Gratis-Event in Varese',
     'blog.article.bambini-tecnologia-varese-2026.excerpt': 'Eine kostenlose Veranstaltung in Varese mit der Psychologin Cristiana De Porcellinis, um Eltern im bewussten Umgang mit Smartphones und Tablets für Kinder zu begleiten.',
     'blog.article.bambini-tecnologia-varese-2026.imageAlt': 'Elternteil und Kind nutzen ein Tablet zusammen in einer gemütlichen Wohnumgebung im Tessin',
+    'blog.article.ticino-benzina-frontalieri-2026.title': 'Benzin: Jeder dritte Tessiner tankt in Italien',
+    'blog.article.ticino-benzina-frontalieri-2026.excerpt': 'Der Benzinpreis-Anstieg in Italien veranlasst Grenzgänger, in der Schweiz zu tanken. Hier erfahren Sie, was sich ändert',
+    'blog.article.ticino-benzina-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin',
 };
 
 export default blogMetaDe;

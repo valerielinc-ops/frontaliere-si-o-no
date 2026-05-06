@@ -3360,6 +3360,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-malpensa-rumore-casorate-sempione-2026': { name: 'Novità', path: '/articoli-frontaliere/malpensa-rumore-casorate-sempione-2026', parent: 'blog' },
     'blog-primo-maggio-monito-svizzera-10-milioni': { name: '1° maggio UDC', path: '/articoli-frontaliere/primo-maggio-monito-svizzera-10-milioni', parent: 'blog' },
     'blog-bambini-tecnologia-varese-2026': { name: 'Bambini e tecnologia', path: '/articoli-frontaliere/bambini-tecnologia-varese-2026', parent: 'blog' },
+    'blog-ticino-benzina-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/ticino-benzina-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

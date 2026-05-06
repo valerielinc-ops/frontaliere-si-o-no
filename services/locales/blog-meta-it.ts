@@ -6354,6 +6354,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bambini-tecnologia-varese-2026.title': 'Bambini e tecnologia: incontro gratuito a Varese su smartphone e tablet',
     'blog.article.bambini-tecnologia-varese-2026.excerpt': 'Un incontro gratuito a Varese con la psicologa Cristiana De Porcellinis per guidare i genitori nell\'uso consapevole di smartphone e tablet per i bambini.',
     'blog.article.bambini-tecnologia-varese-2026.imageAlt': 'Genitore e bambino usano un tablet insieme in un ambiente domestico accogliente nel Ticino',
+    'blog.article.ticino-benzina-frontalieri-2026.title': 'Benzina: un ticinese su tre fa rifornimento in Italia',
+    'blog.article.ticino-benzina-frontalieri-2026.excerpt': 'Il rincaro della benzina in Italia spinge i frontalieri a fare rifornimento in Ticino. Ecco cosa cambia',
+    'blog.article.ticino-benzina-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne del Ticino',
 };
 
 export default blogMetaIt;

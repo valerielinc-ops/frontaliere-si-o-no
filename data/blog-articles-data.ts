@@ -20432,4 +20432,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ticino-benzina-frontalieri-2026',
+ category: 'novita',
+ date: '2026-05-06T07:00:10.642Z',
+ image: '/images/blog/ticino-benzina-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

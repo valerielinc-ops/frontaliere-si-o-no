@@ -6353,6 +6353,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bambini-tecnologia-varese-2026.title': 'Children and technology: free event in Varese on smartphones and tablets',
     'blog.article.bambini-tecnologia-varese-2026.excerpt': 'A free event in Varese with psychologist Cristiana De Porcellinis to guide parents in the conscious use of smartphones and tablets for children.',
     'blog.article.bambini-tecnologia-varese-2026.imageAlt': 'Parent and child using a tablet together in a cozy home setting in Ticino',
+    'blog.article.ticino-benzina-frontalieri-2026.title': 'One in three Ticinese refuels in Italy',
+    'blog.article.ticino-benzina-frontalieri-2026.excerpt': 'The rise in fuel prices in Italy is pushing cross-border workers to refuel in Ticino. Here\'s what changes',
+    'blog.article.ticino-benzina-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains',
 };
 
 export default blogMetaEn;
