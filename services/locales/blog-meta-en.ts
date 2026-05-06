@@ -6356,6 +6356,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-benzina-frontalieri-2026.title': 'One in three Ticinese refuels in Italy',
     'blog.article.ticino-benzina-frontalieri-2026.excerpt': 'The rise in fuel prices in Italy is pushing cross-border workers to refuel in Ticino. Here\'s what changes',
     'blog.article.ticino-benzina-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains',
+    'blog.article.nomine-meloni-consob-antitrust-2026.title': 'Meloni at summit on Consob and Antitrust: appointments at stake',
+    'blog.article.nomine-meloni-consob-antitrust-2026.excerpt': 'Summit at Palazzo Chigi for appointments to independent authorities. Meloni seeks consensus among allies.',
+    'blog.article.nomine-meloni-consob-antitrust-2026.imageAlt': 'Panoramic view of Lugano with Lake Ceresio in the foreground',
 };
 
 export default blogMetaEn;

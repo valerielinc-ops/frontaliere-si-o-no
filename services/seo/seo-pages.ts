@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2171,
+ "numberOfItems": 2172,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6813,7 +6813,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2168, "name": "Malpensa, picchi di rumore a Casorate Sempione....", "url": `${BASE_URL}/articoli-frontaliere/malpensa-rumore-casorate-sempione-2026` },
           { "@type": "ListItem", "position": 2169, "name": "1° maggio: migliaia in piazza contro l'iniziati...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-monito-svizzera-10-milioni` },
           { "@type": "ListItem", "position": 2170, "name": "Bambini e tecnologia: incontro gratuito a Vares...", "url": `${BASE_URL}/articoli-frontaliere/bambini-tecnologia-varese-2026` },
-          { "@type": "ListItem", "position": 2171, "name": "Benzina: un ticinese su tre fa rifornimento in ...", "url": `${BASE_URL}/articoli-frontaliere/ticino-benzina-frontalieri-2026` }
+          { "@type": "ListItem", "position": 2171, "name": "Benzina: un ticinese su tre fa rifornimento in ...", "url": `${BASE_URL}/articoli-frontaliere/ticino-benzina-frontalieri-2026` },
+          { "@type": "ListItem", "position": 2172, "name": "Meloni al vertice su Consob e Antitrust: nomine...", "url": `${BASE_URL}/articoli-frontaliere/nomine-meloni-consob-antitrust-2026` }
  ]
  },
  {

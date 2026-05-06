@@ -6356,6 +6356,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-benzina-frontalieri-2026.title': 'Benzin: Jeder dritte Tessiner tankt in Italien',
     'blog.article.ticino-benzina-frontalieri-2026.excerpt': 'Der Benzinpreis-Anstieg in Italien veranlasst Grenzgänger, in der Schweiz zu tanken. Hier erfahren Sie, was sich ändert',
     'blog.article.ticino-benzina-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin',
+    'blog.article.nomine-meloni-consob-antitrust-2026.title': 'Meloni beim Gipfel zu Consob und Antitrust: Ernennungen in Aussicht',
+    'blog.article.nomine-meloni-consob-antitrust-2026.excerpt': 'Gipfel im Palazzo Chigi für die Ernennungen zu den unabhängigen Behörden. Meloni sucht nach einem Kompromiss zwischen den Verbündeten.',
+    'blog.article.nomine-meloni-consob-antitrust-2026.imageAlt': 'Panoramablick auf Lugano mit dem Ceresio-See im Vordergrund',
 };
 
 export default blogMetaDe;

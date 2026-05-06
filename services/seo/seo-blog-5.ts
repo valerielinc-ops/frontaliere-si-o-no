@@ -21584,6 +21584,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nomine-meloni-consob-antitrust-2026': {
+    title: 'Meloni al vertice su Consob e Antitrust: nomine in gioco',
+    description: 'Vertice a Palazzo Chigi per le nomine alle autorità indipendenti. Meloni cerca sintesi tra alleati. Impatto sui frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, meloni, vertice, consob, antitrust',
+    ogTitle: 'Meloni al vertice su Consob e Antitrust: nomine in gioco',
+    ogDescription: 'Vertice a Palazzo Chigi per le nomine alle autorità indipendenti. Meloni cerca sintesi tra alleati. Impatto sui frontalieri.',
+    canonicalPath: '/articoli-frontaliere/nomine-meloni-consob-antitrust-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Meloni al vertice su Consob e Antitrust: nomine in gioco",
+      "description": "Vertice a Palazzo Chigi per le nomine alle autorità indipendenti. Meloni cerca sintesi tra alleati. Impatto sui frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/nomine-meloni-consob-antitrust-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano con il lago Ceresio in primo piano"
+      },
+      "datePublished": "2026-05-06T07:06:11+00:00",
+      "dateModified": "2026-05-06T07:06:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nomine-meloni-consob-antitrust-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

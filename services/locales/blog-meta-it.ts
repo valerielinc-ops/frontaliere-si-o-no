@@ -6357,6 +6357,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-benzina-frontalieri-2026.title': 'Benzina: un ticinese su tre fa rifornimento in Italia',
     'blog.article.ticino-benzina-frontalieri-2026.excerpt': 'Il rincaro della benzina in Italia spinge i frontalieri a fare rifornimento in Ticino. Ecco cosa cambia',
     'blog.article.ticino-benzina-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne del Ticino',
+    'blog.article.nomine-meloni-consob-antitrust-2026.title': 'Meloni al vertice su Consob e Antitrust: nomine in gioco',
+    'blog.article.nomine-meloni-consob-antitrust-2026.excerpt': 'Vertice a Palazzo Chigi per le nomine alle autorità indipendenti. Meloni cerca sintesi tra alleati.',
+    'blog.article.nomine-meloni-consob-antitrust-2026.imageAlt': 'Veduta panoramica di Lugano con il lago Ceresio in primo piano',
 };
 
 export default blogMetaIt;

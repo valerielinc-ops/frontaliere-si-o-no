@@ -6357,6 +6357,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-benzina-frontalieri-2026.title': 'Un Ticinois sur trois fait le plein en Italie',
     'blog.article.ticino-benzina-frontalieri-2026.excerpt': 'La hausse des prix de l\'essence en Italie pousse les frontaliers à faire le plein en Suisse. Voici ce qui change',
     'blog.article.ticino-benzina-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin',
+    'blog.article.nomine-meloni-consob-antitrust-2026.title': 'Meloni au sommet sur Consob et Antitrust: nominations en jeu',
+    'blog.article.nomine-meloni-consob-antitrust-2026.excerpt': 'Sommet à Palazzo Chigi pour les nominations aux autorités indépendantes. Meloni cherche une synthèse entre alliés.',
+    'blog.article.nomine-meloni-consob-antitrust-2026.imageAlt': 'Vue panoramique de Lugano avec le lac Ceresio au premier plan',
 };
 
 export default blogMetaFr;
