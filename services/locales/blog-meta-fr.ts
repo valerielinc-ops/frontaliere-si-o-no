@@ -6369,6 +6369,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.servizio-civile-errore-voto-2026.title': 'Service civil: erreur dans les explications de vote',
     'blog.article.servizio-civile-errore-voto-2026.excerpt': 'Une erreur dans le dépliant informatif du Conseil fédéral pour les votations du 14 juin 2026 concerne les demandes d\'admission au service civil.',
     'blog.article.servizio-civile-errore-voto-2026.imageAlt': 'Castelgrande à Bellinzone, Tessin',
+    'blog.article.parita-salariale-ticino-2026.title': 'Égalité salariale au Tessin: un objectif encore lointain',
+    'blog.article.parita-salariale-ticino-2026.excerpt': 'Au Tessin, plus de 90% de l\'écart salarial entre hommes et femmes n\'a pas d\'explication. Découvrez les implications pour les frontaliers.',
+    'blog.article.parita-salariale-ticino-2026.imageAlt': 'Groupe de travailleurs dans un bureau moderne à Lugano, Tessin, axé sur l\'égalité salariale',
 };
 
 export default blogMetaFr;

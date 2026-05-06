@@ -6368,6 +6368,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.servizio-civile-errore-voto-2026.title': 'Zivilschutz: Fehler in den Abstimmungsinformationen',
     'blog.article.servizio-civile-errore-voto-2026.excerpt': 'Ein Fehler im Informationsheft des Bundesrates für die Abstimmungen vom 14. Juni 2026 betrifft die Gesuche für den Zivildienst.',
     'blog.article.servizio-civile-errore-voto-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin',
+    'blog.article.parita-salariale-ticino-2026.title': 'Lohnungleichheit im Tessin: noch ein fernes Ziel',
+    'blog.article.parita-salariale-ticino-2026.excerpt': 'Im Tessin ist bei über 90% der Lohnungleichheit zwischen Männern und Frauen keine Erklärung zu finden. Erfahren Sie die Auswirkungen auf Grenzgänger.',
+    'blog.article.parita-salariale-ticino-2026.imageAlt': 'Gruppe von Arbeitnehmern in einem modernen Büro in Lugano, Tessin, mit Fokus auf Lohngleichheit',
 };
 
 export default blogMetaDe;

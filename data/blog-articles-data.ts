@@ -20477,4 +20477,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'parita-salariale-ticino-2026',
+ category: 'novita',
+ date: '2026-05-06T07:43:27.347Z',
+ image: '/images/blog/parita-salariale-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6369,6 +6369,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.servizio-civile-errore-voto-2026.title': 'Servizio civile: errore nelle spiegazioni di voto',
     'blog.article.servizio-civile-errore-voto-2026.excerpt': 'Un errore nell\'opuscolo informativo del Consiglio federale per le votazioni del 14 giugno 2026 riguarda le domande di ammissione al servizio civile.',
     'blog.article.servizio-civile-errore-voto-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino',
+    'blog.article.parita-salariale-ticino-2026.title': 'Parità salariale in Ticino: ancora un traguardo lontano',
+    'blog.article.parita-salariale-ticino-2026.excerpt': 'In Ticino, oltre il 90% della disparità salariale tra uomini e donne non trova spiegazione. Scopri le implicazioni per i frontalieri.',
+    'blog.article.parita-salariale-ticino-2026.imageAlt': 'Gruppo di lavoratori in un ufficio moderno a Lugano, Ticino, con focus sulla parità salariale',
 };
 
 export default blogMetaIt;

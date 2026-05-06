@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2175,
+ "numberOfItems": 2176,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6817,7 +6817,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2172, "name": "Meloni al vertice su Consob e Antitrust: nomine...", "url": `${BASE_URL}/articoli-frontaliere/nomine-meloni-consob-antitrust-2026` },
           { "@type": "ListItem", "position": 2173, "name": "Francia sui fiumi: estate sul Rodano e autunno ...", "url": `${BASE_URL}/articoli-frontaliere/crociere-ticino-rodano-senna-2026` },
           { "@type": "ListItem", "position": 2174, "name": "Tunisini e algerini arrestati per furti d'auto ...", "url": `${BASE_URL}/articoli-frontaliere/tunesier-algerier-autoknacker-wuerenlos` },
-          { "@type": "ListItem", "position": 2175, "name": "Servizio civile: errore nelle spiegazioni di voto", "url": `${BASE_URL}/articoli-frontaliere/servizio-civile-errore-voto-2026` }
+          { "@type": "ListItem", "position": 2175, "name": "Servizio civile: errore nelle spiegazioni di voto", "url": `${BASE_URL}/articoli-frontaliere/servizio-civile-errore-voto-2026` },
+          { "@type": "ListItem", "position": 2176, "name": "Parità salariale in Ticino: ancora un traguardo...", "url": `${BASE_URL}/articoli-frontaliere/parita-salariale-ticino-2026` }
  ]
  },
  {

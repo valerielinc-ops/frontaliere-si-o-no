@@ -6368,6 +6368,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.servizio-civile-errore-voto-2026.title': 'Civil service: error in voting explanations',
     'blog.article.servizio-civile-errore-voto-2026.excerpt': 'An error in the Federal Council\'s information brochure for the June 14, 2026 votes concerns applications for admission to civil service.',
     'blog.article.servizio-civile-errore-voto-2026.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.parita-salariale-ticino-2026.title': 'Gender pay gap in Ticino: still a distant goal',
+    'blog.article.parita-salariale-ticino-2026.excerpt': 'In Ticino, over 90% of the gender pay gap between men and women has no explanation. Discover the implications for cross-border workers.',
+    'blog.article.parita-salariale-ticino-2026.imageAlt': 'Group of workers in a modern office in Lugano, Ticino, focusing on wage equality',
 };
 
 export default blogMetaEn;
