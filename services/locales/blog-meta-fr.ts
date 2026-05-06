@@ -6309,6 +6309,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.votazioni-cure-dentarie-ticino-2024.title': 'Initiative soins dentaires : «Non à une proposition trompeuse et coûteuse»',
     'blog.article.votazioni-cure-dentarie-ticino-2024.excerpt': 'Comité contre l\'assurance obligatoire pour les soins dentaires de base : coûts élevés et problèmes non résolus',
     'blog.article.votazioni-cure-dentarie-ticino-2024.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan, journée ensoleillée',
+    'blog.article.casa-artigianato-dongio-sostegno.title': 'La Maison de l\'artisanat cherche un soutien pour continuer à exister',
+    'blog.article.casa-artigianato-dongio-sostegno.excerpt': 'Collecte de fonds pour garantir l\'avenir du magasin de Dongio et préserver le patrimoine artisanal de la vallée de Blenio',
+    'blog.article.casa-artigianato-dongio-sostegno.imageAlt': 'La Casa dell\'artigianato à Dongio, Vallée de Blenio, Tessin',
 };
 
 export default blogMetaFr;

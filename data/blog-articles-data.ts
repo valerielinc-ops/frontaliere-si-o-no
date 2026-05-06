@@ -20297,4 +20297,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casa-artigianato-dongio-sostegno',
+ category: 'novita',
+ date: '2026-05-06T04:25:02.749Z',
+ image: '/images/blog/casa-artigianato-dongio-sostegno.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

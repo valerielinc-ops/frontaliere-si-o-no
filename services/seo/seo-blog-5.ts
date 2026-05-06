@@ -20976,6 +20976,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-artigianato-dongio-sostegno': {
+    title: 'Casa dell\'artigianato cerca sostegno per continuare a vivere',
+    description: 'Raccolta fondi per garantire il futuro del negozio di Dongio e preservare il patrimonio artigianale della Valle di Blenio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, dell, artigianato, cerca',
+    ogTitle: 'Casa dell\'artigianato Dongio cerca sostegno',
+    ogDescription: 'Raccolta fondi per garantire il futuro del negozio di Dongio e preservare il patrimonio artigianale della Valle di Blenio',
+    canonicalPath: '/articoli-frontaliere/casa-artigianato-dongio-sostegno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa dell'artigianato cerca sostegno per continuare a vivere",
+      "description": "Raccolta fondi per garantire il futuro del negozio di Dongio e preservare il patrimonio artigianale della Valle di Blenio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/casa-artigianato-dongio-sostegno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Casa dell'artigianato a Dongio, Valle di Blenio, Ticino"
+      },
+      "datePublished": "2026-05-06T04:25:02+00:00",
+      "dateModified": "2026-05-06T04:25:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casa-artigianato-dongio-sostegno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

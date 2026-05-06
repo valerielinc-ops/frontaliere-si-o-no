@@ -6308,6 +6308,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.votazioni-cure-dentarie-ticino-2024.title': 'Dental care initiative: \'No to misleading and costly proposal\'',
     'blog.article.votazioni-cure-dentarie-ticino-2024.excerpt': 'Committee against mandatory basic dental care insurance: high costs and unresolved issues',
     'blog.article.votazioni-cure-dentarie-ticino-2024.imageAlt': 'Lake Lugano with mountains in the background, sunny day',
+    'blog.article.casa-artigianato-dongio-sostegno.title': 'Craft house seeks support to keep going',
+    'blog.article.casa-artigianato-dongio-sostegno.excerpt': 'Fundraising to secure the future of Dongio\'s shop and preserve Blenio Valley\'s artisan heritage',
+    'blog.article.casa-artigianato-dongio-sostegno.imageAlt': 'The Casa dell\'artigianato in Dongio, Blenio Valley, Ticino',
 };
 
 export default blogMetaEn;

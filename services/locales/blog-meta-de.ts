@@ -6308,6 +6308,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.votazioni-cure-dentarie-ticino-2024.title': 'Initiative Zahnversicherung: «Nein zu teurer Täuschung»',
     'blog.article.votazioni-cure-dentarie-ticino-2024.excerpt': 'Komitee gegen obligatorische Grundversicherung für Zahnmedizin: hohe Kosten und ungelöste Probleme',
     'blog.article.votazioni-cure-dentarie-ticino-2024.imageAlt': 'Luganersee mit Bergen im Hintergrund, sonniger Tag',
+    'blog.article.casa-artigianato-dongio-sostegno.title': 'Handwerkshaus sucht Unterstützung für seine Zukunft',
+    'blog.article.casa-artigianato-dongio-sostegno.excerpt': 'Spendenaktion zur Sicherung des Ladens in Dongio und zum Erhalt des handwerklichen Erbes des Bleniotals',
+    'blog.article.casa-artigianato-dongio-sostegno.imageAlt': 'Das Casa dell\'artigianato in Dongio, Bleniotal, Tessin',
 };
 
 export default blogMetaDe;

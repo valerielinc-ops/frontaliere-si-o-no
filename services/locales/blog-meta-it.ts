@@ -6309,6 +6309,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.votazioni-cure-dentarie-ticino-2024.title': 'Iniziativa cure dentarie: «No a una proposta ingannevole e costosa»',
     'blog.article.votazioni-cure-dentarie-ticino-2024.excerpt': 'Comitato contrario all\'assicurazione obbligatoria per le cure odontoiatriche di base: costi elevati e problemi irrisolti',
     'blog.article.votazioni-cure-dentarie-ticino-2024.imageAlt': 'Lago Lugano con montagne sullo sfondo, giornata di sole',
+    'blog.article.casa-artigianato-dongio-sostegno.title': 'Casa dell\'artigianato cerca sostegno per continuare a vivere',
+    'blog.article.casa-artigianato-dongio-sostegno.excerpt': 'Raccolta fondi per garantire il futuro del negozio di Dongio e preservare il patrimonio artigianale della Valle di Blenio',
+    'blog.article.casa-artigianato-dongio-sostegno.imageAlt': 'La Casa dell\'artigianato a Dongio, Valle di Blenio, Ticino',
 };
 
 export default blogMetaIt;
