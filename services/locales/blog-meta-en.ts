@@ -6518,6 +6518,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.title': 'Varese Solidale: conference on health and food poverty',
     'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.excerpt': 'Varese Solidale presents the conference on health and food poverty on May 15, 2026. Experts and institutions discuss strategies and tools to address the phenomenon.',
     'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.imageAlt': 'Conference on health and food poverty in Varese, Italy',
+    'blog.article.centri-famiglia-altovaresotto-2026.title': 'Family centers in Alto Varesotto: support for struggling families',
+    'blog.article.centri-famiglia-altovaresotto-2026.excerpt': 'Family centers in Alto Varesotto offer support to families facing new emergencies and disorientation, with listening services, consultations, and workshops.',
+    'blog.article.centri-famiglia-altovaresotto-2026.imageAlt': 'Family support center in a Ticino town',
 };
 
 export default blogMetaEn;

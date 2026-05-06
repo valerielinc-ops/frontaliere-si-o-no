@@ -6519,6 +6519,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.title': 'Varese Solidale: conférence sur la pauvreté sanitaire et alimentaire',
     'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.excerpt': 'Varese Solidale présente la conférence sur la pauvreté sanitaire et alimentaire le 15 mai 2026. Des experts et des institutions discutent des stratégies et des outils pour lutter contre ce phénomène.',
     'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.imageAlt': 'Conférence sur la pauvreté sanitaire et alimentaire à Varese, Italie',
+    'blog.article.centri-famiglia-altovaresotto-2026.title': 'Centres familiaux en Haute-Varèse : soutien aux familles en difficulté',
+    'blog.article.centri-famiglia-altovaresotto-2026.excerpt': 'Les Centres pour la famille en Haute-Varèse offrent un soutien aux familles confrontées à de nouvelles urgences et à un désarroi, avec des services d\'écoute, des consultations et des ateliers.',
+    'blog.article.centri-famiglia-altovaresotto-2026.imageAlt': 'Centre de soutien familial dans une ville du Tessin',
 };
 
 export default blogMetaFr;

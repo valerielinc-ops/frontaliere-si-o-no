@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2225,
+ "numberOfItems": 2226,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6867,7 +6867,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2222, "name": "Assegni figli frontalieri: problemi con l'INPS ...", "url": `${BASE_URL}/articoli-frontaliere/assegni-figli-frontalieri-2026` },
           { "@type": "ListItem", "position": 2223, "name": "Studenti da Gaza nelle scuole italiane: 1,5 mil...", "url": `${BASE_URL}/articoli-frontaliere/integrazione-studenti-gaza-italia-2026` },
           { "@type": "ListItem", "position": 2224, "name": "Ladro seriale dal Luganese all'intero Ticino: i...", "url": `${BASE_URL}/articoli-frontaliere/ladro-seriale-ticino-arresto-carte-credito` },
-          { "@type": "ListItem", "position": 2225, "name": "Varese Solidale: convegno sulla povertà sanitar...", "url": `${BASE_URL}/articoli-frontaliere/varese-solidale-convegno-poverta-sanitaria-alimentare-2026` }
+          { "@type": "ListItem", "position": 2225, "name": "Varese Solidale: convegno sulla povertà sanitar...", "url": `${BASE_URL}/articoli-frontaliere/varese-solidale-convegno-poverta-sanitaria-alimentare-2026` },
+          { "@type": "ListItem", "position": 2226, "name": "Centri per la famiglia in Alto Varesotto: suppo...", "url": `${BASE_URL}/articoli-frontaliere/centri-famiglia-altovaresotto-2026` }
  ]
  },
  {

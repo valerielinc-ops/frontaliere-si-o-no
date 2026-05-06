@@ -3415,6 +3415,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-integrazione-studenti-gaza-italia-2026': { name: 'Novità', path: '/articoli-frontaliere/integrazione-studenti-gaza-italia-2026', parent: 'blog' },
     'blog-ladro-seriale-ticino-arresto-carte-credito': { name: 'Cronaca Ticino', path: '/articoli-frontaliere/ladro-seriale-ticino-arresto-carte-credito', parent: 'blog' },
     'blog-varese-solidale-convegno-poverta-sanitaria-alimentare-2026': { name: 'Varese Solidale', path: '/articoli-frontaliere/varese-solidale-convegno-poverta-sanitaria-alimentare-2026', parent: 'blog' },
+    'blog-centri-famiglia-altovaresotto-2026': { name: 'Centri famiglia', path: '/articoli-frontaliere/centri-famiglia-altovaresotto-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
