@@ -17,7 +17,8 @@ permissions:
 jobs:
   snapshot:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # 45 = 10 (snapshot+delta+pairs) + 30 (AI enrichment cap) + 5 buffer
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
         with:
@@ -56,15 +57,27 @@ jobs:
         # Soft-fail: a missing audit blocks enrichment but not the snapshot.
         run: node scripts/audit-related-search-candidates.mjs || true
 
+      - name: Prepare Firebase credentials (for AI enrichment via Remote Config)
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "ℹ️ Firebase secret not set — AI enrichment will skip."
+          fi
+
+      - name: Load AI keys from Remote Config
+        if: env.GOOGLE_APPLICATION_CREDENTIALS != ''
+        run: node scripts/load-rc-env.mjs
+        continue-on-error: true
+
       - name: Enrich related-search clusters (incremental, AI)
         # Generates 80-120 word AI intros + 3 FAQ per cluster. Incremental:
         # cached entries are skipped via SHA-256 fingerprint of the input
         # candidate. Best-effort — never blocks the snapshot.
-        if: env.GH_MODELS_PAT != '' || env.GEMINI_API_KEY != '' || env.OPENROUTER_API_KEY != ''
-        env:
-          GH_MODELS_PAT: ${{ secrets.GH_MODELS_PAT }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        if: env.GH_MODELS_PAT != '' || env.GITHUB_PAT != '' || env.GEMINI_API_KEY != '' || env.OPENROUTER_API_KEY != ''
         run: node scripts/enrich-related-search-clusters.mjs --verbose
         continue-on-error: true
         timeout-minutes: 30
