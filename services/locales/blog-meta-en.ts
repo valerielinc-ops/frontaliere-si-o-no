@@ -6347,6 +6347,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malpensa-rumore-casorate-sempione-2026.title': 'Noise peaks in Casorate Sempione near Malpensa. Mayor: temporary situation',
     'blog.article.malpensa-rumore-casorate-sempione-2026.excerpt': 'Environmentalists report noise peaks up to 90.5 dBA. Mayor Cassani confirms the discomfort but reassures: the situation is temporary.',
     'blog.article.malpensa-rumore-casorate-sempione-2026.imageAlt': 'Aerial view of Malpensa Airport with airplanes taking off, surrounded by residential areas',
+    'blog.article.primo-maggio-monito-svizzera-10-milioni.title': 'May 1st: thousands protest UDC initiative',
+    'blog.article.primo-maggio-monito-svizzera-10-milioni.excerpt': 'National mobilization to defend workers\' rights and counter the UDC initiative \'No to a 10 million Switzerland!\'',
+    'blog.article.primo-maggio-monito-svizzera-10-milioni.imageAlt': 'Protesters in the square for May 1st against the UDC initiative in Switzerland',
 };
 
 export default blogMetaEn;

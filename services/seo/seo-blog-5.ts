@@ -21470,6 +21470,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-monito-svizzera-10-milioni': {
+    title: '1° maggio: migliaia in piazza contro l\'iniziativa UDC',
+    description: 'Mobilitazione nazionale per difendere i diritti dei lavoratori e contrastare l\'iniziativa UDC \'No a una Svizzera da 10 milioni!\'. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggio, migliaia, piazza, contro',
+    ogTitle: '1° maggio: migliaia in piazza contro l\'iniziativa UDC',
+    ogDescription: 'Mobilitazione nazionale per difendere i diritti dei lavoratori e contrastare l\'iniziativa UDC \'No a una Svizzera da 10 milioni!\'',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-monito-svizzera-10-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "1° maggio: migliaia in piazza contro l'iniziativa UDC",
+      "description": "Mobilitazione nazionale per difendere i diritti dei lavoratori e contrastare l'iniziativa UDC 'No a una Svizzera da 10 milioni!'. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/primo-maggio-monito-svizzera-10-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestanti in piazza per il 1° maggio contro l'iniziativa UDC in Svizzera"
+      },
+      "datePublished": "2026-05-06T06:45:36+00:00",
+      "dateModified": "2026-05-06T06:45:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-monito-svizzera-10-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

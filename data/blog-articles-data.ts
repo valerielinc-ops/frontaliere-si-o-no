@@ -20414,4 +20414,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'primo-maggio-monito-svizzera-10-milioni',
+ category: 'novita',
+ date: '2026-05-06T06:45:36.928Z',
+ image: '/images/blog/primo-maggio-monito-svizzera-10-milioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

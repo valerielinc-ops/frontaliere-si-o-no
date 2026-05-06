@@ -6347,6 +6347,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malpensa-rumore-casorate-sempione-2026.title': 'Lärmspitzen in Casorate: vorübergehend',
     'blog.article.malpensa-rumore-casorate-sempione-2026.excerpt': 'Umweltaktivisten melden Lärmspitzen bis zu 90,5 dBA. Bürgermeister Cassani bestätigt die Belastung, beruhigt aber: Die Situation ist vorübergehend.',
     'blog.article.malpensa-rumore-casorate-sempione-2026.imageAlt': 'Luftaufnahme des Flughafens Malpensa mit startenden Flugzeugen, umgeben von Wohngebieten',
+    'blog.article.primo-maggio-monito-svizzera-10-milioni.title': '1. Mai: Tausende gegen UDC-Initiative',
+    'blog.article.primo-maggio-monito-svizzera-10-milioni.excerpt': 'Nationale Mobilisierung zum Schutz der Arbeiterrechte und gegen die UDC-Initiative \'Nein zu einer Schweiz mit 10 Millionen!\'',
+    'blog.article.primo-maggio-monito-svizzera-10-milioni.imageAlt': 'Demonstranten auf dem Platz am 1. Mai gegen die UDC-Initiative in der Schweiz',
 };
 
 export default blogMetaDe;

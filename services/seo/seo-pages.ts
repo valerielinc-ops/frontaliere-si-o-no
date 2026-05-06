@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2168,
+ "numberOfItems": 2169,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6810,7 +6810,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2165, "name": "Goldbarren falsi dalla Cina sequestrati a Zurig...", "url": `${BASE_URL}/articoli-frontaliere/goldbarren-zurigo-zoll-confiscati` },
           { "@type": "ListItem", "position": 2166, "name": "Arese: apre il nuovo negozio danese Normal con ...", "url": `${BASE_URL}/articoli-frontaliere/negozio-danese-arese-2026` },
           { "@type": "ListItem", "position": 2167, "name": "Varese: estate all'aperto con le Summer Experie...", "url": `${BASE_URL}/articoli-frontaliere/varese-summer-experience-2026-frontalieri` },
-          { "@type": "ListItem", "position": 2168, "name": "Malpensa, picchi di rumore a Casorate Sempione....", "url": `${BASE_URL}/articoli-frontaliere/malpensa-rumore-casorate-sempione-2026` }
+          { "@type": "ListItem", "position": 2168, "name": "Malpensa, picchi di rumore a Casorate Sempione....", "url": `${BASE_URL}/articoli-frontaliere/malpensa-rumore-casorate-sempione-2026` },
+          { "@type": "ListItem", "position": 2169, "name": "1° maggio: migliaia in piazza contro l'iniziati...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-monito-svizzera-10-milioni` }
  ]
  },
  {
