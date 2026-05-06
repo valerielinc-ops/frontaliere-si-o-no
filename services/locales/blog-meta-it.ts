@@ -6516,6 +6516,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ladro-seriale-ticino-arresto-carte-credito.title': 'Ladro seriale dal Luganese all\'intero Ticino: incastrato dalle carte di credito',
     'blog.article.ladro-seriale-ticino-arresto-carte-credito.excerpt': 'Un ladro seriale attivo tra Lugano e Bellinzona è stato arrestato grazie alle carte di credito rubate. Ecco i dettagli dell\'operazione.',
     'blog.article.ladro-seriale-ticino-arresto-carte-credito.imageAlt': 'Veduta aerea di Bellinzona, Ticino, con i suoi tre castelli e il fiume Ticino',
+    'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.title': 'Varese Solidale: convegno sulla povertà sanitaria e alimentare',
+    'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.excerpt': 'Varese Solidale presenta il convegno sulla povertà sanitaria e alimentare il 15 maggio 2026. Esperti e istituzioni si confrontano su strategie e strumenti per affrontare il fenomeno.',
+    'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.imageAlt': 'Conferenza su povertà sanitaria e alimentare a Varese, Italia',
 };
 
 export default blogMetaIt;

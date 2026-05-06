@@ -20918,4 +20918,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-solidale-convegno-poverta-sanitaria-alimentare-2026',
+ category: 'novita',
+ date: '2026-05-06T14:42:51.636Z',
+ image: '/images/blog/varese-solidale-convegno-poverta-sanitaria-alimentare-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6516,6 +6516,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ladro-seriale-ticino-arresto-carte-credito.title': 'Un voleur en série entre Lugano et Bellinzona arrêté grâce aux cartes de crédit',
     'blog.article.ladro-seriale-ticino-arresto-carte-credito.excerpt': 'Un voleur en série actif entre Lugano et Bellinzona a été arrêté grâce aux cartes de crédit volées. Voici les détails de l\'opération.',
     'blog.article.ladro-seriale-ticino-arresto-carte-credito.imageAlt': 'Vue aérienne de Bellinzone, Tessin, avec ses trois châteaux et la rivière Ticino',
+    'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.title': 'Varese Solidale: conférence sur la pauvreté sanitaire et alimentaire',
+    'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.excerpt': 'Varese Solidale présente la conférence sur la pauvreté sanitaire et alimentaire le 15 mai 2026. Des experts et des institutions discutent des stratégies et des outils pour lutter contre ce phénomène.',
+    'blog.article.varese-solidale-convegno-poverta-sanitaria-alimentare-2026.imageAlt': 'Conférence sur la pauvreté sanitaire et alimentaire à Varese, Italie',
 };
 
 export default blogMetaFr;

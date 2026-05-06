@@ -23598,6 +23598,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-solidale-convegno-poverta-sanitaria-alimentare-2026': {
+    title: 'Varese Solidale: convegno sulla povertà sanitaria e alimentare',
+    description: 'Varese Solidale presenta il convegno sulla povertà sanitaria e alimentare il 15 maggio 2026. Esperti e istituzioni si confrontano su strategie e strumenti per',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, solidale, convegno, sulla',
+    ogTitle: 'Varese Solidale: convegno povertà sanitaria e alimentare 2026',
+    ogDescription: 'Varese Solidale presenta il convegno sulla povertà sanitaria e alimentare il 15 maggio 2026. Esperti e istituzioni si confrontano su strategie e strumenti per',
+    canonicalPath: '/articoli-frontaliere/varese-solidale-convegno-poverta-sanitaria-alimentare-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese Solidale: convegno sulla povertà sanitaria e alimentare",
+      "description": "Varese Solidale presenta il convegno sulla povertà sanitaria e alimentare il 15 maggio 2026. Esperti e istituzioni si confrontano su strategie e strumenti per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/varese-solidale-convegno-poverta-sanitaria-alimentare-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza su povertà sanitaria e alimentare a Varese, Italia"
+      },
+      "datePublished": "2026-05-06T14:42:51+00:00",
+      "dateModified": "2026-05-06T14:42:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-solidale-convegno-poverta-sanitaria-alimentare-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
