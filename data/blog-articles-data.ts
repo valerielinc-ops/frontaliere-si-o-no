@@ -20396,4 +20396,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-summer-experience-2026-frontalieri',
+ category: 'novita',
+ date: '2026-05-06T06:33:33.788Z',
+ image: '/images/blog/varese-summer-experience-2026-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

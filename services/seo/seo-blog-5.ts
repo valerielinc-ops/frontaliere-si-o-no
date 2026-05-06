@@ -21394,6 +21394,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-summer-experience-2026-frontalieri': {
+    title: 'Varese: estate all\'aperto con le Summer Experience 2026',
+    description: 'Varese Corsi lancia le Summer Experience: corsi all\'aperto in ville storiche e parchi per benessere e movimento. Scopri le attività e i luoghi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, estate, aperto, summer',
+    ogTitle: 'Varese: estate all\'aperto con le Summer Experience 2026',
+    ogDescription: 'Varese Corsi lancia le Summer Experience: corsi all\'aperto in ville storiche e parchi per benessere e movimento. Scopri le attività e i luoghi',
+    canonicalPath: '/articoli-frontaliere/varese-summer-experience-2026-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: estate all'aperto con le Summer Experience 2026",
+      "description": "Varese Corsi lancia le Summer Experience: corsi all'aperto in ville storiche e parchi per benessere e movimento. Scopri le attività e i luoghi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/varese-summer-experience-2026-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone che pratica yoga in un parco di Varese, con vista sulle Alpi"
+      },
+      "datePublished": "2026-05-06T06:33:33+00:00",
+      "dateModified": "2026-05-06T06:33:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-summer-experience-2026-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

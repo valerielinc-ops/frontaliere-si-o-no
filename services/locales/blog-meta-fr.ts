@@ -6342,6 +6342,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.negozio-danese-arese-2026.title': 'Arese : ouverture du magasin Normal avec chasse au trésor',
     'blog.article.negozio-danese-arese-2026.excerpt': 'Le célèbre magasin danois Normal inaugure son nouveau magasin à Arese avec des prix fixes et une expérience de shopping unique.',
     'blog.article.negozio-danese-arese-2026.imageAlt': 'Centre commercial Il Centro à Arese avec le nouveau magasin Normal',
+    'blog.article.varese-summer-experience-2026-frontalieri.title': 'Varèse: été en plein air avec les Summer Experience 2026',
+    'blog.article.varese-summer-experience-2026-frontalieri.excerpt': 'Varese Corsi lance les Summer Experience : cours en plein air dans des villas historiques et des parcs pour le bien-être et le mouvement. Découvrez les activités et les lieux',
+    'blog.article.varese-summer-experience-2026-frontalieri.imageAlt': 'Groupe de personnes pratiquant le yoga dans un parc de Varese, avec vue sur les Alpes',
 };
 
 export default blogMetaFr;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2166,
+ "numberOfItems": 2167,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6808,7 +6808,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2163, "name": "App ticinese per la guida punta alla Silicon Va...", "url": `${BASE_URL}/articoli-frontaliere/app-guida-ticino-silicon-valley-2026` },
           { "@type": "ListItem", "position": 2164, "name": "Torna il festival degli sport all'aperto in Mes...", "url": `${BASE_URL}/articoli-frontaliere/mesolcina-festival-sport-2026` },
           { "@type": "ListItem", "position": 2165, "name": "Goldbarren falsi dalla Cina sequestrati a Zurig...", "url": `${BASE_URL}/articoli-frontaliere/goldbarren-zurigo-zoll-confiscati` },
-          { "@type": "ListItem", "position": 2166, "name": "Arese: apre il nuovo negozio danese Normal con ...", "url": `${BASE_URL}/articoli-frontaliere/negozio-danese-arese-2026` }
+          { "@type": "ListItem", "position": 2166, "name": "Arese: apre il nuovo negozio danese Normal con ...", "url": `${BASE_URL}/articoli-frontaliere/negozio-danese-arese-2026` },
+          { "@type": "ListItem", "position": 2167, "name": "Varese: estate all'aperto con le Summer Experie...", "url": `${BASE_URL}/articoli-frontaliere/varese-summer-experience-2026-frontalieri` }
  ]
  },
  {
