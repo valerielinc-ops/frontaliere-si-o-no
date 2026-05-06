@@ -339,6 +339,15 @@ jobs:
           fi
           echo "✅ Source validators + Pages artifact download complete"
 
+      # Informational diff between the live sitemaps (currently deployed) and
+      # the new dist/ that's about to replace them. Helps spot anomalies — a
+      # single deploy adding 5 URLs and removing 500 is almost always a bug
+      # (e.g. an empty data file passed through the build) but the post-build
+      # gates won't always catch it. Always exits 0.
+      - name: Sitemap diff vs live deployed site (informational)
+        continue-on-error: true
+        run: node scripts/diff-sitemaps.mjs
+
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v5
