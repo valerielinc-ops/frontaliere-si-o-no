@@ -3407,6 +3407,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-parmelin-stop-fatture-mediche-crans-montana': { name: 'Novità', path: '/articoli-frontaliere/parmelin-stop-fatture-mediche-crans-montana', parent: 'blog' },
     'blog-luino-sanita-massarenti-2026': { name: 'Sanità Pubblica', path: '/articoli-frontaliere/luino-sanita-massarenti-2026', parent: 'blog' },
     'blog-siss-problemi-lombardia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/siss-problemi-lombardia-frontalieri', parent: 'blog' },
+    'blog-swiss-risultati-trimestre-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/swiss-risultati-trimestre-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

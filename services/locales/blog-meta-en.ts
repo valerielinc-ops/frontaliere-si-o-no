@@ -6494,6 +6494,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.siss-problemi-lombardia-frontalieri.title': 'SISS Lombardy: Astuti reports chronic issues and inaction',
     'blog.article.siss-problemi-lombardia-frontalieri.excerpt': 'PD regional councilor Samuele Astuti criticizes the Lombardy government for the malfunctions of the socio-health information system',
     'blog.article.siss-problemi-lombardia-frontalieri.imageAlt': 'Aerial view of Bellinzona with the three castles and surrounding mountains',
+    'blog.article.swiss-risultati-trimestre-frontalieri.title': 'Swiss: Q1 profits up but fuel costs loom',
+    'blog.article.swiss-risultati-trimestre-frontalieri.excerpt': 'Swiss airline closes Q1 with rising profits, but fuel costs could erode gains.',
+    'blog.article.swiss-risultati-trimestre-frontalieri.imageAlt': 'Aerial view of Lake Lugano with Swiss Alps in the background',
 };
 
 export default blogMetaEn;

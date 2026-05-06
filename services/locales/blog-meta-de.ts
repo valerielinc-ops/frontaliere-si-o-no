@@ -6494,6 +6494,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.siss-problemi-lombardia-frontalieri.title': 'SISS Lombardei: Astuti kritisiert chronische Probleme und Untätigkeit',
     'blog.article.siss-problemi-lombardia-frontalieri.excerpt': 'Der regionale PD-Rat Samuele Astuti greift die lombardische Regierung wegen der Funktionsstörungen des sozio-sanitären Informationssystems an',
     'blog.article.siss-problemi-lombardia-frontalieri.imageAlt': 'Luftaufnahme von Bellinzona mit den drei Burgen und den umliegenden Bergen',
+    'blog.article.swiss-risultati-trimestre-frontalieri.title': 'Swiss: Gewinne im ersten Quartal gestiegen, aber Risiken in Sicht',
+    'blog.article.swiss-risultati-trimestre-frontalieri.excerpt': 'Die Fluggesellschaft Swiss schließt das erste Quartal mit gestiegenen Gewinnen ab, aber die Kraftstoffkosten könnten die Gewinne schmälern.',
+    'blog.article.swiss-risultati-trimestre-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit den Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

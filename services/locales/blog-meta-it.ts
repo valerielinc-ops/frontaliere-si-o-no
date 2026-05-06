@@ -6495,6 +6495,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.siss-problemi-lombardia-frontalieri.title': 'SISS Lombardia: Astuti denuncia problemi cronici e inazione',
     'blog.article.siss-problemi-lombardia-frontalieri.excerpt': 'Il consigliere regionale PD Samuele Astuti attacca la giunta lombarda per i malfunzionamenti del sistema informativo socio-sanitario',
     'blog.article.siss-problemi-lombardia-frontalieri.imageAlt': 'Veduta aerea di Bellinzona con i tre castelli e le montagne circostanti',
+    'blog.article.swiss-risultati-trimestre-frontalieri.title': 'Swiss: utili in crescita nel primo trimestre ma rischi in vista',
+    'blog.article.swiss-risultati-trimestre-frontalieri.excerpt': 'La compagnia aerea Swiss chiude il primo trimestre con utili in crescita, ma i costi del carburante potrebbero erodere i guadagni.',
+    'blog.article.swiss-risultati-trimestre-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaIt;
