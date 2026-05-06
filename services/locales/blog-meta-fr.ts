@@ -6378,6 +6378,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.posta-castel-san-pietro-negozio-alimentari.title': 'La Poste déménage au magasin d\'alimentation à Castel San Pietro',
     'blog.article.posta-castel-san-pietro-negozio-alimentari.excerpt': 'À partir du 8 juin, les services postaux seront hébergés au magasin d\'alimentation à Largo Bernasconi. Horaires étendus et services à domicile.',
     'blog.article.posta-castel-san-pietro-negozio-alimentari.imageAlt': 'Épicerie à Castel San Pietro avec service postal',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.title': 'Sicuritalia recrute 150 gardes en Lombardie et Vénétie',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.excerpt': 'Le groupe leader en sécurité en Italie ouvre 200 postes, avec 100 embauches en Lombardie et 50 en Vénétie. Contrats à durée indéterminée.',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.imageAlt': 'Un salon de l\'emploi animé au Tessin avec des personnes discutant des opportunités d\'emploi, situé dans une ville frontalière suisse-italienne moderne.',
 };
 
 export default blogMetaFr;

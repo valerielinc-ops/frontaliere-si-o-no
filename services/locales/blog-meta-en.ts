@@ -6377,6 +6377,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.posta-castel-san-pietro-negozio-alimentari.title': 'Swiss Post moves to Castel San Pietro grocery store',
     'blog.article.posta-castel-san-pietro-negozio-alimentari.excerpt': 'Starting June 8th, postal services will be available at the grocery store in Largo Bernasconi. Extended hours and home delivery services.',
     'blog.article.posta-castel-san-pietro-negozio-alimentari.imageAlt': 'Grocery store in Castel San Pietro with postal service',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.title': 'Sicuritalia hires 150 security guards in Lombardy and Veneto',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.excerpt': 'The Italian security leader opens 200 positions, with 100 hires in Lombardy and 50 in Veneto. Permanent contracts.',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.imageAlt': 'A bustling job fair in Ticino with people discussing employment opportunities, set in a modern Swiss-Italian border town.',
 };
 
 export default blogMetaEn;

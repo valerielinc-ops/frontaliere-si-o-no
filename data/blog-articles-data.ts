@@ -20504,4 +20504,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sicuritalia-assunzioni-lombardia-veneto-2026',
+ category: 'novita',
+ date: '2026-05-06T08:43:41.842Z',
+ image: '/images/blog/sicuritalia-assunzioni-lombardia-veneto-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

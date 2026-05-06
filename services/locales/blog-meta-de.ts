@@ -6377,6 +6377,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.posta-castel-san-pietro-negozio-alimentari.title': 'Die Post zieht in den Lebensmittelladen in Castel San Pietro um',
     'blog.article.posta-castel-san-pietro-negozio-alimentari.excerpt': 'Ab dem 8. Juni werden die Postdienste im Lebensmittelladen im Largo Bernasconi angeboten. Erweiterte Öffnungszeiten und Hauslieferungen.',
     'blog.article.posta-castel-san-pietro-negozio-alimentari.imageAlt': 'Lebensmittelgeschäft in Castel San Pietro mit Postdienst',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.title': 'Sicuritalia stellt 150 Wachleute in Lombardei und Venetien ein',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.excerpt': 'Die in Italien führende Sicherheitsgruppe eröffnet 200 Stellen, mit 100 Einstellungen in der Lombardei und 50 im Veneto. Unbefristete Verträge.',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.imageAlt': 'Eine belebte Jobmesse im Tessin mit Menschen, die über Beschäftigungsmöglichkeiten diskutieren, in einer modernen Schweizer-Italienischen Grenzstadt.',
 };
 
 export default blogMetaDe;

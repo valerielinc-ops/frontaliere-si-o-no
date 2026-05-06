@@ -3368,6 +3368,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-parita-salariale-ticino-2026': { name: 'Parità salariale', path: '/articoli-frontaliere/parita-salariale-ticino-2026', parent: 'blog' },
     'blog-lavori-chiasso-franscini-2026': { name: 'Lavori a Chiasso', path: '/articoli-frontaliere/lavori-chiasso-franscini-2026', parent: 'blog' },
     'blog-posta-castel-san-pietro-negozio-alimentari': { name: 'Novità', path: '/articoli-frontaliere/posta-castel-san-pietro-negozio-alimentari', parent: 'blog' },
+    'blog-sicuritalia-assunzioni-lombardia-veneto-2026': { name: 'Novità', path: '/articoli-frontaliere/sicuritalia-assunzioni-lombardia-veneto-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

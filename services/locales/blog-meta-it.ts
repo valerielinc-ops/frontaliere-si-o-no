@@ -6378,6 +6378,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.posta-castel-san-pietro-negozio-alimentari.title': 'La Posta si trasferisce al negozio di alimentari a Castel San Pietro',
     'blog.article.posta-castel-san-pietro-negozio-alimentari.excerpt': 'A partire dall\'8 giugno, i servizi postali saranno ospitati presso il negozio di alimentari in Largo Bernasconi. Orari estesi e servizi a domicilio.',
     'blog.article.posta-castel-san-pietro-negozio-alimentari.imageAlt': 'Negozio di alimentari a Castel San Pietro con servizio postale',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.title': 'Sicuritalia assume 150 guardie giurate in Lombardia e Veneto',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.excerpt': 'Il gruppo leader nella sicurezza in Italia apre 200 posizioni, con 100 assunzioni in Lombardia e 50 in Veneto. Contratti a tempo indeterminato.',
+    'blog.article.sicuritalia-assunzioni-lombardia-veneto-2026.imageAlt': 'Una fiera del lavoro affollata in Ticino con persone che discutono di opportunità di lavoro, ambientata in una città di confine svizzero-italiana moderna.',
 };
 
 export default blogMetaIt;
