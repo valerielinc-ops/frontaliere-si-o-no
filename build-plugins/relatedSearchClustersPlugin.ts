@@ -608,13 +608,14 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
   const jsonLdScripts = buildJsonLd({ ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel });
   const hreflangHtml = renderHreflang(hreflang, canonicalUrl);
 
-  // ── TOP: SPA JobBoard search-query layout (visible at first paint) ──
-  // Job list — REAL CONTENT FIRST (mobile-first source order). The cards
-  // are rendered through `renderJobCardListHtml` which emits the same
-  // SPA-style markup the JobBoard uses, so client-side hydration of the
-  // SPA on top of the static page does not produce a visible re-flow.
-  const cardItems = buildJobCardItems(ctx.matchingJobs, locale);
-  const jobListHtml = renderJobCardListHtml(cardItems, { locale });
+  // ── Strategy: SPA renders the interactive UI for users; static page
+  // emits ONLY crawler-facing prose (collapsed `<details>`) below `#root`.
+  // The wrapper class `cluster-seo-prose` is intentionally NOT
+  // `seo-static-content` — that lets the SPA's lite-shell detector miss
+  // the marker and hydrate `#root` with its full JobBoard search-query UI
+  // (working searchbar + filter chips + JobCard grid + pagination from
+  // `parseSearchSlugFilter`). User sees a fully-functional search-results
+  // view; crawlers index the prose section that lives below `#root`.
 
   const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
 
@@ -696,14 +697,13 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
   </details>`;
 
   // ── Body ────────────────────────────────────────────────────────
-  // Layout (mobile-first source order):
-  //   1. Breadcrumb
-  //   2. H1 + datestamp + 1-line tagline (≤ 120 chars)
-  //   3. SPA-style searchbar replica with the query pre-filled
-  //   4. Active-filter chip pill
-  //   5. JobCard grid (real content)
-  //   6. "All open positions" CTA
-  //   7. <details> with the SEO prose (collapsed)
+  // Crawler-facing static body (lives in `<main class="cluster-seo-prose">`
+  // BELOW `#root`). Source order: breadcrumb + H1 + tagline (heading
+  // hierarchy for SEO), then the collapsed prose `<details>`. Users see
+  // the SPA's hydrated JobBoard UI inside `#root` ABOVE this main; the
+  // prose is below the fold and folds out only when expanded — satisfies
+  // CLAUDE.md non-negotiable rule #14 (filler must not push real content
+  // below the fold).
   const bodyHtml = `<div class="related-search-cluster" style="max-width:1100px;margin:0 auto;padding:24px 16px 56px;color:var(--color-body)">
     <nav aria-label="${esc(copy.searchBreadcrumb)}" style="${BREADCRUMB_STYLE}">
       <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.homeBreadcrumb)}</a>
@@ -717,15 +717,6 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
       <h1 style="margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.18;color:var(--color-heading)">${esc(headlineH1)}</h1>
       <p style="margin:0;color:var(--color-body);font-size:15px;line-height:1.55;max-width:820px">${esc(tagline)}</p>
     </header>
-    ${renderStaticSearchbar(ctx.keyword, chrome)}
-    ${renderActiveFilterChip(ctx.keyword, chrome)}
-    <section aria-labelledby="rsc-results-heading">
-      <h2 id="rsc-results-heading" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">${esc(chrome.resultsCountLabel(ctx.matchingJobs.length))}</h2>
-      ${jobListHtml}
-    </section>
-    <p style="margin:20px 0 0;text-align:center">
-      <a href="${esc(sectionUrl)}" style="display:inline-block;padding:10px 18px;background:var(--color-accent-strong);color:var(--color-on-accent);text-decoration:none;border-radius:9999px;font-weight:600;font-size:14px">${esc(copy.ctaAllJobs)} →</a>
-    </p>
     ${seoContextBlock}
   </div>`;
 
@@ -744,6 +735,11 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
+    // Opt OUT of `seo-static-content` lite-shell trigger so the SPA
+    // hydrates `#root` and renders the working JobBoard search-query UI
+    // (parseSearchSlugFilter populates the searchbar, JobBoard renders
+    // results, filters work). The static `<main>` below is crawler-only.
+    seoMainClass: 'cluster-seo-prose',
   });
 
   return { urlPath, html, loc: canonicalUrl };
