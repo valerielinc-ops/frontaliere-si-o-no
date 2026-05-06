@@ -6267,6 +6267,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.title': 'Conducente falcia folla a Lipsia, ricoverato in psichiatria',
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.excerpt': 'L\'uomo di 33 anni, già ricoverato in aprile, è stato arrestato dopo aver investito due persone a Lipsia. Le autorità escludono motivazioni politiche.',
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.imageAlt': 'Folla a Lugano dopo un incidente con un\'auto',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.title': 'Dipendenti cantonali: dati ISMAT 2025 svelano malcontento',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.excerpt': 'Comitato ErreDiPi critica rapporto ISMAT: solo il 44% vede possibilità di crescita, 55% si sente non riconosciuto',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.imageAlt': 'Veduta di Bellinzona con il Castelgrande sullo sfondo',
 };
 
 export default blogMetaIt;

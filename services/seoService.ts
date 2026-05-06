@@ -3331,6 +3331,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pompieri-lugano-24-ore-2026': { name: 'Novità', path: '/articoli-frontaliere/pompieri-lugano-24-ore-2026', parent: 'blog' },
     'blog-nathan-borradori-ambri-2030': { name: 'Novità', path: '/articoli-frontaliere/nathan-borradori-ambri-2030', parent: 'blog' },
     'blog-conducente-folla-ricoverato-psichiatria-2026': { name: 'Novità', path: '/articoli-frontaliere/conducente-folla-ricoverato-psichiatria-2026', parent: 'blog' },
+    'blog-dipendenti-cantonali-soddisfazione-2026': { name: 'Dipendenti cantonali', path: '/articoli-frontaliere/dipendenti-cantonali-soddisfazione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

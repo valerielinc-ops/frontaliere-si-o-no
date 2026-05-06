@@ -20171,4 +20171,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dipendenti-cantonali-soddisfazione-2026',
+ category: 'pratico',
+ date: '2026-05-06T01:03:58.608Z',
+ image: '/images/blog/dipendenti-cantonali-soddisfazione-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

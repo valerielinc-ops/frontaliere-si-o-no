@@ -6267,6 +6267,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.title': 'Conducteur fauche la foule à Leipzig, interné en psychiatrie',
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.excerpt': 'L\'homme de 33 ans, déjà interné en avril, a été arrêté après avoir renversé deux personnes à Leipzig. Les autorités excluent toute motivation politique.',
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.imageAlt': 'Foule à Lugano après un accident de voiture',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.title': 'Employés cantonaux: données ISMAT 2025 révèlent mécontentement',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.excerpt': 'Comité ErreDiPi critique le rapport ISMAT: seulement 44% voit des possibilités de croissance, 55% se sent non reconnu',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.imageAlt': 'Vue de Bellinzone avec le château de Castelgrande en arrière-plan',
 };
 
 export default blogMetaFr;

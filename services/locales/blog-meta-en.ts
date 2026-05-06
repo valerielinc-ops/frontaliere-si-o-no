@@ -6266,6 +6266,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.title': 'Driver mows down crowd in Leipzig, sent to psychiatric ward',
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.excerpt': 'The 33-year-old man, already hospitalized in April, was arrested after hitting two people in Leipzig. Authorities rule out political motives.',
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.imageAlt': 'Crowd in Lugano after a car incident',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.title': 'Cantonal employees: ISMAT 2025 data reveals dissatisfaction',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.excerpt': 'ErreDiPi Committee criticizes ISMAT report: only 44% see growth opportunities, 55% feel unrecognized',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.imageAlt': 'View of Bellinzona with Castelgrande in the background',
 };
 
 export default blogMetaEn;

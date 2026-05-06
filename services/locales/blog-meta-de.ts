@@ -6266,6 +6266,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.title': 'Fahrer fährt in Leipzig Menschen um, in Psychiatrie eingewiesen',
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.excerpt': 'Der 33-jährige Mann, bereits im April eingewiesen, wurde nach dem Überfahren von zwei Personen in Leipzig festgenommen. Die Behörden schließen politische Motive aus.',
     'blog.article.conducente-folla-ricoverato-psichiatria-2026.imageAlt': 'Menschenmenge in Lugano nach einem Autounfall',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.title': 'Kantonale Mitarbeiter: ISMAT 2025 zeigt Unzufriedenheit',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.excerpt': 'Komitee ErreDiPi kritisiert ISMAT-Bericht: Nur 44% sehen Wachstumschancen, 55% fühlen sich nicht anerkannt',
+    'blog.article.dipendenti-cantonali-soddisfazione-2026.imageAlt': 'Bellinzona mit Blick auf die Burg Castelgrande',
 };
 
 export default blogMetaDe;
