@@ -6284,6 +6284,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bper-risiko-bancario-crescita-mercato.title': 'Bper und die Risikospieler der Banken: Wachstum als Verteidigung',
     'blog.article.bper-risiko-bancario-crescita-mercato.excerpt': 'Gianni Franco Papa, CEO von Bper, spricht über Wachstum und Marktkapitalisierung als Schutz vor möglichen Übernahmen. Fokus auf Bancassurance und Fusionen.',
     'blog.article.bper-risiko-bancario-crescita-mercato.imageAlt': 'Blick auf den Luganersee mit dem modernen Finanzdistrikt im Hintergrund',
+    'blog.article.svizzeri-felici-salute-mentale-costi.title': 'Schweiz: psychische Gesundheit wird teurer',
+    'blog.article.svizzeri-felici-salute-mentale-costi.excerpt': 'Die Ausgaben für die psychische Gesundheit in der Schweiz steigen, mit höheren Kosten und mehr Inanspruchnahme von Behandlungen bei jungen Menschen.',
+    'blog.article.svizzeri-felici-salute-mentale-costi.imageAlt': 'Ruhevolle Aussicht auf den Luganersee mit Bergen im Hintergrund, die die Schönheit des Tessin zeigt.',
 };
 
 export default blogMetaDe;

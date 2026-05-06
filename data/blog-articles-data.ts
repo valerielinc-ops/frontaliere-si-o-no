@@ -20225,4 +20225,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzeri-felici-salute-mentale-costi',
+ category: 'pratico',
+ date: '2026-05-06T01:57:57.426Z',
+ image: '/images/blog/svizzeri-felici-salute-mentale-costi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

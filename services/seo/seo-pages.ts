@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2147,
+ "numberOfItems": 2148,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6789,7 +6789,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2144, "name": "Morto René Groebli, fotografo svizzero di fama ...", "url": `${BASE_URL}/articoli-frontaliere/morto-rene-groebli-fotografo-98-anni` },
           { "@type": "ListItem", "position": 2145, "name": "Food Truck Festival Locarno 2026: 5'000 visitat...", "url": `${BASE_URL}/articoli-frontaliere/food-truck-festival-locarno-2026` },
           { "@type": "ListItem", "position": 2146, "name": "Hendschiken: arrestato 19enne francese per furt...", "url": `${BASE_URL}/articoli-frontaliere/hendsichen-arresto-francese-autodiebstahl` },
-          { "@type": "ListItem", "position": 2147, "name": "Bper e i lupi del risiko bancario: crescita e m...", "url": `${BASE_URL}/articoli-frontaliere/bper-risiko-bancario-crescita-mercato` }
+          { "@type": "ListItem", "position": 2147, "name": "Bper e i lupi del risiko bancario: crescita e m...", "url": `${BASE_URL}/articoli-frontaliere/bper-risiko-bancario-crescita-mercato` },
+          { "@type": "ListItem", "position": 2148, "name": "Svizzera: salute mentale costa sempre di più", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-felici-salute-mentale-costi` }
  ]
  },
  {

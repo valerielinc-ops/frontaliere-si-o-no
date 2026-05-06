@@ -6285,6 +6285,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bper-risiko-bancario-crescita-mercato.title': 'Bper et les loups du risque bancaire : croissance et marché comme défense',
     'blog.article.bper-risiko-bancario-crescita-mercato.excerpt': 'Gianni Franco Papa, PDG de Bper, parle de croissance et de capitalisation boursière comme défense contre d\'éventuelles OPA. Focus sur la bancassurance et les fusions.',
     'blog.article.bper-risiko-bancario-crescita-mercato.imageAlt': 'Vue du lac de Lugano avec le quartier financier moderne en arrière-plan',
+    'blog.article.svizzeri-felici-salute-mentale-costi.title': 'Suisse: la santé mentale coûte de plus en plus cher',
+    'blog.article.svizzeri-felici-salute-mentale-costi.excerpt': 'Augmentation des dépenses pour la santé mentale en Suisse, avec des coûts en hausse et un recours accru aux soins chez les jeunes.',
+    'blog.article.svizzeri-felici-salute-mentale-costi.imageAlt': 'Vue sereine du lac de Lugano avec des montagnes en arrière-plan, mettant en valeur la beauté du Tessin.',
 };
 
 export default blogMetaFr;
