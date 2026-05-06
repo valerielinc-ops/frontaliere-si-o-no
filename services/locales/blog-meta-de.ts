@@ -6437,6 +6437,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swiss-market-index-entusiasmo-2026.title': 'Swiss Market Index steigt: +2,3% in Zürich',
     'blog.article.swiss-market-index-entusiasmo-2026.excerpt': 'Der Swiss Market Index steigt auf etwa 13\'352 Punkte, mit einem Plus von 2,30%. Das Podium wird von Richemont, Amrize und Holcim belegt.',
     'blog.article.swiss-market-index-entusiasmo-2026.imageAlt': 'Swiss Market Index Diagramm mit Blick auf den Luganersee',
+    'blog.article.trump-export-limits-petrol-2026.title': 'Trump erwägt Exportbeschränkungen für US-Öl',
+    'blog.article.trump-export-limits-petrol-2026.excerpt': 'Die Kraftstoffpreise in den USA sind seit Beginn des Iran-Krieges um 50% gestiegen, was die Möglichkeit eröffnet, die Exporte zu begrenzen.',
+    'blog.article.trump-export-limits-petrol-2026.imageAlt': 'Eine Tankstelle in Tessin mit einem Schild, das steigende Benzinpreise anzeigt, vor dem Hintergrund der Schweizer Alpen.',
 };
 
 export default blogMetaDe;

@@ -20684,4 +20684,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trump-export-limits-petrol-2026',
+ category: 'novita',
+ date: '2026-05-06T11:13:32.005Z',
+ image: '/images/blog/trump-export-limits-petrol-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

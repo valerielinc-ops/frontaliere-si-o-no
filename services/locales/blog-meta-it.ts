@@ -6438,6 +6438,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-market-index-entusiasmo-2026.title': 'Swiss Market Index in rialzo: +2.3% a Zurigo',
     'blog.article.swiss-market-index-entusiasmo-2026.excerpt': 'Il Swiss Market Index vola a 13\'352 punti circa, con progresso del 2.30%. Podio occupato da Richemont, Amrize e Holcim.',
     'blog.article.swiss-market-index-entusiasmo-2026.imageAlt': 'Grafico Swiss Market Index con vista Lago di Lugano',
+    'blog.article.trump-export-limits-petrol-2026.title': 'Trump valuta limiti alle esportazioni di petrolio USA',
+    'blog.article.trump-export-limits-petrol-2026.excerpt': 'I prezzi dei carburanti negli USA sono aumentati del 50% da inizio guerra in Iran, aprendo alla possibilità di limitare le esportazioni.',
+    'blog.article.trump-export-limits-petrol-2026.imageAlt': 'Una stazione di servizio in Ticino con un cartello che mostra i prezzi del petrolio in aumento, sullo sfondo delle Alpi svizzere.',
 };
 
 export default blogMetaIt;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2198,
+ "numberOfItems": 2199,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6840,7 +6840,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2195, "name": "Votazioni del 14 giugno: esito incerto per entr...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-ticino-14-giugno-2024` },
           { "@type": "ListItem", "position": 2196, "name": "Borse in rialzo, eccetto Londra: cosa cambia pe...", "url": `${BASE_URL}/articoli-frontaliere/borse-ticino-londra-verde` },
           { "@type": "ListItem", "position": 2197, "name": "Bagni pubblici di Bellinzona riaprono con novit...", "url": `${BASE_URL}/articoli-frontaliere/bagni-bellinzona-riaprono-novita-2026` },
-          { "@type": "ListItem", "position": 2198, "name": "Swiss Market Index in rialzo: +2.3% a Zurigo", "url": `${BASE_URL}/articoli-frontaliere/swiss-market-index-entusiasmo-2026` }
+          { "@type": "ListItem", "position": 2198, "name": "Swiss Market Index in rialzo: +2.3% a Zurigo", "url": `${BASE_URL}/articoli-frontaliere/swiss-market-index-entusiasmo-2026` },
+          { "@type": "ListItem", "position": 2199, "name": "Trump valuta limiti alle esportazioni di petrol...", "url": `${BASE_URL}/articoli-frontaliere/trump-export-limits-petrol-2026` }
  ]
  },
  {
