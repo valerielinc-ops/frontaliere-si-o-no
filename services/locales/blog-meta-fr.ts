@@ -6312,6 +6312,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casa-artigianato-dongio-sostegno.title': 'La Maison de l\'artisanat cherche un soutien pour continuer à exister',
     'blog.article.casa-artigianato-dongio-sostegno.excerpt': 'Collecte de fonds pour garantir l\'avenir du magasin de Dongio et préserver le patrimoine artisanal de la vallée de Blenio',
     'blog.article.casa-artigianato-dongio-sostegno.imageAlt': 'La Casa dell\'artigianato à Dongio, Vallée de Blenio, Tessin',
+    'blog.article.cnhi-mendrisio-dipendenti-allarme.title': 'CNHI pourrait quitter Mendrisio: les employés s\'inquiètent',
+    'blog.article.cnhi-mendrisio-dipendenti-allarme.excerpt': 'La CNHI International SA envisage de déplacer son siège du Tessin, avec des répercussions possibles pour les 80-100 employés. Des évaluations sont en cours.',
+    'blog.article.cnhi-mendrisio-dipendenti-allarme.imageAlt': 'Vue aérienne de Mendrisio, Tessin, Suisse, avec des bâtiments de bureaux modernes et le paysage environnant.',
 };
 
 export default blogMetaFr;

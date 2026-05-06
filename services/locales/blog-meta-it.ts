@@ -6312,6 +6312,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casa-artigianato-dongio-sostegno.title': 'Casa dell\'artigianato cerca sostegno per continuare a vivere',
     'blog.article.casa-artigianato-dongio-sostegno.excerpt': 'Raccolta fondi per garantire il futuro del negozio di Dongio e preservare il patrimonio artigianale della Valle di Blenio',
     'blog.article.casa-artigianato-dongio-sostegno.imageAlt': 'La Casa dell\'artigianato a Dongio, Valle di Blenio, Ticino',
+    'blog.article.cnhi-mendrisio-dipendenti-allarme.title': 'CNHI potrebbe lasciare Mendrisio: dipendenti in allarme',
+    'blog.article.cnhi-mendrisio-dipendenti-allarme.excerpt': 'La CNHI International SA valuta un trasferimento della sede ticinese, con possibili ripercussioni per gli 80-100 dipendenti. Valutazioni in corso.',
+    'blog.article.cnhi-mendrisio-dipendenti-allarme.imageAlt': 'Vista aerea di Mendrisio, Ticino, Svizzera, con edifici moderni e il paesaggio circostante.',
 };
 
 export default blogMetaIt;

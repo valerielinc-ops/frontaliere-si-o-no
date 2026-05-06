@@ -21014,6 +21014,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cnhi-mendrisio-dipendenti-allarme': {
+    title: 'CNHI potrebbe lasciare Mendrisio: dipendenti in allarme',
+    description: 'La CNHI International SA valuta un trasferimento della sede ticinese, con possibili ripercussioni per gli 80-100 dipendenti. Valutazioni in corso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cnhi, potrebbe, lasciare, mendrisio',
+    ogTitle: 'CNHI potrebbe lasciare Mendrisio: dipendenti in allarme',
+    ogDescription: 'La CNHI International SA valuta un trasferimento della sede ticinese, con possibili ripercussioni per gli 80-100 dipendenti. Valutazioni in corso.',
+    canonicalPath: '/articoli-frontaliere/cnhi-mendrisio-dipendenti-allarme',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CNHI potrebbe lasciare Mendrisio: dipendenti in allarme",
+      "description": "La CNHI International SA valuta un trasferimento della sede ticinese, con possibili ripercussioni per gli 80-100 dipendenti. Valutazioni in corso.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/cnhi-mendrisio-dipendenti-allarme.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Ticino, Svizzera, con edifici moderni e il paesaggio circostante."
+      },
+      "datePublished": "2026-05-06T05:02:47+00:00",
+      "dateModified": "2026-05-06T05:02:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cnhi-mendrisio-dipendenti-allarme`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

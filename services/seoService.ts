@@ -3346,6 +3346,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bilancio-voto-canone-ssr-2026': { name: 'Novità', path: '/articoli-frontaliere/bilancio-voto-canone-ssr-2026', parent: 'blog' },
     'blog-votazioni-cure-dentarie-ticino-2024': { name: 'Iniziativa cure dentarie', path: '/articoli-frontaliere/votazioni-cure-dentarie-ticino-2024', parent: 'blog' },
     'blog-casa-artigianato-dongio-sostegno': { name: 'Novità', path: '/articoli-frontaliere/casa-artigianato-dongio-sostegno', parent: 'blog' },
+    'blog-cnhi-mendrisio-dipendenti-allarme': { name: 'Novità', path: '/articoli-frontaliere/cnhi-mendrisio-dipendenti-allarme', parent: 'blog' },
  };
 
  const info = sectionNames[section];

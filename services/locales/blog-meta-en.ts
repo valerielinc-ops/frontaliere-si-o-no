@@ -6311,6 +6311,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casa-artigianato-dongio-sostegno.title': 'Craft house seeks support to keep going',
     'blog.article.casa-artigianato-dongio-sostegno.excerpt': 'Fundraising to secure the future of Dongio\'s shop and preserve Blenio Valley\'s artisan heritage',
     'blog.article.casa-artigianato-dongio-sostegno.imageAlt': 'The Casa dell\'artigianato in Dongio, Blenio Valley, Ticino',
+    'blog.article.cnhi-mendrisio-dipendenti-allarme.title': 'CNHI may leave Mendrisio: staff on alert',
+    'blog.article.cnhi-mendrisio-dipendenti-allarme.excerpt': 'CNHI International SA is considering moving its Ticino headquarters, potentially affecting 80-100 employees. Evaluations ongoing.',
+    'blog.article.cnhi-mendrisio-dipendenti-allarme.imageAlt': 'Aerial view of Mendrisio, Ticino, Switzerland, with modern office buildings and the surrounding landscape.',
 };
 
 export default blogMetaEn;

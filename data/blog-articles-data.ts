@@ -20306,4 +20306,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cnhi-mendrisio-dipendenti-allarme',
+ category: 'novita',
+ date: '2026-05-06T05:02:47.286Z',
+ image: '/images/blog/cnhi-mendrisio-dipendenti-allarme.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
