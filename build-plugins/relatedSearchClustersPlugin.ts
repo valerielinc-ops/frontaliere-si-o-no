@@ -1,0 +1,904 @@
+/**
+ * Related-search cluster landings — Vite build plugin.
+ *
+ * Phase 2 of canonicalizing the related-search URLs that the SPA's JobBoard
+ * widget exposes (e.g. `/cerca-lavoro-ticino/ricerca-data-center-technician/`).
+ * Phase 1 (audit script) populated `data/related-search-candidates.json`.
+ * Phase B1 (AI enrichment) optionally populates
+ * `data/related-search-enriched.json` with intro + 3-FAQ blocks per cluster.
+ *
+ * This plugin reads both files plus `data/jobs.json`, filters to clusters
+ * with ≥5 emissions and no editorial collision, then emits one indexable
+ * static HTML page per surviving cluster at:
+ *   IT: /cerca-lavoro-ticino/ricerca-{slug-core}/
+ *   EN: /en/find-jobs-ticino/search-{slug-core}/
+ *   DE: /de/jobs-im-tessin/suche-{slug-core}/
+ *   FR: /fr/trouver-emploi-tessin/recherche-{slug-core}/
+ *
+ * Mobile-first layout: the job-list section appears in source order BEFORE
+ * any editorial filler (intro + FAQ go inside collapsed `<details>`). This
+ * is critical — Googlebot reads source order, mobile users see source order
+ * on collapse, and we MUST NOT inline 80 words above the listings.
+ *
+ * Hub index pages are emitted at:
+ *   /{sectionLocalized}/{searchPrefix}/  (paginated at 200 entries / page)
+ *
+ * Anti-doorway mitigations:
+ *   - Clusters with <3 matching jobs are SKIPPED entirely (no thin-content
+ *     fallback) per CLAUDE.md non-negotiable rule #4.
+ *   - Up to 30 jobs / page (cap).
+ *   - Template intro is parameterized by jobCount + keyword + city +
+ *     top-3-companies, so even when the AI cache is empty the body varies
+ *     per-page.
+ *   - When enrichment data has no FAQs for a cluster, the FAQ section is
+ *     OMITTED rather than templated (better than fake content).
+ *
+ * Gates:
+ *   - SKIP_RELATED_SEARCH_CLUSTERS=1 → fast-path exit, no files generated.
+ *
+ * The plugin DEGRADES GRACEFULLY when input files are missing (logs a
+ * warning and returns 0 pages instead of failing the build).
+ */
+
+import path from 'node:path';
+import fs from 'node:fs';
+import type { Plugin } from 'vite';
+
+import { WriteCollector } from './batchWrite';
+import { BASE_URL } from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
+import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CTA_PRIMARY_STYLE,
+  LINK_ACCENT_STYLE,
+} from './shared/seoContentTokens';
+import { buildTitleWithBrand } from './shared/titleSuffix';
+import {
+  renderJobCardListHtml,
+  type JobCardJob,
+  type JobCardListItem,
+} from './shared/jobCardHtml';
+import {
+  getJobBoardSectionSlug,
+  getSearchSlugPrefix,
+} from '../services/relatedSearchClusters';
+import type { Locale } from '../services/i18n';
+import {
+  COPY,
+  KNOWN_CITIES,
+  LOCALE_PREFIX,
+  OG_LOCALE,
+  SUPPORTED_LOCALES,
+  buildTemplateIntro,
+  type CandidateEntry,
+  type CandidatesFile,
+  type EnrichedEntry,
+  type EnrichedFile,
+  type LocaleCopy,
+  type RawJob,
+} from './relatedSearchClustersData';
+
+// ── Constants ───────────────────────────────────────────────────────────
+
+const MIN_JOB_COUNT = 5;
+const MIN_MATCHING_JOBS = 3;
+const MAX_JOBS_PER_PAGE = 30;
+const HUB_PAGE_SIZE = 200;
+
+// ── Utilities ───────────────────────────────────────────────────────────
+
+function esc(value: unknown): string {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** Lower-case + NFD-strip (handles Zürich/Zurich, Genève/Geneva, etc.). */
+function normalizeText(value: string): string {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '');
+}
+
+/** Tokenize a query string into [normalized, length>=2] tokens. */
+function tokenizeQuery(query: string): string[] {
+  return normalizeText(query)
+    .split(/[^a-z0-9]+/)
+    .filter((tok) => tok.length >= 2);
+}
+
+/**
+ * Approximation of the SPA's `indexedQueryMatch` from JobBoard.tsx.
+ * Each query token must appear as a substring of the normalized job
+ * haystack. Stemming is intentionally skipped — at build time we cannot
+ * afford the per-job stemming overhead. The shorter-token substring match
+ * is permissive in the same direction the SPA's stemmer is permissive
+ * (matches plurals, feminine forms) so the final job-list count is
+ * essentially identical.
+ */
+function queryMatchesJob(haystack: string, queryTokens: ReadonlyArray<string>): boolean {
+  if (queryTokens.length === 0) return false;
+  for (const token of queryTokens) {
+    if (!haystack.includes(token)) return false;
+  }
+  return true;
+}
+
+/** Build the per-locale normalized haystack once and cache it on the job. */
+function buildJobHaystack(job: RawJob, locale: Locale): string {
+  const title = job.titleByLocale?.[locale] ?? job.title ?? '';
+  const description = job.descriptionByLocale?.[locale] ?? job.description ?? '';
+  return normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${description}`);
+}
+
+/** Detect a known city in a sample term (longest match wins). */
+function detectCity(sampleTerm: string): string | null {
+  if (!sampleTerm) return null;
+  const lower = normalizeText(sampleTerm);
+  const sortedCities = [...KNOWN_CITIES].sort((a, b) => b.length - a.length);
+  for (const city of sortedCities) {
+    const cityLower = normalizeText(city);
+    const re = new RegExp(`(^|[\\s,/-])${cityLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}($|[\\s,/-])`);
+    if (re.test(lower)) return city;
+  }
+  return null;
+}
+
+/** Strip a trailing city occurrence from the sample term, returning the keyword. */
+function stripCityFromKeyword(sampleTerm: string, city: string | null): string {
+  if (!city) return sampleTerm.trim();
+  const lowerCity = normalizeText(city);
+  const lowerTerm = normalizeText(sampleTerm);
+  const trailingRe = new RegExp(`[\\s,/-]+${lowerCity.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`);
+  if (!trailingRe.test(lowerTerm)) return sampleTerm.trim();
+  return sampleTerm.replace(/[\s,/-]+\S+$/, '').trim() || sampleTerm.trim();
+}
+
+function capitalize(value: string): string {
+  if (!value) return value;
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+function jobIdentity(job: RawJob): string {
+  return job.slug || job.id || `${job.company}-${job.title}`;
+}
+
+// ── File loading ────────────────────────────────────────────────────────
+
+function loadCandidates(rootDir: string): CandidateEntry[] {
+  const candidatesPath = path.join(rootDir, 'data', 'related-search-candidates.json');
+  if (!fs.existsSync(candidatesPath)) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m candidates file missing — skipping (soft).');
+    return [];
+  }
+  try {
+    const raw = JSON.parse(fs.readFileSync(candidatesPath, 'utf-8')) as CandidatesFile;
+    if (!Array.isArray(raw.candidates)) {
+      console.warn('\x1b[33m[related-search-clusters]\x1b[0m candidates file has unexpected shape — skipping.');
+      return [];
+    }
+    return raw.candidates;
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to parse candidates file:', err);
+    return [];
+  }
+}
+
+function loadEnriched(rootDir: string): Record<string, EnrichedEntry> {
+  const enrichedPath = path.join(rootDir, 'data', 'related-search-enriched.json');
+  if (!fs.existsSync(enrichedPath)) return {};
+  try {
+    const raw = JSON.parse(fs.readFileSync(enrichedPath, 'utf-8')) as EnrichedFile;
+    return raw && raw.entries && typeof raw.entries === 'object' ? raw.entries : {};
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to parse enriched file:', err);
+    return {};
+  }
+}
+
+function loadJobs(rootDir: string): RawJob[] {
+  const jobsPath = path.join(rootDir, 'data', 'jobs.json');
+  if (!fs.existsSync(jobsPath)) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m jobs.json missing — no listings will be rendered.');
+    return [];
+  }
+  try {
+    const raw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown;
+    return Array.isArray(raw) ? (raw as RawJob[]) : [];
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to parse jobs.json:', err);
+    return [];
+  }
+}
+
+// ── Filtering & dedupe ──────────────────────────────────────────────────
+
+interface ClusterContext {
+  candidate: CandidateEntry;
+  keyword: string;
+  city: string | null;
+  matchingJobs: RawJob[];
+  topCompanies: string[];
+}
+
+function filterAndDedupeCandidates(all: CandidateEntry[]): CandidateEntry[] {
+  const passing = all.filter((c) =>
+    c.jobCount >= MIN_JOB_COUNT
+    && c.editorialCollision === null
+    && Array.isArray(c.sampleTerms)
+    && c.sampleTerms.length > 0
+    && SUPPORTED_LOCALES.includes(c.locale),
+  );
+  // Dedupe by `${locale}::${slug}`: keep the entry with the highest jobCount.
+  const bySlug = new Map<string, CandidateEntry>();
+  for (const c of passing) {
+    const key = `${c.locale}::${c.slug}`;
+    const existing = bySlug.get(key);
+    if (!existing || (c.jobCount > existing.jobCount)) bySlug.set(key, c);
+  }
+  return Array.from(bySlug.values());
+}
+
+function buildClusterContext(
+  candidate: CandidateEntry,
+  haystackByLocale: Map<string, string>,
+  jobs: ReadonlyArray<RawJob>,
+): ClusterContext | null {
+  const sampleTerm = (candidate.sampleTerms || [])[0] || '';
+  if (!sampleTerm) return null;
+  const city = detectCity(sampleTerm);
+  const keyword = stripCityFromKeyword(sampleTerm, city);
+  if (!keyword) return null;
+
+  const tokens = tokenizeQuery(sampleTerm);
+  if (tokens.length === 0) return null;
+
+  const matching: RawJob[] = [];
+  for (const job of jobs) {
+    if (matching.length >= MAX_JOBS_PER_PAGE) break;
+    const cacheKey = `${candidate.locale}::${jobIdentity(job)}`;
+    let haystack = haystackByLocale.get(cacheKey);
+    if (haystack === undefined) {
+      haystack = buildJobHaystack(job, candidate.locale);
+      haystackByLocale.set(cacheKey, haystack);
+    }
+    if (queryMatchesJob(haystack, tokens)) matching.push(job);
+  }
+
+  if (matching.length < MIN_MATCHING_JOBS) return null;
+
+  const counts = new Map<string, number>();
+  for (const j of matching) {
+    const c = (j.company || '').trim();
+    if (!c) continue;
+    counts.set(c, (counts.get(c) || 0) + 1);
+  }
+  const topCompanies = Array.from(counts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([name]) => name);
+
+  return { candidate, keyword: keyword.trim(), city, matchingJobs: matching, topCompanies };
+}
+
+// ── Page emission ───────────────────────────────────────────────────────
+
+interface PageInputs {
+  ctx: ClusterContext;
+  enriched: EnrichedEntry | undefined;
+  hreflang: ReadonlyArray<{ locale: Locale; url: string }>;
+  related: ReadonlyArray<{ keyword: string; url: string }>;
+  distDir: string;
+  dateStamp: string;
+}
+
+interface PageOutput {
+  urlPath: string;
+  html: string;
+  loc: string;
+}
+
+/** Build the canonical URL path for a cluster page. */
+function buildClusterPath(locale: Locale, slug: string): string {
+  const prefix = LOCALE_PREFIX[locale];
+  const section = getJobBoardSectionSlug(locale);
+  return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
+}
+
+/** Build the URL path for the per-locale hub. */
+function buildHubPath(locale: Locale, page: number = 1): string {
+  const prefix = LOCALE_PREFIX[locale];
+  const section = getJobBoardSectionSlug(locale);
+  const sub = getSearchSlugPrefix(locale);
+  const base = `${prefix}/${section}/${sub}/`.replace(/\/+/g, '/');
+  return page > 1 ? `${base}page-${page}/` : base;
+}
+
+/** Build a localized job-detail URL. */
+function jobLocalizedUrl(job: RawJob, locale: Locale): string {
+  const prefix = LOCALE_PREFIX[locale];
+  const section = getJobBoardSectionSlug(locale);
+  const slug = job.slugByLocale?.[locale] || job.slug || '';
+  if (!slug) return `${BASE_URL}${prefix}/${section}/`.replace(/\/+/g, '/');
+  return `${BASE_URL}${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
+}
+
+/** Build the page headline. Keeps under 44 chars where possible. */
+function buildHeadline(keyword: string, city: string | null): string {
+  const kw = capitalize(keyword.trim());
+  return city ? `${kw} a ${city}` : kw;
+}
+
+/** Build the meta description (120-160 chars). */
+function buildDescription(ctx: ClusterContext, locale: Locale): string {
+  const tagline = COPY[locale].taglineSingular(ctx.matchingJobs.length, ctx.keyword, ctx.city);
+  const head = ctx.topCompanies.length > 0 ? ` ${ctx.topCompanies.slice(0, 2).join(', ')}.` : '';
+  const out = `${tagline}${head}`.trim();
+  return out.length > 158 ? `${out.slice(0, 157)}…` : out;
+}
+
+/** Build job-card list items from raw jobs. */
+function buildJobCardItems(jobs: ReadonlyArray<RawJob>, locale: Locale): JobCardListItem[] {
+  return jobs.slice(0, MAX_JOBS_PER_PAGE).map((j) => {
+    const localizedTitle = j.titleByLocale?.[locale] || j.title || '';
+    const enrichedJob: JobCardJob = {
+      ...(j as unknown as JobCardJob),
+      title: localizedTitle,
+      titleByLocale: { ...(j.titleByLocale as JobCardJob['titleByLocale']), [locale]: localizedTitle },
+    };
+    return { job: enrichedJob, href: jobLocalizedUrl(j, locale) };
+  });
+}
+
+/** Build all JSON-LD scripts for a cluster page. */
+function buildJsonLd(opts: {
+  ctx: ClusterContext;
+  canonicalUrl: string;
+  enriched: EnrichedEntry | undefined;
+  locale: Locale;
+}): string[] {
+  const { ctx, canonicalUrl, enriched, locale } = opts;
+  const headline = buildHeadline(ctx.keyword, ctx.city);
+  const copy = COPY[locale];
+  const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
+
+  const itemList = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: headline,
+    numberOfItems: ctx.matchingJobs.length,
+    itemListElement: ctx.matchingJobs.slice(0, MAX_JOBS_PER_PAGE).map((j, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      url: jobLocalizedUrl(j, locale),
+      name: j.titleByLocale?.[locale] || j.title || headline,
+    })),
+  });
+
+  const breadcrumb = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.homeBreadcrumb, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: copy.jobsBreadcrumb, item: sectionUrl },
+      { '@type': 'ListItem', position: 3, name: headline, item: canonicalUrl },
+    ],
+  });
+
+  const out = [breadcrumb, itemList];
+
+  // FAQPage: only when enrichment provides FAQs (no fake content).
+  if (enriched?.faqs && enriched.faqs.length >= 1) {
+    out.push(JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: enriched.faqs.map((q) => ({
+        '@type': 'Question',
+        name: q.question,
+        acceptedAnswer: { '@type': 'Answer', text: q.answer },
+      })),
+    }));
+  }
+
+  return out;
+}
+
+function renderHreflang(
+  hreflang: ReadonlyArray<{ locale: Locale; url: string }>,
+  fallbackUrl: string,
+): string {
+  if (hreflang.length === 0) return '';
+  const lines: string[] = [];
+  for (const alt of hreflang) {
+    lines.push(`    <link rel="alternate" hreflang="${alt.locale}" href="${alt.url}">`);
+  }
+  const itAlt = hreflang.find((h) => h.locale === 'it');
+  const xDefaultUrl = itAlt?.url || hreflang[0]?.url || fallbackUrl;
+  lines.push(`    <link rel="alternate" hreflang="x-default" href="${xDefaultUrl}">`);
+  return lines.join('\n');
+}
+
+/** Render a single cluster page. */
+function renderClusterPage(inputs: PageInputs): PageOutput {
+  const { ctx, enriched, hreflang, related, distDir, dateStamp } = inputs;
+  const { candidate } = ctx;
+  const locale = candidate.locale;
+  const copy = COPY[locale];
+
+  const urlPath = buildClusterPath(locale, candidate.slug);
+  const canonicalUrl = `${BASE_URL}${urlPath}`;
+  const headline = buildHeadline(ctx.keyword, ctx.city);
+  const tagline = copy.taglineSingular(ctx.matchingJobs.length, ctx.keyword, ctx.city);
+  const description = buildDescription(ctx, locale);
+  const introBody = enriched?.intro || buildTemplateIntro({
+    locale,
+    jobCount: ctx.matchingJobs.length,
+    keyword: ctx.keyword,
+    city: ctx.city,
+    topCompanies: ctx.topCompanies,
+  });
+  const jsonLdScripts = buildJsonLd({ ctx, canonicalUrl, enriched, locale });
+  const hreflangHtml = renderHreflang(hreflang, canonicalUrl);
+
+  // Job list — REAL CONTENT FIRST (mobile-first source order).
+  const cardItems = buildJobCardItems(ctx.matchingJobs, locale);
+  const jobListHtml = renderJobCardListHtml(cardItems, { locale });
+
+  // Related searches (top 8 same-city / different-keyword).
+  const relatedHtml = related.length > 0
+    ? `<nav aria-label="${esc(copy.relatedHeading)}" style="margin:0 0 28px">
+        <h2 style="margin:0 0 12px;font-size:22px">${esc(copy.relatedHeading)}</h2>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px">${related.map((r) => `<li><a href="${esc(r.url)}" style="${LINK_ACCENT_STYLE};padding:6px 12px;border:1px solid var(--color-edge);border-radius:999px;display:inline-block;background:var(--color-surface)">${esc(r.keyword)}</a></li>`).join('')}</ul>
+      </nav>`
+    : '';
+
+  // FAQ block (only when enrichment exists — no fake content).
+  const faqHtml = enriched?.faqs && enriched.faqs.length > 0
+    ? `<details class="related-search-faq" style="margin:0 0 24px;padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
+        <summary style="font-weight:700;cursor:pointer">${esc(copy.faqSummary)}</summary>
+        <dl style="margin:12px 0 0">${enriched.faqs.map((q) => `<dt style="font-weight:600;margin:10px 0 4px">${esc(q.question)}</dt><dd style="margin:0 0 8px;color:var(--color-body);line-height:1.6">${esc(q.answer)}</dd>`).join('')}</dl>
+      </details>`
+    : '';
+
+  const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
+  const calculatorUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
+
+  // Body — JOB LIST FIRST, editorial filler in <details> below.
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:24px 16px 56px;color:var(--color-body)">
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.homeBreadcrumb)}</a>
+      <span> / </span>
+      <a href="${esc(sectionUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.jobsBreadcrumb)}</a>
+      <span> / </span>
+      <span>${esc(headline)}</span>
+    </nav>
+    <header style="margin-bottom:18px">
+      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(dateStamp)}</p>
+      <h1 style="margin:0 0 10px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.18">${esc(headline)}</h1>
+      <p class="lede" style="margin:0;color:var(--color-body);font-size:16px;line-height:1.55;max-width:820px">${esc(tagline)}</p>
+    </header>
+    <section class="job-list" aria-labelledby="job-list-heading" style="margin:0 0 24px">
+      <h2 id="job-list-heading" style="margin:0 0 12px;font-size:20px">${esc(copy.jobsHeading)}</h2>
+      ${jobListHtml}
+    </section>
+    <details class="related-search-intro" style="margin:0 0 16px;padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
+      <summary style="font-weight:700;cursor:pointer">${esc(copy.introSummary)}</summary>
+      <p style="margin:12px 0 0;color:var(--color-body);line-height:1.65">${esc(introBody)}</p>
+    </details>
+    ${faqHtml}
+    ${relatedHtml}
+    <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
+      <a href="${esc(sectionUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaAllJobs)}</a>
+      <a href="${esc(calculatorUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaCalculator)}</a>
+    </section>
+  </article>`;
+
+  const title = buildTitleWithBrand(headline);
+
+  const html = buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: OG_LOCALE[locale],
+    hreflangHtml,
+    jsonLdScripts,
+    bodyHtml,
+    distDir,
+    hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
+  });
+
+  return { urlPath, html, loc: canonicalUrl };
+}
+
+// ── Hub index pages ─────────────────────────────────────────────────────
+
+interface HubItem {
+  keyword: string;
+  city: string | null;
+  url: string;
+  slug: string;
+}
+
+interface HubPageInput {
+  locale: Locale;
+  items: ReadonlyArray<HubItem>;
+  page: number;
+  totalPages: number;
+  distDir: string;
+  dateStamp: string;
+}
+
+function groupByCity(items: ReadonlyArray<HubItem>): { byCity: Map<string, HubItem[]>; uncategorized: HubItem[] } {
+  const byCity = new Map<string, HubItem[]>();
+  const uncategorized: HubItem[] = [];
+  for (const it of items) {
+    if (it.city) {
+      const arr = byCity.get(it.city) ?? [];
+      arr.push(it);
+      byCity.set(it.city, arr);
+    } else {
+      uncategorized.push(it);
+    }
+  }
+  return { byCity, uncategorized };
+}
+
+/** Render a full page navigator (every page-N is linked — BFS depth gate). */
+function renderPageNavigator(locale: Locale, totalPages: number, currentPage: number): string {
+  if (totalPages <= 1) return '';
+  const copy = COPY[locale];
+  const links: string[] = [];
+  for (let p = 1; p <= totalPages; p++) {
+    const url = buildHubPath(locale, p);
+    if (p === currentPage) {
+      links.push(`<span style="padding:6px 10px;border-radius:8px;background:var(--color-accent);color:var(--color-on-accent);font-weight:700">${p}</span>`);
+    } else {
+      links.push(`<a href="${esc(url)}" style="${LINK_ACCENT_STYLE};padding:6px 10px;border-radius:8px;border:1px solid var(--color-edge);background:var(--color-surface)">${p}</a>`);
+    }
+  }
+  return `<nav aria-label="${esc(copy.pageNavigatorLabel)}" style="display:flex;flex-wrap:wrap;gap:6px;margin:24px 0">${links.join('')}</nav>`;
+}
+
+function renderHubPage(input: HubPageInput): { urlPath: string; html: string; loc: string } {
+  const { locale, items, page, totalPages, distDir, dateStamp } = input;
+  const copy = COPY[locale];
+  const urlPath = buildHubPath(locale, page);
+  const canonicalUrl = `${BASE_URL}${urlPath}`;
+
+  const { byCity, uncategorized } = groupByCity(items);
+  const sortedCities = Array.from(byCity.keys()).sort((a, b) => a.localeCompare(b, locale));
+
+  const cityBlocks = sortedCities.map((city) => {
+    const list = (byCity.get(city) || []).sort((a, b) => a.keyword.localeCompare(b.keyword, locale));
+    return `<section style="margin:0 0 22px">
+      <h3 style="margin:0 0 8px;font-size:18px">${esc(city)}</h3>
+      <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px">${list.map((it) => `<li><a href="${esc(it.url)}" style="${LINK_ACCENT_STYLE}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
+    </section>`;
+  }).join('');
+
+  const sortedUncat = [...uncategorized].sort((a, b) => a.keyword.localeCompare(b.keyword, locale));
+  const uncatBlock = sortedUncat.length > 0
+    ? `<section style="margin:0 0 22px">
+        <h3 style="margin:0 0 8px;font-size:18px">${esc(copy.alphabeticalLabel)}</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px">${sortedUncat.map((it) => `<li><a href="${esc(it.url)}" style="${LINK_ACCENT_STYLE}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
+      </section>`
+    : '';
+
+  const navigator = renderPageNavigator(locale, totalPages, page);
+  const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
+
+  const collectionLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: copy.hubTitle,
+    url: canonicalUrl,
+    description: copy.hubDescription,
+    inLanguage: locale,
+    dateModified: new Date().toISOString(),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 100).map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: capitalize(it.keyword),
+        url: it.url,
+      })),
+    },
+  });
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.homeBreadcrumb, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: copy.jobsBreadcrumb, item: sectionUrl },
+      { '@type': 'ListItem', position: 3, name: copy.searchBreadcrumb, item: canonicalUrl },
+    ],
+  });
+
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:24px 16px 56px;color:var(--color-body)">
+    <nav style="${BREADCRUMB_STYLE}">
+      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.homeBreadcrumb)}</a>
+      <span> / </span>
+      <a href="${esc(sectionUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.jobsBreadcrumb)}</a>
+      <span> / </span>
+      <span>${esc(copy.searchBreadcrumb)}</span>
+    </nav>
+    <header style="margin-bottom:18px">
+      <h1 style="margin:0 0 10px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.18">${esc(copy.hubH1)}${page > 1 ? ` — ${copy.pageNavigatorLabel} ${page}` : ''}</h1>
+      <p class="lede" style="margin:0;color:var(--color-body);font-size:16px;line-height:1.55;max-width:820px">${esc(copy.hubIntro(items.length))}</p>
+      <p style="margin:6px 0 0;color:var(--color-subtle);font-size:13px">${esc(dateStamp)}</p>
+    </header>
+    ${sortedCities.length > 0 ? `<section style="margin:0 0 12px"><h2 style="margin:0 0 12px;font-size:22px">${esc(copy.citySectionLabel)}</h2>${cityBlocks}</section>` : ''}
+    ${uncatBlock}
+    ${navigator}
+  </article>`;
+
+  const title = buildTitleWithBrand(`${copy.hubTitle}${page > 1 ? ` — ${copy.pageNavigatorLabel} ${page}` : ''}`);
+  const html = buildSeoPageHtml({
+    locale,
+    title,
+    description: copy.hubDescription,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: OG_LOCALE[locale],
+    hreflangHtml: '',
+    jsonLdScripts: [breadcrumbLd, collectionLd],
+    bodyHtml,
+    distDir,
+    hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
+  });
+
+  return { urlPath, html, loc: canonicalUrl };
+}
+
+// ── Section landing post-process ────────────────────────────────────────
+
+/**
+ * Inject a link to the per-locale hub into the existing job-board section
+ * landing (emitted by `jobsSeoPagesPlugin`). Keeps the hub at BFS depth
+ * ≤4 from `/`. If the section landing is missing (jobs plugin skipped),
+ * we log a warning and skip — never fail.
+ */
+function injectHubLinkIntoSectionLanding(
+  distDir: string,
+  locale: Locale,
+  hubUrl: string,
+  copy: LocaleCopy,
+): void {
+  const prefix = LOCALE_PREFIX[locale];
+  const section = getJobBoardSectionSlug(locale);
+  const sectionPath = path.join(distDir, prefix.replace(/^\//, ''), section, 'index.html');
+  if (!fs.existsSync(sectionPath)) {
+    console.warn(`\x1b[33m[related-search-clusters]\x1b[0m section landing missing at ${sectionPath} — skipping hub link injection.`);
+    return;
+  }
+
+  let html: string;
+  try {
+    html = fs.readFileSync(sectionPath, 'utf-8');
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to read section landing:', err);
+    return;
+  }
+
+  // Idempotent: skip if our marker is already present.
+  if (html.includes('data-related-search-hub-link="1"')) return;
+
+  const linkBlock = `<nav data-related-search-hub-link="1" aria-label="${esc(copy.searchBreadcrumb)}" style="max-width:1100px;margin:24px auto 0;padding:0 16px"><a href="${esc(hubUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.hubH1)} →</a></nav>`;
+
+  let patched: string | null = null;
+  if (html.includes('<!-- end:job-board-main -->')) {
+    patched = html.replace('<!-- end:job-board-main -->', `${linkBlock}\n<!-- end:job-board-main -->`);
+  } else if (html.includes('</main>')) {
+    patched = html.replace('</main>', `${linkBlock}\n</main>`);
+  }
+
+  if (!patched) {
+    console.warn(`\x1b[33m[related-search-clusters]\x1b[0m no insertion anchor in ${sectionPath} — skipping.`);
+    return;
+  }
+
+  try {
+    fs.writeFileSync(sectionPath, patched, 'utf-8');
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write section landing:', err);
+  }
+}
+
+// ── Sitemap ─────────────────────────────────────────────────────────────
+
+function writeSitemap(distDir: string, locs: ReadonlyArray<string>, dateStamp: string): void {
+  if (locs.length === 0) return;
+  const entries = locs.map((loc) =>
+    `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+  ).join('\n');
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
+  const sitemapPath = path.join(distDir, 'sitemap-search-clusters.xml');
+  try {
+    fs.mkdirSync(distDir, { recursive: true });
+    fs.writeFileSync(sitemapPath, xml, 'utf-8');
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m sitemap write failed:', err);
+    return;
+  }
+
+  const masterPath = path.join(distDir, 'sitemap.xml');
+  if (!fs.existsSync(masterPath)) return;
+  try {
+    let idx = fs.readFileSync(masterPath, 'utf-8');
+    if (idx.includes('sitemap-search-clusters.xml')) {
+      idx = idx.replace(
+        /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-search-clusters\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
+        `$1${dateStamp}$2`,
+      );
+    } else {
+      idx = idx.replace(
+        '</sitemapindex>',
+        `  <sitemap>\n    <loc>${BASE_URL}/sitemap-search-clusters.xml</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`,
+      );
+    }
+    fs.writeFileSync(masterPath, idx, 'utf-8');
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to patch master sitemap:', err);
+  }
+}
+
+// ── Plugin entry ────────────────────────────────────────────────────────
+
+export function relatedSearchClustersPlugin(rootDir: string): Plugin {
+  return {
+    name: 'related-search-clusters',
+    apply: 'build',
+    async closeBundle() {
+      if (process.env.SKIP_RELATED_SEARCH_CLUSTERS === '1') {
+        console.log('\x1b[36m[related-search-clusters]\x1b[0m skipped via SKIP_RELATED_SEARCH_CLUSTERS');
+        return;
+      }
+
+      const distDir = path.resolve(rootDir, 'dist');
+      const startedAt = Date.now();
+
+      const candidates = filterAndDedupeCandidates(loadCandidates(rootDir));
+      if (candidates.length === 0) {
+        console.log('\x1b[36m[related-search-clusters]\x1b[0m 0 candidates after filtering — nothing to emit');
+        return;
+      }
+      const enriched = loadEnriched(rootDir);
+      const jobs = loadJobs(rootDir);
+      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs`);
+
+      // Cache `${locale}::${jobIdentity}` → normalized haystack across clusters.
+      const haystackCache = new Map<string, string>();
+
+      const contexts: ClusterContext[] = [];
+      for (const cand of candidates) {
+        const ctx = buildClusterContext(cand, haystackCache, jobs);
+        if (ctx) contexts.push(ctx);
+      }
+      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);
+
+      if (contexts.length === 0) return;
+
+      // Group by (normalized keyword + city) for cross-locale hreflang lookup.
+      const byKeywordCity = new Map<string, Map<Locale, ClusterContext>>();
+      for (const ctx of contexts) {
+        const key = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
+        let inner = byKeywordCity.get(key);
+        if (!inner) {
+          inner = new Map();
+          byKeywordCity.set(key, inner);
+        }
+        inner.set(ctx.candidate.locale, ctx);
+      }
+
+      // Group by locale + city for related-link suggestions.
+      const byLocale = new Map<Locale, ClusterContext[]>();
+      const byLocaleCity = new Map<Locale, Map<string, ClusterContext[]>>();
+      for (const ctx of contexts) {
+        const arr = byLocale.get(ctx.candidate.locale) || [];
+        arr.push(ctx);
+        byLocale.set(ctx.candidate.locale, arr);
+        if (ctx.city) {
+          let inner = byLocaleCity.get(ctx.candidate.locale);
+          if (!inner) {
+            inner = new Map();
+            byLocaleCity.set(ctx.candidate.locale, inner);
+          }
+          const cityArr = inner.get(ctx.city) || [];
+          cityArr.push(ctx);
+          inner.set(ctx.city, cityArr);
+        }
+      }
+
+      const collector = new WriteCollector({ distDir, pluginName: 'relatedSearchClustersPlugin' });
+      const dateStamp = new Date().toISOString().slice(0, 10);
+      const sitemapLocs: string[] = [];
+
+      // ── Per-cluster pages ─────────────────────────────────────────────
+      for (const ctx of contexts) {
+        const locale = ctx.candidate.locale;
+        const altKey = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
+        const altMap = byKeywordCity.get(altKey);
+        const hreflang = altMap
+          ? Array.from(altMap.entries()).map(([loc, otherCtx]) => ({
+              locale: loc,
+              url: `${BASE_URL}${buildClusterPath(loc, otherCtx.candidate.slug)}`,
+            }))
+          : [];
+
+        const cityIdx = byLocaleCity.get(locale);
+        const sameCityList = (ctx.city && cityIdx?.get(ctx.city)) || [];
+        const related = sameCityList
+          .filter((other) => other.candidate.slug !== ctx.candidate.slug)
+          .slice(0, 8)
+          .map((other) => ({
+            keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
+            url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug)}`,
+          }));
+
+        const enrichedKey = `${locale}::${ctx.candidate.slug}`;
+        const out = renderClusterPage({
+          ctx,
+          enriched: enriched[enrichedKey],
+          hreflang,
+          related,
+          distDir,
+          dateStamp,
+        });
+
+        const indexPath = path.join(distDir, out.urlPath, 'index.html');
+        const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
+        collector.add(indexPath, out.html);
+        collector.add(flatPath, out.html);
+        sitemapLocs.push(out.loc);
+      }
+
+      // ── Per-locale hub pages ──────────────────────────────────────────
+      for (const [locale, list] of byLocale.entries()) {
+        const items: HubItem[] = list.map((ctx) => ({
+          keyword: ctx.keyword,
+          city: ctx.city,
+          slug: ctx.candidate.slug,
+          url: `${BASE_URL}${buildClusterPath(locale, ctx.candidate.slug)}`,
+        }));
+        const totalPages = Math.max(1, Math.ceil(items.length / HUB_PAGE_SIZE));
+
+        for (let page = 1; page <= totalPages; page++) {
+          const slice = items.slice((page - 1) * HUB_PAGE_SIZE, page * HUB_PAGE_SIZE);
+          const out = renderHubPage({
+            locale,
+            items: slice,
+            page,
+            totalPages,
+            distDir,
+            dateStamp,
+          });
+          const indexPath = path.join(distDir, out.urlPath, 'index.html');
+          const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
+          collector.add(indexPath, out.html);
+          collector.add(flatPath, out.html);
+          sitemapLocs.push(out.loc);
+        }
+
+        const hubUrl = `${BASE_URL}${buildHubPath(locale, 1)}`;
+        injectHubLinkIntoSectionLanding(distDir, locale, hubUrl, COPY[locale]);
+      }
+
+      const written = await collector.flush();
+      writeSitemap(distDir, sitemapLocs, dateStamp);
+
+      console.log(
+        `\x1b[36m[related-search-clusters]\x1b[0m emitted ${contexts.length} cluster pages + ${byLocale.size} hubs (${written} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
+      );
+    },
+  };
+}
