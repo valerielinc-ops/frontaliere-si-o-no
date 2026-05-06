@@ -6251,6 +6251,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-fornasette-2026-ribaltamento-auto.title': 'Car overturns near Fornasette border, one injured',
     'blog.article.incidente-fornasette-2026-ribaltamento-auto.excerpt': 'Road accident with overturned car near the Fornasette border crossing, Italian driver injured',
     'blog.article.incidente-fornasette-2026-ribaltamento-auto.imageAlt': 'Car accident with overturned vehicle near the Fornasette border crossing',
+    'blog.article.accesso-dossier-mengele.title': 'Access to Mengele dossier: what changes for cross-border workers',
+    'blog.article.accesso-dossier-mengele.excerpt': 'Swiss intelligence services now allow access to the Mengele dossier at the Federal Archives, in accordance with the 2001 decision.',
+    'blog.article.accesso-dossier-mengele.imageAlt': 'Panoramic view of Lake Lugano with natural and urban environments in Ticino',
 };
 
 export default blogMetaEn;

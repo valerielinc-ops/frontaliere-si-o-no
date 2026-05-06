@@ -6251,6 +6251,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-fornasette-2026-ribaltamento-auto.title': 'Tresa: Auto überschlägt sich vor Fornasette, eine Person verletzt',
     'blog.article.incidente-fornasette-2026-ribaltamento-auto.excerpt': 'Verkehrsunfall mit überschlagendem Auto in der Nähe des Grenzübergangs Fornasette, ein italienischer Fahrer verletzt',
     'blog.article.incidente-fornasette-2026-ribaltamento-auto.imageAlt': 'Autounfall mit umgekipptem Fahrzeug in der Nähe der Fornasette-Grenze',
+    'blog.article.accesso-dossier-mengele.title': 'Zugang zum Mengele-Dossier: Was ändert sich für Grenzgänger',
+    'blog.article.accesso-dossier-mengele.excerpt': 'Die Schweizer Geheimdienste ermöglichen jetzt die Einsicht in das Mengele-Dossier im Bundesarchiv, gemäß der Entscheidung von 2001.',
+    'blog.article.accesso-dossier-mengele.imageAlt': 'Panoramablick auf den Lago di Lugano mit Natur- und Stadtlandschaften in Ticino',
 };
 
 export default blogMetaDe;

@@ -6252,6 +6252,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-fornasette-2026-ribaltamento-auto.title': 'Tresa: auto si ribalta prima del valico di Fornasette, ferita una persona',
     'blog.article.incidente-fornasette-2026-ribaltamento-auto.excerpt': 'Incidente stradale con auto ribaltata vicino al valico di Fornasette, ferito il conducente italiano',
     'blog.article.incidente-fornasette-2026-ribaltamento-auto.imageAlt': 'Incidente stradale con auto ribaltata vicino al valico di Fornasette',
+    'blog.article.accesso-dossier-mengele.title': 'Accesso al dossier Mengele: cosa cambia per i frontalieri',
+    'blog.article.accesso-dossier-mengele.excerpt': 'I servizi segreti svizzeri permettono ora la consultazione del dossier Mengele presso l\'Archivio federale, in accordo con la decisione del 2001.',
+    'blog.article.accesso-dossier-mengele.imageAlt': 'Vista panoramica del Lago di Lugano con ambienti naturali e urbani in Ticino',
 };
 
 export default blogMetaIt;
