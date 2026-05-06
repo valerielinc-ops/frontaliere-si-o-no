@@ -209,13 +209,44 @@ jobs:
           run_bg gate:seo-source /tmp/v27.log \
             npm run gate:seo-source
 
+          # `gh run download` cross-workflow has a propagation lag between
+          # "artifact uploaded successfully in the deploy run" and "artifact
+          # visible to a different workflow_run via the API". Empirically the
+          # first call within ~60-120s of upload returns
+          # `no artifact matches any of the names or patterns provided` even
+          # though the artifact exists and is non-expired (verified by
+          # `gh api .../artifacts`). Wrap each download in a 5×30s retry
+          # loop so the gates can run instead of falling through to rollback.
+          # Total worst-case wait per artifact: ~2.5 min, well under the
+          # 5-min indexing-cache TTL.
+          download_artifact_with_retry() {
+            local name="$1" dir="$2" required="$3"
+            for attempt in 1 2 3 4 5; do
+              if gh run download "$DEPLOY_RUN_ID" \
+                   --name "$name" --dir "$dir" 2>/tmp/dl-err.log; then
+                if [ "$attempt" -gt 1 ]; then
+                  echo "✅ artifact '$name' downloaded on attempt $attempt"
+                fi
+                return 0
+              fi
+              if [ "$attempt" -lt 5 ]; then
+                echo "⏳ artifact '$name' not yet visible (attempt $attempt/5) — retrying in 30s"
+                sleep 30
+              fi
+            done
+            if [ "$required" = "required" ]; then
+              echo "::error::artifact '$name' not downloadable after 5 attempts"
+              cat /tmp/dl-err.log >&2 || true
+              return 1
+            fi
+            return 0
+          }
+
           # Download the exact Pages artifact that was deployed, then expand
           # artifact.tar back into dist/ for the file-based validators.
           rm -rf /tmp/github-pages-artifact dist
           mkdir -p /tmp/github-pages-artifact dist
-          gh run download "$DEPLOY_RUN_ID" \
-            --name "github-pages" \
-            --dir /tmp/github-pages-artifact/
+          download_artifact_with_retry github-pages /tmp/github-pages-artifact/ required
           tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
 
           # Expose jobs.json to scripts that expect public/data/jobs.json
@@ -224,17 +255,13 @@ jobs:
           cp -f dist/data/jobs.json public/data/jobs.json 2>/dev/null || true
 
           # Download pre-deploy sitemap snapshot (for IndexNow diff baseline)
-          gh run download "$DEPLOY_RUN_ID" \
-            --name "pre-deploy-snapshot-${DEPLOY_RUN_ID}" \
-            --dir /tmp/pre-deploy-snapshot/ 2>/dev/null || true
+          download_artifact_with_retry "pre-deploy-snapshot-${DEPLOY_RUN_ID}" /tmp/pre-deploy-snapshot/ optional
           if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
             cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
           fi
 
           # Also download the updated previous-slug winners produced by the build.
-          gh run download "$DEPLOY_RUN_ID" \
-            --name "winners-${DEPLOY_RUN_ID}" \
-            --dir /tmp/winners/ || true   # optional — file unchanged if no new slugs
+          download_artifact_with_retry "winners-${DEPLOY_RUN_ID}" /tmp/winners/ optional
 
           if [ -f /tmp/winners/previous-slug-winners.json ]; then
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
