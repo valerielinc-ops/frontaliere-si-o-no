@@ -6398,6 +6398,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.roveredo-carnevale-tutti-2026.title': 'Roveredo: Initiative für einen inklusiven Karneval',
     'blog.article.roveredo-carnevale-tutti-2026.excerpt': 'Eine Gruppe von Bürgern aus Roveredo startet eine Initiative, um den Lingera-Karneval inklusiver und transparenter zu gestalten',
     'blog.article.roveredo-carnevale-tutti-2026.imageAlt': 'Ansicht von Roveredo während des Lingera-Karnevals, mit Menschen jeden Alters, die an den Feierlichkeiten auf dem Platz teilnehmen',
+    'blog.article.fnma-recruiting-day-saronno-2026.title': 'FNMA sucht Fahrer und Mechaniker: Termin am 12. Mai in Saronno',
+    'blog.article.fnma-recruiting-day-saronno-2026.excerpt': 'FNMA organisiert einen Recruiting Day in Saronno am 12. Mai, um Fahrer und Mechaniker einzustellen. Direkte Vorstellungsgespräche und Unternehmenspräsentation.',
+    'blog.article.fnma-recruiting-day-saronno-2026.imageAlt': 'FNMA-Rekrutierungsveranstaltung in Villa Gianetti, Saronno',
 };
 
 export default blogMetaDe;
