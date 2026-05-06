@@ -3574,14 +3574,13 @@ function optimizeSeoMetadata(data) {
     if (mutated !== initialItTitle && !existingTitles.has(mutated.toLowerCase())) {
       it.title = mutated;
     } else {
-      // Anno e città non sufficienti (o già nel titolo). Hard fail per
-      // non-negotiable rule #1: non pubblicare contenuto dubbio. L'autore
-      // deve modificare manualmente content.it.title con un qualificatore
-      // più specifico (fonte, sottotema, numero di edizione).
-      console.error(`  ❌ FATAL: titolo IT "${initialItTitle}" collide con un articolo esistente.`);
-      console.error(`     Modifica content.it.title aggiungendo un qualificatore (fonte, sottotema, edizione).`);
-      console.error(`     Anno (${year || 'n/a'}) e città (${city || 'n/a'}) non bastano a disambiguare.`);
-      process.exit(1);
+      // Anno e città non sufficienti (o già nel titolo). Throw DUPLICATO
+      // così il retry loop in main() ripesca un altro headline invece di
+      // killare il workflow. Rule #1 (zero tolleranza) resta rispettata:
+      // l'articolo duplicato non viene pubblicato.
+      console.error(`  ❌ Titolo IT "${initialItTitle}" collide con un articolo esistente.`);
+      console.error(`     Anno (${year || 'n/a'}) e città (${city || 'n/a'}) non bastano a disambiguare — provo un altro headline.`);
+      throw new Error(`DUPLICATO: titolo IT "${initialItTitle}" collide con un articolo esistente`);
     }
   }
 
