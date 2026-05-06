@@ -182,12 +182,18 @@ export function buildRelatedSearches(params: {
  ? bodyTokens.map((token) => `${token} ${location || DEFAULT_CANTON_DISPLAY.toLowerCase()}`.trim())
  : bodyTokens.map((token) => `${token} ${location}`.trim());
 
+ // N2 decision (2026-05-06): drop `${company} ${location}` — that intent is
+ // already covered by the `azienda-*` / `company-*` slug family
+ // (parseCompanySlugFilter, JobBoard.tsx). Keeping it would duplicate
+ // company-hub pages at /search-{company}-{city}/ and /azienda-{company}/.
+ // N3 decision: KEEP the template-string candidates (offerte lavoro / salary
+ // switzerland / requirements) — they may capture long-tail Google queries.
  const candidates = cleanCanonicalItems([
  ...aiKeywords,
  shortTitle,
  `${shortTitle} ${location}`.trim(),
  `${shortTitle} ${company}`.trim(),
- `${company} ${location}`.trim(),
+ // `${company} ${location}` removed (N2 filter)
  ...(locale === 'it'
  ? [
  `offerte lavoro ${shortTitle}`.trim(),

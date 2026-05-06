@@ -217,6 +217,21 @@ describe('buildRelatedSearches — synthetic JobListing', () => {
     expect(out).toContain('Software Engineer Bellinzona');
   });
 
+  it('does NOT include "${company} ${location}" — N2 filter (azienda-* slugs already cover that intent)', () => {
+    // Per services/relatedSearchClusters.ts:185 — `${company} ${location}` is
+    // intentionally dropped from the candidate set because the company-hub
+    // intent is already canonicalized via /azienda-{slug}/ pages. Keeping it
+    // would duplicate /search-{company}-{city}/ and /azienda-{company}/.
+    const out = buildRelatedSearches({
+      job: makeJob(),
+      locale: 'en',
+      summary: baseSummary,
+      requirements: baseRequirements,
+      aiKeywords: [],
+    });
+    expect(out).not.toContain('TechCo Bellinzona');
+  });
+
   it('drops every candidate containing a stopword in body tokens', () => {
     // Description packed with "vous" (FR stopword) — should NOT leak into
     // generated `${token} ${location}` items.

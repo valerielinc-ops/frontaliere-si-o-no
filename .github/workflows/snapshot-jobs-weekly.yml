@@ -49,22 +49,42 @@ jobs:
         # accumulates stale links over time as the labour market shifts.
         run: node scripts/refresh-weekly-employers-top-pairs.mjs
 
-      - name: Commit snapshot + delta + footer pairs
+      - name: Audit related-search candidates
+        # Regenerates data/related-search-candidates.json from the assembled
+        # jobs.json. This drives the related-search cluster landing-page
+        # plugin (~1,500 SEO landings under /{lang}/{section}/search-{slug}/).
+        # Soft-fail: a missing audit blocks enrichment but not the snapshot.
+        run: node scripts/audit-related-search-candidates.mjs || true
+
+      - name: Enrich related-search clusters (incremental, AI)
+        # Generates 80-120 word AI intros + 3 FAQ per cluster. Incremental:
+        # cached entries are skipped via SHA-256 fingerprint of the input
+        # candidate. Best-effort — never blocks the snapshot.
+        if: env.GH_MODELS_PAT != '' || env.GEMINI_API_KEY != '' || env.OPENROUTER_API_KEY != ''
+        env:
+          GH_MODELS_PAT: ${{ secrets.GH_MODELS_PAT }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: node scripts/enrich-related-search-clusters.mjs --verbose
+        continue-on-error: true
+        timeout-minutes: 30
+
+      - name: Commit snapshot + delta + footer pairs + cluster data
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json
+          git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/related-search-candidates.json data/related-search-enriched.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to snapshot — nothing to commit."
             exit 0
           fi
-          git commit -m "chore(seo): refresh weekly-employers snapshot
+          git commit -m "chore(seo): refresh weekly-employers snapshot + related-search clusters
 
           Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
 
           # Centralized rebase-retry helper survives concurrent pushes from
           # other scheduled workflows. On rebase conflict, regenerate the
-          # snapshot + delta + footer pairs on top of the new base.
+          # snapshot + delta + footer pairs + cluster data on top of the new base.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json"
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/related-search-candidates.json data/related-search-enriched.json 2>/dev/null || true"
