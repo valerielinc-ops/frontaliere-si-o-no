@@ -86,6 +86,7 @@ import {
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
+import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
 import { renderJobCardHtml, type JobCardJob } from './shared/jobCardHtml';
@@ -1981,6 +1982,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
 ${faqHtml}
   </section>
   ${renderLocaleSwitcherBlock(locale, (alt) => topHubPath(alt))}
+  ${wrapHubSeoContextWeekly(locale, 'Ticino', true)}
 </article>`;
 
   const title = buildTitleWithBrand(t.topHubTitle);
@@ -2059,6 +2061,30 @@ function employerBrandPath(
  * boosting text/HTML well above the 10% Semrush threshold without any
  * boilerplate — copy interpolates cityDisplay/jobsCount/companiesCount.
  */
+/**
+ * Collapsed-accordion commuter-context block used by the 3 weekly-employers
+ * render paths (top hub, city hub, company×city). Pattern matches the same
+ * `<details class="hub-seo-context">` accordion used elsewhere — keeps the
+ * crawler-facing prose below real content per CLAUDE.md rule #14.
+ */
+function wrapHubSeoContextWeekly(locale: WeeklyEmployersLocale, location: string, omitCommute: boolean): string {
+  const summary = ({
+    it: 'Guida frontalieri: salario, permesso G, fisco, rientro',
+    en: 'Cross-border guide: salary, G permit, tax, weekly return',
+    de: 'Grenzgänger-Leitfaden: Lohn, G-Bewilligung, Steuer, Rückkehr',
+    fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
+  } as Record<WeeklyEmployersLocale, string>)[locale];
+  const inner = renderJobBoardCommuterContext({ locale, location, omitCommute });
+  return `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
+    <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${summary}</summary>
+    <div style="padding:8px 0 0">
+      <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+        ${inner}
+      </section>
+    </div>
+  </details>`;
+}
+
 function renderWeeklyEmployersFrontalierContext(args: {
   locale: WeeklyEmployersLocale;
   cityDisplay: string;
@@ -2440,6 +2466,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   <section style="margin-top:32px" aria-label="advertisement">
     ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
   </section>
+  ${wrapHubSeoContextWeekly(locale, cityDisplay, isRegional)}
 </article>`;
 
   // Extra head: OG image dims + twitter card — matches pre-shell-wrap output.
@@ -2925,6 +2952,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   <section style="margin-top:32px" aria-label="advertisement">
     ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
   </section>
+  ${wrapHubSeoContextWeekly(locale, cityDisplay, false)}
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
