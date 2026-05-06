@@ -6462,6 +6462,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-serie-automobili-luganese-arrestato.title': 'Furti in serie in auto: arrestato un 40enne del Luganese',
     'blog.article.furti-serie-automobili-luganese-arrestato.excerpt': 'Un 40enne del Luganese è stato arrestato per furti in auto. Scoperti oggetti di dubbia provenienza e migliaia di franchi in contanti.',
     'blog.article.furti-serie-automobili-luganese-arrestato.imageAlt': 'Finestrino di un\'auto rotto in un quartiere tranquillo del Ticino con le Alpi svizzere sullo sfondo',
+    'blog.article.como-taccheggio-rapina-doppio-arresto.title': 'Como, taccheggio al supermercato si trasforma in rapina: doppio arresto',
+    'blog.article.como-taccheggio-rapina-doppio-arresto.excerpt': 'Due individui sono stati arrestati a Como dopo che un tentativo di taccheggio si è trasformato in rapina con minaccia di arma.',
+    'blog.article.como-taccheggio-rapina-doppio-arresto.imageAlt': 'Supermercato a Como con presenza di forze dell\'ordine',
 };
 
 export default blogMetaIt;

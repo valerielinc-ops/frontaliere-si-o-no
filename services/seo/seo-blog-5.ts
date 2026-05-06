@@ -22914,6 +22914,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-taccheggio-rapina-doppio-arresto': {
+    title: 'Como, taccheggio al supermercato si trasforma in rapina: doppio arresto',
+    description: 'Due individui sono stati arrestati a Como dopo che un tentativo di taccheggio si è trasformato in rapina con minaccia di arma. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, taccheggio, supermercato, trasforma',
+    ogTitle: 'Como, taccheggio al supermercato si trasforma in rapina: doppio arresto',
+    ogDescription: 'Due individui sono stati arrestati a Como dopo che un tentativo di taccheggio si è trasformato in rapina con minaccia di arma.',
+    canonicalPath: '/articoli-frontaliere/como-taccheggio-rapina-doppio-arresto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, taccheggio al supermercato si trasforma in rapina: doppio arresto",
+      "description": "Due individui sono stati arrestati a Como dopo che un tentativo di taccheggio si è trasformato in rapina con minaccia di arma. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/como-taccheggio-rapina-doppio-arresto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Supermercato a Como con presenza di forze dell'ordine"
+      },
+      "datePublished": "2026-05-06T12:29:58+00:00",
+      "dateModified": "2026-05-06T12:29:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-taccheggio-rapina-doppio-arresto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

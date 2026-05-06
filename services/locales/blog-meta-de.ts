@@ -6461,6 +6461,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-serie-automobili-luganese-arrestato.title': 'Serien von Autodiebstählen: 40-Jähriger aus Lugano verhaftet',
     'blog.article.furti-serie-automobili-luganese-arrestato.excerpt': 'Ein 40-jähriger Mann aus dem Luganesen wurde wegen Autodiebstählen verhaftet. Es wurden Gegenstände mit zweifelhaftem Ursprung und tausende Franken in bar gefunden.',
     'blog.article.furti-serie-automobili-luganese-arrestato.imageAlt': 'Zerbrochenes Autofenster in einer ruhigen Nachbarschaft im Tessin mit den Schweizer Alpen im Hintergrund',
+    'blog.article.como-taccheggio-rapina-doppio-arresto.title': 'Como: Ladendiebstahl eskaliert zu Raub mit Waffe',
+    'blog.article.como-taccheggio-rapina-doppio-arresto.excerpt': 'Zwei Personen wurden in Como festgenommen, nachdem ein Ladendiebstahl in einen Raub mit Waffendrohung eskalierte.',
+    'blog.article.como-taccheggio-rapina-doppio-arresto.imageAlt': 'Supermarkt in Como mit Polizeianwesenheit',
 };
 
 export default blogMetaDe;

@@ -6461,6 +6461,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-serie-automobili-luganese-arrestato.title': 'Series of car thefts: 40-year-old from Lugano area arrested',
     'blog.article.furti-serie-automobili-luganese-arrestato.excerpt': 'A 40-year-old from the Lugano area has been arrested for car thefts. Suspicious items and thousands of francs in cash were found.',
     'blog.article.furti-serie-automobili-luganese-arrestato.imageAlt': 'Broken car window in a quiet Ticino neighborhood with the Swiss Alps in the background',
+    'blog.article.como-taccheggio-rapina-doppio-arresto.title': 'Como: shoplifting turns into armed robbery, two arrests',
+    'blog.article.como-taccheggio-rapina-doppio-arresto.excerpt': 'Two individuals were arrested in Como after a shoplifting attempt turned into a robbery with a weapon threat.',
+    'blog.article.como-taccheggio-rapina-doppio-arresto.imageAlt': 'Supermarket in Como with police presence',
 };
 
 export default blogMetaEn;

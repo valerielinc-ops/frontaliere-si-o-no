@@ -20756,4 +20756,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-taccheggio-rapina-doppio-arresto',
+ category: 'novita',
+ date: '2026-05-06T12:29:58.563Z',
+ image: '/images/blog/como-taccheggio-rapina-doppio-arresto.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
