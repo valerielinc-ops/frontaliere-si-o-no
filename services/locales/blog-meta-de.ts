@@ -6482,6 +6482,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.decreto-lavoro-coldiretti-varese-2026.title': 'Arbeitsdekrets: Coldiretti Varese für Arbeitsplatzsicherheit',
     'blog.article.decreto-lavoro-coldiretti-varese-2026.excerpt': 'Coldiretti Varese begrüßt das Arbeitsdekrets und sieht darin einen wichtigen Schritt zur Stärkung der Stabilität und Qualität der Beschäftigung im Agrarsektor.',
     'blog.article.decreto-lavoro-coldiretti-varese-2026.imageAlt': 'Luftansicht des Luganersees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.swiss-300-uscite-volontarie-2026.title': 'Swiss streicht 300 Jobs durch freiwillige Kündigungen',
+    'blog.article.swiss-300-uscite-volontarie-2026.excerpt': 'Die Fluggesellschaft bietet Anreize, um das Kabinenpersonal ohne Entlassungen zu reduzieren',
+    'blog.article.swiss-300-uscite-volontarie-2026.imageAlt': 'Luftaufnahme des Luganersees mit Schweizer und italienischen Ufern, klarer blauer Himmel',
 };
 
 export default blogMetaDe;

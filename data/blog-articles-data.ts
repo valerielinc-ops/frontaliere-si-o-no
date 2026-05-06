@@ -20819,4 +20819,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'swiss-300-uscite-volontarie-2026',
+ category: 'novita',
+ date: '2026-05-06T13:16:40.933Z',
+ image: '/images/blog/swiss-300-uscite-volontarie-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6482,6 +6482,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.decreto-lavoro-coldiretti-varese-2026.title': 'Labour Decree, Coldiretti Varese: measures for job stability',
     'blog.article.decreto-lavoro-coldiretti-varese-2026.excerpt': 'Coldiretti Varese supports the Labour Decree, considering the adopted measures an important step to strengthen job stability and quality in the agricultural sector.',
     'blog.article.decreto-lavoro-coldiretti-varese-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.swiss-300-uscite-volontarie-2026.title': 'Swiss to cut 300 jobs with voluntary departures',
+    'blog.article.swiss-300-uscite-volontarie-2026.excerpt': 'The airline offers incentives to reduce cabin crew without layoffs',
+    'blog.article.swiss-300-uscite-volontarie-2026.imageAlt': 'Aerial view of Lake Lugano with Swiss and Italian shores, clear blue sky',
 };
 
 export default blogMetaEn;
