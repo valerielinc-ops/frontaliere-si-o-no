@@ -6552,6 +6552,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.governance-partecipativa-ssn-2026.title': 'Gouvernance participative, consensus pour un Ssn équitable et durable',
     'blog.article.governance-partecipativa-ssn-2026.excerpt': 'Un consensus pour une santé participative, équitable et durable a été présenté au Sénat. Implication active des citoyens et des patients.',
     'blog.article.governance-partecipativa-ssn-2026.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan, photographié avec un appareil photo DSLR. Ciel bleu clair, eau calme et quelques bateaux au loin.',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.title': 'SSN accessible à tous : les nouveautés pour les frontaliers du Ticino',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.excerpt': 'Guido Quintino Liris (Fdi) annonce des réformes pour rendre le Service Sanitaire National accessible à tous, avec un accent sur la prévention et l\'assistance territoriale',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.imageAlt': 'Structure de santé moderne à Bellinzone, Tessin, avec des personnes accédant aux services',
 };
 
 export default blogMetaFr;

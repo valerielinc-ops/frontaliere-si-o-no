@@ -6551,6 +6551,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.governance-partecipativa-ssn-2026.title': 'Consensus paper for fair and sustainable healthcare',
     'blog.article.governance-partecipativa-ssn-2026.excerpt': 'A Consensus Paper for participatory, fair, and sustainable healthcare was presented at the Senate. Active involvement of citizens and patients.',
     'blog.article.governance-partecipativa-ssn-2026.imageAlt': 'Lake Lugano with mountains in the background, photographed with a DSLR camera. Clear blue sky, calm water, and a few boats in the distance.',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.title': 'NHS accessible to all: news for Ticino cross-border workers',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.excerpt': 'Guido Quintino Liris (Fdi) announces reforms to make the National Health Service accessible to all, with a focus on prevention and local care',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.imageAlt': 'Modern healthcare facility in Bellinzona, Ticino, with people accessing services',
 };
 
 export default blogMetaEn;

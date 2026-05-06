@@ -6551,6 +6551,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.governance-partecipativa-ssn-2026.title': 'Konsenspapier für faire und nachhaltige Gesundheitsversorgung vorgestellt',
     'blog.article.governance-partecipativa-ssn-2026.excerpt': 'Im Senat wurde das Konsenspapier für eine partizipative, faire und nachhaltige Gesundheitsversorgung vorgestellt. Aktive Einbindung von Bürger*innen und Patient*innen.',
     'blog.article.governance-partecipativa-ssn-2026.imageAlt': 'Luganersee mit Bergen im Hintergrund, fotografiert mit einer DSLR-Kamera. Klarer blauer Himmel, ruhiges Wasser und einige Boote in der Ferne.',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.title': 'SSN für alle: Neuerungen für Grenzgänger aus dem Tessin',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.excerpt': 'Guido Quintino Liris (FdI) kündigt Reformen an, um den Nationalen Gesundheitsdienst für alle zugänglich zu machen, mit Fokus auf Prävention und territoriale Unterstützung',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.imageAlt': 'Moderne Gesundheitsanlage in Bellinzona, Tessin, mit Menschen, die Dienstleistungen in Anspruch nehmen',
 };
 
 export default blogMetaDe;

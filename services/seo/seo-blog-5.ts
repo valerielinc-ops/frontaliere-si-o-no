@@ -24054,6 +24054,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ssn-accessibile-frontalieri-ticino-2026': {
+    title: 'SSN accessibile a tutti: le novità per i frontalieri del Ticino',
+    description: 'Guido Quintino Liris (Fdi) annuncia riforme per rendere il Servizio Sanitario Nazionale accessibile a tutti, con focus su prevenzione e assistenza territoriale',
+    keywords: 'frontalieri, ticino, svizzera, italia, accessibile, tutti, novità, guido',
+    ogTitle: 'SSN accessibile a tutti: le novità per i frontalieri del Ticino',
+    ogDescription: 'Guido Quintino Liris (Fdi) annuncia riforme per rendere il Servizio Sanitario Nazionale accessibile a tutti, con focus su prevenzione e assistenza territoriale',
+    canonicalPath: '/articoli-frontaliere/ssn-accessibile-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SSN accessibile a tutti: le novità per i frontalieri del Ticino",
+      "description": "Guido Quintino Liris (Fdi) annuncia riforme per rendere il Servizio Sanitario Nazionale accessibile a tutti, con focus su prevenzione e assistenza territoriale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/ssn-accessibile-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Struttura sanitaria moderna a Bellinzona, Ticino, con persone che accedono ai servizi"
+      },
+      "datePublished": "2026-05-06T18:33:49+00:00",
+      "dateModified": "2026-05-06T18:33:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ssn-accessibile-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

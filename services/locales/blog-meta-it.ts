@@ -6552,6 +6552,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.governance-partecipativa-ssn-2026.title': 'Governance partecipativa, presentato consensus paper per Ssn equo e sostenibile',
     'blog.article.governance-partecipativa-ssn-2026.excerpt': 'Presentato al Senato il Consensus Paper per una sanità partecipata, equa e sostenibile. Coinvolgimento attivo dei cittadini e pazienti.',
     'blog.article.governance-partecipativa-ssn-2026.imageAlt': 'Lago di Lugano con montagne sullo sfondo, fotografato con una fotocamera DSLR. Cielo azzurro limpido, acqua calma e alcune barche in lontananza.',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.title': 'SSN accessibile a tutti: le novità per i frontalieri del Ticino',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.excerpt': 'Guido Quintino Liris (Fdi) annuncia riforme per rendere il Servizio Sanitario Nazionale accessibile a tutti, con focus su prevenzione e assistenza territoriale',
+    'blog.article.ssn-accessibile-frontalieri-ticino-2026.imageAlt': 'Struttura sanitaria moderna a Bellinzona, Ticino, con persone che accedono ai servizi',
 };
 
 export default blogMetaIt;

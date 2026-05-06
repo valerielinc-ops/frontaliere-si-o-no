@@ -21026,4 +21026,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ssn-accessibile-frontalieri-ticino-2026',
+ category: 'novita',
+ date: '2026-05-06T18:33:49.503Z',
+ image: '/images/blog/ssn-accessibile-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
