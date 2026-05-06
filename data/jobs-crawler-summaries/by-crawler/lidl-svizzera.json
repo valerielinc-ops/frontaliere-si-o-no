@@ -1,19 +1,54 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-05T22:08:52.468Z",
-  "total": 11,
-  "newCount": 0,
-  "updatedCount": 5,
+  "generatedAt": "2026-05-06T11:16:16.212Z",
+  "total": 12,
+  "newCount": 2,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 14807,
-  "avgDurationMs": 14807,
+  "durationMs": 20947,
+  "avgDurationMs": 20947,
   "durationHistory": [
-    14807
+    20947
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "company-xsgjt1",
+      "slug": "268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno-xsgjt1",
+      "company": "Lidl Svizzera",
+      "title": "268_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
+      "location": "Locarno",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-06",
+      "url": "https://team.lidl.ch/it/jobs/268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-locarno-665443",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Locarno",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-06T11:16:15.873Z",
+      "firstSeenAt": "2026-05-06T11:16:15.873Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "postalCode": "6600",
+      "streetAddress": "Via Vallemaggia 15",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 20
+      }
+    },
     {
       "id": "company-xsgkhv",
       "slug": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
@@ -25,7 +60,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-05",
+      "postedDate": "2026-05-06",
       "url": "https://team.lidl.ch/it/jobs/343-venditore-venditrice-m-f-d-20-40-minusio-685490",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -35,27 +70,23 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-05T11:01:24.692Z",
-      "firstSeenAt": "2026-05-05T11:01:24.692Z",
+      "crawledAt": "2026-05-06T11:16:15.873Z",
+      "firstSeenAt": "2026-05-06T11:16:15.873Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "postalCode": "6648",
       "streetAddress": "Via San Gottardo 145",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "addressLocality": "Cadenazzo",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
-        "completeness": 25
+        "translation": 2,
+        "completeness": 20
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-alqha9",
       "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
