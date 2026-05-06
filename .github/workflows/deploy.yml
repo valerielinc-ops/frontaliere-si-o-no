@@ -59,30 +59,22 @@ permissions:
 
 jobs:
   build:
-    # JOB-LEVEL concurrency. Critical: must be on the JOB, not on the
-    # workflow. With job-level concurrency the lock is released as soon
-    # as `build-and-deploy` finishes, even when the `post-deploy` job
-    # below (validate + rollback) is still running. Workflow-level
-    # concurrency would hold the lock for the entire run, including
-    # validate + rollback — blocking the next deploy unnecessarily.
-    # This is the architectural unblock that lets the next push start
-    # building while the previous run is still validating.
+    # NO concurrency on `build`. Build of multiple runs can proceed in
+    # parallel — each run uploads its own `github-pages` artifact under
+    # its own run-id, so `actions/upload-pages-artifact@v5` is NOT a
+    # repo-wide singleton. The `pages-deploy` lock applies only to the
+    # `deploy` job below (actions/deploy-pages publishing to Pages).
     #
-    # GitHub Pages allows only one active deployment at a time. Every
-    # trigger — push to main, workflow_dispatch from articles/crawlers
-    # /etc. — must share a single queue so deploys run strictly serially.
-    # cancel-in-progress is false so each successful deploy can finish
-    # publishing and emit its artifacts for the downstream post-deploy
-    # validation job.
+    # Earlier design put `concurrency: pages-deploy` here too, intending
+    # to "serialize the entire pipeline". That broke the run on
+    # 25425625029.deploy: GitHub Actions concurrency permits 1 running
+    # + 1 pending max in a group — any THIRD pending entry cancels the
+    # PREVIOUSLY pending. With cron commits arriving every ~15 min we
+    # accumulate >1 pending, so the queued `deploy` jobs got cancelled
+    # by every new build that landed on the lock.
     #
-    # Exception: a workflow_dispatch with profile_sequential=true is a
-    # build-only investigation run that skips the deploy steps. It uses
-    # a per-run group so the long sequential profile can complete
-    # without being cancelled by the next push to main, and without
-    # blocking real deploys behind it.
-    concurrency:
-      group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-deploy-profile-{0}', github.run_id) || 'pages-deploy' }}
-      cancel-in-progress: false
+    # Profile-only runs (profile_sequential=true) skip the `deploy`
+    # job entirely (job-level `if:`), so they never need the lock.
     runs-on: ubuntu-latest
     # GitHub free runners cap at 360 min — match it explicitly so cold-start
     # builds (e.g. first run with a heavy plugin like jobOgImagesPlugin
@@ -566,8 +558,20 @@ jobs:
     if: |
       success() &&
       github.event.inputs.profile_sequential != 'true'
+    # Concurrency lock applies HERE only — `actions/deploy-pages@v5` is
+    # the singleton: GitHub Pages allows one active deployment at a time
+    # repo-wide. Build (above) has no concurrency so multiple builds
+    # progress in parallel; the lock is acquired only at the publish
+    # boundary.
+    #
+    # cancel-in-progress: false is best-effort: GitHub Actions caps the
+    # group at 1 running + 1 pending. When a third deploy enters, the
+    # PREVIOUSLY-pending one gets cancelled (i.e. the middle one in a
+    # burst is dropped, the first and last survive). For a cron-driven
+    # site where the latest deploy already contains everything from the
+    # missed intermediate ones, this is the desired behaviour.
     concurrency:
-      group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-deploy-profile-{0}', github.run_id) || 'pages-deploy' }}
+      group: 'pages-deploy'
       cancel-in-progress: false
     runs-on: ubuntu-latest
     permissions:
