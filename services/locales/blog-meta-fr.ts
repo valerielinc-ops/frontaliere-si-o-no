@@ -6504,6 +6504,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nespresso-svizzera-dazi-2026.title': 'Nespresso reste en Suisse malgré les droits de douane américains',
     'blog.article.nespresso-svizzera-dazi-2026.excerpt': 'Nestlé confirme sa fidélité à la Suisse pour la production Nespresso, malgré les droits de douane américains. Réduction de 16\'000 postes d\'ici 2027.',
     'blog.article.nespresso-svizzera-dazi-2026.imageAlt': 'Vue du lac de Lugano avec le Monte Brè en arrière-plan',
+    'blog.article.fondazione-bignasca-aiuti-2025.title': 'Fondation Giuliano Bignasca: plus de 20 000 francs d\'aides en 2025',
+    'blog.article.fondazione-bignasca-aiuti-2025.excerpt': 'La Fondation Giuliano Bignasca a versé plus de 20 000 francs en aides directes en 2025, entre bons d\'achat et soutien pour les loyers et les primes d\'assurance maladie.',
+    'blog.article.fondazione-bignasca-aiuti-2025.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

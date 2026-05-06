@@ -6504,6 +6504,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nespresso-svizzera-dazi-2026.title': 'Nespresso resta in Svizzera malgrado i dazi USA',
     'blog.article.nespresso-svizzera-dazi-2026.excerpt': 'Nestlé conferma la fedeltà alla Svizzera per la produzione Nespresso, nonostante i dazi americani. Tagli di 16\'000 posti entro 2027.',
     'blog.article.nespresso-svizzera-dazi-2026.imageAlt': 'Vista del Lago di Lugano con Monte Brè sullo sfondo',
+    'blog.article.fondazione-bignasca-aiuti-2025.title': 'Fondazione Giuliano Bignasca: oltre 20 mila franchi di aiuti nel 2025',
+    'blog.article.fondazione-bignasca-aiuti-2025.excerpt': 'La Fondazione Giuliano Bignasca ha erogato oltre 20 mila franchi in aiuti diretti nel 2025, tra buoni spesa e sostegno per pigioni e premi di cassa malati.',
+    'blog.article.fondazione-bignasca-aiuti-2025.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

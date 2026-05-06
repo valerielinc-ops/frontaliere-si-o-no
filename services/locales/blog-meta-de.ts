@@ -6503,6 +6503,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nespresso-svizzera-dazi-2026.title': 'Nespresso bleibt in der Schweiz trotz US-Zöllen',
     'blog.article.nespresso-svizzera-dazi-2026.excerpt': 'Nestlé bestätigt die Treue zur Schweiz für die Nespresso-Produktion, trotz US-Zöllen. 16\'000 Stellen bis 2027 gestrichen.',
     'blog.article.nespresso-svizzera-dazi-2026.imageAlt': 'Blick auf den Luganersee mit Monte Brè im Hintergrund',
+    'blog.article.fondazione-bignasca-aiuti-2025.title': 'Stiftung Giuliano Bignasca: über 20\'000 Franken Hilfe 2025',
+    'blog.article.fondazione-bignasca-aiuti-2025.excerpt': 'Die Stiftung Giuliano Bignasca hat 2025 über 20\'000 Franken an direkte Hilfen ausgezahlt, darunter Einkaufsgutscheine und Unterstützung für Mieten und Krankenkassenprämien.',
+    'blog.article.fondazione-bignasca-aiuti-2025.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

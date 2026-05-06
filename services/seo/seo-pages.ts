@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2220,
+ "numberOfItems": 2221,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6862,7 +6862,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2217, "name": "SISS Lombardia: Astuti denuncia problemi cronic...", "url": `${BASE_URL}/articoli-frontaliere/siss-problemi-lombardia-frontalieri` },
           { "@type": "ListItem", "position": 2218, "name": "Swiss: utili in crescita nel primo trimestre ma...", "url": `${BASE_URL}/articoli-frontaliere/swiss-risultati-trimestre-frontalieri` },
           { "@type": "ListItem", "position": 2219, "name": "Poliani riconfermato al Digital Innovation Hub", "url": `${BASE_URL}/articoli-frontaliere/poliani-digital-innovation-hub-2026` },
-          { "@type": "ListItem", "position": 2220, "name": "Nespresso resta in Svizzera malgrado i dazi USA", "url": `${BASE_URL}/articoli-frontaliere/nespresso-svizzera-dazi-2026` }
+          { "@type": "ListItem", "position": 2220, "name": "Nespresso resta in Svizzera malgrado i dazi USA", "url": `${BASE_URL}/articoli-frontaliere/nespresso-svizzera-dazi-2026` },
+          { "@type": "ListItem", "position": 2221, "name": "Fondazione Giuliano Bignasca: oltre 20 mila fra...", "url": `${BASE_URL}/articoli-frontaliere/fondazione-bignasca-aiuti-2025` }
  ]
  },
  {

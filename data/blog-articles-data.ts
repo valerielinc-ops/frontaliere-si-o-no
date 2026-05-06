@@ -20882,4 +20882,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fondazione-bignasca-aiuti-2025',
+ category: 'novita',
+ date: '2026-05-06T14:06:53.677Z',
+ image: '/images/blog/fondazione-bignasca-aiuti-2025.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

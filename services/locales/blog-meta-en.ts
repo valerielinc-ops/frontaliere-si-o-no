@@ -6503,6 +6503,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nespresso-svizzera-dazi-2026.title': 'Nespresso stays in Switzerland despite US tariffs',
     'blog.article.nespresso-svizzera-dazi-2026.excerpt': 'Nestlé confirms its loyalty to Switzerland for Nespresso production, despite US tariffs. 16,000 jobs to be cut by 2027.',
     'blog.article.nespresso-svizzera-dazi-2026.imageAlt': 'View of Lake Lugano with Monte Brè in the background',
+    'blog.article.fondazione-bignasca-aiuti-2025.title': 'Giuliano Bignasca Foundation: over 20,000 CHF in aid in 2025',
+    'blog.article.fondazione-bignasca-aiuti-2025.excerpt': 'The Giuliano Bignasca Foundation provided over 20,000 francs in direct aid in 2025, including grocery vouchers and support for rent and health insurance premiums.',
+    'blog.article.fondazione-bignasca-aiuti-2025.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;
