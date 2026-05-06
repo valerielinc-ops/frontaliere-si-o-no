@@ -6282,6 +6282,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.hendsichen-arresto-francese-autodiebstahl.title': 'Hendschiken : un Français de 19 ans arrêté pour vol de voiture',
     'blog.article.hendsichen-arresto-francese-autodiebstahl.excerpt': 'Un jeune Français de 19 ans a été arrêté à Hendschiken après un vol de voiture et une fuite. Voici les détails de l\'incident.',
     'blog.article.hendsichen-arresto-francese-autodiebstahl.imageAlt': 'Castelgrande à Bellinzone, Tessin',
+    'blog.article.bper-risiko-bancario-crescita-mercato.title': 'Bper et les loups du risque bancaire : croissance et marché comme défense',
+    'blog.article.bper-risiko-bancario-crescita-mercato.excerpt': 'Gianni Franco Papa, PDG de Bper, parle de croissance et de capitalisation boursière comme défense contre d\'éventuelles OPA. Focus sur la bancassurance et les fusions.',
+    'blog.article.bper-risiko-bancario-crescita-mercato.imageAlt': 'Vue du lac de Lugano avec le quartier financier moderne en arrière-plan',
 };
 
 export default blogMetaFr;

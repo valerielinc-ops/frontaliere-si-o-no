@@ -6281,6 +6281,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.hendsichen-arresto-francese-autodiebstahl.title': 'Hendschiken: 19-year-old Frenchman arrested for car theft and escape',
     'blog.article.hendsichen-arresto-francese-autodiebstahl.excerpt': 'A 19-year-old Frenchman was arrested in Hendschiken after a car theft and escape. Here are the details of the incident.',
     'blog.article.hendsichen-arresto-francese-autodiebstahl.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.bper-risiko-bancario-crescita-mercato.title': 'Bper and the banking risk wolves: growth and market as defense',
+    'blog.article.bper-risiko-bancario-crescita-mercato.excerpt': 'Gianni Franco Papa, CEO of Bper, talks about growth and market capitalization as a defense against possible takeovers. Focus on bancassurance and mergers.',
+    'blog.article.bper-risiko-bancario-crescita-mercato.imageAlt': 'View of Lake Lugano with the modern financial district in the background',
 };
 
 export default blogMetaEn;

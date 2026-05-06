@@ -6281,6 +6281,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hendsichen-arresto-francese-autodiebstahl.title': 'Hendschiken: 19-Jähriger wegen Autodiebstahl und Flucht festgenommen',
     'blog.article.hendsichen-arresto-francese-autodiebstahl.excerpt': 'Ein 19-jähriger Franzose wurde in Hendschiken nach einem Autodiebstahl und einer Flucht festgenommen. Hier sind die Details des Vorfalls.',
     'blog.article.hendsichen-arresto-francese-autodiebstahl.imageAlt': 'Castelgrande in Bellinzona, Tessin',
+    'blog.article.bper-risiko-bancario-crescita-mercato.title': 'Bper und die Risikospieler der Banken: Wachstum als Verteidigung',
+    'blog.article.bper-risiko-bancario-crescita-mercato.excerpt': 'Gianni Franco Papa, CEO von Bper, spricht über Wachstum und Marktkapitalisierung als Schutz vor möglichen Übernahmen. Fokus auf Bancassurance und Fusionen.',
+    'blog.article.bper-risiko-bancario-crescita-mercato.imageAlt': 'Blick auf den Luganersee mit dem modernen Finanzdistrikt im Hintergrund',
 };
 
 export default blogMetaDe;

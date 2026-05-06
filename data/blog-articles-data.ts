@@ -20216,4 +20216,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bper-risiko-bancario-crescita-mercato',
+ category: 'novita',
+ date: '2026-05-06T01:48:19.571Z',
+ image: '/images/blog/bper-risiko-bancario-crescita-mercato.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

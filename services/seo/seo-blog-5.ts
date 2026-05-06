@@ -20634,6 +20634,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bper-risiko-bancario-crescita-mercato': {
+    title: 'Bper e i lupi del risiko bancario: crescita e mercato come difesa',
+    description: 'Gianni Franco Papa, AD di Bper, parla di crescita e capitalizzazione di mercato come difesa contro possibili scalate. Focus su bancassurance e aggregazioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bper, lupi, risiko, bancario',
+    ogTitle: 'Bper e i lupi del risiko bancario: crescita e mercato come difesa',
+    ogDescription: 'Gianni Franco Papa, AD di Bper, parla di crescita e capitalizzazione di mercato come difesa contro possibili scalate. Focus su bancassurance e aggregazioni.',
+    canonicalPath: '/articoli-frontaliere/bper-risiko-bancario-crescita-mercato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bper e i lupi del risiko bancario: crescita e mercato come difesa",
+      "description": "Gianni Franco Papa, AD di Bper, parla di crescita e capitalizzazione di mercato come difesa contro possibili scalate. Focus su bancassurance e aggregazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/bper-risiko-bancario-crescita-mercato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con il distretto finanziario moderno sullo sfondo"
+      },
+      "datePublished": "2026-05-06T01:48:19+00:00",
+      "dateModified": "2026-05-06T01:48:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bper-risiko-bancario-crescita-mercato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

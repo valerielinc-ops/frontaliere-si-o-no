@@ -3336,6 +3336,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-morto-rene-groebli-fotografo-98-anni': { name: 'Novità', path: '/articoli-frontaliere/morto-rene-groebli-fotografo-98-anni', parent: 'blog' },
     'blog-food-truck-festival-locarno-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/food-truck-festival-locarno-2026', parent: 'blog' },
     'blog-hendsichen-arresto-francese-autodiebstahl': { name: 'Novità', path: '/articoli-frontaliere/hendsichen-arresto-francese-autodiebstahl', parent: 'blog' },
+    'blog-bper-risiko-bancario-crescita-mercato': { name: 'Bper e i lupi', path: '/articoli-frontaliere/bper-risiko-bancario-crescita-mercato', parent: 'blog' },
  };
 
  const info = sectionNames[section];
