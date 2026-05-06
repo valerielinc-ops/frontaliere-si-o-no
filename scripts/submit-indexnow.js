@@ -183,13 +183,21 @@ function getBingUrlsSubset() {
 const PRE_DEPLOY_SNAPSHOT = '/tmp/pre-deploy-sitemap-urls.json';
 
 async function getDeployedUrls() {
-  // 1. Try the pre-deploy snapshot (reliable baseline)
+  // 1. Try the pre-deploy snapshot (reliable baseline). Supports both
+  // shapes:
+  //   v1 (legacy): flat array `[ "url", "url", ... ]`
+  //   v2 (current): `{ version: 2, perSitemap: {...}, _allUrls: [...] }`
+  // We only need the union of URLs; v2 exposes it in `_allUrls`.
   if (existsSync(PRE_DEPLOY_SNAPSHOT)) {
     try {
       const data = JSON.parse(readFileSync(PRE_DEPLOY_SNAPSHOT, 'utf-8'));
       if (Array.isArray(data) && data.length > 0) {
-        console.log(`📸 Using pre-deploy snapshot: ${data.length} URLs from ${PRE_DEPLOY_SNAPSHOT}`);
+        console.log(`📸 Using pre-deploy snapshot (v1 flat): ${data.length} URLs from ${PRE_DEPLOY_SNAPSHOT}`);
         return new Set(data);
+      }
+      if (data && data.version === 2 && Array.isArray(data._allUrls) && data._allUrls.length > 0) {
+        console.log(`📸 Using pre-deploy snapshot (v2 per-sitemap): ${data._allUrls.length} URLs from ${PRE_DEPLOY_SNAPSHOT}`);
+        return new Set(data._allUrls);
       }
     } catch { /* malformed file — fall through */ }
   }

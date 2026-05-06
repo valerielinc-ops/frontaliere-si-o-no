@@ -58,7 +58,7 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
     # JOB-LEVEL concurrency. Critical: must be on the JOB, not on the
     # workflow. With job-level concurrency the lock is released as soon
     # as `build-and-deploy` finishes, even when the `post-deploy` job
@@ -363,6 +363,67 @@ jobs:
           retention-days: 1
           if-no-files-found: ignore
 
+      # Pack the new sitemap URLs (extracted from dist/sitemap-*.xml) into
+      # /tmp/new-sitemap-urls.json so validate-live can submit them to
+      # IndexNow / Google Indexing API without scraping the live site or
+      # downloading the 1.5 GB github-pages artifact. Bundled together
+      # with the pre-deploy snapshot into a single small `sitemaps-`
+      # artifact for convenience.
+      - name: Pack new sitemap URLs from dist/
+        if: github.event.inputs.profile_sequential != 'true'
+        continue-on-error: true
+        run: |
+          node -e "
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const distDir = 'dist';
+            if (!fs.existsSync(distDir)) {
+              console.error('dist/ missing — skipping new-sitemap-urls.json');
+              process.exit(0);
+            }
+            const files = fs.readdirSync(distDir)
+              .filter(f => /^sitemap-.+\.xml\$/.test(f) && f !== 'sitemap-index.xml')
+              .sort();
+            const perSitemap = {};
+            const all = new Set();
+            for (const f of files) {
+              const xml = fs.readFileSync(path.join(distDir, f), 'utf8');
+              const urls = [...new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].trim()))].sort();
+              perSitemap[f] = urls;
+              for (const u of urls) all.add(u);
+            }
+            const out = {
+              version: 2,
+              capturedAt: new Date().toISOString(),
+              source: 'dist',
+              perSitemap,
+              _allUrls: [...all].sort(),
+            };
+            fs.writeFileSync('/tmp/new-sitemap-urls.json', JSON.stringify(out));
+            console.log('📦 Packed ' + out._allUrls.length + ' new sitemap URLs across ' + Object.keys(perSitemap).length + ' files → /tmp/new-sitemap-urls.json');
+          "
+
+      - name: Stage sitemaps bundle (pre-deploy + new)
+        if: github.event.inputs.profile_sequential != 'true'
+        continue-on-error: true
+        run: |
+          mkdir -p /tmp/sitemaps-bundle
+          cp -f /tmp/pre-deploy-sitemap-urls.json /tmp/sitemaps-bundle/ 2>/dev/null || true
+          cp -f /tmp/new-sitemap-urls.json /tmp/sitemaps-bundle/ 2>/dev/null || true
+          ls -la /tmp/sitemaps-bundle/
+
+      # Single small artifact (~tens of KB) consumed by validate-live for
+      # IndexNow / Google Indexing diff. Lets validate-live skip the
+      # 1.5 GB github-pages artifact entirely.
+      - name: Upload sitemaps bundle artifact
+        if: github.event.inputs.profile_sequential != 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: sitemaps-${{ github.run_id }}
+          path: /tmp/sitemaps-bundle/
+          retention-days: 1
+          if-no-files-found: ignore
+
       - name: Merge previous CSS/JS assets for Clarity recordings
         # Runs as the LAST mutation of dist/ before upload, on purpose.
         # Earlier in the pipeline this step ran right after the build, but
@@ -479,32 +540,97 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
+      - name: Report failure to Linear (build)
+        if: failure()
+        continue-on-error: true
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "CI Failure (build): ${{ github.workflow }} — run ${{ github.run_number }}" \
+            --description "## Build fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 1 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+  # ───────────────────────────────────────────────────────────────────────
+  # deploy: publish dist/ to GitHub Pages (actions/deploy-pages reads the
+  # `github-pages` artifact from this run automatically). Inherits the
+  # `pages-deploy` concurrency group so build+deploy together hold the
+  # serial Pages lock for the upload+publish sequence — but each job
+  # individually rilascia la lock when complete.
+  # ───────────────────────────────────────────────────────────────────────
+  deploy:
+    needs: build
+    if: |
+      success() &&
+      github.event.inputs.profile_sequential != 'true'
+    concurrency:
+      group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-deploy-profile-{0}', github.run_id) || 'pages-deploy' }}
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
       # GitHub Pages allows only one deployment at a time. When concurrent
       # pushes trigger this workflow, the second run can hit "in progress
       # deployment" errors. Retry once after a short wait to handle this.
       - name: Deploy to GitHub Pages
-        if: github.event.inputs.profile_sequential != 'true'
         id: deployment_first
         uses: actions/deploy-pages@v5
         continue-on-error: true
 
       - name: Wait for previous Pages deployment to finish
-        if: github.event.inputs.profile_sequential != 'true' && steps.deployment_first.outcome == 'failure'
+        if: steps.deployment_first.outcome == 'failure'
         run: |
           echo "::warning::First deploy attempt failed (likely Pages busy). Retrying in 30s..."
           sleep 30
 
       - name: Deploy to GitHub Pages (retry)
         id: deployment
-        if: github.event.inputs.profile_sequential != 'true' && steps.deployment_first.outcome == 'failure'
+        if: steps.deployment_first.outcome == 'failure'
         uses: actions/deploy-pages@v5
 
       - name: Fail if both deploy attempts failed
-        if: github.event.inputs.profile_sequential != 'true' && steps.deployment_first.outcome == 'failure' && steps.deployment.outcome != 'success'
+        if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome != 'success'
         run: exit 1
 
       - name: Save deploy metadata to Firestore
-        if: success() && github.event.inputs.profile_sequential != 'true'
+        if: success()
         env:
           ARTICLE_ID: ${{ github.event.inputs.article_id }}
           ARTICLE_URL: ${{ github.event.inputs.article_url }}
@@ -524,12 +650,12 @@ jobs:
             --og-image="${OG_IMAGE}" \
             --article-category="${ARTICLE_CATEGORY}"
 
-      - name: Report failure to Linear
+      - name: Report failure to Linear (deploy)
         if: failure()
         continue-on-error: true
         run: |
           node scripts/lib/linear-issue-creator.mjs \
-            --title "CI Failure: ${{ github.workflow }} — run ${{ github.run_number }}" \
+            --title "CI Failure (deploy): ${{ github.workflow }} — run ${{ github.run_number }}" \
             --description "## Deploy fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}
@@ -538,30 +664,217 @@ jobs:
             --label Bug \
             --workflow "${{ github.workflow }}"
 
-  # Validation runs as a downstream job in this same workflow run, NOT as a
-  # separate workflow_run-triggered run. Same-run validation:
-  #   • removes the workflow_run.head_sha drift (github.sha is invariant);
-  #   • removes the cross-workflow `gh run download` lookup lag (we use
-  #     actions/download-artifact@v5 against the current run id);
-  #   • produces a 1:1 deploy ↔ validate mapping in the Actions UI (no
-  #     more "cancelled" post-deploys for cancelled/skipped deploys).
-  #
-  # The lock on `pages-deploy` is released by `build-and-deploy` above as
-  # soon as it completes (job-level concurrency). Validation can therefore
-  # run in parallel with the *next* deploy, which is the whole point of
-  # this refactor for cron-driven content (~15 min cadence).
-  post-deploy:
-    needs: build-and-deploy
+  # ───────────────────────────────────────────────────────────────────────
+  # validate-dist: dist-side gates (bfs-depth, text-html-ratio, ...).
+  # Runs in PARALLEL with `deploy` — only needs `build` (the artifact).
+  # ───────────────────────────────────────────────────────────────────────
+  validate-dist:
+    needs: build
     if: |
       success() &&
       github.event.inputs.profile_sequential != 'true'
-    uses: ./.github/workflows/post-deploy-validation.yml
+    uses: ./.github/workflows/post-deploy-validate-dist.yml
     with:
       deploy_run_id: ${{ github.run_id }}
       deploy_event_name: ${{ github.event_name }}
     secrets: inherit
     permissions:
-      contents: write   # sync-previous-slug-winners + git push
+      contents: read    # checkout
       actions: read     # download-artifact same-run
-      pages: write      # rollback redeploy
-      id-token: write   # rollback redeploy
+
+  # ───────────────────────────────────────────────────────────────────────
+  # validate-live: live smoke + social posting + indexing submission.
+  # Needs `deploy` to have published the new dist before fetching live.
+  # ───────────────────────────────────────────────────────────────────────
+  validate-live:
+    needs: deploy
+    if: |
+      success() &&
+      github.event.inputs.profile_sequential != 'true'
+    uses: ./.github/workflows/post-deploy-validate-live.yml
+    with:
+      deploy_run_id: ${{ github.run_id }}
+      deploy_event_name: ${{ github.event_name }}
+    secrets: inherit
+    permissions:
+      contents: write   # sync previous-slug winners (git push)
+      actions: read     # download small artifacts (sitemaps, winners)
+
+  # ───────────────────────────────────────────────────────────────────────
+  # rollback: revert Pages to last_known_good if either validate fails.
+  # Still-live guard: skip rollback if a newer deploy has already replaced
+  # ours on Pages — the bad version is gone, no need to clobber the new
+  # good one.
+  # ───────────────────────────────────────────────────────────────────────
+  rollback:
+    needs: [deploy, validate-dist, validate-live]
+    if: |
+      always() &&
+      (needs.validate-dist.result == 'failure' || needs.validate-live.result == 'failure') &&
+      needs.deploy.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      actions: read
+    environment:
+      name: github-pages
+      url: ${{ steps.rollback_deploy.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      # Validate-dist + validate-live run concurrently with the next
+      # deploy's build. By the time this rollback fires, a newer deploy
+      # may already be live on Pages — reverting our (failed) deploy
+      # would clobber a valid newer one. Check the live Pages deployment
+      # SHA before proceeding.
+      - name: Verify our deploy is still live (still-live guard)
+        id: still-live
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          live_sha=$(gh api \
+            "repos/${{ github.repository }}/deployments?environment=github-pages&per_page=1" \
+            --jq '.[0].sha // empty')
+          my_sha="${{ github.sha }}"
+          echo "Live Pages deployment SHA: ${live_sha:-(unknown)}"
+          echo "My deploy SHA:             $my_sha"
+          if [ -z "$live_sha" ]; then
+            echo "::warning::Could not resolve live deployment SHA — proceeding with rollback as best-effort"
+            echo "still_live=true" >> "$GITHUB_OUTPUT"
+          elif [ "$live_sha" = "$my_sha" ]; then
+            echo "✅ My deploy is still live — rollback is the right action."
+            echo "still_live=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ℹ️ A newer deploy ($live_sha) has already replaced mine on Pages."
+            echo "   Rollback is a no-op — skipping. The newer deploy already removed the bad version."
+            echo "still_live=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get last known good deploy
+        if: steps.still-live.outputs.still_live == 'true'
+        id: last-good
+        run: |
+          DATA=$(node scripts/deploy-registry.mjs get-good 2>/dev/null || echo '{}')
+          RUN_ID=$(echo "$DATA" | node -e "process.stdin.resume();let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{console.log(JSON.parse(d).runId||'')}catch{console.log('')}})")
+          SHA=$(echo "$DATA" | node -e "process.stdin.resume();let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{console.log(JSON.parse(d).sha||'')}catch{console.log('')}})")
+          echo "run-id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          if [ -z "$RUN_ID" ]; then
+            echo "::warning::No last_known_good found in Firestore — cannot rollback."
+          else
+            echo "Rolling back to run $RUN_ID (sha $SHA)"
+          fi
+
+      - name: Fail if no last known good deploy is available
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id == ''
+        run: |
+          echo "::error::No last_known_good deploy found in Firestore. Cannot perform rollback."
+          exit 1
+
+      # Cross-run download. Pin to the SPECIFIC artifact id (resolved via
+      # gh api) to avoid the "Multiple artifacts named github-pages were
+      # unexpectedly found for this workflow run" error that
+      # actions/download-artifact@v5 throws when the source run had both
+      # a deploy AND a self-rollback (which uploads a second
+      # `github-pages` artifact for re-publishing).
+      - name: Resolve last-good github-pages artifact id
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != ''
+        id: last-good-artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Pick the FIRST `github-pages` (oldest = the original deploy
+          # upload, not a later rollback re-upload).
+          artifact_id=$(gh api \
+            "repos/${{ github.repository }}/actions/runs/${{ steps.last-good.outputs.run-id }}/artifacts" \
+            --jq '[.artifacts[] | select(.name == "github-pages")] | sort_by(.created_at) | .[0].id // empty')
+          if [ -z "$artifact_id" ]; then
+            echo "::error::No github-pages artifact in run ${{ steps.last-good.outputs.run-id }}"
+            exit 1
+          fi
+          echo "id=$artifact_id" >> "$GITHUB_OUTPUT"
+          echo "Resolved last-good github-pages artifact id: $artifact_id"
+
+      - name: Download last known good GitHub Pages artifact (by id)
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p ./rollback-archive
+          gh api "repos/${{ github.repository }}/actions/artifacts/${{ steps.last-good-artifact.outputs.id }}/zip" \
+            > ./rollback-archive/__artifact.zip
+          unzip -q -o ./rollback-archive/__artifact.zip -d ./rollback-archive
+          rm -f ./rollback-archive/__artifact.zip
+
+      - name: Reconstruct rollback site from downloaded Pages artifact
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != ''
+        run: |
+          test -f ./rollback-archive/artifact.tar
+          mkdir -p ./rollback-dist
+          tar -xf ./rollback-archive/artifact.tar -C ./rollback-dist
+
+      - name: Re-upload last known good artifact for Pages
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != ''
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./rollback-dist
+
+      - name: Deploy last known good to GitHub Pages
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != ''
+        id: rollback_deploy
+        uses: actions/deploy-pages@v5
+
+      - name: Report rollback to Linear
+        if: always()
+        continue-on-error: true
+        run: |
+          if [ "${{ steps.still-live.outputs.still_live }}" != "true" ]; then
+            MSG="## Rollback skippato (newer deploy already live)
+          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Last good (NOT rolled back):** ${{ steps.last-good.outputs.run-id }}"
+          elif [ "${{ steps.rollback_deploy.outcome }}" = "success" ]; then
+            MSG="## Rollback eseguito
+          **Rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
+          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          else
+            MSG="## Rollback fallito
+          **Tentato rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
+          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "Rollback: post-deploy — run ${{ github.run_number }}" \
+            --description "$MSG" \
+            --priority 1 \
+            --label Bug \
+            --workflow "Post-deploy Rollback"
