@@ -6540,6 +6540,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tuberkulose-caso-saint-maurice-2024.title': 'Tuberkulosefall an Primarschule in Saint-Maurice',
     'blog.article.tuberkulose-caso-saint-maurice-2024.excerpt': 'Un caso di tubercolosi segnalato in una scuola primaria a Saint-Maurice, Canton Vallese. Le autorità sanitarie intervengono.',
     'blog.article.tuberkulose-caso-saint-maurice-2024.imageAlt': 'Lago di Lugano con vista sul confine italo-svizzero',
+    'blog.article.fondazione-bignasca-aiuti-2026.title': 'Fondazione Bignasca: oltre 20.000 franchi in aiuti per i più bisognosi',
+    'blog.article.fondazione-bignasca-aiuti-2026.excerpt': 'La Fondazione Giuliano Bignasca ha erogato oltre 20.000 franchi nel 2025 per sostenere famiglie e persone in difficoltà economica nel Canton Ticino.',
+    'blog.article.fondazione-bignasca-aiuti-2026.imageAlt': 'Vista aerea del Lago di Lugano con il panorama cittadino sullo sfondo, che mostra edifici moderni e le acque serene del lago.',
 };
 
 export default blogMetaIt;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2232,
+ "numberOfItems": 2233,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6874,7 +6874,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2229, "name": "Nuova vita per l’ex Albergo Corecco di Quinto", "url": `${BASE_URL}/articoli-frontaliere/nuova-vita-albergo-corecco-quinto` },
           { "@type": "ListItem", "position": 2230, "name": "Dalla logistica agli SwissSkills 2025: il perco...", "url": `${BASE_URL}/articoli-frontaliere/alessandro-logistica-swissskills-2025` },
           { "@type": "ListItem", "position": 2231, "name": "Ladri reclutati per rubare auto di lusso in Svi...", "url": `${BASE_URL}/articoli-frontaliere/ladri-auto-lusso-ticino-2026` },
-          { "@type": "ListItem", "position": 2232, "name": "Tuberkulosefall an Primarschule in Saint-Maurice", "url": `${BASE_URL}/articoli-frontaliere/tuberkulose-caso-saint-maurice-2024` }
+          { "@type": "ListItem", "position": 2232, "name": "Tuberkulosefall an Primarschule in Saint-Maurice", "url": `${BASE_URL}/articoli-frontaliere/tuberkulose-caso-saint-maurice-2024` },
+          { "@type": "ListItem", "position": 2233, "name": "Fondazione Bignasca: oltre 20.000 franchi in ai...", "url": `${BASE_URL}/articoli-frontaliere/fondazione-bignasca-aiuti-2026` }
  ]
  },
  {

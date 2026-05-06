@@ -20990,4 +20990,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fondazione-bignasca-aiuti-2026',
+ category: 'pratico',
+ date: '2026-05-06T17:26:43.214Z',
+ image: '/images/blog/fondazione-bignasca-aiuti-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

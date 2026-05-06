@@ -6539,6 +6539,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tuberkulose-caso-saint-maurice-2024.title': 'Tuberculosis case at primary school in Saint-Maurice',
     'blog.article.tuberkulose-caso-saint-maurice-2024.excerpt': 'A case of tuberculosis reported at a primary school in Saint-Maurice, Canton Valais. Health authorities intervene.',
     'blog.article.tuberkulose-caso-saint-maurice-2024.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
+    'blog.article.fondazione-bignasca-aiuti-2026.title': 'Bignasca Foundation: over 20,000 francs for those in need',
+    'blog.article.fondazione-bignasca-aiuti-2026.excerpt': 'The Giuliano Bignasca Foundation has granted over 20,000 francs in 2025 to support families and individuals in financial difficulty in the Canton of Ticino.',
+    'blog.article.fondazione-bignasca-aiuti-2026.imageAlt': 'Aerial view of Lake Lugano with the cityscape in the background, featuring modern buildings and the serene blue waters of the lake.',
 };
 
 export default blogMetaEn;

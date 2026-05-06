@@ -6539,6 +6539,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tuberkulose-caso-saint-maurice-2024.title': 'Tuberkulosefall an Primarschule in Saint-Maurice',
     'blog.article.tuberkulose-caso-saint-maurice-2024.excerpt': 'Ein Tuberkulosefall in einer Primarschule in Saint-Maurice, Kanton Wallis. Die Gesundheitsbehörden greifen ein.',
     'blog.article.tuberkulose-caso-saint-maurice-2024.imageAlt': 'Luganersee mit Blick auf die schweizerisch-italienische Grenze',
+    'blog.article.fondazione-bignasca-aiuti-2026.title': 'Stiftung Bignasca: Über 20.000 Franken für Bedürftige',
+    'blog.article.fondazione-bignasca-aiuti-2026.excerpt': 'Die Giuliano-Bignasca-Stiftung hat 2025 über 20.000 Franken für Familien und Personen in finanzieller Not im Kanton Tessin bereitgestellt.',
+    'blog.article.fondazione-bignasca-aiuti-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadtkulisse im Hintergrund, die moderne Gebäude und die ruhigen blauen Gewässer des Sees zeigt.',
 };
 
 export default blogMetaDe;

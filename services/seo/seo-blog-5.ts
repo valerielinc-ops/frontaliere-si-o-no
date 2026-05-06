@@ -23902,6 +23902,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondazione-bignasca-aiuti-2026': {
+    title: 'Fondazione Bignasca: oltre 20.000 franchi in aiuti per i più bisognosi',
+    description: 'La Fondazione Giuliano Bignasca ha erogato oltre 20.000 franchi nel 2025 per sostenere famiglie e persone in difficoltà economica nel Canton Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondazione, bignasca, oltre, franchi',
+    ogTitle: 'Fondazione Bignasca: oltre 20.000 franchi in aiuti per i più bisognosi',
+    ogDescription: 'La Fondazione Giuliano Bignasca ha erogato oltre 20.000 franchi nel 2025 per sostenere famiglie e persone in difficoltà economica nel Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/fondazione-bignasca-aiuti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fondazione Bignasca: oltre 20.000 franchi in aiuti per i più bisognosi",
+      "description": "La Fondazione Giuliano Bignasca ha erogato oltre 20.000 franchi nel 2025 per sostenere famiglie e persone in difficoltà economica nel Canton Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/fondazione-bignasca-aiuti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il panorama cittadino sullo sfondo, che mostra edifici moderni e le acque serene del lago."
+      },
+      "datePublished": "2026-05-06T17:26:43+00:00",
+      "dateModified": "2026-05-06T17:26:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fondazione-bignasca-aiuti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
