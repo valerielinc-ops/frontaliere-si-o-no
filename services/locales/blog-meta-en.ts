@@ -6452,6 +6452,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.friborgo-hockey-mondiale-2026.title': 'Fribourg thrives on hockey like Ticino: 2026 World Cup at BCF Arena',
     'blog.article.friborgo-hockey-mondiale-2026.excerpt': 'Fribourg will host the 2026 hockey World Cup with 30 Group B matches. John Gobbi: \'80,000 people for the title celebration\'',
     'blog.article.friborgo-hockey-mondiale-2026.imageAlt': 'Hockey game at BCF Arena in Fribourg, Switzerland. Fans cheering during an international match.',
+    'blog.article.pagare-vittime-crans-montana-2026.title': 'Switzerland disagrees on Crans-Montana fire compensation',
+    'blog.article.pagare-vittime-crans-montana-2026.excerpt': 'Switzerland is considering covering healthcare costs for Italian victims of the Crans-Montana fire, but the idea is dividing opinions in Bern.',
+    'blog.article.pagare-vittime-crans-montana-2026.imageAlt': 'View of Crans-Montana resort after the fire on January 1, 2026',
 };
 
 export default blogMetaEn;

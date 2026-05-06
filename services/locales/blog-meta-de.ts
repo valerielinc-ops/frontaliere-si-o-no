@@ -6452,6 +6452,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.friborgo-hockey-mondiale-2026.title': 'Fribourg vit de hockey comme le Tessin: Mondial 2026 à la BCF Arena',
     'blog.article.friborgo-hockey-mondiale-2026.excerpt': 'Fribourg accueillera le Mondial de hockey 2026 avec 30 matchs du Groupe B. John Gobbi: \'80\'000 personnes pour la fête du titre\'',
     'blog.article.friborgo-hockey-mondiale-2026.imageAlt': 'Eishockeyspiel in der BCF Arena in Freiburg, Schweiz. Fans jubeln während eines internationalen Spiels.',
+    'blog.article.pagare-vittime-crans-montana-2026.title': 'Berner Streit um Entschädigung für Crans-Montana-Opfer',
+    'blog.article.pagare-vittime-crans-montana-2026.excerpt': 'Die Schweiz prüft, die Gesundheitskosten für die italienischen Opfer des Brandes in Crans-Montana zu übernehmen, doch die Idee spaltet Bern.',
+    'blog.article.pagare-vittime-crans-montana-2026.imageAlt': 'Ansicht des Resorts Crans-Montana nach dem Brand am 1. Januar 2026',
 };
 
 export default blogMetaDe;
