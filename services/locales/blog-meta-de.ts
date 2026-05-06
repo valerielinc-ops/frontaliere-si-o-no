@@ -6305,6 +6305,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bilancio-voto-canone-ssr-2026.title': 'Bilanz nach der SSR-Gebührenabstimmung: Was ändert sich für Grenzgänger?',
     'blog.article.bilancio-voto-canone-ssr-2026.excerpt': 'Die Generalversammlung der SSR Svizzera italiana vom 9. Mai zieht Bilanz über die Abstimmung vom 8. März. Fokus auf Enavant und redaktionelle Unabhängigkeit.',
     'blog.article.bilancio-voto-canone-ssr-2026.imageAlt': 'Palazzo dei Congressi di Lugano, SSR Svizzera italiana Versammlung',
+    'blog.article.votazioni-cure-dentarie-ticino-2024.title': 'Initiative Zahnversicherung: «Nein zu teurer Täuschung»',
+    'blog.article.votazioni-cure-dentarie-ticino-2024.excerpt': 'Komitee gegen obligatorische Grundversicherung für Zahnmedizin: hohe Kosten und ungelöste Probleme',
+    'blog.article.votazioni-cure-dentarie-ticino-2024.imageAlt': 'Luganersee mit Bergen im Hintergrund, sonniger Tag',
 };
 
 export default blogMetaDe;

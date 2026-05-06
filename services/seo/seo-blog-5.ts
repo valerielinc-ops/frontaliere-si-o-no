@@ -20938,6 +20938,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazioni-cure-dentarie-ticino-2024': {
+    title: 'Iniziativa cure dentarie: «No a una proposta ingannevole e costosa»',
+    description: 'Comitato contrario all\'assicurazione obbligatoria per le cure odontoiatriche di base: costi elevati e problemi irrisolti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, cure, dentarie, proposta',
+    ogTitle: 'Iniziativa cure dentarie: «No a una proposta ingannevole e costosa»',
+    ogDescription: 'Comitato contrario all\'assicurazione obbligatoria per le cure odontoiatriche di base: costi elevati e problemi irrisolti',
+    canonicalPath: '/articoli-frontaliere/votazioni-cure-dentarie-ticino-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa cure dentarie: «No a una proposta ingannevole e costosa»",
+      "description": "Comitato contrario all'assicurazione obbligatoria per le cure odontoiatriche di base: costi elevati e problemi irrisolti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/votazioni-cure-dentarie-ticino-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Lugano con montagne sullo sfondo, giornata di sole"
+      },
+      "datePublished": "2026-05-06T04:12:49+00:00",
+      "dateModified": "2026-05-06T04:12:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-cure-dentarie-ticino-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

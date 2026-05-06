@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2154,
+ "numberOfItems": 2155,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6796,7 +6796,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2151, "name": "Scandalo cardiochirurgia Zurigo: 70 pazienti sa...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-zurigo-cardiochirurgia-scandalo` },
           { "@type": "ListItem", "position": 2152, "name": "Locarno: record abitanti, ma domiciliati in calo", "url": `${BASE_URL}/articoli-frontaliere/locarno-abitanti-domiciliati-2026` },
           { "@type": "ListItem", "position": 2153, "name": "Cure dentarie in Ticino: 150 milioni in più, ma...", "url": `${BASE_URL}/articoli-frontaliere/cure-dentarie-ticino-2026` },
-          { "@type": "ListItem", "position": 2154, "name": "Bilancio dopo il voto sul canone SSR: cosa camb...", "url": `${BASE_URL}/articoli-frontaliere/bilancio-voto-canone-ssr-2026` }
+          { "@type": "ListItem", "position": 2154, "name": "Bilancio dopo il voto sul canone SSR: cosa camb...", "url": `${BASE_URL}/articoli-frontaliere/bilancio-voto-canone-ssr-2026` },
+          { "@type": "ListItem", "position": 2155, "name": "Iniziativa cure dentarie: «No a una proposta in...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-cure-dentarie-ticino-2024` }
  ]
  },
  {

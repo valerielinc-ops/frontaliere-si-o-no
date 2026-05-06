@@ -20288,4 +20288,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'votazioni-cure-dentarie-ticino-2024',
+ category: 'novita',
+ date: '2026-05-06T04:12:49.224Z',
+ image: '/images/blog/votazioni-cure-dentarie-ticino-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

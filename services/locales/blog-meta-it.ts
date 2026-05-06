@@ -6306,6 +6306,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bilancio-voto-canone-ssr-2026.title': 'Bilancio dopo il voto sul canone SSR: cosa cambia per i frontalieri',
     'blog.article.bilancio-voto-canone-ssr-2026.excerpt': 'L\'Assemblea generale della SSR Svizzera italiana del 9 maggio fa il punto sul voto del 8 marzo. Focus su Enavant e autonomia editoriale.',
     'blog.article.bilancio-voto-canone-ssr-2026.imageAlt': 'Palazzo dei Congressi di Lugano, assemblea SSR Svizzera italiana',
+    'blog.article.votazioni-cure-dentarie-ticino-2024.title': 'Iniziativa cure dentarie: «No a una proposta ingannevole e costosa»',
+    'blog.article.votazioni-cure-dentarie-ticino-2024.excerpt': 'Comitato contrario all\'assicurazione obbligatoria per le cure odontoiatriche di base: costi elevati e problemi irrisolti',
+    'blog.article.votazioni-cure-dentarie-ticino-2024.imageAlt': 'Lago Lugano con montagne sullo sfondo, giornata di sole',
 };
 
 export default blogMetaIt;

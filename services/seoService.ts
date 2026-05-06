@@ -3344,6 +3344,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-locarno-abitanti-domiciliati-2026': { name: 'Locarno abitanti', path: '/articoli-frontaliere/locarno-abitanti-domiciliati-2026', parent: 'blog' },
     'blog-cure-dentarie-ticino-2026': { name: 'Cure dentarie Ticino', path: '/articoli-frontaliere/cure-dentarie-ticino-2026', parent: 'blog' },
     'blog-bilancio-voto-canone-ssr-2026': { name: 'Novità', path: '/articoli-frontaliere/bilancio-voto-canone-ssr-2026', parent: 'blog' },
+    'blog-votazioni-cure-dentarie-ticino-2024': { name: 'Iniziativa cure dentarie', path: '/articoli-frontaliere/votazioni-cure-dentarie-ticino-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];
