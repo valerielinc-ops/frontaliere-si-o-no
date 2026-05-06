@@ -6563,6 +6563,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hantavirus-oms-passeggeri-sudafrica.title': 'Weltgesundheitsorganisation sucht Passagiere eines Fluges nach Südafrika',
     'blog.article.hantavirus-oms-passeggeri-sudafrica.excerpt': 'Die Weltgesundheitsorganisation sucht Passagiere eines Fluges nach Südafrika nach dem Tod einer an Hantavirus erkrankten niederländischen Frau.',
     'blog.article.hantavirus-oms-passeggeri-sudafrica.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen',
+    'blog.article.contrabbandiera-ciclostorica-2026.title': 'La Contrabbandiera 2026: Vintage-Radfahren zwischen Italien und der Schweiz',
+    'blog.article.contrabbandiera-ciclostorica-2026.excerpt': 'Am Sonntag, den 24. Mai 2026, findet in Uggiate mit Ronago die Vintage-Radveranstaltung La Contrabbandiera statt, die die Leidenschaft für Oldtimer-Räder und Grenzlandschaften verbindet.',
+    'blog.article.contrabbandiera-ciclostorica-2026.imageAlt': 'Radfahrer in Vintage-Kleidung nehmen an einem Oldtimer-Radrennen entlang der Grenze zwischen Italien und der Schweiz teil, mit malerischen Aussichten auf Hügel und Seen.',
 };
 
 export default blogMetaDe;

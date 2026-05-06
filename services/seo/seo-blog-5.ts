@@ -24206,6 +24206,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contrabbandiera-ciclostorica-2026': {
+    title: 'La Contrabbandiera 2026: ciclismo vintage tra Italia e Svizzera',
+    description: 'Domenica 24 maggio 2026, a Uggiate con Ronago, si terrà la ciclostorica La Contrabbandiera, un evento che unisce passione per il ciclismo d\'epoca e paesaggi di',
+    keywords: 'frontalieri, ticino, svizzera, italia, contrabbandiera, ciclismo, vintage, domenica',
+    ogTitle: 'La Contrabbandiera 2026: ciclismo vintage tra Italia e Svizzera',
+    ogDescription: 'Domenica 24 maggio 2026, a Uggiate con Ronago, si terrà la ciclostorica La Contrabbandiera, un evento che unisce passione per il ciclismo d\'epoca e paesaggi di',
+    canonicalPath: '/articoli-frontaliere/contrabbandiera-ciclostorica-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Contrabbandiera 2026: ciclismo vintage tra Italia e Svizzera",
+      "description": "Domenica 24 maggio 2026, a Uggiate con Ronago, si terrà la ciclostorica La Contrabbandiera, un evento che unisce passione per il ciclismo d'epoca e paesaggi di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/contrabbandiera-ciclostorica-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ciclisti in abiti vintage partecipano a una gara di ciclismo d'epoca lungo il confine tra Italia e Svizzera, con panorami suggestivi di colline e laghi."
+      },
+      "datePublished": "2026-05-06T23:02:29+00:00",
+      "dateModified": "2026-05-06T23:02:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contrabbandiera-ciclostorica-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

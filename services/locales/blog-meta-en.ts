@@ -6563,6 +6563,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.hantavirus-oms-passeggeri-sudafrica.title': 'WHO seeks passengers on a flight to South Africa',
     'blog.article.hantavirus-oms-passeggeri-sudafrica.excerpt': 'WHO is looking for passengers on a flight to South Africa after the death of a Dutch woman infected with hantavirus.',
     'blog.article.hantavirus-oms-passeggeri-sudafrica.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains',
+    'blog.article.contrabbandiera-ciclostorica-2026.title': 'La Contrabbandiera 2026: vintage cycling across Italy and Switzerland',
+    'blog.article.contrabbandiera-ciclostorica-2026.excerpt': 'On Sunday, May 24, 2026, in Uggiate with Ronago, the vintage cycling event La Contrabbandiera will take place, combining a passion for classic cycling and border landscapes.',
+    'blog.article.contrabbandiera-ciclostorica-2026.imageAlt': 'Cyclists in vintage clothing participate in a vintage bicycle race along the border between Italy and Switzerland, with scenic views of hills and lakes.',
 };
 
 export default blogMetaEn;

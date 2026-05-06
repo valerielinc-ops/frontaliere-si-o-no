@@ -3430,6 +3430,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-hantavirus-crociera-isolamento': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-crociera-isolamento', parent: 'blog' },
     'blog-nuovo-tunnel-lukmanier-sicurezza': { name: 'Tunnel Lukmanier', path: '/articoli-frontaliere/nuovo-tunnel-lukmanier-sicurezza', parent: 'blog' },
     'blog-hantavirus-oms-passeggeri-sudafrica': { name: 'Hantavirus', path: '/articoli-frontaliere/hantavirus-oms-passeggeri-sudafrica', parent: 'blog' },
+    'blog-contrabbandiera-ciclostorica-2026': { name: 'Eventi', path: '/articoli-frontaliere/contrabbandiera-ciclostorica-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

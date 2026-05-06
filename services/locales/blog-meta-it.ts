@@ -6564,6 +6564,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.hantavirus-oms-passeggeri-sudafrica.title': 'Hantavirus, l\'OMS cerca passeggeri di un volo per il Sudafrica',
     'blog.article.hantavirus-oms-passeggeri-sudafrica.excerpt': 'L\'OMS cerca passeggeri di un volo per il Sudafrica dopo la morte di una donna olandese affetta da hantavirus.',
     'blog.article.hantavirus-oms-passeggeri-sudafrica.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti',
+    'blog.article.contrabbandiera-ciclostorica-2026.title': 'La Contrabbandiera 2026: ciclismo vintage tra Italia e Svizzera',
+    'blog.article.contrabbandiera-ciclostorica-2026.excerpt': 'Domenica 24 maggio 2026, a Uggiate con Ronago, si terrà la ciclostorica La Contrabbandiera, un evento che unisce passione per il ciclismo d\'epoca e paesaggi di confine.',
+    'blog.article.contrabbandiera-ciclostorica-2026.imageAlt': 'Ciclisti in abiti vintage partecipano a una gara di ciclismo d\'epoca lungo il confine tra Italia e Svizzera, con panorami suggestivi di colline e laghi.',
 };
 
 export default blogMetaIt;
