@@ -23370,6 +23370,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-poliani-digital-innovation-hub-2026': {
+    title: 'Poliani riconfermato al Digital Innovation Hub',
+    description: 'L\'imprenditore guiderà l\'organismo per il triennio 2026-2028 con l\'obiettivo di accompagnare le PMI verso l\'intelligenza artificiale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, poliani, riconfermato, digital, innovation',
+    ogTitle: 'Stefano Poliani riconfermato alla guida del Digital Innovation Hub di Confindustria Lombardia',
+    ogDescription: 'L\'imprenditore guiderà l\'organismo per il triennio 2026-2028 con l\'obiettivo di accompagnare le PMI verso l\'intelligenza artificiale',
+    canonicalPath: '/articoli-frontaliere/poliani-digital-innovation-hub-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Poliani riconfermato al Digital Innovation Hub",
+      "description": "L'imprenditore guiderà l'organismo per il triennio 2026-2028 con l'obiettivo di accompagnare le PMI verso l'intelligenza artificiale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/poliani-digital-innovation-hub-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-06T13:48:48+00:00",
+      "dateModified": "2026-05-06T13:48:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/poliani-digital-innovation-hub-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

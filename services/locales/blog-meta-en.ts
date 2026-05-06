@@ -6497,6 +6497,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-risultati-trimestre-frontalieri.title': 'Swiss: Q1 profits up but fuel costs loom',
     'blog.article.swiss-risultati-trimestre-frontalieri.excerpt': 'Swiss airline closes Q1 with rising profits, but fuel costs could erode gains.',
     'blog.article.swiss-risultati-trimestre-frontalieri.imageAlt': 'Aerial view of Lake Lugano with Swiss Alps in the background',
+    'blog.article.poliani-digital-innovation-hub-2026.title': 'Poliani reappointed at Digital Innovation Hub',
+    'blog.article.poliani-digital-innovation-hub-2026.excerpt': 'The entrepreneur will lead the body for the 2026-2028 term with the goal of guiding SMEs towards artificial intelligence',
+    'blog.article.poliani-digital-innovation-hub-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

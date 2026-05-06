@@ -20864,4 +20864,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'poliani-digital-innovation-hub-2026',
+ category: 'novita',
+ date: '2026-05-06T13:48:48.847Z',
+ image: '/images/blog/poliani-digital-innovation-hub-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

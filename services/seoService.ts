@@ -3408,6 +3408,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-luino-sanita-massarenti-2026': { name: 'Sanità Pubblica', path: '/articoli-frontaliere/luino-sanita-massarenti-2026', parent: 'blog' },
     'blog-siss-problemi-lombardia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/siss-problemi-lombardia-frontalieri', parent: 'blog' },
     'blog-swiss-risultati-trimestre-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/swiss-risultati-trimestre-frontalieri', parent: 'blog' },
+    'blog-poliani-digital-innovation-hub-2026': { name: 'Novità', path: '/articoli-frontaliere/poliani-digital-innovation-hub-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

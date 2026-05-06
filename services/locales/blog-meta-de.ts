@@ -6497,6 +6497,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swiss-risultati-trimestre-frontalieri.title': 'Swiss: Gewinne im ersten Quartal gestiegen, aber Risiken in Sicht',
     'blog.article.swiss-risultati-trimestre-frontalieri.excerpt': 'Die Fluggesellschaft Swiss schließt das erste Quartal mit gestiegenen Gewinnen ab, aber die Kraftstoffkosten könnten die Gewinne schmälern.',
     'blog.article.swiss-risultati-trimestre-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit den Schweizer Alpen im Hintergrund',
+    'blog.article.poliani-digital-innovation-hub-2026.title': 'Poliani bleibt Leiter des Digital Innovation Hub',
+    'blog.article.poliani-digital-innovation-hub-2026.excerpt': 'Der Unternehmer wird den Verband für das Triennium 2026-2028 leiten, mit dem Ziel, KMUs in Richtung künstliche Intelligenz zu begleiten',
+    'blog.article.poliani-digital-innovation-hub-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

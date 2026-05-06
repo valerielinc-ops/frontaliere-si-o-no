@@ -6498,6 +6498,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.swiss-risultati-trimestre-frontalieri.title': 'Swiss: bénéfices en hausse au premier trimestre mais des risques en vue',
     'blog.article.swiss-risultati-trimestre-frontalieri.excerpt': 'La compagnie aérienne Swiss clôture le premier trimestre avec des bénéfices en hausse, mais les coûts du carburant pourraient éroder les gains.',
     'blog.article.swiss-risultati-trimestre-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec les Alpes suisses en arrière-plan',
+    'blog.article.poliani-digital-innovation-hub-2026.title': 'Poliani reconduit au Digital Innovation Hub',
+    'blog.article.poliani-digital-innovation-hub-2026.excerpt': 'L\'entrepreneur dirigera l\'organisme pour le triennat 2026-2028 avec l\'objectif d\'accompagner les PME vers l\'intelligence artificielle',
+    'blog.article.poliani-digital-innovation-hub-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;
