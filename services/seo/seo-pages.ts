@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2215,
+ "numberOfItems": 2216,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6857,7 +6857,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2212, "name": "Svizzera, 20mila franchi di multa per un viaggi...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-treno-multa-20000-franchi` },
           { "@type": "ListItem", "position": 2213, "name": "Decreto Lavoro, Coldiretti Varese: misure per l...", "url": `${BASE_URL}/articoli-frontaliere/decreto-lavoro-coldiretti-varese-2026` },
           { "@type": "ListItem", "position": 2214, "name": "Swiss elimina 300 posti di lavoro con uscite vo...", "url": `${BASE_URL}/articoli-frontaliere/swiss-300-uscite-volontarie-2026` },
-          { "@type": "ListItem", "position": 2215, "name": "Parmelin conferma: stop alle fatture mediche pe...", "url": `${BASE_URL}/articoli-frontaliere/parmelin-stop-fatture-mediche-crans-montana` }
+          { "@type": "ListItem", "position": 2215, "name": "Parmelin conferma: stop alle fatture mediche pe...", "url": `${BASE_URL}/articoli-frontaliere/parmelin-stop-fatture-mediche-crans-montana` },
+          { "@type": "ListItem", "position": 2216, "name": "Luino: Massarenti denuncia il trucco delle perc...", "url": `${BASE_URL}/articoli-frontaliere/luino-sanita-massarenti-2026` }
  ]
  },
  {

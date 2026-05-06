@@ -23256,6 +23256,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luino-sanita-massarenti-2026': {
+    title: 'Luino: Massarenti denuncia il trucco delle percentuali nella sanità pubblica',
+    description: 'Marco Massarenti, candidato di \'La nostra Luino\', critica i dati presentati dalla Regione Lombardia sulla sanità, evidenziando disparità e problemi strutturali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, luino, massarenti, denuncia, trucco',
+    ogTitle: 'Luino: Massarenti denuncia il trucco delle percentuali nella sanità pubblica',
+    ogDescription: 'Marco Massarenti, candidato di \'La nostra Luino\', critica i dati presentati dalla Regione Lombardia sulla sanità, evidenziando disparità e problemi strutturali.',
+    canonicalPath: '/articoli-frontaliere/luino-sanita-massarenti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luino: Massarenti denuncia il trucco delle percentuali nella sanità pubblica",
+      "description": "Marco Massarenti, candidato di 'La nostra Luino', critica i dati presentati dalla Regione Lombardia sulla sanità, evidenziando disparità e problemi strutturali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/luino-sanita-massarenti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Luino, Italia, vicino al confine svizzero, con il Lago di Lugano sullo sfondo, cielo azzurro limpido, colori autunnali."
+      },
+      "datePublished": "2026-05-06T13:27:45+00:00",
+      "dateModified": "2026-05-06T13:27:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luino-sanita-massarenti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

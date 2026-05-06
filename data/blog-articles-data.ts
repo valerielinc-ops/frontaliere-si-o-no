@@ -20837,4 +20837,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'luino-sanita-massarenti-2026',
+ category: 'novita',
+ date: '2026-05-06T13:27:45.152Z',
+ image: '/images/blog/luino-sanita-massarenti-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

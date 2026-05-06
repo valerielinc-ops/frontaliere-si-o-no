@@ -6489,6 +6489,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parmelin-stop-fatture-mediche-crans-montana.title': 'Parmelin conferma: stop alle fatture mediche per le vittime di Crans-Montana',
     'blog.article.parmelin-stop-fatture-mediche-crans-montana.excerpt': 'Il presidente svizzero Guy Parmelin ha ribadito che non saranno più inviate fatture per le spese sanitarie ai familiari delle vittime dell\'incendio di Capodanno a Crans-Montana.',
     'blog.article.parmelin-stop-fatture-mediche-crans-montana.imageAlt': 'Crans-Montana, Svizzera, paesaggio invernale',
+    'blog.article.luino-sanita-massarenti-2026.title': 'Luino: Massarenti denuncia il trucco delle percentuali nella sanità pubblica',
+    'blog.article.luino-sanita-massarenti-2026.excerpt': 'Marco Massarenti, candidato di \'La nostra Luino\', critica i dati presentati dalla Regione Lombardia sulla sanità, evidenziando disparità e problemi strutturali.',
+    'blog.article.luino-sanita-massarenti-2026.imageAlt': 'Vista aerea di Luino, Italia, vicino al confine svizzero, con il Lago di Lugano sullo sfondo, cielo azzurro limpido, colori autunnali.',
 };
 
 export default blogMetaIt;
