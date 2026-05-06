@@ -23712,6 +23712,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bocconi-avvelenati-ticino-segnalazioni': {
+    title: 'Bocconi avvelenati in Ticino: 18 segnalazioni in un anno',
+    description: 'L\'app Amico Fido ha raccolto 18 segnalazioni di bocconi avvelenati in Ticino, con un picco nel mese di maggio 2025. Scopri come proteggere il tuo cane.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bocconi, avvelenati, segnalazioni, anno',
+    ogTitle: 'Bocconi avvelenati in Ticino: 18 segnalazioni in un anno',
+    ogDescription: 'L\'app Amico Fido ha raccolto 18 segnalazioni di bocconi avvelenati in Ticino, con un picco nel mese di maggio 2025. Scopri come proteggere il tuo cane.',
+    canonicalPath: '/articoli-frontaliere/bocconi-avvelenati-ticino-segnalazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bocconi avvelenati in Ticino: 18 segnalazioni in un anno",
+      "description": "L'app Amico Fido ha raccolto 18 segnalazioni di bocconi avvelenati in Ticino, con un picco nel mese di maggio 2025. Scopri come proteggere il tuo cane.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/bocconi-avvelenati-ticino-segnalazioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un cane in un parco a Lugano con un cartello di avvertimento"
+      },
+      "datePublished": "2026-05-06T15:14:21+00:00",
+      "dateModified": "2026-05-06T15:14:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bocconi-avvelenati-ticino-segnalazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

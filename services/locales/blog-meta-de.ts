@@ -6524,6 +6524,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.immigrazione-svizzera-invecchiamento-2026.title': 'Ohne Einwanderung altert die Schweiz schnell',
     'blog.article.immigrazione-svizzera-invecchiamento-2026.excerpt': 'Die Einwanderung verlangsamt die demografische Alterung der Schweiz, mit direkten Auswirkungen auf die AHV und die Versicherungsprämien',
     'blog.article.immigrazione-svizzera-invecchiamento-2026.imageAlt': 'Grenze von Brogeda zwischen Italien und der Schweiz, mit Menschen und Autos im Transit',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.title': 'Giftköder im Tessin: 18 Meldungen in einem Jahr',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.excerpt': 'Die App Amico Fido hat 18 Meldungen von vergifteten Ködern im Tessin registriert, mit einem Höhepunkt im Mai 2025.',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.imageAlt': 'Ein Hund in einem Park in Lugano mit einem Warnschild',
 };
 
 export default blogMetaDe;

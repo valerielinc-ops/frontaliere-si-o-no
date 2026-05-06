@@ -6525,6 +6525,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.immigrazione-svizzera-invecchiamento-2026.title': 'Senza immigrazione, la Svizzera invecchierebbe rapidamente',
     'blog.article.immigrazione-svizzera-invecchiamento-2026.excerpt': 'L\'immigrazione rallenta l\'invecchiamento demografico della Svizzera, con effetti diretti su AVS e premi assicurativi',
     'blog.article.immigrazione-svizzera-invecchiamento-2026.imageAlt': 'Confine di Brogeda tra Italia e Svizzera, con persone e auto in transito',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.title': 'Bocconi avvelenati in Ticino: 18 segnalazioni in un anno',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.excerpt': 'L\'app Amico Fido ha raccolto 18 segnalazioni di bocconi avvelenati in Ticino, con un picco nel mese di maggio 2025.',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.imageAlt': 'Un cane in un parco a Lugano con un cartello di avvertimento',
 };
 
 export default blogMetaIt;

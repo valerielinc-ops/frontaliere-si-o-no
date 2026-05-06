@@ -6524,6 +6524,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.immigrazione-svizzera-invecchiamento-2026.title': 'Switzerland would age rapidly without immigration',
     'blog.article.immigrazione-svizzera-invecchiamento-2026.excerpt': 'Immigration slows Switzerland\'s demographic aging, with direct effects on AHV and insurance premiums',
     'blog.article.immigrazione-svizzera-invecchiamento-2026.imageAlt': 'Brogeda border crossing between Italy and Switzerland, with people and cars passing through',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.title': 'Poisoned bait in Ticino: 18 reports in a year',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.excerpt': 'The Amico Fido app has collected 18 reports of poisoned bait in Ticino, with a peak in May 2025.',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.imageAlt': 'A dog in a park in Lugano with a warning sign',
 };
 
 export default blogMetaEn;

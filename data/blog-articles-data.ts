@@ -20945,4 +20945,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bocconi-avvelenati-ticino-segnalazioni',
+ category: 'novita',
+ date: '2026-05-06T15:14:21.078Z',
+ image: '/images/blog/bocconi-avvelenati-ticino-segnalazioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

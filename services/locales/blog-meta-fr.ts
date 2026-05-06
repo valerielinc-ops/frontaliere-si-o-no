@@ -6525,6 +6525,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.immigrazione-svizzera-invecchiamento-2026.title': 'Sans immigration, la Suisse vieillirait rapidement',
     'blog.article.immigrazione-svizzera-invecchiamento-2026.excerpt': 'L\'immigration ralentit le vieillissement démographique de la Suisse, avec des effets directs sur l\'AVS et les primes d\'assurance',
     'blog.article.immigrazione-svizzera-invecchiamento-2026.imageAlt': 'Frontière de Brogeda entre l\'Italie et la Suisse, avec des personnes et des voitures en transit',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.title': 'Appâts empoisonnés au Tessin: 18 signalements en un an',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.excerpt': 'L\'application Amico Fido a recueilli 18 signalements d\'appâts empoisonnés au Tessin, avec un pic en mai 2025.',
+    'blog.article.bocconi-avvelenati-ticino-segnalazioni.imageAlt': 'Un chien dans un parc à Lugano avec un panneau d\'avertissement',
 };
 
 export default blogMetaFr;

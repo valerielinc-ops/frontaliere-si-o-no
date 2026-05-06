@@ -3417,6 +3417,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-solidale-convegno-poverta-sanitaria-alimentare-2026': { name: 'Varese Solidale', path: '/articoli-frontaliere/varese-solidale-convegno-poverta-sanitaria-alimentare-2026', parent: 'blog' },
     'blog-centri-famiglia-altovaresotto-2026': { name: 'Centri famiglia', path: '/articoli-frontaliere/centri-famiglia-altovaresotto-2026', parent: 'blog' },
     'blog-immigrazione-svizzera-invecchiamento-2026': { name: 'Novità', path: '/articoli-frontaliere/immigrazione-svizzera-invecchiamento-2026', parent: 'blog' },
+    'blog-bocconi-avvelenati-ticino-segnalazioni': { name: 'Novità', path: '/articoli-frontaliere/bocconi-avvelenati-ticino-segnalazioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];
