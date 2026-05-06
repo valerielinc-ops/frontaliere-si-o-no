@@ -20252,4 +20252,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ospedale-zurigo-cardiochirurgia-scandalo',
+ category: 'novita',
+ date: '2026-05-06T02:24:05.627Z',
+ image: '/images/blog/ospedale-zurigo-cardiochirurgia-scandalo.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

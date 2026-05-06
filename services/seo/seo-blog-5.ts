@@ -20786,6 +20786,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ospedale-zurigo-cardiochirurgia-scandalo': {
+    title: 'Scandalo cardiochirurgia Zurigo: 70 pazienti sarebbero sopravvissuti',
+    description: 'Un\'inchiesta rivela gravi mancanze nella cardiochirurgia dell\'Ospedale universitario di Zurigo. 70 pazienti potrebbero essere sopravvissuti altrove.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scandalo, cardiochirurgia, zurigo, pazienti',
+    ogTitle: 'Scandalo cardiochirurgia Zurigo: 70 pazienti sarebbero sopravvissuti',
+    ogDescription: 'Un\'inchiesta rivela gravi mancanze nella cardiochirurgia dell\'Ospedale universitario di Zurigo. 70 pazienti potrebbero essere sopravvissuti altrove.',
+    canonicalPath: '/articoli-frontaliere/ospedale-zurigo-cardiochirurgia-scandalo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scandalo cardiochirurgia Zurigo: 70 pazienti sarebbero sopravvissuti",
+      "description": "Un'inchiesta rivela gravi mancanze nella cardiochirurgia dell'Ospedale universitario di Zurigo. 70 pazienti potrebbero essere sopravvissuti altrove.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/ospedale-zurigo-cardiochirurgia-scandalo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale in Ticino con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-06T02:24:05+00:00",
+      "dateModified": "2026-05-06T02:24:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ospedale-zurigo-cardiochirurgia-scandalo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

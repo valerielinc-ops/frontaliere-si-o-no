@@ -6293,6 +6293,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.colombi-addio-corriere-ticino.title': 'Alessandro Colombi verlässt die Corriere del Ticino-Gruppe',
     'blog.article.colombi-addio-corriere-ticino.excerpt': 'Nach zwölf Jahren Zusammenarbeit verlässt Alessandro Colombi die Corriere del Ticino-Gruppe. Der Stiftungsrat und der Verwaltungsrat danken für den bedeutenden Beitrag.',
     'blog.article.colombi-addio-corriere-ticino.imageAlt': 'LAC Lugano, Kulturzentrum am Luganersee mit Bergen im Hintergrund',
+    'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.title': 'Skandal Kardiologie Zürich: 70 Patienten hätten überleben können',
+    'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.excerpt': 'Eine Untersuchung deckt gravierende Mängel in der Kardiologie des Universitätsspitals Zürich auf. 70 Patienten hätten anderswo überleben können.',
+    'blog.article.ospedale-zurigo-cardiochirurgia-scandalo.imageAlt': 'Krankenhaus in Tessin mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
