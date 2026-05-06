@@ -6527,6 +6527,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.title': 'Giftköder im Tessin: 18 Meldungen in einem Jahr',
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.excerpt': 'Die App Amico Fido hat 18 Meldungen von vergifteten Ködern im Tessin registriert, mit einem Höhepunkt im Mai 2025.',
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.imageAlt': 'Ein Hund in einem Park in Lugano mit einem Warnschild',
+    'blog.article.nuova-vita-albergo-corecco-quinto.title': 'Neues Leben für das ehemalige Hotel Corecco in Quinto',
+    'blog.article.nuova-vita-albergo-corecco-quinto.excerpt': 'Rettung und Aufwertung des ehemaligen Hotels Corecco in Lurengo, Quinto, mit der Schaffung einer Wellnesseinrichtung.',
+    'blog.article.nuova-vita-albergo-corecco-quinto.imageAlt': 'Panoramablick auf das ehemalige Albergo Corecco in Lurengo, Quinto, Tessin',
 };
 
 export default blogMetaDe;

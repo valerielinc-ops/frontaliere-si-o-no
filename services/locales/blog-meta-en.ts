@@ -6527,6 +6527,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.title': 'Poisoned bait in Ticino: 18 reports in a year',
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.excerpt': 'The Amico Fido app has collected 18 reports of poisoned bait in Ticino, with a peak in May 2025.',
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.imageAlt': 'A dog in a park in Lugano with a warning sign',
+    'blog.article.nuova-vita-albergo-corecco-quinto.title': 'New life for the former Corecco Hotel in Quinto',
+    'blog.article.nuova-vita-albergo-corecco-quinto.excerpt': 'Restoration and enhancement of the former Corecco Hotel in Lurengo, Quinto, with the creation of a wellness-focused accommodation facility.',
+    'blog.article.nuova-vita-albergo-corecco-quinto.imageAlt': 'Panoramic view of the former Albergo Corecco in Lurengo, Quinto, Ticino',
 };
 
 export default blogMetaEn;

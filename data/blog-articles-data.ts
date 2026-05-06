@@ -20954,4 +20954,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuova-vita-albergo-corecco-quinto',
+ category: 'novita',
+ date: '2026-05-06T15:28:08.192Z',
+ image: '/images/blog/nuova-vita-albergo-corecco-quinto.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

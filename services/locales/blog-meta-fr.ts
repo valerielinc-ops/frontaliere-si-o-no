@@ -6528,6 +6528,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.title': 'Appâts empoisonnés au Tessin: 18 signalements en un an',
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.excerpt': 'L\'application Amico Fido a recueilli 18 signalements d\'appâts empoisonnés au Tessin, avec un pic en mai 2025.',
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.imageAlt': 'Un chien dans un parc à Lugano avec un panneau d\'avertissement',
+    'blog.article.nuova-vita-albergo-corecco-quinto.title': 'Nouvelle vie pour l\'ancien hôtel Corecco de Quinto',
+    'blog.article.nuova-vita-albergo-corecco-quinto.excerpt': 'Rénovation et valorisation de l\'ancien hôtel Corecco à Lurengo, Quinto, avec la création d\'une structure d\'accueil dédiée au bien-être.',
+    'blog.article.nuova-vita-albergo-corecco-quinto.imageAlt': 'Vue panoramique de l\'ancien Albergo Corecco à Lurengo, Quinto, Tessin',
 };
 
 export default blogMetaFr;

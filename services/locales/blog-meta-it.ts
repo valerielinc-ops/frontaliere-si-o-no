@@ -6528,6 +6528,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.title': 'Bocconi avvelenati in Ticino: 18 segnalazioni in un anno',
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.excerpt': 'L\'app Amico Fido ha raccolto 18 segnalazioni di bocconi avvelenati in Ticino, con un picco nel mese di maggio 2025.',
     'blog.article.bocconi-avvelenati-ticino-segnalazioni.imageAlt': 'Un cane in un parco a Lugano con un cartello di avvertimento',
+    'blog.article.nuova-vita-albergo-corecco-quinto.title': 'Nuova vita per l’ex Albergo Corecco di Quinto',
+    'blog.article.nuova-vita-albergo-corecco-quinto.excerpt': 'Recupero e valorizzazione dell\'ex Albergo Corecco a Lurengo, Quinto, con la realizzazione di una struttura ricettiva dedicata al benessere.',
+    'blog.article.nuova-vita-albergo-corecco-quinto.imageAlt': 'Vista panoramica dell\'ex Albergo Corecco a Lurengo, Quinto, Ticino',
 };
 
 export default blogMetaIt;
