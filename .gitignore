@@ -105,3 +105,4 @@ setup-crg.ps1
 tests/e2e/seo-visual-regression.spec.ts-snapshots/*-darwin.png
 playwright-report/
 test-results/
+.worktrees/
