@@ -22025,4 +22025,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lugano-passteggia-iscrizioni-aperte',
+ category: 'pratico',
+ date: '2026-05-07T21:16:54.437Z',
+ image: '/images/blog/lugano-passteggia-iscrizioni-aperte.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

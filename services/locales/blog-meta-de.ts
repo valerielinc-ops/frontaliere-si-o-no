@@ -6884,6 +6884,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.centromedico-bellinzona-frontalieri.title': 'Centromedico Bellinzona: Eingriffe und Rückkehr am selben Tag',
     'blog.article.centromedico-bellinzona-frontalieri.excerpt': 'Neue Gesundheitsstruktur in Bellinzona für ambulante Eingriffe. Eröffnung für die Öffentlichkeit am 9. Mai 2026',
     'blog.article.centromedico-bellinzona-frontalieri.imageAlt': 'Medizinisches Zentrum Bellinzona, eine moderne Gesundheitsanlage im Herzen von Bellinzona',
+    'blog.article.lugano-passteggia-iscrizioni-aperte.title': 'Lugano Passteggia 2026: Anmeldungen offen, so nehmen Sie teil',
+    'blog.article.lugano-passteggia-iscrizioni-aperte.excerpt': 'Die Anmeldungen für die dreizehnte Ausgabe von Lugano Passteggia sind eröffnet. Erfahren Sie, wie Sie teilnehmen und was Sie erwartet.',
+    'blog.article.lugano-passteggia-iscrizioni-aperte.imageAlt': 'Teilnehmer an Lugano Passteggia mit Blick auf LAC Lugano',
 };
 
 export default blogMetaDe;

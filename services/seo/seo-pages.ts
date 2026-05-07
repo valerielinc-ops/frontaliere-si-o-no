@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2347,
+ "numberOfItems": 2348,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6989,7 +6989,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2344, "name": "Open Days ArteKrea a Varese: benessere e creati...", "url": `${BASE_URL}/articoli-frontaliere/artekrea-open-days-varese-2026` },
           { "@type": "ListItem", "position": 2345, "name": "Sanremo, l'Eurovision e poi Campione: Sal Da Vi...", "url": `${BASE_URL}/articoli-frontaliere/sanremo-eurovision-campione-2026` },
           { "@type": "ListItem", "position": 2346, "name": "Morbio Inferiore: raccolta vegetali meno freque...", "url": `${BASE_URL}/articoli-frontaliere/morbio-inferiore-raccolta-vegetali-2026` },
-          { "@type": "ListItem", "position": 2347, "name": "Centromedico Bellinzona: operazioni e ritorno a...", "url": `${BASE_URL}/articoli-frontaliere/centromedico-bellinzona-frontalieri` }
+          { "@type": "ListItem", "position": 2347, "name": "Centromedico Bellinzona: operazioni e ritorno a...", "url": `${BASE_URL}/articoli-frontaliere/centromedico-bellinzona-frontalieri` },
+          { "@type": "ListItem", "position": 2348, "name": "Lugano Passteggia 2026: iscrizioni aperte, ecco...", "url": `${BASE_URL}/articoli-frontaliere/lugano-passteggia-iscrizioni-aperte` }
  ]
  },
  {

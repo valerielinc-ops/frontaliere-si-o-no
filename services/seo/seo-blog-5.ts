@@ -28349,6 +28349,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-passteggia-iscrizioni-aperte': {
+    title: 'Lugano Passteggia 2026: iscrizioni aperte, ecco come partecipare',
+    description: 'Scopri come partecipare a Lugano Passteggia 2026, l\'evento enogastronomico e di camminata più atteso della tarda estate ticinese. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, passteggia, iscrizioni, aperte',
+    ogTitle: 'Lugano Passteggia 2026: iscrizioni aperte',
+    ogDescription: 'Scopri come partecipare a Lugano Passteggia 2026, l\'evento enogastronomico e di camminata più atteso della tarda estate ticinese.',
+    canonicalPath: '/articoli-frontaliere/lugano-passteggia-iscrizioni-aperte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano Passteggia 2026: iscrizioni aperte, ecco come partecipare",
+      "description": "Scopri come partecipare a Lugano Passteggia 2026, l'evento enogastronomico e di camminata più atteso della tarda estate ticinese. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lugano-passteggia-iscrizioni-aperte.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partecipanti alla Lugano Passteggia con vista sul LAC di Lugano"
+      },
+      "datePublished": "2026-05-07T21:16:54+00:00",
+      "dateModified": "2026-05-07T21:16:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-passteggia-iscrizioni-aperte`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

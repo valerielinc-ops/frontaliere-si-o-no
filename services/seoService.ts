@@ -3537,6 +3537,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sanremo-eurovision-campione-2026': { name: 'Eventi', path: '/articoli-frontaliere/sanremo-eurovision-campione-2026', parent: 'blog' },
     'blog-morbio-inferiore-raccolta-vegetali-2026': { name: 'Raccolta vegetali', path: '/articoli-frontaliere/morbio-inferiore-raccolta-vegetali-2026', parent: 'blog' },
     'blog-centromedico-bellinzona-frontalieri': { name: 'Centromedico Bellinzona', path: '/articoli-frontaliere/centromedico-bellinzona-frontalieri', parent: 'blog' },
+    'blog-lugano-passteggia-iscrizioni-aperte': { name: 'Lugano Passteggia', path: '/articoli-frontaliere/lugano-passteggia-iscrizioni-aperte', parent: 'blog' },
  };
 
  const info = sectionNames[section];
