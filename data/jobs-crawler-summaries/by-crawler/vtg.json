@@ -1,19 +1,21 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-07T11:59:21.989Z",
+  "generatedAt": "2026-05-07T22:47:26.176Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 51719,
-  "avgDurationMs": 51719,
+  "unchangedCount": 6,
+  "durationMs": 30662,
+  "avgDurationMs": 30662,
   "durationHistory": [
-    51719
+    30662
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-8ci491",
       "slug": "assistente-nella-linea-centrale-alc-monteceneri-swiss-armed-forces-vtg-bellinzona",
@@ -53,10 +55,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-lz4syo",
       "slug": "operatore-di-manutenzione-edifici-thusis-swiss-armed-forces-vtg-bern",
