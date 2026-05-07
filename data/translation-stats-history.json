@@ -1,89 +1,5 @@
 [
   {
-    "timestamp": "2026-04-22T14:04:23.950Z",
-    "label": "before",
-    "total": 2647,
-    "needsRetranslation": 77,
-    "incomplete": 31,
-    "complete": 2616,
-    "missingByLocale": {
-      "it": 23,
-      "en": 7,
-      "de": 27,
-      "fr": 28
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Capri Holdings (Michael Kors / Versace)",
-        "pending": 1
-      },
-      {
-        "company": "Groupe Mutuel",
-        "pending": 1
-      },
-      {
-        "company": "Hoval",
-        "pending": 1
-      },
-      {
-        "company": "Manor AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-22T14:36:51.583Z",
-    "label": "after",
-    "total": 2647,
-    "needsRetranslation": 64,
-    "incomplete": 22,
-    "complete": 2625,
-    "missingByLocale": {
-      "it": 20,
-      "en": 1,
-      "de": 20,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-22T22:41:35.067Z",
     "label": "before",
     "total": 2787,
@@ -9020,6 +8936,118 @@
     "label": "after",
     "total": 2654,
     "needsRetranslation": 156,
+    "incomplete": 90,
+    "complete": 2564,
+    "missingByLocale": {
+      "it": 29,
+      "en": 18,
+      "de": 14,
+      "fr": 28
+    },
+    "topPending": [
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 5
+      },
+      {
+        "company": "Denner",
+        "pending": 3
+      },
+      {
+        "company": "Bosch Thermotechnik AG",
+        "pending": 2
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-07T04:10:52.411Z",
+    "label": "before",
+    "total": 2654,
+    "needsRetranslation": 156,
+    "incomplete": 90,
+    "complete": 2564,
+    "missingByLocale": {
+      "it": 29,
+      "en": 18,
+      "de": 14,
+      "fr": 28
+    },
+    "topPending": [
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 5
+      },
+      {
+        "company": "Denner",
+        "pending": 3
+      },
+      {
+        "company": "Bosch Thermotechnik AG",
+        "pending": 2
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-07T04:23:02.450Z",
+    "label": "after",
+    "total": 2654,
+    "needsRetranslation": 140,
     "incomplete": 90,
     "complete": 2564,
     "missingByLocale": {
