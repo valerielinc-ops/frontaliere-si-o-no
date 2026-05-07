@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T06:32:56.889Z",
+  "generatedAt": "2026-05-07T06:49:45.725Z",
   "sources": {
     "gscOrphans": {
       "ok": true,
@@ -8,17 +8,17 @@
     "googleTrendsIt": {
       "ok": false,
       "candidates": 0,
-      "reason": "unavailable"
+      "reason": "rate-limited from CI IP — known limitation, residential proxy needed for reliable Trends"
     },
     "googleTrendsItLombardia": {
       "ok": false,
       "candidates": 0,
-      "reason": "unavailable"
+      "reason": "rate-limited from CI IP — known limitation, residential proxy needed for reliable Trends"
     },
     "googleTrendsCh": {
       "ok": false,
       "candidates": 0,
-      "reason": "unavailable"
+      "reason": "rate-limited from CI IP — known limitation, residential proxy needed for reliable Trends"
     },
     "redditTicino": {
       "ok": true,
@@ -39,10 +39,208 @@
     "facebookPages": {
       "ok": false,
       "candidates": 0,
-      "reason": "no FB posts in window with engagement >= 1"
+      "reason": "no FB posts in window"
     }
   },
   "candidates": [
+    {
+      "id": "ad746e23",
+      "keyword": "SBB controllers getting bonuses for fines?",
+      "normalizedKeyword": "sbb controllers getting bonuses for fines?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 26,
+        "redditComments": 0,
+        "redditCombined": 26,
+        "redditSubreddit": "Switzerland",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 26 (engagement unavailable)",
+      "demandScore": 0.26,
+      "noveltyScore": 1,
+      "totalScore": 0.556
+    },
+    {
+      "id": "76b770b1",
+      "keyword": "Why poeple dont believe in Social right for Working class anymore ?",
+      "normalizedKeyword": "why poeple dont believe in social right for working class anymore ?",
+      "angle": null,
+      "locale": "en",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 29,
+        "redditComments": 0,
+        "redditCombined": 29,
+        "redditSubreddit": "Switzerland",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 29 (engagement unavailable)",
+      "demandScore": 0.29,
+      "noveltyScore": 0.929,
+      "totalScore": 0.546
+    },
+    {
+      "id": "59cc81d8",
+      "keyword": "If Growth Is Capped, Where Does the Skilled Workforce Come From?",
+      "normalizedKeyword": "if growth is capped, where does the skilled workforce come from?",
+      "angle": null,
+      "locale": "en",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 24,
+        "redditComments": 0,
+        "redditCombined": 24,
+        "redditSubreddit": "Switzerland",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 24 (engagement unavailable)",
+      "demandScore": 0.24,
+      "noveltyScore": 0.933,
+      "totalScore": 0.517
+    },
+    {
+      "id": "569f00ba",
+      "keyword": "How do I progress in the part-time job market, while in school, as a 15yo?",
+      "normalizedKeyword": "how do i progress in the part-time job market, while in school, as a 15yo?",
+      "angle": null,
+      "locale": "en",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 27,
+        "redditComments": 0,
+        "redditCombined": 27,
+        "redditSubreddit": "Switzerland",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 27 (engagement unavailable)",
+      "demandScore": 0.27,
+      "noveltyScore": 0.882,
+      "totalScore": 0.515
+    },
+    {
+      "id": "0852b6e7",
+      "keyword": "Question for Swiss locals: why is late payment to domestic workers so common among wealthy households?",
+      "normalizedKeyword": "question for swiss locals: why is late payment to domestic workers so common among wealthy households?",
+      "angle": null,
+      "locale": "en",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 22,
+        "redditComments": 0,
+        "redditCombined": 22,
+        "redditSubreddit": "Switzerland",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 22 (engagement unavailable)",
+      "demandScore": 0.22,
+      "noveltyScore": 0.952,
+      "totalScore": 0.513
+    },
+    {
+      "id": "52905d04",
+      "keyword": "What kind of insurance do I need for renovating my house/appartment?",
+      "normalizedKeyword": "what kind of insurance do i need for renovating my house/appartment?",
+      "angle": null,
+      "locale": "en",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 17,
+        "redditComments": 0,
+        "redditCombined": 17,
+        "redditSubreddit": "Switzerland",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 17 (engagement unavailable)",
+      "demandScore": 0.17,
+      "noveltyScore": 0.944,
+      "totalScore": 0.48
+    },
+    {
+      "id": "3de315a1",
+      "keyword": "Ma la polizia svizzera ha la facolta' di inseguire persone in territorio italiano?",
+      "normalizedKeyword": "ma la polizia svizzera ha la facolta' di inseguire persone in territorio italiano?",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "redditItaly"
+      ],
+      "demandSignals": {
+        "redditScore": 25,
+        "redditComments": 0,
+        "redditCombined": 25,
+        "redditSubreddit": "italy",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/italy RSS feed — recency-based baseline 25 (engagement unavailable)",
+      "demandScore": 0.25,
+      "noveltyScore": 0.765,
+      "totalScore": 0.456
+    },
+    {
+      "id": "91189b1a",
+      "keyword": "Italian translation required for financial documents for visa?",
+      "normalizedKeyword": "italian translation required for financial documents for visa?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditLugano"
+      ],
+      "demandSignals": {
+        "redditScore": 5,
+        "redditComments": 0,
+        "redditCombined": 5,
+        "redditSubreddit": "Lugano",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 5 (engagement unavailable)",
+      "demandScore": 0.05,
+      "noveltyScore": 1,
+      "totalScore": 0.43
+    },
+    {
+      "id": "d7d6df0a",
+      "keyword": "Looking for a job as a cleaning lady, baby sitter or pet care. Any suggestions where to apply? Cerco lavoro come addetta alle pulizie o accudimento animali. Qualche suggerimento su dove candidarsi?",
+      "normalizedKeyword": "looking for a job as a cleaning lady, baby sitter or pet care. any suggestions where to apply? cerco lavoro come addetta alle pulizie o accudimento animali. qualche suggerimento su dove candidarsi?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditLugano"
+      ],
+      "demandSignals": {
+        "redditScore": 7,
+        "redditComments": 0,
+        "redditCombined": 7,
+        "redditSubreddit": "Lugano",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 7 (engagement unavailable)",
+      "demandScore": 0.07,
+      "noveltyScore": 0.939,
+      "totalScore": 0.418
+    },
     {
       "id": "128efc10",
       "keyword": "chauffeur jobs",
@@ -61,6 +259,28 @@
       "demandScore": 0.028,
       "noveltyScore": 1,
       "totalScore": 0.417
+    },
+    {
+      "id": "98a89e24",
+      "keyword": "ma voi dove cavolo buttate carta e vetro a Bellinzona?",
+      "normalizedKeyword": "ma voi dove cavolo buttate carta e vetro a bellinzona?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.917,
+      "totalScore": 0.415
     },
     {
       "id": "a9af41ed",
@@ -120,158 +340,268 @@
       "totalScore": 0.407
     },
     {
-      "id": "91189b1a",
-      "keyword": "Italian translation required for financial documents for visa?",
-      "normalizedKeyword": "italian translation required for financial documents for visa?",
+      "id": "0e2ac6b9",
+      "keyword": "Brazilian Jiu Jitsu zona Bellinzona?",
+      "normalizedKeyword": "brazilian jiu jitsu zona bellinzona?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.889,
+      "totalScore": 0.404
+    },
+    {
+      "id": "57a67d00",
+      "keyword": "SportEventsTicino ha chiuso i battenti, altre realtà ticinesi nel trail running?",
+      "normalizedKeyword": "sporteventsticino ha chiuso i battenti, altre realta ticinesi nel trail running?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.875,
+      "totalScore": 0.398
+    },
+    {
+      "id": "6957722c",
+      "keyword": "Anyone coming from Lugano tomorrow? I left a medication in my hotel and they can't send it",
+      "normalizedKeyword": "anyone coming from lugano tomorrow? i left a medication in my hotel and they can't send it",
+      "angle": null,
+      "locale": "en",
+      "sources": [
+        "redditLugano"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Lugano",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.864,
+      "totalScore": 0.394
+    },
+    {
+      "id": "bade5bab",
+      "keyword": "Avete sentito cosa è successo a Bellinzona?",
+      "normalizedKeyword": "avete sentito cosa e successo a bellinzona?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.857,
+      "totalScore": 0.391
+    },
+    {
+      "id": "f619e20c",
+      "keyword": "Iscrizione automatica al registro dei cattolici, é legale?",
+      "normalizedKeyword": "iscrizione automatica al registro dei cattolici, e legale?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.857,
+      "totalScore": 0.391
+    },
+    {
+      "id": "fce5d437",
+      "keyword": "Winterswim place in/near Locarno and coffee beans searched ?",
+      "normalizedKeyword": "winterswim place in/near locarno and coffee beans searched ?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.857,
+      "totalScore": 0.391
+    },
+    {
+      "id": "b169b37c",
+      "keyword": "Posti per fare aperitivo a Lugano?",
+      "normalizedKeyword": "posti per fare aperitivo a lugano?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 13,
+        "redditComments": 0,
+        "redditCombined": 13,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 13 (engagement unavailable)",
+      "demandScore": 0.13,
+      "noveltyScore": 0.778,
+      "totalScore": 0.389
+    },
+    {
+      "id": "259d9fd7",
+      "keyword": "Anche a voi quelli della cassa malati sembrano arroganti ?",
+      "normalizedKeyword": "anche a voi quelli della cassa malati sembrano arroganti ?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.842,
+      "totalScore": 0.385
+    },
+    {
+      "id": "24fc7e80",
+      "keyword": "Skijoring outside of Lugano?",
+      "normalizedKeyword": "skijoring outside of lugano?",
       "angle": null,
       "locale": "it",
       "sources": [
         "redditLugano"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 5,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 5,
         "redditSubreddit": "Lugano",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 1,
-      "totalScore": 0.4
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 5 (engagement unavailable)",
+      "demandScore": 0.05,
+      "noveltyScore": 0.875,
+      "totalScore": 0.38
     },
     {
-      "id": "ad746e23",
-      "keyword": "SBB controllers getting bonuses for fines?",
-      "normalizedKeyword": "sbb controllers getting bonuses for fines?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 1,
-      "totalScore": 0.4
-    },
-    {
-      "id": "0852b6e7",
-      "keyword": "Question for Swiss locals: why is late payment to domestic workers so common among wealthy households?",
-      "normalizedKeyword": "question for swiss locals: why is late payment to domestic workers so common among wealthy households?",
+      "id": "1b7662bc",
+      "keyword": "[Help] Looking for a place in Lugano for a work call, any suggestions?",
+      "normalizedKeyword": "[help] looking for a place in lugano for a work call, any suggestions?",
       "angle": null,
       "locale": "en",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.952,
-      "totalScore": 0.381
-    },
-    {
-      "id": "52905d04",
-      "keyword": "What kind of insurance do I need for renovating my house/appartment?",
-      "normalizedKeyword": "what kind of insurance do i need for renovating my house/appartment?",
-      "angle": null,
-      "locale": "en",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.944,
-      "totalScore": 0.378
-    },
-    {
-      "id": "d7d6df0a",
-      "keyword": "Looking for a job as a cleaning lady, baby sitter or pet care. Any suggestions where to apply? Cerco lavoro come addetta alle pulizie o accudimento animali. Qualche suggerimento su dove candidarsi?",
-      "normalizedKeyword": "looking for a job as a cleaning lady, baby sitter or pet care. any suggestions where to apply? cerco lavoro come addetta alle pulizie o accudimento animali. qualche suggerimento su dove candidarsi?",
-      "angle": null,
-      "locale": "it",
       "sources": [
         "redditLugano"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 6,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 6,
         "redditSubreddit": "Lugano",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.939,
-      "totalScore": 0.376
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 6 (engagement unavailable)",
+      "demandScore": 0.06,
+      "noveltyScore": 0.857,
+      "totalScore": 0.379
     },
     {
-      "id": "59cc81d8",
-      "keyword": "If Growth Is Capped, Where Does the Skilled Workforce Come From?",
-      "normalizedKeyword": "if growth is capped, where does the skilled workforce come from?",
+      "id": "7019219f",
+      "keyword": "Test per malattie veneree in Ticino. Devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
+      "normalizedKeyword": "test per malattie veneree in ticino. devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
       "angle": null,
-      "locale": "en",
+      "locale": "it",
       "sources": [
-        "redditSwitzerland"
+        "redditTicino"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 8,
         "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Switzerland",
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Switzerland RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.933,
-      "totalScore": 0.373
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.818,
+      "totalScore": 0.375
     },
     {
-      "id": "76b770b1",
-      "keyword": "Why poeple dont believe in Social right for Working class anymore ?",
-      "normalizedKeyword": "why poeple dont believe in social right for working class anymore ?",
+      "id": "8baa996d",
+      "keyword": "Do you know a cheap car rent for the day in Lugano?",
+      "normalizedKeyword": "do you know a cheap car rent for the day in lugano?",
       "angle": null,
       "locale": "en",
       "sources": [
-        "redditSwitzerland"
+        "redditLugano"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 4,
         "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Switzerland",
+        "redditCombined": 4,
+        "redditSubreddit": "Lugano",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Switzerland RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.929,
-      "totalScore": 0.372
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 4 (engagement unavailable)",
+      "demandScore": 0.04,
+      "noveltyScore": 0.867,
+      "totalScore": 0.371
     },
     {
       "id": "a5c88ec4",
@@ -293,70 +623,136 @@
       "totalScore": 0.371
     },
     {
-      "id": "98a89e24",
-      "keyword": "ma voi dove cavolo buttate carta e vetro a Bellinzona?",
-      "normalizedKeyword": "ma voi dove cavolo buttate carta e vetro a bellinzona?",
+      "id": "564ef9bd",
+      "keyword": "Legal Insurance in Svizzera, davvero utile o solo un’illusione di sicurezza?",
+      "normalizedKeyword": "legal insurance in svizzera, davvero utile o solo un’illusione di sicurezza?",
       "angle": null,
       "locale": "it",
       "sources": [
         "redditTicino"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 8,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 8,
         "redditSubreddit": "Ticino",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.917,
-      "totalScore": 0.367
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.8,
+      "totalScore": 0.368
     },
     {
-      "id": "0e2ac6b9",
-      "keyword": "Brazilian Jiu Jitsu zona Bellinzona?",
-      "normalizedKeyword": "brazilian jiu jitsu zona bellinzona?",
+      "id": "0b72c178",
+      "keyword": "Any Gym recommendations in Lugano?",
+      "normalizedKeyword": "any gym recommendations in lugano?",
       "angle": null,
       "locale": "it",
       "sources": [
         "redditTicino"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 8,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 8,
         "redditSubreddit": "Ticino",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.889,
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.778,
+      "totalScore": 0.359
+    },
+    {
+      "id": "b07e183e",
+      "keyword": "Bagni termali Ticino-Grigioni?",
+      "normalizedKeyword": "bagni termali ticino-grigioni?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.778,
+      "totalScore": 0.359
+    },
+    {
+      "id": "3b7090a7",
+      "keyword": "film in inglese a bellinzona?",
+      "normalizedKeyword": "film in inglese a bellinzona?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.778,
+      "totalScore": 0.359
+    },
+    {
+      "id": "817c7629",
+      "keyword": "Tornei di calcio balilla a Lugano?",
+      "normalizedKeyword": "tornei di calcio balilla a lugano?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.778,
+      "totalScore": 0.359
+    },
+    {
+      "id": "34b3d542",
+      "keyword": "Reti metalliche alla stazione di Lugano? A cosa servono ?",
+      "normalizedKeyword": "reti metalliche alla stazione di lugano? a cosa servono ?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.769,
       "totalScore": 0.356
-    },
-    {
-      "id": "569f00ba",
-      "keyword": "How do I progress in the part-time job market, while in school, as a 15yo?",
-      "normalizedKeyword": "how do i progress in the part-time job market, while in school, as a 15yo?",
-      "angle": null,
-      "locale": "en",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.882,
-      "totalScore": 0.353
     },
     {
       "id": "0f0d29f4",
@@ -378,180 +774,158 @@
       "totalScore": 0.352
     },
     {
-      "id": "24fc7e80",
-      "keyword": "Skijoring outside of Lugano?",
-      "normalizedKeyword": "skijoring outside of lugano?",
+      "id": "b68bf8fc",
+      "keyword": "What's it like living in Lugano?",
+      "normalizedKeyword": "what's it like living in lugano?",
       "angle": null,
       "locale": "it",
       "sources": [
         "redditLugano"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 5,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 5,
         "redditSubreddit": "Lugano",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.875,
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 5 (engagement unavailable)",
+      "demandScore": 0.05,
+      "noveltyScore": 0.8,
       "totalScore": 0.35
     },
     {
-      "id": "57a67d00",
-      "keyword": "SportEventsTicino ha chiuso i battenti, altre realtà ticinesi nel trail running?",
-      "normalizedKeyword": "sporteventsticino ha chiuso i battenti, altre realta ticinesi nel trail running?",
+      "id": "4cab4a0f",
+      "keyword": "Quando arrivano i sussidi cantonali della cassa malati?",
+      "normalizedKeyword": "quando arrivano i sussidi cantonali della cassa malati?",
       "angle": null,
       "locale": "it",
       "sources": [
         "redditTicino"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 8,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 8,
         "redditSubreddit": "Ticino",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.875,
-      "totalScore": 0.35
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.75,
+      "totalScore": 0.348
     },
     {
-      "id": "8baa996d",
-      "keyword": "Do you know a cheap car rent for the day in Lugano?",
-      "normalizedKeyword": "do you know a cheap car rent for the day in lugano?",
+      "id": "2fe9e41e",
+      "keyword": "Vale la pena trasferirsi a Lugano?",
+      "normalizedKeyword": "vale la pena trasferirsi a lugano?",
       "angle": null,
-      "locale": "en",
+      "locale": "it",
       "sources": [
         "redditLugano"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 6,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 6,
         "redditSubreddit": "Lugano",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.867,
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 6 (engagement unavailable)",
+      "demandScore": 0.06,
+      "noveltyScore": 0.778,
       "totalScore": 0.347
     },
     {
-      "id": "6957722c",
-      "keyword": "Anyone coming from Lugano tomorrow? I left a medication in my hotel and they can't send it",
-      "normalizedKeyword": "anyone coming from lugano tomorrow? i left a medication in my hotel and they can't send it",
+      "id": "6e77f463",
+      "keyword": "Art or cuisine courses in Lugano?",
+      "normalizedKeyword": "art or cuisine courses in lugano?",
       "angle": null,
-      "locale": "en",
+      "locale": "it",
       "sources": [
         "redditLugano"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 4,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 4,
         "redditSubreddit": "Lugano",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.864,
-      "totalScore": 0.346
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 4 (engagement unavailable)",
+      "demandScore": 0.04,
+      "noveltyScore": 0.8,
+      "totalScore": 0.344
     },
     {
-      "id": "1b7662bc",
-      "keyword": "[Help] Looking for a place in Lugano for a work call, any suggestions?",
-      "normalizedKeyword": "[help] looking for a place in lugano for a work call, any suggestions?",
+      "id": "2bb9ff58",
+      "keyword": "Is there a Chinese community in Lugano?",
+      "normalizedKeyword": "is there a chinese community in lugano?",
       "angle": null,
-      "locale": "en",
+      "locale": "it",
       "sources": [
         "redditLugano"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 4,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 4,
         "redditSubreddit": "Lugano",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 4 (engagement unavailable)",
+      "demandScore": 0.04,
+      "noveltyScore": 0.8,
+      "totalScore": 0.344
     },
     {
-      "id": "bade5bab",
-      "keyword": "Avete sentito cosa è successo a Bellinzona?",
-      "normalizedKeyword": "avete sentito cosa e successo a bellinzona?",
+      "id": "7a25fdf6",
+      "keyword": "Lugano bookstores with books in English?",
+      "normalizedKeyword": "lugano bookstores with books in english?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditLugano"
+      ],
+      "demandSignals": {
+        "redditScore": 4,
+        "redditComments": 0,
+        "redditCombined": 4,
+        "redditSubreddit": "Lugano",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 4 (engagement unavailable)",
+      "demandScore": 0.04,
+      "noveltyScore": 0.8,
+      "totalScore": 0.344
+    },
+    {
+      "id": "4c3302c7",
+      "keyword": "Comprare un EV in Ticino, ha senso?",
+      "normalizedKeyword": "comprare un ev in ticino, ha senso?",
       "angle": null,
       "locale": "it",
       "sources": [
         "redditTicino"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 8,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 8,
         "redditSubreddit": "Ticino",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
-      "id": "f619e20c",
-      "keyword": "Iscrizione automatica al registro dei cattolici, é legale?",
-      "normalizedKeyword": "iscrizione automatica al registro dei cattolici, e legale?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
-      "id": "fce5d437",
-      "keyword": "Winterswim place in/near Locarno and coffee beans searched ?",
-      "normalizedKeyword": "winterswim place in/near locarno and coffee beans searched ?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.727,
+      "totalScore": 0.339
     },
     {
       "id": "b6acc0bc",
@@ -592,28 +966,6 @@
       "totalScore": 0.338
     },
     {
-      "id": "259d9fd7",
-      "keyword": "Anche a voi quelli della cassa malati sembrano arroganti ?",
-      "normalizedKeyword": "anche a voi quelli della cassa malati sembrano arroganti ?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.842,
-      "totalScore": 0.337
-    },
-    {
       "id": "bc697cef",
       "keyword": "i am searching for caregiver jobs in ticino for elderly support.",
       "normalizedKeyword": "i am searching for caregiver jobs in ticino for elderly support.",
@@ -652,26 +1004,26 @@
       "totalScore": 0.329
     },
     {
-      "id": "7019219f",
-      "keyword": "Test per malattie veneree in Ticino. Devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
-      "normalizedKeyword": "test per malattie veneree in ticino. devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
+      "id": "0b44bee5",
+      "keyword": "Esistono Tutor in autostrada in Ticino e svizzera?",
+      "normalizedKeyword": "esistono tutor in autostrada in ticino e svizzera?",
       "angle": null,
       "locale": "it",
       "sources": [
         "redditTicino"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 8,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 8,
         "redditSubreddit": "Ticino",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.818,
-      "totalScore": 0.327
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.7,
+      "totalScore": 0.328
     },
     {
       "id": "61e0e79e",
@@ -693,114 +1045,26 @@
       "totalScore": 0.326
     },
     {
-      "id": "6e77f463",
-      "keyword": "Art or cuisine courses in Lugano?",
-      "normalizedKeyword": "art or cuisine courses in lugano?",
+      "id": "02b7657c",
+      "keyword": "Bester Döner in Lugano?",
+      "normalizedKeyword": "bester doner in lugano?",
       "angle": null,
       "locale": "it",
       "sources": [
         "redditLugano"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 4,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 4,
         "redditSubreddit": "Lugano",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
-    },
-    {
-      "id": "2bb9ff58",
-      "keyword": "Is there a Chinese community in Lugano?",
-      "normalizedKeyword": "is there a chinese community in lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
-    },
-    {
-      "id": "564ef9bd",
-      "keyword": "Legal Insurance in Svizzera, davvero utile o solo un’illusione di sicurezza?",
-      "normalizedKeyword": "legal insurance in svizzera, davvero utile o solo un’illusione di sicurezza?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
-    },
-    {
-      "id": "7a25fdf6",
-      "keyword": "Lugano bookstores with books in English?",
-      "normalizedKeyword": "lugano bookstores with books in english?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
-    },
-    {
-      "id": "b68bf8fc",
-      "keyword": "What's it like living in Lugano?",
-      "normalizedKeyword": "what's it like living in lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
+      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 4 (engagement unavailable)",
+      "demandScore": 0.04,
+      "noveltyScore": 0.75,
+      "totalScore": 0.324
     },
     {
       "id": "86cbe236",
@@ -822,48 +1086,26 @@
       "totalScore": 0.318
     },
     {
-      "id": "0b72c178",
-      "keyword": "Any Gym recommendations in Lugano?",
-      "normalizedKeyword": "any gym recommendations in lugano?",
+      "id": "1cff524b",
+      "keyword": "Spazi alternativi in ticino?",
+      "normalizedKeyword": "spazi alternativi in ticino?",
       "angle": null,
       "locale": "it",
       "sources": [
         "redditTicino"
       ],
       "demandSignals": {
-        "redditScore": 0,
+        "redditScore": 8,
         "redditComments": 0,
-        "redditCombined": 0,
+        "redditCombined": 8,
         "redditSubreddit": "Ticino",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.778,
-      "totalScore": 0.311
-    },
-    {
-      "id": "b07e183e",
-      "keyword": "Bagni termali Ticino-Grigioni?",
-      "normalizedKeyword": "bagni termali ticino-grigioni?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.778,
-      "totalScore": 0.311
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.667,
+      "totalScore": 0.315
     },
     {
       "id": "fb500d78",
@@ -885,94 +1127,6 @@
       "totalScore": 0.311
     },
     {
-      "id": "3b7090a7",
-      "keyword": "film in inglese a bellinzona?",
-      "normalizedKeyword": "film in inglese a bellinzona?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.778,
-      "totalScore": 0.311
-    },
-    {
-      "id": "b169b37c",
-      "keyword": "Posti per fare aperitivo a Lugano?",
-      "normalizedKeyword": "posti per fare aperitivo a lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.778,
-      "totalScore": 0.311
-    },
-    {
-      "id": "817c7629",
-      "keyword": "Tornei di calcio balilla a Lugano?",
-      "normalizedKeyword": "tornei di calcio balilla a lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.778,
-      "totalScore": 0.311
-    },
-    {
-      "id": "2fe9e41e",
-      "keyword": "Vale la pena trasferirsi a Lugano?",
-      "normalizedKeyword": "vale la pena trasferirsi a lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.778,
-      "totalScore": 0.311
-    },
-    {
       "id": "07aca2cc",
       "keyword": "lavoro ticino negli ultimi 3 giorni",
       "normalizedKeyword": "lavoro ticino negli ultimi 3 giorni",
@@ -989,28 +1143,6 @@
       "rationale": "GSC: 7 imps in last window — quick-win zone",
       "demandScore": 0.014,
       "noveltyScore": 0.75,
-      "totalScore": 0.308
-    },
-    {
-      "id": "34b3d542",
-      "keyword": "Reti metalliche alla stazione di Lugano? A cosa servono ?",
-      "normalizedKeyword": "reti metalliche alla stazione di lugano? a cosa servono ?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.769,
       "totalScore": 0.308
     },
     {
@@ -1071,72 +1203,6 @@
       "totalScore": 0.306
     },
     {
-      "id": "3de315a1",
-      "keyword": "Ma la polizia svizzera ha la facolta' di inseguire persone in territorio italiano?",
-      "normalizedKeyword": "ma la polizia svizzera ha la facolta' di inseguire persone in territorio italiano?",
-      "angle": null,
-      "locale": "fr",
-      "sources": [
-        "redditItaly"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "italy",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/italy RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.765,
-      "totalScore": 0.306
-    },
-    {
-      "id": "02b7657c",
-      "keyword": "Bester Döner in Lugano?",
-      "normalizedKeyword": "bester doner in lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.75,
-      "totalScore": 0.3
-    },
-    {
-      "id": "4cab4a0f",
-      "keyword": "Quando arrivano i sussidi cantonali della cassa malati?",
-      "normalizedKeyword": "quando arrivano i sussidi cantonali della cassa malati?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.75,
-      "totalScore": 0.3
-    },
-    {
       "id": "333036e1",
       "keyword": "migros offerte di lavoro ticino",
       "normalizedKeyword": "migros offerte di lavoro ticino",
@@ -1192,28 +1258,6 @@
       "demandScore": 0.012,
       "noveltyScore": 0.714,
       "totalScore": 0.293
-    },
-    {
-      "id": "4c3302c7",
-      "keyword": "Comprare un EV in Ticino, ha senso?",
-      "normalizedKeyword": "comprare un ev in ticino, ha senso?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.727,
-      "totalScore": 0.291
     },
     {
       "id": "9657cf34",
@@ -1290,28 +1334,6 @@
       "demandScore": 0.016,
       "noveltyScore": 0.692,
       "totalScore": 0.286
-    },
-    {
-      "id": "0b44bee5",
-      "keyword": "Esistono Tutor in autostrada in Ticino e svizzera?",
-      "normalizedKeyword": "esistono tutor in autostrada in ticino e svizzera?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.7,
-      "totalScore": 0.28
     },
     {
       "id": "29b82c1f",
@@ -1406,28 +1428,6 @@
       "rationale": "GSC: 14 imps in last window — quick-win zone",
       "demandScore": 0.028,
       "noveltyScore": 0.625,
-      "totalScore": 0.267
-    },
-    {
-      "id": "1cff524b",
-      "keyword": "Spazi alternativi in ticino?",
-      "normalizedKeyword": "spazi alternativi in ticino?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.667,
       "totalScore": 0.267
     },
     {
