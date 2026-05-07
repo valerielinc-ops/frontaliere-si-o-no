@@ -6620,6 +6620,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.odermatt-dottorato-honoris-causa.title': 'Marco Odermatt erhält Ehrendoktorat von der EPFL',
     'blog.article.odermatt-dottorato-honoris-causa.excerpt': 'Der Schweizer Skialpinist Marco Odermatt erhält ein Ehrendoktorat von der Eidgenössischen Technischen Hochschule Lausanne.',
     'blog.article.odermatt-dottorato-honoris-causa.imageAlt': 'Luftaufnahme von Lugano mit dem See und der Stadtansicht',
+    'blog.article.cottarelli-liceo-manzoni-geopolitica.title': 'Cottarelli am Liceo Manzoni: Geopolitik und globale Zukunft',
+    'blog.article.cottarelli-liceo-manzoni-geopolitica.excerpt': 'Der Ökonom Carlo Cottarelli trifft Schüler des Liceo Manzoni in Varese, um über globale Spannungen und wirtschaftliche Szenarien zu sprechen',
+    'blog.article.cottarelli-liceo-manzoni-geopolitica.imageAlt': 'Aula magna des Liceo Manzoni in Varese mit Schülern, die einem Redner zuhören',
 };
 
 export default blogMetaDe;

@@ -3449,6 +3449,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-riapre-via-mulini-grassi': { name: 'Varese', path: '/articoli-frontaliere/varese-riapre-via-mulini-grassi', parent: 'blog' },
     'blog-addio-passaporto-usa-berna': { name: 'Novità', path: '/articoli-frontaliere/addio-passaporto-usa-berna', parent: 'blog' },
     'blog-odermatt-dottorato-honoris-causa': { name: 'Novità', path: '/articoli-frontaliere/odermatt-dottorato-honoris-causa', parent: 'blog' },
+    'blog-cottarelli-liceo-manzoni-geopolitica': { name: 'Novità', path: '/articoli-frontaliere/cottarelli-liceo-manzoni-geopolitica', parent: 'blog' },
  };
 
  const info = sectionNames[section];

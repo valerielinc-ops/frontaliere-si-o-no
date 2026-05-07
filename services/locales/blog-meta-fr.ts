@@ -6621,6 +6621,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.odermatt-dottorato-honoris-causa.title': 'Marco Odermatt reçoit un doctorat honoris causa du Polytechnique de Lausanne',
     'blog.article.odermatt-dottorato-honoris-causa.excerpt': 'Le champion suisse de ski alpin Marco Odermatt a été honoré d\'un doctorat honoris causa par le Polytechnique fédéral de Lausanne.',
     'blog.article.odermatt-dottorato-honoris-causa.imageAlt': 'Vue aérienne de Lugano avec le lac et le paysage urbain',
+    'blog.article.cottarelli-liceo-manzoni-geopolitica.title': 'Cottarelli au Lycée Manzoni : géopolitique et avenir mondial',
+    'blog.article.cottarelli-liceo-manzoni-geopolitica.excerpt': 'L\'économiste Carlo Cottarelli rencontre les élèves du Lycée Manzoni de Varèse pour parler des tensions mondiales et des scénarios économiques',
+    'blog.article.cottarelli-liceo-manzoni-geopolitica.imageAlt': 'Amphithéâtre du Liceo Manzoni à Varese avec des élèves écoutant un conférencier',
 };
 
 export default blogMetaFr;
