@@ -6785,6 +6785,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.economia-circolare-lavoro-carcere-varese.title': 'Kreislaufwirtschaft repariert Leben: Zwei Arbeitsprojekte im Gefängnis',
     'blog.article.economia-circolare-lavoro-carcere-varese.excerpt': 'Zwei Projekte in Gefängnissen in Varese und Busto Arsizio verwandeln Abfälle in Arbeitsmöglichkeiten für Häftlinge, reduzieren Rückfälle und schaffen sozialen Wert.',
     'blog.article.economia-circolare-lavoro-carcere-varese.imageAlt': 'Konferenz über Kreislaufwirtschaft in Ville Ponti, Varese',
+    'blog.article.gavirate-incidente-frontalieri-2026.title': 'Gavirate: Zusammenstoß zwischen Autos im Nordseebereich, Verletzter',
+    'blog.article.gavirate-incidente-frontalieri-2026.excerpt': 'Ein Verkehrsunfall in Gavirate, Varese, betrifft einen Grenzgänger. Hier erfahren Sie, was Sie über Hilfe und Verfahren wissen müssen.',
+    'blog.article.gavirate-incidente-frontalieri-2026.imageAlt': 'Autounfall in der Nähe eines Sees im Tessin',
 };
 
 export default blogMetaDe;

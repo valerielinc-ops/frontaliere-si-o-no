@@ -6786,6 +6786,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.economia-circolare-lavoro-carcere-varese.title': 'Economia circolare ripara vite: due storie di lavoro in carcere',
     'blog.article.economia-circolare-lavoro-carcere-varese.excerpt': 'Due progetti in carcere a Varese e Busto Arsizio trasformano scarti in opportunità lavorative per detenuti, riducendo la recidiva e creando valore sociale.',
     'blog.article.economia-circolare-lavoro-carcere-varese.imageAlt': 'Conferenza su economia circolare a Ville Ponti, Varese',
+    'blog.article.gavirate-incidente-frontalieri-2026.title': 'Gavirate: scontro tra auto in zona nordlacuale, uomo ferito',
+    'blog.article.gavirate-incidente-frontalieri-2026.excerpt': 'Un incidente stradale a Gavirate, Varese, coinvolge un frontaliero. Ecco cosa sapere su assistenza e procedure.',
+    'blog.article.gavirate-incidente-frontalieri-2026.imageAlt': 'Incidente stradale vicino a un lago in Ticino',
 };
 
 export default blogMetaIt;

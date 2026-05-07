@@ -27062,6 +27062,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gavirate-incidente-frontalieri-2026': {
+    title: 'Gavirate: scontro tra auto in zona nordlacuale, uomo ferito',
+    description: 'Un incidente stradale a Gavirate, Varese, coinvolge un frontaliero. Ecco cosa sapere su assistenza e procedure. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gavirate, scontro, auto, zona',
+    ogTitle: 'Gavirate: scontro tra auto in zona nordlacuale, uomo ferito',
+    ogDescription: 'Un incidente stradale a Gavirate, Varese, coinvolge un frontaliero. Ecco cosa sapere su assistenza e procedure.',
+    canonicalPath: '/articoli-frontaliere/gavirate-incidente-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gavirate: scontro tra auto in zona nordlacuale, uomo ferito",
+      "description": "Un incidente stradale a Gavirate, Varese, coinvolge un frontaliero. Ecco cosa sapere su assistenza e procedure. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gavirate-incidente-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale vicino a un lago in Ticino"
+      },
+      "datePublished": "2026-05-07T14:04:56+00:00",
+      "dateModified": "2026-05-07T14:04:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gavirate-incidente-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

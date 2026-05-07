@@ -6785,6 +6785,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.economia-circolare-lavoro-carcere-varese.title': 'Circular economy repairs lives: two prison work stories',
     'blog.article.economia-circolare-lavoro-carcere-varese.excerpt': 'Two projects in Varese and Busto Arsizio prisons transform waste into job opportunities for inmates, reducing recidivism and creating social value.',
     'blog.article.economia-circolare-lavoro-carcere-varese.imageAlt': 'Conference on circular economy at Ville Ponti, Varese',
+    'blog.article.gavirate-incidente-frontalieri-2026.title': 'Gavirate: crash in northern lakeside area, man injured',
+    'blog.article.gavirate-incidente-frontalieri-2026.excerpt': 'A road accident in Gavirate, Varese, involves a cross-border worker. Here\'s what to know about assistance and procedures.',
+    'blog.article.gavirate-incidente-frontalieri-2026.imageAlt': 'Car accident near a lake in Ticino',
 };
 
 export default blogMetaEn;
