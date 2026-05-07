@@ -28154,6 +28154,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casse-malati-frontalieri-ticino': {
+    title: 'Anche a voi quelli della cassa malati sembrano arroganti?',
+    description: 'Scopri come i frontalieri del Ticino possono affrontare le sfide con le casse malati svizzere e quali sono i loro diritti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, anche, quelli, cassa, malati',
+    ogTitle: 'Anche a voi quelli della cassa malati sembrano arroganti?',
+    ogDescription: 'Scopri come i frontalieri del Ticino possono affrontare le sfide con le casse malati svizzere e quali sono i loro diritti.',
+    canonicalPath: '/articoli-frontaliere/casse-malati-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Anche a voi quelli della cassa malati sembrano arroganti?",
+      "description": "Scopri come i frontalieri del Ticino possono affrontare le sfide con le casse malati svizzere e quali sono i loro diritti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casse-malati-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona con modulo assicurazione sanitaria sul Lago di Lugano"
+      },
+      "datePublished": "2026-05-07T20:44:36+00:00",
+      "dateModified": "2026-05-07T20:44:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casse-malati-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -3532,6 +3532,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuove-regole-scambio-informazioni-ader-enti-creditori': { name: 'Nuove regole AdER', path: '/articoli-frontaliere/nuove-regole-scambio-informazioni-ader-enti-creditori', parent: 'blog' },
     'blog-varese-solidale-2026-frontalieri': { name: 'Varese Solidale', path: '/articoli-frontaliere/varese-solidale-2026-frontalieri', parent: 'blog' },
     'blog-festa-mamma-palazzo-lombardia-2026': { name: 'Eventi', path: '/articoli-frontaliere/festa-mamma-palazzo-lombardia-2026', parent: 'blog' },
+    'blog-casse-malati-frontalieri-ticino': { name: 'Casse malati', path: '/articoli-frontaliere/casse-malati-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

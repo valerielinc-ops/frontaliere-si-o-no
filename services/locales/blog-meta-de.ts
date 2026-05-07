@@ -6869,6 +6869,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.festa-mamma-palazzo-lombardia-2026.title': 'Muttertag auf 161 Metern: Belvedere im Palazzo Lombardia',
     'blog.article.festa-mamma-palazzo-lombardia-2026.excerpt': 'Am Sonntag, den 10. Mai, ist der 39. Stock des Palazzo Lombardia für den Muttertag außergewöhnlich geöffnet. Kostenlose Besichtigungen und Aktivitäten für Familien.',
     'blog.article.festa-mamma-palazzo-lombardia-2026.imageAlt': 'Eine Familie genießt den Blick vom Belvedere des Palazzo Lombardia',
+    'blog.article.casse-malati-frontalieri-ticino.title': 'Würden Sie die Krankenkassen auch als arrogant empfinden?',
+    'blog.article.casse-malati-frontalieri-ticino.excerpt': 'Entdecken Sie, wie Grenzgänger aus dem Tessin die Herausforderungen mit den Schweizer Krankenkassen bewältigen können und welche Rechte sie haben.',
+    'blog.article.casse-malati-frontalieri-ticino.imageAlt': 'Person mit Krankenversicherungsformular am Luganersee',
 };
 
 export default blogMetaDe;

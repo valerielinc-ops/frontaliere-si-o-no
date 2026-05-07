@@ -21980,4 +21980,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casse-malati-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-05-07T20:44:36.695Z',
+ image: '/images/blog/casse-malati-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

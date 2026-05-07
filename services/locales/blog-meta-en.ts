@@ -6869,6 +6869,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.festa-mamma-palazzo-lombardia-2026.title': 'Mother\'s Day at 161m: Palazzo Lombardia opens Belvedere',
     'blog.article.festa-mamma-palazzo-lombardia-2026.excerpt': 'On Sunday, May 10th, the 39th floor of Palazzo Lombardia will open for Mother\'s Day. Free visits and family activities.',
     'blog.article.festa-mamma-palazzo-lombardia-2026.imageAlt': 'A family enjoying the view from the Belvedere of Palazzo Lombardia',
+    'blog.article.casse-malati-frontalieri-ticino.title': 'Do Swiss health insurers seem arrogant to you too?',
+    'blog.article.casse-malati-frontalieri-ticino.excerpt': 'Discover how Ticino cross-border workers can tackle challenges with Swiss health insurers and what their rights are.',
+    'blog.article.casse-malati-frontalieri-ticino.imageAlt': 'Person holding health insurance form by Lake Lugano',
 };
 
 export default blogMetaEn;

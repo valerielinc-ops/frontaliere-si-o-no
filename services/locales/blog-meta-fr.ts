@@ -6870,6 +6870,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.festa-mamma-palazzo-lombardia-2026.title': 'Fête des Mères à 161 mètres: Palazzo Lombardia ouvre le Belvédère',
     'blog.article.festa-mamma-palazzo-lombardia-2026.excerpt': 'Dimanche 10 mai, ouverture exceptionnelle du 39ème étage de Palazzo Lombardia pour la Fête des Mères. Visites gratuites et activités pour familles.',
     'blog.article.festa-mamma-palazzo-lombardia-2026.imageAlt': 'Une famille profitant de la vue depuis le Belvédère du Palazzo Lombardia',
+    'blog.article.casse-malati-frontalieri-ticino.title': 'Les caisses maladie vous semblent-elles arrogantes ?',
+    'blog.article.casse-malati-frontalieri-ticino.excerpt': 'Découvrez comment les frontaliers du Tessin peuvent relever les défis avec les caisses maladie suisses et quels sont leurs droits.',
+    'blog.article.casse-malati-frontalieri-ticino.imageAlt': 'Personne tenant un formulaire d\'assurance maladie au bord du lac de Lugano',
 };
 
 export default blogMetaFr;

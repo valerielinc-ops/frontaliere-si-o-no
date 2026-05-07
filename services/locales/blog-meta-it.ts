@@ -6870,6 +6870,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.festa-mamma-palazzo-lombardia-2026.title': 'Festa della Mamma a 161 metri: Palazzo Lombardia apre il Belvedere',
     'blog.article.festa-mamma-palazzo-lombardia-2026.excerpt': 'Domenica 10 maggio apertura straordinaria del 39esimo piano di Palazzo Lombardia per la Festa della Mamma. Visite gratuite e attività per famiglie.',
     'blog.article.festa-mamma-palazzo-lombardia-2026.imageAlt': 'Una famiglia che ammira la vista dal Belvedere di Palazzo Lombardia',
+    'blog.article.casse-malati-frontalieri-ticino.title': 'Anche a voi quelli della cassa malati sembrano arroganti?',
+    'blog.article.casse-malati-frontalieri-ticino.excerpt': 'Scopri come i frontalieri del Ticino possono affrontare le sfide con le casse malati svizzere e quali sono i loro diritti.',
+    'blog.article.casse-malati-frontalieri-ticino.imageAlt': 'Persona con modulo assicurazione sanitaria sul Lago di Lugano',
 };
 
 export default blogMetaIt;
