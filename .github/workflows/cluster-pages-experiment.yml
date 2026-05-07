@@ -58,6 +58,13 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline --no-audit
 
+      # data/jobs.json is gitignored (assembled at build time from
+      # data/jobs/by-crawler/*.json which IS committed). The profiler reads
+      # jobs.json so we run assemble first. No Firebase / RC creds needed —
+      # the assembler only reads local slice files.
+      - name: Assemble jobs dataset from per-crawler slices
+        run: node scripts/assemble-jobs-dataset.mjs
+
       - name: Sweep — counts at floors [1, 2, 3, 5, 10]
         run: node scripts/profile-cluster-emission.mjs
 
