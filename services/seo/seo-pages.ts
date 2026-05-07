@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2281,
+ "numberOfItems": 2282,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6923,7 +6923,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2278, "name": "Elon Musk svizzero a processo per truffa e reat...", "url": `${BASE_URL}/articoli-frontaliere/elon-musk-svizzero-processo-friburgo` },
           { "@type": "ListItem", "position": 2279, "name": "Fedpol, la talpa aveva accesso a dossier di inc...", "url": `${BASE_URL}/articoli-frontaliere/fedpol-talpa-accesso-dossier-inchiesta` },
           { "@type": "ListItem", "position": 2280, "name": "Otto frodi al reddito di cittadinanza scoperti ...", "url": `${BASE_URL}/articoli-frontaliere/frode-reddito-cittadinanza-varese-2026` },
-          { "@type": "ListItem", "position": 2281, "name": "Frontalieri in Ticino in calo nel 2026: -0,5% i...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-2026` }
+          { "@type": "ListItem", "position": 2281, "name": "Frontalieri in Ticino in calo nel 2026: -0,5% i...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-2026` },
+          { "@type": "ListItem", "position": 2282, "name": "Allerta grado 3 per temporali in Ticino: traffi...", "url": `${BASE_URL}/articoli-frontaliere/temporali-ticino-traffico-2024` }
  ]
  },
  {

@@ -6687,6 +6687,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-calo-2026.title': 'Frontalieri in Ticino in calo nel 2026: -0,5% in un anno',
     'blog.article.frontalieri-ticino-calo-2026.excerpt': 'Nei primi tre mesi del 2026 i frontalieri in Ticino sono 78.562, in calo dello 0,5% rispetto al 2025. Scopri le implicazioni per chi lavora in Svizzera.',
     'blog.article.frontalieri-ticino-calo-2026.imageAlt': 'Vista del Lago di Lugano con la città sullo sfondo',
+    'blog.article.temporali-ticino-traffico-2024.title': 'Allerta grado 3 per temporali in Ticino: traffico rallentato dalla grandine',
+    'blog.article.temporali-ticino-traffico-2024.excerpt': 'MeteoSvizzera ha diramato un\'allerta di grado 3 per temporali nel Luganese, con rischio di frane, allagamenti e traffico rallentato.',
+    'blog.article.temporali-ticino-traffico-2024.imageAlt': 'Tempesta con grandine sul Lago di Lugano, traffico rallentato',
 };
 
 export default blogMetaIt;

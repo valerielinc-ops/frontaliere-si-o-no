@@ -6686,6 +6686,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-calo-2026.title': 'Cross-border workers in Ticino down in 2026: -0.5% in a year',
     'blog.article.frontalieri-ticino-calo-2026.excerpt': 'In the first three months of 2026, cross-border workers in Ticino total 78,562, down 0.5% compared to 2025. Discover the implications for those working in Switzerland.',
     'blog.article.frontalieri-ticino-calo-2026.imageAlt': 'View of Lake Lugano with the city in the background',
+    'blog.article.temporali-ticino-traffico-2024.title': 'Severe thunderstorms in Lugano: hail slows traffic',
+    'blog.article.temporali-ticino-traffico-2024.excerpt': 'MeteoSwiss has issued a level 3 alert for thunderstorms in Lugano, with a risk of landslides, flooding, and slowed traffic.',
+    'blog.article.temporali-ticino-traffico-2024.imageAlt': 'Thunderstorm with hail over Lake Lugano, traffic slowed',
 };
 
 export default blogMetaEn;

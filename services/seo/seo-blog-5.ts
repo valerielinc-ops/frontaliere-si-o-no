@@ -25775,6 +25775,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-temporali-ticino-traffico-2024': {
+    title: 'Allerta grado 3 per temporali in Ticino: traffico rallentato dalla grandine',
+    description: 'MeteoSvizzera ha diramato un\'allerta di grado 3 per temporali nel Luganese, con rischio di frane, allagamenti e traffico rallentato. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, allerta, grado, temporali, traffico',
+    ogTitle: 'Allerta grado 3 per temporali in Ticino: traffico rallentato dalla grandine',
+    ogDescription: 'MeteoSvizzera ha diramato un\'allerta di grado 3 per temporali nel Luganese, con rischio di frane, allagamenti e traffico rallentato.',
+    canonicalPath: '/articoli-frontaliere/temporali-ticino-traffico-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Allerta grado 3 per temporali in Ticino: traffico rallentato dalla grandine",
+      "description": "MeteoSvizzera ha diramato un'allerta di grado 3 per temporali nel Luganese, con rischio di frane, allagamenti e traffico rallentato. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/temporali-ticino-traffico-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tempesta con grandine sul Lago di Lugano, traffico rallentato"
+      },
+      "datePublished": "2026-05-07T06:54:15+00:00",
+      "dateModified": "2026-05-07T06:54:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/temporali-ticino-traffico-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

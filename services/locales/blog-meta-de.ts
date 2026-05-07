@@ -6686,6 +6686,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-calo-2026.title': 'Grenzgänger im Tessin 2026: -0,5% in einem Jahr',
     'blog.article.frontalieri-ticino-calo-2026.excerpt': 'In den ersten drei Monaten des Jahres 2026 gibt es 78.562 Grenzgänger im Tessin, ein Rückgang von 0,5% im Vergleich zu 2025. Erfahren Sie die Auswirkungen auf diejenigen, die in der Schweiz arbeiten.',
     'blog.article.frontalieri-ticino-calo-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund',
+    'blog.article.temporali-ticino-traffico-2024.title': 'Wetteralarm Stufe 3 im Tessin: Verkehr durch Hagel verlangsamt',
+    'blog.article.temporali-ticino-traffico-2024.excerpt': 'MeteoSchweiz hat eine Warnung der Stufe 3 für Gewitter im Luganese herausgegeben, mit der Gefahr von Erdrutschen, Überschwemmungen und verlangsamtem Verkehr.',
+    'blog.article.temporali-ticino-traffico-2024.imageAlt': 'Gewitter mit Hagel über dem Luganersee, Verkehr verlangsamt',
 };
 
 export default blogMetaDe;

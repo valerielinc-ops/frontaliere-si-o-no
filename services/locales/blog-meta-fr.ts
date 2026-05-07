@@ -6687,6 +6687,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-calo-2026.title': 'Frontaliers en baisse en 2026: -0,5% en un an',
     'blog.article.frontalieri-ticino-calo-2026.excerpt': 'Au cours des trois premiers mois de 2026, les frontaliers en Suisse sont 78.562, en baisse de 0,5% par rapport à 2025. Découvrez les implications pour ceux qui travaillent en Suisse.',
     'blog.article.frontalieri-ticino-calo-2026.imageAlt': 'Vue du Lac de Lugano avec la ville en arrière-plan',
+    'blog.article.temporali-ticino-traffico-2024.title': 'Alerte météo de degré 3 pour orages dans le Luganais',
+    'blog.article.temporali-ticino-traffico-2024.excerpt': 'MétéoSuisse a émis une alerte de degré 3 pour orages dans le Luganais, avec risque de glissements de terrain, d\'inondations et de trafic ralenti par la grêle.',
+    'blog.article.temporali-ticino-traffico-2024.imageAlt': 'Orage avec grêle sur le lac de Lugano, trafic ralenti',
 };
 
 export default blogMetaFr;
