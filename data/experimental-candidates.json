@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T14:30:45.851Z",
+  "generatedAt": "2026-05-07T15:13:18.165Z",
   "sources": {
     "redditTicino": {
       "ok": true,
@@ -88,6 +88,26 @@
       "demandScore": 0.08,
       "noveltyScore": 0.842,
       "totalScore": 0.385
+    },
+    {
+      "id": "cba430b4",
+      "keyword": "Modifica LAMAL - finanziamento uniforme delle prestazioni - Democrazia Diretta - Play RSI - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "modifica lamal - finanziamento uniforme delle prestazioni - democrazia diretta - play rsi - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObFM3U1hNTXZ4eXY3aWRmX1FUZWotaVVHNTNFczRFaDBXbUZlbm5XSGZENmpObUhtbnBISFJEdldDSE52OWthckVSVVpWX1hHNEdqandRTjh2dDFVM3ZfcjNZSlpQUTVCNlR5ZjBxdVhyTmpIYjN2aDlQYlNEU1hsTHgtWEZ2WF9oMlR5QjJOQVlGN05JeWY0YkpyM2VoTWNHbzZ3TnM5LXpodHBobUlnUEdLUzM1QUFRYklLa2NiMFhtS21xSmptcWU4ZGYxQQ?oc=5",
+        "googleNewsRssPubDate": "Mon, 04 Nov 2024 08:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.938,
+      "totalScore": 0.375
     },
     {
       "id": "564ef9bd",
@@ -289,6 +309,26 @@
         "googleNewsRssSource": "Money.it"
       },
       "rationale": "Google News RSS seed \"IRPEF frontalieri\" — Money.it",
+      "demandScore": 0,
+      "noveltyScore": 0.882,
+      "totalScore": 0.353
+    },
+    {
+      "id": "a023b7e0",
+      "keyword": "TF: possibile dare in affitto abitazione ottenuta con 2.o pilastro - SWI swissinfo.ch",
+      "normalizedKeyword": "tf: possibile dare in affitto abitazione ottenuta con 2.o pilastro - swi swissinfo.ch",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNTlVTRHhtaTZuMGxxRlhIZlRzanpId1ZFcXY3dU1KY1RmLW5fRUtBYk1WeDZDVE94WlBTSWRCT3FhYWdDb1hyM1ViOU9hN1ZKVnBxMGZ5UlRSM253b2Vhbzg5Mm90V2FYWXozX1VkYWJvZDNaWVFKQ2kyNGhDWnNiQjBKUzUtbW1qVkMwaktvZ2pMcWE5UUVZeVZoZVpWY3ZzYVpiMkpR?oc=5",
+        "googleNewsRssPubDate": "Thu, 29 Jul 2021 07:00:00 GMT",
+        "googleNewsRssSource": "SWI swissinfo.ch"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — SWI swissinfo.ch",
       "demandScore": 0,
       "noveltyScore": 0.882,
       "totalScore": 0.353
@@ -898,46 +938,6 @@
       "totalScore": 0.338
     },
     {
-      "id": "cab3c99f",
-      "keyword": "LPP S.A. Ripartizione dei ricavi – GPW:LPP - TradingView",
-      "normalizedKeyword": "lpp s.a. ripartizione dei ricavi – gpw:lpp - tradingview",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBNQlJLRlNjdUVaTmtDTF9CTHBEX2hrZFpDMXlGOTktQmxwMTl5ZUoyX2c0cFdGQ0J0al9PUUdHbm9oSjk5MlRWdkxORkg3T1FfekVGN2g2eElNMU1QLUJaV1VTRjB6ZUcxYU9nQk5rYw?oc=5",
-        "googleNewsRssPubDate": "Fri, 30 Jun 2023 00:06:41 GMT",
-        "googleNewsRssSource": "TradingView"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — TradingView",
-      "demandScore": 0,
-      "noveltyScore": 0.846,
-      "totalScore": 0.338
-    },
-    {
-      "id": "c1d87250",
-      "keyword": "No a tasse su biglietti aerei e kerosene - RSI Radiotelevisione svizzera",
-      "normalizedKeyword": "no a tasse su biglietti aerei e kerosene - rsi radiotelevisione svizzera",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "tasse svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQZzNNVVpEN1dydXpfemxKZTRXUGtsOVd3YmtuaWZ4OXNud3ctV0h0X1VZX25jVmcyaUE5Vk1BcGhYZE9rUlZlLU1iaW84RWVOYkczWlVuNXl6U3huRlExb1p0cUM1LVdyVGtHQ011YnA5a0dJeEJqVXcxMm1XbUEwTmRwb1dGTm9LdTJ3OFVIZ3g?oc=5",
-        "googleNewsRssPubDate": "Tue, 28 Apr 2026 09:20:16 GMT",
-        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
-      },
-      "rationale": "Google News RSS seed \"tasse svizzera\" — RSI Radiotelevisione svizzera",
-      "demandScore": 0,
-      "noveltyScore": 0.846,
-      "totalScore": 0.338
-    },
-    {
       "id": "5da1e54b",
       "keyword": "Pensioni svizzere AVS (1° pilastro) e LPP (2° pilastro) accreditate su conto svizzero: quali sono gli obblighi fiscali per un soggetto residente in Italia? - Spazio50",
       "normalizedKeyword": "pensioni svizzere avs (1° pilastro) e lpp (2° pilastro) accreditate su conto svizzero: quali sono gli obblighi fiscali per un soggetto residente in italia? - spazio50",
@@ -973,26 +973,6 @@
         "googleNewsRssSource": "RSI Radiotelevisione svizzera"
       },
       "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
-      "demandScore": 0,
-      "noveltyScore": 0.842,
-      "totalScore": 0.337
-    },
-    {
-      "id": "aa3e6eca",
-      "keyword": "Comprare casa? Uno svizzero su due svuota il secondo pilastro - TVS tvsvizzera.it",
-      "normalizedKeyword": "comprare casa? uno svizzero su due svuota il secondo pilastro - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPMDJQQzJ4TjlQeG1SOFFfZUpXdXpPSFU2b1pHS3JCUmY1aFRYSUh4RDUxaWVCekFlbU9yVEhDLUhKeW9BZ2tHSHNrMUNkd3hTdGpFeFVfeVY2bFhuSVZJQnpZa0hsQk9EQWtXSmFwV0xBZ1AyVFBSZkF5OXB5THlES0xGX3B5czlhNmFxTm1tcFRZZzdlOVFEVG5CNEw0STJRRDhnTQ?oc=5",
-        "googleNewsRssPubDate": "Thu, 23 Oct 2025 07:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — TVS tvsvizzera.it",
       "demandScore": 0,
       "noveltyScore": 0.842,
       "totalScore": 0.337
@@ -1053,6 +1033,26 @@
         "googleNewsRssSource": "INNLIFES"
       },
       "rationale": "Google News RSS seed \"secondo pilastro\" — INNLIFES",
+      "demandScore": 0,
+      "noveltyScore": 0.842,
+      "totalScore": 0.337
+    },
+    {
+      "id": "c5eb8c6f",
+      "keyword": "LPP: il marchio Mohito apre il suo primo punto vendita in Grecia - MarketScreener Italia",
+      "normalizedKeyword": "lpp: il marchio mohito apre il suo primo punto vendita in grecia - marketscreener italia",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPcEtHcks2SlhGSnk0RzRpdmU0cmEwOTZjWGpTSDdHMG16cEpFLUJnUTlyRVp2S2pSNk9Yc3dOVG96Wnk2THBTMjY0TzctWjNxeHpNeU9VVVNNWnpnSy16QlRKRDBjWl9BSG90SEo5QmxZclFxZERHTTA3TUI2cmFaT0xoX2NXM1VDVU9KVDNRV2VfNWFOcVE2SnpMUVJZOUpFWnZ3RW9aSWtnQTd4WGRGbmFNalZKZFFOc0E?oc=5",
+        "googleNewsRssPubDate": "Wed, 08 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "MarketScreener Italia"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — MarketScreener Italia",
       "demandScore": 0,
       "noveltyScore": 0.842,
       "totalScore": 0.337
@@ -1691,7 +1691,7 @@
       "demandSignals": {
         "googleNewsRssSeed": "LPP",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiywFBVV95cUxORHdqUnVPODN6SGV3TzhFXzN3Z3VCV3NJVTZUOG4xaUNpOGNwdUI5Ulk5MDFOVUNKODM3RFpuWUl1cnNyR1Z0Y25wOVpJelJFNzNrbnJ2bk45N1oxaXdxMzRjbUxlSnJDVUZWTTJxV0lWaXEtRFhEdHN0U3U2QjZ2enBWRTJiY2U5andnNTJ5REthanZkT3VLMGp2ZGN5MWo1V2s5MkxpMUppR0M5MERfd2ZtZ1hCM0U5RElnSmF6MF9fMVNnQjlnUW1lVQ?oc=5",
-        "googleNewsRssPubDate": "Tue, 21 Apr 2026 14:23:04 GMT",
+        "googleNewsRssPubDate": "Tue, 21 Apr 2026 07:00:00 GMT",
         "googleNewsRssSource": "MarketScreener Italia"
       },
       "rationale": "Google News RSS seed \"LPP\" — MarketScreener Italia",
