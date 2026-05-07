@@ -6662,6 +6662,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-arresto-spacciatore-frontaliere.title': 'Varese: Drogenhändler festgenommen, Rauschgift im Wald versteckt',
     'blog.article.varese-arresto-spacciatore-frontaliere.excerpt': 'Ein 20-jähriger Italiener wurde in Varese mit 40 Haschischblöcken festgenommen. Die Drogen wurden in einer im Wald weggeworfenen Tasche gefunden.',
     'blog.article.varese-arresto-spacciatore-frontaliere.imageAlt': 'Luganersee mit Blick auf die schweizerisch-italienische Grenze',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.title': 'Uboldo: Unwetter deckt Dach ab, keine Verletzten',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.excerpt': 'Das Unwetter vom 6. Mai 2026 hat einem Wohnhaus in Uboldo, Varese, schwere Schäden zugefügt, ohne jedoch Verletzte zu hinterlassen. Hier ist, was passiert ist und was im Notfall zu tun ist.',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.imageAlt': 'Beschädigtes Dach in Uboldo, Varese, nach dem Sturm am 6. Mai 2026',
 };
 
 export default blogMetaDe;

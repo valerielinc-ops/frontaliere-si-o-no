@@ -3463,6 +3463,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-strisce-pedonali-invisibili-2026': { name: 'Novità', path: '/articoli-frontaliere/varese-strisce-pedonali-invisibili-2026', parent: 'blog' },
     'blog-furti-self-service-ticino-2026': { name: 'Furti self-service', path: '/articoli-frontaliere/furti-self-service-ticino-2026', parent: 'blog' },
     'blog-varese-arresto-spacciatore-frontaliere': { name: 'Varese arresto', path: '/articoli-frontaliere/varese-arresto-spacciatore-frontaliere', parent: 'blog' },
+    'blog-uboldo-tetto-scoperchiato-maltempo-2026': { name: 'Maltempo a Uboldo', path: '/articoli-frontaliere/uboldo-tetto-scoperchiato-maltempo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

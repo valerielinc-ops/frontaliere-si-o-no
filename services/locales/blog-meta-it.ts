@@ -6663,6 +6663,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-arresto-spacciatore-frontaliere.title': 'Varese: arrestato spacciatore, droga nascosta nel bosco',
     'blog.article.varese-arresto-spacciatore-frontaliere.excerpt': 'Un 20enne italiano è stato arrestato a Varese con 40 panetti di hascisc. La droga è stata trovata in una borsa lanciata nel bosco.',
     'blog.article.varese-arresto-spacciatore-frontaliere.imageAlt': 'Lago di Lugano con vista sul confine svizzero-italiano',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.title': 'Uboldo: maltempo scoperchia tetto, nessun ferito',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.excerpt': 'Il maltempo del 6 maggio 2026 ha causato gravi danni a un edificio residenziale a Uboldo, Varese, senza però feriti. Ecco cosa è successo e cosa fare in caso di emergenza.',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.imageAlt': 'Tetto scoperchiato a Uboldo, Varese, dopo il maltempo del 6 maggio 2026',
 };
 
 export default blogMetaIt;

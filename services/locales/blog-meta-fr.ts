@@ -6663,6 +6663,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-arresto-spacciatore-frontaliere.title': 'Varèse : un trafiquant arrêté, drogue cachée dans la forêt',
     'blog.article.varese-arresto-spacciatore-frontaliere.excerpt': 'Un Italien de 20 ans a été arrêté à Varèse avec 40 barres de haschisch. La drogue a été trouvée dans un sac jeté dans la forêt.',
     'blog.article.varese-arresto-spacciatore-frontaliere.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.title': 'Uboldo : intempéries arrachent un toit, pas de blessés',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.excerpt': 'Les intempéries du 6 mai 2026 ont causé de graves dégâts à un bâtiment résidentiel à Uboldo, Varese, sans toutefois faire de blessés. Voici ce qui s\'est passé et que faire en cas d\'urgence.',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.imageAlt': 'Toit endommagé à Uboldo, Varèse, après la tempête du 6 mai 2026',
 };
 
 export default blogMetaFr;

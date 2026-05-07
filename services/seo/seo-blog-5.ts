@@ -25463,6 +25463,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-uboldo-tetto-scoperchiato-maltempo-2026': {
+    title: 'Uboldo: maltempo scoperchia tetto, nessun ferito',
+    description: 'Il maltempo del 6 maggio 2026 ha causato gravi danni a un edificio residenziale a Uboldo, Varese, senza però feriti. Ecco cosa è successo e cosa fare in caso di',
+    keywords: 'frontalieri, ticino, svizzera, italia, uboldo, maltempo, scoperchia, tetto',
+    ogTitle: 'Uboldo: maltempo scoperchia tetto, nessun ferito',
+    ogDescription: 'Il maltempo del 6 maggio 2026 ha causato gravi danni a un edificio residenziale a Uboldo, Varese, senza però feriti. Ecco cosa è successo e cosa fare in caso di',
+    canonicalPath: '/articoli-frontaliere/uboldo-tetto-scoperchiato-maltempo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Uboldo: maltempo scoperchia tetto, nessun ferito",
+      "description": "Il maltempo del 6 maggio 2026 ha causato gravi danni a un edificio residenziale a Uboldo, Varese, senza però feriti. Ecco cosa è successo e cosa fare in caso di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/uboldo-tetto-scoperchiato-maltempo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tetto scoperchiato a Uboldo, Varese, dopo il maltempo del 6 maggio 2026"
+      },
+      "datePublished": "2026-05-07T06:00:14+00:00",
+      "dateModified": "2026-05-07T06:00:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/uboldo-tetto-scoperchiato-maltempo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

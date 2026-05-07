@@ -6662,6 +6662,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-arresto-spacciatore-frontaliere.title': 'Varese: drug dealer arrested, drugs hidden in woods',
     'blog.article.varese-arresto-spacciatore-frontaliere.excerpt': 'A 20-year-old Italian was arrested in Varese with 40 blocks of hashish. The drugs were found in a bag thrown into the woods.',
     'blog.article.varese-arresto-spacciatore-frontaliere.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.title': 'Uboldo: bad weather damages roof, no injuries',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.excerpt': 'The bad weather on May 6, 2026, caused severe damage to a residential building in Uboldo, Varese, but no one was injured. Here\'s what happened and what to do in case of emergency.',
+    'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.imageAlt': 'Damaged roof in Uboldo, Varese, after the storm on May 6, 2026',
 };
 
 export default blogMetaEn;
