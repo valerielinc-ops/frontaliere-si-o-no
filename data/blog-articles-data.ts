@@ -21269,4 +21269,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scuole-materne-gallarate-crisi-piano-2026',
+ category: 'novita',
+ date: '2026-05-07T04:03:18.820Z',
+ image: '/images/blog/scuole-materne-gallarate-crisi-piano-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

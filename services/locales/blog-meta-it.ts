@@ -6633,6 +6633,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.9-maggio-europa-bandiera-unione.title': '9 maggio: esponiamo la bandiera dell\'Unione Europea',
     'blog.article.9-maggio-europa-bandiera-unione.excerpt': 'Il Movimento Federalista Europeo invita a esporre la bandiera europea in occasione del 9 maggio, Giorno dell\'Europa.',
     'blog.article.9-maggio-europa-bandiera-unione.imageAlt': 'Bandiera europea che sventola sopra il Lago di Lugano con le Alpi svizzere sullo sfondo',
+    'blog.article.scuole-materne-gallarate-crisi-piano-2026.title': 'Scuole Materne Gallarate: crisi non è fatalità, piano entro giugno',
+    'blog.article.scuole-materne-gallarate-crisi-piano-2026.excerpt': 'Anna Zambon del Pd Gallarate chiede al nuovo presidente Agostini certezze per famiglie e personale. Critiche all\'amministrazione per gestioni passate.',
+    'blog.article.scuole-materne-gallarate-crisi-piano-2026.imageAlt': 'Genitore preoccupato davanti a una scuola materna chiusa a Gallarate',
 };
 
 export default blogMetaIt;

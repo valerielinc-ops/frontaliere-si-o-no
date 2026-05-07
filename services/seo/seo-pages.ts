@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2263,
+ "numberOfItems": 2264,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6905,7 +6905,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2260, "name": "Cottarelli al Liceo Manzoni: geopolitica e futu...", "url": `${BASE_URL}/articoli-frontaliere/cottarelli-liceo-manzoni-geopolitica` },
           { "@type": "ListItem", "position": 2261, "name": "Teletext fuori uso in Ticino: niente aggiorname...", "url": `${BASE_URL}/articoli-frontaliere/teletext-ticino-fuori-uso-2024` },
           { "@type": "ListItem", "position": 2262, "name": "Bayern e Bayer: differenze e confusione nella C...", "url": `${BASE_URL}/articoli-frontaliere/bayern-bayer-differenze-champions-2026` },
-          { "@type": "ListItem", "position": 2263, "name": "9 maggio: esponiamo la bandiera dell'Unione Eur...", "url": `${BASE_URL}/articoli-frontaliere/9-maggio-europa-bandiera-unione` }
+          { "@type": "ListItem", "position": 2263, "name": "9 maggio: esponiamo la bandiera dell'Unione Eur...", "url": `${BASE_URL}/articoli-frontaliere/9-maggio-europa-bandiera-unione` },
+          { "@type": "ListItem", "position": 2264, "name": "Scuole Materne Gallarate: crisi non è fatalità,...", "url": `${BASE_URL}/articoli-frontaliere/scuole-materne-gallarate-crisi-piano-2026` }
  ]
  },
  {

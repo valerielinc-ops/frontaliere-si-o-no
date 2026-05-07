@@ -6632,6 +6632,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.9-maggio-europa-bandiera-unione.title': '9 May: Display the European Union Flag',
     'blog.article.9-maggio-europa-bandiera-unione.excerpt': 'The European Federalist Movement invites you to display the European flag on 9 May, Europe Day.',
     'blog.article.9-maggio-europa-bandiera-unione.imageAlt': 'European flag waving over Lake Lugano with the Swiss Alps in the background',
+    'blog.article.scuole-materne-gallarate-crisi-piano-2026.title': 'Kindergarten Gallarate: crisis not inevitable, plan by June',
+    'blog.article.scuole-materne-gallarate-crisi-piano-2026.excerpt': 'Anna Zambon of the Gallarate PD asks the new president Agostini for guarantees for families and staff. Criticism of the administration for past management.',
+    'blog.article.scuole-materne-gallarate-crisi-piano-2026.imageAlt': 'Worried parent in front of a closed kindergarten in Gallarate',
 };
 
 export default blogMetaEn;
