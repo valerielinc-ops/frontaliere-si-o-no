@@ -1,18 +1,48 @@
 {
   "key": "schindler",
   "label": "Schindler",
-  "generatedAt": "2026-05-06T22:37:35.380Z",
+  "generatedAt": "2026-05-07T11:41:50.021Z",
   "total": 3,
-  "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 4774,
-  "avgDurationMs": 4774,
+  "durationMs": 5076,
+  "avgDurationMs": 5076,
   "durationHistory": [
-    4774
+    5076
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "schindler-4090c4c72cad",
+      "slug": "electronics-pcba-production-supervisor-m-f-d-80-100-schindler-locarno",
+      "company": "Schindler",
+      "companyKey": "schindler",
+      "companyDomain": "schindler.com",
+      "title": "Electronics (PCBA) Production Supervisor (m/f/d) 80-100%)",
+      "location": "Locarno",
+      "canton": "TI",
+      "addressLocality": "Locarno",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "engineering",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "url": "https://job.schindler.com/Schindler/job/Locarno-Electronics-%28PCBA%29-Production-Supervisor-%28mfd%29-80-100%29-Tici/1381533833/",
+      "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-07T11:41:46.579Z",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "schindler-f97349d91827",
@@ -34,7 +64,7 @@
       "url": "https://job.schindler.com/ASZ/job/Castione-Arbedo-Montatore-ascensori-%28mfd%29-80-100-Tici/1368086633/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T22:37:33.551Z",
+      "crawledAt": "2026-05-07T11:41:48.039Z",
       "firstSeenAt": "2026-04-13T11:14:16.458Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -64,7 +94,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bioggio-Montatoretrice-di-ascensori-SENIOR-%28mfd%29-80-100-Tici/1367856233/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-06T22:37:33.212Z",
+      "crawledAt": "2026-05-07T11:41:47.664Z",
       "firstSeenAt": "2026-04-13T11:14:15.051Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -73,10 +103,12 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "schindler-6c4629f60473",
-      "slug": "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno",
+      "slug": "supervisore-produzione-elettronica-pcba-m-f-d-100-schindler-locarno",
       "company": "Schindler",
       "companyKey": "schindler",
       "companyDomain": "schindler.com",
@@ -96,15 +128,20 @@
       "sourceLang": "en",
       "crawledAt": "2026-05-06T22:37:32.238Z",
       "firstSeenAt": "2026-04-13T11:14:15.990Z",
-      "_qualityScore": 82,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "streetAddress": "Via Industria 11",
+      "postalCode": "6934",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
