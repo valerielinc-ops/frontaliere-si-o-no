@@ -253,21 +253,45 @@ async function tryRestoreFromCache(
   }
   if (manifest.version !== CACHE_VERSION) return null;
 
-  // Restore files via WriteCollector so the shared write registry +
-  // content-hash skip logic stay consistent with a fresh emit.
-  const collector = new WriteCollector({
-    distDir,
-    pluginName: 'relatedSearchClustersPlugin',
-  });
+  // Streamed disk-to-disk copy in parallel batches. Bypasses the
+  // WriteCollector path on purpose: that path buffers each file's content
+  // in memory + recomputes a sha256 per file, which on the GH free-tier
+  // 7 GB runner pushed the process into swap thrashing and made cache HIT
+  // restore (~418s) about as slow as a full emit (~414s) — defeating the
+  // point of caching. fs.promises.copyFile streams bytes directly so peak
+  // memory stays bounded by `concurrency × OS pipe buffer` (~MB), not by
+  // the total HTML payload (~320 MB).
+  //
+  // Concurrency 64 chosen empirically: enough to saturate libuv's default
+  // 4-thread pool with mkdir overlap, low enough to avoid EMFILE on the
+  // runner's default ulimit (1024 open files).
+  const concurrency = 64;
+  const files = manifest.files;
+  const ensuredDirs = new Set<string>();
   let restored = 0;
-  for (const rel of manifest.files) {
-    const src = path.join(cacheDir, 'files', rel);
-    if (!fs.existsSync(src)) continue;
-    const dst = path.join(distDir, rel);
-    collector.add(dst, fs.readFileSync(src, 'utf-8'));
-    restored++;
+
+  for (let i = 0; i < files.length; i += concurrency) {
+    const batch = files.slice(i, i + concurrency);
+    await Promise.all(batch.map(async (rel) => {
+      const src = path.join(cacheDir, 'files', rel);
+      const dst = path.join(distDir, rel);
+      try {
+        const dir = path.dirname(dst);
+        if (!ensuredDirs.has(dir)) {
+          fs.mkdirSync(dir, { recursive: true });
+          ensuredDirs.add(dir);
+        }
+        await fs.promises.copyFile(src, dst);
+        restored++;
+      } catch (err) {
+        // Missing src or unwritable dst: skip silently — the missing file
+        // will be detected by post-build audits if it actually mattered.
+        if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {
+          console.warn(`\x1b[33m[related-search-clusters]\x1b[0m restore failed for ${rel}:`, err);
+        }
+      }
+    }));
   }
-  await collector.flush();
 
   // The sitemap fragment carries a `<lastmod>` per URL; refresh today's date
   // so the master sitemap signals freshness even when the body is unchanged.
