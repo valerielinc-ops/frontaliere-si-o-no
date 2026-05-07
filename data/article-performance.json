@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-07T14:20:55Z",
+  "generatedAt": "2026-05-07T16:23:49Z",
   "windowDays": 30,
-  "articleCount": 9044,
+  "articleCount": 9080,
   "articlesScored": 575,
   "filters": {
     "newsletter": {
@@ -1286,5 +1286,15 @@
       "dove",
       "quando"
     ]
+  },
+  "sourceQuality": {
+    "medianWinnerRate": 0.0348,
+    "perDomain": {
+      "frontaliereticino.ch": {
+        "total": 575,
+        "winners": 20,
+        "winnerRate": 0.0348
+      }
+    }
   }
 }
