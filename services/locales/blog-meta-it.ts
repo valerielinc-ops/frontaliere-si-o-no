@@ -6645,6 +6645,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ascensione-pentecoste-viaggi-2026.title': 'Ascensione e Pentecoste: mete e viaggi 2026',
     'blog.article.ascensione-pentecoste-viaggi-2026.excerpt': 'Scopri le destinazioni più gettonate per le festività 2026 e come raggiungerle in treno o aereo',
     'blog.article.ascensione-pentecoste-viaggi-2026.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
+    'blog.article.veglia-preghiera-omofobia-ticino-2026.title': 'Veglia di preghiera contro omofobia, bifobia e transfobia a Lugano',
+    'blog.article.veglia-preghiera-omofobia-ticino-2026.excerpt': 'In occasione della Giornata internazionale contro l’omofobia, una veglia di preghiera a Lugano per contrastare discriminazione e violenza.',
+    'blog.article.veglia-preghiera-omofobia-ticino-2026.imageAlt': 'Chiesa Evangelica Riformata di Lugano durante una veglia di preghiera serale',
 };
 
 export default blogMetaIt;

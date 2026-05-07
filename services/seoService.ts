@@ -3457,6 +3457,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-regazzi-rieletto-usam-burocrazia-udc': { name: 'Novità', path: '/articoli-frontaliere/regazzi-rieletto-usam-burocrazia-udc', parent: 'blog' },
     'blog-ex-casa-comunale-lopagno-vendita': { name: 'Vendita immobili', path: '/articoli-frontaliere/ex-casa-comunale-lopagno-vendita', parent: 'blog' },
     'blog-ascensione-pentecoste-viaggi-2026': { name: 'Viaggi e Turismo', path: '/articoli-frontaliere/ascensione-pentecoste-viaggi-2026', parent: 'blog' },
+    'blog-veglia-preghiera-omofobia-ticino-2026': { name: 'Veglia di preghiera', path: '/articoli-frontaliere/veglia-preghiera-omofobia-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

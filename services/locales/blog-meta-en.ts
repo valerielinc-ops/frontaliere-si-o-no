@@ -6644,6 +6644,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ascensione-pentecoste-viaggi-2026.title': 'Ascension and Pentecost: 2026 travel destinations',
     'blog.article.ascensione-pentecoste-viaggi-2026.excerpt': 'Discover the most popular destinations for the 2026 holidays and how to reach them by train or plane',
     'blog.article.ascensione-pentecoste-viaggi-2026.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
+    'blog.article.veglia-preghiera-omofobia-ticino-2026.title': 'Prayer vigil against homophobia, biphobia and transphobia in Lugano',
+    'blog.article.veglia-preghiera-omofobia-ticino-2026.excerpt': 'On the International Day against Homophobia, a prayer vigil in Lugano to counter discrimination and violence.',
+    'blog.article.veglia-preghiera-omofobia-ticino-2026.imageAlt': 'Evangelical Reformed Church in Lugano during an evening prayer vigil',
 };
 
 export default blogMetaEn;
