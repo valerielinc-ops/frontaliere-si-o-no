@@ -209,6 +209,13 @@ export function aggregate({
   });
   const fingerprint = buildWinnerFingerprint(winnersWithWordCount, articles);
 
+  // Source-quality stats: per-domain winner rate (2026-05-07).
+  // Counts total articles per domain across the FULL eligible set (not
+  // just winners) and how many are winners. Consumed by the ranker as
+  // a soft multiplier — domains that historically produce winners get
+  // a mild boost, domains whose articles never win get demoted.
+  const sourceQuality = computeSourceQuality(scored, winners);
+
   return {
     generatedAt,
     windowDays,
@@ -222,7 +229,55 @@ export function aggregate({
     winners: winners.map(toOutputRow),
     losers: losersPool.map(toOutputRow),
     winnerFingerprint: fingerprint,
+    sourceQuality,
   };
+}
+
+/**
+ * Per-domain winner-rate stats. Output shape:
+ *   {
+ *     "tio.ch":         {total: 145, winners: 5, winnerRate: 0.0345},
+ *     "tvsvizzera.it":  {total:  30, winners: 8, winnerRate: 0.2667},
+ *     ...
+ *   }
+ * Median winnerRate is also surfaced so the ranker can normalize against it.
+ */
+function computeSourceQuality(scored, winners) {
+  const totalsByDomain = new Map();
+  for (const r of scored) {
+    const d = domainFromUrl(r.url);
+    if (!d) continue;
+    totalsByDomain.set(d, (totalsByDomain.get(d) || 0) + 1);
+  }
+  const winnersByDomain = new Map();
+  for (const r of winners) {
+    const d = domainFromUrl(r.url);
+    if (!d) continue;
+    winnersByDomain.set(d, (winnersByDomain.get(d) || 0) + 1);
+  }
+  const perDomain = {};
+  const rates = [];
+  for (const [d, total] of totalsByDomain.entries()) {
+    const w = winnersByDomain.get(d) || 0;
+    const rate = total > 0 ? w / total : 0;
+    perDomain[d] = { total, winners: w, winnerRate: Number(rate.toFixed(4)) };
+    rates.push(rate);
+  }
+  rates.sort((a, b) => a - b);
+  const medianWinnerRate = rates.length > 0
+    ? Number(rates[Math.floor(rates.length / 2)].toFixed(4))
+    : 0;
+  return { medianWinnerRate, perDomain };
+}
+
+function domainFromUrl(url) {
+  if (!url || typeof url !== 'string') return null;
+  try {
+    const u = new URL(url);
+    return u.hostname.replace(/^www\./, '').toLowerCase();
+  } catch {
+    return null;
+  }
 }
 
 function toOutputRow(r) {

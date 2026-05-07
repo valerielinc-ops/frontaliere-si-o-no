@@ -72,6 +72,7 @@ import {
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
   TODAY_PICKS_BY_CLUSTER_PATH,
   EXPERIMENTAL_COUNTER_PATH,
+  EVERGREEN_COUNTER_PATH,
   loadJsonSafe as _topicLoadJsonSafe,
   loadExistingItTitles as _topicLoadExistingItTitles,
   loadConsumedTracker as _topicLoadConsumedTracker,
@@ -84,6 +85,9 @@ import {
   persistTodayPicksByCluster as _persistTodayPicksByCluster,
   loadExperimentalCounter as _loadExperimentalCounter,
   persistExperimentalCounter as _persistExperimentalCounter,
+  loadEvergreenCounter as _loadEvergreenCounter,
+  persistEvergreenCounter as _persistEvergreenCounter,
+  shouldForceEvergreen as _shouldForceEvergreen,
   rankAndSelectHeadlines as _rankAndSelectHeadlines,
 } from './lib/article-topic-selector.mjs';
 
@@ -723,9 +727,9 @@ const NEWS_SOURCES = [
   'https://www.tio.ch/ticino/cronaca',
   'https://www.rsi.ch/info/economia/',
   'https://www.rsi.ch/info/svizzera/?f=rss',
-  // ── 2026-05-07: frontaliere-specific feeds — added after diagnosis showed
-  // the news pool was 1.6% frontaliere-relevant (9/564). These tag/category
-  // pages produce mostly cross-border-work content directly.
+  // ── 2026-05-07: frontaliere-specific feeds (Wave 1) — added after
+  // diagnosis showed the news pool was 1.6% frontaliere-relevant (9/564).
+  // These tag/category pages produce mostly cross-border-work content.
   'https://www.tvsvizzera.it/tvs/svizzera-italia-frontalieri/',
   'https://www.tvsvizzera.it/tvs/economia/',
   'https://www.cdt.ch/dossier/frontalieri-tutto-sapere-permesso-G-tasse-cassa-malati',
@@ -735,6 +739,29 @@ const NEWS_SOURCES = [
   'https://www.laregione.ch/economia',
   'https://www.varesenews.it/tag/frontalieri/',          // HTML fallback
   'https://www.varesenoi.it/sommario/argomenti/economia-7.html',
+  // ── 2026-05-07: frontaliere-dedicated feeds (Wave 2 — strategic) —
+  // sindacati, ACIF, fiscalità tecnica, comparis. Primary signal:
+  // every headline from these sources is high-probability frontaliere-
+  // relevant by virtue of the source's audience.
+  // Cross-border official + sindacati ──
+  'https://www.swissinfo.ch/ita/feed/?contentType=news',
+  'https://www.cgil.lombardia.it/categoria/frontalieri/feed/',
+  'https://www.ocst.ch/feed/',                            // Sindacato OCST Ticino
+  'https://www.unia.ch/it/news/feed',                     // Sindacato Unia (CH)
+  'https://www.uil.it/feed',                              // UIL nazionale (frontalieri)
+  // Health/insurance cross-border ──
+  'https://www.comparis.ch/krankenkassen/news/feed',      // LAMal news comparis
+  'https://www.bag.admin.ch/bag/it/home.rss/news.rss',    // Bundesamt Gesundheit IT
+  // Fiscalità tecnica + dossier frontalieri ──
+  'https://www.fiscoetasse.com/rss/articoli.xml',
+  'https://www.commercialistatelematico.com/feed',
+  'https://www.ipsoa.it/rss/feed.xml',                    // Ipsoa fiscalità
+  // Geo-specific cross-border ──
+  'https://www.corriere.it/dynamic-feed/rss/section/cronache.xml',  // borderline but covers IT-CH cronaca
+  'https://www.varesenews.it/tag/dogana-svizzera/feed/',   // dogana feed
+  'https://www.cdt.ch/news/eu-frontaliere',                // CDT eu/frontaliere category if exists
+  'https://comozero.it/categoria/frontalieri/',            // comozero frontalieri tag
+  'https://www.varesenoi.it/sommario/argomenti/economia-7/economia-frontalieri-1.html',
   // swissinfo.ch RSS removed — 410 Gone (FRO-415)
   // admin.ch RSS removed — WAF challenge blocks scraping (FRO-415)
 ];
@@ -5293,12 +5320,30 @@ async function main() {
 
   // ── Auto-scan mode: no URL provided → scan news sources first, then evergreen fallback ──
   if (!url) {
-    const forceEvergreen = process.env.FORCE_EVERGREEN === '1';
+    // Evergreen quota (2026-05-07): force evergreen path on ~30% of runs
+    // round-robin via persistent counter. With ~96 articles/day cadence
+    // (every 15min), this guarantees ~29 evergreen articles/day on
+    // high-monetization keywords from winnerFingerprint, regardless of
+    // news pool composition. Override with FORCE_EVERGREEN=1 (full
+    // forced) or FORCE_EVERGREEN=0 (disabled) — ratio override via
+    // EVERGREEN_QUOTA env var.
+    const evergreenCounterState = _loadEvergreenCounter();
+    const evergreenRatioOverride = Number.parseFloat(process.env.EVERGREEN_QUOTA);
+    const evergreenRatio = Number.isFinite(evergreenRatioOverride) && evergreenRatioOverride >= 0 && evergreenRatioOverride <= 1
+      ? evergreenRatioOverride
+      : undefined; // undefined → use default 0.30
+    const quotaSaysForceEvergreen = process.env.FORCE_EVERGREEN === '0'
+      ? false
+      : _shouldForceEvergreen(evergreenCounterState.count, evergreenRatio);
+    const forceEvergreen = process.env.FORCE_EVERGREEN === '1' || quotaSaysForceEvergreen;
     let newsSuccess = false;
 
     // ── Phase 1: Scan external news sources (skipped when FORCE_EVERGREEN=1) ──
     if (forceEvergreen) {
-      console.error('📚 FORCE_EVERGREEN=1 — salto scan news, vado diretto a evergreen.\n');
+      const reason = process.env.FORCE_EVERGREEN === '1'
+        ? 'FORCE_EVERGREEN=1 (env override)'
+        : `evergreen quota (${evergreenCounterState.count}-th run)`;
+      console.error(`📚 Forced evergreen — ${reason}. Salto scan news.\n`);
     } else {
       console.error('🤖 Fase 1: Ricerca articolo da fonti ticinesi...\n');
       headlines = await scanNewsSources();
@@ -5391,6 +5436,10 @@ async function main() {
                   consumed,
                   headlineTitleField: 'headline',
                   maxPicks: 1,
+                  // Source-quality boost (P3, 2026-05-07): domains with
+                  // historical winner-rate above median get up to 1.5x;
+                  // below get down to 0.5x. Self-strengthening loop.
+                  sourceQuality: _articlePerformance && _articlePerformance.sourceQuality,
                 });
                 if (picks.length > 0) {
                   const top = picks[0];
@@ -5463,6 +5512,10 @@ async function main() {
                 // Always tick the experimental counter so the round-robin advances,
                 // regardless of which tier we landed on.
                 _persistExperimentalCounter({ count: (_experimentalCounterState.count || 0) + 1 });
+                // Tick the evergreen counter too — round-robin for the
+                // 30% evergreen quota. Advances on EVERY successful run
+                // (news, experimental, or LLM-fallback).
+                _persistEvergreenCounter({ count: (evergreenCounterState.count || 0) + 1 });
                 // If experimental pick succeeded, mark the candidate as consumed.
                 if (_pickedTier === 'experimental' && _picked && _picked._experimentalCandidate) {
                   const exp = _picked._experimentalCandidate;
@@ -5582,6 +5635,10 @@ async function main() {
           process.env._EVERGREEN_KEYWORD = topic.keyword;
 
           await generateAndValidateArticle(url, { headline: topic.keyword, source: 'evergreen', relatedHeadlines: [] });
+          // Tick evergreen counter on success (round-robin advance).
+          try {
+            _persistEvergreenCounter({ count: (evergreenCounterState.count || 0) + 1 });
+          } catch { /* ignore */ }
           return; // Success — exit main
         } catch (e) {
           const isDuplicate = e.message.includes('DUPLICATO');

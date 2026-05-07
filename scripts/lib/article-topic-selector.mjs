@@ -55,8 +55,34 @@ export const TODAY_PICKS_BY_CLUSTER_PATH = 'data/topic-candidates-today-picks.js
 // long-tail content instead of a borderline news article.
 export const RANKER_MIN_SCORE = 0.25;
 
+// Hard cap on picks per cluster per day (output-level diversity guard).
+// Diversity bonus alone (soft signal) can be overruled by a strong
+// demand-signal headline — e.g. picksByCluster.generic=13 in a single
+// day means 56% of output collapsed into one cluster. This cap forces
+// the ranker to skip headlines whose cluster has reached the limit.
+//
+// Cadence: generate-article runs every 15min → ~96 articles/day. Cap at
+// 25 ≈ 26% of daily output. Leaves room for legitimate generic dominance
+// (regional news IS mostly generic) while preventing 80%+ collapse.
+// Override via env RANKER_MAX_PER_CLUSTER for slow-news days or when
+// editorial wants to force a specific tier.
+export const RANKER_MAX_PER_CLUSTER = Math.max(
+  1,
+  Number.parseInt(process.env.RANKER_MAX_PER_CLUSTER || '25', 10) || 25,
+);
+
 // Default fraction of picks routed to the experimental tier.
 export const EXPERIMENTAL_RATIO_DEFAULT = 0.10;
+
+// Default fraction of articles forced to the evergreen path (vs news
+// scan). 0.30 = ~1 evergreen every 3 articles. Evergreen articles are
+// generated directly from winnerFingerprint.topKeywords + the
+// PRIORITY_EVERGREEN_TOPICS pool — high-monetization, long-tail SEO,
+// not dependent on news pool composition. 2026-05-07: introduced after
+// observing news pool was 81% generic regional cronaca; this guarantees
+// 30% of output is on evergreen high-value topics regardless of news.
+export const EVERGREEN_QUOTA_DEFAULT = 0.30;
+export const EVERGREEN_COUNTER_PATH = 'data/topic-candidates-evergreen-counter.json';
 
 // Scoring weights — per design doc.
 export const SCORE_WEIGHT_DEMAND = 0.6;
@@ -65,6 +91,15 @@ export const SCORE_WEIGHT_NOVELTY = 0.2;
 
 // Headline-vs-existing-title novelty Jaccard threshold.
 export const NOVELTY_DUP_JACCARD = 0.7;
+
+// Source-quality multiplier bounds (2026-05-07). Applied to a headline's
+// final ranker score based on the historical winner-rate of its source
+// domain. Domains with above-median winner rate get up to 1.5x boost;
+// below-median get down to 0.5x. Self-strengthening loop: sources that
+// produce winners get prioritized; sources whose articles never win get
+// deprioritized — without categorical filtering.
+export const SOURCE_QUALITY_MIN_MULTIPLIER = 0.5;
+export const SOURCE_QUALITY_MAX_MULTIPLIER = 1.5;
 
 // Cap retention on consumed tracker. Older IDs rotate out (FIFO).
 export const CONSUMED_MAX_IDS = 500;
@@ -623,6 +658,48 @@ function computeClusterDiversityBonus(cluster, todayPicksByCluster) {
  * @param {string[]} existingTitles
  * @returns {number}
  */
+/**
+ * Source-quality multiplier for a domain. Reads sourceQuality from the
+ * article-performance.json output and returns a multiplier in
+ * [SOURCE_QUALITY_MIN_MULTIPLIER, SOURCE_QUALITY_MAX_MULTIPLIER].
+ *
+ * Domains with no historical data return 1.0 (neutral).
+ * Domains at exactly the median return 1.0.
+ * Above median scales linearly to MAX (1.5x); below scales to MIN (0.5x).
+ *
+ * @param {string} domain — bare hostname (e.g. 'tio.ch').
+ * @param {object} sourceQuality — {medianWinnerRate, perDomain: {...}}
+ * @returns {number}
+ */
+export function sourceQualityMultiplier(domain, sourceQuality) {
+  if (!domain || !sourceQuality || !sourceQuality.perDomain) return 1.0;
+  const entry = sourceQuality.perDomain[domain];
+  if (!entry || typeof entry.winnerRate !== 'number') return 1.0;
+  // Need a meaningful sample size — single-article domains are noise.
+  if ((entry.total || 0) < 3) return 1.0;
+  const median = Number(sourceQuality.medianWinnerRate) || 0;
+  if (median <= 0) return 1.0;
+  const ratio = entry.winnerRate / median;
+  // Linear interpolation: ratio=0 → MIN, ratio=1 → 1.0, ratio=2 → MAX.
+  let multiplier;
+  if (ratio <= 1) {
+    multiplier = SOURCE_QUALITY_MIN_MULTIPLIER + (1 - SOURCE_QUALITY_MIN_MULTIPLIER) * ratio;
+  } else {
+    multiplier = 1 + (SOURCE_QUALITY_MAX_MULTIPLIER - 1) * Math.min(1, ratio - 1);
+  }
+  return Math.max(SOURCE_QUALITY_MIN_MULTIPLIER, Math.min(SOURCE_QUALITY_MAX_MULTIPLIER, multiplier));
+}
+
+function _domainFromUrl(url) {
+  if (!url || typeof url !== 'string') return null;
+  try {
+    const u = new URL(url);
+    return u.hostname.replace(/^www\./, '').toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
 function computeNoveltyScore(headline, existingTitles) {
   if (!Array.isArray(existingTitles) || existingTitles.length === 0) return 1.0;
   const tokens = tokenize(headline);
@@ -777,6 +854,49 @@ export function shouldUseExperimentalTier(count, ratio = EXPERIMENTAL_RATIO_DEFA
   return ((Math.max(0, Math.floor(count)) % bucket) < threshold);
 }
 
+/**
+ * Load the evergreen counter from disk. Returns `{count: 0}` on any
+ * read/parse failure.
+ */
+export function loadEvergreenCounter(opts = {}) {
+  const path = (opts && opts.path) || EVERGREEN_COUNTER_PATH;
+  const raw = loadJsonSafe(path);
+  if (!raw || typeof raw !== 'object' || typeof raw.count !== 'number' || raw.count < 0) {
+    return { count: 0 };
+  }
+  return { count: Math.floor(raw.count) };
+}
+
+/**
+ * Persist the evergreen counter to disk.
+ */
+export function persistEvergreenCounter(state, opts = {}) {
+  const path = (opts && opts.path) || EVERGREEN_COUNTER_PATH;
+  try {
+    mkdirSync(dirname(path), { recursive: true });
+    writeFileSync(path, JSON.stringify({ count: Math.max(0, Math.floor(state?.count || 0)) }, null, 2) + '\n', 'utf-8');
+    return true;
+  } catch (e) {
+    console.warn(`[generator] could not write evergreen counter to ${path}: ${e.message}`);
+    return false;
+  }
+}
+
+/**
+ * Decide whether THIS article-generator run should force the evergreen
+ * path. Round-robin matching `EVERGREEN_QUOTA_DEFAULT` (30% by default).
+ * Same shape as shouldUseExperimentalTier so the bucket math is
+ * predictable: with ratio=0.30, bucket=3, threshold=1 → 1-of-3 runs
+ * forced evergreen.
+ */
+export function shouldForceEvergreen(count, ratio = EVERGREEN_QUOTA_DEFAULT) {
+  if (!ratio || ratio <= 0) return false;
+  if (ratio >= 1) return true;
+  const bucket = Math.max(2, Math.round(1 / ratio));
+  const threshold = Math.max(1, Math.round(ratio * bucket));
+  return ((Math.max(0, Math.floor(count)) % bucket) < threshold);
+}
+
 // ── Top-level orchestrator ────────────────────────────────────────
 
 /**
@@ -860,27 +980,47 @@ export async function rankAndSelectHeadlines(headlines, vocab, opts = {}) {
   const titles = list.map((h) => String((h && h[titleField]) ?? h?.title ?? ''));
   const clusters = await classifyHeadlineClusters(titles, opts.classifierOpts || {});
 
+  const sourceQuality = opts.sourceQuality || null;
   const scored = list.map((h, i) => {
     const headlineText = titles[i];
-    const breakdown = scoreHeadline(headlineText, vocab, {
+    const baseBreakdown = scoreHeadline(headlineText, vocab, {
       todayPicksByCluster: opts.todayPicksByCluster || {},
       headlineCluster: clusters[i] || 'generic',
       existingTitles: opts.existingTitles || [],
     });
+    // Source-quality multiplier: domains with historical winner-rate
+    // above the corpus median get up to 1.5x boost; below median 0.5x.
+    // Neutral 1.0 when no domain data is available.
+    const url = (h && (h.url || h.link)) || null;
+    const domain = _domainFromUrl(url);
+    const sqMultiplier = sourceQuality ? sourceQualityMultiplier(domain, sourceQuality) : 1.0;
+    const breakdown = sqMultiplier === 1.0
+      ? baseBreakdown
+      : { ...baseBreakdown, score: baseBreakdown.score * sqMultiplier, sourceQualityMultiplier: sqMultiplier };
     return { headline: h, breakdown, index: i };
   });
 
   // Sort desc by score; preserve original order on tie.
   scored.sort((a, b) => (b.breakdown.score - a.breakdown.score) || (a.index - b.index));
 
+  // Hard cluster-quota cap (output-level diversity guard). Skip
+  // headlines whose cluster has hit RANKER_MAX_PER_CLUSTER picks today.
+  // The diversity bonus alone is a SOFT signal — strong demand-signal
+  // headlines can outscore the bonus and collapse output to a single
+  // cluster. This cap forces a hard skip.
+  const picksByCluster = opts.todayPicksByCluster || {};
   const picks = [];
   for (const { headline, breakdown } of scored) {
     if (breakdown.score < minScore) break;
+    const cluster = breakdown.cluster || 'generic';
+    if ((picksByCluster[cluster] || 0) >= RANKER_MAX_PER_CLUSTER) {
+      continue; // cluster is full — try next headline (different cluster)
+    }
     picks.push({
       ...headline,
       _selectedSource: 'stable',
       _score: breakdown,
-      _cluster: breakdown.cluster,
+      _cluster: cluster,
     });
     if (picks.length >= maxPicks) break;
   }
