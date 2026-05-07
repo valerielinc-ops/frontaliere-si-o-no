@@ -42,6 +42,7 @@
 
 import path from 'node:path';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
@@ -178,6 +179,148 @@ function capitalize(value: string): string {
 
 function jobIdentity(job: RawJob): string {
   return job.slug || job.id || `${job.company}-${job.title}`;
+}
+
+// ── Cache (skip slow emit when inputs unchanged) ────────────────────────
+
+/**
+ * Files whose content participates in the cache key. Any change to these
+ * invalidates the cache and forces a full re-emit.
+ *   - jobs.json: changes daily via cron crawlers
+ *   - candidates / enriched: changes weekly via the audit pipeline
+ *   - plugin source: any code edit invalidates cache
+ *   - shared helpers: emit shape depends on them
+ *   - relatedSearchClusters service: shared with the SPA, defines slugs
+ */
+const CACHE_KEY_INPUTS = [
+  'data/jobs.json',
+  'data/related-search-candidates.json',
+  'data/related-search-enriched.json',
+  'build-plugins/relatedSearchClustersPlugin.ts',
+  'build-plugins/relatedSearchClustersData.ts',
+  'build-plugins/shared/seoPageShell.ts',
+  'build-plugins/shared/seoContentTokens.ts',
+  'build-plugins/shared/titleSuffix.ts',
+  'build-plugins/shared/jobBoardCommuterContext.ts',
+  'services/relatedSearchClusters.ts',
+];
+
+const CACHE_VERSION = 'v1';
+
+interface CacheManifest {
+  version: string;
+  generatedAt: string;
+  files: string[];                         // dist-relative paths
+  hubs: { locale: Locale; url: string }[]; // hub URLs for re-injection
+  sitemapLocs: string[];                   // for master sitemap patch
+  emittedCount: number;
+}
+
+function computeCacheKey(rootDir: string): string {
+  const hash = crypto.createHash('sha256');
+  hash.update(`floor:${MIN_JOB_COUNT}\0`);
+  hash.update(`version:${CACHE_VERSION}\0`);
+  for (const rel of CACHE_KEY_INPUTS) {
+    const full = path.join(rootDir, rel);
+    if (!fs.existsSync(full)) {
+      hash.update(`missing:${rel}\0`);
+      continue;
+    }
+    // For huge inputs (jobs.json is ~30 MB) read the bytes directly.
+    hash.update(fs.readFileSync(full));
+    hash.update(`\0${rel}\0`);
+  }
+  return hash.digest('hex').slice(0, 16);
+}
+
+function cacheDirFor(rootDir: string, cacheKey: string): string {
+  return path.join(rootDir, '.cache', 'related-search-clusters', cacheKey);
+}
+
+async function tryRestoreFromCache(
+  rootDir: string,
+  distDir: string,
+  cacheKey: string,
+): Promise<CacheManifest | null> {
+  const cacheDir = cacheDirFor(rootDir, cacheKey);
+  const manifestPath = path.join(cacheDir, 'manifest.json');
+  if (!fs.existsSync(manifestPath)) return null;
+  let manifest: CacheManifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+  } catch {
+    return null;
+  }
+  if (manifest.version !== CACHE_VERSION) return null;
+
+  // Restore files via WriteCollector so the shared write registry +
+  // content-hash skip logic stay consistent with a fresh emit.
+  const collector = new WriteCollector({
+    distDir,
+    pluginName: 'relatedSearchClustersPlugin',
+  });
+  let restored = 0;
+  for (const rel of manifest.files) {
+    const src = path.join(cacheDir, 'files', rel);
+    if (!fs.existsSync(src)) continue;
+    const dst = path.join(distDir, rel);
+    collector.add(dst, fs.readFileSync(src, 'utf-8'));
+    restored++;
+  }
+  await collector.flush();
+
+  // The sitemap fragment carries a `<lastmod>` per URL; refresh today's date
+  // so the master sitemap signals freshness even when the body is unchanged.
+  const sitemapPath = path.join(distDir, 'sitemap-search-clusters.xml');
+  if (fs.existsSync(sitemapPath)) {
+    const today = new Date().toISOString().slice(0, 10);
+    const xml = fs.readFileSync(sitemapPath, 'utf-8')
+      .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
+    fs.writeFileSync(sitemapPath, xml, 'utf-8');
+  }
+  return { ...manifest, emittedCount: restored };
+}
+
+function saveToCache(
+  rootDir: string,
+  distDir: string,
+  cacheKey: string,
+  emittedFiles: ReadonlyArray<string>,
+  hubs: ReadonlyArray<{ locale: Locale; url: string }>,
+  sitemapLocs: ReadonlyArray<string>,
+): number {
+  const cacheDir = cacheDirFor(rootDir, cacheKey);
+  // Wipe stale entries for the same key (defensive — should never collide).
+  fs.rmSync(cacheDir, { recursive: true, force: true });
+  fs.mkdirSync(path.join(cacheDir, 'files'), { recursive: true });
+
+  const seen = new Set<string>();
+  let copied = 0;
+  for (const rel of emittedFiles) {
+    if (seen.has(rel)) continue;
+    seen.add(rel);
+    const src = path.join(distDir, rel);
+    if (!fs.existsSync(src)) continue;
+    const dst = path.join(cacheDir, 'files', rel);
+    fs.mkdirSync(path.dirname(dst), { recursive: true });
+    fs.copyFileSync(src, dst);
+    copied++;
+  }
+
+  const manifest: CacheManifest = {
+    version: CACHE_VERSION,
+    generatedAt: new Date().toISOString(),
+    files: Array.from(seen),
+    hubs: hubs.slice(),
+    sitemapLocs: sitemapLocs.slice(),
+    emittedCount: copied,
+  };
+  fs.writeFileSync(
+    path.join(cacheDir, 'manifest.json'),
+    JSON.stringify(manifest, null, 2),
+    'utf-8',
+  );
+  return copied;
 }
 
 // ── File loading ────────────────────────────────────────────────────────
@@ -950,7 +1093,17 @@ function writeSitemap(distDir: string, locs: ReadonlyArray<string>, dateStamp: s
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m sitemap write failed:', err);
     return;
   }
+  patchMasterSitemap(distDir, dateStamp);
+}
 
+/**
+ * Register the cluster sitemap in `dist/sitemap.xml` (master sitemap index).
+ * Idempotent: refreshes the lastmod when the entry already exists, otherwise
+ * appends a new <sitemap> entry. Always re-runs even on cache hit because
+ * `dist/sitemap.xml` is owned by another plugin and is regenerated each
+ * build.
+ */
+function patchMasterSitemap(distDir: string, dateStamp: string): void {
   const masterPath = path.join(distDir, 'sitemap.xml');
   if (!fs.existsSync(masterPath)) return;
   try {
@@ -986,6 +1139,33 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
       const distDir = path.resolve(rootDir, 'dist');
       const startedAt = Date.now();
+      const dateStamp = new Date().toISOString().slice(0, 10);
+
+      // Cache fast path. If inputs haven't changed since the last emit,
+      // restore the cluster + hub HTML + sitemap fragment from disk, run
+      // the cross-plugin patches (master sitemap + hub-link injection)
+      // that DEPEND on other plugins' fresh output, and skip the slow
+      // matching + render loop entirely.
+      //
+      // Disable with RELATED_SEARCH_CLUSTERS_NO_CACHE=1 (e.g. during
+      // local debugging when you want a clean re-emit).
+      const cacheEnabled = process.env.RELATED_SEARCH_CLUSTERS_NO_CACHE !== '1';
+      const cacheKey = cacheEnabled ? computeCacheKey(rootDir) : '';
+      if (cacheEnabled) {
+        const restored = await tryRestoreFromCache(rootDir, distDir, cacheKey);
+        if (restored) {
+          // Re-run the cross-plugin patches against THIS build's dist.
+          for (const { locale, url } of restored.hubs) {
+            injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
+          }
+          patchMasterSitemap(distDir, dateStamp);
+          console.log(
+            `\x1b[36m[related-search-clusters]\x1b[0m cache HIT (key=${cacheKey}): ${restored.emittedCount} files restored in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
+          );
+          return;
+        }
+        console.log(`\x1b[36m[related-search-clusters]\x1b[0m cache MISS (key=${cacheKey}): full emit`);
+      }
 
       const candidates = filterAndDedupeCandidates(loadCandidates(rootDir));
       if (candidates.length === 0) {
@@ -1040,8 +1220,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       }
 
       const collector = new WriteCollector({ distDir, pluginName: 'relatedSearchClustersPlugin' });
-      const dateStamp = new Date().toISOString().slice(0, 10);
       const sitemapLocs: string[] = [];
+      const emittedFiles: string[] = []; // dist-relative paths for cache save
+      const cachedHubs: { locale: Locale; url: string }[] = [];
 
       // ── Per-cluster pages ─────────────────────────────────────────────
       for (const ctx of contexts) {
@@ -1079,6 +1260,8 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
         collector.add(indexPath, out.html);
         collector.add(flatPath, out.html);
+        emittedFiles.push(path.relative(distDir, indexPath));
+        emittedFiles.push(path.relative(distDir, flatPath));
         sitemapLocs.push(out.loc);
       }
 
@@ -1106,15 +1289,31 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
           collector.add(indexPath, out.html);
           collector.add(flatPath, out.html);
+          emittedFiles.push(path.relative(distDir, indexPath));
+          emittedFiles.push(path.relative(distDir, flatPath));
           sitemapLocs.push(out.loc);
         }
 
         const hubUrl = `${BASE_URL}${buildHubPath(locale, 1)}`;
+        cachedHubs.push({ locale, url: hubUrl });
         injectHubLinkIntoSectionLanding(distDir, locale, hubUrl, COPY[locale]);
       }
 
       const written = await collector.flush();
       writeSitemap(distDir, sitemapLocs, dateStamp);
+      emittedFiles.push('sitemap-search-clusters.xml');
+
+      // Persist for next build. patchMasterSitemap is intentionally skipped
+      // here — it patches a file owned by another plugin and is re-run on
+      // every build (cache-hit and miss alike) inside the cache fast path.
+      if (cacheEnabled) {
+        try {
+          const cached = saveToCache(rootDir, distDir, cacheKey, emittedFiles, cachedHubs, sitemapLocs);
+          console.log(`\x1b[36m[related-search-clusters]\x1b[0m saved ${cached} files to cache (${cacheKey})`);
+        } catch (err) {
+          console.warn('\x1b[33m[related-search-clusters]\x1b[0m cache save failed:', err);
+        }
+      }
 
       console.log(
         `\x1b[36m[related-search-clusters]\x1b[0m emitted ${contexts.length} cluster pages + ${byLocale.size} hubs (${written} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,

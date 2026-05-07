@@ -167,6 +167,22 @@ jobs:
           restore-keys: |
             og-jobs-${{ runner.os }}-
 
+      - name: Cache related-search cluster pages
+        uses: actions/cache@v5
+        with:
+          path: .cache/related-search-clusters
+          # Hash inputs match the ones the plugin uses internally for its
+          # per-build cache key (see CACHE_KEY_INPUTS in
+          # build-plugins/relatedSearchClustersPlugin.ts). When jobs.json
+          # changes daily via the cron crawlers, we miss; on pushes that
+          # don't touch jobs (most blog/code commits) we hit and skip the
+          # ~30s cluster emit + matching loop. Restore-keys cascade keeps
+          # older subdirs around so the plugin can re-use partial state
+          # while writing a new entry.
+          key: cluster-pages-${{ runner.os }}-${{ hashFiles('data/jobs.json', 'data/related-search-candidates.json', 'data/related-search-enriched.json', 'build-plugins/relatedSearchClustersPlugin.ts', 'build-plugins/relatedSearchClustersData.ts', 'services/relatedSearchClusters.ts') }}
+          restore-keys: |
+            cluster-pages-${{ runner.os }}-
+
       - name: Assemble jobs dataset from per-crawler slices
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
