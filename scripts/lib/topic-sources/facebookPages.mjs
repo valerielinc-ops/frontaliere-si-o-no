@@ -142,6 +142,7 @@ export async function fetchFacebookCandidates(opts = {}) {
   // 99% of posts; the new contract is "show the loudest stuff in this
   // window, biased toward frontaliere-relevant posts".
   const rawPosts = [];
+  const allFetchedPosts = []; // unfiltered, kept for engagement-scope diagnosis
   const perPage = {};
   let anyOk = false;
 
@@ -167,17 +168,34 @@ export async function fetchFacebookCandidates(opts = {}) {
     let kept = 0;
     let totalEngagement = 0;
     for (const p of posts) {
+      if (p && typeof p === 'object' && p.message) {
+        allFetchedPosts.push({ post: p, ref });
+        totalEngagement += Number(p?.reactions?.summary?.total_count ?? 0)
+          + Number(p?.comments?.summary?.total_count ?? 0);
+      }
       if (!postPassesFilter(p)) continue;
       rawPosts.push({ post: p, ref, sortKey: postSortKey(p) });
       kept++;
-      totalEngagement += Number(p?.reactions?.summary?.total_count ?? 0)
-        + Number(p?.comments?.summary?.total_count ?? 0);
     }
     perPage[ref] = { ok: true, candidates: kept, totalEngagement };
     if (kept > 0) anyOk = true;
   }
 
-  // Global sort + dedupe + cap.
+  // Diagnose: token without `pages_read_engagement` scope returns 0 for
+  // every reactions/comments summary. If we fetched real posts but ALL had
+  // 0 engagement, that's the scope issue — fall back to surfacing
+  // frontaliere-keyword-matching posts with engagement=null instead of
+  // returning empty.
+  const totalFetched = allFetchedPosts.length;
+  const totalEngagementSum = allFetchedPosts.reduce(
+    (sum, { post: p }) =>
+      sum + Number(p?.reactions?.summary?.total_count ?? 0)
+        + Number(p?.comments?.summary?.total_count ?? 0),
+    0,
+  );
+  const engagementScopeMissing = totalFetched > 0 && totalEngagementSum === 0;
+
+  // Global sort + dedupe + cap of the engagement-filtered pool.
   rawPosts.sort((a, b) => b.sortKey - a.sortKey);
   const all = [];
   const seenNorm = new Set();
@@ -189,13 +207,49 @@ export async function fetchFacebookCandidates(opts = {}) {
     all.push(cand);
   }
 
+  // Engagement-scope-missing fallback: surface keyword-matching posts so
+  // the source produces SOMETHING instead of empty. The user can fix the
+  // token scope later.
+  if (all.length === 0 && engagementScopeMissing) {
+    for (const { post, ref } of allFetchedPosts) {
+      if (all.length >= MAX_TOTAL_CANDIDATES) break;
+      const message = String(post.message ?? '');
+      if (KEYWORD_PREFERENCE_RE && !KEYWORD_PREFERENCE_RE.test(message)) continue;
+      const cand = postToCandidate(post, ref);
+      if (!cand.normalizedKeyword || seenNorm.has(cand.normalizedKeyword)) continue;
+      seenNorm.add(cand.normalizedKeyword);
+      // Mark engagement metrics as unreliable.
+      cand.demandSignals.facebookReactions = null;
+      cand.demandSignals.facebookComments = null;
+      cand.demandSignals.facebookEngagement = null;
+      cand.demandSignals.facebookEngagementScopeMissing = true;
+      cand.rationale = `Facebook ${ref} (engagement scope missing — keyword-matched only)`;
+      all.push(cand);
+    }
+    if (all.length > 0) anyOk = true;
+  }
+
+  let reason;
+  if (!anyOk) {
+    if (engagementScopeMissing && totalFetched > 0) {
+      reason = `FB token lacks pages_read_engagement scope (${totalFetched} posts fetched, all 0 engagement) and no posts matched keyword fallback`;
+    } else if (totalFetched === 0) {
+      reason = 'no FB posts in window';
+    } else {
+      reason = `no FB posts in window with engagement >= ${MIN_ENGAGEMENT}`;
+    }
+  }
+
   return {
     ok: anyOk,
     candidates: all,
     perPage,
-    reason: anyOk
-      ? undefined
-      : `no FB posts in window with engagement >= ${MIN_ENGAGEMENT}`,
+    diagnostics: {
+      totalFetched,
+      totalEngagementSum,
+      engagementScopeMissing,
+    },
+    reason,
   };
 }
 

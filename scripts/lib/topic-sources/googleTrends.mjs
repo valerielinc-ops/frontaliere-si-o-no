@@ -440,7 +440,29 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
       if (collected.length >= MAX_PER_GEO) break;
     }
 
+    // SHORT-CIRCUIT: if RSS gave us ANY items for this geo, skip the
+    // per-seed lib loop entirely. The lib path is broken from CI IPs and
+    // the per-geo retry budget (14 seeds × ~12s with retries) can blow
+    // past the 5-minute safeRun timeout, surfacing as 'unavailable' for
+    // ALL geos. RSS is the reliable path; lib is only a "nice to have"
+    // for local runs where the IP isn't blocked.
+    if (collected.length > 0) {
+      perGeo[geo.sourceKey] = { ok: true, candidates: collected };
+      for (const c of collected) all.push(c);
+      continue;
+    }
+
+    // Hard cap on lib-loop iterations. The lib path is broken from CI IPs;
+    // running through 14 seeds × 3 retries × 12s + Playwright per geo
+    // blows past the 5-minute safeRun budget and surfaces as 'unavailable'
+    // for every geo. With RSS as primary, the lib loop exists only as a
+    // best-effort fallback for geos without RSS (IT-25 = Lombardia) or
+    // when RSS came back empty.
+    const MAX_LIB_SEEDS = 3;
+    let libSeedsTried = 0;
     for (const seed of seeds) {
+      if (libSeedsTried >= MAX_LIB_SEEDS) break;
+      libSeedsTried++;
       let rising = [];
       let hadError = false;
       let lastErrorMsg = null;

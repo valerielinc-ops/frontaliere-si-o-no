@@ -295,14 +295,26 @@ async function playwrightFallback(endpointOrUrl) {
   }
 }
 
+// Subreddit → audience-size baseline (rough public estimates as of 2026).
+// Used as an RSS-mode demand baseline so candidates from r/Switzerland (~250k)
+// don't tie 1:1 with candidates from r/Lugano (~5k). This is NOT engagement;
+// it's just "these subs have different reach, so a fresh post in r/Switzerland
+// reaches more eyeballs by default than one in r/Lugano".
+const SUBREDDIT_AUDIENCE_BASELINE = {
+  Switzerland: 30, // ~250k members
+  italy: 25, // ~600k but only frontalieri-restricted search subset
+  Ticino: 15, // ~25k
+  Lugano: 8, // ~5k
+};
+
 function postToCandidate(post, sourceKey, sub) {
   // RSS posts may have NaN score/comments (Atom feed doesn't expose them
   // reliably). Coerce to 0 — the candidate's demandSignals will reflect
   // the lower-confidence source via `redditViaRss`.
   const rawScore = Number(post.score);
   const rawComments = Number(post.num_comments);
-  const score = Number.isFinite(rawScore) ? rawScore : 0;
-  const comments = Number.isFinite(rawComments) ? rawComments : 0;
+  let score = Number.isFinite(rawScore) ? rawScore : 0;
+  let comments = Number.isFinite(rawComments) ? rawComments : 0;
   const title = String(post.title || '').trim();
   const norm = normalizeKeyword(title);
   const fromRss = post._source === 'rss';
@@ -310,6 +322,20 @@ function postToCandidate(post, sourceKey, sub) {
   // r/Lugano IT. detectLocale() reads markers in the title itself for the
   // most accurate per-post tag.
   const locale = detectLocale(title);
+
+  // RSS-mode demand baseline: combine subreddit-audience baseline with a
+  // recency decay (newer posts in the RSS feed get a higher score). Without
+  // this, every RSS Reddit candidate ties at redditCombined=0 → demandScore=0
+  // → totalScore=0.40, with no quality differentiation in the candidate list.
+  if (fromRss) {
+    const audienceBaseline = SUBREDDIT_AUDIENCE_BASELINE[sub] ?? 5;
+    const rssPosition = Number(post._rssPosition ?? 99);
+    // Recency decay: position 0 (newest) → full baseline; position 25 → 50%.
+    const recencyFactor = Math.max(0.5, 1 - rssPosition * 0.02);
+    score = Math.round(audienceBaseline * recencyFactor);
+    comments = 0;
+  }
+  const combined = fromRss ? score : score + comments * 2;
   return {
     id: fnv1a8(norm),
     keyword: title,
@@ -320,13 +346,13 @@ function postToCandidate(post, sourceKey, sub) {
     demandSignals: {
       redditScore: score,
       redditComments: comments,
-      redditCombined: score + comments * 2,
+      redditCombined: combined,
       redditSubreddit: sub,
       redditViaRss: fromRss,
       redditUrl: post.permalink ? `https://www.reddit.com${post.permalink}` : null,
     },
     rationale: fromRss
-      ? `Reddit r/${sub} RSS feed (engagement metrics unavailable)`
+      ? `Reddit r/${sub} RSS feed — recency-based baseline ${combined} (engagement unavailable)`
       : `Reddit r/${sub}: score ${score}, ${comments} comments`,
   };
 }
@@ -426,7 +452,11 @@ export async function fetchRedditCandidates(opts = {}) {
       const norm = normalizeKeyword(p.title);
       if (!norm || seenAcross.has(norm)) continue;
       seenAcross.add(norm);
-      candidates.push(postToCandidate(p, ep.sourceKey, ep.sub));
+      // Stamp position-in-feed onto the post so RSS-sourced candidates can
+      // differentiate by recency (RSS lists newest first). Without this all
+      // RSS Reddit candidates tie at demandScore=0 / totalScore=0.40.
+      const stamped = { ...p, _rssPosition: posts.indexOf(p) };
+      candidates.push(postToCandidate(stamped, ep.sourceKey, ep.sub));
     }
 
     perSubreddit[ep.sourceKey] = candidates.length
