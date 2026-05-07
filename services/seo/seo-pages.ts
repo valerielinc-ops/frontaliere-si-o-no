@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2292,
+ "numberOfItems": 2293,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6934,7 +6934,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2289, "name": "Agricoltura sociale in Ticino: strategie e incl...", "url": `${BASE_URL}/articoli-frontaliere/agricoltura-sociale-ticino-strategie-2026` },
           { "@type": "ListItem", "position": 2290, "name": "Arresto per droga a Capolago: 54 grammi di coca...", "url": `${BASE_URL}/articoli-frontaliere/arresto-droga-capolago-2026` },
           { "@type": "ListItem", "position": 2291, "name": "Lugano saluta lo stadio di Cornaredo: evento il...", "url": `${BASE_URL}/articoli-frontaliere/lugano-saluta-stadio-cornaredo-2024` },
-          { "@type": "ListItem", "position": 2292, "name": "Giro d'Italia in Ticino: ecco le strade chiuse ...", "url": `${BASE_URL}/articoli-frontaliere/giro-ditalia-ticino-strade-chiuse` }
+          { "@type": "ListItem", "position": 2292, "name": "Giro d'Italia in Ticino: ecco le strade chiuse ...", "url": `${BASE_URL}/articoli-frontaliere/giro-ditalia-ticino-strade-chiuse` },
+          { "@type": "ListItem", "position": 2293, "name": "Passo della Novena: montagne di neve da spostar...", "url": `${BASE_URL}/articoli-frontaliere/montagne-neve-riapertura-passo-novena` }
  ]
  },
  {

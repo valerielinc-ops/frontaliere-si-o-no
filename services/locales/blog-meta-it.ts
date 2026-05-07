@@ -6720,6 +6720,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giro-ditalia-ticino-strade-chiuse.title': 'Giro d\'Italia in Ticino: ecco le strade chiuse al traffico',
     'blog.article.giro-ditalia-ticino-strade-chiuse.excerpt': 'Il 26 maggio il Giro d\'Italia passa in Ticino. Ecco le strade chiuse al traffico e gli orari delle chiusure.',
     'blog.article.giro-ditalia-ticino-strade-chiuse.imageAlt': 'Vista aerea di Bellinzona durante il Giro d\'Italia, con ciclisti che corrono attraverso il centro storico, circondati da architettura medievale e le Alpi sullo sfondo.',
+    'blog.article.montagne-neve-riapertura-passo-novena.title': 'Passo della Novena: montagne di neve da spostare per la riapertura',
+    'blog.article.montagne-neve-riapertura-passo-novena.excerpt': 'Operazioni di pulizia in corso per riaprire il passo della Novena. Video delle operazioni pubblicato dal consigliere di Stato Norman Gobbi.',
+    'blog.article.montagne-neve-riapertura-passo-novena.imageAlt': 'Vista aerea del Passo della Novena in Ticino, Svizzera, con macchinari per la rimozione della neve in azione. Cielo azzurro limpido.',
 };
 
 export default blogMetaIt;

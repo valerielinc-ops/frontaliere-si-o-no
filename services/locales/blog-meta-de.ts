@@ -6719,6 +6719,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giro-ditalia-ticino-strade-chiuse.title': 'Giro d\'Italia im Tessin: gesperrte Straßen',
     'blog.article.giro-ditalia-ticino-strade-chiuse.excerpt': 'Am 26. Mai macht der Giro d\'Italia im Tessin Station. Hier sind die gesperrten Straßen und die Sperrzeiten.',
     'blog.article.giro-ditalia-ticino-strade-chiuse.imageAlt': 'Luftaufnahme von Bellinzona während des Giro d\'Italia, mit Radfahrern, die durch das historische Stadtzentrum fahren, umgeben von mittelalterlicher Architektur und den Alpen im Hintergrund.',
+    'blog.article.montagne-neve-riapertura-passo-novena.title': 'Passo della Novena: Schneemassen für die Wiedereröffnung räumen',
+    'blog.article.montagne-neve-riapertura-passo-novena.excerpt': 'Laufende Reinigungsarbeiten für die Wiedereröffnung des Passo della Novena. Video der Arbeiten vom Staatsrat Norman Gobbi veröffentlicht.',
+    'blog.article.montagne-neve-riapertura-passo-novena.imageAlt': 'Luftaufnahme des Passo della Novena im Tessin, Schweiz, mit Schneeräumungsmaschinen bei der Arbeit. Klarer blauer Himmel.',
 };
 
 export default blogMetaDe;

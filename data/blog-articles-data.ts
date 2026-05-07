@@ -21530,4 +21530,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'montagne-neve-riapertura-passo-novena',
+ category: 'pratico',
+ date: '2026-05-07T08:58:21.957Z',
+ image: '/images/blog/montagne-neve-riapertura-passo-novena.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
