@@ -23,9 +23,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-06T22:14:17.115Z",
-      "slug": "berufsbildner-in-pflege-akutgeriatrie-kantonsspital-graubunden-chur",
+      "slug": "professionista-in-allattamento-akutgeriatrie-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "berufsbildner-in-pflege-akutgeriatrie-kantonsspital-graubunden-chur"
+        "de": "berufsbildner-in-pflege-akutgeriatrie-kantonsspital-graubunden-chur",
+        "it": "professionista-in-allattamento-akutgeriatrie-kantonsspital-graubunden-chur",
+        "en": "professional-in-nursing-akutgeriatrie-kantonsspital-graubunden-chur",
+        "fr": "professionnel-en-soins-infirmiers-akutgeriatrie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Berufsbildner:in Pflege Akutgeriatrie",
@@ -56,7 +59,15 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-06T22:14:17.115Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-pflege-akutgeriatrie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-pflege-akutgeriatrie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10026461",
@@ -79,9 +90,12 @@
       "employmentType": "60 - 60%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-06T22:14:17.115Z",
-      "slug": "arztsekretar-in-handchirugie-kantonsspital-graubunden-chur",
+      "slug": "segretario-del-dottore-a-handchirugie-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "arztsekretar-in-handchirugie-kantonsspital-graubunden-chur"
+        "de": "arztsekretar-in-handchirugie-kantonsspital-graubunden-chur",
+        "it": "segretario-del-dottore-a-handchirugie-kantonsspital-graubunden-chur",
+        "en": "doctor-s-secretary-in-handchirugie-kantonsspital-graubunden-chur",
+        "fr": "secretaire-du-docteur-en-handchirugie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Arztsekretär:in Handchirugie",
@@ -110,7 +124,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-06T22:14:17.115Z"
+      "firstSeenAt": "2026-05-06T22:14:17.115Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-handchirugie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-handchirugie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10023657",
@@ -5494,8 +5516,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",

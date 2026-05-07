@@ -473,12 +473,12 @@
     },
     {
       "id": "denner-fb8487c2c26c",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-dubendorf",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-dubendorf",
+        "en": "assistant-in-branch-management-denner-dubendorf",
         "de": "assistent-in-filialleitung-denner-dubendorf",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-des-directions-generales-denner-dubendorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -538,10 +538,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1014,12 +1025,12 @@
     },
     {
       "id": "denner-1ad1bda375b2",
-      "slug": "verkaufer-in-im-stundenlohn-denner-reinach-bl",
+      "slug": "venditore-in-salario-orario-denner-reinach-bl",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-reinach-bl",
-        "en": "verkaufer-in-im-stundenlohn-denner-reinach-bl",
+        "it": "venditore-in-salario-orario-denner-reinach-bl",
+        "en": "seller-in-in-hourly-wage-denner-reinach-bl",
         "de": "verkaufer-in-im-stundenlohn-denner-reinach-bl",
-        "fr": "verkaufer-in-im-stundenlohn-denner-reinach-bl"
+        "fr": "vendeur-en-salaire-horaire-denner-reinach-bl"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1078,20 +1089,24 @@
       "crawledAt": "2026-05-06T21:49:02.549Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-reinach-bl"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-reinach-bl"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-reinach-bl"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-reinach-bl",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,

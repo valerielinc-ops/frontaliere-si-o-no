@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "otis-2a36ac1e18b3",
-      "slug": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach",
+      "slug": "montatore-di-ascensori-modernizzazione-e-sostituzione-m-w-d-otis-sa-reinach",
       "slugByLocale": {
-        "en": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
-        "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach",
+        "en": "elevator-technician-modernization-and-replacement-m-w-d-otis-sa-reinach",
+        "it": "montatore-di-ascensori-modernizzazione-e-sostituzione-m-w-d-otis-sa-reinach",
         "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
-        "fr": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
+        "fr": "monteur-d-ascenseurs-modernisation-et-remplacement-m-w-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -48,11 +48,19 @@
       "crawledAt": "2026-05-06T22:28:41.183Z",
       "previousSlugsByLocale": {
         "it": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
+          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach"
+        ],
+        "en": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
+        ],
+        "fr": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
         ]
       },
       "previousSlugs": [
-        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
+        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
+        "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -138,10 +146,10 @@
     },
     {
       "id": "otis-89c5140e6854",
-      "slug": "technical-expert-m-w-d-otis-belp",
+      "slug": "esperto-tecnico-m-f-d-otis-sa-belp",
       "slugByLocale": {
         "en": "technical-expert-m-w-d-otis-belp",
-        "it": "technical-expert-m-w-d-otis-belp",
+        "it": "esperto-tecnico-m-f-d-otis-sa-belp",
         "de": "technical-expert-m-w-d-otis-belp",
         "fr": "technical-expert-m-w-d-otis-belp"
       },
@@ -193,7 +201,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-06T22:28:40.218Z"
+      "firstSeenAt": "2026-05-06T22:28:40.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-expert-m-w-d-otis-belp"
+        ]
+      },
+      "previousSlugs": [
+        "technical-expert-m-w-d-otis-belp"
+      ]
     },
     {
       "id": "otis-841f2076379e",

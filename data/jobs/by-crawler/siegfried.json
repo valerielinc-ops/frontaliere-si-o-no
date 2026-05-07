@@ -1522,12 +1522,12 @@
     },
     {
       "id": "siegfried-17ae745120f8",
-      "slug": "emergency-and-fire-services-coordinator-siegfried-ch",
+      "slug": "coordinatore-servizi-di-emergenza-e-fuoco-siegfried-evionnaz",
       "slugByLocale": {
         "fr": "emergency-and-fire-services-coordinator-siegfried-ch",
-        "it": "emergency-and-fire-services-coordinator-siegfried-ch",
+        "it": "coordinatore-servizi-di-emergenza-e-fuoco-siegfried-evionnaz",
         "en": "emergency-and-fire-services-coordinator-siegfried-ch",
-        "de": "emergency-and-fire-services-coordinator-siegfried-ch"
+        "de": "notfall-und-feuerwehrkoordinator-siegfried-evionnaz"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1583,7 +1583,18 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-06T22:37:48.270Z"
+      "firstSeenAt": "2026-05-06T22:37:48.270Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "emergency-and-fire-services-coordinator-siegfried-ch"
+        ],
+        "de": [
+          "emergency-and-fire-services-coordinator-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "emergency-and-fire-services-coordinator-siegfried-ch"
+      ]
     }
   ]
 }

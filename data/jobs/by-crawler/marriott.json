@@ -1436,11 +1436,11 @@
     },
     {
       "id": "marriott-5774481b9f11",
-      "slug": "stagista-reception-marriott-international-geneva",
+      "slug": "stagiaire-patisse-marriott-international-geneva",
       "slugByLocale": {
         "en": "stagiaire-patisserie-marriott-geneva",
-        "it": "stagista-reception-marriott-international-geneva",
-        "de": "praktikant-rezeption-marriott-international-geneva",
+        "it": "stagiaire-patisse-marriott-international-geneva",
+        "de": "interne-pastete-marriott-international-geneva",
         "fr": "stagiaire-patisserie-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -1496,10 +1496,18 @@
       "previousSlugsByLocale": {
         "fr": [
           "stagiaire-reception-marriott-geneva"
+        ],
+        "it": [
+          "stagista-reception-marriott-international-geneva"
+        ],
+        "de": [
+          "praktikant-rezeption-marriott-international-geneva"
         ]
       },
       "previousSlugs": [
-        "stagiaire-reception-marriott-geneva"
+        "stagiaire-reception-marriott-geneva",
+        "stagista-reception-marriott-international-geneva",
+        "praktikant-rezeption-marriott-international-geneva"
       ],
       "salaryMin": 47658,
       "salaryMax": 57200,
@@ -3340,12 +3348,12 @@
     },
     {
       "id": "marriott-5404a16f4356",
-      "slug": "f-b-support-expert-stewarding-marriott-zurich",
+      "slug": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
       "slugByLocale": {
         "en": "f-b-support-expert-stewarding-marriott-zurich",
-        "it": "f-b-support-expert-stewarding-marriott-zurich",
+        "it": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
         "de": "f-b-support-expert-stewarding-marriott-zurich",
-        "fr": "f-b-support-expert-stewarding-marriott-zurich"
+        "fr": "expert-en-soutien-aux-f-b-et-intendant-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3409,7 +3417,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-06T22:21:00.964Z"
+      "firstSeenAt": "2026-05-06T22:21:00.964Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-support-expert-stewarding-marriott-zurich"
+        ],
+        "fr": [
+          "f-b-support-expert-stewarding-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-support-expert-stewarding-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-1ed74a315844",

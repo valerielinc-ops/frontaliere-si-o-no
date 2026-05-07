@@ -43,9 +43,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "responsabile-logistica-magazzino-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino-n69j15",
-        "en": "manager-logistics-warehouse-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino-n69j15",
+        "en": "head-of-logistics-warehouse-and-distribution-center-castione-100-coop-genossenschaft-arbedo-castione",
         "de": "verantwortlicher-logistik-lager-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino-n69j15",
-        "fr": "responsable-logistique-entrepot-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino-n69j15"
+        "fr": "chef-de-l-entrepot-logistique-et-du-centre-de-distribution-castione-100-coop-genossenschaft-arbedo-castione"
       },
       "addressLocality": "Arbedo-Castione",
       "salaryMin": 142000,
@@ -60,7 +60,19 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "manager-logistics-warehouse-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino-n69j15"
+        ],
+        "fr": [
+          "responsable-logistique-entrepot-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino-n69j15"
+        ]
+      },
+      "previousSlugs": [
+        "manager-logistics-warehouse-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino-n69j15",
+        "responsable-logistique-entrepot-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino-n69j15"
+      ]
     },
     {
       "id": "company-qbnh3b",
@@ -1210,13 +1222,11 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
           "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437"
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
           "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437"
         ],
@@ -1225,17 +1235,13 @@
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
           "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
@@ -1311,13 +1317,11 @@
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
           "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d"
         ],
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "managing-director-in-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
           "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d"
         ],
@@ -1326,17 +1330,13 @@
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "directeur-general-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
           "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "managing-director-in-christ-uhren-schmuck-ag-chur",
-        "directeur-general-christ-uhren-schmuck-ag-chur",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"
@@ -1556,7 +1556,7 @@
         "it": "home-fornitore-negli-elettrodomestici-elettrici-fust-cadenazzo",
         "en": "home-supplier-in-electric-household-appliances-fust-grigioni",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-cadenazzo",
-        "fr": "fournisseurs-dans-les-appareils-electromenagers-fust-cadenazzo"
+        "fr": "fournisseurs-dans-les-appareils-electromenagers-fust-swiss-household-services-ag-oberburen"
       },
       "addressLocality": "Oberbüren",
       "sourceLang": "de",
@@ -1579,7 +1579,8 @@
         ],
         "fr": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-oberburen-29z0lf",
-          "fournisseur-a-domicile-dans-les-appareils-menagers-electriques-fust-swiss-household-services-ag-oberburen"
+          "fournisseur-a-domicile-dans-les-appareils-menagers-electriques-fust-swiss-household-services-ag-oberburen",
+          "fournisseurs-dans-les-appareils-electromenagers-fust-cadenazzo"
         ],
         "it": [
           "home-fornitore-negli-elettrodomestici-elettrici-fust-swiss-household-services-ag-oberburen"
@@ -1592,6 +1593,7 @@
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-oberburen-29z0lf",
         "home-supplier-in-electric-household-appliances-fust-swiss-household-services-ag-oberburen",
         "fournisseur-a-domicile-dans-les-appareils-menagers-electriques-fust-swiss-household-services-ag-oberburen",
+        "fournisseurs-dans-les-appareils-electromenagers-fust-cadenazzo",
         "home-fornitore-negli-elettrodomestici-elettrici-fust-swiss-household-services-ag-oberburen"
       ]
     },
@@ -2214,19 +2216,16 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "venditore-in-food-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
           "venditore-in-food-coop-genossenschaft-felsberg-6dde92"
         ],
         "en": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "seller-in-food-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
           "seller-in-food-coop-genossenschaft-felsberg-6dde92"
         ],
         "fr": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
           "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
         ],
@@ -2236,10 +2235,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "venditore-in-food-coop-genossenschaft-felsberg",
         "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "seller-in-food-coop-genossenschaft-felsberg",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
         "venditore-in-food-coop-genossenschaft-felsberg-6dde92",
         "seller-in-food-coop-genossenschaft-felsberg-6dde92",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"

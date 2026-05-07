@@ -956,12 +956,12 @@
     },
     {
       "id": "bcvs-eb1d10e603b7",
-      "slug": "specialiste-tresorerie-devises-bcvs-sion",
+      "slug": "tesore-specializzato-valuta-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion",
-        "it": "specialiste-tresorerie-devises-bcvs-sion",
-        "en": "specialiste-tresorerie-devises-bcvs-sion",
-        "de": "specialiste-tresorerie-devises-bcvs-sion"
+        "it": "tesore-specializzato-valuta-banque-cantonale-du-valais-sion",
+        "en": "specialist-treasury-currency-banque-cantonale-du-valais-sion",
+        "de": "fachhandel-wahrung-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -1029,7 +1029,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-06T21:27:36.448Z"
+      "firstSeenAt": "2026-05-06T21:27:36.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ],
+        "en": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ],
+        "de": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-tresorerie-devises-bcvs-sion"
+      ]
     }
   ]
 }
