@@ -67,9 +67,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/topic-candidates.json data/demand-vocabulary.json data/experimental-candidates.json
+          # Legacy data/topic-candidates.json was dropped 2026-05-07 — Phase B+C
+          # ranker reads demand-vocabulary.json + experimental-candidates.json
+          # directly. The mining script no longer writes the legacy file.
+          git add data/demand-vocabulary.json data/experimental-candidates.json
           if git diff --cached --quiet; then
-            echo "No changes to data/topic-candidates.json"
+            echo "No changes to demand-vocabulary or experimental-candidates"
             exit 0
           fi
           git commit -m "chore: refresh topic candidates"

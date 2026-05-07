@@ -338,14 +338,21 @@ export async function mineTopicCandidates({
     candidates,
   };
 
-  writeJsonAtomic(outputPath, output);
+  // Legacy `data/topic-candidates.json` is dropped 2026-05-07 — it was
+  // structurally unreachable (CANDIDATE_MIN_SCORE=0.6 vs top scores
+  // ~0.55) and is no longer consumed by `create-article.mjs`. Tests
+  // still pass `outputPath` to verify the merge/score/sort pipeline,
+  // so we keep writing IF the caller specified a path. Production CI
+  // passes `outputPath: null` (set in topic-candidates-mining.yml +
+  // the script's `main` runner below) to skip the write.
+  if (outputPath) {
+    writeJsonAtomic(outputPath, output);
+  }
 
-  // ── Phase A: also emit demand-vocabulary.json + experimental-candidates.json ──
-  //
-  // These outputs are write-always-with-sensible-fallback. A failure in
-  // either pipeline must never fail the main candidate-mining flow, since
-  // the legacy `topic-candidates.json` is still consumed by the
-  // create-article path until Phase B+C wires the new vocab in.
+  // ── Phase A: emit demand-vocabulary.json + experimental-candidates.json ──
+  // These two files are now the canonical outputs consumed by
+  // Phase B+C ranker (`rankAndSelectHeadlines` in article-topic-selector).
+  // Each is wrapped in a safeWrite that never fails the run.
   await safeWriteVocab({
     vocabOutputPath,
     gscOrphansImpl,
@@ -539,30 +546,24 @@ const isMain = (() => {
 })();
 
 if (isMain) {
-  mineTopicCandidates()
+  // Production CI: skip the legacy `data/topic-candidates.json` write
+  // entirely (set 2026-05-07). Demand-vocabulary + experimental-candidates
+  // are the canonical outputs. Pass `outputPath: null` to skip.
+  mineTopicCandidates({ outputPath: null })
     .then((out) => {
       const counts = Object.entries(out.sources)
         .map(([k, v]) => `${k}:${v.candidates}${v.ok ? '' : '!'}`)
         .join(' ');
       console.log(
-        `[mine-topic] wrote ${out.candidates.length} candidates → ${OUTPUT_PATH}`,
+        `[mine-topic] processed ${out.candidates.length} candidates (legacy file skipped) → ${VOCAB_OUTPUT_PATH} + ${EXPERIMENTAL_OUTPUT_PATH}`,
       );
       console.log(`[mine-topic] per-source: ${counts}`);
       process.exit(0);
     })
     .catch((e) => {
       // We should never get here — orchestrator wraps everything — but if we
-      // do, still exit 0 with an empty file rather than failing CI.
+      // do, exit 0 so CI doesn't fail the workflow.
       console.error(`[mine-topic] unexpected error: ${e.message ?? e}`);
-      try {
-        writeJsonAtomic(OUTPUT_PATH, {
-          generatedAt: new Date().toISOString(),
-          sources: {},
-          candidates: [],
-        });
-      } catch {
-        /* ignore */
-      }
       process.exit(0);
     });
 }

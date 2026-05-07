@@ -69,7 +69,6 @@ import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
-  CANDIDATES_PATH as TOPIC_CANDIDATES_PATH,
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
   TODAY_PICKS_BY_CLUSTER_PATH,
   EXPERIMENTAL_COUNTER_PATH,
@@ -78,7 +77,6 @@ import {
   loadConsumedTracker as _topicLoadConsumedTracker,
   appendConsumedId as _topicAppendConsumedId,
   persistConsumedTracker as _topicPersistConsumedTracker,
-  pickTopCandidate as _topicPickTopCandidate,
   buildWinnerFingerprintMessage as _topicBuildFingerprintMessage,
   loadDemandVocabulary as _loadDemandVocabulary,
   loadExperimentalCandidates as _loadExperimentalCandidates,
@@ -91,11 +89,15 @@ import {
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
-// data/topic-candidates.json is produced weekly by Phase 1B.
+// data/demand-vocabulary.json + data/experimental-candidates.json are
+// produced weekly by Phase 1B (Phase A spec 2026-05-07). The legacy
+// `data/topic-candidates.json` was structurally bypassed (gate 0.6
+// unreachable) and got dropped 2026-05-07 — Phase B+C ranker reads
+// the new files directly via `_loadDemandVocabulary` /
+// `_loadExperimentalCandidates`.
 // Both are OPTIONAL — when absent, generator behaves byte-identically
-// to today (no fingerprint injection, no candidate pool).
+// to today (no fingerprint injection, no demand-driven ranker).
 const _articlePerformance = _topicLoadJsonSafe(ARTICLE_PERF_PATH);
-const _topicCandidates = _topicLoadJsonSafe(TOPIC_CANDIDATES_PATH);
 const _winnerFingerprintMessage = _articlePerformance
   ? _topicBuildFingerprintMessage(_articlePerformance)
   : null;
@@ -5501,47 +5503,17 @@ async function main() {
       console.error('⚠️  Nessun headline trovato da nessuna fonte.\n');
     }
 
-    // ── Phase 1.5: Topic-candidate pool (Phase 3 — spec 2026-05-06) ──
-    // Consulted between news and evergreen. Skipped when topic-candidates.json
-    // is missing (current behavior). Picks the highest-scoring candidate that
-    // (a) hasn't been consumed before and (b) isn't structurally similar to an
-    // existing IT article title.
-    let candidateSuccess = false;
-    if (!newsSuccess && _topicCandidates && Array.isArray(_topicCandidates.candidates) && _topicCandidates.candidates.length > 0) {
-      console.error('🎯 Fase 1.5: Topic-candidate pool — provo candidato di alto punteggio...\n');
-      const consumed = _topicLoadConsumedTracker(CONSUMED_TRACKER_PATH);
-      const existingTitles = _topicLoadExistingItTitles();
-      const candidate = _topicPickTopCandidate(_topicCandidates, { consumed, existingTitles });
-      if (!candidate) {
-        console.error('   ⏭️  Nessun candidato eleggibile (tutti consumati, score basso, o duplicati) — fallback evergreen.\n');
-      } else {
-        console.error(`   ✅ Candidato selezionato: "${candidate.keyword}" (score=${candidate.totalScore?.toFixed?.(2) ?? candidate.totalScore})`);
-        if (candidate.angle) console.error(`      Angolo: ${candidate.angle}`);
-        try {
-          RUN_REPORT.selectedArticleType = 'topic_candidate';
-          RUN_REPORT.selectedSource = 'topic-candidates';
-          RUN_REPORT.selectedUrl = `evergreen://${encodeURIComponent(candidate.keyword)}`;
-          url = `evergreen://${encodeURIComponent(candidate.keyword)}`;
-          process.env._EVERGREEN_ANGLE = candidate.angle || candidate.keyword;
-          process.env._EVERGREEN_KEYWORD = candidate.keyword;
-          await generateAndValidateArticle(url, { headline: candidate.keyword, source: 'topic-candidates', relatedHeadlines: [] });
-          // Persist consumed tracker so this id is not picked next run.
-          const updated = _topicAppendConsumedId(consumed, candidate.id);
-          _topicPersistConsumedTracker(updated, CONSUMED_TRACKER_PATH);
-          candidateSuccess = true;
-          return; // Success — exit main
-        } catch (e) {
-          const isDuplicate = e.message.includes('DUPLICATO');
-          if (isDuplicate) captureDuplicateReasons(e.message);
-          const isQualityReject = /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
-          if (!isDuplicate && !isQualityReject) throw e;
-          console.error(`   ⚠️  Candidato fallito (${isDuplicate ? 'duplicato' : 'qualità'}) — fallback evergreen.\n`);
-          // Mark this candidate as consumed so we don't pick it again next run.
-          const updated = _topicAppendConsumedId(consumed, candidate.id);
-          _topicPersistConsumedTracker(updated, CONSUMED_TRACKER_PATH);
-        }
-      }
-    }
+    // ── Phase 1.5 REMOVED 2026-05-07 ──
+    // The legacy Phase 1.5 topic-candidate pool was structurally bypassed:
+    // CANDIDATE_MIN_SCORE=0.6 was unreachable with the empirical candidate
+    // distribution (top score ~0.55), so this code path never produced an
+    // article. Phase B+C demand-driven ranker (in `selectArticle`/
+    // `rankAndSelectHeadlines`) replaces it: news pool is ranked by
+    // demand-vocabulary overlap directly, no separate "candidate pool"
+    // round needed. Legacy `data/topic-candidates.json` is no longer
+    // written; new consumers use `data/demand-vocabulary.json` +
+    // `data/experimental-candidates.json`.
+    const candidateSuccess = false;
 
     // ── Phase 2: Evergreen fallback — only reached if news scan produced nothing usable ──
     if (!newsSuccess && !candidateSuccess) {
