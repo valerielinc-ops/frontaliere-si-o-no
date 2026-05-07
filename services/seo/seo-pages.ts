@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2260,
+ "numberOfItems": 2261,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6902,7 +6902,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2257, "name": "Varese, riapre via Mulini Grassi: terminati i l...", "url": `${BASE_URL}/articoli-frontaliere/varese-riapre-via-mulini-grassi` },
           { "@type": "ListItem", "position": 2258, "name": "L’addio al passaporto Usa passa da Berna: cosa ...", "url": `${BASE_URL}/articoli-frontaliere/addio-passaporto-usa-berna` },
           { "@type": "ListItem", "position": 2259, "name": "Marco Odermatt riceve dottorato honoris causa d...", "url": `${BASE_URL}/articoli-frontaliere/odermatt-dottorato-honoris-causa` },
-          { "@type": "ListItem", "position": 2260, "name": "Cottarelli al Liceo Manzoni: geopolitica e futu...", "url": `${BASE_URL}/articoli-frontaliere/cottarelli-liceo-manzoni-geopolitica` }
+          { "@type": "ListItem", "position": 2260, "name": "Cottarelli al Liceo Manzoni: geopolitica e futu...", "url": `${BASE_URL}/articoli-frontaliere/cottarelli-liceo-manzoni-geopolitica` },
+          { "@type": "ListItem", "position": 2261, "name": "Teletext fuori uso in Ticino: niente aggiorname...", "url": `${BASE_URL}/articoli-frontaliere/teletext-ticino-fuori-uso-2024` }
  ]
  },
  {

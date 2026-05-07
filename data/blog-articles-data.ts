@@ -21242,4 +21242,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'teletext-ticino-fuori-uso-2024',
+ category: 'novita',
+ date: '2026-05-07T03:32:06.439Z',
+ image: '/images/blog/teletext-ticino-fuori-uso-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

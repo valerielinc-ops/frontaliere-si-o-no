@@ -6624,6 +6624,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cottarelli-liceo-manzoni-geopolitica.title': 'Cottarelli al Liceo Manzoni: geopolitica e futuro globale',
     'blog.article.cottarelli-liceo-manzoni-geopolitica.excerpt': 'L\'economista Carlo Cottarelli incontra gli studenti del Liceo Manzoni di Varese per parlare di tensioni globali e scenari economici',
     'blog.article.cottarelli-liceo-manzoni-geopolitica.imageAlt': 'Aula magna del Liceo Manzoni di Varese con studenti che ascoltano un relatore',
+    'blog.article.teletext-ticino-fuori-uso-2024.title': 'Teletext fuori uso in Ticino: niente aggiornamenti, servizi o accesso',
+    'blog.article.teletext-ticino-fuori-uso-2024.excerpt': 'Il servizio Teletext è attualmente fuori uso in Ticino, causando disagi per i frontalieri che lo utilizzano per informazioni aggiornate.',
+    'blog.article.teletext-ticino-fuori-uso-2024.imageAlt': 'Persona che guarda uno schermo teletext guasto in una stazione ferroviaria svizzera con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

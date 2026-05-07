@@ -24966,6 +24966,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-teletext-ticino-fuori-uso-2024': {
+    title: 'Teletext fuori uso in Ticino: niente aggiornamenti, servizi o accesso',
+    description: 'Il servizio Teletext è attualmente fuori uso in Ticino, causando disagi per i frontalieri che lo utilizzano per informazioni aggiornate. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, teletext, fuori, niente, aggiornamenti',
+    ogTitle: 'Teletext fuori uso in Ticino: niente aggiornamenti, servizi o accesso',
+    ogDescription: 'Il servizio Teletext è attualmente fuori uso in Ticino, causando disagi per i frontalieri che lo utilizzano per informazioni aggiornate.',
+    canonicalPath: '/articoli-frontaliere/teletext-ticino-fuori-uso-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Teletext fuori uso in Ticino: niente aggiornamenti, servizi o accesso",
+      "description": "Il servizio Teletext è attualmente fuori uso in Ticino, causando disagi per i frontalieri che lo utilizzano per informazioni aggiornate. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/teletext-ticino-fuori-uso-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che guarda uno schermo teletext guasto in una stazione ferroviaria svizzera con il Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-07T03:32:06+00:00",
+      "dateModified": "2026-05-07T03:32:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/teletext-ticino-fuori-uso-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

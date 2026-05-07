@@ -6624,6 +6624,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cottarelli-liceo-manzoni-geopolitica.title': 'Cottarelli au Lycée Manzoni : géopolitique et avenir mondial',
     'blog.article.cottarelli-liceo-manzoni-geopolitica.excerpt': 'L\'économiste Carlo Cottarelli rencontre les élèves du Lycée Manzoni de Varèse pour parler des tensions mondiales et des scénarios économiques',
     'blog.article.cottarelli-liceo-manzoni-geopolitica.imageAlt': 'Amphithéâtre du Liceo Manzoni à Varese avec des élèves écoutant un conférencier',
+    'blog.article.teletext-ticino-fuori-uso-2024.title': 'Le télétexte est hors service au Tessin: pas de mises à jour, services ou accès',
+    'blog.article.teletext-ticino-fuori-uso-2024.excerpt': 'Le service de télétexte est actuellement hors service au Tessin, causant des désagréments pour les frontaliers qui l\'utilisent pour obtenir des informations mises à jour.',
+    'blog.article.teletext-ticino-fuori-uso-2024.imageAlt': 'Personne regardant un écran de télétexte cassé dans une gare suisse avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
