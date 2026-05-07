@@ -6776,6 +6776,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.title': 'German-speaking Switzerland: new journalists\' minimum wage agreement',
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.excerpt': 'After 20 years, German-speaking Switzerland has an agreement on minimum wages for journalists. Ticino will soon examine it.',
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.imageAlt': 'Press conference in Lucerne, Switzerland, with journalists and editors',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.title': 'Switzerland under pressure: rising Russian hybrid threat',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.excerpt': 'The Federal Council warns: Russian espionage, cyberattacks, and sabotage threaten Swiss security. Here\'s what changes for cross-border workers.',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.imageAlt': 'Castelgrande Castle in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

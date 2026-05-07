@@ -6776,6 +6776,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.title': 'Medien- und Gewerkschaftsabkommen in der Deutschschweiz: Was ändert sich?',
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.excerpt': 'Nach 20 Jahren gibt es in der Deutschschweiz ein Abkommen zu Mindestlöhnen für Journalisten. Der Tessin wird es bald prüfen.',
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.imageAlt': 'Pressekonferenz in Luzern, Schweiz, mit Journalisten und Herausgebern',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.title': 'Schweiz unter Druck: Russische Hybridbedrohung wächst',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.excerpt': 'Der Bundesrat warnt: Spionage, Cyberangriffe und Sabotage aus Russland bedrohen die Schweizer Sicherheit. Das ändert sich für Grenzgänger.',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.imageAlt': 'Schloss Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

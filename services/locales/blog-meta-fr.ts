@@ -6777,6 +6777,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.title': 'Accord éditeurs-syndicats en Suisse alémanique : que change-t-il ?',
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.excerpt': 'Après 20 ans, la Suisse alémanique a un accord sur les salaires minimaux pour les journalistes. Le Tessin l\'examinera bientôt.',
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.imageAlt': 'Conférence de presse à Lucerne, Suisse, avec des journalistes et des éditeurs',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.title': 'Suisse sous pression: la menace hybride russe grandit',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.excerpt': 'Le Conseil fédéral alerte: espionnage, cyberattaques et sabotages russes menacent la sécurité suisse. Voici ce qui change pour les frontaliers.',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.imageAlt': 'Château de Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;

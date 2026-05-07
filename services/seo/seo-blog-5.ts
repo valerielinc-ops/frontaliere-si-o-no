@@ -26945,6 +26945,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-minaccia-ibrida-russa-2026': {
+    title: 'Svizzera sotto pressione: cresce la minaccia ibrida russa',
+    description: 'Rapporto del Consiglio federale allarma: spionaggio, ciberattacchi e sabotaggi russi minacciano la sicurezza svizzera. Impatto sui frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sotto, pressione, cresce, minaccia',
+    ogTitle: 'Svizzera sotto pressione: minaccia ibrida russa',
+    ogDescription: 'Rapporto del Consiglio federale allarma: spionaggio, ciberattacchi e sabotaggi russi minacciano la sicurezza svizzera. Impatto sui frontalieri.',
+    canonicalPath: '/articoli-frontaliere/svizzera-minaccia-ibrida-russa-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera sotto pressione: cresce la minaccia ibrida russa",
+      "description": "Rapporto del Consiglio federale allarma: spionaggio, ciberattacchi e sabotaggi russi minacciano la sicurezza svizzera. Impatto sui frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-minaccia-ibrida-russa-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-05-07T13:25:37+00:00",
+      "dateModified": "2026-05-07T13:25:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-minaccia-ibrida-russa-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

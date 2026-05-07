@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2311,
+ "numberOfItems": 2312,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6953,7 +6953,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2308, "name": "Hantavirus in Svizzera: casi rari, basso rischi...", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-svizzera-frontalieri-2026` },
           { "@type": "ListItem", "position": 2309, "name": "CEDU condanna la Svizzera per violazione diritt...", "url": `${BASE_URL}/articoli-frontaliere/cedu-condanna-svizzera-diritti-manifestante` },
           { "@type": "ListItem", "position": 2310, "name": "Fabio Giorgianni, l'autista più amato d'Italia:...", "url": `${BASE_URL}/articoli-frontaliere/autista-stellato-fabio-giorgianni-premio` },
-          { "@type": "ListItem", "position": 2311, "name": "Accordo editori-sindacati in Svizzera tedesca: ...", "url": `${BASE_URL}/articoli-frontaliere/accordo-editori-sindacati-svizzera-tedesca` }
+          { "@type": "ListItem", "position": 2311, "name": "Accordo editori-sindacati in Svizzera tedesca: ...", "url": `${BASE_URL}/articoli-frontaliere/accordo-editori-sindacati-svizzera-tedesca` },
+          { "@type": "ListItem", "position": 2312, "name": "Svizzera sotto pressione: cresce la minaccia ib...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-minaccia-ibrida-russa-2026` }
  ]
  },
  {

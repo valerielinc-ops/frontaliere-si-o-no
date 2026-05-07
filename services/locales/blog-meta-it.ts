@@ -6777,6 +6777,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.title': 'Accordo editori-sindacati in Svizzera tedesca: cosa cambia',
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.excerpt': 'Dopo 20 anni, Svizzera tedesca ha un accordo su salari minimi per giornalisti. Il Ticino lo esaminerà presto.',
     'blog.article.accordo-editori-sindacati-svizzera-tedesca.imageAlt': 'Conferenza stampa a Lucerna, Svizzera, con giornalisti ed editori',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.title': 'Svizzera sotto pressione: cresce la minaccia ibrida russa',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.excerpt': 'Il Consiglio federale allarma: spionaggio, ciberattacchi e sabotaggi russi minacciano la sicurezza svizzera. Ecco cosa cambia per i frontalieri.',
+    'blog.article.svizzera-minaccia-ibrida-russa-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;
