@@ -6690,6 +6690,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.temporali-ticino-traffico-2024.title': 'Allerta grado 3 per temporali in Ticino: traffico rallentato dalla grandine',
     'blog.article.temporali-ticino-traffico-2024.excerpt': 'MeteoSvizzera ha diramato un\'allerta di grado 3 per temporali nel Luganese, con rischio di frane, allagamenti e traffico rallentato.',
     'blog.article.temporali-ticino-traffico-2024.imageAlt': 'Tempesta con grandine sul Lago di Lugano, traffico rallentato',
+    'blog.article.progetto-prossimita-locarno-2026.title': 'Progetto di Prossimità Locarno: cosa cambia per i frontalieri',
+    'blog.article.progetto-prossimita-locarno-2026.excerpt': 'Il rinnovo della convenzione intercomunale fino al 2029 e le implicazioni per la coesione sociale e i giovani',
+    'blog.article.progetto-prossimita-locarno-2026.imageAlt': 'Vista aerea di Piazza Grande a Locarno con il lago sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -6689,6 +6689,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.temporali-ticino-traffico-2024.title': 'Severe thunderstorms in Lugano: hail slows traffic',
     'blog.article.temporali-ticino-traffico-2024.excerpt': 'MeteoSwiss has issued a level 3 alert for thunderstorms in Lugano, with a risk of landslides, flooding, and slowed traffic.',
     'blog.article.temporali-ticino-traffico-2024.imageAlt': 'Thunderstorm with hail over Lake Lugano, traffic slowed',
+    'blog.article.progetto-prossimita-locarno-2026.title': 'Locarno Proximity Project: changes for cross-border workers',
+    'blog.article.progetto-prossimita-locarno-2026.excerpt': 'Renewal of the inter-municipal convention until 2029 and implications for social cohesion and young people',
+    'blog.article.progetto-prossimita-locarno-2026.imageAlt': 'Aerial view of Locarno\'s Piazza Grande with the lake in the background',
 };
 
 export default blogMetaEn;

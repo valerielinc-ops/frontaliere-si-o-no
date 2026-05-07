@@ -6690,6 +6690,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.temporali-ticino-traffico-2024.title': 'Alerte météo de degré 3 pour orages dans le Luganais',
     'blog.article.temporali-ticino-traffico-2024.excerpt': 'MétéoSuisse a émis une alerte de degré 3 pour orages dans le Luganais, avec risque de glissements de terrain, d\'inondations et de trafic ralenti par la grêle.',
     'blog.article.temporali-ticino-traffico-2024.imageAlt': 'Orage avec grêle sur le lac de Lugano, trafic ralenti',
+    'blog.article.progetto-prossimita-locarno-2026.title': 'Projet de proximité Locarno : ce qui change pour les frontaliers',
+    'blog.article.progetto-prossimita-locarno-2026.excerpt': 'Le renouvellement de la convention intercommunale jusqu\'en 2029 et les implications pour la cohésion sociale et les jeunes',
+    'blog.article.progetto-prossimita-locarno-2026.imageAlt': 'Vue aérienne de la Piazza Grande à Locarno avec le lac en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -6689,6 +6689,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.temporali-ticino-traffico-2024.title': 'Wetteralarm Stufe 3 im Tessin: Verkehr durch Hagel verlangsamt',
     'blog.article.temporali-ticino-traffico-2024.excerpt': 'MeteoSchweiz hat eine Warnung der Stufe 3 für Gewitter im Luganese herausgegeben, mit der Gefahr von Erdrutschen, Überschwemmungen und verlangsamtem Verkehr.',
     'blog.article.temporali-ticino-traffico-2024.imageAlt': 'Gewitter mit Hagel über dem Luganersee, Verkehr verlangsamt',
+    'blog.article.progetto-prossimita-locarno-2026.title': 'Projekt Nähe Locarno: Auswirkungen auf Grenzgänger',
+    'blog.article.progetto-prossimita-locarno-2026.excerpt': 'Die Erneuerung der interkommunalen Vereinbarung bis 2029 und die Auswirkungen auf den sozialen Zusammenhalt und die Jugend',
+    'blog.article.progetto-prossimita-locarno-2026.imageAlt': 'Luftaufnahme des Piazza Grande in Locarno mit dem See im Hintergrund',
 };
 
 export default blogMetaDe;
