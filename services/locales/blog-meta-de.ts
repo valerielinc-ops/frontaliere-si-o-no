@@ -6737,6 +6737,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassis-cornado-crans-montana-risarcimento.title': 'Cassis und Cornado: Spannungen um Entschädigung für Crans-Montana-Opfer',
     'blog.article.cassis-cornado-crans-montana-risarcimento.excerpt': 'Der italienische Botschafter Cornado reagiert auf die Kritik von Cassis zu den Krankenhausrechnungen für die italienischen Opfer des Crans-Montana-Brandes.',
     'blog.article.cassis-cornado-crans-montana-risarcimento.imageAlt': 'Schäden am Bar Le Constellation nach dem Brand in Crans-Montana',
+    'blog.article.liberta-riunione-cedu-condanna-svizzera.title': 'Europäischer Gerichtshof verurteilt Schweiz wegen Versammlungsfreiheit',
+    'blog.article.liberta-riunione-cedu-condanna-svizzera.excerpt': 'Der Europäische Gerichtshof für Menschenrechte hat die Schweiz verurteilt, weil sie die Versammlungsfreiheit während einer Demonstration in Genf im Jahr 2019 verletzt hat.',
+    'blog.article.liberta-riunione-cedu-condanna-svizzera.imageAlt': 'Eine Protestveranstaltung in Genf mit einer vielfältigen Menge, die Schilder und Banner hält, vor dem Hintergrund der ikonischen Wahrzeichen der Stadt.',
 };
 
 export default blogMetaDe;

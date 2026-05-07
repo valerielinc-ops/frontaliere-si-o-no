@@ -6737,6 +6737,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cassis-cornado-crans-montana-risarcimento.title': 'Cassis and Cornado: tensions over Crans-Montana compensation',
     'blog.article.cassis-cornado-crans-montana-risarcimento.excerpt': 'Italian ambassador Cornado responds to Cassis\' criticism over hospital bills for Italian victims of the Crans-Montana fire.',
     'blog.article.cassis-cornado-crans-montana-risarcimento.imageAlt': 'Damage to Le Constellation bar after the Crans-Montana fire',
+    'blog.article.liberta-riunione-cedu-condanna-svizzera.title': 'ECHR condemns Switzerland for violating freedom of assembly',
+    'blog.article.liberta-riunione-cedu-condanna-svizzera.excerpt': 'The European Court of Human Rights has condemned Switzerland for violating the freedom of assembly during a demonstration in Geneva in 2019.',
+    'blog.article.liberta-riunione-cedu-condanna-svizzera.imageAlt': 'A protest in Geneva with a diverse crowd holding signs and banners, set against the backdrop of the city\'s iconic landmarks.',
 };
 
 export default blogMetaEn;

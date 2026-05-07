@@ -21584,4 +21584,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'liberta-riunione-cedu-condanna-svizzera',
+ category: 'novita',
+ date: '2026-05-07T09:49:42.273Z',
+ image: '/images/blog/liberta-riunione-cedu-condanna-svizzera.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

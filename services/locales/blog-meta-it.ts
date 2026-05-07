@@ -6738,6 +6738,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassis-cornado-crans-montana-risarcimento.title': 'Cassis e Cornado: tensioni sul risarcimento per le vittime di Crans-Montana',
     'blog.article.cassis-cornado-crans-montana-risarcimento.excerpt': 'L\'ambasciatore italiano Cornado risponde alle critiche di Cassis sulle fatture ospedaliere per le vittime italiane dell\'incendio di Crans-Montana.',
     'blog.article.cassis-cornado-crans-montana-risarcimento.imageAlt': 'Danni al bar Le Constellation dopo l\'incendio di Crans-Montana',
+    'blog.article.liberta-riunione-cedu-condanna-svizzera.title': 'CEDU condanna la Svizzera per violazione libertà di riunione',
+    'blog.article.liberta-riunione-cedu-condanna-svizzera.excerpt': 'La Corte europea dei diritti dell\'uomo ha condannato la Svizzera per aver violato la libertà di riunione durante una manifestazione a Ginevra nel 2019.',
+    'blog.article.liberta-riunione-cedu-condanna-svizzera.imageAlt': 'Manifestazione a Ginevra con un gruppo eterogeneo di persone che tengono cartelli e striscioni, sullo sfondo dei monumenti iconici della città.',
 };
 
 export default blogMetaIt;

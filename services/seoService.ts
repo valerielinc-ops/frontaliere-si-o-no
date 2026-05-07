@@ -3488,6 +3488,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mengele-svizzera-1961-verifica': { name: 'Novità', path: '/articoli-frontaliere/mengele-svizzera-1961-verifica', parent: 'blog' },
     'blog-hantavirus-zurigo-crocerista-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-zurigo-crocerista-frontalieri', parent: 'blog' },
     'blog-cassis-cornado-crans-montana-risarcimento': { name: 'Novità', path: '/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento', parent: 'blog' },
+    'blog-liberta-riunione-cedu-condanna-svizzera': { name: 'Novità', path: '/articoli-frontaliere/liberta-riunione-cedu-condanna-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];
