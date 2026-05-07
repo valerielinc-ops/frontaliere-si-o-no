@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-05-07T10:33:58.316Z",
+  "generatedAt": "2026-05-07T21:22:58.024Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2288,
-  "avgDurationMs": 2288,
+  "durationMs": 2664,
+  "avgDurationMs": 2664,
   "durationHistory": [
-    2288
+    2664
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -185,13 +185,13 @@
       "contractType": "full-time",
       "validThrough": "2026-08-04",
       "id": "board-international-c5d53d3b1190",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
       "firstSeenAt": "2026-05-06T10:28:50.880Z",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
