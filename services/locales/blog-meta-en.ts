@@ -6908,6 +6908,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cure-dentarie-accessibili-ticino-2026.title': 'Affordable dental care in Ticino: the fight for reimbursement',
     'blog.article.cure-dentarie-accessibili-ticino-2026.excerpt': 'The referendum committee raises the alarm: middle-class families are increasingly forgoing dental care due to high costs.',
     'blog.article.cure-dentarie-accessibili-ticino-2026.imageAlt': 'A family smiling at a dental clinic in Lugano, with a view of Lake Lugano.',
+    'blog.article.dolores-poretti-91-anni-frontalieri.title': 'Dolores Poretti, 91: \'I find beauty in every moment\'',
+    'blog.article.dolores-poretti-91-anni-frontalieri.excerpt': 'Dolores Poretti, a 91-year-old resident of Pregassona\'s Polis elderly home, shares her life story and advice for the young',
+    'blog.article.dolores-poretti-91-anni-frontalieri.imageAlt': 'Dolores Poretti, 91 years old, smiles in a senior home in Pregassona, Ticino',
 };
 
 export default blogMetaEn;

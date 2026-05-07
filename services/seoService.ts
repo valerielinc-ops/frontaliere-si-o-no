@@ -3545,6 +3545,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cross-border-teleworking-2026': { name: 'Telelavoro frontalieri', path: '/articoli-frontaliere/cross-border-teleworking-2026', parent: 'blog' },
     'blog-fiera-antiquariato-mendrisio-2026': { name: 'Fiera Antiquariato', path: '/articoli-frontaliere/fiera-antiquariato-mendrisio-2026', parent: 'blog' },
     'blog-cure-dentarie-accessibili-ticino-2026': { name: 'Cure dentarie', path: '/articoli-frontaliere/cure-dentarie-accessibili-ticino-2026', parent: 'blog' },
+    'blog-dolores-poretti-91-anni-frontalieri': { name: 'Storia di vita', path: '/articoli-frontaliere/dolores-poretti-91-anni-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

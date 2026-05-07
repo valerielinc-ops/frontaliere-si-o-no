@@ -22097,4 +22097,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dolores-poretti-91-anni-frontalieri',
+ category: 'pratico',
+ date: '2026-05-07T23:10:44.752Z',
+ image: '/images/blog/dolores-poretti-91-anni-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

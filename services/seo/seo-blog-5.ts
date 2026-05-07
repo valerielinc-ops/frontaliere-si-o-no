@@ -28661,6 +28661,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dolores-poretti-91-anni-frontalieri': {
+    title: 'Dolores Poretti, 91 anni: «Trovo qualcosa di bello in ogni momento»',
+    description: 'La storia di Dolores Poretti, 91 anni, residente alla Casa anziani Polis di Pregassona, e i suoi consigli per i giovani. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, dolores, poretti, anni, trovo',
+    ogTitle: 'Dolores Poretti, 91 anni: «Trovo qualcosa di bello in ogni momento»',
+    ogDescription: 'La storia di Dolores Poretti, 91 anni, residente alla Casa anziani Polis di Pregassona, e i suoi consigli per i giovani',
+    canonicalPath: '/articoli-frontaliere/dolores-poretti-91-anni-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dolores Poretti, 91 anni: «Trovo qualcosa di bello in ogni momento»",
+      "description": "La storia di Dolores Poretti, 91 anni, residente alla Casa anziani Polis di Pregassona, e i suoi consigli per i giovani. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dolores-poretti-91-anni-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dolores Poretti, 91 anni, sorride in una casa per anziani a Pregassona, Ticino"
+      },
+      "datePublished": "2026-05-07T23:10:44+00:00",
+      "dateModified": "2026-05-07T23:10:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dolores-poretti-91-anni-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

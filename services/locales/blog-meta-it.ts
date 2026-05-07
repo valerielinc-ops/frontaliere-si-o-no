@@ -6909,6 +6909,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cure-dentarie-accessibili-ticino-2026.title': 'Cure dentarie accessibili in Ticino: la battaglia per il rimborso',
     'blog.article.cure-dentarie-accessibili-ticino-2026.excerpt': 'Il Comitato referendario lancia l\'allarme: le famiglie del ceto medio rinunciano sempre più spesso alle cure dentarie per i costi elevati.',
     'blog.article.cure-dentarie-accessibili-ticino-2026.imageAlt': 'Una famiglia sorridente in una clinica dentale a Lugano, con vista sul Lago di Lugano.',
+    'blog.article.dolores-poretti-91-anni-frontalieri.title': 'Dolores Poretti, 91 anni: «Trovo qualcosa di bello in ogni momento»',
+    'blog.article.dolores-poretti-91-anni-frontalieri.excerpt': 'La luganese Dolores Poretti, 91 anni, residente alla Casa anziani Polis di Pregassona, racconta la sua vita e i suoi consigli per i giovani',
+    'blog.article.dolores-poretti-91-anni-frontalieri.imageAlt': 'Dolores Poretti, 91 anni, sorride in una casa per anziani a Pregassona, Ticino',
 };
 
 export default blogMetaIt;

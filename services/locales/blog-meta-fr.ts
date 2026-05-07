@@ -6909,6 +6909,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cure-dentarie-accessibili-ticino-2026.title': 'Soins dentaires accessibles au Tessin: la lutte pour le remboursement',
     'blog.article.cure-dentarie-accessibili-ticino-2026.excerpt': 'Le comité référendaire lance l\'alerte: les familles de la classe moyenne renoncent de plus en plus souvent aux soins dentaires en raison des coûts élevés.',
     'blog.article.cure-dentarie-accessibili-ticino-2026.imageAlt': 'Une famille souriante dans une clinique dentaire à Lugano, avec vue sur le lac de Lugano.',
+    'blog.article.dolores-poretti-91-anni-frontalieri.title': 'Dolores Poretti, 91 ans : «Je trouve quelque chose de beau à chaque instant»',
+    'blog.article.dolores-poretti-91-anni-frontalieri.excerpt': 'Dolores Poretti, 91 ans, résidente à la maison de retraite Polis de Pregassona, raconte sa vie et ses conseils pour les jeunes',
+    'blog.article.dolores-poretti-91-anni-frontalieri.imageAlt': 'Dolores Poretti, 91 ans, sourit dans une maison de retraite à Pregassona, Tessin',
 };
 
 export default blogMetaFr;
