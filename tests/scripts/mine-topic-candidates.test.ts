@@ -93,11 +93,11 @@ describe('gscOrphans', () => {
     expect(extractItTitles(sample)).toEqual(['Hello World', 'Another title']);
   });
 
-  it('filters by impressions >= 20 and de-dups by keyword', async () => {
+  it('filters by impressions >= 5 and de-dups by keyword', async () => {
     const orphanData = {
       bucketA: [
         { query: 'telelavoro 45 giorni', impressions: 100, clicks: 2 },
-        { query: 'low signal', impressions: 5, clicks: 0 },
+        { query: 'too-low signal', impressions: 3, clicks: 0 }, // below MIN_IMPRESSIONS=5
         { query: 'telelavoro 45 giorni', impressions: 80, clicks: 1 }, // dup
       ],
     };
@@ -106,6 +106,7 @@ describe('gscOrphans', () => {
       existingTitles: [],
     });
     expect(r.ok).toBe(true);
+    // 'telelavoro 45 giorni' (deduped to 1) — 'too-low signal' below floor.
     expect(r.candidates.length).toBe(1);
     expect(r.candidates[0].keyword).toMatch(/telelavoro/i);
     expect(r.candidates[0].sources).toEqual(['gscOrphans']);

@@ -17,7 +17,11 @@ import { readFileSync, existsSync } from 'node:fs';
 const ORPHAN_QUERIES_PATH = 'data/gsc-orphan-queries.json';
 const BLOG_META_PATH = 'services/locales/blog-meta-it.ts';
 
-const MIN_IMPRESSIONS = 20;
+// Was 20 — too aggressive: dropped 327/329 orphan queries (~99%) including
+// long-tail frontaliere-rich queries with 5–19 impressions/window. Lowered
+// to 5 so the candidate pool actually reflects real orphan demand. Anything
+// with <5 impressions is genuine noise (typos, one-off probes).
+const MIN_IMPRESSIONS = 5;
 const POSITION_MIN = 6;
 const POSITION_MAX = 30;
 const MAX_JACCARD_FOR_NEW = 0.7;

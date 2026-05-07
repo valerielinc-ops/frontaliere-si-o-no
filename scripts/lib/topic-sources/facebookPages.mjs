@@ -193,7 +193,9 @@ export async function fetchFacebookCandidates(opts = {}) {
     ok: anyOk,
     candidates: all,
     perPage,
-    reason: anyOk ? undefined : 'no FB posts in window with engagement >= 5',
+    reason: anyOk
+      ? undefined
+      : `no FB posts in window with engagement >= ${MIN_ENGAGEMENT}`,
   };
 }
 

@@ -8,6 +8,14 @@
 // we attempt a one-shot Playwright fallback against old.reddit.com.
 
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
+import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
+import { detectLocale } from './detectLocale.mjs';
+
+// Reddit-specific Ticino/cross-border vocabulary. We accept titles that
+// either match the global frontaliere domain OR mention Ticino-life
+// concepts that adjacent-relevance for our audience (work/visa/housing/
+// healthcare/banking/transport in Ticino+CH context).
+const REDDIT_RELEVANCE_RE = /\b(frontalier|grenzg|permess(o|i)?\s*[gbl]|visa|residenc[ye]|relocat|work|jobs?|salar|stipend|tax|fisc|impost|tass[ae]|insurance|assicur|health|sanit|krank|pension|avs|lpp|3a|pilastro|cassa|hospital|doctor|rent|affitt|housing|cas[ae]|mortgage|mutuo|mortgage|bank|bancar|account|conto|chf|euro|cambio|exchange|commute|pendolar|train|treno|sbb|bus|car|auto|frontier[ae]|border|valico|dogana|telelavoro|smart\s*working|telework|switzerland|svizzer|tessin|ticin|lugano|bellinz|chiasso|locarno|mendrisio|men dris|como|varese|milano)/i;
 
 // Reddit increasingly blocks descriptive bot UAs (e.g. `frontaliereticino-bot/1.0`)
 // from anonymous endpoints with 403 + empty body. Using a plausible-browser
@@ -298,12 +306,16 @@ function postToCandidate(post, sourceKey, sub) {
   const title = String(post.title || '').trim();
   const norm = normalizeKeyword(title);
   const fromRss = post._source === 'rss';
+  // Locale heuristic: r/Switzerland is mixed EN/DE, r/italy IT, r/Ticino IT,
+  // r/Lugano IT. detectLocale() reads markers in the title itself for the
+  // most accurate per-post tag.
+  const locale = detectLocale(title);
   return {
     id: fnv1a8(norm),
     keyword: title,
     normalizedKeyword: norm,
     angle: null,
-    locale: sub === 'Switzerland' || sub === 'italy' ? 'it' : 'it',
+    locale,
     sources: [sourceKey],
     demandSignals: {
       redditScore: score,
@@ -403,6 +415,14 @@ export async function fetchRedditCandidates(opts = {}) {
       // engagement gate.
       const passes = p._source === 'rss' ? isQuestionTitle(p.title) : passesFilters(p);
       if (!passes) continue;
+      // RELEVANCE FILTER: drop posts that aren't about cross-border-worker
+      // life. r/Lugano had 0/16 frontaliere-relevant titles; r/Ticino had
+      // 23%. Without this filter, "Pilates studios?", "What are some bars
+      // for a cheap drink?", and dating questions dominate the candidate
+      // pool. The regex is broader than FRONTALIERI_DOMAIN_RE because
+      // Reddit posts often probe adjacent topics (housing/banking/transport
+      // in Ticino) that are still article-worthy for our audience.
+      if (!REDDIT_RELEVANCE_RE.test(p.title)) continue;
       const norm = normalizeKeyword(p.title);
       if (!norm || seenAcross.has(norm)) continue;
       seenAcross.add(norm);

@@ -15,6 +15,7 @@
 
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
+import { detectLocale } from './detectLocale.mjs';
 
 // Soft-bias for Lombardia cross-tagging: independent of FRONTALIERI_DOMAIN_RE
 // because we want to surface "auto in Varese" / "Como confine" even when
@@ -422,7 +423,9 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
         keyword: r.query,
         normalizedKeyword: norm,
         angle: null,
-        locale: 'it',
+        // CH RSS surfaces DE/FR queries; detect from the title rather than
+        // hardcoding to IT. IT/IT-25 default to IT when no markers match.
+        locale: detectLocale(r.query),
         sources: [geo.sourceKey],
         demandSignals: {
           googleTrendsScore: r.score,
@@ -515,7 +518,7 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
           keyword: r.query,
           normalizedKeyword: norm,
           angle: null,
-          locale: 'it',
+          locale: detectLocale(r.query),
           sources: [geo.sourceKey],
           demandSignals: {
             googleTrendsScore: r.score,
