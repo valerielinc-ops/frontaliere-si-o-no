@@ -6761,6 +6761,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.castellanza-investimenti-2025.title': 'Castellanza: 1,8 Millionen für 2025',
     'blog.article.castellanza-investimenti-2025.excerpt': 'Die Gemeinde Castellanza hat einen Haushalt für 2025 mit 1,8 Millionen Euro für Straßen, Schulen und Sportanlagen genehmigt.',
     'blog.article.castellanza-investimenti-2025.imageAlt': 'Luftaufnahme von Castellanza mit laufenden Infrastrukturprojekten',
+    'blog.article.svizzera-elettricita-inverno-2026.title': 'Schweiz droht Blackout: Auswirkungen für Grenzgänger',
+    'blog.article.svizzera-elettricita-inverno-2026.excerpt': 'Die Schweiz könnte 2026 mit Strommangel konfrontiert sein. Hier sind die Auswirkungen für Personen, die im Tessin arbeiten und in Italien leben.',
+    'blog.article.svizzera-elettricita-inverno-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
 };
 
 export default blogMetaDe;

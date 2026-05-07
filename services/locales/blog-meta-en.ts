@@ -6761,6 +6761,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.castellanza-investimenti-2025.title': 'Castellanza: €1.8m investments for 2025',
     'blog.article.castellanza-investimenti-2025.excerpt': 'The municipality of Castellanza has approved a 2025 budget with €1.8 million in investments for roads, schools, and sports facilities',
     'blog.article.castellanza-investimenti-2025.imageAlt': 'Aerial view of Castellanza with infrastructure projects underway',
+    'blog.article.svizzera-elettricita-inverno-2026.title': 'Switzerland at risk of blackout: what changes for cross-border workers',
+    'blog.article.svizzera-elettricita-inverno-2026.excerpt': 'Switzerland faces electricity shortages in 2026. Here are the implications for those working in Ticino and living in Italy',
+    'blog.article.svizzera-elettricita-inverno-2026.imageAlt': 'Aerial view of Lake Lugano with Swiss-Italian border in focus',
 };
 
 export default blogMetaEn;

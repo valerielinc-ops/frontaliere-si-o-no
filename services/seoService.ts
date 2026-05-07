@@ -3496,6 +3496,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-farmaco-leucemia-linfatica-cronica': { name: 'Novità sanitarie', path: '/articoli-frontaliere/nuovo-farmaco-leucemia-linfatica-cronica', parent: 'blog' },
     'blog-registro-imprese-varese-30-anni': { name: 'Registro Imprese', path: '/articoli-frontaliere/registro-imprese-varese-30-anni', parent: 'blog' },
     'blog-castellanza-investimenti-2025': { name: 'Investimenti Castellanza', path: '/articoli-frontaliere/castellanza-investimenti-2025', parent: 'blog' },
+    'blog-svizzera-elettricita-inverno-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-elettricita-inverno-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

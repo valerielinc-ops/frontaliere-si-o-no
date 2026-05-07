@@ -21656,4 +21656,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-elettricita-inverno-2026',
+ category: 'novita',
+ date: '2026-05-07T12:30:19.299Z',
+ image: '/images/blog/svizzera-elettricita-inverno-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
