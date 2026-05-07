@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T09:32:42.064Z",
+  "generatedAt": "2026-05-07T09:46:14.024Z",
   "sources": {
     "redditTicino": {
       "ok": true,
@@ -730,6 +730,26 @@
       "totalScore": 0.356
     },
     {
+      "id": "4b318325",
+      "keyword": "Emigrazione e cassa pensione: come risparmiare sulle imposte - SWI swissinfo.ch",
+      "normalizedKeyword": "emigrazione e cassa pensione: come risparmiare sulle imposte - swi swissinfo.ch",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRFNSN2kxSE5lNVRDSWJXb3QwUGJZalozaEFfUVpoeVdHWjZzd0ZhZGJIWExCNTBvZjA0M1lhQlRJemUwSzhRdXdyVjg1UXE0U1RfMnZmTTJHZFdMY1N4ckJGOFlIdWRwWTNBQXBBa0l1S2dlLWJQclN5S3Z3aFg2V0ktZzNiVzV3emFYa3RWU2NfcVlaUDJwNS1Xcjd5aWNxeF81X2diam14Zw?oc=5",
+        "googleNewsRssPubDate": "Tue, 14 Jan 2025 08:00:00 GMT",
+        "googleNewsRssSource": "SWI swissinfo.ch"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — SWI swissinfo.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.889,
+      "totalScore": 0.356
+    },
+    {
       "id": "34b3d542",
       "keyword": "Reti metalliche alla stazione di Lugano? A cosa servono ?",
       "normalizedKeyword": "reti metalliche alla stazione di lugano? a cosa servono ?",
@@ -830,6 +850,26 @@
       "demandScore": 0,
       "noveltyScore": 0.88,
       "totalScore": 0.352
+    },
+    {
+      "id": "48b7c8ce",
+      "keyword": "Barca, Lamal prende in giro Gavi - Corriere dello Sport",
+      "normalizedKeyword": "barca, lamal prende in giro gavi - corriere dello sport",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMlNaWDdjVjdTOUZKSDhoRzhTR1o5UG5MRXhDZkpVTVZiSHA4c243U2Q2LTIyQlEyc0k5a1p4S2ZjdDQxakFzWUpGTE9qMFhOa2NscEtleEw2by1aYS1IUTE0ZkhZbnRhbUhpaURQR0hHNzFFbE5NVU13ckxjRGN5aUdfSGtxajV1Y3BweXlMT2pYc2kxMVpBWWZQQTJsdzFMSEZDWVpuak0?oc=5",
+        "googleNewsRssPubDate": "Sat, 08 Nov 2025 08:00:00 GMT",
+        "googleNewsRssSource": "Corriere dello Sport"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — Corriere dello Sport",
+      "demandScore": 0,
+      "noveltyScore": 0.875,
+      "totalScore": 0.35
     },
     {
       "id": "3db516c9",
@@ -954,6 +994,26 @@
       "demandScore": 0.08,
       "noveltyScore": 0.75,
       "totalScore": 0.348
+    },
+    {
+      "id": "7dc5c83c",
+      "keyword": "FRONTALIERI: RIMBORSO DELLE IMPOSTE ALLA FONTE - sondrio.lombardia.cisl.it",
+      "normalizedKeyword": "frontalieri: rimborso delle imposte alla fonte - sondrio.lombardia.cisl.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "permesso G",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQWFF0NE4zVFVLYk9VMlhqM0tBM29yeTVhWjZlMTdjbjFkSWdzTFo2X1lVek02R2hwMTI3VlV0RjN6VFAyeXZZa1QwYkJfWHRvcnF1UnliR2sxdXZsVGZXM0E5VTlUdU5jcWFPMjBqZlNhaG1qV2R0eklSTndQXzEyN3lPLW9ob3M1WGxORQ?oc=5",
+        "googleNewsRssPubDate": "Thu, 09 Jan 2020 08:00:00 GMT",
+        "googleNewsRssSource": "sondrio.lombardia.cisl.it"
+      },
+      "rationale": "Google News RSS seed \"permesso G\" — sondrio.lombardia.cisl.it",
+      "demandScore": 0,
+      "noveltyScore": 0.867,
+      "totalScore": 0.347
     },
     {
       "id": "29bba7f8",
@@ -1124,26 +1184,6 @@
       "totalScore": 0.343
     },
     {
-      "id": "ba8fb27a",
-      "keyword": "Cooperazione in materia fiscale. Direttiva Dac9 al traguardo - Fisco Oggi",
-      "normalizedKeyword": "cooperazione in materia fiscale. direttiva dac9 al traguardo - fisco oggi",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNNE5KZktYM0hDTjZfMjJJanp0UFhEUTZqenJadEwtZzZ2al9jRWk2bkJ1UFhFbWk4dms2R2VEdmpHRG8tY014V3EtS1JONGUtUF9sdmRfa1Nqal9JTndJOEdocm8zSE85c1RwbzFQSHpvdWNMYUptM3NQZXV6c25hNUVxZHFfdjFRU1IxWW9hNUo1eWJiTC1BUTUwUQ?oc=5",
-        "googleNewsRssPubDate": "Fri, 06 Jun 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Fisco Oggi"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Fisco Oggi",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
       "id": "4f8af8b6",
       "keyword": "Crédit Agricole, l’Italia secondo pilastro della banca - Economy Magazine",
       "normalizedKeyword": "credit agricole, l’italia secondo pilastro della banca - economy magazine",
@@ -1159,26 +1199,6 @@
         "googleNewsRssSource": "Economy Magazine"
       },
       "rationale": "Google News RSS seed \"secondo pilastro\" — Economy Magazine",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
-      "id": "59b1da32",
-      "keyword": "Frontalieri: assemblea generale il 26 novembre - San Marino Rtv",
-      "normalizedKeyword": "frontalieri: assemblea generale il 26 novembre - san marino rtv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNa3RhU1YzZ1lYeTJwZllIaGo0dGRJaF9HOXBTQ0MtZVFEUTJBTmNSZmczSnRQaGhpd0I3QzJaUVhFSHpCcGNWTmYyZTZzVldNbl9XQzZBa1l1Nmo1YVNQT3I5eTZqZnZRNDZ2bkcwQlZXTWNrRXJoa2pBRzRkQkZDVXljX2w1dm9qV1hvNXlpNkJMNURjQ2huODZR?oc=5",
-        "googleNewsRssPubDate": "Thu, 17 Oct 2013 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
-      },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
       "demandScore": 0,
       "noveltyScore": 0.857,
       "totalScore": 0.343
@@ -1284,26 +1304,6 @@
       "totalScore": 0.34
     },
     {
-      "id": "76323538",
-      "keyword": "Previdenza. Ecco chi potrà anticipare la pensione Inps con quella integrativa - Il Sole 24 ORE",
-      "normalizedKeyword": "previdenza. ecco chi potra anticipare la pensione inps con quella integrativa - il sole 24 ore",
-      "angle": null,
-      "locale": "fr",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNY2p5dU5BYzJmZVhpQm1ESHFvTnVhM3hLcDVvWDZhZ1dWMmpPQ0JSczJRUXgtakFyZFhwemtacW91XzlzM3dRX2dXVU4zUnZ5a0dsR25JYlk3UjFZU3g0cmc1SW8wZ3F2RV9ZOXZSdXQ5ZDlaWVhNU0JJN1JVYXFyRm1FbWJlVnlWNVBiNQ?oc=5",
-        "googleNewsRssPubDate": "Sat, 12 Jul 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Il Sole 24 ORE"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Il Sole 24 ORE",
-      "demandScore": 0,
-      "noveltyScore": 0.85,
-      "totalScore": 0.34
-    },
-    {
       "id": "0f9f2761",
       "keyword": "Svizzera, Austria e Germania: chi paga meglio i neo-laureati. Italia tallonata da Polonia e Spagna - la Repubblica",
       "normalizedKeyword": "svizzera, austria e germania: chi paga meglio i neo-laureati. italia tallonata da polonia e spagna - la repubblica",
@@ -1344,6 +1344,26 @@
       "demandScore": 0.08,
       "noveltyScore": 0.727,
       "totalScore": 0.339
+    },
+    {
+      "id": "9e9c71ed",
+      "keyword": "Assicurazione di base: togliere l'obbligo? - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "assicurazione di base: togliere l'obbligo? - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNTnhEUXhncmVwQnYyVFN2cUViM3ZRemJMZDE0a1F1SkFNTjdhZnpMdUE0UnlsSWNCQXBYQkVFUVAtaVY1RE1TY2cydWVEcDlVUUg5cDV5NW5UZnRYUGhxUmw5OFJTNGtXV2JNdkdUcGFWWWo1OW1hSTg4Z1c0NlZTT1oyTHNQdGxBVEVTSmVhWQ?oc=5",
+        "googleNewsRssPubDate": "Mon, 28 Aug 2023 07:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.846,
+      "totalScore": 0.338
     },
     {
       "id": "6152f409",
@@ -1458,26 +1478,6 @@
         "googleNewsRssSeed": "tasse svizzera",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPZkpteTF2aFBNN2syRlVEcl9ZeGdPX0tYbEVwWGZSVDZJWjdma1Q1c0d2WEU1LXIxZHlfb0ZFWDc5WE9CeTBMQVpGMEltOVFzUnFMcExGOU1JTF8xNmhOMFZDRFpGU01DUjVrMUtNbmR4WmpFYzJZX2NQMHl2b25hOGhJSkZaanNVRzhzalQ1bDBTVjVMaWpEZA?oc=5",
         "googleNewsRssPubDate": "Sun, 28 Dec 2025 08:00:00 GMT",
-        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
-      },
-      "rationale": "Google News RSS seed \"tasse svizzera\" — RSI Radiotelevisione svizzera",
-      "demandScore": 0,
-      "noveltyScore": 0.846,
-      "totalScore": 0.338
-    },
-    {
-      "id": "c1d87250",
-      "keyword": "No a tasse su biglietti aerei e kerosene - RSI Radiotelevisione svizzera",
-      "normalizedKeyword": "no a tasse su biglietti aerei e kerosene - rsi radiotelevisione svizzera",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "tasse svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQZzNNVVpEN1dydXpfemxKZTRXUGtsOVd3YmtuaWZ4OXNud3ctV0h0X1VZX25jVmcyaUE5Vk1BcGhYZE9rUlZlLU1iaW84RWVOYkczWlVuNXl6U3huRlExb1p0cUM1LVdyVGtHQ011YnA5a0dJeEJqVXcxMm1XbUEwTmRwb1dGTm9LdTJ3OFVIZ3g?oc=5",
-        "googleNewsRssPubDate": "Tue, 28 Apr 2026 09:20:16 GMT",
         "googleNewsRssSource": "RSI Radiotelevisione svizzera"
       },
       "rationale": "Google News RSS seed \"tasse svizzera\" — RSI Radiotelevisione svizzera",
@@ -1621,6 +1621,26 @@
         "googleNewsRssSource": "INNLIFES"
       },
       "rationale": "Google News RSS seed \"secondo pilastro\" — INNLIFES",
+      "demandScore": 0,
+      "noveltyScore": 0.842,
+      "totalScore": 0.337
+    },
+    {
+      "id": "12816cbc",
+      "keyword": "Pensioni svizzere del secondo pilastro tassate al lordo delle imposte estere - Il Sole 24 ORE",
+      "normalizedKeyword": "pensioni svizzere del secondo pilastro tassate al lordo delle imposte estere - il sole 24 ore",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQa3RUcDYwU0RvY3FJSTVRN1VYNjdPS0Z2QTRBbkp0RExLZDlxd19CUmtQTkh3OHhiVmR0czJkMUxmN0VXSzMwaTA4MFV5R3ZQQ3RyWGlpX0RzcG45NUdIcEJpdy1WZ0JRbWkxdG00MGEtdVlsRE5YVkxOWUhsVlp3V28zWnIzSWpRZHNvT25oTnd1WUVFMUtkRFVOVWg1U1h0UWh0MXRFRVRJZ1ZjMU4wVkt3?oc=5",
+        "googleNewsRssPubDate": "Fri, 21 Feb 2020 08:00:00 GMT",
+        "googleNewsRssSource": "Il Sole 24 ORE"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — Il Sole 24 ORE",
       "demandScore": 0,
       "noveltyScore": 0.842,
       "totalScore": 0.337
@@ -1826,6 +1846,26 @@
       "totalScore": 0.333
     },
     {
+      "id": "ce1a7030",
+      "keyword": "N. 494 - L'evoluzione del framework prudenziale di Secondo Pilastro dopo la crisi finanziaria - bancaditalia.it",
+      "normalizedKeyword": "n. 494 - l'evoluzione del framework prudenziale di secondo pilastro dopo la crisi finanziaria - bancaditalia.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1rMWJtN0VIZ3BsYkU2Um52Q2YzeTR4R3IwbDgwMngtcDlnNUNXdGo5X3k2dUNuSkVPTE1WY21KZmVCakhOakFfRWZOUXRWUE4yeUZQV0c4R1lsTUpSRjVmZzJPY1RXVFU?oc=5",
+        "googleNewsRssPubDate": "Mon, 29 Apr 2019 07:00:00 GMT",
+        "googleNewsRssSource": "bancaditalia.it"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — bancaditalia.it",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
       "id": "10bf72df",
       "keyword": "Notifica fine attività G - SPOP (DI) - Repubblica e Cantone Ticino",
       "normalizedKeyword": "notifica fine attivita g - spop (di) - repubblica e cantone ticino",
@@ -1866,26 +1906,6 @@
       "totalScore": 0.333
     },
     {
-      "id": "4b6f821a",
-      "keyword": "Psicologi, accordo transitorio per prestazioni LAMal - laRegione",
-      "normalizedKeyword": "psicologi, accordo transitorio per prestazioni lamal - laregione",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQYmxHMW5vWUExU3A5TUJDY3EzaGdmVjF4WDNKNTQyV1UyWUNHSWdDUnl0YWwtb2xtZjY4bk1aSTltMHRWSmxQUFVBU0J5WHdjQU43Z0JLeldNaTZTTFQ0c3hVMFlOZHJmSmRDR1BRZWVESC1DNkFORDcxR2VydnJOUGk1N09QWXltOFZKRmNhNVhNT2NfU092UjhB?oc=5",
-        "googleNewsRssPubDate": "Tue, 14 Jun 2022 07:00:00 GMT",
-        "googleNewsRssSource": "laRegione"
-      },
-      "rationale": "Google News RSS seed \"LAMal\" — laRegione",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
       "id": "f8f33655",
       "keyword": "Revoca del permesso G al direttore della Steiner - Ticinonline",
       "normalizedKeyword": "revoca del permesso g al direttore della steiner - ticinonline",
@@ -1901,6 +1921,26 @@
         "googleNewsRssSource": "Ticinonline"
       },
       "rationale": "Google News RSS seed \"permesso G\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "5737b357",
+      "keyword": "Riforma LPP, Baume-Schneider in campo - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "riforma lpp, baume-schneider in campo - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOdTg3aGNQZTlUWXFyTm1BdG1EM1RXbW1JSlpPODNURXlpTm15WWlrSlVWcVJQZnRaS0YtWHB1ZFduOURaV01NTFRJVExKWXh6VzkwRFRDYVIxY2pTcHp1X2dOZE8wWlZ3U3RfS2hvUWcwdzlSNzVaTG1TZnJDLUtDOUt2U3NlbVVUSE9j?oc=5",
+        "googleNewsRssPubDate": "Mon, 24 Jun 2024 08:24:29 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — RSI Radiotelevisione svizzera",
       "demandScore": 0,
       "noveltyScore": 0.833,
       "totalScore": 0.333
@@ -2041,46 +2081,6 @@
         "googleNewsRssSource": "Ticinonline"
       },
       "rationale": "Google News RSS seed \"AVS frontalieri\" — Ticinonline",
-      "demandScore": 0,
-      "noveltyScore": 0.824,
-      "totalScore": 0.33
-    },
-    {
-      "id": "abad2a21",
-      "keyword": "La polacca Lpp quadruplica le vendite in Italia: 42 mln € nel 2024. In cantiere 30 aperture - pambianconews.com",
-      "normalizedKeyword": "la polacca lpp quadruplica le vendite in italia: 42 mln € nel 2024. in cantiere 30 aperture - pambianconews.com",
-      "angle": null,
-      "locale": "fr",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPZm1udmxNRVZXazQzTEF3STlGZHdYX05lam5vQk43UjhpZExaUldsTnlZMWp2ei13SGdGd1lYNElPOXh5UmFpanJlQzdJUnlveHU0M1BONVlXamIxN1VTOVN3cHBENVJGa2oxOWxZQnlRTExEVTJzV2VsQzFCb2JUYlRhSUdGWEpQSXo5RWxDdnBJTnVkbVVEdGpsR2VKVnpDeGV3eWZ0ZVJzVWxEQkp3Y1dzNU5fcVllQi1GaW8xb0wzRndwT285T0NyRW94QW9nNloxdjFrM3pYblZTc0E?oc=5",
-        "googleNewsRssPubDate": "Tue, 08 Apr 2025 07:00:00 GMT",
-        "googleNewsRssSource": "pambianconews.com"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — pambianconews.com",
-      "demandScore": 0,
-      "noveltyScore": 0.826,
-      "totalScore": 0.33
-    },
-    {
-      "id": "77eee872",
-      "keyword": "LAMal, si va verso la rilevazione unica dei dati - Ticinonline",
-      "normalizedKeyword": "lamal, si va verso la rilevazione unica dei dati - ticinonline",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOSjR5S3Q2V1FNUUtfV0tEWmQ5WGFQQy1nTS1mZWZyVVpJNWRZOHltMU1ZVWRtdWN6eE00b29KYy1XMzdXaWRfaFkyeHRsV25SU1ZhckNPVzkyUHZiZGRadTRxQWg3YzFPRkFtN0JnNDRvcjFqRVpkNDRaNUV5dWxFdlI3R2tzQ3JORnE1eDV6cHZXZFo2VURF?oc=5",
-        "googleNewsRssPubDate": "Wed, 18 Feb 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Ticinonline"
-      },
-      "rationale": "Google News RSS seed \"LAMal\" — Ticinonline",
       "demandScore": 0,
       "noveltyScore": 0.824,
       "totalScore": 0.33
