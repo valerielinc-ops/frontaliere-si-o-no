@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubs",
-  "assembledAt": "2026-05-06T22:51:29.079Z",
+  "assembledAt": "2026-05-07T11:55:54.502Z",
   "jobs": [
     {
       "id": "ubs-44c6f7f6bf9c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=334400&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:51:27.130Z",
+      "crawledAt": "2026-05-07T11:55:52.650Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -97,6 +97,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:17.433Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -141,7 +142,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343139&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-06T22:51:27.129Z",
+      "crawledAt": "2026-05-07T11:55:52.649Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -211,6 +212,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:17.431Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -255,7 +257,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340734&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:51:27.129Z",
+      "crawledAt": "2026-05-07T11:55:52.649Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -319,6 +321,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:17.433Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
