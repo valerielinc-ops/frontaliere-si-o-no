@@ -19,6 +19,7 @@ import type { Plugin } from 'vite';
 import { WEATHER_CITIES, type WeatherCity } from '../data/weatherCities';
 import { parseWeatherSnapshot, type CityWeather, type WeatherSnapshot } from '../services/weather/types';
 import { wmoText, type Locale } from '../services/weather/wmoCodes';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -79,14 +80,14 @@ export function weatherCityPagesPlugin(rootDir: string): Plugin {
         const hubPath = locale === 'it' ? `${HUB_SLUG.it}/index.html` : `${locale}/${HUB_SLUG[locale]}/index.html`;
         const hubFull = resolve(distDir, hubPath);
         ensureDir(hubFull);
-        writeFileSync(hubFull, renderHub(locale, snapshot), 'utf-8');
+        writeFileSync(hubFull, renderHub(locale, snapshot, distDir), 'utf-8');
         count += 1;
         for (const city of WEATHER_CITIES) {
           const slug = city.slug[locale];
           const cityPath = locale === 'it' ? `${HUB_SLUG.it}/${slug}/index.html` : `${locale}/${HUB_SLUG[locale]}/${slug}/index.html`;
           const cityFull = resolve(distDir, cityPath);
           ensureDir(cityFull);
-          writeFileSync(cityFull, renderCity(locale, city, snapshot?.cities[city.id], snapshot?.generatedAt), 'utf-8');
+          writeFileSync(cityFull, renderCity(locale, city, snapshot?.cities[city.id], snapshot?.generatedAt, distDir), 'utf-8');
           count += 1;
         }
       }
@@ -127,7 +128,7 @@ function buildTitle(headline: string): string {
   return withBrand.length <= TITLE_MAX ? withBrand : headline;
 }
 
-function renderHub(locale: Locale, snap: WeatherSnapshot | null): string {
+function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string): string {
   const title = buildTitle(HUB_TITLE[locale]);
   const description = HUB_TAGLINE[locale];
   const localePath = locale === 'it' ? '' : `/${locale}`;
@@ -140,8 +141,10 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null): string {
     : locale === 'de'
     ? `Jeden Morgen dasselbe Pendlerszenario: Wie ist das Wetter an der Grenze? Wo sind Warnungen aktiv? Welche Übergänge sind frei? Diese Seite sammelt aktuelle Wetterbedingungen für die ${WEATHER_CITIES.length} Städte am Grenzcluster. Aktualisierung alle 4 Stunden.`
     : `Chaque matin, le même scénario de trajet: quel est le temps à la frontière, où sont les alertes, quels passages sont fluides. Cette page rassemble les conditions météo actuelles pour les ${WEATHER_CITIES.length} villes du cluster frontalier. Mise à jour toutes les 4 heures.`;
+  const localePathHub = locale === 'it' ? '' : `/${locale}`;
+  const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
   return wrapHtml({
-    locale, title, description, canonical,
+    locale, title, description, canonical, distDir,
     bodyHtml: `
 <header><h1>${escapeHtml(HUB_TITLE[locale])}</h1>
 <p class="tagline">${escapeHtml(HUB_TAGLINE[locale])}</p></header>
@@ -150,6 +153,10 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null): string {
 <section class="attribution"><p>${attributionInline(locale, snap?.generatedAt)}</p></section>
 `,
     generatedAt: snap?.generatedAt,
+    breadcrumbs: [
+      { name: homeNameHub, url: `https://frontaliereticino.ch${localePathHub}/` },
+      { name: HUB_TITLE[locale], url: canonical },
+    ],
   });
 }
 
@@ -163,7 +170,7 @@ function renderHubRow(locale: Locale, city: WeatherCity, cw?: CityWeather): stri
   return `<a class="city-row" href="${url}"><span class="city-flag" aria-hidden="true">${country}</span><span class="city-name">${escapeHtml(city.name)}</span><span class="city-region">${escapeHtml(city.region[locale])}</span><span class="city-temp">${tempStr}</span><span class="city-cond">${escapeHtml(condition)}</span></a>`;
 }
 
-function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefined, generatedAt: string | undefined): string {
+function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefined, generatedAt: string | undefined, distDir: string): string {
   const headline = CITY_TITLE[locale](city);
   const title = buildTitle(headline);
   const tagline = TAGLINES[locale](city);
@@ -179,8 +186,11 @@ function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefin
   const ctaHtml = renderCta(locale, `weather-city-${city.id}`);
   const faqHtml = renderFaq(locale);
 
+  const localePathCity = locale === 'it' ? '' : `/${locale}`;
+  const homeNameCity = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const hubUrlCity = `https://frontaliereticino.ch${localePathCity}/${HUB_SLUG[locale]}/`;
   return wrapHtml({
-    locale, title, description, canonical,
+    locale, title, description, canonical, distDir,
     bodyHtml: `
 ${breadcrumb}
 <header><h1>${escapeHtml(headline)}</h1>
@@ -194,6 +204,11 @@ ${faqHtml}
 <section class="attribution"><p>${attributionInline(locale, generatedAt)}</p></section>
 `,
     generatedAt,
+    breadcrumbs: [
+      { name: homeNameCity, url: `https://frontaliereticino.ch${localePathCity}/` },
+      { name: HUB_TITLE[locale], url: hubUrlCity },
+      { name: city.name, url: canonical },
+    ],
   });
 }
 
@@ -335,43 +350,42 @@ interface WrapOpts {
   canonical: string;
   bodyHtml: string;
   generatedAt?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
-function wrapHtml(opts: WrapOpts): string {
-  const { locale, title, description, canonical, bodyHtml, generatedAt } = opts;
+function breadcrumbJsonLd(items: Array<{ name: string; url: string }>): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      item: it.url,
+    })),
+  };
+}
+
+function wrapHtml(opts: WrapOpts & { distDir: string }): string {
+  const { locale, title, description, canonical, bodyHtml, generatedAt, distDir, breadcrumbs } = opts;
   const altLinks = LOCALES.map((l) => {
     const localePath = l === 'it' ? '' : `/${l}`;
     const tail = canonical.replace(/^https:\/\/frontaliereticino\.ch\/(?:[a-z]{2}\/)?(.*)$/, '$1');
     return `<link rel="alternate" hreflang="${l}" href="https://frontaliereticino.ch${localePath}/${tail}">`;
-  }).join('');
-  return `<!doctype html>
-<html lang="${locale}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${escapeHtml(title)}</title>
-<meta name="description" content="${escapeHtml(description)}">
-<link rel="canonical" href="${canonical}">
-${altLinks}
-<meta property="og:title" content="${escapeHtml(title)}">
-<meta property="og:description" content="${escapeHtml(description)}">
-<meta property="og:url" content="${canonical}">
-<meta property="og:type" content="website">
-<script type="application/ld+json">${JSON.stringify(jsonLd(locale, title, description, canonical, generatedAt))}</script>
-</head>
-<body>
-<div id="root">
-<main>
-${bodyHtml}
-</main>
-</div>
-<script>
-window.addEventListener('DOMContentLoaded',function(){
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fetch('/data/weather-snapshot.json').then(function(r){return r.json()}).then(function(d){if(!d||!d.generatedAt)return;var t=document.querySelector('time[datetime]');if(t&&new Date(d.generatedAt)>new Date(t.dateTime)){t.dateTime=d.generatedAt}}).catch(function(){});io.disconnect()}})});var hero=document.querySelector('.weather-hero');if(hero)io.observe(hero);
-});
-</script>
-</body>
-</html>`;
+  }).join('\n');
+  const jsonLdScripts = [JSON.stringify(jsonLd(locale, title, description, canonical, generatedAt))];
+  if (breadcrumbs) jsonLdScripts.push(JSON.stringify(breadcrumbJsonLd(breadcrumbs)));
+  const hydrationScript = `<script>window.addEventListener('DOMContentLoaded',function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fetch('/data/weather-snapshot.json').then(function(r){return r.json()}).then(function(d){if(!d||!d.generatedAt)return;var t=document.querySelector('time[datetime]');if(t&&new Date(d.generatedAt)>new Date(t.dateTime)){t.dateTime=d.generatedAt}}).catch(function(){});io.disconnect()}})});var hero=document.querySelector('.weather-hero');if(hero)io.observe(hero);});</script>`;
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl: canonical,
+    hreflangHtml: altLinks,
+    bodyHtml: `${bodyHtml}\n${hydrationScript}`,
+    jsonLdScripts,
+    distDir,
+  });
 }
 
 function jsonLd(locale: Locale, title: string, description: string, canonical: string, generatedAt?: string): Record<string, unknown> {

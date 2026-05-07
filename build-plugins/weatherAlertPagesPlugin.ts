@@ -19,6 +19,7 @@ import { WEATHER_ALERT_CONFIG, type WeatherAlertConfig } from '../data/weatherAl
 import { evaluateAlerts, activeAlerts, dormantAlerts } from '../services/weatherAlertEvaluator';
 import { parseWeatherSnapshot, type AlertState, type WeatherSnapshot } from '../services/weather/types';
 import type { Locale } from '../services/weather/wmoCodes';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -75,7 +76,7 @@ export function weatherAlertPagesPlugin(rootDir: string): Plugin {
         const hubPath = locale === 'it' ? `${HUB_SLUG.it}/index.html` : `${locale}/${HUB_SLUG[locale]}/index.html`;
         const hubFull = resolve(distDir, hubPath);
         ensureDir(hubFull);
-        writeFileSync(hubFull, renderHub(locale, snapshot), 'utf-8');
+        writeFileSync(hubFull, renderHub(locale, snapshot, distDir), 'utf-8');
         count += 1;
       }
 
@@ -87,7 +88,7 @@ export function weatherAlertPagesPlugin(rootDir: string): Plugin {
           const fileFull = resolve(distDir, pagePath);
           ensureDir(fileFull);
           const state = snapshot?.alerts[cfg.id];
-          writeFileSync(fileFull, renderAlertPage(locale, cfg, state, snapshot?.generatedAt), 'utf-8');
+          writeFileSync(fileFull, renderAlertPage(locale, cfg, state, snapshot?.generatedAt, distDir), 'utf-8');
           count += 1;
         }
       }
@@ -125,7 +126,7 @@ function buildTitle(headline: string): string {
   return withBrand.length <= TITLE_MAX ? withBrand : headline;
 }
 
-function renderHub(locale: Locale, snap: WeatherSnapshot | null): string {
+function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string): string {
   const title = buildTitle(HUB_TITLE[locale]);
   const description = HUB_TAGLINE[locale];
   const localePath = locale === 'it' ? '' : `/${locale}`;
@@ -144,8 +145,10 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null): string {
   const dormantRows = dormant.map((a) => renderHubRow(locale, a.config, a.state)).join('\n');
   const intro = renderHubIntro(locale);
 
+  const localePathHub = locale === 'it' ? '' : `/${locale}`;
+  const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
   return wrapHtml({
-    locale, title, description, canonical,
+    locale, title, description, canonical, distDir,
     bodyHtml: `
 <header><h1>${escapeHtml(HUB_TITLE[locale])}</h1>
 <p class="tagline">${escapeHtml(HUB_TAGLINE[locale])}</p>
@@ -156,6 +159,10 @@ ${active.length > 0 ? `<section class="alerts-active"><h2>${activeHeader(locale)
 <section class="attribution"><p>${attributionInline(locale, snap?.generatedAt)}</p></section>
 `,
     generatedAt: snap?.generatedAt,
+    breadcrumbs: [
+      { name: homeNameHub, url: `https://frontaliereticino.ch${localePathHub}/` },
+      { name: HUB_TITLE[locale], url: canonical },
+    ],
   });
 }
 
@@ -186,7 +193,7 @@ function renderHubRow(locale: Locale, cfg: WeatherAlertConfig, state: AlertState
 function activeLabel(l: Locale): string { return l === 'it' ? 'Attiva' : l === 'en' ? 'Active' : l === 'de' ? 'Aktiv' : 'Active'; }
 function dormantLabel(l: Locale): string { return l === 'it' ? 'Monitorata' : l === 'en' ? 'Monitored' : l === 'de' ? 'Überwacht' : 'Surveillée'; }
 
-function renderAlertPage(locale: Locale, cfg: WeatherAlertConfig, state: AlertState | undefined, generatedAt: string | undefined): string {
+function renderAlertPage(locale: Locale, cfg: WeatherAlertConfig, state: AlertState | undefined, generatedAt: string | undefined, distDir: string): string {
   const headline = cfg.title[locale];
   const title = buildTitle(headline);
   const tagline = cfg.tagline[locale];
@@ -201,8 +208,11 @@ function renderAlertPage(locale: Locale, cfg: WeatherAlertConfig, state: AlertSt
   const ctaHtml = renderCta(locale, `weather-alert-${cfg.id}`);
   const faqHtml = renderFaq(locale, cfg);
 
+  const localePathAlert = locale === 'it' ? '' : `/${locale}`;
+  const homeNameAlert = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const hubUrlAlert = `https://frontaliereticino.ch${localePathAlert}/${HUB_SLUG[locale]}/`;
   return wrapHtml({
-    locale, title, description, canonical,
+    locale, title, description, canonical, distDir,
     bodyHtml: `
 ${breadcrumb}
 <header><h1>${escapeHtml(headline)}</h1>
@@ -214,6 +224,11 @@ ${faqHtml}
 <section class="attribution"><p>${attributionInline(locale, generatedAt)}</p></section>
 `,
     generatedAt,
+    breadcrumbs: [
+      { name: homeNameAlert, url: `https://frontaliereticino.ch${localePathAlert}/` },
+      { name: HUB_TITLE[locale], url: hubUrlAlert },
+      { name: cfg.title[locale], url: canonical },
+    ],
   });
 }
 
@@ -423,43 +438,42 @@ interface WrapOpts {
   canonical: string;
   bodyHtml: string;
   generatedAt?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
-function wrapHtml(opts: WrapOpts): string {
-  const { locale, title, description, canonical, bodyHtml, generatedAt } = opts;
+function breadcrumbJsonLd(items: Array<{ name: string; url: string }>): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      item: it.url,
+    })),
+  };
+}
+
+function wrapHtml(opts: WrapOpts & { distDir: string }): string {
+  const { locale, title, description, canonical, bodyHtml, generatedAt, distDir, breadcrumbs } = opts;
   const altLinks = LOCALES.map((l) => {
     const localePath = l === 'it' ? '' : `/${l}`;
     const tail = canonical.replace(/^https:\/\/frontaliereticino\.ch\/(?:[a-z]{2}\/)?(.*)$/, '$1');
     return `<link rel="alternate" hreflang="${l}" href="https://frontaliereticino.ch${localePath}/${tail}">`;
-  }).join('');
-  return `<!doctype html>
-<html lang="${locale}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${escapeHtml(title)}</title>
-<meta name="description" content="${escapeHtml(description)}">
-<link rel="canonical" href="${canonical}">
-${altLinks}
-<meta property="og:title" content="${escapeHtml(title)}">
-<meta property="og:description" content="${escapeHtml(description)}">
-<meta property="og:url" content="${canonical}">
-<meta property="og:type" content="website">
-<script type="application/ld+json">${JSON.stringify(jsonLd(locale, title, description, canonical, generatedAt))}</script>
-</head>
-<body>
-<div id="root">
-<main>
-${bodyHtml}
-</main>
-</div>
-<script>
-window.addEventListener('DOMContentLoaded',function(){
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fetch('/data/weather-snapshot.json').then(function(r){return r.json()}).then(function(d){if(!d||!d.generatedAt)return;var t=document.querySelector('time[datetime]');if(t&&new Date(d.generatedAt)>new Date(t.dateTime)){t.dateTime=d.generatedAt}}).catch(function(){});io.disconnect()}})});var hero=document.querySelector('.alert-state');if(hero)io.observe(hero);
-});
-</script>
-</body>
-</html>`;
+  }).join('\n');
+  const jsonLdScripts = [JSON.stringify(jsonLd(locale, title, description, canonical, generatedAt))];
+  if (breadcrumbs) jsonLdScripts.push(JSON.stringify(breadcrumbJsonLd(breadcrumbs)));
+  const hydrationScript = `<script>window.addEventListener('DOMContentLoaded',function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fetch('/data/weather-snapshot.json').then(function(r){return r.json()}).then(function(d){if(!d||!d.generatedAt)return;var t=document.querySelector('time[datetime]');if(t&&new Date(d.generatedAt)>new Date(t.dateTime)){t.dateTime=d.generatedAt}}).catch(function(){});io.disconnect()}})});var hero=document.querySelector('.alert-state');if(hero)io.observe(hero);});</script>`;
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl: canonical,
+    hreflangHtml: altLinks,
+    bodyHtml: `${bodyHtml}\n${hydrationScript}`,
+    jsonLdScripts,
+    distDir,
+  });
 }
 
 function jsonLd(locale: Locale, title: string, description: string, canonical: string, generatedAt?: string): Record<string, unknown> {
