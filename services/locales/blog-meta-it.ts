@@ -6729,6 +6729,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spring-pride-saronno-2026.title': 'Spring Pride 2026: inclusione e diritti a Saronno, Caronno, Ceriano e Solaro',
     'blog.article.spring-pride-saronno-2026.excerpt': 'Dal 12 al 17 maggio eventi culturali e momenti di confronto per promuovere diritti e partecipazione in vista della Giornata contro l’omolesbobitransfobia',
     'blog.article.spring-pride-saronno-2026.imageAlt': 'Gruppo di persone partecipa a un pride parade in una piazza pittoresca del Ticino',
+    'blog.article.mengele-svizzera-1961-verifica.title': 'Josef Mengele in Svizzera nel 1961: il dossier segreto',
+    'blog.article.mengele-svizzera-1961-verifica.excerpt': 'Il criminale nazista potrebbe aver soggiornato a Kloten nel 1961. Il dossier secretato fino al 2071 potrebbe chiarire il mistero',
+    'blog.article.mengele-svizzera-1961-verifica.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera, con le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -6728,6 +6728,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spring-pride-saronno-2026.title': 'Spring Pride 2026: inclusion and rights in Saronno, Caronno, Ceriano and Solaro',
     'blog.article.spring-pride-saronno-2026.excerpt': 'From May 12 to 17, cultural events and moments of discussion to promote rights and participation ahead of the Day against homolesbobitransphobia',
     'blog.article.spring-pride-saronno-2026.imageAlt': 'Group of people participating in a pride parade in a picturesque town square in Ticino',
+    'blog.article.mengele-svizzera-1961-verifica.title': 'Josef Mengele in Switzerland in 1961: the secret file',
+    'blog.article.mengele-svizzera-1961-verifica.excerpt': 'The Nazi criminal might have stayed in Kloten in 1961. The file, classified until 2071, could solve the mystery',
+    'blog.article.mengele-svizzera-1961-verifica.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland, with the Alps in the background',
 };
 
 export default blogMetaEn;

@@ -21557,4 +21557,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mengele-svizzera-1961-verifica',
+ category: 'novita',
+ date: '2026-05-07T09:22:46.832Z',
+ image: '/images/blog/mengele-svizzera-1961-verifica.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
