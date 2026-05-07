@@ -6707,6 +6707,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lonza-cede-micro-macinazione-stabio.title': 'Lonza sells Micro Macinazione SA: what changes for Ticino',
     'blog.article.lonza-cede-micro-macinazione-stabio.excerpt': 'Lonza sells Micro Macinazione SA to Schedio Group Holding and Microsize. New synergies for the Ticino pharmaceutical hub.',
     'blog.article.lonza-cede-micro-macinazione-stabio.imageAlt': 'Aerial view of Lake Lugano with Ticino\'s pharmaceutical industry buildings',
+    'blog.article.agricoltura-sociale-ticino-strategie-2026.title': 'Social farming in Ticino: strategies and inclusion',
+    'blog.article.agricoltura-sociale-ticino-strategie-2026.excerpt': 'The Curare Cura project concludes its focus groups with strategies for social farming in Ticino, involving operators and beneficiaries.',
+    'blog.article.agricoltura-sociale-ticino-strategie-2026.imageAlt': 'Social agriculture in Ticino, operators and beneficiaries in a farm field',
 };
 
 export default blogMetaEn;

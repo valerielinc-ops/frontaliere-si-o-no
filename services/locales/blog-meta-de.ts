@@ -6707,6 +6707,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lonza-cede-micro-macinazione-stabio.title': 'Lonza gibt Micro Macinazione SA ab: was sich für den Kanton Tessin ändert',
     'blog.article.lonza-cede-micro-macinazione-stabio.excerpt': 'Lonza überträgt Micro Macinazione SA an Schedio Group Holding und Microsize. Neue Synergien für den pharmazeutischen Standort im Tessin.',
     'blog.article.lonza-cede-micro-macinazione-stabio.imageAlt': 'Luftaufnahme des Luganer Sees mit Gebäuden der pharmazeutischen Industrie im Tessin',
+    'blog.article.agricoltura-sociale-ticino-strategie-2026.title': 'Soziale Landwirtschaft im Tessin: Strategien und Inklusion',
+    'blog.article.agricoltura-sociale-ticino-strategie-2026.excerpt': 'Das Projekt Curare Cura beendet die Fokusgruppen mit Strategien für die soziale Landwirtschaft im Tessin und bindet Betreiber und Nutznießer ein.',
+    'blog.article.agricoltura-sociale-ticino-strategie-2026.imageAlt': 'Soziale Landwirtschaft im Tessin, Betreiber und Begünstigte in einem landwirtschaftlichen Feld',
 };
 
 export default blogMetaDe;
