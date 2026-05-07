@@ -6654,6 +6654,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rimpatrio-famiglia-curda-riazzino.title': 'Rapatriement forcé en Turquie: une famille kurde de Riazzino sous le choc',
     'blog.article.rimpatrio-famiglia-curda-riazzino.excerpt': 'La famille Pokerce, d\'origine kurde, a été rapatriée en Turquie après le rejet de sa demande d\'asile. Les deux fils majeurs restent en Suisse.',
     'blog.article.rimpatrio-famiglia-curda-riazzino.imageAlt': 'Famille kurde escortée par les autorités à l\'aéroport de Zurich',
+    'blog.article.varese-strisce-pedonali-invisibili-2026.title': 'Varese : passages piétons invisibles, MAV exige des interventions urgentes',
+    'blog.article.varese-strisce-pedonali-invisibili-2026.excerpt': 'Le Mouvement Angelo Vidoletti dénonce l\'état de délabrement des passages piétons à Varese, demandant un plan de maintenance structuré',
+    'blog.article.varese-strisce-pedonali-invisibili-2026.imageAlt': 'Passages piétons usés à Varese, Italie, avec des marquages à peine visibles',
 };
 
 export default blogMetaFr;

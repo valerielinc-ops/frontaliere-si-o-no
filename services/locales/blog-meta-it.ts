@@ -6654,6 +6654,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rimpatrio-famiglia-curda-riazzino.title': 'Rimpatrio forzato in Turchia: famiglia curda di Riazzino sotto shock',
     'blog.article.rimpatrio-famiglia-curda-riazzino.excerpt': 'La famiglia Pokerce, di etnia curda, è stata rimpatriata in Turchia dopo il rigetto della domanda d\'asilo. I due figli maggiorenni restano in Ticino.',
     'blog.article.rimpatrio-famiglia-curda-riazzino.imageAlt': 'Famiglia curda accompagnata dalle autorità all\'aeroporto di Zurigo',
+    'blog.article.varese-strisce-pedonali-invisibili-2026.title': 'Varese: strisce pedonali invisibili, MAV chiede interventi urgenti',
+    'blog.article.varese-strisce-pedonali-invisibili-2026.excerpt': 'Il Movimento Angelo Vidoletti denuncia lo stato di degrado delle strisce pedonali a Varese, chiedendo un piano di manutenzione strutturato',
+    'blog.article.varese-strisce-pedonali-invisibili-2026.imageAlt': 'Strisce pedonali consumate a Varese, con segnaletica poco visibile',
 };
 
 export default blogMetaIt;

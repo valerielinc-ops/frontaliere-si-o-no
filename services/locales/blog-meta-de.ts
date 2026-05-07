@@ -6653,6 +6653,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rimpatrio-famiglia-curda-riazzino.title': 'Zwangsrückführung nach Türkei: kurdische Familie aus Riazzino schockiert',
     'blog.article.rimpatrio-famiglia-curda-riazzino.excerpt': 'Die kurdische Familie Pokerce wurde nach der Ablehnung ihres Asylantrags in die Türkei abgeschoben. Die beiden volljährigen Kinder bleiben im Tessin.',
     'blog.article.rimpatrio-famiglia-curda-riazzino.imageAlt': 'Kurdische Familie wird von den Behörden am Flughafen Zürich begleitet',
+    'blog.article.varese-strisce-pedonali-invisibili-2026.title': 'Varese: unsichtbare Zebrastreifen, MAV fordert dringende Maßnahmen',
+    'blog.article.varese-strisce-pedonali-invisibili-2026.excerpt': 'Die Bewegung Angelo Vidoletti kritisiert den schlechten Zustand der Zebrastreifen in Varese und verlangt einen strukturierten Instandhaltungsplan.',
+    'blog.article.varese-strisce-pedonali-invisibili-2026.imageAlt': 'Abgenutzte Fußgängerüberwege in Varese, Italien, mit kaum sichtbaren Markierungen',
 };
 
 export default blogMetaDe;

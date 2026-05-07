@@ -3460,6 +3460,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-veglia-preghiera-omofobia-ticino-2026': { name: 'Veglia di preghiera', path: '/articoli-frontaliere/veglia-preghiera-omofobia-ticino-2026', parent: 'blog' },
     'blog-parcheggi-digitali-lugano-2024': { name: 'Parcheggi digitali', path: '/articoli-frontaliere/parcheggi-digitali-lugano-2024', parent: 'blog' },
     'blog-rimpatrio-famiglia-curda-riazzino': { name: 'Novità', path: '/articoli-frontaliere/rimpatrio-famiglia-curda-riazzino', parent: 'blog' },
+    'blog-varese-strisce-pedonali-invisibili-2026': { name: 'Novità', path: '/articoli-frontaliere/varese-strisce-pedonali-invisibili-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -25346,6 +25346,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-strisce-pedonali-invisibili-2026': {
+    title: 'Varese: strisce pedonali invisibili, MAV chiede interventi urgenti',
+    description: 'Il Movimento Angelo Vidoletti denuncia lo stato di degrado delle strisce pedonali a Varese, chiedendo un piano di manutenzione strutturato. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, strisce, pedonali, invisibili',
+    ogTitle: 'Varese: strisce pedonali invisibili, MAV chiede interventi urgenti',
+    ogDescription: 'Il Movimento Angelo Vidoletti denuncia lo stato di degrado delle strisce pedonali a Varese, chiedendo un piano di manutenzione strutturato',
+    canonicalPath: '/articoli-frontaliere/varese-strisce-pedonali-invisibili-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: strisce pedonali invisibili, MAV chiede interventi urgenti",
+      "description": "Il Movimento Angelo Vidoletti denuncia lo stato di degrado delle strisce pedonali a Varese, chiedendo un piano di manutenzione strutturato. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/varese-strisce-pedonali-invisibili-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strisce pedonali consumate a Varese, con segnaletica poco visibile"
+      },
+      "datePublished": "2026-05-07T05:20:09+00:00",
+      "dateModified": "2026-05-07T05:20:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-strisce-pedonali-invisibili-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

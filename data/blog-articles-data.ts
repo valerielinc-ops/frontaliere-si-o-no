@@ -21332,4 +21332,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-strisce-pedonali-invisibili-2026',
+ category: 'novita',
+ date: '2026-05-07T05:20:09.350Z',
+ image: '/images/blog/varese-strisce-pedonali-invisibili-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
