@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2305,
+ "numberOfItems": 2306,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6947,7 +6947,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2302, "name": "Svizzera 2100: 5 scenari per il futuro dei fron...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-2100-scenari-frontalieri` },
           { "@type": "ListItem", "position": 2303, "name": "SBB controllers getting bonuses for fines? What...", "url": `${BASE_URL}/articoli-frontaliere/sbb-controllers-bonuses-fines-ticino-2026` },
           { "@type": "ListItem", "position": 2304, "name": "Nuovo farmaco per leucemia linfatica cronica ap...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-farmaco-leucemia-linfatica-cronica` },
-          { "@type": "ListItem", "position": 2305, "name": "Registro Imprese Varese: 30 anni di innovazione...", "url": `${BASE_URL}/articoli-frontaliere/registro-imprese-varese-30-anni` }
+          { "@type": "ListItem", "position": 2305, "name": "Registro Imprese Varese: 30 anni di innovazione...", "url": `${BASE_URL}/articoli-frontaliere/registro-imprese-varese-30-anni` },
+          { "@type": "ListItem", "position": 2306, "name": "Castellanza: 1,8 milioni in investimenti per il...", "url": `${BASE_URL}/articoli-frontaliere/castellanza-investimenti-2025` }
  ]
  },
  {
