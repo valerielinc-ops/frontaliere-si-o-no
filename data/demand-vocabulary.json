@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T09:59:54.913Z",
+  "generatedAt": "2026-05-07T11:35:42.841Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -133,11 +133,11 @@
       "cluster": "salute"
     },
     {
-      "kw": "lppcollecting",
-      "normalizedKeyword": "lppcollecting",
+      "kw": "lpp svizzera",
+      "normalizedKeyword": "lpp svizzera",
       "weight": 0.27,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "permesso g svizzera",
@@ -154,8 +154,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro in caso di morte",
-      "normalizedKeyword": "secondo pilastro in caso di morte",
+      "kw": "secondo pilastro",
+      "normalizedKeyword": "secondo pilastro",
       "weight": 0.27,
       "source": "suggest",
       "cluster": "pensioni"
@@ -217,15 +217,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamalfa14",
-      "normalizedKeyword": "lamalfa14",
-      "weight": 0.24,
-      "source": "suggest",
-      "cluster": "salute"
-    },
-    {
-      "kw": "lpp svizzera",
-      "normalizedKeyword": "lpp svizzera",
+      "kw": "lpp cos'è",
+      "normalizedKeyword": "lpp cos'e",
       "weight": 0.24,
       "source": "suggest",
       "cluster": "pensioni"
@@ -245,8 +238,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro svizzera quando si puo ritirare",
-      "normalizedKeyword": "secondo pilastro svizzera quando si puo ritirare",
+      "kw": "secondo pilastro in caso di morte",
+      "normalizedKeyword": "secondo pilastro in caso di morte",
       "weight": 0.24,
       "source": "suggest",
       "cluster": "pensioni"
@@ -259,9 +252,16 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "telelavoro frontalieri italia svizzera",
-      "normalizedKeyword": "telelavoro frontalieri italia svizzera",
+      "kw": "telelavoro frontalieri 2026",
+      "normalizedKeyword": "telelavoro frontalieri 2026",
       "weight": 0.24,
+      "source": "suggest",
+      "cluster": "pratico"
+    },
+    {
+      "kw": "accordo telelavoro frontalieri",
+      "normalizedKeyword": "accordo telelavoro frontalieri",
+      "weight": 0.21,
       "source": "suggest",
       "cluster": "pratico"
     },
@@ -294,15 +294,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamalegno",
-      "normalizedKeyword": "lamalegno",
-      "weight": 0.21,
-      "source": "suggest",
-      "cluster": "salute"
-    },
-    {
-      "kw": "lpp italy",
-      "normalizedKeyword": "lpp italy",
+      "kw": "lpp svizzera calcolo",
+      "normalizedKeyword": "lpp svizzera calcolo",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "pensioni"
@@ -315,13 +308,6 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "permesso guida patente sospesa",
-      "normalizedKeyword": "permesso guida patente sospesa",
-      "weight": 0.21,
-      "source": "suggest",
-      "cluster": "generic"
-    },
-    {
       "kw": "ristorni frontalieri 2024",
       "normalizedKeyword": "ristorni frontalieri 2024",
       "weight": 0.21,
@@ -329,8 +315,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro in caso di divorzio",
-      "normalizedKeyword": "secondo pilastro in caso di divorzio",
+      "kw": "secondo pilastro svizzera quando si puo ritirare",
+      "normalizedKeyword": "secondo pilastro svizzera quando si puo ritirare",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "pensioni"
@@ -341,13 +327,6 @@
       "weight": 0.21,
       "source": "suggest",
       "cluster": "fiscale"
-    },
-    {
-      "kw": "telelavoro frontalieri 2026",
-      "normalizedKeyword": "telelavoro frontalieri 2026",
-      "weight": 0.21,
-      "source": "suggest",
-      "cluster": "pratico"
     },
     {
       "kw": "busta paga svizzera per frontalieri",
@@ -378,20 +357,6 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "lamalunga altamura",
-      "normalizedKeyword": "lamalunga altamura",
-      "weight": 0.18,
-      "source": "suggest",
-      "cluster": "salute"
-    },
-    {
-      "kw": "lpp arcore",
-      "normalizedKeyword": "lpp arcore",
-      "weight": 0.18,
-      "source": "suggest",
-      "cluster": "pensioni"
-    },
-    {
       "kw": "pensione avs frontalieri",
       "normalizedKeyword": "pensione avs frontalieri",
       "weight": 0.18,
@@ -406,8 +371,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro divorzio frontalieri",
-      "normalizedKeyword": "secondo pilastro divorzio frontalieri",
+      "kw": "secondo pilastro svizzera come funziona",
+      "normalizedKeyword": "secondo pilastro svizzera come funziona",
       "weight": 0.18,
       "source": "suggest",
       "cluster": "pensioni"
@@ -418,20 +383,6 @@
       "weight": 0.18,
       "source": "suggest",
       "cluster": "fiscale"
-    },
-    {
-      "kw": "telelavoro frontalieri svizzera",
-      "normalizedKeyword": "telelavoro frontalieri svizzera",
-      "weight": 0.18,
-      "source": "suggest",
-      "cluster": "pratico"
-    },
-    {
-      "kw": "accordo telelavoro frontalieri",
-      "normalizedKeyword": "accordo telelavoro frontalieri",
-      "weight": 0.15,
-      "source": "suggest",
-      "cluster": "pratico"
     },
     {
       "kw": "busta paga svizzera trattenute",
@@ -455,20 +406,6 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamalfa",
-      "normalizedKeyword": "lamalfa",
-      "weight": 0.15,
-      "source": "suggest",
-      "cluster": "salute"
-    },
-    {
-      "kw": "lppp",
-      "normalizedKeyword": "lppp",
-      "weight": 0.15,
-      "source": "suggest",
-      "cluster": "generic"
-    },
-    {
       "kw": "scaglioni irpef frontalieri svizzera",
       "normalizedKeyword": "scaglioni irpef frontalieri svizzera",
       "weight": 0.15,
@@ -476,8 +413,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro quando si puo ritirare",
-      "normalizedKeyword": "secondo pilastro quando si puo ritirare",
+      "kw": "secondo pilastro in caso di divorzio",
+      "normalizedKeyword": "secondo pilastro in caso di divorzio",
       "weight": 0.15,
       "source": "suggest",
       "cluster": "pensioni"
@@ -518,22 +455,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "lamaline",
-      "normalizedKeyword": "lamaline",
-      "weight": 0.12,
-      "source": "suggest",
-      "cluster": "salute"
-    },
-    {
-      "kw": "lpp sa",
-      "normalizedKeyword": "lpp sa",
-      "weight": 0.12,
-      "source": "suggest",
-      "cluster": "pensioni"
-    },
-    {
-      "kw": "secondo pilastro svizzera calcolo",
-      "normalizedKeyword": "secondo pilastro svizzera calcolo",
+      "kw": "secondo pilastro divorzio frontalieri",
+      "normalizedKeyword": "secondo pilastro divorzio frontalieri",
       "weight": 0.12,
       "source": "suggest",
       "cluster": "pensioni"
@@ -574,22 +497,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamalunga",
-      "normalizedKeyword": "lamalunga",
-      "weight": 0.09,
-      "source": "suggest",
-      "cluster": "salute"
-    },
-    {
-      "kw": "lpp cos'è",
-      "normalizedKeyword": "lpp cos'e",
-      "weight": 0.09,
-      "source": "suggest",
-      "cluster": "pensioni"
-    },
-    {
-      "kw": "secondo pilastro pac",
-      "normalizedKeyword": "secondo pilastro pac",
+      "kw": "secondo pilastro quando si puo ritirare",
+      "normalizedKeyword": "secondo pilastro quando si puo ritirare",
       "weight": 0.09,
       "source": "suggest",
       "cluster": "pensioni"
@@ -623,22 +532,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamalaser",
-      "normalizedKeyword": "lamalaser",
-      "weight": 0.06,
-      "source": "suggest",
-      "cluster": "salute"
-    },
-    {
-      "kw": "lpp svizzera calcolo",
-      "normalizedKeyword": "lpp svizzera calcolo",
-      "weight": 0.06,
-      "source": "suggest",
-      "cluster": "pensioni"
-    },
-    {
-      "kw": "secondo pilastro svizzera divorzio",
-      "normalizedKeyword": "secondo pilastro svizzera divorzio",
+      "kw": "secondo pilastro svizzera calcolo",
+      "normalizedKeyword": "secondo pilastro svizzera calcolo",
       "weight": 0.06,
       "source": "suggest",
       "cluster": "pensioni"
@@ -679,8 +574,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro previdenza italia",
-      "normalizedKeyword": "secondo pilastro previdenza italia",
+      "kw": "secondo pilastro pac",
+      "normalizedKeyword": "secondo pilastro pac",
       "weight": 0.03,
       "source": "suggest",
       "cluster": "pensioni"
@@ -756,7 +651,7 @@
     },
     "googleSuggest": {
       "ok": true,
-      "kw_count": 99
+      "kw_count": 84
     },
     "winnerFingerprint": {
       "ok": true,

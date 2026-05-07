@@ -6755,6 +6755,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.title': 'Neues Medikament gegen chronische lymphatische Leukämie in Italien zugelassen',
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.excerpt': 'Die AIFA genehmigt Pirtobrutinib zur Behandlung von Patienten mit rezidivierender oder refraktärer chronischer lymphatischer Leukämie',
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.imageAlt': 'Medizinisches Forschungslabor in Lugano, Schweiz, mit Wissenschaftlern, die an neuen Behandlungen arbeiten',
+    'blog.article.registro-imprese-varese-30-anni.title': 'Handelsregister Varese: 30 Jahre digitale Innovation',
+    'blog.article.registro-imprese-varese-30-anni.excerpt': 'Die Handelskammer Varese feiert 30 Jahre Handelsregister, ein digitaler Eckpfeiler für Unternehmen und Institutionen',
+    'blog.article.registro-imprese-varese-30-anni.imageAlt': 'Modernes Büro in Ticino mit Blick auf die Alpen, wo Fachleute an digitalen Registrierungssystemen arbeiten',
 };
 
 export default blogMetaDe;

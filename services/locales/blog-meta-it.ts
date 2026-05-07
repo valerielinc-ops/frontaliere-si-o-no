@@ -6756,6 +6756,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.title': 'Nuovo farmaco per leucemia linfatica cronica approvato in Italia',
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.excerpt': 'L\'AIFA approva pirtobrutinib per trattare pazienti con leucemia linfatica cronica recidivante o refrattaria',
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.imageAlt': 'Laboratorio di ricerca medica a Lugano, Svizzera, con scienziati al lavoro su nuove terapie',
+    'blog.article.registro-imprese-varese-30-anni.title': 'Registro Imprese Varese: 30 anni di innovazione digitale',
+    'blog.article.registro-imprese-varese-30-anni.excerpt': 'La Camera di Commercio di Varese celebra 30 anni del Registro Imprese, un pilastro digitale per imprese e istituzioni',
+    'blog.article.registro-imprese-varese-30-anni.imageAlt': 'Ufficio moderno in Ticino con vista sulle Alpi, dove professionisti lavorano su sistemi di registrazione digitale',
 };
 
 export default blogMetaIt;

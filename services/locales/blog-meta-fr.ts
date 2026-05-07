@@ -6756,6 +6756,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.title': 'Nouveau médicament contre la leucémie lymphoïde chronique approuvé en Italie',
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.excerpt': 'L\'AIFA approuve le pirtobrutinib pour traiter les patients atteints de leucémie lymphoïde chronique récidivante ou réfractaire',
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.imageAlt': 'Laboratoire de recherche médicale à Lugano, Suisse, avec des scientifiques travaillant sur de nouveaux traitements',
+    'blog.article.registro-imprese-varese-30-anni.title': 'Registre des entreprises Varèse : 30 ans d\'innovation numérique',
+    'blog.article.registro-imprese-varese-30-anni.excerpt': 'La Chambre de commerce de Varèse célèbre les 30 ans du Registre des entreprises, un pilier numérique pour les entreprises et les institutions',
+    'blog.article.registro-imprese-varese-30-anni.imageAlt': 'Bureau moderne à Ticino avec vue sur les Alpes, où des professionnels travaillent sur des systèmes d\'enregistrement numérique',
 };
 
 export default blogMetaFr;
