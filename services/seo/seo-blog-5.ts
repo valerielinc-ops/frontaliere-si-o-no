@@ -27842,6 +27842,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-edilizia-ticino-resiste-investimenti-geopolitica': {
+    title: 'Edilizia Ticino resiste a sfide investimenti e geopolitica',
+    description: 'Il settore edilizio ticinese mostra resilienza nonostante le sfide, con 3 miliardi di cifre d\'affari e 5.500 lavoratori. Le riserve di lavoro sono a 5 mesi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, edilizia, resiste, sfide, investimenti',
+    ogTitle: 'Edilizia Ticino resiste a sfide investimenti e geopolitica',
+    ogDescription: 'Il settore edilizio ticinese mostra resilienza nonostante le sfide, con 3 miliardi di cifre d\'affari e 5.500 lavoratori. Le riserve di lavoro sono a 5 mesi.',
+    canonicalPath: '/articoli-frontaliere/edilizia-ticino-resiste-investimenti-geopolitica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Edilizia Ticino resiste a sfide investimenti e geopolitica",
+      "description": "Il settore edilizio ticinese mostra resilienza nonostante le sfide, con 3 miliardi di cifre d'affari e 5.500 lavoratori. Le riserve di lavoro sono a 5 mesi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/edilizia-ticino-resiste-investimenti-geopolitica.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con progetti edilizi moderni sullo sfondo"
+      },
+      "datePublished": "2026-05-07T19:30:28+00:00",
+      "dateModified": "2026-05-07T19:30:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/edilizia-ticino-resiste-investimenti-geopolitica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

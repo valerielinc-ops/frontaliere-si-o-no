@@ -6845,6 +6845,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.filtrazione-carbone-attivo-san-antonino.title': 'Pfas in water: Sant\'Antonino activates carbon filtration',
     'blog.article.filtrazione-carbone-attivo-san-antonino.excerpt': 'The new system reduces Pfas to values below 2 ng/l, fully funded by the Confederation. Here\'s what changes for cross-border workers.',
     'blog.article.filtrazione-carbone-attivo-san-antonino.imageAlt': 'Water filtration plant in Sant\'Antonino, Ticino',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.title': 'Ticino construction sector withstands investment and geopolitical challenges',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.excerpt': 'The Ticino construction sector holds up despite challenges, with 3 billion francs in turnover and 5,500 workers. Labor reserves are at 5 months.',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.imageAlt': 'Lake Lugano with modern construction projects in the background',
 };
 
 export default blogMetaEn;

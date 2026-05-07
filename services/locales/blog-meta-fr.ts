@@ -6846,6 +6846,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.filtrazione-carbone-attivo-san-antonino.title': 'Pfas dans l’eau : Sant’Antonino active la filtration au charbon actif',
     'blog.article.filtrazione-carbone-attivo-san-antonino.excerpt': 'Le nouveau système réduit les Pfas à des valeurs inférieures à 2 ng/l, financé entièrement par la Confédération. Voici ce qui change pour les frontaliers.',
     'blog.article.filtrazione-carbone-attivo-san-antonino.imageAlt': 'Usine de filtration de l\'eau à Sant\'Antonino, Tessin',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.title': 'Construction au Tessin résiste aux défis d\'investissement et géopolitiques',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.excerpt': 'Le secteur de la construction tessinois tient malgré les défis, avec 3 milliards de chiffre d\'affaires et 5 500 travailleurs. Les réserves de travail sont à 5 mois.',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.imageAlt': 'Lac de Lugano avec des projets de construction modernes en arrière-plan',
 };
 
 export default blogMetaFr;

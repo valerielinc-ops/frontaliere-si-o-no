@@ -21908,4 +21908,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'edilizia-ticino-resiste-investimenti-geopolitica',
+ category: 'novita',
+ date: '2026-05-07T19:30:28.021Z',
+ image: '/images/blog/edilizia-ticino-resiste-investimenti-geopolitica.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

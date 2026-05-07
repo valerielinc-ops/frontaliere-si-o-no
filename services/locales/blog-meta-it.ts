@@ -6846,6 +6846,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.filtrazione-carbone-attivo-san-antonino.title': 'Pfas nell’acqua: Sant’Antonino attiva filtrazione a carbone attivo',
     'blog.article.filtrazione-carbone-attivo-san-antonino.excerpt': 'Il nuovo sistema riduce i Pfas a valori inferiori ai 2 ng/l, finanziato interamente dalla Confederazione. Ecco cosa cambia per i frontalieri.',
     'blog.article.filtrazione-carbone-attivo-san-antonino.imageAlt': 'Impianto di filtrazione dell\'acqua a Sant\'Antonino, Ticino',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.title': 'Edilizia Ticino resiste a sfide investimenti e geopolitica',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.excerpt': 'Il settore edilizio ticinese tiene nonostante le sfide, con 3 miliardi di cifre d\'affari e 5.500 lavoratori. Le riserve di lavoro sono a 5 mesi.',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.imageAlt': 'Lago di Lugano con progetti edilizi moderni sullo sfondo',
 };
 
 export default blogMetaIt;

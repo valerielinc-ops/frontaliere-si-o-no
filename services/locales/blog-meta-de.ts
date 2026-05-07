@@ -6845,6 +6845,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.filtrazione-carbone-attivo-san-antonino.title': 'PFAS im Wasser: Sant’Antonino aktiviert Aktivkohlefilter',
     'blog.article.filtrazione-carbone-attivo-san-antonino.excerpt': 'Das neue System reduziert die PFAS-Werte auf unter 2 ng/l und wird vollständig vom Bund finanziert. Was sich für Grenzgänger ändert.',
     'blog.article.filtrazione-carbone-attivo-san-antonino.imageAlt': 'Wasseraufbereitungsanlage in Sant\'Antonino, Tessin',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.title': 'Tessin-Bauwirtschaft trotzt Investitionen und Geopolitik',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.excerpt': 'Die Bauwirtschaft im Tessin hält sich trotz Herausforderungen mit 3 Milliarden Franken Umsatz und 5.500 Arbeitnehmern. Die Arbeitsreserven betragen 5 Monate.',
+    'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.imageAlt': 'Luganersee mit modernen Bauprojekten im Hintergrund',
 };
 
 export default blogMetaDe;
