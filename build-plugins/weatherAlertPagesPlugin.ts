@@ -20,6 +20,7 @@ import { evaluateAlerts, activeAlerts, dormantAlerts } from '../services/weather
 import { parseWeatherSnapshot, type AlertState, type WeatherSnapshot } from '../services/weather/types';
 import type { Locale } from '../services/weather/wmoCodes';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { svgArrowRight, svgBell, svgFacebook, svgLinkedin, svgMail } from './weatherIconsHelper';
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -430,11 +431,47 @@ function renderFaq(locale: Locale, _cfg: WeatherAlertConfig): string {
 }
 
 function renderCta(locale: Locale, acquisitionSource: string): string {
-  const ctaHeading = locale === 'it' ? 'Ricevi allerte commute via email' : locale === 'en' ? 'Get commute alerts by email' : locale === 'de' ? 'Pendler-Warnungen per E-Mail erhalten' : 'Recevez les alertes commute par e-mail';
-  const ctaSub = locale === 'it' ? 'Newsletter trigger-based: ricevi una mail solo quando l\'evento è attivo.' : locale === 'en' ? 'Trigger-based newsletter: get an email only when the event is active.' : locale === 'de' ? 'Trigger-basierter Newsletter: erhalten Sie nur dann eine E-Mail, wenn das Ereignis aktiv ist.' : 'Newsletter déclenchée: recevez un e-mail uniquement lorsque l\'événement est actif.';
-  return `<section class="bg-accent-subtle border border-accent-border rounded-2xl p-5 sm:p-6 my-6 max-w-3xl mx-auto text-center" data-acquisition-source="${escapeHtml(acquisitionSource)}">
-<h2 class="text-lg sm:text-xl font-bold text-heading mb-2">${escapeHtml(ctaHeading)}</h2>
-<p class="text-body">${escapeHtml(ctaSub)}</p>
+  const heading = locale === 'it' ? 'Ricevi allerte commute via email' : locale === 'en' ? 'Get commute alerts by email' : locale === 'de' ? 'Pendler-Warnungen per E-Mail' : 'Alertes commute par e-mail';
+  const sub = locale === 'it'
+    ? 'Newsletter trigger-based: ricevi una mail solo quando l\'evento è attivo. Niente spam, cancellazione con un click.'
+    : locale === 'en'
+    ? 'Trigger-based newsletter: an email only when the event is active. No spam, one-click unsubscribe.'
+    : locale === 'de'
+    ? 'Trigger-basierter Newsletter: nur eine E-Mail, wenn das Ereignis aktiv ist. Kein Spam, ein-Klick-Abmeldung.'
+    : 'Newsletter déclenchée : un e-mail uniquement lorsque l\'événement est actif. Pas de spam, désinscription en un clic.';
+  const placeholder = locale === 'it' ? 'tua@email.com' : locale === 'en' ? 'your@email.com' : locale === 'de' ? 'deine@email.com' : 'votre@email.com';
+  const cta = locale === 'it' ? 'Iscriviti' : locale === 'en' ? 'Subscribe' : locale === 'de' ? 'Abonnieren' : "S'inscrire";
+  const followLabel = locale === 'it' ? 'Seguici anche su' : locale === 'en' ? 'Follow us also on' : locale === 'de' ? 'Folge uns auch auf' : 'Suivez-nous aussi sur';
+  const privacy = locale === 'it' ? 'Privacy garantita.' : locale === 'en' ? 'Privacy protected.' : locale === 'de' ? 'Privatsphäre geschützt.' : 'Confidentialité protégée.';
+
+  return `<section class="relative overflow-hidden bg-gradient-to-br from-accent to-accent/80 text-white rounded-3xl p-6 sm:p-8 my-8 max-w-3xl mx-auto shadow-lg" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
+<div class="absolute -top-12 -right-12 text-white/10 pointer-events-none" aria-hidden="true">${svgBell(180)}</div>
+<div class="relative">
+<div class="flex items-start gap-3 mb-3">
+<span class="bg-white/15 rounded-full p-2 shrink-0">${svgMail(24)}</span>
+<div class="min-w-0 flex-1">
+<h2 class="text-xl sm:text-2xl font-bold leading-tight">${escapeHtml(heading)}</h2>
+<p class="text-white/85 text-sm sm:text-base mt-1">${escapeHtml(sub)}</p>
+</div>
+</div>
+<form class="mt-5 flex flex-col sm:flex-row gap-2" data-newsletter-form action="/api/newsletter-subscribe" method="post" novalidate>
+<label class="sr-only" for="alert-newsletter-email-${escapeHtml(acquisitionSource)}">${placeholder}</label>
+<input id="alert-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-1 min-w-0 px-4 py-3 rounded-xl bg-white/95 text-heading placeholder:text-muted border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/60 text-base">
+<input type="hidden" name="acquisitionSource" value="${escapeHtml(acquisitionSource)}">
+<input type="hidden" name="locale" value="${locale}">
+<button type="submit" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-accent font-semibold hover:bg-white/90 active:scale-[0.98] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-white/60">
+<span>${escapeHtml(cta)}</span>${svgArrowRight(18)}
+</button>
+</form>
+<div class="mt-5 flex items-center justify-between flex-wrap gap-3">
+<p class="text-xs text-white/75">${escapeHtml(privacy)}</p>
+<div class="flex items-center gap-2 text-xs text-white/85">
+<span>${escapeHtml(followLabel)}</span>
+<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="bg-white/15 hover:bg-white/25 rounded-full p-1.5 transition-colors">${svgFacebook(16)}</a>
+<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="bg-white/15 hover:bg-white/25 rounded-full p-1.5 transition-colors">${svgLinkedin(16)}</a>
+</div>
+</div>
+</div>
 </section>`;
 }
 

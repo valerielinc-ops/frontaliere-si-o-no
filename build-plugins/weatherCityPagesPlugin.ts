@@ -20,6 +20,18 @@ import { WEATHER_CITIES, type WeatherCity } from '../data/weatherCities';
 import { parseWeatherSnapshot, type CityWeather, type WeatherSnapshot } from '../services/weather/types';
 import { wmoText, type Locale } from '../services/weather/wmoCodes';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import {
+  svgArrowRight,
+  svgBell,
+  svgDroplet,
+  svgFacebook,
+  svgForWmo,
+  svgLinkedin,
+  svgMail,
+  svgSunrise,
+  svgSunset,
+  svgWind,
+} from './weatherIconsHelper';
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -237,19 +249,45 @@ function renderBreadcrumb(locale: Locale, city: WeatherCity): string {
 function renderHero(cw: CityWeather, locale: Locale): string {
   const condition = wmoText(cw.current.weatherCode, locale);
   const conf = cw.confidence === 'low'
-    ? `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-danger-subtle text-danger border border-danger-border">${labelLow(locale)}</span>`
+    ? `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-danger-subtle text-danger border border-danger-border">${labelLow(locale)}</span>`
     : cw.confidence === 'medium'
-      ? `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-warning-subtle text-warning border border-warning-border">${labelMedium(locale)}</span>`
-      : '';
+      ? `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-warning-subtle text-warning border border-warning-border">${labelMedium(locale)}</span>`
+      : `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-success-subtle text-success border border-success-border">${labelHigh(locale)}</span>`;
   const tempStr = `${Math.round(cw.current.temperature)}°`;
-  const wind = cw.current.windSpeedKmh != null ? `<span class="bg-surface-alt rounded-lg px-3 py-2 border border-edge"><span class="text-muted">${labelWind(locale)}:</span> <span class="font-medium text-heading">${Math.round(cw.current.windSpeedKmh)} km/h</span></span>` : '';
-  const humidity = cw.current.humidity != null ? `<span class="bg-surface-alt rounded-lg px-3 py-2 border border-edge"><span class="text-muted">${labelHumidity(locale)}:</span> <span class="font-medium text-heading">${cw.current.humidity}%</span></span>` : '';
-  return `<section class="bg-gradient-to-br from-accent-subtle to-surface border border-accent-border rounded-2xl p-6 sm:p-8 my-6 max-w-3xl mx-auto" aria-live="polite">
-<div class="flex items-baseline gap-3 flex-wrap">
-<div class="text-6xl sm:text-7xl font-light text-heading tabular-nums" data-current-temp>${tempStr}</div>
-<div class="text-lg sm:text-xl text-strong">${escapeHtml(condition)}</div>
+  const heroIcon = svgForWmo(cw.current.weatherCode, 96, cw.current.isDay);
+
+  const stats: string[] = [];
+  if (cw.current.windSpeedKmh != null) {
+    stats.push(`<div class="bg-surface/60 backdrop-blur-sm rounded-xl px-4 py-3 border border-edge/60 flex items-center gap-3"><span class="text-accent shrink-0">${svgWind(20)}</span><div class="min-w-0"><div class="text-xs text-muted uppercase tracking-wide">${labelWind(locale)}</div><div class="font-semibold text-heading tabular-nums">${Math.round(cw.current.windSpeedKmh)} <span class="text-sm text-muted font-normal">km/h</span></div></div></div>`);
+  }
+  if (cw.current.humidity != null) {
+    stats.push(`<div class="bg-surface/60 backdrop-blur-sm rounded-xl px-4 py-3 border border-edge/60 flex items-center gap-3"><span class="text-accent shrink-0">${svgDroplet(20)}</span><div class="min-w-0"><div class="text-xs text-muted uppercase tracking-wide">${labelHumidity(locale)}</div><div class="font-semibold text-heading tabular-nums">${cw.current.humidity}<span class="text-sm text-muted font-normal">%</span></div></div></div>`);
+  }
+  // sunrise/sunset come from daily7[0] when present (Open-Meteo provides them)
+  const today = cw.daily7?.[0];
+  if (today?.sunrise) {
+    const t = formatHm(today.sunrise);
+    if (t) stats.push(`<div class="bg-surface/60 backdrop-blur-sm rounded-xl px-4 py-3 border border-edge/60 flex items-center gap-3"><span class="text-amber-500 shrink-0">${svgSunrise(20)}</span><div class="min-w-0"><div class="text-xs text-muted uppercase tracking-wide">${labelSunrise(locale)}</div><div class="font-semibold text-heading tabular-nums">${t}</div></div></div>`);
+  }
+  if (today?.sunset) {
+    const t = formatHm(today.sunset);
+    if (t) stats.push(`<div class="bg-surface/60 backdrop-blur-sm rounded-xl px-4 py-3 border border-edge/60 flex items-center gap-3"><span class="text-orange-500 shrink-0">${svgSunset(20)}</span><div class="min-w-0"><div class="text-xs text-muted uppercase tracking-wide">${labelSunset(locale)}</div><div class="font-semibold text-heading tabular-nums">${t}</div></div></div>`);
+  }
+  const statsHtml = stats.length
+    ? `<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-6">${stats.join('')}</div>`
+    : '';
+
+  return `<section data-weather-hero class="relative overflow-hidden bg-gradient-to-br from-sky-100 via-accent-subtle to-surface border border-accent-border rounded-3xl p-6 sm:p-8 my-6 max-w-3xl mx-auto shadow-sm" aria-live="polite">
+<div class="absolute -top-8 -right-8 text-accent/10 pointer-events-none" aria-hidden="true">${svgForWmo(cw.current.weatherCode, 220, cw.current.isDay)}</div>
+<div class="relative flex items-center gap-5 sm:gap-7">
+<div class="text-accent shrink-0 drop-shadow-sm">${heroIcon}</div>
+<div class="min-w-0 flex-1">
+<div class="text-6xl sm:text-7xl font-light text-heading tabular-nums leading-none" data-current-temp>${tempStr}</div>
+<div class="mt-2 text-lg sm:text-xl text-strong font-medium">${escapeHtml(condition)}</div>
+<div class="mt-3">${conf}</div>
 </div>
-<div class="flex flex-wrap gap-2 mt-4 text-sm">${wind}${humidity}${conf}</div>
+</div>
+${statsHtml}
 </section>`;
 }
 
@@ -263,9 +301,11 @@ function renderHourly(cw: CityWeather, locale: Locale): string {
   const heading = locale === 'it' ? 'Prossime 24 ore' : locale === 'en' ? 'Next 24 hours' : locale === 'de' ? 'Nächste 24 Stunden' : 'Prochaines 24 heures';
   const cells = cw.hourly24.slice(0, 24).map((h) => {
     const hour = h.hour.slice(11, 13);
-    return `<div class="flex-shrink-0 w-16 bg-surface-alt rounded-lg border border-edge p-2 text-center"><div class="text-xs text-muted">${hour}h</div><div class="text-base font-semibold text-heading tabular-nums">${Math.round(h.temp)}°</div></div>`;
+    const code = h.weatherCode ?? cw.current.weatherCode;
+    const icon = svgForWmo(code, 28, true);
+    return `<div class="flex-shrink-0 w-[68px] bg-surface rounded-xl border border-edge p-2.5 text-center hover:border-accent-border hover:bg-accent-subtle/40 transition-colors"><div class="text-xs text-muted font-medium">${hour}<span class="text-muted/60">:00</span></div><div class="my-1.5 flex justify-center text-accent">${icon}</div><div class="text-base font-semibold text-heading tabular-nums">${Math.round(h.temp)}°</div></div>`;
   }).join('');
-  return `<section class="my-6 max-w-3xl mx-auto"><h2 class="text-lg sm:text-xl font-bold text-heading mb-3">${escapeHtml(heading)}</h2><div class="flex gap-2 overflow-x-auto pb-2">${cells}</div></section>`;
+  return `<section class="my-6 max-w-3xl mx-auto"><h2 class="text-lg sm:text-xl font-bold text-heading mb-3 px-1">${escapeHtml(heading)}</h2><div class="flex gap-2 overflow-x-auto pb-3 -mx-1 px-1 snap-x snap-mandatory" style="scrollbar-width:thin;">${cells}</div></section>`;
 }
 
 function renderDaily(cw: CityWeather, locale: Locale): string {
@@ -276,11 +316,22 @@ function renderDaily(cw: CityWeather, locale: Locale): string {
     const names = locale === 'it' ? ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'] : locale === 'en' ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] : locale === 'de' ? ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'] : ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
     return names[d.getDay()];
   };
-  const rows = cw.daily7.slice(0, 7).map((d) => {
+  const days = cw.daily7.slice(0, 7);
+  const globalMin = Math.min(...days.map((d) => d.tempMin));
+  const globalMax = Math.max(...days.map((d) => d.tempMax));
+  const range = Math.max(1, globalMax - globalMin);
+  const rows = days.map((d, i) => {
     const cond = wmoText(d.weatherCode, locale);
-    return `<li class="grid grid-cols-[80px_1fr_auto] gap-3 py-3 border-b border-edge last:border-0 items-center"><span class="font-semibold text-heading">${dayName(d.date)}</span><span class="text-body text-sm">${escapeHtml(cond)}</span><span class="font-medium text-strong tabular-nums">${Math.round(d.tempMax)}° / <span class="text-muted">${Math.round(d.tempMin)}°</span></span></li>`;
+    const icon = svgForWmo(d.weatherCode, 28, true);
+    const leftPct = Math.round(((d.tempMin - globalMin) / range) * 100);
+    const widthPct = Math.max(8, Math.round(((d.tempMax - d.tempMin) / range) * 100));
+    const isToday = i === 0;
+    const dayLabel = isToday
+      ? (locale === 'it' ? 'Oggi' : locale === 'en' ? 'Today' : locale === 'de' ? 'Heute' : "Aujourd'hui")
+      : dayName(d.date);
+    return `<li class="grid grid-cols-[64px_36px_1fr_88px] gap-3 py-3 border-b border-edge last:border-0 items-center"><span class="font-semibold text-heading text-sm">${dayLabel}</span><span class="text-accent flex justify-center" title="${escapeHtml(cond)}" aria-label="${escapeHtml(cond)}">${icon}</span><span class="relative h-2 bg-surface-alt rounded-full overflow-hidden" aria-hidden="true"><span class="absolute top-0 bottom-0 bg-gradient-to-r from-sky-400 via-amber-300 to-orange-500 rounded-full" style="left:${leftPct}%;width:${widthPct}%;"></span></span><span class="text-sm tabular-nums text-right"><span class="font-semibold text-heading">${Math.round(d.tempMax)}°</span> <span class="text-muted">${Math.round(d.tempMin)}°</span></span></li>`;
   }).join('');
-  return `<section class="my-6 max-w-3xl mx-auto"><h2 class="text-lg sm:text-xl font-bold text-heading mb-3">${escapeHtml(heading)}</h2><ol class="bg-surface rounded-2xl border border-edge p-2 sm:p-4">${rows}</ol></section>`;
+  return `<section class="my-6 max-w-3xl mx-auto"><h2 class="text-lg sm:text-xl font-bold text-heading mb-3">${escapeHtml(heading)}</h2><ol class="bg-surface rounded-2xl border border-edge px-3 sm:px-5">${rows}</ol></section>`;
 }
 
 function renderEvergreen(city: WeatherCity, locale: Locale): string {
@@ -332,11 +383,50 @@ function renderFaq(locale: Locale): string {
 }
 
 function renderCta(locale: Locale, acquisitionSource: string): string {
-  const ctaHeading = locale === 'it' ? 'Ricevi info commute frontalieri via email' : locale === 'en' ? 'Get cross-border commute updates by email' : locale === 'de' ? 'Pendler-Updates per E-Mail erhalten' : 'Recevez les infos commute par e-mail';
-  const ctaSub = locale === 'it' ? 'Newsletter settimanale per chi attraversa il confine ogni giorno.' : locale === 'en' ? 'Weekly newsletter for daily border crossers.' : locale === 'de' ? 'Wöchentlicher Newsletter für tägliche Grenzgänger.' : 'Newsletter hebdomadaire pour les frontaliers quotidiens.';
-  return `<section class="bg-accent-subtle border border-accent-border rounded-2xl p-5 sm:p-6 my-6 max-w-3xl mx-auto text-center" data-acquisition-source="${escapeHtml(acquisitionSource)}">
-<h2 class="text-lg sm:text-xl font-bold text-heading mb-2">${escapeHtml(ctaHeading)}</h2>
-<p class="text-body">${escapeHtml(ctaSub)}</p>
+  const heading = locale === 'it' ? 'Resta sempre informato' : locale === 'en' ? 'Stay informed' : locale === 'de' ? 'Bleib informiert' : 'Reste informé';
+  const sub = locale === 'it'
+    ? 'Newsletter settimanale per frontalieri: meteo, valichi, fisco, lavoro. Niente spam, cancellazione con un click.'
+    : locale === 'en'
+    ? 'Weekly newsletter for cross-border commuters: weather, crossings, taxes, jobs. No spam, one-click unsubscribe.'
+    : locale === 'de'
+    ? 'Wöchentlicher Newsletter für Grenzgänger: Wetter, Übergänge, Steuern, Jobs. Kein Spam, Abmeldung mit einem Klick.'
+    : 'Newsletter hebdomadaire pour frontaliers : météo, passages, fiscalité, emploi. Pas de spam, désinscription en un clic.';
+  const placeholder = locale === 'it' ? 'tua@email.com' : locale === 'en' ? 'your@email.com' : locale === 'de' ? 'deine@email.com' : 'votre@email.com';
+  const cta = locale === 'it' ? 'Iscriviti' : locale === 'en' ? 'Subscribe' : locale === 'de' ? 'Abonnieren' : "S'inscrire";
+  const followLabel = locale === 'it' ? 'Seguici anche su' : locale === 'en' ? 'Follow us also on' : locale === 'de' ? 'Folge uns auch auf' : 'Suivez-nous aussi sur';
+  const privacy = locale === 'it' ? 'Privacy garantita.' : locale === 'en' ? 'Privacy protected.' : locale === 'de' ? 'Privatsphäre geschützt.' : 'Confidentialité protégée.';
+
+  // Form posts to the standard newsletter subscribe handler — the SPA hydration
+  // intercepts the submit and routes it through the same Cloud Function as the
+  // popup, tagged with `acquisitionSource` for downstream analytics.
+  return `<section class="relative overflow-hidden bg-gradient-to-br from-accent to-accent/80 text-white rounded-3xl p-6 sm:p-8 my-8 max-w-3xl mx-auto shadow-lg" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
+<div class="absolute -top-12 -right-12 text-white/10 pointer-events-none" aria-hidden="true">${svgBell(180)}</div>
+<div class="relative">
+<div class="flex items-start gap-3 mb-3">
+<span class="bg-white/15 rounded-full p-2 shrink-0">${svgMail(24)}</span>
+<div class="min-w-0 flex-1">
+<h2 class="text-xl sm:text-2xl font-bold leading-tight">${escapeHtml(heading)}</h2>
+<p class="text-white/85 text-sm sm:text-base mt-1">${escapeHtml(sub)}</p>
+</div>
+</div>
+<form class="mt-5 flex flex-col sm:flex-row gap-2" data-newsletter-form action="/api/newsletter-subscribe" method="post" novalidate>
+<label class="sr-only" for="weather-newsletter-email-${escapeHtml(acquisitionSource)}">${placeholder}</label>
+<input id="weather-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-1 min-w-0 px-4 py-3 rounded-xl bg-white/95 text-heading placeholder:text-muted border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/60 text-base">
+<input type="hidden" name="acquisitionSource" value="${escapeHtml(acquisitionSource)}">
+<input type="hidden" name="locale" value="${locale}">
+<button type="submit" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-accent font-semibold hover:bg-white/90 active:scale-[0.98] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-white/60">
+<span>${escapeHtml(cta)}</span>${svgArrowRight(18)}
+</button>
+</form>
+<div class="mt-5 flex items-center justify-between flex-wrap gap-3">
+<p class="text-xs text-white/75">${escapeHtml(privacy)}</p>
+<div class="flex items-center gap-2 text-xs text-white/85">
+<span>${escapeHtml(followLabel)}</span>
+<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="bg-white/15 hover:bg-white/25 rounded-full p-1.5 transition-colors">${svgFacebook(16)}</a>
+<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="bg-white/15 hover:bg-white/25 rounded-full p-1.5 transition-colors">${svgLinkedin(16)}</a>
+</div>
+</div>
+</div>
 </section>`;
 }
 
@@ -359,7 +449,20 @@ function labelWind(l: Locale): string { return l === 'it' ? 'Vento' : l === 'en'
 function labelHumidity(l: Locale): string { return l === 'it' ? 'Umidità' : l === 'en' ? 'Humidity' : l === 'de' ? 'Luftfeuchtigkeit' : 'Humidité'; }
 function labelLow(l: Locale): string { return l === 'it' ? 'Fonte singola' : l === 'en' ? 'Single source' : l === 'de' ? 'Einzelquelle' : 'Source unique'; }
 function labelMedium(l: Locale): string { return l === 'it' ? '2 fonti' : l === 'en' ? '2 sources' : l === 'de' ? '2 Quellen' : '2 sources'; }
+function labelHigh(l: Locale): string { return l === 'it' ? 'Verificato' : l === 'en' ? 'Verified' : l === 'de' ? 'Verifiziert' : 'Vérifié'; }
+function labelSunrise(l: Locale): string { return l === 'it' ? 'Alba' : l === 'en' ? 'Sunrise' : l === 'de' ? 'Sonnenaufgang' : 'Lever'; }
+function labelSunset(l: Locale): string { return l === 'it' ? 'Tramonto' : l === 'en' ? 'Sunset' : l === 'de' ? 'Sonnenuntergang' : 'Coucher'; }
 function labelUnavailable(l: Locale): string { return l === 'it' ? 'Non disponibile' : l === 'en' ? 'Not available' : l === 'de' ? 'Nicht verfügbar' : 'Indisponible'; }
+
+function formatHm(iso: string): string | null {
+  try {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return null;
+    return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+  } catch {
+    return null;
+  }
+}
 
 interface WrapOpts {
   locale: Locale;
