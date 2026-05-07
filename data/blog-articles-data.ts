@@ -21278,4 +21278,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'regazzi-rieletto-usam-burocrazia-udc',
+ category: 'novita',
+ date: '2026-05-07T04:22:32.781Z',
+ image: '/images/blog/regazzi-rieletto-usam-burocrazia-udc.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

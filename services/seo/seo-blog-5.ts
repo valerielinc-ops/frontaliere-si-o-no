@@ -25118,6 +25118,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-regazzi-rieletto-usam-burocrazia-udc': {
+    title: 'Regazzi rieletto all\'USAM: burocrazia e iniziativa UDC',
+    description: 'Fabio Regazzi rieletto presidente USAM. Critica burocrazia e iniziativa UDC su immigrazione. Impatto economico per frontalieri Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, regazzi, rieletto, usam, burocrazia',
+    ogTitle: 'Regazzi rieletto USAM: burocrazia e iniziativa UDC',
+    ogDescription: 'Fabio Regazzi rieletto presidente USAM. Critica burocrazia e iniziativa UDC su immigrazione. Impatto economico per frontalieri Ticino.',
+    canonicalPath: '/articoli-frontaliere/regazzi-rieletto-usam-burocrazia-udc',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Regazzi rieletto all'USAM: burocrazia e iniziativa UDC",
+      "description": "Fabio Regazzi rieletto presidente USAM. Critica burocrazia e iniziativa UDC su immigrazione. Impatto economico per frontalieri Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/regazzi-rieletto-usam-burocrazia-udc.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fabio Regazzi parla alla conferenza dell'USAM a Bellinzona"
+      },
+      "datePublished": "2026-05-07T04:22:32+00:00",
+      "dateModified": "2026-05-07T04:22:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/regazzi-rieletto-usam-burocrazia-udc`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

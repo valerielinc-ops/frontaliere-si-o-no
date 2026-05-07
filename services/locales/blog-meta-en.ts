@@ -6635,6 +6635,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.title': 'Kindergarten Gallarate: crisis not inevitable, plan by June',
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.excerpt': 'Anna Zambon of the Gallarate PD asks the new president Agostini for guarantees for families and staff. Criticism of the administration for past management.',
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.imageAlt': 'Worried parent in front of a closed kindergarten in Gallarate',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.title': 'Regazzi re-elected at USAM: bureaucracy and UDC initiative',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.excerpt': 'Fabio Regazzi re-elected president of USAM. Criticizes bureaucracy and UDC initiative on immigration. Economic impact for Ticino cross-border workers.',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.imageAlt': 'Fabio Regazzi speaking at the USAM conference in Bellinzona',
 };
 
 export default blogMetaEn;

@@ -6636,6 +6636,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.title': 'Crise des écoles maternelles de Gallarate: un plan d\'ici juin',
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.excerpt': 'Anna Zambon du Pd de Gallarate demande au nouveau président Agostini des certitudes pour les familles et le personnel. Critiques envers l\'administration pour les gestions passées.',
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.imageAlt': 'Parent inquiet devant une maternelle fermée à Gallarate',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.title': 'Regazzi réélu à l\'USAM: bureaucratie et initiative UDC',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.excerpt': 'Fabio Regazzi réélu président de l\'USAM. Critique de la bureaucratie et de l\'initiative UDC sur l\'immigration. Impact économique pour les frontaliers du Tessin.',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.imageAlt': 'Fabio Regazzi parle à la conférence de l\'USAM à Bellinzona',
 };
 
 export default blogMetaFr;

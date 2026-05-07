@@ -6635,6 +6635,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.title': 'Kinderkrippen Gallarate: Krise ist kein Schicksal, Plan bis Juni',
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.excerpt': 'Anna Zambon vom Pd Gallarate fordert vom neuen Präsidenten Agostini Klarheit für Familien und Personal. Kritik an der Verwaltung für vergangene Managemententscheidungen.',
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.imageAlt': 'Besorgte Eltern vor einem geschlossenen Kindergarten in Gallarate',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.title': 'Regazzi wiedergewählt: USAM, Bürokratie und UDC-Initiative',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.excerpt': 'Fabio Regazzi wurde erneut zum Präsidenten der USAM gewählt. Er kritisiert die Bürokratie und die UDC-Initiative zur Einwanderung. Wirtschaftliche Auswirkungen für Grenzgänger im Tessin.',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.imageAlt': 'Fabio Regazzi spricht auf der USAM-Konferenz in Bellinzona',
 };
 
 export default blogMetaDe;

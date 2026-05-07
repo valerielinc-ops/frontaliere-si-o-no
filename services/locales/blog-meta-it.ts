@@ -6636,6 +6636,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.title': 'Scuole Materne Gallarate: crisi non è fatalità, piano entro giugno',
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.excerpt': 'Anna Zambon del Pd Gallarate chiede al nuovo presidente Agostini certezze per famiglie e personale. Critiche all\'amministrazione per gestioni passate.',
     'blog.article.scuole-materne-gallarate-crisi-piano-2026.imageAlt': 'Genitore preoccupato davanti a una scuola materna chiusa a Gallarate',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.title': 'Regazzi rieletto all\'USAM: burocrazia e iniziativa UDC',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.excerpt': 'Fabio Regazzi rieletto presidente USAM. Critica burocrazia e iniziativa UDC su immigrazione. Impatto economico per frontalieri Ticino.',
+    'blog.article.regazzi-rieletto-usam-burocrazia-udc.imageAlt': 'Fabio Regazzi parla alla conferenza dell\'USAM a Bellinzona',
 };
 
 export default blogMetaIt;
