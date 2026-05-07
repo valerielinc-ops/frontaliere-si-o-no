@@ -6713,6 +6713,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-droga-capolago-2026.title': 'Drogenarrest in Capolago: 54 Gramm Kokain beschlagnahmt',
     'blog.article.arresto-droga-capolago-2026.excerpt': 'Die Kantonspolizei hat einen albanischen Staatsbürger mit 54 Gramm Kokain auf der Autobahn A2 festgenommen. Hier ist, was passiert ist.',
     'blog.article.arresto-droga-capolago-2026.imageAlt': 'Polizeieinsatz am Luganersee mit Fahrzeugen und Beamten im Einsatz',
+    'blog.article.lugano-saluta-stadio-cornaredo-2024.title': 'Lugano verabschiedet sich vom Cornaredo-Stadion: Event am 4. Juni',
+    'blog.article.lugano-saluta-stadio-cornaredo-2024.excerpt': 'Öffentliches Fest zur Feier des 75-jährigen Bestehens des Stadions vor dem Ersatz durch die neue AIL Arena im Jahr 2026',
+    'blog.article.lugano-saluta-stadio-cornaredo-2024.imageAlt': 'Cornaredo-Stadion in Lugano, Luftaufnahme bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

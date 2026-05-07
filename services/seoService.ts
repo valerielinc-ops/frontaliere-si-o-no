@@ -3480,6 +3480,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lonza-cede-micro-macinazione-stabio': { name: 'Novità', path: '/articoli-frontaliere/lonza-cede-micro-macinazione-stabio', parent: 'blog' },
     'blog-agricoltura-sociale-ticino-strategie-2026': { name: 'Agricoltura sociale', path: '/articoli-frontaliere/agricoltura-sociale-ticino-strategie-2026', parent: 'blog' },
     'blog-arresto-droga-capolago-2026': { name: 'Arresto droga', path: '/articoli-frontaliere/arresto-droga-capolago-2026', parent: 'blog' },
+    'blog-lugano-saluta-stadio-cornaredo-2024': { name: 'Eventi Ticino', path: '/articoli-frontaliere/lugano-saluta-stadio-cornaredo-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

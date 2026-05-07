@@ -21512,4 +21512,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lugano-saluta-stadio-cornaredo-2024',
+ category: 'novita',
+ date: '2026-05-07T08:35:07.169Z',
+ image: '/images/blog/lugano-saluta-stadio-cornaredo-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
