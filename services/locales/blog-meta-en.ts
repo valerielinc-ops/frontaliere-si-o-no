@@ -6659,6 +6659,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-self-service-ticino-2026.title': 'Shoplifting in Ticino self-service stores: the situation',
     'blog.article.furti-self-service-ticino-2026.excerpt': 'Self-service stores in Ticino are being targeted by thieves. Here\'s what\'s happening and how owners are reacting.',
     'blog.article.furti-self-service-ticino-2026.imageAlt': 'A self-service store in a rural area of Ticino, stocked with local produce.',
+    'blog.article.varese-arresto-spacciatore-frontaliere.title': 'Varese: drug dealer arrested, drugs hidden in woods',
+    'blog.article.varese-arresto-spacciatore-frontaliere.excerpt': 'A 20-year-old Italian was arrested in Varese with 40 blocks of hashish. The drugs were found in a bag thrown into the woods.',
+    'blog.article.varese-arresto-spacciatore-frontaliere.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
 };
 
 export default blogMetaEn;

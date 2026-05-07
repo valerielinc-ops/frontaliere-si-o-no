@@ -6660,6 +6660,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-self-service-ticino-2026.title': 'Vols dans les magasins self-service: la situation au Tessin',
     'blog.article.furti-self-service-ticino-2026.excerpt': 'Les magasins self-service au Tessin sont la cible des voleurs. Voici ce qui se passe et comment les propriétaires réagissent.',
     'blog.article.furti-self-service-ticino-2026.imageAlt': 'Un magasin en libre-service dans une zone rurale du Tessin, avec des étagères remplies de produits locaux.',
+    'blog.article.varese-arresto-spacciatore-frontaliere.title': 'Varèse : un trafiquant arrêté, drogue cachée dans la forêt',
+    'blog.article.varese-arresto-spacciatore-frontaliere.excerpt': 'Un Italien de 20 ans a été arrêté à Varèse avec 40 barres de haschisch. La drogue a été trouvée dans un sac jeté dans la forêt.',
+    'blog.article.varese-arresto-spacciatore-frontaliere.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

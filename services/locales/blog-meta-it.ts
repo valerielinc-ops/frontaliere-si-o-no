@@ -6660,6 +6660,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-self-service-ticino-2026.title': 'Furti nei negozi self-service: la situazione in Ticino',
     'blog.article.furti-self-service-ticino-2026.excerpt': 'I negozi self-service in Ticino sono presi di mira dai ladri. Ecco cosa sta succedendo e come i proprietari stanno reagendo.',
     'blog.article.furti-self-service-ticino-2026.imageAlt': 'Un negozio self-service in una zona rurale del Ticino, con scaffali riforniti di prodotti locali.',
+    'blog.article.varese-arresto-spacciatore-frontaliere.title': 'Varese: arrestato spacciatore, droga nascosta nel bosco',
+    'blog.article.varese-arresto-spacciatore-frontaliere.excerpt': 'Un 20enne italiano è stato arrestato a Varese con 40 panetti di hascisc. La droga è stata trovata in una borsa lanciata nel bosco.',
+    'blog.article.varese-arresto-spacciatore-frontaliere.imageAlt': 'Lago di Lugano con vista sul confine svizzero-italiano',
 };
 
 export default blogMetaIt;

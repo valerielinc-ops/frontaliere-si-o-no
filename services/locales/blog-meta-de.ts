@@ -6659,6 +6659,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-self-service-ticino-2026.title': 'Diebstähle in Selbstbedienungsläden: Die Lage im Tessin',
     'blog.article.furti-self-service-ticino-2026.excerpt': 'Selbstbedienungsläden im Tessin werden von Dieben heimgesucht. Hier ist, was passiert und wie die Eigentümer reagieren.',
     'blog.article.furti-self-service-ticino-2026.imageAlt': 'Ein Selbstbedienungsladen in einer ländlichen Gegend des Tessin, gefüllt mit lokalen Produkten.',
+    'blog.article.varese-arresto-spacciatore-frontaliere.title': 'Varese: Drogenhändler festgenommen, Rauschgift im Wald versteckt',
+    'blog.article.varese-arresto-spacciatore-frontaliere.excerpt': 'Ein 20-jähriger Italiener wurde in Varese mit 40 Haschischblöcken festgenommen. Die Drogen wurden in einer im Wald weggeworfenen Tasche gefunden.',
+    'blog.article.varese-arresto-spacciatore-frontaliere.imageAlt': 'Luganersee mit Blick auf die schweizerisch-italienische Grenze',
 };
 
 export default blogMetaDe;
