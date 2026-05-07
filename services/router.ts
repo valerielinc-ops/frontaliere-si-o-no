@@ -43,7 +43,7 @@ import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyDa
 import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/healthPremiumsData';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
-import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath } from '../build-plugins/weeklyEmployersData';
+import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath, parseWeeklyEmployersTopHubPath } from '../build-plugins/weeklyEmployersData';
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
 import { CAREER_LANDING_ROUTES, isCareerLandingPath, parseCareerLandingPath } from '../build-plugins/careerLandingsData';
@@ -1843,6 +1843,16 @@ export function parsePath(pathname: string): ParseResult {
    const weeklyEmployersMatch = parseWeeklyEmployersPath(pathname);
    if (weeklyEmployersMatch) {
      return { route: { activeTab: 'job-board', staticOverlay: true }, locale: weeklyEmployersMatch.locale as Locale };
+   }
+   // Top-hub section root (`/aziende-che-assumono/` and locale equivalents).
+   // Without this match the SPA hydration falls back to the calculator
+   // landing and the static SSG content is wiped on first paint — bug
+   // reported 2026-05-07. The hub is emitted by weeklyEmployersPlugin's
+   // renderTopHubPage and pairs with `staticOverlay: true` so App.tsx
+   // doesn't replace the dist HTML.
+   const weeklyEmployersTopHub = parseWeeklyEmployersTopHubPath(pathname);
+   if (weeklyEmployersTopHub) {
+     return { route: { activeTab: 'job-board', staticOverlay: true }, locale: weeklyEmployersTopHub.locale as Locale };
    }
    // D-2 Expansion B: per-company × per-city hub (e.g.
    // /aziende-che-assumono/lugano/eoc-ente-ospedaliero-cantonale/settimana-corrente/).

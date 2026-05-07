@@ -199,6 +199,30 @@ export const WEEKLY_EMPLOYERS_ROUTES: readonly string[] = listCurrentWeekPaths()
 
 const WEEKLY_EMPLOYERS_ROUTE_SET: ReadonlySet<string> = new Set(WEEKLY_EMPLOYERS_ROUTES);
 
+/**
+ * Detect the top-hub section root for the weekly-employers feature.
+ * Matches `/aziende-che-assumono/` (IT), `/en/companies-hiring/`,
+ * `/de/unternehmen-einstellen/`, `/fr/entreprises-recrutent/`.
+ *
+ * Returns the locale on match, else null. Used by `services/router.ts`
+ * so the SPA hydration recognises the path as a static-overlay job-board
+ * route instead of falling back to the calculator landing.
+ */
+export function parseWeeklyEmployersTopHubPath(
+  urlPath: string,
+): { locale: WeeklyEmployersLocale } | null {
+  if (!urlPath) return null;
+  const leading = urlPath.startsWith('/') ? urlPath : `/${urlPath}`;
+  const withSlash = leading.endsWith('/') ? leading : `${leading}/`;
+  for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+    const prefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
+    const section = WEEKLY_EMPLOYERS_SECTION[locale];
+    const expected = `${prefix}/${section}/`.replace(/\/+/g, '/');
+    if (withSlash === expected) return { locale };
+  }
+  return null;
+}
+
 /** Regex matching an archive slug in any locale: captures week number + year. */
 const ARCHIVE_SLUG_RE =
   /^(?:settimana|week|woche|semaine)-(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
