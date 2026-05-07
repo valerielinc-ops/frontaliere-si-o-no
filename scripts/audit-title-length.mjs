@@ -245,6 +245,7 @@ async function main() {
       process.exit(2);
     }
     let regression = false;
+    const regressedFeatures = [];
     if (typeof baseline.total === 'number' && offenders.length > baseline.total) {
       console.error(`\nREGRESSION: total offenders ${offenders.length} > baseline ${baseline.total}`);
       regression = true;
@@ -254,11 +255,26 @@ async function main() {
         const cap = baseline.byFeature[feat] ?? 0;
         if (count > cap) {
           console.error(`REGRESSION: feature "${feat}" offenders ${count} > baseline ${cap}`);
+          regressedFeatures.push({ feat, cap, count });
           regression = true;
         }
       }
     }
     if (regression) {
+      // Dump ALL offenders for each regressed feature so the CI log alone is
+      // enough to diagnose without downloading the dist artifact (which can
+      // exceed 1 GB and take 30-60 min). Sorted by length desc so the longest
+      // titles surface first.
+      for (const { feat, cap, count } of regressedFeatures) {
+        const featOffenders = offenders
+          .filter((o) => o.feature === feat)
+          .sort((a, b) => b.length - a.length);
+        console.error(`\nFull offender list for feature "${feat}" (${count} pages, baseline ${cap}, +${count - cap}):`);
+        for (const o of featOffenders) {
+          console.error(`  ${String(o.length).padStart(3)} ch  [${o.locale}]  ${o.file}`);
+          console.error(`        ${o.title}`);
+        }
+      }
       console.error('\nThe title-length baseline ratchet only allows the count to go DOWN.');
       console.error('Shorten the offending titleBases, then regenerate with --write-baseline=<path>.');
       process.exit(1);

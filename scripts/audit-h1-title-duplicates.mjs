@@ -257,6 +257,7 @@ async function main() {
       process.exit(2);
     }
     let regression = false;
+    const regressedFeatures = [];
     if (typeof baseline.total === 'number' && offenders.length > baseline.total) {
       console.error(`\nREGRESSION: total offenders ${offenders.length} > baseline ${baseline.total}`);
       regression = true;
@@ -266,11 +267,25 @@ async function main() {
         const cap = baseline.byFeature[feat] ?? 0;
         if (count > cap) {
           console.error(`REGRESSION: feature "${feat}" offenders ${count} > baseline ${cap}`);
+          regressedFeatures.push({ feat, cap, count });
           regression = true;
         }
       }
     }
     if (regression) {
+      // Dump ALL offenders for each regressed feature so the CI log alone is
+      // enough to diagnose without downloading the dist artifact.
+      for (const { feat, cap, count } of regressedFeatures) {
+        const featOffenders = offenders
+          .filter((o) => o.feature === feat)
+          .sort((a, b) => a.file.localeCompare(b.file));
+        console.error(`\nFull offender list for feature "${feat}" (${count} pages, baseline ${cap}, +${count - cap}):`);
+        for (const o of featOffenders) {
+          console.error(`  [${o.locale}]  ${o.file}`);
+          console.error(`        title: ${o.title}`);
+          console.error(`        h1:    ${o.h1}`);
+        }
+      }
       console.error('\nThe duplicate-h1 baseline ratchet only allows the count to go DOWN.');
       console.error('Fix the new offenders, then regenerate with --write-baseline=<path>.');
       process.exit(1);

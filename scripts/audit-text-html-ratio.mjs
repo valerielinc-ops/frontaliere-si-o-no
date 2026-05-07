@@ -357,6 +357,19 @@ async function main() {
         console.error(`  Feature "${f.feature}": ${f.count} offenders (baseline allows ${f.max})`);
       }
       console.error('');
+      // Dump ALL offenders for each regressed feature so the CI log alone is
+      // enough to diagnose without downloading the dist artifact (which can
+      // exceed 1 GB and take 30-60 min). Sorted by ratio asc (worst first).
+      for (const f of featureRegressions) {
+        const featOffenders = offenders
+          .filter((o) => o.feature === f.feature)
+          .sort((a, b) => a.ratio - b.ratio);
+        console.error(`Full offender list for feature "${f.feature}" (${f.count} pages, baseline ${f.max}, +${f.count - f.max}):`);
+        for (const o of featOffenders) {
+          console.error(`  ${o.ratio.toFixed(2).padStart(6)} %  ${(o.htmlBytes / 1024).toFixed(1).padStart(7)} KB  ${o.file}`);
+        }
+        console.error('');
+      }
       console.error('How to fix');
       console.error('----------');
       console.error('1. Run locally to see the actual offending pages:');

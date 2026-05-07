@@ -631,7 +631,7 @@ async function readBaseline() {
  * full orphan list — which it shouldn't, to keep file size sane — we fall
  * back to listing the current-run examples).
  */
-function compareAgainstBaseline(current, baseline) {
+function compareAgainstBaseline(current, baseline, perSitemapInMemory) {
   if (!baseline) return { regressed: false, regressions: [] };
   const regressions = [];
   for (const [name, row] of Object.entries(current.perSitemap)) {
@@ -639,12 +639,12 @@ function compareAgainstBaseline(current, baseline) {
     if (!prev) continue;
     if (row.orphans > prev.orphans) {
       const baselineExamplesSet = new Set(prev.examples || []);
-      const currentExamples = row.examples || [];
-      const newOrphans = currentExamples.filter((u) => !baselineExamplesSet.has(u)).slice(0, 10);
-      // If the diff happens to be empty (e.g. baseline carried different
-      // examples), at least surface the current top-10 examples so the
-      // operator has something concrete to investigate.
-      const surfaced = newOrphans.length > 0 ? newOrphans : currentExamples.slice(0, 10);
+      // Prefer the in-memory full list (orphansList) over the capped examples
+      // so the CI log carries every offending URL — diagnosing without the
+      // dist artifact is non-negotiable.
+      const fullList = perSitemapInMemory?.[name]?.orphansList || row.examples || [];
+      const newOrphans = fullList.filter((u) => !baselineExamplesSet.has(u));
+      const surfaced = newOrphans.length > 0 ? newOrphans : fullList;
       regressions.push({ sitemap: name, prev: prev.orphans, current: row.orphans, newOrphans: surfaced });
     }
   }
@@ -722,7 +722,7 @@ async function main() {
       process.stderr.write('[audit] FATAL: --gate=baseline invoked but no baseline found.\n');
       process.exit(1);
     }
-    const cmp = compareAgainstBaseline(json, existing);
+    const cmp = compareAgainstBaseline(json, existing, perSitemap);
     if (cmp.regressed) {
       const lines = [];
       lines.push('[gate] REGRESSION — orphan-pages-in-sitemaps');

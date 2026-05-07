@@ -115,8 +115,10 @@ if (JSON_OUT) {
     `❌ ImageObject license-fields gate: ${offenders.length} offending ImageObject(s) across ${fileSet.size} page(s).`,
   );
   console.error(`Required fields: ${REQUIRED_FIELDS.join(', ')}\n`);
-  console.error(`First ${Math.min(LIMIT, offenders.length)} examples:`);
-  for (const o of offenders.slice(0, LIMIT)) {
+  // Dump the FULL offender list so the CI log alone is enough to diagnose
+  // without downloading the dist artifact (which can exceed 1 GB).
+  console.error(`Full offender list (${offenders.length} entries):`);
+  for (const o of offenders) {
     console.error(`  - ${o.file}`);
     console.error(`      missing: ${o.missing.join(', ')}`);
     console.error(`      keys:    ${o.keys.join(', ')}`);

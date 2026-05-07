@@ -318,6 +318,10 @@ function computePerSitemap(sitemapsToUrls, depthOf, canonicalToOriginal) {
       atDepthGtMax: offenders.length,
       deepest,
       examples: offenders.slice(0, LIMIT),
+      // Internal field used for regression dump only — not serialized to the
+      // baseline JSON. Carries the FULL offender list so CI can dump every
+      // offending URL on regression.
+      offendersList: offenders,
     };
   }
   return perSitemap;
@@ -434,6 +438,16 @@ async function main() {
         console.error(`  ${r.name}: ${r.current} URLs at depth > ${MAX_DEPTH} (baseline allows ${r.prev}, deepest now ${r.deepest})`);
       }
       console.error('');
+      // Dump ALL offenders for each regressed sitemap so the CI log alone is
+      // enough to diagnose without downloading the dist artifact.
+      for (const r of regressions) {
+        const full = perSitemap[r.name]?.offendersList || [];
+        console.error(`Full offender list for sitemap "${r.name}" (${r.current} URLs at depth > ${MAX_DEPTH}, baseline ${r.prev}, +${r.current - r.prev}):`);
+        for (const o of full) {
+          console.error(`  depth=${o.depth}  ${o.url}`);
+        }
+        console.error('');
+      }
       console.error('How to fix');
       console.error('----------');
       console.error('1. Run locally to see the offending URLs:');
