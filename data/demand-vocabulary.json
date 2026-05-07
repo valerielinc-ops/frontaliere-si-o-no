@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T09:09:29.539Z",
+  "generatedAt": "2026-05-07T09:32:32.830Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -18,7 +18,7 @@
       "normalizedKeyword": "avs frontalieri",
       "weight": 0.3,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "busta paga svizzera",
@@ -53,7 +53,7 @@
       "normalizedKeyword": "lpp",
       "weight": 0.3,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "nuovo accordo fiscale frontalieri",
@@ -63,8 +63,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "permesso gratuito pesca in mare",
-      "normalizedKeyword": "permesso gratuito pesca in mare",
+      "kw": "permesso g",
+      "normalizedKeyword": "permesso g",
       "weight": 0.3,
       "source": "suggest",
       "cluster": "pratico"
@@ -81,7 +81,7 @@
       "normalizedKeyword": "secondo pilastro svizzera",
       "weight": 0.3,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tasse svizzera",
@@ -140,8 +140,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "permesso g",
-      "normalizedKeyword": "permesso g",
+      "kw": "permesso g svizzera",
+      "normalizedKeyword": "permesso g svizzera",
       "weight": 0.27,
       "source": "suggest",
       "cluster": "pratico"
@@ -158,7 +158,7 @@
       "normalizedKeyword": "secondo pilastro",
       "weight": 0.27,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tasse svizzera calcolo",
@@ -179,14 +179,14 @@
       "normalizedKeyword": "tredicesima avs frontalieri",
       "weight": 0.27,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "avs svizzera frontalieri",
       "normalizedKeyword": "avs svizzera frontalieri",
       "weight": 0.24,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "busta paga svizzera esempio",
@@ -228,14 +228,14 @@
       "normalizedKeyword": "lpp svizzera",
       "weight": 0.24,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
-      "kw": "permesso g svizzera",
-      "normalizedKeyword": "permesso g svizzera",
+      "kw": "permesso giornaliero ztl bologna",
+      "normalizedKeyword": "permesso giornaliero ztl bologna",
       "weight": 0.24,
       "source": "suggest",
-      "cluster": "pratico"
+      "cluster": "generic"
     },
     {
       "kw": "ristorni frontalieri 2025",
@@ -249,7 +249,7 @@
       "normalizedKeyword": "secondo pilastro in caso di morte",
       "weight": 0.24,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tasse svizzera percentuale",
@@ -259,9 +259,16 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "telelavoro frontalieri italia svizzera",
-      "normalizedKeyword": "telelavoro frontalieri italia svizzera",
+      "kw": "telelavoro frontalieri 2026",
+      "normalizedKeyword": "telelavoro frontalieri 2026",
       "weight": 0.24,
+      "source": "suggest",
+      "cluster": "pratico"
+    },
+    {
+      "kw": "accordo telelavoro frontalieri",
+      "normalizedKeyword": "accordo telelavoro frontalieri",
+      "weight": 0.21,
       "source": "suggest",
       "cluster": "pratico"
     },
@@ -305,21 +312,21 @@
       "normalizedKeyword": "lpp italy srl",
       "weight": 0.21,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "numero avs frontalieri",
       "normalizedKeyword": "numero avs frontalieri",
       "weight": 0.21,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
-      "kw": "permesso giornaliero ztl bologna",
-      "normalizedKeyword": "permesso giornaliero ztl bologna",
+      "kw": "permesso giornaliero ztl firenze",
+      "normalizedKeyword": "permesso giornaliero ztl firenze",
       "weight": 0.21,
       "source": "suggest",
-      "cluster": "pratico"
+      "cluster": "generic"
     },
     {
       "kw": "ristorni frontalieri 2024",
@@ -333,7 +340,7 @@
       "normalizedKeyword": "secondo pilastro svizzera quando si puo ritirare",
       "weight": 0.21,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tasse svizzera italia",
@@ -341,13 +348,6 @@
       "weight": 0.21,
       "source": "suggest",
       "cluster": "fiscale"
-    },
-    {
-      "kw": "telelavoro frontalieri 2026",
-      "normalizedKeyword": "telelavoro frontalieri 2026",
-      "weight": 0.21,
-      "source": "suggest",
-      "cluster": "pratico"
     },
     {
       "kw": "busta paga svizzera per frontalieri",
@@ -389,21 +389,21 @@
       "normalizedKeyword": "lpp italy",
       "weight": 0.18,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "pensione avs frontalieri",
       "normalizedKeyword": "pensione avs frontalieri",
       "weight": 0.18,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
-      "kw": "permesso giornaliero ztl firenze",
-      "normalizedKeyword": "permesso giornaliero ztl firenze",
+      "kw": "permesso gravi motivi familiari",
+      "normalizedKeyword": "permesso gravi motivi familiari",
       "weight": 0.18,
       "source": "suggest",
-      "cluster": "pratico"
+      "cluster": "generic"
     },
     {
       "kw": "ristorni frontalieri varese",
@@ -417,7 +417,7 @@
       "normalizedKeyword": "secondo pilastro svizzera come funziona",
       "weight": 0.18,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tasse svizzera ticino",
@@ -425,20 +425,6 @@
       "weight": 0.18,
       "source": "suggest",
       "cluster": "fiscale"
-    },
-    {
-      "kw": "telelavoro frontalieri svizzera",
-      "normalizedKeyword": "telelavoro frontalieri svizzera",
-      "weight": 0.18,
-      "source": "suggest",
-      "cluster": "pratico"
-    },
-    {
-      "kw": "accordo telelavoro frontalieri",
-      "normalizedKeyword": "accordo telelavoro frontalieri",
-      "weight": 0.15,
-      "source": "suggest",
-      "cluster": "pratico"
     },
     {
       "kw": "busta paga svizzera trattenute",
@@ -473,14 +459,14 @@
       "normalizedKeyword": "lpp arcore",
       "weight": 0.15,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
-      "kw": "permesso gravi motivi familiari",
-      "normalizedKeyword": "permesso gravi motivi familiari",
+      "kw": "permesso giornaliero a conguaglio per l'assistenza di familiari con disabilita' grave",
+      "normalizedKeyword": "permesso giornaliero a conguaglio per l'assistenza di familiari con disabilita' grave",
       "weight": 0.15,
       "source": "suggest",
-      "cluster": "pratico"
+      "cluster": "generic"
     },
     {
       "kw": "scaglioni irpef frontalieri svizzera",
@@ -494,7 +480,7 @@
       "normalizedKeyword": "secondo pilastro in caso di divorzio",
       "weight": 0.15,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tasse svizzera e italia",
@@ -546,18 +532,18 @@
       "cluster": "generic"
     },
     {
-      "kw": "permesso giornaliero a conguaglio per l'assistenza di familiari con disabilita' grave",
-      "normalizedKeyword": "permesso giornaliero a conguaglio per l'assistenza di familiari con disabilita' grave",
+      "kw": "permesso giornaliero per recupero straordinario",
+      "normalizedKeyword": "permesso giornaliero per recupero straordinario",
       "weight": 0.12,
       "source": "suggest",
-      "cluster": "pratico"
+      "cluster": "generic"
     },
     {
       "kw": "secondo pilastro divorzio frontalieri",
       "normalizedKeyword": "secondo pilastro divorzio frontalieri",
       "weight": 0.12,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tasse svizzera vs italia",
@@ -578,7 +564,7 @@
       "normalizedKeyword": "busta paga svizzera avs",
       "weight": 0.09,
       "source": "suggest",
-      "cluster": "fiscale"
+      "cluster": "pensioni"
     },
     {
       "kw": "frontaliere o frontaliero",
@@ -606,21 +592,21 @@
       "normalizedKeyword": "lpp sa",
       "weight": 0.09,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
-      "kw": "permesso giornaliero per recupero straordinario",
-      "normalizedKeyword": "permesso giornaliero per recupero straordinario",
+      "kw": "permesso giornaliero retribuito per mandato amministrativo",
+      "normalizedKeyword": "permesso giornaliero retribuito per mandato amministrativo",
       "weight": 0.09,
       "source": "suggest",
-      "cluster": "pratico"
+      "cluster": "generic"
     },
     {
       "kw": "secondo pilastro quando si puo ritirare",
       "normalizedKeyword": "secondo pilastro quando si puo ritirare",
       "weight": 0.09,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tasse svizzera stipendio",
@@ -662,21 +648,21 @@
       "normalizedKeyword": "lpp cos'e",
       "weight": 0.06,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
-      "kw": "permesso giornaliero retribuito per mandato amministrativo",
-      "normalizedKeyword": "permesso giornaliero retribuito per mandato amministrativo",
+      "kw": "permesso guida patente sospesa",
+      "normalizedKeyword": "permesso guida patente sospesa",
       "weight": 0.06,
       "source": "suggest",
-      "cluster": "pratico"
+      "cluster": "generic"
     },
     {
       "kw": "secondo pilastro svizzera calcolo",
       "normalizedKeyword": "secondo pilastro svizzera calcolo",
       "weight": 0.06,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tassazione irpef frontalieri",
@@ -725,21 +711,14 @@
       "normalizedKeyword": "lpp svizzera calcolo",
       "weight": 0.03,
       "source": "suggest",
-      "cluster": "generic"
-    },
-    {
-      "kw": "permesso guida patente sospesa",
-      "normalizedKeyword": "permesso guida patente sospesa",
-      "weight": 0.03,
-      "source": "suggest",
-      "cluster": "pratico"
+      "cluster": "pensioni"
     },
     {
       "kw": "secondo pilastro pac",
       "normalizedKeyword": "secondo pilastro pac",
       "weight": 0.03,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
       "kw": "tassazione busta paga svizzera",
@@ -812,7 +791,7 @@
     },
     "googleSuggest": {
       "ok": true,
-      "kw_count": 107
+      "kw_count": 104
     },
     "winnerFingerprint": {
       "ok": true,
