@@ -5,8 +5,12 @@
 //
 // Cases were chosen for their stability — pages that change visually only
 // when intentional design / copy edits happen. Cron-generated pages
-// (fuel-daily, weekly-employers, border-wait) were removed because their
-// content updates daily and would produce false positives on every deploy.
+// (fuel-daily, weekly-employers, border-wait, AND job-board) were removed
+// because their content updates daily and would produce false positives on
+// every deploy. job-board renders job cards from cron crawlers that fire
+// every few minutes, so the above-the-fold viewport reshuffles content
+// continuously — rolling deploys back on those churn-pixel diffs is the
+// opposite of what visual regression should catch.
 //
 // Regenerate baselines on demand via the
 // `regenerate-visual-baselines.yml` workflow_dispatch (runs on Linux,
@@ -17,7 +21,6 @@ const CASES = [
   { name: 'home', url: '/' },
   { name: 'salary-calculator', url: '/calcola-stipendio/' },
   { name: 'currency-comparator', url: '/comparatori/cambio-valuta/' },
-  { name: 'job-board', url: '/cerca-lavoro-ticino/' },
 ];
 
 test.use({ viewport: { width: 1280, height: 800 } });
