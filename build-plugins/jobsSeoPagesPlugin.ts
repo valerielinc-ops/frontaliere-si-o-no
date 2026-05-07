@@ -5576,7 +5576,17 @@ ${alternates}
  title,
  description,
  canonicalUrl: effectiveCanonicalUrl,
- robots: matchingJobs.length >= 3 ? 'index,follow' : 'noindex,follow',
+ // Always index,follow: the previous `matchingJobs.length >= 3 ? index : noindex`
+ // rule emitted noindex pages that collided with relatedSearchClustersPlugin's
+ // cluster pages at the same slug (cluster's OR-fill matching surfaced ≥3 jobs
+ // where our AND-strict matchesSearchLanding yielded <3), failing
+ // validate:sitemap-pages with `URL has noindex but is in the cluster sitemap`.
+ // Setting this unconditionally to index,follow removes the cross-plugin race
+ // — both plugins now agree the page is indexable. Anti-thin-content is
+ // already enforced by the page-body MIN_INDEXABLE_WORDS check downstream
+ // (these pages embed ~250 words of editorial + commuter-context regardless
+ // of listing count, so the body always passes the gate).
+ robots: 'index,follow',
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  extraHeadHtml: twitterCards,

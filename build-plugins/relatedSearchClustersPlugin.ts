@@ -205,7 +205,12 @@ const CACHE_KEY_INPUTS = [
   'services/relatedSearchClusters.ts',
 ];
 
-const CACHE_VERSION = 'v1';
+// v2 (2026-05-07) invalidates v1 entries that were saved before the
+// dropNoindexLocs filter was added — those cached sitemaps still listed
+// 2 cluster URLs that another plugin (jobsSeoPagesPlugin's
+// search-stats-landing emit) overwrites with `noindex,follow`. Bumping
+// the version forces a fresh emit on next build so the filter runs.
+const CACHE_VERSION = 'v2';
 
 interface CacheManifest {
   version: string;
