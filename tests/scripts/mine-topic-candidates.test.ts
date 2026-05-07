@@ -892,3 +892,196 @@ describe('mineTopicCandidates orchestrator', () => {
     ).toBeTruthy();
   });
 });
+
+// ───────────────────────── Phase A: vocab + experimental outputs ─────────────────────────
+
+describe('mineTopicCandidates: Phase A vocab + experimental outputs', () => {
+  it('writes data/demand-vocabulary.json AND data/experimental-candidates.json alongside the legacy file', async () => {
+    const out = tempPath('phaseA-topic.json');
+    const vocabOut = tempPath('phaseA-vocab.json');
+    const expOut = tempPath('phaseA-exp.json');
+    cleanupPaths.push(out, vocabOut, expOut);
+
+    await mineTopicCandidates({
+      outputPath: out,
+      vocabOutputPath: vocabOut,
+      experimentalOutputPath: expOut,
+      blogMetaPath: '/nonexistent/blog-meta.ts',
+      articlePerformancePath: '/nonexistent/perf.json',
+      gscOrphansImpl: async () => ({
+        ok: true,
+        candidates: [
+          {
+            keyword: 'permesso g rinnovo',
+            normalizedKeyword: 'permesso g rinnovo',
+            sources: ['gscOrphans'],
+            demandSignals: { gscImpressions: 200 },
+          },
+        ],
+      }),
+      googleTrendsImpl: async () => ({
+        ok: false,
+        perGeo: {},
+        candidates: [],
+      }),
+      redditImpl: async () => ({
+        ok: true,
+        perSubreddit: {
+          redditTicino: {
+            ok: true,
+            candidates: [
+              {
+                keyword: 'come funziona il permesso G?',
+                normalizedKeyword: 'come funziona il permesso g',
+                sources: ['redditTicino'],
+                demandSignals: { redditScore: 12, redditComments: 8 },
+              },
+            ],
+          },
+        },
+        candidates: [
+          {
+            keyword: 'come funziona il permesso G?',
+            normalizedKeyword: 'come funziona il permesso g',
+            sources: ['redditTicino'],
+            demandSignals: { redditScore: 12, redditComments: 8 },
+          },
+        ],
+      }),
+      facebookImpl: async () => ({ ok: false, candidates: [] }),
+      suggestImpl: async () => ({
+        ok: true,
+        perSeed: {},
+        candidates: [
+          {
+            keyword: 'permesso g rinnovo',
+            normalizedKeyword: 'permesso g rinnovo',
+            sources: ['googleSuggest'],
+            demandSignals: { googleSuggestSeed: 'permesso G', googleSuggestRank: 0 },
+          },
+        ],
+      }),
+      newsRssImpl: async () => ({
+        ok: true,
+        perSeed: {},
+        candidates: [
+          {
+            keyword: 'Frontalieri 2026: nuovo accordo',
+            normalizedKeyword: 'frontalieri 2026 nuovo accordo',
+            sources: ['googleNewsRss'],
+            demandSignals: {
+              googleNewsRssSeed: 'frontalieri',
+              googleNewsRssSource: 'tio.ch',
+            },
+          },
+        ],
+      }),
+      now: () => '2026-05-07T22:00:00.000Z',
+    });
+
+    expect(existsSync(out)).toBe(true);
+    expect(existsSync(vocabOut)).toBe(true);
+    expect(existsSync(expOut)).toBe(true);
+
+    // Vocab: should contain the merged "permesso g rinnovo" keyword with
+    // both gsc + suggest sources contributing.
+    const vocab = JSON.parse(readFileSync(vocabOut, 'utf-8'));
+    expect(Array.isArray(vocab.stableKeywords)).toBe(true);
+    expect(vocab.stableKeywords.length).toBeGreaterThan(0);
+    const permessoEntry = vocab.stableKeywords.find(
+      (k: any) => k.normalizedKeyword === 'permesso g rinnovo',
+    );
+    expect(permessoEntry).toBeTruthy();
+    expect(permessoEntry.source).toMatch(/gsc/);
+    expect(permessoEntry.source).toMatch(/suggest/);
+    expect(permessoEntry.cluster).toBe('pratico');
+
+    // Experimental: should include both reddit + news-rss candidates,
+    // NOT gsc or suggest.
+    const exp = JSON.parse(readFileSync(expOut, 'utf-8'));
+    expect(Array.isArray(exp.candidates)).toBe(true);
+    expect(exp.candidates.length).toBeGreaterThan(0);
+    const allSources = exp.candidates.flatMap((c: any) => c.sources);
+    expect(allSources).toEqual(
+      expect.arrayContaining(['redditTicino', 'googleNewsRss']),
+    );
+    expect(allSources).not.toContain('gscOrphans');
+    expect(allSources).not.toContain('googleSuggest');
+    // Source summary captured.
+    expect(exp.sources.googleNewsRss.ok).toBe(true);
+    expect(exp.sources.redditTicino.ok).toBe(true);
+  });
+
+  it('writes empty-but-valid vocab + experimental files when every Phase-A source fails', async () => {
+    const out = tempPath('phaseA-fail-topic.json');
+    const vocabOut = tempPath('phaseA-fail-vocab.json');
+    const expOut = tempPath('phaseA-fail-exp.json');
+    cleanupPaths.push(out, vocabOut, expOut);
+
+    await mineTopicCandidates({
+      outputPath: out,
+      vocabOutputPath: vocabOut,
+      experimentalOutputPath: expOut,
+      blogMetaPath: '/nonexistent/blog-meta.ts',
+      articlePerformancePath: '/nonexistent/perf.json',
+      gscOrphansImpl: async () => ({ ok: false, candidates: [], reason: 'no file' }),
+      googleTrendsImpl: async () => ({ ok: false, perGeo: {}, candidates: [] }),
+      redditImpl: async () => ({ ok: false, candidates: [] }),
+      facebookImpl: async () => ({ ok: false, candidates: [] }),
+      suggestImpl: async () => ({ ok: false, candidates: [], reason: 'HTTP 429' }),
+      newsRssImpl: async () => ({
+        ok: false,
+        candidates: [],
+        reason: 'HTTP 503',
+      }),
+      now: () => '2026-05-07T22:00:00.000Z',
+    });
+
+    expect(existsSync(vocabOut)).toBe(true);
+    expect(existsSync(expOut)).toBe(true);
+
+    const vocab = JSON.parse(readFileSync(vocabOut, 'utf-8'));
+    expect(vocab.stableKeywords).toEqual([]);
+    expect(vocab.sources.gscOrphans.ok).toBe(false);
+    expect(vocab.sources.googleSuggest.ok).toBe(false);
+
+    const exp = JSON.parse(readFileSync(expOut, 'utf-8'));
+    expect(exp.candidates).toEqual([]);
+    expect(exp.sources.googleNewsRss.ok).toBe(false);
+  });
+
+  it('does not break if buildDemandVocabularyImpl throws', async () => {
+    const out = tempPath('phaseA-throw-topic.json');
+    const vocabOut = tempPath('phaseA-throw-vocab.json');
+    const expOut = tempPath('phaseA-throw-exp.json');
+    cleanupPaths.push(out, vocabOut, expOut);
+
+    const result = await mineTopicCandidates({
+      outputPath: out,
+      vocabOutputPath: vocabOut,
+      experimentalOutputPath: expOut,
+      blogMetaPath: '/nonexistent/blog-meta.ts',
+      articlePerformancePath: '/nonexistent/perf.json',
+      gscOrphansImpl: async () => ({ ok: false, candidates: [] }),
+      googleTrendsImpl: async () => ({ ok: false, perGeo: {}, candidates: [] }),
+      redditImpl: async () => ({ ok: false, candidates: [] }),
+      facebookImpl: async () => ({ ok: false, candidates: [] }),
+      suggestImpl: async () => ({ ok: false, candidates: [] }),
+      newsRssImpl: async () => ({ ok: false, candidates: [] }),
+      buildDemandVocabularyImpl: async () => {
+        throw new Error('synthetic vocab failure');
+      },
+      now: () => '2026-05-07T22:00:00.000Z',
+    });
+
+    // Legacy output still written; vocab fallback stub written.
+    expect(existsSync(out)).toBe(true);
+    expect(existsSync(vocabOut)).toBe(true);
+    expect(existsSync(expOut)).toBe(true);
+    const vocab = JSON.parse(readFileSync(vocabOut, 'utf-8'));
+    expect(vocab.stableKeywords).toEqual([]);
+    expect(vocab.sources.gscOrphans.reason).toMatch(/vocab build failed/);
+    // Main flow still returns its normal shape.
+    expect(Array.isArray(result.candidates)).toBe(true);
+  });
+});

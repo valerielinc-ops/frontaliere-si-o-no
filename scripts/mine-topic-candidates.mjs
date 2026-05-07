@@ -17,9 +17,14 @@ import { fetchGscOrphanCandidates, extractItTitles, normalizeKeyword, fnv1a8 } f
 import { fetchGoogleTrendsCandidates } from './lib/topic-sources/googleTrends.mjs';
 import { fetchRedditCandidates } from './lib/topic-sources/reddit.mjs';
 import { fetchFacebookCandidates } from './lib/topic-sources/facebookPages.mjs';
+import { fetchSuggestCandidates } from './lib/topic-sources/googleSuggest.mjs';
+import { fetchNewsRssCandidates } from './lib/topic-sources/googleNewsRss.mjs';
 import { noveltyScore } from './lib/topic-sources/noveltyCheck.mjs';
+import { buildDemandVocabulary } from './lib/demand-vocabulary.mjs';
 
 const OUTPUT_PATH = 'data/topic-candidates.json';
+const VOCAB_OUTPUT_PATH = 'data/demand-vocabulary.json';
+const EXPERIMENTAL_OUTPUT_PATH = 'data/experimental-candidates.json';
 const BLOG_META_PATH = 'services/locales/blog-meta-it.ts';
 const ARTICLE_PERFORMANCE_PATH = 'data/article-performance.json';
 
@@ -235,6 +240,8 @@ function sourceSummary(name, result) {
 
 export async function mineTopicCandidates({
   outputPath = OUTPUT_PATH,
+  vocabOutputPath = VOCAB_OUTPUT_PATH,
+  experimentalOutputPath = EXPERIMENTAL_OUTPUT_PATH,
   blogMetaPath = BLOG_META_PATH,
   articlePerformancePath = ARTICLE_PERFORMANCE_PATH,
   // Test seams — replace with mock impls when needed.
@@ -242,6 +249,9 @@ export async function mineTopicCandidates({
   googleTrendsImpl = fetchGoogleTrendsCandidates,
   redditImpl = fetchRedditCandidates,
   facebookImpl = fetchFacebookCandidates,
+  suggestImpl = fetchSuggestCandidates,
+  newsRssImpl = fetchNewsRssCandidates,
+  buildDemandVocabularyImpl = buildDemandVocabulary,
   noveltyFloor = NOVELTY_FLOOR,
   topN = TOP_N,
   now = () => new Date().toISOString(),
@@ -329,7 +339,151 @@ export async function mineTopicCandidates({
   };
 
   writeJsonAtomic(outputPath, output);
+
+  // ── Phase A: also emit demand-vocabulary.json + experimental-candidates.json ──
+  //
+  // These outputs are write-always-with-sensible-fallback. A failure in
+  // either pipeline must never fail the main candidate-mining flow, since
+  // the legacy `topic-candidates.json` is still consumed by the
+  // create-article path until Phase B+C wires the new vocab in.
+  await safeWriteVocab({
+    vocabOutputPath,
+    suggestImpl,
+    buildDemandVocabularyImpl,
+    articlePerformancePath,
+    blogMetaPath,
+    existingTitles,
+    now,
+  });
+  await safeWriteExperimental({
+    experimentalOutputPath,
+    redditCandidates: redditRes?.candidates ?? [],
+    redditPerSubreddit: redditRes?.perSubreddit ?? null,
+    newsRssImpl,
+    existingTitles,
+    noveltyFloor,
+    topN,
+    now,
+  });
+
   return output;
+}
+
+// Build demand-vocabulary.json by aggregating GSC orphans + Suggest +
+// winnerFingerprint. Wraps every failure mode so a broken vocab path
+// never breaks the legacy topic-candidates pipeline.
+async function safeWriteVocab({
+  vocabOutputPath,
+  suggestImpl,
+  buildDemandVocabularyImpl,
+  articlePerformancePath,
+  blogMetaPath,
+  existingTitles,
+  now,
+}) {
+  try {
+    const vocab = await buildDemandVocabularyImpl({
+      gscOrphansImpl: () => fetchGscOrphanCandidates({ existingTitles, blogMetaPath }),
+      suggestImpl,
+      fingerprintPath: articlePerformancePath,
+      now,
+    });
+    writeJsonAtomic(vocabOutputPath, vocab);
+  } catch (e) {
+    console.warn(`[mine-topic] vocab build failed, writing empty stub: ${e?.message ?? e}`);
+    try {
+      writeJsonAtomic(vocabOutputPath, {
+        generatedAt: now(),
+        weights: { gsc: 0.4, suggest: 0.3, fingerprint: 0.3 },
+        stableKeywords: [],
+        sources: {
+          gscOrphans: { ok: false, kw_count: 0, reason: 'vocab build failed' },
+          googleSuggest: { ok: false, kw_count: 0, reason: 'vocab build failed' },
+          winnerFingerprint: { ok: false, kw_count: 0 },
+        },
+      });
+    } catch {
+      /* ignore — disk failure already manifests via the legacy write */
+    }
+  }
+}
+
+// Write experimental-candidates.json — the experimental tier (Reddit +
+// Google News RSS only). Same Candidate shape as topic-candidates.json
+// but a separate score pool so Phase C's 10% experimental quota can be
+// drawn without contaminating the stable scoring.
+async function safeWriteExperimental({
+  experimentalOutputPath,
+  redditCandidates,
+  redditPerSubreddit,
+  newsRssImpl,
+  existingTitles,
+  noveltyFloor,
+  topN,
+  now,
+}) {
+  let newsRssRes = null;
+  try {
+    newsRssRes = await safeRun(() => newsRssImpl());
+  } catch (e) {
+    newsRssRes = {
+      ok: false,
+      candidates: [],
+      reason: `unhandled: ${e?.message ?? String(e)}`,
+    };
+  }
+
+  // Build per-source summary block matching topic-candidates.json shape.
+  const sources = {};
+  if (redditPerSubreddit) {
+    for (const [k, v] of Object.entries(redditPerSubreddit)) {
+      sources[k] = sourceSummary(k, v);
+    }
+  } else {
+    sources.redditTicino = { ok: false, candidates: 0, reason: 'unavailable' };
+    sources.redditItaly = { ok: false, candidates: 0, reason: 'unavailable' };
+    sources.redditLugano = { ok: false, candidates: 0, reason: 'unavailable' };
+    sources.redditSwitzerland = {
+      ok: false,
+      candidates: 0,
+      reason: 'unavailable',
+    };
+  }
+  sources.googleNewsRss = sourceSummary('googleNewsRss', newsRssRes);
+
+  const raw = [];
+  for (const c of redditCandidates ?? []) raw.push(c);
+  for (const c of newsRssRes?.candidates ?? []) raw.push(c);
+
+  const fresh = filterFreshCandidates(raw, now());
+  const merged = mergeCandidates(fresh);
+  const scored = scoreCandidates(merged, existingTitles).filter(
+    (c) => c.noveltyScore >= noveltyFloor,
+  );
+  scored.sort(compareCandidates);
+  const candidates = scored.slice(0, topN);
+
+  const output = {
+    generatedAt: now(),
+    sources,
+    candidates,
+  };
+  try {
+    writeJsonAtomic(experimentalOutputPath, output);
+  } catch (e) {
+    console.warn(
+      `[mine-topic] experimental-candidates write failed: ${e?.message ?? e}`,
+    );
+    try {
+      writeJsonAtomic(experimentalOutputPath, {
+        generatedAt: now(),
+        sources: {},
+        candidates: [],
+      });
+    } catch {
+      /* ignore */
+    }
+  }
 }
 
 // Per-source timeout — even with internal try/catch a source can hang on a
