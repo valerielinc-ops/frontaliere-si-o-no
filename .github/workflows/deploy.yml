@@ -7,6 +7,7 @@ on:
     paths-ignore:
       - 'data/border-wait-current.json'
       - 'data/border-wait-history/**'
+      - 'data/weather-snapshot.json'
   workflow_dispatch:
     inputs:
       article_id:
@@ -167,22 +168,6 @@ jobs:
           restore-keys: |
             og-jobs-${{ runner.os }}-
 
-      - name: Cache related-search cluster pages
-        uses: actions/cache@v5
-        with:
-          path: .cache/related-search-clusters
-          # Hash inputs match the ones the plugin uses internally for its
-          # per-build cache key (see CACHE_KEY_INPUTS in
-          # build-plugins/relatedSearchClustersPlugin.ts). When jobs.json
-          # changes daily via the cron crawlers, we miss; on pushes that
-          # don't touch jobs (most blog/code commits) we hit and skip the
-          # ~30s cluster emit + matching loop. Restore-keys cascade keeps
-          # older subdirs around so the plugin can re-use partial state
-          # while writing a new entry.
-          key: cluster-pages-${{ runner.os }}-${{ hashFiles('data/jobs.json', 'data/related-search-candidates.json', 'data/related-search-enriched.json', 'build-plugins/relatedSearchClustersPlugin.ts', 'build-plugins/relatedSearchClustersData.ts', 'services/relatedSearchClusters.ts') }}
-          restore-keys: |
-            cluster-pages-${{ runner.os }}-
-
       - name: Assemble jobs dataset from per-crawler slices
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
@@ -200,6 +185,30 @@ jobs:
 
       - name: Mine all job slugs for comprehensive 404 coverage
         run: node scripts/mine-all-job-slugs.mjs
+
+      - name: Cache related-search cluster pages
+        # Placed AFTER assemble-jobs + cleanup-jobs + mine-all-job-slugs
+        # so hashFiles('data/jobs.json', ...) reads the FINAL jobs.json
+        # content the cluster plugin will see at vite build time. The
+        # earlier placement (before assemble) keyed against the old/empty
+        # jobs.json and produced false-positive HITs from prior builds —
+        # the plugin's internal computeCacheKey hash (which DOES read the
+        # final jobs.json) then mismatched and forced a full re-emit
+        # anyway, wasting the 1.3 MB GH cache restore.
+        uses: actions/cache@v5
+        with:
+          path: .cache/related-search-clusters
+          # Hash inputs match the ones the plugin uses internally for its
+          # per-build cache key (see CACHE_KEY_INPUTS in
+          # build-plugins/relatedSearchClustersPlugin.ts). When jobs.json
+          # changes daily via the cron crawlers, we miss; on pushes that
+          # don't touch jobs (most blog/code commits) we hit and skip the
+          # ~30s cluster emit + matching loop. Restore-keys cascade keeps
+          # older subdirs around so the plugin can re-use partial state
+          # while writing a new entry.
+          key: cluster-pages-${{ runner.os }}-${{ hashFiles('data/jobs.json', 'data/related-search-candidates.json', 'data/related-search-enriched.json', 'build-plugins/relatedSearchClustersPlugin.ts', 'build-plugins/relatedSearchClustersData.ts', 'services/relatedSearchClusters.ts') }}
+          restore-keys: |
+            cluster-pages-${{ runner.os }}-
 
       - name: Fetch job popularity data from Firestore
         continue-on-error: true
