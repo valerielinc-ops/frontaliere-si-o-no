@@ -113,6 +113,19 @@ const _winnerFingerprintMessage = _articlePerformance
 const _demandVocabulary = _loadDemandVocabulary();
 const _experimentalCandidates = _loadExperimentalCandidates();
 
+// ── Phase 2 — Cascaded scoring inputs ─────────────────────────────
+// data/evidence-index.json: GSC + GA4 + PostHog + clusterStats, produced
+// daily by Phase 1's build-evidence-index.mjs. When present AND the
+// USE_CASCADED_SCORING flag is on (default), the ranker uses the
+// GSC → embedding → cluster cascade in scripts/lib/scoring/cascadedScore.mjs
+// instead of the legacy demand-vocabulary scorer.
+//
+// USE_CASCADED_SCORING = '0' forces the legacy path (rollback lever).
+const USE_CASCADED_SCORING = process.env.USE_CASCADED_SCORING !== '0';
+const _evidenceIndex = USE_CASCADED_SCORING
+  ? _topicLoadJsonSafe('data/evidence-index.json')
+  : null;
+
 // ── C1 News Sitemap Whitelist ──────────────────────────────────
 // Loaded by parsing data/news-sitemap-whitelist.ts at startup so we don't
 // need a TS loader for this single-string-array import. See that file for
@@ -5413,9 +5426,9 @@ async function main() {
             let rankerTier = null;
             let rankerScoreObj = null;
             let rankerCluster = null;
-            if (_demandVocabulary || _experimentalCandidates) {
+            if (_demandVocabulary || _experimentalCandidates || _evidenceIndex) {
               try {
-                console.error(`\n🎯 Ranker [${pool.name}] (tentativo ${attempt}/${MAX_DUPLICATE_RETRIES}): pool=${availableHeadlines.length} headlines`);
+                console.error(`\n🎯 Ranker [${pool.name}] (tentativo ${attempt}/${MAX_DUPLICATE_RETRIES}): pool=${availableHeadlines.length} headlines mode=${_evidenceIndex ? 'cascade' : 'legacy'}`);
                 const consumed = _topicLoadConsumedTracker(CONSUMED_TRACKER_PATH);
                 const picks = await _rankAndSelectHeadlines(availableHeadlines, _demandVocabulary, {
                   experimentalCandidates: _experimentalCandidates,
@@ -5429,6 +5442,11 @@ async function main() {
                   // historical winner-rate above median get up to 1.5x;
                   // below get down to 0.5x. Self-strengthening loop.
                   sourceQuality: _articlePerformance && _articlePerformance.sourceQuality,
+                  // Phase 2 — when evidence-index.json is present (and the
+                  // USE_CASCADED_SCORING flag is on), the ranker switches to
+                  // the GSC → embedding → cluster cascade. Legacy vocab
+                  // path stays available for rollback (env=0).
+                  evidence: _evidenceIndex,
                 });
                 if (picks.length > 0) {
                   const top = picks[0];
@@ -5449,9 +5467,16 @@ async function main() {
                   } else {
                     chosen = top; // stable headline pick — pass through.
                   }
-                  const scoreStr = rankerScoreObj
-                    ? `score=${rankerScoreObj.score.toFixed(3)} (demand=${rankerScoreObj.demandScore.toFixed(3)}, div=${rankerScoreObj.clusterDiversityBonus.toFixed(2)}, novel=${rankerScoreObj.noveltyScore.toFixed(2)})`
-                    : 'score=experimental';
+                  let scoreStr = 'score=experimental';
+                  if (rankerScoreObj) {
+                    if (rankerScoreObj.stage) {
+                      // Phase 2 cascade breakdown: { stage, rawScore, confidence, finalScore, score, ... }
+                      scoreStr = `score=${(rankerScoreObj.score ?? rankerScoreObj.finalScore ?? 0).toFixed(3)} (stage=${rankerScoreObj.stage}, raw=${(rankerScoreObj.rawScore ?? 0).toFixed(2)}, conf=${(rankerScoreObj.confidence ?? 1).toFixed(2)}, div=${(rankerScoreObj.clusterDiversityBonus ?? 1).toFixed(2)})`;
+                    } else if (typeof rankerScoreObj.score === 'number') {
+                      // Legacy demand-vocab breakdown.
+                      scoreStr = `score=${rankerScoreObj.score.toFixed(3)} (demand=${(rankerScoreObj.demandScore ?? 0).toFixed(3)}, div=${(rankerScoreObj.clusterDiversityBonus ?? 0).toFixed(2)}, novel=${(rankerScoreObj.noveltyScore ?? 0).toFixed(2)})`;
+                    }
+                  }
                   console.error(`   ✅ Ranker pick: tier=${rankerTier} cluster=${rankerCluster || 'n/a'} ${scoreStr}`);
                   console.error(`   📰 "${(chosen.headline || chosen.keyword || '').slice(0, 80)}"\n`);
                 } else {

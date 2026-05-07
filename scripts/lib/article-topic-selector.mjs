@@ -36,6 +36,7 @@ import {
   buildClusterClassifierPrompt,
   classifyByRegex,
 } from './cluster-classifier-prompt.mjs';
+import { cascadedScore } from './scoring/cascadedScore.mjs';
 
 // ── Paths (overridable via opts for tests) ─────────────────────
 export const PERFORMANCE_PATH = 'data/article-performance.json';
@@ -942,6 +943,90 @@ function pickTopExperimentalCandidate(experimentalCandidates, opts = {}) {
 }
 
 /**
+ * Cascaded-scoring ranker (Phase 2). Used when the caller passes
+ * `opts.evidence`; replaces the legacy demand-vocab scorer with the
+ * GSC → embedding → cluster cascade defined in
+ * scripts/lib/scoring/cascadedScore.mjs.
+ *
+ * Diff vs legacy path (per spec § 5.8):
+ *  - drops MIN_DEMAND_SCORE floor
+ *  - removes novelty bonus
+ *  - keeps cluster diversity malus + RANKER_MAX_PER_CLUSTER hard cap
+ *  - keeps source-quality multiplier
+ *
+ * @param {Array} list — headline objects (already normalized).
+ * @param {string[]} titles — pre-extracted title strings (parallel to list).
+ * @param {string[]} clusters — pre-classified clusters (parallel to list).
+ * @param {object} opts — full opts from rankAndSelectHeadlines.
+ */
+async function rankWithCascade(list, titles, clusters, opts) {
+  const evidence = opts.evidence;
+  const minScore = typeof opts.minScore === 'number' ? opts.minScore : 0;
+  const maxPicks = typeof opts.maxPicks === 'number' && opts.maxPicks > 0 ? Math.floor(opts.maxPicks) : 1;
+  const sourceQuality = opts.sourceQuality || null;
+  const todayPicksByCluster = opts.todayPicksByCluster || {};
+  const cascadeOpts = opts.cascadeOpts || {};
+
+  // Score each headline through the cascade. Sequential (not parallel)
+  // because the embedding stage hits an external API and we want the
+  // per-process LRU cache to absorb repeats across slots — parallel
+  // requests would race and double-bill embedding calls.
+  const scored = [];
+  for (let i = 0; i < list.length; i += 1) {
+    const headlineText = titles[i];
+    const cluster = clusters[i] || 'generic';
+    let breakdown;
+    try {
+      breakdown = await cascadedScore(headlineText, evidence, cascadeOpts);
+    } catch (err) {
+      console.warn(`[cascade] scoring failed for "${headlineText.slice(0, 60)}": ${err?.message || err}`);
+      continue;
+    }
+    if (!breakdown) continue;
+
+    // Cluster diversity malus — multiplicative, mirrors the legacy
+    // soft-signal. Fresh cluster (picks=0) → 1.0; first repeat → 0.5;
+    // 4+ picks → 0.1 floor.
+    const diversity = computeClusterDiversityBonus(cluster, todayPicksByCluster);
+
+    // Source-quality multiplier (unchanged from legacy path).
+    const url = (list[i] && (list[i].url || list[i].link)) || null;
+    const domain = _domainFromUrl(url);
+    const sqMultiplier = sourceQuality ? sourceQualityMultiplier(domain, sourceQuality) : 1.0;
+
+    const finalScore = breakdown.finalScore * diversity * sqMultiplier;
+    scored.push({
+      headline: list[i],
+      breakdown: {
+        ...breakdown,
+        score: finalScore,
+        clusterDiversityBonus: diversity,
+        sourceQualityMultiplier: sqMultiplier,
+        cluster,
+      },
+      index: i,
+    });
+  }
+
+  scored.sort((a, b) => (b.breakdown.score - a.breakdown.score) || (a.index - b.index));
+
+  const picks = [];
+  for (const { headline, breakdown } of scored) {
+    if (breakdown.score < minScore) break;
+    const cluster = breakdown.cluster || 'generic';
+    if ((todayPicksByCluster[cluster] || 0) >= RANKER_MAX_PER_CLUSTER) continue;
+    picks.push({
+      ...headline,
+      _selectedSource: 'cascade',
+      _score: breakdown,
+      _cluster: cluster,
+    });
+    if (picks.length >= maxPicks) break;
+  }
+  return picks;
+}
+
+/**
  * Rank a news-pool of headlines against the demand vocabulary, optionally
  * route to the experimental tier per the round-robin counter, and return
  * the top-N picks (currently maxPicks=1 since create-article generates
@@ -1000,6 +1085,16 @@ export async function rankAndSelectHeadlines(headlines, vocab, opts = {}) {
 
   const titles = list.map((h) => String((h && h[titleField]) ?? h?.title ?? ''));
   const clusters = await classifyHeadlineClusters(titles, opts.classifierOpts || {});
+
+  // ── Cascaded-scoring path (Phase 2, evidence-driven) ─────────────
+  // Triggered when caller passes an `evidence` opt (the parsed
+  // data/evidence-index.json). Replaces the legacy demand-vocabulary
+  // scorer with the GSC → embedding → cluster cascade. Drops the
+  // MIN_DEMAND_SCORE floor and the novelty bonus (per spec § 5.8) but
+  // keeps cluster diversity malus and the per-cluster hard cap.
+  if (opts.evidence) {
+    return rankWithCascade(list, titles, clusters, opts);
+  }
 
   const sourceQuality = opts.sourceQuality || null;
   const scored = list.map((h, i) => {
