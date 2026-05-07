@@ -491,6 +491,17 @@ interface LeafCopy {
   breadcrumbRoot: string;
   h1: (canton: string, age: string) => string;
   intro: (canton: string, age: string, median: string, min: string, max: string, year: number) => string;
+  /**
+   * 1-line tagline (≤120 chars) used as the lede on per-age leaf pages.
+   * Mobile-first: numbers live in the stats tiles, not in this prose, so
+   * the action area (advice banner + tiles + CTA + ranking) stays above
+   * the fold. The figures-laden full prose moves to the bottom
+   * `editorial` section — the page text content (and Semrush
+   * text-to-HTML ratio) is preserved.
+   */
+  introShort: (canton: string, age: string, year: number) => string;
+  /** Action-oriented "Consiglio" banner copy. See HubCopy.advice. */
+  advice: HpAdviceCopy;
   tableHeaders: { rank: string; insurer: string; premium: string };
   top20Title: (canton: string, age: string) => string;
   rankingTitle: string;
@@ -539,6 +550,22 @@ interface HubCopy {
   h1Canton: (canton: string, year: number) => string;
   introRoot: (year: number) => string;
   introCanton: (canton: string, median: string, min: string, max: string, year: number) => string;
+  /**
+   * 1-line tagline (≤120 chars) used as the lede on canton-hub pages.
+   * Mobile-first: numbers live in the stats tiles, not in this prose, so
+   * the action area (advice banner + tiles + CTA) stays above the fold.
+   * The long figures-laden prose moves to the bottom `cantonContext`
+   * section — the page text content (and Semrush text-to-HTML ratio)
+   * is preserved.
+   */
+  introCantonShort: (canton: string, year: number) => string;
+  /**
+   * Action-oriented "Consiglio" banner copy used directly under the H1.
+   * The `cheap`/`mid`/`expensive` variants are picked based on the
+   * canton's national ranking tertile; the `yoy*` add-ons are appended
+   * when prior-year data is available.
+   */
+  advice: HpAdviceCopy;
   ageGridTitle: (canton: string) => string;
   cantonGridTitle: string;
   cantonGridHeaders: { canton: string; median: string; min: string; max: string };
@@ -645,6 +672,22 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     h1: (c, a) => `Premi Cassa Malati ${c} 2026 — fascia ${a}`,
     intro: (c, a, median, min, max, year) =>
       `Premi LAMal ${year} in ${c} per ${a}: mediana ${median} CHF/mese, range da ${min} a ${max} CHF. Dati ufficiali UFSP/BAG con franchigia minima (CHF 300 adulti, CHF 0 bambini), senza copertura infortuni. Confronta le principali casse malati e trova l'assicurazione più conveniente per la tua situazione familiare.`,
+    introShort: (c, a, year) =>
+      `Premi LAMal ${year} in ${c} — fascia ${a}. Ranking delle casse e delta sull'anno scorso.`,
+    advice: {
+      eyebrow: 'Consiglio',
+      cheap: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: tra i più economici. Cambiando cassa puoi risparmiare ulteriori CHF 80–180/mese.`,
+      mid: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: nella fascia centrale. Risparmio tipico cambiando cassa: CHF 100–200/mese.`,
+      expensive: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: tra i più cari. Il risparmio annuo cambiando cassa può superare CHF 1 800.`,
+      yoyPositive: (delta) => `Premi in aumento del ${delta} sul 2025: il confronto è più importante che mai.`,
+      yoyStable: 'Premi sostanzialmente stabili rispetto al 2025.',
+      yoyNegative: (delta) => `Premi in calo del ${delta} sul 2025 — buona finestra per rinegoziare.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} è ${pos}° su ${total} cantoni · più economico di ${cheaper}, più caro di ${total - pos}.`,
+    },
     tableHeaders: { rank: 'Posizione', insurer: 'Cassa Malati', premium: 'Premio mensile' },
     top20Title: (c, a) => `Top 20 casse malati in ${c} — ${a}`,
     rankingTitle: 'Confronto con i cantoni limitrofi',
@@ -709,6 +752,22 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     h1: (c, a) => `Health insurance premiums ${c} 2026 — ${a}`,
     intro: (c, a, m, min, max, year) =>
       `LAMal health insurance premiums ${year} in ${c} for ${a}: median ${m} CHF/month, range from ${min} to ${max} CHF. Official FOPH/BAG data with the minimum deductible (CHF 300 for adults, CHF 0 for children) and no accident cover. Compare the main health funds and find the most affordable insurer for your situation.`,
+    introShort: (c, a, year) =>
+      `LAMal premiums ${year} in ${c} — bracket ${a}. Fund ranking and YoY delta vs last year.`,
+    advice: {
+      eyebrow: 'Recommendation',
+      cheap: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — among the cheapest. Switching fund saves an additional CHF 80–180/month.`,
+      mid: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — middle tier. Switching fund typically saves CHF 100–200/month.`,
+      expensive: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — among the most expensive. The annual saving from switching can exceed CHF 1,800.`,
+      yoyPositive: (delta) => `Premiums up ${delta} vs 2025 — comparing has never mattered more.`,
+      yoyStable: 'Premiums broadly stable vs 2025.',
+      yoyNegative: (delta) => `Premiums down ${delta} vs 2025 — a good window to renegotiate.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} ranks ${pos} of ${total} cantons · cheaper than ${cheaper}, more expensive than ${total - pos}.`,
+    },
     tableHeaders: { rank: 'Rank', insurer: 'Health fund', premium: 'Monthly premium' },
     top20Title: (c, a) => `Top 20 health funds in ${c} — ${a}`,
     rankingTitle: 'Benchmark vs neighbouring cantons',
@@ -773,6 +832,22 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     h1: (c, a) => `Krankenkassenprämien ${c} 2026 — ${a}`,
     intro: (c, a, m, min, max, year) =>
       `KVG-Prämien ${year} in ${c} für ${a}: Median ${m} CHF/Monat, Spannweite von ${min} bis ${max} CHF. Offizielle BAG/UFSP-Daten mit Mindestfranchise (CHF 300 Erwachsene, CHF 0 Kinder) und ohne Unfalldeckung. Vergleichen Sie die wichtigsten Krankenkassen und finden Sie den günstigsten Versicherer für Ihre Situation.`,
+    introShort: (c, a, year) =>
+      `KVG-Prämien ${year} in ${c} — Altersgruppe ${a}. Kassen-Ranking und Vorjahresveränderung.`,
+    advice: {
+      eyebrow: 'Empfehlung',
+      cheap: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — zu den günstigsten. Ein Kassenwechsel spart zusätzlich CHF 80–180/Monat.`,
+      mid: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — Mittelfeld. Ein Kassenwechsel spart CHF 100–200/Monat.`,
+      expensive: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — zu den teuersten. Die jährliche Ersparnis durch Wechsel kann CHF 1 800 übersteigen.`,
+      yoyPositive: (delta) => `Prämien um ${delta} höher als 2025 — Vergleichen war noch nie wichtiger.`,
+      yoyStable: 'Prämien gegenüber 2025 weitgehend stabil.',
+      yoyNegative: (delta) => `Prämien um ${delta} tiefer als 2025 — gutes Zeitfenster zum Verhandeln.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c}: Platz ${pos} von ${total} Kantonen · günstiger als ${cheaper}, teurer als ${total - pos}.`,
+    },
     tableHeaders: { rank: 'Rang', insurer: 'Krankenkasse', premium: 'Monatsprämie' },
     top20Title: (c, a) => `Top 20 Krankenkassen in ${c} — ${a}`,
     rankingTitle: 'Vergleich mit Nachbarkantonen',
@@ -837,6 +912,22 @@ const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
     h1: (c, a) => `Primes assurance maladie ${c} 2026 — ${a}`,
     intro: (c, a, m, min, max, year) =>
       `Primes LAMal ${year} à ${c} pour ${a} : médiane ${m} CHF/mois, plage de ${min} à ${max} CHF. Données officielles OFSP/BAG avec franchise minimale (CHF 300 adultes, CHF 0 enfants) et sans couverture accident. Comparez les principales caisses maladie et trouvez l'assureur le plus avantageux pour votre situation.`,
+    introShort: (c, a, year) =>
+      `Primes LAMal ${year} à ${c} — tranche ${a}. Classement des caisses et variation sur 2025.`,
+    advice: {
+      eyebrow: 'Conseil',
+      cheap: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — parmi les moins chers. Changer de caisse permet d'économiser CHF 80–180/mois en plus.`,
+      mid: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — milieu de tableau. Changer de caisse permet d'économiser CHF 100–200/mois.`,
+      expensive: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — parmi les plus chers. L'économie annuelle d'un changement peut dépasser CHF 1 800.`,
+      yoyPositive: (delta) => `Primes en hausse de ${delta} sur 2025 — comparer n'a jamais été aussi important.`,
+      yoyStable: 'Primes globalement stables par rapport à 2025.',
+      yoyNegative: (delta) => `Primes en baisse de ${delta} sur 2025 — bonne fenêtre pour renégocier.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons · moins cher que ${cheaper}, plus cher que ${total - pos}.`,
+    },
     tableHeaders: { rank: 'Rang', insurer: 'Caisse maladie', premium: 'Prime mensuelle' },
     top20Title: (c, a) => `Top 20 caisses maladie à ${c} — ${a}`,
     rankingTitle: 'Comparatif avec les cantons voisins',
@@ -906,6 +997,22 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       `Il sistema LAMal svizzero impone a ogni residente un'assicurazione malattia di base. I premi ${y} variano in modo significativo fra cantoni, regioni premio e fasce d'età: questa è la pagina hub del nostro monitor dei premi, con dati ufficiali UFSP/BAG aggiornati ogni anno. Per ogni cantone target (Ticino, Grigioni, Uri, Vallese, Zurigo come benchmark) forniamo una vista dettagliata della mediana, del minimo e del massimo premio mensile, suddivisi in 6 fasce d'età. I frontalieri che lavorano in Svizzera possono scegliere tra LAMal svizzera e SSN italiano grazie al diritto d'opzione: la pagina del cantone che abiti (o del cantone della tua sede di lavoro) è il punto di partenza per confrontare le casse. Ogni landing si collega al comparatore pre-filtrato dove puoi ottenere un preventivo personalizzato.`,
     introCanton: (c, m, min, max, y) =>
       `Panoramica dei premi LAMal ${y} nel ${c} per tutte le fasce d'età: mediana ${m} CHF/mese, range da ${min} a ${max} CHF fra le casse ufficialmente attive. I valori provengono da UFSP/BAG (franchigia 300 adulti, senza infortuni). Usa la griglia sotto per aprire la pagina della fascia d'età che ti interessa e vedere il ranking completo delle casse e le offerte alternative (medico di famiglia, telmed, HMO).`,
+    introCantonShort: (c, y) =>
+      `Premi LAMal ${y} nel ${c}: mediana, range e ranking nazionale per scegliere la cassa più conveniente.`,
+    advice: {
+      eyebrow: 'Consiglio',
+      cheap: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: tra i più economici della Svizzera. Margine di risparmio aggiuntivo cambiando cassa: tipicamente CHF 80–180/mese.`,
+      mid: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: nella fascia centrale. Cambiando cassa puoi risparmiare CHF 100–200/mese senza perdere copertura.`,
+      expensive: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: tra i più cari della Svizzera. Confronta le casse — il risparmio annuo può superare CHF 1 800.`,
+      yoyPositive: (delta) => `Premi in aumento del ${delta} sul 2025: il confronto è più importante che mai.`,
+      yoyStable: 'Premi sostanzialmente stabili rispetto al 2025.',
+      yoyNegative: (delta) => `Premi in calo del ${delta} sul 2025 — buona finestra per rinegoziare.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} è ${pos}° su ${total} cantoni · più economico di ${cheaper}, più caro di ${total - pos}.`,
+    },
     ageGridTitle: (c) => `Mediane per fascia di età in ${c}`,
     cantonGridTitle: 'Mediane per cantone — fascia adulti (26+)',
     cantonGridHeaders: { canton: 'Cantone', median: 'Mediana', min: 'Minimo', max: 'Massimo' },
@@ -1084,6 +1191,22 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       `The Swiss LAMal system requires every resident to hold basic health insurance. ${y} premiums vary substantially by canton, premium region and age bracket: this hub is the entry point to our premium tracker, with official FOPH/BAG data refreshed annually. For each target canton (Ticino, Graubünden, Uri, Valais, Zurich as benchmark) we expose median, minimum and maximum monthly premium across 6 age brackets. Cross-border workers employed in Switzerland can choose between the Swiss LAMal and their home-country system under the "right of option" — the canton of your employer (or your residence canton) is the right starting point. Every landing links to the pre-filtered comparator where you can obtain a personalised quote.`,
     introCanton: (c, m, min, max, y) =>
       `${y} LAMal premium overview in ${c} across all age brackets: median ${m} CHF/month, range from ${min} to ${max} CHF across active health funds. Data from FOPH/BAG (CHF 300 deductible for adults, no accident cover). Use the grid below to open the age bracket you need and see the full ranking of funds with alternative models (family doctor, telmed, HMO).`,
+    introCantonShort: (c, y) =>
+      `${y} LAMal premiums in ${c}: median, range and national ranking to pick the cheapest fund.`,
+    advice: {
+      eyebrow: 'Recommendation',
+      cheap: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — among the cheapest in Switzerland. Switching fund typically saves CHF 80–180/month on top.`,
+      mid: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — middle tier. Switching fund can save CHF 100–200/month with no coverage loss.`,
+      expensive: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — among the most expensive in Switzerland. The annual saving from switching can exceed CHF 1,800.`,
+      yoyPositive: (delta) => `Premiums up ${delta} vs 2025 — comparing has never mattered more.`,
+      yoyStable: 'Premiums broadly stable vs 2025.',
+      yoyNegative: (delta) => `Premiums down ${delta} vs 2025 — a good window to renegotiate.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} ranks ${pos} of ${total} cantons · cheaper than ${cheaper}, more expensive than ${total - pos}.`,
+    },
     ageGridTitle: (c) => `Median by age bracket in ${c}`,
     cantonGridTitle: 'Median by canton — adult bracket (26+)',
     cantonGridHeaders: { canton: 'Canton', median: 'Median', min: 'Min', max: 'Max' },
@@ -1262,6 +1385,22 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       `Das Schweizer KVG verpflichtet jeden Einwohner zu einer Grundversicherung. Die Prämien ${y} variieren deutlich nach Kanton, Prämienregion und Altersgruppe: Diese Hub-Seite ist der Einstieg zu unserem Prämienmonitor mit amtlichen BAG/UFSP-Daten, jährlich aktualisiert. Für jeden Zielkanton (Tessin, Graubünden, Uri, Wallis, Zürich als Benchmark) zeigen wir Median, Minimum und Maximum der Monatsprämie in 6 Altersgruppen. Grenzgänger in der Schweiz können dank Optionsrecht zwischen Schweizer KVG und dem System ihres Wohnlandes wählen — der Kanton des Arbeitgebers (oder Ihr Wohnkanton) ist der beste Einstiegspunkt. Jede Seite verlinkt den vorgefilterten Vergleich für ein persönliches Angebot.`,
     introCanton: (c, m, min, max, y) =>
       `Übersicht der KVG-Prämien ${y} in ${c} für alle Altersgruppen: Median ${m} CHF/Monat, Spanne von ${min} bis ${max} CHF bei den aktiven Krankenkassen. Daten aus BAG/UFSP (Franchise 300 Erwachsene, ohne Unfall). Wählen Sie in der Tabelle die gewünschte Altersgruppe, um das vollständige Ranking mit alternativen Modellen (Hausarzt, Telmed, HMO) zu sehen.`,
+    introCantonShort: (c, y) =>
+      `KVG-Prämien ${y} in ${c}: Median, Spanne und nationales Ranking, um die günstigste Kasse zu wählen.`,
+    advice: {
+      eyebrow: 'Empfehlung',
+      cheap: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — zu den günstigsten der Schweiz. Ein Kassenwechsel spart typischerweise zusätzlich CHF 80–180/Monat.`,
+      mid: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — Mittelfeld. Ein Kassenwechsel spart CHF 100–200/Monat ohne Leistungseinbussen.`,
+      expensive: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — zu den teuersten der Schweiz. Die jährliche Ersparnis durch Wechsel kann CHF 1 800 übersteigen.`,
+      yoyPositive: (delta) => `Prämien um ${delta} höher als 2025 — Vergleichen war noch nie wichtiger.`,
+      yoyStable: 'Prämien gegenüber 2025 weitgehend stabil.',
+      yoyNegative: (delta) => `Prämien um ${delta} tiefer als 2025 — gutes Zeitfenster zum Verhandeln.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c}: Platz ${pos} von ${total} Kantonen · günstiger als ${cheaper}, teurer als ${total - pos}.`,
+    },
     ageGridTitle: (c) => `Median nach Altersgruppe in ${c}`,
     cantonGridTitle: 'Median nach Kanton — Erwachsene (26+)',
     cantonGridHeaders: { canton: 'Kanton', median: 'Median', min: 'Min', max: 'Max' },
@@ -1440,6 +1579,22 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       `Le système LAMal suisse oblige tout résident à souscrire une assurance maladie de base. Les primes ${y} varient sensiblement selon le canton, la région de prime et la tranche d'âge : cette page hub est le point d'entrée de notre moniteur des primes, avec des données officielles OFSP/BAG mises à jour chaque année. Pour chaque canton cible (Tessin, Grisons, Uri, Valais, Zurich comme référence) nous affichons la médiane, le minimum et le maximum de prime mensuelle pour 6 tranches d'âge. Les frontaliers travaillant en Suisse peuvent choisir entre la LAMal suisse et le système de leur État de résidence grâce au droit d'option — le canton de l'employeur (ou votre canton de résidence) est le bon point de départ. Chaque page renvoie au comparateur pré-filtré pour obtenir un devis personnalisé.`,
     introCanton: (c, m, min, max, y) =>
       `Aperçu des primes LAMal ${y} à ${c} pour toutes les tranches d'âge : médiane ${m} CHF/mois, plage de ${min} à ${max} CHF entre les caisses actives. Données OFSP/BAG (franchise 300 adultes, sans accident). Utilisez la grille ci-dessous pour ouvrir la tranche d'âge souhaitée et voir le classement complet des caisses avec modèles alternatifs (médecin de famille, telmed, HMO).`,
+    introCantonShort: (c, y) =>
+      `Primes LAMal ${y} à ${c} : médiane, plage et classement national pour choisir la caisse la moins chère.`,
+    advice: {
+      eyebrow: 'Conseil',
+      cheap: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — parmi les moins chers de Suisse. Changer de caisse permet d'économiser typiquement CHF 80–180/mois en plus.`,
+      mid: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — milieu de tableau. Changer de caisse permet d'économiser CHF 100–200/mois sans perte de couverture.`,
+      expensive: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — parmi les plus chers de Suisse. L'économie annuelle d'un changement peut dépasser CHF 1 800.`,
+      yoyPositive: (delta) => `Primes en hausse de ${delta} sur 2025 — comparer n'a jamais été aussi important.`,
+      yoyStable: 'Primes globalement stables par rapport à 2025.',
+      yoyNegative: (delta) => `Primes en baisse de ${delta} sur 2025 — bonne fenêtre pour renégocier.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons · moins cher que ${cheaper}, plus cher que ${total - pos}.`,
+    },
     ageGridTitle: (c) => `Médiane par tranche d'âge à ${c}`,
     cantonGridTitle: 'Médiane par canton — adultes (26+)',
     cantonGridHeaders: { canton: 'Canton', median: 'Médiane', min: 'Min', max: 'Max' },
@@ -1714,6 +1869,133 @@ function renderHealthPremiumFrontalierContext(args: {
   </section>`;
 }
 
+/**
+ * Compute the canton's ranking position relative to all other cantons in
+ * Switzerland for the matching age bracket (or the adult median when `age`
+ * is omitted, i.e. for the canton-hub page). Returns position as
+ * `1..total` where 1 = cheapest. Cantons with no data are excluded from
+ * the denominator.
+ */
+function computeCantonRanking(
+  allCantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null>,
+  currentCanton: HealthPremiumCanton,
+  age: HealthPremiumAgeBracket | null,
+): { position: number; total: number; cheaperCount: number; expensiveCount: number } | null {
+  const prices: Array<{ canton: HealthPremiumCanton; price: number }> = [];
+  for (const c of HEALTH_PREMIUM_CANTONS) {
+    const s = allCantonStats[c];
+    if (!s) continue;
+    let price: number | null = null;
+    if (age) {
+      const bs = s.bracketStats[age];
+      if (bs && bs.medianPrice !== null && bs.allReal) {
+        price = bs.medianPrice;
+      } else {
+        const adultMed = s.adultMedian ?? null;
+        if (adultMed !== null) price = adultMed * HEALTH_PREMIUM_AGE_MULTIPLIER[age];
+      }
+    } else {
+      price = s.adultMedian ?? null;
+    }
+    if (price === null) continue;
+    prices.push({ canton: c, price });
+  }
+  prices.sort((a, b) => a.price - b.price);
+  const idx = prices.findIndex((p) => p.canton === currentCanton);
+  if (idx === -1) return null;
+  return {
+    position: idx + 1,
+    total: prices.length,
+    cheaperCount: idx,
+    expensiveCount: prices.length - idx - 1,
+  };
+}
+
+/**
+ * Three-state classification of the canton's premium tier vs the rest of
+ * Switzerland. Splits on tertiles of `total` cantons:
+ * `cheap` ≤ ⌈total/3⌉ ; `mid` middle third ; `expensive` ≥ ⌈2·total/3⌉ + 1.
+ */
+function rankingTier(position: number, total: number): 'cheap' | 'mid' | 'expensive' {
+  if (total <= 0) return 'mid';
+  const lower = Math.ceil(total / 3);
+  const upper = Math.ceil((2 * total) / 3);
+  if (position <= lower) return 'cheap';
+  if (position > upper) return 'expensive';
+  return 'mid';
+}
+
+/**
+ * YoY signal classifier for the advice banner. Treats |delta| < 1.5%
+ * as "stable" — within typical noise of single-insurer revisions.
+ */
+function yoyTier(deltaPct: number | null): 'positive' | 'stable' | 'negative' | null {
+  if (deltaPct === null || !Number.isFinite(deltaPct)) return null;
+  if (deltaPct > 1.5) return 'positive';
+  if (deltaPct < -1.5) return 'negative';
+  return 'stable';
+}
+
+interface HpAdviceCopy {
+  eyebrow: string;
+  cheap: (canton: string, position: number, total: number) => string;
+  mid: (canton: string, position: number, total: number) => string;
+  expensive: (canton: string, position: number, total: number) => string;
+  yoyPositive: (deltaPct: string) => string;
+  yoyStable: string;
+  yoyNegative: (deltaPct: string) => string;
+  rankingLine: (canton: string, position: number, total: number, cheaperCount: number) => string;
+}
+
+/**
+ * Render the actionable "Consiglio" banner that sits directly under the H1.
+ *
+ * Visual style reuses the shared `STAT_TILE_*` tokens so the colour
+ * stays in lock-step with the matching tier (cheap → success, mid →
+ * accent neutral, expensive → warning) and follows the user's dark-mode
+ * preference automatically. No new colour values are introduced.
+ *
+ * The banner combines the canton tier with the YoY signal so the visitor
+ * gets a single sentence telling them whether the canton is good news
+ * (cheap + falling) or bad news (expensive + rising) — replacing the
+ * previous raw "median CHF X" tile-only output with an opinionated read.
+ */
+function renderHpAdviceBanner(
+  rankingTierValue: 'cheap' | 'mid' | 'expensive',
+  position: number,
+  total: number,
+  yoyTierValue: 'positive' | 'stable' | 'negative' | null,
+  yoyDeltaPct: number | null,
+  cantonLabel: string,
+  copy: HpAdviceCopy,
+  locale: HealthPremiumLocale,
+): string {
+  const tile =
+    rankingTierValue === 'cheap'
+      ? STAT_TILE_SUCCESS
+      : rankingTierValue === 'expensive'
+        ? STAT_TILE_WARNING
+        : STAT_TILE_ACCENT;
+  const head =
+    rankingTierValue === 'cheap'
+      ? copy.cheap(cantonLabel, position, total)
+      : rankingTierValue === 'expensive'
+        ? copy.expensive(cantonLabel, position, total)
+        : copy.mid(cantonLabel, position, total);
+  const yoyLine =
+    yoyTierValue === 'positive' && yoyDeltaPct !== null
+      ? copy.yoyPositive(formatPct(yoyDeltaPct, locale))
+      : yoyTierValue === 'negative' && yoyDeltaPct !== null
+        ? copy.yoyNegative(formatPct(yoyDeltaPct, locale))
+        : yoyTierValue === 'stable'
+          ? copy.yoyStable
+          : '';
+  return `<aside data-hp-advice data-hp-advice-tier="${esc(rankingTierValue)}" aria-label="${esc(copy.eyebrow)}" style="${tile};margin:0 0 18px">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-subtle)">${esc(copy.eyebrow)}</div>
+    <p style="margin:6px 0 0;font-size:15px;line-height:1.55;color:var(--color-heading);font-weight:500">${esc(head)}${yoyLine ? ` ${esc(yoyLine)}` : ''}</p>
+  </aside>`;
+}
+
 function renderLeafPage(inp: LeafInputs): string {
   const { locale, canton, age, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy, triYear, distDir } = inp;
   const copy = LEAF_COPY[locale];
@@ -1721,6 +2003,13 @@ function renderLeafPage(inp: LeafInputs): string {
   const ageLabel = HEALTH_PREMIUM_AGE_LABEL[locale][age];
   const multiplier = HEALTH_PREMIUM_AGE_MULTIPLIER[age];
   const year = dataset.year ?? today.getUTCFullYear();
+
+  // Per-bracket national ranking — drives the advice banner tier and
+  // the "X° su Y" line below the stats grid.
+  const ranking = computeCantonRanking(allCantonStats, canton, age);
+  const tier = ranking ? rankingTier(ranking.position, ranking.total) : 'mid';
+  const bracketYoyDelta = yoy?.byBracket[age]?.medianPct ?? null;
+  const yoyTierVal = yoyTier(bracketYoyDelta);
 
   // Prefer real BAG KIN/JUG/ERW per-insurer premiums when the dataset
   // publishes them; otherwise fall back to multiplier-derived values so
@@ -1784,7 +2073,14 @@ function renderLeafPage(inp: LeafInputs): string {
     : locale === 'de' ? `${ageShort} — ${cantonLabel}: KVG-Prämien ${year}`
     : `${ageShort} — ${cantonLabel}: primes LAMal ${year}`;
   const h1 = copy.h1(cantonLabel, ageLabel);
-  const intro = copy.intro(cantonLabel, ageLabel, medFmt, minFmt, maxFmt, year);
+  const introShort = copy.introShort(cantonLabel, ageLabel, year);
+  const introLong = copy.intro(cantonLabel, ageLabel, medFmt, minFmt, maxFmt, year);
+  const adviceBannerHtml = ranking
+    ? renderHpAdviceBanner(tier, ranking.position, ranking.total, yoyTierVal, bracketYoyDelta, cantonLabel, copy.advice, locale)
+    : '';
+  const rankingLineHtml = ranking
+    ? `<p style="margin:0 0 24px;font-size:14px;color:var(--color-subtle);line-height:1.5">${esc(copy.advice.rankingLine(cantonLabel, ranking.position, ranking.total, ranking.cheaperCount))}</p>`
+    : '';
 
   // Top-20 table
   const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
@@ -1996,7 +2292,7 @@ function renderLeafPage(inp: LeafInputs): string {
     '@type': 'WebPage',
     name: h1,
     url: canonicalUrl,
-    description: intro.slice(0, 200),
+    description: introLong.slice(0, 200),
     inLanguage: locale,
     dateModified: today.toISOString(),
     datePublished: today.toISOString(),
@@ -2017,7 +2313,7 @@ function renderLeafPage(inp: LeafInputs): string {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: `LAMal premium ${cantonLabel} ${ageLabel}`,
-    description: intro.slice(0, 200),
+    description: introLong.slice(0, 200),
     category: 'HealthInsurance',
     offers: {
       '@type': 'AggregateOffer',
@@ -2032,7 +2328,7 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Phase 3A: clamp brand suffix only when it fits the 60-char SERP budget.
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
-  const description = intro.slice(0, 180);
+  const description = introLong.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}">
@@ -2047,9 +2343,16 @@ function renderLeafPage(inp: LeafInputs): string {
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">LAMal ${year}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(intro)}</p>
+    <p style="${LEDE_STYLE}">${esc(introShort)}</p>
   </header>
+  ${adviceBannerHtml}
   ${statsHtml}
+  ${rankingLineHtml}
+  <section style="margin:0 0 24px" aria-labelledby="comparatorCta">
+    <h2 id="comparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
+  </section>
   <section style="margin:0 0 24px" aria-labelledby="top20">
     <h2 id="top20" style="${H2_STYLE}">${esc(copy.top20Title(cantonLabel, ageLabel))}</h2>
     ${tableHtml}
@@ -2064,12 +2367,8 @@ function renderLeafPage(inp: LeafInputs): string {
   ${triYearHtml}
   <section style="margin:0 0 24px" aria-labelledby="editorial">
     <h2 id="editorial" style="${H2_STYLE}">${esc(copy.editorialTitle)}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
-  </section>
-  <section style="margin:0 0 24px" aria-labelledby="comparatorCta">
-    <h2 id="comparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
-    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(introLong)}</p>
   </section>
   ${renderHealthPremiumFrontalierContext({ locale, canton: cantonLabel, age: ageLabel, ageId: age, year, median: medFmt, min: minFmt, max: maxFmt })}
   ${faqHtml}
@@ -2111,6 +2410,12 @@ interface CantonHubInputs {
   canton: HealthPremiumCanton;
   dataset: HealthPremiumsDataset;
   stats: CantonPremiumStats;
+  /**
+   * All-cantons snapshot — needed by the canton-hub to compute the
+   * current canton's national ranking position (cheapest → most
+   * expensive) and surface a tier-aware advice banner.
+   */
+  allCantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null>;
   canonicalPath: string;
   alternates: Record<HealthPremiumLocale, string>;
   today: Date;
@@ -2122,11 +2427,20 @@ interface CantonHubInputs {
 }
 
 function renderCantonHubPage(inp: CantonHubInputs): string {
-  const { locale, canton, dataset, stats, canonicalPath, alternates, today, yoy, triYear, distDir } = inp;
+  const { locale, canton, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy, triYear, distDir } = inp;
   const copy = HUB_COPY[locale];
   const leafCopy = LEAF_COPY[locale];
   const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
   const year = dataset.year ?? today.getUTCFullYear();
+
+  // National ranking (adult bracket) — drives the advice banner tier and
+  // the "X° su Y cantoni" line below the stats grid. `null` when this
+  // canton has no usable data (extremely rare; the call-site already
+  // skips renderCantonHubPage in that case via `if (!stats) continue`).
+  const ranking = computeCantonRanking(allCantonStats, canton, null);
+  const tier = ranking ? rankingTier(ranking.position, ranking.total) : 'mid';
+  const yoyAdult = yoy?.adultMedianPct ?? null;
+  const yoyTierVal = yoyTier(yoyAdult);
 
   const adultMed = stats.adultMedian ?? 0;
   const adultMin = stats.adultMin ?? 0;
@@ -2164,6 +2478,18 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   </table>`;
 
   // Stats cards
+  // Optional YoY tile — appended to the stats grid when adult-bracket
+  // prior-year data is available. Mirrors the leaf-page yoyTileHtml
+  // pattern so the canton hub now exposes the same YoY signal at a
+  // glance, instead of forcing the visitor to scroll to the full YoY
+  // section below.
+  const cantonHubYoyTileHtml = yoyAdult !== null
+    ? `<div style="${STAT_TILE_DANGER}">
+      <div style="${STAT_TILE_LABEL}">Δ vs ${esc(String(yoy?.priorYear ?? ''))}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;color:${yoyAdult >= 0 ? 'var(--color-danger)' : 'var(--color-success)'}">${esc(formatPct(yoyAdult, locale))}</div>
+    </div>`
+    : '';
+
   const statsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.median)}</div>
@@ -2182,6 +2508,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
       <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.insurers)}</div>
       <div style="${STAT_TILE_VALUE};font-size:24px">${stats.ranked.length}</div>
     </div>
+    ${cantonHubYoyTileHtml}
   </section>`;
 
   // Canton-level YoY grid — one row per age bracket with the bracket's
@@ -2265,7 +2592,20 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     : locale === 'en' ? `LAMal premium comparison ${year} in ${cantonLabel}`
     : locale === 'de' ? `KVG-Prämienvergleich ${year} im Kanton ${cantonLabel}`
     : `Comparatif des primes LAMal ${year} à ${cantonLabel}`;
-  const intro = copy.introCanton(cantonLabel, medFmt, minFmt, maxFmt, year);
+  // Two intros now coexist: the SHORT one (tagline) sits in the page
+  // header above the fold; the LONG figures-laden one is moved to the
+  // bottom `cantonContext` section so the page text content (and Semrush
+  // text-to-HTML ratio) is preserved while mobile-first hierarchy is
+  // restored. SEO description still uses the long form so the SERP
+  // snippet stays substantive.
+  const introShort = copy.introCantonShort(cantonLabel, year);
+  const introLong = copy.introCanton(cantonLabel, medFmt, minFmt, maxFmt, year);
+  const adviceBannerHtml = ranking
+    ? renderHpAdviceBanner(tier, ranking.position, ranking.total, yoyTierVal, yoyAdult, cantonLabel, copy.advice, locale)
+    : '';
+  const rankingLineHtml = ranking
+    ? `<p style="margin:0 0 24px;font-size:14px;color:var(--color-subtle);line-height:1.5">${esc(copy.advice.rankingLine(cantonLabel, ranking.position, ranking.total, ranking.cheaperCount))}</p>`
+    : '';
   const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}`;
 
   const breadcrumbLd = JSON.stringify({
@@ -2283,7 +2623,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     '@type': 'WebPage',
     name: h1,
     url: canonicalUrl,
-    description: intro.slice(0, 200),
+    description: introLong.slice(0, 200),
     inLanguage: locale,
     dateModified: today.toISOString(),
     datePublished: today.toISOString(),
@@ -2301,7 +2641,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   });
 
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
-  const description = intro.slice(0, 180);
+  const description = introLong.slice(0, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}">
@@ -2314,12 +2654,15 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">LAMal ${year} · ${esc(copy.updatedLabel)}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(intro)}</p>
+    <p style="${LEDE_STYLE}">${esc(introShort)}</p>
   </header>
+  ${adviceBannerHtml}
   ${statsHtml}
-  <section style="margin:0 0 24px" aria-labelledby="cantonContext">
-    <h2 id="cantonContext" style="${H2_STYLE}">${esc(copy.cantonContext.title)}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.cantonContext.body(cantonLabel, medFmt, year))}</p>
+  ${rankingLineHtml}
+  <section style="margin:0 0 24px" aria-labelledby="cantonComparatorCta">
+    <h2 id="cantonComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="ageGrid">
     <h2 id="ageGrid" style="${H2_STYLE}">${esc(copy.ageGridTitle(cantonLabel))}</h2>
@@ -2327,6 +2670,11 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   </section>
   ${yoyHubHtml}
   ${triYearHubHtml}
+  <section style="margin:0 0 24px" aria-labelledby="cantonContext">
+    <h2 id="cantonContext" style="${H2_STYLE}">${esc(copy.cantonContext.title)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.cantonContext.body(cantonLabel, medFmt, year))}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(introLong)}</p>
+  </section>
   ${renderMethodologyBulletList({
     id: 'cantonDeductibleGuide',
     title: copy.cantonDeductibleGuide.title,
@@ -2339,11 +2687,6 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     intro: copy.cantonFrontalierGuide.body(cantonLabel),
     bullets: copy.cantonFrontalierGuide.bullets,
   })}
-  <section style="margin:0 0 24px" aria-labelledby="cantonComparatorCta">
-    <h2 id="cantonComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
-    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
-  </section>
   ${faqHtml}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
@@ -2716,6 +3059,7 @@ export function generateHealthPremiumsPages(opts: {
         canton,
         dataset,
         stats,
+        allCantonStats: cantonStats,
         canonicalPath: cantonPath,
         alternates: cantonAlternates,
         today,
