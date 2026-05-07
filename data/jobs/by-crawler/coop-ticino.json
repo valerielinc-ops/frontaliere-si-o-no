@@ -53,8 +53,8 @@
       "slugByLocale": {
         "it": "venditrice-venditore-food-m-w-d-coop-arbedo-ticino-c2l690",
         "en": "venditrice-venditore-food-m-w-d-coop-arbedo-ticino-c2l690",
-        "de": "venditrice-venditore-food-m-w-d-coop-arbedo-ticino-c2l690",
-        "fr": "venditrice-venditore-food-m-w-d-coop-arbedo-ticino-c2l690"
+        "de": "venditrice-venditoreien-f-m-d-coop-genossenschaft-arbedo",
+        "fr": "veditrice-venditore-food-f-m-d-coop-genossenschaft-arbedo"
       },
       "addressLocality": "Arbedo",
       "salaryMin": 49500,
@@ -69,7 +69,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "venditrice-venditore-food-m-w-d-coop-arbedo-ticino-c2l690"
+        ],
+        "fr": [
+          "venditrice-venditore-food-m-w-d-coop-arbedo-ticino-c2l690"
+        ]
+      },
+      "previousSlugs": [
+        "venditrice-venditore-food-m-w-d-coop-arbedo-ticino-c2l690"
+      ]
     },
     {
       "id": "company-metayj",
@@ -154,7 +165,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
         "venditore-in-food-coop-genossenschaft-felsberg-6dde92",
         "seller-in-food-coop-genossenschaft-felsberg-6dde92",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
@@ -243,7 +253,6 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
@@ -332,7 +341,6 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"

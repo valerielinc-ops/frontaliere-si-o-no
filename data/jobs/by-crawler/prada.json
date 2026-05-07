@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-d692a293cf59",
-      "slug": "prada-client-advisor-prada-group-mendrisio",
+      "slug": "prada-client-consulente-prada-group-macau",
       "slugByLocale": {
         "en": "prada-client-advisor-prada-group-macau",
-        "it": "prada-client-advisor-prada-group-mendrisio",
-        "de": "prada-client-advisor-prada-group-mendrisio",
-        "fr": "prada-client-advisor-prada-group-mendrisio"
+        "it": "prada-client-consulente-prada-group-macau",
+        "de": "prada-client-berater-prada-group-macau",
+        "fr": "prada-client-conseiller-prada-group-macau"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -60,7 +60,21 @@
         }
       },
       "postalCode": "6500",
-      "firstSeenAt": "2026-05-07T11:35:23.413Z"
+      "firstSeenAt": "2026-05-07T11:35:23.413Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-client-advisor-prada-group-mendrisio"
+        ],
+        "de": [
+          "prada-client-advisor-prada-group-mendrisio"
+        ],
+        "fr": [
+          "prada-client-advisor-prada-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "prada-client-advisor-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",

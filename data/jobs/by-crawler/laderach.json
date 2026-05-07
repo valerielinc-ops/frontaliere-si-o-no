@@ -9,7 +9,7 @@
         "de": "social-media-manager-w-m-d-laderach-bilten",
         "it": "social-media-manager-w-m-d-laderach-bilten",
         "en": "social-media-manager-w-m-d-laderach-bilten",
-        "fr": "social-media-manager-w-m-d-laderach-bilten"
+        "fr": "gestionnaire-des-medias-sociaux-w-m-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -64,12 +64,12 @@
     },
     {
       "id": "laderach-b395a48b662b",
-      "slug": "teamleiter-kommissionierung-verpackung-100-w-m-d-laderach-glarus",
+      "slug": "teamleiter-commissioning-packaging-100-w-m-d-laderach-schweiz-ag-glarus",
       "slugByLocale": {
         "de": "teamleiter-kommissionierung-verpackung-100-w-m-d-laderach-glarus",
-        "it": "teamleiter-kommissionierung-verpackung-100-w-m-d-laderach-glarus",
+        "it": "teamleiter-commissioning-packaging-100-w-m-d-laderach-schweiz-ag-glarus",
         "en": "teamleiter-kommissionierung-verpackung-100-w-m-d-laderach-glarus",
-        "fr": "teamleiter-kommissionierung-verpackung-100-w-m-d-laderach-glarus"
+        "fr": "mise-en-service-et-emballage-de-teamleiter-100-m-j-laderach-schweiz-ag-glarus"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -118,16 +118,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-07T11:19:47.525Z"
+      "firstSeenAt": "2026-05-07T11:19:47.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-kommissionierung-verpackung-100-w-m-d-laderach-glarus"
+        ],
+        "fr": [
+          "teamleiter-kommissionierung-verpackung-100-w-m-d-laderach-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-kommissionierung-verpackung-100-w-m-d-laderach-glarus"
+      ]
     },
     {
       "id": "laderach-c8a1f42f9bfb",
-      "slug": "head-global-central-planning-laderach-bilten",
+      "slug": "pianificazione-centrale-globale-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "de": "head-global-central-planning-laderach-bilten",
-        "it": "head-global-central-planning-laderach-bilten",
+        "it": "pianificazione-centrale-globale-laderach-schweiz-ag-bilten",
         "en": "head-global-central-planning-laderach-bilten",
-        "fr": "head-global-central-planning-laderach-bilten"
+        "fr": "chef-de-la-planification-centrale-mondiale-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -178,7 +189,18 @@
         }
       },
       "firstSeenAt": "2026-05-07T11:19:47.386Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "head-global-central-planning-laderach-bilten"
+        ],
+        "fr": [
+          "head-global-central-planning-laderach-bilten"
+        ]
+      },
+      "previousSlugs": [
+        "head-global-central-planning-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-3648b2b37265",

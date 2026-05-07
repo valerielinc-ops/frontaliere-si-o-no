@@ -1047,12 +1047,12 @@
     },
     {
       "id": "bcvs-f28da0f28442",
-      "slug": "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny",
+      "slug": "consigliere-per-la-gestione-dei-capitali-banque-cantonale-du-valais-martigny",
       "slugByLocale": {
         "fr": "conseiller-conseillere-en-gestion-de-fortune-banque-cantonale-du-valais-martigny",
-        "it": "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny",
-        "en": "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny",
-        "de": "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+        "it": "consigliere-per-la-gestione-dei-capitali-banque-cantonale-du-valais-martigny",
+        "en": "capital-management-advisor-banque-cantonale-du-valais-martigny",
+        "de": "berater-fur-das-management-von-kapital-banque-cantonale-du-valais-martigny"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -1122,16 +1122,30 @@
         }
       },
       "postalCode": "1920",
-      "firstSeenAt": "2026-05-07T10:31:53.966Z"
+      "firstSeenAt": "2026-05-07T10:31:53.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+        ],
+        "en": [
+          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+        ],
+        "de": [
+          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+      ]
     },
     {
       "id": "bcvs-2a8baac15628",
-      "slug": "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
+      "slug": "economy-manager-mail-e-gol-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
-        "it": "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
-        "en": "gestionnaire-economat-courrier-et-ged-bcvs-sion",
-        "de": "gestionnaire-economat-courrier-et-ged-bcvs-sion"
+        "it": "economy-manager-mail-e-gol-banque-cantonale-du-valais-sion",
+        "en": "economy-manager-mail-and-gol-banque-cantonale-du-valais-sion",
+        "de": "economy-manager-mail-und-gol-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -1188,14 +1202,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-economat-courrier-et-ged-bcvs-sion"
+          "gestionnaire-economat-courrier-et-ged-bcvs-sion",
+          "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion"
         ],
         "fr": [
+          "gestionnaire-economat-courrier-et-ged-bcvs-sion"
+        ],
+        "en": [
+          "gestionnaire-economat-courrier-et-ged-bcvs-sion"
+        ],
+        "de": [
           "gestionnaire-economat-courrier-et-ged-bcvs-sion"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-economat-courrier-et-ged-bcvs-sion"
+        "gestionnaire-economat-courrier-et-ged-bcvs-sion",
+        "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
