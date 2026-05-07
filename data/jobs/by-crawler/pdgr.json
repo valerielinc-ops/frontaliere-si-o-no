@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-05-07T11:34:02.796Z",
+  "assembledAt": "2026-05-07T22:22:42.724Z",
   "jobs": [
     {
       "id": "pdgr-f5bd59e961b0",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:34:00.381Z",
+      "crawledAt": "2026-05-07T22:22:40.572Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:59.242Z",
+      "crawledAt": "2026-05-07T22:22:39.489Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -158,6 +158,7 @@
         "praktikant-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -202,7 +203,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:58.077Z",
+      "crawledAt": "2026-05-07T22:22:38.437Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -263,6 +264,7 @@
         "fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -307,7 +309,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:56.907Z",
+      "crawledAt": "2026-05-07T22:22:37.305Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -356,6 +358,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -400,7 +403,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:55.720Z",
+      "crawledAt": "2026-05-07T22:22:36.244Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -446,6 +449,7 @@
         "unterassistent-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -490,7 +494,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:54.606Z",
+      "crawledAt": "2026-05-07T22:22:35.135Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -549,6 +553,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -593,7 +598,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:53.440Z",
+      "crawledAt": "2026-05-07T22:22:34.040Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -654,6 +659,7 @@
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -698,7 +704,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:52.315Z",
+      "crawledAt": "2026-05-07T22:22:32.956Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -762,6 +768,7 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -806,7 +813,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:51.106Z",
+      "crawledAt": "2026-05-07T22:22:31.861Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -859,6 +866,7 @@
         "oberarztin-oberarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -903,7 +911,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:49.931Z",
+      "crawledAt": "2026-05-07T22:22:30.750Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -957,6 +965,7 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1001,7 +1010,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:48.789Z",
+      "crawledAt": "2026-05-07T22:22:29.677Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1056,6 +1065,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1100,7 +1110,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:47.648Z",
+      "crawledAt": "2026-05-07T22:22:28.580Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1151,6 +1161,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1195,7 +1206,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:44.224Z",
+      "crawledAt": "2026-05-07T22:22:25.341Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1248,6 +1259,7 @@
         "fachpsychologe-in-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1292,7 +1304,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:42.956Z",
+      "crawledAt": "2026-05-07T22:22:24.250Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1346,6 +1358,7 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1390,7 +1403,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-4-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:41.769Z",
+      "crawledAt": "2026-05-07T22:22:23.147Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1455,6 +1468,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1499,7 +1513,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:40.635Z",
+      "crawledAt": "2026-05-07T22:22:22.091Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1557,6 +1571,7 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1601,7 +1616,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:39.485Z",
+      "crawledAt": "2026-05-07T22:22:21.031Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1657,6 +1672,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1701,7 +1717,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:37.188Z",
+      "crawledAt": "2026-05-07T22:22:18.846Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1753,6 +1769,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1797,7 +1814,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:36.078Z",
+      "crawledAt": "2026-05-07T22:22:17.755Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1850,6 +1867,7 @@
         "fachperson-gesundheit-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1894,7 +1912,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:34.920Z",
+      "crawledAt": "2026-05-07T22:22:16.630Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1945,6 +1963,7 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1989,7 +2008,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-4-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:32.649Z",
+      "crawledAt": "2026-05-07T22:22:14.466Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2044,6 +2063,7 @@
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2088,7 +2108,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:30.335Z",
+      "crawledAt": "2026-05-07T22:22:12.187Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2146,6 +2166,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2190,7 +2211,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:29.180Z",
+      "crawledAt": "2026-05-07T22:22:11.088Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2249,6 +2270,7 @@
         "oberarztin-oberarzt-pdgr-ch-4"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2293,7 +2315,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:27.996Z",
+      "crawledAt": "2026-05-07T22:22:09.996Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2345,6 +2367,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2389,7 +2412,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-controlling/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:26.878Z",
+      "crawledAt": "2026-05-07T22:22:08.950Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2452,6 +2475,7 @@
         "leiter-in-controlling-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2496,7 +2520,7 @@
       "url": "https://www.pdgr.ch/jobs/stv-stationsleiterin-stv-stationsleiter-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:25.717Z",
+      "crawledAt": "2026-05-07T22:22:07.909Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2560,6 +2584,7 @@
         "stv-stationsleiterin-stv-stationsleiter-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2604,7 +2629,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-21/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:24.555Z",
+      "crawledAt": "2026-05-07T22:22:06.830Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2670,6 +2695,7 @@
         "personale-hotel-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2714,7 +2740,7 @@
       "url": "https://www.pdgr.ch/jobs/stationsleiter-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:23.430Z",
+      "crawledAt": "2026-05-07T22:22:05.731Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2775,6 +2801,7 @@
         "stationsleiter-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2819,7 +2846,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-6-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:22.308Z",
+      "crawledAt": "2026-05-07T22:22:04.654Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2877,6 +2904,7 @@
         "mitarbeiter-in-hotellerie-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2921,7 +2949,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:21.179Z",
+      "crawledAt": "2026-05-07T22:22:03.584Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2974,6 +3002,7 @@
         "fachperson-gesundheit-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3018,7 +3047,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:19.961Z",
+      "crawledAt": "2026-05-07T22:22:02.377Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3080,6 +3109,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3124,7 +3154,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:16.420Z",
+      "crawledAt": "2026-05-07T22:21:59.051Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3166,6 +3196,7 @@
         "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3210,7 +3241,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-textil/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:15.304Z",
+      "crawledAt": "2026-05-07T22:21:57.902Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3258,6 +3289,7 @@
         "responsabile-textil-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3302,7 +3334,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:14.146Z",
+      "crawledAt": "2026-05-07T22:21:56.848Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -3394,7 +3426,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:12.971Z",
+      "crawledAt": "2026-05-07T22:21:55.672Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3435,6 +3467,7 @@
         "assistenzpsychologe-in-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-21T22:10:58.899Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3479,7 +3512,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-7-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:11.822Z",
+      "crawledAt": "2026-05-07T22:21:54.551Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3557,7 +3590,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:09.518Z",
+      "crawledAt": "2026-05-07T22:21:52.342Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3648,7 +3681,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-2-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:08.311Z",
+      "crawledAt": "2026-05-07T22:21:51.232Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3686,6 +3719,7 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-05-06T22:28:54.378Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3701,28 +3735,28 @@
     },
     {
       "id": "pdgr-4c55e9af737c",
-      "slug": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
+      "slug": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-hf-pdgr-ch",
-        "it": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
-        "fr": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+        "de": "dipl-pflegefachperson-hf-pdgr-ch",
+        "fr": "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
       "companyDomain": "pdgr.ch",
       "title": "Dipl. Pflegefachperson HF",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachpersonal HF",
-        "en": "Dipl. Pflegefachperson HF",
         "it": "Dipl. Specialista di cura HF",
+        "en": "Dipl. Pflegefachperson HF",
+        "de": "Dipl. Pflegefachperson HF",
         "fr": "Dipl. Spécialiste des soins HF"
       },
       "description": "Ihre Umgebung:\nSie arbeiten auf der offen geführten Station Danis mit 24 Betten und drei Behandlungsgruppen: Qualifizierter Entzug, Stabilisierung und Therapie. Behandelt werden Patientinnen und Patienten mit einer Abhängigkeit von legalen oder illegalen Substanzen.\n\nIm Entzugsbereich erfolgen der körperliche Entzug, Kriseninterventionen sowie psychische, psychosoziale und medizinische Abklärungen. Zudem wird eine weiterführende Therapie oder Langzeitbehandlung vorbereitet, sofern angezeigt.\n\nIm Therapiebereich wird eine intensive Einzel- und Gruppentherapie angeboten. Gegen Ende der Behandlung richtet sich der Fokus zunehmend auf die Orientierung nach aussen und die Vorbereitung der Patientinnen und Patienten auf eine möglichst stabile Integration in ihr gewohntes oder ein neues Lebensumfeld.\n\nIhre Aufgaben:\n- Sie übernehmen die umfassende pflegerische Betreuung und Behandlung von psychisch erkrankten Patientinnen und Patienten in Akut- und Krisensituationen\n\n- Sie gestalten die Betreuung und Behandlung im Klinikalltag, entsprechend den Entwicklungen und Trends in der Psychiatrie\n\n- Sie pflegen eine konstruktive Zusammenarbeit mit den Mitarbeitenden des Tag- und Nachtdienstes und kommunizieren offen, individuell und personenbezogen\n\nUnser Anforderungsprofil:\n- Sie sind eine Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF und haben Erfahrung in psychiatrischer Pflege\n\n- Sie sind kreativ, zuverlässig und handeln ziel- und lösungsorientiert\n\n- Ihre hohe Fach- und Sozialkompetenz zeichnet Sie aus\n\n- Sie besitzen Kenntnisse im Qualitätsmanagement\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
       "descriptionByLocale": {
-        "de": "Ihre Umgebung:\nSie arbeiten auf der offen geführten Station Danis mit 24 Betten und drei Behandlungsgruppen: Qualifizierter Entzug, Stabilisierung und Therapie. Behandelt werden Patientinnen und Patienten mit einer Abhängigkeit von legalen oder illegalen Substanzen.\n\nIm Entzugsbereich erfolgen der körperliche Entzug, Kriseninterventionen sowie psychische, psychosoziale und medizinische Abklärungen. Zudem wird eine weiterführende Therapie oder Langzeitbehandlung vorbereitet, sofern angezeigt.\n\nIm Therapiebereich wird eine intensive Einzel- und Gruppentherapie angeboten. Gegen Ende der Behandlung richtet sich der Fokus zunehmend auf die Orientierung nach aussen und die Vorbereitung der Patientinnen und Patienten auf eine möglichst stabile Integration in ihr gewohntes oder ein neues Lebensumfeld.\n\nIhre Aufgaben:\n- Sie übernehmen die umfassende pflegerische Betreuung und Behandlung von psychisch erkrankten Patientinnen und Patienten in Akut- und Krisensituationen\n\n- Sie gestalten die Betreuung und Behandlung im Klinikalltag, entsprechend den Entwicklungen und Trends in der Psychiatrie\n\n- Sie pflegen eine konstruktive Zusammenarbeit mit den Mitarbeitenden des Tag- und Nachtdienstes und kommunizieren offen, individuell und personenbezogen\n\nUnser Anforderungsprofil:\n- Sie sind eine Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF und haben Erfahrung in psychiatrischer Pflege\n\n- Sie sind kreativ, zuverlässig und handeln ziel- und lösungsorientiert\n\n- Ihre hohe Fach- und Sozialkompetenz zeichnet Sie aus\n\n- Sie besitzen Kenntnisse im Qualitätsmanagement\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
         "it": "Il vostro ambiente: Si lavora alla stazione aperta di Danis con 24 letti e tre gruppi di trattamento: ritiro qualificato, stabilizzazione e terapia. I pazienti sono trattati con una dipendenza da sostanze legali o illegali. Nell'area di ritiro, il ritiro fisico, gli interventi di crisi e chiarimenti psicosociali e medici si svolgono. Inoltre, la terapia ulteriore o il trattamento a lungo termine è preparato se indicato. La terapia intensiva individuale e di gruppo viene offerta nella zona di terapia. Verso la fine del trattamento, l'attenzione è sempre più orientata verso l'orientamento e la preparazione dei pazienti per la più stabile integrazione possibile nel loro solito o un nuovo ambiente di vita. I vostri compiti: - Voi assumete la cura completa e il trattamento dei malati mentali in situazioni acute e di crisi - progettate la cura e il trattamento nella vita quotidiana ospedaliera, secondo gli sviluppi e le tendenze della psichiatria - mantenete una cooperazione costruttiva con i dipendenti del servizio diurno e notturno e comunicate apertamente, individualmente e personale. Specialista HF / Dipl. Specialista di cura HF e avere esperienza nella cura psichiatrica - sei creativo, affidabile e agire in modo mirato e orientato alla soluzione - il tuo alto livello di competenze e competenze sociali è la tua - hai conoscenza della gestione della qualità Vi offriamo: - si svolge un'attività diversificata e responsabile in un team motivato e interprofessionale - si ha la possibilità di progettare e implementare gli approcci di trattamento e cura sia professionalmente che organizzativa - utilizzare la nostra offerta di formazione continua e continua interna - supportiamo anche le vostre esigenze di formazione esterna - con modelli di lavoro part-time, 6 settimane vacanze e vacanze non pagate un equilibrio ottimale lavoro-vita",
         "en": "Your environment: You work at the openly run Danis station with 24 beds and three treatment groups: qualified withdrawal, stabilization and therapy. Patients are treated with a dependence on legal or illegal substances. In the withdrawal area, physical withdrawal, crisis interventions and psychological, psychosocial and medical clarifications take place. In addition, further therapy or long-term treatment is prepared if indicated. Intensive individual and group therapy is offered in the therapy area. Towards the end of the treatment, the focus is increasingly directed towards orientation and the preparation of the patients for as stable integration as possible into their usual or a new environment of life. Your tasks: - You take over the comprehensive care and treatment of mentally ill patients in acute and crisis situations - you design the care and treatment in hospital everyday life, according to the developments and trends in the psychiatry - you maintain a constructive cooperation with the employees of day and night service and communicate openly, individually and personal. Care specialist HF / Dipl. Care specialist HF and have experience in psychiatric care - you are creative, reliable and act in a targeted and solution-oriented manner - your high level of expertise and social skills is yours - you have knowledge of quality management We offer you: - you take on a varied and responsible activity in a motivated, interprofessional team - you have the opportunity to design and implement the treatment and care approaches professionally as well as organizationally - use our internal continuing and continuing training offer - we also support your external training needs - with part-time work models, 6 weeks holidays and unpaid holidays an optimal work-life balance",
+        "de": "Ihre Umgebung: Sie arbeiten auf der offen geführten Station Danis mit 24 Betten und drei Behandlungsgruppen: Qualifizierter Entzug, Stabilisierung und Therapie. Behandelt werden Patientinnen und Patienten mit einer Abhängigkeit von legalen oder illegalen Substanzen. Im Entzugsbereich erfolgen der körperliche Entzug, Kriseninterventionen sowie psychische, psychosoziale und medizinische Abklärungen. Zudem wird eine weiterführende Therapie oder Langzeitbehandlung vorbereitet, sofern angezeigt. Im Therapiebereich wird eine intensive Einzel- und Gruppentherapie angeboten. Gegen Ende der Behandlung richtet sich der Fokus zunehmend auf die Orientierung nach aussen und die Vorbereitung der Patientinnen und Patienten auf eine möglichst stabile Integration in ihr gewohntes oder ein neues Lebensumfeld. Ihre Aufgaben: - Sie übernehmen die umfassende pflegerische Betreuung und Behandlung von psychisch erkrankten Patientinnen und Patienten in Akut- und Krisensituationen - Sie gestalten die Betreuung und Behandlung im Klinikalltag, entsprechend den Entwicklungen und Trends in der Psychiatrie - Sie pflegen eine konstruktive Zusammenarbeit mit den Mitarbeitenden des Tag- und Nachtdienstes und kommunizieren offen, individuell und personenbezogen Unser Anforderungsprofil: - Sie sind eine Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF und haben Erfahrung in psychiatrischer Pflege - Sie sind kreativ, zuverlässig und handeln ziel- und lösungsorientiert - Ihre hohe Fach- und Sozialkompetenz zeichnet Sie aus - Sie besitzen Kenntnisse im Qualitätsmanagement Wir bieten Ihnen: - Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team - Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen - Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen - Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
         "fr": "Votre environnement: Vous travaillez à la station Danis ouverte avec 24 lits et trois groupes de traitement: retrait qualifié, stabilisation et thérapie. Les patients sont traités avec une dépendance à des substances légales ou illégales. Dans la zone de retrait, le retrait physique, les interventions de crise et les éclaircissements psychologiques, psychosociaux et médicaux ont lieu. En outre, un traitement ultérieur ou à long terme est préparé si indiqué. Une thérapie individuelle et de groupe intensive est offerte dans la zone thérapeutique. Vers la fin du traitement, l'accent est de plus en plus mis sur l'orientation et la préparation des patients à une intégration aussi stable que possible dans leur environnement habituel ou nouveau. Vos tâches: - Vous prenez en charge les soins et le traitement complets des malades mentaux en situation de crise et d'urgence - vous concevez les soins et le traitement dans la vie quotidienne de l'hôpital, selon l'évolution et les tendances de la psychiatrie - vous maintenez une coopération constructive avec les employés du service de jour et de nuit et communiquez ouvertement, individuellement et personnellement. Spécialiste des soins HF / Dipl. Spécialiste des soins HF et avoir de l'expérience en soins psychiatriques - vous êtes créatif, fiable et agir de manière ciblée et orientée vers la solution - votre niveau élevé d'expertise et de compétences sociales est à vous - vous avez une connaissance de la gestion de la qualité Nous vous offrons: - vous prenez une activité variée et responsable dans une équipe motivée et interprofessionnelle - vous avez la possibilité de concevoir et de mettre en œuvre les approches de traitement et de soins professionnelles et organisationnelles - utiliser notre offre de formation interne continue et continue - nous soutenons également vos besoins de formation externe - avec des modèles de travail à temps partiel, des vacances de 6 semaines et des vacances non rémunérées un équilibre optimal entre travail et vie personnelle"
       },
       "location": "Cazis",
@@ -3730,7 +3764,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-3-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T11:33:07.021Z",
+      "crawledAt": "2026-05-07T22:21:50.167Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3745,22 +3779,27 @@
       "postedDate": "2026-05-07",
       "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-3-10/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Erwachsenenpsychiatrie",
       "facility": "Abhängigkeitserkrankungen",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-pdgr-ch",
+        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-pdgr-ch"
+          "dipl-pflegefachperson-hf-pdgr-ch",
+          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-pdgr-ch"
-      ],
+      "firstSeenAt": "2026-05-07T11:33:07.021Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3772,8 +3811,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-07T11:33:07.021Z"
+      }
     }
   ]
 }
