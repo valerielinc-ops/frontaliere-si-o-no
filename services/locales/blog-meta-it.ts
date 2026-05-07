@@ -6747,6 +6747,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.title': 'Costi sanitari Crans-Montana: Marchesi chiede chiarimenti',
     'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.excerpt': 'Il consigliere nazionale Piero Marchesi presenta un\'interpellanza sul trattamento dei costi sanitari legati al dramma di Crans-Montana, sollevando preoccupazioni su possibili disparità di trattamento.',
     'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.imageAlt': 'Vista panoramica di Crans-Montana con montagne innevate e impianti sciistici',
+    'blog.article.svizzera-2100-scenari-frontalieri.title': 'Svizzera 2100: 5 scenari per il futuro dei frontalieri',
+    'blog.article.svizzera-2100-scenari-frontalieri.excerpt': 'Uno studio delinea cinque possibili scenari per la Svizzera nel 2100, con implicazioni per i frontalieri del Ticino.',
+    'blog.article.svizzera-2100-scenari-frontalieri.imageAlt': 'Lago di Lugano con skyline futuristico in lontananza',
 };
 
 export default blogMetaIt;

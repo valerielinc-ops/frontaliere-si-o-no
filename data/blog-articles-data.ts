@@ -21611,4 +21611,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'svizzera-2100-scenari-frontalieri',
+ category: 'novita',
+ date: '2026-05-07T10:22:03.437Z',
+ image: '/images/blog/svizzera-2100-scenari-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

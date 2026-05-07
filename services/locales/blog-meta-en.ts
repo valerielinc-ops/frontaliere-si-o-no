@@ -6746,6 +6746,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.title': 'Health costs in Crans-Montana: Marchesi asks for clarification',
     'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.excerpt': 'National councillor Piero Marchesi submits an interpellation on the treatment of health costs related to the Crans-Montana drama, raising concerns about possible disparities in treatment.',
     'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.imageAlt': 'Panoramic view of Crans-Montana with snow-covered mountains and ski facilities',
+    'blog.article.svizzera-2100-scenari-frontalieri.title': 'Switzerland 2100: 5 scenarios for cross-border workers',
+    'blog.article.svizzera-2100-scenari-frontalieri.excerpt': 'A study outlines five possible scenarios for Switzerland in 2100, with implications for Ticino cross-border workers.',
+    'blog.article.svizzera-2100-scenari-frontalieri.imageAlt': 'Lake Lugano with a futuristic skyline in the distance',
 };
 
 export default blogMetaEn;

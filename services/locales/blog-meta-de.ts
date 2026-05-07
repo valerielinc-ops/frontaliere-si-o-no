@@ -6746,6 +6746,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.title': 'Krankenkosten Crans-Montana: Marchesi fordert Aufklärung',
     'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.excerpt': 'Nationalrat Piero Marchesi stellt eine Interpellation zur Behandlung der Gesundheitskosten im Zusammenhang mit dem Drama von Crans-Montana und äussert Bedenken über mögliche Ungleichbehandlungen.',
     'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.imageAlt': 'Panoramablick von Crans-Montana mit schneebedeckten Bergen und Skianlagen',
+    'blog.article.svizzera-2100-scenari-frontalieri.title': 'Schweiz 2100: 5 Szenarien für Grenzgänger',
+    'blog.article.svizzera-2100-scenari-frontalieri.excerpt': 'Eine Studie skizziert fünf mögliche Szenarien für die Schweiz im Jahr 2100, mit Auswirkungen auf die Grenzgänger des Tessin.',
+    'blog.article.svizzera-2100-scenari-frontalieri.imageAlt': 'Luganersee mit futuristischem Stadtbild im Hintergrund',
 };
 
 export default blogMetaDe;
