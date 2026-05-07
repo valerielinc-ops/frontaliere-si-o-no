@@ -1627,14 +1627,21 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  editorial: `Gli annunci di lavoro sono raccolti direttamente dai siti ufficiali delle aziende in ${targetCantonsDisplay.it} e aggiornati quotidianamente. Ogni offerta rimanda alla pagina di candidatura originale del datore di lavoro. Il job board copre tutti i settori: sanità, finanza, tecnologia, ingegneria, commercio e amministrazione.`,
  },
  en: {
- title: (name: string) => `${name} jobs in Switzerland`,
+ // title vs heading must DIFFER (audit:h1-title-duplicates fails on
+ // case+whitespace-insensitive equality). Pattern matches IT/FR:
+ // title is the SERP-friendly headline ("X job openings in Switzerland"),
+ // heading is the on-page H1 ("X jobs in Switzerland").
+ title: (name: string) => `${name} job openings in Switzerland`,
  description: (name: string, count: number) => `${count}+ ${name} job openings in ${targetCantonsDisplay.en} updated daily. Listings sourced from official Swiss employer career pages with direct application links.`,
  heading: (name: string) => `${name} jobs in Switzerland`,
  openListing: 'Open the full job board',
  editorial: `Job listings are sourced directly from official company career pages in ${targetCantonsDisplay.en} and refreshed daily. Every listing links to the employer's original application page. The job board covers all sectors: healthcare, finance, technology, engineering, retail, and administration.`,
  },
  de: {
- title: (name: string) => `${name} Jobs in der Schweiz`,
+ // Same anti-duplicate rule as `en`: title is "Stellenangebote" (the
+ // formal-register synonym used in SERP titles), heading is the
+ // shorter colloquial "Jobs". Both surface the keyword `name`.
+ title: (name: string) => `${name} Stellenangebote in der Schweiz`,
  description: (name: string, count: number) => `${count}+ aktuelle ${name} Stellenangebote in ${targetCantonsDisplay.de}, täglich aktualisiert. Direkt von offiziellen Karriereportalen Schweizer Unternehmen mit Bewerbungslink.`,
  heading: (name: string) => `${name} Jobs in der Schweiz`,
  openListing: 'Komplettes Job Board öffnen',
