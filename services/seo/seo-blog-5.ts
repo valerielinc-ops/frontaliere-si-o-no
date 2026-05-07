@@ -26282,6 +26282,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spring-pride-saronno-2026': {
+    title: 'Spring Pride 2026: inclusione e diritti a Saronno, Caronno, Ceriano e Solaro',
+    description: 'Dal 12 al 17 maggio eventi culturali e momenti di confronto per promuovere diritti e partecipazione in vista della Giornata contro l’omolesbobitransfobia',
+    keywords: 'frontalieri, ticino, svizzera, italia, spring, pride, inclusione, diritti',
+    ogTitle: 'Spring Pride 2026: inclusione e diritti a Saronno, Caronno, Ceriano e Solaro',
+    ogDescription: 'Dal 12 al 17 maggio eventi culturali e momenti di confronto per promuovere diritti e partecipazione in vista della Giornata contro l’omolesbobitransfobia',
+    canonicalPath: '/articoli-frontaliere/spring-pride-saronno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spring Pride 2026: inclusione e diritti a Saronno, Caronno, Ceriano e Solaro",
+      "description": "Dal 12 al 17 maggio eventi culturali e momenti di confronto per promuovere diritti e partecipazione in vista della Giornata contro l’omolesbobitransfobia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/spring-pride-saronno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone partecipa a un pride parade in una piazza pittoresca del Ticino"
+      },
+      "datePublished": "2026-05-07T09:12:33+00:00",
+      "dateModified": "2026-05-07T09:12:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spring-pride-saronno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

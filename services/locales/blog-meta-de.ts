@@ -6725,6 +6725,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lucerna-paradiso-fiscale-frontalieri.title': 'Luzern überholt Zug: Neuer Steuerparadies für Unternehmen',
     'blog.article.lucerna-paradiso-fiscale-frontalieri.excerpt': 'Luzern senkt die Gewinnsteuer auf 11,66%, überholt Zug. Auswirkungen auf Grenzgänger und Vergleich mit der EU.',
     'blog.article.lucerna-paradiso-fiscale-frontalieri.imageAlt': 'Blick auf den Luganersee mit einem modernen Gebäude im Hintergrund',
+    'blog.article.spring-pride-saronno-2026.title': 'Spring Pride 2026: Inklusion und Rechte in Saronno, Caronno, Ceriano und Solaro',
+    'blog.article.spring-pride-saronno-2026.excerpt': 'Vom 12. bis 17. Mai kulturelle Veranstaltungen und Diskussionsmomente zur Förderung von Rechten und Teilhabe im Vorfeld des Tages gegen Homolesbobitransphobie',
+    'blog.article.spring-pride-saronno-2026.imageAlt': 'Gruppe von Menschen nimmt an einer Pride-Parade in einem malerischen Stadtplatz im Tessin teil',
 };
 
 export default blogMetaDe;

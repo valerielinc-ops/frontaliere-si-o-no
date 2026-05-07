@@ -6725,6 +6725,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lucerna-paradiso-fiscale-frontalieri.title': 'Lucerne overtakes Zug: new tax haven for businesses',
     'blog.article.lucerna-paradiso-fiscale-frontalieri.excerpt': 'Lucerne reduces corporate tax to 11.66%, surpassing Zug. Impact on cross-border workers and comparison with the EU.',
     'blog.article.lucerna-paradiso-fiscale-frontalieri.imageAlt': 'View of Lake Lugano with a modern building in the background',
+    'blog.article.spring-pride-saronno-2026.title': 'Spring Pride 2026: inclusion and rights in Saronno, Caronno, Ceriano and Solaro',
+    'blog.article.spring-pride-saronno-2026.excerpt': 'From May 12 to 17, cultural events and moments of discussion to promote rights and participation ahead of the Day against homolesbobitransphobia',
+    'blog.article.spring-pride-saronno-2026.imageAlt': 'Group of people participating in a pride parade in a picturesque town square in Ticino',
 };
 
 export default blogMetaEn;
