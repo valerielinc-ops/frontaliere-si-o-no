@@ -1,10 +1,10 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-05-06T22:54:45.765Z",
+  "assembledAt": "2026-05-07T11:59:21.988Z",
   "jobs": [
     {
       "id": "company-8ci491",
-      "slug": "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491",
+      "slug": "assistente-nella-linea-centrale-alc-monteceneri-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Assistent/-in der Centerleitung ALC Monteceneri",
       "location": "Bern",
@@ -41,19 +41,24 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491",
-        "en": "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491",
-        "de": "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491",
-        "fr": "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491"
+        "it": "assistente-nella-linea-centrale-alc-monteceneri-swiss-armed-forces-vtg-bellinzona",
+        "en": "assistant-in-the-center-line-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491",
+        "de": "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bellinzona",
+        "fr": "assistant-sur-la-ligne-centrale-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern"
+          "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern",
+          "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491"
+        ],
+        "de": [
+          "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491"
         ]
       },
       "previousSlugs": [
-        "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern"
+        "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern",
+        "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -329,7 +334,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jnoz9i",
