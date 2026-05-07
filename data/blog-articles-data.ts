@@ -21521,4 +21521,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'giro-ditalia-ticino-strade-chiuse',
+ category: 'pratico',
+ date: '2026-05-07T08:51:38.187Z',
+ image: '/images/blog/giro-ditalia-ticino-strade-chiuse.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

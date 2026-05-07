@@ -6716,6 +6716,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lugano-saluta-stadio-cornaredo-2024.title': 'Lugano bids farewell to Cornaredo Stadium: event on June 4',
     'blog.article.lugano-saluta-stadio-cornaredo-2024.excerpt': 'Public celebration for the stadium\'s 75th anniversary before its replacement with the new AIL Arena in 2026',
     'blog.article.lugano-saluta-stadio-cornaredo-2024.imageAlt': 'Cornaredo Stadium in Lugano, aerial view at sunset',
+    'blog.article.giro-ditalia-ticino-strade-chiuse.title': 'Giro d\'Italia in Ticino: roads closed to traffic',
+    'blog.article.giro-ditalia-ticino-strade-chiuse.excerpt': 'On May 26, the Giro d\'Italia passes through Ticino. Here are the roads closed to traffic and the closure times.',
+    'blog.article.giro-ditalia-ticino-strade-chiuse.imageAlt': 'Aerial view of Bellinzona during the Giro d\'Italia, with cyclists racing through the historic city center, surrounded by medieval architecture and the Alps in the background.',
 };
 
 export default blogMetaEn;
