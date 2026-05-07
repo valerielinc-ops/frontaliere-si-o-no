@@ -122,7 +122,7 @@ export function buildClusterClassifierPrompt(headlines) {
     .map((h, i) => `${i + 1}. ${String(h ?? '').replace(/\s+/g, ' ').trim()}`)
     .join('\n');
   return [
-    'Classifica ogni headline in uno di questi cluster (rispondi con un array JSON di N stringhe):',
+    'Classifica ogni headline in uno di questi cluster:',
     '- fiscale: tasse, imposte, ristorni, salari, busta paga, valute',
     '- salute: cassa malati, LAMal, premi sanitari, assicurazione malattia',
     '- pensioni: AVS, AHV, LPP, BVG, secondo/terzo pilastro, 3a/3b, previdenza, tredicesima AVS',
@@ -135,7 +135,11 @@ export function buildClusterClassifierPrompt(headlines) {
     'Headlines:',
     numbered,
     '',
-    `Rispondi SOLO con un array JSON di esattamente ${n} elementi, ognuno una di queste 8 stringhe esatte: ["fiscale","salute","pensioni","mobilita","pratico","lavoro","novita","generic"]. Niente prosa, niente markdown.`,
+    // jsonMode in OpenAI-compatible providers forces a JSON OBJECT response
+    // (not a top-level array). The prompt explicitly asks for an object so
+    // the model doesn't wrap the array under an arbitrary key (some models
+    // pick "result", "categories", "data" etc.). Fixed key "clusters".
+    `Rispondi SOLO con un oggetto JSON nel formato esatto: {"clusters": [c1, c2, ..., c${n}]}, dove l'array contiene esattamente ${n} stringhe. Ogni stringa deve essere UNA di queste 8 esatte: "fiscale", "salute", "pensioni", "mobilita", "pratico", "lavoro", "novita", "generic". Niente prosa, niente markdown.`,
   ].join('\n');
 }
 

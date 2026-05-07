@@ -328,12 +328,30 @@ const CLUSTER_TAXONOMY_SET = new Set(CLUSTER_TAXONOMY);
  * @returns {(string|null)[]}
  */
 function coerceClusterArray(parsed, expectedLength) {
-  if (!Array.isArray(parsed)) return new Array(expectedLength).fill(null);
+  // Accept both shapes 2026-05-07:
+  //   1. Top-level array: ["fiscale","salute",...]
+  //   2. Object wrapping: {"clusters": [...]} (forced by jsonMode in
+  //      OpenAI-compatible providers — top-level arrays are not allowed
+  //      with response_format=json_object).
+  // If parsed is an object, look for the first array-valued property.
+  let arr = parsed;
+  if (!Array.isArray(arr) && arr && typeof arr === 'object') {
+    if (Array.isArray(arr.clusters)) {
+      arr = arr.clusters;
+    } else {
+      // Tolerant: pick first array-valued key (handles models that wrap
+      // under "result" / "categories" / "data" / etc.).
+      for (const v of Object.values(arr)) {
+        if (Array.isArray(v)) { arr = v; break; }
+      }
+    }
+  }
+  if (!Array.isArray(arr)) return new Array(expectedLength).fill(null);
   // If length doesn't match, signal full fallback.
-  if (parsed.length !== expectedLength) {
+  if (arr.length !== expectedLength) {
     return new Array(expectedLength).fill(null);
   }
-  return parsed.map((entry) => {
+  return arr.map((entry) => {
     if (typeof entry !== 'string') return null;
     const trimmed = entry.trim().toLowerCase();
     return CLUSTER_TAXONOMY_SET.has(trimmed) ? trimmed : null;
@@ -418,10 +436,15 @@ export async function classifyHeadlineClusters(headlines, opts = {}) {
   }
 
   let parsed;
+  const rawText = typeof raw === 'string' ? raw : raw?.content || '';
+  const stripped = stripFenceAndPrefix(rawText);
   try {
-    parsed = JSON.parse(stripFenceAndPrefix(typeof raw === 'string' ? raw : raw?.content || ''));
-  } catch {
-    console.warn('[generator] cluster classifier returned malformed JSON, regex fallback');
+    parsed = JSON.parse(stripped);
+  } catch (e) {
+    // Diagnostic: print first 200 chars of stripped raw so we can fix
+    // prompt/parser if a model returns an unexpected shape.
+    const preview = stripped.slice(0, 200).replace(/\s+/g, ' ');
+    console.warn(`[classifier] LLM returned malformed JSON (parse error: ${e?.message || e}), regex fallback. raw[0..200]: "${preview}"`);
     return list.map((h) => classifyByRegex(String(h ?? '')));
   }
 
