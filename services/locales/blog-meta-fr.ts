@@ -6648,6 +6648,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.veglia-preghiera-omofobia-ticino-2026.title': 'Veillée de prière contre l\'homophobie à Lugano',
     'blog.article.veglia-preghiera-omofobia-ticino-2026.excerpt': 'À l\'occasion de la Journée internationale contre l\'homophobie, une veillée de prière à Lugano pour lutter contre la discrimination et la violence.',
     'blog.article.veglia-preghiera-omofobia-ticino-2026.imageAlt': 'Église évangélique réformée de Lugano pendant une veillée de prière du soir',
+    'blog.article.parcheggi-digitali-lugano-2024.title': 'Parkings digitaux à Lugano: comment fonctionne le nouveau système',
+    'blog.article.parcheggi-digitali-lugano-2024.excerpt': 'À Lugano, les parkings deviennent de plus en plus numériques. Découvrez comment fonctionne le nouveau système de paiement et de surveillance.',
+    'blog.article.parcheggi-digitali-lugano-2024.imageAlt': 'Un parking moderne à Lugano avec des terminaux de paiement numériques et des caméras de surveillance, montrant l\'intégration de la technologie dans les infrastructures urbaines.',
 };
 
 export default blogMetaFr;

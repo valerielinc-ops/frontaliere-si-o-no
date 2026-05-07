@@ -3458,6 +3458,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ex-casa-comunale-lopagno-vendita': { name: 'Vendita immobili', path: '/articoli-frontaliere/ex-casa-comunale-lopagno-vendita', parent: 'blog' },
     'blog-ascensione-pentecoste-viaggi-2026': { name: 'Viaggi e Turismo', path: '/articoli-frontaliere/ascensione-pentecoste-viaggi-2026', parent: 'blog' },
     'blog-veglia-preghiera-omofobia-ticino-2026': { name: 'Veglia di preghiera', path: '/articoli-frontaliere/veglia-preghiera-omofobia-ticino-2026', parent: 'blog' },
+    'blog-parcheggi-digitali-lugano-2024': { name: 'Parcheggi digitali', path: '/articoli-frontaliere/parcheggi-digitali-lugano-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

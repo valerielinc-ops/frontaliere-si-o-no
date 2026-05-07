@@ -21314,4 +21314,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'parcheggi-digitali-lugano-2024',
+ category: 'novita',
+ date: '2026-05-07T05:00:43.831Z',
+ image: '/images/blog/parcheggi-digitali-lugano-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

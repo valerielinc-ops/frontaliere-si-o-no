@@ -25270,6 +25270,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parcheggi-digitali-lugano-2024': {
+    title: 'Parcheggi digitali a Lugano: come funziona il nuovo sistema',
+    description: 'Scopri come funziona il nuovo sistema digitale per i parcheggi a Lugano e come può influenzare i frontalieri che lavorano in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, parcheggi, digitali, lugano, funziona',
+    ogTitle: 'Parcheggi digitali a Lugano: come funziona il nuovo sistema',
+    ogDescription: 'Scopri come funziona il nuovo sistema digitale per i parcheggi a Lugano e come può influenzare i frontalieri che lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/parcheggi-digitali-lugano-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parcheggi digitali a Lugano: come funziona il nuovo sistema",
+      "description": "Scopri come funziona il nuovo sistema digitale per i parcheggi a Lugano e come può influenzare i frontalieri che lavorano in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/parcheggi-digitali-lugano-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un parcheggio moderno a Lugano con terminali di pagamento digitale e telecamere di sorveglianza, che mostra l'integrazione della tecnologia nelle infrastrutture urbane."
+      },
+      "datePublished": "2026-05-07T05:00:43+00:00",
+      "dateModified": "2026-05-07T05:00:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parcheggi-digitali-lugano-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
