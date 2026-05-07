@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T06:49:45.725Z",
+  "generatedAt": "2026-05-07T09:09:28.817Z",
   "sources": {
     "gscOrphans": {
       "ok": true,
@@ -26,7 +26,7 @@
     },
     "redditItaly": {
       "ok": true,
-      "candidates": 1
+      "candidates": 2
     },
     "redditLugano": {
       "ok": true,
@@ -34,7 +34,7 @@
     },
     "redditSwitzerland": {
       "ok": true,
-      "candidates": 6
+      "candidates": 1
     },
     "facebookPages": {
       "ok": false,
@@ -53,127 +53,39 @@
         "redditSwitzerland"
       ],
       "demandSignals": {
-        "redditScore": 26,
+        "redditScore": 28,
         "redditComments": 0,
-        "redditCombined": 26,
+        "redditCombined": 28,
         "redditSubreddit": "Switzerland",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 26 (engagement unavailable)",
-      "demandScore": 0.26,
+      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 28 (engagement unavailable)",
+      "demandScore": 0.28,
       "noveltyScore": 1,
-      "totalScore": 0.556
+      "totalScore": 0.568
     },
     {
-      "id": "76b770b1",
-      "keyword": "Why poeple dont believe in Social right for Working class anymore ?",
-      "normalizedKeyword": "why poeple dont believe in social right for working class anymore ?",
+      "id": "ceaaead6",
+      "keyword": "Nottambuli di r/Italy, come fate a convivere con gli orari imposti dalla società odierna?",
+      "normalizedKeyword": "nottambuli di r/italy, come fate a convivere con gli orari imposti dalla societa odierna?",
       "angle": null,
-      "locale": "en",
+      "locale": "it",
       "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 29,
-        "redditComments": 0,
-        "redditCombined": 29,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 29 (engagement unavailable)",
-      "demandScore": 0.29,
-      "noveltyScore": 0.929,
-      "totalScore": 0.546
-    },
-    {
-      "id": "59cc81d8",
-      "keyword": "If Growth Is Capped, Where Does the Skilled Workforce Come From?",
-      "normalizedKeyword": "if growth is capped, where does the skilled workforce come from?",
-      "angle": null,
-      "locale": "en",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 24,
-        "redditComments": 0,
-        "redditCombined": 24,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 24 (engagement unavailable)",
-      "demandScore": 0.24,
-      "noveltyScore": 0.933,
-      "totalScore": 0.517
-    },
-    {
-      "id": "569f00ba",
-      "keyword": "How do I progress in the part-time job market, while in school, as a 15yo?",
-      "normalizedKeyword": "how do i progress in the part-time job market, while in school, as a 15yo?",
-      "angle": null,
-      "locale": "en",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 27,
-        "redditComments": 0,
-        "redditCombined": 27,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 27 (engagement unavailable)",
-      "demandScore": 0.27,
-      "noveltyScore": 0.882,
-      "totalScore": 0.515
-    },
-    {
-      "id": "0852b6e7",
-      "keyword": "Question for Swiss locals: why is late payment to domestic workers so common among wealthy households?",
-      "normalizedKeyword": "question for swiss locals: why is late payment to domestic workers so common among wealthy households?",
-      "angle": null,
-      "locale": "en",
-      "sources": [
-        "redditSwitzerland"
+        "redditItaly"
       ],
       "demandSignals": {
         "redditScore": 22,
         "redditComments": 0,
         "redditCombined": 22,
-        "redditSubreddit": "Switzerland",
+        "redditSubreddit": "italy",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 22 (engagement unavailable)",
+      "rationale": "Reddit r/italy RSS feed — recency-based baseline 22 (engagement unavailable)",
       "demandScore": 0.22,
-      "noveltyScore": 0.952,
-      "totalScore": 0.513
-    },
-    {
-      "id": "52905d04",
-      "keyword": "What kind of insurance do I need for renovating my house/appartment?",
-      "normalizedKeyword": "what kind of insurance do i need for renovating my house/appartment?",
-      "angle": null,
-      "locale": "en",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 17,
-        "redditComments": 0,
-        "redditCombined": 17,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 17 (engagement unavailable)",
-      "demandScore": 0.17,
-      "noveltyScore": 0.944,
-      "totalScore": 0.48
+      "noveltyScore": 0.864,
+      "totalScore": 0.478
     },
     {
       "id": "3de315a1",
