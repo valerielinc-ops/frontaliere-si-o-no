@@ -21152,4 +21152,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cambiamenti-commissione-magistrati-ticino-2026',
+ category: 'novita',
+ date: '2026-05-07T00:57:39.314Z',
+ image: '/images/blog/cambiamenti-commissione-magistrati-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

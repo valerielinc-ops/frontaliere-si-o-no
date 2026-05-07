@@ -6594,6 +6594,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.natura-tavola-cucina-vegetale-lugano-2024.title': 'Natura a tavola: cucina vegetale a Lugano con Greenpeace',
     'blog.article.natura-tavola-cucina-vegetale-lugano-2024.excerpt': 'Greenpeace Svizzera promuove un\'iniziativa di cucina vegetale a Lugano con un pasto gratuito per 300 persone. Scopri come e perché.',
     'blog.article.natura-tavola-cucina-vegetale-lugano-2024.imageAlt': 'Un evento all\'aperto a Lugano con persone che gustano un pasto vegetale in un parco con vista sul lago e le montagne.',
+    'blog.article.cambiamenti-commissione-magistrati-ticino-2026.title': 'Cambio vertici commissione magistrati Ticino',
+    'blog.article.cambiamenti-commissione-magistrati-ticino-2026.excerpt': 'Emanuela Colombo Epiney lascia la presidenza per motivi personali. Il Gran Consiglio nominerà il successore.',
+    'blog.article.cambiamenti-commissione-magistrati-ticino-2026.imageAlt': 'Bellinzona con il Castelgrande in primo piano',
 };
 
 export default blogMetaIt;

@@ -24586,6 +24586,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambiamenti-commissione-magistrati-ticino-2026': {
+    title: 'Cambio vertici commissione magistrati Ticino | Frontaliere Ticino',
+    description: 'Emanuela Colombo Epiney si dimette. Il Gran Consiglio nominerà il successore. Luca Marazzi proposto come nuovo membro. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, vertici, commissione, magistrati',
+    ogTitle: 'Cambio vertici commissione magistrati Ticino',
+    ogDescription: 'Emanuela Colombo Epiney si dimette. Il Gran Consiglio nominerà il successore. Luca Marazzi proposto come nuovo membro.',
+    canonicalPath: '/articoli-frontaliere/cambiamenti-commissione-magistrati-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio vertici commissione magistrati Ticino",
+      "description": "Emanuela Colombo Epiney si dimette. Il Gran Consiglio nominerà il successore. Luca Marazzi proposto come nuovo membro. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/cambiamenti-commissione-magistrati-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona con il Castelgrande in primo piano"
+      },
+      "datePublished": "2026-05-07T00:57:39+00:00",
+      "dateModified": "2026-05-07T00:57:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambiamenti-commissione-magistrati-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

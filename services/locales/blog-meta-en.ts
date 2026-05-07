@@ -6593,6 +6593,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.natura-tavola-cucina-vegetale-lugano-2024.title': 'Nature on the plate: Greenpeace\'s veggie cuisine in Lugano',
     'blog.article.natura-tavola-cucina-vegetale-lugano-2024.excerpt': 'Greenpeace Switzerland promotes a veggie cuisine initiative in Lugano with a free meal for 300 people. Find out how and why.',
     'blog.article.natura-tavola-cucina-vegetale-lugano-2024.imageAlt': 'An outdoor event in Lugano with people enjoying a vegetarian meal in a park overlooking the lake and mountains.',
+    'blog.article.cambiamenti-commissione-magistrati-ticino-2026.title': 'Ticino judges\' commission leadership change',
+    'blog.article.cambiamenti-commissione-magistrati-ticino-2026.excerpt': 'Emanuela Colombo Epiney steps down as president for personal reasons. The Grand Council will appoint her successor.',
+    'blog.article.cambiamenti-commissione-magistrati-ticino-2026.imageAlt': 'Bellinzona with Castelgrande in the foreground',
 };
 
 export default blogMetaEn;
