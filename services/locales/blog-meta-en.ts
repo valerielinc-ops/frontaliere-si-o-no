@@ -6905,6 +6905,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fiera-antiquariato-mendrisio-2026.title': 'Antiques Fair in Mendrisio: 160 exhibitors and over 10,000 visitors',
     'blog.article.fiera-antiquariato-mendrisio-2026.excerpt': 'The 42nd edition of the Antiques, Art and Collectibles Fair will be held on Sunday, May 10th in Mendrisio, with over 160 exhibitors and a wide range of art and collectibles on offer',
     'blog.article.fiera-antiquariato-mendrisio-2026.imageAlt': 'Antique fair in Mendrisio, with over 160 exhibitors and visitors exploring art and collectibles',
+    'blog.article.cure-dentarie-accessibili-ticino-2026.title': 'Affordable dental care in Ticino: the fight for reimbursement',
+    'blog.article.cure-dentarie-accessibili-ticino-2026.excerpt': 'The referendum committee raises the alarm: middle-class families are increasingly forgoing dental care due to high costs.',
+    'blog.article.cure-dentarie-accessibili-ticino-2026.imageAlt': 'A family smiling at a dental clinic in Lugano, with a view of Lake Lugano.',
 };
 
 export default blogMetaEn;

@@ -6905,6 +6905,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fiera-antiquariato-mendrisio-2026.title': 'Antiquitätenmesse in Mendrisio: 160 Aussteller und über 10.000 Besucher',
     'blog.article.fiera-antiquariato-mendrisio-2026.excerpt': 'Die 42. Ausgabe der Antiquitäten-, Kunst- und Sammler-Messe findet am Sonntag, den 10. Mai in Mendrisio statt, mit über 160 Ausstellern und einem breiten Angebot an Kunstgegenständen und Sammlerstücken.',
     'blog.article.fiera-antiquariato-mendrisio-2026.imageAlt': 'Antikmarkt in Mendrisio mit über 160 Ausstellern und Besuchern, die Kunst und Sammlerstücke erkunden',
+    'blog.article.cure-dentarie-accessibili-ticino-2026.title': 'Zugängliche Zahnbehandlungen im Tessin: Der Kampf um die Erstattung',
+    'blog.article.cure-dentarie-accessibili-ticino-2026.excerpt': 'Der Referendumsausschuss warnt: Familien der Mittelschicht verzichten immer häufiger auf Zahnbehandlungen aufgrund der hohen Kosten.',
+    'blog.article.cure-dentarie-accessibili-ticino-2026.imageAlt': 'Eine Familie lächelt in einer Zahnklinik in Lugano mit Blick auf den Luganersee.',
 };
 
 export default blogMetaDe;

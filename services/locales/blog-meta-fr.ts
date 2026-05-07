@@ -6906,6 +6906,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fiera-antiquariato-mendrisio-2026.title': 'Foire de l\'antiquariat à Mendrisio: 160 exposants et plus de 10.000 visiteurs',
     'blog.article.fiera-antiquariato-mendrisio-2026.excerpt': 'La 42ème édition de la Foire de l\'Antiquariat, de l\'Art et de la Collection se tiendra dimanche 10 mai à Mendrisio, avec plus de 160 exposants et une large offre d\'objets d\'art et de collection',
     'blog.article.fiera-antiquariato-mendrisio-2026.imageAlt': 'Foire d\'antiquités à Mendrisio, avec plus de 160 exposants et visiteurs explorant l\'art et les collections',
+    'blog.article.cure-dentarie-accessibili-ticino-2026.title': 'Soins dentaires accessibles au Tessin: la lutte pour le remboursement',
+    'blog.article.cure-dentarie-accessibili-ticino-2026.excerpt': 'Le comité référendaire lance l\'alerte: les familles de la classe moyenne renoncent de plus en plus souvent aux soins dentaires en raison des coûts élevés.',
+    'blog.article.cure-dentarie-accessibili-ticino-2026.imageAlt': 'Une famille souriante dans une clinique dentaire à Lugano, avec vue sur le lac de Lugano.',
 };
 
 export default blogMetaFr;

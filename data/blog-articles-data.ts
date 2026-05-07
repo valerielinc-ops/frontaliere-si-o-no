@@ -22088,4 +22088,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cure-dentarie-accessibili-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-07T22:04:21.974Z',
+ image: '/images/blog/cure-dentarie-accessibili-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

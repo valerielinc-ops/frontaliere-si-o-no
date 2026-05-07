@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2354,
+ "numberOfItems": 2355,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6996,7 +6996,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2351, "name": "Pari opportunità nella cultura: a Lugano una pr...", "url": `${BASE_URL}/articoli-frontaliere/pari-opportunita-cultura-lugano-2026` },
           { "@type": "ListItem", "position": 2352, "name": "Mari Froes e Leo Middea in concerto a Lugano", "url": `${BASE_URL}/articoli-frontaliere/brasile-mari-froes-leo-middea-lugano` },
           { "@type": "ListItem", "position": 2353, "name": "Lavoratori frontalieri e telelavoro: cosa cambi...", "url": `${BASE_URL}/articoli-frontaliere/cross-border-teleworking-2026` },
-          { "@type": "ListItem", "position": 2354, "name": "Fiera dell'antiquariato a Mendrisio: 160 esposi...", "url": `${BASE_URL}/articoli-frontaliere/fiera-antiquariato-mendrisio-2026` }
+          { "@type": "ListItem", "position": 2354, "name": "Fiera dell'antiquariato a Mendrisio: 160 esposi...", "url": `${BASE_URL}/articoli-frontaliere/fiera-antiquariato-mendrisio-2026` },
+          { "@type": "ListItem", "position": 2355, "name": "Cure dentarie accessibili in Ticino: la battagl...", "url": `${BASE_URL}/articoli-frontaliere/cure-dentarie-accessibili-ticino-2026` }
  ]
  },
  {
