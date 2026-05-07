@@ -6710,6 +6710,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agricoltura-sociale-ticino-strategie-2026.title': 'Social farming in Ticino: strategies and inclusion',
     'blog.article.agricoltura-sociale-ticino-strategie-2026.excerpt': 'The Curare Cura project concludes its focus groups with strategies for social farming in Ticino, involving operators and beneficiaries.',
     'blog.article.agricoltura-sociale-ticino-strategie-2026.imageAlt': 'Social agriculture in Ticino, operators and beneficiaries in a farm field',
+    'blog.article.arresto-droga-capolago-2026.title': 'Drug arrest in Capolago: 54 grams of cocaine seized',
+    'blog.article.arresto-droga-capolago-2026.excerpt': 'The Cantonal Police arrested an Albanian citizen with 54 grams of cocaine on the A2 highway. Here\'s what happened.',
+    'blog.article.arresto-droga-capolago-2026.imageAlt': 'Police operation near Lake Lugano, with vehicles and officers in action',
 };
 
 export default blogMetaEn;

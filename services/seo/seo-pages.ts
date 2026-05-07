@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2289,
+ "numberOfItems": 2290,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6931,7 +6931,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2286, "name": "Disoccupazione in calo al 3% in aprile in Ticino", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-ticino-aprile-2026` },
           { "@type": "ListItem", "position": 2287, "name": "Ticino in controtendenza: +3,8% pernottamenti a...", "url": `${BASE_URL}/articoli-frontaliere/ticino-pernottamenti-controtendenza-2026` },
           { "@type": "ListItem", "position": 2288, "name": "Lonza cede Micro Macinazione SA: cosa cambia pe...", "url": `${BASE_URL}/articoli-frontaliere/lonza-cede-micro-macinazione-stabio` },
-          { "@type": "ListItem", "position": 2289, "name": "Agricoltura sociale in Ticino: strategie e incl...", "url": `${BASE_URL}/articoli-frontaliere/agricoltura-sociale-ticino-strategie-2026` }
+          { "@type": "ListItem", "position": 2289, "name": "Agricoltura sociale in Ticino: strategie e incl...", "url": `${BASE_URL}/articoli-frontaliere/agricoltura-sociale-ticino-strategie-2026` },
+          { "@type": "ListItem", "position": 2290, "name": "Arresto per droga a Capolago: 54 grammi di coca...", "url": `${BASE_URL}/articoli-frontaliere/arresto-droga-capolago-2026` }
  ]
  },
  {

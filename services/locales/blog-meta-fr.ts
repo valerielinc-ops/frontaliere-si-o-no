@@ -6711,6 +6711,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.agricoltura-sociale-ticino-strategie-2026.title': 'Agriculture sociale au Tessin: stratégies et inclusion',
     'blog.article.agricoltura-sociale-ticino-strategie-2026.excerpt': 'Le projet Curare Cura conclut les focus group avec des stratégies pour l\'agriculture sociale au Tessin, impliquant les opérateurs et les bénéficiaires.',
     'blog.article.agricoltura-sociale-ticino-strategie-2026.imageAlt': 'Agriculture sociale au Tessin, opérateurs et bénéficiaires dans un champ agricole',
+    'blog.article.arresto-droga-capolago-2026.title': 'Arrestation pour drogue à Capolago: 54 grammes de cocaïne saisis',
+    'blog.article.arresto-droga-capolago-2026.excerpt': 'La police cantonale a arrêté un citoyen albanais avec 54 grammes de cocaïne sur l\'autoroute A2. Voici ce qui s\'est passé.',
+    'blog.article.arresto-droga-capolago-2026.imageAlt': 'Opération de police près du lac de Lugano, avec des véhicules et des agents en action',
 };
 
 export default blogMetaFr;

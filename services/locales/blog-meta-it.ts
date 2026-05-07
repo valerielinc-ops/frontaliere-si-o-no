@@ -6711,6 +6711,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agricoltura-sociale-ticino-strategie-2026.title': 'Agricoltura sociale in Ticino: strategie e inclusione',
     'blog.article.agricoltura-sociale-ticino-strategie-2026.excerpt': 'Il progetto Curare Cura conclude i focus group con strategie per l\'agricoltura sociale in Ticino, coinvolgendo operatori e beneficiari.',
     'blog.article.agricoltura-sociale-ticino-strategie-2026.imageAlt': 'Agricoltura sociale in Ticino, operatori e beneficiari in un campo agricolo',
+    'blog.article.arresto-droga-capolago-2026.title': 'Arresto per droga a Capolago: 54 grammi di cocaina sequestrati',
+    'blog.article.arresto-droga-capolago-2026.excerpt': 'La Polizia cantonale ha arrestato un cittadino albanese con 54 grammi di cocaina sull\'autostrada A2. Ecco cosa è successo.',
+    'blog.article.arresto-droga-capolago-2026.imageAlt': 'Operazione di polizia vicino al Lago di Lugano, con veicoli e agenti in azione',
 };
 
 export default blogMetaIt;

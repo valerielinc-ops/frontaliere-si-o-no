@@ -26087,6 +26087,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-droga-capolago-2026': {
+    title: 'Arresto per droga a Capolago: 54 grammi di cocaina sequestrati',
+    description: 'La Polizia cantonale ha arrestato un cittadino albanese con 54 grammi di cocaina sull\'autostrada A2. Ecco cosa è successo e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, arresto, droga, capolago, grammi',
+    ogTitle: 'Arresto per droga a Capolago: 54 grammi di cocaina sequestrati',
+    ogDescription: 'La Polizia cantonale ha arrestato un cittadino albanese con 54 grammi di cocaina sull\'autostrada A2. Ecco cosa è successo e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/arresto-droga-capolago-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Arresto per droga a Capolago: 54 grammi di cocaina sequestrati",
+      "description": "La Polizia cantonale ha arrestato un cittadino albanese con 54 grammi di cocaina sull'autostrada A2. Ecco cosa è successo e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/arresto-droga-capolago-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operazione di polizia vicino al Lago di Lugano, con veicoli e agenti in azione"
+      },
+      "datePublished": "2026-05-07T08:17:59+00:00",
+      "dateModified": "2026-05-07T08:17:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-droga-capolago-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

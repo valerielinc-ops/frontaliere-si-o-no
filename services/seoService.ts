@@ -3479,6 +3479,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-pernottamenti-controtendenza-2026': { name: 'Novità Ticino', path: '/articoli-frontaliere/ticino-pernottamenti-controtendenza-2026', parent: 'blog' },
     'blog-lonza-cede-micro-macinazione-stabio': { name: 'Novità', path: '/articoli-frontaliere/lonza-cede-micro-macinazione-stabio', parent: 'blog' },
     'blog-agricoltura-sociale-ticino-strategie-2026': { name: 'Agricoltura sociale', path: '/articoli-frontaliere/agricoltura-sociale-ticino-strategie-2026', parent: 'blog' },
+    'blog-arresto-droga-capolago-2026': { name: 'Arresto droga', path: '/articoli-frontaliere/arresto-droga-capolago-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

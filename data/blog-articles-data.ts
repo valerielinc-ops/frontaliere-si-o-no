@@ -21503,4 +21503,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'arresto-droga-capolago-2026',
+ category: 'pratico',
+ date: '2026-05-07T08:17:59.125Z',
+ image: '/images/blog/arresto-droga-capolago-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
