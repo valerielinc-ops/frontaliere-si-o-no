@@ -6669,6 +6669,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spreco-alimentare-giovani-social.title': 'Spreco alimentare: social fondamentali per coinvolgere i giovani',
     'blog.article.spreco-alimentare-giovani-social.excerpt': 'La deputata Maria Chiara Gadda sottolinea l\'importanza dei social network per combattere lo spreco alimentare e coinvolgere i giovani.',
     'blog.article.spreco-alimentare-giovani-social.imageAlt': 'Conferenza su spreco alimentare a Lugano con giovani volontari',
+    'blog.article.nuova-axenstrasse-svitto-2026.title': 'Nuova Axenstrasse in Canton Svitto: lavori iniziati',
+    'blog.article.nuova-axenstrasse-svitto-2026.excerpt': 'La nuova galleria di 3 km sostituirà la strada attuale, esposta a frane. Completamento previsto per il 2033 con un costo di 1,2 miliardi di franchi.',
+    'blog.article.nuova-axenstrasse-svitto-2026.imageAlt': 'Vista aerea del Lago dei Quattro Cantoni con la strada Axenstrasse e le montagne circostanti',
 };
 
 export default blogMetaIt;

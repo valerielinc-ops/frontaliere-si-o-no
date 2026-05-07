@@ -3465,6 +3465,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-arresto-spacciatore-frontaliere': { name: 'Varese arresto', path: '/articoli-frontaliere/varese-arresto-spacciatore-frontaliere', parent: 'blog' },
     'blog-uboldo-tetto-scoperchiato-maltempo-2026': { name: 'Maltempo a Uboldo', path: '/articoli-frontaliere/uboldo-tetto-scoperchiato-maltempo-2026', parent: 'blog' },
     'blog-spreco-alimentare-giovani-social': { name: 'Pratico', path: '/articoli-frontaliere/spreco-alimentare-giovani-social', parent: 'blog' },
+    'blog-nuova-axenstrasse-svitto-2026': { name: 'Nuova Axenstrasse', path: '/articoli-frontaliere/nuova-axenstrasse-svitto-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

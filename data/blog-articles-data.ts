@@ -21377,4 +21377,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuova-axenstrasse-svitto-2026',
+ category: 'novita',
+ date: '2026-05-07T06:13:29.433Z',
+ image: '/images/blog/nuova-axenstrasse-svitto-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

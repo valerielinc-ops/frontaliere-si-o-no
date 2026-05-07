@@ -6669,6 +6669,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spreco-alimentare-giovani-social.title': 'Gaspillage alimentaire : les réseaux sociaux pour impliquer les jeunes',
     'blog.article.spreco-alimentare-giovani-social.excerpt': 'La députée Maria Chiara Gadda souligne l\'importance des réseaux sociaux pour lutter contre le gaspillage alimentaire et impliquer les jeunes.',
     'blog.article.spreco-alimentare-giovani-social.imageAlt': 'Conférence sur le gaspillage alimentaire à Lugano avec de jeunes bénévoles',
+    'blog.article.nuova-axenstrasse-svitto-2026.title': 'Nouvelle Axenstrasse dans le canton de Schwytz: travaux commencés',
+    'blog.article.nuova-axenstrasse-svitto-2026.excerpt': 'La nouvelle galerie de 3 km remplacera la route actuelle, exposée aux glissements de terrain. Achèvement prévu pour 2033 avec un coût de 1,2 milliard de francs.',
+    'blog.article.nuova-axenstrasse-svitto-2026.imageAlt': 'Vue aérienne du lac des Quatre Cantons avec la route Axenstrasse et les montagnes environnantes',
 };
 
 export default blogMetaFr;

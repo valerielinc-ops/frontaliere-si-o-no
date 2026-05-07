@@ -6668,6 +6668,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spreco-alimentare-giovani-social.title': 'Lebensmittelverschwendung: Soziale Medien sind entscheidend für junge Menschen',
     'blog.article.spreco-alimentare-giovani-social.excerpt': 'Die Abgeordnete Maria Chiara Gadda betont die Bedeutung sozialer Netzwerke im Kampf gegen Lebensmittelverschwendung und zur Einbindung junger Menschen.',
     'blog.article.spreco-alimentare-giovani-social.imageAlt': 'Konferenz zur Lebensmittelverschwendung in Lugano mit jungen Freiwilligen',
+    'blog.article.nuova-axenstrasse-svitto-2026.title': 'Neue Axenstrasse im Kanton Schwyz: Bauarbeiten begonnen',
+    'blog.article.nuova-axenstrasse-svitto-2026.excerpt': 'Der neue 3 km lange Tunnel ersetzt die aktuelle Straße, die von Erdrutschen gefährdet ist. Fertigstellung für 2033 mit Kosten von 1,2 Milliarden Franken.',
+    'blog.article.nuova-axenstrasse-svitto-2026.imageAlt': 'Luftaufnahme des Vierwaldstättersees mit der Axenstrasse und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

@@ -6668,6 +6668,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spreco-alimentare-giovani-social.title': 'Food waste: social media key to engaging youth',
     'blog.article.spreco-alimentare-giovani-social.excerpt': 'Deputy Maria Chiara Gadda highlights the importance of social networks to combat food waste and engage young people.',
     'blog.article.spreco-alimentare-giovani-social.imageAlt': 'Conference on food waste reduction in Lugano with young volunteers',
+    'blog.article.nuova-axenstrasse-svitto-2026.title': 'New Axenstrasse in Canton Schwyz: work begins',
+    'blog.article.nuova-axenstrasse-svitto-2026.excerpt': 'The new 3 km tunnel will replace the current road, prone to landslides. Completion expected by 2033 at a cost of 1.2 billion francs.',
+    'blog.article.nuova-axenstrasse-svitto-2026.imageAlt': 'Aerial view of Lake Lucerne with the Axenstrasse road and surrounding mountains',
 };
 
 export default blogMetaEn;
