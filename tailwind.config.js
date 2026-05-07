@@ -6,6 +6,7 @@ export default {
  "./index.tsx",
  "./components/**/*.{js,ts,jsx,tsx}",
  "./services/**/*.{js,ts,jsx,tsx}",
+ "./build-plugins/**/*.{js,ts}",
  ],
  darkMode: 'class',
  theme: {
