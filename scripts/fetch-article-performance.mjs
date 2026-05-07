@@ -226,6 +226,14 @@ function serializeSources(sources) {
       const entry = { ok: true };
       if (typeof s.rows === 'number') entry.rows = s.rows;
       if (typeof s.totalRevenue === 'number') entry.totalRevenue = s.totalRevenue;
+      // AdSense visibility: surface per-channel revenue + which hint matched
+      // so the JSON consumer can debug zero-revenue cases without re-running.
+      if (typeof s.totalAcrossAllChannels === 'number') {
+        entry.totalAcrossAllChannels = s.totalAcrossAllChannels;
+      }
+      if (typeof s.matchedHints === 'boolean') entry.matchedHints = s.matchedHints;
+      if (Array.isArray(s.matchedChannelNames)) entry.matchedChannelNames = s.matchedChannelNames;
+      if (s.perChannel && typeof s.perChannel === 'object') entry.perChannel = s.perChannel;
       out[name] = entry;
     } else {
       out[name] = { ok: false, reason: s.reason || 'unknown' };

@@ -26,6 +26,7 @@ const ENDPOINTS = [
     sourceKey: 'redditTicino',
     sub: 'Ticino',
     url: 'https://www.reddit.com/r/Ticino/new.json?limit=100',
+    rssUrl: 'https://www.reddit.com/r/Ticino/new/.rss?limit=100',
     fallbackHtml: 'https://old.reddit.com/r/Ticino/new',
     fallbackHtmlModern: 'https://www.reddit.com/r/Ticino/new/',
   },
@@ -36,6 +37,10 @@ const ENDPOINTS = [
       'https://www.reddit.com/r/italy/search.json?q=' +
       encodeURIComponent('frontalieri OR grenzgaenger') +
       '&sort=new&limit=50&restrict_sr=1',
+    rssUrl:
+      'https://www.reddit.com/r/italy/search.rss?q=' +
+      encodeURIComponent('frontalieri OR grenzgaenger') +
+      '&sort=new&restrict_sr=1',
     fallbackHtml: 'https://old.reddit.com/r/italy/search?q=frontalieri&restrict_sr=on',
     fallbackHtmlModern:
       'https://www.reddit.com/r/italy/search/?q=frontalieri&restrict_sr=1&sort=new',
@@ -44,6 +49,7 @@ const ENDPOINTS = [
     sourceKey: 'redditLugano',
     sub: 'Lugano',
     url: 'https://www.reddit.com/r/Lugano/new.json?limit=100',
+    rssUrl: 'https://www.reddit.com/r/Lugano/new/.rss?limit=100',
     fallbackHtml: 'https://old.reddit.com/r/Lugano/new',
     fallbackHtmlModern: 'https://www.reddit.com/r/Lugano/new/',
   },
@@ -54,12 +60,51 @@ const ENDPOINTS = [
       'https://www.reddit.com/r/Switzerland/search.json?q=' +
       encodeURIComponent('frontalieri OR cross-border worker') +
       '&sort=new&limit=50&restrict_sr=1',
+    rssUrl:
+      'https://www.reddit.com/r/Switzerland/search.rss?q=' +
+      encodeURIComponent('frontalieri OR cross-border worker') +
+      '&sort=new&restrict_sr=1',
     fallbackHtml:
       'https://old.reddit.com/r/Switzerland/search?q=frontalieri&restrict_sr=on',
     fallbackHtmlModern:
       'https://www.reddit.com/r/Switzerland/search/?q=frontalieri&restrict_sr=1&sort=new',
   },
 ];
+
+// Parse Reddit's Atom-format RSS feed into the same shape we get from JSON.
+// Atom uses <entry> / <title> / <content type="html">; RSS-2 uses <item>.
+// Reddit serves Atom even at .rss URLs, so we handle both.
+export function parseRedditRss(xml) {
+  if (!xml || typeof xml !== 'string') return [];
+  const blocks = [
+    ...xml.matchAll(/<entry\b[\s\S]*?<\/entry>/gi),
+    ...xml.matchAll(/<item\b[\s\S]*?<\/item>/gi),
+  ];
+  const posts = [];
+  for (const m of blocks) {
+    const block = m[0];
+    const titleM = block.match(/<title[^>]*>(?:<!\[CDATA\[([\s\S]*?)\]\]>|([\s\S]*?))<\/title>/i);
+    const title = (titleM?.[1] ?? titleM?.[2] ?? '').replace(/<[^>]+>/g, '').trim();
+    if (!title) continue;
+    // Reddit Atom embeds an HTML preamble in <content> with span tags noting
+    // score and comment count. Best-effort parse.
+    const contentM = block.match(/<content[^>]*>([\s\S]*?)<\/content>/i);
+    const content = contentM?.[1] ?? '';
+    const scoreM = content.match(/\[score:?\s*(-?\d+)\]/i)
+      ?? content.match(/\bscore[^\d]+(\d+)/i);
+    const commentsM = content.match(/\[(\d+)\s*comments?\]/i)
+      ?? content.match(/(\d+)\s*comments?/i);
+    posts.push({
+      title,
+      score: scoreM ? Number(scoreM[1]) : NaN,
+      num_comments: commentsM ? Number(commentsM[1]) : NaN,
+      // Atom doesn't expose is_self distinctly — assume self for question
+      // posts; passesFilters checks isQuestionTitle anyway.
+      is_self: true,
+    });
+  }
+  return posts;
+}
 
 const QUESTION_PREFIX = /^(come|quando|quanto|perche|perché|chi|cosa|dove|qualcuno sa|consigli|domanda|ho bisogno|aiuto|where|how|when|how much|anyone)\b/i;
 
@@ -104,6 +149,30 @@ async function fetchJson(url, fetchImpl) {
       throw e;
     }
     return await res.json();
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+async function fetchText(url, fetchImpl) {
+  const f = fetchImpl ?? globalThis.fetch;
+  const ac = new AbortController();
+  const t = setTimeout(() => ac.abort(), REQUEST_TIMEOUT_MS);
+  if (t && typeof t.unref === 'function') t.unref();
+  try {
+    const res = await f(url, {
+      headers: {
+        'User-Agent': USER_AGENT,
+        Accept: 'application/atom+xml, application/rss+xml, application/xml, text/xml',
+      },
+      signal: ac.signal,
+    });
+    if (!res.ok) {
+      const e = new Error(`reddit-rss ${res.status}`);
+      e.status = res.status;
+      throw e;
+    }
+    return await res.text();
   } finally {
     clearTimeout(t);
   }
@@ -219,10 +288,16 @@ async function playwrightFallback(endpointOrUrl) {
 }
 
 function postToCandidate(post, sourceKey, sub) {
-  const score = Number(post.score ?? 0);
-  const comments = Number(post.num_comments ?? 0);
+  // RSS posts may have NaN score/comments (Atom feed doesn't expose them
+  // reliably). Coerce to 0 — the candidate's demandSignals will reflect
+  // the lower-confidence source via `redditViaRss`.
+  const rawScore = Number(post.score);
+  const rawComments = Number(post.num_comments);
+  const score = Number.isFinite(rawScore) ? rawScore : 0;
+  const comments = Number.isFinite(rawComments) ? rawComments : 0;
   const title = String(post.title || '').trim();
   const norm = normalizeKeyword(title);
+  const fromRss = post._source === 'rss';
   return {
     id: fnv1a8(norm),
     keyword: title,
@@ -235,9 +310,12 @@ function postToCandidate(post, sourceKey, sub) {
       redditComments: comments,
       redditCombined: score + comments * 2,
       redditSubreddit: sub,
+      redditViaRss: fromRss,
       redditUrl: post.permalink ? `https://www.reddit.com${post.permalink}` : null,
     },
-    rationale: `Reddit r/${sub}: score ${score}, ${comments} comments`,
+    rationale: fromRss
+      ? `Reddit r/${sub} RSS feed (engagement metrics unavailable)`
+      : `Reddit r/${sub}: score ${score}, ${comments} comments`,
   };
 }
 
@@ -286,9 +364,31 @@ export async function fetchRedditCandidates(opts = {}) {
     if (!success) {
       ok = false;
       reason = String(lastErr?.message ?? lastErr ?? 'unknown').slice(0, 200);
-      // After exhausting retries: Playwright fallback (old.reddit then
-      // modern www.reddit). The fallback receives the whole endpoint so
-      // it can try both URLs in one browser context.
+
+      // Tier 2: try the public Atom feed. Reddit's RSS endpoints are
+      // typically less aggressively rate-limited than the JSON API because
+      // Reddit expects RSS readers to hit them. Score / num_comments are
+      // unreliable from RSS so we relax those filters and stamp the post
+      // with `_source: 'rss'` for downstream attribution.
+      if (ep.rssUrl) {
+        try {
+          const xml = await fetchText(ep.rssUrl, fetchImpl);
+          const rssPosts = parseRedditRss(xml).map((p) => ({ ...p, _source: 'rss' }));
+          if (rssPosts.length > 0) {
+            posts = rssPosts;
+            ok = true;
+            reason = null;
+            success = true;
+          }
+        } catch {
+          /* fall through to Playwright */
+        }
+      }
+    }
+    if (!success) {
+      // Tier 3: Playwright fallback (old.reddit then modern www.reddit).
+      // The fallback receives the whole endpoint so it can try both URLs
+      // in one browser context.
       try {
         posts = await fallback(ep);
       } catch {
@@ -298,7 +398,11 @@ export async function fetchRedditCandidates(opts = {}) {
 
     const candidates = [];
     for (const p of posts) {
-      if (!passesFilters(p)) continue;
+      // RSS-sourced posts have unreliable score/comments — only enforce the
+      // question-title filter on those; for JSON/Playwright keep the full
+      // engagement gate.
+      const passes = p._source === 'rss' ? isQuestionTitle(p.title) : passesFilters(p);
+      if (!passes) continue;
       const norm = normalizeKeyword(p.title);
       if (!norm || seenAcross.has(norm)) continue;
       seenAcross.add(norm);

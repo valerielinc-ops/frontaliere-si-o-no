@@ -66,14 +66,34 @@ export async function fetchAdsenseChannelRevenue({
 
   /** @type {Map<string, number>} */
   const perChannel = new Map();
-  let totalRevenue = 0;
+  let hintMatchedRevenue = 0;
+  let totalAcrossAllChannels = 0;
+  let matchedChannelNames = [];
   for (const r of data.rows || []) {
     const name = (r.cells?.[0]?.value || '').toLowerCase();
     const revenue = Number(r.cells?.[1]?.value || 0);
     perChannel.set(name, revenue);
+    totalAcrossAllChannels += revenue;
     if (channelHints.some((h) => name.includes(h))) {
-      totalRevenue += revenue;
+      hintMatchedRevenue += revenue;
+      matchedChannelNames.push(name);
     }
   }
-  return { rows: (data.rows || []).length, totalRevenue: Number(totalRevenue.toFixed(2)), perChannel };
+  // If user-provided channelHints didn't match anything (or matched 0 revenue
+  // while other channels DO have revenue), fall back to summing ALL URL
+  // channels. We surface both numbers so the orchestrator can decide and
+  // the consumer can see exactly what AdSense returned.
+  const matchedHints = matchedChannelNames.length > 0 && hintMatchedRevenue > 0;
+  const totalRevenue = matchedHints ? hintMatchedRevenue : totalAcrossAllChannels;
+  return {
+    rows: (data.rows || []).length,
+    totalRevenue: Number(totalRevenue.toFixed(2)),
+    hintMatchedRevenue: Number(hintMatchedRevenue.toFixed(2)),
+    totalAcrossAllChannels: Number(totalAcrossAllChannels.toFixed(2)),
+    matchedHints,
+    matchedChannelNames,
+    perChannel: Object.fromEntries(
+      [...perChannel.entries()].map(([k, v]) => [k, Number(v.toFixed(2))]),
+    ),
+  };
 }
