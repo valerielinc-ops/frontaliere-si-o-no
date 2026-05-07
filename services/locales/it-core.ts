@@ -744,6 +744,8 @@ const translations: Record<string, string> = {
  'jobBoard.gate.blurHint': 'Gratis • 10 secondi',
  'jobBoard.noResults': 'Nessuna offerta trovata',
  'jobBoard.noResultsHint': 'Prova a modificare i filtri di ricerca.',
+ 'jobBoard.searchFallback.title': 'Nessun risultato esatto per «{query}»',
+ 'jobBoard.searchFallback.hint': 'Mostriamo offerte affini in base alle parole chiave della tua ricerca, ordinate per pertinenza.',
  'jobBoard.companyHeading': 'Azienda',
  'jobBoard.sourceLabel': 'Fonte',
  'jobBoard.snapshotTitle': 'Snapshot annuncio',

@@ -707,6 +707,8 @@ const enCore: Record<string, string> = {
  'jobBoard.gate.blurHint': 'Free • 10 seconds',
  'jobBoard.noResults': 'No offers found',
  'jobBoard.noResultsHint': 'Try adjusting your search filters.',
+ 'jobBoard.searchFallback.title': 'No exact match for «{query}»',
+ 'jobBoard.searchFallback.hint': 'Showing related offerings based on the keywords from your search, ranked by relevance.',
  'jobBoard.companyHeading': 'Company',
  'jobBoard.sourceLabel': 'Source',
  'jobBoard.snapshotTitle': 'Job snapshot',

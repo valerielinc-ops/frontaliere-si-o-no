@@ -707,6 +707,8 @@ const frCore: Record<string, string> = {
  'jobBoard.gate.blurHint': 'Gratuit • 10 secondes',
  'jobBoard.noResults': 'Aucune offre trouvée',
  'jobBoard.noResultsHint': 'Essayez de modifier vos filtres de recherche.',
+ 'jobBoard.searchFallback.title': 'Aucun résultat exact pour «{query}»',
+ 'jobBoard.searchFallback.hint': 'Affichage d\'offres similaires basées sur les mots-clés de votre recherche, classées par pertinence.',
  'jobBoard.companyHeading': 'Entreprise',
  'jobBoard.sourceLabel': 'Source',
  'jobBoard.snapshotTitle': 'Aperçu de l’offre',

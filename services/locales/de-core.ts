@@ -707,6 +707,8 @@ const deCore: Record<string, string> = {
  'jobBoard.gate.blurHint': 'Kostenlos • 10 Sekunden',
  'jobBoard.noResults': 'Keine Angebote gefunden',
  'jobBoard.noResultsHint': 'Versuchen Sie, Ihre Suchfilter anzupassen.',
+ 'jobBoard.searchFallback.title': 'Keine exakten Treffer für «{query}»',
+ 'jobBoard.searchFallback.hint': 'Zeige verwandte Angebote basierend auf den Stichwörtern Ihrer Suche, sortiert nach Relevanz.',
  'jobBoard.companyHeading': 'Unternehmen',
  'jobBoard.sourceLabel': 'Quelle',
  'jobBoard.snapshotTitle': 'Stellen-Snapshot',

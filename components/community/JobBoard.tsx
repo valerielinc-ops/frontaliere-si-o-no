@@ -3120,19 +3120,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [searchIndex],
  );
 
- const filteredJobs = useMemo(() => {
- const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0,
- '24h': 24 * 60 * 60 * 1000,
- '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000,
- '30d': 30 * 24 * 60 * 60 * 1000,
- '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
-
- return sortedJobs.filter((job) => {
+ // Helper: apply ALL non-search filters (company, location, category,
+ // contract, sector, date, newOnly). Reused by both the strict AND-match
+ // path below and the OR-fallback path so the two stay consistent.
+ const passingNonSearchFilters = useCallback((job: JobListing, now: number, cutoff: number): boolean => {
  if (companySlugFilter) {
  const slugCandidates = companyRouteSlugCandidates(job.company, job.companyKey);
  if (!slugCandidates.has(companySlugFilter)) return false;
@@ -3154,12 +3145,73 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobTs = new Date(job.crawledAt || job.postedDate).getTime();
  if (now - jobTs >= 72 * 60 * 60 * 1000) return false;
  }
- if (deferredSearchQuery.trim()) {
- return indexedQueryMatch(job, deferredSearchQuery);
- }
+ return true;
+ }, [companySlugFilter, locationSlugFilter, selectedCategory, selectedContract, selectedCompany, selectedLocation, selectedSector, showNewOnly]);
+
+ // strictFilteredJobs: AND-match on every search token (current behavior).
+ // The OR-fallback layer below kicks in when this is empty for a
+ // multi-token query — typical for slug-driven URLs like
+ // /cerca-lavoro-ticino/ricerca-koch-davos/ where no job has BOTH "koch"
+ // and "davos" but many have one of the two.
+ const strictFilteredJobs = useMemo(() => {
+ const now = Date.now();
+ const dateRangeMs: Record<DateRange, number> = {
+ all: 0,
+ '24h': 24 * 60 * 60 * 1000,
+ '3d': 3 * 24 * 60 * 60 * 1000,
+ '7d': 7 * 24 * 60 * 60 * 1000,
+ '30d': 30 * 24 * 60 * 60 * 1000,
+ '90d': 90 * 24 * 60 * 60 * 1000,
+ };
+ const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+ const query = deferredSearchQuery.trim();
+ return sortedJobs.filter((job) => {
+ if (!passingNonSearchFilters(job, now, cutoff)) return false;
+ if (query) return indexedQueryMatch(job, query);
  return true;
  });
- }, [sortedJobs, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, deferredSearchQuery, indexedQueryMatch, companySlugFilter, locationSlugFilter]);
+ }, [sortedJobs, selectedDateRange, deferredSearchQuery, indexedQueryMatch, passingNonSearchFilters]);
+
+ // filteredJobs: strict-AND result, OR a partial-match fallback ranked by
+ // how many tokens hit. Mirrors the build plugin's two-phase matching at
+ // build/relatedSearchClustersPlugin.ts so users landing on a slug URL
+ // see the SAME job set the static cluster page would show. Capped at
+ // MAX_FALLBACK to keep the UI responsive even for high-frequency tokens.
+ const MAX_FALLBACK_RESULTS = 30;
+ const filteredJobs = useMemo(() => {
+ const query = deferredSearchQuery.trim();
+ if (!query || strictFilteredJobs.length > 0) return strictFilteredJobs;
+
+ const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ if (queryTokens.length < 2) return strictFilteredJobs; // single token: AND === OR, nothing to add
+
+ const now = Date.now();
+ const dateRangeMs: Record<DateRange, number> = {
+ all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
+ '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
+ };
+ const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+
+ const scored: { job: JobListing; score: number }[] = [];
+ for (const job of sortedJobs) {
+ if (!passingNonSearchFilters(job, now, cutoff)) continue;
+ const haystack = searchIndex.get(job) ?? '';
+ let score = 0;
+ for (const t of queryTokens) {
+ if (haystack.includes(` ${t} `)) score++;
+ }
+ if (score > 0) scored.push({ job, score });
+ }
+ scored.sort((a, b) => b.score - a.score);
+ return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
+ }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, searchIndex, selectedDateRange, passingNonSearchFilters]);
+
+ // True when the result set is the OR-fallback (strict yielded zero but
+ // we found partial matches). Used by the UI to render an explanatory
+ // banner so users know why these jobs appear despite the query.
+ const isUsingSearchFallback = useMemo(() => {
+ return Boolean(deferredSearchQuery.trim()) && strictFilteredJobs.length === 0 && filteredJobs.length > 0;
+ }, [deferredSearchQuery, strictFilteredJobs.length, filteredJobs.length]);
 
  // Resolve the display name of the company when a company slug filter is active
  const companyDisplayName = useMemo(() => {
@@ -7101,6 +7153,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
 
  <div className="space-y-3 min-h-[600px]">
+ {isUsingSearchFallback && (
+ <div
+ role="status"
+ aria-live="polite"
+ className="rounded-xl border border-warning-border bg-warning-subtle px-4 py-3 text-sm text-body"
+ >
+ <div className="flex items-start gap-2">
+ <Search className="w-4 h-4 mt-0.5 shrink-0 text-warning-strong" />
+ <div>
+ <p className="font-semibold font-display text-strong">
+ {t('jobBoard.searchFallback.title', { query: deferredSearchQuery.trim() })}
+ </p>
+ <p className="text-xs text-subtle mt-1">
+ {t('jobBoard.searchFallback.hint')}
+ </p>
+ </div>
+ </div>
+ </div>
+ )}
  {displayJobs.map((job, idx) => {
  const pos = idx + 1;
  const AD_INTERVAL = 8;
