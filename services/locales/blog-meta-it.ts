@@ -6600,6 +6600,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticinese-timone-afro-pfingsten.title': 'Filippo Armati: un ticinese alla guida di Afro-Pfingsten',
     'blog.article.ticinese-timone-afro-pfingsten.excerpt': 'Filippo Armati, coreografo e manager culturale, è stato nominato direttore di Afro-Pfingsten, il festival di Winterthur dedicato alle culture afro e alla world music.',
     'blog.article.ticinese-timone-afro-pfingsten.imageAlt': 'Festival Afro-Pfingsten a Winterthur con artisti di diverse culture',
+    'blog.article.varese-corsi-nuovi-orizzonti-2026.title': 'Varese Corsi: 6.327 iscrizioni e nuovi corsi per il 2026',
+    'blog.article.varese-corsi-nuovi-orizzonti-2026.excerpt': 'Varese Corsi Net registra 6.327 iscrizioni e introduce simulazioni di volo e Vocal Fitness per l\'inglese. Nuove sinergie tra docenti, istituzioni e imprese.',
+    'blog.article.varese-corsi-nuovi-orizzonti-2026.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

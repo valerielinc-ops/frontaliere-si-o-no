@@ -24662,6 +24662,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-corsi-nuovi-orizzonti-2026': {
+    title: 'Varese Corsi: 6.327 iscrizioni e nuovi corsi per il 2026',
+    description: 'Varese Corsi Net registra 6.327 iscrizioni e introduce simulazioni di volo e Vocal Fitness per l\'inglese. Nuove sinergie tra docenti, istituzioni e imprese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, corsi, iscrizioni, nuovi',
+    ogTitle: 'Varese Corsi: 6.327 iscrizioni e nuovi corsi per il 2026',
+    ogDescription: 'Varese Corsi Net registra 6.327 iscrizioni e introduce simulazioni di volo e Vocal Fitness per l\'inglese. Nuove sinergie tra docenti, istituzioni e imprese.',
+    canonicalPath: '/articoli-frontaliere/varese-corsi-nuovi-orizzonti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese Corsi: 6.327 iscrizioni e nuovi corsi per il 2026",
+      "description": "Varese Corsi Net registra 6.327 iscrizioni e introduce simulazioni di volo e Vocal Fitness per l'inglese. Nuove sinergie tra docenti, istituzioni e imprese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/varese-corsi-nuovi-orizzonti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-07T01:43:52+00:00",
+      "dateModified": "2026-05-07T01:43:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-corsi-nuovi-orizzonti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

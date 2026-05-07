@@ -21170,4 +21170,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-corsi-nuovi-orizzonti-2026',
+ category: 'novita',
+ date: '2026-05-07T01:43:52.019Z',
+ image: '/images/blog/varese-corsi-nuovi-orizzonti-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

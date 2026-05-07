@@ -6599,6 +6599,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticinese-timone-afro-pfingsten.title': 'Filippo Armati: Ein Tessinischer an der Spitze von Afro-Pfingsten',
     'blog.article.ticinese-timone-afro-pfingsten.excerpt': 'Filippo Armati, Choreograf und Kulturschaffender, wurde zum Direktor von Afro-Pfingsten, dem Festival in Winterthur für afrikanische Kulturen und World Music, ernannt.',
     'blog.article.ticinese-timone-afro-pfingsten.imageAlt': 'Afro-Pfingsten-Festival in Winterthur mit Künstlern aus verschiedenen Kulturen',
+    'blog.article.varese-corsi-nuovi-orizzonti-2026.title': 'Varese Kurse: 6.327 Anmeldungen',
+    'blog.article.varese-corsi-nuovi-orizzonti-2026.excerpt': 'Varese Kurse Net verzeichnet 6.327 Anmeldungen und führt Flugsimulatoren und Vocal Fitness für Englisch ein. Neue Synergien zwischen Dozenten, Einrichtungen und Unternehmen.',
+    'blog.article.varese-corsi-nuovi-orizzonti-2026.imageAlt': 'Luftansicht des Luganer Sees mit modernen Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

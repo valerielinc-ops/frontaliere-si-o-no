@@ -3442,6 +3442,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-natura-tavola-cucina-vegetale-lugano-2024': { name: 'Novità', path: '/articoli-frontaliere/natura-tavola-cucina-vegetale-lugano-2024', parent: 'blog' },
     'blog-cambiamenti-commissione-magistrati-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/cambiamenti-commissione-magistrati-ticino-2026', parent: 'blog' },
     'blog-ticinese-timone-afro-pfingsten': { name: 'Afro-Pfingsten', path: '/articoli-frontaliere/ticinese-timone-afro-pfingsten', parent: 'blog' },
+    'blog-varese-corsi-nuovi-orizzonti-2026': { name: 'Varese Corsi', path: '/articoli-frontaliere/varese-corsi-nuovi-orizzonti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
