@@ -6855,6 +6855,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accuse-svizzera-italia-2026.title': 'Accuse alla Svizzera, prime crepe sul fronte italiano',
     'blog.article.accuse-svizzera-italia-2026.excerpt': 'L\'editoriale-bonsai del Giornale del Ticino segnala tensioni tra Italia e Svizzera, con possibili ripercussioni per i frontalieri',
     'blog.article.accuse-svizzera-italia-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino',
+    'blog.article.elcom-preoccupata-inverno-2026.title': 'ElCom avverte: rischio approvvigionamento elettrico per l\'inverno 2026',
+    'blog.article.elcom-preoccupata-inverno-2026.excerpt': 'La guerra in Iran e il blocco dello Stretto di Hormuz minacciano la sicurezza energetica svizzera. L\'ElCom sottolinea l\'importanza di un accordo con l\'UE.',
+    'blog.article.elcom-preoccupata-inverno-2026.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino, cielo azzurro limpido e montagne circostanti.',
 };
 
 export default blogMetaIt;

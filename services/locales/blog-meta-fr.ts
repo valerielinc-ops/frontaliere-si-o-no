@@ -6855,6 +6855,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accuse-svizzera-italia-2026.title': 'Accusations contre la Suisse, premières tensions côté italien',
     'blog.article.accuse-svizzera-italia-2026.excerpt': 'L\'éditorial-bonsaï du Giornale del Ticino signale des tensions entre l\'Italie et la Suisse, avec des répercussions possibles pour les frontaliers',
     'blog.article.accuse-svizzera-italia-2026.imageAlt': 'Castelgrande à Bellinzone, Tessin',
+    'blog.article.elcom-preoccupata-inverno-2026.title': 'ElCom alerte: risque d\'approvisionnement électrique pour l\'hiver 2026',
+    'blog.article.elcom-preoccupata-inverno-2026.excerpt': 'La guerre en Iran et le blocus du détroit d\'Hormuz menacent la sécurité énergétique suisse. L\'ElCom souligne l\'importance d\'un accord avec l\'UE.',
+    'blog.article.elcom-preoccupata-inverno-2026.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin, ciel bleu clair et montagnes environnantes.',
 };
 
 export default blogMetaFr;

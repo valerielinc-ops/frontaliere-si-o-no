@@ -6854,6 +6854,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accuse-svizzera-italia-2026.title': 'Vorwürfe gegen die Schweiz, erste Risse auf italienischer Seite',
     'blog.article.accuse-svizzera-italia-2026.excerpt': 'Der Editorial-Bonsai des Giornale del Ticino meldet Spannungen zwischen Italien und der Schweiz, mit möglichen Auswirkungen auf Grenzgänger',
     'blog.article.accuse-svizzera-italia-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin',
+    'blog.article.elcom-preoccupata-inverno-2026.title': 'ElCom warnt: Stromversorgung im Winter 2026 gefährdet',
+    'blog.article.elcom-preoccupata-inverno-2026.excerpt': 'Der Krieg im Iran und die Blockade der Straße von Hormuz bedrohen die Schweizer Energiesicherheit. Die ElCom betont die Wichtigkeit eines Abkommens mit der EU.',
+    'blog.article.elcom-preoccupata-inverno-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Landschaft des Tessin, klarem blauen Himmel und umliegenden Bergen.',
 };
 
 export default blogMetaDe;

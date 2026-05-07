@@ -6854,6 +6854,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accuse-svizzera-italia-2026.title': 'Accusations against Switzerland, first cracks on Italian front',
     'blog.article.accuse-svizzera-italia-2026.excerpt': 'The bonsai editorial in Giornale del Ticino signals tensions between Italy and Switzerland, with possible repercussions for cross-border workers',
     'blog.article.accuse-svizzera-italia-2026.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.elcom-preoccupata-inverno-2026.title': 'ElCom warns: electricity supply risk for winter 2026',
+    'blog.article.elcom-preoccupata-inverno-2026.excerpt': 'The war in Iran and the Hormuz Strait blockade threaten Swiss energy security. ElCom emphasizes the importance of an agreement with the EU.',
+    'blog.article.elcom-preoccupata-inverno-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino\'s landscape, clear blue sky, and surrounding mountains.',
 };
 
 export default blogMetaEn;

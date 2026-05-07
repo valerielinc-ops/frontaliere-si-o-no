@@ -21935,4 +21935,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'elcom-preoccupata-inverno-2026',
+ category: 'novita',
+ date: '2026-05-07T20:04:24.679Z',
+ image: '/images/blog/elcom-preoccupata-inverno-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

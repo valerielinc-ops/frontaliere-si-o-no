@@ -27959,6 +27959,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-elcom-preoccupata-inverno-2026': {
+    title: 'ElCom avverte: rischio approvvigionamento elettrico per l\'inverno 2026',
+    description: 'La guerra in Iran e il blocco dello Stretto di Hormuz minacciano la sicurezza energetica svizzera. L\'ElCom sottolinea l\'importanza di un accordo con l\'UE.',
+    keywords: 'frontalieri, ticino, svizzera, italia, elcom, avverte, rischio, approvvigionamento',
+    ogTitle: 'ElCom avverte: rischio approvvigionamento elettrico per l\'inverno 2026',
+    ogDescription: 'La guerra in Iran e il blocco dello Stretto di Hormuz minacciano la sicurezza energetica svizzera. L\'ElCom sottolinea l\'importanza di un accordo con l\'UE.',
+    canonicalPath: '/articoli-frontaliere/elcom-preoccupata-inverno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ElCom avverte: rischio approvvigionamento elettrico per l'inverno 2026",
+      "description": "La guerra in Iran e il blocco dello Stretto di Hormuz minacciano la sicurezza energetica svizzera. L'ElCom sottolinea l'importanza di un accordo con l'UE.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/elcom-preoccupata-inverno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il paesaggio del Ticino, cielo azzurro limpido e montagne circostanti."
+      },
+      "datePublished": "2026-05-07T20:04:24+00:00",
+      "dateModified": "2026-05-07T20:04:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/elcom-preoccupata-inverno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
