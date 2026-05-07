@@ -1,0 +1,32 @@
+name: Quality alerts
+on:
+  schedule:
+    - cron: '0 5 * * *'  # 05:00 UTC, after evidence + tune
+  workflow_dispatch:
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: node scripts/quality-alerts.mjs
+      - name: Commit alert state
+        if: always()
+        run: |
+          git config user.name "alerts-bot"
+          git config user.email "alerts-bot@frontaliereticino.ch"
+          git pull --rebase origin main
+          git add data/alert-snoozes.json data/quality-alerts-history.jsonl
+          if git diff --cached --quiet; then
+            echo "No alert state changes to commit"
+          else
+            git commit -m "chore(alerts): $(date -u +%Y-%m-%d)"
+            git push origin main || true
+          fi
