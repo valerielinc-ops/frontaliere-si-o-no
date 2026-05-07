@@ -83,21 +83,16 @@ import {
 // kept the emit set tiny (~1.5k of 52k candidates). The other 50k slugs were
 // still link-emitted by JobBoard's `<a href>` tags in the SPA, so Googlebot
 // discovered them and reported 32k+ "Non trovata (404)" in GSC. Lowering the
-// floor to 1 first attempt produced 18,711 surviving clusters and OOM-killed
-// the GH-runner during the dist write phase (exit 143). Settled on 3 as the
-// sweet spot: the audit summary shows ~3,741 candidates pass freq≥3, which
-// when combined with the AND-first/OR-fill matching below typically yields
-// ~5-7k emittable cluster pages — well within the runner's memory budget
-// while still recovering most of the GSC 404 cohort.
-//
-// MAX_CLUSTER_PAGES — hard cap on emitted cluster pages to keep build
-// resource usage predictable as the candidate set grows. Worst-case payload
-// ~MAX_CLUSTER_PAGES × ~140KB HTML = a few hundred MB on disk, comfortably
-// under the GH-Pages artifact limit.
+// floor to 1 produced 18,711 surviving clusters and OOM-killed the
+// GH-runner during a downstream plugin (exit 143). Settled on 3 as a
+// conservative starting point: the audit summary shows ~3,741 candidates
+// pass freq≥3, and combined with the AND-first/OR-fill matching this
+// typically yields a few thousand emittable cluster pages — close to the
+// 1,581-baseline that already builds cleanly. If the next deploy stays
+// green, this can iterate down toward 1 to recover more of the 404 cohort.
 const MIN_JOB_COUNT = 3;
 const MIN_MATCHING_JOBS = 3;
 const MAX_JOBS_PER_PAGE = 30;
-const MAX_CLUSTER_PAGES = 8000;
 const HUB_PAGE_SIZE = 200;
 
 // ── Utilities ───────────────────────────────────────────────────────────
@@ -1011,17 +1006,6 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         if (ctx) contexts.push(ctx);
       }
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);
-
-      // Hard cap on emitted pages. The audit-time jobCount is the best
-      // ranking signal we have here (high frequency = many jobs at audit
-      // time = stronger user-intent signal). Stable sort preserves locale
-      // order on ties so the cap distributes evenly across IT/EN/DE/FR.
-      if (contexts.length > MAX_CLUSTER_PAGES) {
-        contexts.sort((a, b) => b.candidate.jobCount - a.candidate.jobCount);
-        const dropped = contexts.length - MAX_CLUSTER_PAGES;
-        contexts.length = MAX_CLUSTER_PAGES;
-        console.log(`\x1b[33m[related-search-clusters]\x1b[0m capped at ${MAX_CLUSTER_PAGES} pages, dropped ${dropped} lower-frequency clusters`);
-      }
 
       if (contexts.length === 0) return;
 
