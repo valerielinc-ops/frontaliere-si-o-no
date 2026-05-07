@@ -6749,6 +6749,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-2100-scenari-frontalieri.title': 'Schweiz 2100: 5 Szenarien für Grenzgänger',
     'blog.article.svizzera-2100-scenari-frontalieri.excerpt': 'Eine Studie skizziert fünf mögliche Szenarien für die Schweiz im Jahr 2100, mit Auswirkungen auf die Grenzgänger des Tessin.',
     'blog.article.svizzera-2100-scenari-frontalieri.imageAlt': 'Luganersee mit futuristischem Stadtbild im Hintergrund',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.title': 'SBB-Kontrolleure erhalten Prämien für Strafen? Was Grenzgänger wissen müssen',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.excerpt': 'SBB-Kontrolleure könnten Prämien basierend auf den eingezogenen Strafen erhalten. Auswirkungen auf die Grenzgänger im Tessin und wie man das neue System navigiert.',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.imageAlt': 'Panoramablick auf den Luganersee mit der Stadtlandschaft von Lugano',
 };
 
 export default blogMetaDe;

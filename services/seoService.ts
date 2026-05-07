@@ -3492,6 +3492,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-galleria-italo-svizzera-enigmista': { name: 'Galleria Italo-Svizzera', path: '/articoli-frontaliere/galleria-italo-svizzera-enigmista', parent: 'blog' },
     'blog-svizzera-deroghe-costi-sanitari-crans-montana': { name: 'Fiscale', path: '/articoli-frontaliere/svizzera-deroghe-costi-sanitari-crans-montana', parent: 'blog' },
     'blog-svizzera-2100-scenari-frontalieri': { name: 'Svizzera 2100', path: '/articoli-frontaliere/svizzera-2100-scenari-frontalieri', parent: 'blog' },
+    'blog-sbb-controllers-bonuses-fines-ticino-2026': { name: 'SBB Controllers', path: '/articoli-frontaliere/sbb-controllers-bonuses-fines-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

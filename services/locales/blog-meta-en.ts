@@ -6749,6 +6749,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-2100-scenari-frontalieri.title': 'Switzerland 2100: 5 scenarios for cross-border workers',
     'blog.article.svizzera-2100-scenari-frontalieri.excerpt': 'A study outlines five possible scenarios for Switzerland in 2100, with implications for Ticino cross-border workers.',
     'blog.article.svizzera-2100-scenari-frontalieri.imageAlt': 'Lake Lugano with a futuristic skyline in the distance',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.title': 'SBB fines: bonuses & cross-border workers',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.excerpt': 'SBB controllers may get bonuses based on fines. Impact on Ticino cross-border workers and how to navigate the new system.',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano with the urban landscape of Lugano',
 };
 
 export default blogMetaEn;

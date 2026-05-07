@@ -6750,6 +6750,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-2100-scenari-frontalieri.title': 'Svizzera 2100: 5 scenari per il futuro dei frontalieri',
     'blog.article.svizzera-2100-scenari-frontalieri.excerpt': 'Uno studio delinea cinque possibili scenari per la Svizzera nel 2100, con implicazioni per i frontalieri del Ticino.',
     'blog.article.svizzera-2100-scenari-frontalieri.imageAlt': 'Lago di Lugano con skyline futuristico in lontananza',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.title': 'SBB controllers getting bonuses for fines? What frontalieri need to know',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.excerpt': 'SBB controllers may receive bonuses based on fines collected. Impact on Ticino cross-border workers and how to navigate the new system.',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.imageAlt': 'Vista panoramica del Lago di Lugano con il paesaggio urbano di Lugano',
 };
 
 export default blogMetaIt;

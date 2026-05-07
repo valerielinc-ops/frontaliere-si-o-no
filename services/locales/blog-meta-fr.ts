@@ -6750,6 +6750,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-2100-scenari-frontalieri.title': 'Suisse 2100 : 5 scénarios pour les frontaliers',
     'blog.article.svizzera-2100-scenari-frontalieri.excerpt': 'Une étude esquisse cinq scénarios possibles pour la Suisse en 2100, avec des implications pour les frontaliers du Tessin.',
     'blog.article.svizzera-2100-scenari-frontalieri.imageAlt': 'Lac de Lugano avec un horizon futuriste au loin',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.title': 'Primes SBB pour amendes ? Ce que les frontaliers doivent savoir',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.excerpt': 'Les contrôleurs SBB peuvent recevoir des primes basées sur les amendes perçues. Impact sur les travailleurs frontaliers du Tessin et comment naviguer dans le nouveau système.',
+    'blog.article.sbb-controllers-bonuses-fines-ticino-2026.imageAlt': 'Vue panoramique du lac de Lugano avec le paysage urbain de Lugano',
 };
 
 export default blogMetaFr;

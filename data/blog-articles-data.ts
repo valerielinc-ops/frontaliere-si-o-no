@@ -21620,4 +21620,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sbb-controllers-bonuses-fines-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-07T10:52:52.435Z',
+ image: '/images/blog/sbb-controllers-bonuses-fines-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
