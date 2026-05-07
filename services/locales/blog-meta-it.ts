@@ -6657,6 +6657,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-strisce-pedonali-invisibili-2026.title': 'Varese: strisce pedonali invisibili, MAV chiede interventi urgenti',
     'blog.article.varese-strisce-pedonali-invisibili-2026.excerpt': 'Il Movimento Angelo Vidoletti denuncia lo stato di degrado delle strisce pedonali a Varese, chiedendo un piano di manutenzione strutturato',
     'blog.article.varese-strisce-pedonali-invisibili-2026.imageAlt': 'Strisce pedonali consumate a Varese, con segnaletica poco visibile',
+    'blog.article.furti-self-service-ticino-2026.title': 'Furti nei negozi self-service: la situazione in Ticino',
+    'blog.article.furti-self-service-ticino-2026.excerpt': 'I negozi self-service in Ticino sono presi di mira dai ladri. Ecco cosa sta succedendo e come i proprietari stanno reagendo.',
+    'blog.article.furti-self-service-ticino-2026.imageAlt': 'Un negozio self-service in una zona rurale del Ticino, con scaffali riforniti di prodotti locali.',
 };
 
 export default blogMetaIt;

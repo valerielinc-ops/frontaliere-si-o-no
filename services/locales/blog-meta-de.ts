@@ -6656,6 +6656,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-strisce-pedonali-invisibili-2026.title': 'Varese: unsichtbare Zebrastreifen, MAV fordert dringende Maßnahmen',
     'blog.article.varese-strisce-pedonali-invisibili-2026.excerpt': 'Die Bewegung Angelo Vidoletti kritisiert den schlechten Zustand der Zebrastreifen in Varese und verlangt einen strukturierten Instandhaltungsplan.',
     'blog.article.varese-strisce-pedonali-invisibili-2026.imageAlt': 'Abgenutzte Fußgängerüberwege in Varese, Italien, mit kaum sichtbaren Markierungen',
+    'blog.article.furti-self-service-ticino-2026.title': 'Diebstähle in Selbstbedienungsläden: Die Lage im Tessin',
+    'blog.article.furti-self-service-ticino-2026.excerpt': 'Selbstbedienungsläden im Tessin werden von Dieben heimgesucht. Hier ist, was passiert und wie die Eigentümer reagieren.',
+    'blog.article.furti-self-service-ticino-2026.imageAlt': 'Ein Selbstbedienungsladen in einer ländlichen Gegend des Tessin, gefüllt mit lokalen Produkten.',
 };
 
 export default blogMetaDe;

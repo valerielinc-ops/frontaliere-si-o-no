@@ -6657,6 +6657,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-strisce-pedonali-invisibili-2026.title': 'Varese : passages piétons invisibles, MAV exige des interventions urgentes',
     'blog.article.varese-strisce-pedonali-invisibili-2026.excerpt': 'Le Mouvement Angelo Vidoletti dénonce l\'état de délabrement des passages piétons à Varese, demandant un plan de maintenance structuré',
     'blog.article.varese-strisce-pedonali-invisibili-2026.imageAlt': 'Passages piétons usés à Varese, Italie, avec des marquages à peine visibles',
+    'blog.article.furti-self-service-ticino-2026.title': 'Vols dans les magasins self-service: la situation au Tessin',
+    'blog.article.furti-self-service-ticino-2026.excerpt': 'Les magasins self-service au Tessin sont la cible des voleurs. Voici ce qui se passe et comment les propriétaires réagissent.',
+    'blog.article.furti-self-service-ticino-2026.imageAlt': 'Un magasin en libre-service dans une zone rurale du Tessin, avec des étagères remplies de produits locaux.',
 };
 
 export default blogMetaFr;

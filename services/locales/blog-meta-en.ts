@@ -6656,6 +6656,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-strisce-pedonali-invisibili-2026.title': 'Varese: invisible pedestrian crossings, MAV demands urgent action',
     'blog.article.varese-strisce-pedonali-invisibili-2026.excerpt': 'The Angelo Vidoletti Movement denounces the state of disrepair of pedestrian crossings in Varese, asking for a structured maintenance plan',
     'blog.article.varese-strisce-pedonali-invisibili-2026.imageAlt': 'Faded pedestrian crossings in Varese, Italy, with barely visible markings',
+    'blog.article.furti-self-service-ticino-2026.title': 'Shoplifting in Ticino self-service stores: the situation',
+    'blog.article.furti-self-service-ticino-2026.excerpt': 'Self-service stores in Ticino are being targeted by thieves. Here\'s what\'s happening and how owners are reacting.',
+    'blog.article.furti-self-service-ticino-2026.imageAlt': 'A self-service store in a rural area of Ticino, stocked with local produce.',
 };
 
 export default blogMetaEn;

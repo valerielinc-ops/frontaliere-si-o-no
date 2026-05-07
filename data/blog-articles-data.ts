@@ -21341,4 +21341,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'furti-self-service-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-07T05:28:06.087Z',
+ image: '/images/blog/furti-self-service-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
