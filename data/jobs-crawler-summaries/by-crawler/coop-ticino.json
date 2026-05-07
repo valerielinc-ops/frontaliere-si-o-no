@@ -1,18 +1,19 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-07T10:54:41.025Z",
+  "generatedAt": "2026-05-07T21:42:55.830Z",
   "total": 162,
-  "newCount": 4,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 157,
-  "durationMs": 409070,
-  "avgDurationMs": 409070,
+  "unchangedCount": 161,
+  "durationMs": 378850,
+  "avgDurationMs": 378850,
   "durationHistory": [
-    409070
+    378850
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-c2l690",
       "slug": "venditrice-venditore-food-m-w-d-coop-arbedo-ticino",
@@ -36,16 +37,22 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-07T10:51:02.656Z",
       "firstSeenAt": "2026-05-07T10:51:02.656Z",
-      "needsRetranslation": true,
       "addressLocality": "Arbedo",
-      "_qualityScore": 66,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 2,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-metayj",
       "slug": "verkaufer-in-food-coop-felsberg-graubunden",
@@ -69,15 +76,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-07T10:51:02.656Z",
       "firstSeenAt": "2026-05-07T10:51:02.656Z",
-      "needsRetranslation": true,
       "addressLocality": "Felsberg",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -103,15 +112,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-07T10:51:02.656Z",
       "firstSeenAt": "2026-05-07T10:51:02.656Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -137,19 +148,54 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-07T10:51:02.656Z",
       "firstSeenAt": "2026-05-07T10:51:02.656Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
+    {
+      "id": "company-n69j15",
+      "slug": "responsabile-logistica-magazzino-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "Responsabile logistica magazzino e centrale di distribuzione, Castione, 100%",
+      "location": "Arbedo-Castione",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-06",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/responsabile-logistica-magazzino-e-centrale-di-distribuzione-castione/451ca566-da9e-43d6-a320-6676af1ee9ef",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-06T21:47:58.568Z",
+      "firstSeenAt": "2026-05-06T21:47:58.568Z",
+      "addressLocality": "Arbedo-Castione",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "id": "company-qbnh3b",
       "slug": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-qbnh3b",
@@ -177,44 +223,6 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-n69j15",
-      "slug": "responsabile-logistica-magazzino-e-centrale-di-distribuzione-castione-100-coop-arbedo-castione-ticino",
-      "company": "Coop Genossenschaft",
-      "title": "Responsabile logistica magazzino e centrale di distribuzione, Castione, 100%",
-      "location": "Arbedo-Castione",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/responsabile-logistica-magazzino-e-centrale-di-distribuzione-castione/451ca566-da9e-43d6-a320-6676af1ee9ef",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-06T21:47:58.568Z",
-      "firstSeenAt": "2026-05-06T21:47:58.568Z",
-      "addressLocality": "Arbedo-Castione",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -1116,148 +1124,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-ke4f2c",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-ke4f2c",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "health",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/88b7c251-8463-4cfe-acb1-f0b6083d3824",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-21T21:30:10.756Z",
-      "firstSeenAt": "2026-04-21T21:30:10.756Z",
-      "addressLocality": "Bellinzona",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-ricett",
-      "slug": "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden",
-      "company": "Transgourmet Schweiz AG",
-      "title": "Mitarbeiterin / Mitarbeiter Verkauf Getränke",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-getraenke/e1c76c23-04c1-4412-9cf4-ea1986fdc6aa",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-21T09:55:02.164Z",
-      "firstSeenAt": "2026-04-21T09:55:02.164Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-wpsadl",
-      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Gastronomie",
-      "location": "Davos",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-17",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/595c358b-13be-4ee9-a8bf-105116a8468f",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-17T09:42:47.850Z",
-      "firstSeenAt": "2026-04-17T09:42:47.850Z",
-      "addressLocality": "Davos",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-25lv0h",
-      "slug": "kochin-koch-w-m-d-coop-ristorante-davos-platz",
-      "company": "Coop Genossenschaft",
-      "title": "Köchin / Koch (w/m/d)",
-      "location": "Davos",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-17",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/96eeb79b-c0ac-4fcf-b320-755b5610aba7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-17T09:42:47.850Z",
-      "firstSeenAt": "2026-04-17T09:42:47.850Z",
-      "addressLocality": "Davos",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
