@@ -28076,6 +28076,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-solidale-2026-frontalieri': {
+    title: 'Varese Solidale 2026: due giorni contro la povertà sanitaria',
+    description: 'Dal 15 al 16 maggio, 42 associazioni varesine si mobilitano per combattere la povertà sanitaria con convegni, screening e una cena solidale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, solidale, giorni, contro',
+    ogTitle: 'Varese Solidale 2026: due giorni contro la povertà sanitaria',
+    ogDescription: 'Dal 15 al 16 maggio, 42 associazioni varesine si mobilitano per combattere la povertà sanitaria con convegni, screening e una cena solidale',
+    canonicalPath: '/articoli-frontaliere/varese-solidale-2026-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese Solidale 2026: due giorni contro la povertà sanitaria",
+      "description": "Dal 15 al 16 maggio, 42 associazioni varesine si mobilitano per combattere la povertà sanitaria con convegni, screening e una cena solidale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/varese-solidale-2026-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Volontari a Varese organizzano una fiera della salute con banchetti e striscioni in centro città"
+      },
+      "datePublished": "2026-05-07T20:30:40+00:00",
+      "dateModified": "2026-05-07T20:30:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-solidale-2026-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

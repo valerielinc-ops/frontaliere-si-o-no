@@ -6863,6 +6863,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.title': 'Neue Regeln für den Informationsaustausch zwischen AdER und Gläubigern',
     'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.excerpt': 'Ab dem 6. Mai 2026 gelten neue Vorschriften für die elektronische Datenübertragung zwischen der Agentur für Einnahmen und Einziehung und den Gläubigern.',
     'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.imageAlt': 'Luganersee mit Segelbooten und Bergen',
+    'blog.article.varese-solidale-2026-frontalieri.title': 'Varese Solidale 2026: Zwei Tage gegen Gesundheitsarmut',
+    'blog.article.varese-solidale-2026-frontalieri.excerpt': 'Vom 15. bis 16. Mai mobilisieren sich 42 Vereine aus Varese, um mit Konferenzen, Screenings und einem solidarischen Abendessen gegen Gesundheitsarmut zu kämpfen.',
+    'blog.article.varese-solidale-2026-frontalieri.imageAlt': 'Frewillige in Varese organisieren eine Gesundheitsmesse mit Ständen und Bannern im Stadtzentrum',
 };
 
 export default blogMetaDe;

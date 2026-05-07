@@ -6864,6 +6864,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.title': 'Nuove regole per lo scambio di informazioni tra AdER e enti creditori',
     'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.excerpt': 'Dal 6 maggio 2026 nuove norme per la trasmissione telematica dei dati tra Agenzia delle Entrate-Riscossione e enti creditori',
     'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.imageAlt': 'Lago di Lugano con barche a vela e montagne',
+    'blog.article.varese-solidale-2026-frontalieri.title': 'Varese Solidale 2026: due giorni contro la povertà sanitaria',
+    'blog.article.varese-solidale-2026-frontalieri.excerpt': 'Dal 15 al 16 maggio, 42 associazioni varesine si mobilitano per combattere la povertà sanitaria con convegni, screening e una cena solidale',
+    'blog.article.varese-solidale-2026-frontalieri.imageAlt': 'Volontari a Varese organizzano una fiera della salute con banchetti e striscioni in centro città',
 };
 
 export default blogMetaIt;

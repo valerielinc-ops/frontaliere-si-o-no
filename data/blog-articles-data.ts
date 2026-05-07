@@ -21962,4 +21962,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'varese-solidale-2026-frontalieri',
+ category: 'pratico',
+ date: '2026-05-07T20:30:40.069Z',
+ image: '/images/blog/varese-solidale-2026-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

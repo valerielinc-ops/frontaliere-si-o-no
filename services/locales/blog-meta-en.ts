@@ -6863,6 +6863,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.title': 'New rules for data exchange between AdER and creditors',
     'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.excerpt': 'From May 6, 2026, new rules for the electronic transmission of data between the Revenue Agency-Collection and creditor entities',
     'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.imageAlt': 'Lake Lugano with sailboats and mountains',
+    'blog.article.varese-solidale-2026-frontalieri.title': 'Varese Solidale 2026: two days against healthcare poverty',
+    'blog.article.varese-solidale-2026-frontalieri.excerpt': 'From May 15 to 16, 42 associations in Varese mobilize to combat healthcare poverty with conferences, screenings, and a solidarity dinner',
+    'blog.article.varese-solidale-2026-frontalieri.imageAlt': 'Volunteers in Varese organizing a health fair with booths and banners in the city center',
 };
 
 export default blogMetaEn;
