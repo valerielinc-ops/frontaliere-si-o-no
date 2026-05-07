@@ -146,3 +146,45 @@ export function extractEntriesFromSeoBlog(text, meta) {
 
 export const BLOG_URL_PREFIX_IT = URL_PREFIX_BY_LOCALE.it;
 export const SUPPORTED_LOCALES = LOCALES;
+
+// ── Cluster heuristic classifier ─────────────────────────────
+//
+// Only ~10 of 2140+ articles have an `articleSection` set in seo-blog*.ts,
+// so the producer-side parser returns `cluster: null` for ~99% of winners,
+// which collapses the fingerprint topClusters to `[{cluster:"unknown"}]`.
+//
+// The heuristic below maps each article's title+slug+excerpt to one of seven
+// frontalieri-domain clusters. Order matters: more-specific cluster regexes
+// run first, with `generic` as the final fallback. A title can match multiple
+// clusters but only the first one wins (deterministic, no ambiguity).
+//
+// This is producer-side fallback. When `meta.cluster` is set (parsed from
+// articleSection), `aggregate()` MUST prefer that value — the heuristic only
+// fills the 99% gap.
+
+// Stem-based patterns: leading `\b` anchors the start of a word but no
+// trailing `\b` so prefixes like "stipend" match "stipendio", "permess"
+// matches "permesso/permessi", etc. Matches the same convention as
+// FRONTALIERI_DOMAIN_RE in domainTerms.mjs.
+const CLUSTER_PATTERNS = [
+  ['fiscale',  /\b(tass[ae]|fisc|imposta|irpef|iva|deduci|detraz|quellenst|730|isee|ristorn|accordo|fiscal|busta|ritenut|aliquot)/i],
+  ['pensione', /\b(pension|avs|ahv|lpp|bvg|terzo\s*pilastro|secondo\s*pilastro|previdenz|3a|3b|prelievo)/i],
+  ['pratico',  /\b(permess|salute|sanit|lamal|cmi|krankenkass|cassa\s*malati|maternit|congedo|disocc|naspi|trasferim|residenz|mutuo|affitt|cas[ae])/i],
+  ['lavoro',   /\b(stipend|salar|salaire|gehalt|lavoro|telelavoro|smart\s*working|datore|contrat|disoccupaz|crawler|assum)/i],
+  ['mobilita', /\b(frontiera|valico|dogana|pendolar|trasport|treno|bus|auto|carbur|benzin|diesel|bordo|bord[ée]r|commut)/i],
+  ['novita',   /\b(202\d|nuov[ao]|cambia|novit[àa]|incident|cronaca|sequestr|arrest|protest|sciopero)/i],
+];
+
+/**
+ * Map an article (title + slug + excerpt) to a cluster name. Returns one of:
+ * 'fiscale' | 'pensione' | 'pratico' | 'lavoro' | 'mobilita' | 'novita' | 'generic'.
+ *
+ * Pure function — safe to call from `aggregate()` when `meta.cluster` is null.
+ */
+export function inferClusterFromTitleAndSlug(title, slug, excerpt) {
+  const blob = `${title || ''} ${slug || ''} ${excerpt || ''}`;
+  for (const [name, rx] of CLUSTER_PATTERNS) {
+    if (rx.test(blob)) return name;
+  }
+  return 'generic';
+}

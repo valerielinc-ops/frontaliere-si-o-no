@@ -42,6 +42,20 @@ const MAX_PER_GEO = 20;
 const REQUEST_GAP_MS = 1500;
 const REQUEST_TIMEOUT_MS = 15000;
 
+// Per-seed retries with exponential backoff. Many `relatedQueries` errors are
+// transient (HTML parse-as-JSON, ECONNRESET, intermittent 429). We retry the
+// lib call before falling back to Playwright.
+const RETRY_DELAYS_MS = [1000, 3000, 8000];
+
+// Overall budget for one Playwright fallback attempt (selector wait + JS
+// execution). Wraps the entire Playwright call so a single hung browser
+// can't burn the per-source 5-minute timeout.
+const FALLBACK_OVERALL_TIMEOUT_MS = 30000;
+
+// With retries in place, a "real outage" is now ≥ 5 consecutive seeds
+// failing all 3 attempts (was 3). 5 × 4 attempts = 20 tries before bailing.
+const MAX_CONSECUTIVE_ERRORS = 5;
+
 export function buildSeedList(winnerFingerprint) {
   const seen = new Set();
   const seeds = [];
@@ -133,26 +147,50 @@ async function callGoogleTrendsApi(googleTrends, keyword, geo) {
   return JSON.parse(raw);
 }
 
-async function playwrightFallback(keyword, geo) {
-  // Best-effort: load the public Trends page and scrape the related-queries
-  // table. Returns array of { query, score } or [].
+// Modern Trends UI has gone through several redesigns. Try multiple
+// selectors in order; first match wins. The legacy `.fe-related-queries`
+// wrapper still appears in the experimental endpoint but is unreliable —
+// ARIA-region + custom-element selectors are more durable.
+const RELATED_QUERIES_SELECTORS = [
+  '.fe-related-queries',
+  '.fe-related-queries-tab',
+  '[role="region"][aria-label*="Related"]',
+  'widget-related-queries',
+];
+
+async function _playwrightFallbackInner(keyword, geo) {
   let browser = null;
   try {
     const { chromium } = await import('playwright');
     browser = await chromium.launch({ headless: true });
     const ctx = await browser.newContext({
       userAgent:
-        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
     });
     const page = await ctx.newPage();
     const url = `https://trends.google.com/trends/explore?q=${encodeURIComponent(
       keyword,
     )}&geo=${encodeURIComponent(geo)}&hl=it-IT`;
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-    await page.waitForSelector('.fe-related-queries', { timeout: 15000 });
-    // The widget has two tabs (top / rising). Try to click "rising" if present.
+
+    // Race the candidate selectors — the first one that resolves wins.
+    // If NONE match (UI redesigned again), return [] quietly instead of
+    // throwing — the lib's original error reason should be reported.
+    let foundSelector = null;
+    for (const sel of RELATED_QUERIES_SELECTORS) {
+      try {
+        await page.waitForSelector(sel, { timeout: 4000 });
+        foundSelector = sel;
+        break;
+      } catch {
+        /* try next */
+      }
+    }
+    if (!foundSelector) return [];
+
+    // Attempt to click the "rising" tab if present (graceful fail).
     const risingTab = await page
-      .$('.fe-related-queries [data-rising], .fe-related-queries button:has-text("In aumento")')
+      .$('[data-rising], button:has-text("In aumento"), button:has-text("Rising")')
       .catch(() => null);
     if (risingTab) {
       try {
@@ -161,14 +199,15 @@ async function playwrightFallback(keyword, geo) {
         /* ignore */
       }
     }
+
     const rows = await page.$$eval(
-      '.fe-related-queries .item, .fe-related-queries [class*="item"]',
+      `${foundSelector} .item, ${foundSelector} [class*="item"], ${foundSelector} li`,
       (nodes) =>
         nodes.map((n) => {
           const q =
-            n.querySelector('.label-text, .title-text, span.label')?.textContent ?? '';
+            n.querySelector('.label-text, .title-text, span.label, a, span')?.textContent ?? '';
           const v =
-            n.querySelector('.rising-value, .value-text, span.num')?.textContent ?? '';
+            n.querySelector('.rising-value, .value-text, span.num, [class*="value"]')?.textContent ?? '';
           return { q: q.trim(), v: v.trim() };
         }),
     );
@@ -178,7 +217,7 @@ async function playwrightFallback(keyword, geo) {
         score: parseTrendsScore(v),
       }))
       .filter((r) => r.query);
-  } catch (e) {
+  } catch {
     return [];
   } finally {
     try {
@@ -187,6 +226,18 @@ async function playwrightFallback(keyword, geo) {
       /* ignore */
     }
   }
+}
+
+async function playwrightFallback(keyword, geo) {
+  // Cap the entire Playwright path with an overall timeout. A single hung
+  // browser must not burn the per-source 5-minute budget.
+  return Promise.race([
+    _playwrightFallbackInner(keyword, geo),
+    new Promise((resolve) => {
+      const t = setTimeout(() => resolve([]), FALLBACK_OVERALL_TIMEOUT_MS);
+      if (t && typeof t.unref === 'function') t.unref();
+    }),
+  ]);
 }
 
 function sleep(ms) {
@@ -227,8 +278,6 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
   const perGeo = {};
   const all = [];
 
-  const MAX_CONSECUTIVE_ERRORS = 3;
-
   for (const geo of GEOS) {
     const collected = [];
     const seenForGeo = new Set();
@@ -240,14 +289,35 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
     for (const seed of seeds) {
       let rising = [];
       let hadError = false;
-      try {
-        const json = await callGoogleTrendsApi(googleTrends, seed, geo.id);
-        rising = extractRisingQueries(json);
-      } catch (e) {
-        const msg = String(e?.message ?? e);
+      let lastErrorMsg = null;
+
+      // Retry the lib call up to RETRY_DELAYS_MS.length+1 times. Many
+      // `relatedQueries` errors are transient (parse-HTML-as-JSON,
+      // ECONNRESET, intermittent 429). Only after exhausting retries do
+      // we fall back to Playwright.
+      let attempt = 0;
+      while (attempt <= RETRY_DELAYS_MS.length) {
+        try {
+          const json = await callGoogleTrendsApi(googleTrends, seed, geo.id);
+          rising = extractRisingQueries(json);
+          hadError = false;
+          break;
+        } catch (e) {
+          lastErrorMsg = String(e?.message ?? e);
+          hadError = true;
+          if (attempt < RETRY_DELAYS_MS.length) {
+            await sleepFn(RETRY_DELAYS_MS[attempt]);
+          }
+          attempt++;
+        }
+      }
+
+      if (hadError) {
+        // Capture the lib's original reason BEFORE attempting fallback so a
+        // failed fallback doesn't overwrite the diagnostic.
         geoOk = false;
-        lastReason = msg.slice(0, 200);
-        hadError = true;
+        lastReason = lastErrorMsg ? lastErrorMsg.slice(0, 200) : 'unknown error';
+
         // ONE Playwright fallback attempt per geo, on first error only —
         // avoids spending 14 × Playwright launches if Trends is down.
         if (!fallbackTried) {
@@ -256,6 +326,13 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
             rising = await fallback(seed, geo.id);
           } catch {
             rising = [];
+          }
+          // If the fallback recovered ≥1 query, reset `geoOk` so the source
+          // isn't marked failed: data is real, even if the lib path failed.
+          if (Array.isArray(rising) && rising.length > 0) {
+            geoOk = true;
+            hadError = false;
+            lastReason = null;
           }
         }
       }

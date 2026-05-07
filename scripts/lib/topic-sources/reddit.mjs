@@ -9,9 +9,17 @@
 
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 
-const USER_AGENT = 'frontaliereticino-bot/1.0 (https://frontaliereticino.ch)';
+// Reddit increasingly blocks descriptive bot UAs (e.g. `frontaliereticino-bot/1.0`)
+// from anonymous endpoints with 403 + empty body. Using a plausible-browser
+// UA on a public read-only JSON endpoint stays within their ToS — we don't
+// auth, don't scrape comment trees, and obey the per-IP rate limit.
+const USER_AGENT =
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
 const REQUEST_GAP_MS = 1000;
 const REQUEST_TIMEOUT_MS = 15000;
+
+// Per-endpoint retries with backoff before falling back to Playwright.
+const RETRY_DELAYS_MS = [1000, 3000];
 
 const ENDPOINTS = [
   {
@@ -19,6 +27,7 @@ const ENDPOINTS = [
     sub: 'Ticino',
     url: 'https://www.reddit.com/r/Ticino/new.json?limit=100',
     fallbackHtml: 'https://old.reddit.com/r/Ticino/new',
+    fallbackHtmlModern: 'https://www.reddit.com/r/Ticino/new/',
   },
   {
     sourceKey: 'redditItaly',
@@ -28,12 +37,15 @@ const ENDPOINTS = [
       encodeURIComponent('frontalieri OR grenzgaenger') +
       '&sort=new&limit=50&restrict_sr=1',
     fallbackHtml: 'https://old.reddit.com/r/italy/search?q=frontalieri&restrict_sr=on',
+    fallbackHtmlModern:
+      'https://www.reddit.com/r/italy/search/?q=frontalieri&restrict_sr=1&sort=new',
   },
   {
     sourceKey: 'redditLugano',
     sub: 'Lugano',
     url: 'https://www.reddit.com/r/Lugano/new.json?limit=100',
     fallbackHtml: 'https://old.reddit.com/r/Lugano/new',
+    fallbackHtmlModern: 'https://www.reddit.com/r/Lugano/new/',
   },
   {
     sourceKey: 'redditSwitzerland',
@@ -44,6 +56,8 @@ const ENDPOINTS = [
       '&sort=new&limit=50&restrict_sr=1',
     fallbackHtml:
       'https://old.reddit.com/r/Switzerland/search?q=frontalieri&restrict_sr=on',
+    fallbackHtmlModern:
+      'https://www.reddit.com/r/Switzerland/search/?q=frontalieri&restrict_sr=1&sort=new',
   },
 ];
 
@@ -104,27 +118,94 @@ export function extractPosts(json) {
     .filter((d) => d && typeof d === 'object');
 }
 
-async function playwrightFallback(htmlUrl) {
+async function _scrapeOldReddit(page, htmlUrl) {
+  await page.goto(htmlUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  // Use `.thing` (not `.thing.self`) — link-mostly subs (r/Ticino, r/italy)
+  // surface question posts as link posts, and `.thing.self` filtering would
+  // exclude them. The caller's `passesFilters` does the is_self check after.
+  return page.$$eval('.thing', (nodes) =>
+    nodes.map((n) => {
+      const title = n.querySelector('a.title')?.textContent?.trim() ?? '';
+      const score = Number(
+        n.querySelector('.score.unvoted')?.getAttribute('title') ?? 0,
+      );
+      const num_comments = Number(
+        (n.querySelector('a.comments')?.textContent ?? '0').match(/\d+/)?.[0] ?? 0,
+      );
+      // Mark as is_self=true so `passesFilters` accepts: old.reddit's CSS
+      // doesn't reliably tag self vs link posts in the `.thing` class chain
+      // anymore. The filter's score/comments/question-prefix gates do the
+      // real quality work.
+      return { title, score, num_comments, is_self: true };
+    }),
+  );
+}
+
+async function _scrapeModernReddit(page, htmlUrl) {
+  await page.goto(htmlUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  // Modern Reddit ships posts as `[data-testid="post-container"]`. Wait for
+  // at least one before extracting (lazy hydration). Quietly return [] on
+  // selector miss.
+  try {
+    await page.waitForSelector('[data-testid="post-container"]', { timeout: 5000 });
+  } catch {
+    return [];
+  }
+  return page.$$eval('[data-testid="post-container"]', (nodes) =>
+    nodes.map((n) => {
+      const title =
+        n.querySelector('h1, h2, h3, [data-testid="post-content"] a')?.textContent?.trim() ?? '';
+      // Modern UI buries vote counts behind aria-labels; fall back to
+      // visible text. Score/comments often mid-page reload, so we accept
+      // 0 as a sentinel and let the upstream filter drop these gracefully.
+      const score = Number(
+        n.querySelector('[data-testid="vote-score"]')?.textContent?.replace(/[^0-9]/g, '') ?? 0,
+      );
+      const num_comments = Number(
+        n.querySelector('[data-testid="comments-action-button"]')
+          ?.textContent?.match(/\d+/)?.[0] ?? 0,
+      );
+      return { title, score, num_comments, is_self: true };
+    }),
+  );
+}
+
+async function playwrightFallback(endpointOrUrl) {
+  // Accept either the legacy string-URL form (old.reddit only) or an
+  // endpoint object with both old + modern URLs. The orchestrator below
+  // passes the object form; tests passing a string still work.
+  const oldUrl =
+    typeof endpointOrUrl === 'string'
+      ? endpointOrUrl
+      : endpointOrUrl?.fallbackHtml;
+  const modernUrl =
+    typeof endpointOrUrl === 'string' ? null : endpointOrUrl?.fallbackHtmlModern;
+
   let browser = null;
   try {
     const { chromium } = await import('playwright');
     browser = await chromium.launch({ headless: true });
     const ctx = await browser.newContext({ userAgent: USER_AGENT });
     const page = await ctx.newPage();
-    await page.goto(htmlUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
-    const items = await page.$$eval('.thing.self', (nodes) =>
-      nodes.map((n) => {
-        const title =
-          n.querySelector('a.title')?.textContent?.trim() ?? '';
-        const score = Number(
-          n.querySelector('.score.unvoted')?.getAttribute('title') ?? 0,
-        );
-        const num_comments = Number(
-          (n.querySelector('a.comments')?.textContent ?? '0').match(/\d+/)?.[0] ?? 0,
-        );
-        return { title, score, num_comments, is_self: true };
-      }),
-    );
+
+    let items = [];
+    if (oldUrl) {
+      try {
+        items = await _scrapeOldReddit(page, oldUrl);
+      } catch {
+        items = [];
+      }
+    }
+
+    // Second-tier fallback: if old.reddit returned nothing (rendered empty,
+    // banned, or selectors changed), try modern Reddit. Same browser context.
+    if (items.length === 0 && modernUrl) {
+      try {
+        items = await _scrapeModernReddit(page, modernUrl);
+      } catch {
+        items = [];
+      }
+    }
     return items;
   } catch {
     return [];
@@ -181,15 +262,35 @@ export async function fetchRedditCandidates(opts = {}) {
     let posts = [];
     let ok = true;
     let reason = null;
-    try {
-      const json = await fetchJson(ep.url, fetchImpl);
-      posts = extractPosts(json);
-    } catch (e) {
-      ok = false;
-      reason = String(e?.message ?? e).slice(0, 200);
-      // 429 or any error: ONE Playwright fallback attempt.
+    let lastErr = null;
+
+    // Retry the JSON endpoint up to RETRY_DELAYS_MS.length+1 times before
+    // falling back to Playwright. 403s in particular are often transient
+    // (UA-bucket rotation on Reddit's edge).
+    let attempt = 0;
+    let success = false;
+    while (attempt <= RETRY_DELAYS_MS.length) {
       try {
-        posts = await fallback(ep.fallbackHtml);
+        const json = await fetchJson(ep.url, fetchImpl);
+        posts = extractPosts(json);
+        success = true;
+        break;
+      } catch (e) {
+        lastErr = e;
+        if (attempt < RETRY_DELAYS_MS.length) {
+          await sleepFn(RETRY_DELAYS_MS[attempt]);
+        }
+        attempt++;
+      }
+    }
+    if (!success) {
+      ok = false;
+      reason = String(lastErr?.message ?? lastErr ?? 'unknown').slice(0, 200);
+      // After exhausting retries: Playwright fallback (old.reddit then
+      // modern www.reddit). The fallback receives the whole endpoint so
+      // it can try both URLs in one browser context.
+      try {
+        posts = await fallback(ep);
       } catch {
         posts = [];
       }

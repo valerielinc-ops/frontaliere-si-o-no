@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T04:40:09.973Z",
+  "generatedAt": "2026-05-07T05:13:25.302Z",
   "sources": {
     "gscOrphans": {
       "ok": true,
@@ -11,42 +11,992 @@
       "reason": "Unexpected token '<', \"<html lang\"... is not valid JSON"
     },
     "googleTrendsItLombardia": {
-      "ok": false,
-      "candidates": 0,
-      "reason": "Unexpected token '<', \"<html lang\"... is not valid JSON"
+      "ok": true,
+      "candidates": 16
     },
     "googleTrendsCh": {
-      "ok": false,
-      "candidates": 0,
-      "reason": "Unexpected token '<', \"<html lang\"... is not valid JSON"
+      "ok": true,
+      "candidates": 2
     },
     "redditTicino": {
-      "ok": false,
-      "candidates": 0,
-      "reason": "reddit 403"
+      "ok": true,
+      "candidates": 21
     },
     "redditItaly": {
-      "ok": false,
+      "ok": true,
       "candidates": 0,
-      "reason": "reddit 403"
+      "reason": "no qualifying posts"
     },
     "redditLugano": {
-      "ok": false,
-      "candidates": 0,
-      "reason": "reddit 403"
+      "ok": true,
+      "candidates": 1
     },
     "redditSwitzerland": {
-      "ok": false,
-      "candidates": 0,
-      "reason": "reddit 403"
+      "ok": true,
+      "candidates": 9
     },
     "facebookPages": {
       "ok": false,
       "candidates": 0,
-      "reason": "no qualifying FB posts"
+      "reason": "no FB_PAGE_ACCESS_TOKEN"
     }
   },
   "candidates": [
+    {
+      "id": "0852b6e7",
+      "keyword": "Question for Swiss locals: why is late payment to domestic workers so common among wealthy households?",
+      "normalizedKeyword": "question for swiss locals: why is late payment to domestic workers so common among wealthy households?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 374,
+        "redditComments": 199,
+        "redditCombined": 772,
+        "redditSubreddit": "Switzerland",
+        "redditUrl": "https://www.reddit.com/r/Switzerland/comments/1qoavo4/question_for_swiss_locals_why_is_late_payment_to/"
+      },
+      "rationale": "Reddit r/Switzerland: score 374, 199 comments",
+      "demandScore": 1,
+      "noveltyScore": 0.952,
+      "totalScore": 0.981
+    },
+    {
+      "id": "5b0875ce",
+      "keyword": "Can my workplace (Zurich) legally confiscate the tips of employees?",
+      "normalizedKeyword": "can my workplace (zurich) legally confiscate the tips of employees?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 28,
+        "redditComments": 51,
+        "redditCombined": 130,
+        "redditSubreddit": "Switzerland",
+        "redditUrl": "https://www.reddit.com/r/Switzerland/comments/1m4x8q0/can_my_workplace_zurich_legally_confiscate_the/"
+      },
+      "rationale": "Reddit r/Switzerland: score 28, 51 comments",
+      "demandScore": 1,
+      "noveltyScore": 0.941,
+      "totalScore": 0.976
+    },
+    {
+      "id": "3dfa9262",
+      "keyword": "Where would the limit for Swiss people be regarding KVG/health insurance?",
+      "normalizedKeyword": "where would the limit for swiss people be regarding kvg/health insurance?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 39,
+        "redditComments": 140,
+        "redditCombined": 319,
+        "redditSubreddit": "Switzerland",
+        "redditUrl": "https://www.reddit.com/r/Switzerland/comments/1nvz6qh/where_would_the_limit_for_swiss_people_be/"
+      },
+      "rationale": "Reddit r/Switzerland: score 39, 140 comments",
+      "demandScore": 1,
+      "noveltyScore": 0.941,
+      "totalScore": 0.976
+    },
+    {
+      "id": "6c9095f9",
+      "keyword": "Video of Delivery Robots testing in Zürich - How do you feel about this?",
+      "normalizedKeyword": "video of delivery robots testing in zurich - how do you feel about this?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 50,
+        "redditComments": 113,
+        "redditCombined": 276,
+        "redditSubreddit": "Switzerland",
+        "redditUrl": "https://www.reddit.com/r/Switzerland/comments/1qar8yf/video_of_delivery_robots_testing_in_zürich_how_do/"
+      },
+      "rationale": "Reddit r/Switzerland: score 50, 113 comments",
+      "demandScore": 1,
+      "noveltyScore": 0.938,
+      "totalScore": 0.975
+    },
+    {
+      "id": "59cc81d8",
+      "keyword": "If Growth Is Capped, Where Does the Skilled Workforce Come From?",
+      "normalizedKeyword": "if growth is capped, where does the skilled workforce come from?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 21,
+        "redditComments": 247,
+        "redditCombined": 515,
+        "redditSubreddit": "Switzerland",
+        "redditUrl": "https://www.reddit.com/r/Switzerland/comments/1rakel6/if_growth_is_capped_where_does_the_skilled/"
+      },
+      "rationale": "Reddit r/Switzerland: score 21, 247 comments",
+      "demandScore": 1,
+      "noveltyScore": 0.933,
+      "totalScore": 0.973
+    },
+    {
+      "id": "1db1a703",
+      "keyword": "Are you changing your future plans because of AI?",
+      "normalizedKeyword": "are you changing your future plans because of ai?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 39,
+        "redditComments": 128,
+        "redditCombined": 295,
+        "redditSubreddit": "Switzerland",
+        "redditUrl": "https://www.reddit.com/r/Switzerland/comments/1m0pn0n/are_you_changing_your_future_plans_because_of_ai/"
+      },
+      "rationale": "Reddit r/Switzerland: score 39, 128 comments",
+      "demandScore": 1,
+      "noveltyScore": 0.929,
+      "totalScore": 0.972
+    },
+    {
+      "id": "821fd6f5",
+      "keyword": "Are you in a union and if so, which one?",
+      "normalizedKeyword": "are you in a union and if so, which one?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 13,
+        "redditComments": 92,
+        "redditCombined": 197,
+        "redditSubreddit": "Switzerland",
+        "redditUrl": "https://www.reddit.com/r/Switzerland/comments/1p67e2l/are_you_in_a_union_and_if_so_which_one/"
+      },
+      "rationale": "Reddit r/Switzerland: score 13, 92 comments",
+      "demandScore": 1,
+      "noveltyScore": 0.882,
+      "totalScore": 0.953
+    },
+    {
+      "id": "ad78e28f",
+      "keyword": "coronavirus frontalieri",
+      "normalizedKeyword": "coronavirus frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.833,
+      "totalScore": 0.933
+    },
+    {
+      "id": "2ae56760",
+      "keyword": "frontalieri svizzeri",
+      "normalizedKeyword": "frontalieri svizzeri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.833,
+      "totalScore": 0.933
+    },
+    {
+      "id": "52f23cb4",
+      "keyword": "frontalieri valchiavenna",
+      "normalizedKeyword": "frontalieri valchiavenna",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.833,
+      "totalScore": 0.933
+    },
+    {
+      "id": "ed3cca03",
+      "keyword": "news frontalieri",
+      "normalizedKeyword": "news frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.833,
+      "totalScore": 0.933
+    },
+    {
+      "id": "03b18ad6",
+      "keyword": "Freelancing in Switzerland – do I need to open a company?",
+      "normalizedKeyword": "freelancing in switzerland – do i need to open a company?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 12,
+        "redditComments": 42,
+        "redditCombined": 96,
+        "redditSubreddit": "Switzerland",
+        "redditUrl": "https://www.reddit.com/r/Switzerland/comments/1ledfpu/freelancing_in_switzerland_do_i_need_to_open_a/"
+      },
+      "rationale": "Reddit r/Switzerland: score 12, 42 comments",
+      "demandScore": 0.96,
+      "noveltyScore": 0.846,
+      "totalScore": 0.914
+    },
+    {
+      "id": "5a9a0498",
+      "keyword": "doppia tassazione frontalieri",
+      "normalizedKeyword": "doppia tassazione frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.75,
+      "totalScore": 0.9
+    },
+    {
+      "id": "2796562f",
+      "keyword": "frontalieri svizzera news",
+      "normalizedKeyword": "frontalieri svizzera news",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.75,
+      "totalScore": 0.9
+    },
+    {
+      "id": "d4fedca0",
+      "keyword": "frontalieri svizzera tasse",
+      "normalizedKeyword": "frontalieri svizzera tasse",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.75,
+      "totalScore": 0.9
+    },
+    {
+      "id": "724ed5c6",
+      "keyword": "secondo pilastro svizzero",
+      "normalizedKeyword": "secondo pilastro svizzero",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsCh"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "CH",
+        "googleTrendsSeed": "secondo pilastro"
+      },
+      "rationale": "Google Trends rising (CH, seed \"secondo pilastro\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.75,
+      "totalScore": 0.9
+    },
+    {
+      "id": "8c986d81",
+      "keyword": "frontalieri telelavoro",
+      "normalizedKeyword": "frontalieri telelavoro",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.667,
+      "totalScore": 0.867
+    },
+    {
+      "id": "10e42319",
+      "keyword": "permesso g frontalieri",
+      "normalizedKeyword": "permesso g frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.667,
+      "totalScore": 0.867
+    },
+    {
+      "id": "ceccbbec",
+      "keyword": "ticino frontalieri",
+      "normalizedKeyword": "ticino frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.667,
+      "totalScore": 0.867
+    },
+    {
+      "id": "9b176e5f",
+      "keyword": "accordo frontalieri",
+      "normalizedKeyword": "accordo frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.6,
+      "totalScore": 0.84
+    },
+    {
+      "id": "7f202ae0",
+      "keyword": "disoccupazione frontalieri",
+      "normalizedKeyword": "disoccupazione frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.6,
+      "totalScore": 0.84
+    },
+    {
+      "id": "df812823",
+      "keyword": "accordo italia svizzera frontalieri",
+      "normalizedKeyword": "accordo italia svizzera frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.571,
+      "totalScore": 0.828
+    },
+    {
+      "id": "ada84792",
+      "keyword": "frontalieri italia svizzera",
+      "normalizedKeyword": "frontalieri italia svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.571,
+      "totalScore": 0.828
+    },
+    {
+      "id": "1a90be40",
+      "keyword": "smart working frontalieri",
+      "normalizedKeyword": "smart working frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleTrendsItLombardia"
+      ],
+      "demandSignals": {
+        "googleTrendsScore": 200,
+        "googleTrendsGeo": "IT-25",
+        "googleTrendsSeed": "frontalieri"
+      },
+      "rationale": "Google Trends rising (IT-25, seed \"frontalieri\") — score 200",
+      "demandScore": 1,
+      "noveltyScore": 0.571,
+      "totalScore": 0.828
+    },
+    {
+      "id": "f619e20c",
+      "keyword": "Iscrizione automatica al registro dei cattolici, é legale?",
+      "normalizedKeyword": "iscrizione automatica al registro dei cattolici, e legale?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 22,
+        "redditComments": 29,
+        "redditCombined": 80,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1s8iqw2/iscrizione_automatica_al_registro_dei_cattolici_é/"
+      },
+      "rationale": "Reddit r/Ticino: score 22, 29 comments",
+      "demandScore": 0.8,
+      "noveltyScore": 0.857,
+      "totalScore": 0.823
+    },
+    {
+      "id": "259d9fd7",
+      "keyword": "Anche a voi quelli della cassa malati sembrano arroganti ?",
+      "normalizedKeyword": "anche a voi quelli della cassa malati sembrano arroganti ?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 21,
+        "redditComments": 25,
+        "redditCombined": 71,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qi2ju1/anche_a_voi_quelli_della_cassa_malati_sembrano/"
+      },
+      "rationale": "Reddit r/Ticino: score 21, 25 comments",
+      "demandScore": 0.71,
+      "noveltyScore": 0.842,
+      "totalScore": 0.763
+    },
+    {
+      "id": "d9e2521c",
+      "keyword": "ma chi lavora alla circolazione di Camorino è scemo?",
+      "normalizedKeyword": "ma chi lavora alla circolazione di camorino e scemo?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 22,
+        "redditComments": 21,
+        "redditCombined": 64,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qaql2x/ma_chi_lavora_alla_circolazione_di_camorino_è/"
+      },
+      "rationale": "Reddit r/Ticino: score 22, 21 comments",
+      "demandScore": 0.64,
+      "noveltyScore": 0.833,
+      "totalScore": 0.717
+    },
+    {
+      "id": "ed982c95",
+      "keyword": "Qualcuno ha voglia di venire al cinema con me?",
+      "normalizedKeyword": "qualcuno ha voglia di venire al cinema con me?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 16,
+        "redditComments": 25,
+        "redditCombined": 66,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1s26p6s/qualcuno_ha_voglia_di_venire_al_cinema_con_me/"
+      },
+      "rationale": "Reddit r/Ticino: score 16, 25 comments",
+      "demandScore": 0.66,
+      "noveltyScore": 0.8,
+      "totalScore": 0.716
+    },
+    {
+      "id": "1207d544",
+      "keyword": "Mercato di lavoro al collasso?",
+      "normalizedKeyword": "mercato di lavoro al collasso?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 20,
+        "redditComments": 23,
+        "redditCombined": 66,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qvqn0z/mercato_di_lavoro_al_collasso/"
+      },
+      "rationale": "Reddit r/Ticino: score 20, 23 comments",
+      "demandScore": 0.66,
+      "noveltyScore": 0.75,
+      "totalScore": 0.696
+    },
+    {
+      "id": "6d3ae3ff",
+      "keyword": "Quanto alcol consumate giornalmente o settimanalmente?",
+      "normalizedKeyword": "quanto alcol consumate giornalmente o settimanalmente?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 5,
+        "redditComments": 24,
+        "redditCombined": 53,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qodz9n/quanto_alcol_consumate_giornalmente_o/"
+      },
+      "rationale": "Reddit r/Ticino: score 5, 24 comments",
+      "demandScore": 0.53,
+      "noveltyScore": 0.889,
+      "totalScore": 0.674
+    },
+    {
+      "id": "df677331",
+      "keyword": "Possibile infrazione semaforica?",
+      "normalizedKeyword": "possibile infrazione semaforica?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 6,
+        "redditComments": 21,
+        "redditCombined": 48,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1skh68o/possibile_infrazione_semaforica/"
+      },
+      "rationale": "Reddit r/Ticino: score 6, 21 comments",
+      "demandScore": 0.48,
+      "noveltyScore": 0.875,
+      "totalScore": 0.638
+    },
+    {
+      "id": "14deba97",
+      "keyword": "\"Se non è vero, è ben trovato.\" How popular is this saying?",
+      "normalizedKeyword": "\"se non e vero, e ben trovato.\" how popular is this saying?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 10,
+        "redditComments": 16,
+        "redditCombined": 42,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1rfgy1q/se_non_è_vero_è_ben_trovato_how_popular_is_this/"
+      },
+      "rationale": "Reddit r/Ticino: score 10, 16 comments",
+      "demandScore": 0.42,
+      "noveltyScore": 0.933,
+      "totalScore": 0.625
+    },
+    {
+      "id": "98a89e24",
+      "keyword": "ma voi dove cavolo buttate carta e vetro a Bellinzona?",
+      "normalizedKeyword": "ma voi dove cavolo buttate carta e vetro a bellinzona?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 7,
+        "redditComments": 18,
+        "redditCombined": 43,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1sb947c/ma_voi_dove_cavolo_buttate_carta_e_vetro_a/"
+      },
+      "rationale": "Reddit r/Ticino: score 7, 18 comments",
+      "demandScore": 0.43,
+      "noveltyScore": 0.917,
+      "totalScore": 0.625
+    },
+    {
+      "id": "e06fe588",
+      "keyword": "Insurance - which and how much?",
+      "normalizedKeyword": "insurance - which and how much?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditSwitzerland"
+      ],
+      "demandSignals": {
+        "redditScore": 10,
+        "redditComments": 16,
+        "redditCombined": 42,
+        "redditSubreddit": "Switzerland",
+        "redditUrl": "https://www.reddit.com/r/Switzerland/comments/1n6ek7r/insurance_which_and_how_much/"
+      },
+      "rationale": "Reddit r/Switzerland: score 10, 16 comments",
+      "demandScore": 0.42,
+      "noveltyScore": 0.929,
+      "totalScore": 0.624
+    },
+    {
+      "id": "7019219f",
+      "keyword": "Test per malattie veneree in Ticino. Devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
+      "normalizedKeyword": "test per malattie veneree in ticino. devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 9,
+        "redditComments": 20,
+        "redditCombined": 49,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qxsb8y/test_per_malattie_veneree_in_ticino_devo_chiedere/"
+      },
+      "rationale": "Reddit r/Ticino: score 9, 20 comments",
+      "demandScore": 0.49,
+      "noveltyScore": 0.818,
+      "totalScore": 0.621
+    },
+    {
+      "id": "5da8b8b1",
+      "keyword": "Solo io vivrei in valle?",
+      "normalizedKeyword": "solo io vivrei in valle?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 19,
+        "redditComments": 14,
+        "redditCombined": 47,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qd23v1/solo_io_vivrei_in_valle/"
+      },
+      "rationale": "Reddit r/Ticino: score 19, 14 comments",
+      "demandScore": 0.47,
+      "noveltyScore": 0.778,
+      "totalScore": 0.593
+    },
+    {
+      "id": "67c178d5",
+      "keyword": "How is Army for italian-speakers?",
+      "normalizedKeyword": "how is army for italian-speakers?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 5,
+        "redditComments": 13,
+        "redditCombined": 31,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qmyqy9/how_is_army_for_italianspeakers/"
+      },
+      "rationale": "Reddit r/Ticino: score 5, 13 comments",
+      "demandScore": 0.31,
+      "noveltyScore": 1,
+      "totalScore": 0.586
+    },
+    {
+      "id": "0b44bee5",
+      "keyword": "Esistono Tutor in autostrada in Ticino e svizzera?",
+      "normalizedKeyword": "esistono tutor in autostrada in ticino e svizzera?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 5,
+        "redditComments": 20,
+        "redditCombined": 45,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1rkqccr/esistono_tutor_in_autostrada_in_ticino_e_svizzera/"
+      },
+      "rationale": "Reddit r/Ticino: score 5, 20 comments",
+      "demandScore": 0.45,
+      "noveltyScore": 0.7,
+      "totalScore": 0.55
+    },
+    {
+      "id": "a279dccc",
+      "keyword": "Do you speak dialect in day to day life?",
+      "normalizedKeyword": "do you speak dialect in day to day life?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 9,
+        "redditComments": 10,
+        "redditCombined": 29,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qov7op/do_you_speak_dialect_in_day_to_day_life/"
+      },
+      "rationale": "Reddit r/Ticino: score 9, 10 comments",
+      "demandScore": 0.29,
+      "noveltyScore": 0.909,
+      "totalScore": 0.538
+    },
+    {
+      "id": "fce5d437",
+      "keyword": "Winterswim place in/near Locarno and coffee beans searched ?",
+      "normalizedKeyword": "winterswim place in/near locarno and coffee beans searched ?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 6,
+        "redditComments": 11,
+        "redditCombined": 28,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1raz1tr/winterswim_place_innear_locarno_and_coffee_beans/"
+      },
+      "rationale": "Reddit r/Ticino: score 6, 11 comments",
+      "demandScore": 0.28,
+      "noveltyScore": 0.857,
+      "totalScore": 0.511
+    },
+    {
+      "id": "4cab4a0f",
+      "keyword": "Quando arrivano i sussidi cantonali della cassa malati?",
+      "normalizedKeyword": "quando arrivano i sussidi cantonali della cassa malati?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 6,
+        "redditComments": 14,
+        "redditCombined": 34,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qcgprs/quando_arrivano_i_sussidi_cantonali_della_cassa/"
+      },
+      "rationale": "Reddit r/Ticino: score 6, 14 comments",
+      "demandScore": 0.34,
+      "noveltyScore": 0.75,
+      "totalScore": 0.504
+    },
+    {
+      "id": "c7b3e760",
+      "keyword": "Flash dei radar?",
+      "normalizedKeyword": "flash dei radar?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 7,
+        "redditComments": 9,
+        "redditCombined": 25,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1r76338/flash_dei_radar/"
+      },
+      "rationale": "Reddit r/Ticino: score 7, 9 comments",
+      "demandScore": 0.25,
+      "noveltyScore": 0.833,
+      "totalScore": 0.483
+    },
+    {
+      "id": "b169b37c",
+      "keyword": "Posti per fare aperitivo a Lugano?",
+      "normalizedKeyword": "posti per fare aperitivo a lugano?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 9,
+        "redditComments": 9,
+        "redditCombined": 27,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1sq33fu/posti_per_fare_aperitivo_a_lugano/"
+      },
+      "rationale": "Reddit r/Ticino: score 9, 9 comments",
+      "demandScore": 0.27,
+      "noveltyScore": 0.778,
+      "totalScore": 0.473
+    },
+    {
+      "id": "1cff524b",
+      "keyword": "Spazi alternativi in ticino?",
+      "normalizedKeyword": "spazi alternativi in ticino?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 11,
+        "redditComments": 11,
+        "redditCombined": 33,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qbpgde/spazi_alternativi_in_ticino/"
+      },
+      "rationale": "Reddit r/Ticino: score 11, 11 comments",
+      "demandScore": 0.33,
+      "noveltyScore": 0.667,
+      "totalScore": 0.465
+    },
+    {
+      "id": "564ef9bd",
+      "keyword": "Legal Insurance in Svizzera, davvero utile o solo un’illusione di sicurezza?",
+      "normalizedKeyword": "legal insurance in svizzera, davvero utile o solo un’illusione di sicurezza?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 6,
+        "redditComments": 9,
+        "redditCombined": 24,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1qklmp3/legal_insurance_in_svizzera_davvero_utile_o_solo/"
+      },
+      "rationale": "Reddit r/Ticino: score 6, 9 comments",
+      "demandScore": 0.24,
+      "noveltyScore": 0.8,
+      "totalScore": 0.464
+    },
+    {
+      "id": "2fe9e41e",
+      "keyword": "Vale la pena trasferirsi a Lugano?",
+      "normalizedKeyword": "vale la pena trasferirsi a lugano?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditLugano"
+      ],
+      "demandSignals": {
+        "redditScore": 5,
+        "redditComments": 7,
+        "redditCombined": 19,
+        "redditSubreddit": "Lugano",
+        "redditUrl": "https://www.reddit.com/r/lugano/comments/1b511zs/vale_la_pena_trasferirsi_a_lugano/"
+      },
+      "rationale": "Reddit r/Lugano: score 5, 7 comments",
+      "demandScore": 0.19,
+      "noveltyScore": 0.778,
+      "totalScore": 0.425
+    },
+    {
+      "id": "b07e183e",
+      "keyword": "Bagni termali Ticino-Grigioni?",
+      "normalizedKeyword": "bagni termali ticino-grigioni?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 7,
+        "redditComments": 4,
+        "redditCombined": 15,
+        "redditSubreddit": "Ticino",
+        "redditUrl": "https://www.reddit.com/r/Ticino/comments/1r72od6/bagni_termali_ticinogrigioni/"
+      },
+      "rationale": "Reddit r/Ticino: score 7, 4 comments",
+      "demandScore": 0.15,
+      "noveltyScore": 0.778,
+      "totalScore": 0.401
+    },
     {
       "id": "9df7e9ba",
       "keyword": "lavoro ticino",

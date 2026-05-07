@@ -32,6 +32,7 @@ import {
   discoverArticles,
   articleUrls,
   parseSeoBlogFiles,
+  inferClusterFromTitleAndSlug,
 } from './lib/perf-sources/articleDiscovery.mjs';
 import { safe, pathnameFromUrl } from './lib/perf-sources/safe.mjs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
@@ -115,6 +116,12 @@ export function aggregate({ articles, seoMeta, sources, generatedAt = isoNow(), 
     const ga4 = ga4PerPath.get(p) || null;
     const ph = phPerPath.get(p) || null;
     const meta = seoMeta.get(a.slug) || { cluster: null, publishedAt: null };
+    // articleSection is the preferred source; only ~10/2140 articles set it,
+    // so for the rest we fall back to a heuristic over title+slug+excerpt.
+    // Producer-side cluster filling drives the winnerFingerprint topClusters
+    // off the 99% "unknown" floor that consumer-side filtering can only mute.
+    const clusterValue = meta.cluster
+      || inferClusterFromTitleAndSlug(a.title, a.slug, a.excerpt);
 
     const clicks = gsc?.clicks ?? null;
     const impressions = gsc?.impressions ?? null;
@@ -145,7 +152,7 @@ export function aggregate({ articles, seoMeta, sources, generatedAt = isoNow(), 
       url: a.url,
       title: a.title,
       excerpt: a.excerpt,
-      cluster: meta.cluster || null,
+      cluster: clusterValue,
       publishedAt: meta.publishedAt || null,
       clicks,
       impressions,

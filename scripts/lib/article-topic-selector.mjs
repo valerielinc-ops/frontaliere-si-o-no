@@ -27,6 +27,11 @@
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 
+import {
+  FRONTALIERI_DOMAIN_RE,
+  isFrontalieriDomainTerm,
+} from './perf-sources/domainTerms.mjs';
+
 // ── Paths (overridable via opts for tests) ─────────────────────
 export const PERFORMANCE_PATH = 'data/article-performance.json';
 export const CANDIDATES_PATH = 'data/topic-candidates.json';
@@ -176,15 +181,10 @@ function arr(v) {
   return Array.isArray(v) ? v.filter((x) => x != null && x !== '') : [];
 }
 
-// Keywords we accept as "frontalieri-domain" priors. Anything not matching
-// is dropped to keep the LLM prompt useful instead of polluted with bursty
-// news-of-day terms that happen to TF-IDF high.
-const FRONTALIERI_DOMAIN_RE = /\b(frontal|grenzg|permess(o|i)\s*[gbl]|tass[ae]|fisco|fiscal|imposta|irpef|quellensteuer|busta\s*paga|salar|stipend|salaire|gehalt|cassa\s*malati|lamal|cmi|assicur|krankenkass|pension|avs|ahv|lpp|bvg|terzo\s*pilastro|secondo\s*pilastro|3a|3b|cambio|chf|euro|valut|telelavoro|smart\s*working|t[ée]l[ée]travail|homeoffic|pendolar|commut|dogana|valico|frontiera|bordo|bord[ée]r|naspi|disoccupaz|ristorn|accordo|abkommen|bilateral|svizzer|switzer|tessin|ticin|lombard|comask|varesin|grigion|grauen)/i;
-
-export function isFrontalieriDomainTerm(term) {
-  if (!term || typeof term !== 'string') return false;
-  return FRONTALIERI_DOMAIN_RE.test(term);
-}
+// `FRONTALIERI_DOMAIN_RE` + `isFrontalieriDomainTerm` are now imported from
+// `./perf-sources/domainTerms.mjs` so producer (fetch-article-performance)
+// and consumer (this module) agree on the allowlist.
+export { FRONTALIERI_DOMAIN_RE, isFrontalieriDomainTerm };
 
 /**
  * Build the Italian system-message string from a winner fingerprint.

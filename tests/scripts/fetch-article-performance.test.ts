@@ -18,8 +18,9 @@ const { meanStd, zNormalize, composeScores, buildWinnerFingerprint, sortScored }
     sortScored: (rows: any[]) => any[];
   };
 
-const { parseBlogMetaFile } = discovery as unknown as {
+const { parseBlogMetaFile, inferClusterFromTitleAndSlug } = discovery as unknown as {
   parseBlogMetaFile: (text: string) => Map<string, { title: string; excerpt: string }>;
+  inferClusterFromTitleAndSlug: (title: string, slug: string, excerpt: string) => string;
 };
 
 const { aggregate } = fetcher as unknown as {
@@ -90,13 +91,79 @@ describe('fetch-article-performance / winnerFingerprint', () => {
     expect(fp.topKeywords).toEqual(expect.arrayContaining(['frontaliere']));
   });
 
-  it('returns empty shape when no winners', () => {
+  it('drops "unknown"-only clusters → topClusters=[]', () => {
+    const winners = [
+      { title: 'A', excerpt: 'x', cluster: 'unknown', wordCount: 1000 },
+      { title: 'B', excerpt: 'x', cluster: null, wordCount: 1000 },
+      { title: 'C', excerpt: 'x', cluster: 'Unknown', wordCount: 1000 },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    expect(fp.topClusters).toEqual([]);
+  });
+
+  it('drops "unknown" but keeps real clusters', () => {
+    const winners = [
+      { title: 'A', excerpt: 'frontaliere telelavoro', cluster: 'unknown', wordCount: 1000 },
+      { title: 'B', excerpt: 'frontaliere irpef', cluster: 'fiscale', wordCount: 1000 },
+      { title: 'C', excerpt: 'frontaliere stipendio', cluster: 'fiscale', wordCount: 1000 },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    expect(fp.topClusters.map((c: any) => c.cluster)).toEqual(['fiscale']);
+  });
+
+  it('topKeywords filtered through frontalieri-domain allowlist', () => {
+    // Pure news-of-day winners — none of these tokens are in the domain regex.
+    const winners = [
+      { title: 'Sciopero pastori a Bellinzona oggi', excerpt: 'cronaca locale', cluster: 'novita', wordCount: 800 },
+      { title: 'Grandine danni vigneti tessinesi', excerpt: 'fenomeni meteo', cluster: 'novita', wordCount: 800 },
+      { title: 'Incidente sequestro autobus turistico', excerpt: 'cronaca regionale', cluster: 'novita', wordCount: 800 },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    expect(fp.topKeywords).toEqual([]);
+  });
+
+  it('mixed winners → topKeywords keeps only domain matches', () => {
+    const winners = [
+      { title: 'Telelavoro frontaliere salario tasse', excerpt: 'guida fiscale stipendio irpef', cluster: 'fiscale', wordCount: 1500 },
+      { title: 'Permesso G frontaliere ticino lombardia', excerpt: 'pendolari valico cambio chf', cluster: 'pratico', wordCount: 1500 },
+      { title: 'Sciopero pastori grandine tessin', excerpt: 'cronaca novita locale', cluster: 'novita', wordCount: 1500 },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    // Every kept keyword must match the domain regex (multilingual, broad).
+    for (const kw of fp.topKeywords) {
+      expect(kw).toMatch(/frontal|telelavoro|stipend|salar|tass|fiscal|irpef|permess|ticin|tessin|lombard|valic|pendol|cambio|chf/i);
+    }
+    // 'cronaca', 'pastori', 'sciopero', 'grandine' — must NOT survive.
+    for (const kw of fp.topKeywords) {
+      expect(kw).not.toMatch(/cronaca|pastori|sciopero|grandine|locale/i);
+    }
+  });
+
+  it('averageWordCount=null when no winner has a wordCount', () => {
+    const winners = [
+      { title: 'Frontaliere telelavoro tasse', excerpt: 'fiscale', cluster: 'fiscale' /* no wordCount */ },
+      { title: 'Frontaliere stipendio salario', excerpt: 'fiscale', cluster: 'fiscale' },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    expect(fp.averageWordCount).toBeNull();
+  });
+
+  it('averageWordCount=null when wordCount=0', () => {
+    const winners = [
+      { title: 'Frontaliere telelavoro tasse', excerpt: 'fiscale', cluster: 'fiscale', wordCount: 0 },
+      { title: 'Frontaliere stipendio salario', excerpt: 'fiscale', cluster: 'fiscale', wordCount: 0 },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    expect(fp.averageWordCount).toBeNull();
+  });
+
+  it('returns empty shape when no winners (averageWordCount=null)', () => {
     const fp = buildWinnerFingerprint([], []);
     expect(fp).toEqual({
       topClusters: [],
       topAngles: [],
       topKeywords: [],
-      averageWordCount: 0,
+      averageWordCount: null,
       topQuestionPatterns: [],
     });
   });
@@ -201,5 +268,119 @@ const blogMetaIt: Record<string, string> = {
     expect(parsed.size).toBe(2);
     expect(parsed.get('foo-bar')).toEqual({ title: 'Titolo Foo', excerpt: 'Riassunto del foo' });
     expect(parsed.get('baz')?.title).toContain("'apostrofo'");
+  });
+});
+
+// ── inferClusterFromTitleAndSlug heuristic ──────────────────
+describe('fetch-article-performance / inferClusterFromTitleAndSlug', () => {
+  it('classifies fiscal/tax titles as "fiscale"', () => {
+    expect(inferClusterFromTitleAndSlug('Calcolo IRPEF frontaliere', 'irpef-frontaliere', '')).toBe('fiscale');
+    expect(inferClusterFromTitleAndSlug('Quanto pago di tasse in Svizzera', 'tasse-svizzera', '')).toBe('fiscale');
+    expect(inferClusterFromTitleAndSlug('Nuovo accordo fiscale 2026', 'accordo-2026', 'imposta')).toBe('fiscale');
+  });
+
+  it('classifies pension titles as "pensione"', () => {
+    expect(inferClusterFromTitleAndSlug('Pensione AVS LPP frontaliere', 'avs-lpp', '')).toBe('pensione');
+    expect(inferClusterFromTitleAndSlug('Terzo pilastro 3a guida', 'terzo-pilastro', '')).toBe('pensione');
+    expect(inferClusterFromTitleAndSlug('Previdenza professionale BVG', 'bvg', '')).toBe('pensione');
+  });
+
+  it('classifies practical/admin titles as "pratico"', () => {
+    expect(inferClusterFromTitleAndSlug('Permesso G come fare', 'permesso-g', '')).toBe('pratico');
+    expect(inferClusterFromTitleAndSlug('LAMal cassa malati guida', 'lamal-guida', '')).toBe('pratico');
+    expect(inferClusterFromTitleAndSlug('Mutuo casa per frontalieri', 'mutuo-casa', '')).toBe('pratico');
+  });
+
+  it('classifies work/salary titles as "lavoro"', () => {
+    expect(inferClusterFromTitleAndSlug('Stipendio netto Ticino', 'stipendio-netto', '')).toBe('lavoro');
+    expect(inferClusterFromTitleAndSlug('Telelavoro frontaliere 25%', 'telelavoro-25', '')).toBe('lavoro');
+    expect(inferClusterFromTitleAndSlug('Salaire frontalier Suisse', 'salaire-suisse', '')).toBe('lavoro');
+  });
+
+  it('classifies commute/border titles as "mobilita"', () => {
+    expect(inferClusterFromTitleAndSlug('Valico di Chiasso traffico', 'chiasso-valico', '')).toBe('mobilita');
+    expect(inferClusterFromTitleAndSlug('Pendolari frontiera Ticino', 'pendolari', '')).toBe('mobilita');
+    expect(inferClusterFromTitleAndSlug('Carburante diesel Italia Svizzera', 'carbur', '')).toBe('mobilita');
+  });
+
+  it('classifies news titles as "novita"', () => {
+    expect(inferClusterFromTitleAndSlug('Sciopero CGIL 2026', 'sciopero', '')).toBe('novita');
+    expect(inferClusterFromTitleAndSlug('Cronaca incidente Ponte Tresa', 'cronaca', '')).toBe('novita');
+    expect(inferClusterFromTitleAndSlug('Nuova legge in arrivo', 'nuova-legge', '')).toBe('novita');
+  });
+
+  it('falls back to "generic" for unrelated titles', () => {
+    expect(inferClusterFromTitleAndSlug('Recipe gnocchi alla Bava', 'gnocchi', 'cucina')).toBe('generic');
+    expect(inferClusterFromTitleAndSlug('Dog walk routes Lugano', 'dog-walk', '')).toBe('generic');
+  });
+
+  it('articleSection (when present) takes precedence over heuristic in aggregate()', () => {
+    const articles = [
+      {
+        slug: 'a',
+        locale: 'it',
+        url: 'https://frontaliereticino.ch/articoli-frontaliere/a/',
+        title: 'Stipendio netto guida frontalieri',
+        excerpt: 'tasse irpef',
+      },
+    ];
+    const seoMeta = new Map([
+      // The seo-blog file says this is "Editoriale" — must override heuristic
+      // ("lavoro" or "fiscale" would otherwise match).
+      ['a', { cluster: 'Editoriale', publishedAt: '2025-01-01' }],
+    ]);
+    const out = aggregate({
+      articles,
+      seoMeta,
+      sources: {
+        gsc: { ok: true, rows: 1, perPath: new Map([['/articoli-frontaliere/a/', { clicks: 100, impressions: 1000, ctr: 0.1, position: 5 }]]) },
+        ga4: { ok: false, reason: 'skipped' },
+        posthog: { ok: false, reason: 'skipped' },
+        adsense: { ok: false, reason: 'skipped' },
+      },
+      generatedAt: '2026-05-06T00:00:00Z',
+    });
+    expect(out.winners.length).toBe(1);
+    expect(out.winners[0].cluster).toBe('Editoriale');
+  });
+
+  it('aggregate fills cluster via heuristic when seoMeta has no cluster', () => {
+    const articles = [
+      {
+        slug: 'tax',
+        locale: 'it',
+        url: 'https://frontaliereticino.ch/articoli-frontaliere/tax/',
+        title: 'Calcolo IRPEF e tasse 2026',
+        excerpt: 'guida fiscale completa',
+      },
+      {
+        slug: 'permit',
+        locale: 'it',
+        url: 'https://frontaliereticino.ch/articoli-frontaliere/permit/',
+        title: 'Permesso G guida pratica',
+        excerpt: 'come ottenere e rinnovare',
+      },
+    ];
+    const seoMeta = new Map([
+      ['tax',    { cluster: null, publishedAt: '2025-01-01' }],
+      ['permit', { cluster: null, publishedAt: '2025-01-02' }],
+    ]);
+    const out = aggregate({
+      articles,
+      seoMeta,
+      sources: {
+        gsc: { ok: true, rows: 2, perPath: new Map([
+          ['/articoli-frontaliere/tax/',    { clicks: 100, impressions: 1000, ctr: 0.10, position: 5 }],
+          ['/articoli-frontaliere/permit/', { clicks: 50,  impressions: 500,  ctr: 0.10, position: 10 }],
+        ]) },
+        ga4: { ok: false, reason: 'skipped' },
+        posthog: { ok: false, reason: 'skipped' },
+        adsense: { ok: false, reason: 'skipped' },
+      },
+      generatedAt: '2026-05-06T00:00:00Z',
+    });
+    const byUrl = new Map<string, any>(out.winners.map((w: any) => [w.url, w]));
+    expect(byUrl.get('https://frontaliereticino.ch/articoli-frontaliere/tax/')?.cluster).toBe('fiscale');
+    expect(byUrl.get('https://frontaliereticino.ch/articoli-frontaliere/permit/')?.cluster).toBe('pratico');
   });
 });

@@ -227,6 +227,88 @@ describe('googleTrends', () => {
     expect(total).toBeGreaterThan(0);
     expect(fallback).toHaveBeenCalled();
   });
+
+  it('retries the lib call before falling back (transient errors recover)', async () => {
+    let calls = 0;
+    const fake = {
+      relatedQueries: vi.fn(async () => {
+        calls += 1;
+        if (calls <= 2) {
+          throw new Error('transient parse error');
+        }
+        return JSON.stringify({
+          default: {
+            rankedList: [
+              { rankedKeyword: [] },
+              {
+                rankedKeyword: [
+                  { query: 'recovered query', formattedValue: ['+70%'] },
+                ],
+              },
+            ],
+          },
+        });
+      }),
+    };
+    const fallback = vi.fn(async () => []);
+    const r = await fetchGoogleTrendsCandidates({
+      googleTrendsImpl: fake,
+      playwrightFallback: fallback,
+      sleepFn: async () => undefined,
+    });
+    // First seed retried twice (3 attempts: 2 fails + 1 success), so the
+    // 3rd attempt succeeds. The fallback should NOT have run for the
+    // recovered seed — that's the whole point of the retry.
+    expect(calls).toBeGreaterThanOrEqual(3);
+    expect(r.candidates.some((c: any) => c.keyword === 'recovered query')).toBe(true);
+    // Fallback may still have run for OTHER seeds (the loop visits ~14
+    // seeds × 3 geos), but the recovered-query path didn't need it.
+    // What we care about: at least one candidate exists.
+    expect(r.candidates.length).toBeGreaterThan(0);
+  });
+
+  it('fallback success resets geoOk=true even though lib call failed', async () => {
+    const fake = {
+      relatedQueries: vi.fn(async () => {
+        throw new Error('persistent parse error');
+      }),
+    };
+    const fallback = vi.fn(async () => [
+      { query: 'fallback rising x', score: 90 },
+    ]);
+    const r = await fetchGoogleTrendsCandidates({
+      googleTrendsImpl: fake,
+      playwrightFallback: fallback,
+      sleepFn: async () => undefined,
+    });
+    // For each geo, the fallback fires once and returns ≥1 query, so
+    // geoOk MUST be true (data is real, even if the lib path failed).
+    for (const key of ['googleTrendsIt', 'googleTrendsItLombardia', 'googleTrendsCh']) {
+      expect(r.perGeo[key].ok).toBe(true);
+      expect(r.perGeo[key].candidates.length).toBeGreaterThan(0);
+      expect(r.perGeo[key].reason).toBeUndefined();
+    }
+  });
+
+  it('fallback returning [] after lib error keeps geoOk=false with original reason', async () => {
+    const fake = {
+      relatedQueries: vi.fn(async () => {
+        throw new Error('SyntaxError: Unexpected token < in JSON at position 0');
+      }),
+    };
+    const fallback = vi.fn(async () => []);
+    const r = await fetchGoogleTrendsCandidates({
+      googleTrendsImpl: fake,
+      playwrightFallback: fallback,
+      sleepFn: async () => undefined,
+    });
+    for (const key of ['googleTrendsIt', 'googleTrendsItLombardia', 'googleTrendsCh']) {
+      expect(r.perGeo[key].ok).toBe(false);
+      expect(r.perGeo[key].candidates).toEqual([]);
+      // Reason should be the lib's original error, not a fallback artefact.
+      expect(r.perGeo[key].reason).toMatch(/SyntaxError|Unexpected token/);
+    }
+  });
 });
 
 // ───────────────────────── reddit ─────────────────────────
@@ -328,6 +410,110 @@ describe('reddit', () => {
     });
     expect(r.candidates.length).toBeGreaterThan(0);
     expect(fallback).toHaveBeenCalled();
+  });
+
+  it('retries the JSON endpoint before falling back (403 transient recovers)', async () => {
+    let perEndpoint = new Map<string, number>();
+    const mockFetch = vi.fn(async (url: string) => {
+      const n = (perEndpoint.get(url) ?? 0) + 1;
+      perEndpoint.set(url, n);
+      if (n <= 2) {
+        const e: any = new Error('reddit 403');
+        e.status = 403;
+        throw e;
+      }
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          data: {
+            children: [
+              {
+                data: {
+                  title: 'Come funziona il permesso G?',
+                  is_self: true,
+                  score: 12,
+                  num_comments: 8,
+                  permalink: '/r/x/comments/y/z/',
+                },
+              },
+            ],
+          },
+        }),
+        text: async () => '',
+      };
+    });
+    const fallback = vi.fn(async () => []);
+    const r = await fetchRedditCandidates({
+      fetchImpl: mockFetch as any,
+      sleepFn: async () => undefined,
+      playwrightFallback: fallback,
+    });
+    // The retry path should have produced candidates without resorting to
+    // Playwright (since attempt 3 succeeds).
+    expect(r.candidates.length).toBeGreaterThan(0);
+    expect(fallback).not.toHaveBeenCalled();
+  });
+
+  it('fallback receives endpoint object and tries old.reddit selectors', async () => {
+    const mockFetch = vi.fn(async () => {
+      throw new Error('persistent 403');
+    });
+    // The new fallback signature receives the endpoint object so it can
+    // try both old.reddit + modern www.reddit URLs in one browser session.
+    const fallback = vi.fn(async (ep: any) => {
+      // Verify the orchestrator passes the endpoint object (not just the URL).
+      expect(ep).toEqual(expect.objectContaining({ fallbackHtml: expect.any(String) }));
+      expect(ep.fallbackHtmlModern).toEqual(expect.any(String));
+      // Simulate old.reddit `.thing` extraction yielding qualifying posts.
+      return [
+        {
+          title: 'Come funziona il telelavoro?',
+          is_self: true,
+          score: 25,
+          num_comments: 12,
+        },
+      ];
+    });
+    const r = await fetchRedditCandidates({
+      fetchImpl: mockFetch as any,
+      sleepFn: async () => undefined,
+      playwrightFallback: fallback,
+    });
+    expect(fallback).toHaveBeenCalled();
+    expect(r.candidates.length).toBeGreaterThan(0);
+  });
+
+  it('second-tier www.reddit fallback runs after old.reddit empty (composed in one fallback)', async () => {
+    // We exercise the orchestrator contract: the fallback function decides
+    // whether to climb the old → modern ladder. We assert here that when
+    // old.reddit returns [] but the fallback still emits posts (modeling
+    // the two-tier walk), candidates land. This stays decoupled from the
+    // Playwright internals (no real network).
+    const mockFetch = vi.fn(async () => {
+      throw new Error('429 rate limited');
+    });
+    let fallbackCalls = 0;
+    const fallback = vi.fn(async (ep: any) => {
+      fallbackCalls++;
+      // First fake "old.reddit empty, modern returns one post" outcome —
+      // the implementation runs both inside one Playwright session.
+      return [
+        {
+          title: 'Quanto si paga di tasse in Svizzera?',
+          is_self: true,
+          score: 40,
+          num_comments: 15,
+        },
+      ];
+    });
+    const r = await fetchRedditCandidates({
+      fetchImpl: mockFetch as any,
+      sleepFn: async () => undefined,
+      playwrightFallback: fallback,
+    });
+    expect(fallbackCalls).toBeGreaterThan(0);
+    expect(r.candidates.length).toBeGreaterThan(0);
   });
 });
 

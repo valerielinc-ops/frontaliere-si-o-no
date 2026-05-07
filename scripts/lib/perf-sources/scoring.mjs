@@ -1,6 +1,13 @@
 // Composite scoring + winner-fingerprint extraction.
 // Pure functions — no I/O, no fetch — fully unit-testable.
 
+import { isFrontalieriDomainTerm } from './domainTerms.mjs';
+
+// Minimum number of frontalieri-domain matches required to keep topKeywords.
+// Below this floor we return [] rather than a tiny noisy list — keeps the
+// fingerprint either useful or empty, never half-broken.
+const MIN_DOMAIN_KEYWORDS = 3;
+
 /** Compute mean and (population) stddev. Returns {mean, sd} with sd>=1e-9. */
 export function meanStd(values) {
   if (!values.length) return { mean: 0, sd: 1e-9 };
@@ -137,22 +144,30 @@ export function buildWinnerFingerprint(winners, allArticles) {
       topClusters: [],
       topAngles: [],
       topKeywords: [],
-      averageWordCount: 0,
+      averageWordCount: null,
       topQuestionPatterns: [],
     };
   }
 
-  // Clusters
+  // Clusters — drop the "unknown" placeholder produced when articleSection
+  // wasn't resolvable for a winner (~99% of articles before the heuristic
+  // classifier was added). Keeping it would emit a single
+  // [{cluster:"unknown", weight:1.0}] entry that is misleading on disk and
+  // already filtered out by article-topic-selector before LLM injection;
+  // we filter producer-side too so the JSON file is clean for inspection.
   const clusterCounts = new Map();
   for (const w of winners) {
     const c = w.cluster || 'unknown';
+    if (c.toLowerCase() === 'unknown') continue;
     clusterCounts.set(c, (clusterCounts.get(c) || 0) + 1);
   }
   const total = winners.length;
-  const topClusters = [...clusterCounts.entries()]
-    .map(([cluster, n]) => ({ cluster, weight: Number((n / total).toFixed(3)) }))
-    .sort((a, b) => b.weight - a.weight || a.cluster.localeCompare(b.cluster))
-    .slice(0, 5);
+  const topClusters = clusterCounts.size === 0
+    ? []
+    : [...clusterCounts.entries()]
+      .map(([cluster, n]) => ({ cluster, weight: Number((n / total).toFixed(3)) }))
+      .sort((a, b) => b.weight - a.weight || a.cluster.localeCompare(b.cluster))
+      .slice(0, 5);
 
   // Angles
   const angleCounts = new Map();
@@ -167,10 +182,17 @@ export function buildWinnerFingerprint(winners, allArticles) {
     .slice(0, 5)
     .map(([label]) => label);
 
-  // Keywords
+  // Keywords — TF-IDF over winner titles+excerpts vs full corpus, then
+  // FILTERED through the frontalieri-domain allowlist. Without the filter,
+  // bursty news-of-day terms (incidente, sequestro, sciopero) TF-IDF high
+  // and pollute the LLM prompt. If the filtered set is too small to be
+  // useful (< MIN_DOMAIN_KEYWORDS), return [] so the fingerprint is
+  // either useful or empty, never half-broken.
   const winnerCorpus = winners.map((w) => `${w.title} ${w.excerpt}`);
   const fullCorpus = allArticles.map((a) => `${a.title} ${a.excerpt}`);
-  const topKeywords = tfidfTopN(winnerCorpus, fullCorpus, 15);
+  const tfidfRaw = tfidfTopN(winnerCorpus, fullCorpus, 60);
+  const domainOnly = tfidfRaw.filter((t) => isFrontalieriDomainTerm(t)).slice(0, 15);
+  const topKeywords = domainOnly.length >= MIN_DOMAIN_KEYWORDS ? domainOnly : [];
 
   // Question patterns: words appearing as the first token of any winner
   // title.
@@ -187,9 +209,12 @@ export function buildWinnerFingerprint(winners, allArticles) {
     .slice(0, 5)
     .map(([w]) => w);
 
-  // Average word count
+  // Average word count — emit `null` (not 0) when no winner exposes a
+  // wordCount, so consumers can distinguish "unknown" from "zero".
   const wcs = winners.map((w) => w.wordCount).filter((n) => Number.isFinite(n) && n > 0);
-  const averageWordCount = wcs.length ? Math.round(wcs.reduce((a, b) => a + b, 0) / wcs.length) : 0;
+  const averageWordCount = wcs.length
+    ? Math.round(wcs.reduce((a, b) => a + b, 0) / wcs.length)
+    : null;
 
   return { topClusters, topAngles, topKeywords, averageWordCount, topQuestionPatterns };
 }
