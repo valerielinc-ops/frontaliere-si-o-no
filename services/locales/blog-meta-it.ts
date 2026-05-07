@@ -6861,6 +6861,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.balerna-2025-cifre-nere-frontalieri.title': 'Balerna ribalta le previsioni: il 2025 chiude nelle cifre nere',
     'blog.article.balerna-2025-cifre-nere-frontalieri.excerpt': 'Entrate fiscali straordinarie consolidano il consuntivo di Balerna, ma il futuro richiede realismo. Ecco cosa cambia per i frontalieri.',
     'blog.article.balerna-2025-cifre-nere-frontalieri.imageAlt': 'Vista aerea di Balerna, Ticino, con il confine con l\'Italia visibile',
+    'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.title': 'Nuove regole per lo scambio di informazioni tra AdER e enti creditori',
+    'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.excerpt': 'Dal 6 maggio 2026 nuove norme per la trasmissione telematica dei dati tra Agenzia delle Entrate-Riscossione e enti creditori',
+    'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.imageAlt': 'Lago di Lugano con barche a vela e montagne',
 };
 
 export default blogMetaIt;

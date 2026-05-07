@@ -28037,6 +28037,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuove-regole-scambio-informazioni-ader-enti-creditori': {
+    title: 'Nuove regole per lo scambio di informazioni tra AdER e enti creditori',
+    description: 'Dal 6 maggio 2026 nuove norme per la trasmissione telematica dei dati tra Agenzia delle Entrate-Riscossione e enti creditori. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, regole, scambio, informazioni',
+    ogTitle: 'Nuove regole scambio informazioni AdER enti creditori',
+    ogDescription: 'Dal 6 maggio 2026 nuove norme per la trasmissione telematica dei dati tra Agenzia delle Entrate-Riscossione e enti creditori',
+    canonicalPath: '/articoli-frontaliere/nuove-regole-scambio-informazioni-ader-enti-creditori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove regole per lo scambio di informazioni tra AdER e enti creditori",
+      "description": "Dal 6 maggio 2026 nuove norme per la trasmissione telematica dei dati tra Agenzia delle Entrate-Riscossione e enti creditori. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuove-regole-scambio-informazioni-ader-enti-creditori.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con barche a vela e montagne"
+      },
+      "datePublished": "2026-05-07T20:21:43+00:00",
+      "dateModified": "2026-05-07T20:21:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuove-regole-scambio-informazioni-ader-enti-creditori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

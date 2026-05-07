@@ -6860,6 +6860,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.balerna-2025-cifre-nere-frontalieri.title': 'Balerna defies forecasts: 2025 ends in the black',
     'blog.article.balerna-2025-cifre-nere-frontalieri.excerpt': 'Extraordinary tax revenues consolidate Balerna\'s accounts, but the future requires realism. Here\'s what changes for cross-border workers.',
     'blog.article.balerna-2025-cifre-nere-frontalieri.imageAlt': 'Aerial view of Balerna, Ticino, with the border to Italy visible',
+    'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.title': 'New rules for data exchange between AdER and creditors',
+    'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.excerpt': 'From May 6, 2026, new rules for the electronic transmission of data between the Revenue Agency-Collection and creditor entities',
+    'blog.article.nuove-regole-scambio-informazioni-ader-enti-creditori.imageAlt': 'Lake Lugano with sailboats and mountains',
 };
 
 export default blogMetaEn;

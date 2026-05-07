@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2339,
+ "numberOfItems": 2340,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6981,7 +6981,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2336, "name": "Adeguati assetti: obbligo e opportunità per l’i...", "url": `${BASE_URL}/articoli-frontaliere/adeguati-assetti-imprese-ticino-2026` },
           { "@type": "ListItem", "position": 2337, "name": "Accuse alla Svizzera, prime crepe sul fronte it...", "url": `${BASE_URL}/articoli-frontaliere/accuse-svizzera-italia-2026` },
           { "@type": "ListItem", "position": 2338, "name": "ElCom avverte: rischio approvvigionamento elett...", "url": `${BASE_URL}/articoli-frontaliere/elcom-preoccupata-inverno-2026` },
-          { "@type": "ListItem", "position": 2339, "name": "Balerna ribalta le previsioni: il 2025 chiude n...", "url": `${BASE_URL}/articoli-frontaliere/balerna-2025-cifre-nere-frontalieri` }
+          { "@type": "ListItem", "position": 2339, "name": "Balerna ribalta le previsioni: il 2025 chiude n...", "url": `${BASE_URL}/articoli-frontaliere/balerna-2025-cifre-nere-frontalieri` },
+          { "@type": "ListItem", "position": 2340, "name": "Nuove regole per lo scambio di informazioni tra...", "url": `${BASE_URL}/articoli-frontaliere/nuove-regole-scambio-informazioni-ader-enti-creditori` }
  ]
  },
  {

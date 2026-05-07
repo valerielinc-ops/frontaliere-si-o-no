@@ -21953,4 +21953,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuove-regole-scambio-informazioni-ader-enti-creditori',
+ category: 'fiscale',
+ date: '2026-05-07T20:21:43.520Z',
+ image: '/images/blog/nuove-regole-scambio-informazioni-ader-enti-creditori.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

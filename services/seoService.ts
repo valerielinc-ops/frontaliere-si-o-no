@@ -3529,6 +3529,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-accuse-svizzera-italia-2026': { name: 'Novità', path: '/articoli-frontaliere/accuse-svizzera-italia-2026', parent: 'blog' },
     'blog-elcom-preoccupata-inverno-2026': { name: 'Novità', path: '/articoli-frontaliere/elcom-preoccupata-inverno-2026', parent: 'blog' },
     'blog-balerna-2025-cifre-nere-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/balerna-2025-cifre-nere-frontalieri', parent: 'blog' },
+    'blog-nuove-regole-scambio-informazioni-ader-enti-creditori': { name: 'Nuove regole AdER', path: '/articoli-frontaliere/nuove-regole-scambio-informazioni-ader-enti-creditori', parent: 'blog' },
  };
 
  const info = sectionNames[section];
