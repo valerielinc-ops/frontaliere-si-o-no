@@ -46,6 +46,7 @@ import { pdfWhitepapersPlugin } from './build-plugins/pdfWhitepapersPlugin';
 import { salaryHubPlugin } from './build-plugins/salaryHubPlugin';
 import { affiliateRedirectPlugin } from './build-plugins/affiliateRedirectPlugin';
 import { fuelDailyPagesPlugin } from './build-plugins/fuelDailyPagesPlugin';
+import { weatherCityPagesPlugin } from './build-plugins/weatherCityPagesPlugin';
 import { weeklyEmployersPlugin } from './build-plugins/weeklyEmployersPlugin';
 import { jobMarketSnapshotPlugin } from './build-plugins/jobMarketSnapshotPlugin';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
@@ -126,6 +127,7 @@ export default defineConfig(({ mode }) => {
  jobRecencyPagesPlugin(__dirname),
  jobSectorPagesPlugin(__dirname),
  fuelDailyPagesPlugin(__dirname),
+ weatherCityPagesPlugin(__dirname),
  weeklyEmployersPlugin(__dirname),
  jobMarketSnapshotPlugin(__dirname),
  healthPremiumsLandingPlugin(__dirname),

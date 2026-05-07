@@ -166,7 +166,8 @@ async function main(): Promise<void> {
   // Validate before writing
   const parsed = parseWeatherSnapshot(merged);
   if (!parsed.ok) {
-    console.error(`[fatal] snapshot validation failed: ${parsed.error} at ${parsed.path}`);
+    const err = parsed as { ok: false; error: string; path?: string };
+    console.error(`[fatal] snapshot validation failed: ${err.error} at ${err.path ?? '?'}`);
     process.exit(1);
   }
 

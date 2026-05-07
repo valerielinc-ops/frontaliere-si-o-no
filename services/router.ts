@@ -1793,6 +1793,19 @@ export function parsePath(pathname: string): ParseResult {
  // land on a usable view, but `staticOverlay: true` tells App.tsx + pushRoute
  // to leave the URL alone and skip the React main render so the static
  // content stays visible.
+
+ // Weather city pages (PR2) — /meteo-frontalieri/{city}/ + 4-locale variants.
+ // Always-static SSG, no SPA equivalent: route to Statistiche tab with
+ // staticOverlay so SPA doesn't replace SSG content with a generic fallback.
+ if (/^\/(meteo-frontalieri|commute-weather|pendler-wetter|meteo-frontaliers)\/?$/.test(pathname) ||
+     /^\/(en|de|fr)\/(meteo-frontalieri|commute-weather|pendler-wetter|meteo-frontaliers)\/?$/.test(pathname) ||
+     /^\/(meteo-frontalieri|commute-weather|pendler-wetter|meteo-frontaliers)\/[a-z-]+\/?$/.test(pathname) ||
+     /^\/(en|de|fr)\/(meteo-frontalieri|commute-weather|pendler-wetter|meteo-frontaliers)\/[a-z-]+\/?$/.test(pathname)) {
+   const localeMatch = pathname.match(/^\/(en|de|fr)\//);
+   const inferredLocale = (localeMatch ? localeMatch[1] : 'it') as Locale;
+   return { route: { activeTab: 'stats', staticOverlay: true }, locale: inferredLocale };
+ }
+
  if (FUEL_DAILY_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isFuelDailyPath(pathname)) {
    return { route: { activeTab: 'stats', statsSubTab: 'fuel-prices', staticOverlay: true }, locale };
  }
