@@ -6828,6 +6828,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lombardia-chiede-completamento-alptransit.title': 'La Lombardia chiede il completamento di AlpTransit',
     'blog.article.lombardia-chiede-completamento-alptransit.excerpt': 'Il Consiglio della Regione Lombardia approva all\'unanimità la mozione per il potenziamento delle linee di accesso alle gallerie di base del Ceneri, del Gottardo e del Lötschberg.',
     'blog.article.lombardia-chiede-completamento-alptransit.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.campagna-politica-frontalieri-15-milioni-franchi.title': '15 milioni di franchi per la campagna \'No a una Svizzera da 10 milioni\'',
+    'blog.article.campagna-politica-frontalieri-15-milioni-franchi.excerpt': 'Record di finanziamenti per la campagna politica sull\'iniziativa UDC. Ecco chi sono i principali finanziatori e le implicazioni per i frontalieri.',
+    'blog.article.campagna-politica-frontalieri-15-milioni-franchi.imageAlt': 'Una manifestazione politica a Lugano con un grande pubblico che tiene cartelli e striscioni, con il lago di Lugano sullo sfondo.',
 };
 
 export default blogMetaIt;

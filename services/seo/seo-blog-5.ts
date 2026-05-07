@@ -27608,6 +27608,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-campagna-politica-frontalieri-15-milioni-franchi': {
+    title: '15 milioni di franchi per la campagna \'No a una Svizzera da 10 milioni\'',
+    description: 'Record di finanziamenti per la campagna politica sull\'iniziativa UDC. Ecco chi sono i principali finanziatori e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, franchi, campagna, record',
+    ogTitle: '15 milioni di franchi per la campagna \'No a una Svizzera da 10 milioni\'',
+    ogDescription: 'Record di finanziamenti per la campagna politica sull\'iniziativa UDC. Ecco chi sono i principali finanziatori e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/campagna-politica-frontalieri-15-milioni-franchi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "15 milioni di franchi per la campagna 'No a una Svizzera da 10 milioni'",
+      "description": "Record di finanziamenti per la campagna politica sull'iniziativa UDC. Ecco chi sono i principali finanziatori e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/campagna-politica-frontalieri-15-milioni-franchi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una manifestazione politica a Lugano con un grande pubblico che tiene cartelli e striscioni, con il lago di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-05-07T18:22:38+00:00",
+      "dateModified": "2026-05-07T18:22:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/campagna-politica-frontalieri-15-milioni-franchi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

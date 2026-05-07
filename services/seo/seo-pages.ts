@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2328,
+ "numberOfItems": 2329,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6970,7 +6970,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2325, "name": "Record di organi importati in Svizzera nel 2025", "url": `${BASE_URL}/articoli-frontaliere/record-organi-importati-2025` },
           { "@type": "ListItem", "position": 2326, "name": "Svizzera batte Finlandia: crescita incoraggiant...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-hockey-finlandia-2026` },
           { "@type": "ListItem", "position": 2327, "name": "Frontiera su Dirinella: orari ridotti per il ta...", "url": `${BASE_URL}/articoli-frontaliere/tax-free-dirinella-orari-ridotti` },
-          { "@type": "ListItem", "position": 2328, "name": "La Lombardia chiede il completamento di AlpTransit", "url": `${BASE_URL}/articoli-frontaliere/lombardia-chiede-completamento-alptransit` }
+          { "@type": "ListItem", "position": 2328, "name": "La Lombardia chiede il completamento di AlpTransit", "url": `${BASE_URL}/articoli-frontaliere/lombardia-chiede-completamento-alptransit` },
+          { "@type": "ListItem", "position": 2329, "name": "15 milioni di franchi per la campagna 'No a una...", "url": `${BASE_URL}/articoli-frontaliere/campagna-politica-frontalieri-15-milioni-franchi` }
  ]
  },
  {

@@ -6827,6 +6827,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-chiede-completamento-alptransit.title': 'Lombardy demands completion of AlpTransit',
     'blog.article.lombardia-chiede-completamento-alptransit.excerpt': 'The Lombardy Regional Council unanimously approves the motion to enhance access lines to the Ceneri, Gotthard, and Lötschberg base tunnels.',
     'blog.article.lombardia-chiede-completamento-alptransit.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.campagna-politica-frontalieri-15-milioni-franchi.title': '15 million francs for \'No to a 10 million Switzerland\' campaign',
+    'blog.article.campagna-politica-frontalieri-15-milioni-franchi.excerpt': 'Record funding for the political campaign on the SVP initiative. Here are the main donors and implications for cross-border workers.',
+    'blog.article.campagna-politica-frontalieri-15-milioni-franchi.imageAlt': 'A political rally in Lugano with a large crowd holding signs and banners, with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

@@ -21854,4 +21854,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'campagna-politica-frontalieri-15-milioni-franchi',
+ category: 'fiscale',
+ date: '2026-05-07T18:22:38.744Z',
+ image: '/images/blog/campagna-politica-frontalieri-15-milioni-franchi.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

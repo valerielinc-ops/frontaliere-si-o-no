@@ -6827,6 +6827,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lombardia-chiede-completamento-alptransit.title': 'Lombardei fordert Fertigstellung von AlpTransit',
     'blog.article.lombardia-chiede-completamento-alptransit.excerpt': 'Der Rat der Region Lombardei stimmt einstimmig für den Antrag zur Stärkung der Zugangslinien zu den Basistunneln von Ceneri, Gotthard und Lötschberg.',
     'blog.article.lombardia-chiede-completamento-alptransit.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.campagna-politica-frontalieri-15-milioni-franchi.title': '15 Millionen Franken für die Kampagne \'Nein zu einer Schweiz mit 10 Millionen\'',
+    'blog.article.campagna-politica-frontalieri-15-milioni-franchi.excerpt': 'Rekordfinanzierung für die politische Kampagne zur SVP-Initiative. Hier sind die Hauptfinanzierer und die Auswirkungen auf die Grenzgänger.',
+    'blog.article.campagna-politica-frontalieri-15-milioni-franchi.imageAlt': 'Eine politische Kundgebung in Lugano mit einer großen Menschenmenge, die Schilder und Banner hält, mit dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaDe;
