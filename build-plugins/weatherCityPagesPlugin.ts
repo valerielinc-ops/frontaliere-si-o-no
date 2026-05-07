@@ -146,11 +146,11 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
   return wrapHtml({
     locale, title, description, canonical, distDir,
     bodyHtml: `
-<header><h1>${escapeHtml(HUB_TITLE[locale])}</h1>
-<p class="tagline">${escapeHtml(HUB_TAGLINE[locale])}</p></header>
-<section><p>${escapeHtml(intro)}</p></section>
-<section class="city-list">${cityRows}</section>
-<section class="attribution"><p>${attributionInline(locale, snap?.generatedAt)}</p></section>
+<header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(HUB_TITLE[locale])}</h1>
+<p class="text-base sm:text-lg text-body">${escapeHtml(HUB_TAGLINE[locale])}</p></header>
+<section class="my-6 max-w-3xl mx-auto"><p class="text-body leading-relaxed">${escapeHtml(intro)}</p></section>
+<section class="my-6 max-w-3xl mx-auto"><div class="bg-surface rounded-2xl border border-edge overflow-hidden">${cityRows}</div></section>
+<section class="my-8 max-w-3xl mx-auto pt-6 border-t border-edge"><p class="text-xs text-muted leading-relaxed">${attributionInline(locale, snap?.generatedAt)}</p></section>
 `,
     generatedAt: snap?.generatedAt,
     breadcrumbs: [
@@ -167,7 +167,7 @@ function renderHubRow(locale: Locale, city: WeatherCity, cw?: CityWeather): stri
   const tempStr = cw ? `${Math.round(cw.current.temperature)}°` : '—';
   const condition = cw ? wmoText(cw.current.weatherCode, locale) : labelUnavailable(locale);
   const country = city.country === 'CH' ? '🇨🇭' : '🇮🇹';
-  return `<a class="city-row" href="${url}"><span class="city-flag" aria-hidden="true">${country}</span><span class="city-name">${escapeHtml(city.name)}</span><span class="city-region">${escapeHtml(city.region[locale])}</span><span class="city-temp">${tempStr}</span><span class="city-cond">${escapeHtml(condition)}</span></a>`;
+  return `<a class="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_2fr_2fr_auto_auto] gap-3 sm:gap-4 items-center px-4 py-3 sm:py-4 hover:bg-surface-alt border-b border-edge last:border-0 transition-colors" href="${url}"><span class="text-xl" aria-hidden="true">${country}</span><span class="font-semibold text-heading">${escapeHtml(city.name)}</span><span class="hidden sm:inline text-sm text-muted">${escapeHtml(city.region[locale])}</span><span class="text-lg font-bold text-heading tabular-nums">${tempStr}</span><span class="hidden sm:inline text-sm text-body">${escapeHtml(condition)}</span></a>`;
 }
 
 function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefined, generatedAt: string | undefined, distDir: string): string {
@@ -193,15 +193,15 @@ function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefin
     locale, title, description, canonical, distDir,
     bodyHtml: `
 ${breadcrumb}
-<header><h1>${escapeHtml(headline)}</h1>
-<p class="tagline">${escapeHtml(tagline)}</p></header>
+<header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(headline)}</h1>
+<p class="text-base sm:text-lg text-body">${escapeHtml(tagline)}</p></header>
 ${heroHtml}
 ${hourlyHtml}
 ${ctaHtml}
 ${dailyHtml}
 ${evergreenHtml}
 ${faqHtml}
-<section class="attribution"><p>${attributionInline(locale, generatedAt)}</p></section>
+<section class="my-8 max-w-3xl mx-auto pt-6 border-t border-edge"><p class="text-xs text-muted leading-relaxed">${attributionInline(locale, generatedAt)}</p></section>
 `,
     generatedAt,
     breadcrumbs: [
@@ -215,29 +215,31 @@ ${faqHtml}
 function renderBreadcrumb(locale: Locale, city: WeatherCity): string {
   const localePath = locale === 'it' ? '' : `/${locale}`;
   const homeText = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
-  return `<nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="${localePath}/">${homeText}</a></li><li><a href="${localePath}/${HUB_SLUG[locale]}/">${escapeHtml(HUB_TITLE[locale])}</a></li><li aria-current="page">${escapeHtml(city.name)}</li></ol></nav>`;
+  return `<nav aria-label="Breadcrumb" class="max-w-3xl mx-auto py-3 text-sm"><ol class="flex flex-wrap items-center gap-1 text-muted"><li><a href="${localePath}/" class="hover:text-link">${homeText}</a></li><li class="text-muted">›</li><li><a href="${localePath}/${HUB_SLUG[locale]}/" class="hover:text-link">${escapeHtml(HUB_TITLE[locale])}</a></li><li class="text-muted">›</li><li class="text-heading font-medium" aria-current="page">${escapeHtml(city.name)}</li></ol></nav>`;
 }
 
 function renderHero(cw: CityWeather, locale: Locale): string {
   const condition = wmoText(cw.current.weatherCode, locale);
   const conf = cw.confidence === 'low'
-    ? `<span class="confidence-pill low">${labelLow(locale)}</span>`
+    ? `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-danger-subtle text-danger border border-danger-border">${labelLow(locale)}</span>`
     : cw.confidence === 'medium'
-      ? `<span class="confidence-pill medium">${labelMedium(locale)}</span>`
+      ? `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-warning-subtle text-warning border border-warning-border">${labelMedium(locale)}</span>`
       : '';
   const tempStr = `${Math.round(cw.current.temperature)}°`;
-  const wind = cw.current.windSpeedKmh != null ? `<span>${labelWind(locale)}: ${Math.round(cw.current.windSpeedKmh)} km/h</span>` : '';
-  const humidity = cw.current.humidity != null ? `<span>${labelHumidity(locale)}: ${cw.current.humidity}%</span>` : '';
-  return `<section class="weather-hero" aria-live="polite">
-<div class="hero-temp" data-current-temp>${tempStr}</div>
-<div class="hero-cond">${escapeHtml(condition)}</div>
-<div class="hero-meta">${wind}${humidity}${conf}</div>
+  const wind = cw.current.windSpeedKmh != null ? `<span class="bg-surface-alt rounded-lg px-3 py-2 border border-edge"><span class="text-muted">${labelWind(locale)}:</span> <span class="font-medium text-heading">${Math.round(cw.current.windSpeedKmh)} km/h</span></span>` : '';
+  const humidity = cw.current.humidity != null ? `<span class="bg-surface-alt rounded-lg px-3 py-2 border border-edge"><span class="text-muted">${labelHumidity(locale)}:</span> <span class="font-medium text-heading">${cw.current.humidity}%</span></span>` : '';
+  return `<section class="bg-gradient-to-br from-accent-subtle to-surface border border-accent-border rounded-2xl p-6 sm:p-8 my-6 max-w-3xl mx-auto" aria-live="polite">
+<div class="flex items-baseline gap-3 flex-wrap">
+<div class="text-6xl sm:text-7xl font-light text-heading tabular-nums" data-current-temp>${tempStr}</div>
+<div class="text-lg sm:text-xl text-strong">${escapeHtml(condition)}</div>
+</div>
+<div class="flex flex-wrap gap-2 mt-4 text-sm">${wind}${humidity}${conf}</div>
 </section>`;
 }
 
 function renderSentinel(locale: Locale): string {
   const text = locale === 'it' ? 'Dati meteo temporaneamente non disponibili' : locale === 'en' ? 'Weather data temporarily unavailable' : locale === 'de' ? 'Wetterdaten vorübergehend nicht verfügbar' : 'Données météo temporairement indisponibles';
-  return `<section class="weather-hero sentinel"><p>${escapeHtml(text)}</p></section>`;
+  return `<section class="bg-warning-subtle border border-warning-border rounded-xl p-6 my-6 max-w-3xl mx-auto text-center"><p class="text-warning">${escapeHtml(text)}</p></section>`;
 }
 
 function renderHourly(cw: CityWeather, locale: Locale): string {
@@ -245,9 +247,9 @@ function renderHourly(cw: CityWeather, locale: Locale): string {
   const heading = locale === 'it' ? 'Prossime 24 ore' : locale === 'en' ? 'Next 24 hours' : locale === 'de' ? 'Nächste 24 Stunden' : 'Prochaines 24 heures';
   const cells = cw.hourly24.slice(0, 24).map((h) => {
     const hour = h.hour.slice(11, 13);
-    return `<div class="hour-cell"><div class="hour-label">${hour}h</div><div class="hour-temp">${Math.round(h.temp)}°</div></div>`;
+    return `<div class="flex-shrink-0 w-16 bg-surface-alt rounded-lg border border-edge p-2 text-center"><div class="text-xs text-muted">${hour}h</div><div class="text-base font-semibold text-heading tabular-nums">${Math.round(h.temp)}°</div></div>`;
   }).join('');
-  return `<section class="hourly"><h2>${escapeHtml(heading)}</h2><div class="hour-strip">${cells}</div></section>`;
+  return `<section class="my-6 max-w-3xl mx-auto"><h2 class="text-lg sm:text-xl font-bold text-heading mb-3">${escapeHtml(heading)}</h2><div class="flex gap-2 overflow-x-auto pb-2">${cells}</div></section>`;
 }
 
 function renderDaily(cw: CityWeather, locale: Locale): string {
@@ -260,9 +262,9 @@ function renderDaily(cw: CityWeather, locale: Locale): string {
   };
   const rows = cw.daily7.slice(0, 7).map((d) => {
     const cond = wmoText(d.weatherCode, locale);
-    return `<li class="daily-row"><span class="daily-day">${dayName(d.date)}</span><span class="daily-cond">${escapeHtml(cond)}</span><span class="daily-temps">${Math.round(d.tempMax)}° / ${Math.round(d.tempMin)}°</span></li>`;
+    return `<li class="grid grid-cols-[80px_1fr_auto] gap-3 py-3 border-b border-edge last:border-0 items-center"><span class="font-semibold text-heading">${dayName(d.date)}</span><span class="text-body text-sm">${escapeHtml(cond)}</span><span class="font-medium text-strong tabular-nums">${Math.round(d.tempMax)}° / <span class="text-muted">${Math.round(d.tempMin)}°</span></span></li>`;
   }).join('');
-  return `<section class="daily"><h2>${escapeHtml(heading)}</h2><ol class="daily-list">${rows}</ol></section>`;
+  return `<section class="my-6 max-w-3xl mx-auto"><h2 class="text-lg sm:text-xl font-bold text-heading mb-3">${escapeHtml(heading)}</h2><ol class="bg-surface rounded-2xl border border-edge p-2 sm:p-4">${rows}</ol></section>`;
 }
 
 function renderEvergreen(city: WeatherCity, locale: Locale): string {
@@ -281,7 +283,7 @@ function renderEvergreen(city: WeatherCity, locale: Locale): string {
     : locale === 'de'
     ? `Für Pendler zwischen ${city.country === 'CH' ? 'italienischen Grenzorten' : 'Tessiner Gemeinden'} und ${city.name} beeinflusst das Wetter die Übergangszeiten (Brogeda, Stabio, Gandria, Ponte Tresa, Gaggiolo) und die Wahl zwischen Autobahn A2 und Nebenstrassen. Nebelige oder schneereiche Morgen sind zwischen Oktober und März besonders kritisch.`
     : `Pour les frontaliers entre ${city.country === 'CH' ? 'les villes italiennes' : 'les communes tessinoises'} et ${city.name}, la météo affecte les temps de passage aux frontières (Brogeda, Stabio, Gandria, Ponte Tresa, Gaggiolo) et le choix entre l'autoroute A2 et les routes secondaires. Les matins de brouillard ou neige sont particulièrement critiques entre octobre et mars.`;
-  return `<section class="evergreen"><h2>${escapeHtml(heading)}</h2><p>${escapeHtml(para1)}</p><p>${escapeHtml(para2)}</p></section>`;
+  return `<section class="my-8 max-w-3xl mx-auto prose prose-sm sm:prose-base"><h2 class="text-xl sm:text-2xl font-bold text-heading mb-4">${escapeHtml(heading)}</h2><p class="text-body leading-relaxed mb-4">${escapeHtml(para1)}</p><p class="text-body leading-relaxed">${escapeHtml(para2)}</p></section>`;
 }
 
 function renderFaq(locale: Locale): string {
@@ -309,16 +311,16 @@ function renderFaq(locale: Locale): string {
         ['Que signifie l\'indicateur de confiance?', '"Élevée": 2-3 sources concordent. "Moyenne": 1 source prévision + observation locale. "Faible": source unique disponible.'],
         ['À quelle fréquence les données sont-elles mises à jour?', 'Toutes les 4 heures via pipeline cron. Les pages SSG sont reconstruites au prochain déploiement; le script hydration met à jour les chiffres en direct au chargement.'],
       ];
-  const itemsHtml = items.map(([q, a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join('');
-  return `<section class="faq"><h2>${escapeHtml(heading)}</h2>${itemsHtml}</section>`;
+  const itemsHtml = items.map(([q, a]) => `<details class="bg-surface rounded-xl border border-edge p-4 mb-2"><summary class="font-medium text-heading cursor-pointer hover:text-accent">${escapeHtml(q)}</summary><p class="mt-3 text-body leading-relaxed">${escapeHtml(a)}</p></details>`).join('');
+  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-bold text-heading mb-4">${escapeHtml(heading)}</h2>${itemsHtml}</section>`;
 }
 
 function renderCta(locale: Locale, acquisitionSource: string): string {
   const ctaHeading = locale === 'it' ? 'Ricevi info commute frontalieri via email' : locale === 'en' ? 'Get cross-border commute updates by email' : locale === 'de' ? 'Pendler-Updates per E-Mail erhalten' : 'Recevez les infos commute par e-mail';
   const ctaSub = locale === 'it' ? 'Newsletter settimanale per chi attraversa il confine ogni giorno.' : locale === 'en' ? 'Weekly newsletter for daily border crossers.' : locale === 'de' ? 'Wöchentlicher Newsletter für tägliche Grenzgänger.' : 'Newsletter hebdomadaire pour les frontaliers quotidiens.';
-  return `<section class="cta-newsletter" data-acquisition-source="${escapeHtml(acquisitionSource)}">
-<h2>${escapeHtml(ctaHeading)}</h2>
-<p>${escapeHtml(ctaSub)}</p>
+  return `<section class="bg-accent-subtle border border-accent-border rounded-2xl p-5 sm:p-6 my-6 max-w-3xl mx-auto text-center" data-acquisition-source="${escapeHtml(acquisitionSource)}">
+<h2 class="text-lg sm:text-xl font-bold text-heading mb-2">${escapeHtml(ctaHeading)}</h2>
+<p class="text-body">${escapeHtml(ctaSub)}</p>
 </section>`;
 }
 
