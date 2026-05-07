@@ -6830,6 +6830,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.title': '15 million francs for \'No to a 10 million Switzerland\' campaign',
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.excerpt': 'Record funding for the political campaign on the SVP initiative. Here are the main donors and implications for cross-border workers.',
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.imageAlt': 'A political rally in Lugano with a large crowd holding signs and banners, with Lake Lugano in the background.',
+    'blog.article.colf-badanti-ticino-2029.title': 'Housekeepers and carers in Ticino: +122k in three years',
+    'blog.article.colf-badanti-ticino-2029.excerpt': 'By 2029, Italy will need 2.2 million housekeepers and carers. Impact on Ticino cross-border workers and new job opportunities.',
+    'blog.article.colf-badanti-ticino-2029.imageAlt': 'Caregiver helping an elderly person in a Ticino home',
 };
 
 export default blogMetaEn;

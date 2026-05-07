@@ -6831,6 +6831,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.title': '15 milioni di franchi per la campagna \'No a una Svizzera da 10 milioni\'',
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.excerpt': 'Record di finanziamenti per la campagna politica sull\'iniziativa UDC. Ecco chi sono i principali finanziatori e le implicazioni per i frontalieri.',
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.imageAlt': 'Una manifestazione politica a Lugano con un grande pubblico che tiene cartelli e striscioni, con il lago di Lugano sullo sfondo.',
+    'blog.article.colf-badanti-ticino-2029.title': 'Colf e badanti in Ticino: +122 mila in tre anni',
+    'blog.article.colf-badanti-ticino-2029.excerpt': 'Nel 2029 serviranno 2,2 milioni di colf e badanti in Italia. Impatto sui frontalieri del Ticino e nuove opportunità lavorative.',
+    'blog.article.colf-badanti-ticino-2029.imageAlt': 'Badante che aiuta una persona anziana in una casa nel Canton Ticino',
 };
 
 export default blogMetaIt;

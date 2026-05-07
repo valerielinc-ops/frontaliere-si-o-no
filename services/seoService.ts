@@ -3519,6 +3519,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tax-free-dirinella-orari-ridotti': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/tax-free-dirinella-orari-ridotti', parent: 'blog' },
     'blog-lombardia-chiede-completamento-alptransit': { name: 'Mobilità', path: '/articoli-frontaliere/lombardia-chiede-completamento-alptransit', parent: 'blog' },
     'blog-campagna-politica-frontalieri-15-milioni-franchi': { name: 'Campagna politica', path: '/articoli-frontaliere/campagna-politica-frontalieri-15-milioni-franchi', parent: 'blog' },
+    'blog-colf-badanti-ticino-2029': { name: 'Colf e badanti', path: '/articoli-frontaliere/colf-badanti-ticino-2029', parent: 'blog' },
  };
 
  const info = sectionNames[section];

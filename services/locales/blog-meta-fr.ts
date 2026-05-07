@@ -6831,6 +6831,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.title': '15 millions de francs pour la campagne \'Non à une Suisse de 10 millions\'',
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.excerpt': 'Record de financements pour la campagne politique sur l\'initiative UDC. Voici les principaux financeurs et les implications pour les frontaliers.',
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.imageAlt': 'Une manifestation politique à Lugano avec une grande foule tenant des pancartes et des banderoles, avec le lac de Lugano en arrière-plan.',
+    'blog.article.colf-badanti-ticino-2029.title': 'Emplois de colf et d\'aide à domicile au Tessin: +122 000 en trois ans',
+    'blog.article.colf-badanti-ticino-2029.excerpt': 'En 2029, l\'Italie aura besoin de 2,2 millions de colf et d\'aides à domicile. Impact sur les travailleurs frontaliers du Tessin et nouvelles opportunités d\'emploi.',
+    'blog.article.colf-badanti-ticino-2029.imageAlt': 'Aide-soignante aidant une personne âgée dans une maison en Tessin',
 };
 
 export default blogMetaFr;

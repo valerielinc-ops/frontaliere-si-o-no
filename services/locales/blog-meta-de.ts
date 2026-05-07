@@ -6830,6 +6830,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.title': '15 Millionen Franken für die Kampagne \'Nein zu einer Schweiz mit 10 Millionen\'',
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.excerpt': 'Rekordfinanzierung für die politische Kampagne zur SVP-Initiative. Hier sind die Hauptfinanzierer und die Auswirkungen auf die Grenzgänger.',
     'blog.article.campagna-politica-frontalieri-15-milioni-franchi.imageAlt': 'Eine politische Kundgebung in Lugano mit einer großen Menschenmenge, die Schilder und Banner hält, mit dem Luganersee im Hintergrund.',
+    'blog.article.colf-badanti-ticino-2029.title': 'Haushaltshilfen und Betreuer im Tessin: +122.000 in drei Jahren',
+    'blog.article.colf-badanti-ticino-2029.excerpt': 'Bis 2029 werden in Italien 2,2 Millionen Haushaltshilfen und Betreuer benötigt. Auswirkungen auf die Grenzgänger des Tessin und neue Arbeitsmöglichkeiten.',
+    'blog.article.colf-badanti-ticino-2029.imageAlt': 'Betreuer hilft einer älteren Person in einem Haus in Tessin',
 };
 
 export default blogMetaDe;

@@ -21863,4 +21863,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'colf-badanti-ticino-2029',
+ category: 'pratico',
+ date: '2026-05-07T18:35:37.210Z',
+ image: '/images/blog/colf-badanti-ticino-2029.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
