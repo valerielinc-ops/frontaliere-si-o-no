@@ -3448,6 +3448,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bellinzona-valli-bici-velocita': { name: 'Novità', path: '/articoli-frontaliere/bellinzona-valli-bici-velocita', parent: 'blog' },
     'blog-varese-riapre-via-mulini-grassi': { name: 'Varese', path: '/articoli-frontaliere/varese-riapre-via-mulini-grassi', parent: 'blog' },
     'blog-addio-passaporto-usa-berna': { name: 'Novità', path: '/articoli-frontaliere/addio-passaporto-usa-berna', parent: 'blog' },
+    'blog-odermatt-dottorato-honoris-causa': { name: 'Novità', path: '/articoli-frontaliere/odermatt-dottorato-honoris-causa', parent: 'blog' },
  };
 
  const info = sectionNames[section];

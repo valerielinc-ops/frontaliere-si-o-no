@@ -21224,4 +21224,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'odermatt-dottorato-honoris-causa',
+ category: 'novita',
+ date: '2026-05-07T03:09:05.677Z',
+ image: '/images/blog/odermatt-dottorato-honoris-causa.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

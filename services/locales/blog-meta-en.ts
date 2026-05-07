@@ -6617,6 +6617,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.addio-passaporto-usa-berna.title': 'US Passport Exit via Bern: Cross-Border Impact',
     'blog.article.addio-passaporto-usa-berna.excerpt': 'Thousands of Americans are renouncing their US passports. Here\'s what to know if you live in Ticino and work in Switzerland',
     'blog.article.addio-passaporto-usa-berna.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.odermatt-dottorato-honoris-causa.title': 'Marco Odermatt awarded honorary doctorate by EPFL',
+    'blog.article.odermatt-dottorato-honoris-causa.excerpt': 'Swiss alpine skiing champion Marco Odermatt honored with an honorary doctorate by the Swiss Federal Institute of Technology in Lausanne.',
+    'blog.article.odermatt-dottorato-honoris-causa.imageAlt': 'Aerial view of Lugano with the lake and cityscape',
 };
 
 export default blogMetaEn;

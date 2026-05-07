@@ -6617,6 +6617,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.addio-passaporto-usa-berna.title': 'Abschied vom US-Pass: Was sich für Grenzgänger ändert',
     'blog.article.addio-passaporto-usa-berna.excerpt': 'Tausende Amerikaner verzichten auf den US-Pass. Was Sie wissen müssen, wenn Sie im Tessin leben und in der Schweiz arbeiten',
     'blog.article.addio-passaporto-usa-berna.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.odermatt-dottorato-honoris-causa.title': 'Marco Odermatt erhält Ehrendoktorat von der EPFL',
+    'blog.article.odermatt-dottorato-honoris-causa.excerpt': 'Der Schweizer Skialpinist Marco Odermatt erhält ein Ehrendoktorat von der Eidgenössischen Technischen Hochschule Lausanne.',
+    'blog.article.odermatt-dottorato-honoris-causa.imageAlt': 'Luftaufnahme von Lugano mit dem See und der Stadtansicht',
 };
 
 export default blogMetaDe;

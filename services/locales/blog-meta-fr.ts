@@ -6618,6 +6618,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.addio-passaporto-usa-berna.title': 'Fin du passeport US : changements pour les frontaliers',
     'blog.article.addio-passaporto-usa-berna.excerpt': 'Des milliers d\'Américains renoncent à leur passeport américain. Voici ce qu\'il faut savoir si vous vivez dans le Tessin et travaillez en Suisse.',
     'blog.article.addio-passaporto-usa-berna.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.odermatt-dottorato-honoris-causa.title': 'Marco Odermatt reçoit un doctorat honoris causa du Polytechnique de Lausanne',
+    'blog.article.odermatt-dottorato-honoris-causa.excerpt': 'Le champion suisse de ski alpin Marco Odermatt a été honoré d\'un doctorat honoris causa par le Polytechnique fédéral de Lausanne.',
+    'blog.article.odermatt-dottorato-honoris-causa.imageAlt': 'Vue aérienne de Lugano avec le lac et le paysage urbain',
 };
 
 export default blogMetaFr;
