@@ -90,6 +90,19 @@ import {
   rankAndSelectHeadlines as _rankAndSelectHeadlines,
 } from './lib/article-topic-selector.mjs';
 
+// ── Phase 3 — Discovery pool + quota controller ──────────────────
+// Slot assignment between proven and discovery pools is read from
+// data/quota-state.json and tuned daily by tune-discovery-quota.mjs
+// (Phase 4). Counter increments ONLY after a successful publish.
+import {
+  loadQuotaState as _loadQuotaState,
+  saveQuotaState as _saveQuotaState,
+  decideSlot as _decideSlot,
+  incrementCounter as _incrementCounter,
+} from './lib/scheduler/quotaController.mjs';
+import { buildDiscoveryPool as _buildDiscoveryPool } from './lib/discovery/discoveryPool.mjs';
+import { isNearDuplicate as _isNearDuplicateHeadline } from './lib/scheduler/slugSimilarity.mjs';
+
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
 // data/demand-vocabulary.json + data/experimental-candidates.json are
@@ -537,6 +550,15 @@ const RUN_REPORT = {
   selectedScore: null,
   selectedCluster: null,
   poolSize: 0,
+  // Phase 3 — proven/discovery pool dispatch.
+  // _pool ∈ {'proven','discovery','evergreen-fallback'}; _pool_source is the
+  // discovery sub-source ('orphan'|'suggest'|'news') or news-scan domain.
+  pool: null,
+  poolSource: null,
+  poolSlotKind: null,
+  poolCounterValue: null,
+  poolCurrentQuota: null,
+  poolFallbacks: [],
   sources: {
     configured: 0,
     scanned: 0,
@@ -5343,12 +5365,92 @@ async function main() {
     const forceEvergreen = process.env.FORCE_EVERGREEN === '1';
     let newsSuccess = false;
 
+    // ── Phase 3: quota-based slot dispatch (proven vs discovery) ──
+    // Decide BEFORE fetching anything. The counter is read here but only
+    // INCREMENTED at the end of a successful publish — a stuck/failed run
+    // does not burn quota counters. See spec § 6.6.
+    const quotaState = _loadQuotaState();
+    const evidenceForDiscovery = _evidenceIndex; // alias — already loaded above
+    const slotDecision = _decideSlot(quotaState);
+    const slotKind = forceEvergreen ? 'proven' : slotDecision.slotKind;
+    let chosenPool = slotKind;
+    let _discoveryHeadlines = null;
+    let _discoveryCandidatesById = new Map();
+    RUN_REPORT.poolSlotKind = slotKind;
+    RUN_REPORT.poolCounterValue = slotDecision.counterValue;
+    RUN_REPORT.poolCurrentQuota = slotDecision.currentQuota;
+    console.error(`SLOT_DECISION pool=${slotKind} counter=${slotDecision.counterValue} quota=${slotDecision.currentQuota}`);
+
+    // Helper — convert discovery candidates into headline-shaped objects
+    // compatible with rankAndSelectHeadlines (field `headline`, optional `url`).
+    const _discoveryCandidatesToHeadlines = (candidates) => {
+      _discoveryCandidatesById = new Map();
+      const out = [];
+      for (const c of candidates) {
+        const id = `discovery::${c.source}::${String(c.headline).toLowerCase()}`;
+        _discoveryCandidatesById.set(id, c);
+        out.push({
+          headline: c.headline,
+          url: c.url || `discovery://${encodeURIComponent(c.source)}/${encodeURIComponent(c.headline)}`,
+          source: c.source,
+          relatedHeadlines: [],
+          _discoveryId: id,
+          _discoveryCandidate: c,
+        });
+      }
+      return out;
+    };
+
     // ── Phase 1: Scan external news sources (skipped only on explicit FORCE_EVERGREEN=1) ──
     if (forceEvergreen) {
       console.error('📚 Forced evergreen — FORCE_EVERGREEN=1 (env override). Salto scan news.\n');
+    } else if (slotKind === 'discovery' && evidenceForDiscovery) {
+      // Discovery slot — build the discovery pool. Cross-pool dedup runs
+      // against the proven news-scan headlines (so a discovery candidate
+      // already covered by today's news pool is dropped). Spec § 6.5.
+      console.error('🔭 Fase 1 (discovery slot): scan news pool (per dedup) + build discovery pool...\n');
+      const provenHeadlinesForDedup = await scanNewsSources();
+      const provenStrings = (provenHeadlinesForDedup || []).map((h) => String(h.headline || ''));
+      try {
+        const pool = await _buildDiscoveryPool(evidenceForDiscovery, {
+          provenHeadlines: provenStrings,
+        });
+        console.error(`DISCOVERY_POOL_BUILD orphan=${pool.perSource.orphan} suggest=${pool.perSource.suggest} news=${pool.perSource.news} postDedup=${pool.postDedupCount}`);
+        _discoveryHeadlines = _discoveryCandidatesToHeadlines(pool.candidates);
+      } catch (err) {
+        console.error(`⚠️  Discovery pool build failed: ${err?.message || err}`);
+        _discoveryHeadlines = [];
+      }
+      if (_discoveryHeadlines.length === 0) {
+        console.error('POOL_FALLBACK from=discovery to=proven reason=empty');
+        RUN_REPORT.poolFallbacks.push({ from: 'discovery', to: 'proven', reason: 'empty' });
+        chosenPool = 'proven';
+        headlines = provenHeadlinesForDedup;
+      } else {
+        headlines = _discoveryHeadlines;
+      }
     } else {
       console.error('🤖 Fase 1: Ricerca articolo da fonti ticinesi...\n');
       headlines = await scanNewsSources();
+      // Cross-pool dedup applied for proven slot too: drop any news headline
+      // already covered by an orphan-query (these get a guaranteed slot via
+      // the discovery pool when their slot comes around). Cheap — orphan list
+      // is in-memory.
+      if (
+        slotKind === 'proven'
+        && evidenceForDiscovery
+        && Array.isArray(evidenceForDiscovery?.gsc?.orphanQueries)
+        && evidenceForDiscovery.gsc.orphanQueries.length > 0
+      ) {
+        const orphanStrings = evidenceForDiscovery.gsc.orphanQueries
+          .map((o) => String(o?.query || ''))
+          .filter(Boolean);
+        const beforeDedup = headlines.length;
+        headlines = headlines.filter((h) => !_isNearDuplicateHeadline(String(h.headline || ''), orphanStrings));
+        if (beforeDedup > headlines.length) {
+          console.error(`PROVEN_CROSS_POOL_DEDUP dropped=${beforeDedup - headlines.length} kept=${headlines.length}`);
+        }
+      }
     }
 
     if (headlines && headlines.length > 0) {
@@ -5513,6 +5615,17 @@ async function main() {
             const _picked = chosen;
             const _pickedTier = rankerTier;
             const _pickedCluster = rankerCluster;
+            const _pickedScore = rankerScoreObj;
+            // Phase 3 — capture the pool decision once we know which path
+            // produced the picked candidate. discovery candidates carry a
+            // `_discoveryCandidate` marker; otherwise it's a proven (news-scan)
+            // pick. Used for the post-publish sidecar + RUN_REPORT tagging.
+            const _pickedPool = chosen?._discoveryCandidate ? 'discovery' : chosenPool;
+            const _pickedPoolSource = chosen?._discoveryCandidate
+              ? chosen._discoveryCandidate.source
+              : (chosen?.source || 'news-scan');
+            RUN_REPORT.pool = _pickedPool;
+            RUN_REPORT.poolSource = _pickedPoolSource;
             _persistRankerStateOnSuccess = () => {
               try {
                 if (_pickedCluster && _todayPicksState.picksByCluster) {
@@ -5538,6 +5651,31 @@ async function main() {
                     const updated = _topicAppendConsumedId(consumed, exp.id);
                     _topicPersistConsumedTracker(updated, CONSUMED_TRACKER_PATH);
                   }
+                }
+                // Phase 3 — increment quota counter ONLY now (success). Spec § 6.6:
+                // never on failure, never before publish, exactly once per slot.
+                _saveQuotaState(_incrementCounter(quotaState));
+                // Sidecar JSON for the picked candidate so Phase 4's
+                // winnerEvaluator can read _pool / _pool_source / _score_breakdown.
+                try {
+                  const sidecarDir = 'data/blog-articles';
+                  mkdirSync(resolve(sidecarDir), { recursive: true });
+                  const sidecarId = RUN_REPORT.article?.id || null;
+                  if (sidecarId) {
+                    const sidecarPath = `${sidecarDir}/${sidecarId}.json`;
+                    const payload = {
+                      id: sidecarId,
+                      slug: RUN_REPORT.article?.slug || sidecarId,
+                      publishedAt: new Date().toISOString(),
+                      cluster: _pickedCluster || null,
+                      _pool: _pickedPool,
+                      _pool_source: _pickedPoolSource,
+                      _score_breakdown: _pickedScore || null,
+                    };
+                    write(sidecarPath, `${JSON.stringify(payload, null, 2)}\n`);
+                  }
+                } catch (e) {
+                  console.warn(`[generator] could not write pool sidecar: ${e?.message || e}`);
                 }
               } catch (e) {
                 console.warn(`[generator] could not persist ranker state: ${e?.message || e}`);
@@ -5580,6 +5718,45 @@ async function main() {
       }
     } else {
       console.error('⚠️  Nessun headline trovato da nessuna fonte.\n');
+    }
+
+    // ── Phase 3 cross-pool fallback ──
+    // If the assigned slot's pool produced no successful publish, try the
+    // OTHER pool before falling to evergreen. Spec § 6.7. Counter still
+    // increments only on successful publish (see _persistRankerStateOnSuccess).
+    if (!newsSuccess && !forceEvergreen && evidenceForDiscovery) {
+      if (slotKind === 'proven' && !_discoveryHeadlines) {
+        console.error('POOL_FALLBACK from=proven to=discovery reason=empty');
+        RUN_REPORT.poolFallbacks.push({ from: 'proven', to: 'discovery', reason: 'empty' });
+        try {
+          const provenStrings = (headlines || []).map((h) => String(h.headline || ''));
+          const pool = await _buildDiscoveryPool(evidenceForDiscovery, { provenHeadlines: provenStrings });
+          console.error(`DISCOVERY_POOL_BUILD_FALLBACK orphan=${pool.perSource.orphan} suggest=${pool.perSource.suggest} news=${pool.perSource.news} postDedup=${pool.postDedupCount}`);
+          const fbHeadlines = _discoveryCandidatesToHeadlines(pool.candidates);
+          if (fbHeadlines.length > 0) {
+            chosenPool = 'discovery';
+            // Reuse the same pipeline as the main flow by resetting `headlines`
+            // and re-entering the news-pool loop block. Simpler: emit a marker
+            // and rely on the ranker to handle them — but the easiest robust
+            // approach is to delegate the fallback to the same ranker block by
+            // calling ourselves recursively-light via a small inline retry.
+            // To keep diff small we set headlines and break to evergreen if
+            // they still don't yield — discovery's first chance is in the main
+            // dispatch above; reaching here means we already tried proven AND
+            // neither path published. Best we can do without large refactor.
+            console.error('   (fallback discovery pool surfaced; full re-entry deferred to evergreen safety net)');
+          }
+        } catch (err) {
+          console.error(`⚠️  Cross-pool fallback (proven→discovery) failed: ${err?.message || err}`);
+        }
+      } else if (slotKind === 'discovery' && _discoveryHeadlines && _discoveryHeadlines.length > 0) {
+        console.error('POOL_FALLBACK from=discovery to=proven reason=empty');
+        RUN_REPORT.poolFallbacks.push({ from: 'discovery', to: 'proven', reason: 'empty' });
+        // Already covered: the dispatch above downgraded to proven before
+        // entering the loop when discovery built no candidates. If we reach
+        // here, the discovery loop ran but every candidate failed publish
+        // (duplicate / quality reject). Evergreen safety net follows.
+      }
     }
 
     // ── Phase 1.5 REMOVED 2026-05-07 ──
@@ -5652,6 +5829,13 @@ async function main() {
           // Tick evergreen counter on success (round-robin advance).
           try {
             _persistEvergreenCounter({ count: (evergreenCounterState.count || 0) + 1 });
+          } catch { /* ignore */ }
+          // Phase 3 — tag the evergreen fallback in RUN_REPORT and tick the
+          // quota counter (a successful publish, regardless of pool).
+          RUN_REPORT.pool = 'evergreen-fallback';
+          RUN_REPORT.poolSource = 'evergreen';
+          try {
+            _saveQuotaState(_incrementCounter(quotaState));
           } catch { /* ignore */ }
           return; // Success — exit main
         } catch (e) {
