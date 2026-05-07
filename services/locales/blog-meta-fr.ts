@@ -6705,6 +6705,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-pernottamenti-controtendenza-2026.title': 'Tessin en hausse : +3,8% de nuitées en mars 2026',
     'blog.article.ticino-pernottamenti-controtendenza-2026.excerpt': 'Alors que la Suisse enregistre un recul de 5,2%, le Tessin progresse avec 133.800 nuitées. Voici les détails.',
     'blog.article.ticino-pernottamenti-controtendenza-2026.imageAlt': 'Vue du lac de Lugano avec le Monte Brè en arrière-plan, journée ensoleillée',
+    'blog.article.lonza-cede-micro-macinazione-stabio.title': 'Lonza cède Micro Macinazione SA : qu\'est-ce qui change pour le canton du Tessin',
+    'blog.article.lonza-cede-micro-macinazione-stabio.excerpt': 'Lonza cède Micro Macinazione SA à Schedio Group Holding et Microsize. De nouvelles synergies pour le pôle pharmaceutique tessinois.',
+    'blog.article.lonza-cede-micro-macinazione-stabio.imageAlt': 'Vue aérienne du lac de Lugano avec les bâtiments de l\'industrie pharmaceutique du Tessin',
 };
 
 export default blogMetaFr;

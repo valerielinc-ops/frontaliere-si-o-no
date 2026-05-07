@@ -21485,4 +21485,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lonza-cede-micro-macinazione-stabio',
+ category: 'novita',
+ date: '2026-05-07T08:06:58.890Z',
+ image: '/images/blog/lonza-cede-micro-macinazione-stabio.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

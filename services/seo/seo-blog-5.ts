@@ -26009,6 +26009,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lonza-cede-micro-macinazione-stabio': {
+    title: 'Lonza cede Micro Macinazione SA: cosa cambia per il Canton Ticino',
+    description: 'Lonza ha ceduto Micro Macinazione SA a Schedio Group Holding e Microsize. Nuove sinergie per il polo farmaceutico ticinese. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, lonza, cede, micro, macinazione',
+    ogTitle: 'Lonza cede Micro Macinazione SA: cosa cambia per il Canton Ticino',
+    ogDescription: 'Lonza ha ceduto Micro Macinazione SA a Schedio Group Holding e Microsize. Nuove sinergie per il polo farmaceutico ticinese.',
+    canonicalPath: '/articoli-frontaliere/lonza-cede-micro-macinazione-stabio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lonza cede Micro Macinazione SA: cosa cambia per il Canton Ticino",
+      "description": "Lonza ha ceduto Micro Macinazione SA a Schedio Group Holding e Microsize. Nuove sinergie per il polo farmaceutico ticinese. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lonza-cede-micro-macinazione-stabio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con edifici dell'industria farmaceutica ticinese"
+      },
+      "datePublished": "2026-05-07T08:06:58+00:00",
+      "dateModified": "2026-05-07T08:06:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lonza-cede-micro-macinazione-stabio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

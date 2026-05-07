@@ -6705,6 +6705,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-pernottamenti-controtendenza-2026.title': 'Ticino in controtendenza: +3,8% pernottamenti a marzo 2026',
     'blog.article.ticino-pernottamenti-controtendenza-2026.excerpt': 'Mentre la Svizzera registra un calo del 5,2%, il Ticino cresce con 133.800 pernottamenti. Ecco i dettagli.',
     'blog.article.ticino-pernottamenti-controtendenza-2026.imageAlt': 'Vista del Lago di Lugano con Monte Brè sullo sfondo, giornata soleggiata',
+    'blog.article.lonza-cede-micro-macinazione-stabio.title': 'Lonza cede Micro Macinazione SA: cosa cambia per il Canton Ticino',
+    'blog.article.lonza-cede-micro-macinazione-stabio.excerpt': 'Lonza cede Micro Macinazione SA a Schedio Group Holding e Microsize. Nuove sinergie per il polo farmaceutico ticinese.',
+    'blog.article.lonza-cede-micro-macinazione-stabio.imageAlt': 'Vista aerea del Lago di Lugano con edifici dell\'industria farmaceutica ticinese',
 };
 
 export default blogMetaIt;

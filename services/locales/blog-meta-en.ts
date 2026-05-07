@@ -6704,6 +6704,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-pernottamenti-controtendenza-2026.title': 'Ticino bucks trend with +3.8% overnight stays in March 2026',
     'blog.article.ticino-pernottamenti-controtendenza-2026.excerpt': 'While Switzerland sees a 5.2% drop, Ticino grows with 133,800 overnight stays. Here are the details.',
     'blog.article.ticino-pernottamenti-controtendenza-2026.imageAlt': 'Lake Lugano with Monte Brè in the background, sunny day',
+    'blog.article.lonza-cede-micro-macinazione-stabio.title': 'Lonza sells Micro Macinazione SA: what changes for Ticino',
+    'blog.article.lonza-cede-micro-macinazione-stabio.excerpt': 'Lonza sells Micro Macinazione SA to Schedio Group Holding and Microsize. New synergies for the Ticino pharmaceutical hub.',
+    'blog.article.lonza-cede-micro-macinazione-stabio.imageAlt': 'Aerial view of Lake Lugano with Ticino\'s pharmaceutical industry buildings',
 };
 
 export default blogMetaEn;
