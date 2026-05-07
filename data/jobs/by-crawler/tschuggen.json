@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-05-06T22:50:43.849Z",
+  "assembledAt": "2026-05-07T11:54:56.489Z",
   "jobs": [
     {
       "id": "tschuggen-1927880b4baa",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1333/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:41.283Z",
+      "crawledAt": "2026-05-07T11:54:54.214Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -63,6 +63,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T11:46:07.707Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -78,9 +79,9 @@
     },
     {
       "id": "tschuggen-f6bf7211a6a1",
-      "slug": "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+      "slug": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
-        "it": "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+        "it": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz",
         "en": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "de": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "fr": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
@@ -90,7 +91,7 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Night Auditor (m/w/d) Wintersaison 2026/2027",
       "titleByLocale": {
-        "it": "Auditore notturno (m/w/d) Stagione invernale 2026/2027",
+        "it": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "en": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "de": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "fr": "Night Auditor (m/w/d) Wintersaison 2026/2027"
@@ -107,7 +108,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1336/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:40.333Z",
+      "crawledAt": "2026-05-07T11:54:53.340Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -128,13 +129,13 @@
       "previousSlugs": [
         "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "revisore-notturno-lunedi-meredi-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-        "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz"
+        "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
           "revisore-notturno-lunedi-meredi-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-          "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz"
+          "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
         ]
       },
       "needsRetranslation": true,
@@ -183,7 +184,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1339/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:39.619Z",
+      "crawledAt": "2026-05-07T11:54:52.446Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -202,6 +203,7 @@
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
       "firstSeenAt": "2026-04-21T22:32:28.567Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -246,7 +248,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:38.674Z",
+      "crawledAt": "2026-05-07T11:54:51.574Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -326,7 +328,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1340/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:37.715Z",
+      "crawledAt": "2026-05-07T11:54:50.678Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -345,6 +347,7 @@
       "department": "Housekeeping",
       "hotelName": "Carlton Hotel St. Moritz",
       "firstSeenAt": "2026-04-23T22:32:29.347Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -389,7 +392,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1341/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:36.770Z",
+      "crawledAt": "2026-05-07T11:54:49.749Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -422,6 +425,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T22:32:28.478Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -466,7 +470,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:35.849Z",
+      "crawledAt": "2026-05-07T11:54:49.091Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -496,6 +500,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T22:32:27.610Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -540,7 +545,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1320/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:34.920Z",
+      "crawledAt": "2026-05-07T11:54:48.202Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -567,6 +572,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:40:47.647Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -611,7 +617,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:33.961Z",
+      "crawledAt": "2026-05-07T11:54:47.321Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -688,7 +694,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1348/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:50:33.017Z",
+      "crawledAt": "2026-05-07T11:54:46.438Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -712,10 +718,10 @@
         "it": [
           "etagen-portier-m-w-d-tschuggen-ch"
         ],
-        "fr": [
+        "en": [
           "etagen-portier-m-w-d-tschuggen-ch"
         ],
-        "en": [
+        "fr": [
           "etagen-portier-m-w-d-tschuggen-ch"
         ]
       },
