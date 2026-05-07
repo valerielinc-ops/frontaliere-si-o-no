@@ -163,7 +163,7 @@ const MAX_FCOUNT_IDF = 50;
  * @param {{ winnerWeights?: number[]|null, maxFCount?: number }} [opts]
  * @returns {string[]}
  */
-function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null, maxFCount = MAX_FCOUNT_IDF } = {}) {
+function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null, maxFCount = MAX_FCOUNT_IDF, filter = null } = {}) {
   const winnerCounts = countTokensWeighted(winnerCorpus, winnerWeights);
   const fullCounts = countTokensWeighted(fullCorpus, null);
   // Effective corpus size for the TF normalizer matches the sum of weights
@@ -175,6 +175,13 @@ function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null, maxFCoun
   /** @type {Array<{token:string, score:number}>} */
   const scored = [];
   for (const [tok, wCount] of winnerCounts) {
+    // Optional domain pre-filter: when supplied, scores ONLY tokens that
+    // pass the filter. This prevents rare-recent news-of-day tokens from
+    // crowding out evergreen domain terms in the top-N. Empirical 2026-05-07:
+    // with title+excerpt corpus producing 200-600 unique tokens, the top-60
+    // by raw score was filling with proper nouns (Bellinzona, SlowUp) and
+    // leaving zero domain survivors after a post-hoc filter.
+    if (filter && !filter(tok)) continue;
     // Cap fCount at maxFCount: any term in ≥ maxFCount articles is treated
     // the same. Prevents corpus-size from crushing evergreen terms.
     const rawFCount = fullCounts.get(tok) || 1;
@@ -282,8 +289,16 @@ export function buildWinnerFingerprint(winners, allArticles) {
   const winnerCorpus = winners.map((w) => `${w.title || ''} ${w.excerpt || ''}`);
   const fullCorpus = allArticles.map((a) => `${a.title || ''} ${a.excerpt || ''}`);
   const winnerWeights = winners.map((w) => recencyWeight(w.publishedAt));
-  const tfidfRaw = tfidfTopN(winnerCorpus, fullCorpus, 60, { winnerWeights });
-  const domainOnly = tfidfRaw.filter((t) => isFrontalieriDomainTerm(t)).slice(0, 15);
+  // Pass the domain filter INTO tfidfTopN so only domain-passing tokens are
+  // scored. Previously a post-hoc filter() ran AFTER top-60 selection, which
+  // collapsed to 0 survivors when title+excerpt produced 200-600 rare tokens
+  // that crowded out evergreen domain terms in the top-60 by score. Now the
+  // top-15 is "top-15 among domain tokens" — guaranteed to include evergreen
+  // terms whenever winners contain frontaliere vocabulary.
+  const domainOnly = tfidfTopN(winnerCorpus, fullCorpus, 15, {
+    winnerWeights,
+    filter: isFrontalieriDomainTerm,
+  });
   const topKeywords = domainOnly.length >= MIN_DOMAIN_KEYWORDS ? domainOnly : [];
 
   // Question patterns: words appearing as the first token of any winner
