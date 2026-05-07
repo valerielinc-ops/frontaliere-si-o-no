@@ -14,6 +14,11 @@
 //   - Cap: max 20 candidates per geo.
 
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
+import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
+
+// Soft-bias for Lombardia cross-tagging: independent of FRONTALIERI_DOMAIN_RE
+// because we want to surface "auto in Varese" / "Como confine" even when
+// the title doesn't mention frontalieri.
 
 const SEEDS_FALLBACK = [
   'frontaliere',
@@ -360,24 +365,40 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
   // returns the day's trending queries. We map each item to a Candidate
   // tagged with the geo, then merge into IT-25 (Lombardia) too if the query
   // mentions a Lombardia city.
+  //
+  // RELEVANCE FILTER: country-level Trends RSS is dominated by sports /
+  // celebrities / disasters. We keep only items that match the frontaliere
+  // domain vocabulary; the Lombardia cross-tag uses a SEPARATE regex (city
+  // names) because cross-border-relevant news from Varese/Como is allowed
+  // even without explicit frontaliere wording.
   /** @type {Map<string, Array<{query: string, score: number|null, sourceLabel: string}>>} */
   const rssByGeo = new Map();
   for (const geo of GEOS) {
     if (!geo.rss) continue;
     try {
       const xml = await rssImpl(geo.id);
-      const items = parseTrendsRss(xml);
-      rssByGeo.set(geo.sourceKey, items);
+      const allItems = parseTrendsRss(xml);
+      const relevant = allItems.filter(
+        (it) => FRONTALIERI_DOMAIN_RE.test(it.query) || LOMBARDIA_HINT_RE.test(it.query),
+      );
+      rssByGeo.set(geo.sourceKey, relevant);
+      // Also stash the unfiltered list under a side-channel for Lombardia
+      // cross-tagging (we want city-name matches even when not domain-relevant).
+      if (geo.id === 'IT') {
+        rssByGeo.set('__rawIt__', allItems);
+      }
     } catch {
       rssByGeo.set(geo.sourceKey, []);
     }
   }
-  // Lombardia cross-tag from IT RSS items mentioning Lombardia hints.
-  const itItems = rssByGeo.get('googleTrendsIt') || [];
-  const lombardiaItems = itItems.filter((it) => LOMBARDIA_HINT_RE.test(it.query));
+  // Lombardia cross-tag from IT RSS items (use the unfiltered list so city
+  // names pull through even without frontaliere wording).
+  const rawIt = rssByGeo.get('__rawIt__') || [];
+  const lombardiaItems = rawIt.filter((it) => LOMBARDIA_HINT_RE.test(it.query));
   if (lombardiaItems.length) {
     rssByGeo.set('googleTrendsItLombardia', lombardiaItems);
   }
+  rssByGeo.delete('__rawIt__');
 
   for (const geo of GEOS) {
     const collected = [];

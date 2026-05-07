@@ -582,12 +582,12 @@ describe('facebookPages', () => {
         comments: { summary: { total_count: 100 } },
       }),
     ).toBe(true);
-    // Below the soft engagement floor (5): drop.
+    // Below the soft engagement floor (1): drop only completely-zero posts.
     expect(
       postPassesFilter({
         message: 'frontalieri',
-        reactions: { summary: { total_count: 1 } },
-        comments: { summary: { total_count: 1 } },
+        reactions: { summary: { total_count: 0 } },
+        comments: { summary: { total_count: 0 } },
       }),
     ).toBe(false);
     // Empty message: drop.

@@ -34,7 +34,7 @@ const KEYWORD_PREFERENCE_RE =
   /(frontalier|grenzg(ä|a)nger|permesso\s*g|cassa\s*malati|imposta|tass[ae]|telelavoro|busta\s*paga|stipend|salar|chf|euro|valut|lamal|cmi|avs|lpp|pendolar|chiasso|gaggiolo|fornasette|valic)/i;
 
 const MAX_PER_PAGE = 50; // Graph API page-fetch cap per request
-const MIN_ENGAGEMENT = 5; // soft floor — drop completely-empty posts
+const MIN_ENGAGEMENT = 1; // very soft floor — only reject posts with literally 0 reactions+comments
 const MAX_TOTAL_CANDIDATES = 30; // top-N across all pages, sorted by engagement
 const MAX_MESSAGE_PREFIX = 80;
 
