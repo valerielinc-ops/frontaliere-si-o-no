@@ -6852,6 +6852,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.adeguati-assetti-imprese-ticino-2026.title': 'Adeguati assetti: obbligo e opportunità per l’impresa',
     'blog.article.adeguati-assetti-imprese-ticino-2026.excerpt': 'Gli adeguati assetti organizzativi, amministrativi e contabili sono un obbligo di legge ma anche un\'opportunità di crescita per le imprese in Ticino.',
     'blog.article.adeguati-assetti-imprese-ticino-2026.imageAlt': 'Vista del Lago di Lugano con montagne e edifici',
+    'blog.article.accuse-svizzera-italia-2026.title': 'Accuse alla Svizzera, prime crepe sul fronte italiano',
+    'blog.article.accuse-svizzera-italia-2026.excerpt': 'L\'editoriale-bonsai del Giornale del Ticino segnala tensioni tra Italia e Svizzera, con possibili ripercussioni per i frontalieri',
+    'blog.article.accuse-svizzera-italia-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

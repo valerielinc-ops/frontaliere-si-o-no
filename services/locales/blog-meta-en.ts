@@ -6851,6 +6851,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.adeguati-assetti-imprese-ticino-2026.title': 'Proper structures: a must and an opportunity for businesses',
     'blog.article.adeguati-assetti-imprese-ticino-2026.excerpt': 'Proper organizational, administrative, and accounting structures are a legal requirement but also a growth opportunity for businesses in Ticino.',
     'blog.article.adeguati-assetti-imprese-ticino-2026.imageAlt': 'View of Lake Lugano with mountains and buildings',
+    'blog.article.accuse-svizzera-italia-2026.title': 'Accusations against Switzerland, first cracks on Italian front',
+    'blog.article.accuse-svizzera-italia-2026.excerpt': 'The bonsai editorial in Giornale del Ticino signals tensions between Italy and Switzerland, with possible repercussions for cross-border workers',
+    'blog.article.accuse-svizzera-italia-2026.imageAlt': 'Castelgrande in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

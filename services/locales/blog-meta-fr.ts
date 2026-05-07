@@ -6852,6 +6852,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.adeguati-assetti-imprese-ticino-2026.title': 'Structures adaptées : obligation et opportunité pour l\'entreprise',
     'blog.article.adeguati-assetti-imprese-ticino-2026.excerpt': 'Les structures organisationnelles, administratives et comptables adaptées sont une obligation légale mais aussi une opportunité de croissance pour les entreprises en Ticino.',
     'blog.article.adeguati-assetti-imprese-ticino-2026.imageAlt': 'Vue du Lac de Lugano avec montagnes et bâtiments',
+    'blog.article.accuse-svizzera-italia-2026.title': 'Accusations contre la Suisse, premières tensions côté italien',
+    'blog.article.accuse-svizzera-italia-2026.excerpt': 'L\'éditorial-bonsaï du Giornale del Ticino signale des tensions entre l\'Italie et la Suisse, avec des répercussions possibles pour les frontaliers',
+    'blog.article.accuse-svizzera-italia-2026.imageAlt': 'Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;

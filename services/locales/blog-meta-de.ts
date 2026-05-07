@@ -6851,6 +6851,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.adeguati-assetti-imprese-ticino-2026.title': 'Angemessene Strukturen: Pflicht und Chance für Unternehmen',
     'blog.article.adeguati-assetti-imprese-ticino-2026.excerpt': 'Angemessene organisatorische, administrative und buchhalterische Strukturen sind gesetzlich vorgeschrieben, aber auch eine Wachstumschance für Unternehmen im Tessin.',
     'blog.article.adeguati-assetti-imprese-ticino-2026.imageAlt': 'Blick auf den Luganersee mit Bergen und Gebäuden',
+    'blog.article.accuse-svizzera-italia-2026.title': 'Vorwürfe gegen die Schweiz, erste Risse auf italienischer Seite',
+    'blog.article.accuse-svizzera-italia-2026.excerpt': 'Der Editorial-Bonsai des Giornale del Ticino meldet Spannungen zwischen Italien und der Schweiz, mit möglichen Auswirkungen auf Grenzgänger',
+    'blog.article.accuse-svizzera-italia-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;
