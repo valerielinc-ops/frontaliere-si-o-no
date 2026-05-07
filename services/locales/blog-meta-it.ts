@@ -6729,6 +6729,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spring-pride-saronno-2026.title': 'Spring Pride 2026: inclusione e diritti a Saronno, Caronno, Ceriano e Solaro',
     'blog.article.spring-pride-saronno-2026.excerpt': 'Dal 12 al 17 maggio eventi culturali e momenti di confronto per promuovere diritti e partecipazione in vista della Giornata contro l’omolesbobitransfobia',
     'blog.article.spring-pride-saronno-2026.imageAlt': 'Gruppo di persone partecipa a un pride parade in una piazza pittoresca del Ticino',
+    'blog.article.mengele-svizzera-1961-verifica.title': 'Josef Mengele in Svizzera nel 1961: il dossier segreto',
+    'blog.article.mengele-svizzera-1961-verifica.excerpt': 'Il criminale nazista potrebbe aver soggiornato a Kloten nel 1961. Il dossier secretato fino al 2071 potrebbe chiarire il mistero',
+    'blog.article.mengele-svizzera-1961-verifica.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera, con le Alpi sullo sfondo',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.title': 'Hantavirus a Zurigo: crocerista in isolamento',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.excerpt': 'Un uomo positivo all\'hantavirus è in cura a Zurigo dopo un viaggio in America del Sud. Ecco cosa sapere.',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.imageAlt': 'Lago di Lugano con vista sulle montagne circostanti',
+    'blog.article.cassis-cornado-crans-montana-risarcimento.title': 'Cassis e Cornado: tensioni sul risarcimento per le vittime di Crans-Montana',
+    'blog.article.cassis-cornado-crans-montana-risarcimento.excerpt': 'L\'ambasciatore italiano Cornado risponde alle critiche di Cassis sulle fatture ospedaliere per le vittime italiane dell\'incendio di Crans-Montana.',
+    'blog.article.cassis-cornado-crans-montana-risarcimento.imageAlt': 'Danni al bar Le Constellation dopo l\'incendio di Crans-Montana',
 };
 
 export default blogMetaIt;

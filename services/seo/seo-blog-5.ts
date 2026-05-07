@@ -26321,6 +26321,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mengele-svizzera-1961-verifica': {
+    title: 'Josef Mengele in Svizzera nel 1961: il dossier segreto',
+    description: 'Josef Mengele potrebbe aver soggiornato a Kloten nel 1961. Il dossier secretato fino al 2071 potrebbe chiarire il mistero. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, josef, mengele, 1961, dossier',
+    ogTitle: 'Josef Mengele in Svizzera nel 1961: il dossier segreto',
+    ogDescription: 'Josef Mengele potrebbe aver soggiornato a Kloten nel 1961. Il dossier secretato fino al 2071 potrebbe chiarire il mistero',
+    canonicalPath: '/articoli-frontaliere/mengele-svizzera-1961-verifica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Josef Mengele in Svizzera nel 1961: il dossier segreto",
+      "description": "Josef Mengele potrebbe aver soggiornato a Kloten nel 1961. Il dossier secretato fino al 2071 potrebbe chiarire il mistero. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mengele-svizzera-1961-verifica.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera, con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-05-07T09:22:46+00:00",
+      "dateModified": "2026-05-07T09:22:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mengele-svizzera-1961-verifica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-hantavirus-zurigo-crocerista-frontalieri': {
+    title: 'Hantavirus a Zurigo: crocerista in isolamento | Frontaliere Ticino',
+    description: 'Un uomo positivo all\'hantavirus è in cura a Zurigo dopo un viaggio in America del Sud. Ecco cosa sapere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, hantavirus, zurigo, crocerista, isolamento',
+    ogTitle: 'Hantavirus a Zurigo: crocerista in isolamento',
+    ogDescription: 'Un uomo positivo all\'hantavirus è in cura a Zurigo dopo un viaggio in America del Sud. Ecco cosa sapere.',
+    canonicalPath: '/articoli-frontaliere/hantavirus-zurigo-crocerista-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hantavirus a Zurigo: crocerista in isolamento",
+      "description": "Un uomo positivo all'hantavirus è in cura a Zurigo dopo un viaggio in America del Sud. Ecco cosa sapere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/hantavirus-zurigo-crocerista-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulle montagne circostanti"
+      },
+      "datePublished": "2026-05-07T09:31:59+00:00",
+      "dateModified": "2026-05-07T09:31:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hantavirus-zurigo-crocerista-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cassis-cornado-crans-montana-risarcimento': {
+    title: 'Cassis e Cornado: tensioni sul risarcimento per le vittime di Crans-Montana',
+    description: 'L\'ambasciatore italiano Cornado risponde alle critiche di Cassis sulle fatture ospedaliere per le vittime italiane dell\'incendio di Crans-Montana.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassis, cornado, tensioni, risarcimento',
+    ogTitle: 'Cassis e Cornado: tensioni sul risarcimento per le vittime di Crans-Montana',
+    ogDescription: 'L\'ambasciatore italiano Cornado risponde alle critiche di Cassis sulle fatture ospedaliere per le vittime italiane dell\'incendio di Crans-Montana.',
+    canonicalPath: '/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassis e Cornado: tensioni sul risarcimento per le vittime di Crans-Montana",
+      "description": "L'ambasciatore italiano Cornado risponde alle critiche di Cassis sulle fatture ospedaliere per le vittime italiane dell'incendio di Crans-Montana.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassis-cornado-crans-montana-risarcimento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Danni al bar Le Constellation dopo l'incendio di Crans-Montana"
+      },
+      "datePublished": "2026-05-07T09:41:52+00:00",
+      "dateModified": "2026-05-07T09:41:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

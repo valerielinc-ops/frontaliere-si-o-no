@@ -3485,6 +3485,9 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-montagne-neve-riapertura-passo-novena': { name: 'Mobilità', path: '/articoli-frontaliere/montagne-neve-riapertura-passo-novena', parent: 'blog' },
     'blog-lucerna-paradiso-fiscale-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/lucerna-paradiso-fiscale-frontalieri', parent: 'blog' },
     'blog-spring-pride-saronno-2026': { name: 'Spring Pride 2026', path: '/articoli-frontaliere/spring-pride-saronno-2026', parent: 'blog' },
+    'blog-mengele-svizzera-1961-verifica': { name: 'Novità', path: '/articoli-frontaliere/mengele-svizzera-1961-verifica', parent: 'blog' },
+    'blog-hantavirus-zurigo-crocerista-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-zurigo-crocerista-frontalieri', parent: 'blog' },
+    'blog-cassis-cornado-crans-montana-risarcimento': { name: 'Novità', path: '/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento', parent: 'blog' },
  };
 
  const info = sectionNames[section];

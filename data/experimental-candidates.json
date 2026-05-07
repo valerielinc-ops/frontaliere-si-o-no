@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T09:09:39.889Z",
+  "generatedAt": "2026-05-07T09:46:14.024Z",
   "sources": {
     "redditTicino": {
       "ok": true,
@@ -19,7 +19,7 @@
     },
     "googleNewsRss": {
       "ok": true,
-      "candidates": 239
+      "candidates": 233
     }
   },
   "candidates": [
@@ -376,26 +376,6 @@
       "totalScore": 0.379
     },
     {
-      "id": "498f1fc7",
-      "keyword": "10 % Steuerbonus für Auslandsinvestoren: Chinas neuer Deal zwischen Kapitalanreiz und Datenkontrolle - Xpert.Digital - Konrad Wolfenstein",
-      "normalizedKeyword": "10 % steuerbonus fur auslandsinvestoren: chinas neuer deal zwischen kapitalanreiz und datenkontrolle - xpert.digital - konrad wolfenstein",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "nuovo accordo fiscale",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBjb1pHVmZSQzhSb21OUHRSSVVlcERoZ0tJREo1QTRqSnlROHNLOXZyQXBhN1liZlU0UFViWWNkd0lXeWJNSlN0T1pIeDBJVklFVXUzVnVRSG9nZW04b0FqUGNrQdIBa0FVX3lxTFBNZHZjR0g0cHJRTzhvZW1mOXdnOWRreUxFMnFMLWRYa0lUNHd2WEJ1UzlTZ01XbUNSdmtRZ09nMk8zVDFsRGpVTVJWcHhOenJhMTFOYXdIZnFOODFLOG9mOVhGZFgyTHMwQmJn?oc=5",
-        "googleNewsRssPubDate": "Sun, 26 Apr 2026 14:44:43 GMT",
-        "googleNewsRssSource": "Xpert.Digital - Konrad Wolfenstein"
-      },
-      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — Xpert.Digital - Konrad Wolfenstein",
-      "demandScore": 0,
-      "noveltyScore": 0.947,
-      "totalScore": 0.379
-    },
-    {
       "id": "7019219f",
       "keyword": "Test per malattie veneree in Ticino. Devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
       "normalizedKeyword": "test per malattie veneree in ticino. devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
@@ -416,26 +396,6 @@
       "demandScore": 0.08,
       "noveltyScore": 0.818,
       "totalScore": 0.375
-    },
-    {
-      "id": "444fcac7",
-      "keyword": "How the Pillar 2 requirement is set - bankingsupervision.europa.eu",
-      "normalizedKeyword": "how the pillar 2 requirement is set - bankingsupervision.europa.eu",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinAFBVV95cUxONHhIaEEyWjhCdHBxOGoySklqMDVyRXpuNUNYRDhTZ1IxbGt5dWgyZXFWNVc4d2E5OVl2dmt3NWxMMG1iLXV6TEJSOW0wOEZKSlMwMGxNcmwwUURVbHkzTzlUMnRiRE96dXVYZDlrNDJ6cktfU0lzSnIxV3gyakhzNmxLUVBqTTlNVDdnWmozbmx6bTM5QWRoNEE3V3Q?oc=5",
-        "googleNewsRssPubDate": "Tue, 03 Dec 2024 17:30:37 GMT",
-        "googleNewsRssSource": "bankingsupervision.europa.eu"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — bankingsupervision.europa.eu",
-      "demandScore": 0,
-      "noveltyScore": 0.933,
-      "totalScore": 0.373
     },
     {
       "id": "8baa996d",
@@ -480,6 +440,26 @@
       "demandScore": 0.08,
       "noveltyScore": 0.8,
       "totalScore": 0.368
+    },
+    {
+      "id": "c7d4e12e",
+      "keyword": "Crolla il fast fashion polacco, Lpp scivola su accuse falsa vendita asset russi - Il Sole 24 ORE",
+      "normalizedKeyword": "crolla il fast fashion polacco, lpp scivola su accuse falsa vendita asset russi - il sole 24 ore",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOWGZNVDN1S3ZJWlVKeEE5U1h0QlhJa0RXNzJaRC0wNV9mSDRQRTRxNmdlWFVuVDZCSzVuN29RNmgydl9LWk85REM3cWxRUElzdlgtc0FjYUxHVzUySkRVNmQ4OENZMFVVU19pUEs5elBJQ3czRmNxOUVUMG5HakFyWEY3ZkxvNFRDTmVXY3pXMWhEMThHdjBFdEc4M0JaOXNXZnB0cDBWRGkzX0NFWWduWEJydw?oc=5",
+        "googleNewsRssPubDate": "Fri, 15 Mar 2024 07:00:00 GMT",
+        "googleNewsRssSource": "Il Sole 24 ORE"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — Il Sole 24 ORE",
+      "demandScore": 0,
+      "noveltyScore": 0.913,
+      "totalScore": 0.365
     },
     {
       "id": "870d9813",
@@ -582,6 +562,26 @@
       "totalScore": 0.362
     },
     {
+      "id": "607afb7d",
+      "keyword": "Massimo Martino, LPP Italy: “Il nostro business diversificato ci premia” - retail&amp;food",
+      "normalizedKeyword": "massimo martino, lpp italy: “il nostro business diversificato ci premia” - retail&amp;food",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVUQ1elZXU0FDSzdKRTJTTFRxVjQ3TDdEOVF3azV5b1dlczgwbWhCNmVReFJ3VDdYTlVZb2YyZXFKbjBKcUhKbTd4Xy1nYl9pREpUMWh6SWpMQ214UEFra1BuMkt1YVBtSk1laXlyUlBqRWdhUHFxVGRhd19sNnd2VWNWM0pQSS1GLUoyOXpDQ0ZhckF3YWctdWtVVU50MjRlZDFEQTh3Um1PQQ?oc=5",
+        "googleNewsRssPubDate": "Fri, 07 Jun 2024 07:00:00 GMT",
+        "googleNewsRssSource": "retail&amp;food"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — retail&amp;food",
+      "demandScore": 0,
+      "noveltyScore": 0.905,
+      "totalScore": 0.362
+    },
+    {
       "id": "27966ccf",
       "keyword": "Global minimum tax: nuovo accordo OCSE - DB - Non solo Diritto Bancario",
       "normalizedKeyword": "global minimum tax: nuovo accordo ocse - db - non solo diritto bancario",
@@ -597,66 +597,6 @@
         "googleNewsRssSource": "DB - Non solo Diritto Bancario"
       },
       "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — DB - Non solo Diritto Bancario",
-      "demandScore": 0,
-      "noveltyScore": 0.9,
-      "totalScore": 0.36
-    },
-    {
-      "id": "db9fba4a",
-      "keyword": "Investimento senza interessi di fondi di libero passaggio dell’istituto collettore - Bundesamt für Sozialversicherungen BSV",
-      "normalizedKeyword": "investimento senza interessi di fondi di libero passaggio dell’istituto collettore - bundesamt fur sozialversicherungen bsv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQUUpSRzBKakpJRXlFMWZqdkRlVnJBQlBTd1VlcUFmQlVZaVBTUFVrMGdEd1JCYXQ4ODBJeGxaeFN6dXptTG9kM2l1VVNyclplUllEai1VSlZtUk1EbXlaeTVsRlVxN0dJdjlCald2QVRjTTF2QmFqakU1N20wRE1Ec1JSazQ?oc=5",
-        "googleNewsRssPubDate": "Fri, 06 Feb 2026 13:14:48 GMT",
-        "googleNewsRssSource": "Bundesamt für Sozialversicherungen BSV"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — Bundesamt für Sozialversicherungen BSV",
-      "demandScore": 0,
-      "noveltyScore": 0.9,
-      "totalScore": 0.36
-    },
-    {
-      "id": "09f2f374",
-      "keyword": "Sanita': Liverani (Ania), priorita' ampliamento II pilastro e 'polizze' intramoenia - Il Sole 24 ORE",
-      "normalizedKeyword": "sanita': liverani (ania), priorita' ampliamento ii pilastro e 'polizze' intramoenia - il sole 24 ore",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMibEFVX3lxTE91ZWdLQlhyT0thYTNxcHZEa0x5Qzc2MnhhcVFTNFB2Z2RCX3hIbTcweHdlZks4aGh3eGM0U2VwVXRwZ3BISWtDUlRvcF9LUGdRR1p0bGJPT0J1V3ZMRjVfS1Q5LU5qYVU1QWRSaA?oc=5",
-        "googleNewsRssPubDate": "Tue, 28 Apr 2026 19:23:21 GMT",
-        "googleNewsRssSource": "Il Sole 24 ORE"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Il Sole 24 ORE",
-      "demandScore": 0,
-      "noveltyScore": 0.9,
-      "totalScore": 0.36
-    },
-    {
-      "id": "b3d1aa0e",
-      "keyword": "Sanita': Liverani (Ania), priorita' ampliamento II pilastro e 'polizze' intramoenia -2- - Il Sole 24 ORE",
-      "normalizedKeyword": "sanita': liverani (ania), priorita' ampliamento ii pilastro e 'polizze' intramoenia -2- - il sole 24 ore",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9ETUVqTXpNZndlWXY0UFZUS1BKSy1rMU5TdUtOMzFxemNOWW9oaFI5Z25JLWs1VXpmYXRHNXdqT192RUdfVU5CS0RPanBtbVZiSTk4LWZWVFZFQVcxalFpODIzXzJzOXU1dlZ6TQ?oc=5",
-        "googleNewsRssPubDate": "Tue, 28 Apr 2026 19:23:21 GMT",
-        "googleNewsRssSource": "Il Sole 24 ORE"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Il Sole 24 ORE",
       "demandScore": 0,
       "noveltyScore": 0.9,
       "totalScore": 0.36
@@ -728,46 +668,6 @@
       "totalScore": 0.359
     },
     {
-      "id": "facc0e63",
-      "keyword": "Il minimalismo dello studio italo-francese LAN contro ogni architettura esagerata ed esibizionista, anche nell'ampliamento del MAXXI - Diario Infrastrutture e Ambiente Costruito",
-      "normalizedKeyword": "il minimalismo dello studio italo-francese lan contro ogni architettura esagerata ed esibizionista, anche nell'ampliamento del maxxi - diario infrastrutture e ambiente costruito",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFAxZlRiRFFobVF2aGR6MmZHN0hOTEFMV0VEWjI0RzJUYXdCdkk2Vi00TlB3RkJrd0paMW5WTTBBSmV3bGRueVViRmdMMHkzS1E?oc=5",
-        "googleNewsRssPubDate": "Sun, 28 Sep 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Diario Infrastrutture e Ambiente Costruito"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — Diario Infrastrutture e Ambiente Costruito",
-      "demandScore": 0,
-      "noveltyScore": 0.897,
-      "totalScore": 0.359
-    },
-    {
-      "id": "5ab89293",
-      "keyword": "L'architettura fascista è esistita: tanta produzione di buon livello, ma anche i segni contraddittori della monumentalità di regime. Critica sempre in affanno sul tema - Diario Infrastrutture e Ambiente Costruito",
-      "normalizedKeyword": "l'architettura fascista e esistita: tanta produzione di buon livello, ma anche i segni contraddittori della monumentalita di regime. critica sempre in affanno sul tema - diario infrastrutture e ambiente costruito",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9uYXpPWTcwTWpuWlE3b0o5MV9oa2o5dGs1ZVJzMlVmUGZpUDJlb3JUOUNqTTdmSFRuY29zVV9CVkZkMU10MFMzLW1SeFN2YjlUWnUwRUJRdWsweUVsS05qa2Vn?oc=5",
-        "googleNewsRssPubDate": "Sun, 13 Jul 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Diario Infrastrutture e Ambiente Costruito"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — Diario Infrastrutture e Ambiente Costruito",
-      "demandScore": 0,
-      "noveltyScore": 0.897,
-      "totalScore": 0.359
-    },
-    {
       "id": "817c7629",
       "keyword": "Tornei di calcio balilla a Lugano?",
       "normalizedKeyword": "tornei di calcio balilla a lugano?",
@@ -790,26 +690,6 @@
       "totalScore": 0.359
     },
     {
-      "id": "625fa872",
-      "keyword": "L’Imprinting di Antonino Saggio prova a catturare l’inafferrabile e sfuggente architettura italiana - Diario Infrastrutture e Ambiente Costruito",
-      "normalizedKeyword": "l’imprinting di antonino saggio prova a catturare l’inafferrabile e sfuggente architettura italiana - diario infrastrutture e ambiente costruito",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizAFBVV95cUxORF8wbDlYcDRUV3d1MlFGTXBjV0tvS0ljbTJla1VwNU5HdVFuRjhqaG5vTzVjX01yVlFrVGZCRFVRUG04VFVXVi1TajdmVDZaLW1JdEtjZ1NkUkRXUHRzY3BpbTA3Z2NoUFNBUTlzOF9wS3ZDcUVyRmZIbms3N3J6LXYyTkllZS15NUI1SXNwTktuYjRBOXlJMTRNaF9jemlxckVSWTU1U2dMWTBQRFBISWlseEw3WWdWdTIwU1RyeXdwY2M5MGdiSjNBT0o?oc=5",
-        "googleNewsRssPubDate": "Sun, 29 Jun 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Diario Infrastrutture e Ambiente Costruito"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — Diario Infrastrutture e Ambiente Costruito",
-      "demandScore": 0,
-      "noveltyScore": 0.895,
-      "totalScore": 0.358
-    },
-    {
       "id": "f30037a4",
       "keyword": "Tajani: “Stiamo lavorando alla difesa europea, vogliamo essere secondo pilastro della Nato” - Agenzia Vista",
       "normalizedKeyword": "tajani: “stiamo lavorando alla difesa europea, vogliamo essere secondo pilastro della nato” - agenzia vista",
@@ -825,26 +705,6 @@
         "googleNewsRssSource": "Agenzia Vista"
       },
       "rationale": "Google News RSS seed \"secondo pilastro\" — Agenzia Vista",
-      "demandScore": 0,
-      "noveltyScore": 0.895,
-      "totalScore": 0.358
-    },
-    {
-      "id": "ecc5089b",
-      "keyword": "Tutto su cause, prevenzione e soluzione delle lacune - UBS",
-      "normalizedKeyword": "tutto su cause, prevenzione e soluzione delle lacune - ubs",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPYmZpMUdiSElyZURKUlV3Z0RfdGQ4MW5NanpLTTdqRW5hTjdmWVgxMHlYaGNad2J2S1hPZlRNQXh6bGRKR2lfamMxWWtpRlp0MEJIdndqRHNQa19OT3J0alc2UjhGcmFmSWZIVDlMX1pCVGhXZk1YaVRrV0dkY0thbWNPSFgzZXZ6b0Vkdw?oc=5",
-        "googleNewsRssPubDate": "Tue, 14 Jan 2025 07:18:36 GMT",
-        "googleNewsRssSource": "UBS"
-      },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — UBS",
       "demandScore": 0,
       "noveltyScore": 0.895,
       "totalScore": 0.358
@@ -870,21 +730,21 @@
       "totalScore": 0.356
     },
     {
-      "id": "2aee710d",
-      "keyword": "Lamine Yamal ha una nuova fiamma? Pizzicato con l'influencer Anna Gegnoso - Sportmediaset",
-      "normalizedKeyword": "lamine yamal ha una nuova fiamma? pizzicato con l'influencer anna gegnoso - sportmediaset",
+      "id": "4b318325",
+      "keyword": "Emigrazione e cassa pensione: come risparmiare sulle imposte - SWI swissinfo.ch",
+      "normalizedKeyword": "emigrazione e cassa pensione: come risparmiare sulle imposte - swi swissinfo.ch",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPeGhMY1AxT1lHcUplMlNaNjZSZUVJVDd5WEV5YUlycVVmUkxreWYzNzlId1VESUEteXhkdDBlc0ZNSXREeEZHLXpEYklyazNPZlR5cEJXSjNWdTl2TDRLUFJSaVA5M0FackhsTmk2RllGOWc2b3E2ZXo5SkN4MmFjU2NiNFdlanZMMjkxa2tUdGJfU1NFOWQ0cXpTQ3FDajk4NlJGZ19GTnpkLTlHQ015OElkZmJ5aERYY2V0cnh2VzFDeWZmVlE0R0FiYmc1ZVpQVzdxYkJIclhVLTFJZ1FFZlA1UdIBfkFVX3lxTE00WEhoS2NyZm4zNldPTEhadUxJTFBuNnBXTTFSdHNKdTVLWFNsMHItaG5tODBuQ0JLRHVDMkVRcXJEQ2FmNjRIdHJrdkNKVGNlZUpxMXpfMktpYS0zWUpRcjNYVmdVb3NkaGFBbnhULUNlbnZvVWFIODBjU3JQdw?oc=5",
-        "googleNewsRssPubDate": "Wed, 04 Dec 2024 08:00:00 GMT",
-        "googleNewsRssSource": "Sportmediaset"
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRFNSN2kxSE5lNVRDSWJXb3QwUGJZalozaEFfUVpoeVdHWjZzd0ZhZGJIWExCNTBvZjA0M1lhQlRJemUwSzhRdXdyVjg1UXE0U1RfMnZmTTJHZFdMY1N4ckJGOFlIdWRwWTNBQXBBa0l1S2dlLWJQclN5S3Z3aFg2V0ktZzNiVzV3emFYa3RWU2NfcVlaUDJwNS1Xcjd5aWNxeF81X2diam14Zw?oc=5",
+        "googleNewsRssPubDate": "Tue, 14 Jan 2025 08:00:00 GMT",
+        "googleNewsRssSource": "SWI swissinfo.ch"
       },
-      "rationale": "Google News RSS seed \"LAMal\" — Sportmediaset",
+      "rationale": "Google News RSS seed \"secondo pilastro\" — SWI swissinfo.ch",
       "demandScore": 0,
       "noveltyScore": 0.889,
       "totalScore": 0.356
@@ -912,6 +772,26 @@
       "totalScore": 0.356
     },
     {
+      "id": "93aba41f",
+      "keyword": "Nuovi frontalieri, il conto è troppo salato. “12mila euro di tasse e anche l’acconto 2026? Follia”, “18mila euro all’erario, shock”, “Conviene ancora?” - ComoZero",
+      "normalizedKeyword": "nuovi frontalieri, il conto e troppo salato. “12mila euro di tasse e anche l’acconto 2026? follia”, “18mila euro all’erario, shock”, “conviene ancora?” - comozero",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNS3YwOUJmb21ELVF6OERWNmxzbENEeWs5MEt3bU9Zd3BLa3FTTVczZjF4bkNOa3VBWTFGMUhHbkJZU1h4SUhUNnBsNVVZUW5fVHQ0TTkwNVFSOENERnVxcE4tSmZxeEo0TFZDbGVmZ0xKdUV0c0ZHd3NEaEp4TmJkaVF4RWdPRzVNMHZsUHRGc2dTRi1fenlPRVVwei1ycHhnZklZU1NLRE5yd3daVXBWVWg0eFgxWWwzbk82S1hjbm41WWh2WEFRcnNjSXItWmt0dll3ZXREMFc4VXgxZWJZVUpERENpZUxKa2E2QkhYMzA1THpj?oc=5",
+        "googleNewsRssPubDate": "Mon, 18 Aug 2025 07:00:00 GMT",
+        "googleNewsRssSource": "ComoZero"
+      },
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — ComoZero",
+      "demandScore": 0,
+      "noveltyScore": 0.885,
+      "totalScore": 0.354
+    },
+    {
       "id": "b1bb4a37",
       "keyword": "Cremona, nuovo accordo tra Agenzia, Gdf e Procura - Fisco Oggi",
       "normalizedKeyword": "cremona, nuovo accordo tra agenzia, gdf e procura - fisco oggi",
@@ -927,6 +807,26 @@
         "googleNewsRssSource": "Fisco Oggi"
       },
       "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — Fisco Oggi",
+      "demandScore": 0,
+      "noveltyScore": 0.882,
+      "totalScore": 0.353
+    },
+    {
+      "id": "243662c5",
+      "keyword": "OIC 25: disposizioni modello Secondo Pilastro Ocse. Approvati gli emendamenti - Fisco e Tasse",
+      "normalizedKeyword": "oic 25: disposizioni modello secondo pilastro ocse. approvati gli emendamenti - fisco e tasse",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNUTdnakw5Y29uUVZQTHpzbHRaMlZ2dTluU1BkTEllS2RNWnAwZjR3eXVVWEQ4UDFHcElHZTFVYzA5aWYybTNka25zNEFiLXFqUEcxcnJrQXNxV2QtRWdxSVBTOE9YOERyR3BwbmlRejJmRGphQnVKMjctQ3lSMTlNU3p4RElEVFJ6SGl2dENqR3FYQUx2VnVVa2RNYnlBOE9LZ1EzN05LZlZZeklmeEdmV21nOE1fM3ZfUlNnXy1LMi10QzFmODV5endn?oc=5",
+        "googleNewsRssPubDate": "Mon, 25 Mar 2024 06:01:34 GMT",
+        "googleNewsRssSource": "Fisco e Tasse"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — Fisco e Tasse",
       "demandScore": 0,
       "noveltyScore": 0.882,
       "totalScore": 0.353
@@ -1012,6 +912,26 @@
       "totalScore": 0.35
     },
     {
+      "id": "dfc18583",
+      "keyword": "Frontalieri: retifica dell’accordo tra San Marino ed Emilia Romagna. A.F.I.S.: “Bene” - Chiamami Città",
+      "normalizedKeyword": "frontalieri: retifica dell’accordo tra san marino ed emilia romagna. a.f.i.s.: “bene” - chiamami citta",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdi1HYmoxd05IR2JvMjR0ZWE1b05wTUpGWVUtdGY5RlE1OGROcFpBNHlfLW82LWNJMXY3dlRCMXdSQ1FZZ05uM2E5bWg0eUpWWjhuaUZOSUtXVEUzT2xybW5VSWxiYjViS1JsLXZVcllheU00TjNVMjRVeFo0bENpR2FLODFWTm5GRXlxNkJ5QWNYWUtRNHBfYTVSX1FYajJZQXJwdy0tMFBjdFVf?oc=5",
+        "googleNewsRssPubDate": "Thu, 07 May 2026 09:12:39 GMT",
+        "googleNewsRssSource": "Chiamami Città"
+      },
+      "rationale": "Google News RSS seed \"frontalieri\" — Chiamami Città",
+      "demandScore": 0,
+      "noveltyScore": 0.875,
+      "totalScore": 0.35
+    },
+    {
       "id": "dbd5c773",
       "keyword": "Le nuove basi tecniche LPP 2025 confermano le tendenze relative all'aspettativa di vita e all'invalidità - Organisator",
       "normalizedKeyword": "le nuove basi tecniche lpp 2025 confermano le tendenze relative all'aspettativa di vita e all'invalidita - organisator",
@@ -1076,61 +996,21 @@
       "totalScore": 0.348
     },
     {
-      "id": "53068ae9",
-      "keyword": "Sanità, spesa delle famiglie a 41,3 miliardi ed è boom di privato puro con 7,2 mld (+ 137%) - Il Sole 24 ORE",
-      "normalizedKeyword": "sanita, spesa delle famiglie a 41,3 miliardi ed e boom di privato puro con 7,2 mld (+ 137%) - il sole 24 ore",
+      "id": "7dc5c83c",
+      "keyword": "FRONTALIERI: RIMBORSO DELLE IMPOSTE ALLA FONTE - sondrio.lombardia.cisl.it",
+      "normalizedKeyword": "frontalieri: rimborso delle imposte alla fonte - sondrio.lombardia.cisl.it",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQRlpXOGl0WFhMR1hyUTlQT0Q0MTlJRlAyOGxOSGJremRua0tIcWg4eS00bkVrbUFYbEtLSkZkblFxRmg3dUJWNVEzRFQ4Zzk5eXQxX0ZLTkNsOEZYZ1lNd3NxZ3Zia0JMTWNOdlV3bVdHdHBvOGd1alBJWmpZdURsNjhvbzNORFFuVEpjV08yc1F1VzVNcC1rSVYtZEthcjFCRDRWMURkdEdiam1xaUVZQVVsQ0JuUllW?oc=5",
-        "googleNewsRssPubDate": "Wed, 26 Nov 2025 08:00:00 GMT",
-        "googleNewsRssSource": "Il Sole 24 ORE"
+        "googleNewsRssSeed": "permesso G",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQWFF0NE4zVFVLYk9VMlhqM0tBM29yeTVhWjZlMTdjbjFkSWdzTFo2X1lVek02R2hwMTI3VlV0RjN6VFAyeXZZa1QwYkJfWHRvcnF1UnliR2sxdXZsVGZXM0E5VTlUdU5jcWFPMjBqZlNhaG1qV2R0eklSTndQXzEyN3lPLW9ob3M1WGxORQ?oc=5",
+        "googleNewsRssPubDate": "Thu, 09 Jan 2020 08:00:00 GMT",
+        "googleNewsRssSource": "sondrio.lombardia.cisl.it"
       },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Il Sole 24 ORE",
-      "demandScore": 0,
-      "noveltyScore": 0.87,
-      "totalScore": 0.348
-    },
-    {
-      "id": "78ff71ae",
-      "keyword": "Global Minimum Tax: nuovo pacchetto OCSE 2026 - edotto.com",
-      "normalizedKeyword": "global minimum tax: nuovo pacchetto ocse 2026 - edotto.com",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQRmJWWFFhc19zV0o4RXNRVExoVnN4Z1NsTDMtSXZPa1haOTNlLXpYY0tpZG1ObElhTGpSQ3VBU2hlNWpfWFdVRm5kMjVNOEp3elRQRDhJeG04TU5tZEI5emxZNVMzaWd4MXVVcUk5THNqMmRxeW94dElwR01xME1qWEdB0gGIAUFVX3lxTE5zLUUwRTZTUEVTdHUyX3BlSVlWR09Da3BTeWpjZjJmR1lTckRQSGdXZHpSNlhHcHJvMHRHZjl2aWN2LXhQR08xbzV3RnBIdTAxOFdCRW9fdTBWWkk5TWRIZVNpMl9ETVgxSS1GamRkVXNPaGF4Q0dhZzJESFlGVVoydEFxZUx0elk?oc=5",
-        "googleNewsRssPubDate": "Wed, 07 Jan 2026 08:00:00 GMT",
-        "googleNewsRssSource": "edotto.com"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — edotto.com",
-      "demandScore": 0,
-      "noveltyScore": 0.867,
-      "totalScore": 0.347
-    },
-    {
-      "id": "8fd51e88",
-      "keyword": "Il pop sofisticato di Cino Zucchi lavora sulle contraddizioni per diventare evanescente. Il capolavoro della Casa D all'ex Junghans di Venezia - Diario Infrastrutture e Ambiente Costruito",
-      "normalizedKeyword": "il pop sofisticato di cino zucchi lavora sulle contraddizioni per diventare evanescente. il capolavoro della casa d all'ex junghans di venezia - diario infrastrutture e ambiente costruito",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBMeS0zU1Rfc29uVVpfUXliZk9WYnQ1Q1dzc3Nsb0FCX2dqemswbi1ya0RTaEJvT2pQQ0dMc0Y4UGttSU1EUVdwQlVvdlp2ckIydHow?oc=5",
-        "googleNewsRssPubDate": "Sun, 06 Jul 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Diario Infrastrutture e Ambiente Costruito"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — Diario Infrastrutture e Ambiente Costruito",
+      "rationale": "Google News RSS seed \"permesso G\" — sondrio.lombardia.cisl.it",
       "demandScore": 0,
       "noveltyScore": 0.867,
       "totalScore": 0.347
@@ -1140,7 +1020,7 @@
       "keyword": "Impatriati: il passato da frontaliere non preclude le agevolazioni fiscali - QuotidianoPiù",
       "normalizedKeyword": "impatriati: il passato da frontaliere non preclude le agevolazioni fiscali - quotidianopiu",
       "angle": null,
-      "locale": "it",
+      "locale": "fr",
       "sources": [
         "googleNewsRss"
       ],
@@ -1156,21 +1036,21 @@
       "totalScore": 0.347
     },
     {
-      "id": "c76aa578",
-      "keyword": "Lamine Yamal compie 18 anni: il regalo del Barcellona, la festa segreta e le stimmate del predestinato che ora vuole Champions, Mondiale e Pallone d'Oro - Calciomercato",
-      "normalizedKeyword": "lamine yamal compie 18 anni: il regalo del barcellona, la festa segreta e le stimmate del predestinato che ora vuole champions, mondiale e pallone d'oro - calciomercato",
+      "id": "39da91aa",
+      "keyword": "Pensione LPP: senza intermediario è soggetta a tassazione separata - Fisco Oggi",
+      "normalizedKeyword": "pensione lpp: senza intermediario e soggetta a tassazione separata - fisco oggi",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMisAJBVV95cUxOXzJVSTV3Q052RHRwN01tWndhRnRiMDBmZUNvaFlMUWx6aUNxVzN3emRiZTNwOXFRN2VnUnVUTEkteFF0ejJFZ1MzdTdWOGtBWjlwcUhGaVdJLVg1eFJtTUxDVUdPeVQ3MHJ3TmZiVkFuM0k2OHNCRTlqdFkwN01VVnl5ZVhVbEx6bHFCOHRCVEkyVjRKcjBqUGNvZ2psNlQtVUw5S21MTzdlRElkdHRjR0ZLeXo5amVmTFZrYlAxUng0TjR5NXFJVXhxTnhxOVdwdzhJQldwTExFMXBKSjBqOENUTk9BWG10OFdJeEw1aGlfa2RBWl9mMGY5dHMxckhvUkJFU0RxOTJraEl6ZkxXZFBnQWZ5X1Zndnp2Wi1XeUd1MUFmaEtSZlYzT3JUOUpW?oc=5",
-        "googleNewsRssPubDate": "Sun, 13 Jul 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Calciomercato"
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOY2laOEkyWFRpT1ZwbXVvM1lvYUNZTHpiamFYcFUxUWhqX1BIU080QkdHTW5EZDJORFlmaUNnc2tXbk5DWnk1VG1wQzZJank5c2QwMEpPc2pXdHRSa0hNTTZ3aUpqbTE3NG0zc0FZdUgyUmpNRzhqODJ2ZVNia1I4b0tQTWRWR0JPMkRFS2JqMXhRNVRudk9lZUUyLTZnTmJRV2NSVGFHbTc?oc=5",
+        "googleNewsRssPubDate": "Mon, 27 Jan 2020 08:00:00 GMT",
+        "googleNewsRssSource": "Fisco Oggi"
       },
-      "rationale": "Google News RSS seed \"LAMal\" — Calciomercato",
+      "rationale": "Google News RSS seed \"LPP\" — Fisco Oggi",
       "demandScore": 0,
       "noveltyScore": 0.867,
       "totalScore": 0.347
@@ -1324,26 +1204,6 @@
       "totalScore": 0.343
     },
     {
-      "id": "ec78f340",
-      "keyword": "MGS Triveneto | La donna, pilastro dell'umanità - Donboscoland.it",
-      "normalizedKeyword": "mgs triveneto | la donna, pilastro dell'umanita - donboscoland.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMickFVX3lxTE9FQnE3YlA4UkJFclBrdDVybTFzSDhkeXItVUtHQWZqNDVzZFEyR1hRTVF0QS13M2UybjBYcG0xUnZXOEdNYTJnSTNNSkEzM2FIdW5tRF9EV3ctekY0WGRzSV9mX3piMEUwbzJkckNUWDVGQQ?oc=5",
-        "googleNewsRssPubDate": "Sun, 08 Mar 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Donboscoland.it"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Donboscoland.it",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
       "id": "1eddba7a",
       "keyword": "Riforma della previdenza professionale (Riforma LPP) - Bundesamt für Sozialversicherungen BSV",
       "normalizedKeyword": "riforma della previdenza professionale (riforma lpp) - bundesamt fur sozialversicherungen bsv",
@@ -1359,26 +1219,6 @@
         "googleNewsRssSource": "Bundesamt für Sozialversicherungen BSV"
       },
       "rationale": "Google News RSS seed \"LPP\" — Bundesamt für Sozialversicherungen BSV",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
-      "id": "c3022309",
-      "keyword": "Sanità integrativa ed economia sociale: è il tempo della responsabilità condivisa - Il Sole 24 ORE",
-      "normalizedKeyword": "sanita integrativa ed economia sociale: e il tempo della responsabilita condivisa - il sole 24 ore",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRkN5Zno5ODEwMHRrcnR3T0Jwbm1qekEwUFdjQjdYSEdkME5NQU9FVmg2VEQ4WldJTFl3SmdCa3NfUFFBcENqb2pOaG9uUVZDeTRVbE5vV3pZMGhJYTRyVXg0c0ZPUmluQ2oxNjM2TnAtQlR2MEsxVkRGQXVFSGZLNDBDLW1yRHI5VGt5OUs4cVVzTFJEZ2RMeXItVHYtN3Jidkd1V1A5UDdxVjlPLWJTYWhR?oc=5",
-        "googleNewsRssPubDate": "Thu, 12 Feb 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Il Sole 24 ORE"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Il Sole 24 ORE",
       "demandScore": 0,
       "noveltyScore": 0.857,
       "totalScore": 0.343
@@ -1444,21 +1284,21 @@
       "totalScore": 0.341
     },
     {
-      "id": "3407c176",
-      "keyword": "Pieve Vergonte si ferma per l’ultimo saluto a Simone Grossi - La Stampa",
-      "normalizedKeyword": "pieve vergonte si ferma per l’ultimo saluto a simone grossi - la stampa",
+      "id": "cf65994d",
+      "keyword": "LPP: il proprietario del brand Reserved è ottimista e prepara l’espansione in Regno Unito, Italia e Grecia - FashionNetwork Italia",
+      "normalizedKeyword": "lpp: il proprietario del brand reserved e ottimista e prepara l’espansione in regno unito, italia e grecia - fashionnetwork italia",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "frontaliere",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPb0k5VEZiTHMwNGtVcElmZWFScHRSblNlZVRuamRoSVU0ZHRxTUtIUEEySW5QM21aZjBaRnlDRkUwMW8td05RZmxjWERjTzlpQnVOaF92LVNjVkxsc2Q1TDFDajdyNVVZM01ucXRCczB1SzVhbDNYSFdaY2FfSnV4RVpBU29sMkIwWFdzOU5xWHQ4Z3hHQ2NxQmpKYTJKV2Q2dnc1dVNKcnpxU3dwTE9Hb0FBWE9GeEI1eG9fcFZSVkNEZ9IBxwFBVV95cUxObS1UWHcxLU5BcF9YRDZRQ0pENjdHc29lamNLWVliazRXX3NpN3FuQ25DSmVZaGZRV3IxbU1WMHJHZDVCZVV3WjZyQ29nZC14ekdGME53RVl5N1VOeDA0aU82cEQyNTgtaXpfZUF4djk1TzBrNzBzZGFYejB3ZkFDNWVtb3o4OWV1bWFzNmFsa0hQR1VDRy1wd2otR1BZQkQ0cDE5ekhDQVIxYmhZcUE0TTBTd2tSalg4ZFZQcUZDRWxxLU1yWFRr?oc=5",
-        "googleNewsRssPubDate": "Thu, 09 Apr 2026 07:00:00 GMT",
-        "googleNewsRssSource": "La Stampa"
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNbTdVVzA5MjVfcnFfMGNkQzNwTlZLLWoybXMzRks5bldHU2piUENKNXBvSnpGalppanZEcF9jS3QtWmN5M0h0MTFGWktjTE5KclNvbV9sUjdHQlFhUkVCeEhUd3JEWmxRVy1ib2dwbUkxbk1Tdk56QjM4OUZhSHVqUEdoZm51VEZXdW4xc2M5VTN6OGZNTEFLYkFMYzBBaXlFNmhqVHFlbnJXaFNJUWhPY2tDX2tGT2dHZkxBTm40amlRMFZmbzVDUmhBYUN3eFdpc3VpWUxoZWJWZWg1cDF5UllyNDZmSkE?oc=5",
+        "googleNewsRssPubDate": "Tue, 11 Oct 2022 07:00:00 GMT",
+        "googleNewsRssSource": "FashionNetwork Italia"
       },
-      "rationale": "Google News RSS seed \"frontaliere\" — La Stampa",
+      "rationale": "Google News RSS seed \"LPP\" — FashionNetwork Italia",
       "demandScore": 0,
       "noveltyScore": 0.85,
       "totalScore": 0.34
@@ -1479,26 +1319,6 @@
         "googleNewsRssSource": "la Repubblica"
       },
       "rationale": "Google News RSS seed \"busta paga svizzera\" — la Repubblica",
-      "demandScore": 0,
-      "noveltyScore": 0.85,
-      "totalScore": 0.34
-    },
-    {
-      "id": "26acb11d",
-      "keyword": "Un’azione di sabotaggio danneggia una azienda che lavora per Israele nella Repubblica Ceca - Contropiano",
-      "normalizedKeyword": "un’azione di sabotaggio danneggia una azienda che lavora per israele nella repubblica ceca - contropiano",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPaENtSU8ya2FON1k3WWw5RnBGT3pnOXR1LWxvOEVzaFF3THpkQVJRdTRZdHJzeUlDYy1DUzJHWTB3OG5YeVY3Q25EYjhhQUhnUmNZTHJhT1o0YWN4Z2xoaXc1SkFqVnBFN0FocnplLXZ5RDdjdlVKR0JJeWFZQm9RV0stY1hWVXV5ZlFBQ3pvU09XUmpwQk1oSGFtOHMyUFdmN0FfOGdYbUVDalA1bXpTY1c5RHM0VHdHc01wUHU0VWNMWXE0a3dHNHpsOGQwQkhqVi1BM256c1B4SDdWM3FVQTFjQVlOalljVmlQSHlvTU9zQQ?oc=5",
-        "googleNewsRssPubDate": "Tue, 24 Mar 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Contropiano"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — Contropiano",
       "demandScore": 0,
       "noveltyScore": 0.85,
       "totalScore": 0.34
@@ -1690,7 +1510,7 @@
       "keyword": "“Scorporare la Quarta età dalla LAMal? Una delle possibili opzioni” - RSI Radiotelevisione svizzera",
       "normalizedKeyword": "“scorporare la quarta eta dalla lamal? una delle possibili opzioni” - rsi radiotelevisione svizzera",
       "angle": null,
-      "locale": "it",
+      "locale": "fr",
       "sources": [
         "googleNewsRss"
       ],
@@ -1766,6 +1586,26 @@
       "totalScore": 0.337
     },
     {
+      "id": "100b495b",
+      "keyword": "Frontalieri, via libera allo scambio dei dati salariali con l’Italia - TVS tvsvizzera.it",
+      "normalizedKeyword": "frontalieri, via libera allo scambio dei dati salariali con l’italia - tvs tvsvizzera.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQa2o1M3ZUT2ZyZ3FHd3BhRW9UUVBINmtCWWZFTWN5SUNxMVR5QWRDeXA2Y1J0ZDhqcU5kaTBTcUZKa1F5bmZBRHJHckFsWXNBbGx6bk1nVVQzNTBoMWhnS3d5RkZ3cmkzbThCcHdMV0V4MGs1d0Yza1pwY2NMWlBjRzQzUmhBTTBRbU54U2FsRVFfQ0tQbGNVdGtKNFItNGhBUWhDWG1DeG9rcDhveFEzOWNRcEtHUjVxeV81WFBqdUFvUXhsTkRZ?oc=5",
+        "googleNewsRssPubDate": "Mon, 08 Sep 2025 07:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
+      },
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
+      "demandScore": 0,
+      "noveltyScore": 0.842,
+      "totalScore": 0.337
+    },
+    {
       "id": "8706d900",
       "keyword": "Healthcare e life sciences secondo pilastro del venture capital italiano: 357 milioni raccolti nel 2025 - INNLIFES",
       "normalizedKeyword": "healthcare e life sciences secondo pilastro del venture capital italiano: 357 milioni raccolti nel 2025 - innlifes",
@@ -1786,11 +1626,31 @@
       "totalScore": 0.337
     },
     {
+      "id": "12816cbc",
+      "keyword": "Pensioni svizzere del secondo pilastro tassate al lordo delle imposte estere - Il Sole 24 ORE",
+      "normalizedKeyword": "pensioni svizzere del secondo pilastro tassate al lordo delle imposte estere - il sole 24 ore",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQa3RUcDYwU0RvY3FJSTVRN1VYNjdPS0Z2QTRBbkp0RExLZDlxd19CUmtQTkh3OHhiVmR0czJkMUxmN0VXSzMwaTA4MFV5R3ZQQ3RyWGlpX0RzcG45NUdIcEJpdy1WZ0JRbWkxdG00MGEtdVlsRE5YVkxOWUhsVlp3V28zWnIzSWpRZHNvT25oTnd1WUVFMUtkRFVOVWg1U1h0UWh0MXRFRVRJZ1ZjMU4wVkt3?oc=5",
+        "googleNewsRssPubDate": "Fri, 21 Feb 2020 08:00:00 GMT",
+        "googleNewsRssSource": "Il Sole 24 ORE"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — Il Sole 24 ORE",
+      "demandScore": 0,
+      "noveltyScore": 0.842,
+      "totalScore": 0.337
+    },
+    {
       "id": "1421f727",
       "keyword": "Un pregiudicato straniero può lavorare come frontaliere? Sì, se il reato non è grave - Ticinonline",
       "normalizedKeyword": "un pregiudicato straniero puo lavorare come frontaliere? si, se il reato non e grave - ticinonline",
       "angle": null,
-      "locale": "it",
+      "locale": "fr",
       "sources": [
         "googleNewsRss"
       ],
@@ -1806,21 +1666,21 @@
       "totalScore": 0.337
     },
     {
-      "id": "74687e54",
-      "keyword": "Giubileo dei Giovani, ecco il piano sosta per i bus turistici: 9.000 parcheggi in 11 aree - RomaToday",
-      "normalizedKeyword": "giubileo dei giovani, ecco il piano sosta per i bus turistici: 9.000 parcheggi in 11 aree - romatoday",
+      "id": "0c0243a8",
+      "keyword": "LPP, Nigri diventa il Country manager per l’Italia. Il gruppo spinge sul value-for-money di Sinsay - retail&amp;food",
+      "normalizedKeyword": "lpp, nigri diventa il country manager per l’italia. il gruppo spinge sul value-for-money di sinsay - retail&amp;food",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "permesso G",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMingFBVV95cUxORWkxcEYxVVlUcmpqbVprdE5vN05VaHFxRjBJazIwamdKd1A0QXBUdVpXMTR1NzlkQ2tSODdQNTFBVW41WGlXTjBlR1pSWHBoZ0o1TlEta0Nibk9KNWphZHM0TmlCRWJfUEhNWXNIOGV1eW1iNTJSaDNGNFppQlpSV1lpenllV3I5LWNFUGd1NE9OU0tnR2JfZEd0VVVCdw?oc=5",
-        "googleNewsRssPubDate": "Mon, 14 Jul 2025 07:00:00 GMT",
-        "googleNewsRssSource": "RomaToday"
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNTS13cUtCWlVTYTNWRTN3RXdKMkNtdmZLLUh6UEZ4cHZUSjdGMTVlbFJ2bktabmZSSk9CYjZaYmhaeHktcXhid3ZFVGRBbEVpS1FLVm5BVkxmT3JOamJ6anN4bFFaZ1V2WGpXQ3FLMEFBcFFOUTBBQ3ZpRDhTMl8xS1J6eFZOOWMyU1ptT3pMcmpQVzYwc2s4MFZ0bHZUV0lIQ1V2S21EYUxjd0dmT0ROYklMQVpCNGdDU2U3MnpILVFHYjMtcEE?oc=5",
+        "googleNewsRssPubDate": "Wed, 04 Dec 2024 08:00:00 GMT",
+        "googleNewsRssSource": "retail&amp;food"
       },
-      "rationale": "Google News RSS seed \"permesso G\" — RomaToday",
+      "rationale": "Google News RSS seed \"LPP\" — retail&amp;food",
       "demandScore": 0,
       "noveltyScore": 0.84,
       "totalScore": 0.336
@@ -1890,7 +1750,7 @@
       "keyword": "Frontalieri italiani in Svizzera: un esposto all’OIL contro le discriminazioni - TVS tvsvizzera.it",
       "normalizedKeyword": "frontalieri italiani in svizzera: un esposto all’oil contro le discriminazioni - tvs tvsvizzera.it",
       "angle": null,
-      "locale": "it",
+      "locale": "fr",
       "sources": [
         "googleNewsRss"
       ],
@@ -1930,7 +1790,7 @@
       "keyword": "Frontalieri svizzeri, come funziona la nuova flat tax al 25% - Il Sole 24 ORE",
       "normalizedKeyword": "frontalieri svizzeri, come funziona la nuova flat tax al 25% - il sole 24 ore",
       "angle": null,
-      "locale": "it",
+      "locale": "fr",
       "sources": [
         "googleNewsRss"
       ],
@@ -1966,26 +1826,6 @@
       "totalScore": 0.333
     },
     {
-      "id": "f82dccc0",
-      "keyword": "I dati sui frontalieri inviati in Italia grazie al nuovo accordo fiscale - TVS tvsvizzera.it",
-      "normalizedKeyword": "i dati sui frontalieri inviati in italia grazie al nuovo accordo fiscale - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "nuovo accordo fiscale",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRDlnS1JXdllkWnhDRVhXcm5FVGRYbmR6MHdTS185QXNrUk1PRm9aTElVSk9IQlJzSjdLRkNrSDRCQ2drdUVaQnBHaFZXLUJYallQZUpKYUd0R1RSU3RWQU1TNUNTNk9pcFhHYklDSkk2cTNUbG82OUlNTmZCU3luUnA1N2pXc25BOFZJNjdxdzlmRVQwREdHUlE2MmUtSkMzVkdCY1RrVlEtMW5QY0ZlczZzNnVhNjhaaHNvbFh4MlpGNFFXZ3ZsUl8zbDlueFNzSmc?oc=5",
-        "googleNewsRssPubDate": "Sun, 30 Mar 2025 07:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
       "id": "da329320",
       "keyword": "Il lavoratore \"frontaliere\" può tornare in Italia con reddito agevolato: cosa sapere - Sky TG24",
       "normalizedKeyword": "il lavoratore \"frontaliere\" puo tornare in italia con reddito agevolato: cosa sapere - sky tg24",
@@ -2001,6 +1841,26 @@
         "googleNewsRssSource": "Sky TG24"
       },
       "rationale": "Google News RSS seed \"frontaliere\" — Sky TG24",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
+      "id": "ce1a7030",
+      "keyword": "N. 494 - L'evoluzione del framework prudenziale di Secondo Pilastro dopo la crisi finanziaria - bancaditalia.it",
+      "normalizedKeyword": "n. 494 - l'evoluzione del framework prudenziale di secondo pilastro dopo la crisi finanziaria - bancaditalia.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1rMWJtN0VIZ3BsYkU2Um52Q2YzeTR4R3IwbDgwMngtcDlnNUNXdGo5X3k2dUNuSkVPTE1WY21KZmVCakhOakFfRWZOUXRWUE4yeUZQV0c4R1lsTUpSRjVmZzJPY1RXVFU?oc=5",
+        "googleNewsRssPubDate": "Mon, 29 Apr 2019 07:00:00 GMT",
+        "googleNewsRssSource": "bancaditalia.it"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — bancaditalia.it",
       "demandScore": 0,
       "noveltyScore": 0.833,
       "totalScore": 0.333
@@ -2066,6 +1926,26 @@
       "totalScore": 0.333
     },
     {
+      "id": "5737b357",
+      "keyword": "Riforma LPP, Baume-Schneider in campo - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "riforma lpp, baume-schneider in campo - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOdTg3aGNQZTlUWXFyTm1BdG1EM1RXbW1JSlpPODNURXlpTm15WWlrSlVWcVJQZnRaS0YtWHB1ZFduOURaV01NTFRJVExKWXh6VzkwRFRDYVIxY2pTcHp1X2dOZE8wWlZ3U3RfS2hvUWcwdzlSNzVaTG1TZnJDLUtDOUt2U3NlbVVUSE9j?oc=5",
+        "googleNewsRssPubDate": "Mon, 24 Jun 2024 08:24:29 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.833,
+      "totalScore": 0.333
+    },
+    {
       "id": "8d48a3ee",
       "keyword": "Scambio di dati salariali con l’Italia, arriva la legge d’applicazione - TVS tvsvizzera.it",
       "normalizedKeyword": "scambio di dati salariali con l’italia, arriva la legge d’applicazione - tvs tvsvizzera.it",
@@ -2084,6 +1964,126 @@
       "demandScore": 0,
       "noveltyScore": 0.833,
       "totalScore": 0.333
+    },
+    {
+      "id": "6cd617f4",
+      "keyword": "Ai ticinesi quasi 6mila franchi, ai frontalieri oltre 1000 in meno: la beffa delle buste paga sul confine - ComoZero",
+      "normalizedKeyword": "ai ticinesi quasi 6mila franchi, ai frontalieri oltre 1000 in meno: la beffa delle buste paga sul confine - comozero",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcW42b3lkQ25ISklzTG5nNFJxZ0RLS05jVHJCWnZkQk5GaDVJbm1jbVFHYmVtRVVnNWNncnBYeTVPeWROaGg1M1pNZVVacmRvRHAtNUxwMGZxaHozczQ3dlVUQzdvTkw4alBkSE5GeU5ZVUYtVkZzS1NVVVRiV0JDZ19faDFKQnVVWGhjZ2hXVmthU2FyTTU3ekNPUnA1NUhmT3ZFTVZ0Sng1aG9MWnJvX0hVQTViQ2pHRU96NHRqYkRvOTd0eWNQdEdUek1QajA?oc=5",
+        "googleNewsRssPubDate": "Fri, 24 Apr 2026 05:22:02 GMT",
+        "googleNewsRssSource": "ComoZero"
+      },
+      "rationale": "Google News RSS seed \"frontalieri\" — ComoZero",
+      "demandScore": 0,
+      "noveltyScore": 0.826,
+      "totalScore": 0.33
+    },
+    {
+      "id": "882e5bca",
+      "keyword": "Dove vivono i frontalieri lombardi. In 60mila da Como e Varese, ma è sorpresa Brianza: +77% in dieci anni - Il Giorno",
+      "normalizedKeyword": "dove vivono i frontalieri lombardi. in 60mila da como e varese, ma e sorpresa brianza: +77% in dieci anni - il giorno",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "permesso G",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5tdEJad0dqczlYeUNlS0lkR3B6LTVhVUtjOS1qWkJjOWZlSjJCWVdXcEpUaVRCTGZydnhqSFlZcnBNVXNYRTdUT2RJTHIzaUZEUjduX1pVcmtKbFp2SGNzNW5vV25oWHhNcXZ2c0JuaE5KQk5mUExMZTJjdFE?oc=5",
+        "googleNewsRssPubDate": "Sat, 11 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "Il Giorno"
+      },
+      "rationale": "Google News RSS seed \"permesso G\" — Il Giorno",
+      "demandScore": 0,
+      "noveltyScore": 0.826,
+      "totalScore": 0.33
+    },
+    {
+      "id": "2618d3c7",
+      "keyword": "Fisco e lavoratori rimpatriati, le ultime novità dallo smart working ai frontalieri - la Repubblica",
+      "normalizedKeyword": "fisco e lavoratori rimpatriati, le ultime novita dallo smart working ai frontalieri - la repubblica",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "telelavoro frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTVNUUlFNUFpXNkJUeXd5LTRISE1GRGhoRDdjZ0NZMkxmNDFKVXZyYVZGc21ud2RzWnJfWXRxdWZZMVZhbFJkM3lfYnZVUkRQN1lXMjEzN0swdExQR2JsZUNjVGRWc0xpYlNTcjhqdjZSZ3FpVm1KVS1tREl2OG9QTmdMUHQ2WWhfM1h3YXZIc2pXOFVMZEZDZlFCbC1mX1ltZk16aENTYWtfT2EtWmZ4NVhSVy1YZEc1ZG83aUREblBrS3Fk?oc=5",
+        "googleNewsRssPubDate": "Sat, 04 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "la Repubblica"
+      },
+      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — la Repubblica",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "06761095",
+      "keyword": "Fisco, nuovo accordo per chi ha un fatturato sotto i 500 milioni (e come evitare le sanzioni) - Il Messaggero",
+      "normalizedKeyword": "fisco, nuovo accordo per chi ha un fatturato sotto i 500 milioni (e come evitare le sanzioni) - il messaggero",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPdmVxanFpa0VuLUhITkJwSFFnT1B5dlI1MXlJdTdvMVlLbnFiemFWRjVoLVlrVlV0Ym5GRGswaWhSTVRDazV6WFNoUnZ4M0RYazZTNHhGNEdTM1ctUG5aNUxQd1JxVThsazBYUVlNck1UQXBDdEVudUxEbGp4TDJYVGw3NmFtQUROeXJ1TF8xY2ZxQ1N1aE5jRFkwNXF1OExBamtVVTZaNmduN19ROF9vTkUwQ1JLejdpMi15VFRQRDFuTFpi0gHDAUFVX3lxTE02UXFPazNiRFJHWGlGcW5TdTRXWFl6bExPLWh1LTRhNE1QWHhFbWVmVHVXZGJwdE5BX1p1WEFDaTlMMWZWbENZNWt6OWpXeGs5MGp6NkF5a3dZblpDSXJhLUw0WG83b0I2RE5VUjdSYXVoVDlqcHpkeC1DUDU0cl9LWk14V1NCNlpKNVNaRXNfSXhCQkJvVVBzdEVUYUtjOUl6V0RtR3ZzZ3FjSmZlNldBdkJ3cGhKTlZIS0hvUW5qRDhxTQ?oc=5",
+        "googleNewsRssPubDate": "Wed, 04 Feb 2026 07:29:38 GMT",
+        "googleNewsRssSource": "Il Messaggero"
+      },
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — Il Messaggero",
+      "demandScore": 0,
+      "noveltyScore": 0.826,
+      "totalScore": 0.33
+    },
+    {
+      "id": "ee5187ea",
+      "keyword": "Forti aumenti in busta paga per i Ceo delle casse malattia - SWI swissinfo.ch",
+      "normalizedKeyword": "forti aumenti in busta paga per i ceo delle casse malattia - swi swissinfo.ch",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaXRPS0lkQ2VMTlMyU3lCZW5DZ0gyWG1DUllDRlgyQUpjNzdTYm85LTh2ZVNqakdfYS04Snljc05kb2NEVGF1dVBidDdPOWVrakZLcGlhcFN0eUlOWUR6VUZmazVoaHJ1UkRxd3FDVTRCcTZ4UE1DMXliU0dYWkJYbS0tdjdHYi1wMHRSVWw0MENsT1YxdFFYZElhWmQ?oc=5",
+        "googleNewsRssPubDate": "Wed, 14 Sep 2022 07:00:00 GMT",
+        "googleNewsRssSource": "SWI swissinfo.ch"
+      },
+      "rationale": "Google News RSS seed \"busta paga svizzera\" — SWI swissinfo.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "a7bcdd56",
+      "keyword": "Frontalieri: al via lo scambio automatico dei dati salariali con l’Italia - Ticinonline",
+      "normalizedKeyword": "frontalieri: al via lo scambio automatico dei dati salariali con l’italia - ticinonline",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQQ0pfTnM4STd4ZW54cXp2cHJ6YUs0cGtScVBPeDhOdVJBalkzd3ptVkl5dGpBdGN5bE9xMFg0RGRHZnk3ZmRWWnRrdjUtN19NaWlKYlRFazUzRllucE5WTjZQWlJBTVlWaXZFU3RqV1ZiUWFfMHM1b2llT2cxS1pOeWc2LVZodWdJQUwzTG5NQUN6TFVvcmFj?oc=5",
+        "googleNewsRssPubDate": "Mon, 15 Sep 2025 07:00:00 GMT",
+        "googleNewsRssSource": "Ticinonline"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
     }
   ]
 }

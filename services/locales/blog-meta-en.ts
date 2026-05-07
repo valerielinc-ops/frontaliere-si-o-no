@@ -6728,6 +6728,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spring-pride-saronno-2026.title': 'Spring Pride 2026: inclusion and rights in Saronno, Caronno, Ceriano and Solaro',
     'blog.article.spring-pride-saronno-2026.excerpt': 'From May 12 to 17, cultural events and moments of discussion to promote rights and participation ahead of the Day against homolesbobitransphobia',
     'blog.article.spring-pride-saronno-2026.imageAlt': 'Group of people participating in a pride parade in a picturesque town square in Ticino',
+    'blog.article.mengele-svizzera-1961-verifica.title': 'Josef Mengele in Switzerland in 1961: the secret file',
+    'blog.article.mengele-svizzera-1961-verifica.excerpt': 'The Nazi criminal might have stayed in Kloten in 1961. The file, classified until 2071, could solve the mystery',
+    'blog.article.mengele-svizzera-1961-verifica.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland, with the Alps in the background',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.title': 'Hantavirus in Zurich: cruiser in isolation',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.excerpt': 'A man positive for hantavirus is being treated in Zurich after a trip to South America. Here\'s what you need to know.',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.imageAlt': 'Lake Lugano with a view of the surrounding mountains',
+    'blog.article.cassis-cornado-crans-montana-risarcimento.title': 'Cassis and Cornado: tensions over Crans-Montana compensation',
+    'blog.article.cassis-cornado-crans-montana-risarcimento.excerpt': 'Italian ambassador Cornado responds to Cassis\' criticism over hospital bills for Italian victims of the Crans-Montana fire.',
+    'blog.article.cassis-cornado-crans-montana-risarcimento.imageAlt': 'Damage to Le Constellation bar after the Crans-Montana fire',
 };
 
 export default blogMetaEn;
