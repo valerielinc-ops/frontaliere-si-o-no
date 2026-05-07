@@ -6891,6 +6891,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pfas-filtrazione-san-antonino-2026.title': 'PFAS nell\'acqua potabile: San Antonino attiva filtrazione avanzata',
     'blog.article.pfas-filtrazione-san-antonino-2026.excerpt': 'Il Municipio di San Antonino ha installato un sistema di filtrazione a carbone attivo per rimuovere i PFAS dall\'acqua potabile, con un investimento di 1,8 milioni di franchi.',
     'blog.article.pfas-filtrazione-san-antonino-2026.imageAlt': 'Immagine di un impianto di filtrazione dell\'acqua in Ticino',
+    'blog.article.incendio-auto-bellinzona-sud-2026.title': 'Auto in fiamme a Bellinzona-Sud, A2 riaperta',
+    'blog.article.incendio-auto-bellinzona-sud-2026.excerpt': 'Incendio di un\'auto sull\'autostrada A2 a Bellinzona-Sud, traffico bloccato per 40 minuti. Pompiere e polizia sul posto',
+    'blog.article.incendio-auto-bellinzona-sud-2026.imageAlt': 'Vista aerea dell\'uscita autostradale di Bellinzona-Sud con veicoli di emergenza, fumo e ingorgo',
 };
 
 export default blogMetaIt;

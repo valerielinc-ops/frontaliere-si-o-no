@@ -22043,4 +22043,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incendio-auto-bellinzona-sud-2026',
+ category: 'pratico',
+ date: '2026-05-07T21:28:24.542Z',
+ image: '/images/blog/incendio-auto-bellinzona-sud-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

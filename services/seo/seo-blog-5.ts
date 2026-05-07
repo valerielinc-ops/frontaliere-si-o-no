@@ -28427,6 +28427,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-auto-bellinzona-sud-2026': {
+    title: 'Auto in fiamme a Bellinzona-Sud, A2 riaperta | Frontaliere Ticino',
+    description: 'Incendio di un\'auto sull\'autostrada A2 a Bellinzona-Sud, traffico bloccato per 40 minuti. Pompiere e polizia sul posto. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, fiamme, bellinzona-sud, riaperta',
+    ogTitle: 'Auto in fiamme a Bellinzona-Sud, A2 riaperta',
+    ogDescription: 'Incendio di un\'auto sull\'autostrada A2 a Bellinzona-Sud, traffico bloccato per 40 minuti. Pompiere e polizia sul posto',
+    canonicalPath: '/articoli-frontaliere/incendio-auto-bellinzona-sud-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Auto in fiamme a Bellinzona-Sud, A2 riaperta",
+      "description": "Incendio di un'auto sull'autostrada A2 a Bellinzona-Sud, traffico bloccato per 40 minuti. Pompiere e polizia sul posto. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incendio-auto-bellinzona-sud-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'uscita autostradale di Bellinzona-Sud con veicoli di emergenza, fumo e ingorgo"
+      },
+      "datePublished": "2026-05-07T21:28:24+00:00",
+      "dateModified": "2026-05-07T21:28:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-auto-bellinzona-sud-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

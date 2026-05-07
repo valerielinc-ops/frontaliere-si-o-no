@@ -6891,6 +6891,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pfas-filtrazione-san-antonino-2026.title': 'PFAS dans l\'eau potable : San Antonino installe une filtration avancée',
     'blog.article.pfas-filtrazione-san-antonino-2026.excerpt': 'La municipalité de San Antonino a installé un système de filtration au charbon actif pour éliminer les PFAS de l\'eau potable, avec un investissement de 1,8 million de francs.',
     'blog.article.pfas-filtrazione-san-antonino-2026.imageAlt': 'Image d\'une usine de filtration de l\'eau en Ticino',
+    'blog.article.incendio-auto-bellinzona-sud-2026.title': 'Voiture en feu à Bellinzona-Sud, A2 rouverte',
+    'blog.article.incendio-auto-bellinzona-sud-2026.excerpt': 'Incendie d\'une voiture sur l\'autoroute A2 à Bellinzona-Sud, trafic bloqué pendant 40 minutes. Pompiers et police sur place',
+    'blog.article.incendio-auto-bellinzona-sud-2026.imageAlt': 'Vue aérienne de la sortie d\'autoroute de Bellinzona-Sud avec véhicules d\'urgence, fumée et embouteillage',
 };
 
 export default blogMetaFr;

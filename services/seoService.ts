@@ -3539,6 +3539,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-centromedico-bellinzona-frontalieri': { name: 'Centromedico Bellinzona', path: '/articoli-frontaliere/centromedico-bellinzona-frontalieri', parent: 'blog' },
     'blog-lugano-passteggia-iscrizioni-aperte': { name: 'Lugano Passteggia', path: '/articoli-frontaliere/lugano-passteggia-iscrizioni-aperte', parent: 'blog' },
     'blog-pfas-filtrazione-san-antonino-2026': { name: 'PFAS San Antonino', path: '/articoli-frontaliere/pfas-filtrazione-san-antonino-2026', parent: 'blog' },
+    'blog-incendio-auto-bellinzona-sud-2026': { name: 'Incendio auto Bellinzona', path: '/articoli-frontaliere/incendio-auto-bellinzona-sud-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

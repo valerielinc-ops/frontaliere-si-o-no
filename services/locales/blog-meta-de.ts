@@ -6890,6 +6890,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pfas-filtrazione-san-antonino-2026.title': 'PFAS im Trinkwasser: San Antonino setzt auf Aktivkohlefilter',
     'blog.article.pfas-filtrazione-san-antonino-2026.excerpt': 'Die Gemeinde San Antonino hat ein Aktivkohle-Filtersystem installiert, um PFAS aus dem Trinkwasser zu entfernen. Die Investition beträgt 1,8 Millionen Franken.',
     'blog.article.pfas-filtrazione-san-antonino-2026.imageAlt': 'Bild einer Wasserfilteranlage in Ticino',
+    'blog.article.incendio-auto-bellinzona-sud-2026.title': 'Auto brennt bei Bellinzona-Sud, A2 wieder geöffnet',
+    'blog.article.incendio-auto-bellinzona-sud-2026.excerpt': 'Ein Auto brannte auf der Autobahn A2 bei Bellinzona-Sud, Verkehr für 40 Minuten blockiert. Feuerwehr und Polizei vor Ort',
+    'blog.article.incendio-auto-bellinzona-sud-2026.imageAlt': 'Luftaufnahme des Autobahnausgangs Bellinzona-Sud mit Einsatzfahrzeugen, Rauch und Stau',
 };
 
 export default blogMetaDe;

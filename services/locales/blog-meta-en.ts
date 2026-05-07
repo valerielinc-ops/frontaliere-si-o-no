@@ -6890,6 +6890,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pfas-filtrazione-san-antonino-2026.title': 'PFAS in drinking water: San Antonino installs advanced filtration',
     'blog.article.pfas-filtrazione-san-antonino-2026.excerpt': 'The Municipality of San Antonino has installed an activated carbon filtration system to remove PFAS from drinking water, with an investment of 1.8 million francs.',
     'blog.article.pfas-filtrazione-san-antonino-2026.imageAlt': 'Image of a water filtration plant in Ticino',
+    'blog.article.incendio-auto-bellinzona-sud-2026.title': 'Car on fire at Bellinzona-Sud, A2 reopened',
+    'blog.article.incendio-auto-bellinzona-sud-2026.excerpt': 'Car fire on the A2 highway at Bellinzona-Sud, traffic blocked for 40 minutes. Firefighters and police on site',
+    'blog.article.incendio-auto-bellinzona-sud-2026.imageAlt': 'Aerial view of Bellinzona-Sud highway exit with emergency vehicles, smoke, and traffic jam',
 };
 
 export default blogMetaEn;
