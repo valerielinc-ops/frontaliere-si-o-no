@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2315,
+ "numberOfItems": 2316,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6957,7 +6957,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2312, "name": "Svizzera sotto pressione: cresce la minaccia ib...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-minaccia-ibrida-russa-2026` },
           { "@type": "ListItem", "position": 2313, "name": "Nottambuli, come convivere con gli orari sociali?", "url": `${BASE_URL}/articoli-frontaliere/nottambuli-ticino-orari-societa` },
           { "@type": "ListItem", "position": 2314, "name": "Economia circolare ripara vite: due storie di l...", "url": `${BASE_URL}/articoli-frontaliere/economia-circolare-lavoro-carcere-varese` },
-          { "@type": "ListItem", "position": 2315, "name": "Gavirate: scontro tra auto in zona nordlacuale,...", "url": `${BASE_URL}/articoli-frontaliere/gavirate-incidente-frontalieri-2026` }
+          { "@type": "ListItem", "position": 2315, "name": "Gavirate: scontro tra auto in zona nordlacuale,...", "url": `${BASE_URL}/articoli-frontaliere/gavirate-incidente-frontalieri-2026` },
+          { "@type": "ListItem", "position": 2316, "name": "CEDU condanna la Svizzera per libertà di manife...", "url": `${BASE_URL}/articoli-frontaliere/cedu-condanna-svizzera-liberta-manifestazione` }
  ]
  },
  {

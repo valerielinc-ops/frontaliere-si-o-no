@@ -27101,6 +27101,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cedu-condanna-svizzera-liberta-manifestazione': {
+    title: 'CEDU condanna la Svizzera per libertà di manifestazione',
+    description: 'La Corte europea dei diritti dell\'uomo ha condannato la Svizzera per aver violato la libertà di riunione e associazione di un\'organizzatrice di una',
+    keywords: 'frontalieri, ticino, svizzera, italia, cedu, condanna, libertà, manifestazione',
+    ogTitle: 'CEDU condanna la Svizzera per libertà di manifestazione',
+    ogDescription: 'La Corte europea dei diritti dell\'uomo ha condannato la Svizzera per aver violato la libertà di riunione e associazione di un\'organizzatrice di una',
+    canonicalPath: '/articoli-frontaliere/cedu-condanna-svizzera-liberta-manifestazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CEDU condanna la Svizzera per libertà di manifestazione",
+      "description": "La Corte europea dei diritti dell'uomo ha condannato la Svizzera per aver violato la libertà di riunione e associazione di un'organizzatrice di una",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cedu-condanna-svizzera-liberta-manifestazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una manifestazione a Locarno, in Svizzera, con una folla diversa che tiene cartelli e striscioni, sotto un cielo azzurro limpido."
+      },
+      "datePublished": "2026-05-07T14:13:35+00:00",
+      "dateModified": "2026-05-07T14:13:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cedu-condanna-svizzera-liberta-manifestazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

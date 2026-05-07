@@ -6789,6 +6789,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gavirate-incidente-frontalieri-2026.title': 'Gavirate: scontro tra auto in zona nordlacuale, uomo ferito',
     'blog.article.gavirate-incidente-frontalieri-2026.excerpt': 'Un incidente stradale a Gavirate, Varese, coinvolge un frontaliero. Ecco cosa sapere su assistenza e procedure.',
     'blog.article.gavirate-incidente-frontalieri-2026.imageAlt': 'Incidente stradale vicino a un lago in Ticino',
+    'blog.article.cedu-condanna-svizzera-liberta-manifestazione.title': 'CEDU condanna la Svizzera per libertà di manifestazione',
+    'blog.article.cedu-condanna-svizzera-liberta-manifestazione.excerpt': 'La Corte europea dei diritti dell\'uomo ha condannato la Svizzera per aver violato la libertà di riunione e associazione di un\'organizzatrice di una manifestazione.',
+    'blog.article.cedu-condanna-svizzera-liberta-manifestazione.imageAlt': 'Una manifestazione a Locarno, in Svizzera, con una folla diversa che tiene cartelli e striscioni, sotto un cielo azzurro limpido.',
 };
 
 export default blogMetaIt;

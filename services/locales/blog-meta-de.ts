@@ -6788,6 +6788,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gavirate-incidente-frontalieri-2026.title': 'Gavirate: Zusammenstoß zwischen Autos im Nordseebereich, Verletzter',
     'blog.article.gavirate-incidente-frontalieri-2026.excerpt': 'Ein Verkehrsunfall in Gavirate, Varese, betrifft einen Grenzgänger. Hier erfahren Sie, was Sie über Hilfe und Verfahren wissen müssen.',
     'blog.article.gavirate-incidente-frontalieri-2026.imageAlt': 'Autounfall in der Nähe eines Sees im Tessin',
+    'blog.article.cedu-condanna-svizzera-liberta-manifestazione.title': 'EGMR verurteilt Schweiz wegen Versammlungsfreiheit',
+    'blog.article.cedu-condanna-svizzera-liberta-manifestazione.excerpt': 'Der Europäische Gerichtshof für Menschenrechte hat die Schweiz verurteilt, weil sie die Versammlungs- und Vereinigungsfreiheit einer Veranstalterin missachtet hat.',
+    'blog.article.cedu-condanna-svizzera-liberta-manifestazione.imageAlt': 'Eine Protestveranstaltung in Locarno, Schweiz, mit einer vielfältigen Menschenmenge, die Schilder und Banner hält, unter einem klaren blauen Himmel.',
 };
 
 export default blogMetaDe;

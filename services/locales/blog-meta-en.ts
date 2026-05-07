@@ -6788,6 +6788,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gavirate-incidente-frontalieri-2026.title': 'Gavirate: crash in northern lakeside area, man injured',
     'blog.article.gavirate-incidente-frontalieri-2026.excerpt': 'A road accident in Gavirate, Varese, involves a cross-border worker. Here\'s what to know about assistance and procedures.',
     'blog.article.gavirate-incidente-frontalieri-2026.imageAlt': 'Car accident near a lake in Ticino',
+    'blog.article.cedu-condanna-svizzera-liberta-manifestazione.title': 'ECHR condemns Switzerland over protest rights',
+    'blog.article.cedu-condanna-svizzera-liberta-manifestazione.excerpt': 'The European Court of Human Rights has condemned Switzerland for violating the freedom of assembly and association of a protest organiser.',
+    'blog.article.cedu-condanna-svizzera-liberta-manifestazione.imageAlt': 'A protest in Locarno, Switzerland, with a diverse crowd holding signs and banners, under a clear blue sky.',
 };
 
 export default blogMetaEn;
