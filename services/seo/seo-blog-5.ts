@@ -24738,6 +24738,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hantavirus-zurigo-ricovero-crocerista': {
+    title: 'Hantavirus a Zurigo: crocerista ricoverato, UFSP rassicura',
+    description: 'Passeggero positivo al virus delle Ande dopo crociera, isolato all\'USZ. Popolazione svizzera non in pericolo, dice l\'Ufficio federale della sanità pubblica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, hantavirus, zurigo, crocerista, ricoverato',
+    ogTitle: 'Hantavirus a Zurigo: crocerista ricoverato, UFSP rassicura',
+    ogDescription: 'Passeggero positivo al virus delle Ande dopo crociera, isolato all\'USZ. Popolazione svizzera non in pericolo, dice l\'Ufficio federale della sanità pubblica.',
+    canonicalPath: '/articoli-frontaliere/hantavirus-zurigo-ricovero-crocerista',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hantavirus a Zurigo: crocerista ricoverato, UFSP rassicura",
+      "description": "Passeggero positivo al virus delle Ande dopo crociera, isolato all'USZ. Popolazione svizzera non in pericolo, dice l'Ufficio federale della sanità pubblica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/hantavirus-zurigo-ricovero-crocerista.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale universitario di Zurigo, reparto isolamento"
+      },
+      "datePublished": "2026-05-07T02:38:25+00:00",
+      "dateModified": "2026-05-07T02:38:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hantavirus-zurigo-ricovero-crocerista`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

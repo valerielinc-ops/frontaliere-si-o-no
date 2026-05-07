@@ -6605,6 +6605,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.due-ticinesi-guardie-svizzere-2026.title': 'Two Ticino residents join Swiss Guards',
     'blog.article.due-ticinesi-guardie-svizzere-2026.excerpt': 'Davide Iannalfo and Mattia Canonica swear in as Swiss Pontifical Guards. Ticino is the second canton for number of guards',
     'blog.article.due-ticinesi-guardie-svizzere-2026.imageAlt': 'Two Swiss Guards in traditional uniforms in front of St. Peter\'s Basilica in Vatican City',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.title': 'Hantavirus in Zurich: cruise passenger hospitalized, FOPH reassures',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.excerpt': 'Passenger positive for Andes virus after cruise, isolated at USZ. Population not at risk, says the Federal Office of Public Health.',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.imageAlt': 'University Hospital Zurich, isolation ward',
 };
 
 export default blogMetaEn;

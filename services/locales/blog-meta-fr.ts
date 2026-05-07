@@ -6606,6 +6606,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.due-ticinesi-guardie-svizzere-2026.title': 'Deux Ticinois parmi les nouvelles Gardes Suisses',
     'blog.article.due-ticinesi-guardie-svizzere-2026.excerpt': 'Davide Iannalfo et Mattia Canonica prêtent serment comme Gardes Suisses Pontificales. Le Tessin est le deuxième canton pour le nombre de gardes',
     'blog.article.due-ticinesi-guardie-svizzere-2026.imageAlt': 'Deux Gardes suisses en uniforme traditionnelle devant la basilique Saint-Pierre à Vatican',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.title': 'Hantavirus à Zurich: un croisiériste hospitalisé, l\'UFSP rassure',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.excerpt': 'Passager positif au virus des Andes après une croisière, isolé à l\'USZ. La population n\'est pas en danger, selon l\'Office fédéral de la santé publique.',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.imageAlt': 'Hôpital universitaire de Zurich, salle d\'isolement',
 };
 
 export default blogMetaFr;

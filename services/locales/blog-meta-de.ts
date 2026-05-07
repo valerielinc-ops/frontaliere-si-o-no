@@ -6605,6 +6605,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.due-ticinesi-guardie-svizzere-2026.title': 'Zwei Tessiner unter den neuen Schweizer Garden',
     'blog.article.due-ticinesi-guardie-svizzere-2026.excerpt': 'Davide Iannalfo und Mattia Canonica leisten ihren Dienst als Schweizer Gardisten. Der Kanton Tessin ist der zweitgrößte Kanton nach der Anzahl der Garden.',
     'blog.article.due-ticinesi-guardie-svizzere-2026.imageAlt': 'Zwei Schweizer Garden in traditioneller Uniform vor der Petersbasilika in Vatikanstadt',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.title': 'Hantavirus in Zürich: Kreuzfahrgast isoliert, BAG beruhigt',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.excerpt': 'Passagier nach Kreuzfahrt positiv auf Andesvirus getestet, isoliert am USZ. Bevölkerung nicht in Gefahr, sagt das Bundesamt für Gesundheit.',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.imageAlt': 'Universitätsspital Zürich, Isolierstation',
 };
 
 export default blogMetaDe;

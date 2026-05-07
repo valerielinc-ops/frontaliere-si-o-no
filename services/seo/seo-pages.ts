@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2254,
+ "numberOfItems": 2255,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6896,7 +6896,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2251, "name": "Cambio vertici commissione magistrati Ticino", "url": `${BASE_URL}/articoli-frontaliere/cambiamenti-commissione-magistrati-ticino-2026` },
           { "@type": "ListItem", "position": 2252, "name": "Filippo Armati: un ticinese alla guida di Afro-...", "url": `${BASE_URL}/articoli-frontaliere/ticinese-timone-afro-pfingsten` },
           { "@type": "ListItem", "position": 2253, "name": "Varese Corsi: 6.327 iscrizioni e nuovi corsi pe...", "url": `${BASE_URL}/articoli-frontaliere/varese-corsi-nuovi-orizzonti-2026` },
-          { "@type": "ListItem", "position": 2254, "name": "Due ticinesi tra le nuove Guardie Svizzere", "url": `${BASE_URL}/articoli-frontaliere/due-ticinesi-guardie-svizzere-2026` }
+          { "@type": "ListItem", "position": 2254, "name": "Due ticinesi tra le nuove Guardie Svizzere", "url": `${BASE_URL}/articoli-frontaliere/due-ticinesi-guardie-svizzere-2026` },
+          { "@type": "ListItem", "position": 2255, "name": "Hantavirus a Zurigo: crocerista ricoverato, UFS...", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-zurigo-ricovero-crocerista` }
  ]
  },
  {

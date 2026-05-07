@@ -6606,6 +6606,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.due-ticinesi-guardie-svizzere-2026.title': 'Due ticinesi tra le nuove Guardie Svizzere',
     'blog.article.due-ticinesi-guardie-svizzere-2026.excerpt': 'Davide Iannalfo e Mattia Canonica giurano come Guardie Svizzere Pontificie. Il Ticino è il secondo cantone per numero di guardie',
     'blog.article.due-ticinesi-guardie-svizzere-2026.imageAlt': 'Due Guardie Svizzere in uniforme tradizionale davanti alla Basilica di San Pietro in Vaticano',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.title': 'Hantavirus a Zurigo: crocerista ricoverato, UFSP rassicura',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.excerpt': 'Passeggero positivo al virus delle Ande dopo crociera, isolato all\'USZ. Popolazione non in pericolo, dice l\'Ufficio federale della sanità pubblica.',
+    'blog.article.hantavirus-zurigo-ricovero-crocerista.imageAlt': 'Ospedale universitario di Zurigo, reparto isolamento',
 };
 
 export default blogMetaIt;

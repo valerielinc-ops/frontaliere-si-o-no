@@ -3444,6 +3444,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticinese-timone-afro-pfingsten': { name: 'Afro-Pfingsten', path: '/articoli-frontaliere/ticinese-timone-afro-pfingsten', parent: 'blog' },
     'blog-varese-corsi-nuovi-orizzonti-2026': { name: 'Varese Corsi', path: '/articoli-frontaliere/varese-corsi-nuovi-orizzonti-2026', parent: 'blog' },
     'blog-due-ticinesi-guardie-svizzere-2026': { name: 'Novità', path: '/articoli-frontaliere/due-ticinesi-guardie-svizzere-2026', parent: 'blog' },
+    'blog-hantavirus-zurigo-ricovero-crocerista': { name: 'Sanità', path: '/articoli-frontaliere/hantavirus-zurigo-ricovero-crocerista', parent: 'blog' },
  };
 
  const info = sectionNames[section];
