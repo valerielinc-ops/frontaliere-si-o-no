@@ -21260,4 +21260,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: '9-maggio-europa-bandiera-unione',
+ category: 'novita',
+ date: '2026-05-07T03:57:25.642Z',
+ image: '/images/blog/9-maggio-europa-bandiera-unione.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

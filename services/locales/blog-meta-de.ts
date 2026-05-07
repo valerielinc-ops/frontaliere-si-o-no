@@ -6629,6 +6629,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bayern-bayer-differenze-champions-2026.title': 'Bayern und Bayer: Unterschiede und Verwirrung in der Champions League',
     'blog.article.bayern-bayer-differenze-champions-2026.excerpt': 'Die italienische Presse verwechselt Bayern München und Bayer Leverkusen, zwei unterschiedliche sportliche und geografische Realitäten.',
     'blog.article.bayern-bayer-differenze-champions-2026.imageAlt': 'Ein Fußballspiel in Tessin, Schweiz, mit Fokus auf das Stadion und die Fans.',
+    'blog.article.9-maggio-europa-bandiera-unione.title': '9. Mai: Zeigen wir die Flagge der Europäischen Union',
+    'blog.article.9-maggio-europa-bandiera-unione.excerpt': 'Die Europäische Föderalistische Bewegung lädt ein, die Europafahne am 9. Mai, dem Tag Europas, zu hissen.',
+    'blog.article.9-maggio-europa-bandiera-unione.imageAlt': 'Europäische Flagge weht über dem Luganersee mit den Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

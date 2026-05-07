@@ -3452,6 +3452,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cottarelli-liceo-manzoni-geopolitica': { name: 'Novità', path: '/articoli-frontaliere/cottarelli-liceo-manzoni-geopolitica', parent: 'blog' },
     'blog-teletext-ticino-fuori-uso-2024': { name: 'Teletext fuori uso', path: '/articoli-frontaliere/teletext-ticino-fuori-uso-2024', parent: 'blog' },
     'blog-bayern-bayer-differenze-champions-2026': { name: 'Calcio Ticino', path: '/articoli-frontaliere/bayern-bayer-differenze-champions-2026', parent: 'blog' },
+    'blog-9-maggio-europa-bandiera-unione': { name: '9 maggio Europa', path: '/articoli-frontaliere/9-maggio-europa-bandiera-unione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

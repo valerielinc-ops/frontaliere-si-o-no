@@ -6629,6 +6629,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bayern-bayer-differenze-champions-2026.title': 'Bayern vs Bayer: Champions League confusion',
     'blog.article.bayern-bayer-differenze-champions-2026.excerpt': 'Italian media confuse Bayern Munich and Bayer Leverkusen, two distinct sports and geographic realities.',
     'blog.article.bayern-bayer-differenze-champions-2026.imageAlt': 'A football match in Ticino, Switzerland, focusing on the stadium and fans.',
+    'blog.article.9-maggio-europa-bandiera-unione.title': '9 May: Display the European Union Flag',
+    'blog.article.9-maggio-europa-bandiera-unione.excerpt': 'The European Federalist Movement invites you to display the European flag on 9 May, Europe Day.',
+    'blog.article.9-maggio-europa-bandiera-unione.imageAlt': 'European flag waving over Lake Lugano with the Swiss Alps in the background',
 };
 
 export default blogMetaEn;

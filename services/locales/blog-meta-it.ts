@@ -6630,6 +6630,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bayern-bayer-differenze-champions-2026.title': 'Bayern e Bayer: differenze e confusione nella Champions League',
     'blog.article.bayern-bayer-differenze-champions-2026.excerpt': 'La stampa italiana confonde Bayern Monaco e Bayer Leverkusen, due realtà sportive e geografiche distinte.',
     'blog.article.bayern-bayer-differenze-champions-2026.imageAlt': 'Una partita di calcio in Ticino, Svizzera, con focus sullo stadio e i tifosi.',
+    'blog.article.9-maggio-europa-bandiera-unione.title': '9 maggio: esponiamo la bandiera dell\'Unione Europea',
+    'blog.article.9-maggio-europa-bandiera-unione.excerpt': 'Il Movimento Federalista Europeo invita a esporre la bandiera europea in occasione del 9 maggio, Giorno dell\'Europa.',
+    'blog.article.9-maggio-europa-bandiera-unione.imageAlt': 'Bandiera europea che sventola sopra il Lago di Lugano con le Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaIt;
