@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T12:59:03.600Z",
+  "generatedAt": "2026-05-07T13:25:14.443Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -9,8 +9,22 @@
     {
       "kw": "frontalieri",
       "normalizedKeyword": "frontalieri",
-      "weight": 0.604,
-      "source": "gsc+suggest+fingerprint",
+      "weight": 0.304,
+      "source": "gsc+suggest",
+      "cluster": "generic"
+    },
+    {
+      "kw": "2026",
+      "normalizedKeyword": "2026",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "novita"
+    },
+    {
+      "kw": "adeguati",
+      "normalizedKeyword": "adeguati",
+      "weight": 0.3,
+      "source": "fingerprint",
       "cluster": "generic"
     },
     {
@@ -21,15 +35,15 @@
       "cluster": "generic"
     },
     {
-      "kw": "assicurativi",
-      "normalizedKeyword": "assicurativi",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "salute"
-    },
-    {
       "kw": "assunzione",
       "normalizedKeyword": "assunzione",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
+      "kw": "automatici",
+      "normalizedKeyword": "automatici",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -49,6 +63,13 @@
       "cluster": "fiscale"
     },
     {
+      "kw": "completamente",
+      "normalizedKeyword": "completamente",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
       "kw": "deviato",
       "normalizedKeyword": "deviato",
       "weight": 0.3,
@@ -63,11 +84,11 @@
       "cluster": "generic"
     },
     {
-      "kw": "doganali",
-      "normalizedKeyword": "doganali",
+      "kw": "finalmente",
+      "normalizedKeyword": "finalmente",
       "weight": 0.3,
       "source": "fingerprint",
-      "cluster": "mobilita"
+      "cluster": "generic"
     },
     {
       "kw": "frontaliere",
@@ -91,25 +112,11 @@
       "cluster": "generic"
     },
     {
-      "kw": "imposta",
-      "normalizedKeyword": "imposta",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "fiscale"
-    },
-    {
       "kw": "irpef frontalieri",
       "normalizedKeyword": "irpef frontalieri",
       "weight": 0.3,
       "source": "suggest",
       "cluster": "fiscale"
-    },
-    {
-      "kw": "italia-svizzera",
-      "normalizedKeyword": "italia-svizzera",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
     },
     {
       "kw": "lamal",
@@ -124,13 +131,6 @@
       "weight": 0.3,
       "source": "suggest",
       "cluster": "pensioni"
-    },
-    {
-      "kw": "mutuo",
-      "normalizedKeyword": "mutuo",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
     },
     {
       "kw": "nuovo accordo fiscale frontalieri",
@@ -152,6 +152,20 @@
       "weight": 0.3,
       "source": "suggest",
       "cluster": "pratico"
+    },
+    {
+      "kw": "posata",
+      "normalizedKeyword": "posata",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
+      "kw": "presentano",
+      "normalizedKeyword": "presentano",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
     },
     {
       "kw": "ristorni frontalieri",
@@ -187,13 +201,6 @@
       "weight": 0.3,
       "source": "suggest",
       "cluster": "pratico"
-    },
-    {
-      "kw": "ticino",
-      "normalizedKeyword": "ticino",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
     },
     {
       "kw": "busta paga svizzera pdf",
@@ -252,8 +259,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro divorzio frontalieri",
-      "normalizedKeyword": "secondo pilastro divorzio frontalieri",
+      "kw": "secondo pilastro",
+      "normalizedKeyword": "secondo pilastro",
       "weight": 0.27,
       "source": "suggest",
       "cluster": "pensioni"
@@ -336,8 +343,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro svizzera calcolo",
-      "normalizedKeyword": "secondo pilastro svizzera calcolo",
+      "kw": "secondo pilastro in caso di morte",
+      "normalizedKeyword": "secondo pilastro in caso di morte",
       "weight": 0.24,
       "source": "suggest",
       "cluster": "pensioni"
@@ -406,8 +413,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro in caso di morte",
-      "normalizedKeyword": "secondo pilastro in caso di morte",
+      "kw": "secondo pilastro svizzera quando si puo ritirare",
+      "normalizedKeyword": "secondo pilastro svizzera quando si puo ritirare",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "pensioni"
@@ -469,8 +476,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro pac",
-      "normalizedKeyword": "secondo pilastro pac",
+      "kw": "secondo pilastro svizzera come funziona",
+      "normalizedKeyword": "secondo pilastro svizzera come funziona",
       "weight": 0.18,
       "source": "suggest",
       "cluster": "pensioni"
@@ -525,8 +532,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro svizzera divorzio",
-      "normalizedKeyword": "secondo pilastro svizzera divorzio",
+      "kw": "secondo pilastro in caso di divorzio",
+      "normalizedKeyword": "secondo pilastro in caso di divorzio",
       "weight": 0.15,
       "source": "suggest",
       "cluster": "pensioni"
@@ -553,11 +560,11 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere svizzero che lavora in italia",
-      "normalizedKeyword": "frontaliere svizzero che lavora in italia",
+      "kw": "frontaliere o frontaliero",
+      "normalizedKeyword": "frontaliere o frontaliero",
       "weight": 0.12,
       "source": "suggest",
-      "cluster": "lavoro"
+      "cluster": "generic"
     },
     {
       "kw": "frontalieri svizzera tasse",
@@ -567,8 +574,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro previdenza italia",
-      "normalizedKeyword": "secondo pilastro previdenza italia",
+      "kw": "secondo pilastro divorzio frontalieri",
+      "normalizedKeyword": "secondo pilastro divorzio frontalieri",
       "weight": 0.12,
       "source": "suggest",
       "cluster": "pensioni"
@@ -579,6 +586,13 @@
       "weight": 0.12,
       "source": "suggest",
       "cluster": "fiscale"
+    },
+    {
+      "kw": "frontaliere ticino",
+      "normalizedKeyword": "frontaliere ticino",
+      "weight": 0.095,
+      "source": "gsc+suggest",
+      "cluster": "generic"
     },
     {
       "kw": "aliquote irpef frontalieri",
@@ -595,13 +609,6 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "frontaliere o frontaliero",
-      "normalizedKeyword": "frontaliere o frontaliero",
-      "weight": 0.09,
-      "source": "suggest",
-      "cluster": "generic"
-    },
-    {
       "kw": "frontalieri svizzeri cu",
       "normalizedKeyword": "frontalieri svizzeri cu",
       "weight": 0.09,
@@ -609,8 +616,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "secondo pilastro svizzera tassazione italia",
-      "normalizedKeyword": "secondo pilastro svizzera tassazione italia",
+      "kw": "secondo pilastro quando si puo ritirare",
+      "normalizedKeyword": "secondo pilastro quando si puo ritirare",
       "weight": 0.09,
       "source": "suggest",
       "cluster": "pensioni"
@@ -623,18 +630,18 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere ticino",
-      "normalizedKeyword": "frontaliere ticino",
-      "weight": 0.065,
-      "source": "gsc+suggest",
-      "cluster": "generic"
-    },
-    {
       "kw": "calcolo busta paga svizzera",
       "normalizedKeyword": "calcolo busta paga svizzera",
       "weight": 0.06,
       "source": "suggest",
       "cluster": "fiscale"
+    },
+    {
+      "kw": "frontaliere in inglese",
+      "normalizedKeyword": "frontaliere in inglese",
+      "weight": 0.06,
+      "source": "suggest",
+      "cluster": "generic"
     },
     {
       "kw": "frontalieri significato",
@@ -644,8 +651,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "secondo pilastro frontalieri",
-      "normalizedKeyword": "secondo pilastro frontalieri",
+      "kw": "secondo pilastro svizzera calcolo",
+      "normalizedKeyword": "secondo pilastro svizzera calcolo",
       "weight": 0.06,
       "source": "suggest",
       "cluster": "pensioni"
@@ -665,8 +672,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere in inglese",
-      "normalizedKeyword": "frontaliere in inglese",
+      "kw": "frontaliere svizzera km",
+      "normalizedKeyword": "frontaliere svizzera km",
       "weight": 0.03,
       "source": "suggest",
       "cluster": "generic"
@@ -686,8 +693,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro svizzera frontalieri",
-      "normalizedKeyword": "secondo pilastro svizzera frontalieri",
+      "kw": "secondo pilastro pac",
+      "normalizedKeyword": "secondo pilastro pac",
       "weight": 0.03,
       "source": "suggest",
       "cluster": "pensioni"

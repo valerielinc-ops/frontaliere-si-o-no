@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T12:59:12.899Z",
+  "generatedAt": "2026-05-07T13:25:23.119Z",
   "sources": {
     "redditTicino": {
       "ok": true,
@@ -314,6 +314,26 @@
       "totalScore": 0.353
     },
     {
+      "id": "a023b7e0",
+      "keyword": "TF: possibile dare in affitto abitazione ottenuta con 2.o pilastro - SWI swissinfo.ch",
+      "normalizedKeyword": "tf: possibile dare in affitto abitazione ottenuta con 2.o pilastro - swi swissinfo.ch",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNTlVTRHhtaTZuMGxxRlhIZlRzanpId1ZFcXY3dU1KY1RmLW5fRUtBYk1WeDZDVE94WlBTSWRCT3FhYWdDb1hyM1ViOU9hN1ZKVnBxMGZ5UlRSM253b2Vhbzg5Mm90V2FYWXozX1VkYWJvZDNaWVFKQ2kyNGhDWnNiQjBKUzUtbW1qVkMwaktvZ2pMcWE5UUVZeVZoZVpWY3ZzYVpiMkpR?oc=5",
+        "googleNewsRssPubDate": "Thu, 29 Jul 2021 07:00:00 GMT",
+        "googleNewsRssSource": "SWI swissinfo.ch"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — SWI swissinfo.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.882,
+      "totalScore": 0.353
+    },
+    {
       "id": "58651c4f",
       "keyword": "Super-ricco svizzero desidera pagare più tasse, ma è l’unico a volerlo - TVS tvsvizzera.it",
       "normalizedKeyword": "super-ricco svizzero desidera pagare piu tasse, ma e l’unico a volerlo - tvs tvsvizzera.it",
@@ -618,26 +638,6 @@
       "totalScore": 0.343
     },
     {
-      "id": "59b1da32",
-      "keyword": "Frontalieri: assemblea generale il 26 novembre - San Marino Rtv",
-      "normalizedKeyword": "frontalieri: assemblea generale il 26 novembre - san marino rtv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNa3RhU1YzZ1lYeTJwZllIaGo0dGRJaF9HOXBTQ0MtZVFEUTJBTmNSZmczSnRQaGhpd0I3QzJaUVhFSHpCcGNWTmYyZTZzVldNbl9XQzZBa1l1Nmo1YVNQT3I5eTZqZnZRNDZ2bkcwQlZXTWNrRXJoa2pBRzRkQkZDVXljX2w1dm9qV1hvNXlpNkJMNURjQ2huODZR?oc=5",
-        "googleNewsRssPubDate": "Thu, 17 Oct 2013 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
-      },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
       "id": "1eddba7a",
       "keyword": "Riforma della previdenza professionale (Riforma LPP) - Bundesamt für Sozialversicherungen BSV",
       "normalizedKeyword": "riforma della previdenza professionale (riforma lpp) - bundesamt fur sozialversicherungen bsv",
@@ -673,6 +673,26 @@
         "googleNewsRssSource": "San Marino Rtv"
       },
       "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
+      "demandScore": 0,
+      "noveltyScore": 0.857,
+      "totalScore": 0.343
+    },
+    {
+      "id": "0821f9a1",
+      "keyword": "Votazioni federali Svizzera 8 marzo 2026: contante, TV Pubblica SSR, clima e tasse - Nos Alpes - Le nostre Alpi",
+      "normalizedKeyword": "votazioni federali svizzera 8 marzo 2026: contante, tv pubblica ssr, clima e tasse - nos alpes - le nostre alpi",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "tasse svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQNzBDMGZqcmhwb3FybWZpQnFTbmZFZnFwU256ZE1PNm1UYWZ6NmdZS0t1cVZmc3o0V3RJTWEycWl4RXBCNXZhR252MnBCczdaejJtXzBWNWpnUHVHYkU3R1BNdHl5MXJ3UnNERldhT3B4RzhqaXhvWW9oV05ZWFVBQ3Q5Tm90X05CWTJTX0c5WjRqcUw1bkFQX1RHX1VhV2MxdC0zSVFoakhYX3J1OGdBS9IBuAFBVV95cUxNb01iNVA3OUREZkpEM0NwQ0kyWk9vM3h0d2drUjlFSjEyMW5aNGVtaWRXeTBrRUlBMm5QaUVvb0xmWDZUWmJZM1FqRXhVcVVVT2RkNE5qc0Q0cjZkM0wyalVGMlZrcWJXUTZQVVRDYktLc3l0cTZZTE51enF0Q0ZrQV9melJPUUtuLTdMUG9WalA3X3lPX0JEbHp6cXpMVWFHazJYVzdhWmNiT1lHbHFlNFl3Vjd1MlZa?oc=5",
+        "googleNewsRssPubDate": "Tue, 03 Mar 2026 08:00:00 GMT",
+        "googleNewsRssSource": "Nos Alpes - Le nostre Alpi"
+      },
+      "rationale": "Google News RSS seed \"tasse svizzera\" — Nos Alpes - Le nostre Alpi",
       "demandScore": 0,
       "noveltyScore": 0.857,
       "totalScore": 0.343
@@ -958,26 +978,6 @@
       "totalScore": 0.337
     },
     {
-      "id": "aa3e6eca",
-      "keyword": "Comprare casa? Uno svizzero su due svuota il secondo pilastro - TVS tvsvizzera.it",
-      "normalizedKeyword": "comprare casa? uno svizzero su due svuota il secondo pilastro - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPMDJQQzJ4TjlQeG1SOFFfZUpXdXpPSFU2b1pHS3JCUmY1aFRYSUh4RDUxaWVCekFlbU9yVEhDLUhKeW9BZ2tHSHNrMUNkd3hTdGpFeFVfeVY2bFhuSVZJQnpZa0hsQk9EQWtXSmFwV0xBZ1AyVFBSZkF5OXB5THlES0xGX3B5czlhNmFxTm1tcFRZZzdlOVFEVG5CNEw0STJRRDhnTQ?oc=5",
-        "googleNewsRssPubDate": "Thu, 23 Oct 2025 07:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — TVS tvsvizzera.it",
-      "demandScore": 0,
-      "noveltyScore": 0.842,
-      "totalScore": 0.337
-    },
-    {
       "id": "15b0bc5b",
       "keyword": "Emergenza abitativa, nuovo accordo territoriale per gli affitti: canoni calmierati e agevolazioni fiscali - ForlìToday",
       "normalizedKeyword": "emergenza abitativa, nuovo accordo territoriale per gli affitti: canoni calmierati e agevolazioni fiscali - forlitoday",
@@ -1167,12 +1167,12 @@
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "IRPEF frontalieri",
+        "googleNewsRssSeed": "tasse svizzera",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiekFVX3lxTFAtSXFxN094ZUxVTjRqY3JPTUFTVUZHSzJTeDdHUG9HaGt4eGJ2Rl9WQkNMemZWcjhWZlFxWVRCOFRWdXFWY203NzBEQUNnb1F5YU9PVmltTVhWUGVDTUtTUHBRUFRSdVYtRXR3Y0IxdUhtLXVsVUJybWlR?oc=5",
         "googleNewsRssPubDate": "Thu, 30 Apr 2026 16:27:45 GMT",
         "googleNewsRssSource": "Fiscomania"
       },
-      "rationale": "Google News RSS seed \"IRPEF frontalieri\" — Fiscomania",
+      "rationale": "Google News RSS seed \"tasse svizzera\" — Fiscomania",
       "demandScore": 0,
       "noveltyScore": 0.833,
       "totalScore": 0.333
@@ -1378,26 +1378,6 @@
       "totalScore": 0.333
     },
     {
-      "id": "7fbefe44",
-      "keyword": "La Svizzera al voto su una tassa di successione del 50%: l'obiettivo è tassare i super ricchi per salvare il clima - Corriere della Sera",
-      "normalizedKeyword": "la svizzera al voto su una tassa di successione del 50%: l'obiettivo e tassare i super ricchi per salvare il clima - corriere della sera",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "tasse svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiswJBVV95cUxPUTl0cmZVTDZwdDZkUlVldFRrWFNnYzI0OEpLTGFqNzBzRTQzTkY4RU9TdUZhclJVenhXdWhPODFBSlpDV0RZZTJLUVFvZS1IOHpwWWtrTUxtOG9tc0NWdVdzTWw1UUJHcWNtRXhwNjVQbE9NWTlGLThzS3BuMEhYTUtwTzUtWFU2ZWV5d2JfREhvcUNMRW8yLURXekJfUzRmSTBfbGpUUjdFTlBaR094VnFrc0s2Xy12SFlnaEN3REN2UE95Z3MwaDFDMDU5TkJSelRFbDBLdHV1RFdrNHRXYTJUenZCOEtlM0RKYUN1R2xSVGZ3dFNsbUJRWndzVGRKeEhYd1VVcUpCeHAwQVliMDJoX2hYaXdTSXNFRmI0eW5mTlA1OW1KSm0xVzQwdV90dTdB0gG4AkFVX3lxTE9OQVQ3Z3lvc3A0NFNrSXVINUYxVXVoY21OeGZGZGhSdVdiaVhnb21TVk0wTHNlclpCWjVKWFExSkFyTFg5UzM5aEtETDJ5cXpBc1ZwLXdiZnViaTZKcC1OQ2k0X3NGZkZjck1mSEIxLTZfZGxIUW9KdFp6aFJTaVRHUkNiZnFTeE9URXlycFpQNGZpbDllZ2lyVENCdGVJNVJQV3JUZmN2WlhjcGRzUEU2Q2Zhb2xlU2tscGJ4bm9mcjN2RS0zNHlKR25IaUZHOXMxaFVOaXpabGJ1OURickNwMVF6N1kwbE4zdmZmWjVlRHJjTnJESmNHX2wxODA0QlcycWJqRDhuZzRYb2NZdlFSUkZrVEk1R1RHVExVLTR5TDVnbG5WQWw2Um9NanpheTFtMWpwSDR3TA?oc=5",
-        "googleNewsRssPubDate": "Sun, 30 Nov 2025 08:00:00 GMT",
-        "googleNewsRssSource": "Corriere della Sera"
-      },
-      "rationale": "Google News RSS seed \"tasse svizzera\" — Corriere della Sera",
-      "demandScore": 0,
-      "noveltyScore": 0.828,
-      "totalScore": 0.331
-    },
-    {
       "id": "6cd617f4",
       "keyword": "Ai ticinesi quasi 6mila franchi, ai frontalieri oltre 1000 in meno: la beffa delle buste paga sul confine - ComoZero",
       "normalizedKeyword": "ai ticinesi quasi 6mila franchi, ai frontalieri oltre 1000 in meno: la beffa delle buste paga sul confine - comozero",
@@ -1407,12 +1387,12 @@
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "frontaliere",
+        "googleNewsRssSeed": "frontalieri",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcW42b3lkQ25ISklzTG5nNFJxZ0RLS05jVHJCWnZkQk5GaDVJbm1jbVFHYmVtRVVnNWNncnBYeTVPeWROaGg1M1pNZVVacmRvRHAtNUxwMGZxaHozczQ3dlVUQzdvTkw4alBkSE5GeU5ZVUYtVkZzS1NVVVRiV0JDZ19faDFKQnVVWGhjZ2hXVmthU2FyTTU3ekNPUnA1NUhmT3ZFTVZ0Sng1aG9MWnJvX0hVQTViQ2pHRU96NHRqYkRvOTd0eWNQdEdUek1QajA?oc=5",
         "googleNewsRssPubDate": "Fri, 24 Apr 2026 05:22:02 GMT",
         "googleNewsRssSource": "ComoZero"
       },
-      "rationale": "Google News RSS seed \"frontaliere\" — ComoZero",
+      "rationale": "Google News RSS seed \"frontalieri\" — ComoZero",
       "demandScore": 0,
       "noveltyScore": 0.826,
       "totalScore": 0.33
@@ -1553,26 +1533,6 @@
         "googleNewsRssSource": "Ticinonline"
       },
       "rationale": "Google News RSS seed \"LAMal\" — Ticinonline",
-      "demandScore": 0,
-      "noveltyScore": 0.824,
-      "totalScore": 0.33
-    },
-    {
-      "id": "3b3e4558",
-      "keyword": "Matrimonio e fisco: quarant’anni di battaglia per l’equità - TVS tvsvizzera.it",
-      "normalizedKeyword": "matrimonio e fisco: quarant’anni di battaglia per l’equita - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "tasse svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNWU1ZjJRUnBDbi1IZWlEMWdKX0RJMEl0QUdfTjdoVTdkc2tvXzdZTlNpRHREMlNZcWpBaU5KRXI4SVA2WU84Tzl4UGV0OXgwZUF0dkJWMndVQU5UeHZVMnJ1TEtEelc1VXBIaXB6eEhmMklFNml2a2VqQkdmRms3UktlMU9zNXlXYU4zbzVtTFZXZ1l2TVpuaEtSOXFVQ05oRHRCa0lUb1lvcDV1LVNKemxxMU9TTE9nYmFENTdOdENMcEgwUHln?oc=5",
-        "googleNewsRssPubDate": "Thu, 18 Sep 2025 07:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"tasse svizzera\" — TVS tvsvizzera.it",
       "demandScore": 0,
       "noveltyScore": 0.824,
       "totalScore": 0.33
@@ -1740,26 +1700,6 @@
       "totalScore": 0.327
     },
     {
-      "id": "46fbcc20",
-      "keyword": "La tassa sulla successione in Svizzera non è così leggera rispetto al resto dell’OCSE - TVS tvsvizzera.it",
-      "normalizedKeyword": "la tassa sulla successione in svizzera non e cosi leggera rispetto al resto dell’ocse - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "tasse svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOdWVFVUNFelJEc1FOZFI1RmY3NnhTRTNkMnJJdWxLQjRhYWZlVEVkMUNMVGJjNVB6UzFXaWY3ODhVM2gtZGVMZ0JPT2VyU0p4YkY5TUxsV2hMNjJuTjdfVF9YZ2g2LWJYeU1WeGFOeWQwbllIRUtmN3ZVR3NvTGFlYXNvUDdlRGxMNlhMRlo0Y2l2UTdpSG5UbXM4cEt6SGlFa25DQm14SExlUWJHQ3lUVWRzejQ0bUg5Q2tQRkREOHNmWmxsclFtN1NueDIzdER4aWxVQnJla3N5YVoxSktobjJicThxSFduWWRtcXNCdE1OOUUt?oc=5",
-        "googleNewsRssPubDate": "Mon, 03 Nov 2025 08:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"tasse svizzera\" — TVS tvsvizzera.it",
-      "demandScore": 0,
-      "noveltyScore": 0.818,
-      "totalScore": 0.327
-    },
-    {
       "id": "3d05b029",
       "keyword": "LPP: la KNF polacca infligge una sanzione da 15 milioni di zloty alla società - MarketScreener Italia",
       "normalizedKeyword": "lpp: la knf polacca infligge una sanzione da 15 milioni di zloty alla societa - marketscreener italia",
@@ -1920,6 +1860,26 @@
       "totalScore": 0.325
     },
     {
+      "id": "b108f596",
+      "keyword": "Lavoratrice frontaliera con diritto all'indennità di maternità - edotto.com",
+      "normalizedKeyword": "lavoratrice frontaliera con diritto all'indennita di maternita - edotto.com",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdVRZVWVZYV9GZldmMkpJOVBTQlpkV3JScnZzR0JFaTNaNGVkNk52dU54WE5oZ3Vib3BpR29XLVBURVdKaWNwOFN3ZlQ2dVNkNndHdlozUmNYNXRLdWhoRGZqcFZDbVZZS1dKcndaaFUwVDYyM0VLU0RLY0lPaXNHWldFM2hOdTR3RUxyRnVyTEl6ZWZNU3ZVX9IBnwFBVV95cUxQb0JUWlRjYlQ2LVItYnhZQ3FwRlhhdk1ERzZDRFFERklJanNLU2dVZ1BCSW50RHVHTG9vUVVJMHpXbGlVTnBkcnh6T1A4ZEJnODdMRkJOT2RBZTRKb3R6WlRmZFNlZV9DTElkNmg0amY5WU82WlJrVVN3YVoxUm1IQU5maXBvbTNLeWdlRkRfaUdybkJUVm9lWGR4XzRzY28?oc=5",
+        "googleNewsRssPubDate": "Mon, 09 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "edotto.com"
+      },
+      "rationale": "Google News RSS seed \"frontaliere\" — edotto.com",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
       "id": "03ca4230",
       "keyword": "Le conseguenze del nuovo accordo sui frontalieri - TVS tvsvizzera.it",
       "normalizedKeyword": "le conseguenze del nuovo accordo sui frontalieri - tvs tvsvizzera.it",
@@ -2038,6 +1998,46 @@
       "demandScore": 0,
       "noveltyScore": 0.813,
       "totalScore": 0.325
+    },
+    {
+      "id": "c77030c7",
+      "keyword": "Telelavoro dei frontalieri, le norme fiscali sono in vigore - Ticinonline",
+      "normalizedKeyword": "telelavoro dei frontalieri, le norme fiscali sono in vigore - ticinonline",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "telelavoro frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSkRsTkVmZFVINWhoZWZSNEJUSFdXWG1jLVc0TlpBUkVva3dSOU0xZ1dYYVBEYmlVaUxRcmgxQ3dtWVJqYmlsY1hJSW4tLVVCYWh5NTRaM3FUZE13cUVZVWFtSVUtQVRqckVMSVB5VlhiS0U1VGJKWG1XX0FIaTFMZGZkWFdFSHJMOVptUEpFRkIwSHFZQ1dIRm5KMA?oc=5",
+        "googleNewsRssPubDate": "Fri, 13 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "Ticinonline"
+      },
+      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "4b9c6944",
+      "keyword": "La battaglia sottotraccia sui frontalieri tra il fisco italiano e quello ticinese - TVS tvsvizzera.it",
+      "normalizedKeyword": "la battaglia sottotraccia sui frontalieri tra il fisco italiano e quello ticinese - tvs tvsvizzera.it",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixgFBVV95cUxONk94eGZBNnFtRWhRSUdOUUhZNjBzU3JxcG1MYUdub1RlczY2Y3hLcWNXSmFvMHhfMlYwVzNXSTFHbU51eU9mZkptdVk4RzRGV093ckhOekxMcG11dXY5ckpEanVKNXdBVVdJbUFZSnhJWXMwSVJWOFZ2NF9BemNrTjBDQUlZakY0ZVNYbWtVMFJMUlgyUDdmNlBLeFg5ZlhDOWVla2RTNUJsRUF4ZmlHSEsxWnU3NGNGWEpTZWluNkdPWlU3M1E?oc=5",
+        "googleNewsRssPubDate": "Sun, 06 Apr 2025 07:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
+      },
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
+      "demandScore": 0,
+      "noveltyScore": 0.81,
+      "totalScore": 0.324
     }
   ]
 }
