@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T09:46:06.079Z",
+  "generatedAt": "2026-05-07T09:59:54.913Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -126,8 +126,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "lamal hotel napoli",
-      "normalizedKeyword": "lamal hotel napoli",
+      "kw": "lamal svizzera",
+      "normalizedKeyword": "lamal svizzera",
       "weight": 0.27,
       "source": "suggest",
       "cluster": "salute"
@@ -154,8 +154,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro",
-      "normalizedKeyword": "secondo pilastro",
+      "kw": "secondo pilastro in caso di morte",
+      "normalizedKeyword": "secondo pilastro in caso di morte",
       "weight": 0.27,
       "source": "suggest",
       "cluster": "pensioni"
@@ -217,8 +217,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamal svizzera",
-      "normalizedKeyword": "lamal svizzera",
+      "kw": "lamalfa14",
+      "normalizedKeyword": "lamalfa14",
       "weight": 0.24,
       "source": "suggest",
       "cluster": "salute"
@@ -245,8 +245,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro svizzera come funziona",
-      "normalizedKeyword": "secondo pilastro svizzera come funziona",
+      "kw": "secondo pilastro svizzera quando si puo ritirare",
+      "normalizedKeyword": "secondo pilastro svizzera quando si puo ritirare",
       "weight": 0.24,
       "source": "suggest",
       "cluster": "pensioni"
@@ -294,15 +294,15 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamalfa14",
-      "normalizedKeyword": "lamalfa14",
+      "kw": "lamalegno",
+      "normalizedKeyword": "lamalegno",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "salute"
     },
     {
-      "kw": "lpp italy srl",
-      "normalizedKeyword": "lpp italy srl",
+      "kw": "lpp italy",
+      "normalizedKeyword": "lpp italy",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "pensioni"
@@ -329,8 +329,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro divorzio frontalieri",
-      "normalizedKeyword": "secondo pilastro divorzio frontalieri",
+      "kw": "secondo pilastro in caso di divorzio",
+      "normalizedKeyword": "secondo pilastro in caso di divorzio",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "pensioni"
@@ -371,15 +371,22 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamalegno",
-      "normalizedKeyword": "lamalegno",
+      "kw": "irpef nuovi frontalieri",
+      "normalizedKeyword": "irpef nuovi frontalieri",
+      "weight": 0.18,
+      "source": "suggest",
+      "cluster": "fiscale"
+    },
+    {
+      "kw": "lamalunga altamura",
+      "normalizedKeyword": "lamalunga altamura",
       "weight": 0.18,
       "source": "suggest",
       "cluster": "salute"
     },
     {
-      "kw": "lpp italy",
-      "normalizedKeyword": "lpp italy",
+      "kw": "lpp arcore",
+      "normalizedKeyword": "lpp arcore",
       "weight": 0.18,
       "source": "suggest",
       "cluster": "pensioni"
@@ -399,15 +406,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "scaglioni irpef frontalieri svizzera",
-      "normalizedKeyword": "scaglioni irpef frontalieri svizzera",
-      "weight": 0.18,
-      "source": "suggest",
-      "cluster": "fiscale"
-    },
-    {
-      "kw": "secondo pilastro svizzera calcolo",
-      "normalizedKeyword": "secondo pilastro svizzera calcolo",
+      "kw": "secondo pilastro divorzio frontalieri",
+      "normalizedKeyword": "secondo pilastro divorzio frontalieri",
       "weight": 0.18,
       "source": "suggest",
       "cluster": "pensioni"
@@ -425,13 +425,6 @@
       "weight": 0.18,
       "source": "suggest",
       "cluster": "pratico"
-    },
-    {
-      "kw": "acconto irpef frontalieri",
-      "normalizedKeyword": "acconto irpef frontalieri",
-      "weight": 0.15,
-      "source": "suggest",
-      "cluster": "fiscale"
     },
     {
       "kw": "accordo telelavoro frontalieri",
@@ -462,22 +455,29 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamalunga altamura",
-      "normalizedKeyword": "lamalunga altamura",
+      "kw": "lamalfa",
+      "normalizedKeyword": "lamalfa",
       "weight": 0.15,
       "source": "suggest",
       "cluster": "salute"
     },
     {
-      "kw": "lpp arcore",
-      "normalizedKeyword": "lpp arcore",
+      "kw": "lppp",
+      "normalizedKeyword": "lppp",
       "weight": 0.15,
       "source": "suggest",
-      "cluster": "pensioni"
+      "cluster": "generic"
     },
     {
-      "kw": "secondo pilastro in caso di morte",
-      "normalizedKeyword": "secondo pilastro in caso di morte",
+      "kw": "scaglioni irpef frontalieri svizzera",
+      "normalizedKeyword": "scaglioni irpef frontalieri svizzera",
+      "weight": 0.15,
+      "source": "suggest",
+      "cluster": "fiscale"
+    },
+    {
+      "kw": "secondo pilastro quando si puo ritirare",
+      "normalizedKeyword": "secondo pilastro quando si puo ritirare",
       "weight": 0.15,
       "source": "suggest",
       "cluster": "pensioni"
@@ -490,8 +490,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "aliquote irpef frontalieri",
-      "normalizedKeyword": "aliquote irpef frontalieri",
+      "kw": "acconto irpef frontalieri",
+      "normalizedKeyword": "acconto irpef frontalieri",
       "weight": 0.12,
       "source": "suggest",
       "cluster": "fiscale"
@@ -518,22 +518,22 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "lamalfa",
-      "normalizedKeyword": "lamalfa",
+      "kw": "lamaline",
+      "normalizedKeyword": "lamaline",
       "weight": 0.12,
       "source": "suggest",
       "cluster": "salute"
     },
     {
-      "kw": "lppp",
-      "normalizedKeyword": "lppp",
+      "kw": "lpp sa",
+      "normalizedKeyword": "lpp sa",
       "weight": 0.12,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "pensioni"
     },
     {
-      "kw": "secondo pilastro pac",
-      "normalizedKeyword": "secondo pilastro pac",
+      "kw": "secondo pilastro svizzera calcolo",
+      "normalizedKeyword": "secondo pilastro svizzera calcolo",
       "weight": 0.12,
       "source": "suggest",
       "cluster": "pensioni"
@@ -553,8 +553,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "anticipo irpef frontalieri",
-      "normalizedKeyword": "anticipo irpef frontalieri",
+      "kw": "aliquote irpef frontalieri",
+      "normalizedKeyword": "aliquote irpef frontalieri",
       "weight": 0.09,
       "source": "suggest",
       "cluster": "fiscale"
@@ -574,22 +574,22 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamaline",
-      "normalizedKeyword": "lamaline",
+      "kw": "lamalunga",
+      "normalizedKeyword": "lamalunga",
       "weight": 0.09,
       "source": "suggest",
       "cluster": "salute"
     },
     {
-      "kw": "lpp sa",
-      "normalizedKeyword": "lpp sa",
+      "kw": "lpp cos'è",
+      "normalizedKeyword": "lpp cos'e",
       "weight": 0.09,
       "source": "suggest",
       "cluster": "pensioni"
     },
     {
-      "kw": "secondo pilastro svizzera divorzio",
-      "normalizedKeyword": "secondo pilastro svizzera divorzio",
+      "kw": "secondo pilastro pac",
+      "normalizedKeyword": "secondo pilastro pac",
       "weight": 0.09,
       "source": "suggest",
       "cluster": "pensioni"
@@ -623,22 +623,22 @@
       "cluster": "generic"
     },
     {
-      "kw": "lamalunga",
-      "normalizedKeyword": "lamalunga",
+      "kw": "lamalaser",
+      "normalizedKeyword": "lamalaser",
       "weight": 0.06,
       "source": "suggest",
       "cluster": "salute"
     },
     {
-      "kw": "lpp cos'è",
-      "normalizedKeyword": "lpp cos'e",
+      "kw": "lpp svizzera calcolo",
+      "normalizedKeyword": "lpp svizzera calcolo",
       "weight": 0.06,
       "source": "suggest",
       "cluster": "pensioni"
     },
     {
-      "kw": "secondo pilastro previdenza italia",
-      "normalizedKeyword": "secondo pilastro previdenza italia",
+      "kw": "secondo pilastro svizzera divorzio",
+      "normalizedKeyword": "secondo pilastro svizzera divorzio",
       "weight": 0.06,
       "source": "suggest",
       "cluster": "pensioni"
@@ -679,22 +679,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "lamalaser",
-      "normalizedKeyword": "lamalaser",
-      "weight": 0.03,
-      "source": "suggest",
-      "cluster": "salute"
-    },
-    {
-      "kw": "lpp svizzera calcolo",
-      "normalizedKeyword": "lpp svizzera calcolo",
-      "weight": 0.03,
-      "source": "suggest",
-      "cluster": "pensioni"
-    },
-    {
-      "kw": "secondo pilastro svizzera tassazione italia",
-      "normalizedKeyword": "secondo pilastro svizzera tassazione italia",
+      "kw": "secondo pilastro previdenza italia",
+      "normalizedKeyword": "secondo pilastro previdenza italia",
       "weight": 0.03,
       "source": "suggest",
       "cluster": "pensioni"
@@ -770,7 +756,7 @@
     },
     "googleSuggest": {
       "ok": true,
-      "kw_count": 101
+      "kw_count": 99
     },
     "winnerFingerprint": {
       "ok": true,
