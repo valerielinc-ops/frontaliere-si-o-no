@@ -21575,4 +21575,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cassis-cornado-crans-montana-risarcimento',
+ category: 'novita',
+ date: '2026-05-07T09:41:52.605Z',
+ image: '/images/blog/cassis-cornado-crans-montana-risarcimento.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

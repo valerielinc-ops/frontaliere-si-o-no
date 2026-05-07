@@ -6735,6 +6735,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.hantavirus-zurigo-crocerista-frontalieri.title': 'Hantavirus à Zurich : un croisiériste en isolement',
     'blog.article.hantavirus-zurigo-crocerista-frontalieri.excerpt': 'Un homme positif à l\'hantavirus est soigné à Zurich après un voyage en Amérique du Sud. Voici ce qu\'il faut savoir.',
     'blog.article.hantavirus-zurigo-crocerista-frontalieri.imageAlt': 'Lac de Lugano avec vue sur les montagnes environnantes',
+    'blog.article.cassis-cornado-crans-montana-risarcimento.title': 'Tensions Cassis-Cornado : indemnités Crans-Montana',
+    'blog.article.cassis-cornado-crans-montana-risarcimento.excerpt': 'L\'ambassadeur italien Cornado répond aux critiques de Cassis sur les factures d\'hôpitaux pour les victimes italiennes de l\'incendie de Crans-Montana.',
+    'blog.article.cassis-cornado-crans-montana-risarcimento.imageAlt': 'Dégâts au bar Le Constellation après l\'incendie de Crans-Montana',
 };
 
 export default blogMetaFr;

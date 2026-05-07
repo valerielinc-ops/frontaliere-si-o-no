@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2297,
+ "numberOfItems": 2298,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6939,7 +6939,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2294, "name": "Lucerna supera Zugo: nuovo paradiso fiscale per...", "url": `${BASE_URL}/articoli-frontaliere/lucerna-paradiso-fiscale-frontalieri` },
           { "@type": "ListItem", "position": 2295, "name": "Spring Pride 2026: inclusione e diritti a Saron...", "url": `${BASE_URL}/articoli-frontaliere/spring-pride-saronno-2026` },
           { "@type": "ListItem", "position": 2296, "name": "Josef Mengele in Svizzera nel 1961: il dossier ...", "url": `${BASE_URL}/articoli-frontaliere/mengele-svizzera-1961-verifica` },
-          { "@type": "ListItem", "position": 2297, "name": "Hantavirus a Zurigo: crocerista in isolamento", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-zurigo-crocerista-frontalieri` }
+          { "@type": "ListItem", "position": 2297, "name": "Hantavirus a Zurigo: crocerista in isolamento", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-zurigo-crocerista-frontalieri` },
+          { "@type": "ListItem", "position": 2298, "name": "Cassis e Cornado: tensioni sul risarcimento per...", "url": `${BASE_URL}/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento` }
  ]
  },
  {

@@ -26399,6 +26399,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassis-cornado-crans-montana-risarcimento': {
+    title: 'Cassis e Cornado: tensioni sul risarcimento per le vittime di Crans-Montana',
+    description: 'L\'ambasciatore italiano Cornado risponde alle critiche di Cassis sulle fatture ospedaliere per le vittime italiane dell\'incendio di Crans-Montana.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassis, cornado, tensioni, risarcimento',
+    ogTitle: 'Cassis e Cornado: tensioni sul risarcimento per le vittime di Crans-Montana',
+    ogDescription: 'L\'ambasciatore italiano Cornado risponde alle critiche di Cassis sulle fatture ospedaliere per le vittime italiane dell\'incendio di Crans-Montana.',
+    canonicalPath: '/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassis e Cornado: tensioni sul risarcimento per le vittime di Crans-Montana",
+      "description": "L'ambasciatore italiano Cornado risponde alle critiche di Cassis sulle fatture ospedaliere per le vittime italiane dell'incendio di Crans-Montana.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassis-cornado-crans-montana-risarcimento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Danni al bar Le Constellation dopo l'incendio di Crans-Montana"
+      },
+      "datePublished": "2026-05-07T09:41:52+00:00",
+      "dateModified": "2026-05-07T09:41:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
