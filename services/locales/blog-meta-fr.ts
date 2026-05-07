@@ -6615,6 +6615,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-riapre-via-mulini-grassi.title': 'Varèse, la rue Mulini Grassi rouvre après les travaux de sécurisation',
     'blog.article.varese-riapre-via-mulini-grassi.excerpt': 'La route reliant Sant\'Ambrogio à la vallée d\'Olona est de nouveau praticable après les travaux de consolidation structurelle.',
     'blog.article.varese-riapre-via-mulini-grassi.imageAlt': 'Via Mulini Grassi rouverte à Varese après des travaux de sécurité',
+    'blog.article.addio-passaporto-usa-berna.title': 'Fin du passeport US : changements pour les frontaliers',
+    'blog.article.addio-passaporto-usa-berna.excerpt': 'Des milliers d\'Américains renoncent à leur passeport américain. Voici ce qu\'il faut savoir si vous vivez dans le Tessin et travaillez en Suisse.',
+    'blog.article.addio-passaporto-usa-berna.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

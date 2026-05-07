@@ -6614,6 +6614,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-riapre-via-mulini-grassi.title': 'Varese: Via Mulini Grassi wieder geöffnet',
     'blog.article.varese-riapre-via-mulini-grassi.excerpt': 'Die Straße, die Sant\'Ambrogio mit dem Olonatal verbindet, ist nach den Sicherungsarbeiten wieder befahrbar.',
     'blog.article.varese-riapre-via-mulini-grassi.imageAlt': 'Via Mulini Grassi in Varese nach Sicherheitsarbeiten wiedereröffnet',
+    'blog.article.addio-passaporto-usa-berna.title': 'Abschied vom US-Pass: Was sich für Grenzgänger ändert',
+    'blog.article.addio-passaporto-usa-berna.excerpt': 'Tausende Amerikaner verzichten auf den US-Pass. Was Sie wissen müssen, wenn Sie im Tessin leben und in der Schweiz arbeiten',
+    'blog.article.addio-passaporto-usa-berna.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

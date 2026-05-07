@@ -24852,6 +24852,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-addio-passaporto-usa-berna': {
+    title: 'L’addio al passaporto Usa passa da Berna: cosa cambia per i frontalieri',
+    description: 'Migliaia di americani rinunciano al passaporto USA. Ecco cosa sapere se vivi in Ticino e lavori in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, addio, passaporto, passa, berna',
+    ogTitle: 'L’addio al passaporto Usa passa da Berna: cosa cambia per i frontalieri',
+    ogDescription: 'Migliaia di americani rinunciano al passaporto USA. Ecco cosa sapere se vivi in Ticino e lavori in Svizzera',
+    canonicalPath: '/articoli-frontaliere/addio-passaporto-usa-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L’addio al passaporto Usa passa da Berna: cosa cambia per i frontalieri",
+      "description": "Migliaia di americani rinunciano al passaporto USA. Ecco cosa sapere se vivi in Ticino e lavori in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/addio-passaporto-usa-berna.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-07T03:02:03+00:00",
+      "dateModified": "2026-05-07T03:02:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/addio-passaporto-usa-berna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2257,
+ "numberOfItems": 2258,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6899,7 +6899,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2254, "name": "Due ticinesi tra le nuove Guardie Svizzere", "url": `${BASE_URL}/articoli-frontaliere/due-ticinesi-guardie-svizzere-2026` },
           { "@type": "ListItem", "position": 2255, "name": "Hantavirus a Zurigo: crocerista ricoverato, UFS...", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-zurigo-ricovero-crocerista` },
           { "@type": "ListItem", "position": 2256, "name": "L'Otr Bellinzona e Valli punta sulle due ruote", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-valli-bici-velocita` },
-          { "@type": "ListItem", "position": 2257, "name": "Varese, riapre via Mulini Grassi: terminati i l...", "url": `${BASE_URL}/articoli-frontaliere/varese-riapre-via-mulini-grassi` }
+          { "@type": "ListItem", "position": 2257, "name": "Varese, riapre via Mulini Grassi: terminati i l...", "url": `${BASE_URL}/articoli-frontaliere/varese-riapre-via-mulini-grassi` },
+          { "@type": "ListItem", "position": 2258, "name": "L’addio al passaporto Usa passa da Berna: cosa ...", "url": `${BASE_URL}/articoli-frontaliere/addio-passaporto-usa-berna` }
  ]
  },
  {

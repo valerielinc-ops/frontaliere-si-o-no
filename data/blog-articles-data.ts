@@ -21215,4 +21215,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'addio-passaporto-usa-berna',
+ category: 'novita',
+ date: '2026-05-07T03:02:02.960Z',
+ image: '/images/blog/addio-passaporto-usa-berna.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
