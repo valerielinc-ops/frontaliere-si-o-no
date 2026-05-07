@@ -6813,6 +6813,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.polizia-svizzera-inseguimento-italia.title': 'La police suisse peut-elle poursuivre en Italie ?',
     'blog.article.polizia-svizzera-inseguimento-italia.excerpt': 'Découvrons ensemble les détails des poursuites transfrontalières entre la Suisse et l\'Italie, avec un focus sur le canton du Tessin et les travailleurs frontaliers',
     'blog.article.polizia-svizzera-inseguimento-italia.imageAlt': 'Voiture de police suisse près de la frontière italienne avec le lac de Lugano en arrière-plan',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.title': 'Chômage au Tessin: le Seco juge trop tôt pour évaluer l\'impact de la guerre',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.excerpt': 'La Secrétariat d\'État à l\'économie suisse affirme qu\'il est trop tôt pour évaluer l\'impact de la guerre en Iran sur le marché du travail tessinois',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.imageAlt': 'Vue aérienne de Bellinzone, Tessin, avec les châteaux et le paysage environnant',
 };
 
 export default blogMetaFr;

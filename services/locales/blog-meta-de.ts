@@ -6812,6 +6812,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.polizia-svizzera-inseguimento-italia.title': 'Darf die Schweizer Polizei in Italien verfolgen?',
     'blog.article.polizia-svizzera-inseguimento-italia.excerpt': 'Wir klären die Details zu grenzüberschreitenden Verfolgungsjagden zwischen der Schweiz und Italien, mit Fokus auf den Kanton Tessin und Grenzgänger',
     'blog.article.polizia-svizzera-inseguimento-italia.imageAlt': 'Schweizer Polizeiauto in der Nähe der italienischen Grenze mit dem Luganersee im Hintergrund',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.title': 'Arbeitslosigkeit Tessin: Seco, zu früh für Kriegseffekte',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.excerpt': 'Das Staatssekretariat für Wirtschaft der Schweiz erklärt, dass es zu früh ist, um die Auswirkungen des Krieges im Iran auf den Arbeitsmarkt im Tessin zu bewerten',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.imageAlt': 'Luftaufnahme von Bellinzona, Tessin, mit den Burgen und der umliegenden Landschaft',
 };
 
 export default blogMetaDe;

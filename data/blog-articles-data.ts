@@ -21809,4 +21809,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'disoccupazione-ticino-2026-effetti-guerra',
+ category: 'fiscale',
+ date: '2026-05-07T15:45:58.346Z',
+ image: '/images/blog/disoccupazione-ticino-2026-effetti-guerra.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

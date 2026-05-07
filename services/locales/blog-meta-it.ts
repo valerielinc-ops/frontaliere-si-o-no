@@ -6813,6 +6813,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.polizia-svizzera-inseguimento-italia.title': 'Polizia svizzera può inseguire in Italia?',
     'blog.article.polizia-svizzera-inseguimento-italia.excerpt': 'Scopriamo insieme i dettagli sugli inseguimenti transfrontalieri tra Svizzera e Italia, con focus su Canton Ticino e frontalieri',
     'blog.article.polizia-svizzera-inseguimento-italia.imageAlt': 'Auto della polizia svizzera vicino al confine con l\'Italia, con il Lago di Lugano sullo sfondo',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.title': 'Disoccupazione Ticino: Seco, troppo presto per vedere effetti guerra',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.excerpt': 'La Segreteria di Stato dell\'economia svizzera afferma che è troppo presto per valutare l\'impatto della guerra in Iran sul mercato del lavoro ticinese',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.imageAlt': 'Vista aerea di Bellinzona, Ticino, con i castelli e il paesaggio circostante',
 };
 
 export default blogMetaIt;

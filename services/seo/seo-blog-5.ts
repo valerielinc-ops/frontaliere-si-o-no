@@ -27413,6 +27413,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-ticino-2026-effetti-guerra': {
+    title: 'Disoccupazione Ticino: Seco, troppo presto per vedere effetti guerra',
+    description: 'La SECO afferma che è troppo presto per valutare l\'impatto della guerra in Iran sul mercato del lavoro ticinese. Scopri di più. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, seco, troppo, presto',
+    ogTitle: 'Disoccupazione Ticino: Seco, troppo presto per vedere effetti guerra',
+    ogDescription: 'La SECO afferma che è troppo presto per valutare l\'impatto della guerra in Iran sul mercato del lavoro ticinese. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-ticino-2026-effetti-guerra',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione Ticino: Seco, troppo presto per vedere effetti guerra",
+      "description": "La SECO afferma che è troppo presto per valutare l'impatto della guerra in Iran sul mercato del lavoro ticinese. Scopri di più. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-ticino-2026-effetti-guerra.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona, Ticino, con i castelli e il paesaggio circostante"
+      },
+      "datePublished": "2026-05-07T15:45:58+00:00",
+      "dateModified": "2026-05-07T15:45:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-ticino-2026-effetti-guerra`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

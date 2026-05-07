@@ -6812,6 +6812,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.polizia-svizzera-inseguimento-italia.title': 'Can Swiss police chase into Italy?',
     'blog.article.polizia-svizzera-inseguimento-italia.excerpt': 'Let\'s explore the details of cross-border pursuits between Switzerland and Italy, focusing on Canton Ticino and cross-border workers',
     'blog.article.polizia-svizzera-inseguimento-italia.imageAlt': 'Swiss police car near the Italian border with Lake Lugano in the background',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.title': 'Ticino unemployment: SECO, too early to see war effects',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.excerpt': 'The Swiss State Secretariat for Economic Affairs states that it\'s too early to assess the impact of the war in Iran on the Ticino job market',
+    'blog.article.disoccupazione-ticino-2026-effetti-guerra.imageAlt': 'Aerial view of Bellinzona, Ticino, with the castles and the surrounding landscape',
 };
 
 export default blogMetaEn;
