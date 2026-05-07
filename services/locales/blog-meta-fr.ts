@@ -6807,6 +6807,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ia-svizzera-uso-frontalieri-2026.title': 'IA en Suisse: plus d\'un tiers des adultes l\'utilise',
     'blog.article.ia-svizzera-uso-frontalieri-2026.excerpt': 'En Suisse, 37,8% des adultes utilisent des outils d\'intelligence artificielle, dépassant la moyenne mondiale de 17,8%.',
     'blog.article.ia-svizzera-uso-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
+    'blog.article.suini-svizzera-compenso-allevatori.title': 'Suiniculture en Suisse : compensation pour réduire la production',
+    'blog.article.suini-svizzera-compenso-allevatori.excerpt': 'La Suisse offre des compensations pour réduire la surproduction de viande porcine. Voici ce qui change pour les frontaliers et les éleveurs.',
+    'blog.article.suini-svizzera-compenso-allevatori.imageAlt': 'Marché suisse avec des produits de porc en Tessin',
 };
 
 export default blogMetaFr;

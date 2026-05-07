@@ -6806,6 +6806,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ia-svizzera-uso-frontalieri-2026.title': 'AI in Switzerland: over a third of adults use it',
     'blog.article.ia-svizzera-uso-frontalieri-2026.excerpt': 'In Switzerland, 37.8% of adults use AI tools, surpassing the global average of 17.8%.',
     'blog.article.ia-svizzera-uso-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
+    'blog.article.suini-svizzera-compenso-allevatori.title': 'Swiss pig compensation for reduced production',
+    'blog.article.suini-svizzera-compenso-allevatori.excerpt': 'Switzerland offers compensation to reduce pig meat overproduction. Here\'s what changes for cross-border workers and farmers.',
+    'blog.article.suini-svizzera-compenso-allevatori.imageAlt': 'Swiss market with pork products in Ticino',
 };
 
 export default blogMetaEn;

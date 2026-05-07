@@ -6807,6 +6807,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ia-svizzera-uso-frontalieri-2026.title': 'IA in Svizzera: oltre un terzo degli adulti la usa',
     'blog.article.ia-svizzera-uso-frontalieri-2026.excerpt': 'In Svizzera, il 37,8% degli adulti utilizza strumenti di intelligenza artificiale, superando la media mondiale del 17,8%.',
     'blog.article.ia-svizzera-uso-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo',
+    'blog.article.suini-svizzera-compenso-allevatori.title': 'Suini in Svizzera: compenso per allevatori per ridurre produzione',
+    'blog.article.suini-svizzera-compenso-allevatori.excerpt': 'La Svizzera offre compensi per ridurre la sovrapproduzione di carne suina. Ecco cosa cambia per i frontalieri e gli allevatori.',
+    'blog.article.suini-svizzera-compenso-allevatori.imageAlt': 'Mercato svizzero con prodotti di carne suina in Ticino',
 };
 
 export default blogMetaIt;

@@ -6806,6 +6806,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ia-svizzera-uso-frontalieri-2026.title': 'KI in der Schweiz: Über ein Drittel der Erwachsenen nutzt sie',
     'blog.article.ia-svizzera-uso-frontalieri-2026.excerpt': 'In der Schweiz nutzen 37,8 % der Erwachsenen KI-Tools, was über dem weltweiten Durchschnitt von 17,8 % liegt.',
     'blog.article.ia-svizzera-uso-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganersees mit modernen Gebäuden und Bergen im Hintergrund',
+    'blog.article.suini-svizzera-compenso-allevatori.title': 'Schweiz zahlt Schweinehaltern für Produktionsreduktion',
+    'blog.article.suini-svizzera-compenso-allevatori.excerpt': 'Die Schweiz bietet Entschädigungen für die Reduzierung der Schweinefleisch-Überproduktion. Hier erfahren Sie, was sich für Grenzgänger und Schweinehalter ändert.',
+    'blog.article.suini-svizzera-compenso-allevatori.imageAlt': 'Schweizer Markt mit Schweinefleischprodukten in Tessin',
 };
 
 export default blogMetaDe;

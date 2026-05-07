@@ -21791,4 +21791,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'suini-svizzera-compenso-allevatori',
+ category: 'novita',
+ date: '2026-05-07T15:23:02.700Z',
+ image: '/images/blog/suini-svizzera-compenso-allevatori.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
