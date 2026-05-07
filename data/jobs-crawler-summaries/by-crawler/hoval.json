@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-07T11:11:47.469Z",
+  "generatedAt": "2026-05-07T22:00:28.313Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13226,
-  "avgDurationMs": 13226,
+  "unchangedCount": 2,
+  "durationMs": 14038,
+  "avgDurationMs": 14038,
   "durationHistory": [
-    13226
+    14038
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -18,7 +18,7 @@
       "title": "Consulente tecnico interno di vendita (m/f/d)",
       "slug": "consulente-tecnico-interno-di-vendita-m-f-d-hoval-mezzovico",
       "url": "https://www.hoval.it/it_IT/job/3741",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3741/Application/New/4?DesignID=00&lang=ita",
+      "applyUrl": "",
       "company": "Hoval",
       "companyKey": "hoval",
       "companyDomain": "hoval.it",
@@ -43,14 +43,17 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-06T11:06:53.251Z",
-      "_qualityScore": 95,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 10,
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -125,7 +128,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
