@@ -6879,6 +6879,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sanremo-eurovision-campione-2026.title': 'Sanremo, l\'Eurovision e poi Campione: Sal Da Vinci in concerto',
     'blog.article.sanremo-eurovision-campione-2026.excerpt': 'Il vincitore di Sanremo 2026 incanterà Campione d’Italia con un concerto al Casinò il 18 maggio. Scopri tutti i dettagli.',
     'blog.article.sanremo-eurovision-campione-2026.imageAlt': 'Concerto al LAC di Lugano con vista sul lago',
+    'blog.article.morbio-inferiore-raccolta-vegetali-2026.title': 'Morbio Inferiore: raccolta vegetali meno frequente e più cara',
+    'blog.article.morbio-inferiore-raccolta-vegetali-2026.excerpt': 'Il PLR di Morbio Inferiore denuncia un servizio di raccolta scarti vegetali meno frequente e più costoso rispetto ai comuni vicini',
+    'blog.article.morbio-inferiore-raccolta-vegetali-2026.imageAlt': 'Vista aerea di Morbio Inferiore, Ticino, Svizzera, con giardini verdi e aree residenziali',
 };
 
 export default blogMetaIt;

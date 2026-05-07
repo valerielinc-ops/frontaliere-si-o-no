@@ -22007,4 +22007,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'morbio-inferiore-raccolta-vegetali-2026',
+ category: 'pratico',
+ date: '2026-05-07T21:05:25.795Z',
+ image: '/images/blog/morbio-inferiore-raccolta-vegetali-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6878,6 +6878,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sanremo-eurovision-campione-2026.title': 'From Sanremo to Campione: Sal Da Vinci in concert',
     'blog.article.sanremo-eurovision-campione-2026.excerpt': 'The winner of Sanremo 2026 will enchant Campione d\'Italia with a concert at the Casino on May 18th. Discover all the details.',
     'blog.article.sanremo-eurovision-campione-2026.imageAlt': 'Concert at LAC Lugano with lake view',
+    'blog.article.morbio-inferiore-raccolta-vegetali-2026.title': 'Morbio Inferiore: less frequent and pricier green waste collection',
+    'blog.article.morbio-inferiore-raccolta-vegetali-2026.excerpt': 'The PLR of Morbio Inferiore reports a less frequent and more expensive green waste collection service compared to neighboring municipalities',
+    'blog.article.morbio-inferiore-raccolta-vegetali-2026.imageAlt': 'Aerial view of Morbio Inferiore, Ticino, Switzerland, with green gardens and residential areas',
 };
 
 export default blogMetaEn;

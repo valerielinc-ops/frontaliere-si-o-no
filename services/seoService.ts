@@ -3535,6 +3535,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casse-malati-frontalieri-ticino': { name: 'Casse malati', path: '/articoli-frontaliere/casse-malati-frontalieri-ticino', parent: 'blog' },
     'blog-artekrea-open-days-varese-2026': { name: 'Open Days ArteKrea', path: '/articoli-frontaliere/artekrea-open-days-varese-2026', parent: 'blog' },
     'blog-sanremo-eurovision-campione-2026': { name: 'Eventi', path: '/articoli-frontaliere/sanremo-eurovision-campione-2026', parent: 'blog' },
+    'blog-morbio-inferiore-raccolta-vegetali-2026': { name: 'Raccolta vegetali', path: '/articoli-frontaliere/morbio-inferiore-raccolta-vegetali-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
