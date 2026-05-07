@@ -80,17 +80,29 @@ import {
 
 // ── Constants ───────────────────────────────────────────────────────────
 
-// MIN_JOB_COUNT — candidate-level frequency floor (audit time). The default
-// `5` keeps the production deploy at the historically-OK ~1.5k cluster pages.
-// The 32k GSC-404 problem is being investigated in a separate, isolated
-// workflow (.github/workflows/cluster-pages-experiment.yml) that overrides
-// this floor via RELATED_SEARCH_CLUSTERS_FLOOR env so the main deploy stays
-// stable while we measure the timing/memory profile at lower floors.
-// Attempted floor=1 → 18,711 clusters + OOM (exit 143). Attempted floor=3
-// (no cap) → build still in_progress at 40 min, suspected swap thrashing,
-// cancelled. Reverting to the 5 baseline until the experiment workflow
-// pinpoints where the runner actually breaks.
-const MIN_JOB_COUNT = Number(process.env.RELATED_SEARCH_CLUSTERS_FLOOR) || 5;
+// MIN_JOB_COUNT — candidate-level frequency floor (audit time).
+//
+// Set to 1 (no filtering) to emit a static page for every audit-captured
+// candidate slug. This recovers the ~32k GSC 404 cohort from JobBoard's
+// SPA `<a href>` tags that point at `/{section}/{prefix}-{slug}/` URLs
+// for keywords that were previously below the cut.
+//
+// Why this is now safe (was a hard NO until 2026-05-07):
+//   - SEQUENTIAL_PROFILE=1 is now the always-on default in deploy.yml
+//     (commit 022c6e1808). Plugins no longer run concurrently in
+//     closeBundle, so peak heap is bounded by the largest single
+//     plugin instead of the sum of overlapping working sets. The
+//     previous floor=1 attempts (a7f28ce129 → 18.7k clusters → OOM
+//     exit 143; 1e41209124 → 40-min hang → cancel) were all caused
+//     by parallel-mode contention, NOT by this plugin's own emit.
+//   - In sequential mode, this plugin emitted 1581 pages in 19.1s on
+//     the GH free-tier runner. Linear scaling to ~52k candidates
+//     puts the cluster phase at ~10 min — well within the build
+//     budget, and plugin-isolated so it can't poison other plugins.
+//   - Per-page MIN_MATCHING_JOBS=3 quality gate (combined AND-tier +
+//     OR-fill) is still enforced below — clusters that genuinely have
+//     <3 listing matches are skipped, no thin content emitted.
+const MIN_JOB_COUNT = 1;
 const MIN_MATCHING_JOBS = 3;
 const MAX_JOBS_PER_PAGE = 30;
 const HUB_PAGE_SIZE = 200;

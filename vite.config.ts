@@ -169,11 +169,19 @@ export default defineConfig(({ mode }) => {
  // articles per section. Static-only (no SPA route, no nav-tab impact).
  ...(process.env.SKIP_SECTION_PAGES !== '1' ? [sectionPagesPlugin()] : []),
  orphanQueryLandingPlugin(__dirname),
+ // staticPagesPlugin emits the section-landing index.html files
+ // (/cerca-lavoro-ticino/, /en/find-jobs-ticino/, etc.) that
+ // relatedSearchClustersPlugin's `injectHubLinkIntoSectionLanding`
+ // patches downstream. Must run BEFORE the cluster plugin in sequential
+ // mode (the new always-on default) — otherwise the cluster plugin
+ // logs "section landing missing — skipping hub link injection" and
+ // the link from each section landing to the cluster paginated hub is
+ // never written, breaking the hub's inbound link graph.
+ staticPagesPlugin(__dirname),
  // Related-search cluster landings (B2). Self-gated by
  // SKIP_RELATED_SEARCH_CLUSTERS=1 (no outer wrapper needed); skipped in
  // typical agent sessions via .claude/settings.json env block.
  relatedSearchClustersPlugin(__dirname),
- staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
  // AE-7 — after static pages are written, inject a contextual link into
