@@ -6803,6 +6803,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.title': 'Vermögensbeschlagnahmung der Mafia in der Schweiz: radikaler Vorschlag',
     'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.excerpt': 'Vorschlag zur vorbeugenden Beschlagnahmung von Mafia-Vermögen in der Schweiz, wie in Italien. Festnahme eines Beamten des Bundespolizei.',
     'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.imageAlt': 'Luftaufnahme des Luganersees mit klarem blauem Wasser, umgeben von Bergen und Gebäuden',
+    'blog.article.ia-svizzera-uso-frontalieri-2026.title': 'KI in der Schweiz: Über ein Drittel der Erwachsenen nutzt sie',
+    'blog.article.ia-svizzera-uso-frontalieri-2026.excerpt': 'In der Schweiz nutzen 37,8 % der Erwachsenen KI-Tools, was über dem weltweiten Durchschnitt von 17,8 % liegt.',
+    'blog.article.ia-svizzera-uso-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganersees mit modernen Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -3510,6 +3510,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-auto-a2-camorino': { name: 'Incendio auto', path: '/articoli-frontaliere/incendio-auto-a2-camorino', parent: 'blog' },
     'blog-cultura-pari-opportunita-ticino-2024': { name: 'Cultura e inclusione', path: '/articoli-frontaliere/cultura-pari-opportunita-ticino-2024', parent: 'blog' },
     'blog-confisca-patrimoni-mafiosi-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/confisca-patrimoni-mafiosi-svizzera-2026', parent: 'blog' },
+    'blog-ia-svizzera-uso-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/ia-svizzera-uso-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

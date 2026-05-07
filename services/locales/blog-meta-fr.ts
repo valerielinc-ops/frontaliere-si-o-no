@@ -6804,6 +6804,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.title': 'Confiscation des biens mafieux en Suisse: proposition radicale',
     'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.excerpt': 'Proposition de confiscation préventive des biens mafieux en Suisse, comme en Italie. Arrestation d\'un fonctionnaire de la police fédérale.',
     'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.imageAlt': 'Vue aérienne du lac de Lugano avec de l\'eau bleue cristalline, entouré de montagnes et de bâtiments',
+    'blog.article.ia-svizzera-uso-frontalieri-2026.title': 'IA en Suisse: plus d\'un tiers des adultes l\'utilise',
+    'blog.article.ia-svizzera-uso-frontalieri-2026.excerpt': 'En Suisse, 37,8% des adultes utilisent des outils d\'intelligence artificielle, dépassant la moyenne mondiale de 17,8%.',
+    'blog.article.ia-svizzera-uso-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

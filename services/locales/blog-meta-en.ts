@@ -6803,6 +6803,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.title': 'Seizing mafia assets in Switzerland: radical proposal',
     'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.excerpt': 'Proposal for preventive seizure of mafia assets in Switzerland, as in Italy. Arrest of a Federal Police officer.',
     'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water, surrounded by mountains and buildings',
+    'blog.article.ia-svizzera-uso-frontalieri-2026.title': 'AI in Switzerland: over a third of adults use it',
+    'blog.article.ia-svizzera-uso-frontalieri-2026.excerpt': 'In Switzerland, 37.8% of adults use AI tools, surpassing the global average of 17.8%.',
+    'blog.article.ia-svizzera-uso-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
 };
 
 export default blogMetaEn;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2320,
+ "numberOfItems": 2321,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6962,7 +6962,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2317, "name": "Spaccio di droga a Busto: sequestrati 18mila eu...", "url": `${BASE_URL}/articoli-frontaliere/spaccio-droga-busto-18mila-euro` },
           { "@type": "ListItem", "position": 2318, "name": "Incendio auto sull'A2 in zona Camorino: traffic...", "url": `${BASE_URL}/articoli-frontaliere/incendio-auto-a2-camorino` },
           { "@type": "ListItem", "position": 2319, "name": "Convegno sulle pari opportunità in Ticino: cult...", "url": `${BASE_URL}/articoli-frontaliere/cultura-pari-opportunita-ticino-2024` },
-          { "@type": "ListItem", "position": 2320, "name": "Confisca patrimoni mafiosi in Svizzera: propost...", "url": `${BASE_URL}/articoli-frontaliere/confisca-patrimoni-mafiosi-svizzera-2026` }
+          { "@type": "ListItem", "position": 2320, "name": "Confisca patrimoni mafiosi in Svizzera: propost...", "url": `${BASE_URL}/articoli-frontaliere/confisca-patrimoni-mafiosi-svizzera-2026` },
+          { "@type": "ListItem", "position": 2321, "name": "IA in Svizzera: oltre un terzo degli adulti la usa", "url": `${BASE_URL}/articoli-frontaliere/ia-svizzera-uso-frontalieri-2026` }
  ]
  },
  {
