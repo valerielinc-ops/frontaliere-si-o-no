@@ -79,18 +79,17 @@ import {
 
 // ── Constants ───────────────────────────────────────────────────────────
 
-// MIN_JOB_COUNT — candidate-level frequency floor (audit time). Originally 5,
-// kept the emit set tiny (~1.5k of 52k candidates). The other 50k slugs were
-// still link-emitted by JobBoard's `<a href>` tags in the SPA, so Googlebot
-// discovered them and reported 32k+ "Non trovata (404)" in GSC. Lowering the
-// floor to 1 produced 18,711 surviving clusters and OOM-killed the
-// GH-runner during a downstream plugin (exit 143). Settled on 3 as a
-// conservative starting point: the audit summary shows ~3,741 candidates
-// pass freq≥3, and combined with the AND-first/OR-fill matching this
-// typically yields a few thousand emittable cluster pages — close to the
-// 1,581-baseline that already builds cleanly. If the next deploy stays
-// green, this can iterate down toward 1 to recover more of the 404 cohort.
-const MIN_JOB_COUNT = 3;
+// MIN_JOB_COUNT — candidate-level frequency floor (audit time). The default
+// `5` keeps the production deploy at the historically-OK ~1.5k cluster pages.
+// The 32k GSC-404 problem is being investigated in a separate, isolated
+// workflow (.github/workflows/cluster-pages-experiment.yml) that overrides
+// this floor via RELATED_SEARCH_CLUSTERS_FLOOR env so the main deploy stays
+// stable while we measure the timing/memory profile at lower floors.
+// Attempted floor=1 → 18,711 clusters + OOM (exit 143). Attempted floor=3
+// (no cap) → build still in_progress at 40 min, suspected swap thrashing,
+// cancelled. Reverting to the 5 baseline until the experiment workflow
+// pinpoints where the runner actually breaks.
+const MIN_JOB_COUNT = Number(process.env.RELATED_SEARCH_CLUSTERS_FLOOR) || 5;
 const MIN_MATCHING_JOBS = 3;
 const MAX_JOBS_PER_PAGE = 30;
 const HUB_PAGE_SIZE = 200;

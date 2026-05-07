@@ -1,0 +1,66 @@
+name: Cluster Pages Experiment
+
+# Profiles the related-search clusters plugin's matching phase in isolation,
+# without running the full SEO build (which OOMs at low floors due to
+# cumulative pressure from downstream plugins, NOT this plugin alone).
+#
+# Why a separate workflow:
+#   - The main `Deploy to GitHub Pages` workflow uses MIN_JOB_COUNT=5 (or
+#     RELATED_SEARCH_CLUSTERS_FLOOR override) — kept stable to avoid blocking
+#     production pushes. We don't want experiments piling onto that queue.
+#   - This workflow has its own concurrency group, runs in <1 min (script
+#     only, no vite, no HTML emission), and reports the cluster counts that
+#     would emit at each floor. That answers "how many pages would we
+#     recover from the GSC-404 cohort if we lowered the floor to N?"
+#     without burning 30+ min of full-build runner time.
+#
+# Trigger: manual via Actions UI, or `gh workflow run cluster-pages-experiment.yml`.
+# Optional `floor` input runs a single-floor profile in addition to the sweep.
+
+on:
+  workflow_dispatch:
+    inputs:
+      floor:
+        description: 'Single-floor profile (in addition to the default 1/2/3/5/10 sweep)'
+        required: false
+        type: choice
+        options:
+          - 'sweep-only'
+          - '1'
+          - '2'
+          - '3'
+          - '5'
+          - '10'
+        default: 'sweep-only'
+
+permissions:
+  contents: read
+
+# Per-run group so multiple experiments can run in parallel without blocking.
+concurrency:
+  group: cluster-pages-experiment-${{ github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Sweep — counts at floors [1, 2, 3, 5, 10]
+        run: node scripts/profile-cluster-emission.mjs
+
+      - name: Single-floor JSON report
+        if: ${{ inputs.floor != 'sweep-only' }}
+        run: node scripts/profile-cluster-emission.mjs --floor=${{ inputs.floor }} --json
