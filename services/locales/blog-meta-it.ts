@@ -6672,6 +6672,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuova-axenstrasse-svitto-2026.title': 'Nuova Axenstrasse in Canton Svitto: lavori iniziati',
     'blog.article.nuova-axenstrasse-svitto-2026.excerpt': 'La nuova galleria di 3 km sostituirà la strada attuale, esposta a frane. Completamento previsto per il 2033 con un costo di 1,2 miliardi di franchi.',
     'blog.article.nuova-axenstrasse-svitto-2026.imageAlt': 'Vista aerea del Lago dei Quattro Cantoni con la strada Axenstrasse e le montagne circostanti',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.title': 'Spreco alimentare in Svizzera: obiettivo intermedio fallito',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.excerpt': 'Il piano d\'azione contro lo spreco alimentare in Svizzera ha fallito l\'obiettivo intermedio del 25% di riduzione. Ecco cosa cambia per i frontalieri.',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.imageAlt': 'Supermercato a Lugano con prodotti freschi e poca spreco alimentare',
 };
 
 export default blogMetaIt;

@@ -21386,4 +21386,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'spreco-alimentare-svizzera-obiettivo-fallito',
+ category: 'pratico',
+ date: '2026-05-07T06:18:45.500Z',
+ image: '/images/blog/spreco-alimentare-svizzera-obiettivo-fallito.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

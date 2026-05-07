@@ -6672,6 +6672,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuova-axenstrasse-svitto-2026.title': 'Nouvelle Axenstrasse dans le canton de Schwytz: travaux commencés',
     'blog.article.nuova-axenstrasse-svitto-2026.excerpt': 'La nouvelle galerie de 3 km remplacera la route actuelle, exposée aux glissements de terrain. Achèvement prévu pour 2033 avec un coût de 1,2 milliard de francs.',
     'blog.article.nuova-axenstrasse-svitto-2026.imageAlt': 'Vue aérienne du lac des Quatre Cantons avec la route Axenstrasse et les montagnes environnantes',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.title': 'Gaspillage alimentaire en Suisse: objectif intermédiaire manqué',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.excerpt': 'Le plan d\'action contre le gaspillage alimentaire en Suisse a échoué à atteindre l\'objectif intermédiaire de réduction de 25%. Voici ce qui change pour les frontaliers.',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.imageAlt': 'Supermarché à Lugano avec des produits frais et peu de gaspillage alimentaire',
 };
 
 export default blogMetaFr;

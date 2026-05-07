@@ -6671,6 +6671,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuova-axenstrasse-svitto-2026.title': 'New Axenstrasse in Canton Schwyz: work begins',
     'blog.article.nuova-axenstrasse-svitto-2026.excerpt': 'The new 3 km tunnel will replace the current road, prone to landslides. Completion expected by 2033 at a cost of 1.2 billion francs.',
     'blog.article.nuova-axenstrasse-svitto-2026.imageAlt': 'Aerial view of Lake Lucerne with the Axenstrasse road and surrounding mountains',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.title': 'Switzerland misses food waste reduction target',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.excerpt': 'Switzerland\'s action plan to reduce food waste has missed its intermediate target of a 25% reduction. Here\'s what changes for cross-border workers.',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.imageAlt': 'Grocery store in Lugano with fresh produce and minimal food waste',
 };
 
 export default blogMetaEn;

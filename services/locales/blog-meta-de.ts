@@ -6671,6 +6671,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuova-axenstrasse-svitto-2026.title': 'Neue Axenstrasse im Kanton Schwyz: Bauarbeiten begonnen',
     'blog.article.nuova-axenstrasse-svitto-2026.excerpt': 'Der neue 3 km lange Tunnel ersetzt die aktuelle Straße, die von Erdrutschen gefährdet ist. Fertigstellung für 2033 mit Kosten von 1,2 Milliarden Franken.',
     'blog.article.nuova-axenstrasse-svitto-2026.imageAlt': 'Luftaufnahme des Vierwaldstättersees mit der Axenstrasse und den umliegenden Bergen',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.title': 'Lebensmittelverschwendung in der Schweiz: Zwischenziel verfehlt',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.excerpt': 'Der Aktionsplan gegen Lebensmittelverschwendung in der Schweiz hat das Zwischenziel einer 25%igen Reduktion verfehlt. Hier erfahren Grenzgänger, was sich ändert.',
+    'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.imageAlt': 'Supermarkt in Lugano mit frischen Produkten und wenig Lebensmittelverschwendung',
 };
 
 export default blogMetaDe;
