@@ -103,31 +103,87 @@ function tokenize(text) {
     .filter((w) => w.length >= 4 && !STOPWORDS_IT.has(w));
 }
 
-function countTokens(textList) {
+/**
+ * Token-frequency map across a list of documents, with optional per-document
+ * weights (the recency factor). When `weights` is omitted, every document
+ * counts as 1.0.
+ *
+ * @param {string[]} textList
+ * @param {number[]|null} weights
+ * @returns {Map<string, number>}
+ */
+function countTokensWeighted(textList, weights) {
   /** @type {Map<string, number>} */
   const counts = new Map();
-  for (const text of textList) {
+  for (let i = 0; i < textList.length; i += 1) {
+    const text = textList[i];
+    const w = weights ? Number(weights[i] ?? 1) : 1;
+    if (!Number.isFinite(w) || w <= 0) continue;
     for (const tok of tokenize(text)) {
-      counts.set(tok, (counts.get(tok) || 0) + 1);
+      counts.set(tok, (counts.get(tok) || 0) + w);
     }
   }
   return counts;
 }
 
-function tfidfTopN(winnerCorpus, fullCorpus, n) {
-  const winnerCounts = countTokens(winnerCorpus);
-  const fullCounts = countTokens(fullCorpus);
+/**
+ * Recency-weighted TF-IDF over a winner corpus vs the full corpus.
+ *
+ * Per the smarter-article-generator follow-up note in
+ * memory/project_smarter_generator_may7.md, the unweighted variant
+ * surfaced bursty news-of-day terms ("angeli", "grandine", "pastori")
+ * because a single dated winner can outweigh evergreen frontaliere
+ * topics. We weight each winner by `1 / (1 + ageDays/14)` (half-life
+ * ~2 weeks) so recent-but-faded winners don't dominate the keyword
+ * vocabulary that gets injected into the LLM prompt.
+ *
+ * @param {string[]} winnerCorpus
+ * @param {string[]} fullCorpus
+ * @param {number} n
+ * @param {{ winnerWeights?: number[]|null }} [opts]
+ * @returns {string[]}
+ */
+function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null } = {}) {
+  const winnerCounts = countTokensWeighted(winnerCorpus, winnerWeights);
+  const fullCounts = countTokensWeighted(fullCorpus, null);
+  // Effective corpus size for the TF normalizer matches the sum of weights
+  // when present (so the formula stays consistent at weight=1.0). Falls
+  // back to document count when no weights provided.
+  const effectiveWinnerN = winnerWeights
+    ? winnerWeights.reduce((a, w) => a + (Number.isFinite(w) && w > 0 ? Number(w) : 0), 0)
+    : winnerCorpus.length;
   /** @type {Array<{token:string, score:number}>} */
   const scored = [];
   for (const [tok, wCount] of winnerCounts) {
     const fCount = fullCounts.get(tok) || 1;
     // Boost terms common in winners but not absurdly common across the whole
     // corpus.
-    const score = (wCount / Math.max(1, winnerCorpus.length)) * Math.log(1 + (winnerCorpus.length / fCount));
+    const score = (wCount / Math.max(1, effectiveWinnerN)) * Math.log(1 + (Math.max(1, effectiveWinnerN) / fCount));
     scored.push({ token: tok, score });
   }
-  scored.sort((a, b) => b.score - a.score);
+  // Deterministic sort: score desc, alphabetic tie-break so output is
+  // stable across runs even with float precision noise.
+  scored.sort((a, b) => (b.score - a.score) || a.token.localeCompare(b.token));
   return scored.slice(0, n).map((s) => s.token);
+}
+
+/**
+ * Recency factor for a published-at ISO date string. Recent articles get
+ * a factor close to 1.0; older articles asymptotically approach 0.
+ * Half-life is ~14 days (2 weeks). Returns 1.0 when `publishedAt` is
+ * missing or unparseable so we don't accidentally zero-weight legitimate
+ * winners with no date.
+ *
+ * @param {string|null|undefined} publishedAt
+ * @param {number} [nowMs] — for test injection.
+ * @returns {number}
+ */
+export function recencyWeight(publishedAt, nowMs = Date.now()) {
+  if (!publishedAt) return 1.0;
+  const t = Date.parse(publishedAt);
+  if (!Number.isFinite(t)) return 1.0;
+  const ageDays = Math.max(0, (nowMs - t) / 86_400_000);
+  return 1 / (1 + ageDays / 14);
 }
 
 /**
@@ -155,10 +211,16 @@ export function buildWinnerFingerprint(winners, allArticles) {
   // [{cluster:"unknown", weight:1.0}] entry that is misleading on disk and
   // already filtered out by article-topic-selector before LLM injection;
   // we filter producer-side too so the JSON file is clean for inspection.
+  //
+  // Lowercase-normalize defensively here: if any upstream caller forgets
+  // to route through `normalizeClusterName`, we still emit canonical-cased
+  // taxonomy values to disk (fixes the case-mismatch bug where losers
+  // contained both "Pratico" and "pratico" for the same cluster).
   const clusterCounts = new Map();
   for (const w of winners) {
-    const c = w.cluster || 'unknown';
-    if (c.toLowerCase() === 'unknown') continue;
+    const raw = w.cluster || 'unknown';
+    const c = String(raw).trim().toLowerCase();
+    if (!c || c === 'unknown') continue;
     clusterCounts.set(c, (clusterCounts.get(c) || 0) + 1);
   }
   const total = winners.length;
@@ -182,15 +244,24 @@ export function buildWinnerFingerprint(winners, allArticles) {
     .slice(0, 5)
     .map(([label]) => label);
 
-  // Keywords — TF-IDF over winner titles+excerpts vs full corpus, then
-  // FILTERED through the frontalieri-domain allowlist. Without the filter,
-  // bursty news-of-day terms (incidente, sequestro, sciopero) TF-IDF high
-  // and pollute the LLM prompt. If the filtered set is too small to be
-  // useful (< MIN_DOMAIN_KEYWORDS), return [] so the fingerprint is
-  // either useful or empty, never half-broken.
-  const winnerCorpus = winners.map((w) => `${w.title} ${w.excerpt}`);
-  const fullCorpus = allArticles.map((a) => `${a.title} ${a.excerpt}`);
-  const tfidfRaw = tfidfTopN(winnerCorpus, fullCorpus, 60);
+  // Keywords — recency-weighted TF-IDF over winner titles+excerpts vs full
+  // corpus, then FILTERED through the frontalieri-domain allowlist.
+  //
+  // Without recency weighting, bursty news-of-day winners ("Sciopero
+  // pastori", "Grandine vigneti") dominate the TF-IDF top-N before the
+  // domain filter even runs (memory note 2026-05-07). Each winner is
+  // weighted by `1/(1+ageDays/14)` so a 2-week-old article counts half
+  // as much as a fresh one and a 4-week-old article counts a third. The
+  // domain allowlist (`isFrontalieriDomainTerm`) is the final defense
+  // against any token that survives recency weighting but still isn't
+  // evergreen frontaliere vocabulary.
+  //
+  // If the filtered set is too small to be useful (< MIN_DOMAIN_KEYWORDS),
+  // return [] so the fingerprint is either useful or empty, never half-broken.
+  const winnerCorpus = winners.map((w) => `${w.title || ''} ${w.excerpt || ''}`);
+  const fullCorpus = allArticles.map((a) => `${a.title || ''} ${a.excerpt || ''}`);
+  const winnerWeights = winners.map((w) => recencyWeight(w.publishedAt));
+  const tfidfRaw = tfidfTopN(winnerCorpus, fullCorpus, 60, { winnerWeights });
   const domainOnly = tfidfRaw.filter((t) => isFrontalieriDomainTerm(t)).slice(0, 15);
   const topKeywords = domainOnly.length >= MIN_DOMAIN_KEYWORDS ? domainOnly : [];
 

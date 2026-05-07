@@ -33,7 +33,9 @@ import {
   articleUrls,
   parseSeoBlogFiles,
   inferClusterFromTitleAndSlug,
+  normalizeClusterName,
 } from './lib/perf-sources/articleDiscovery.mjs';
+import { computeAverageWordCount } from './lib/perf-sources/wordCount.mjs';
 import { safe, pathnameFromUrl } from './lib/perf-sources/safe.mjs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
 import { fetchGa4ByPage } from './lib/perf-sources/ga4.mjs';
@@ -78,7 +80,14 @@ function daysSince(isoDate) {
  * articles: Array<{ slug, locale, url, title, excerpt }>
  * seoMeta: Map<slug, { cluster, publishedAt }>
  */
-export function aggregate({ articles, seoMeta, sources, generatedAt = isoNow(), windowDays = WINDOW_DAYS }) {
+export function aggregate({
+  articles,
+  seoMeta,
+  sources,
+  generatedAt = isoNow(),
+  windowDays = WINDOW_DAYS,
+  rootDir = ROOT,
+}) {
   // 1) Build per-URL row blending all available signals.
   // Pageview share is needed to distribute AdSense revenue when AdSense is
   // present (per-channel, distributed by GA4 pageviews → fall back to
@@ -120,7 +129,16 @@ export function aggregate({ articles, seoMeta, sources, generatedAt = isoNow(), 
     // so for the rest we fall back to a heuristic over title+slug+excerpt.
     // Producer-side cluster filling drives the winnerFingerprint topClusters
     // off the 99% "unknown" floor that consumer-side filtering can only mute.
-    const clusterValue = meta.cluster
+    //
+    // Cluster values from `meta.cluster` come from `articleSection` strings
+    // hand-written in `services/seo/seo-blog*.ts` ("Pratico", "Pensione",
+    // capitalized). Normalize them to the canonical lowercase taxonomy
+    // (`pratico`, `pensioni`) so the on-disk JSON is consistent and the
+    // consumer-side cluster taxonomy in
+    // `scripts/lib/cluster-classifier-prompt.mjs` is the single source of
+    // truth — fixes the case-mismatch bug where losers contained both
+    // "Pratico" and "pratico" in 2026-05-07 audits.
+    const clusterValue = normalizeClusterName(meta.cluster)
       || inferClusterFromTitleAndSlug(a.title, a.slug, a.excerpt);
 
     const clicks = gsc?.clicks ?? null;
@@ -179,7 +197,17 @@ export function aggregate({ articles, seoMeta, sources, generatedAt = isoNow(), 
     .filter((r) => (r.impressions || 0) > LOSER_MIN_IMPRESSIONS)
     .slice(0, MAX_LOSERS);
 
-  const fingerprint = buildWinnerFingerprint(winners, articles);
+  // Compute averageWordCount from body files when rootDir is reachable.
+  // The previous implementation always emitted `null` because no source
+  // carries word counts; now we read the IT body files directly. When a
+  // winner has its `wordCount` already populated upstream (via tests), we
+  // use that — body-file disk access is just the production fallback.
+  const winnersWithWordCount = winners.map((w) => {
+    if (Number.isFinite(w.wordCount) && w.wordCount > 0) return w;
+    const wc = computeAverageWordCount([{ slug: w.slug, locale: w.locale }], { rootDir });
+    return wc !== null ? { ...w, wordCount: wc } : w;
+  });
+  const fingerprint = buildWinnerFingerprint(winnersWithWordCount, articles);
 
   return {
     generatedAt,

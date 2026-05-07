@@ -166,9 +166,20 @@ export const SUPPORTED_LOCALES = LOCALES;
 // trailing `\b` so prefixes like "stipend" match "stipendio", "permess"
 // matches "permesso/permessi", etc. Matches the same convention as
 // FRONTALIERI_DOMAIN_RE in domainTerms.mjs.
+//
+// Cluster names MUST match the canonical taxonomy in
+// scripts/lib/cluster-classifier-prompt.mjs (CLUSTER_TAXONOMY): plural
+// `pensioni`, lowercase across the board. The `pensioni` cluster runs
+// BEFORE `fiscale` so AVS/LPP/secondo pilastro headlines don't get swept
+// up by the broader fiscale stems (busta paga, accordo, ristorni).
 const CLUSTER_PATTERNS = [
+  // Word-anchored alternatives (avs/ahv/lpp/bvg/3a/3b) need trailing `\b`
+  // so they don't match inside longer words. Stem prefixes (pension,
+  // previdenz, prelievo) are open-ended to catch all inflections
+  // (pensione/pensioni, previdenza/previdenziale, etc.). We compose two
+  // separate alternations so each gets the right boundary policy.
+  ['pensioni', /(?:\b(?:avs|ahv|lpp|bvg|3a|3b|tredicesima\s*avs|secondo\s*pilastro|terzo\s*pilastro|pilastro\s*[123ab]?|pillar\s*[123ab]?|pilier\s*[123ab]?)\b)|(?:\b(?:pension|previdenz|prelievo))/i],
   ['fiscale',  /\b(tass[ae]|fisc|imposta|irpef|iva|deduci|detraz|quellenst|730|isee|ristorn|accordo|fiscal|busta|ritenut|aliquot)/i],
-  ['pensione', /\b(pension|avs|ahv|lpp|bvg|terzo\s*pilastro|secondo\s*pilastro|previdenz|3a|3b|prelievo)/i],
   ['pratico',  /\b(permess|salute|sanit|lamal|cmi|krankenkass|cassa\s*malati|maternit|congedo|disocc|naspi|trasferim|residenz|mutuo|affitt|cas[ae])/i],
   ['lavoro',   /\b(stipend|salar|salaire|gehalt|lavoro|telelavoro|smart\s*working|datore|contrat|disoccupaz|crawler|assum)/i],
   ['mobilita', /\b(frontiera|valico|dogana|pendolar|trasport|treno|bus|auto|carbur|benzin|diesel|bordo|bord[ée]r|commut)/i],
@@ -176,8 +187,9 @@ const CLUSTER_PATTERNS = [
 ];
 
 /**
- * Map an article (title + slug + excerpt) to a cluster name. Returns one of:
- * 'fiscale' | 'pensione' | 'pratico' | 'lavoro' | 'mobilita' | 'novita' | 'generic'.
+ * Map an article (title + slug + excerpt) to a cluster name. Returns one of
+ * the canonical CLUSTER_TAXONOMY values:
+ * 'fiscale' | 'salute' | 'pensioni' | 'mobilita' | 'pratico' | 'lavoro' | 'novita' | 'generic'.
  *
  * Pure function — safe to call from `aggregate()` when `meta.cluster` is null.
  */
@@ -187,4 +199,33 @@ export function inferClusterFromTitleAndSlug(title, slug, excerpt) {
     if (rx.test(blob)) return name;
   }
   return 'generic';
+}
+
+// Normalization map for legacy / capitalized cluster values found in
+// `services/seo/seo-blog*.ts` (`articleSection: "Pratico"`, `"Pensione"`,
+// `"Editoriale"` etc.). The canonical taxonomy is lowercase and uses
+// plural `pensioni`. Anything not explicitly mapped is just lowercased.
+const LEGACY_CLUSTER_ALIASES = new Map([
+  // Italian singular → canonical plural (taxonomy uses `pensioni`).
+  ['pensione', 'pensioni'],
+]);
+
+/**
+ * Normalize a cluster name to the canonical taxonomy form: lowercase, with
+ * legacy aliases (e.g. `Pensione` → `pensioni`, `Editoriale` → `novita`)
+ * mapped through `LEGACY_CLUSTER_ALIASES`. Idempotent — running it twice
+ * yields the same result.
+ *
+ * Applied to every cluster value emitted to disk (winners, losers,
+ * topClusters) so the JSON file is consistent and the consumer-side
+ * `cluster-classifier-prompt.mjs` taxonomy is the single source of truth.
+ *
+ * @param {string|null|undefined} cluster
+ * @returns {string|null}
+ */
+export function normalizeClusterName(cluster) {
+  if (!cluster || typeof cluster !== 'string') return null;
+  const lower = cluster.trim().toLowerCase();
+  if (!lower) return null;
+  return LEGACY_CLUSTER_ALIASES.get(lower) || lower;
 }

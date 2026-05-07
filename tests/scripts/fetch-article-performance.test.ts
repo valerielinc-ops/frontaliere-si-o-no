@@ -18,9 +18,14 @@ const { meanStd, zNormalize, composeScores, buildWinnerFingerprint, sortScored }
     sortScored: (rows: any[]) => any[];
   };
 
-const { parseBlogMetaFile, inferClusterFromTitleAndSlug } = discovery as unknown as {
+const { parseBlogMetaFile, inferClusterFromTitleAndSlug, normalizeClusterName } = discovery as unknown as {
   parseBlogMetaFile: (text: string) => Map<string, { title: string; excerpt: string }>;
   inferClusterFromTitleAndSlug: (title: string, slug: string, excerpt: string) => string;
+  normalizeClusterName: (cluster: string | null | undefined) => string | null;
+};
+
+const { recencyWeight } = scoring as unknown as {
+  recencyWeight: (publishedAt: string | null | undefined, nowMs?: number) => number;
 };
 
 const { aggregate } = fetcher as unknown as {
@@ -82,7 +87,11 @@ describe('fetch-article-performance / winnerFingerprint', () => {
       { title: 'Articolo perdente generico', excerpt: 'cose noiose', cluster: 'Altro', wordCount: 800 },
     ];
     const fp = buildWinnerFingerprint(winners as any, all as any);
-    expect(fp.topClusters[0].cluster).toBe('Fiscale');
+    // Lowercase-normalized canonical cluster taxonomy (CLUSTER_TAXONOMY in
+    // scripts/lib/cluster-classifier-prompt.mjs). Capitalized inputs like
+    // 'Fiscale' get folded to 'fiscale' as a defense-in-depth so the on-disk
+    // JSON is consistent.
+    expect(fp.topClusters[0].cluster).toBe('fiscale');
     expect(fp.topClusters[0].weight).toBeGreaterThan(0.5);
     expect(fp.topAngles).toEqual(expect.arrayContaining(['come funziona']));
     expect(fp.topQuestionPatterns).toEqual(expect.arrayContaining(['come']));
@@ -279,10 +288,14 @@ describe('fetch-article-performance / inferClusterFromTitleAndSlug', () => {
     expect(inferClusterFromTitleAndSlug('Nuovo accordo fiscale 2026', 'accordo-2026', 'imposta')).toBe('fiscale');
   });
 
-  it('classifies pension titles as "pensione"', () => {
-    expect(inferClusterFromTitleAndSlug('Pensione AVS LPP frontaliere', 'avs-lpp', '')).toBe('pensione');
-    expect(inferClusterFromTitleAndSlug('Terzo pilastro 3a guida', 'terzo-pilastro', '')).toBe('pensione');
-    expect(inferClusterFromTitleAndSlug('Previdenza professionale BVG', 'bvg', '')).toBe('pensione');
+  it('classifies pension titles as "pensioni" (canonical CLUSTER_TAXONOMY)', () => {
+    // Cluster name MUST match the canonical taxonomy in
+    // scripts/lib/cluster-classifier-prompt.mjs (`pensioni`, plural). The
+    // 2026-05-07 audit caught this inferred value as `pensione` (singular)
+    // and fingerprint topClusters dropped the bucket on the floor.
+    expect(inferClusterFromTitleAndSlug('Pensione AVS LPP frontaliere', 'avs-lpp', '')).toBe('pensioni');
+    expect(inferClusterFromTitleAndSlug('Terzo pilastro 3a guida', 'terzo-pilastro', '')).toBe('pensioni');
+    expect(inferClusterFromTitleAndSlug('Previdenza professionale BVG', 'bvg', '')).toBe('pensioni');
   });
 
   it('classifies practical/admin titles as "pratico"', () => {
@@ -341,7 +354,9 @@ describe('fetch-article-performance / inferClusterFromTitleAndSlug', () => {
       generatedAt: '2026-05-06T00:00:00Z',
     });
     expect(out.winners.length).toBe(1);
-    expect(out.winners[0].cluster).toBe('Editoriale');
+    // Capitalized articleSection 'Editoriale' is lowercase-normalized to
+    // canonical taxonomy form. The seoMeta value still wins over heuristic.
+    expect(out.winners[0].cluster).toBe('editoriale');
   });
 
   it('aggregate fills cluster via heuristic when seoMeta has no cluster', () => {
@@ -382,5 +397,189 @@ describe('fetch-article-performance / inferClusterFromTitleAndSlug', () => {
     const byUrl = new Map<string, any>(out.winners.map((w: any) => [w.url, w]));
     expect(byUrl.get('https://frontaliereticino.ch/articoli-frontaliere/tax/')?.cluster).toBe('fiscale');
     expect(byUrl.get('https://frontaliereticino.ch/articoli-frontaliere/permit/')?.cluster).toBe('pratico');
+  });
+});
+
+// ── Cluster name normalization ──────────────────────────────
+describe('fetch-article-performance / normalizeClusterName', () => {
+  it('lowercases capitalized articleSection values', () => {
+    expect(normalizeClusterName('Pratico')).toBe('pratico');
+    expect(normalizeClusterName('Fiscale')).toBe('fiscale');
+    expect(normalizeClusterName('Editoriale')).toBe('editoriale');
+  });
+
+  it('maps Italian singular "Pensione" → canonical plural "pensioni"', () => {
+    expect(normalizeClusterName('Pensione')).toBe('pensioni');
+    expect(normalizeClusterName('pensione')).toBe('pensioni');
+    expect(normalizeClusterName('PENSIONE')).toBe('pensioni');
+  });
+
+  it('returns null for empty/missing input', () => {
+    expect(normalizeClusterName(null)).toBeNull();
+    expect(normalizeClusterName(undefined)).toBeNull();
+    expect(normalizeClusterName('')).toBeNull();
+    expect(normalizeClusterName('   ')).toBeNull();
+  });
+
+  it('is idempotent — running twice yields the same result', () => {
+    const v1 = normalizeClusterName('Pensione');
+    const v2 = normalizeClusterName(v1);
+    expect(v1).toBe('pensioni');
+    expect(v2).toBe('pensioni');
+  });
+});
+
+// ── Aggregate cluster case fix ──────────────────────────────
+describe('fetch-article-performance / aggregate cluster case fix', () => {
+  it('lowercases capitalized articleSection so winners/losers are consistent', () => {
+    const articles = [
+      { slug: 'a', locale: 'it', url: 'https://frontaliereticino.ch/articoli-frontaliere/a/', title: 'Permesso G frontalieri', excerpt: 'guida pratica' },
+      { slug: 'b', locale: 'it', url: 'https://frontaliereticino.ch/articoli-frontaliere/b/', title: 'Frontaliere e LAMal', excerpt: 'casa malati' },
+    ];
+    // One uses capitalized "Pratico" (legacy seo-blog format), other lowercase.
+    const seoMeta = new Map([
+      ['a', { cluster: 'Pratico', publishedAt: '2025-01-01' }],
+      ['b', { cluster: 'pratico', publishedAt: '2025-01-02' }],
+    ]);
+    const out = aggregate({
+      articles,
+      seoMeta,
+      sources: {
+        gsc: { ok: true, rows: 2, perPath: new Map([
+          ['/articoli-frontaliere/a/', { clicks: 100, impressions: 1000, ctr: 0.10, position: 5 }],
+          ['/articoli-frontaliere/b/', { clicks: 50,  impressions: 500,  ctr: 0.10, position: 8 }],
+        ]) },
+        ga4: { ok: false, reason: 'skipped' },
+        posthog: { ok: false, reason: 'skipped' },
+        adsense: { ok: false, reason: 'skipped' },
+      },
+      generatedAt: '2026-05-06T00:00:00Z',
+    });
+    // After normalization both winners share the canonical "pratico" cluster.
+    const clusters = new Set<string>(out.winners.map((w: any) => w.cluster));
+    expect(clusters.has('Pratico')).toBe(false);
+    expect(clusters.has('pratico')).toBe(true);
+    expect(clusters.size).toBe(1);
+  });
+
+  it('maps capitalized "Pensione" to canonical "pensioni" in winners', () => {
+    const articles = [
+      { slug: 'pen', locale: 'it', url: 'https://frontaliereticino.ch/articoli-frontaliere/pen/', title: 'AVS LPP secondo pilastro', excerpt: 'previdenza' },
+    ];
+    const seoMeta = new Map([
+      ['pen', { cluster: 'Pensione', publishedAt: '2025-01-01' }],
+    ]);
+    const out = aggregate({
+      articles,
+      seoMeta,
+      sources: {
+        gsc: { ok: true, rows: 1, perPath: new Map([['/articoli-frontaliere/pen/', { clicks: 100, impressions: 1000, ctr: 0.10, position: 5 }]]) },
+        ga4: { ok: false, reason: 'skipped' },
+        posthog: { ok: false, reason: 'skipped' },
+        adsense: { ok: false, reason: 'skipped' },
+      },
+      generatedAt: '2026-05-06T00:00:00Z',
+    });
+    expect(out.winners[0].cluster).toBe('pensioni');
+  });
+});
+
+// ── Recency-weighted TF-IDF ─────────────────────────────────
+describe('fetch-article-performance / recency-weighted TF-IDF', () => {
+  it('recencyWeight returns 1.0 for fresh dates and < 0.5 for >2-week-old dates', () => {
+    const now = Date.parse('2026-05-07T00:00:00Z');
+    expect(recencyWeight('2026-05-07T00:00:00Z', now)).toBeCloseTo(1.0, 3);
+    // 14 days old → 1/(1 + 1) = 0.5
+    expect(recencyWeight('2026-04-23T00:00:00Z', now)).toBeCloseTo(0.5, 2);
+    // 28 days old → 1/(1 + 2) ≈ 0.333
+    expect(recencyWeight('2026-04-09T00:00:00Z', now)).toBeCloseTo(0.333, 2);
+    // missing/invalid → 1.0 (don't zero-weight legitimate winners)
+    expect(recencyWeight(null)).toBe(1.0);
+    expect(recencyWeight('not a date')).toBe(1.0);
+  });
+
+  it('topKeywords are non-empty for a clearly-frontaliere winner set', () => {
+    const winners = [
+      { title: 'Telelavoro frontaliere salario tasse', excerpt: 'guida fiscale stipendio irpef', cluster: 'fiscale', wordCount: 1500, publishedAt: '2026-05-01' },
+      { title: 'Permesso G frontaliere ticino lombardia', excerpt: 'pendolari valico cambio chf', cluster: 'pratico', wordCount: 1500, publishedAt: '2026-05-02' },
+      { title: 'AVS LPP frontaliere secondo pilastro', excerpt: 'previdenza', cluster: 'pensioni', wordCount: 1500, publishedAt: '2026-05-03' },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    expect(fp.topKeywords.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('recency weighting de-emphasizes news-of-day terms in older winners', () => {
+    // Old news-of-day winners (50 days old) — should get crushed by recency.
+    // Fresh evergreen winners — full weight. Domain filter still applies as
+    // final safety net, so the news terms (sciopero/grandine/pastori) get
+    // dropped. The test mainly asserts the pipeline still produces a clean
+    // fingerprint regardless of which winners are old vs new.
+    const winners = [
+      { title: 'Sciopero pastori grandine vigneti', excerpt: 'cronaca tessinese', cluster: 'novita', wordCount: 800, publishedAt: '2026-03-18' },
+      { title: 'Telelavoro frontaliere stipendio chf', excerpt: 'tasse fiscale', cluster: 'fiscale', wordCount: 1500, publishedAt: '2026-05-05' },
+      { title: 'Permesso G frontaliere ticino', excerpt: 'pendolari valico', cluster: 'pratico', wordCount: 1500, publishedAt: '2026-05-06' },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    for (const kw of fp.topKeywords) {
+      expect(kw).not.toMatch(/sciopero|pastori|grandine|cronaca/i);
+    }
+  });
+});
+
+// ── pensioni cluster propagation ────────────────────────────
+describe('fetch-article-performance / pensioni cluster', () => {
+  it('inferClusterFromTitleAndSlug returns "pensioni" for AVS/LPP/secondo pilastro', () => {
+    expect(inferClusterFromTitleAndSlug('AVS frontalieri 2026', 'avs', '')).toBe('pensioni');
+    expect(inferClusterFromTitleAndSlug('LPP secondo pilastro', 'lpp', '')).toBe('pensioni');
+    expect(inferClusterFromTitleAndSlug('Pilastro 3a guida', 'pilastro', '')).toBe('pensioni');
+    expect(inferClusterFromTitleAndSlug('Tredicesima AVS 2026', 'tredicesima-avs', '')).toBe('pensioni');
+    expect(inferClusterFromTitleAndSlug('Previdenza professionale', 'previdenza', '')).toBe('pensioni');
+  });
+
+  it('topClusters histogram includes "pensioni" when winners are pension-domain', () => {
+    const winners = [
+      { title: 'AVS frontalieri 2026', excerpt: 'previdenza', cluster: 'pensioni', wordCount: 1500 },
+      { title: 'LPP secondo pilastro', excerpt: 'previdenza', cluster: 'pensioni', wordCount: 1500 },
+      { title: 'Telelavoro frontaliere', excerpt: 'fiscale', cluster: 'fiscale', wordCount: 1500 },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    const clusterNames = fp.topClusters.map((c: any) => c.cluster);
+    expect(clusterNames).toContain('pensioni');
+  });
+});
+
+// ── averageWordCount ────────────────────────────────────────
+describe('fetch-article-performance / averageWordCount', () => {
+  it('returns rounded positive integer when winners carry wordCount', () => {
+    const winners = [
+      { title: 'A', excerpt: 'x', cluster: 'fiscale', wordCount: 1200 },
+      { title: 'B', excerpt: 'x', cluster: 'fiscale', wordCount: 1400 },
+      { title: 'C', excerpt: 'x', cluster: 'fiscale', wordCount: 1600 },
+    ];
+    const fp = buildWinnerFingerprint(winners as any, winners as any);
+    expect(fp.averageWordCount).toBe(1400);
+    expect(Number.isInteger(fp.averageWordCount)).toBe(true);
+    expect(fp.averageWordCount).toBeGreaterThan(0);
+  });
+});
+
+// ── countWordsInBodySource ──────────────────────────────────
+describe('fetch-article-performance / wordCount helper', () => {
+  it('counts words in body-<slug>.ts shape', async () => {
+    const wc = await import('../../scripts/lib/perf-sources/wordCount.mjs');
+    const text = `
+const bodyFoo: Record<string, string> = {
+ 'blog.article.foo.body1': 'Questa è una guida pratica frontaliere con dieci parole esatte.',
+ 'blog.article.foo.body2': 'Altre cinque parole qui infatti.',
+};`;
+    const count = (wc as any).countWordsInBodySource(text);
+    // Total words across both bodies: 10 + 5 = 15
+    expect(count).toBe(15);
+  });
+
+  it('returns 0 for empty / unparseable input', async () => {
+    const wc = await import('../../scripts/lib/perf-sources/wordCount.mjs');
+    expect((wc as any).countWordsInBodySource('')).toBe(0);
+    expect((wc as any).countWordsInBodySource('no entries here')).toBe(0);
   });
 });
