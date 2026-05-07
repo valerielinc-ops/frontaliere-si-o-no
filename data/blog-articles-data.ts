@@ -21755,4 +21755,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incendio-auto-a2-camorino',
+ category: 'pratico',
+ date: '2026-05-07T14:38:03.953Z',
+ image: '/images/blog/incendio-auto-a2-camorino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

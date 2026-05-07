@@ -6794,6 +6794,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spaccio-droga-busto-18mila-euro.title': 'Drogenhandel in Busto: 18.000 Euro Bargeld beschlagnahmt',
     'blog.article.spaccio-droga-busto-18mila-euro.excerpt': 'Die Polizei von Busto Arsizio hat zwei Ausländer festgenommen, die 18.617,60 Euro Bargeld und Drogen in ihrer Wohnung versteckt hatten.',
     'blog.article.spaccio-droga-busto-18mila-euro.imageAlt': 'Luftaufnahme von Busto Arsizio, Italien, mit der Stadtansicht und den umliegenden Gebieten.',
+    'blog.article.incendio-auto-a2-camorino.title': 'Auto brennt auf der A2 bei Camorino: Verkehr im Chaos',
+    'blog.article.incendio-auto-a2-camorino.excerpt': 'Ein brennendes Auto hat auf der Autobahn A2 in Richtung Norden zwischen Lugano Nord und dem Monte-Ceneri-Tunnel zu Verzögerungen geführt.',
+    'blog.article.incendio-auto-a2-camorino.imageAlt': 'Auto Brand auf der Autobahn A2 in der Nähe von Camorino',
 };
 
 export default blogMetaDe;

@@ -6795,6 +6795,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spaccio-droga-busto-18mila-euro.title': 'Trafic de drogue à Busto: 18.000 euros saisis',
     'blog.article.spaccio-droga-busto-18mila-euro.excerpt': 'La police de Busto Arsizio a arrêté deux étrangers avec 18.617,60 euros en espèces et de la drogue cachée chez eux.',
     'blog.article.spaccio-droga-busto-18mila-euro.imageAlt': 'Vue aérienne de Busto Arsizio, Italie, avec le paysage urbain et les zones environnantes.',
+    'blog.article.incendio-auto-a2-camorino.title': 'Incendie de voiture sur l\'A2 près de Camorino : trafic bloqué',
+    'blog.article.incendio-auto-a2-camorino.excerpt': 'Une voiture en flammes a causé des ralentissements sur l\'autoroute A2 en direction du nord entre Lugano Nord et le tunnel du Monte Ceneri.',
+    'blog.article.incendio-auto-a2-camorino.imageAlt': 'Incendie de voiture sur l\'autoroute A2 près de Camorino',
 };
 
 export default blogMetaFr;

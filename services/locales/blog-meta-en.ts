@@ -6794,6 +6794,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spaccio-droga-busto-18mila-euro.title': 'Drug dealing in Busto: 18,617.60 euros seized in cash',
     'blog.article.spaccio-droga-busto-18mila-euro.excerpt': 'The State Police of Busto Arsizio arrested two foreign citizens with 18,617.60 euros in cash and drugs hidden in their home.',
     'blog.article.spaccio-droga-busto-18mila-euro.imageAlt': 'Aerial view of Busto Arsizio, Italy, with the cityscape and surrounding areas.',
+    'blog.article.incendio-auto-a2-camorino.title': 'Car fire on A2 near Camorino: traffic chaos',
+    'blog.article.incendio-auto-a2-camorino.excerpt': 'A burning car caused delays on the A2 motorway northbound between Lugano Nord and the Monte Ceneri tunnel.',
+    'blog.article.incendio-auto-a2-camorino.imageAlt': 'Car fire on the A2 highway near Camorino',
 };
 
 export default blogMetaEn;

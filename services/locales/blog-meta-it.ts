@@ -6795,6 +6795,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spaccio-droga-busto-18mila-euro.title': 'Spaccio di droga a Busto: sequestrati 18mila euro in contanti',
     'blog.article.spaccio-droga-busto-18mila-euro.excerpt': 'La Polizia di Stato di Busto Arsizio ha arrestato due cittadini stranieri con 18.617,60 euro in contanti e droga nascosta in casa.',
     'blog.article.spaccio-droga-busto-18mila-euro.imageAlt': 'Vista aerea di Busto Arsizio, Italia, con il panorama cittadino e le aree circostanti.',
+    'blog.article.incendio-auto-a2-camorino.title': 'Incendio auto sull\'A2 in zona Camorino: traffico in tilt',
+    'blog.article.incendio-auto-a2-camorino.excerpt': 'Un\'auto in fiamme ha causato rallentamenti sull\'autostrada A2 in direzione nord tra Lugano Nord e la galleria del Monte Ceneri.',
+    'blog.article.incendio-auto-a2-camorino.imageAlt': 'Incendio auto sull\'autostrada A2 vicino a Camorino',
 };
 
 export default blogMetaIt;
