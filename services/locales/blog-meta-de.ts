@@ -6902,6 +6902,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cross-border-teleworking-2026.title': 'Grenzgänger und Telearbeit: Änderungen ab 2026',
     'blog.article.cross-border-teleworking-2026.excerpt': 'Neue Regeln für Grenzgänger, die von zu Hause in Italien arbeiten. Erfahren Sie, was sich ändert und wie Sie sich anpassen können.',
     'blog.article.cross-border-teleworking-2026.imageAlt': 'Grenzgänger in einem Coworking-Space in Lugano mit Blick auf den See',
+    'blog.article.fiera-antiquariato-mendrisio-2026.title': 'Antiquitätenmesse in Mendrisio: 160 Aussteller und über 10.000 Besucher',
+    'blog.article.fiera-antiquariato-mendrisio-2026.excerpt': 'Die 42. Ausgabe der Antiquitäten-, Kunst- und Sammler-Messe findet am Sonntag, den 10. Mai in Mendrisio statt, mit über 160 Ausstellern und einem breiten Angebot an Kunstgegenständen und Sammlerstücken.',
+    'blog.article.fiera-antiquariato-mendrisio-2026.imageAlt': 'Antikmarkt in Mendrisio mit über 160 Ausstellern und Besuchern, die Kunst und Sammlerstücke erkunden',
 };
 
 export default blogMetaDe;

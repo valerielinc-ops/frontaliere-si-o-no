@@ -6902,6 +6902,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cross-border-teleworking-2026.title': 'Cross-border workers and remote work: 2026 changes',
     'blog.article.cross-border-teleworking-2026.excerpt': 'New rules for cross-border workers who work from home in Italy. Find out what changes and how to adapt',
     'blog.article.cross-border-teleworking-2026.imageAlt': 'Cross-border worker in a coworking space in Lugano overlooking the lake',
+    'blog.article.fiera-antiquariato-mendrisio-2026.title': 'Antiques Fair in Mendrisio: 160 exhibitors and over 10,000 visitors',
+    'blog.article.fiera-antiquariato-mendrisio-2026.excerpt': 'The 42nd edition of the Antiques, Art and Collectibles Fair will be held on Sunday, May 10th in Mendrisio, with over 160 exhibitors and a wide range of art and collectibles on offer',
+    'blog.article.fiera-antiquariato-mendrisio-2026.imageAlt': 'Antique fair in Mendrisio, with over 160 exhibitors and visitors exploring art and collectibles',
 };
 
 export default blogMetaEn;

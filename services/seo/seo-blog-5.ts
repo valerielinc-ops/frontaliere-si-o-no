@@ -28583,6 +28583,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fiera-antiquariato-mendrisio-2026': {
+    title: 'Fiera dell\'antiquariato a Mendrisio: 160 espositori e oltre 10.000 visitatori',
+    description: 'La 42esima edizione della Fiera dell\'Antiquariato, Arte e Collezionismo si terrà domenica 10 maggio a Mendrisio, con oltre 160 espositori e un\'ampia offerta di',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiera, dell, antiquariato, mendrisio',
+    ogTitle: 'Fiera dell\'antiquariato a Mendrisio: 160 espositori e oltre 10.000 visitatori',
+    ogDescription: 'La 42esima edizione della Fiera dell\'Antiquariato, Arte e Collezionismo si terrà domenica 10 maggio a Mendrisio, con oltre 160 espositori e un\'ampia offerta di',
+    canonicalPath: '/articoli-frontaliere/fiera-antiquariato-mendrisio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiera dell'antiquariato a Mendrisio: 160 espositori e oltre 10.000 visitatori",
+      "description": "La 42esima edizione della Fiera dell'Antiquariato, Arte e Collezionismo si terrà domenica 10 maggio a Mendrisio, con oltre 160 espositori e un'ampia offerta di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fiera-antiquariato-mendrisio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fiera dell'antiquariato a Mendrisio, con oltre 160 espositori e visitatori che esplorano oggetti d'arte e collezionismo"
+      },
+      "datePublished": "2026-05-07T21:58:07+00:00",
+      "dateModified": "2026-05-07T21:58:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fiera-antiquariato-mendrisio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

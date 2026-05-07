@@ -3543,6 +3543,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pari-opportunita-cultura-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/pari-opportunita-cultura-lugano-2026', parent: 'blog' },
     'blog-brasile-mari-froes-leo-middea-lugano': { name: 'Eventi Lugano', path: '/articoli-frontaliere/brasile-mari-froes-leo-middea-lugano', parent: 'blog' },
     'blog-cross-border-teleworking-2026': { name: 'Telelavoro frontalieri', path: '/articoli-frontaliere/cross-border-teleworking-2026', parent: 'blog' },
+    'blog-fiera-antiquariato-mendrisio-2026': { name: 'Fiera Antiquariato', path: '/articoli-frontaliere/fiera-antiquariato-mendrisio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

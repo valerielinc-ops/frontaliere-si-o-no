@@ -22079,4 +22079,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fiera-antiquariato-mendrisio-2026',
+ category: 'novita',
+ date: '2026-05-07T21:58:07.599Z',
+ image: '/images/blog/fiera-antiquariato-mendrisio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

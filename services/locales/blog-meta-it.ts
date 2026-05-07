@@ -6903,6 +6903,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cross-border-teleworking-2026.title': 'Lavoratori frontalieri e telelavoro: cosa cambia nel 2026',
     'blog.article.cross-border-teleworking-2026.excerpt': 'Nuove regole per i frontalieri che lavorano da casa in Italia. Scopri cosa cambia e come adeguarsi',
     'blog.article.cross-border-teleworking-2026.imageAlt': 'Lavoratore transfrontaliero in un coworking a Lugano con vista sul lago',
+    'blog.article.fiera-antiquariato-mendrisio-2026.title': 'Fiera dell\'antiquariato a Mendrisio: 160 espositori e oltre 10.000 visitatori',
+    'blog.article.fiera-antiquariato-mendrisio-2026.excerpt': 'La 42esima edizione della Fiera dell\'Antiquariato, Arte e Collezionismo si terrà domenica 10 maggio a Mendrisio, con oltre 160 espositori e un\'ampia offerta di oggetti d\'arte e collezionismo',
+    'blog.article.fiera-antiquariato-mendrisio-2026.imageAlt': 'Fiera dell\'antiquariato a Mendrisio, con oltre 160 espositori e visitatori che esplorano oggetti d\'arte e collezionismo',
 };
 
 export default blogMetaIt;
