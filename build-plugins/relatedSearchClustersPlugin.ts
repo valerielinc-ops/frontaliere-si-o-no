@@ -118,20 +118,25 @@ function tokenizeQuery(query: string): string[] {
 }
 
 /**
- * Approximation of the SPA's `indexedQueryMatch` from JobBoard.tsx.
- * Each query token must appear as a substring of the normalized job
- * haystack. Stemming is intentionally skipped — at build time we cannot
- * afford the per-job stemming overhead. The shorter-token substring match
- * is permissive in the same direction the SPA's stemmer is permissive
- * (matches plurals, feminine forms) so the final job-list count is
- * essentially identical.
+ * Count how many query tokens appear as a substring of the normalized job
+ * haystack. A score of `queryTokens.length` means the job matches every
+ * token (best match — equivalent to the original AND-match used by the
+ * SPA's `indexedQueryMatch`). A score in `[1, queryTokens.length)` means
+ * the job is a partial match (OR-fallback candidate). Zero means no match.
+ *
+ * Stemming is intentionally skipped — at build time we cannot afford the
+ * per-job stemming overhead. The shorter-token substring match is permissive
+ * in the same direction the SPA's stemmer is permissive (matches plurals,
+ * feminine forms) so the AND-tier output is essentially identical to the
+ * SPA's user-facing filter.
  */
-function queryMatchesJob(haystack: string, queryTokens: ReadonlyArray<string>): boolean {
-  if (queryTokens.length === 0) return false;
+function queryMatchScore(haystack: string, queryTokens: ReadonlyArray<string>): number {
+  if (queryTokens.length === 0) return 0;
+  let score = 0;
   for (const token of queryTokens) {
-    if (!haystack.includes(token)) return false;
+    if (haystack.includes(token)) score++;
   }
-  return true;
+  return score;
 }
 
 /** Build the per-locale normalized haystack once and cache it on the job. */
@@ -263,16 +268,39 @@ function buildClusterContext(
   const tokens = tokenizeQuery(sampleTerm);
   if (tokens.length === 0) return null;
 
-  const matching: RawJob[] = [];
+  // Two-phase matching:
+  //   Phase 1 (best match — AND): jobs whose haystack contains EVERY token
+  //     match the user's intent precisely. These come first in the listing.
+  //   Phase 2 (fill — OR): when AND alone can't fill the page, append jobs
+  //     that match any subset of tokens, ranked by partial-score (more
+  //     tokens matched = closer to intent). This recovers landings like
+  //     /en/find-jobs-ticino/search-koch-davos/ where AND yields 0 jobs
+  //     (Davos isn't Ticino) but OR surfaces relevant "koch" listings —
+  //     turning a 404 into an indexable page that still respects the
+  //     MIN_MATCHING_JOBS=3 / MIN_INDEXABLE_WORDS quality gates.
+  const fullScore = tokens.length;
+  const andMatches: RawJob[] = [];
+  const orMatches: { job: RawJob; score: number }[] = [];
   for (const job of jobs) {
-    if (matching.length >= MAX_JOBS_PER_PAGE) break;
     const cacheKey = `${candidate.locale}::${jobIdentity(job)}`;
     let haystack = haystackByLocale.get(cacheKey);
     if (haystack === undefined) {
       haystack = buildJobHaystack(job, candidate.locale);
       haystackByLocale.set(cacheKey, haystack);
     }
-    if (queryMatchesJob(haystack, tokens)) matching.push(job);
+    const score = queryMatchScore(haystack, tokens);
+    if (score === 0) continue;
+    if (score === fullScore) andMatches.push(job);
+    else orMatches.push({ job, score });
+  }
+
+  // Higher partial-score first; preserve corpus order on ties (sort is stable).
+  orMatches.sort((a, b) => b.score - a.score);
+
+  const matching: RawJob[] = andMatches.slice(0, MAX_JOBS_PER_PAGE);
+  for (const { job } of orMatches) {
+    if (matching.length >= MAX_JOBS_PER_PAGE) break;
+    matching.push(job);
   }
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
