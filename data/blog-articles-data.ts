@@ -22034,4 +22034,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pfas-filtrazione-san-antonino-2026',
+ category: 'pratico',
+ date: '2026-05-07T21:22:23.957Z',
+ image: '/images/blog/pfas-filtrazione-san-antonino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

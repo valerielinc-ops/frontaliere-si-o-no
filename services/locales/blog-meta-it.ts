@@ -6888,6 +6888,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lugano-passteggia-iscrizioni-aperte.title': 'Lugano Passteggia 2026: iscrizioni aperte, ecco come partecipare',
     'blog.article.lugano-passteggia-iscrizioni-aperte.excerpt': 'Le iscrizioni per la tredicesima edizione di Lugano Passteggia sono aperte. Scopri come partecipare e cosa aspettarti.',
     'blog.article.lugano-passteggia-iscrizioni-aperte.imageAlt': 'Partecipanti alla Lugano Passteggia con vista sul LAC di Lugano',
+    'blog.article.pfas-filtrazione-san-antonino-2026.title': 'PFAS nell\'acqua potabile: San Antonino attiva filtrazione avanzata',
+    'blog.article.pfas-filtrazione-san-antonino-2026.excerpt': 'Il Municipio di San Antonino ha installato un sistema di filtrazione a carbone attivo per rimuovere i PFAS dall\'acqua potabile, con un investimento di 1,8 milioni di franchi.',
+    'blog.article.pfas-filtrazione-san-antonino-2026.imageAlt': 'Immagine di un impianto di filtrazione dell\'acqua in Ticino',
 };
 
 export default blogMetaIt;

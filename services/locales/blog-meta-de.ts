@@ -6887,6 +6887,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lugano-passteggia-iscrizioni-aperte.title': 'Lugano Passteggia 2026: Anmeldungen offen, so nehmen Sie teil',
     'blog.article.lugano-passteggia-iscrizioni-aperte.excerpt': 'Die Anmeldungen für die dreizehnte Ausgabe von Lugano Passteggia sind eröffnet. Erfahren Sie, wie Sie teilnehmen und was Sie erwartet.',
     'blog.article.lugano-passteggia-iscrizioni-aperte.imageAlt': 'Teilnehmer an Lugano Passteggia mit Blick auf LAC Lugano',
+    'blog.article.pfas-filtrazione-san-antonino-2026.title': 'PFAS im Trinkwasser: San Antonino setzt auf Aktivkohlefilter',
+    'blog.article.pfas-filtrazione-san-antonino-2026.excerpt': 'Die Gemeinde San Antonino hat ein Aktivkohle-Filtersystem installiert, um PFAS aus dem Trinkwasser zu entfernen. Die Investition beträgt 1,8 Millionen Franken.',
+    'blog.article.pfas-filtrazione-san-antonino-2026.imageAlt': 'Bild einer Wasserfilteranlage in Ticino',
 };
 
 export default blogMetaDe;
