@@ -99,6 +99,9 @@ import {
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
+  STAT_TILE_DANGER,
+  STAT_TILE_SUCCESS,
+  STAT_TILE_WARNING,
   TABLE_CELL_STYLE,
   TABLE_HEAD_STYLE,
   TABLE_STYLE,
@@ -371,7 +374,14 @@ interface Copy {
   leafH1: (crossing: string, date: string) => string;
   rootH1: string;
   regionalH1: (region: string) => string;
-  intro: (crossing: string, status: string, wait: string, date: string) => string;
+  intro: (crossing: string, status: string, date: string) => string;
+  advice: {
+    eyebrow: string;
+    ok: (bestHour: string) => string;
+    warn: (worstHour: string) => string;
+    bad: (bestHour: string) => string;
+    unknown: string;
+  };
   paragraph: (crossing: string, direction: string, bestHour: string, worstHour: string) => string;
   updatedLabel: string;
   currentStatusLabel: string;
@@ -412,8 +422,19 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     leafH1: (c, d) => `Tempi attesa alla dogana ${c} — oggi ${d}`,
     rootH1: 'Tempi di attesa alle dogane Ticino–Italia — live oggi',
     regionalH1: (r) => `Tempi attesa ai valichi ${r}`,
-    intro: (c, s, w, d) =>
-      `Aggiornamento del ${d}: il valico di ${c} presenta un'attesa ${s} di circa ${w}. Dati aggiornati ogni 15 minuti nelle ore di punta (06:00–10:00 e 16:00–20:00 CET) dalla nostra pipeline di monitoraggio.`,
+    intro: (c, s, d) =>
+      `Aggiornamento del ${d}: il valico di ${c} presenta un'attesa ${s}. Dati aggiornati ogni 15 minuti nelle ore di punta (06:00–10:00 e 16:00–20:00 CET) dalla nostra pipeline di monitoraggio.`,
+    advice: {
+      eyebrow: 'Consiglio',
+      ok: (bestHour) =>
+        `Passa ora — finestra ottimale. La fascia con attesa minima negli ultimi 30 giorni è ${bestHour}.`,
+      warn: (worstHour) =>
+        `Attesa moderata — pianifica con margine. Picco previsto attorno alle ${worstHour}: se puoi, anticipa o posticipa.`,
+      bad: (bestHour) =>
+        `Coda lunga — meglio rinviare. Prossima finestra storicamente ottimale: ${bestHour}. Valuta un valico alternativo.`,
+      unknown:
+        'Dato live non disponibile in questo momento. I numeri sotto sono medie storiche del valico — usali come riferimento.',
+    },
     paragraph: (c, direction, bestHour, worstHour) =>
       `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare (direzione ${direction}) è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico TomTom, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in Italia dopo il lavoro, ricorda che il flusso serale inverte la direzione: tra le 17 e le 19 i valichi di Brogeda e Gaggiolo registrano tipicamente code nel senso opposto rispetto al mattino.`,
     updatedLabel: 'Aggiornamento',
@@ -479,8 +500,19 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     leafH1: (c, d) => `${c} border wait times — today ${d}`,
     rootH1: 'Ticino–Italy border wait times — live today',
     regionalH1: (r) => `${r} border crossings — live wait times`,
-    intro: (c, s, w, d) =>
-      `Updated ${d}: the ${c} crossing currently shows a ${s} wait of approximately ${w}. Data refreshes every 15 minutes during commuter peak hours (06:00–10:00 and 16:00–20:00 CET) from our monitoring pipeline.`,
+    intro: (c, s, d) =>
+      `Updated ${d}: the ${c} crossing currently shows a ${s} wait. Data refreshes every 15 minutes during commuter peak hours (06:00–10:00 and 16:00–20:00 CET) from our monitoring pipeline.`,
+    advice: {
+      eyebrow: 'Recommendation',
+      ok: (bestHour) =>
+        `Cross now — optimal window. The lowest-wait band over the last 30 days is ${bestHour}.`,
+      warn: (worstHour) =>
+        `Moderate wait — plan with a buffer. Peak expected around ${worstHour}: if you can, shift earlier or later.`,
+      bad: (bestHour) =>
+        `Long queue — consider delaying. Next historically optimal window: ${bestHour}. An alternative crossing may be faster.`,
+      unknown:
+        'Live data is currently unavailable. The numbers below are historical averages for this crossing — use them as a reference.',
+    },
     paragraph: (c, direction, bestHour, worstHour) =>
       `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit (${direction} direction) has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by the TomTom traffic cron, the same numbers used across the site's interactive map. If you are returning to Italy after work, remember that the evening flow reverses direction: between 17:00 and 19:00 the main commercial crossings typically show queues in the opposite direction compared to the morning.`,
     updatedLabel: 'Updated',
@@ -546,8 +578,19 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     leafH1: (c, d) => `Wartezeiten am Grenzübergang ${c} — heute ${d}`,
     rootH1: 'Wartezeiten an den Tessiner Grenzen zu Italien — live heute',
     regionalH1: (r) => `Grenzübergänge ${r} — Wartezeiten live`,
-    intro: (c, s, w, d) =>
-      `Aktualisiert am ${d}: Der Grenzübergang ${c} zeigt derzeit eine ${s} Wartezeit von rund ${w}. Daten werden während der Pendler-Stosszeiten (06:00–10:00 und 16:00–20:00 MEZ) alle 15 Minuten aktualisiert.`,
+    intro: (c, s, d) =>
+      `Aktualisiert am ${d}: Der Grenzübergang ${c} zeigt derzeit eine ${s} Wartezeit. Daten werden während der Pendler-Stosszeiten (06:00–10:00 und 16:00–20:00 MEZ) alle 15 Minuten aktualisiert.`,
+    advice: {
+      eyebrow: 'Empfehlung',
+      ok: (bestHour) =>
+        `Jetzt passieren — optimales Zeitfenster. Das ruhigste Band der letzten 30 Tage ist ${bestHour}.`,
+      warn: (worstHour) =>
+        `Moderate Wartezeit — mit Puffer planen. Spitzenzeit voraussichtlich ${worstHour}: wenn möglich, früher oder später fahren.`,
+      bad: (bestHour) =>
+        `Lange Schlange — verschieben in Erwägung ziehen. Nächstes historisch günstiges Zeitfenster: ${bestHour}. Ein Ausweichübergang kann schneller sein.`,
+      unknown:
+        'Live-Daten sind derzeit nicht verfügbar. Die Werte unten sind historische Mittelwerte für diesen Übergang — als Orientierung nutzen.',
+    },
     paragraph: (c, direction, bestHour, worstHour) =>
       `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit (Richtung ${direction}) ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der TomTom-Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach Italien zurückkehrt, sollte beachten, dass der Verkehr die Richtung wechselt: Zwischen 17:00 und 19:00 Uhr weisen die Hauptübergänge Brogeda und Gaggiolo typischerweise Rückstaus in Gegenrichtung zum Morgen auf.`,
     updatedLabel: 'Aktualisiert',
@@ -613,8 +656,19 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     leafH1: (c, d) => `Temps d'attente à la douane ${c} — aujourd'hui ${d}`,
     rootH1: "Temps d'attente aux douanes Tessin–Italie — en direct aujourd'hui",
     regionalH1: (r) => `Douanes ${r} — temps d'attente en direct`,
-    intro: (c, s, w, d) =>
-      `Mis à jour le ${d} : le poste de ${c} affiche actuellement une attente ${s} d'environ ${w}. Données rafraîchies toutes les 15 minutes pendant les heures de pointe pendulaire (06:00–10:00 et 16:00–20:00 CET).`,
+    intro: (c, s, d) =>
+      `Mis à jour le ${d} : le poste de ${c} affiche actuellement une attente ${s}. Données rafraîchies toutes les 15 minutes pendant les heures de pointe pendulaire (06:00–10:00 et 16:00–20:00 CET).`,
+    advice: {
+      eyebrow: 'Conseil',
+      ok: (bestHour) =>
+        `Passez maintenant — fenêtre optimale. La plage la plus calme des 30 derniers jours est ${bestHour}.`,
+      warn: (worstHour) =>
+        `Attente modérée — prévoyez une marge. Pic attendu vers ${worstHour} : si possible, anticipez ou décalez.`,
+      bad: (bestHour) =>
+        `File longue — envisagez de reporter. Prochaine fenêtre historiquement optimale : ${bestHour}. Un poste alternatif peut être plus rapide.`,
+      unknown:
+        "Données en direct indisponibles pour le moment. Les valeurs ci-dessous sont des moyennes historiques du poste — à utiliser comme référence.",
+    },
     paragraph: (c, direction, bestHour, worstHour) =>
       `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit (direction ${direction}) a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par le cron de trafic TomTom, les mêmes chiffres que la carte interactive du site. Si vous rentrez en Italie après le travail, notez que le flux du soir inverse la direction : entre 17h et 19h les postes principaux de Brogeda et Gaggiolo affichent généralement des files dans le sens opposé à celui du matin.`,
     updatedLabel: 'Mis à jour',
@@ -1164,6 +1218,55 @@ interface LeafInputs {
   ogImageUrl?: string;
 }
 
+/**
+ * Render the actionable "Consiglio / Recommendation" banner that sits
+ * directly under the H1 + intro. Turns the page from data-presentation
+ * into action-oriented: tells the visitor what to DO right now (cross,
+ * wait, reroute) instead of forcing them to interpret a number.
+ *
+ * Visual style reuses the shared `STAT_TILE_*` tokens so the colour
+ * (success / warning / danger) stays in lock-step with the matching
+ * card below — both bind to the same OKLCH `--color-*-subtle/border`
+ * variables and follow the user's dark-mode preference automatically.
+ *
+ * Hydratable: the wrapper carries `data-bw-advice` and per-status
+ * sub-elements carry `data-bw-advice-status` / `data-bw-advice-text` so
+ * the runtime hydration script can swap the visible state when the
+ * live wait time changes (e.g. from "passa ora" to "evita") without a
+ * full page repaint. The pre-hydration rendering is the build-time
+ * snapshot and is correct for SEO/zero-JS visitors.
+ */
+function renderAdviceBanner(
+  status: 'ok' | 'warn' | 'bad',
+  liveWait: number | null,
+  bestHour: string,
+  worstHour: string,
+  copy: Copy,
+): string {
+  const tile =
+    liveWait === null
+      ? STAT_TILE_WARNING
+      : status === 'ok'
+        ? STAT_TILE_SUCCESS
+        : status === 'warn'
+          ? STAT_TILE_WARNING
+          : STAT_TILE_DANGER;
+  const text =
+    liveWait === null
+      ? copy.advice.unknown
+      : status === 'ok'
+        ? copy.advice.ok(bestHour)
+        : status === 'warn'
+          ? copy.advice.warn(worstHour)
+          : copy.advice.bad(bestHour);
+  const eyebrow = copy.advice.eyebrow;
+  const dataStatus = liveWait === null ? 'unknown' : status;
+  return `<aside data-bw-advice data-bw-advice-status="${esc(dataStatus)}" aria-label="${esc(eyebrow)}" style="${tile};margin:0 0 18px">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-subtle)">${esc(eyebrow)}</div>
+    <p data-bw-advice-text style="margin:6px 0 0;font-size:15px;line-height:1.5;color:var(--color-heading);font-weight:500">${esc(text)}</p>
+  </aside>`;
+}
+
 function renderLeafPage(inp: LeafInputs): string {
   const { locale, crossing, current, history, today, alternates, distDir, ogImageUrl } = inp;
   const copy = COPY[locale];
@@ -1230,7 +1333,8 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Content pieces
   let h1 = copy.leafH1(crossingDisplay, dateStamp);
-  const intro = copy.intro(crossingDisplay, statusWord, waitFmt, dateStamp);
+  const intro = copy.intro(crossingDisplay, statusWord, dateStamp);
+  const adviceBannerHtml = renderAdviceBanner(status.label, liveWait, bestHour, worstHour, copy);
   const paragraph = copy.paragraph(crossingDisplay, direction, bestHour, worstHour);
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
@@ -1580,8 +1684,9 @@ function renderLeafPage(inp: LeafInputs): string {
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
-  ${webcamHtml}
+  ${adviceBannerHtml}
   ${currentCardHtml}
+  ${webcamHtml}
   <section style="margin:0 0 24px">
     <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
