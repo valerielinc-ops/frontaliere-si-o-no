@@ -99,30 +99,30 @@ const PROFILE_STORAGE_KEY = 'frontaliere_user_profile';
 
 async function fetchWeather(loc: { lat: number; lng: number; name: string; country: string }): Promise<LocationWeather | null> {
  try {
- const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lng}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code,is_day&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max,sunrise,sunset&timezone=Europe/Zurich&forecast_days=3`;
- const res = await fetch(url);
- if (!res.ok) return null;
- const data = await res.json();
+ const { fetchOpenMeteo } = await import('@/services/weather/openMeteoFetcher');
+ const res = await fetchOpenMeteo({ lat: loc.lat, lng: loc.lng, hourlyHours: 0, dailyDays: 3 });
+ if (!res.ok || !res.current) return null;
+ const dailySource = res.daily7 ?? [];
  return {
  name: loc.name,
  country: loc.country,
  current: {
- temperature: data.current.temperature_2m,
- apparentTemperature: data.current.apparent_temperature,
- humidity: data.current.relative_humidity_2m,
- windSpeed: data.current.wind_speed_10m,
- weatherCode: data.current.weather_code,
- isDay: !!data.current.is_day,
+ temperature: res.current.temperature,
+ apparentTemperature: res.current.apparentTemp ?? res.current.temperature,
+ humidity: res.current.humidity ?? 0,
+ windSpeed: res.current.windSpeedKmh ?? 0,
+ weatherCode: res.current.weatherCode,
+ isDay: res.current.isDay,
  },
- daily: data.daily.time.map((d: string, i: number) => ({
- date: d,
- tempMax: data.daily.temperature_2m_max[i],
- tempMin: data.daily.temperature_2m_min[i],
- weatherCode: data.daily.weather_code[i],
- precipitationProbability: data.daily.precipitation_probability_max[i],
+ daily: dailySource.map((d) => ({
+ date: d.date,
+ tempMax: d.tempMax,
+ tempMin: d.tempMin,
+ weatherCode: d.weatherCode,
+ precipitationProbability: d.precipProb ?? 0,
  })),
- sunrise: data.daily.sunrise[0],
- sunset: data.daily.sunset[0],
+ sunrise: dailySource[0]?.sunrise ?? '',
+ sunset: dailySource[0]?.sunset ?? '',
  };
  } catch (e) {
  reportCaughtError(e, 'morningDashboard.fetchWeather', { apiEndpoint: 'open-meteo.com' });
