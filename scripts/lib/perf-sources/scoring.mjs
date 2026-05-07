@@ -1,21 +1,12 @@
 // Composite scoring + winner-fingerprint extraction.
 // Pure functions — no I/O, no fetch — fully unit-testable.
 
-import { isFrontalieriDomainTerm } from './domainTerms.mjs';
-
-// Soft-boost multiplier for domain-passing TF-IDF tokens. The domain
-// regex no longer GATES topKeywords (real-traffic data is ground truth —
-// pre-filtering would hardcode our prior beliefs and silently drop
-// surprise winners like 'mutuo'/'casa' on a top-AdSense article).
-// Instead, domain tokens get a multiplicative boost so they rank higher
-// in the top-N, while non-domain tokens can still surface if the user
-// data shows they're driving traffic. Empirically tuned 2026-05-07:
-//   - 1.0 = no boost (back to all-noise output)
-//   - 2.0 = mild — surprise winners dominate, domain barely visible
-//   - 3.0 = moderate — domain dominates top-15, surprises appear in
-//           bottom-third
-//   - 5.0 = strong — top-15 essentially all domain, surprises rare
-const DOMAIN_BOOST_FACTOR = 3.0;
+// 2026-05-07 architectural decision: article-performance.json is PURE
+// source analysis. No domain allowlist (deny). No domain boost (premium).
+// User-traffic data is ground truth — TF-IDF math + recency weighting +
+// fCount cap are the only transformations. Domain knowledge is reserved
+// for SPECULATIVE sources (Suggest/News-RSS/Reddit) where user signal
+// hasn't validated relevance yet.
 
 /** Compute mean and (population) stddev. Returns {mean, sd} with sd>=1e-9. */
 export function meanStd(values) {
@@ -74,6 +65,16 @@ export function composeScores(rows) {
   return scored;
 }
 
+// CORE Italian stopwords — universal NLP infrastructure (articles,
+// prepositions, conjunctions, auxiliary verbs, basic pronouns). These
+// have no semantic content and would dominate any TF-IDF without being
+// filtered. NOT a domain-bias filter: any TF-IDF over IT text needs them.
+//
+// 2026-05-07: extended-stopword additions (adverbs, news-verbs, date
+// markers) were REMOVED on user direction. They could be content in
+// context (e.g., "completamente" in "guida completamente aggiornata"),
+// and the user's principle is no-suppression / no-bias for traffic-
+// validated data. Only universally-non-content tokens remain.
 const STOPWORDS_IT = new Set([
   // Articles, prepositions, conjunctions, particles
   'il', 'lo', 'la', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'a', 'da', 'in',
@@ -82,45 +83,16 @@ const STOPWORDS_IT = new Set([
   'dei', 'degli', 'delle', 'nel', 'nello', 'nella', 'nei', 'negli', 'nelle',
   'sul', 'sullo', 'sulla', 'sui', 'sugli', 'sulle', 'dal', 'dallo', 'dalla',
   'dai', 'dagli', 'dalle',
-  // Auxiliary verbs (essere/avere/venire/fare conjugated)
-  'è', 'sono', 'sei', 'siamo', 'siete', 'era', 'erano', 'sarà', 'saranno',
-  'ho', 'hai', 'ha', 'abbiamo', 'avete', 'hanno', 'aveva', 'avevano',
-  'fare', 'fatto', 'fanno', 'venire', 'venuti', 'andare', 'andato',
+  // Auxiliary verbs (essere/avere conjugated)
+  'è', 'sono', 'sei', 'siamo', 'siete', 'ho', 'hai', 'ha', 'abbiamo',
+  'avete', 'hanno',
   // Question words (also in QUESTION_WORDS for angle extraction)
-  'come', 'quando', 'quanto', 'quale', 'cosa', 'dove', 'perché', 'qual',
+  'come', 'quando', 'quanto', 'quale',
   // Demonstratives, pronouns
   'questo', 'questa', 'questi', 'queste', 'quello', 'quella', 'quelli',
-  'quelle', 'se', 'tu', 'io', 'lui', 'lei', 'noi', 'voi', 'loro', 'mi',
-  'ti', 'si', 'ci', 'vi', 'me', 'te', 'ne',
-  // Quantifiers
-  'più', 'meno', 'molto', 'poco', 'tanto', 'tutto', 'tutti', 'tutte',
-  'altro', 'altri', 'altre', 'ogni', 'qualche', 'qualcuno', 'nessun',
-  'nessuno', 'alcun', 'alcuno', 'alcuni', 'alcune',
-  // Adverbs (functional, not content) — added 2026-05-07 after seeing
-  // them dominate winnerFingerprint.topKeywords as bare TF-IDF noise.
-  'completamente', 'finalmente', 'sempre', 'spesso', 'mai', 'già',
-  'ancora', 'subito', 'presto', 'tardi', 'oggi', 'ieri', 'domani',
-  'sopra', 'sotto', 'davanti', 'dietro', 'dentro', 'fuori', 'vicino',
-  'lontano', 'insieme', 'prima', 'dopo', 'poi', 'allora', 'forse',
-  'davvero', 'invece', 'inoltre', 'comunque', 'quindi', 'perciò',
-  'cioè', 'soprattutto', 'almeno', 'circa', 'quasi',
-  // Common functional adjectives that surface as TF-IDF noise but
-  // aren't topic keywords — kept narrow to avoid over-filtering content.
-  'automatici', 'automatico', 'automatiche', 'automatica',
-  'completi', 'completa', 'completo', 'complete',
-  'presentano', 'presentato', 'presentati', 'presentata',
-  'posato', 'posata', 'posati', 'posate',
-  'finalmente', 'effettivo', 'effettiva',
-  // Date markers (year tokens are not topic content)
-  '2024', '2025', '2026', '2027', '2028',
-  // Generic story words
-  'storia', 'storie', 'caso', 'casi', 'modo', 'modi', 'parte', 'parti',
-  'volta', 'volte', 'tempo', 'tempi', 'anno', 'anni', 'mese', 'mesi',
-  'giorno', 'giorni', 'ora', 'ore', 'minuto', 'minuti',
-  // Generic news verbs
-  'arrivano', 'arriva', 'cambia', 'cambiano', 'avviene', 'succede',
-  'risulta', 'sembra', 'appare', 'mostra', 'svela', 'rivela',
-  'annuncia', 'comunica', 'dichiara', 'spiega', 'raccontano',
+  'quelle', 'se', 'più', 'meno', 'molto', 'poco', 'tutto', 'tutti', 'tutte',
+  'altro', 'altri', 'altre', 'cosa', 'tu', 'io', 'lui', 'lei', 'noi', 'voi',
+  'loro', 'mi', 'ti', 'si', 'ci', 'vi', 'me', 'te', 'ne',
 ]);
 
 const QUESTION_WORDS = ['come', 'quando', 'quanto', 'quanti', 'quante', 'cosa', 'chi', 'dove', 'perché', 'quale', 'qual'];
@@ -332,20 +304,14 @@ export function buildWinnerFingerprint(winners, allArticles) {
   const winnerCorpus = winners.map((w) => `${w.title || ''} ${w.excerpt || ''}`);
   const fullCorpus = allArticles.map((a) => `${a.title || ''} ${a.excerpt || ''}`);
   const winnerWeights = winners.map((w) => recencyWeight(w.publishedAt));
-  // 2026-05-07 soft-boost architecture (no deny, only boost):
-  //   - Domain-passing tokens (frontaliere/tasse/lpp/lamal/mutuo/casa
-  //     and other multilingual roots in `FRONTALIERI_DOMAIN_RE`) get a
-  //     ×3.0 score multiplier so they dominate the top-15.
-  //   - Non-domain tokens are NOT dropped. If a surprise winner has
-  //     enough user-traffic signal to outscore the boosted domain
-  //     terms, it surfaces (e.g., a hypothetical "auto-ibrida-frontaliere"
-  //     trend would appear before we ever extended the regex).
-  //   - Real user traffic = ground truth; pre-filtering would lock the
-  //     vocabulary to our prior beliefs.
+  // 2026-05-07: pure source analysis. NO domain boost, NO domain deny.
+  // Recency weighting + fCount cap are mathematical operators (not
+  // categorical heuristics). User direction: "non sopprimerei niente
+  // e non darei premi a nessuno — solo analisi della source e tirare
+  // fuori i winner". The top-15 is whatever TF-IDF mathematics says is
+  // most distinctive of the winning corpus — full stop.
   const topKeywords = tfidfTopN(winnerCorpus, fullCorpus, 15, {
     winnerWeights,
-    boostFn: isFrontalieriDomainTerm,
-    boostFactor: DOMAIN_BOOST_FACTOR,
   });
 
   // Question patterns: words appearing as the first token of any winner
