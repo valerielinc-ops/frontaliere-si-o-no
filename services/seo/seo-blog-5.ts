@@ -27881,6 +27881,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-adeguati-assetti-imprese-ticino-2026': {
+    title: 'Adeguati assetti: obbligo e opportunità per l’impresa',
+    description: 'Gli adeguati assetti organizzativi, amministrativi e contabili sono un obbligo di legge ma anche un\'opportunità di crescita per le imprese in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, adeguati, assetti, obbligo, opportunità',
+    ogTitle: 'Adeguati assetti: obbligo e opportunità per l’impresa',
+    ogDescription: 'Gli adeguati assetti organizzativi, amministrativi e contabili sono un obbligo di legge ma anche un\'opportunità di crescita per le imprese in Ticino.',
+    canonicalPath: '/articoli-frontaliere/adeguati-assetti-imprese-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Adeguati assetti: obbligo e opportunità per l’impresa",
+      "description": "Gli adeguati assetti organizzativi, amministrativi e contabili sono un obbligo di legge ma anche un'opportunità di crescita per le imprese in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/adeguati-assetti-imprese-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con montagne e edifici"
+      },
+      "datePublished": "2026-05-07T19:43:27+00:00",
+      "dateModified": "2026-05-07T19:43:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/adeguati-assetti-imprese-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

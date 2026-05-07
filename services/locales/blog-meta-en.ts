@@ -6848,6 +6848,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.title': 'Ticino construction sector withstands investment and geopolitical challenges',
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.excerpt': 'The Ticino construction sector holds up despite challenges, with 3 billion francs in turnover and 5,500 workers. Labor reserves are at 5 months.',
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.imageAlt': 'Lake Lugano with modern construction projects in the background',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.title': 'Proper structures: a must and an opportunity for businesses',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.excerpt': 'Proper organizational, administrative, and accounting structures are a legal requirement but also a growth opportunity for businesses in Ticino.',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.imageAlt': 'View of Lake Lugano with mountains and buildings',
 };
 
 export default blogMetaEn;

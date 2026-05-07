@@ -3525,6 +3525,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traduzione-documenti-finanziari-visto': { name: 'Traduzione documenti', path: '/articoli-frontaliere/traduzione-documenti-finanziari-visto', parent: 'blog' },
     'blog-filtrazione-carbone-attivo-san-antonino': { name: 'Filtrazione carbone attivo', path: '/articoli-frontaliere/filtrazione-carbone-attivo-san-antonino', parent: 'blog' },
     'blog-edilizia-ticino-resiste-investimenti-geopolitica': { name: 'Edilizia Ticino', path: '/articoli-frontaliere/edilizia-ticino-resiste-investimenti-geopolitica', parent: 'blog' },
+    'blog-adeguati-assetti-imprese-ticino-2026': { name: 'Adeguati assetti', path: '/articoli-frontaliere/adeguati-assetti-imprese-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

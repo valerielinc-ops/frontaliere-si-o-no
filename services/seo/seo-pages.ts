@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2335,
+ "numberOfItems": 2336,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6977,7 +6977,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2332, "name": "San Antonino: nuovi filtri PFAS in funzione", "url": `${BASE_URL}/articoli-frontaliere/filtri-pfas-san-antonino-2024` },
           { "@type": "ListItem", "position": 2333, "name": "Traduzione documenti finanziari per visto: cosa...", "url": `${BASE_URL}/articoli-frontaliere/traduzione-documenti-finanziari-visto` },
           { "@type": "ListItem", "position": 2334, "name": "Pfas nell’acqua: Sant’Antonino attiva filtrazio...", "url": `${BASE_URL}/articoli-frontaliere/filtrazione-carbone-attivo-san-antonino` },
-          { "@type": "ListItem", "position": 2335, "name": "Edilizia Ticino resiste a sfide investimenti e ...", "url": `${BASE_URL}/articoli-frontaliere/edilizia-ticino-resiste-investimenti-geopolitica` }
+          { "@type": "ListItem", "position": 2335, "name": "Edilizia Ticino resiste a sfide investimenti e ...", "url": `${BASE_URL}/articoli-frontaliere/edilizia-ticino-resiste-investimenti-geopolitica` },
+          { "@type": "ListItem", "position": 2336, "name": "Adeguati assetti: obbligo e opportunità per l’i...", "url": `${BASE_URL}/articoli-frontaliere/adeguati-assetti-imprese-ticino-2026` }
  ]
  },
  {

@@ -6848,6 +6848,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.title': 'Tessin-Bauwirtschaft trotzt Investitionen und Geopolitik',
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.excerpt': 'Die Bauwirtschaft im Tessin hält sich trotz Herausforderungen mit 3 Milliarden Franken Umsatz und 5.500 Arbeitnehmern. Die Arbeitsreserven betragen 5 Monate.',
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.imageAlt': 'Luganersee mit modernen Bauprojekten im Hintergrund',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.title': 'Angemessene Strukturen: Pflicht und Chance für Unternehmen',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.excerpt': 'Angemessene organisatorische, administrative und buchhalterische Strukturen sind gesetzlich vorgeschrieben, aber auch eine Wachstumschance für Unternehmen im Tessin.',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.imageAlt': 'Blick auf den Luganersee mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

@@ -6849,6 +6849,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.title': 'Edilizia Ticino resiste a sfide investimenti e geopolitica',
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.excerpt': 'Il settore edilizio ticinese tiene nonostante le sfide, con 3 miliardi di cifre d\'affari e 5.500 lavoratori. Le riserve di lavoro sono a 5 mesi.',
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.imageAlt': 'Lago di Lugano con progetti edilizi moderni sullo sfondo',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.title': 'Adeguati assetti: obbligo e opportunità per l’impresa',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.excerpt': 'Gli adeguati assetti organizzativi, amministrativi e contabili sono un obbligo di legge ma anche un\'opportunità di crescita per le imprese in Ticino.',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.imageAlt': 'Vista del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;

@@ -6849,6 +6849,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.title': 'Construction au Tessin résiste aux défis d\'investissement et géopolitiques',
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.excerpt': 'Le secteur de la construction tessinois tient malgré les défis, avec 3 milliards de chiffre d\'affaires et 5 500 travailleurs. Les réserves de travail sont à 5 mois.',
     'blog.article.edilizia-ticino-resiste-investimenti-geopolitica.imageAlt': 'Lac de Lugano avec des projets de construction modernes en arrière-plan',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.title': 'Structures adaptées : obligation et opportunité pour l\'entreprise',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.excerpt': 'Les structures organisationnelles, administratives et comptables adaptées sont une obligation légale mais aussi une opportunité de croissance pour les entreprises en Ticino.',
+    'blog.article.adeguati-assetti-imprese-ticino-2026.imageAlt': 'Vue du Lac de Lugano avec montagnes et bâtiments',
 };
 
 export default blogMetaFr;
