@@ -6818,6 +6818,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.record-organi-importati-2025.title': 'Switzerland sets record for imported organs in 2025',
     'blog.article.record-organi-importati-2025.excerpt': 'In 2025, Switzerland imported a record number of organs, with 69 transplants from foreign donors.',
     'blog.article.record-organi-importati-2025.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.svizzera-hockey-finlandia-2026.title': 'Switzerland beats Finland: encouraging growth ahead of World Cup',
+    'blog.article.svizzera-hockey-finlandia-2026.excerpt': 'Switzerland wins against Finland in a pre-World Cup friendly, with a convincing performance.',
+    'blog.article.svizzera-hockey-finlandia-2026.imageAlt': 'Hockey game in Ticino, Switzerland',
 };
 
 export default blogMetaEn;

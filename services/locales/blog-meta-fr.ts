@@ -6819,6 +6819,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.record-organi-importati-2025.title': 'Record d\'organes importés en Suisse en 2025',
     'blog.article.record-organi-importati-2025.excerpt': 'En 2025, la Suisse a importé un record d\'organes, avec 69 transplantations de donneurs étrangers.',
     'blog.article.record-organi-importati-2025.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.svizzera-hockey-finlandia-2026.title': 'Suisse bat la Finlande : une croissance encourageante avant la Coupe du Monde',
+    'blog.article.svizzera-hockey-finlandia-2026.excerpt': 'La Suisse a battu la Finlande lors d\'un match amical pré-Coupe du Monde, avec une performance convaincante.',
+    'blog.article.svizzera-hockey-finlandia-2026.imageAlt': 'Match de hockey au Tessin, Suisse',
 };
 
 export default blogMetaFr;
