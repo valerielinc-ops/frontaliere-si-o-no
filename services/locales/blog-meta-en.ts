@@ -6773,6 +6773,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.autista-stellato-fabio-giorgianni-premio.title': 'Fabio Giorgianni, Italy\'s most loved driver: wins Autista Stellato award',
     'blog.article.autista-stellato-fabio-giorgianni-premio.excerpt': 'The Varesine driver for Autoservizi Morandi wins the Autista Stellato award for the highest passenger ratings on FlixBus',
     'blog.article.autista-stellato-fabio-giorgianni-premio.imageAlt': 'Bus driver receiving an award on stage in Lugano',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.title': 'German-speaking Switzerland: new journalists\' minimum wage agreement',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.excerpt': 'After 20 years, German-speaking Switzerland has an agreement on minimum wages for journalists. Ticino will soon examine it.',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.imageAlt': 'Press conference in Lucerne, Switzerland, with journalists and editors',
 };
 
 export default blogMetaEn;

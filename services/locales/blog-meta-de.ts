@@ -6773,6 +6773,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.autista-stellato-fabio-giorgianni-premio.title': 'Fabio Giorgianni, Italiens beliebtester Busfahrer, gewinnt Sternenfahrer-Preis',
     'blog.article.autista-stellato-fabio-giorgianni-premio.excerpt': 'Der Varese-Fahrer von Autoservizi Morandi gewinnt den Sternenfahrer-Preis für die höchsten Bewertungen unter den FlixBus-Passagieren',
     'blog.article.autista-stellato-fabio-giorgianni-premio.imageAlt': 'Busfahrer erhält Preis auf der Bühne in Lugano',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.title': 'Medien- und Gewerkschaftsabkommen in der Deutschschweiz: Was ändert sich?',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.excerpt': 'Nach 20 Jahren gibt es in der Deutschschweiz ein Abkommen zu Mindestlöhnen für Journalisten. Der Tessin wird es bald prüfen.',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.imageAlt': 'Pressekonferenz in Luzern, Schweiz, mit Journalisten und Herausgebern',
 };
 
 export default blogMetaDe;

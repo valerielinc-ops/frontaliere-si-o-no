@@ -6774,6 +6774,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.autista-stellato-fabio-giorgianni-premio.title': 'Fabio Giorgianni, chauffeur préféré d\'Italie: prix Autista Stellato',
     'blog.article.autista-stellato-fabio-giorgianni-premio.excerpt': 'Le conducteur varésan des Autoservizi Morandi remporte le prix Autista Stellato pour les meilleures évaluations parmi les passagers FlixBus',
     'blog.article.autista-stellato-fabio-giorgianni-premio.imageAlt': 'Un chauffeur de bus reçoit un prix sur scène à Lugano',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.title': 'Accord éditeurs-syndicats en Suisse alémanique : que change-t-il ?',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.excerpt': 'Après 20 ans, la Suisse alémanique a un accord sur les salaires minimaux pour les journalistes. Le Tessin l\'examinera bientôt.',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.imageAlt': 'Conférence de presse à Lucerne, Suisse, avec des journalistes et des éditeurs',
 };
 
 export default blogMetaFr;

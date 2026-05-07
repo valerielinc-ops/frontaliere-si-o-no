@@ -6774,6 +6774,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.autista-stellato-fabio-giorgianni-premio.title': 'Fabio Giorgianni, l\'autista più amato d\'Italia: vince il premio Autista Stellato',
     'blog.article.autista-stellato-fabio-giorgianni-premio.excerpt': 'Il conducente varesino di Autoservizi Morandi vince il premio Autista Stellato per le recensioni più alte tra i passeggeri FlixBus',
     'blog.article.autista-stellato-fabio-giorgianni-premio.imageAlt': 'Autista riceve premio sul palco a Lugano',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.title': 'Accordo editori-sindacati in Svizzera tedesca: cosa cambia',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.excerpt': 'Dopo 20 anni, Svizzera tedesca ha un accordo su salari minimi per giornalisti. Il Ticino lo esaminerà presto.',
+    'blog.article.accordo-editori-sindacati-svizzera-tedesca.imageAlt': 'Conferenza stampa a Lucerna, Svizzera, con giornalisti ed editori',
 };
 
 export default blogMetaIt;

@@ -3500,6 +3500,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-hantavirus-svizzera-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-svizzera-frontalieri-2026', parent: 'blog' },
     'blog-cedu-condanna-svizzera-diritti-manifestante': { name: 'Novità', path: '/articoli-frontaliere/cedu-condanna-svizzera-diritti-manifestante', parent: 'blog' },
     'blog-autista-stellato-fabio-giorgianni-premio': { name: 'Premio Autista Stellato', path: '/articoli-frontaliere/autista-stellato-fabio-giorgianni-premio', parent: 'blog' },
+    'blog-accordo-editori-sindacati-svizzera-tedesca': { name: 'Novità', path: '/articoli-frontaliere/accordo-editori-sindacati-svizzera-tedesca', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -21692,4 +21692,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'accordo-editori-sindacati-svizzera-tedesca',
+ category: 'novita',
+ date: '2026-05-07T13:16:48.776Z',
+ image: '/images/blog/accordo-editori-sindacati-svizzera-tedesca.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
