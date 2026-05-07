@@ -6683,6 +6683,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frode-reddito-cittadinanza-varese-2026.title': 'Eight cases of citizenship income fraud uncovered by the Guardia di Finanza',
     'blog.article.frode-reddito-cittadinanza-varese-2026.excerpt': 'The Guardia di Finanza of Varese has uncovered eight cases of fraud related to citizenship income and inclusion allowance, causing a damage of over 140,000 euros.',
     'blog.article.frode-reddito-cittadinanza-varese-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.frontalieri-ticino-calo-2026.title': 'Cross-border workers in Ticino down in 2026: -0.5% in a year',
+    'blog.article.frontalieri-ticino-calo-2026.excerpt': 'In the first three months of 2026, cross-border workers in Ticino total 78,562, down 0.5% compared to 2025. Discover the implications for those working in Switzerland.',
+    'blog.article.frontalieri-ticino-calo-2026.imageAlt': 'View of Lake Lugano with the city in the background',
 };
 
 export default blogMetaEn;

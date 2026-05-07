@@ -6683,6 +6683,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frode-reddito-cittadinanza-varese-2026.title': 'Acht Betrugsfälle beim Bürgergeld aufgedeckt',
     'blog.article.frode-reddito-cittadinanza-varese-2026.excerpt': 'Die Guardia di Finanza von Varese hat acht Fälle von Betrug beim Bürgergeld und Inklusionsgeld aufgedeckt, mit einem Schaden von über 140.000 Euro.',
     'blog.article.frode-reddito-cittadinanza-varese-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.frontalieri-ticino-calo-2026.title': 'Grenzgänger im Tessin 2026: -0,5% in einem Jahr',
+    'blog.article.frontalieri-ticino-calo-2026.excerpt': 'In den ersten drei Monaten des Jahres 2026 gibt es 78.562 Grenzgänger im Tessin, ein Rückgang von 0,5% im Vergleich zu 2025. Erfahren Sie die Auswirkungen auf diejenigen, die in der Schweiz arbeiten.',
+    'blog.article.frontalieri-ticino-calo-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

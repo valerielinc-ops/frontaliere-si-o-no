@@ -3470,6 +3470,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-elon-musk-svizzero-processo-friburgo': { name: 'Novità', path: '/articoli-frontaliere/elon-musk-svizzero-processo-friburgo', parent: 'blog' },
     'blog-fedpol-talpa-accesso-dossier-inchiesta': { name: 'Novità', path: '/articoli-frontaliere/fedpol-talpa-accesso-dossier-inchiesta', parent: 'blog' },
     'blog-frode-reddito-cittadinanza-varese-2026': { name: 'Frode reddito cittadinanza', path: '/articoli-frontaliere/frode-reddito-cittadinanza-varese-2026', parent: 'blog' },
+    'blog-frontalieri-ticino-calo-2026': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-calo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -6684,6 +6684,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frode-reddito-cittadinanza-varese-2026.title': 'Huit fraudes au revenu de solidarité active découvertes par la Garde financière',
     'blog.article.frode-reddito-cittadinanza-varese-2026.excerpt': 'La Garde financière de Varèse a découvert huit cas de fraude au revenu de solidarité active et à l\'allocation d\'inclusion, causant un préjudice de plus de 140 000 euros.',
     'blog.article.frode-reddito-cittadinanza-varese-2026.imageAlt': 'Vue aérienne du Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.frontalieri-ticino-calo-2026.title': 'Frontaliers en baisse en 2026: -0,5% en un an',
+    'blog.article.frontalieri-ticino-calo-2026.excerpt': 'Au cours des trois premiers mois de 2026, les frontaliers en Suisse sont 78.562, en baisse de 0,5% par rapport à 2025. Découvrez les implications pour ceux qui travaillent en Suisse.',
+    'blog.article.frontalieri-ticino-calo-2026.imageAlt': 'Vue du Lac de Lugano avec la ville en arrière-plan',
 };
 
 export default blogMetaFr;

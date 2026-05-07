@@ -21422,4 +21422,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-ticino-calo-2026',
+ category: 'novita',
+ date: '2026-05-07T06:48:09.354Z',
+ image: '/images/blog/frontalieri-ticino-calo-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

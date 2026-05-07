@@ -6684,6 +6684,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frode-reddito-cittadinanza-varese-2026.title': 'Otto frodi al reddito di cittadinanza scoperti dalla Guardia di Finanza',
     'blog.article.frode-reddito-cittadinanza-varese-2026.excerpt': 'La Guardia di Finanza di Varese ha scoperto otto casi di frode al reddito di cittadinanza e assegno di inclusione, con un danno di oltre 140mila euro.',
     'blog.article.frode-reddito-cittadinanza-varese-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.frontalieri-ticino-calo-2026.title': 'Frontalieri in Ticino in calo nel 2026: -0,5% in un anno',
+    'blog.article.frontalieri-ticino-calo-2026.excerpt': 'Nei primi tre mesi del 2026 i frontalieri in Ticino sono 78.562, in calo dello 0,5% rispetto al 2025. Scopri le implicazioni per chi lavora in Svizzera.',
+    'blog.article.frontalieri-ticino-calo-2026.imageAlt': 'Vista del Lago di Lugano con la città sullo sfondo',
 };
 
 export default blogMetaIt;
