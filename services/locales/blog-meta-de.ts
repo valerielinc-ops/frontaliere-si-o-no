@@ -6638,6 +6638,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.regazzi-rieletto-usam-burocrazia-udc.title': 'Regazzi wiedergewählt: USAM, Bürokratie und UDC-Initiative',
     'blog.article.regazzi-rieletto-usam-burocrazia-udc.excerpt': 'Fabio Regazzi wurde erneut zum Präsidenten der USAM gewählt. Er kritisiert die Bürokratie und die UDC-Initiative zur Einwanderung. Wirtschaftliche Auswirkungen für Grenzgänger im Tessin.',
     'blog.article.regazzi-rieletto-usam-burocrazia-udc.imageAlt': 'Fabio Regazzi spricht auf der USAM-Konferenz in Bellinzona',
+    'blog.article.ex-casa-comunale-lopagno-vendita.title': 'Ehemaliges Gemeindehaus in Lopagno zum Verkauf',
+    'blog.article.ex-casa-comunale-lopagno-vendita.excerpt': 'Die Gemeinde Capriasca verkauft das ehemalige Gemeindehaus in Lopagno zu einem Mindestpreis von 315.000 Franken. Angebotsfrist: 31. Juli.',
+    'blog.article.ex-casa-comunale-lopagno-vendita.imageAlt': 'Panoramablick auf den Luganersee mit einem historischen Gebäude im Hintergrund',
 };
 
 export default blogMetaDe;

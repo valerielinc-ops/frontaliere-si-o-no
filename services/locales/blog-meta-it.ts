@@ -6639,6 +6639,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.regazzi-rieletto-usam-burocrazia-udc.title': 'Regazzi rieletto all\'USAM: burocrazia e iniziativa UDC',
     'blog.article.regazzi-rieletto-usam-burocrazia-udc.excerpt': 'Fabio Regazzi rieletto presidente USAM. Critica burocrazia e iniziativa UDC su immigrazione. Impatto economico per frontalieri Ticino.',
     'blog.article.regazzi-rieletto-usam-burocrazia-udc.imageAlt': 'Fabio Regazzi parla alla conferenza dell\'USAM a Bellinzona',
+    'blog.article.ex-casa-comunale-lopagno-vendita.title': 'Ex casa comunale di Lopagno in vendita: prezzo minimo e scadenze',
+    'blog.article.ex-casa-comunale-lopagno-vendita.excerpt': 'Il Municipio di Capriasca mette in vendita l\'ex casa comunale di Lopagno a un prezzo minimo di 315.000 franchi. Scadenza offerte: 31 luglio.',
+    'blog.article.ex-casa-comunale-lopagno-vendita.imageAlt': 'Vista panoramica del Lago di Lugano con un edificio storico sullo sfondo',
 };
 
 export default blogMetaIt;

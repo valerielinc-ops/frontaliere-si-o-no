@@ -21287,4 +21287,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ex-casa-comunale-lopagno-vendita',
+ category: 'pratico',
+ date: '2026-05-07T04:30:07.459Z',
+ image: '/images/blog/ex-casa-comunale-lopagno-vendita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

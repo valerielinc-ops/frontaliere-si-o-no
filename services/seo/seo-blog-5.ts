@@ -25156,6 +25156,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ex-casa-comunale-lopagno-vendita': {
+    title: 'Ex casa comunale di Lopagno in vendita: prezzo minimo e scadenze',
+    description: 'Il Municipio di Capriasca mette in vendita l\'ex casa comunale di Lopagno a un prezzo minimo di 315.000 franchi. Scadenza offerte: 31 luglio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, comunale, lopagno, vendita',
+    ogTitle: 'Ex casa comunale Lopagno in vendita: prezzo e scadenze',
+    ogDescription: 'Il Municipio di Capriasca mette in vendita l\'ex casa comunale di Lopagno a un prezzo minimo di 315.000 franchi. Scadenza offerte: 31 luglio.',
+    canonicalPath: '/articoli-frontaliere/ex-casa-comunale-lopagno-vendita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ex casa comunale di Lopagno in vendita: prezzo minimo e scadenze",
+      "description": "Il Municipio di Capriasca mette in vendita l'ex casa comunale di Lopagno a un prezzo minimo di 315.000 franchi. Scadenza offerte: 31 luglio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/ex-casa-comunale-lopagno-vendita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con un edificio storico sullo sfondo"
+      },
+      "datePublished": "2026-05-07T04:30:07+00:00",
+      "dateModified": "2026-05-07T04:30:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ex-casa-comunale-lopagno-vendita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
