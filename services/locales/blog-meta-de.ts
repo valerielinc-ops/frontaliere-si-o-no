@@ -6602,6 +6602,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-corsi-nuovi-orizzonti-2026.title': 'Varese Kurse: 6.327 Anmeldungen',
     'blog.article.varese-corsi-nuovi-orizzonti-2026.excerpt': 'Varese Kurse Net verzeichnet 6.327 Anmeldungen und führt Flugsimulatoren und Vocal Fitness für Englisch ein. Neue Synergien zwischen Dozenten, Einrichtungen und Unternehmen.',
     'blog.article.varese-corsi-nuovi-orizzonti-2026.imageAlt': 'Luftansicht des Luganer Sees mit modernen Gebäuden und Bergen im Hintergrund',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.title': 'Zwei Tessiner unter den neuen Schweizer Garden',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.excerpt': 'Davide Iannalfo und Mattia Canonica leisten ihren Dienst als Schweizer Gardisten. Der Kanton Tessin ist der zweitgrößte Kanton nach der Anzahl der Garden.',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.imageAlt': 'Zwei Schweizer Garden in traditioneller Uniform vor der Petersbasilika in Vatikanstadt',
 };
 
 export default blogMetaDe;

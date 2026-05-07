@@ -6602,6 +6602,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-corsi-nuovi-orizzonti-2026.title': 'Varese Corsi: 6,327 Enrollments, 2026 Courses',
     'blog.article.varese-corsi-nuovi-orizzonti-2026.excerpt': 'Varese Corsi Net reports 6,327 enrollments and introduces flight simulations and Vocal Fitness for English. New synergies among teachers, institutions, and businesses.',
     'blog.article.varese-corsi-nuovi-orizzonti-2026.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.title': 'Two Ticino residents join Swiss Guards',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.excerpt': 'Davide Iannalfo and Mattia Canonica swear in as Swiss Pontifical Guards. Ticino is the second canton for number of guards',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.imageAlt': 'Two Swiss Guards in traditional uniforms in front of St. Peter\'s Basilica in Vatican City',
 };
 
 export default blogMetaEn;

@@ -21179,4 +21179,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'due-ticinesi-guardie-svizzere-2026',
+ category: 'novita',
+ date: '2026-05-07T02:32:19.316Z',
+ image: '/images/blog/due-ticinesi-guardie-svizzere-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

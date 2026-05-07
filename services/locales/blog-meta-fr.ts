@@ -6603,6 +6603,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-corsi-nuovi-orizzonti-2026.title': 'Varese Corsi: 6.327 inscriptions et nouveaux cours pour 2026',
     'blog.article.varese-corsi-nuovi-orizzonti-2026.excerpt': 'Varese Corsi Net enregistre 6.327 inscriptions et propose des simulateurs de vol et du Vocal Fitness pour l\'anglais. Nouvelles synergies entre enseignants, institutions et entreprises.',
     'blog.article.varese-corsi-nuovi-orizzonti-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.title': 'Deux Ticinois parmi les nouvelles Gardes Suisses',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.excerpt': 'Davide Iannalfo et Mattia Canonica prêtent serment comme Gardes Suisses Pontificales. Le Tessin est le deuxième canton pour le nombre de gardes',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.imageAlt': 'Deux Gardes suisses en uniforme traditionnelle devant la basilique Saint-Pierre à Vatican',
 };
 
 export default blogMetaFr;

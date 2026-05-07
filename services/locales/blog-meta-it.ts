@@ -6603,6 +6603,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-corsi-nuovi-orizzonti-2026.title': 'Varese Corsi: 6.327 iscrizioni e nuovi corsi per il 2026',
     'blog.article.varese-corsi-nuovi-orizzonti-2026.excerpt': 'Varese Corsi Net registra 6.327 iscrizioni e introduce simulazioni di volo e Vocal Fitness per l\'inglese. Nuove sinergie tra docenti, istituzioni e imprese.',
     'blog.article.varese-corsi-nuovi-orizzonti-2026.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.title': 'Due ticinesi tra le nuove Guardie Svizzere',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.excerpt': 'Davide Iannalfo e Mattia Canonica giurano come Guardie Svizzere Pontificie. Il Ticino è il secondo cantone per numero di guardie',
+    'blog.article.due-ticinesi-guardie-svizzere-2026.imageAlt': 'Due Guardie Svizzere in uniforme tradizionale davanti alla Basilica di San Pietro in Vaticano',
 };
 
 export default blogMetaIt;

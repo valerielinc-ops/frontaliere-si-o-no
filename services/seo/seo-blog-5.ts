@@ -24700,6 +24700,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-due-ticinesi-guardie-svizzere-2026': {
+    title: 'Due ticinesi tra le nuove Guardie Svizzere | Frontaliere Ticino',
+    description: 'Davide Iannalfo e Mattia Canonica giurano come Guardie Svizzere Pontificie. Il Ticino è il secondo cantone per numero di guardie. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticinesi, nuove, guardie, svizzere',
+    ogTitle: 'Due ticinesi tra le nuove Guardie Svizzere',
+    ogDescription: 'Davide Iannalfo e Mattia Canonica giurano come Guardie Svizzere Pontificie. Il Ticino è il secondo cantone per numero di guardie',
+    canonicalPath: '/articoli-frontaliere/due-ticinesi-guardie-svizzere-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Due ticinesi tra le nuove Guardie Svizzere",
+      "description": "Davide Iannalfo e Mattia Canonica giurano come Guardie Svizzere Pontificie. Il Ticino è il secondo cantone per numero di guardie. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/due-ticinesi-guardie-svizzere-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Due Guardie Svizzere in uniforme tradizionale davanti alla Basilica di San Pietro in Vaticano"
+      },
+      "datePublished": "2026-05-07T02:32:19+00:00",
+      "dateModified": "2026-05-07T02:32:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/due-ticinesi-guardie-svizzere-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
