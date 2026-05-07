@@ -1,18 +1,50 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-05-07T11:48:01.412Z",
+  "generatedAt": "2026-05-07T22:36:32.246Z",
   "total": 1,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4627,
-  "avgDurationMs": 4627,
+  "durationMs": 3464,
+  "avgDurationMs": 3464,
   "durationHistory": [
-    4627
+    3464
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Sales Agent Lugano 60-100%",
+      "slug": "sales-agent-lugano-60-100-sunrise-ticino",
+      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036581/sales-agent-lugano-60-100",
+      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Ticino/Sales-Agent-Lugano-60-100-_REQ_30036581-1/apply",
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-sede-ticino",
+      "companyDomain": "sunrise.ch",
+      "location": "Ticino",
+      "addressLocality": "Ticino",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "postalCode": "6982",
+      "canton": "",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "sunrise-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-07",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sales Agent Agno 60-100%",
