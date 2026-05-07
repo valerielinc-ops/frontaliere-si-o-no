@@ -1806,6 +1806,18 @@ export function parsePath(pathname: string): ParseResult {
    return { route: { activeTab: 'stats', staticOverlay: true }, locale: inferredLocale };
  }
 
+
+ // Weather alert pages (PR3) — /allerte/{type}/ + 4-locale variants
+ // (alerts, warnungen, alertes). Plus hub /allerte-meteo/ + variants.
+ if (/^\/(allerte-meteo|weather-alerts|wetterwarnungen|alertes-meteo)\/?$/.test(pathname) ||
+     /^\/(en|de|fr)\/(allerte-meteo|weather-alerts|wetterwarnungen|alertes-meteo)\/?$/.test(pathname) ||
+     /^\/(allerte|alerts|warnungen|alertes)\/[a-z-]+\/?$/.test(pathname) ||
+     /^\/(en|de|fr)\/(allerte|alerts|warnungen|alertes)\/[a-z-]+\/?$/.test(pathname)) {
+   const localeMatch = pathname.match(/^\/(en|de|fr)\//);
+   const inferredLocale = (localeMatch ? localeMatch[1] : 'it') as Locale;
+   return { route: { activeTab: 'stats', staticOverlay: true }, locale: inferredLocale };
+ }
+
  if (FUEL_DAILY_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isFuelDailyPath(pathname)) {
    return { route: { activeTab: 'stats', statsSubTab: 'fuel-prices', staticOverlay: true }, locale };
  }
