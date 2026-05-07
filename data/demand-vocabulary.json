@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T15:13:10.153Z",
+  "generatedAt": "2026-05-07T16:27:41.878Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -553,11 +553,11 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere svizzero che lavora in italia",
-      "normalizedKeyword": "frontaliere svizzero che lavora in italia",
+      "kw": "frontaliere o frontaliero",
+      "normalizedKeyword": "frontaliere o frontaliero",
       "weight": 0.12,
       "source": "suggest",
-      "cluster": "lavoro"
+      "cluster": "generic"
     },
     {
       "kw": "frontalieri svizzera tasse",
@@ -581,6 +581,13 @@
       "cluster": "fiscale"
     },
     {
+      "kw": "frontaliere ticino",
+      "normalizedKeyword": "frontaliere ticino",
+      "weight": 0.095,
+      "source": "gsc+suggest",
+      "cluster": "generic"
+    },
+    {
       "kw": "aliquote irpef frontalieri",
       "normalizedKeyword": "aliquote irpef frontalieri",
       "weight": 0.09,
@@ -593,13 +600,6 @@
       "weight": 0.09,
       "source": "suggest",
       "cluster": "pensioni"
-    },
-    {
-      "kw": "frontaliere o frontaliero",
-      "normalizedKeyword": "frontaliere o frontaliero",
-      "weight": 0.09,
-      "source": "suggest",
-      "cluster": "generic"
     },
     {
       "kw": "frontalieri svizzeri cu",
@@ -623,18 +623,11 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere ticino",
-      "normalizedKeyword": "frontaliere ticino",
-      "weight": 0.065,
-      "source": "gsc+suggest",
-      "cluster": "generic"
-    },
-    {
-      "kw": "calcolo busta paga svizzera",
-      "normalizedKeyword": "calcolo busta paga svizzera",
+      "kw": "frontaliere in inglese",
+      "normalizedKeyword": "frontaliere in inglese",
       "weight": 0.06,
       "source": "suggest",
-      "cluster": "fiscale"
+      "cluster": "generic"
     },
     {
       "kw": "frontalieri significato",
@@ -651,6 +644,13 @@
       "cluster": "pensioni"
     },
     {
+      "kw": "tassazione busta paga svizzera",
+      "normalizedKeyword": "tassazione busta paga svizzera",
+      "weight": 0.06,
+      "source": "suggest",
+      "cluster": "fiscale"
+    },
+    {
       "kw": "tassazione irpef frontalieri",
       "normalizedKeyword": "tassazione irpef frontalieri",
       "weight": 0.06,
@@ -665,8 +665,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere in inglese",
-      "normalizedKeyword": "frontaliere in inglese",
+      "kw": "frontaliere svizzera km",
+      "normalizedKeyword": "frontaliere svizzera km",
       "weight": 0.03,
       "source": "suggest",
       "cluster": "generic"
@@ -686,18 +686,18 @@
       "cluster": "fiscale"
     },
     {
+      "kw": "modello busta paga svizzera",
+      "normalizedKeyword": "modello busta paga svizzera",
+      "weight": 0.03,
+      "source": "suggest",
+      "cluster": "fiscale"
+    },
+    {
       "kw": "secondo pilastro svizzera tassazione italia",
       "normalizedKeyword": "secondo pilastro svizzera tassazione italia",
       "weight": 0.03,
       "source": "suggest",
       "cluster": "pensioni"
-    },
-    {
-      "kw": "tassazione busta paga svizzera",
-      "normalizedKeyword": "tassazione busta paga svizzera",
-      "weight": 0.03,
-      "source": "suggest",
-      "cluster": "fiscale"
     },
     {
       "kw": "tasse svizzera frontalieri",

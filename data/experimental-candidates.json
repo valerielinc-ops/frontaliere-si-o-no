@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T15:13:18.165Z",
+  "generatedAt": "2026-05-07T16:27:50.813Z",
   "sources": {
     "redditTicino": {
       "ok": true,
@@ -42,8 +42,8 @@
       },
       "rationale": "Reddit r/italy RSS feed — recency-based baseline 25 (engagement unavailable)",
       "demandScore": 0.25,
-      "noveltyScore": 0.765,
-      "totalScore": 0.456
+      "noveltyScore": 0.714,
+      "totalScore": 0.436
     },
     {
       "id": "91189b1a",
@@ -90,24 +90,24 @@
       "totalScore": 0.385
     },
     {
-      "id": "cba430b4",
-      "keyword": "Modifica LAMAL - finanziamento uniforme delle prestazioni - Democrazia Diretta - Play RSI - RSI Radiotelevisione svizzera",
-      "normalizedKeyword": "modifica lamal - finanziamento uniforme delle prestazioni - democrazia diretta - play rsi - rsi radiotelevisione svizzera",
+      "id": "5e1a20eb",
+      "keyword": "​​​​​​​Cross-border worker and teleworking - Filodiritto",
+      "normalizedKeyword": "​​​​​​​cross-border worker and teleworking - filodiritto",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObFM3U1hNTXZ4eXY3aWRmX1FUZWotaVVHNTNFczRFaDBXbUZlbm5XSGZENmpObUhtbnBISFJEdldDSE52OWthckVSVVpWX1hHNEdqandRTjh2dDFVM3ZfcjNZSlpQUTVCNlR5ZjBxdVhyTmpIYjN2aDlQYlNEU1hsTHgtWEZ2WF9oMlR5QjJOQVlGN05JeWY0YkpyM2VoTWNHbzZ3TnM5LXpodHBobUlnUEdLUzM1QUFRYklLa2NiMFhtS21xSmptcWU4ZGYxQQ?oc=5",
-        "googleNewsRssPubDate": "Mon, 04 Nov 2024 08:00:00 GMT",
-        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+        "googleNewsRssSeed": "telelavoro frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBhVnc1ekpUM0VEa1Z1XzNILWR4YnhTai1TdWpKM0hJYWF1SHFuODNHNmJfeUtHRndQdWU5cWhYS20xRFJ3Rk8tWGFvLWF2ZnBjUXdCYi1TMHU4WTc4U1VyZlZCNTBXdHlGNzRxN2ZVVjk?oc=5",
+        "googleNewsRssPubDate": "Thu, 19 Jun 2025 07:00:00 GMT",
+        "googleNewsRssSource": "Filodiritto"
       },
-      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
+      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — Filodiritto",
       "demandScore": 0,
-      "noveltyScore": 0.938,
-      "totalScore": 0.375
+      "noveltyScore": 0.933,
+      "totalScore": 0.373
     },
     {
       "id": "564ef9bd",
@@ -294,6 +294,26 @@
       "totalScore": 0.353
     },
     {
+      "id": "656ad848",
+      "keyword": "E' Simone Grossi il frontaliere morto questa mattina a Visp - VCO Azzurra TV",
+      "normalizedKeyword": "e' simone grossi il frontaliere morto questa mattina a visp - vco azzurra tv",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcVFGQVNRQzQ4aHVsUC03UkpTSE5oNkkzM2tFR1dpNk9uUXZ6QVJaUmsxVUhvMzMyeVlLaUtCcnpPM2tMa2w5SXNHZENzMnYzeC1ZNmpZNUMwOV9MQzRsWkJDdFBQY2NNX1pHOHE4Sk9tR0c3bGZrUmVoQ21iSndzbHVoQzBhcFM3ZEpqMTRJa3V5clNJTDRXQk5uLS1haUJWd3M5SEVR?oc=5",
+        "googleNewsRssPubDate": "Thu, 02 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "VCO Azzurra TV"
+      },
+      "rationale": "Google News RSS seed \"frontaliere\" — VCO Azzurra TV",
+      "demandScore": 0,
+      "noveltyScore": 0.882,
+      "totalScore": 0.353
+    },
+    {
       "id": "d70f3f39",
       "keyword": "Pensioni, con questo importo sei svantaggiato. Paghi più tasse - Money.it",
       "normalizedKeyword": "pensioni, con questo importo sei svantaggiato. paghi piu tasse - money.it",
@@ -309,26 +329,6 @@
         "googleNewsRssSource": "Money.it"
       },
       "rationale": "Google News RSS seed \"IRPEF frontalieri\" — Money.it",
-      "demandScore": 0,
-      "noveltyScore": 0.882,
-      "totalScore": 0.353
-    },
-    {
-      "id": "a023b7e0",
-      "keyword": "TF: possibile dare in affitto abitazione ottenuta con 2.o pilastro - SWI swissinfo.ch",
-      "normalizedKeyword": "tf: possibile dare in affitto abitazione ottenuta con 2.o pilastro - swi swissinfo.ch",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNTlVTRHhtaTZuMGxxRlhIZlRzanpId1ZFcXY3dU1KY1RmLW5fRUtBYk1WeDZDVE94WlBTSWRCT3FhYWdDb1hyM1ViOU9hN1ZKVnBxMGZ5UlRSM253b2Vhbzg5Mm90V2FYWXozX1VkYWJvZDNaWVFKQ2kyNGhDWnNiQjBKUzUtbW1qVkMwaktvZ2pMcWE5UUVZeVZoZVpWY3ZzYVpiMkpR?oc=5",
-        "googleNewsRssPubDate": "Thu, 29 Jul 2021 07:00:00 GMT",
-        "googleNewsRssSource": "SWI swissinfo.ch"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — SWI swissinfo.ch",
       "demandScore": 0,
       "noveltyScore": 0.882,
       "totalScore": 0.353
@@ -374,6 +374,26 @@
       "totalScore": 0.35
     },
     {
+      "id": "54ee6c77",
+      "keyword": "Frontaliere ossolano morto a Visp: la procura elvetica ha disposto l’autopsia - La Stampa",
+      "normalizedKeyword": "frontaliere ossolano morto a visp: la procura elvetica ha disposto l’autopsia - la stampa",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQX2oyOFhuMGR1aHlNc3hFN2NaY2RQZnZadTFUYWQ1eEx3VGJGMThJUlB0a1FQRHpJcVhwRlgxNzhWM1YzQXNSX1h3aC1JRDhzMXc4RTRXNmVOX1ExY3ZmdTVQVGZWd21tNXJPbk9Ob2ZjYVlrYXpwWnVGYUNPQmg0OFhvLXo2YXJaOFl2RkFuZ2o5MzBYZHVralh2aTlDNmxOc0x0emI1ZW03MEVDOFJkZzJRUdIBuAFBVV95cUxNdWpNX195ekFZRktXU1piTnYtcDFlaG96NWptSkJOWjZDakVWUlNEd0Zpc0RsV3U2VUFXNXgwUm5hZG8zaUduUHQwTzUwTDM0WTZnLVM2cG5CWjJ5bDRLTS0tSXZOWE9PcmRBNl9nU1hDMjhGM3BkUU9UN2NnMXZkMDdIeUJtOER6MUs4TDRwZHBUTEJ3Ry1xYUdxQ0J0VkdwZXN1WGxoQ3lOeWNZVTJtRmlYNWxlbWNy?oc=5",
+        "googleNewsRssPubDate": "Fri, 03 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "La Stampa"
+      },
+      "rationale": "Google News RSS seed \"frontaliere\" — La Stampa",
+      "demandScore": 0,
+      "noveltyScore": 0.875,
+      "totalScore": 0.35
+    },
+    {
       "id": "9b08386a",
       "keyword": "Frontalieri, Arlotti scrive a Letta, Saccomanni e Fassina: \"Ripristinate la franchigia\" - San Marino Rtv",
       "normalizedKeyword": "frontalieri, arlotti scrive a letta, saccomanni e fassina: \"ripristinate la franchigia\" - san marino rtv",
@@ -389,26 +409,6 @@
         "googleNewsRssSource": "San Marino Rtv"
       },
       "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
-      "demandScore": 0,
-      "noveltyScore": 0.875,
-      "totalScore": 0.35
-    },
-    {
-      "id": "dfc18583",
-      "keyword": "Frontalieri: retifica dell’accordo tra San Marino ed Emilia Romagna. A.F.I.S.: “Bene” - Chiamami Città",
-      "normalizedKeyword": "frontalieri: retifica dell’accordo tra san marino ed emilia romagna. a.f.i.s.: “bene” - chiamami citta",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdi1HYmoxd05IR2JvMjR0ZWE1b05wTUpGWVUtdGY5RlE1OGROcFpBNHlfLW82LWNJMXY3dlRCMXdSQ1FZZ05uM2E5bWg0eUpWWjhuaUZOSUtXVEUzT2xybW5VSWxiYjViS1JsLXZVcllheU00TjNVMjRVeFo0bENpR2FLODFWTm5GRXlxNkJ5QWNYWUtRNHBfYTVSX1FYajJZQXJwdy0tMFBjdFVf?oc=5",
-        "googleNewsRssPubDate": "Thu, 07 May 2026 09:12:39 GMT",
-        "googleNewsRssSource": "Chiamami Città"
-      },
-      "rationale": "Google News RSS seed \"frontalieri\" — Chiamami Città",
       "demandScore": 0,
       "noveltyScore": 0.875,
       "totalScore": 0.35
@@ -638,6 +638,46 @@
       "totalScore": 0.345
     },
     {
+      "id": "d3b837fb",
+      "keyword": "Cerchi lavoro? Questo supermercato offre uno stipendio minimo di 4870 € - Esquire",
+      "normalizedKeyword": "cerchi lavoro? questo supermercato offre uno stipendio minimo di 4870 € - esquire",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOcENIMVprMVhXcjBvMDhHZ3BZQmQ3MDlCRFdERHc1WFMyUHVJb3BLQXlzNWFwOVU4XzNpYkl5Mnc2Z2Z5RFVmQjY5aUdUYTREcEl3X0Rmc2hlOFJMemhfZFBiTUd2Y1oxbFk2ZjJCMWRCcUY0eGJNeUcwZkxHMl8wNTZvZjVGZlNKSmJEbGFBMWRHMG8zX1E?oc=5",
+        "googleNewsRssPubDate": "Fri, 14 Feb 2025 08:00:00 GMT",
+        "googleNewsRssSource": "Esquire"
+      },
+      "rationale": "Google News RSS seed \"busta paga svizzera\" — Esquire",
+      "demandScore": 0,
+      "noveltyScore": 0.857,
+      "totalScore": 0.343
+    },
+    {
+      "id": "ba8fb27a",
+      "keyword": "Cooperazione in materia fiscale. Direttiva Dac9 al traguardo - Fisco Oggi",
+      "normalizedKeyword": "cooperazione in materia fiscale. direttiva dac9 al traguardo - fisco oggi",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNNE5KZktYM0hDTjZfMjJJanp0UFhEUTZqenJadEwtZzZ2al9jRWk2bkJ1UFhFbWk4dms2R2VEdmpHRG8tY014V3EtS1JONGUtUF9sdmRfa1Nqal9JTndJOEdocm8zSE85c1RwbzFQSHpvdWNMYUptM3NQZXV6c25hNUVxZHFfdjFRU1IxWW9hNUo1eWJiTC1BUTUwUQ?oc=5",
+        "googleNewsRssPubDate": "Fri, 06 Jun 2025 07:00:00 GMT",
+        "googleNewsRssSource": "Fisco Oggi"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — Fisco Oggi",
+      "demandScore": 0,
+      "noveltyScore": 0.857,
+      "totalScore": 0.343
+    },
+    {
       "id": "4f8af8b6",
       "keyword": "Crédit Agricole, l’Italia secondo pilastro della banca - Economy Magazine",
       "normalizedKeyword": "credit agricole, l’italia secondo pilastro della banca - economy magazine",
@@ -838,6 +878,26 @@
       "totalScore": 0.338
     },
     {
+      "id": "a698d812",
+      "keyword": "Frontalieri: ratifica accordo San Marino-Emilia Romagna. A.F.I.S.: “Bene” - Chiamami Città",
+      "normalizedKeyword": "frontalieri: ratifica accordo san marino-emilia romagna. a.f.i.s.: “bene” - chiamami citta",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdi1HYmoxd05IR2JvMjR0ZWE1b05wTUpGWVUtdGY5RlE1OGROcFpBNHlfLW82LWNJMXY3dlRCMXdSQ1FZZ05uM2E5bWg0eUpWWjhuaUZOSUtXVEUzT2xybW5VSWxiYjViS1JsLXZVcllheU00TjNVMjRVeFo0bENpR2FLODFWTm5GRXlxNkJ5QWNYWUtRNHBfYTVSX1FYajJZQXJwdy0tMFBjdFVf?oc=5",
+        "googleNewsRssPubDate": "Thu, 07 May 2026 09:12:39 GMT",
+        "googleNewsRssSource": "Chiamami Città"
+      },
+      "rationale": "Google News RSS seed \"frontalieri\" — Chiamami Città",
+      "demandScore": 0,
+      "noveltyScore": 0.846,
+      "totalScore": 0.338
+    },
+    {
       "id": "4fb1cba5",
       "keyword": "Il primo consigliere nazionale frontaliere - Telegiornale - Play RSI - RSI Radiotelevisione svizzera",
       "normalizedKeyword": "il primo consigliere nazionale frontaliere - telegiornale - play rsi - rsi radiotelevisione svizzera",
@@ -853,26 +913,6 @@
         "googleNewsRssSource": "RSI Radiotelevisione svizzera"
       },
       "rationale": "Google News RSS seed \"frontaliere\" — RSI Radiotelevisione svizzera",
-      "demandScore": 0,
-      "noveltyScore": 0.846,
-      "totalScore": 0.338
-    },
-    {
-      "id": "d4459f6f",
-      "keyword": "Il secondo pilastro spiegato ai giovani - enpam.it",
-      "normalizedKeyword": "il secondo pilastro spiegato ai giovani - enpam.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMidEFVX3lxTE94WHNkMEJLU0FucV8xck9WSVc0UEs2N1FJS2RpcGhjeE1RRHNQTjZfOFRReTBJRzJwZExWMERoV0JKNmV1cUNFWGNXVVlWbWQtVEdqWnhaYTRwek8tZlRCTXExY3Q2NXJqYkVVVVVla3NnRHZB?oc=5",
-        "googleNewsRssPubDate": "Thu, 01 Sep 2016 07:00:00 GMT",
-        "googleNewsRssSource": "enpam.it"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — enpam.it",
       "demandScore": 0,
       "noveltyScore": 0.846,
       "totalScore": 0.338
@@ -938,6 +978,26 @@
       "totalScore": 0.338
     },
     {
+      "id": "cab3c99f",
+      "keyword": "LPP S.A. Ripartizione dei ricavi – GPW:LPP - TradingView",
+      "normalizedKeyword": "lpp s.a. ripartizione dei ricavi – gpw:lpp - tradingview",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBNQlJLRlNjdUVaTmtDTF9CTHBEX2hrZFpDMXlGOTktQmxwMTl5ZUoyX2c0cFdGQ0J0al9PUUdHbm9oSjk5MlRWdkxORkg3T1FfekVGN2g2eElNMU1QLUJaV1VTRjB6ZUcxYU9nQk5rYw?oc=5",
+        "googleNewsRssPubDate": "Fri, 30 Jun 2023 00:06:41 GMT",
+        "googleNewsRssSource": "TradingView"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — TradingView",
+      "demandScore": 0,
+      "noveltyScore": 0.846,
+      "totalScore": 0.338
+    },
+    {
       "id": "5da1e54b",
       "keyword": "Pensioni svizzere AVS (1° pilastro) e LPP (2° pilastro) accreditate su conto svizzero: quali sono gli obblighi fiscali per un soggetto residente in Italia? - Spazio50",
       "normalizedKeyword": "pensioni svizzere avs (1° pilastro) e lpp (2° pilastro) accreditate su conto svizzero: quali sono gli obblighi fiscali per un soggetto residente in italia? - spazio50",
@@ -973,6 +1033,26 @@
         "googleNewsRssSource": "RSI Radiotelevisione svizzera"
       },
       "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.842,
+      "totalScore": 0.337
+    },
+    {
+      "id": "aa3e6eca",
+      "keyword": "Comprare casa? Uno svizzero su due svuota il secondo pilastro - TVS tvsvizzera.it",
+      "normalizedKeyword": "comprare casa? uno svizzero su due svuota il secondo pilastro - tvs tvsvizzera.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPMDJQQzJ4TjlQeG1SOFFfZUpXdXpPSFU2b1pHS3JCUmY1aFRYSUh4RDUxaWVCekFlbU9yVEhDLUhKeW9BZ2tHSHNrMUNkd3hTdGpFeFVfeVY2bFhuSVZJQnpZa0hsQk9EQWtXSmFwV0xBZ1AyVFBSZkF5OXB5THlES0xGX3B5czlhNmFxTm1tcFRZZzdlOVFEVG5CNEw0STJRRDhnTQ?oc=5",
+        "googleNewsRssPubDate": "Thu, 23 Oct 2025 07:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — TVS tvsvizzera.it",
       "demandScore": 0,
       "noveltyScore": 0.842,
       "totalScore": 0.337
@@ -1238,46 +1318,6 @@
       "totalScore": 0.333
     },
     {
-      "id": "da329320",
-      "keyword": "Il lavoratore \"frontaliere\" può tornare in Italia con reddito agevolato: cosa sapere - Sky TG24",
-      "normalizedKeyword": "il lavoratore \"frontaliere\" puo tornare in italia con reddito agevolato: cosa sapere - sky tg24",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontaliere",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPaXRDQWQ4RlNKMGNXNHlSakRkU21fUzhjWGJPTVZjYmhBdmdKWlNJajVxSlM0WTNoVHNDTHFuQmRPeHRmUm9pekd5X1kzRjhPNC00ajkyNmEtQ2pmTHVfR1ZFX0EwRWFjQjZLQ3g4Z2tydnZYdGJKSExDcFpPbGhmUXlrcGpwQ2M?oc=5",
-        "googleNewsRssPubDate": "Sun, 25 Jan 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Sky TG24"
-      },
-      "rationale": "Google News RSS seed \"frontaliere\" — Sky TG24",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
-      "id": "ce1a7030",
-      "keyword": "N. 494 - L'evoluzione del framework prudenziale di Secondo Pilastro dopo la crisi finanziaria - bancaditalia.it",
-      "normalizedKeyword": "n. 494 - l'evoluzione del framework prudenziale di secondo pilastro dopo la crisi finanziaria - bancaditalia.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1rMWJtN0VIZ3BsYkU2Um52Q2YzeTR4R3IwbDgwMngtcDlnNUNXdGo5X3k2dUNuSkVPTE1WY21KZmVCakhOakFfRWZOUXRWUE4yeUZQV0c4R1lsTUpSRjVmZzJPY1RXVFU?oc=5",
-        "googleNewsRssPubDate": "Mon, 29 Apr 2019 07:00:00 GMT",
-        "googleNewsRssSource": "bancaditalia.it"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — bancaditalia.it",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
       "id": "10bf72df",
       "keyword": "Notifica fine attività G - SPOP (DI) - Repubblica e Cantone Ticino",
       "normalizedKeyword": "notifica fine attivita g - spop (di) - repubblica e cantone ticino",
@@ -1358,26 +1398,6 @@
       "totalScore": 0.333
     },
     {
-      "id": "5737b357",
-      "keyword": "Riforma LPP, Baume-Schneider in campo - RSI Radiotelevisione svizzera",
-      "normalizedKeyword": "riforma lpp, baume-schneider in campo - rsi radiotelevisione svizzera",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOdTg3aGNQZTlUWXFyTm1BdG1EM1RXbW1JSlpPODNURXlpTm15WWlrSlVWcVJQZnRaS0YtWHB1ZFduOURaV01NTFRJVExKWXh6VzkwRFRDYVIxY2pTcHp1X2dOZE8wWlZ3U3RfS2hvUWcwdzlSNzVaTG1TZnJDLUtDOUt2U3NlbVVUSE9j?oc=5",
-        "googleNewsRssPubDate": "Mon, 24 Jun 2024 08:24:29 GMT",
-        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — RSI Radiotelevisione svizzera",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
       "id": "8d48a3ee",
       "keyword": "Scambio di dati salariali con l’Italia, arriva la legge d’applicazione - TVS tvsvizzera.it",
       "normalizedKeyword": "scambio di dati salariali con l’italia, arriva la legge d’applicazione - tvs tvsvizzera.it",
@@ -1413,6 +1433,26 @@
         "googleNewsRssSource": "ComoZero"
       },
       "rationale": "Google News RSS seed \"frontalieri\" — ComoZero",
+      "demandScore": 0,
+      "noveltyScore": 0.826,
+      "totalScore": 0.33
+    },
+    {
+      "id": "665d7d53",
+      "keyword": "Bologna, è morto Salar Muhammad Hussain, il bambino caduto da una finestra al secondo piano di un palazzo al Pilastro - Corriere di Bologna",
+      "normalizedKeyword": "bologna, e morto salar muhammad hussain, il bambino caduto da una finestra al secondo piano di un palazzo al pilastro - corriere di bologna",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPWnFqR3NRbHFzdjJXZnRUV3cyQnFLUENIelhyNHhRcXBjdzJLMzZPcE9JSFlheUljS1JVWnoxaEoxQkZwNTFQZmQwVEpObklyZ2ZzbzNqNGdTbVZyaDJaR1hJZ3JyQUlkWTgwNGdCN2h2RUJXeFEwd0IwdWR4REpuSkphOW9WRXBYZTJJa3NNMkJMSjV4WkJIWHVPNGZhY1JMQ0wyVnZHWDZSbmFLZldKTFY0Vk5oRnNsUjhVNmJ3NWdVYzR1ODdBaEtCOUxJTjlnUWQxUnpaaWMxMWpaM2JYUTlxTmxDX3ByamcwYWhza0FCS1ZTYkNCblg0bTloTkpTOHIwZXVuQ2ZiaHZjZzl1OGtLbmUxanZlNElUQ1lhN0lLaHgzQXFwUWh30gGvAkFVX3lxTE1wVzFYN1pkc3d6bWNzblAxTnl5elFTZXpwR1k3TFpSMEZicFdsYUMtNHBsQUQ2aEJMQXlUSTZRTjY3M014R3JnYUVocExzMlpUTC0wZ05DZXFWVHlYejFLckEwWVYyX0FwNGJyRVhTb0VjSFdWOVVLbkNPaXd4QU1uZHFkUnhObmM0UEViTm5jblJza1UweHVNUDE5dGNwWU1HUWdKYWFZNlRLSzRZb3hHSFh4VXVvSmJWV3VmQVVLTC14blAtWVZXRmIzU1p3dTNfZmE2bzlmV3ZJNW1YNjVPTmJ4Qk9JbUxCQm5kaDdETHNZaG5zLWQ5X3ZSNzVPM2lORTZKQmdkNzEyZmdsWFp3bUpOUFlwaWNZX2JnQmpXX3lyNFd5OEMyY0tDY0hSMA?oc=5",
+        "googleNewsRssPubDate": "Sat, 11 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "Corriere di Bologna"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — Corriere di Bologna",
       "demandScore": 0,
       "noveltyScore": 0.826,
       "totalScore": 0.33
@@ -1513,6 +1553,26 @@
         "googleNewsRssSource": "Ticinonline"
       },
       "rationale": "Google News RSS seed \"AVS frontalieri\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "da329320",
+      "keyword": "Il lavoratore \"frontaliere\" può tornare in Italia con reddito agevolato: cosa sapere - Sky TG24",
+      "normalizedKeyword": "il lavoratore \"frontaliere\" puo tornare in italia con reddito agevolato: cosa sapere - sky tg24",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPaXRDQWQ4RlNKMGNXNHlSakRkU21fUzhjWGJPTVZjYmhBdmdKWlNJajVxSlM0WTNoVHNDTHFuQmRPeHRmUm9pekd5X1kzRjhPNC00ajkyNmEtQ2pmTHVfR1ZFX0EwRWFjQjZLQ3g4Z2tydnZYdGJKSExDcFpPbGhmUXlrcGpwQ2M?oc=5",
+        "googleNewsRssPubDate": "Sun, 25 Jan 2026 08:00:00 GMT",
+        "googleNewsRssSource": "Sky TG24"
+      },
+      "rationale": "Google News RSS seed \"frontaliere\" — Sky TG24",
       "demandScore": 0,
       "noveltyScore": 0.824,
       "totalScore": 0.33
@@ -1800,26 +1860,6 @@
       "totalScore": 0.325
     },
     {
-      "id": "13bd6cb3",
-      "keyword": "Il lavoratore \"frontaliere\" in Italia può rientrare con reddito agevolato - Fisco Oggi",
-      "normalizedKeyword": "il lavoratore \"frontaliere\" in italia puo rientrare con reddito agevolato - fisco oggi",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontaliere",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5Ja2ZPb1V5eDlBNE9IM3JHdnZKeGt5OHpNSko2QkZhNk1fWVppR2hOYXBDSVFJc1VQd1diUGZHSDI5ZC1WVzNKdUNwaV8zUzdjbFV0N2ZSeXo4QjhoVkJvZVZJSkNzenBWNVRqa1dFdTJQc1l5d1JWdWpR?oc=5",
-        "googleNewsRssPubDate": "Thu, 22 Jan 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Fisco Oggi"
-      },
-      "rationale": "Google News RSS seed \"frontaliere\" — Fisco Oggi",
-      "demandScore": 0,
-      "noveltyScore": 0.813,
-      "totalScore": 0.325
-    },
-    {
       "id": "0be75d0a",
       "keyword": "La tassazione del reddito dei lavoratori italiani frontalieri in Svizzera - Commercialista Telematico",
       "normalizedKeyword": "la tassazione del reddito dei lavoratori italiani frontalieri in svizzera - commercialista telematico",
@@ -1855,26 +1895,6 @@
         "googleNewsRssSource": "edotto.com"
       },
       "rationale": "Google News RSS seed \"frontaliere\" — edotto.com",
-      "demandScore": 0,
-      "noveltyScore": 0.813,
-      "totalScore": 0.325
-    },
-    {
-      "id": "03ca4230",
-      "keyword": "Le conseguenze del nuovo accordo sui frontalieri - TVS tvsvizzera.it",
-      "normalizedKeyword": "le conseguenze del nuovo accordo sui frontalieri - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "nuovo accordo fiscale",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMickFVX3lxTE5pWEdROEFWc1hpQWlRNTZ2ZG1YbEdDVlloTjMzMXVLdy03THZFUHg4TzBQRkE2dWlzZ2dWclBYNS14NXJHSDhkSmhqMlQ4dlZYR25rRWFFYVM3LW1PQXo0OHdnZ19yYW9tWmlZN0lZQUJQUQ?oc=5",
-        "googleNewsRssPubDate": "Sat, 01 Jun 2024 07:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
       "demandScore": 0,
       "noveltyScore": 0.813,
       "totalScore": 0.325
@@ -1975,26 +1995,6 @@
         "googleNewsRssSource": "Ipsoa"
       },
       "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — Ipsoa",
-      "demandScore": 0,
-      "noveltyScore": 0.813,
-      "totalScore": 0.325
-    },
-    {
-      "id": "c77030c7",
-      "keyword": "Telelavoro dei frontalieri, le norme fiscali sono in vigore - Ticinonline",
-      "normalizedKeyword": "telelavoro dei frontalieri, le norme fiscali sono in vigore - ticinonline",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "telelavoro frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSkRsTkVmZFVINWhoZWZSNEJUSFdXWG1jLVc0TlpBUkVva3dSOU0xZ1dYYVBEYmlVaUxRcmgxQ3dtWVJqYmlsY1hJSW4tLVVCYWh5NTRaM3FUZE13cUVZVWFtSVUtQVRqckVMSVB5VlhiS0U1VGJKWG1XX0FIaTFMZGZkWFdFSHJMOVptUEpFRkIwSHFZQ1dIRm5KMA?oc=5",
-        "googleNewsRssPubDate": "Fri, 13 Feb 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Ticinonline"
-      },
-      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — Ticinonline",
       "demandScore": 0,
       "noveltyScore": 0.813,
       "totalScore": 0.325
