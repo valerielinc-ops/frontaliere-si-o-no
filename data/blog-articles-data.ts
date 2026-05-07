@@ -21818,4 +21818,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'record-organi-importati-2025',
+ category: 'novita',
+ date: '2026-05-07T16:00:00.964Z',
+ image: '/images/blog/record-organi-importati-2025.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

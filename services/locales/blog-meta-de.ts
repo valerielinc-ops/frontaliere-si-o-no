@@ -6815,6 +6815,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-ticino-2026-effetti-guerra.title': 'Arbeitslosigkeit Tessin: Seco, zu früh für Kriegseffekte',
     'blog.article.disoccupazione-ticino-2026-effetti-guerra.excerpt': 'Das Staatssekretariat für Wirtschaft der Schweiz erklärt, dass es zu früh ist, um die Auswirkungen des Krieges im Iran auf den Arbeitsmarkt im Tessin zu bewerten',
     'blog.article.disoccupazione-ticino-2026-effetti-guerra.imageAlt': 'Luftaufnahme von Bellinzona, Tessin, mit den Burgen und der umliegenden Landschaft',
+    'blog.article.record-organi-importati-2025.title': 'Rekord: 69 Organspenden aus dem Ausland 2025',
+    'blog.article.record-organi-importati-2025.excerpt': '2025 hat die Schweiz einen Rekord an Organen importiert, mit 69 Transplantationen von ausländischen Spendern.',
+    'blog.article.record-organi-importati-2025.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

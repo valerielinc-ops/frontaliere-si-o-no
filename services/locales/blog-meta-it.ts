@@ -6816,6 +6816,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-ticino-2026-effetti-guerra.title': 'Disoccupazione Ticino: Seco, troppo presto per vedere effetti guerra',
     'blog.article.disoccupazione-ticino-2026-effetti-guerra.excerpt': 'La Segreteria di Stato dell\'economia svizzera afferma che è troppo presto per valutare l\'impatto della guerra in Iran sul mercato del lavoro ticinese',
     'blog.article.disoccupazione-ticino-2026-effetti-guerra.imageAlt': 'Vista aerea di Bellinzona, Ticino, con i castelli e il paesaggio circostante',
+    'blog.article.record-organi-importati-2025.title': 'Record di organi importati in Svizzera nel 2025',
+    'blog.article.record-organi-importati-2025.excerpt': 'Nel 2025 la Svizzera ha importato un record di organi, con 69 trapianti da donatori esteri.',
+    'blog.article.record-organi-importati-2025.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

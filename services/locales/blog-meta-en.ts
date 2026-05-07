@@ -6815,6 +6815,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-ticino-2026-effetti-guerra.title': 'Ticino unemployment: SECO, too early to see war effects',
     'blog.article.disoccupazione-ticino-2026-effetti-guerra.excerpt': 'The Swiss State Secretariat for Economic Affairs states that it\'s too early to assess the impact of the war in Iran on the Ticino job market',
     'blog.article.disoccupazione-ticino-2026-effetti-guerra.imageAlt': 'Aerial view of Bellinzona, Ticino, with the castles and the surrounding landscape',
+    'blog.article.record-organi-importati-2025.title': 'Switzerland sets record for imported organs in 2025',
+    'blog.article.record-organi-importati-2025.excerpt': 'In 2025, Switzerland imported a record number of organs, with 69 transplants from foreign donors.',
+    'blog.article.record-organi-importati-2025.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;
