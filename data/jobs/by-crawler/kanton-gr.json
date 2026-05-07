@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-05-06T22:12:28.022Z",
+  "assembledAt": "2026-05-07T11:16:50.049Z",
   "jobs": [
     {
       "id": "kanton-gr-cb30f2200bf1",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2677/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:25.736Z",
+      "crawledAt": "2026-05-07T11:16:47.915Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://apply.refline.ch/514915/2620/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:25.085Z",
+      "crawledAt": "2026-05-07T11:16:47.292Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -178,6 +178,7 @@
         "stagiaire-comme-dessinateur-ice-efz-batiment-civil-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:49:03.502Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -222,7 +223,7 @@
       "url": "https://apply.refline.ch/514915/2595/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:24.435Z",
+      "crawledAt": "2026-05-07T11:16:46.670Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -298,7 +299,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:23.784Z",
+      "crawledAt": "2026-05-07T11:16:46.046Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -368,6 +369,7 @@
         "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-13T10:49:01.647Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -412,7 +414,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:23.133Z",
+      "crawledAt": "2026-05-07T11:16:45.424Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -455,6 +457,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:49:00.412Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -499,7 +502,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:22.482Z",
+      "crawledAt": "2026-05-07T11:16:44.801Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -542,6 +545,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:59.793Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -586,7 +590,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:21.831Z",
+      "crawledAt": "2026-05-07T11:16:44.179Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -626,6 +630,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:58.993Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -638,6 +643,522 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kanton-gr-198a06daac5c",
+      "slug": "strassenwart-vorarbeiter-in-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "strassenwart-vorarbeiter-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+        "it": "strassenwart-vorarbeiter-in-kanton-gr-ch",
+        "en": "strassenwart-vorarbeiter-in-kanton-gr-ch",
+        "fr": "strassenwart-vorarbeiter-in-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Strassenwart-Vorarbeiter/-in",
+      "titleByLocale": {
+        "de": "Strassenwart-Vorarbeiter/-in",
+        "it": "Strassenwart-Vorarbeiter/-in",
+        "en": "Strassenwart-Vorarbeiter/-in",
+        "fr": "Strassenwart-Vorarbeiter/-in"
+      },
+      "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 5 Davos per 1. September 2026 oder nach Vereinbarung eine/-n Strassenwart-Vorarbeiter/-in | Aufgaben: • Leitung und Organisation einer Unterhaltsgruppe sowie aktive Mitarbeit in der Gruppe • Verantwortung für die Durchführung des betrieblichen Unterhalts auf dem zugeteilten Strassenabschnitt sowie Kontrolle des Strassenzustandes und der Strassenanlagen • Organisation und Einsatzplanung des Sommer- und Winterdienstes • Organisation der Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen • Leisten von Pikettdienst (Sommer und Winter) | Anforderungen: • Abgeschlossene Berufslehre im Baugewerbe • Zusatzausbildung zum Vorarbeiter/-in oder gleichwertige Weiterbildung • Handwerkliches Geschick und wirtschaftlicher Umgang mit Geräten, Maschinen und Materialien • Organisationstalent, Freude an Teamarbeit, Personalführung und administrativen Aufgaben (Erstellen von Einsatz- und Ferienplänen) • Gute IT-Anwenderkenntnisse • Führerausweis Kategorie C von Vorteil",
+      "descriptionByLocale": {
+        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 5 Davos per 1. September 2026 oder nach Vereinbarung eine/-n Strassenwart-Vorarbeiter/-in | Aufgaben: • Leitung und Organisation einer Unterhaltsgruppe sowie aktive Mitarbeit in der Gruppe • Verantwortung für die Durchführung des betrieblichen Unterhalts auf dem zugeteilten Strassenabschnitt sowie Kontrolle des Strassenzustandes und der Strassenanlagen • Organisation und Einsatzplanung des Sommer- und Winterdienstes • Organisation der Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen • Leisten von Pikettdienst (Sommer und Winter) | Anforderungen: • Abgeschlossene Berufslehre im Baugewerbe • Zusatzausbildung zum Vorarbeiter/-in oder gleichwertige Weiterbildung • Handwerkliches Geschick und wirtschaftlicher Umgang mit Geräten, Maschinen und Materialien • Organisationstalent, Freude an Teamarbeit, Personalführung und administrativen Aufgaben (Erstellen von Einsatz- und Ferienplänen) • Gute IT-Anwenderkenntnisse • Führerausweis Kategorie C von Vorteil",
+        "it": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 5 Davos per 1. September 2026 oder nach Vereinbarung eine/-n Strassenwart-Vorarbeiter/-in | Aufgaben: • Leitung und Organisation einer Unterhaltsgruppe sowie aktive Mitarbeit in der Gruppe • Verantwortung für die Durchführung des betrieblichen Unterhalts auf dem zugeteilten Strassenabschnitt sowie Kontrolle des Strassenzustandes und der Strassenanlagen • Organisation und Einsatzplanung des Sommer- und Winterdienstes • Organisation der Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen • Leisten von Pikettdienst (Sommer und Winter) | Anforderungen: • Abgeschlossene Berufslehre im Baugewerbe • Zusatzausbildung zum Vorarbeiter/-in oder gleichwertige Weiterbildung • Handwerkliches Geschick und wirtschaftlicher Umgang mit Geräten, Maschinen und Materialien • Organisationstalent, Freude an Teamarbeit, Personalführung und administrativen Aufgaben (Erstellen von Einsatz- und Ferienplänen) • Gute IT-Anwenderkenntnisse • Führerausweis Kategorie C von Vorteil",
+        "en": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 5 Davos per 1. September 2026 oder nach Vereinbarung eine/-n Strassenwart-Vorarbeiter/-in | Aufgaben: • Leitung und Organisation einer Unterhaltsgruppe sowie aktive Mitarbeit in der Gruppe • Verantwortung für die Durchführung des betrieblichen Unterhalts auf dem zugeteilten Strassenabschnitt sowie Kontrolle des Strassenzustandes und der Strassenanlagen • Organisation und Einsatzplanung des Sommer- und Winterdienstes • Organisation der Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen • Leisten von Pikettdienst (Sommer und Winter) | Anforderungen: • Abgeschlossene Berufslehre im Baugewerbe • Zusatzausbildung zum Vorarbeiter/-in oder gleichwertige Weiterbildung • Handwerkliches Geschick und wirtschaftlicher Umgang mit Geräten, Maschinen und Materialien • Organisationstalent, Freude an Teamarbeit, Personalführung und administrativen Aufgaben (Erstellen von Einsatz- und Ferienplänen) • Gute IT-Anwenderkenntnisse • Führerausweis Kategorie C von Vorteil",
+        "fr": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 5 Davos per 1. September 2026 oder nach Vereinbarung eine/-n Strassenwart-Vorarbeiter/-in | Aufgaben: • Leitung und Organisation einer Unterhaltsgruppe sowie aktive Mitarbeit in der Gruppe • Verantwortung für die Durchführung des betrieblichen Unterhalts auf dem zugeteilten Strassenabschnitt sowie Kontrolle des Strassenzustandes und der Strassenanlagen • Organisation und Einsatzplanung des Sommer- und Winterdienstes • Organisation der Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen • Leisten von Pikettdienst (Sommer und Winter) | Anforderungen: • Abgeschlossene Berufslehre im Baugewerbe • Zusatzausbildung zum Vorarbeiter/-in oder gleichwertige Weiterbildung • Handwerkliches Geschick und wirtschaftlicher Umgang mit Geräten, Maschinen und Materialien • Organisationstalent, Freude an Teamarbeit, Personalführung und administrativen Aufgaben (Erstellen von Einsatz- und Ferienplänen) • Gute IT-Anwenderkenntnisse • Führerausweis Kategorie C von Vorteil"
+      },
+      "location": "Davos Frauenkirch",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2683/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-07T11:16:43.554Z",
+      "addressLocality": "Davos Frauenkirch",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://apply.refline.ch/514915/2683/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Tiefbauamt Graubünden, Bezirk 5 Davos",
+      "applicationDeadline": "2026-05-31",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-07T11:16:43.554Z"
+    },
+    {
+      "id": "kanton-gr-f23b47ad0049",
+      "slug": "sekretar-in-sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "de": "sekretar-in-sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+        "it": "sekretar-in-sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+        "en": "sekretar-in-sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+        "fr": "sekretar-in-sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Sekretär/-in / Sachbearbeiter/-in",
+      "titleByLocale": {
+        "de": "Sekretär/-in / Sachbearbeiter/-in",
+        "it": "Sekretär/-in / Sachbearbeiter/-in",
+        "en": "Sekretär/-in / Sachbearbeiter/-in",
+        "fr": "Sekretär/-in / Sachbearbeiter/-in"
+      },
+      "description": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen. Sozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch) Wir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sekretär/-in / Sachbearbeiter/-in. | Aufgaben: • Selbständiges Stellen von bedarfsabhängigen Gesuchen (z.B. Stipendiengesuche) • Bearbeiten von Gesuchen um Sozialhilfe und situationsbedingten Leistungen • Einholen von Offerten sowie Anmeldungen und Mutationen bei den Krankenkassen, Haftpflichtversicherungen sowie bei den Migrationsbehörden vornehmen • Finanzierungsgesuche an Fonds und Stiftungen in Zusammenarbeit mit den Sozialarbeitenden stellen • Erfassen und Bearbeiten von Daten im elektronischen Fallverwaltungssystem und Ansprechperson bei Systemfragen • Allgemeine Sekretariatsaufgaben erledigen • Erfassen der Situation von neuen Klientinnen und Klienten und Erteilen von Sachinformationen am Telefon und am Empfang • Sozialarbeitende bei administrativen Tätigkeiten unterstützen • Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten | Anforderungen: • Abgeschlossene Ausbildung im kaufmännischen Bereich oder einen Abschluss in einer vergleichbaren Ausbildung mit mehrjähriger Berufserfahrung • Empathischer, klarer und dienstleistungsorientierter Kommunikationsstil • Gute administrative und organisatorische Fähigkeiten • Selbstständiges, verantwortungsbewusstes und konstruktives Arbeiten – auch in hektischen Situationen • Exakte und strukturierte Arbeitsweise • Freude an sozialen Fragestellungen und an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund • Sicherer Umgang mit den üblichen MS-Office-Programmen und IT-Affinität • Sozialversicherungskenntnisse sowie Fremdsprachenkenntnisse von Vorteil",
+      "descriptionByLocale": {
+        "de": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen. Sozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch) Wir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sekretär/-in / Sachbearbeiter/-in. | Aufgaben: • Selbständiges Stellen von bedarfsabhängigen Gesuchen (z.B. Stipendiengesuche) • Bearbeiten von Gesuchen um Sozialhilfe und situationsbedingten Leistungen • Einholen von Offerten sowie Anmeldungen und Mutationen bei den Krankenkassen, Haftpflichtversicherungen sowie bei den Migrationsbehörden vornehmen • Finanzierungsgesuche an Fonds und Stiftungen in Zusammenarbeit mit den Sozialarbeitenden stellen • Erfassen und Bearbeiten von Daten im elektronischen Fallverwaltungssystem und Ansprechperson bei Systemfragen • Allgemeine Sekretariatsaufgaben erledigen • Erfassen der Situation von neuen Klientinnen und Klienten und Erteilen von Sachinformationen am Telefon und am Empfang • Sozialarbeitende bei administrativen Tätigkeiten unterstützen • Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten | Anforderungen: • Abgeschlossene Ausbildung im kaufmännischen Bereich oder einen Abschluss in einer vergleichbaren Ausbildung mit mehrjähriger Berufserfahrung • Empathischer, klarer und dienstleistungsorientierter Kommunikationsstil • Gute administrative und organisatorische Fähigkeiten • Selbstständiges, verantwortungsbewusstes und konstruktives Arbeiten – auch in hektischen Situationen • Exakte und strukturierte Arbeitsweise • Freude an sozialen Fragestellungen und an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund • Sicherer Umgang mit den üblichen MS-Office-Programmen und IT-Affinität • Sozialversicherungskenntnisse sowie Fremdsprachenkenntnisse von Vorteil",
+        "it": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen. Sozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch) Wir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sekretär/-in / Sachbearbeiter/-in. | Aufgaben: • Selbständiges Stellen von bedarfsabhängigen Gesuchen (z.B. Stipendiengesuche) • Bearbeiten von Gesuchen um Sozialhilfe und situationsbedingten Leistungen • Einholen von Offerten sowie Anmeldungen und Mutationen bei den Krankenkassen, Haftpflichtversicherungen sowie bei den Migrationsbehörden vornehmen • Finanzierungsgesuche an Fonds und Stiftungen in Zusammenarbeit mit den Sozialarbeitenden stellen • Erfassen und Bearbeiten von Daten im elektronischen Fallverwaltungssystem und Ansprechperson bei Systemfragen • Allgemeine Sekretariatsaufgaben erledigen • Erfassen der Situation von neuen Klientinnen und Klienten und Erteilen von Sachinformationen am Telefon und am Empfang • Sozialarbeitende bei administrativen Tätigkeiten unterstützen • Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten | Anforderungen: • Abgeschlossene Ausbildung im kaufmännischen Bereich oder einen Abschluss in einer vergleichbaren Ausbildung mit mehrjähriger Berufserfahrung • Empathischer, klarer und dienstleistungsorientierter Kommunikationsstil • Gute administrative und organisatorische Fähigkeiten • Selbstständiges, verantwortungsbewusstes und konstruktives Arbeiten – auch in hektischen Situationen • Exakte und strukturierte Arbeitsweise • Freude an sozialen Fragestellungen und an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund • Sicherer Umgang mit den üblichen MS-Office-Programmen und IT-Affinität • Sozialversicherungskenntnisse sowie Fremdsprachenkenntnisse von Vorteil",
+        "en": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen. Sozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch) Wir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sekretär/-in / Sachbearbeiter/-in. | Aufgaben: • Selbständiges Stellen von bedarfsabhängigen Gesuchen (z.B. Stipendiengesuche) • Bearbeiten von Gesuchen um Sozialhilfe und situationsbedingten Leistungen • Einholen von Offerten sowie Anmeldungen und Mutationen bei den Krankenkassen, Haftpflichtversicherungen sowie bei den Migrationsbehörden vornehmen • Finanzierungsgesuche an Fonds und Stiftungen in Zusammenarbeit mit den Sozialarbeitenden stellen • Erfassen und Bearbeiten von Daten im elektronischen Fallverwaltungssystem und Ansprechperson bei Systemfragen • Allgemeine Sekretariatsaufgaben erledigen • Erfassen der Situation von neuen Klientinnen und Klienten und Erteilen von Sachinformationen am Telefon und am Empfang • Sozialarbeitende bei administrativen Tätigkeiten unterstützen • Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten | Anforderungen: • Abgeschlossene Ausbildung im kaufmännischen Bereich oder einen Abschluss in einer vergleichbaren Ausbildung mit mehrjähriger Berufserfahrung • Empathischer, klarer und dienstleistungsorientierter Kommunikationsstil • Gute administrative und organisatorische Fähigkeiten • Selbstständiges, verantwortungsbewusstes und konstruktives Arbeiten – auch in hektischen Situationen • Exakte und strukturierte Arbeitsweise • Freude an sozialen Fragestellungen und an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund • Sicherer Umgang mit den üblichen MS-Office-Programmen und IT-Affinität • Sozialversicherungskenntnisse sowie Fremdsprachenkenntnisse von Vorteil",
+        "fr": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Chur/Plessur/Imboden ist zuständig für 10 Gemeinden mit einem Einzugsgebiet von 67 000 Personen. Sozialberatung, Suchthilfe und finanzielle Unterstützung (gr.ch) Wir suchen für den Standort Chur per 1. August 2026 oder nach Vereinbarung eine/-n Sekretär/-in / Sachbearbeiter/-in. | Aufgaben: • Selbständiges Stellen von bedarfsabhängigen Gesuchen (z.B. Stipendiengesuche) • Bearbeiten von Gesuchen um Sozialhilfe und situationsbedingten Leistungen • Einholen von Offerten sowie Anmeldungen und Mutationen bei den Krankenkassen, Haftpflichtversicherungen sowie bei den Migrationsbehörden vornehmen • Finanzierungsgesuche an Fonds und Stiftungen in Zusammenarbeit mit den Sozialarbeitenden stellen • Erfassen und Bearbeiten von Daten im elektronischen Fallverwaltungssystem und Ansprechperson bei Systemfragen • Allgemeine Sekretariatsaufgaben erledigen • Erfassen der Situation von neuen Klientinnen und Klienten und Erteilen von Sachinformationen am Telefon und am Empfang • Sozialarbeitende bei administrativen Tätigkeiten unterstützen • Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten | Anforderungen: • Abgeschlossene Ausbildung im kaufmännischen Bereich oder einen Abschluss in einer vergleichbaren Ausbildung mit mehrjähriger Berufserfahrung • Empathischer, klarer und dienstleistungsorientierter Kommunikationsstil • Gute administrative und organisatorische Fähigkeiten • Selbstständiges, verantwortungsbewusstes und konstruktives Arbeiten – auch in hektischen Situationen • Exakte und strukturierte Arbeitsweise • Freude an sozialen Fragestellungen und an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund • Sicherer Umgang mit den üblichen MS-Office-Programmen und IT-Affinität • Sozialversicherungskenntnisse sowie Fremdsprachenkenntnisse von Vorteil"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2690/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-07T11:16:42.931Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://apply.refline.ch/514915/2690/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Sozialamt",
+      "applicationDeadline": "2026-05-22",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretar-in-sachbearbeiter-in-kanton-gr-ch"
+        ],
+        "de": [
+          "sekretar-in-sachbearbeiter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sekretar-in-sachbearbeiter-in-kanton-gr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-07T11:16:42.931Z"
+    },
+    {
+      "id": "kanton-gr-0a5e40a7b2c1",
+      "slug": "collaboratore-trice-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur",
+        "it": "collaboratore-trice-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur",
+        "en": "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur",
+        "fr": "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Mitarbeiter/-in Administration Departementssekretariat",
+      "titleByLocale": {
+        "de": "Mitarbeiter/-in Administration Departementssekretariat",
+        "it": "Collaboratore/trice/-in Administration Departementssekretariat",
+        "en": "Mitarbeiter/-in Administration Departementssekretariat",
+        "fr": "Mitarbeiter/-in Administration Departementssekretariat"
+      },
+      "description": "Das Departement für Volkswirtschaft und Soziales (DVS) umfasst acht Dienststellen mit einem vielfältigen Tätigkeitsgebiet und rund 500 Mitarbeiterinnen und Mitarbeiter. Das Departementssekretariat ist die Stabsstelle im DVS. Ein Team von 13 Mitarbeitenden unterstützt den Departementsvorsteher in allen fachlichen, rechtlichen, führungsrelevanten und politischen Angelegenheiten und stellt die effektive Zusammenarbeit mit den Dienststellen sicher. | Aufgaben: • Erledigung sämtlicher administrativer Aufgaben sowie allgemeiner Korrespondenz • Unterstützung bei der Bearbeitung von Regierungsbeschlüssen, Departementsverfügungen, Strafbefehlen, Botschaften, parlamentarischen Vorstössen, Vernehmlassungen, Gesetzesvorlagen und Publikationen • Bearbeitung von Beschwerde- und Strafverfahren inkl. Dossierführung, Fristenkontrolle, Rechnungsstellung und Inkasso • Posteingang und -versand inkl. Datenerfassung im Verwaltungsprogramm CMI • Telefon- und Empfangsdienst • Organisation von Terminen und Sitzungen | Anforderungen: • Abgeschlossene kaufmännische Ausbildung sowie mehrjährige Berufserfahrung • Schnelle Auffassungsgabe, strukturierte, selbständige und präzise Arbeitsweise • Zuverlässigkeit, Diskretion und Verantwortungsbewusstsein • Teamgeist, Flexibilität, Belastbarkeit und dienstleistungsorientiertes Auftreten • Stilsichere Deutschkenntnisse, Kenntnisse einer weiteren Kantonssprache von Vorteil • Sicherer Umgang mit MS-Office",
+      "descriptionByLocale": {
+        "de": "Das Departement für Volkswirtschaft und Soziales (DVS) umfasst acht Dienststellen mit einem vielfältigen Tätigkeitsgebiet und rund 500 Mitarbeiterinnen und Mitarbeiter. Das Departementssekretariat ist die Stabsstelle im DVS. Ein Team von 13 Mitarbeitenden unterstützt den Departementsvorsteher in allen fachlichen, rechtlichen, führungsrelevanten und politischen Angelegenheiten und stellt die effektive Zusammenarbeit mit den Dienststellen sicher. | Aufgaben: • Erledigung sämtlicher administrativer Aufgaben sowie allgemeiner Korrespondenz • Unterstützung bei der Bearbeitung von Regierungsbeschlüssen, Departementsverfügungen, Strafbefehlen, Botschaften, parlamentarischen Vorstössen, Vernehmlassungen, Gesetzesvorlagen und Publikationen • Bearbeitung von Beschwerde- und Strafverfahren inkl. Dossierführung, Fristenkontrolle, Rechnungsstellung und Inkasso • Posteingang und -versand inkl. Datenerfassung im Verwaltungsprogramm CMI • Telefon- und Empfangsdienst • Organisation von Terminen und Sitzungen | Anforderungen: • Abgeschlossene kaufmännische Ausbildung sowie mehrjährige Berufserfahrung • Schnelle Auffassungsgabe, strukturierte, selbständige und präzise Arbeitsweise • Zuverlässigkeit, Diskretion und Verantwortungsbewusstsein • Teamgeist, Flexibilität, Belastbarkeit und dienstleistungsorientiertes Auftreten • Stilsichere Deutschkenntnisse, Kenntnisse einer weiteren Kantonssprache von Vorteil • Sicherer Umgang mit MS-Office",
+        "it": "Das Departement für Volkswirtschaft und Soziales (DVS) umfasst acht Dienststellen mit einem vielfältigen Tätigkeitsgebiet und rund 500 Mitarbeiterinnen und Mitarbeiter. Das Departementssekretariat ist die Stabsstelle im DVS. Ein Team von 13 Mitarbeitenden unterstützt den Departementsvorsteher in allen fachlichen, rechtlichen, führungsrelevanten und politischen Angelegenheiten und stellt die effektive Zusammenarbeit mit den Dienststellen sicher. | Aufgaben: • Erledigung sämtlicher administrativer Aufgaben sowie allgemeiner Korrespondenz • Unterstützung bei der Bearbeitung von Regierungsbeschlüssen, Departementsverfügungen, Strafbefehlen, Botschaften, parlamentarischen Vorstössen, Vernehmlassungen, Gesetzesvorlagen und Publikationen • Bearbeitung von Beschwerde- und Strafverfahren inkl. Dossierführung, Fristenkontrolle, Rechnungsstellung und Inkasso • Posteingang und -versand inkl. Datenerfassung im Verwaltungsprogramm CMI • Telefon- und Empfangsdienst • Organisation von Terminen und Sitzungen | Anforderungen: • Abgeschlossene kaufmännische Ausbildung sowie mehrjährige Berufserfahrung • Schnelle Auffassungsgabe, strukturierte, selbständige und präzise Arbeitsweise • Zuverlässigkeit, Diskretion und Verantwortungsbewusstsein • Teamgeist, Flexibilität, Belastbarkeit und dienstleistungsorientiertes Auftreten • Stilsichere Deutschkenntnisse, Kenntnisse einer weiteren Kantonssprache von Vorteil • Sicherer Umgang mit MS-Office",
+        "en": "Das Departement für Volkswirtschaft und Soziales (DVS) umfasst acht Dienststellen mit einem vielfältigen Tätigkeitsgebiet und rund 500 Mitarbeiterinnen und Mitarbeiter. Das Departementssekretariat ist die Stabsstelle im DVS. Ein Team von 13 Mitarbeitenden unterstützt den Departementsvorsteher in allen fachlichen, rechtlichen, führungsrelevanten und politischen Angelegenheiten und stellt die effektive Zusammenarbeit mit den Dienststellen sicher. | Aufgaben: • Erledigung sämtlicher administrativer Aufgaben sowie allgemeiner Korrespondenz • Unterstützung bei der Bearbeitung von Regierungsbeschlüssen, Departementsverfügungen, Strafbefehlen, Botschaften, parlamentarischen Vorstössen, Vernehmlassungen, Gesetzesvorlagen und Publikationen • Bearbeitung von Beschwerde- und Strafverfahren inkl. Dossierführung, Fristenkontrolle, Rechnungsstellung und Inkasso • Posteingang und -versand inkl. Datenerfassung im Verwaltungsprogramm CMI • Telefon- und Empfangsdienst • Organisation von Terminen und Sitzungen | Anforderungen: • Abgeschlossene kaufmännische Ausbildung sowie mehrjährige Berufserfahrung • Schnelle Auffassungsgabe, strukturierte, selbständige und präzise Arbeitsweise • Zuverlässigkeit, Diskretion und Verantwortungsbewusstsein • Teamgeist, Flexibilität, Belastbarkeit und dienstleistungsorientiertes Auftreten • Stilsichere Deutschkenntnisse, Kenntnisse einer weiteren Kantonssprache von Vorteil • Sicherer Umgang mit MS-Office",
+        "fr": "Das Departement für Volkswirtschaft und Soziales (DVS) umfasst acht Dienststellen mit einem vielfältigen Tätigkeitsgebiet und rund 500 Mitarbeiterinnen und Mitarbeiter. Das Departementssekretariat ist die Stabsstelle im DVS. Ein Team von 13 Mitarbeitenden unterstützt den Departementsvorsteher in allen fachlichen, rechtlichen, führungsrelevanten und politischen Angelegenheiten und stellt die effektive Zusammenarbeit mit den Dienststellen sicher. | Aufgaben: • Erledigung sämtlicher administrativer Aufgaben sowie allgemeiner Korrespondenz • Unterstützung bei der Bearbeitung von Regierungsbeschlüssen, Departementsverfügungen, Strafbefehlen, Botschaften, parlamentarischen Vorstössen, Vernehmlassungen, Gesetzesvorlagen und Publikationen • Bearbeitung von Beschwerde- und Strafverfahren inkl. Dossierführung, Fristenkontrolle, Rechnungsstellung und Inkasso • Posteingang und -versand inkl. Datenerfassung im Verwaltungsprogramm CMI • Telefon- und Empfangsdienst • Organisation von Terminen und Sitzungen | Anforderungen: • Abgeschlossene kaufmännische Ausbildung sowie mehrjährige Berufserfahrung • Schnelle Auffassungsgabe, strukturierte, selbständige und präzise Arbeitsweise • Zuverlässigkeit, Diskretion und Verantwortungsbewusstsein • Teamgeist, Flexibilität, Belastbarkeit und dienstleistungsorientiertes Auftreten • Stilsichere Deutschkenntnisse, Kenntnisse einer weiteren Kantonssprache von Vorteil • Sicherer Umgang mit MS-Office"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2692/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-07T11:16:42.308Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://apply.refline.ch/514915/2692/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Departementssekretariat DVS",
+      "applicationDeadline": "2026-06-04",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-administration-departementssekretariat-kanton-gr-ch"
+        ],
+        "de": [
+          "mitarbeiter-in-administration-departementssekretariat-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-administration-departementssekretariat-kanton-gr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-07T11:16:42.308Z"
+    },
+    {
+      "id": "kanton-gr-a05a36465b99",
+      "slug": "collaboratore-trice-in-administration-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-chur",
+        "it": "collaboratore-trice-in-administration-kantonale-verwaltung-graubunden-chur",
+        "en": "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-chur",
+        "fr": "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Mitarbeiter/-in Administration",
+      "titleByLocale": {
+        "de": "Mitarbeiter/-in Administration",
+        "it": "Collaboratore/trice/-in Administration",
+        "en": "Mitarbeiter/-in Administration",
+        "fr": "Mitarbeiter/-in Administration"
+      },
+      "description": "Die neugeschaffene Datenschutzaufsichtsstelle Graubünden hat ihre Arbeit am 1. Januar 2026 aufgenommen. Wir befinden uns im spannenden Prozess des Aufbaus der Dienststelle, welche die Anwendung der Datenschutzvorschriften durch Behörden gemäss neuem Kantonalem Datenschutzgesetz überwacht und begleitet. Die raschen technologischen Entwicklungen und die zahlreichen Bezüge zu gesellschaftlichen Fragen machen den Datenschutz zu einem interessanten und dynamischen Arbeitsfeld mit vielen interdisziplinären Fragestellungen. Die Datenschutzaufsichtsstelle Graubünden ist eine unabhängige Stelle, die administrativ der Standeskanzlei zugeordnet ist. Zur Ergänzung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als administrative/-r Mitarbeiter/-in. | Aufgaben: • Selbständige Bearbeitung von administrativen Aufgaben • Unterstützung Dienststellenleitung und Mitarbeitende • Datenpflege und Dokumentenverwaltung in den Fachsystemen • Power-User/-in CMI • Betreuung von Telefonzentrale, Dienststellen-E-Mailadresse und Posteingang/-ausgang • Betreuung der Homepage der Datenschutzaufsichtsstelle • Betreuung Finanzwesen: Ausgabenkontrolle, Kontierung, Kreditorenworkflow, Rechnungstellung • Organisation von Terminen, Anlässen, Sitzungen und Tagungen • Führung der Dienststellenbibliothek und der Zeitschriftenablage | Anforderungen: • Abgeschlossene kaufmännische Ausbildung mit einigen Jahren Berufserfahrung • Gute Kenntnisse der Microsoft Office-Programmen sowie sichere EDV-Anwenderkenntnisse • Selbständiges, exaktes und zuverlässiges Arbeiten • Freundliches und professionelles Auftreten • Flexibilität, Teamfähigkeit und Diskretion • Sehr gute mündliche und schriftliche Deutschkenntnisse • Weitere Kantonssprachen von Vorteil",
+      "descriptionByLocale": {
+        "de": "Die neugeschaffene Datenschutzaufsichtsstelle Graubünden hat ihre Arbeit am 1. Januar 2026 aufgenommen. Wir befinden uns im spannenden Prozess des Aufbaus der Dienststelle, welche die Anwendung der Datenschutzvorschriften durch Behörden gemäss neuem Kantonalem Datenschutzgesetz überwacht und begleitet. Die raschen technologischen Entwicklungen und die zahlreichen Bezüge zu gesellschaftlichen Fragen machen den Datenschutz zu einem interessanten und dynamischen Arbeitsfeld mit vielen interdisziplinären Fragestellungen. Die Datenschutzaufsichtsstelle Graubünden ist eine unabhängige Stelle, die administrativ der Standeskanzlei zugeordnet ist. Zur Ergänzung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als administrative/-r Mitarbeiter/-in. | Aufgaben: • Selbständige Bearbeitung von administrativen Aufgaben • Unterstützung Dienststellenleitung und Mitarbeitende • Datenpflege und Dokumentenverwaltung in den Fachsystemen • Power-User/-in CMI • Betreuung von Telefonzentrale, Dienststellen-E-Mailadresse und Posteingang/-ausgang • Betreuung der Homepage der Datenschutzaufsichtsstelle • Betreuung Finanzwesen: Ausgabenkontrolle, Kontierung, Kreditorenworkflow, Rechnungstellung • Organisation von Terminen, Anlässen, Sitzungen und Tagungen • Führung der Dienststellenbibliothek und der Zeitschriftenablage | Anforderungen: • Abgeschlossene kaufmännische Ausbildung mit einigen Jahren Berufserfahrung • Gute Kenntnisse der Microsoft Office-Programmen sowie sichere EDV-Anwenderkenntnisse • Selbständiges, exaktes und zuverlässiges Arbeiten • Freundliches und professionelles Auftreten • Flexibilität, Teamfähigkeit und Diskretion • Sehr gute mündliche und schriftliche Deutschkenntnisse • Weitere Kantonssprachen von Vorteil",
+        "it": "Die neugeschaffene Datenschutzaufsichtsstelle Graubünden hat ihre Arbeit am 1. Januar 2026 aufgenommen. Wir befinden uns im spannenden Prozess des Aufbaus der Dienststelle, welche die Anwendung der Datenschutzvorschriften durch Behörden gemäss neuem Kantonalem Datenschutzgesetz überwacht und begleitet. Die raschen technologischen Entwicklungen und die zahlreichen Bezüge zu gesellschaftlichen Fragen machen den Datenschutz zu einem interessanten und dynamischen Arbeitsfeld mit vielen interdisziplinären Fragestellungen. Die Datenschutzaufsichtsstelle Graubünden ist eine unabhängige Stelle, die administrativ der Standeskanzlei zugeordnet ist. Zur Ergänzung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als administrative/-r Mitarbeiter/-in. | Aufgaben: • Selbständige Bearbeitung von administrativen Aufgaben • Unterstützung Dienststellenleitung und Mitarbeitende • Datenpflege und Dokumentenverwaltung in den Fachsystemen • Power-User/-in CMI • Betreuung von Telefonzentrale, Dienststellen-E-Mailadresse und Posteingang/-ausgang • Betreuung der Homepage der Datenschutzaufsichtsstelle • Betreuung Finanzwesen: Ausgabenkontrolle, Kontierung, Kreditorenworkflow, Rechnungstellung • Organisation von Terminen, Anlässen, Sitzungen und Tagungen • Führung der Dienststellenbibliothek und der Zeitschriftenablage | Anforderungen: • Abgeschlossene kaufmännische Ausbildung mit einigen Jahren Berufserfahrung • Gute Kenntnisse der Microsoft Office-Programmen sowie sichere EDV-Anwenderkenntnisse • Selbständiges, exaktes und zuverlässiges Arbeiten • Freundliches und professionelles Auftreten • Flexibilität, Teamfähigkeit und Diskretion • Sehr gute mündliche und schriftliche Deutschkenntnisse • Weitere Kantonssprachen von Vorteil",
+        "en": "Die neugeschaffene Datenschutzaufsichtsstelle Graubünden hat ihre Arbeit am 1. Januar 2026 aufgenommen. Wir befinden uns im spannenden Prozess des Aufbaus der Dienststelle, welche die Anwendung der Datenschutzvorschriften durch Behörden gemäss neuem Kantonalem Datenschutzgesetz überwacht und begleitet. Die raschen technologischen Entwicklungen und die zahlreichen Bezüge zu gesellschaftlichen Fragen machen den Datenschutz zu einem interessanten und dynamischen Arbeitsfeld mit vielen interdisziplinären Fragestellungen. Die Datenschutzaufsichtsstelle Graubünden ist eine unabhängige Stelle, die administrativ der Standeskanzlei zugeordnet ist. Zur Ergänzung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als administrative/-r Mitarbeiter/-in. | Aufgaben: • Selbständige Bearbeitung von administrativen Aufgaben • Unterstützung Dienststellenleitung und Mitarbeitende • Datenpflege und Dokumentenverwaltung in den Fachsystemen • Power-User/-in CMI • Betreuung von Telefonzentrale, Dienststellen-E-Mailadresse und Posteingang/-ausgang • Betreuung der Homepage der Datenschutzaufsichtsstelle • Betreuung Finanzwesen: Ausgabenkontrolle, Kontierung, Kreditorenworkflow, Rechnungstellung • Organisation von Terminen, Anlässen, Sitzungen und Tagungen • Führung der Dienststellenbibliothek und der Zeitschriftenablage | Anforderungen: • Abgeschlossene kaufmännische Ausbildung mit einigen Jahren Berufserfahrung • Gute Kenntnisse der Microsoft Office-Programmen sowie sichere EDV-Anwenderkenntnisse • Selbständiges, exaktes und zuverlässiges Arbeiten • Freundliches und professionelles Auftreten • Flexibilität, Teamfähigkeit und Diskretion • Sehr gute mündliche und schriftliche Deutschkenntnisse • Weitere Kantonssprachen von Vorteil",
+        "fr": "Die neugeschaffene Datenschutzaufsichtsstelle Graubünden hat ihre Arbeit am 1. Januar 2026 aufgenommen. Wir befinden uns im spannenden Prozess des Aufbaus der Dienststelle, welche die Anwendung der Datenschutzvorschriften durch Behörden gemäss neuem Kantonalem Datenschutzgesetz überwacht und begleitet. Die raschen technologischen Entwicklungen und die zahlreichen Bezüge zu gesellschaftlichen Fragen machen den Datenschutz zu einem interessanten und dynamischen Arbeitsfeld mit vielen interdisziplinären Fragestellungen. Die Datenschutzaufsichtsstelle Graubünden ist eine unabhängige Stelle, die administrativ der Standeskanzlei zugeordnet ist. Zur Ergänzung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als administrative/-r Mitarbeiter/-in. | Aufgaben: • Selbständige Bearbeitung von administrativen Aufgaben • Unterstützung Dienststellenleitung und Mitarbeitende • Datenpflege und Dokumentenverwaltung in den Fachsystemen • Power-User/-in CMI • Betreuung von Telefonzentrale, Dienststellen-E-Mailadresse und Posteingang/-ausgang • Betreuung der Homepage der Datenschutzaufsichtsstelle • Betreuung Finanzwesen: Ausgabenkontrolle, Kontierung, Kreditorenworkflow, Rechnungstellung • Organisation von Terminen, Anlässen, Sitzungen und Tagungen • Führung der Dienststellenbibliothek und der Zeitschriftenablage | Anforderungen: • Abgeschlossene kaufmännische Ausbildung mit einigen Jahren Berufserfahrung • Gute Kenntnisse der Microsoft Office-Programmen sowie sichere EDV-Anwenderkenntnisse • Selbständiges, exaktes und zuverlässiges Arbeiten • Freundliches und professionelles Auftreten • Flexibilität, Teamfähigkeit und Diskretion • Sehr gute mündliche und schriftliche Deutschkenntnisse • Weitere Kantonssprachen von Vorteil"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2691/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-07T11:16:41.686Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://apply.refline.ch/514915/2691/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Datenschutzaufsichtsstelle",
+      "applicationDeadline": "2026-06-04",
+      "pensumMin": 50,
+      "pensumMax": 50,
+      "pensum": "50%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-administration-kanton-gr-ch"
+        ],
+        "de": [
+          "mitarbeiter-in-administration-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-administration-kanton-gr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-07T11:16:41.686Z"
+    },
+    {
+      "id": "kanton-gr-3d07fb581125",
+      "slug": "bereichsleiter-in-sicherheit-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "bereichsleiter-in-sicherheit-kantonale-verwaltung-graubunden-cazis",
+        "it": "bereichsleiter-in-sicherheit-kanton-gr-ch",
+        "en": "bereichsleiter-in-sicherheit-kanton-gr-ch",
+        "fr": "bereichsleiter-in-sicherheit-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Bereichsleiter/-in Sicherheit",
+      "titleByLocale": {
+        "de": "Bereichsleiter/-in Sicherheit",
+        "it": "Bereichsleiter/-in Sicherheit",
+        "en": "Bereichsleiter/-in Sicherheit",
+        "fr": "Bereichsleiter/-in Sicherheit"
+      },
+      "description": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern. Die Justizvollzugsanstalt (JVA) Cazis Tignez beschäftigt rund 110 Mitarbeitende und verfügt über 150 Haftplätze im geschlossenen Vollzug. Davon 100 im Normalvollzug, zehn in der Eintrittsabteilung, 28 im Bereich Sondervollzug sowie zwölf in der Untersuchungshaft. Wir suchen per 1. August 2026 oder nach Vereinbarung eine/n Bereichsleiter/-in Sicherheit | Aufgaben: • Fachliche, personelle und organisatorische Leitung des Bereichs Sicherheit • Führung, Förderung und Entwicklung der 24 unterstellten Mitarbeitenden, drei davon direkt unterstellt und Unterstützung in ihrer Aufgabe • Sicherstellung eines reibungslosen 24-Std.-Betriebs der JVA hinsichtlich aller sicherheitsrelevanten Abläufe und Einrichtungen inkl. der Zentrale • Gewährleistung der inneren und äusseren Sicherheit unter den Aspekten der dynamischen Sicherheit und durch Einhalten und Umsetzen der Hausordnung • Erste Ansprechperson für Arbeitspartner aus den Bereichen der Blaulichtorganisationen • Zuständig für die Ereignis- und Notfallorganisation der JVA • Erarbeitung und Weiterentwicklung bedarfsgerechter Sicherheits- und Ereigniskonzepte sowie der mitgeltenden Dokumentationen • Zuständig für die Organisation von Transporten und der externen Bewachung eingewiesener Personen • Leitung von Weiterbildungseinheiten in Bezug auf sicherheitsrelevante Ereignisse • Mitglied der Anstaltsleitung und leisten von Pikettdienst an Wochenenden | Anforderungen: • Abschluss einer höheren Ausbildung im Sicherheitsbereich oder einem verwandten Fachgebiet mit mehrjähriger Berufserfahrung • Mehrjährige Führungserfahrung – idealerweise im Justizvollzug oder in einem ähnlichen sicherheitsrelevanten Bereich • Weiterbildung im Bereich der Sicherheitstechnik sowie Erfahrung in der Planung und Umsetzung von Projekten • Hohe Sozialkompetenz, Empathie, Flexibilität sowie adressatengerechte kommunikative Fähigkeiten • Durchsetzungsstärke und Fähigkeit, lösungsorientiert und reflektiert zu handeln sowie Entscheidungen sicher und verantwortungsvoll zu treffen • Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch; zusätzliche Kenntnisse von Kantons- und Fremdsprachen sind von Vorteil • Sehr gute EDV-Kenntnisse sowie technisches Verständnis, Führerausweis Kat. B • Einen einwandfreien Leumund (keine Einträge im Straf- und Betreibungsregister)",
+      "descriptionByLocale": {
+        "de": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern. Die Justizvollzugsanstalt (JVA) Cazis Tignez beschäftigt rund 110 Mitarbeitende und verfügt über 150 Haftplätze im geschlossenen Vollzug. Davon 100 im Normalvollzug, zehn in der Eintrittsabteilung, 28 im Bereich Sondervollzug sowie zwölf in der Untersuchungshaft. Wir suchen per 1. August 2026 oder nach Vereinbarung eine/n Bereichsleiter/-in Sicherheit | Aufgaben: • Fachliche, personelle und organisatorische Leitung des Bereichs Sicherheit • Führung, Förderung und Entwicklung der 24 unterstellten Mitarbeitenden, drei davon direkt unterstellt und Unterstützung in ihrer Aufgabe • Sicherstellung eines reibungslosen 24-Std.-Betriebs der JVA hinsichtlich aller sicherheitsrelevanten Abläufe und Einrichtungen inkl. der Zentrale • Gewährleistung der inneren und äusseren Sicherheit unter den Aspekten der dynamischen Sicherheit und durch Einhalten und Umsetzen der Hausordnung • Erste Ansprechperson für Arbeitspartner aus den Bereichen der Blaulichtorganisationen • Zuständig für die Ereignis- und Notfallorganisation der JVA • Erarbeitung und Weiterentwicklung bedarfsgerechter Sicherheits- und Ereigniskonzepte sowie der mitgeltenden Dokumentationen • Zuständig für die Organisation von Transporten und der externen Bewachung eingewiesener Personen • Leitung von Weiterbildungseinheiten in Bezug auf sicherheitsrelevante Ereignisse • Mitglied der Anstaltsleitung und leisten von Pikettdienst an Wochenenden | Anforderungen: • Abschluss einer höheren Ausbildung im Sicherheitsbereich oder einem verwandten Fachgebiet mit mehrjähriger Berufserfahrung • Mehrjährige Führungserfahrung – idealerweise im Justizvollzug oder in einem ähnlichen sicherheitsrelevanten Bereich • Weiterbildung im Bereich der Sicherheitstechnik sowie Erfahrung in der Planung und Umsetzung von Projekten • Hohe Sozialkompetenz, Empathie, Flexibilität sowie adressatengerechte kommunikative Fähigkeiten • Durchsetzungsstärke und Fähigkeit, lösungsorientiert und reflektiert zu handeln sowie Entscheidungen sicher und verantwortungsvoll zu treffen • Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch; zusätzliche Kenntnisse von Kantons- und Fremdsprachen sind von Vorteil • Sehr gute EDV-Kenntnisse sowie technisches Verständnis, Führerausweis Kat. B • Einen einwandfreien Leumund (keine Einträge im Straf- und Betreibungsregister)",
+        "it": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern. Die Justizvollzugsanstalt (JVA) Cazis Tignez beschäftigt rund 110 Mitarbeitende und verfügt über 150 Haftplätze im geschlossenen Vollzug. Davon 100 im Normalvollzug, zehn in der Eintrittsabteilung, 28 im Bereich Sondervollzug sowie zwölf in der Untersuchungshaft. Wir suchen per 1. August 2026 oder nach Vereinbarung eine/n Bereichsleiter/-in Sicherheit | Aufgaben: • Fachliche, personelle und organisatorische Leitung des Bereichs Sicherheit • Führung, Förderung und Entwicklung der 24 unterstellten Mitarbeitenden, drei davon direkt unterstellt und Unterstützung in ihrer Aufgabe • Sicherstellung eines reibungslosen 24-Std.-Betriebs der JVA hinsichtlich aller sicherheitsrelevanten Abläufe und Einrichtungen inkl. der Zentrale • Gewährleistung der inneren und äusseren Sicherheit unter den Aspekten der dynamischen Sicherheit und durch Einhalten und Umsetzen der Hausordnung • Erste Ansprechperson für Arbeitspartner aus den Bereichen der Blaulichtorganisationen • Zuständig für die Ereignis- und Notfallorganisation der JVA • Erarbeitung und Weiterentwicklung bedarfsgerechter Sicherheits- und Ereigniskonzepte sowie der mitgeltenden Dokumentationen • Zuständig für die Organisation von Transporten und der externen Bewachung eingewiesener Personen • Leitung von Weiterbildungseinheiten in Bezug auf sicherheitsrelevante Ereignisse • Mitglied der Anstaltsleitung und leisten von Pikettdienst an Wochenenden | Anforderungen: • Abschluss einer höheren Ausbildung im Sicherheitsbereich oder einem verwandten Fachgebiet mit mehrjähriger Berufserfahrung • Mehrjährige Führungserfahrung – idealerweise im Justizvollzug oder in einem ähnlichen sicherheitsrelevanten Bereich • Weiterbildung im Bereich der Sicherheitstechnik sowie Erfahrung in der Planung und Umsetzung von Projekten • Hohe Sozialkompetenz, Empathie, Flexibilität sowie adressatengerechte kommunikative Fähigkeiten • Durchsetzungsstärke und Fähigkeit, lösungsorientiert und reflektiert zu handeln sowie Entscheidungen sicher und verantwortungsvoll zu treffen • Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch; zusätzliche Kenntnisse von Kantons- und Fremdsprachen sind von Vorteil • Sehr gute EDV-Kenntnisse sowie technisches Verständnis, Führerausweis Kat. B • Einen einwandfreien Leumund (keine Einträge im Straf- und Betreibungsregister)",
+        "en": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern. Die Justizvollzugsanstalt (JVA) Cazis Tignez beschäftigt rund 110 Mitarbeitende und verfügt über 150 Haftplätze im geschlossenen Vollzug. Davon 100 im Normalvollzug, zehn in der Eintrittsabteilung, 28 im Bereich Sondervollzug sowie zwölf in der Untersuchungshaft. Wir suchen per 1. August 2026 oder nach Vereinbarung eine/n Bereichsleiter/-in Sicherheit | Aufgaben: • Fachliche, personelle und organisatorische Leitung des Bereichs Sicherheit • Führung, Förderung und Entwicklung der 24 unterstellten Mitarbeitenden, drei davon direkt unterstellt und Unterstützung in ihrer Aufgabe • Sicherstellung eines reibungslosen 24-Std.-Betriebs der JVA hinsichtlich aller sicherheitsrelevanten Abläufe und Einrichtungen inkl. der Zentrale • Gewährleistung der inneren und äusseren Sicherheit unter den Aspekten der dynamischen Sicherheit und durch Einhalten und Umsetzen der Hausordnung • Erste Ansprechperson für Arbeitspartner aus den Bereichen der Blaulichtorganisationen • Zuständig für die Ereignis- und Notfallorganisation der JVA • Erarbeitung und Weiterentwicklung bedarfsgerechter Sicherheits- und Ereigniskonzepte sowie der mitgeltenden Dokumentationen • Zuständig für die Organisation von Transporten und der externen Bewachung eingewiesener Personen • Leitung von Weiterbildungseinheiten in Bezug auf sicherheitsrelevante Ereignisse • Mitglied der Anstaltsleitung und leisten von Pikettdienst an Wochenenden | Anforderungen: • Abschluss einer höheren Ausbildung im Sicherheitsbereich oder einem verwandten Fachgebiet mit mehrjähriger Berufserfahrung • Mehrjährige Führungserfahrung – idealerweise im Justizvollzug oder in einem ähnlichen sicherheitsrelevanten Bereich • Weiterbildung im Bereich der Sicherheitstechnik sowie Erfahrung in der Planung und Umsetzung von Projekten • Hohe Sozialkompetenz, Empathie, Flexibilität sowie adressatengerechte kommunikative Fähigkeiten • Durchsetzungsstärke und Fähigkeit, lösungsorientiert und reflektiert zu handeln sowie Entscheidungen sicher und verantwortungsvoll zu treffen • Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch; zusätzliche Kenntnisse von Kantons- und Fremdsprachen sind von Vorteil • Sehr gute EDV-Kenntnisse sowie technisches Verständnis, Führerausweis Kat. B • Einen einwandfreien Leumund (keine Einträge im Straf- und Betreibungsregister)",
+        "fr": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern. Die Justizvollzugsanstalt (JVA) Cazis Tignez beschäftigt rund 110 Mitarbeitende und verfügt über 150 Haftplätze im geschlossenen Vollzug. Davon 100 im Normalvollzug, zehn in der Eintrittsabteilung, 28 im Bereich Sondervollzug sowie zwölf in der Untersuchungshaft. Wir suchen per 1. August 2026 oder nach Vereinbarung eine/n Bereichsleiter/-in Sicherheit | Aufgaben: • Fachliche, personelle und organisatorische Leitung des Bereichs Sicherheit • Führung, Förderung und Entwicklung der 24 unterstellten Mitarbeitenden, drei davon direkt unterstellt und Unterstützung in ihrer Aufgabe • Sicherstellung eines reibungslosen 24-Std.-Betriebs der JVA hinsichtlich aller sicherheitsrelevanten Abläufe und Einrichtungen inkl. der Zentrale • Gewährleistung der inneren und äusseren Sicherheit unter den Aspekten der dynamischen Sicherheit und durch Einhalten und Umsetzen der Hausordnung • Erste Ansprechperson für Arbeitspartner aus den Bereichen der Blaulichtorganisationen • Zuständig für die Ereignis- und Notfallorganisation der JVA • Erarbeitung und Weiterentwicklung bedarfsgerechter Sicherheits- und Ereigniskonzepte sowie der mitgeltenden Dokumentationen • Zuständig für die Organisation von Transporten und der externen Bewachung eingewiesener Personen • Leitung von Weiterbildungseinheiten in Bezug auf sicherheitsrelevante Ereignisse • Mitglied der Anstaltsleitung und leisten von Pikettdienst an Wochenenden | Anforderungen: • Abschluss einer höheren Ausbildung im Sicherheitsbereich oder einem verwandten Fachgebiet mit mehrjähriger Berufserfahrung • Mehrjährige Führungserfahrung – idealerweise im Justizvollzug oder in einem ähnlichen sicherheitsrelevanten Bereich • Weiterbildung im Bereich der Sicherheitstechnik sowie Erfahrung in der Planung und Umsetzung von Projekten • Hohe Sozialkompetenz, Empathie, Flexibilität sowie adressatengerechte kommunikative Fähigkeiten • Durchsetzungsstärke und Fähigkeit, lösungsorientiert und reflektiert zu handeln sowie Entscheidungen sicher und verantwortungsvoll zu treffen • Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch; zusätzliche Kenntnisse von Kantons- und Fremdsprachen sind von Vorteil • Sehr gute EDV-Kenntnisse sowie technisches Verständnis, Führerausweis Kat. B • Einen einwandfreien Leumund (keine Einträge im Straf- und Betreibungsregister)"
+      },
+      "location": "Cazis",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2689/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-07T11:16:41.063Z",
+      "addressLocality": "Cazis",
+      "postalCode": "7408",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://apply.refline.ch/514915/2689/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Justizvollzug Graubünden",
+      "applicationDeadline": "2026-05-31",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-07T11:16:41.063Z"
+    },
+    {
+      "id": "kanton-gr-bce56bb00739",
+      "slug": "teamleiter-in-administration-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "teamleiter-in-administration-kantonale-verwaltung-graubunden-thusis",
+        "it": "teamleiter-in-administration-kanton-gr-ch",
+        "en": "teamleiter-in-administration-kanton-gr-ch",
+        "fr": "teamleiter-in-administration-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Teamleiter/-in Administration",
+      "titleByLocale": {
+        "de": "Teamleiter/-in Administration",
+        "it": "Teamleiter/-in Administration",
+        "en": "Teamleiter/-in Administration",
+        "fr": "Teamleiter/-in Administration"
+      },
+      "description": "Das Amt für Immobilienbewertung (AIB) führt an sechs Standorten amtliche Bewertungen von Grundstücken im Kanton durch. Die Bewertungen werden den Eigentümern eröffnet. Die Daten werden zudem von den kantonalen und kommunalen Steuerbehörden, der Gebäudeversicherung Graubünden sowie den Grundbuchämtern weiterverwendet. Die gemeindeweisen Revisionsbewertungen finden alle 10 Jahre statt. Darüber hinaus können Eigentümer jederzeit eine Bewertung beantragen. Wir suchen per 1. September 2026 oder nach Vereinbarung eine/-n motivierte/-n Teamleiter/-in Administration für die Standorte Thusis und Ilanz. | Aufgaben: • Personelle und fachliche Führung von 5 Mitarbeitenden an den Standorten Thusis und Ilanz • Vorbereitung, Bereinigung und Erfassung von Grundstücksdaten für die Immobilienbewerter/-innen im Bewertungssystem • Eröffnen von Bewertungsverfügungen und Gebührenrechnungen • Erste Anlaufstelle für schriftliche und telefonische Anfragen • Effiziente Abwicklung diverser Administrationsaufgaben • Unterstützung des Bewertungsteams in administrativen Belange | Anforderungen: • Abgeschlossene Ausbildung als Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung • Stilsichere Deutschkenntnisse in Wort und Schrift, Kenntnisse in weiteren Kantonssprachen sind von Vorteil • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte, selbstständige und präzise Arbeitsweise • Dienstleistungs- und lösungsorientierte Persönlichkeit, Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative • Führungserfahrung ist von Vorteil",
+      "descriptionByLocale": {
+        "de": "Das Amt für Immobilienbewertung (AIB) führt an sechs Standorten amtliche Bewertungen von Grundstücken im Kanton durch. Die Bewertungen werden den Eigentümern eröffnet. Die Daten werden zudem von den kantonalen und kommunalen Steuerbehörden, der Gebäudeversicherung Graubünden sowie den Grundbuchämtern weiterverwendet. Die gemeindeweisen Revisionsbewertungen finden alle 10 Jahre statt. Darüber hinaus können Eigentümer jederzeit eine Bewertung beantragen. Wir suchen per 1. September 2026 oder nach Vereinbarung eine/-n motivierte/-n Teamleiter/-in Administration für die Standorte Thusis und Ilanz. | Aufgaben: • Personelle und fachliche Führung von 5 Mitarbeitenden an den Standorten Thusis und Ilanz • Vorbereitung, Bereinigung und Erfassung von Grundstücksdaten für die Immobilienbewerter/-innen im Bewertungssystem • Eröffnen von Bewertungsverfügungen und Gebührenrechnungen • Erste Anlaufstelle für schriftliche und telefonische Anfragen • Effiziente Abwicklung diverser Administrationsaufgaben • Unterstützung des Bewertungsteams in administrativen Belange | Anforderungen: • Abgeschlossene Ausbildung als Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung • Stilsichere Deutschkenntnisse in Wort und Schrift, Kenntnisse in weiteren Kantonssprachen sind von Vorteil • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte, selbstständige und präzise Arbeitsweise • Dienstleistungs- und lösungsorientierte Persönlichkeit, Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative • Führungserfahrung ist von Vorteil",
+        "it": "Das Amt für Immobilienbewertung (AIB) führt an sechs Standorten amtliche Bewertungen von Grundstücken im Kanton durch. Die Bewertungen werden den Eigentümern eröffnet. Die Daten werden zudem von den kantonalen und kommunalen Steuerbehörden, der Gebäudeversicherung Graubünden sowie den Grundbuchämtern weiterverwendet. Die gemeindeweisen Revisionsbewertungen finden alle 10 Jahre statt. Darüber hinaus können Eigentümer jederzeit eine Bewertung beantragen. Wir suchen per 1. September 2026 oder nach Vereinbarung eine/-n motivierte/-n Teamleiter/-in Administration für die Standorte Thusis und Ilanz. | Aufgaben: • Personelle und fachliche Führung von 5 Mitarbeitenden an den Standorten Thusis und Ilanz • Vorbereitung, Bereinigung und Erfassung von Grundstücksdaten für die Immobilienbewerter/-innen im Bewertungssystem • Eröffnen von Bewertungsverfügungen und Gebührenrechnungen • Erste Anlaufstelle für schriftliche und telefonische Anfragen • Effiziente Abwicklung diverser Administrationsaufgaben • Unterstützung des Bewertungsteams in administrativen Belange | Anforderungen: • Abgeschlossene Ausbildung als Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung • Stilsichere Deutschkenntnisse in Wort und Schrift, Kenntnisse in weiteren Kantonssprachen sind von Vorteil • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte, selbstständige und präzise Arbeitsweise • Dienstleistungs- und lösungsorientierte Persönlichkeit, Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative • Führungserfahrung ist von Vorteil",
+        "en": "Das Amt für Immobilienbewertung (AIB) führt an sechs Standorten amtliche Bewertungen von Grundstücken im Kanton durch. Die Bewertungen werden den Eigentümern eröffnet. Die Daten werden zudem von den kantonalen und kommunalen Steuerbehörden, der Gebäudeversicherung Graubünden sowie den Grundbuchämtern weiterverwendet. Die gemeindeweisen Revisionsbewertungen finden alle 10 Jahre statt. Darüber hinaus können Eigentümer jederzeit eine Bewertung beantragen. Wir suchen per 1. September 2026 oder nach Vereinbarung eine/-n motivierte/-n Teamleiter/-in Administration für die Standorte Thusis und Ilanz. | Aufgaben: • Personelle und fachliche Führung von 5 Mitarbeitenden an den Standorten Thusis und Ilanz • Vorbereitung, Bereinigung und Erfassung von Grundstücksdaten für die Immobilienbewerter/-innen im Bewertungssystem • Eröffnen von Bewertungsverfügungen und Gebührenrechnungen • Erste Anlaufstelle für schriftliche und telefonische Anfragen • Effiziente Abwicklung diverser Administrationsaufgaben • Unterstützung des Bewertungsteams in administrativen Belange | Anforderungen: • Abgeschlossene Ausbildung als Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung • Stilsichere Deutschkenntnisse in Wort und Schrift, Kenntnisse in weiteren Kantonssprachen sind von Vorteil • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte, selbstständige und präzise Arbeitsweise • Dienstleistungs- und lösungsorientierte Persönlichkeit, Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative • Führungserfahrung ist von Vorteil",
+        "fr": "Das Amt für Immobilienbewertung (AIB) führt an sechs Standorten amtliche Bewertungen von Grundstücken im Kanton durch. Die Bewertungen werden den Eigentümern eröffnet. Die Daten werden zudem von den kantonalen und kommunalen Steuerbehörden, der Gebäudeversicherung Graubünden sowie den Grundbuchämtern weiterverwendet. Die gemeindeweisen Revisionsbewertungen finden alle 10 Jahre statt. Darüber hinaus können Eigentümer jederzeit eine Bewertung beantragen. Wir suchen per 1. September 2026 oder nach Vereinbarung eine/-n motivierte/-n Teamleiter/-in Administration für die Standorte Thusis und Ilanz. | Aufgaben: • Personelle und fachliche Führung von 5 Mitarbeitenden an den Standorten Thusis und Ilanz • Vorbereitung, Bereinigung und Erfassung von Grundstücksdaten für die Immobilienbewerter/-innen im Bewertungssystem • Eröffnen von Bewertungsverfügungen und Gebührenrechnungen • Erste Anlaufstelle für schriftliche und telefonische Anfragen • Effiziente Abwicklung diverser Administrationsaufgaben • Unterstützung des Bewertungsteams in administrativen Belange | Anforderungen: • Abgeschlossene Ausbildung als Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung • Stilsichere Deutschkenntnisse in Wort und Schrift, Kenntnisse in weiteren Kantonssprachen sind von Vorteil • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte, selbstständige und präzise Arbeitsweise • Dienstleistungs- und lösungsorientierte Persönlichkeit, Teamfähigkeit, Einsatzbereitschaft und Eigeninitiative • Führungserfahrung ist von Vorteil"
+      },
+      "location": "Thusis",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2693/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-07T11:16:40.439Z",
+      "addressLocality": "Thusis",
+      "postalCode": "7430",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://apply.refline.ch/514915/2693/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Immobilienbewertung",
+      "applicationDeadline": "2026-05-28",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-07T11:16:40.439Z"
+    },
+    {
+      "id": "kanton-gr-5cae8ac089af",
+      "slug": "praktikant-in-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "praktikant-in-kantonale-verwaltung-graubunden-chur",
+        "it": "praktikant-in-kanton-gr-ch",
+        "en": "praktikant-in-kanton-gr-ch",
+        "fr": "praktikant-in-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Praktikant/-in",
+      "titleByLocale": {
+        "de": "Praktikant/-in",
+        "it": "Praktikant/-in",
+        "en": "Praktikant/-in",
+        "fr": "Praktikant/-in"
+      },
+      "description": "Das Amt für Immobilienbewertung (AIB) ist dezentral an sechs Standorten organisiert. Wir führen die amtlichen Bewertungen von bebauten Grundstücken im Rahmen von Revisions- und Antragsbewertungen durch. Durch unsere abwechslungsreiche Tätigkeit stehen wir täglich im Austausch mit unterschiedlichen Ansprechpartnern wie Eigentümer, Ämter und die Gebäudeversicherung Graubünden. Dabei kommen auch die drei Kantonssprachen zum Einsatz. Wir suchen per 1. Juli 2026 oder nach Vereinbarung motivierte Praktikanten/-innen, die sich gerne im Freien bewegen / wandern. | Aufgaben: • Selbstständige Besichtigungen und Aussenaufnahmen von Gebäuden wie Maiensässe, Ställe ausserhalb der Bauzone unter Einhaltung der Vorgaben • Elektronische Ablage der Aufnahmen | Anforderungen: • Laufende Aus- oder Weiterbildungen in der Bau- oder Immobilienbranche • Führerausweis Kategorie B • Gute Orientierung in mind. eine der Regionen • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte und selbstständige Arbeitsweise • Flexibilität",
+      "descriptionByLocale": {
+        "de": "Das Amt für Immobilienbewertung (AIB) ist dezentral an sechs Standorten organisiert. Wir führen die amtlichen Bewertungen von bebauten Grundstücken im Rahmen von Revisions- und Antragsbewertungen durch. Durch unsere abwechslungsreiche Tätigkeit stehen wir täglich im Austausch mit unterschiedlichen Ansprechpartnern wie Eigentümer, Ämter und die Gebäudeversicherung Graubünden. Dabei kommen auch die drei Kantonssprachen zum Einsatz. Wir suchen per 1. Juli 2026 oder nach Vereinbarung motivierte Praktikanten/-innen, die sich gerne im Freien bewegen / wandern. | Aufgaben: • Selbstständige Besichtigungen und Aussenaufnahmen von Gebäuden wie Maiensässe, Ställe ausserhalb der Bauzone unter Einhaltung der Vorgaben • Elektronische Ablage der Aufnahmen | Anforderungen: • Laufende Aus- oder Weiterbildungen in der Bau- oder Immobilienbranche • Führerausweis Kategorie B • Gute Orientierung in mind. eine der Regionen • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte und selbstständige Arbeitsweise • Flexibilität",
+        "it": "Das Amt für Immobilienbewertung (AIB) ist dezentral an sechs Standorten organisiert. Wir führen die amtlichen Bewertungen von bebauten Grundstücken im Rahmen von Revisions- und Antragsbewertungen durch. Durch unsere abwechslungsreiche Tätigkeit stehen wir täglich im Austausch mit unterschiedlichen Ansprechpartnern wie Eigentümer, Ämter und die Gebäudeversicherung Graubünden. Dabei kommen auch die drei Kantonssprachen zum Einsatz. Wir suchen per 1. Juli 2026 oder nach Vereinbarung motivierte Praktikanten/-innen, die sich gerne im Freien bewegen / wandern. | Aufgaben: • Selbstständige Besichtigungen und Aussenaufnahmen von Gebäuden wie Maiensässe, Ställe ausserhalb der Bauzone unter Einhaltung der Vorgaben • Elektronische Ablage der Aufnahmen | Anforderungen: • Laufende Aus- oder Weiterbildungen in der Bau- oder Immobilienbranche • Führerausweis Kategorie B • Gute Orientierung in mind. eine der Regionen • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte und selbstständige Arbeitsweise • Flexibilität",
+        "en": "Das Amt für Immobilienbewertung (AIB) ist dezentral an sechs Standorten organisiert. Wir führen die amtlichen Bewertungen von bebauten Grundstücken im Rahmen von Revisions- und Antragsbewertungen durch. Durch unsere abwechslungsreiche Tätigkeit stehen wir täglich im Austausch mit unterschiedlichen Ansprechpartnern wie Eigentümer, Ämter und die Gebäudeversicherung Graubünden. Dabei kommen auch die drei Kantonssprachen zum Einsatz. Wir suchen per 1. Juli 2026 oder nach Vereinbarung motivierte Praktikanten/-innen, die sich gerne im Freien bewegen / wandern. | Aufgaben: • Selbstständige Besichtigungen und Aussenaufnahmen von Gebäuden wie Maiensässe, Ställe ausserhalb der Bauzone unter Einhaltung der Vorgaben • Elektronische Ablage der Aufnahmen | Anforderungen: • Laufende Aus- oder Weiterbildungen in der Bau- oder Immobilienbranche • Führerausweis Kategorie B • Gute Orientierung in mind. eine der Regionen • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte und selbstständige Arbeitsweise • Flexibilität",
+        "fr": "Das Amt für Immobilienbewertung (AIB) ist dezentral an sechs Standorten organisiert. Wir führen die amtlichen Bewertungen von bebauten Grundstücken im Rahmen von Revisions- und Antragsbewertungen durch. Durch unsere abwechslungsreiche Tätigkeit stehen wir täglich im Austausch mit unterschiedlichen Ansprechpartnern wie Eigentümer, Ämter und die Gebäudeversicherung Graubünden. Dabei kommen auch die drei Kantonssprachen zum Einsatz. Wir suchen per 1. Juli 2026 oder nach Vereinbarung motivierte Praktikanten/-innen, die sich gerne im Freien bewegen / wandern. | Aufgaben: • Selbstständige Besichtigungen und Aussenaufnahmen von Gebäuden wie Maiensässe, Ställe ausserhalb der Bauzone unter Einhaltung der Vorgaben • Elektronische Ablage der Aufnahmen | Anforderungen: • Laufende Aus- oder Weiterbildungen in der Bau- oder Immobilienbranche • Führerausweis Kategorie B • Gute Orientierung in mind. eine der Regionen • Sicherer Umgang mit modernen EDV-Mitteln • Strukturierte und selbstständige Arbeitsweise • Flexibilität"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2694/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-07T11:16:39.816Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://apply.refline.ch/514915/2694/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Immobilienbewertung",
+      "applicationDeadline": "2026-05-28",
+      "pensumMin": 60,
+      "pensumMax": 100,
+      "pensum": "60-100%",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-07T11:16:39.816Z"
     },
     {
       "id": "kanton-gr-1a938226e507",
@@ -670,7 +1191,7 @@
       "url": "https://apply.refline.ch/514915/2673/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:21.180Z",
+      "crawledAt": "2026-05-07T11:16:39.193Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -706,6 +1227,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:02:52.921Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -750,7 +1272,7 @@
       "url": "https://apply.refline.ch/514915/2670/pub/6/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:20.523Z",
+      "crawledAt": "2026-05-07T11:16:38.569Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -835,7 +1357,7 @@
       "url": "https://apply.refline.ch/514915/2671/pub/6/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:19.871Z",
+      "crawledAt": "2026-05-07T11:16:37.946Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -920,7 +1442,7 @@
       "url": "https://apply.refline.ch/514915/2669/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:19.219Z",
+      "crawledAt": "2026-05-07T11:16:37.322Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -999,7 +1521,7 @@
       "url": "https://apply.refline.ch/514915/2685/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:18.566Z",
+      "crawledAt": "2026-05-07T11:16:36.699Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1077,7 +1599,7 @@
       "descriptionByLocale": {
         "it": "Descrizione L'autorità di protezione per bambini e adulti KESB è lì per le persone in difficoltà. Chiunque abbia bisogno di aiuto e supporto può contare sul KESB. Non abbiamo un giorno come l'altro. Nel team interdisciplinare formiamo attivamente un futuro sicuro per adulti vulnerabili, famiglie, bambini e giovani. Stiamo cercando KESB Graubünden, filiale Nordbünden, il 1o luglio 2026 o d'accordo un avvocato o un avvocato. Nel caso di una persona che ha il diritto di lavorare e che ha il diritto di lavorare e che ha il diritto di lavorare e che ha il diritto di lavorare, che ha il diritto di lavorare e che ha il diritto di lavorare, che ha il diritto di lavorare e che ha il diritto di lavorare, che ha il diritto di lavorare e che ha il diritto di lavorare e che ha il diritto di farlo",
         "en": "Descrizione The child and adult protection authority KESB is there for people in need. If you need help and support, you can count on the KESB. With us, no day is the same. In our interdisciplinary team, we actively shape a secure future for vulnerable adults, families, children and adolescents. We are looking for the KESB Graubünden, branch office Nordbünden, per 1. July 2026 or by appointment a lawyer. ## Tasks - Supporting and advising the members of the authority as well as assistants on material and formal legal issues (child and adult protection law, marriage and inheritance law, real estate transactions, insurance law, international private law) - Independent processing of assigned procedures, including transactions requiring approval (Art. 416 ZGB) - Preparation of draft decisions in the assigned procedures - Actuarial work for the attention of the authority - Active participation in various project groups (e.g. practice finding, legal revisions) - Record keeping at hearings ## Requirements - University degree in law - Professional experience, preferably in the legal profession or in court and solid knowledge of private law - Independent, resilient, flexible and networked thinking personality - Very good oral and written expressiveness in German, foreign language skills are an advantage - Prudent, efficient and precise",
-        "de": "Descrizione Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Wir suchen für die KESB Graubünden, Zweigstelle Nordbünden, per 1. Juli 2026 oder nach Vereinbarung eine Juristin oder einen Juristen. ## Aufgaben - Unterstützung und Beratung der Behördemitglieder sowie Beistandspersonen bei materiellen und formellen rechtlichen Fragestellungen (Kindes- und Erwachsenenschutzrecht, Ehe- und Erbrecht, Grundstückgeschäfte, Versicherungsrecht, internationales Privatrecht) - Selbstständige Bearbeitung zugeteilter Verfahren, unter anderem zustimmungsbedürftige Geschäfte (Art. 416 ZGB) - Erstellen von Entscheidentwürfen in den zugeteilten Verfahren - Aktuariatstätigkeit zuhanden der Behörde - Aktive Mitarbeit in verschiedenen Projektgruppen (z.B. Praxisfindung, Gesetzesrevisionen) - Protokollführung bei Anhörungen ## Anforderungen - Universitärer Abschluss in Rechtswissenschaft - Berufserfahrung, vorzugsweise in der Advokatur oder bei Gericht und solide Kenntnisse im Privatrecht - Selbstständige, belastbare, flexible und vernetzt denkende Persönlichkeit - Sehr gutes mündliches und schriftliches Ausdrucksvermögen in Deutsch, Fremdsprachenkenntnisse sind von Vorteil - Umsichtige, effiziente und präzise Arbeitsweise - Hohe Dienstleistungsbereitschaft und Teamfähigkeit im interdisziplinären Dienst - Ausgewiesene Sozialkompetenz und Empathie gegenüber Menschen in schwierigen Lebenssituationen",
+        "de": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Wir suchen für die KESB Graubünden, Zweigstelle Nordbünden, per 1. Juli 2026 oder nach Vereinbarung eine Juristin oder einen Juristen. | Aufgaben: • Unterstützung und Beratung der Behördemitglieder sowie Beistandspersonen bei materiellen und formellen rechtlichen Fragestellungen (Kindes- und Erwachsenenschutzrecht, Ehe- und Erbrecht, Grundstückgeschäfte, Versicherungsrecht, internationales Privatrecht) • Selbstständige Bearbeitung zugeteilter Verfahren, unter anderem zustimmungsbedürftige Geschäfte (Art. 416 ZGB) • Erstellen von Entscheidentwürfen in den zugeteilten Verfahren • Aktuariatstätigkeit zuhanden der Behörde • Aktive Mitarbeit in verschiedenen Projektgruppen (z.B. Praxisfindung, Gesetzesrevisionen) • Protokollführung bei Anhörungen | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Berufserfahrung, vorzugsweise in der Advokatur oder bei Gericht und solide Kenntnisse im Privatrecht • Selbstständige, belastbare, flexible und vernetzt denkende Persönlichkeit • Sehr gutes mündliches und schriftliches Ausdrucksvermögen in Deutsch, Fremdsprachenkenntnisse sind von Vorteil • Umsichtige, effiziente und präzise Arbeitsweise • Hohe Dienstleistungsbereitschaft und Teamfähigkeit im interdisziplinären Dienst • Ausgewiesene Sozialkompetenz und Empathie gegenüber Menschen in schwierigen Lebenssituationen",
         "fr": "Descrizione L'autorité de protection des enfants et des adultes KESB est là pour les personnes dans le besoin. Quiconque a besoin d'aide et de soutien peut compter sur le KESB. On n'a pas un jour comme l'autre. Au sein de l'équipe interdisciplinaire, nous élaborons activement un avenir sûr pour les adultes, les familles, les enfants et les jeunes vulnérables. Nous sommes à la recherche de KESB Graubünden, filiale de Nordbünden, le 1er juillet 2026 ou par accord d'un avocat ou d'un avocat. Dans le cas d'une personne qui a le droit de travailler et qui a le droit de travailler et qui a le droit de travailler et qui a le droit de travailler, qui a le droit de travailler et qui a le droit de travailler, qui a le droit de travailler et qui a le droit de travailler, qui a le droit de travailler et qui a le droit de travailler"
       },
       "location": "Chur",
@@ -1085,7 +1607,7 @@
       "url": "https://apply.refline.ch/514915/2686/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:17.914Z",
+      "crawledAt": "2026-05-07T11:16:36.073Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1123,6 +1645,7 @@
       "previousSlugs": [
         "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-30T11:01:18.166Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1135,9 +1658,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "kanton-gr-8e05f7137c3f",
@@ -1170,7 +1691,7 @@
       "url": "https://apply.refline.ch/514915/2684/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:17.263Z",
+      "crawledAt": "2026-05-07T11:16:35.449Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1212,6 +1733,7 @@
         "responsabile-administration-e-sachbearbeitung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-30T11:01:17.492Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1256,7 +1778,7 @@
       "url": "https://apply.refline.ch/514915/2682/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:16.610Z",
+      "crawledAt": "2026-05-07T11:16:34.826Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1339,7 +1861,7 @@
       "url": "https://apply.refline.ch/514915/2681/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:15.959Z",
+      "crawledAt": "2026-05-07T11:16:34.203Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1380,6 +1902,7 @@
         "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-30T11:01:16.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1424,7 +1947,7 @@
       "url": "https://apply.refline.ch/514915/2675/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:15.307Z",
+      "crawledAt": "2026-05-07T11:16:33.579Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -1466,6 +1989,7 @@
         "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-30T11:01:15.456Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1510,7 +2034,7 @@
       "url": "https://apply.refline.ch/514915/2664/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:14.654Z",
+      "crawledAt": "2026-05-07T11:16:32.953Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1549,6 +2073,7 @@
         "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-30T11:01:14.777Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1593,7 +2118,7 @@
       "url": "https://apply.refline.ch/514915/2679/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:14.002Z",
+      "crawledAt": "2026-05-07T11:16:32.329Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1628,6 +2153,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:48.704Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1672,7 +2198,7 @@
       "url": "https://apply.refline.ch/514915/2662/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:13.350Z",
+      "crawledAt": "2026-05-07T11:16:31.707Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1708,6 +2234,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:48.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1752,7 +2279,7 @@
       "url": "https://apply.refline.ch/514915/2666/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:12.697Z",
+      "crawledAt": "2026-05-07T11:16:31.084Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1792,6 +2319,7 @@
         "mitarbeiter-in-aufbewahrung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:47.341Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1836,7 +2364,7 @@
       "url": "https://apply.refline.ch/514915/2667/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:12.046Z",
+      "crawledAt": "2026-05-07T11:16:30.462Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1876,6 +2404,7 @@
         "mitarbeiter-in-katalog-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:46.656Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1920,7 +2449,7 @@
       "url": "https://apply.refline.ch/514915/2680/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:11.395Z",
+      "crawledAt": "2026-05-07T11:16:29.839Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1953,6 +2482,7 @@
         "assistent-in-der-amtsleitung-mit-personalverantwortung-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:45.967Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1997,7 +2527,7 @@
       "url": "https://apply.refline.ch/514915/2658/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:10.743Z",
+      "crawledAt": "2026-05-07T11:16:29.206Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2038,6 +2568,7 @@
         "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:45.283Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2082,7 +2613,7 @@
       "url": "https://apply.refline.ch/514915/2663/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:10.092Z",
+      "crawledAt": "2026-05-07T11:16:28.584Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2121,6 +2652,7 @@
         "ict-system-spezialist-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:44.599Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2165,7 +2697,7 @@
       "url": "https://apply.refline.ch/514915/2678/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:09.415Z",
+      "crawledAt": "2026-05-07T11:16:27.961Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2249,7 +2781,7 @@
       "url": "https://apply.refline.ch/514915/2668/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:08.655Z",
+      "crawledAt": "2026-05-07T11:16:27.333Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2333,7 +2865,7 @@
       "url": "https://apply.refline.ch/514915/2665/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:08.001Z",
+      "crawledAt": "2026-05-07T11:16:26.709Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2374,6 +2906,7 @@
         "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:42.549Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2418,7 +2951,7 @@
       "url": "https://apply.refline.ch/514915/2672/pub/4/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:07.345Z",
+      "crawledAt": "2026-05-07T11:16:26.093Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2506,7 +3039,7 @@
       "url": "https://apply.refline.ch/514915/2674/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:06.687Z",
+      "crawledAt": "2026-05-07T11:16:25.468Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2542,6 +3075,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:41.182Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2586,7 +3120,7 @@
       "url": "https://apply.refline.ch/514915/2659/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:06.035Z",
+      "crawledAt": "2026-05-07T11:16:24.847Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2626,6 +3160,7 @@
         "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:48.296Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2670,7 +3205,7 @@
       "url": "https://apply.refline.ch/514915/2660/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:05.384Z",
+      "crawledAt": "2026-05-07T11:16:24.226Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2713,6 +3248,7 @@
         "betriebsokonom-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-16T10:12:47.679Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2757,7 +3293,7 @@
       "url": "https://apply.refline.ch/514915/2654/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:04.732Z",
+      "crawledAt": "2026-05-07T11:16:23.405Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2798,6 +3334,7 @@
         "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:47.062Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2842,7 +3379,7 @@
       "url": "https://apply.refline.ch/514915/2657/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:04.080Z",
+      "crawledAt": "2026-05-07T11:16:22.783Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2878,6 +3415,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:12:46.446Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2922,7 +3460,7 @@
       "url": "https://apply.refline.ch/514915/2656/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:03.430Z",
+      "crawledAt": "2026-05-07T11:16:22.159Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2957,6 +3495,7 @@
         "wissenschaftliches-volontariat-bundner-kunstmuseum-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:45.213Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3001,7 +3540,7 @@
       "url": "https://apply.refline.ch/514915/2655/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:02.777Z",
+      "crawledAt": "2026-05-07T11:16:21.524Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3042,6 +3581,7 @@
         "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:44.581Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3086,7 +3626,7 @@
       "url": "https://apply.refline.ch/514915/2640/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:02.125Z",
+      "crawledAt": "2026-05-07T11:16:20.898Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3171,7 +3711,7 @@
       "url": "https://apply.refline.ch/514915/2651/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:01.473Z",
+      "crawledAt": "2026-05-07T11:16:20.233Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3235,6 +3775,7 @@
         "messtechniker-in-emissionen-luft-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:58.185Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3279,7 +3820,7 @@
       "url": "https://apply.refline.ch/514915/2647/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:00.821Z",
+      "crawledAt": "2026-05-07T11:16:19.610Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3332,6 +3873,7 @@
         "it-oder-juristische-fachperson-als-stv-leiter-in-datenschutzaufsichtsstelle-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.673Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -3376,7 +3918,7 @@
       "url": "https://apply.refline.ch/514915/2642/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:12:00.170Z",
+      "crawledAt": "2026-05-07T11:16:18.987Z",
       "addressLocality": "Haldenstein",
       "postalCode": "7023",
       "addressCountry": "CH",
@@ -3440,6 +3982,7 @@
         "leiter-in-amt-fur-militar-und-zivilschutz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.050Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3484,7 +4027,7 @@
       "url": "https://apply.refline.ch/514915/2638/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:11:59.516Z",
+      "crawledAt": "2026-05-07T11:16:18.361Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3547,6 +4090,7 @@
         "sachbearbeiter-in-rechtsdienst-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:47.335Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3591,7 +4135,7 @@
       "url": "https://apply.refline.ch/514915/2629/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:11:58.865Z",
+      "crawledAt": "2026-05-07T11:16:17.738Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3637,6 +4181,7 @@
         "schulpsychologin-schulpsychologe-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:45.478Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3681,7 +4226,7 @@
       "url": "https://apply.refline.ch/514915/2639/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:11:58.187Z",
+      "crawledAt": "2026-05-07T11:16:17.054Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3736,6 +4281,7 @@
         "chemiker-in-fh-umweltingenieur-in-fh-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:44.857Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3780,7 +4326,7 @@
       "url": "https://apply.refline.ch/514915/2516/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:11:57.533Z",
+      "crawledAt": "2026-05-07T11:16:16.428Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3844,6 +4390,7 @@
         "polizeikommandant-in-kantonspolizei-graubunden-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:43.616Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3888,7 +4435,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-06T22:11:56.878Z",
+      "crawledAt": "2026-05-07T11:16:15.801Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3952,6 +4499,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
