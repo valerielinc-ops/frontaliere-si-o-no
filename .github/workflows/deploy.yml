@@ -35,7 +35,7 @@ on:
         required: false
         type: string
       profile_sequential:
-        description: 'Run a sequential plugin profile (slower build, accurate per-plugin wall+CPU times). Use only for one-off investigations.'
+        description: 'Investigation-only run: same sequential build as production (now the default), but skips deploy/validate/upload steps. Use to inspect [profile-detail] timings without consuming a deploy slot.'
         required: false
         type: boolean
         default: false
@@ -301,11 +301,22 @@ jobs:
       - name: Build
         env:
           BUILD_PROFILE: '1'
-          # Opt-in via workflow_dispatch input. When set, profilePlugin forces
-          # closeBundle hooks to run sequentially so per-plugin wall+CPU times
-          # are accurate (parallel execution otherwise overlaps timings).
-          # Slower than normal — use only for one-off investigations.
-          SEQUENTIAL_PROFILE: ${{ github.event.inputs.profile_sequential == 'true' && '1' || '' }}
+          # ALWAYS sequential on the GH free-tier runner (2 vCPU / 7 GB).
+          # Empirical comparison on the same source tree (2026-05-07):
+          #   sequential build job: 12m41s, peak heap ~max(single plugin)
+          #   parallel   build job: 17m48s, peak heap Σ(overlap) → OOM at
+          #     18k cluster pages (run a7f28ce129) and 60k+ soft-landings
+          #     (run e9c8ba70bb).
+          # The runner has too few cores / too little RAM for parallel
+          # closeBundle to win: every plugin's wall is INFLATED by
+          # CPU+memory+disk contention with peer plugins, sometimes by
+          # 3-5×. Forcing sequential gives faster builds AND eliminates
+          # the OOM risk that was blocking MIN_JOB_COUNT=1 (50k cluster
+          # pages). The original `profile_sequential` workflow_dispatch
+          # input now only controls whether the deploy steps are skipped
+          # (for profile-only investigation runs) — sequential plugin
+          # execution is on regardless.
+          SEQUENTIAL_PROFILE: '1'
           # Opt-in jobsSeoPagesPlugin per-category profiler. Emits a sorted
           # table at end of the plugin's closeBundle showing count + total +
           # avg + p50 + p99 + min + max (ms) for each emission category
@@ -356,12 +367,12 @@ jobs:
               | sort -t'|' -k3 -nr
             echo ""
             grep -E '^\[profile-total\]' /tmp/build.log | sed 's/^\[profile-total\] /**/' || true
-            # Detailed per-plugin wall+CPU table is emitted only when
-            # SEQUENTIAL_PROFILE was set (workflow_dispatch input). Parallel
-            # closeBundle execution makes wall-clock unreliable as a "who is
-            # slow" signal — see profilePlugin.ts. The detail section uses
-            # the [profile-detail] marker emitted alongside the original
-            # [profile] line, so it's only present on opt-in profiling runs.
+            # Detailed per-plugin wall+CPU table is emitted whenever
+            # SEQUENTIAL_PROFILE=1 is set in the Build step env (which
+            # is now the always-on default — see comment there). The
+            # [profile-detail] marker is emitted alongside the [profile]
+            # line by profilePlugin.ts; per-plugin wall is now reliable
+            # because plugins no longer overlap.
             if grep -qE '^\[profile-detail\]' /tmp/build.log; then
               echo ""
               echo "## Build profile — sequential, per-plugin wall + CPU"
