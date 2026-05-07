@@ -183,6 +183,14 @@ function classifyFeature(relPath) {
   // Border wait pages: IT canonical is `traffico-dogane`; locale variants are
   // border-wait (en), wartezeit-grenze (de), temps-attente-douane (fr).
   if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane|tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|temps-attente-frontiere)\//.test(p)) return 'border-wait';
+  // Weather city + hub pages emit ~40 inline-`<svg>` icons + sprite + Tailwind
+  // shell on a fairly compact text body, so they have a distinct ratio
+  // profile vs the generic SPA prerender. Keep them in their own bucket so
+  // baseline tracking doesn't conflate weather with SPA-locale failures.
+  // IT: /meteo-frontalieri/, EN: /commute-weather/, DE: /pendler-wetter/,
+  // FR: /meteo-frontaliers/. Alert pages: /allerte-meteo/, /weather-alerts/,
+  // /wetter-warnungen/, /alertes-meteo/.
+  if (/(?:^|\/)(?:meteo-frontalieri|commute-weather|pendler-wetter|meteo-frontaliers|allerte-meteo|weather-alerts|wetter-warnungen|alertes-meteo)\//.test(p)) return 'weather';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }

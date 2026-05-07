@@ -9,6 +9,7 @@
     "fuel-daily": 62,
     "spa-locale": 10,
     "job-market-snapshot": 5,
+    "weather": 4,
     "blog": 3,
     "weekly-employers": 1,
     "career-landings": 0,
@@ -16,5 +17,5 @@
     "border-wait": 0,
     "health-premiums": 0
   },
-  "_comment": "Rebased 2026-05-06 from prod dist (post-deploy 25412062617, deploy of 3285469faa). Total 1045→471 (-574, -55%) — orphan-landing leaf prose + salary-hub article methodology block from this orchestration cycle drove a major drop. Per-feature spa-other went 20→62 because cron-published orphan-landings keep adding leaves faster than the prose helper can add coverage; long-term fix is to extend renderClusterEditorial to every leaf template (currently only top clusters get the full methodology+who-it's-for block). job-board went 830→328 (-502, -60%) from the commuter-context prose helper. health-premiums + career-landings + weekly-employers-hub + border-wait remain at 0 — those templates have substantial methodology + FAQ content. Numbers must only DECREASE going forward."
+  "_comment": "Rebased 2026-05-06 from prod dist (post-deploy 25412062617, deploy of 3285469faa). Total 1045→471 (-574, -55%) — orphan-landing leaf prose + salary-hub article methodology block from this orchestration cycle drove a major drop. Per-feature spa-other went 20→62 because cron-published orphan-landings keep adding leaves faster than the prose helper can add coverage; long-term fix is to extend renderClusterEditorial to every leaf template (currently only top clusters get the full methodology+who-it's-for block). job-board went 830→328 (-502, -60%) from the commuter-context prose helper. health-premiums + career-landings + weekly-employers-hub + border-wait remain at 0 — those templates have substantial methodology + FAQ content. Weather bucket added 2026-05-07: weather city/hub pages emit ~40 inline-svg icons + sprite + Tailwind shell — distinct ratio profile from generic SPA-locale. Initial baseline 4 (the 4 hubs IT/EN/DE/FR before the renderHubMethodology + renderHubClimateNotes prose additions); should drop after deploy with content. Numbers must only DECREASE going forward."
 }
