@@ -22,8 +22,10 @@ jobs:
         run: |
           git config user.name "alerts-bot"
           git config user.email "alerts-bot@frontaliereticino.ch"
-          git pull --rebase origin main
-          git add data/alert-snoozes.json data/quality-alerts-history.jsonl
+          # Stage modified state files BEFORE rebase so rebase doesn't fail
+          # on unstaged changes from the alerts runner.
+          git add data/alert-snoozes.json data/quality-alerts-history.jsonl 2>/dev/null || true
+          git pull --rebase --autostash origin main
           if git diff --cached --quiet; then
             echo "No alert state changes to commit"
           else

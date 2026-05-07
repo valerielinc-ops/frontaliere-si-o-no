@@ -161,6 +161,21 @@ async function main() {
   }
 
   if (toEmbed.length > 0) {
+    if (!process.env.OPENAI_API_KEY) {
+      console.error(`EMBEDDINGS_BUILD skipped — OPENAI_API_KEY missing. ${toEmbed.length} articles would have been embedded; cascadedScore will fall through to cluster median for unembedded articles. Set the secret to enable embedding step.`);
+      // Preserve existing embeddings file (if any). Do not write a new one.
+      // Still emit the meta sidecar so downstream tools know the count.
+      const meta = {
+        model: EMBEDDING_MODEL,
+        dim: EMBEDDING_DIM,
+        count: existingStore.count,
+        builtAt: new Date().toISOString(),
+        skipped: 'OPENAI_API_KEY missing',
+      };
+      writeFileSync(OUTPUT_META, JSON.stringify(meta, null, 2) + '\n');
+      console.error(`EMBEDDINGS_BUILD wrote meta-only sidecar at ${OUTPUT_META}`);
+      return;
+    }
     console.error(`EMBEDDINGS_BUILD embedding ${toEmbed.length} new articles (incremental=${isIncremental || !isFullRebuild})`);
     for (let i = 0; i < toEmbed.length; i += BATCH_SIZE) {
       const batch = toEmbed.slice(i, i + BATCH_SIZE);
