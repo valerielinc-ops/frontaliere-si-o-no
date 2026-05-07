@@ -4,7 +4,6 @@ on:
     - cron: '0 4 * * *'  # daily 04:00 UTC
   workflow_dispatch:
 
-# tune-quota job comes in Phase 4 — for now only build-evidence runs.
 jobs:
   build-evidence:
     runs-on: ubuntu-latest
@@ -51,5 +50,37 @@ jobs:
             echo "No evidence changes to commit"
           else
             git commit -m "chore(evidence): refresh $(date -u +%Y-%m-%d)"
+            git push origin HEAD:main
+          fi
+
+  tune-quota:
+    needs: build-evidence
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+
+      - name: Pull latest evidence commit from build-evidence job
+        run: git pull --rebase origin main
+
+      - name: Tune discovery quota
+        run: node scripts/tune-discovery-quota.mjs
+
+      - name: Commit tune state
+        run: |
+          git config user.name "tune-bot"
+          git config user.email "tune-bot@frontaliereticino.ch"
+          git pull --rebase origin main
+          git add data/quota-state.json data/quota-history.jsonl
+          if git diff --cached --quiet; then
+            echo "No tune changes to commit"
+          else
+            git commit -m "chore(tune): quota update $(date -u +%Y-%m-%d)"
             git push origin HEAD:main
           fi
