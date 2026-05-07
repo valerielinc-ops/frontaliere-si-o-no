@@ -736,7 +736,9 @@
     "italia-sospetti-var-minetti-quirinale",
     "parcheggio-abusivo-como-villa-olmo",
     "hodler-dipinto-eredita-frontalieri",
-    "tensioni-geopolitiche-elettrico-ticino"
+    "tensioni-geopolitiche-elettrico-ticino",
+    "menaggio-test-automobilisti-guai",
+    "udc-sostenibilita-lavoro-ticino-2026"
   ],
   "failed": [
     {
@@ -6543,8 +6545,23 @@
       "id": "udc-sostenibilita-lavoro-ticino-2026",
       "error": "Unterminated string in JSON at position 184 (line 4 column 93)",
       "at": "2026-05-06T04:14:34.587Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 283 (line 4 column 141)",
+      "at": "2026-05-07T04:13:07.675Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 186 (line 4 column 108)",
+      "at": "2026-05-07T04:13:27.242Z"
+    },
+    {
+      "id": "hendsichen-arresto-francese-autodiebstahl",
+      "error": "Unterminated string in JSON at position 560 (line 8 column 6)",
+      "at": "2026-05-07T04:13:46.106Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-06T04:14:34.587Z"
+  "updatedAt": "2026-05-07T04:14:12.063Z"
 }
