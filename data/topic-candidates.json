@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T06:05:27.727Z",
+  "generatedAt": "2026-05-07T06:14:30.736Z",
   "sources": {
     "gscOrphans": {
       "ok": true,
@@ -7,15 +7,16 @@
     },
     "googleTrendsIt": {
       "ok": true,
-      "candidates": 10
+      "candidates": 2
     },
     "googleTrendsItLombardia": {
       "ok": true,
       "candidates": 1
     },
     "googleTrendsCh": {
-      "ok": true,
-      "candidates": 10
+      "ok": false,
+      "candidates": 0,
+      "reason": "rate-limited from CI IP — known limitation, residential proxy needed for reliable Trends"
     },
     "redditTicino": {
       "ok": true,
@@ -41,246 +42,6 @@
   },
   "candidates": [
     {
-      "id": "5b3abfb7",
-      "keyword": "budapest",
-      "normalizedKeyword": "budapest",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 100,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 100",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "2675df42",
-      "keyword": "estorsione",
-      "normalizedKeyword": "estorsione",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsIt"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 200,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 200",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "ddd746af",
-      "keyword": "gerlafingen",
-      "normalizedKeyword": "gerlafingen",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 200,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 200",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "f22a7c56",
-      "keyword": "hakan çalhanoğlu",
-      "normalizedKeyword": "hakan calhanoglu",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 200,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 200",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "7388662f",
-      "keyword": "joao neves",
-      "normalizedKeyword": "joao neves",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 100,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 100",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "abd3b9b5",
-      "keyword": "manila gorio",
-      "normalizedKeyword": "manila gorio",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsIt"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 100,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 100",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "08f770b2",
-      "keyword": "prime pagine",
-      "normalizedKeyword": "prime pagine",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsIt"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 100,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 100",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "fe798ef1",
-      "keyword": "silvia salis",
-      "normalizedKeyword": "silvia salis",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 100,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 100",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "40f1f37a",
-      "keyword": "spurs – timberwolves",
-      "normalizedKeyword": "spurs – timberwolves",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 200,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 200",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "7bd6a2ac",
-      "keyword": "weinfelden",
-      "normalizedKeyword": "weinfelden",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 200,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 200",
-      "demandScore": 1,
-      "noveltyScore": 1,
-      "totalScore": 1
-    },
-    {
-      "id": "59cad3c9",
-      "keyword": "angelo binaghi",
-      "normalizedKeyword": "angelo binaghi",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsIt"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 500,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 500",
-      "demandScore": 1,
-      "noveltyScore": 0.909,
-      "totalScore": 0.964
-    },
-    {
-      "id": "dad4a8ca",
-      "keyword": "joschka fischer",
-      "normalizedKeyword": "joschka fischer",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 200,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 200",
-      "demandScore": 1,
-      "noveltyScore": 0.889,
-      "totalScore": 0.956
-    },
-    {
       "id": "d88c3096",
       "keyword": "meteo 3b",
       "normalizedKeyword": "meteo 3b",
@@ -296,46 +57,6 @@
         "googleTrendsViaRss": true
       },
       "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 500",
-      "demandScore": 1,
-      "noveltyScore": 0.875,
-      "totalScore": 0.95
-    },
-    {
-      "id": "104ecd50",
-      "keyword": "sorteggio playoff serie c",
-      "normalizedKeyword": "sorteggio playoff serie c",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsIt"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 2000,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 2000",
-      "demandScore": 1,
-      "noveltyScore": 0.875,
-      "totalScore": 0.95
-    },
-    {
-      "id": "4ee9e4f8",
-      "keyword": "srf meteo",
-      "normalizedKeyword": "srf meteo",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 200,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 200",
       "demandScore": 1,
       "noveltyScore": 0.875,
       "totalScore": 0.95
@@ -360,86 +81,6 @@
       "demandScore": 1,
       "noveltyScore": 0.857,
       "totalScore": 0.943
-    },
-    {
-      "id": "b2031837",
-      "keyword": "swiss flugzeug",
-      "normalizedKeyword": "swiss flugzeug",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsCh"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 5000,
-        "googleTrendsGeo": "CH",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (CH, daily trending) — approx_traffic 5000",
-      "demandScore": 1,
-      "noveltyScore": 0.857,
-      "totalScore": 0.943
-    },
-    {
-      "id": "12a6ac42",
-      "keyword": "sciopero 7 maggio",
-      "normalizedKeyword": "sciopero 7 maggio",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsIt"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 100,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 100",
-      "demandScore": 1,
-      "noveltyScore": 0.833,
-      "totalScore": 0.933
-    },
-    {
-      "id": "bcdd2c59",
-      "keyword": "buon giovedi 7 maggio 2026",
-      "normalizedKeyword": "buon giovedi 7 maggio 2026",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsIt"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 200,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 200",
-      "demandScore": 1,
-      "noveltyScore": 0.778,
-      "totalScore": 0.911
-    },
-    {
-      "id": "0427a6b7",
-      "keyword": "il vangelo di oggi",
-      "normalizedKeyword": "il vangelo di oggi",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsIt"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 100,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 100",
-      "demandScore": 1,
-      "noveltyScore": 0.75,
-      "totalScore": 0.9
     },
     {
       "id": "67c178d5",
