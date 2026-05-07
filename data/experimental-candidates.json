@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T13:25:23.119Z",
+  "generatedAt": "2026-05-07T14:07:42.638Z",
   "sources": {
     "redditTicino": {
       "ok": true,
@@ -23,28 +23,6 @@
     }
   },
   "candidates": [
-    {
-      "id": "ceaaead6",
-      "keyword": "Nottambuli di r/Italy, come fate a convivere con gli orari imposti dalla società odierna?",
-      "normalizedKeyword": "nottambuli di r/italy, come fate a convivere con gli orari imposti dalla societa odierna?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditItaly"
-      ],
-      "demandSignals": {
-        "redditScore": 22,
-        "redditComments": 0,
-        "redditCombined": 22,
-        "redditSubreddit": "italy",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/italy RSS feed — recency-based baseline 22 (engagement unavailable)",
-      "demandScore": 0.22,
-      "noveltyScore": 0.864,
-      "totalScore": 0.478
-    },
     {
       "id": "3de315a1",
       "keyword": "Ma la polizia svizzera ha la facolta' di inseguire persone in territorio italiano?",
@@ -212,6 +190,28 @@
       "demandScore": 0,
       "noveltyScore": 0.905,
       "totalScore": 0.362
+    },
+    {
+      "id": "ceaaead6",
+      "keyword": "Nottambuli di r/Italy, come fate a convivere con gli orari imposti dalla società odierna?",
+      "normalizedKeyword": "nottambuli di r/italy, come fate a convivere con gli orari imposti dalla societa odierna?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditItaly"
+      ],
+      "demandSignals": {
+        "redditScore": 22,
+        "redditComments": 0,
+        "redditCombined": 22,
+        "redditSubreddit": "italy",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/italy RSS feed — recency-based baseline 22 (engagement unavailable)",
+      "demandScore": 0.22,
+      "noveltyScore": 0.571,
+      "totalScore": 0.36
     },
     {
       "id": "4d68793f",
@@ -598,6 +598,26 @@
       "totalScore": 0.347
     },
     {
+      "id": "882ac2fd",
+      "keyword": "Pensioni svizzere tassate al 5% anche se pagate all’estero - QuotidianoPiù",
+      "normalizedKeyword": "pensioni svizzere tassate al 5% anche se pagate all’estero - quotidianopiu",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdy1TVEZaV2dITUpjN0lZQzlVdkdBYWljc21OTjFrNU93RGZjN3VMQnZQRkVNb0FwRG5fWldhSTFlSVppMXgzTVUxTENCblVaVEk5TDBDb2NzSTB1eUQzcTNodFMxcTExVmdzUllNQlBEMVFaa1Z5Y1RQMXRsQzBzYTJvY0xIZ01sUXlMaHFHNFZtcTV5aUNWcUtqemJUYzBpcWVHTWdCUGkwZkdwcVVhN21qUQ?oc=5",
+        "googleNewsRssPubDate": "Mon, 16 Jan 2023 08:00:00 GMT",
+        "googleNewsRssSource": "QuotidianoPiù"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — QuotidianoPiù",
+      "demandScore": 0,
+      "noveltyScore": 0.864,
+      "totalScore": 0.346
+    },
+    {
       "id": "01b44eaf",
       "keyword": "Frontalieri, situazione pesantissima con Roma. Il Ticino: “Bloccare o ridurre i ristorni”, ci sono due precedenti da oltre 30 milioni e hanno funzionato - ComoZero",
       "normalizedKeyword": "frontalieri, situazione pesantissima con roma. il ticino: “bloccare o ridurre i ristorni”, ci sono due precedenti da oltre 30 milioni e hanno funzionato - comozero",
@@ -933,6 +953,26 @@
         "googleNewsRssSource": "TradingView"
       },
       "rationale": "Google News RSS seed \"LPP\" — TradingView",
+      "demandScore": 0,
+      "noveltyScore": 0.846,
+      "totalScore": 0.338
+    },
+    {
+      "id": "c1d87250",
+      "keyword": "No a tasse su biglietti aerei e kerosene - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "no a tasse su biglietti aerei e kerosene - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "tasse svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQZzNNVVpEN1dydXpfemxKZTRXUGtsOVd3YmtuaWZ4OXNud3ctV0h0X1VZX25jVmcyaUE5Vk1BcGhYZE9rUlZlLU1iaW84RWVOYkczWlVuNXl6U3huRlExb1p0cUM1LVdyVGtHQ011YnA5a0dJeEJqVXcxMm1XbUEwTmRwb1dGTm9LdTJ3OFVIZ3g?oc=5",
+        "googleNewsRssPubDate": "Tue, 28 Apr 2026 09:20:16 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"tasse svizzera\" — RSI Radiotelevisione svizzera",
       "demandScore": 0,
       "noveltyScore": 0.846,
       "totalScore": 0.338
@@ -1578,26 +1618,6 @@
       "totalScore": 0.33
     },
     {
-      "id": "adfe93f9",
-      "keyword": "Sgravio fiscale frontalieri: già attivo il servizio Usl - San Marino Rtv",
-      "normalizedKeyword": "sgravio fiscale frontalieri: gia attivo il servizio usl - san marino rtv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUk9yWGRqR0szemRKZF8wN3VpamF5aC1NY0hzblRNdnJua210TDlpYjFza0c3aEJtb0FsSXBhb1o3VWRwQWRWRHJLZjdiN3BtQ2FoTHdfY0g2SnlUa3VpRk1DNnJ2UjlHQ2hCYkVqcU1sb3JxbGxnWG5qWC1iQzI3cGNRYUJHTV95OGFKRTBXb3VLVVpfQkRvUldJbnIwa2Myb1EtMHJn?oc=5",
-        "googleNewsRssPubDate": "Mon, 21 Oct 2013 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
-      },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
-      "demandScore": 0,
-      "noveltyScore": 0.824,
-      "totalScore": 0.33
-    },
-    {
       "id": "0b44bee5",
       "keyword": "Esistono Tutor in autostrada in Ticino e svizzera?",
       "normalizedKeyword": "esistono tutor in autostrada in ticino e svizzera?",
@@ -1655,26 +1675,6 @@
         "googleNewsRssSource": "Fiscomania"
       },
       "rationale": "Google News RSS seed \"permesso G\" — Fiscomania",
-      "demandScore": 0,
-      "noveltyScore": 0.818,
-      "totalScore": 0.327
-    },
-    {
-      "id": "4ba36f14",
-      "keyword": "Frontalieri: gazebo in piazza a Rimini - San Marino Rtv",
-      "normalizedKeyword": "frontalieri: gazebo in piazza a rimini - san marino rtv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPWTJPNmpIbnB1a05DZXg3Rko5Rm1KNkZOQnJCc3JmSzBfSjBxUU10NGl4WUp2SDI1WHctSXNHcEdQclVqYVVxVUZTd1BLWFNOV1I1REhxUVBxRFAtM3JqNnNDRFJ6Y0Y2c21hS3FSZjhSVDJEVXdoaXQwaDU1MkxkWUl4aU81SWVVZlZXQg?oc=5",
-        "googleNewsRssPubDate": "Sat, 25 Jan 2014 08:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
-      },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
       "demandScore": 0,
       "noveltyScore": 0.818,
       "totalScore": 0.327

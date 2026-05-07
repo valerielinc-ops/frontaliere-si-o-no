@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T13:25:14.443Z",
+  "generatedAt": "2026-05-07T14:07:34.057Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -9,8 +9,8 @@
     {
       "kw": "frontalieri",
       "normalizedKeyword": "frontalieri",
-      "weight": 0.304,
-      "source": "gsc+suggest",
+      "weight": 0.604,
+      "source": "gsc+suggest+fingerprint",
       "cluster": "generic"
     },
     {
@@ -21,13 +21,6 @@
       "cluster": "novita"
     },
     {
-      "kw": "adeguati",
-      "normalizedKeyword": "adeguati",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
       "kw": "angeli",
       "normalizedKeyword": "angeli",
       "weight": 0.3,
@@ -35,15 +28,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "assunzione",
-      "normalizedKeyword": "assunzione",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
-      "kw": "automatici",
-      "normalizedKeyword": "automatici",
+      "kw": "aprile",
+      "normalizedKeyword": "aprile",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -63,29 +49,29 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "completamente",
-      "normalizedKeyword": "completamente",
+      "kw": "cancellazioni",
+      "normalizedKeyword": "cancellazioni",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
     },
     {
-      "kw": "deviato",
-      "normalizedKeyword": "deviato",
+      "kw": "chiasso",
+      "normalizedKeyword": "chiasso",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "mobilita"
+    },
+    {
+      "kw": "chiuse",
+      "normalizedKeyword": "chiuse",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
     },
     {
-      "kw": "dichiarazione",
-      "normalizedKeyword": "dichiarazione",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
-      "kw": "finalmente",
-      "normalizedKeyword": "finalmente",
+      "kw": "contatto",
+      "normalizedKeyword": "contatto",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -95,13 +81,6 @@
       "normalizedKeyword": "frontaliere",
       "weight": 0.3,
       "source": "suggest",
-      "cluster": "generic"
-    },
-    {
-      "kw": "funzionalita",
-      "normalizedKeyword": "funzionalita",
-      "weight": 0.3,
-      "source": "fingerprint",
       "cluster": "generic"
     },
     {
@@ -133,6 +112,20 @@
       "cluster": "pensioni"
     },
     {
+      "kw": "modificati",
+      "normalizedKeyword": "modificati",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
+      "kw": "mutuo",
+      "normalizedKeyword": "mutuo",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
       "kw": "nuovo accordo fiscale frontalieri",
       "normalizedKeyword": "nuovo accordo fiscale frontalieri",
       "weight": 0.3,
@@ -154,15 +147,8 @@
       "cluster": "pratico"
     },
     {
-      "kw": "posata",
-      "normalizedKeyword": "posata",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
-      "kw": "presentano",
-      "normalizedKeyword": "presentano",
+      "kw": "quartieri",
+      "normalizedKeyword": "quartieri",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -182,8 +168,15 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "selezioni",
-      "normalizedKeyword": "selezioni",
+      "kw": "slowup",
+      "normalizedKeyword": "slowup",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
+      "kw": "subiscono",
+      "normalizedKeyword": "subiscono",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -560,11 +553,11 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere o frontaliero",
-      "normalizedKeyword": "frontaliere o frontaliero",
+      "kw": "frontaliere svizzero che lavora in italia",
+      "normalizedKeyword": "frontaliere svizzero che lavora in italia",
       "weight": 0.12,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "lavoro"
     },
     {
       "kw": "frontalieri svizzera tasse",
@@ -588,13 +581,6 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere ticino",
-      "normalizedKeyword": "frontaliere ticino",
-      "weight": 0.095,
-      "source": "gsc+suggest",
-      "cluster": "generic"
-    },
-    {
       "kw": "aliquote irpef frontalieri",
       "normalizedKeyword": "aliquote irpef frontalieri",
       "weight": 0.09,
@@ -607,6 +593,13 @@
       "weight": 0.09,
       "source": "suggest",
       "cluster": "pensioni"
+    },
+    {
+      "kw": "frontaliere o frontaliero",
+      "normalizedKeyword": "frontaliere o frontaliero",
+      "weight": 0.09,
+      "source": "suggest",
+      "cluster": "generic"
     },
     {
       "kw": "frontalieri svizzeri cu",
@@ -630,18 +623,18 @@
       "cluster": "fiscale"
     },
     {
+      "kw": "frontaliere ticino",
+      "normalizedKeyword": "frontaliere ticino",
+      "weight": 0.065,
+      "source": "gsc+suggest",
+      "cluster": "generic"
+    },
+    {
       "kw": "calcolo busta paga svizzera",
       "normalizedKeyword": "calcolo busta paga svizzera",
       "weight": 0.06,
       "source": "suggest",
       "cluster": "fiscale"
-    },
-    {
-      "kw": "frontaliere in inglese",
-      "normalizedKeyword": "frontaliere in inglese",
-      "weight": 0.06,
-      "source": "suggest",
-      "cluster": "generic"
     },
     {
       "kw": "frontalieri significato",
@@ -672,8 +665,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere svizzera km",
-      "normalizedKeyword": "frontaliere svizzera km",
+      "kw": "frontaliere in inglese",
+      "normalizedKeyword": "frontaliere in inglese",
       "weight": 0.03,
       "source": "suggest",
       "cluster": "generic"
