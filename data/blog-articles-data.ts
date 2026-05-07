@@ -21665,4 +21665,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'hantavirus-svizzera-frontalieri-2026',
+ category: 'novita',
+ date: '2026-05-07T12:40:37.150Z',
+ image: '/images/blog/hantavirus-svizzera-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6765,6 +6765,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-elettricita-inverno-2026.title': 'Svizzera a rischio blackout: cosa cambia per i frontalieri',
     'blog.article.svizzera-elettricita-inverno-2026.excerpt': 'La Svizzera rischia carenze elettriche nel 2026. Ecco le implicazioni per chi lavora in Ticino e vive in Italia',
     'blog.article.svizzera-elettricita-inverno-2026.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.title': 'Hantavirus in Svizzera: casi rari, basso rischio di epidemia',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.excerpt': 'Gli esperti rassicurano: i casi di hantavirus in Svizzera sono rari e il rischio di epidemia è basso. Ecco cosa sapere per i frontalieri.',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.imageAlt': 'Lago di Lugano con lo skyline della città sullo sfondo',
 };
 
 export default blogMetaIt;

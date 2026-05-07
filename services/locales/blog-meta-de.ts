@@ -6764,6 +6764,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-elettricita-inverno-2026.title': 'Schweiz droht Blackout: Auswirkungen für Grenzgänger',
     'blog.article.svizzera-elettricita-inverno-2026.excerpt': 'Die Schweiz könnte 2026 mit Strommangel konfrontiert sein. Hier sind die Auswirkungen für Personen, die im Tessin arbeiten und in Italien leben.',
     'blog.article.svizzera-elettricita-inverno-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.title': 'Hantavirus in der Schweiz: seltene Fälle, geringes Epidemie-Risiko',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.excerpt': 'Experten beruhigen: Hantavirus-Fälle in der Schweiz sind selten und das Epidemie-Risiko gering. Hier erfahren Grenzgänger, was sie wissen müssen.',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.imageAlt': 'Luganersee mit der Skyline der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

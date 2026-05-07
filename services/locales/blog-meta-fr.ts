@@ -6765,6 +6765,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-elettricita-inverno-2026.title': 'Suisse en risque de blackout : ce qui change pour les frontaliers',
     'blog.article.svizzera-elettricita-inverno-2026.excerpt': 'La Suisse risque des pénuries électriques en 2026. Voici les implications pour ceux qui travaillent au Tessin et vivent en Italie',
     'blog.article.svizzera-elettricita-inverno-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.title': 'Hantavirus en Suisse: cas rares, faible risque d\'épidémie',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.excerpt': 'Les experts rassurent: les cas de hantavirus en Suisse sont rares et le risque d\'épidémie est faible. Voici ce que savoir pour les frontaliers.',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.imageAlt': 'Lac de Lugano avec la skyline de la ville en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -6764,6 +6764,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-elettricita-inverno-2026.title': 'Switzerland at risk of blackout: what changes for cross-border workers',
     'blog.article.svizzera-elettricita-inverno-2026.excerpt': 'Switzerland faces electricity shortages in 2026. Here are the implications for those working in Ticino and living in Italy',
     'blog.article.svizzera-elettricita-inverno-2026.imageAlt': 'Aerial view of Lake Lugano with Swiss-Italian border in focus',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.title': 'Hantavirus in Switzerland: rare cases, low epidemic risk',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.excerpt': 'Experts reassure: hantavirus cases in Switzerland are rare and the risk of an epidemic is low. Here\'s what cross-border workers need to know.',
+    'blog.article.hantavirus-svizzera-frontalieri-2026.imageAlt': 'Lake Lugano with the city skyline in the background',
 };
 
 export default blogMetaEn;
