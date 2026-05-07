@@ -1,18 +1,56 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-05-06T21:56:27.748Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-05-07T11:00:54.192Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1432,
-  "avgDurationMs": 1432,
+  "durationMs": 2769,
+  "avgDurationMs": 2769,
   "durationHistory": [
-    1432
+    2769
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Developer PL/SQL - Banking Area",
+      "slug": "developer-pl-sql-banking-area-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/Af7BR0uaxx/Developer-PLSQL-Banking-Area",
+      "applyUrl": "https://fincons.applytojob.com/apply/Af7BR0uaxx/Developer-PLSQL-Banking-Area",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-07",
+      "validThrough": "2026-08-05",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260402151543_KQ4FIE2ATX4JQ4IX",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Angular / Java - Senior Full-Stack Developer",
