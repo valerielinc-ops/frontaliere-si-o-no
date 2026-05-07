@@ -15,29 +15,39 @@
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-673001",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-685630",
-    "https://team.lidl.ch/it/jobs/268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-locarno-665443",
     "https://team.lidl.ch/it/jobs/343-venditore-venditrice-m-f-d-20-40-minusio-685490",
+    "https://team.lidl.ch/it/jobs/361-venditore-venditrice-m-f-d-20-40-riazzino-674241",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-604777",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lugano-588267",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-minusio-606859",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231"
+    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
+    "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-40-locarno-658586"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch) using Ticino and Grigioni italiano geo queries.",
-  "updatedAt": "2026-05-06T22:16:43.407Z",
+  "updatedAt": "2026-05-07T11:20:41.987Z",
   "seedMetaByUrl": {
-    "https://team.lidl.ch/it/jobs/343-venditore-venditrice-m-f-d-20-40-minusio-685490": {
-      "location": "Minusio",
-      "addressLocality": "Minusio",
+    "https://team.lidl.ch/it/jobs/361-venditore-venditrice-m-f-d-20-40-riazzino-674241": {
+      "location": "Riazzino",
+      "addressLocality": "Riazzino",
       "canton": "TI",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/it/jobs/268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-locarno-665443": {
+    "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-40-locarno-658586": {
       "location": "Locarno",
       "addressLocality": "Locarno",
+      "canton": "TI",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/343-venditore-venditrice-m-f-d-20-40-minusio-685490": {
+      "location": "Minusio",
+      "addressLocality": "Minusio",
       "canton": "TI",
       "country": "CH",
       "company": "Lidl Svizzera",
