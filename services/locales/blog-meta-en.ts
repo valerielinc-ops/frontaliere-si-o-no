@@ -6809,6 +6809,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.suini-svizzera-compenso-allevatori.title': 'Swiss pig compensation for reduced production',
     'blog.article.suini-svizzera-compenso-allevatori.excerpt': 'Switzerland offers compensation to reduce pig meat overproduction. Here\'s what changes for cross-border workers and farmers.',
     'blog.article.suini-svizzera-compenso-allevatori.imageAlt': 'Swiss market with pork products in Ticino',
+    'blog.article.polizia-svizzera-inseguimento-italia.title': 'Can Swiss police chase into Italy?',
+    'blog.article.polizia-svizzera-inseguimento-italia.excerpt': 'Let\'s explore the details of cross-border pursuits between Switzerland and Italy, focusing on Canton Ticino and cross-border workers',
+    'blog.article.polizia-svizzera-inseguimento-italia.imageAlt': 'Swiss police car near the Italian border with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

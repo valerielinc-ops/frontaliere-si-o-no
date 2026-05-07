@@ -21800,4 +21800,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'polizia-svizzera-inseguimento-italia',
+ category: 'pratico',
+ date: '2026-05-07T15:29:27.352Z',
+ image: '/images/blog/polizia-svizzera-inseguimento-italia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

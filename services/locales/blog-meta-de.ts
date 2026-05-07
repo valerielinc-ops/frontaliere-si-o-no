@@ -6809,6 +6809,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.suini-svizzera-compenso-allevatori.title': 'Schweiz zahlt Schweinehaltern für Produktionsreduktion',
     'blog.article.suini-svizzera-compenso-allevatori.excerpt': 'Die Schweiz bietet Entschädigungen für die Reduzierung der Schweinefleisch-Überproduktion. Hier erfahren Sie, was sich für Grenzgänger und Schweinehalter ändert.',
     'blog.article.suini-svizzera-compenso-allevatori.imageAlt': 'Schweizer Markt mit Schweinefleischprodukten in Tessin',
+    'blog.article.polizia-svizzera-inseguimento-italia.title': 'Darf die Schweizer Polizei in Italien verfolgen?',
+    'blog.article.polizia-svizzera-inseguimento-italia.excerpt': 'Wir klären die Details zu grenzüberschreitenden Verfolgungsjagden zwischen der Schweiz und Italien, mit Fokus auf den Kanton Tessin und Grenzgänger',
+    'blog.article.polizia-svizzera-inseguimento-italia.imageAlt': 'Schweizer Polizeiauto in der Nähe der italienischen Grenze mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

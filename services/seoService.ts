@@ -3512,6 +3512,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-confisca-patrimoni-mafiosi-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/confisca-patrimoni-mafiosi-svizzera-2026', parent: 'blog' },
     'blog-ia-svizzera-uso-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/ia-svizzera-uso-frontalieri-2026', parent: 'blog' },
     'blog-suini-svizzera-compenso-allevatori': { name: 'Novità', path: '/articoli-frontaliere/suini-svizzera-compenso-allevatori', parent: 'blog' },
+    'blog-polizia-svizzera-inseguimento-italia': { name: 'Polizia svizzera', path: '/articoli-frontaliere/polizia-svizzera-inseguimento-italia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

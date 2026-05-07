@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2322,
+ "numberOfItems": 2323,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6964,7 +6964,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2319, "name": "Convegno sulle pari opportunità in Ticino: cult...", "url": `${BASE_URL}/articoli-frontaliere/cultura-pari-opportunita-ticino-2024` },
           { "@type": "ListItem", "position": 2320, "name": "Confisca patrimoni mafiosi in Svizzera: propost...", "url": `${BASE_URL}/articoli-frontaliere/confisca-patrimoni-mafiosi-svizzera-2026` },
           { "@type": "ListItem", "position": 2321, "name": "IA in Svizzera: oltre un terzo degli adulti la usa", "url": `${BASE_URL}/articoli-frontaliere/ia-svizzera-uso-frontalieri-2026` },
-          { "@type": "ListItem", "position": 2322, "name": "Suini in Svizzera: compenso per allevatori per ...", "url": `${BASE_URL}/articoli-frontaliere/suini-svizzera-compenso-allevatori` }
+          { "@type": "ListItem", "position": 2322, "name": "Suini in Svizzera: compenso per allevatori per ...", "url": `${BASE_URL}/articoli-frontaliere/suini-svizzera-compenso-allevatori` },
+          { "@type": "ListItem", "position": 2323, "name": "Polizia svizzera può inseguire in Italia?", "url": `${BASE_URL}/articoli-frontaliere/polizia-svizzera-inseguimento-italia` }
  ]
  },
  {

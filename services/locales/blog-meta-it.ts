@@ -6810,6 +6810,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.suini-svizzera-compenso-allevatori.title': 'Suini in Svizzera: compenso per allevatori per ridurre produzione',
     'blog.article.suini-svizzera-compenso-allevatori.excerpt': 'La Svizzera offre compensi per ridurre la sovrapproduzione di carne suina. Ecco cosa cambia per i frontalieri e gli allevatori.',
     'blog.article.suini-svizzera-compenso-allevatori.imageAlt': 'Mercato svizzero con prodotti di carne suina in Ticino',
+    'blog.article.polizia-svizzera-inseguimento-italia.title': 'Polizia svizzera può inseguire in Italia?',
+    'blog.article.polizia-svizzera-inseguimento-italia.excerpt': 'Scopriamo insieme i dettagli sugli inseguimenti transfrontalieri tra Svizzera e Italia, con focus su Canton Ticino e frontalieri',
+    'blog.article.polizia-svizzera-inseguimento-italia.imageAlt': 'Auto della polizia svizzera vicino al confine con l\'Italia, con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

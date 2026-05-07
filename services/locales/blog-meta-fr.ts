@@ -6810,6 +6810,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.suini-svizzera-compenso-allevatori.title': 'Suiniculture en Suisse : compensation pour réduire la production',
     'blog.article.suini-svizzera-compenso-allevatori.excerpt': 'La Suisse offre des compensations pour réduire la surproduction de viande porcine. Voici ce qui change pour les frontaliers et les éleveurs.',
     'blog.article.suini-svizzera-compenso-allevatori.imageAlt': 'Marché suisse avec des produits de porc en Tessin',
+    'blog.article.polizia-svizzera-inseguimento-italia.title': 'La police suisse peut-elle poursuivre en Italie ?',
+    'blog.article.polizia-svizzera-inseguimento-italia.excerpt': 'Découvrons ensemble les détails des poursuites transfrontalières entre la Suisse et l\'Italie, avec un focus sur le canton du Tessin et les travailleurs frontaliers',
+    'blog.article.polizia-svizzera-inseguimento-italia.imageAlt': 'Voiture de police suisse près de la frontière italienne avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
