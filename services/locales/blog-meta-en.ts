@@ -6587,6 +6587,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.title': 'Roveredo: Patriziato strikes over crime management',
     'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.excerpt': 'The Patriziato of Roveredo has been protesting for over a month against the Canton\'s lack of concrete actions on residence permit controls, limiting naturalizations.',
     'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.imageAlt': 'View of Roveredo in Ticino with protest symbols and security control',
+    'blog.article.varese-friuli-solidarieta-2026.title': 'Varese and Friuli: 50 Years of Solidarity and Rebuilding',
+    'blog.article.varese-friuli-solidarieta-2026.excerpt': 'A report on how volunteers from the Varese area supported Friuli after the 1976 earthquake, featuring testimonies and 2026 celebrations.',
+    'blog.article.varese-friuli-solidarieta-2026.imageAlt': 'Volunteers from Varese helping to rebuild a village in Friuli after the 1976 earthquake',
 };
 
 export default blogMetaEn;

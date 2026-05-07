@@ -6588,6 +6588,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.title': 'Roveredo: il patriziato sciopera contro la gestione della criminalità',
     'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.excerpt': 'Il Patriziato di Roveredo protesta da oltre un mese contro l\'assenza di interventi concreti del Cantone sui controlli dei permessi di soggiorno, limitando le naturalizzazioni.',
     'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.imageAlt': 'Vista di Roveredo in Ticino con simboli di protesta e controllo di sicurezza',
+    'blog.article.varese-friuli-solidarieta-2026.title': 'Varese e il Friuli: 50 anni di solidarietà e ricostruzione',
+    'blog.article.varese-friuli-solidarieta-2026.excerpt': 'Un reportage su come i volontari del Varesotto hanno aiutato il Friuli dopo il terremoto del 1976, con testimonianze e celebrazioni del 2026',
+    'blog.article.varese-friuli-solidarieta-2026.imageAlt': 'Volontari del Varesotto aiutano a ricostruire un villaggio in Friuli dopo il terremoto del 1976',
 };
 
 export default blogMetaIt;

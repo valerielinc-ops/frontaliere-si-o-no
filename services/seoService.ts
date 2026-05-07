@@ -3438,6 +3438,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-italia-risarcimento-300000-euro': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-italia-risarcimento-300000-euro', parent: 'blog' },
     'blog-mariano-comense-assale-ferisce-barista-denunciato': { name: 'Mariano Comense (Como): assale e ferisce', path: '/articoli-frontaliere/mariano-comense-assale-ferisce-barista-denunciato', parent: 'blog' },
     'blog-roveredo-patriziato-sciopera-gestione-criminalit': { name: 'Roveredo', path: '/articoli-frontaliere/roveredo-patriziato-sciopera-gestione-criminalit', parent: 'blog' },
+    'blog-varese-friuli-solidarieta-2026': { name: 'Varese e il Friuli', path: '/articoli-frontaliere/varese-friuli-solidarieta-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

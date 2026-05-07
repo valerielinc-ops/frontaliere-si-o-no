@@ -6588,6 +6588,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.title': 'Roveredo: le patriciat fait grève contre la gestion de la criminalité',
     'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.excerpt': 'Le patriciat de Roveredo proteste depuis plus d\'un mois contre l\'absence d\'interventions concrètes du canton sur les contrôles des permis de séjour, limitant les naturalisations.',
     'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.imageAlt': 'Vue de Roveredo au Tessin avec symboles de protestation et contrôle de sécurité',
+    'blog.article.varese-friuli-solidarieta-2026.title': 'Varèse et le Frioul : 50 ans de solidarité',
+    'blog.article.varese-friuli-solidarieta-2026.excerpt': 'Un reportage sur la manière dont les bénévoles de Varèse ont aidé le Frioul après le tremblement de terre de 1976, avec des témoignages et des célébrations de 2026',
+    'blog.article.varese-friuli-solidarieta-2026.imageAlt': 'Des bénévoles de Varèse aident à reconstruire un village en Frioul après le tremblement de terre de 1976',
 };
 
 export default blogMetaFr;
