@@ -3508,6 +3508,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cedu-condanna-svizzera-liberta-manifestazione': { name: 'Novità', path: '/articoli-frontaliere/cedu-condanna-svizzera-liberta-manifestazione', parent: 'blog' },
     'blog-spaccio-droga-busto-18mila-euro': { name: 'Spaccio di droga', path: '/articoli-frontaliere/spaccio-droga-busto-18mila-euro', parent: 'blog' },
     'blog-incendio-auto-a2-camorino': { name: 'Incendio auto', path: '/articoli-frontaliere/incendio-auto-a2-camorino', parent: 'blog' },
+    'blog-cultura-pari-opportunita-ticino-2024': { name: 'Cultura e inclusione', path: '/articoli-frontaliere/cultura-pari-opportunita-ticino-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

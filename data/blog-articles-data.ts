@@ -21764,4 +21764,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cultura-pari-opportunita-ticino-2024',
+ category: 'pratico',
+ date: '2026-05-07T14:51:07.254Z',
+ image: '/images/blog/cultura-pari-opportunita-ticino-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

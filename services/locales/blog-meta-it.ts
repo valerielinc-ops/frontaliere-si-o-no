@@ -6798,6 +6798,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-auto-a2-camorino.title': 'Incendio auto sull\'A2 in zona Camorino: traffico in tilt',
     'blog.article.incendio-auto-a2-camorino.excerpt': 'Un\'auto in fiamme ha causato rallentamenti sull\'autostrada A2 in direzione nord tra Lugano Nord e la galleria del Monte Ceneri.',
     'blog.article.incendio-auto-a2-camorino.imageAlt': 'Incendio auto sull\'autostrada A2 vicino a Camorino',
+    'blog.article.cultura-pari-opportunita-ticino-2024.title': 'Convegno sulle pari opportunità in Ticino: cultura e inclusione',
+    'blog.article.cultura-pari-opportunita-ticino-2024.excerpt': 'Folto convegno a Lugano su squilibri nel settore artistico e culturale. Focus su finanziamenti, visibilità e ruoli decisionali.',
+    'blog.article.cultura-pari-opportunita-ticino-2024.imageAlt': 'Conferenza sulle pari opportunità in Ticino con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

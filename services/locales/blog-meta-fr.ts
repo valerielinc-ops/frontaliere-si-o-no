@@ -6798,6 +6798,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-auto-a2-camorino.title': 'Incendie de voiture sur l\'A2 près de Camorino : trafic bloqué',
     'blog.article.incendio-auto-a2-camorino.excerpt': 'Une voiture en flammes a causé des ralentissements sur l\'autoroute A2 en direction du nord entre Lugano Nord et le tunnel du Monte Ceneri.',
     'blog.article.incendio-auto-a2-camorino.imageAlt': 'Incendie de voiture sur l\'autoroute A2 près de Camorino',
+    'blog.article.cultura-pari-opportunita-ticino-2024.title': 'Conférence sur l\'égalité des chances au Tessin : culture et inclusion',
+    'blog.article.cultura-pari-opportunita-ticino-2024.excerpt': 'Conférence bien fréquentée à Lugano sur les déséquilibres dans le secteur artistique et culturel. Focus sur les financements, la visibilité et les rôles décisionnels.',
+    'blog.article.cultura-pari-opportunita-ticino-2024.imageAlt': 'Conférence sur l\'égalité des chances au Tessin avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2318,
+ "numberOfItems": 2319,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6960,7 +6960,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2315, "name": "Gavirate: scontro tra auto in zona nordlacuale,...", "url": `${BASE_URL}/articoli-frontaliere/gavirate-incidente-frontalieri-2026` },
           { "@type": "ListItem", "position": 2316, "name": "CEDU condanna la Svizzera per libertà di manife...", "url": `${BASE_URL}/articoli-frontaliere/cedu-condanna-svizzera-liberta-manifestazione` },
           { "@type": "ListItem", "position": 2317, "name": "Spaccio di droga a Busto: sequestrati 18mila eu...", "url": `${BASE_URL}/articoli-frontaliere/spaccio-droga-busto-18mila-euro` },
-          { "@type": "ListItem", "position": 2318, "name": "Incendio auto sull'A2 in zona Camorino: traffic...", "url": `${BASE_URL}/articoli-frontaliere/incendio-auto-a2-camorino` }
+          { "@type": "ListItem", "position": 2318, "name": "Incendio auto sull'A2 in zona Camorino: traffic...", "url": `${BASE_URL}/articoli-frontaliere/incendio-auto-a2-camorino` },
+          { "@type": "ListItem", "position": 2319, "name": "Convegno sulle pari opportunità in Ticino: cult...", "url": `${BASE_URL}/articoli-frontaliere/cultura-pari-opportunita-ticino-2024` }
  ]
  },
  {
