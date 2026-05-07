@@ -25004,6 +25004,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bayern-bayer-differenze-champions-2026': {
+    title: 'Bayern e Bayer: differenze e confusione nella Champions League',
+    description: 'La stampa italiana confonde Bayern Monaco e Bayer Leverkusen, due realtà sportive e geografiche distinte durante la Champions League 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, bayern, bayer, differenze, confusione',
+    ogTitle: 'Bayern e Bayer: differenze e confusione nella Champions League',
+    ogDescription: 'La stampa italiana confonde Bayern Monaco e Bayer Leverkusen, due realtà sportive e geografiche distinte durante la Champions League 2026.',
+    canonicalPath: '/articoli-frontaliere/bayern-bayer-differenze-champions-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bayern e Bayer: differenze e confusione nella Champions League",
+      "description": "La stampa italiana confonde Bayern Monaco e Bayer Leverkusen, due realtà sportive e geografiche distinte durante la Champions League 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/bayern-bayer-differenze-champions-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una partita di calcio in Ticino, Svizzera, con focus sullo stadio e i tifosi."
+      },
+      "datePublished": "2026-05-07T03:40:25+00:00",
+      "dateModified": "2026-05-07T03:40:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bayern-bayer-differenze-champions-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

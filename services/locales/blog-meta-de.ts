@@ -6626,6 +6626,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.teletext-ticino-fuori-uso-2024.title': 'Teletext in Ticino nicht verfügbar: keine Updates, Dienste oder Zugriff',
     'blog.article.teletext-ticino-fuori-uso-2024.excerpt': 'Der Teletext-Service ist derzeit in Ticino nicht verfügbar, was für Grenzgänger, die ihn für aktuelle Informationen nutzen, Unannehmlichkeiten verursacht.',
     'blog.article.teletext-ticino-fuori-uso-2024.imageAlt': 'Person, die auf einen defekten Teletext-Bildschirm in einem Schweizer Bahnhof mit dem Luganersee im Hintergrund schaut',
+    'blog.article.bayern-bayer-differenze-champions-2026.title': 'Bayern und Bayer: Unterschiede und Verwirrung in der Champions League',
+    'blog.article.bayern-bayer-differenze-champions-2026.excerpt': 'Die italienische Presse verwechselt Bayern München und Bayer Leverkusen, zwei unterschiedliche sportliche und geografische Realitäten.',
+    'blog.article.bayern-bayer-differenze-champions-2026.imageAlt': 'Ein Fußballspiel in Tessin, Schweiz, mit Fokus auf das Stadion und die Fans.',
 };
 
 export default blogMetaDe;

@@ -6627,6 +6627,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.teletext-ticino-fuori-uso-2024.title': 'Teletext fuori uso in Ticino: niente aggiornamenti, servizi o accesso',
     'blog.article.teletext-ticino-fuori-uso-2024.excerpt': 'Il servizio Teletext è attualmente fuori uso in Ticino, causando disagi per i frontalieri che lo utilizzano per informazioni aggiornate.',
     'blog.article.teletext-ticino-fuori-uso-2024.imageAlt': 'Persona che guarda uno schermo teletext guasto in una stazione ferroviaria svizzera con il Lago di Lugano sullo sfondo',
+    'blog.article.bayern-bayer-differenze-champions-2026.title': 'Bayern e Bayer: differenze e confusione nella Champions League',
+    'blog.article.bayern-bayer-differenze-champions-2026.excerpt': 'La stampa italiana confonde Bayern Monaco e Bayer Leverkusen, due realtà sportive e geografiche distinte.',
+    'blog.article.bayern-bayer-differenze-champions-2026.imageAlt': 'Una partita di calcio in Ticino, Svizzera, con focus sullo stadio e i tifosi.',
 };
 
 export default blogMetaIt;

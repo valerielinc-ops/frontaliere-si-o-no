@@ -6627,6 +6627,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.teletext-ticino-fuori-uso-2024.title': 'Le télétexte est hors service au Tessin: pas de mises à jour, services ou accès',
     'blog.article.teletext-ticino-fuori-uso-2024.excerpt': 'Le service de télétexte est actuellement hors service au Tessin, causant des désagréments pour les frontaliers qui l\'utilisent pour obtenir des informations mises à jour.',
     'blog.article.teletext-ticino-fuori-uso-2024.imageAlt': 'Personne regardant un écran de télétexte cassé dans une gare suisse avec le lac de Lugano en arrière-plan',
+    'blog.article.bayern-bayer-differenze-champions-2026.title': 'Bayern et Bayer : différences et confusion en Ligue des Champions',
+    'blog.article.bayern-bayer-differenze-champions-2026.excerpt': 'La presse italienne confond Bayern Munich et Bayer Leverkusen, deux réalités sportives et géographiques distinctes.',
+    'blog.article.bayern-bayer-differenze-champions-2026.imageAlt': 'Un match de football au Tessin, Suisse, avec un focus sur le stade et les supporters.',
 };
 
 export default blogMetaFr;

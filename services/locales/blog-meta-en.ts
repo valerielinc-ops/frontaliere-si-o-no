@@ -6626,6 +6626,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.teletext-ticino-fuori-uso-2024.title': 'Teletext service down in Ticino: no updates or access',
     'blog.article.teletext-ticino-fuori-uso-2024.excerpt': 'The Teletext service is currently down in Ticino, causing inconvenience for cross-border workers who use it for up-to-date information.',
     'blog.article.teletext-ticino-fuori-uso-2024.imageAlt': 'Person looking at a broken teletext screen in a Swiss train station with Lake Lugano in the background',
+    'blog.article.bayern-bayer-differenze-champions-2026.title': 'Bayern vs Bayer: Champions League confusion',
+    'blog.article.bayern-bayer-differenze-champions-2026.excerpt': 'Italian media confuse Bayern Munich and Bayer Leverkusen, two distinct sports and geographic realities.',
+    'blog.article.bayern-bayer-differenze-champions-2026.imageAlt': 'A football match in Ticino, Switzerland, focusing on the stadium and fans.',
 };
 
 export default blogMetaEn;
