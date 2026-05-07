@@ -6701,6 +6701,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-ticino-aprile-2026.title': 'Arbeitslosigkeit im Tessin sinkt auf 3% im April',
     'blog.article.disoccupazione-ticino-aprile-2026.excerpt': 'Die Arbeitslosenquote im Tessin ist im April 2026 auf 2,8% gesunken, mit 142.902 arbeitslosen Personen in der Schweiz. Hier ist, was sich für Grenzgänger ändert.',
     'blog.article.disoccupazione-ticino-aprile-2026.imageAlt': 'Bellinzona, Schweiz, ein sonniger Tag mit klaren Himmeln. Die mittelalterliche Architektur der Stadt ist sichtbar, darunter das Castelgrande und der Fluss Ticino, der durch die Stadt fließt.',
+    'blog.article.ticino-pernottamenti-controtendenza-2026.title': 'Tessin im Aufwind: +3,8% Übernachtungen im März 2026',
+    'blog.article.ticino-pernottamenti-controtendenza-2026.excerpt': 'Während die Schweiz einen Rückgang von 5,2% verzeichnet, wächst der Tessin mit 133.800 Übernachtungen. Hier sind die Details.',
+    'blog.article.ticino-pernottamenti-controtendenza-2026.imageAlt': 'Blick auf den Luganersee mit Monte Brè im Hintergrund, sonniger Tag',
 };
 
 export default blogMetaDe;

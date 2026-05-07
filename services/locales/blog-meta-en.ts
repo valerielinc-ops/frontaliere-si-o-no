@@ -6701,6 +6701,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-ticino-aprile-2026.title': 'Unemployment rate drops to 3% in Ticino in April 2026',
     'blog.article.disoccupazione-ticino-aprile-2026.excerpt': 'The unemployment rate in Ticino fell to 2.8% in April 2026, with 142,902 people out of work in Switzerland. Here\'s what changes for cross-border workers.',
     'blog.article.disoccupazione-ticino-aprile-2026.imageAlt': 'Bellinzona, Switzerland, a sunny day with clear skies. The city\'s medieval architecture is visible, including the Castelgrande and the Ticino River flowing through the city.',
+    'blog.article.ticino-pernottamenti-controtendenza-2026.title': 'Ticino bucks trend with +3.8% overnight stays in March 2026',
+    'blog.article.ticino-pernottamenti-controtendenza-2026.excerpt': 'While Switzerland sees a 5.2% drop, Ticino grows with 133,800 overnight stays. Here are the details.',
+    'blog.article.ticino-pernottamenti-controtendenza-2026.imageAlt': 'Lake Lugano with Monte Brè in the background, sunny day',
 };
 
 export default blogMetaEn;

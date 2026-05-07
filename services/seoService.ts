@@ -3476,6 +3476,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-media-svizzera-codice-condotta-ia': { name: 'Novità', path: '/articoli-frontaliere/media-svizzera-codice-condotta-ia', parent: 'blog' },
     'blog-cassis-italia-cornado-risarcimento': { name: 'Novità', path: '/articoli-frontaliere/cassis-italia-cornado-risarcimento', parent: 'blog' },
     'blog-disoccupazione-ticino-aprile-2026': { name: 'Novità', path: '/articoli-frontaliere/disoccupazione-ticino-aprile-2026', parent: 'blog' },
+    'blog-ticino-pernottamenti-controtendenza-2026': { name: 'Novità Ticino', path: '/articoli-frontaliere/ticino-pernottamenti-controtendenza-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -6702,6 +6702,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-ticino-aprile-2026.title': 'Disoccupazione in calo al 3% in aprile in Ticino',
     'blog.article.disoccupazione-ticino-aprile-2026.excerpt': 'Il tasso di disoccupazione in Ticino è sceso al 2,8% ad aprile 2026, con 142.902 persone senza lavoro in Svizzera. Ecco cosa cambia per i frontalieri.',
     'blog.article.disoccupazione-ticino-aprile-2026.imageAlt': 'Bellinzona, Svizzera, una giornata di sole con cieli sereni. L\'architettura medievale della città è visibile, tra cui il Castelgrande e il fiume Ticino che scorre attraverso la città.',
+    'blog.article.ticino-pernottamenti-controtendenza-2026.title': 'Ticino in controtendenza: +3,8% pernottamenti a marzo 2026',
+    'blog.article.ticino-pernottamenti-controtendenza-2026.excerpt': 'Mentre la Svizzera registra un calo del 5,2%, il Ticino cresce con 133.800 pernottamenti. Ecco i dettagli.',
+    'blog.article.ticino-pernottamenti-controtendenza-2026.imageAlt': 'Vista del Lago di Lugano con Monte Brè sullo sfondo, giornata soleggiata',
 };
 
 export default blogMetaIt;
