@@ -21710,4 +21710,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nottambuli-ticino-orari-societa',
+ category: 'pratico',
+ date: '2026-05-07T13:34:52.886Z',
+ image: '/images/blog/nottambuli-ticino-orari-societa.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

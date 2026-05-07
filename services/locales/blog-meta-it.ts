@@ -6780,6 +6780,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-minaccia-ibrida-russa-2026.title': 'Svizzera sotto pressione: cresce la minaccia ibrida russa',
     'blog.article.svizzera-minaccia-ibrida-russa-2026.excerpt': 'Il Consiglio federale allarma: spionaggio, ciberattacchi e sabotaggi russi minacciano la sicurezza svizzera. Ecco cosa cambia per i frontalieri.',
     'blog.article.svizzera-minaccia-ibrida-russa-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino',
+    'blog.article.nottambuli-ticino-orari-societa.title': 'Nottambuli, come convivere con gli orari sociali?',
+    'blog.article.nottambuli-ticino-orari-societa.excerpt': 'Scopri come i frontalieri del Ticino gestiscono gli orari di lavoro svizzeri e italiani, con consigli pratici e scenari concreti.',
+    'blog.article.nottambuli-ticino-orari-societa.imageAlt': 'Vista notturna del lago di Lugano con luci che si riflettono sull\'acqua',
 };
 
 export default blogMetaIt;

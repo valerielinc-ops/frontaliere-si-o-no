@@ -3502,6 +3502,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-autista-stellato-fabio-giorgianni-premio': { name: 'Premio Autista Stellato', path: '/articoli-frontaliere/autista-stellato-fabio-giorgianni-premio', parent: 'blog' },
     'blog-accordo-editori-sindacati-svizzera-tedesca': { name: 'Novità', path: '/articoli-frontaliere/accordo-editori-sindacati-svizzera-tedesca', parent: 'blog' },
     'blog-svizzera-minaccia-ibrida-russa-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-minaccia-ibrida-russa-2026', parent: 'blog' },
+    'blog-nottambuli-ticino-orari-societa': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/nottambuli-ticino-orari-societa', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -6779,6 +6779,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-minaccia-ibrida-russa-2026.title': 'Schweiz unter Druck: Russische Hybridbedrohung wächst',
     'blog.article.svizzera-minaccia-ibrida-russa-2026.excerpt': 'Der Bundesrat warnt: Spionage, Cyberangriffe und Sabotage aus Russland bedrohen die Schweizer Sicherheit. Das ändert sich für Grenzgänger.',
     'blog.article.svizzera-minaccia-ibrida-russa-2026.imageAlt': 'Schloss Castelgrande in Bellinzona, Tessin',
+    'blog.article.nottambuli-ticino-orari-societa.title': 'Nachteulen: Wie mit sozialen Zeiten leben?',
+    'blog.article.nottambuli-ticino-orari-societa.excerpt': 'Entdecken Sie, wie die Grenzgänger des Tessin die Arbeitszeiten in der Schweiz und in Italien verwalten, mit praktischen Tipps und konkreten Szenarien.',
+    'blog.article.nottambuli-ticino-orari-societa.imageAlt': 'Nachtsicht des Luganersees mit Lichtern, die sich im Wasser spiegeln',
 };
 
 export default blogMetaDe;

@@ -6779,6 +6779,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-minaccia-ibrida-russa-2026.title': 'Switzerland under pressure: rising Russian hybrid threat',
     'blog.article.svizzera-minaccia-ibrida-russa-2026.excerpt': 'The Federal Council warns: Russian espionage, cyberattacks, and sabotage threaten Swiss security. Here\'s what changes for cross-border workers.',
     'blog.article.svizzera-minaccia-ibrida-russa-2026.imageAlt': 'Castelgrande Castle in Bellinzona, Ticino',
+    'blog.article.nottambuli-ticino-orari-societa.title': 'Night owls, how to cope with social hours?',
+    'blog.article.nottambuli-ticino-orari-societa.excerpt': 'Discover how Ticino cross-border workers manage Swiss and Italian work schedules, with practical tips and real-life scenarios.',
+    'blog.article.nottambuli-ticino-orari-societa.imageAlt': 'Night view of Lake Lugano with lights reflecting on the water',
 };
 
 export default blogMetaEn;
