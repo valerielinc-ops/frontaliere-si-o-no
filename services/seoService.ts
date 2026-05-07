@@ -3474,6 +3474,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-temporali-ticino-traffico-2024': { name: 'Temporali Ticino', path: '/articoli-frontaliere/temporali-ticino-traffico-2024', parent: 'blog' },
     'blog-progetto-prossimita-locarno-2026': { name: 'Progetto di Prossimità', path: '/articoli-frontaliere/progetto-prossimita-locarno-2026', parent: 'blog' },
     'blog-media-svizzera-codice-condotta-ia': { name: 'Novità', path: '/articoli-frontaliere/media-svizzera-codice-condotta-ia', parent: 'blog' },
+    'blog-cassis-italia-cornado-risarcimento': { name: 'Novità', path: '/articoli-frontaliere/cassis-italia-cornado-risarcimento', parent: 'blog' },
  };
 
  const info = sectionNames[section];

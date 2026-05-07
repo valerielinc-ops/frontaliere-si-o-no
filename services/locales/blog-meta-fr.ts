@@ -6696,6 +6696,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.media-svizzera-codice-condotta-ia.title': 'Médias suisses adoptent un code éthique sur l\'IA',
     'blog.article.media-svizzera-codice-condotta-ia.excerpt': 'Un nouveau code de conduite pour l\'utilisation responsable de l\'intelligence artificielle dans les médias suisses, inspiré du Conseil de l\'Europe, vise à renforcer la confiance du public.',
     'blog.article.media-svizzera-codice-condotta-ia.imageAlt': 'Le Forum Suisse des Médias à Lucerne discute de l\'éthique de l\'IA dans les médias',
+    'blog.article.cassis-italia-cornado-risarcimento.title': 'Tension à Cassis et Cornado sur les factures d\'hôpitaux',
+    'blog.article.cassis-italia-cornado-risarcimento.excerpt': 'L\'ambassadeur italien Gian Lorenzo Cornado répond à Cassis: «Je parle sans détour». La question concerne les factures d\'hôpitaux pour les blessés de Crans-Montana.',
+    'blog.article.cassis-italia-cornado-risarcimento.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les bâtiments environnants',
 };
 
 export default blogMetaFr;

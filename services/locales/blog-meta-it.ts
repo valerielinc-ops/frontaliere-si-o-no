@@ -6696,6 +6696,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.media-svizzera-codice-condotta-ia.title': 'Media svizzeri adottano codice etico sull\'IA',
     'blog.article.media-svizzera-codice-condotta-ia.excerpt': 'Un nuovo codice di condotta per l\'uso responsabile dell\'intelligenza artificiale nei media svizzeri, ispirato al Consiglio d\'Europa, mira a rafforzare la fiducia del pubblico.',
     'blog.article.media-svizzera-codice-condotta-ia.imageAlt': 'Il Forum dei Media Svizzeri a Lucerna discute l\'etica dell\'IA nei media',
+    'blog.article.cassis-italia-cornado-risarcimento.title': 'Cassis e Cornado: tensione su fatture ospedaliere per feriti di Crans-Montana',
+    'blog.article.cassis-italia-cornado-risarcimento.excerpt': 'L\'ambasciatore italiano Gian Lorenzo Cornado replica a Cassis: «Parlo senza mezzi termini». La questione riguarda le fatture ospedaliere per i feriti di Crans-Montana.',
+    'blog.article.cassis-italia-cornado-risarcimento.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;
