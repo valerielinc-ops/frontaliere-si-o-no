@@ -3473,6 +3473,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-calo-2026': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-calo-2026', parent: 'blog' },
     'blog-temporali-ticino-traffico-2024': { name: 'Temporali Ticino', path: '/articoli-frontaliere/temporali-ticino-traffico-2024', parent: 'blog' },
     'blog-progetto-prossimita-locarno-2026': { name: 'Progetto di Prossimità', path: '/articoli-frontaliere/progetto-prossimita-locarno-2026', parent: 'blog' },
+    'blog-media-svizzera-codice-condotta-ia': { name: 'Novità', path: '/articoli-frontaliere/media-svizzera-codice-condotta-ia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

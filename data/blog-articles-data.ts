@@ -21449,4 +21449,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'media-svizzera-codice-condotta-ia',
+ category: 'novita',
+ date: '2026-05-07T07:19:56.734Z',
+ image: '/images/blog/media-svizzera-codice-condotta-ia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

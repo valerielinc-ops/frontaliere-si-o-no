@@ -6692,6 +6692,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.progetto-prossimita-locarno-2026.title': 'Projekt Nähe Locarno: Auswirkungen auf Grenzgänger',
     'blog.article.progetto-prossimita-locarno-2026.excerpt': 'Die Erneuerung der interkommunalen Vereinbarung bis 2029 und die Auswirkungen auf den sozialen Zusammenhalt und die Jugend',
     'blog.article.progetto-prossimita-locarno-2026.imageAlt': 'Luftaufnahme des Piazza Grande in Locarno mit dem See im Hintergrund',
+    'blog.article.media-svizzera-codice-condotta-ia.title': 'Schweizer Medien übernehmen Ethik-Kodex zu KI',
+    'blog.article.media-svizzera-codice-condotta-ia.excerpt': 'Ein neuer Verhaltenskodex für den verantwortungsvollen Einsatz von Künstlicher Intelligenz in den Schweizer Medien, inspiriert vom Europarat, zielt darauf ab, das Vertrauen der Öffentlichkeit zu stärken.',
+    'blog.article.media-svizzera-codice-condotta-ia.imageAlt': 'Das Schweizer Medienforum in Luzern diskutiert die Ethik der KI in den Medien',
 };
 
 export default blogMetaDe;

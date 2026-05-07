@@ -6693,6 +6693,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.progetto-prossimita-locarno-2026.title': 'Projet de proximité Locarno : ce qui change pour les frontaliers',
     'blog.article.progetto-prossimita-locarno-2026.excerpt': 'Le renouvellement de la convention intercommunale jusqu\'en 2029 et les implications pour la cohésion sociale et les jeunes',
     'blog.article.progetto-prossimita-locarno-2026.imageAlt': 'Vue aérienne de la Piazza Grande à Locarno avec le lac en arrière-plan',
+    'blog.article.media-svizzera-codice-condotta-ia.title': 'Médias suisses adoptent un code éthique sur l\'IA',
+    'blog.article.media-svizzera-codice-condotta-ia.excerpt': 'Un nouveau code de conduite pour l\'utilisation responsable de l\'intelligence artificielle dans les médias suisses, inspiré du Conseil de l\'Europe, vise à renforcer la confiance du public.',
+    'blog.article.media-svizzera-codice-condotta-ia.imageAlt': 'Le Forum Suisse des Médias à Lucerne discute de l\'éthique de l\'IA dans les médias',
 };
 
 export default blogMetaFr;

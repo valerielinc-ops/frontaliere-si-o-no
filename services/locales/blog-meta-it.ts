@@ -6693,6 +6693,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.progetto-prossimita-locarno-2026.title': 'Progetto di Prossimità Locarno: cosa cambia per i frontalieri',
     'blog.article.progetto-prossimita-locarno-2026.excerpt': 'Il rinnovo della convenzione intercomunale fino al 2029 e le implicazioni per la coesione sociale e i giovani',
     'blog.article.progetto-prossimita-locarno-2026.imageAlt': 'Vista aerea di Piazza Grande a Locarno con il lago sullo sfondo',
+    'blog.article.media-svizzera-codice-condotta-ia.title': 'Media svizzeri adottano codice etico sull\'IA',
+    'blog.article.media-svizzera-codice-condotta-ia.excerpt': 'Un nuovo codice di condotta per l\'uso responsabile dell\'intelligenza artificiale nei media svizzeri, ispirato al Consiglio d\'Europa, mira a rafforzare la fiducia del pubblico.',
+    'blog.article.media-svizzera-codice-condotta-ia.imageAlt': 'Il Forum dei Media Svizzeri a Lucerna discute l\'etica dell\'IA nei media',
 };
 
 export default blogMetaIt;
