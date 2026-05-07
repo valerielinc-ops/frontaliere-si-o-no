@@ -26,6 +26,7 @@ import {
   validateDedicatedLocaleCoverage,
   stableSlugHash,
 } from './lib/dedicated-crawler-common.mjs';
+import { normalizeDescriptionBullets } from './lib/crawler-template.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -454,7 +455,10 @@ function cleanEocDescription(desc = '') {
   cleaned = cleaned.replace(/Le candidature vanno inoltrate[\s\S]*/i, '');
   cleaned = cleaned.replace(/Se si riconosce nel profilo[\s\S]*/i, '');
   // Trim whitespace
-  return cleaned.replace(/^\s+/, '').replace(/\s+$/, '').replace(/\n{3,}/g, '\n\n');
+  cleaned = cleaned.replace(/^\s+/, '').replace(/\s+$/, '').replace(/\n{3,}/g, '\n\n');
+  // Restore line-start bullet markers so the parser-quality audit detects
+  // structure (inline '•' separators → '\n• ', short paragraph runs → bullets).
+  return normalizeDescriptionBullets(cleaned);
 }
 
 /**

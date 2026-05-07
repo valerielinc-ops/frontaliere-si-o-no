@@ -18,7 +18,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* -- Constants ------------------------------------------------- */
@@ -294,14 +294,17 @@ function parseDetailPage(html = '') {
     const regex = new RegExp(`<div\\s+id="${field.id}"[^>]*>([\\s\\S]*?)<\\/div>`, 'i');
     const m = html.match(regex);
     if (m) {
-      const text = normalizeSpace(stripHtml(m[1]));
+      // Preserve newlines from stripHtml (it converts <li> → '\n• ', </p>/</li> → '\n').
+      // Don't call normalizeSpace which would collapse those structural newlines.
+      const raw = stripHtml(m[1]);
+      const text = raw.replace(/[ \t]+/g, ' ').replace(/[ \t]*\n[ \t]*/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
       if (text.length > 10) {
-        sections.push(field.heading ? `${field.heading}: ${text}` : text);
+        sections.push(field.heading ? `${field.heading}\n${text}` : text);
       }
     }
   }
 
-  result.description = sections.join(' | ');
+  result.description = normalizeDescriptionBullets(sections.join('\n\n'));
   return result;
 }
 

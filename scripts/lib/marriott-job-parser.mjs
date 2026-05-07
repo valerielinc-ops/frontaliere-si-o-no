@@ -22,7 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -320,9 +320,10 @@ function buildJobFromApi(listing) {
   const postalCode = inferPostalCode(city, apiZipCode);
   const location = city || state || 'Verbier';
 
-  // Description: strip HTML from the rich description
+  // Description: strip HTML from the rich description; preserve list/paragraph
+  // structure so the parser-quality audit can detect line-start bullets.
   const descriptionHtml = listing.description || '';
-  const descriptionText = stripHtml(descriptionHtml);
+  const descriptionText = normalizeDescriptionBullets(stripHtml(descriptionHtml));
 
   // Job field from custom fields
   const jobField = getCustomField(listing.customFields, 'cf_jobfield') ||

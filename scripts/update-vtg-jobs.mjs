@@ -34,6 +34,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { normalizeDescriptionBullets } from './lib/crawler-template.mjs';
 import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,

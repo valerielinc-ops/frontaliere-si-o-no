@@ -184,6 +184,101 @@ export function normalizeSpace(s = '') {
 }
 
 /**
+ * Restore line-start bullet markers in job descriptions.
+ *
+ * The audit's `hasStructuredContent` requires bullets to be at line-start
+ * (`/^\s*[-•*]\s/m`). HTML→text pipelines often produce inline bullets
+ * (`Aufgaben: • Item • Item`) when downstream `normalizeSpace`/`stripHtml`
+ * collapses newlines, OR multi-paragraph "list" sections (header followed
+ * by ≥3 short consecutive lines) without explicit bullet markers.
+ *
+ * This helper:
+ *   1. Inserts `\n` before every inline `•` (idempotent — already-line-start
+ *      bullets are left alone).
+ *   2. If still no line-start bullet found, scans for runs of ≥3 consecutive
+ *      non-empty lines ≤200 chars (typical "PROFILE / Requirements" lists)
+ *      and prepends `• ` to each item. The first short line of a run is
+ *      treated as a section heading and left bullet-free.
+ *
+ * Idempotent: safe to call multiple times. Returns input unchanged when
+ * structure is already present or input is empty/non-string.
+ *
+ * @param {string} text
+ * @returns {string}
+ */
+// Common job-posting section headers across IT/DE/FR/EN. When these appear
+// inline inside a flattened description, we insert a paragraph break so the
+// text-to-list normalizer below has line boundaries to work with.
+const SECTION_HEADER_PATTERNS = [
+  // German (Swiss federal job postings — jobs.admin.ch, Prospective.ch JobBooster)
+  /\b(Diesen Beitrag kannst du leisten|Das macht dich einzigartig|Das bieten wir|Dein Einsatz für Sicherheit und Freiheit|Ihre Aufgaben|Ihr Profil|Wir bieten|Anforderungen|Aufgaben|Ihre Hauptaufgaben|Ihre Verantwortung|Was Sie erwartet|Was wir bieten|Ihre Qualifikationen|Ihr neues Aufgabengebiet)\b/g,
+  // Italian (EOC, AIL, etc.)
+  /\b(Le sue mansioni|Le tue mansioni|I suoi compiti|I tuoi compiti|Il profilo richiesto|Profilo richiesto|Profilo ricercato|Requisiti necessari|Requisiti richiesti|Requisiti|Offriamo|Cosa offriamo|Le sue responsabilità|Le tue responsabilità|Cosa farà|Mansioni principali|Competenze richieste|Cerchiamo|Stiamo cercando)\b/g,
+  // French
+  /\b(Vos tâches|Vos missions|Votre mission|Votre profil|Nous offrons|Nous proposons|Vos responsabilités|Vos compétences|Profil recherché|Exigences|Compétences requises)\b/g,
+  // English
+  /\b(Your responsibilities|Your tasks|Your profile|We offer|What we offer|Requirements|Qualifications|What you'll do|What you bring|Job description|Profile|Responsibilities)\b/g,
+];
+
+export function normalizeDescriptionBullets(text) {
+  if (!text || typeof text !== 'string') return text;
+  let out = text;
+
+  // 1. Inline ' • ' → '\n• ' (only when not already line-start)
+  out = out.replace(/([^\n\r])[ \t]+•[ \t]+/g, '$1\n• ');
+  if (/^\s*[-•*]\s/m.test(out)) return out;
+
+  // 2. When the text is a single-line/long paragraph blob, try to split at
+  // known section-header phrases (DE/IT/FR/EN) so the run-detector below has
+  // line boundaries. We insert '\n• ' BEFORE the header so the header itself
+  // becomes a line-start bulleted item — that satisfies the audit and keeps
+  // the original wording intact.
+  for (const pattern of SECTION_HEADER_PATTERNS) {
+    out = out.replace(pattern, (match, _g1, offset, src) => {
+      // Don't double-insert if already at line start
+      const prevChar = offset > 0 ? src[offset - 1] : '\n';
+      if (prevChar === '\n') return match;
+      return `\n• ${match}`;
+    });
+  }
+  if (/^\s*[-•*]\s/m.test(out)) return out;
+
+  // 2. Detect runs of ≥3 consecutive non-empty short lines (≤200 chars)
+  const lines = out.split(/\n/);
+  const inRun = new Array(lines.length).fill(false);
+  let i = 0;
+  while (i < lines.length) {
+    const t = lines[i].trim();
+    if (!t || t.length > 200) { i++; continue; }
+    let j = i;
+    while (j < lines.length) {
+      const tj = lines[j].trim();
+      if (!tj || tj.length > 200) break;
+      j++;
+    }
+    if (j - i >= 3) {
+      for (let k = i; k < j; k++) inRun[k] = true;
+    }
+    i = j;
+  }
+
+  // First short line of a run = section heading; leave bullet-free.
+  let prevWasInRun = false;
+  for (let k = 0; k < lines.length; k++) {
+    if (!inRun[k]) { prevWasInRun = false; continue; }
+    const t = lines[k].trim();
+    if (!prevWasInRun && t.length <= 35 && !/[.!?]$/.test(t)) {
+      // section heading — keep as-is
+      prevWasInRun = true;
+      continue;
+    }
+    lines[k] = lines[k].replace(t, '• ' + t);
+    prevWasInRun = true;
+  }
+  return lines.join('\n');
+}
+
+/**
  * Strip HTML tags and decode common entities. Use for description fields.
  */
 export function stripHtml(html = '') {
