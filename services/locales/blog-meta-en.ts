@@ -6833,6 +6833,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.colf-badanti-ticino-2029.title': 'Housekeepers and carers in Ticino: +122k in three years',
     'blog.article.colf-badanti-ticino-2029.excerpt': 'By 2029, Italy will need 2.2 million housekeepers and carers. Impact on Ticino cross-border workers and new job opportunities.',
     'blog.article.colf-badanti-ticino-2029.imageAlt': 'Caregiver helping an elderly person in a Ticino home',
+    'blog.article.turismo-varesotto-2026-frontalieri.title': 'Tourism in Varesotto: 2026 figures and opportunities for cross-border workers',
+    'blog.article.turismo-varesotto-2026-frontalieri.excerpt': 'The 2026 data confirms the growth of tourism in Varesotto, with 3.2 million overnight stays. Opportunities for cross-border workers between lake and city.',
+    'blog.article.turismo-varesotto-2026-frontalieri.imageAlt': 'Lake Maggiore in Ticino, Switzerland',
 };
 
 export default blogMetaEn;

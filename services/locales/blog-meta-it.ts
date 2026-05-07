@@ -6834,6 +6834,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.colf-badanti-ticino-2029.title': 'Colf e badanti in Ticino: +122 mila in tre anni',
     'blog.article.colf-badanti-ticino-2029.excerpt': 'Nel 2029 serviranno 2,2 milioni di colf e badanti in Italia. Impatto sui frontalieri del Ticino e nuove opportunità lavorative.',
     'blog.article.colf-badanti-ticino-2029.imageAlt': 'Badante che aiuta una persona anziana in una casa nel Canton Ticino',
+    'blog.article.turismo-varesotto-2026-frontalieri.title': 'Turismo nel Varesotto: numeri 2026 e opportunità per frontalieri',
+    'blog.article.turismo-varesotto-2026-frontalieri.excerpt': 'I dati 2026 confermano la crescita del turismo nel Varesotto, con 3,2 milioni di pernottamenti. Opportunità per frontalieri tra lago e città.',
+    'blog.article.turismo-varesotto-2026-frontalieri.imageAlt': 'Lago Maggiore in Ticino, Svizzera',
 };
 
 export default blogMetaIt;

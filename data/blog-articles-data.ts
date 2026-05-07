@@ -21872,4 +21872,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'turismo-varesotto-2026-frontalieri',
+ category: 'pratico',
+ date: '2026-05-07T18:47:16.303Z',
+ image: '/images/blog/turismo-varesotto-2026-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

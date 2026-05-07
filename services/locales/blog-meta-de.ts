@@ -6833,6 +6833,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.colf-badanti-ticino-2029.title': 'Haushaltshilfen und Betreuer im Tessin: +122.000 in drei Jahren',
     'blog.article.colf-badanti-ticino-2029.excerpt': 'Bis 2029 werden in Italien 2,2 Millionen Haushaltshilfen und Betreuer benötigt. Auswirkungen auf die Grenzgänger des Tessin und neue Arbeitsmöglichkeiten.',
     'blog.article.colf-badanti-ticino-2029.imageAlt': 'Betreuer hilft einer älteren Person in einem Haus in Tessin',
+    'blog.article.turismo-varesotto-2026-frontalieri.title': 'Tourismus im Varesotto: Zahlen 2026 und Chancen für Grenzgänger',
+    'blog.article.turismo-varesotto-2026-frontalieri.excerpt': 'Die Zahlen 2026 bestätigen das Wachstum des Tourismus im Varesotto, mit 3,2 Millionen Übernachtungen. Chancen für Grenzgänger zwischen See und Stadt.',
+    'blog.article.turismo-varesotto-2026-frontalieri.imageAlt': 'Lago Maggiore im Tessin, Schweiz',
 };
 
 export default blogMetaDe;

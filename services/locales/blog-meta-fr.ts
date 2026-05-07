@@ -6834,6 +6834,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.colf-badanti-ticino-2029.title': 'Emplois de colf et d\'aide à domicile au Tessin: +122 000 en trois ans',
     'blog.article.colf-badanti-ticino-2029.excerpt': 'En 2029, l\'Italie aura besoin de 2,2 millions de colf et d\'aides à domicile. Impact sur les travailleurs frontaliers du Tessin et nouvelles opportunités d\'emploi.',
     'blog.article.colf-badanti-ticino-2029.imageAlt': 'Aide-soignante aidant une personne âgée dans une maison en Tessin',
+    'blog.article.turismo-varesotto-2026-frontalieri.title': 'Tourisme dans le Varesotto : chiffres 2026 et opportunités pour les frontaliers',
+    'blog.article.turismo-varesotto-2026-frontalieri.excerpt': 'Les données 2026 confirment la croissance du tourisme dans le Varesotto, avec 3,2 millions de nuitées. Opportunités pour les frontaliers entre lac et ville.',
+    'blog.article.turismo-varesotto-2026-frontalieri.imageAlt': 'Lac Majeur au Tessin, Suisse',
 };
 
 export default blogMetaFr;
