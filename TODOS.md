@@ -23,3 +23,16 @@
 **Why:** Anyone reading the audit gets misleading data. The 63-issue count is inflated and the 10/20 score is based on at least 3 stale claims.
 **Effort:** S human / S CC+gstack
 **Depends on:** Nothing. Can be done anytime.
+
+## P2 — "Mia rotta" profilo commute frontaliere + email/push alert
+**What:** Profilo utente con rotta commute registrata (Como→Lugano via Chiasso, partenza 6:00). Cron mattina presto valuta condizioni (meteo + tempo attesa + chiusure) e invia email/push 30 min prima della partenza ipotetica se condizioni avverse.
+**Why:** Chiusura del funnel SEO→newsletter→retention. Le pagine weather (city + alert + valico fusion) catturano il visitatore ma senza profilo la riattivazione resta passiva. Differenziante difendibile (nessun concorrente offre commute-meteo personalizzato per frontalieri).
+**Effort:** L human / M CC+gstack — fase 1 email-only (~2gg/2h CC), fase 2 web push (~5gg/5h CC)
+**Depends on:** Weather SSG plan shipped. Pre-requisiti tecnici (acquisitionSource, weatherService, weatherAlertEvaluator, cron meteo) introdotti nel piano weather.
+**Plan reference:** `~/.gstack/projects/frontaliere-si-o-no/ceo-plans/2026-05-07-weather-ssg.md` (proposta 3, deferred)
+
+## P2 — Deploy bottleneck resolution
+**What:** Risolvere il bottleneck su deploy.yml che fa eseguire solo ~15-20 deploys/day a fronte di ~50 push/day.
+**Why:** Bloccante per ogni feature data-refresh (incluso weather cron 6×/day del piano 2026-05-07). Aggiungere altri cron commit aggrava il problema.
+**Effort:** M human / M CC+gstack (dipende dall'opzione scelta)
+**Depends on:** Decisione utente sull'opzione architetturale (deferred dal May 6 brainstorm).

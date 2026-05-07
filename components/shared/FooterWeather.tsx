@@ -66,16 +66,10 @@ function getTempBg(temp: number): string {
 }
 
 async function fetchMini(lat: number, lng: number): Promise<MiniWeather | null> {
- try {
- const res = await fetch(
- `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code,is_day&timezone=Europe/Zurich`
- );
- if (!res.ok) return null;
- const d = await res.json();
- return { temp: d.current.temperature_2m, code: d.current.weather_code, isDay: !!d.current.is_day };
- } catch {
- return null;
- }
+ const { fetchRuntimeWeather } = await import('@/services/weatherService');
+ const w = await fetchRuntimeWeather({ lat, lng });
+ if (!w) return null;
+ return { temp: w.temperature, code: w.weatherCode, isDay: w.isDay };
 }
 
 interface UserLocation {
