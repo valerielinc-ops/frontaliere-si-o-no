@@ -353,11 +353,74 @@ function main() {
     }
   }
 
+  // Append-only merge with previous audit's candidates.
+  //
+  // Why: jobs expire as crawlers refresh, which means slugs that were valid
+  // at past audit times (and that Google has since indexed) drop out of the
+  // current jobCount-from-fresh-jobs.json calculation. If we hard-reset the
+  // candidates JSON on every audit, those URLs go orphan in production →
+  // 404 in GSC even though the cluster plugin's OR-fill matching could
+  // still serve them with relevant content from current jobs.
+  //
+  // Merge strategy: load any existing candidates, merge with the new map
+  // keyed by `${locale}::${slug}`, and dedup so each (locale, slug) pair
+  // appears once. For duplicates we keep the MAX jobCount (so highest
+  // frequency ever observed wins), the union of sampleTerms (capped at 5),
+  // and the most recent sampleJobIds. Synthetic entries with gscMatch=true
+  // (from ingest-gsc-orphans-into-candidates.mjs) are preserved as-is when
+  // the audit doesn't see them this run.
+  let mergedHistorical = 0;
+  let mergedReinforced = 0;
+  if (fs.existsSync(OUT_PATH)) {
+    let prev;
+    try {
+      prev = JSON.parse(fs.readFileSync(OUT_PATH, 'utf-8'));
+    } catch {
+      prev = null;
+    }
+    if (prev && Array.isArray(prev.candidates)) {
+      for (const old of prev.candidates) {
+        if (!old || !old.slug || !old.locale) continue;
+        const key = `${old.locale}::${old.slug}`;
+        const cur = candidates.get(key);
+        if (!cur) {
+          // Historical-only: not produced by current jobs but kept alive.
+          // Copy as-is, ensure sampleTerms is a plain array (not a Set).
+          candidates.set(key, {
+            slug: old.slug,
+            locale: old.locale,
+            jobCount: Math.max(1, Number(old.jobCount) || 0),
+            sampleJobIds: Array.isArray(old.sampleJobIds) ? old.sampleJobIds.slice(0, 3) : [],
+            sampleTerms: new Set(Array.isArray(old.sampleTerms) ? old.sampleTerms : []),
+            historical: true,
+            ...(old.gscMatch ? { gscMatch: true } : {}),
+            ...(old.gscOrigin ? { gscOrigin: old.gscOrigin } : {}),
+          });
+          mergedHistorical++;
+        } else {
+          // Both sides have it: keep max jobCount + union of sampleTerms.
+          cur.jobCount = Math.max(cur.jobCount, Number(old.jobCount) || 0);
+          if (Array.isArray(old.sampleTerms)) {
+            for (const t of old.sampleTerms) {
+              if (cur.sampleTerms.size >= 5) break;
+              cur.sampleTerms.add(t);
+            }
+          }
+          mergedReinforced++;
+        }
+      }
+    }
+  }
+  console.log(`Append-only merge: ${mergedHistorical} historical-only entries kept, ${mergedReinforced} reinforced.`);
+
   // Enrich with editorial-collision and GSC flags
   for (const entry of candidates.values()) {
     const bareSlug = entry.slug.replace(/^(ricerca|search|suche|recherche)-/, '');
     entry.editorialCollision = detectEditorialCollision(bareSlug, entry.locale);
-    entry.gscMatch = gscSlugSet.has(`${entry.locale}::${bareSlug}`);
+    // gscMatch from the orphan-queries dataset is independent of any
+    // gscMatch flag preserved during the historical merge above. OR them
+    // so a merged-historical entry still shows in the GSC-impressions gates.
+    entry.gscMatch = entry.gscMatch === true || gscSlugSet.has(`${entry.locale}::${bareSlug}`);
     entry.sampleTerms = Array.from(entry.sampleTerms);
   }
 
