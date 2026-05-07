@@ -6581,6 +6581,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-italia-risarcimento-300000-euro.title': 'Italien fordert 300.000 Euro Entschädigung für Crans-Montana',
     'blog.article.crans-montana-italia-risarcimento-300000-euro.excerpt': 'Die Italienische Republik hat eine Zivilklage auf mindestens 300.000 Euro Entschädigung im Strafverfahren zum Silvesterbrand in Crans-Montana eingereicht.',
     'blog.article.crans-montana-italia-risarcimento-300000-euro.imageAlt': 'Luftaufnahme von Crans-Montana, Schweiz, mit schneebedeckten Bergen und einem Skigebiet im Vordergrund',
+    'blog.article.mariano-comense-assale-ferisce-barista-denunciato.title': 'Mariano Comense: Barista angegriffen, 24-Jähriger festgenommen',
+    'blog.article.mariano-comense-assale-ferisce-barista-denunciato.excerpt': 'Mariano Comense (Como): Assalt und Verletzung des Baristen, 24-Jähriger verhaftet',
+    'blog.article.mariano-comense-assale-ferisce-barista-denunciato.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaDe;

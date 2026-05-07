@@ -21116,4 +21116,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mariano-comense-assale-ferisce-barista-denunciato',
+ category: 'novita',
+ date: '2026-05-07T00:17:55.994Z',
+ image: '/images/blog/mariano-comense-assale-ferisce-barista-denunciato.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

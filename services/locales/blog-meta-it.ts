@@ -6582,6 +6582,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-italia-risarcimento-300000-euro.title': 'Crans-Montana, l’Italia chiede un risarcimento di almeno 300.000 euro',
     'blog.article.crans-montana-italia-risarcimento-300000-euro.excerpt': 'La Repubblica italiana ha depositato una richiesta di costituirsi parte civile per un risarcimento di almeno 300.000 euro nel procedimento penale relativo all\'incendio di Capodanno a Crans-Montana.',
     'blog.article.crans-montana-italia-risarcimento-300000-euro.imageAlt': 'Panorama aereo di Crans-Montana, Svizzera, con montagne innevate e un resort sciistico in primo piano',
+    'blog.article.mariano-comense-assale-ferisce-barista-denunciato.title': 'Mariano Comense (Como): assale e ferisce il barista, 24enne denunciato',
+    'blog.article.mariano-comense-assale-ferisce-barista-denunciato.excerpt': 'Mariano Comense (Como): assale e ferisce il barista, 24enne denunciato',
+    'blog.article.mariano-comense-assale-ferisce-barista-denunciato.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

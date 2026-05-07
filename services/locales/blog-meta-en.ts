@@ -6581,6 +6581,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-italia-risarcimento-300000-euro.title': 'Italy seeks at least 300,000 euros in damages for Crans-Montana fire',
     'blog.article.crans-montana-italia-risarcimento-300000-euro.excerpt': 'The Italian Republic has filed a request to join the criminal proceedings as a civil party, seeking at least 300,000 euros in damages for the New Year\'s Eve fire in Crans-Montana.',
     'blog.article.crans-montana-italia-risarcimento-300000-euro.imageAlt': 'Aerial view of Crans-Montana, Switzerland, with snow-covered mountains and a ski resort in the foreground',
+    'blog.article.mariano-comense-assale-ferisce-barista-denunciato.title': 'Como: 24-year-old assaults and injures barista, arrested',
+    'blog.article.mariano-comense-assale-ferisce-barista-denunciato.excerpt': 'Como: 24-year-old assaults and injures barista, arrested',
+    'blog.article.mariano-comense-assale-ferisce-barista-denunciato.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaEn;
