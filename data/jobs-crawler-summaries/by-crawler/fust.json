@@ -1,21 +1,22 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-05-06T21:58:49.790Z",
-  "total": 4,
-  "newCount": 1,
-  "updatedCount": 0,
+  "generatedAt": "2026-05-07T11:03:19.397Z",
+  "total": 3,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 15052,
-  "avgDurationMs": 15052,
+  "unchangedCount": 2,
+  "durationMs": 21295,
+  "avgDurationMs": 21295,
   "durationHistory": [
-    15052
+    21295
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-qbnh3b",
-      "slug": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-qbnh3b",
+      "slug": "consulente-di-vendita-per-la-casa-elettrica-e-multimediale-fust-chur-graubunden-517de0",
       "company": "Fust",
       "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
       "location": "Chur, Graubünden",
@@ -37,16 +38,23 @@
       "crawledAt": "2026-05-06T21:58:47.775Z",
       "firstSeenAt": "2026-05-06T21:58:47.775Z",
       "sourceLang": "de",
-      "_qualityScore": 78,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Industria 1",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -115,46 +123,6 @@
       "sourceLang": "it",
       "salaryMin": 70500,
       "salaryMax": 98500,
-      "streetAddress": "Via Industria 1",
-      "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-86y4zp",
-      "slug": "consulente-di-vendita-per-la-casa-elettrica-e-multimediale-fust-chur-graubunden",
-      "company": "Fust",
-      "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
-      "location": "Chur, Graubünden",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/8a422763-3e5f-476b-96b5-1b9ad6f10754",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-04-14T21:42:50.464Z",
-      "firstSeenAt": "2026-04-14T21:42:50.464Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
       "streetAddress": "Via Industria 1",
       "postalCode": "6593",
       "addressLocality": "Cadenazzo",
