@@ -143,8 +143,16 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
     : `Chaque matin, le même scénario de trajet: quel est le temps à la frontière, où sont les alertes, quels passages sont fluides. Cette page rassemble les conditions météo actuelles pour les ${WEATHER_CITIES.length} villes du cluster frontalier. Mise à jour toutes les 4 heures.`;
   const localePathHub = locale === 'it' ? '' : `/${locale}`;
   const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  // Per-locale hub URLs for hreflang
+  const hubHreflangs: Record<Locale, string> = {
+    it: `https://frontaliereticino.ch/${HUB_SLUG.it}/`,
+    en: `https://frontaliereticino.ch/en/${HUB_SLUG.en}/`,
+    de: `https://frontaliereticino.ch/de/${HUB_SLUG.de}/`,
+    fr: `https://frontaliereticino.ch/fr/${HUB_SLUG.fr}/`,
+  };
   return wrapHtml({
     locale, title, description, canonical, distDir,
+    hreflangs: hubHreflangs,
     bodyHtml: `
 <header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(HUB_TITLE[locale])}</h1>
 <p class="text-base sm:text-lg text-body">${escapeHtml(HUB_TAGLINE[locale])}</p></header>
@@ -189,8 +197,16 @@ function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefin
   const localePathCity = locale === 'it' ? '' : `/${locale}`;
   const homeNameCity = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
   const hubUrlCity = `https://frontaliereticino.ch${localePathCity}/${HUB_SLUG[locale]}/`;
+  // Per-locale city URLs for hreflang
+  const cityHreflangs: Record<Locale, string> = {
+    it: `https://frontaliereticino.ch/${HUB_SLUG.it}/${city.slug.it}/`,
+    en: `https://frontaliereticino.ch/en/${HUB_SLUG.en}/${city.slug.en}/`,
+    de: `https://frontaliereticino.ch/de/${HUB_SLUG.de}/${city.slug.de}/`,
+    fr: `https://frontaliereticino.ch/fr/${HUB_SLUG.fr}/${city.slug.fr}/`,
+  };
   return wrapHtml({
     locale, title, description, canonical, distDir,
+    hreflangs: cityHreflangs,
     bodyHtml: `
 ${breadcrumb}
 <header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(headline)}</h1>
@@ -353,6 +369,8 @@ interface WrapOpts {
   bodyHtml: string;
   generatedAt?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
+  /** Per-locale canonical URL — caller computes the proper localised path. */
+  hreflangs: Record<Locale, string>;
 }
 
 function breadcrumbJsonLd(items: Array<{ name: string; url: string }>): Record<string, unknown> {
@@ -370,11 +388,11 @@ function breadcrumbJsonLd(items: Array<{ name: string; url: string }>): Record<s
 
 function wrapHtml(opts: WrapOpts & { distDir: string }): string {
   const { locale, title, description, canonical, bodyHtml, generatedAt, distDir, breadcrumbs } = opts;
-  const altLinks = LOCALES.map((l) => {
-    const localePath = l === 'it' ? '' : `/${l}`;
-    const tail = canonical.replace(/^https:\/\/frontaliereticino\.ch\/(?:[a-z]{2}\/)?(.*)$/, '$1');
-    return `<link rel="alternate" hreflang="${l}" href="https://frontaliereticino.ch${localePath}/${tail}">`;
-  }).join('\n');
+  // hreflangs and altLinks computed below
+  const altLinks = [
+    ...LOCALES.map((l) => `<link rel="alternate" hreflang="${l}" href="${opts.hreflangs[l]}">`),
+    `<link rel="alternate" hreflang="x-default" href="${opts.hreflangs.it}">`,
+  ].join('\n');
   const jsonLdScripts = [JSON.stringify(jsonLd(locale, title, description, canonical, generatedAt))];
   if (breadcrumbs) jsonLdScripts.push(JSON.stringify(breadcrumbJsonLd(breadcrumbs)));
   const hydrationScript = `<script>window.addEventListener('DOMContentLoaded',function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fetch('/data/weather-snapshot.json').then(function(r){return r.json()}).then(function(d){if(!d||!d.generatedAt)return;var t=document.querySelector('time[datetime]');if(t&&new Date(d.generatedAt)>new Date(t.dateTime)){t.dateTime=d.generatedAt}}).catch(function(){});io.disconnect()}})});var hero=document.querySelector('.weather-hero');if(hero)io.observe(hero);});</script>`;

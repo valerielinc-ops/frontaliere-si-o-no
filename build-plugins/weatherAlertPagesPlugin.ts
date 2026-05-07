@@ -147,8 +147,15 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
 
   const localePathHub = locale === 'it' ? '' : `/${locale}`;
   const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const hubHreflangs: Record<Locale, string> = {
+    it: `https://frontaliereticino.ch/${HUB_SLUG.it}/`,
+    en: `https://frontaliereticino.ch/en/${HUB_SLUG.en}/`,
+    de: `https://frontaliereticino.ch/de/${HUB_SLUG.de}/`,
+    fr: `https://frontaliereticino.ch/fr/${HUB_SLUG.fr}/`,
+  };
   return wrapHtml({
     locale, title, description, canonical, distDir,
+    hreflangs: hubHreflangs,
     bodyHtml: `
 <header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(HUB_TITLE[locale])}</h1>
 <p class="text-base sm:text-lg text-body mb-2">${escapeHtml(HUB_TAGLINE[locale])}</p>
@@ -211,8 +218,15 @@ function renderAlertPage(locale: Locale, cfg: WeatherAlertConfig, state: AlertSt
   const localePathAlert = locale === 'it' ? '' : `/${locale}`;
   const homeNameAlert = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
   const hubUrlAlert = `https://frontaliereticino.ch${localePathAlert}/${HUB_SLUG[locale]}/`;
+  const alertHreflangs: Record<Locale, string> = {
+    it: `https://frontaliereticino.ch/${ALERTS_PARENT_BY_LOCALE.it}/${cfg.slug.it}/`,
+    en: `https://frontaliereticino.ch/en/${ALERTS_PARENT_BY_LOCALE.en}/${cfg.slug.en}/`,
+    de: `https://frontaliereticino.ch/de/${ALERTS_PARENT_BY_LOCALE.de}/${cfg.slug.de}/`,
+    fr: `https://frontaliereticino.ch/fr/${ALERTS_PARENT_BY_LOCALE.fr}/${cfg.slug.fr}/`,
+  };
   return wrapHtml({
     locale, title, description, canonical, distDir,
+    hreflangs: alertHreflangs,
     bodyHtml: `
 ${breadcrumb}
 <header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(headline)}</h1>
@@ -447,6 +461,7 @@ interface WrapOpts {
   bodyHtml: string;
   generatedAt?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
+  hreflangs: Record<Locale, string>;
 }
 
 function breadcrumbJsonLd(items: Array<{ name: string; url: string }>): Record<string, unknown> {
@@ -464,11 +479,10 @@ function breadcrumbJsonLd(items: Array<{ name: string; url: string }>): Record<s
 
 function wrapHtml(opts: WrapOpts & { distDir: string }): string {
   const { locale, title, description, canonical, bodyHtml, generatedAt, distDir, breadcrumbs } = opts;
-  const altLinks = LOCALES.map((l) => {
-    const localePath = l === 'it' ? '' : `/${l}`;
-    const tail = canonical.replace(/^https:\/\/frontaliereticino\.ch\/(?:[a-z]{2}\/)?(.*)$/, '$1');
-    return `<link rel="alternate" hreflang="${l}" href="https://frontaliereticino.ch${localePath}/${tail}">`;
-  }).join('\n');
+  const altLinks = [
+    ...LOCALES.map((l) => `<link rel="alternate" hreflang="${l}" href="${opts.hreflangs[l]}">`),
+    `<link rel="alternate" hreflang="x-default" href="${opts.hreflangs.it}">`,
+  ].join('\n');
   const jsonLdScripts = [JSON.stringify(jsonLd(locale, title, description, canonical, generatedAt))];
   if (breadcrumbs) jsonLdScripts.push(JSON.stringify(breadcrumbJsonLd(breadcrumbs)));
   const hydrationScript = `<script>window.addEventListener('DOMContentLoaded',function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fetch('/data/weather-snapshot.json').then(function(r){return r.json()}).then(function(d){if(!d||!d.generatedAt)return;var t=document.querySelector('time[datetime]');if(t&&new Date(d.generatedAt)>new Date(t.dateTime)){t.dateTime=d.generatedAt}}).catch(function(){});io.disconnect()}})});var hero=document.querySelector('.alert-state');if(hero)io.observe(hero);});</script>`;
