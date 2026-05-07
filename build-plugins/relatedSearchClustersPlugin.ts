@@ -1205,6 +1205,17 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
   return {
     name: 'related-search-clusters',
     apply: 'build',
+    // Vite groups closeBundle hooks by enforce: pre → default → post.
+    // staticPagesPlugin uses `enforce: 'post'` to emit the section-landing
+    // index.html files (/cerca-lavoro-ticino/, /en/find-jobs-ticino/, etc.)
+    // AFTER all default-order plugins. We need to run AFTER staticPages so
+    // injectHubLinkIntoSectionLanding() finds those landings on disk and
+    // can patch in the link to the cluster paginated hub. Joining the
+    // post group too — and being registered AFTER staticPages in
+    // vite.config.ts — guarantees that ordering. Without this we got 4
+    // "section landing missing — skipping hub link injection" warnings
+    // every build.
+    enforce: 'post',
     async closeBundle() {
       if (process.env.SKIP_RELATED_SEARCH_CLUSTERS === '1') {
         console.log('\x1b[36m[related-search-clusters]\x1b[0m skipped via SKIP_RELATED_SEARCH_CLUSTERS');
