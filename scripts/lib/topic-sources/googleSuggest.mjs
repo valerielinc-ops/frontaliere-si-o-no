@@ -37,11 +37,39 @@ import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 // "lamal hotel napoli", "lppcollecting", "permesso parcheggio condominio".
 // Drop completions that look like product / business / handle names.
 const DENYLIST_RE =
-  /\b(pesca|caccia|edilizia|parcheggio|animale|matrimonio|soggiorno\s*per\s*studio|funebre|riposo|servizio\s*civile|condono\s*edilizio|ztl|zona\s*traffico\s*limitato|giornaliero|cantiere|circolazione|disabil[ie]|invalid[oi]|temporaneo\s*per\s*[a-z]+|funerale|comunale|abitativo|hotel|casino|boutique|chain|\bsrl\b|\bspa\b|s\.r\.l|s\.p\.a|collecting|ware|condominio|napoli\b|firenze\b|milano\s+ztl|bologna\s+ztl)\b/i;
+  /\b(pesca|caccia|edilizia|parcheggio|animale|matrimonio|soggiorno\s*per\s*studio|funebre|riposo|servizio\s*civile|condono\s*edilizio|ztl|zona\s*traffico\s*limitato|giornaliero|cantiere|circolazione|disabil[ie]|invalid[oi]|temporaneo\s*per\s*[a-z]+|funerale|comunale|abitativo|hotel|casino|boutique|chain|\bsrl\b|\bspa\b|s\.r\.l|s\.p\.a|collecting|ware|condominio|napoli\b|firenze\b|milano\s+ztl|bologna\s+ztl|patente\s*(sospesa|revocata)|permesso\s*guida|sostegn(o|i))\b/i;
+
+// LAMAL TOPONYM/SURNAME collision: Suggest seed "LAMal" autocompletes
+// to Italian toponyms / surnames / brands containing "lamal" as a
+// substring (lamalfa = surname, lamalegno/lamalunga = small towns,
+// lamalaser = laser-brand product, lamaline = product, altamura =
+// town near "lamal*"). These are unrelated to LAMal Swiss insurance.
+const LAMAL_NOISE_RE =
+  /\b(lamalfa(\d+)?|lamalegno|lamalung[ae]|lamalaser|lamaline|altamura|lamal\s+hotel)\b/i;
+
+// LPP RETAIL/LEGAL collision: Suggest seed "LPP" autocompletes to
+// "LPP Italy" (retail chain), "LPP Arcore" (regional branch), "LPP SA"
+// (corporate suffix), "LPPP" (typo). These collide with the Swiss LPP
+// pension fund. Note `\blpp\s+(italy|sa|arcore|spa|srl)\b` catches
+// the multi-word forms; `\blppp\b` catches the typo.
+const LPP_RETAIL_RE =
+  /\b(lpp\s+(italy|sa|arcore|spa|srl|cos['’]?\s*è)|\blppp\b)\b/i;
+
+// TOKENIZER ARTIFACT: Suggest sometimes returns concatenated single-
+// word strings like "lppcollecting" (which should have been "lpp
+// collecting"). Reject single-token kw of length > 10 that start with
+// a known seed prefix without a space — these are almost always
+// tokenizer noise from the Suggest endpoint.
+const TOKENIZER_ARTIFACT_RE =
+  /^(lpp|lamal|permesso|frontalier|avs|ahv|pilastro)[a-z]{6,}$/i;
 
 function passesDenylist(completion) {
   if (typeof completion !== 'string') return false;
-  return !DENYLIST_RE.test(completion);
+  if (DENYLIST_RE.test(completion)) return false;
+  if (LAMAL_NOISE_RE.test(completion)) return false;
+  if (LPP_RETAIL_RE.test(completion)) return false;
+  if (TOKENIZER_ARTIFACT_RE.test(completion.trim())) return false;
+  return true;
 }
 
 // keep in sync with googleTrends.mjs SEEDS_FALLBACK

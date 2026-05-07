@@ -11,11 +11,27 @@ import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
 import { detectLocale } from './detectLocale.mjs';
 
-// Reddit-specific Ticino/cross-border vocabulary. We accept titles that
-// either match the global frontaliere domain OR mention Ticino-life
-// concepts that adjacent-relevance for our audience (work/visa/housing/
-// healthcare/banking/transport in Ticino+CH context).
-const REDDIT_RELEVANCE_RE = /\b(frontalier|grenzg|permess(o|i)?\s*[gbl]|visa|residenc[ye]|relocat|work|jobs?|salar|stipend|tax|fisc|impost|tass[ae]|insurance|assicur|health|sanit|krank|pension|avs|lpp|3a|pilastro|cassa|hospital|doctor|rent|affitt|housing|cas[ae]|mortgage|mutuo|mortgage|bank|bancar|account|conto|chf|euro|cambio|exchange|commute|pendolar|train|treno|sbb|bus|car|auto|frontier[ae]|border|valico|dogana|telelavoro|smart\s*working|telework|switzerland|svizzer|tessin|ticin|lugano|bellinz|chiasso|locarno|mendrisio|men dris|como|varese|milano)/i;
+// Reddit relevance — split into TWO regexes (2026-05-07 tightening):
+//
+// 1) REDDIT_DOMAIN_RE: cross-border-work specific vocabulary (the strong
+//    signal). Post matches if it mentions frontaliere/permit/tax/health/
+//    pension/banking/transport-cross-border terms.
+//
+// 2) REDDIT_CITY_RE: Ticino+Lombardia city/place names (the WEAK signal).
+//    Used only as a co-condition. Previously a post mentioning just
+//    "Lugano" or "Bellinzona" would pass — that flooded the candidate
+//    pool with off-topic chatter (BJJ classes, aperitivo, recycling).
+//
+// New contract: a post passes if it matches REDDIT_DOMAIN_RE. Pure city
+// mentions without any domain term are dropped — the city alone isn't
+// signal that the post is frontaliere-relevant.
+const REDDIT_DOMAIN_RE = /\b(frontalier|grenzg|permess(o|i)?\s*[gbl]|visa|residenc[ye]|relocat|salar|stipend|\btax\b|\bfisc|impost|tass[ae]|insurance|assicur|health|sanit|krank|pension|previdenz|\bavs\b|\bahv\b|\blpp\b|\bbvg\b|3a|3b|pilastro|cassa\s*malat|premio\s*malat|hospital|doctor|medico|affitt|mortgage|mutuo|bank|bancar|account|conto|\bchf\b|\beuro\b|cambio|exchange|commute|pendolar|treno|\bsbb\b|valico|dogana|telelavoro|smart\s*working|telework|switzerland|svizzer|tessin|ticino\s+(lavoro|frontalier|fiscal|tasse|salar|imposta)|busta\s*paga|naspi|disoccupaz|stipendio|crossborder|cross-border|grenz)/i;
+
+const REDDIT_CITY_RE = /\b(lugano|bellinz|chiasso|locarno|mendrisio|como|varese|milano|stabio|gaggiolo|fornasette|ponte\s*tresa)/i;
+
+// Compatibility shim — keep old name pointing to the domain-only regex
+// so any callers that haven't been migrated still get the new behavior.
+const REDDIT_RELEVANCE_RE = REDDIT_DOMAIN_RE;
 
 // Reddit increasingly blocks descriptive bot UAs (e.g. `frontaliereticino-bot/1.0`)
 // from anonymous endpoints with 403 + empty body. Using a plausible-browser

@@ -49,14 +49,17 @@ function shouldKeepLocale(loc) {
 // a few off-topic items than drop a real LAMal-reform news because
 // somebody named "Tagliapietra" appears in the source field.
 const NOISE_TITLE_RE =
-  /\b(corriere\s+dello?\s+sport|gazzetta\s+dello?\s+sport|tuttosport|calciomercato|bar(ç|c)a\b|gavi\b|yamal|yamine|lewandowski|mbapp[eé]|messi\b|ronaldo\b|champions\s+league|serie\s+[ABCabc]\b|FIFA\b|UEFA\b|paolini\b|tennis\b|fast\s+fashion|legance|freshfields|chiomenti|cleary\s+gottlieb|gianni\s+origoni|studio\s+legale|aumento\s+di\s+capitale|finanziamento\s+e\s+aumento|capitale\s+di\s+\w+|m\s*&\s*a\b|merger\b|acquisition\b|polacco\b|polish\s+(textile|retail)|store\s+chain|retail\s+chain|uteco\b|nazionale\s+(italiana|svizzera|spagnola)|paradisi\s+fiscali\s+europei|difesa\s+europea\s+pilastro|pilastro\s+(?:difesa|della\s+difesa)|cinema\s+drama|moda\s+(retail|store))\b/i;
+  /\b(corriere\s+dello?\s+sport|gazzetta\s+dello?\s+sport|tuttosport|calciomercato|bar(ç|c)a\b|gavi\b|yamal|yamine|lewandowski|mbapp[eé]|messi\b|ronaldo\b|champions\s+league|serie\s+[ABCabc]\b|FIFA\b|UEFA\b|paolini\b|tennis\b|fast\s+fashion|legance|freshfields|chiomenti|cleary\s+gottlieb|gianni\s+origoni|studio\s+legale|aumento\s+di\s+capitale|finanziamento\s+e\s+aumento|capitale\s+di\s+\w+|m\s*&\s*a\b|merger\b|acquisition\b|polacco\b|polish\s+(textile|retail)|store\s+chain|retail\s+chain|uteco\b|nazionale\s+(italiana|svizzera|spagnola)|paradisi\s+fiscali\s+europei|difesa\s+europea\s+pilastro|pilastro\s+(?:difesa|della\s+difesa)|cinema\s+drama|moda\s+(retail|store)|tajani\b|giorgetti\b|meloni\b|salvini\b|ddl\s+bilancio|oic\s*\d+|\bocse\s+(pillar|secondo\s+pilastro)|global\s+minimum\s+tax|globe\s+rules|\bpillar\s+2\b|nuovo\s+accordo\s+ocse|lpp\s+italy|massimo\s+martino|lpp\s+arcore|lpp\s+sa\b)\b/i;
 
 // SOURCE-LEVEL filter: drop items from clearly off-topic outlets.
-// Italian sports / fashion / business outlets that are not relevant to
-// frontaliere-Ticino content. The source field comes from <source url=...>
-// in the RSS XML.
+// Italian sports / fashion / business / legal-tax outlets that are not
+// relevant to frontaliere-Ticino content. The source field comes from
+// <source url=...> in the RSS XML. Tuned 2026-05-07 after seeing legit
+// frontaliere news come from TVS tvsvizzera/RSI/ComoZero/SWI swissinfo/
+// Bundesamt/Chiamami Città/San Marino Rtv, while noise comes from the
+// outlets in this regex.
 const NOISE_SOURCE_RE =
-  /\b(corriere\s+dello?\s+sport|gazzetta\s+dello?\s+sport|tuttosport|sport\.it|calciomercato|tennis\s*\w*|fanpage\s*sport|sky\s*sport|dazn\b|repubblica\.it\/sport|mediaset\s*sport|panorama\s*sport)\b/i;
+  /\b(corriere\s+dello?\s+sport|gazzetta\s+dello?\s+sport|tuttosport|sport\.it|calciomercato|tennis\s*\w*|fanpage\s*sport|sky\s*sport|dazn\b|repubblica\.it\/sport|mediaset\s*sport|panorama\s*sport|nt\+\s*diritto|fisco\s+e\s+tasse|agenzia\s+vista|retail\s*&\s*food|sole\s+24\s+ore|ddl\s+bilancio)\b/i;
 
 function passesNoiseContext(item) {
   const title = String(item?.title || '');
