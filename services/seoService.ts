@@ -3503,6 +3503,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-accordo-editori-sindacati-svizzera-tedesca': { name: 'Novità', path: '/articoli-frontaliere/accordo-editori-sindacati-svizzera-tedesca', parent: 'blog' },
     'blog-svizzera-minaccia-ibrida-russa-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-minaccia-ibrida-russa-2026', parent: 'blog' },
     'blog-nottambuli-ticino-orari-societa': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/nottambuli-ticino-orari-societa', parent: 'blog' },
+    'blog-economia-circolare-lavoro-carcere-varese': { name: 'Economia circolare', path: '/articoli-frontaliere/economia-circolare-lavoro-carcere-varese', parent: 'blog' },
  };
 
  const info = sectionNames[section];

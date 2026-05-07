@@ -6782,6 +6782,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nottambuli-ticino-orari-societa.title': 'Nachteulen: Wie mit sozialen Zeiten leben?',
     'blog.article.nottambuli-ticino-orari-societa.excerpt': 'Entdecken Sie, wie die Grenzgänger des Tessin die Arbeitszeiten in der Schweiz und in Italien verwalten, mit praktischen Tipps und konkreten Szenarien.',
     'blog.article.nottambuli-ticino-orari-societa.imageAlt': 'Nachtsicht des Luganersees mit Lichtern, die sich im Wasser spiegeln',
+    'blog.article.economia-circolare-lavoro-carcere-varese.title': 'Kreislaufwirtschaft repariert Leben: Zwei Arbeitsprojekte im Gefängnis',
+    'blog.article.economia-circolare-lavoro-carcere-varese.excerpt': 'Zwei Projekte in Gefängnissen in Varese und Busto Arsizio verwandeln Abfälle in Arbeitsmöglichkeiten für Häftlinge, reduzieren Rückfälle und schaffen sozialen Wert.',
+    'blog.article.economia-circolare-lavoro-carcere-varese.imageAlt': 'Konferenz über Kreislaufwirtschaft in Ville Ponti, Varese',
 };
 
 export default blogMetaDe;

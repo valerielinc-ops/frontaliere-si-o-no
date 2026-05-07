@@ -6783,6 +6783,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nottambuli-ticino-orari-societa.title': 'Noctambules, comment concilier horaires sociaux?',
     'blog.article.nottambuli-ticino-orari-societa.excerpt': 'Découvrez comment les frontaliers du Tessin gèrent les horaires de travail suisses et italiens, avec des conseils pratiques et des scénarios concrets.',
     'blog.article.nottambuli-ticino-orari-societa.imageAlt': 'Vue nocturne du lac de Lugano avec des lumières se reflétant sur l\'eau',
+    'blog.article.economia-circolare-lavoro-carcere-varese.title': 'Économie circulaire répare des vies: deux histoires de travail en prison',
+    'blog.article.economia-circolare-lavoro-carcere-varese.excerpt': 'Deux projets en prison à Varese et Busto Arsizio transforment les déchets en opportunités professionnelles pour les détenus, réduisant la récidive et créant de la valeur sociale.',
+    'blog.article.economia-circolare-lavoro-carcere-varese.imageAlt': 'Conférence sur l\'économie circulaire à Ville Ponti, Varese',
 };
 
 export default blogMetaFr;

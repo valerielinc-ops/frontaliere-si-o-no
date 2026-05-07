@@ -27023,6 +27023,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-economia-circolare-lavoro-carcere-varese': {
+    title: 'Economia circolare ripara vite: due storie di lavoro in carcere',
+    description: 'Due progetti in carcere a Varese e Busto Arsizio trasformano scarti in opportunità lavorative per detenuti, riducendo la recidiva e creando valore sociale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, economia, circolare, ripara, vite',
+    ogTitle: 'Economia circolare ripara vite: due storie di lavoro in carcere',
+    ogDescription: 'Due progetti in carcere a Varese e Busto Arsizio trasformano scarti in opportunità lavorative per detenuti, riducendo la recidiva e creando valore sociale.',
+    canonicalPath: '/articoli-frontaliere/economia-circolare-lavoro-carcere-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Economia circolare ripara vite: due storie di lavoro in carcere",
+      "description": "Due progetti in carcere a Varese e Busto Arsizio trasformano scarti in opportunità lavorative per detenuti, riducendo la recidiva e creando valore sociale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economia-circolare-lavoro-carcere-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza su economia circolare a Ville Ponti, Varese"
+      },
+      "datePublished": "2026-05-07T13:48:32+00:00",
+      "dateModified": "2026-05-07T13:48:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/economia-circolare-lavoro-carcere-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

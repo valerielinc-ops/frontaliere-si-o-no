@@ -6782,6 +6782,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nottambuli-ticino-orari-societa.title': 'Night owls, how to cope with social hours?',
     'blog.article.nottambuli-ticino-orari-societa.excerpt': 'Discover how Ticino cross-border workers manage Swiss and Italian work schedules, with practical tips and real-life scenarios.',
     'blog.article.nottambuli-ticino-orari-societa.imageAlt': 'Night view of Lake Lugano with lights reflecting on the water',
+    'blog.article.economia-circolare-lavoro-carcere-varese.title': 'Circular economy repairs lives: two prison work stories',
+    'blog.article.economia-circolare-lavoro-carcere-varese.excerpt': 'Two projects in Varese and Busto Arsizio prisons transform waste into job opportunities for inmates, reducing recidivism and creating social value.',
+    'blog.article.economia-circolare-lavoro-carcere-varese.imageAlt': 'Conference on circular economy at Ville Ponti, Varese',
 };
 
 export default blogMetaEn;

@@ -21719,4 +21719,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'economia-circolare-lavoro-carcere-varese',
+ category: 'pratico',
+ date: '2026-05-07T13:48:31.948Z',
+ image: '/images/blog/economia-circolare-lavoro-carcere-varese.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
