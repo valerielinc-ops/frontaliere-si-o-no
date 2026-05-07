@@ -90,3 +90,22 @@ export function svgForWmo(code: number, size = 80, isDay = true): string {
   if (code >= 95) return svgCloudLightning(size);
   return svgSun(size);
 }
+
+/**
+ * Tailwind text-color utility for a given WMO weather code. The icon should
+ * "tell the weather" through hue: amber for sun, slate for cloud cover,
+ * sky for rain, indigo for snow, etc. Used by the city page hero and hourly
+ * cells so a quick scan reveals conditions before the user reads labels.
+ */
+export function colorForWmo(code: number): string {
+  if (code === 0) return 'text-amber-500';
+  if (code === 1) return 'text-amber-400';
+  if (code === 2) return 'text-slate-400';
+  if (code === 3) return 'text-slate-500';
+  if (code >= 45 && code <= 48) return 'text-slate-400';
+  if (code >= 51 && code <= 57) return 'text-sky-500';
+  if (code >= 61 && code <= 67) return 'text-sky-600';
+  if (code >= 71 && code <= 86) return 'text-indigo-400';
+  if (code >= 95) return 'text-violet-600';
+  return 'text-amber-500';
+}

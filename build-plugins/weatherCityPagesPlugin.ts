@@ -21,8 +21,8 @@ import { parseWeatherSnapshot, type CityWeather, type WeatherSnapshot } from '..
 import { wmoText, type Locale } from '../services/weather/wmoCodes';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
+  colorForWmo,
   svgArrowRight,
-  svgBell,
   svgDroplet,
   svgFacebook,
   svgForWmo,
@@ -32,6 +32,23 @@ import {
   svgSunset,
   svgWind,
 } from './weatherIconsHelper';
+
+/**
+ * Closest border crossings (valichi) by city — frontalieri context: the page
+ * exists for commute decisions, so under the hero we show the nearest valico
+ * page so the user can jump from "weather Lugano" to "wait time Brogeda" in
+ * one click. Slugs match the F8 production routes (chiasso-brogeda, etc.).
+ */
+const NEAREST_VALICHI: Record<string, Array<{ slug: string; name: string }>> = {
+  lugano: [{ slug: 'chiasso-brogeda', name: 'Chiasso-Brogeda' }, { slug: 'oria-gandria', name: 'Gandria' }],
+  bellinzona: [{ slug: 'chiasso-brogeda', name: 'Chiasso-Brogeda' }],
+  mendrisio: [{ slug: 'rodero-stabio', name: 'Stabio' }, { slug: 'gaggiolo', name: 'Gaggiolo' }],
+  locarno: [{ slug: 'ponte-tresa', name: 'Ponte Tresa' }],
+  chiasso: [{ slug: 'chiasso-brogeda', name: 'Brogeda' }],
+  como: [{ slug: 'chiasso-brogeda', name: 'Brogeda' }, { slug: 'gaggiolo', name: 'Gaggiolo' }],
+  varese: [{ slug: 'rodero-stabio', name: 'Stabio' }, { slug: 'gaggiolo', name: 'Gaggiolo' }],
+  lecco: [{ slug: 'oria-gandria', name: 'Gandria' }],
+};
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -200,16 +217,17 @@ function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefin
   const canonical = `https://frontaliereticino.ch${localePath}/${HUB_SLUG[locale]}/${slug}/`;
   const breadcrumb = renderBreadcrumb(locale, city);
   const heroHtml = cw ? renderHero(cw, locale) : renderSentinel(locale);
+  const valichiHtml = renderValichiRow(locale, city.id);
   const hourlyHtml = cw ? renderHourly(cw, locale) : '';
   const dailyHtml = cw ? renderDaily(cw, locale) : '';
   const evergreenHtml = renderEvergreen(city, locale);
   const ctaHtml = renderCta(locale, `weather-city-${city.id}`);
   const faqHtml = renderFaq(locale);
+  const attributionHtml = attributionBlock(locale, generatedAt);
 
   const localePathCity = locale === 'it' ? '' : `/${locale}`;
   const homeNameCity = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
   const hubUrlCity = `https://frontaliereticino.ch${localePathCity}/${HUB_SLUG[locale]}/`;
-  // Per-locale city URLs for hreflang
   const cityHreflangs: Record<Locale, string> = {
     it: `https://frontaliereticino.ch/${HUB_SLUG.it}/${city.slug.it}/`,
     en: `https://frontaliereticino.ch/en/${HUB_SLUG.en}/${city.slug.en}/`,
@@ -220,16 +238,20 @@ function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefin
     locale, title, description, canonical, distDir,
     hreflangs: cityHreflangs,
     bodyHtml: `
+${weatherFontsAndStyle()}
+<div data-weather-page>
 ${breadcrumb}
-<header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(headline)}</h1>
-<p class="text-base sm:text-lg text-body">${escapeHtml(tagline)}</p></header>
+<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-stone-900 mb-2 leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(headline)}</h1>
+<p class="text-base sm:text-lg text-stone-600 max-w-2xl">${escapeHtml(tagline)}</p></header>
 ${heroHtml}
+${valichiHtml}
 ${hourlyHtml}
-${ctaHtml}
 ${dailyHtml}
+${ctaHtml}
 ${evergreenHtml}
 ${faqHtml}
-<section class="my-8 max-w-3xl mx-auto pt-6 border-t border-edge"><p class="text-xs text-muted leading-relaxed">${attributionInline(locale, generatedAt)}</p></section>
+${attributionHtml}
+</div>
 `,
     generatedAt,
     breadcrumbs: [
@@ -240,6 +262,32 @@ ${faqHtml}
   });
 }
 
+/**
+ * Inject Faustina (editorial display serif) only on weather pages — keeps
+ * the SPA bundle untouched. Body stays system to avoid double FOUT.
+ * `data-weather-page` scopes the override; var(--font-display) lets us
+ * apply it surgically to h1/h2/temp via inline `style="font-family:var(...)"`.
+ */
+function weatherFontsAndStyle(): string {
+  return `<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Faustina:wght@400;500;600&display=swap"><style>[data-weather-page]{--font-display:'Faustina',Georgia,'Iowan Old Style',serif;}[data-weather-page] [data-temp-display]{font-family:var(--font-display);font-feature-settings:'tnum','lnum';}</style>`;
+}
+
+function attributionBlock(locale: Locale, generatedAt?: string): string {
+  const updatedLabel = locale === 'it' ? 'Aggiornato' : locale === 'en' ? 'Updated' : locale === 'de' ? 'Aktualisiert' : 'Mis à jour';
+  const sourceLabel = locale === 'it' ? 'Fonti' : locale === 'en' ? 'Sources' : locale === 'de' ? 'Quellen' : 'Sources';
+  let stamp = '';
+  if (generatedAt) {
+    try {
+      const d = new Date(generatedAt);
+      if (!Number.isNaN(d.getTime())) {
+        const human = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+        stamp = `<time datetime="${escapeHtml(generatedAt)}" class="text-sm font-medium text-stone-700">${updatedLabel} ${human}</time>`;
+      }
+    } catch { /* ignore */ }
+  }
+  return `<section class="my-10 max-w-2xl mx-auto pt-6 border-t border-stone-200 flex flex-col gap-1.5">${stamp}<p class="text-xs text-stone-500 leading-relaxed">${sourceLabel}: <a class="hover:text-stone-700 underline-offset-2 hover:underline" href="https://open-meteo.com/" rel="noopener" target="_blank">Open-Meteo</a> · <a class="hover:text-stone-700 underline-offset-2 hover:underline" href="https://www.met.no/" rel="noopener" target="_blank">MET Norway</a> · <a class="hover:text-stone-700 underline-offset-2 hover:underline" href="https://www.meteoswiss.admin.ch/" rel="noopener" target="_blank">MeteoSwiss</a> · <a class="hover:text-stone-700 underline-offset-2 hover:underline" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-BY 4.0</a></p></section>`;
+}
+
 function renderBreadcrumb(locale: Locale, city: WeatherCity): string {
   const localePath = locale === 'it' ? '' : `/${locale}`;
   const homeText = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
@@ -248,47 +296,64 @@ function renderBreadcrumb(locale: Locale, city: WeatherCity): string {
 
 function renderHero(cw: CityWeather, locale: Locale): string {
   const condition = wmoText(cw.current.weatherCode, locale);
-  const conf = cw.confidence === 'low'
-    ? `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-danger-subtle text-danger border border-danger-border">${labelLow(locale)}</span>`
-    : cw.confidence === 'medium'
-      ? `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-warning-subtle text-warning border border-warning-border">${labelMedium(locale)}</span>`
-      : `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-success-subtle text-success border border-success-border">${labelHigh(locale)}</span>`;
+  const sourceCount = cw.sources?.length ?? 0;
+  const confLabel = cw.confidence === 'low' ? labelLow(locale) : cw.confidence === 'medium' ? labelMedium(locale) : labelHigh(locale);
+  const sourceList = (cw.sources ?? []).map((s) => s === 'open-meteo' ? 'Open-Meteo' : s === 'met-no' ? 'Met.no' : 'MeteoSwiss').join(' + ');
+  const confTooltip = sourceList ? `${confLabel} · ${sourceList}` : confLabel;
+  const dotClass = (filled: boolean) => filled
+    ? (cw.confidence === 'low' ? 'bg-rose-500' : cw.confidence === 'medium' ? 'bg-amber-500' : 'bg-emerald-500')
+    : 'bg-stone-300';
+  const dots = [1, 2, 3].map((i) => `<span class="w-1.5 h-1.5 rounded-full ${dotClass(i <= sourceCount)}" aria-hidden="true"></span>`).join('');
+  const conf = `<span class="inline-flex items-center gap-2 text-xs text-stone-700" title="${escapeHtml(confTooltip)}"><span class="flex items-center gap-0.5">${dots}</span><span class="font-medium">${escapeHtml(confLabel)}</span></span>`;
+
   const tempStr = `${Math.round(cw.current.temperature)}°`;
+  const iconColor = colorForWmo(cw.current.weatherCode);
   const heroIcon = svgForWmo(cw.current.weatherCode, 96, cw.current.isDay);
 
   const stats: string[] = [];
   if (cw.current.windSpeedKmh != null) {
-    stats.push(`<div class="bg-surface/60 backdrop-blur-sm rounded-xl px-4 py-3 border border-edge/60 flex items-center gap-3"><span class="text-accent shrink-0">${svgWind(20)}</span><div class="min-w-0"><div class="text-xs text-muted uppercase tracking-wide">${labelWind(locale)}</div><div class="font-semibold text-heading tabular-nums">${Math.round(cw.current.windSpeedKmh)} <span class="text-sm text-muted font-normal">km/h</span></div></div></div>`);
+    stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-stone-200/80 flex items-center gap-2.5"><span class="text-stone-500 shrink-0">${svgWind(18)}</span><div class="min-w-0"><div class="text-[11px] text-stone-500 uppercase tracking-wide font-medium">${labelWind(locale)}</div><div class="text-sm font-semibold text-stone-800 tabular-nums">${Math.round(cw.current.windSpeedKmh)}<span class="text-stone-500 font-normal"> km/h</span></div></div></div>`);
   }
   if (cw.current.humidity != null) {
-    stats.push(`<div class="bg-surface/60 backdrop-blur-sm rounded-xl px-4 py-3 border border-edge/60 flex items-center gap-3"><span class="text-accent shrink-0">${svgDroplet(20)}</span><div class="min-w-0"><div class="text-xs text-muted uppercase tracking-wide">${labelHumidity(locale)}</div><div class="font-semibold text-heading tabular-nums">${cw.current.humidity}<span class="text-sm text-muted font-normal">%</span></div></div></div>`);
+    stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-stone-200/80 flex items-center gap-2.5"><span class="text-sky-600 shrink-0">${svgDroplet(18)}</span><div class="min-w-0"><div class="text-[11px] text-stone-500 uppercase tracking-wide font-medium">${labelHumidity(locale)}</div><div class="text-sm font-semibold text-stone-800 tabular-nums">${cw.current.humidity}<span class="text-stone-500 font-normal">%</span></div></div></div>`);
   }
-  // sunrise/sunset come from daily7[0] when present (Open-Meteo provides them)
   const today = cw.daily7?.[0];
   if (today?.sunrise) {
     const t = formatHm(today.sunrise);
-    if (t) stats.push(`<div class="bg-surface/60 backdrop-blur-sm rounded-xl px-4 py-3 border border-edge/60 flex items-center gap-3"><span class="text-amber-500 shrink-0">${svgSunrise(20)}</span><div class="min-w-0"><div class="text-xs text-muted uppercase tracking-wide">${labelSunrise(locale)}</div><div class="font-semibold text-heading tabular-nums">${t}</div></div></div>`);
+    if (t) stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-stone-200/80 flex items-center gap-2.5"><span class="text-amber-500 shrink-0">${svgSunrise(18)}</span><div class="min-w-0"><div class="text-[11px] text-stone-500 uppercase tracking-wide font-medium">${labelSunrise(locale)}</div><div class="text-sm font-semibold text-stone-800 tabular-nums">${t}</div></div></div>`);
   }
   if (today?.sunset) {
     const t = formatHm(today.sunset);
-    if (t) stats.push(`<div class="bg-surface/60 backdrop-blur-sm rounded-xl px-4 py-3 border border-edge/60 flex items-center gap-3"><span class="text-orange-500 shrink-0">${svgSunset(20)}</span><div class="min-w-0"><div class="text-xs text-muted uppercase tracking-wide">${labelSunset(locale)}</div><div class="font-semibold text-heading tabular-nums">${t}</div></div></div>`);
+    if (t) stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-stone-200/80 flex items-center gap-2.5"><span class="text-orange-500 shrink-0">${svgSunset(18)}</span><div class="min-w-0"><div class="text-[11px] text-stone-500 uppercase tracking-wide font-medium">${labelSunset(locale)}</div><div class="text-sm font-semibold text-stone-800 tabular-nums">${t}</div></div></div>`);
   }
   const statsHtml = stats.length
-    ? `<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-6">${stats.join('')}</div>`
+    ? `<div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 mt-6">${stats.join('')}</div>`
     : '';
 
-  return `<section data-weather-hero class="relative overflow-hidden bg-gradient-to-br from-sky-100 via-accent-subtle to-surface border border-accent-border rounded-3xl p-6 sm:p-8 my-6 max-w-3xl mx-auto shadow-sm" aria-live="polite">
-<div class="absolute -top-8 -right-8 text-accent/10 pointer-events-none" aria-hidden="true">${svgForWmo(cw.current.weatherCode, 220, cw.current.isDay)}</div>
-<div class="relative flex items-center gap-5 sm:gap-7">
-<div class="text-accent shrink-0 drop-shadow-sm">${heroIcon}</div>
+  return `<section data-weather-hero class="bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 border border-orange-200/60 rounded-3xl p-6 sm:p-10 my-6 max-w-4xl mx-auto" aria-live="polite">
+<div class="flex items-center gap-5 sm:gap-8">
+<div class="${iconColor} shrink-0">${heroIcon}</div>
 <div class="min-w-0 flex-1">
-<div class="text-6xl sm:text-7xl font-light text-heading tabular-nums leading-none" data-current-temp>${tempStr}</div>
-<div class="mt-2 text-lg sm:text-xl text-strong font-medium">${escapeHtml(condition)}</div>
+<div data-temp-display class="text-7xl sm:text-8xl font-normal text-stone-900 tabular-nums leading-none tracking-tight" data-current-temp>${tempStr}</div>
+<div class="mt-2 text-xl sm:text-2xl text-stone-700">${escapeHtml(condition)}</div>
 <div class="mt-3">${conf}</div>
 </div>
 </div>
 ${statsHtml}
 </section>`;
+}
+
+function renderValichiRow(locale: Locale, cityId: string): string {
+  const list = NEAREST_VALICHI[cityId];
+  if (!list || list.length === 0) return '';
+  const localePath = locale === 'it' ? '' : `/${locale}`;
+  const valicoSlug = locale === 'it' ? 'traffico-dogane' : locale === 'en' ? 'border-traffic' : locale === 'de' ? 'grenze-verkehr' : 'trafic-frontalier';
+  const label = locale === 'it' ? 'Valichi vicini' : locale === 'en' ? 'Nearby crossings' : locale === 'de' ? 'Nahe Übergänge' : 'Passages proches';
+  const items = list.map((v) => {
+    const url = `${localePath}/${valicoSlug}/${v.slug}/oggi/`;
+    return `<a href="${url}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-stone-800 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-300 transition-colors">${escapeHtml(v.name)}<span class="text-stone-400" aria-hidden="true">→</span></a>`;
+  }).join('');
+  return `<div class="max-w-4xl mx-auto -mt-2 mb-6 px-1 flex items-center gap-2 flex-wrap"><span class="text-xs uppercase tracking-wider text-stone-500 font-medium">${escapeHtml(label)}</span>${items}</div>`;
 }
 
 function renderSentinel(locale: Locale): string {
@@ -299,13 +364,31 @@ function renderSentinel(locale: Locale): string {
 function renderHourly(cw: CityWeather, locale: Locale): string {
   if (!cw.hourly24.length) return '';
   const heading = locale === 'it' ? 'Prossime 24 ore' : locale === 'en' ? 'Next 24 hours' : locale === 'de' ? 'Nächste 24 Stunden' : 'Prochaines 24 heures';
-  const cells = cw.hourly24.slice(0, 24).map((h) => {
+  const slice = cw.hourly24.slice(0, 24);
+  const cellW = 68;
+  const cellGap = 8;
+  const totalW = slice.length * cellW + (slice.length - 1) * cellGap;
+  const sparkH = 36;
+  const tempsAll = slice.map((h) => h.temp);
+  const minT = Math.min(...tempsAll);
+  const maxT = Math.max(...tempsAll);
+  const rangeT = Math.max(1, maxT - minT);
+  const points = slice.map((h, i) => {
+    const x = i * (cellW + cellGap) + cellW / 2;
+    const y = sparkH - 4 - ((h.temp - minT) / rangeT) * (sparkH - 8);
+    return `${x},${y.toFixed(1)}`;
+  }).join(' ');
+  const sparkline = `<svg class="block" width="${totalW}" height="${sparkH}" viewBox="0 0 ${totalW} ${sparkH}" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="rgb(217 119 6 / 0.85)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" points="${points}"></polyline></svg>`;
+  const cells = slice.map((h, i) => {
     const hour = h.hour.slice(11, 13);
     const code = h.weatherCode ?? cw.current.weatherCode;
-    const icon = svgForWmo(code, 28, true);
-    return `<div class="flex-shrink-0 w-[68px] bg-surface rounded-xl border border-edge p-2.5 text-center hover:border-accent-border hover:bg-accent-subtle/40 transition-colors"><div class="text-xs text-muted font-medium">${hour}<span class="text-muted/60">:00</span></div><div class="my-1.5 flex justify-center text-accent">${icon}</div><div class="text-base font-semibold text-heading tabular-nums">${Math.round(h.temp)}°</div></div>`;
+    const icon = svgForWmo(code, 24, true);
+    const iconColor = colorForWmo(code);
+    const isNow = i === 0;
+    const ringClass = isNow ? 'ring-1 ring-orange-300 bg-orange-50/60' : 'bg-white';
+    return `<div class="flex-shrink-0 w-[68px] ${ringClass} rounded-xl border border-stone-200 p-2 text-center hover:border-stone-300 transition-colors"><div class="text-[11px] text-stone-500 font-medium tabular-nums">${hour}<span class="text-stone-400">:00</span></div><div class="my-1 flex justify-center ${iconColor}">${icon}</div><div class="text-base font-semibold text-stone-800 tabular-nums">${Math.round(h.temp)}°</div></div>`;
   }).join('');
-  return `<section class="my-6 max-w-3xl mx-auto"><h2 class="text-lg sm:text-xl font-bold text-heading mb-3 px-1">${escapeHtml(heading)}</h2><div class="flex gap-2 overflow-x-auto pb-3 -mx-1 px-1 snap-x snap-mandatory" style="scrollbar-width:thin;">${cells}</div></section>`;
+  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-stone-900 mb-3 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><div class="overflow-x-auto -mx-1 px-1 pb-3" style="scrollbar-width:thin;"><div style="width:${totalW}px;">${sparkline}<div class="flex gap-2 mt-1">${cells}</div></div></div></section>`;
 }
 
 function renderDaily(cw: CityWeather, locale: Locale): string {
@@ -322,16 +405,21 @@ function renderDaily(cw: CityWeather, locale: Locale): string {
   const range = Math.max(1, globalMax - globalMin);
   const rows = days.map((d, i) => {
     const cond = wmoText(d.weatherCode, locale);
-    const icon = svgForWmo(d.weatherCode, 28, true);
+    const icon = svgForWmo(d.weatherCode, 26, true);
+    const iconColor = colorForWmo(d.weatherCode);
     const leftPct = Math.round(((d.tempMin - globalMin) / range) * 100);
     const widthPct = Math.max(8, Math.round(((d.tempMax - d.tempMin) / range) * 100));
     const isToday = i === 0;
     const dayLabel = isToday
       ? (locale === 'it' ? 'Oggi' : locale === 'en' ? 'Today' : locale === 'de' ? 'Heute' : "Aujourd'hui")
       : dayName(d.date);
-    return `<li class="grid grid-cols-[64px_36px_1fr_88px] gap-3 py-3 border-b border-edge last:border-0 items-center"><span class="font-semibold text-heading text-sm">${dayLabel}</span><span class="text-accent flex justify-center" title="${escapeHtml(cond)}" aria-label="${escapeHtml(cond)}">${icon}</span><span class="relative h-2 bg-surface-alt rounded-full overflow-hidden" aria-hidden="true"><span class="absolute top-0 bottom-0 bg-gradient-to-r from-sky-400 via-amber-300 to-orange-500 rounded-full" style="left:${leftPct}%;width:${widthPct}%;"></span></span><span class="text-sm tabular-nums text-right"><span class="font-semibold text-heading">${Math.round(d.tempMax)}°</span> <span class="text-muted">${Math.round(d.tempMin)}°</span></span></li>`;
+    const dayLabelHtml = isToday
+      ? `<span class="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700"><span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>${dayLabel}</span>`
+      : `<span class="text-sm font-medium text-stone-700">${dayLabel}</span>`;
+    const rowBg = isToday ? 'bg-orange-50/40' : '';
+    return `<li class="grid grid-cols-[68px_32px_1fr_88px] gap-3 py-3.5 px-3 border-b border-stone-100 last:border-0 items-center ${rowBg}"><span>${dayLabelHtml}</span><span class="${iconColor} flex justify-center" title="${escapeHtml(cond)}" aria-label="${escapeHtml(cond)}">${icon}</span><span class="relative h-2 bg-stone-100 rounded-full overflow-hidden" aria-hidden="true"><span class="absolute top-0 bottom-0 bg-gradient-to-r from-sky-400 via-amber-300 to-rose-500 rounded-full" style="left:${leftPct}%;width:${widthPct}%;"></span></span><span class="text-sm tabular-nums text-right"><span class="font-semibold text-stone-900">${Math.round(d.tempMax)}°</span> <span class="text-stone-400">${Math.round(d.tempMin)}°</span></span></li>`;
   }).join('');
-  return `<section class="my-6 max-w-3xl mx-auto"><h2 class="text-lg sm:text-xl font-bold text-heading mb-3">${escapeHtml(heading)}</h2><ol class="bg-surface rounded-2xl border border-edge px-3 sm:px-5">${rows}</ol></section>`;
+  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-stone-900 mb-3 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><ol class="bg-white rounded-2xl border border-stone-200 overflow-hidden">${rows}</ol></section>`;
 }
 
 function renderEvergreen(city: WeatherCity, locale: Locale): string {
@@ -399,32 +487,29 @@ function renderCta(locale: Locale, acquisitionSource: string): string {
   // Form posts to the standard newsletter subscribe handler — the SPA hydration
   // intercepts the submit and routes it through the same Cloud Function as the
   // popup, tagged with `acquisitionSource` for downstream analytics.
-  return `<section class="relative overflow-hidden bg-gradient-to-br from-accent to-accent/80 text-white rounded-3xl p-6 sm:p-8 my-8 max-w-3xl mx-auto shadow-lg" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
-<div class="absolute -top-12 -right-12 text-white/10 pointer-events-none" aria-hidden="true">${svgBell(180)}</div>
-<div class="relative">
-<div class="flex items-start gap-3 mb-3">
-<span class="bg-white/15 rounded-full p-2 shrink-0">${svgMail(24)}</span>
+  return `<section class="bg-stone-900 text-stone-50 rounded-3xl p-6 sm:p-8 my-10 max-w-2xl mx-auto" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
+<div class="flex items-start gap-3 mb-4">
+<span class="bg-orange-500/20 text-orange-300 rounded-full p-2 shrink-0">${svgMail(22)}</span>
 <div class="min-w-0 flex-1">
-<h2 class="text-xl sm:text-2xl font-bold leading-tight">${escapeHtml(heading)}</h2>
-<p class="text-white/85 text-sm sm:text-base mt-1">${escapeHtml(sub)}</p>
+<h2 class="text-xl sm:text-2xl font-medium leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2>
+<p class="text-stone-300 text-sm mt-1.5 leading-relaxed">${escapeHtml(sub)}</p>
 </div>
 </div>
 <form class="mt-5 flex flex-col sm:flex-row gap-2" data-newsletter-form action="/api/newsletter-subscribe" method="post" novalidate>
 <label class="sr-only" for="weather-newsletter-email-${escapeHtml(acquisitionSource)}">${placeholder}</label>
-<input id="weather-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-1 min-w-0 px-4 py-3 rounded-xl bg-white/95 text-heading placeholder:text-muted border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/60 text-base">
+<input id="weather-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-1 min-w-0 px-4 py-3 rounded-xl bg-stone-800 text-stone-50 placeholder:text-stone-500 border border-stone-700 focus:outline-none focus:ring-2 focus:ring-orange-400/60 focus:border-orange-400/60 text-base">
 <input type="hidden" name="acquisitionSource" value="${escapeHtml(acquisitionSource)}">
 <input type="hidden" name="locale" value="${locale}">
-<button type="submit" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-accent font-semibold hover:bg-white/90 active:scale-[0.98] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-white/60">
+<button type="submit" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-orange-500 text-stone-900 font-semibold hover:bg-orange-400 active:scale-[0.98] transition-all focus:outline-none focus:ring-2 focus:ring-orange-300">
 <span>${escapeHtml(cta)}</span>${svgArrowRight(18)}
 </button>
 </form>
-<div class="mt-5 flex items-center justify-between flex-wrap gap-3">
-<p class="text-xs text-white/75">${escapeHtml(privacy)}</p>
-<div class="flex items-center gap-2 text-xs text-white/85">
+<div class="mt-5 pt-4 border-t border-stone-800 flex items-center justify-between flex-wrap gap-3">
+<p class="text-xs text-stone-400">${escapeHtml(privacy)}</p>
+<div class="flex items-center gap-2 text-xs text-stone-400">
 <span>${escapeHtml(followLabel)}</span>
-<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="bg-white/15 hover:bg-white/25 rounded-full p-1.5 transition-colors">${svgFacebook(16)}</a>
-<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="bg-white/15 hover:bg-white/25 rounded-full p-1.5 transition-colors">${svgLinkedin(16)}</a>
-</div>
+<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="text-stone-400 hover:text-orange-300 transition-colors">${svgFacebook(16)}</a>
+<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="text-stone-400 hover:text-orange-300 transition-colors">${svgLinkedin(16)}</a>
 </div>
 </div>
 </section>`;
