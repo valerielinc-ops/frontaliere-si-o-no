@@ -25658,6 +25658,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fedpol-talpa-accesso-dossier-inchiesta': {
+    title: 'Fedpol, la talpa aveva accesso a dossier di inchiesta',
+    description: 'Nuovi dettagli sul funzionario arrestato per aver venduto informazioni a un\'organizzazione criminale. Accesso a dossier internazionali e misure immediate prese',
+    keywords: 'frontalieri, ticino, svizzera, italia, fedpol, talpa, aveva, accesso',
+    ogTitle: 'Fedpol, la talpa aveva accesso a dossier di inchiesta',
+    ogDescription: 'Nuovi dettagli sul funzionario arrestato per aver venduto informazioni a un\'organizzazione criminale. Accesso a dossier internazionali e misure immediate prese',
+    canonicalPath: '/articoli-frontaliere/fedpol-talpa-accesso-dossier-inchiesta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fedpol, la talpa aveva accesso a dossier di inchiesta",
+      "description": "Nuovi dettagli sul funzionario arrestato per aver venduto informazioni a un'organizzazione criminale. Accesso a dossier internazionali e misure immediate prese",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fedpol-talpa-accesso-dossier-inchiesta.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Castelgrande a Bellinzona, Ticino, Svizzera. Il castello medievale si erge maestoso contro lo sfondo delle Alpi svizzere, con il fiume Ticino che serpeggia nella valle sottostante."
+      },
+      "datePublished": "2026-05-07T06:32:16+00:00",
+      "dateModified": "2026-05-07T06:32:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fedpol-talpa-accesso-dossier-inchiesta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -3468,6 +3468,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuova-axenstrasse-svitto-2026': { name: 'Nuova Axenstrasse', path: '/articoli-frontaliere/nuova-axenstrasse-svitto-2026', parent: 'blog' },
     'blog-spreco-alimentare-svizzera-obiettivo-fallito': { name: 'Spreco alimentare', path: '/articoli-frontaliere/spreco-alimentare-svizzera-obiettivo-fallito', parent: 'blog' },
     'blog-elon-musk-svizzero-processo-friburgo': { name: 'Novità', path: '/articoli-frontaliere/elon-musk-svizzero-processo-friburgo', parent: 'blog' },
+    'blog-fedpol-talpa-accesso-dossier-inchiesta': { name: 'Novità', path: '/articoli-frontaliere/fedpol-talpa-accesso-dossier-inchiesta', parent: 'blog' },
  };
 
  const info = sectionNames[section];

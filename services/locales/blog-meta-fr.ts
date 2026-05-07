@@ -6678,6 +6678,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.elon-musk-svizzero-processo-friburgo.title': 'Elon Musk suisse jugé pour fraude et crimes économiques',
     'blog.article.elon-musk-svizzero-processo-friburgo.excerpt': 'Pascal Jaussi, fondateur de Swiss Space Systems, jugé à Fribourg pour un trou de 30 millions de francs',
     'blog.article.elon-musk-svizzero-processo-friburgo.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.title': 'Fedpol, la taupe avait accès aux dossiers d\'enquête',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.excerpt': 'Nouveaux détails sur le fonctionnaire arrêté pour avoir vendu des informations à une organisation criminelle. Accès aux dossiers internationaux et mesures immédiates prises par Fedpol.',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.imageAlt': 'Vue aérienne du Castelgrande à Bellinzone, Tessin, Suisse. Le château médiéval se dresse majestueusement contre un arrière-plan des Alpes suisses, avec le fleuve Tessin sinuant à travers la vallée en dessous.',
 };
 
 export default blogMetaFr;

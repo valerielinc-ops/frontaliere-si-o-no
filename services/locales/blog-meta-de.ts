@@ -6677,6 +6677,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.elon-musk-svizzero-processo-friburgo.title': 'Elon Musk Schweizer vor Gericht wegen Betrugs und Wirtschaftsverbrechen',
     'blog.article.elon-musk-svizzero-processo-friburgo.excerpt': 'Pascal Jaussi, Gründer von Swiss Space Systems, steht in Freiburg wegen eines Lochs von 30 Millionen Franken vor Gericht',
     'blog.article.elon-musk-svizzero-processo-friburgo.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.title': 'Fedpol: Informant hatte Zugang zu Ermittlungsdossiers',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.excerpt': 'Neue Details zum festgenommenen Beamten, der Informationen an eine kriminelle Organisation verkauft hat. Zugang zu internationalen Dossiers und sofortige Maßnahmen von Fedpol.',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin, Schweiz. Die mittelalterliche Burg erhebt sich majestätisch vor dem Hintergrund der Schweizer Alpen, während der Fluss Ticino durch das Tal darunter schlängelt.',
 };
 
 export default blogMetaDe;

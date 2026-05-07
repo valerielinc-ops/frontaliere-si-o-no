@@ -6677,6 +6677,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.elon-musk-svizzero-processo-friburgo.title': 'Elon Musk Swiss founder on trial for fraud and financial crimes',
     'blog.article.elon-musk-svizzero-processo-friburgo.excerpt': 'Pascal Jaussi, founder of Swiss Space Systems, on trial in Fribourg for a 30 million francs hole',
     'blog.article.elon-musk-svizzero-processo-friburgo.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.title': 'Fedpol mole had access to investigation files',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.excerpt': 'New details on the official arrested for selling information to a criminal organization. Access to international files and immediate measures taken by Fedpol.',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland. The medieval castle stands majestically against a backdrop of the Swiss Alps, with the Ticino River winding through the valley below.',
 };
 
 export default blogMetaEn;

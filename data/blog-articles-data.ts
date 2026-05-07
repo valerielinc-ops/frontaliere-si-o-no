@@ -21404,4 +21404,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fedpol-talpa-accesso-dossier-inchiesta',
+ category: 'novita',
+ date: '2026-05-07T06:32:16.128Z',
+ image: '/images/blog/fedpol-talpa-accesso-dossier-inchiesta.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

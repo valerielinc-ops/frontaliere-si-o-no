@@ -6678,6 +6678,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.elon-musk-svizzero-processo-friburgo.title': 'Elon Musk svizzero a processo per truffa e reati economici',
     'blog.article.elon-musk-svizzero-processo-friburgo.excerpt': 'Pascal Jaussi, fondatore di Swiss Space Systems, a processo a Friburgo per un buco di 30 milioni di franchi',
     'blog.article.elon-musk-svizzero-processo-friburgo.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.title': 'Fedpol, la talpa aveva accesso a dossier di inchiesta',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.excerpt': 'Nuovi dettagli sul funzionario arrestato per aver venduto informazioni a un\'organizzazione criminale. Accesso a dossier internazionali e misure immediate prese da Fedpol.',
+    'blog.article.fedpol-talpa-accesso-dossier-inchiesta.imageAlt': 'Vista aerea del Castelgrande a Bellinzona, Ticino, Svizzera. Il castello medievale si erge maestoso contro lo sfondo delle Alpi svizzere, con il fiume Ticino che serpeggia nella valle sottostante.',
 };
 
 export default blogMetaIt;
