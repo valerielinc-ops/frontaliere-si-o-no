@@ -6881,6 +6881,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.morbio-inferiore-raccolta-vegetali-2026.title': 'Morbio Inferiore: less frequent and pricier green waste collection',
     'blog.article.morbio-inferiore-raccolta-vegetali-2026.excerpt': 'The PLR of Morbio Inferiore reports a less frequent and more expensive green waste collection service compared to neighboring municipalities',
     'blog.article.morbio-inferiore-raccolta-vegetali-2026.imageAlt': 'Aerial view of Morbio Inferiore, Ticino, Switzerland, with green gardens and residential areas',
+    'blog.article.centromedico-bellinzona-frontalieri.title': 'Bellinzona Medical Centre: same-day procedures and return home',
+    'blog.article.centromedico-bellinzona-frontalieri.excerpt': 'New healthcare facility in Bellinzona for outpatient procedures. Opening to the public on 9 May 2026',
+    'blog.article.centromedico-bellinzona-frontalieri.imageAlt': 'Bellinzona Medical Center, a modern healthcare facility in the heart of Bellinzona',
 };
 
 export default blogMetaEn;

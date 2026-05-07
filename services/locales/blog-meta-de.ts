@@ -6881,6 +6881,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.morbio-inferiore-raccolta-vegetali-2026.title': 'Morbio Inferiore: seltener und teurer Pflanzenabfuhrdienst',
     'blog.article.morbio-inferiore-raccolta-vegetali-2026.excerpt': 'Die FDP von Morbio Inferiore kritisiert einen weniger häufigen und teureren Abfuhrdienst für Pflanzenabfälle im Vergleich zu den Nachbargemeinden',
     'blog.article.morbio-inferiore-raccolta-vegetali-2026.imageAlt': 'Luftaufnahme von Morbio Inferiore, Tessin, Schweiz, mit grünen Gärten und Wohngebieten',
+    'blog.article.centromedico-bellinzona-frontalieri.title': 'Centromedico Bellinzona: Eingriffe und Rückkehr am selben Tag',
+    'blog.article.centromedico-bellinzona-frontalieri.excerpt': 'Neue Gesundheitsstruktur in Bellinzona für ambulante Eingriffe. Eröffnung für die Öffentlichkeit am 9. Mai 2026',
+    'blog.article.centromedico-bellinzona-frontalieri.imageAlt': 'Medizinisches Zentrum Bellinzona, eine moderne Gesundheitsanlage im Herzen von Bellinzona',
 };
 
 export default blogMetaDe;

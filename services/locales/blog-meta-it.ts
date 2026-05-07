@@ -6882,6 +6882,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.morbio-inferiore-raccolta-vegetali-2026.title': 'Morbio Inferiore: raccolta vegetali meno frequente e più cara',
     'blog.article.morbio-inferiore-raccolta-vegetali-2026.excerpt': 'Il PLR di Morbio Inferiore denuncia un servizio di raccolta scarti vegetali meno frequente e più costoso rispetto ai comuni vicini',
     'blog.article.morbio-inferiore-raccolta-vegetali-2026.imageAlt': 'Vista aerea di Morbio Inferiore, Ticino, Svizzera, con giardini verdi e aree residenziali',
+    'blog.article.centromedico-bellinzona-frontalieri.title': 'Centromedico Bellinzona: operazioni e ritorno a casa lo stesso giorno',
+    'blog.article.centromedico-bellinzona-frontalieri.excerpt': 'Nuova struttura sanitaria a Bellinzona per interventi ambulatoriali. Apertura al pubblico il 9 maggio 2026',
+    'blog.article.centromedico-bellinzona-frontalieri.imageAlt': 'Centromedico Bellinzona Castello, struttura sanitaria moderna nel cuore di Bellinzona',
 };
 
 export default blogMetaIt;

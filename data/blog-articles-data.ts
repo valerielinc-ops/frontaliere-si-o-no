@@ -22016,4 +22016,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'centromedico-bellinzona-frontalieri',
+ category: 'pratico',
+ date: '2026-05-07T21:11:01.922Z',
+ image: '/images/blog/centromedico-bellinzona-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
