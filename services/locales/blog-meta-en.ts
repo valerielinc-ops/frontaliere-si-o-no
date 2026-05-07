@@ -6767,6 +6767,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.hantavirus-svizzera-frontalieri-2026.title': 'Hantavirus in Switzerland: rare cases, low epidemic risk',
     'blog.article.hantavirus-svizzera-frontalieri-2026.excerpt': 'Experts reassure: hantavirus cases in Switzerland are rare and the risk of an epidemic is low. Here\'s what cross-border workers need to know.',
     'blog.article.hantavirus-svizzera-frontalieri-2026.imageAlt': 'Lake Lugano with the city skyline in the background',
+    'blog.article.cedu-condanna-svizzera-diritti-manifestante.title': 'ECHR condemns Switzerland for violating protester\'s rights',
+    'blog.article.cedu-condanna-svizzera-diritti-manifestante.excerpt': 'The European Court of Human Rights has condemned Switzerland for violating the freedom of assembly and association of a protest organizer.',
+    'blog.article.cedu-condanna-svizzera-diritti-manifestante.imageAlt': 'Protest in Bellinzona with protesters holding signs and banners, with the backdrop of Bellinzona Castle.',
 };
 
 export default blogMetaEn;

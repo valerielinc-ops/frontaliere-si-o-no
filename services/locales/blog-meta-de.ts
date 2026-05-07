@@ -6767,6 +6767,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hantavirus-svizzera-frontalieri-2026.title': 'Hantavirus in der Schweiz: seltene Fälle, geringes Epidemie-Risiko',
     'blog.article.hantavirus-svizzera-frontalieri-2026.excerpt': 'Experten beruhigen: Hantavirus-Fälle in der Schweiz sind selten und das Epidemie-Risiko gering. Hier erfahren Grenzgänger, was sie wissen müssen.',
     'blog.article.hantavirus-svizzera-frontalieri-2026.imageAlt': 'Luganersee mit der Skyline der Stadt im Hintergrund',
+    'blog.article.cedu-condanna-svizzera-diritti-manifestante.title': 'EGMR verurteilt Schweiz wegen Verletzung von Versammlungsfreiheit',
+    'blog.article.cedu-condanna-svizzera-diritti-manifestante.excerpt': 'Der Europäische Gerichtshof für Menschenrechte hat die Schweiz verurteilt, weil sie die Versammlungs- und Vereinigungsfreiheit einer Demonstrationsorganisatorin verletzt hat.',
+    'blog.article.cedu-condanna-svizzera-diritti-manifestante.imageAlt': 'Demonstration in Bellinzona mit Demonstranten, die Schilder und Banner halten, mit dem Hintergrund des Schlosses Bellinzona.',
 };
 
 export default blogMetaDe;

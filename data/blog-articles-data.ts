@@ -21674,4 +21674,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cedu-condanna-svizzera-diritti-manifestante',
+ category: 'novita',
+ date: '2026-05-07T12:54:30.656Z',
+ image: '/images/blog/cedu-condanna-svizzera-diritti-manifestante.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

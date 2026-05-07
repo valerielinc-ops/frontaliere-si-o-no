@@ -3498,6 +3498,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-castellanza-investimenti-2025': { name: 'Investimenti Castellanza', path: '/articoli-frontaliere/castellanza-investimenti-2025', parent: 'blog' },
     'blog-svizzera-elettricita-inverno-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-elettricita-inverno-2026', parent: 'blog' },
     'blog-hantavirus-svizzera-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-svizzera-frontalieri-2026', parent: 'blog' },
+    'blog-cedu-condanna-svizzera-diritti-manifestante': { name: 'Novità', path: '/articoli-frontaliere/cedu-condanna-svizzera-diritti-manifestante', parent: 'blog' },
  };
 
  const info = sectionNames[section];

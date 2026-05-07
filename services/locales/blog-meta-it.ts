@@ -6768,6 +6768,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.hantavirus-svizzera-frontalieri-2026.title': 'Hantavirus in Svizzera: casi rari, basso rischio di epidemia',
     'blog.article.hantavirus-svizzera-frontalieri-2026.excerpt': 'Gli esperti rassicurano: i casi di hantavirus in Svizzera sono rari e il rischio di epidemia è basso. Ecco cosa sapere per i frontalieri.',
     'blog.article.hantavirus-svizzera-frontalieri-2026.imageAlt': 'Lago di Lugano con lo skyline della città sullo sfondo',
+    'blog.article.cedu-condanna-svizzera-diritti-manifestante.title': 'CEDU condanna la Svizzera per violazione diritti manifestante',
+    'blog.article.cedu-condanna-svizzera-diritti-manifestante.excerpt': 'La Corte europea dei diritti dell\'uomo ha condannato la Svizzera per aver violato la libertà di riunione e associazione di un\'organizzatrice di manifestazione.',
+    'blog.article.cedu-condanna-svizzera-diritti-manifestante.imageAlt': 'Manifestazione a Bellinzona con manifestanti che tengono cartelli e striscioni, con lo sfondo del Castello di Bellinzona.',
 };
 
 export default blogMetaIt;
