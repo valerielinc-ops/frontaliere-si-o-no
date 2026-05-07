@@ -155,50 +155,83 @@ function countMatchesForCluster(candidate, jobs, haystackCache) {
   return Math.min(andCount + orCount, MAX_JOBS_PER_PAGE);
 }
 
-// ── Main sweep
+// ── Main sweep — single-pass over candidates, bucket by floor at the end
 function runSweep() {
   const t0 = process.hrtime.bigint();
   const candidatesAll = loadCandidates();
   const jobs = loadJobs();
   const tLoad = Number(process.hrtime.bigint() - t0) / 1e6;
 
-  const results = [];
-  for (const floor of FLOORS) {
-    const tStart = process.hrtime.bigint();
-    const cands = filterAndDedupeCandidates(candidatesAll, floor);
-    const haystackCache = new Map();
-    let surviving = 0;
-    let totalMatches = 0;
-    for (const c of cands) {
-      const matches = countMatchesForCluster(c, jobs, haystackCache);
-      if (matches >= MIN_MATCHING_JOBS) {
-        surviving++;
-        totalMatches += matches;
+  // Pre-build haystacks for ALL (locale, job) pairs once. The plugin
+  // builds haystacks lazily but our profiler scans all candidates so we
+  // can amortize the NFD-normalize cost upfront.
+  const tHaystack = process.hrtime.bigint();
+  const haystackCache = new Map();
+  for (const locale of SUPPORTED_LOCALES) {
+    for (const job of jobs) {
+      haystackCache.set(`${locale}::${jobIdentity(job)}`, buildJobHaystack(job, locale));
+    }
+  }
+  const haystackMs = Number(process.hrtime.bigint() - tHaystack) / 1e6;
+
+  // Single pass: filter candidates by base criteria, dedupe by (locale,
+  // slug) keeping highest jobCount, then for each surviving candidate
+  // compute matches once and bucket the result into every floor it
+  // qualifies for.
+  const tMatch = process.hrtime.bigint();
+  const baseFiltered = candidatesAll.filter((c) =>
+    c.editorialCollision === null
+    && Array.isArray(c.sampleTerms)
+    && c.sampleTerms.length > 0
+    && SUPPORTED_LOCALES.includes(c.locale),
+  );
+  const bySlug = new Map();
+  for (const c of baseFiltered) {
+    const key = `${c.locale}::${c.slug}`;
+    const existing = bySlug.get(key);
+    if (!existing || (c.jobCount > existing.jobCount)) bySlug.set(key, c);
+  }
+  const dedupedCandidates = Array.from(bySlug.values());
+
+  const buckets = Object.fromEntries(FLOORS.map((f) => [f, { candidates: 0, surviving: 0, totalMatches: 0 }]));
+  for (const c of dedupedCandidates) {
+    for (const f of FLOORS) {
+      if (c.jobCount >= f) buckets[f].candidates++;
+    }
+    const matches = countMatchesForCluster(c, jobs, haystackCache);
+    if (matches < MIN_MATCHING_JOBS) continue;
+    for (const f of FLOORS) {
+      if (c.jobCount >= f) {
+        buckets[f].surviving++;
+        buckets[f].totalMatches += matches;
       }
     }
-    const elapsedMs = Number(process.hrtime.bigint() - tStart) / 1e6;
-    const memMb = Math.round(process.memoryUsage().rss / 1e6);
-    // Empirical: a cluster page weighs ~140 KB on disk (mid-range). Cluster
-    // plugin emit time observed = ~13 s for 18,711 pages = ~0.7 ms/page.
-    const estDistMb = Math.round((surviving * 140) / 1024);
-    const estEmitSec = (surviving * 0.7) / 1000;
-    results.push({
+  }
+  const matchMs = Number(process.hrtime.bigint() - tMatch) / 1e6;
+  const memMb = Math.round(process.memoryUsage().rss / 1e6);
+
+  const results = FLOORS.map((floor) => {
+    const b = buckets[floor];
+    const estDistMb = Math.round((b.surviving * 140) / 1024);
+    const estEmitSec = (b.surviving * 0.7) / 1000;
+    return {
       floor,
-      candidatesAfterFloor: cands.length,
-      clustersSurviving: surviving,
-      avgMatchesPerCluster: surviving === 0 ? 0 : Math.round((totalMatches / surviving) * 10) / 10,
-      matchingPhaseMs: Math.round(elapsedMs),
-      rssMb: memMb,
+      candidatesAfterFloor: b.candidates,
+      clustersSurviving: b.surviving,
+      avgMatchesPerCluster: b.surviving === 0 ? 0 : Math.round((b.totalMatches / b.surviving) * 10) / 10,
       estDistMb,
       estEmitSec: Math.round(estEmitSec * 10) / 10,
-    });
-  }
+    };
+  });
 
   return {
     inputs: {
       totalCandidates: candidatesAll.length,
       totalJobs: jobs.length,
       loadMs: Math.round(tLoad),
+      haystackMs: Math.round(haystackMs),
+      matchMs: Math.round(matchMs),
+      rssMb: memMb,
     },
     results,
   };
@@ -208,19 +241,18 @@ const out = runSweep();
 if (JSON_OUT) {
   console.log(JSON.stringify(out, null, 2));
 } else {
-  console.log(`Loaded ${out.inputs.totalCandidates.toLocaleString()} candidates, ${out.inputs.totalJobs.toLocaleString()} jobs in ${out.inputs.loadMs} ms\n`);
-  console.log('floor  cands→  surviving  avg-listings  match-time   RSS    est-dist  est-emit');
-  console.log('─────  ──────  ─────────  ────────────  ──────────  ─────  ────────  ────────');
+  console.log(`Loaded ${out.inputs.totalCandidates.toLocaleString()} candidates, ${out.inputs.totalJobs.toLocaleString()} jobs in ${out.inputs.loadMs} ms`);
+  console.log(`Built ${SUPPORTED_LOCALES.length * out.inputs.totalJobs} haystacks in ${out.inputs.haystackMs} ms; single-pass match in ${out.inputs.matchMs} ms; RSS peak ${out.inputs.rssMb} MB.\n`);
+  console.log('floor  cands→  surviving  avg-listings  est-dist   est-emit');
+  console.log('─────  ──────  ─────────  ────────────  ────────   ────────');
   for (const r of out.results) {
     const f = String(r.floor).padStart(4);
     const c = String(r.candidatesAfterFloor).padStart(6);
     const s = String(r.clustersSurviving).padStart(9);
     const a = String(r.avgMatchesPerCluster).padStart(12);
-    const t = `${r.matchingPhaseMs} ms`.padStart(10);
-    const m = `${r.rssMb} MB`.padStart(5);
     const d = `${r.estDistMb} MB`.padStart(8);
     const e = `${r.estEmitSec} s`.padStart(8);
-    console.log(`${f}    ${c}  ${s}  ${a}  ${t}  ${m}  ${d}  ${e}`);
+    console.log(`${f}    ${c}  ${s}  ${a}  ${d}   ${e}`);
   }
   console.log('\nNotes:');
   console.log('  surviving  = clusters with ≥3 matching jobs (AND-tier + OR-fill)');
