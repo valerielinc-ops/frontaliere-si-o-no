@@ -15,9 +15,17 @@
 // Cluster names (in priority order for the regex classifier — first match
 // wins). Extending this list requires a corresponding pattern entry in
 // CLUSTER_PATTERNS and a definition in the LLM prompt.
+//
+// `pensioni` was added 2026-05-07 after the first vocab run showed 42/114
+// keywords mis-classified as `generic` because AVS/LPP/secondo pilastro/3a
+// terms didn't match `salute` or `fiscale` patterns. It earns its own
+// cluster since pension queries are a distinct user intent (long-running
+// retirement planning) vs `salute` (acute health insurance) or `fiscale`
+// (current-year tax filing).
 export const CLUSTER_TAXONOMY = [
   'fiscale',
   'salute',
+  'pensioni',
   'mobilita',
   'pratico',
   'lavoro',
@@ -37,6 +45,16 @@ export const CLUSTER_TAXONOMY = [
 // patterns and exact words use the fully-anchored form.
 export const CLUSTER_PATTERNS = [
   {
+    cluster: 'pensioni',
+    // Match BEFORE fiscale/salute so that "AVS frontalieri", "LPP", "3°
+    // pilastro", "secondo pilastro" etc. don't get swept up as fiscale by
+    // the broader "ristorn"/"deduzione" keywords.
+    // `\bavs\b` and `\bahv\b` use word-boundaries to avoid matching inside
+    // longer words; `lpp` / `bvg` / `3a` ditto. `pilastro\s*[123ab]?` covers
+    // all variants ("primo/secondo/terzo pilastro", "pilastro 3a/3b").
+    pattern: /\b(avs|ahv|lpp|bvg|pension|previdenz|pilastro\s*[123ab]?|pillar\s*[123ab]?|pilier\s*[123ab]?|tredicesima\s*avs|3a|3b)\b/i,
+  },
+  {
     cluster: 'fiscale',
     pattern: /\b(tass|impost|irpef|fisc|quellensteuer|aliquot|deduzione|detrazione|busta\s*paga|salar|stipend|gehalt|salaire|ristorn|imposta\s*alla\s*fonte|\bchf\b|\beuro\b|cambio|valut)/i,
   },
@@ -50,7 +68,13 @@ export const CLUSTER_PATTERNS = [
   },
   {
     cluster: 'pratico',
-    pattern: /\b(permess(o|i)?\s*[gbl]|telelavoro|smart\s*working|t[eé]l[eé]travail|homeoffic|naspi|disoccupaz|rinnovo|cambio\s*indirizzo|datore\s*di\s*lavoro)/i,
+    // Anchor "permesso/permessi" to a clear work-permit context. Plain
+    // `permess(o|i)\b` matches false-positives like "permesso pesca"/
+    // "permesso caccia"/"permesso parcheggio" where Suggest autocompletes
+    // a hobby sense. Require either an immediate work-permit letter
+    // (G/B/L/C, with optional dash/colon) or a work-permit-adjacent term
+    // nearby (frontalier/lavoro/svizzera/rinnovo/datore).
+    pattern: /\b(permess(o|i)?\s*[-:]?\s*[gblc]\b|telelavoro|smart\s*working|t[eé]l[eé]travail|homeoffic|naspi|disoccupaz|rinnovo|cambio\s*indirizzo|datore\s*di\s*lavoro)/i,
   },
   {
     cluster: 'lavoro',
@@ -100,17 +124,18 @@ export function buildClusterClassifierPrompt(headlines) {
   return [
     'Classifica ogni headline in uno di questi cluster (rispondi con un array JSON di N stringhe):',
     '- fiscale: tasse, imposte, ristorni, salari, busta paga, valute',
-    '- salute: cassa malati, LAMal, premi sanitari',
-    '- mobilita: pendolarismo, valichi, treni, dogana',
-    '- pratico: permessi (G/B), telelavoro, smart working, disoccupazione',
-    '- lavoro: offerte, posizioni, tirocini, apprendistati',
+    '- salute: cassa malati, LAMal, premi sanitari, assicurazione malattia',
+    '- pensioni: AVS, AHV, LPP, BVG, secondo/terzo pilastro, 3a/3b, previdenza, tredicesima AVS',
+    '- mobilita: pendolarismo, valichi, treni, dogana, traffico transfrontaliero',
+    '- pratico: permesso G/B/L (lavoro), telelavoro, smart working, disoccupazione',
+    '- lavoro: offerte, posizioni, tirocini, apprendistati, ricerca lavoro',
     '- novita: nuove leggi, accordi, riforme, news 2026',
     '- generic: altro',
     '',
     'Headlines:',
     numbered,
     '',
-    `Rispondi SOLO con un array JSON di esattamente ${n} elementi, ognuno una di queste 7 stringhe esatte: ["fiscale","salute","mobilita","pratico","lavoro","novita","generic"]. Niente prosa, niente markdown.`,
+    `Rispondi SOLO con un array JSON di esattamente ${n} elementi, ognuno una di queste 8 stringhe esatte: ["fiscale","salute","pensioni","mobilita","pratico","lavoro","novita","generic"]. Niente prosa, niente markdown.`,
   ].join('\n');
 }
 

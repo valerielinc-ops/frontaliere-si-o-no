@@ -20,6 +20,21 @@
 
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 
+// DENYLIST: Google Suggest sometimes autocompletes a seed into the wrong
+// sense — e.g. seed "permesso G" returns "permesso gratuito pesca in
+// mare" / "permesso caccia" / "permesso parcheggio disabili" because the
+// user-base searching for "permesso" includes hobby/admin contexts that
+// have nothing to do with the work-permit "permesso G". Drop completions
+// matching any of these false-positive senses to keep the demand-vocab
+// focused on cross-border work signals.
+const DENYLIST_RE =
+  /\b(pesca|caccia|edilizia|parcheggio|animale|matrimonio|soggiorno\s*per\s*studio|funebre|riposo|servizio\s*civile|condono\s*edilizio)\b/i;
+
+function passesDenylist(completion) {
+  if (typeof completion !== 'string') return false;
+  return !DENYLIST_RE.test(completion);
+}
+
 // keep in sync with googleTrends.mjs SEEDS_FALLBACK
 const SEEDS_FALLBACK = [
   'frontaliere',
@@ -148,8 +163,11 @@ export async function fetchSuggestCandidates(opts = {}) {
     const { ok, completions, reason } = await fetchOneSeed(seed, fetchImpl);
     const seedCandidates = [];
     if (ok && completions.length) {
+      // Apply denylist BEFORE the rank-cap so dropped entries don't push
+      // a relevant completion below the cap.
+      const filtered = completions.filter(passesDenylist);
       // rank 0 = top suggestion (highest weight). Cap at MAX_PER_SEED.
-      const limited = completions.slice(0, MAX_PER_SEED);
+      const limited = filtered.slice(0, MAX_PER_SEED);
       for (let rank = 0; rank < limited.length; rank++) {
         const completion = limited[rank];
         const norm = normalizeKeyword(completion);

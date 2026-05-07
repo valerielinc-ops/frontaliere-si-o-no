@@ -146,8 +146,10 @@ describe('fetchNewsRssCandidates', () => {
   });
 
   it('item missing <title> → skipped, others kept', async () => {
+    // Use a frontaliere-domain title so it survives the post-fetch
+    // relevance filter (FRONTALIERI_DOMAIN_RE / LOMBARDIA_HINT_RE).
     const xml = `<rss><channel>
-      <item><title>Real headline 2026</title><link>x</link></item>
+      <item><title>Frontalieri ticinesi: news 2026</title><link>x</link></item>
       <item><link>https://orphan-link.example</link></item>
     </channel></rss>`;
     const fetchImpl = vi.fn(async () => makeRes({ text: xml }));
@@ -156,7 +158,7 @@ describe('fetchNewsRssCandidates', () => {
       fetchImpl: fetchImpl as any,
     });
     expect(r.candidates.length).toBe(1);
-    expect(r.candidates[0].keyword).toBe('Real headline 2026');
+    expect(r.candidates[0].keyword).toBe('Frontalieri ticinesi: news 2026');
   });
 
   it('one seed succeeds, one fails → partial result', async () => {
@@ -178,9 +180,10 @@ describe('fetchNewsRssCandidates', () => {
   });
 
   it('respects maxPerSeed cap', async () => {
-    // Build XML with 5 items but cap at 2.
+    // Build XML with 5 frontaliere-domain items (must survive the
+    // FRONTALIERI_DOMAIN_RE relevance filter) but cap at 2.
     const items = Array.from({ length: 5 }, (_, i) =>
-      `<item><title>Headline ${i}</title><link>x${i}</link></item>`,
+      `<item><title>Frontalieri Ticino news ${i}</title><link>x${i}</link></item>`,
     ).join('\n');
     const xml = `<rss><channel>${items}</channel></rss>`;
     const fetchImpl = vi.fn(async () => makeRes({ text: xml }));

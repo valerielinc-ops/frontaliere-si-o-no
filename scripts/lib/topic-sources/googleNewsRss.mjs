@@ -19,6 +19,23 @@
 //   - Per-seed graceful degradation.
 
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
+import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
+import { detectLocale } from './detectLocale.mjs';
+
+// Lombardia frontier-cities. Cross-border-relevant news from Varese/Como
+// is welcome even when the title doesn't contain explicit frontaliere
+// vocabulary — same pattern as the (removed) Trends RSS Lombardia hint.
+const LOMBARDIA_HINT_RE =
+  /\b(lombard|varese|como|milano|gallarate|busto|tradate|cantello|ponte\s*tresa|chiasso|luino|val\s*ceresio|bregaglia)\b/i;
+
+// Drop items whose title is clearly not Italian. Suggest+News-RSS for IT
+// queries occasionally returns DE/EN/FR results (e.g. Swiss multilingual
+// outlets, banking-supervision EU pages). We keep IT only — `fr` is
+// preserved if it slipped through Lombardia-hint matching since it may
+// reflect Romandie/Cassis-style cross-border angle relevant to our audience.
+function shouldKeepLocale(loc) {
+  return loc === 'it' || loc === 'fr';
+}
 
 // keep in sync with googleTrends.mjs SEEDS_FALLBACK
 const SEEDS_FALLBACK = [
@@ -162,18 +179,34 @@ export async function fetchNewsRssCandidates(opts = {}) {
     const { ok, items, reason } = await fetchOneSeed(seed, fetchImpl);
     const seedCandidates = [];
     if (ok && items.length) {
-      const limited = items.slice(0, maxPerSeed);
+      // RELEVANCE FILTER: News RSS for keyword-driven IT queries returns
+      // many off-topic hits where a domain term appears coincidentally —
+      // "Pillar 2" matching Basel banking regulation, "LPP" matching a
+      // legal firm name (Legance LPP), "Steuerbonus" matching China tax
+      // news. Keep only items where the title contains a frontaliere
+      // domain term OR a Lombardia frontier-city term.
+      const relevant = items.filter(
+        (it) =>
+          FRONTALIERI_DOMAIN_RE.test(it.title || '') ||
+          LOMBARDIA_HINT_RE.test(it.title || ''),
+      );
+      const limited = relevant.slice(0, maxPerSeed);
       for (const it of limited) {
         const title = it.title;
         const norm = normalizeKeyword(title);
         if (!norm || seenNorm.has(norm)) continue;
+        // LOCALE detection — News RSS for IT-query returns occasional DE/EN
+        // titles from Swiss multilingual outlets. Drop non-IT/FR; never
+        // hardcode locale='it' since that mis-tags downstream consumers.
+        const detected = detectLocale(title) || 'it';
+        if (!shouldKeepLocale(detected)) continue;
         seenNorm.add(norm);
         seedCandidates.push({
           id: fnv1a8(norm),
           keyword: title,
           normalizedKeyword: norm,
           angle: null,
-          locale: 'it',
+          locale: detected,
           sources: ['googleNewsRss'],
           demandSignals: {
             googleNewsRssSeed: seed,

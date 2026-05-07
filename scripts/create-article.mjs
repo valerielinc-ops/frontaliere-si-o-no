@@ -474,7 +474,12 @@ function _hashString(s) {
 const SOURCE_QUOTA_FILE = 'data/article-source-quotas.json';
 const SOURCE_URLS_FILE = 'data/article-source-urls.json';
 const CREATE_ARTICLE_REPORT_FILE = process.env.CREATE_ARTICLE_REPORT_FILE || '.tmp/create-article-run-report.json';
-const SOURCE_QUOTA_ENABLED = process.env.SOURCE_QUOTA_ENABLED !== '0';
+// Source quota disabled by default 2026-05-07: with article generation
+// firing every 15 min (~672 articles/week) the 3/domain weekly cap was
+// rejecting 321/321 headlines — the demand-driven ranker now handles
+// diversity via cluster rotation, making the per-domain quota redundant.
+// Set SOURCE_QUOTA_ENABLED=1 to opt in for emergency rebalancing.
+const SOURCE_QUOTA_ENABLED = process.env.SOURCE_QUOTA_ENABLED === '1';
 const SOURCE_WEEKLY_QUOTA = Math.max(
   1,
   Number.parseInt(process.env.SOURCE_WEEKLY_QUOTA || '3', 10) || 3,
