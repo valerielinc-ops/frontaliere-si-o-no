@@ -6822,6 +6822,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-hockey-finlandia-2026.title': 'Suisse bat la Finlande : une croissance encourageante avant la Coupe du Monde',
     'blog.article.svizzera-hockey-finlandia-2026.excerpt': 'La Suisse a battu la Finlande lors d\'un match amical pré-Coupe du Monde, avec une performance convaincante.',
     'blog.article.svizzera-hockey-finlandia-2026.imageAlt': 'Match de hockey au Tessin, Suisse',
+    'blog.article.tax-free-dirinella-orari-ridotti.title': 'Horaires réduits pour le tax-free à Dirinella',
+    'blog.article.tax-free-dirinella-orari-ridotti.excerpt': 'Horaires réduits pour le tax-free au poste frontalier de Dirinella, attention aux achats. Voici ce qui change pour les travailleurs frontaliers',
+    'blog.article.tax-free-dirinella-orari-ridotti.imageAlt': 'Vue du lac de Lugano avec la frontière suisse-italienne en arrière-plan, zone de shopping en franchise de taxes',
 };
 
 export default blogMetaFr;

@@ -6821,6 +6821,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-hockey-finlandia-2026.title': 'Switzerland beats Finland: encouraging growth ahead of World Cup',
     'blog.article.svizzera-hockey-finlandia-2026.excerpt': 'Switzerland wins against Finland in a pre-World Cup friendly, with a convincing performance.',
     'blog.article.svizzera-hockey-finlandia-2026.imageAlt': 'Hockey game in Ticino, Switzerland',
+    'blog.article.tax-free-dirinella-orari-ridotti.title': 'Dirinella border: reduced tax-free hours',
+    'blog.article.tax-free-dirinella-orari-ridotti.excerpt': 'Reduced tax-free hours at the Dirinella border crossing, beware of purchases. Here\'s what changes for cross-border workers',
+    'blog.article.tax-free-dirinella-orari-ridotti.imageAlt': 'View of Lake Lugano with the Swiss-Italian border in the background, tax-free shopping area',
 };
 
 export default blogMetaEn;

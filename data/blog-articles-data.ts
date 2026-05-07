@@ -21836,4 +21836,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tax-free-dirinella-orari-ridotti',
+ category: 'pratico',
+ date: '2026-05-07T18:01:35.285Z',
+ image: '/images/blog/tax-free-dirinella-orari-ridotti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
