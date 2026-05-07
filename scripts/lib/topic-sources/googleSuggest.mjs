@@ -31,8 +31,13 @@ import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 // `ztl` covers traffic-zone permits in IT cities (firenze/bologna/milano);
 // `giornaliero` (daily) is almost never used for work permits and almost
 // always for ZTL/parcheggio/cantiere contexts.
+//
+// BUSINESS-NAME false-positives: Suggest sometimes returns hotel/retail
+// chain names that contain "lamal", "lpp", "permesso" as substrings —
+// "lamal hotel napoli", "lppcollecting", "permesso parcheggio condominio".
+// Drop completions that look like product / business / handle names.
 const DENYLIST_RE =
-  /\b(pesca|caccia|edilizia|parcheggio|animale|matrimonio|soggiorno\s*per\s*studio|funebre|riposo|servizio\s*civile|condono\s*edilizio|ztl|zona\s*traffico\s*limitato|giornaliero|cantiere|circolazione|disabil[ie]|invalid[oi]|temporaneo\s*per\s*[a-z]+|funerale|comunale|abitativo)\b/i;
+  /\b(pesca|caccia|edilizia|parcheggio|animale|matrimonio|soggiorno\s*per\s*studio|funebre|riposo|servizio\s*civile|condono\s*edilizio|ztl|zona\s*traffico\s*limitato|giornaliero|cantiere|circolazione|disabil[ie]|invalid[oi]|temporaneo\s*per\s*[a-z]+|funerale|comunale|abitativo|hotel|casino|boutique|chain|\bsrl\b|\bspa\b|s\.r\.l|s\.p\.a|collecting|ware|condominio|napoli\b|firenze\b|milano\s+ztl|bologna\s+ztl)\b/i;
 
 function passesDenylist(completion) {
   if (typeof completion !== 'string') return false;
