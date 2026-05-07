@@ -6836,6 +6836,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.turismo-varesotto-2026-frontalieri.title': 'Tourism in Varesotto: 2026 figures and opportunities for cross-border workers',
     'blog.article.turismo-varesotto-2026-frontalieri.excerpt': 'The 2026 data confirms the growth of tourism in Varesotto, with 3.2 million overnight stays. Opportunities for cross-border workers between lake and city.',
     'blog.article.turismo-varesotto-2026-frontalieri.imageAlt': 'Lake Maggiore in Ticino, Switzerland',
+    'blog.article.filtri-pfas-san-antonino-2024.title': 'San Antonino: new PFAS filters in operation',
+    'blog.article.filtri-pfas-san-antonino-2024.excerpt': 'The municipality of San Antonino has activated an innovative activated carbon filtration system to remove PFAS substances from drinking water.',
+    'blog.article.filtri-pfas-san-antonino-2024.imageAlt': 'A close-up view of a modern water filtration system in a Swiss village, with clear blue water flowing through advanced filters, set against the backdrop of the Swiss Alps.',
 };
 
 export default blogMetaEn;

@@ -6837,6 +6837,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.turismo-varesotto-2026-frontalieri.title': 'Turismo nel Varesotto: numeri 2026 e opportunità per frontalieri',
     'blog.article.turismo-varesotto-2026-frontalieri.excerpt': 'I dati 2026 confermano la crescita del turismo nel Varesotto, con 3,2 milioni di pernottamenti. Opportunità per frontalieri tra lago e città.',
     'blog.article.turismo-varesotto-2026-frontalieri.imageAlt': 'Lago Maggiore in Ticino, Svizzera',
+    'blog.article.filtri-pfas-san-antonino-2024.title': 'San Antonino: nuovi filtri PFAS in funzione',
+    'blog.article.filtri-pfas-san-antonino-2024.excerpt': 'Il Comune di San Antonino ha attivato un innovativo sistema di filtrazione a carbone attivo per eliminare le sostanze PFAS dall\'acqua potabile.',
+    'blog.article.filtri-pfas-san-antonino-2024.imageAlt': 'Un primo piano di un moderno sistema di filtrazione dell\'acqua in un villaggio svizzero, con acqua blu cristallina che scorre attraverso filtri avanzati, sullo sfondo delle Alpi svizzere.',
 };
 
 export default blogMetaIt;

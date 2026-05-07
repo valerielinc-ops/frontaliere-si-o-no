@@ -6836,6 +6836,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.turismo-varesotto-2026-frontalieri.title': 'Tourismus im Varesotto: Zahlen 2026 und Chancen für Grenzgänger',
     'blog.article.turismo-varesotto-2026-frontalieri.excerpt': 'Die Zahlen 2026 bestätigen das Wachstum des Tourismus im Varesotto, mit 3,2 Millionen Übernachtungen. Chancen für Grenzgänger zwischen See und Stadt.',
     'blog.article.turismo-varesotto-2026-frontalieri.imageAlt': 'Lago Maggiore im Tessin, Schweiz',
+    'blog.article.filtri-pfas-san-antonino-2024.title': 'San Antonino: Neue PFAS-Filter in Betrieb',
+    'blog.article.filtri-pfas-san-antonino-2024.excerpt': 'Die Gemeinde San Antonino hat ein innovatives Aktivkohle-Filtersystem in Betrieb genommen, um PFAS-Substanzen aus dem Trinkwasser zu entfernen.',
+    'blog.article.filtri-pfas-san-antonino-2024.imageAlt': 'Eine Nahaufnahme eines modernen Wasserfiltersystems in einem Schweizer Dorf, mit klarem blauem Wasser, das durch fortschrittliche Filter fließt, vor dem Hintergrund der Schweizer Alpen.',
 };
 
 export default blogMetaDe;

@@ -6837,6 +6837,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.turismo-varesotto-2026-frontalieri.title': 'Tourisme dans le Varesotto : chiffres 2026 et opportunités pour les frontaliers',
     'blog.article.turismo-varesotto-2026-frontalieri.excerpt': 'Les données 2026 confirment la croissance du tourisme dans le Varesotto, avec 3,2 millions de nuitées. Opportunités pour les frontaliers entre lac et ville.',
     'blog.article.turismo-varesotto-2026-frontalieri.imageAlt': 'Lac Majeur au Tessin, Suisse',
+    'blog.article.filtri-pfas-san-antonino-2024.title': 'San Antonino: nouveaux filtres PFAS en service',
+    'blog.article.filtri-pfas-san-antonino-2024.excerpt': 'La commune de San Antonino a activé un système innovant de filtration au charbon actif pour éliminer les substances PFAS de l\'eau potable.',
+    'blog.article.filtri-pfas-san-antonino-2024.imageAlt': 'Un gros plan d\'un système moderne de filtration de l\'eau dans un village suisse, avec de l\'eau bleue claire s\'écoulant à travers des filtres avancés, sur fond des Alpes suisses.',
 };
 
 export default blogMetaFr;
