@@ -307,3 +307,92 @@ describe('backward compatibility', () => {
     expect(pickTopCandidate(cand)).toBeNull();
   });
 });
+
+// ═════════════════════════════════════════════════════════════════
+// Phase B+C — News-pool re-ranker REGRESSION TEST (CRITICAL)
+//
+// Per eng-review test plan 2026-05-07: assert that the new ranker
+// chooses by SCORE not by ORDER. If this test ever passes-by-accident
+// because the high-score headline happens to be first, change the
+// fixture so it is NOT first.
+// ═════════════════════════════════════════════════════════════════
+describe('create-article topic selection (Phase B+C regression)', () => {
+  const { rankAndSelectHeadlines } = selectorMod as any;
+
+  it('CRITICAL: picks the highest-scoring headline, NOT the first in pool', async () => {
+    // High-relevance headline is at index 1 (NOT first). If selection were
+    // first-wins, the test would fail with the Bayern/Bayer pick.
+    const headlinesPool = [
+      { headline: 'Bayern e Bayer Champions League', source: 'tio.ch', url: 'u1' },
+      { headline: 'Frontalieri in Ticino in calo nel 2026', source: 'rsi.ch', url: 'u2' },
+      { headline: 'Cottarelli al Liceo Manzoni', source: 'varesenews.it', url: 'u3' },
+    ];
+    const vocab = {
+      stableKeywords: [
+        { kw: 'frontalieri ticino', weight: 0.9, source: 'gsc', cluster: 'novita' },
+        { kw: 'frontalieri calo', weight: 0.7, source: 'suggest', cluster: 'novita' },
+      ],
+    };
+    const result = await rankAndSelectHeadlines(headlinesPool, vocab, {
+      classifierOpts: { forceRegex: true },
+      maxPicks: 1,
+    });
+    expect(result).toHaveLength(1);
+    expect(result[0].headline).toBe('Frontalieri in Ticino in calo nel 2026');
+    expect(result[0].url).toBe('u2');
+    expect(result[0]._selectedSource).toBe('stable');
+  });
+
+  it('returns [] when all headlines are off-topic (caller falls back to evergreen)', async () => {
+    const headlinesPool = [
+      { headline: 'Bayern e Bayer Champions League', source: 'tio.ch', url: 'u1' },
+      { headline: 'Cottarelli al Liceo Manzoni', source: 'varesenews.it', url: 'u2' },
+    ];
+    const vocab = {
+      stableKeywords: [
+        { kw: 'frontalieri ticino', weight: 0.9, source: 'gsc', cluster: 'novita' },
+      ],
+    };
+    const result = await rankAndSelectHeadlines(headlinesPool, vocab, {
+      classifierOpts: { forceRegex: true },
+      // Tightened threshold so the off-topic baseline (0.4) doesn't sneak through.
+      minScore: 0.5,
+    });
+    expect(result).toEqual([]);
+  });
+
+  it('cluster diversity: same-day fiscale picks deprioritise next fiscale headline', async () => {
+    const headlinesPool = [
+      { headline: 'Tasse svizzera ristorni 2026', source: 'a', url: 'u1' },
+      { headline: 'Frontalieri Ticino calo 2026', source: 'b', url: 'u2' },
+    ];
+    const vocab = {
+      stableKeywords: [
+        { kw: 'tasse svizzera ristorni', weight: 0.5, source: 'gsc', cluster: 'fiscale' },
+        { kw: 'frontalieri ticino calo', weight: 0.5, source: 'gsc', cluster: 'novita' },
+      ],
+    };
+    // After 2 fiscale picks today, fiscale bonus = 0.25 vs novita = 1.0.
+    const result = await rankAndSelectHeadlines(headlinesPool, vocab, {
+      classifierOpts: { forceRegex: true },
+      todayPicksByCluster: { fiscale: 2, novita: 0 },
+    });
+    expect(result).toHaveLength(1);
+    expect(result[0].url).toBe('u2');
+  });
+
+  it('experimental tier: forced experimental returns candidate, not headline', async () => {
+    const headlinesPool = [{ headline: 'Frontalieri Ticino', source: 'a', url: 'u1' }];
+    const experimentalCandidates = {
+      candidates: [{ id: 'exp-1', keyword: 'lavoro estivo lugano frontaliere', totalScore: 0.7 }],
+    };
+    const result = await rankAndSelectHeadlines(headlinesPool, { stableKeywords: [] }, {
+      classifierOpts: { forceRegex: true },
+      experimentalCandidates,
+      forceExperimental: true,
+    });
+    expect(result).toHaveLength(1);
+    expect(result[0]._selectedSource).toBe('experimental');
+    expect(result[0].id).toBe('exp-1');
+  });
+});
