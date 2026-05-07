@@ -6840,6 +6840,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.filtri-pfas-san-antonino-2024.title': 'San Antonino: nouveaux filtres PFAS en service',
     'blog.article.filtri-pfas-san-antonino-2024.excerpt': 'La commune de San Antonino a activé un système innovant de filtration au charbon actif pour éliminer les substances PFAS de l\'eau potable.',
     'blog.article.filtri-pfas-san-antonino-2024.imageAlt': 'Un gros plan d\'un système moderne de filtration de l\'eau dans un village suisse, avec de l\'eau bleue claire s\'écoulant à travers des filtres avancés, sur fond des Alpes suisses.',
+    'blog.article.traduzione-documenti-finanziari-visto.title': 'Traduction de documents financiers pour un visa : ce qu\'il faut savoir',
+    'blog.article.traduzione-documenti-finanziari-visto.excerpt': 'Guide pratique pour les frontaliers sur la traduction des documents financiers pour un visa en Suisse',
+    'blog.article.traduzione-documenti-finanziari-visto.imageAlt': 'Vue panoramique du lac de Lugano avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

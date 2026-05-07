@@ -21890,4 +21890,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'traduzione-documenti-finanziari-visto',
+ category: 'pratico',
+ date: '2026-05-07T19:06:30.521Z',
+ image: '/images/blog/traduzione-documenti-finanziari-visto.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
