@@ -6770,6 +6770,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cedu-condanna-svizzera-diritti-manifestante.title': 'EGMR verurteilt Schweiz wegen Verletzung von Versammlungsfreiheit',
     'blog.article.cedu-condanna-svizzera-diritti-manifestante.excerpt': 'Der Europäische Gerichtshof für Menschenrechte hat die Schweiz verurteilt, weil sie die Versammlungs- und Vereinigungsfreiheit einer Demonstrationsorganisatorin verletzt hat.',
     'blog.article.cedu-condanna-svizzera-diritti-manifestante.imageAlt': 'Demonstration in Bellinzona mit Demonstranten, die Schilder und Banner halten, mit dem Hintergrund des Schlosses Bellinzona.',
+    'blog.article.autista-stellato-fabio-giorgianni-premio.title': 'Fabio Giorgianni, Italiens beliebtester Busfahrer, gewinnt Sternenfahrer-Preis',
+    'blog.article.autista-stellato-fabio-giorgianni-premio.excerpt': 'Der Varese-Fahrer von Autoservizi Morandi gewinnt den Sternenfahrer-Preis für die höchsten Bewertungen unter den FlixBus-Passagieren',
+    'blog.article.autista-stellato-fabio-giorgianni-premio.imageAlt': 'Busfahrer erhält Preis auf der Bühne in Lugano',
 };
 
 export default blogMetaDe;

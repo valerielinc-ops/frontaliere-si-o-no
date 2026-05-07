@@ -21683,4 +21683,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'autista-stellato-fabio-giorgianni-premio',
+ category: 'pratico',
+ date: '2026-05-07T13:07:41.448Z',
+ image: '/images/blog/autista-stellato-fabio-giorgianni-premio.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6770,6 +6770,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cedu-condanna-svizzera-diritti-manifestante.title': 'ECHR condemns Switzerland for violating protester\'s rights',
     'blog.article.cedu-condanna-svizzera-diritti-manifestante.excerpt': 'The European Court of Human Rights has condemned Switzerland for violating the freedom of assembly and association of a protest organizer.',
     'blog.article.cedu-condanna-svizzera-diritti-manifestante.imageAlt': 'Protest in Bellinzona with protesters holding signs and banners, with the backdrop of Bellinzona Castle.',
+    'blog.article.autista-stellato-fabio-giorgianni-premio.title': 'Fabio Giorgianni, Italy\'s most loved driver: wins Autista Stellato award',
+    'blog.article.autista-stellato-fabio-giorgianni-premio.excerpt': 'The Varesine driver for Autoservizi Morandi wins the Autista Stellato award for the highest passenger ratings on FlixBus',
+    'blog.article.autista-stellato-fabio-giorgianni-premio.imageAlt': 'Bus driver receiving an award on stage in Lugano',
 };
 
 export default blogMetaEn;

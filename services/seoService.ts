@@ -3499,6 +3499,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-elettricita-inverno-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-elettricita-inverno-2026', parent: 'blog' },
     'blog-hantavirus-svizzera-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-svizzera-frontalieri-2026', parent: 'blog' },
     'blog-cedu-condanna-svizzera-diritti-manifestante': { name: 'Novità', path: '/articoli-frontaliere/cedu-condanna-svizzera-diritti-manifestante', parent: 'blog' },
+    'blog-autista-stellato-fabio-giorgianni-premio': { name: 'Premio Autista Stellato', path: '/articoli-frontaliere/autista-stellato-fabio-giorgianni-premio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

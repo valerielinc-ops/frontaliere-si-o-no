@@ -26867,6 +26867,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-autista-stellato-fabio-giorgianni-premio': {
+    title: 'Fabio Giorgianni, l\'autista più amato d\'Italia: vince il premio Autista Stellato',
+    description: 'Fabio Giorgianni, conducente varesino di Autoservizi Morandi, vince il premio Autista Stellato per le recensioni più alte tra i passeggeri FlixBus',
+    keywords: 'frontalieri, ticino, svizzera, italia, fabio, giorgianni, autista, amato',
+    ogTitle: 'Fabio Giorgianni vince premio Autista Stellato',
+    ogDescription: 'Fabio Giorgianni, conducente varesino di Autoservizi Morandi, vince il premio Autista Stellato per le recensioni più alte tra i passeggeri FlixBus',
+    canonicalPath: '/articoli-frontaliere/autista-stellato-fabio-giorgianni-premio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fabio Giorgianni, l'autista più amato d'Italia: vince il premio Autista Stellato",
+      "description": "Fabio Giorgianni, conducente varesino di Autoservizi Morandi, vince il premio Autista Stellato per le recensioni più alte tra i passeggeri FlixBus",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/autista-stellato-fabio-giorgianni-premio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autista riceve premio sul palco a Lugano"
+      },
+      "datePublished": "2026-05-07T13:07:41+00:00",
+      "dateModified": "2026-05-07T13:07:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autista-stellato-fabio-giorgianni-premio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

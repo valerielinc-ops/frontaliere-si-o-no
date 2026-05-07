@@ -6771,6 +6771,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cedu-condanna-svizzera-diritti-manifestante.title': 'CEDU condanna la Svizzera per violazione diritti manifestante',
     'blog.article.cedu-condanna-svizzera-diritti-manifestante.excerpt': 'La Corte europea dei diritti dell\'uomo ha condannato la Svizzera per aver violato la libertà di riunione e associazione di un\'organizzatrice di manifestazione.',
     'blog.article.cedu-condanna-svizzera-diritti-manifestante.imageAlt': 'Manifestazione a Bellinzona con manifestanti che tengono cartelli e striscioni, con lo sfondo del Castello di Bellinzona.',
+    'blog.article.autista-stellato-fabio-giorgianni-premio.title': 'Fabio Giorgianni, l\'autista più amato d\'Italia: vince il premio Autista Stellato',
+    'blog.article.autista-stellato-fabio-giorgianni-premio.excerpt': 'Il conducente varesino di Autoservizi Morandi vince il premio Autista Stellato per le recensioni più alte tra i passeggeri FlixBus',
+    'blog.article.autista-stellato-fabio-giorgianni-premio.imageAlt': 'Autista riceve premio sul palco a Lugano',
 };
 
 export default blogMetaIt;
