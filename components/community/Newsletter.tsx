@@ -44,12 +44,18 @@ const initFirestore = async () => {
 
 interface NewsletterProps {
  compact?: boolean;
+ /** Optional heading override (replaces t('newsletter.title') in compact mode). */
+ headingOverride?: string;
+ /** Optional subtitle override (replaces t('newsletter.compactDescription') in compact mode). */
+ subtitleOverride?: string;
+ /** Acquisition source tag for downstream analytics; persisted into sourceCta. */
+ acquisitionSource?: string;
 }
 
 const SUBSCRIBED_KEY = 'newsletter_subscribed';
 const NEWSLETTER_ONETAP_FOOTER_KEY = 'onetap_prompted_newsletter_footer';
 
-const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
+const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverride, subtitleOverride, acquisitionSource }) => {
  const { t, locale } = useTranslation();
  const { user, signIn: googleSignIn, signInFacebook: facebookSignIn } = useAuth();
  const [email, setEmail] = useState('');
@@ -160,7 +166,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  source: 'web_app',
  sourceChannel: 'newsletter_page',
  sourcePage: window.location.pathname,
- sourceCta: compact ? 'newsletter_footer_compact' : 'newsletter_page_submit',
+ sourceCta: acquisitionSource || (compact ? 'newsletter_footer_compact' : 'newsletter_page_submit'),
  sourceComponent: compact ? 'NewsletterCompact' : 'Newsletter',
  sourceRouteFamily: compact ? 'footer' : 'newsletter',
  locale: navigator.language || 'it-IT',
@@ -201,10 +207,10 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <Bell size={20} />
- <h3 className="font-bold font-display text-lg">{t('newsletter.title')}</h3>
+ <h3 className="font-bold font-display text-lg">{headingOverride || t('newsletter.title')}</h3>
  </div>
  <p className="text-on-accent/80 text-sm mb-4">
- {t('newsletter.compactDescription')}
+ {subtitleOverride || t('newsletter.compactDescription')}
  </p>
 
  {(status === 'success' || status === 'pending') ? (

@@ -20,7 +20,6 @@ import { evaluateAlerts, activeAlerts, dormantAlerts } from '../services/weather
 import { parseWeatherSnapshot, type AlertState, type WeatherSnapshot } from '../services/weather/types';
 import type { Locale } from '../services/weather/wmoCodes';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { svgArrowRight, svgFacebook, svgLinkedin, svgMail } from './weatherIconsHelper';
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -439,37 +438,12 @@ function renderCta(locale: Locale, acquisitionSource: string): string {
     : locale === 'de'
     ? 'Trigger-basierter Newsletter: nur eine E-Mail, wenn das Ereignis aktiv ist. Kein Spam, ein-Klick-Abmeldung.'
     : 'Newsletter déclenchée : un e-mail uniquement lorsque l\'événement est actif. Pas de spam, désinscription en un clic.';
-  const placeholder = locale === 'it' ? 'tua@email.com' : locale === 'en' ? 'your@email.com' : locale === 'de' ? 'deine@email.com' : 'votre@email.com';
-  const cta = locale === 'it' ? 'Iscriviti' : locale === 'en' ? 'Subscribe' : locale === 'de' ? 'Abonnieren' : "S'inscrire";
-  const followLabel = locale === 'it' ? 'Seguici anche su' : locale === 'en' ? 'Follow us also on' : locale === 'de' ? 'Folge uns auch auf' : 'Suivez-nous aussi sur';
-  const privacy = locale === 'it' ? 'Privacy garantita.' : locale === 'en' ? 'Privacy protected.' : locale === 'de' ? 'Privatsphäre geschützt.' : 'Confidentialité protégée.';
 
-  // Pattern allineato a components/community/Newsletter.tsx: bg-gradient
-  // info-strong → success-strong, text-on-accent, font-display, rounded-2xl,
-  // input bg-on-accent/15, button bg-surface text-info font-bold.
-  return `<section class="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 my-8 max-w-2xl mx-auto text-on-accent" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
-<div class="flex items-center gap-3 mb-3">
-<span class="p-2 bg-on-accent/20 rounded-xl shrink-0">${svgMail(22)}</span>
-<h3 class="font-bold text-lg" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h3>
-</div>
-<p class="text-on-accent/80 text-sm mb-4">${escapeHtml(sub)}</p>
-<form class="flex gap-2" data-newsletter-form action="/api/newsletter-subscribe" method="post" novalidate>
-<label class="sr-only" for="alert-newsletter-email-${escapeHtml(acquisitionSource)}">${placeholder}</label>
-<input id="alert-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-grow px-4 py-2.5 bg-on-accent/15 border border-on-accent/25 rounded-xl text-on-accent placeholder-on-accent/50 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-on-accent/50">
-<input type="hidden" name="acquisitionSource" value="${escapeHtml(acquisitionSource)}">
-<input type="hidden" name="locale" value="${locale}">
-<button type="submit" class="px-5 py-2.5 bg-surface text-info font-bold text-sm rounded-xl hover:bg-info-subtle transition-colors flex items-center gap-2">
-<span>${escapeHtml(cta)}</span>${svgArrowRight(16)}
-</button>
-</form>
-<div class="mt-4 flex items-center justify-between flex-wrap gap-3">
-<p class="text-xs text-on-accent/70">${escapeHtml(privacy)}</p>
-<div class="flex items-center gap-2 text-xs text-on-accent/80">
-<span>${escapeHtml(followLabel)}</span>
-<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="text-on-accent/80 hover:text-on-accent transition-colors">${svgFacebook(16)}</a>
-<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="text-on-accent/80 hover:text-on-accent transition-colors">${svgLinkedin(16)}</a>
-</div>
-</div>
+  // SPA hydration mounts the canonical <Newsletter compact /> component
+  // into the placeholder via NewsletterMount.tsx — same buttons (Google
+  // one-tap, LinkedIn, email + MX check, Firebase upsert) as the footer.
+  return `<section class="my-8 max-w-2xl mx-auto px-1">
+<div data-newsletter-mount data-acquisition-source="${escapeHtml(acquisitionSource)}" data-heading="${escapeHtml(heading)}" data-subtitle="${escapeHtml(sub)}" class="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent min-h-[200px]"><p class="text-on-accent text-sm font-bold opacity-90">${escapeHtml(heading)}</p><p class="text-on-accent/70 text-xs mt-2">${escapeHtml(sub)}</p></div>
 </section>`;
 }
 

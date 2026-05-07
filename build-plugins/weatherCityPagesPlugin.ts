@@ -23,12 +23,8 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
   colorForWmo,
   iconSprite,
-  useArrow,
   useDroplet,
-  useFacebook,
   useForWmo,
-  useLinkedin,
-  useMail,
   useSunrise,
   useSunset,
   useWind,
@@ -576,39 +572,15 @@ function renderCta(locale: Locale, acquisitionSource: string): string {
     : locale === 'de'
     ? 'Wöchentlicher Newsletter für Grenzgänger: Wetter, Übergänge, Steuern, Jobs. Kein Spam, Abmeldung mit einem Klick.'
     : 'Newsletter hebdomadaire pour frontaliers : météo, passages, fiscalité, emploi. Pas de spam, désinscription en un clic.';
-  const placeholder = locale === 'it' ? 'tua@email.com' : locale === 'en' ? 'your@email.com' : locale === 'de' ? 'deine@email.com' : 'votre@email.com';
-  const cta = locale === 'it' ? 'Iscriviti' : locale === 'en' ? 'Subscribe' : locale === 'de' ? 'Abonnieren' : "S'inscrire";
-  const followLabel = locale === 'it' ? 'Seguici anche su' : locale === 'en' ? 'Follow us also on' : locale === 'de' ? 'Folge uns auch auf' : 'Suivez-nous aussi sur';
-  const privacy = locale === 'it' ? 'Privacy garantita.' : locale === 'en' ? 'Privacy protected.' : locale === 'de' ? 'Privatsphäre geschützt.' : 'Confidentialité protégée.';
 
-  // Pattern allineato a components/community/Newsletter.tsx:
-  // bg-gradient-to-r from-info-strong to-success-strong, text-on-accent,
-  // font-display, rounded-2xl, input bg-on-accent/15 border on-accent/25,
-  // button bg-surface text-info font-bold. Form posta al subscribe handler
-  // standard, SPA hydration intercetta e tagga con acquisitionSource.
-  return `<section class="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 my-10 max-w-2xl mx-auto text-on-accent" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
-<div class="flex items-center gap-3 mb-3">
-<span class="p-2 bg-on-accent/20 rounded-xl shrink-0">${useMail(22)}</span>
-<h3 class="font-bold text-lg" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h3>
-</div>
-<p class="text-on-accent/80 text-sm mb-4">${escapeHtml(sub)}</p>
-<form class="flex gap-2" data-newsletter-form action="/api/newsletter-subscribe" method="post" novalidate>
-<label class="sr-only" for="weather-newsletter-email-${escapeHtml(acquisitionSource)}">${placeholder}</label>
-<input id="weather-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-grow px-4 py-2.5 bg-on-accent/15 border border-on-accent/25 rounded-xl text-on-accent placeholder-on-accent/50 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-on-accent/50">
-<input type="hidden" name="acquisitionSource" value="${escapeHtml(acquisitionSource)}">
-<input type="hidden" name="locale" value="${locale}">
-<button type="submit" class="px-5 py-2.5 bg-surface text-info font-bold text-sm rounded-xl hover:bg-info-subtle transition-colors flex items-center gap-2">
-<span>${escapeHtml(cta)}</span>${useArrow(16)}
-</button>
-</form>
-<div class="mt-4 flex items-center justify-between flex-wrap gap-3">
-<p class="text-xs text-on-accent/70">${escapeHtml(privacy)}</p>
-<div class="flex items-center gap-2 text-xs text-on-accent/80">
-<span>${escapeHtml(followLabel)}</span>
-<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="text-on-accent/80 hover:text-on-accent transition-colors">${useFacebook(16)}</a>
-<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="text-on-accent/80 hover:text-on-accent transition-colors">${useLinkedin(16)}</a>
-</div>
-</div>
+  // SPA hydration mounts the canonical <Newsletter compact /> component
+  // (Google one-tap + Google fallback + LinkedIn + email form + MX check +
+  // Firebase upsert + analytics) into the placeholder via NewsletterMount.tsx
+  // scanning for [data-newsletter-mount] at boot. We only override heading +
+  // subtitle text and tag sourceCta for per-page analytics. Pre-hydration
+  // skeleton uses same gradient tokens to avoid CLS while React loads.
+  return `<section class="my-10 max-w-2xl mx-auto px-1">
+<div data-newsletter-mount data-acquisition-source="${escapeHtml(acquisitionSource)}" data-heading="${escapeHtml(heading)}" data-subtitle="${escapeHtml(sub)}" class="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent min-h-[200px]"><p class="text-on-accent text-sm font-bold opacity-90">${escapeHtml(heading)}</p><p class="text-on-accent/70 text-xs mt-2">${escapeHtml(sub)}</p></div>
 </section>`;
 }
 

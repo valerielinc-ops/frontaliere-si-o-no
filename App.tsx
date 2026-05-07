@@ -20,6 +20,7 @@ const unlockAchievement = (id: string) => {
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 const NewsletterPopup = lazyRetry(() => import('@/components/community/NewsletterPopup'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
+const NewsletterMount = lazyRetry(() => import('@/components/community/NewsletterMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
 const WhatsNewModal = lazyRetry(() => import('@/components/community/WhatsNewModal'));
@@ -3184,6 +3185,7 @@ const App: React.FC = () => {
 
  <Suspense fallback={null}>
  <NewsletterPopup />
+ <NewsletterMount />
  {showWhatsNew && (
  <WhatsNewModal
  open={showWhatsNew}
