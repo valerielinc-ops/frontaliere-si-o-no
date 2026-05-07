@@ -1,26 +1,28 @@
 {
-  "generatedAt": "2026-05-07T06:14:30.736Z",
+  "generatedAt": "2026-05-07T06:32:56.889Z",
   "sources": {
     "gscOrphans": {
       "ok": true,
-      "candidates": 2
+      "candidates": 31
     },
     "googleTrendsIt": {
-      "ok": true,
-      "candidates": 2
+      "ok": false,
+      "candidates": 0,
+      "reason": "unavailable"
     },
     "googleTrendsItLombardia": {
-      "ok": true,
-      "candidates": 1
+      "ok": false,
+      "candidates": 0,
+      "reason": "unavailable"
     },
     "googleTrendsCh": {
       "ok": false,
       "candidates": 0,
-      "reason": "rate-limited from CI IP — known limitation, residential proxy needed for reliable Trends"
+      "reason": "unavailable"
     },
     "redditTicino": {
       "ok": true,
-      "candidates": 40
+      "candidates": 19
     },
     "redditItaly": {
       "ok": true,
@@ -28,81 +30,94 @@
     },
     "redditLugano": {
       "ok": true,
-      "candidates": 16
+      "candidates": 12
     },
     "redditSwitzerland": {
       "ok": true,
-      "candidates": 9
+      "candidates": 6
     },
     "facebookPages": {
       "ok": false,
       "candidates": 0,
-      "reason": "no FB posts in window with engagement >= 5"
+      "reason": "no FB posts in window with engagement >= 1"
     }
   },
   "candidates": [
     {
-      "id": "d88c3096",
-      "keyword": "meteo 3b",
-      "normalizedKeyword": "meteo 3b",
+      "id": "128efc10",
+      "keyword": "chauffeur jobs",
+      "normalizedKeyword": "chauffeur jobs",
       "angle": null,
       "locale": "it",
       "sources": [
-        "googleTrendsIt"
+        "gscOrphans"
       ],
       "demandSignals": {
-        "googleTrendsScore": 500,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
+        "gscImpressions": 14,
+        "gscClicks": 0,
+        "gscPosition": null
       },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 500",
-      "demandScore": 1,
-      "noveltyScore": 0.875,
-      "totalScore": 0.95
-    },
-    {
-      "id": "87469641",
-      "keyword": "meteo milano oggi",
-      "normalizedKeyword": "meteo milano oggi",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleTrendsIt",
-        "googleTrendsItLombardia"
-      ],
-      "demandSignals": {
-        "googleTrendsScore": 100,
-        "googleTrendsGeo": "IT",
-        "googleTrendsSeed": "rss-trending",
-        "googleTrendsViaRss": true
-      },
-      "rationale": "Google Trends RSS (IT, daily trending) — approx_traffic 100 | Google Trends RSS (IT-25, daily trending) — approx_traffic 100",
-      "demandScore": 1,
-      "noveltyScore": 0.857,
-      "totalScore": 0.943
-    },
-    {
-      "id": "67c178d5",
-      "keyword": "How is Army for italian-speakers?",
-      "normalizedKeyword": "how is army for italian-speakers?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
+      "rationale": "GSC: 14 imps in last window — quick-win zone",
+      "demandScore": 0.028,
       "noveltyScore": 1,
-      "totalScore": 0.4
+      "totalScore": 0.417
+    },
+    {
+      "id": "a9af41ed",
+      "keyword": "chauffeur schweiz",
+      "normalizedKeyword": "chauffeur schweiz",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 7,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 7 imps in last window — quick-win zone",
+      "demandScore": 0.014,
+      "noveltyScore": 1,
+      "totalScore": 0.408
+    },
+    {
+      "id": "10bed201",
+      "keyword": "groupe mutuel emploi",
+      "normalizedKeyword": "groupe mutuel emploi",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 6,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 6 imps in last window — quick-win zone",
+      "demandScore": 0.012,
+      "noveltyScore": 1,
+      "totalScore": 0.407
+    },
+    {
+      "id": "d3366024",
+      "keyword": "otis emploi",
+      "normalizedKeyword": "otis emploi",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 6,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 6 imps in last window — quick-win zone",
+      "demandScore": 0.012,
+      "noveltyScore": 1,
+      "totalScore": 0.407
     },
     {
       "id": "91189b1a",
@@ -122,28 +137,6 @@
         "redditUrl": null
       },
       "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 1,
-      "totalScore": 0.4
-    },
-    {
-      "id": "1d4f79cd",
-      "keyword": "Pilates studios?",
-      "normalizedKeyword": "pilates studios?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
       "demandScore": 0,
       "noveltyScore": 1,
       "totalScore": 0.4
@@ -175,7 +168,7 @@
       "keyword": "Question for Swiss locals: why is late payment to domestic workers so common among wealthy households?",
       "normalizedKeyword": "question for swiss locals: why is late payment to domestic workers so common among wealthy households?",
       "angle": null,
-      "locale": "it",
+      "locale": "en",
       "sources": [
         "redditSwitzerland"
       ],
@@ -193,55 +186,11 @@
       "totalScore": 0.381
     },
     {
-      "id": "3e138ba1",
-      "keyword": "What are some bars for a cheap and good drink?",
-      "normalizedKeyword": "what are some bars for a cheap and good drink?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.944,
-      "totalScore": 0.378
-    },
-    {
-      "id": "92102502",
-      "keyword": "What do you think of free movement with the EU after 25 years?",
-      "normalizedKeyword": "what do you think of free movement with the eu after 25 years?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.944,
-      "totalScore": 0.378
-    },
-    {
       "id": "52905d04",
       "keyword": "What kind of insurance do I need for renovating my house/appartment?",
       "normalizedKeyword": "what kind of insurance do i need for renovating my house/appartment?",
       "angle": null,
-      "locale": "it",
+      "locale": "en",
       "sources": [
         "redditSwitzerland"
       ],
@@ -257,50 +206,6 @@
       "demandScore": 0,
       "noveltyScore": 0.944,
       "totalScore": 0.378
-    },
-    {
-      "id": "2b2b84e8",
-      "keyword": "Could you help me choose where to travel?",
-      "normalizedKeyword": "could you help me choose where to travel?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.941,
-      "totalScore": 0.376
-    },
-    {
-      "id": "3784be8e",
-      "keyword": "Does anybody know someone who stays/stayed at USI home?",
-      "normalizedKeyword": "does anybody know someone who stays/stayed at usi home?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.941,
-      "totalScore": 0.376
     },
     {
       "id": "d7d6df0a",
@@ -325,77 +230,11 @@
       "totalScore": 0.376
     },
     {
-      "id": "7cc05f55",
-      "keyword": "&quot;Se non è vero, è ben trovato.&quot; How popular is this saying?",
-      "normalizedKeyword": "&quot;se non e vero, e ben trovato.&quot; how popular is this saying?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.938,
-      "totalScore": 0.375
-    },
-    {
-      "id": "3dc81a0b",
-      "keyword": "I’m puzzled about a Swiss guy’s behavior. Is it culture or mixed signals?",
-      "normalizedKeyword": "i’m puzzled about a swiss guy’s behavior. is it culture or mixed signals?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.938,
-      "totalScore": 0.375
-    },
-    {
-      "id": "6c9095f9",
-      "keyword": "Video of Delivery Robots testing in Zürich - How do you feel about this?",
-      "normalizedKeyword": "video of delivery robots testing in zurich - how do you feel about this?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.938,
-      "totalScore": 0.375
-    },
-    {
       "id": "59cc81d8",
       "keyword": "If Growth Is Capped, Where Does the Skilled Workforce Come From?",
       "normalizedKeyword": "if growth is capped, where does the skilled workforce come from?",
       "angle": null,
-      "locale": "it",
+      "locale": "en",
       "sources": [
         "redditSwitzerland"
       ],
@@ -417,7 +256,7 @@
       "keyword": "Why poeple dont believe in Social right for Working class anymore ?",
       "normalizedKeyword": "why poeple dont believe in social right for working class anymore ?",
       "angle": null,
-      "locale": "it",
+      "locale": "en",
       "sources": [
         "redditSwitzerland"
       ],
@@ -435,26 +274,23 @@
       "totalScore": 0.372
     },
     {
-      "id": "3c2f947c",
-      "keyword": "1618 LVGA-Tokens for 16CHF via Twint?",
-      "normalizedKeyword": "1618 lvga-tokens for 16chf via twint?",
+      "id": "a5c88ec4",
+      "keyword": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+      "normalizedKeyword": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
       "angle": null,
       "locale": "it",
       "sources": [
-        "redditLugano"
+        "gscOrphans"
       ],
       "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
+        "gscImpressions": 9,
+        "gscClicks": 0,
+        "gscPosition": null
       },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.917,
-      "totalScore": 0.367
+      "rationale": "GSC: 9 imps in last window — quick-win zone",
+      "demandScore": 0.018,
+      "noveltyScore": 0.9,
+      "totalScore": 0.371
     },
     {
       "id": "98a89e24",
@@ -479,50 +315,6 @@
       "totalScore": 0.367
     },
     {
-      "id": "a279dccc",
-      "keyword": "Do you speak dialect in day to day life?",
-      "normalizedKeyword": "do you speak dialect in day to day life?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.909,
-      "totalScore": 0.364
-    },
-    {
-      "id": "426d7691",
-      "keyword": "Chi è stato qui?",
-      "normalizedKeyword": "chi e stato qui?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.9,
-      "totalScore": 0.36
-    },
-    {
       "id": "0e2ac6b9",
       "keyword": "Brazilian Jiu Jitsu zona Bellinzona?",
       "normalizedKeyword": "brazilian jiu jitsu zona bellinzona?",
@@ -545,77 +337,11 @@
       "totalScore": 0.356
     },
     {
-      "id": "cb48ab27",
-      "keyword": "Come cambiare banconote 8a serie",
-      "normalizedKeyword": "come cambiare banconote 8a serie",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.889,
-      "totalScore": 0.356
-    },
-    {
-      "id": "6d3ae3ff",
-      "keyword": "Quanto alcol consumate giornalmente o settimanalmente?",
-      "normalizedKeyword": "quanto alcol consumate giornalmente o settimanalmente?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.889,
-      "totalScore": 0.356
-    },
-    {
-      "id": "821fd6f5",
-      "keyword": "Are you in a union and if so, which one?",
-      "normalizedKeyword": "are you in a union and if so, which one?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.882,
-      "totalScore": 0.353
-    },
-    {
       "id": "569f00ba",
       "keyword": "How do I progress in the part-time job market, while in school, as a 15yo?",
       "normalizedKeyword": "how do i progress in the part-time job market, while in school, as a 15yo?",
       "angle": null,
-      "locale": "it",
+      "locale": "en",
       "sources": [
         "redditSwitzerland"
       ],
@@ -633,70 +359,23 @@
       "totalScore": 0.353
     },
     {
-      "id": "b3f8c078",
-      "keyword": "Ti piacerebbe partecipare a una serie docutainment sugli addii al celibato?",
-      "normalizedKeyword": "ti piacerebbe partecipare a una serie docutainment sugli addii al celibato?",
+      "id": "0f0d29f4",
+      "keyword": "migros jobs",
+      "normalizedKeyword": "migros jobs",
       "angle": null,
       "locale": "it",
       "sources": [
-        "redditTicino"
+        "gscOrphans"
       ],
       "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
+        "gscImpressions": 8,
+        "gscClicks": 0,
+        "gscPosition": null
       },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.882,
-      "totalScore": 0.353
-    },
-    {
-      "id": "df677331",
-      "keyword": "Possibile infrazione semaforica?",
-      "normalizedKeyword": "possibile infrazione semaforica?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.875,
-      "totalScore": 0.35
-    },
-    {
-      "id": "f75ed3b5",
-      "keyword": "Ragazzi di faido e valli?",
-      "normalizedKeyword": "ragazzi di faido e valli?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.875,
-      "totalScore": 0.35
+      "rationale": "GSC: 8 imps in last window — quick-win zone",
+      "demandScore": 0.016,
+      "noveltyScore": 0.857,
+      "totalScore": 0.352
     },
     {
       "id": "24fc7e80",
@@ -747,7 +426,7 @@
       "keyword": "Do you know a cheap car rent for the day in Lugano?",
       "normalizedKeyword": "do you know a cheap car rent for the day in lugano?",
       "angle": null,
-      "locale": "it",
+      "locale": "en",
       "sources": [
         "redditLugano"
       ],
@@ -765,55 +444,11 @@
       "totalScore": 0.347
     },
     {
-      "id": "5a688b7c",
-      "keyword": "Dove comprare abiti da uomo (lavoro d’ufficio)",
-      "normalizedKeyword": "dove comprare abiti da uomo (lavoro d’ufficio)",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.867,
-      "totalScore": 0.347
-    },
-    {
-      "id": "99dcc837",
-      "keyword": "Questa è una domanda opzionale, ma a cosa serve?",
-      "normalizedKeyword": "questa e una domanda opzionale, ma a cosa serve?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.867,
-      "totalScore": 0.347
-    },
-    {
       "id": "6957722c",
       "keyword": "Anyone coming from Lugano tomorrow? I left a medication in my hotel and they can't send it",
       "normalizedKeyword": "anyone coming from lugano tomorrow? i left a medication in my hotel and they can't send it",
       "angle": null,
-      "locale": "it",
+      "locale": "en",
       "sources": [
         "redditLugano"
       ],
@@ -835,7 +470,7 @@
       "keyword": "[Help] Looking for a place in Lugano for a work call, any suggestions?",
       "normalizedKeyword": "[help] looking for a place in lugano for a work call, any suggestions?",
       "angle": null,
-      "locale": "it",
+      "locale": "en",
       "sources": [
         "redditLugano"
       ],
@@ -856,28 +491,6 @@
       "id": "bade5bab",
       "keyword": "Avete sentito cosa è successo a Bellinzona?",
       "normalizedKeyword": "avete sentito cosa e successo a bellinzona?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
-      "id": "d0918688",
-      "keyword": "Fanno sul serio?",
-      "normalizedKeyword": "fanno sul serio?",
       "angle": null,
       "locale": "it",
       "sources": [
@@ -941,6 +554,25 @@
       "totalScore": 0.343
     },
     {
+      "id": "b6acc0bc",
+      "keyword": "lavoro mendrisio",
+      "normalizedKeyword": "lavoro mendrisio",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 5,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 5 imps in last window — quick-win zone",
+      "demandScore": 0.01,
+      "noveltyScore": 0.833,
+      "totalScore": 0.339
+    },
+    {
       "id": "9df7e9ba",
       "keyword": "lavoro ticino",
       "normalizedKeyword": "lavoro ticino",
@@ -982,48 +614,42 @@
       "totalScore": 0.337
     },
     {
-      "id": "c7b3e760",
-      "keyword": "Flash dei radar?",
-      "normalizedKeyword": "flash dei radar?",
+      "id": "bc697cef",
+      "keyword": "i am searching for caregiver jobs in ticino for elderly support.",
+      "normalizedKeyword": "i am searching for caregiver jobs in ticino for elderly support.",
       "angle": null,
       "locale": "it",
       "sources": [
-        "redditTicino"
+        "gscOrphans"
       ],
       "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
+        "gscImpressions": 8,
+        "gscClicks": 0,
+        "gscPosition": null
       },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
+      "rationale": "GSC: 8 imps in last window — quick-win zone",
+      "demandScore": 0.016,
+      "noveltyScore": 0.818,
+      "totalScore": 0.337
     },
     {
-      "id": "d9e2521c",
-      "keyword": "ma chi lavora alla circolazione di Camorino è scemo?",
-      "normalizedKeyword": "ma chi lavora alla circolazione di camorino e scemo?",
+      "id": "ea0f353a",
+      "keyword": "cerco lavoro ticino",
+      "normalizedKeyword": "cerco lavoro ticino",
       "angle": null,
       "locale": "it",
       "sources": [
-        "redditTicino"
+        "gscOrphans"
       ],
       "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
+        "gscImpressions": 15,
+        "gscClicks": 1,
+        "gscPosition": null
       },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
+      "rationale": "GSC: 15 imps in last window — quick-win zone",
+      "demandScore": 0.03,
+      "noveltyScore": 0.778,
+      "totalScore": 0.329
     },
     {
       "id": "7019219f",
@@ -1046,6 +672,25 @@
       "demandScore": 0,
       "noveltyScore": 0.818,
       "totalScore": 0.327
+    },
+    {
+      "id": "61e0e79e",
+      "keyword": "frontalieri",
+      "normalizedKeyword": "frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 5,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 5 imps in last window — quick-win zone",
+      "demandScore": 0.01,
+      "noveltyScore": 0.8,
+      "totalScore": 0.326
     },
     {
       "id": "6e77f463",
@@ -1136,72 +781,6 @@
       "totalScore": 0.32
     },
     {
-      "id": "95abc794",
-      "keyword": "No al dolore percepito in palestra??",
-      "normalizedKeyword": "no al dolore percepito in palestra??",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
-    },
-    {
-      "id": "1e25fb2e",
-      "keyword": "Perché non si parla mai dei suicidi dalla diga in Valle Verzasca?",
-      "normalizedKeyword": "perche non si parla mai dei suicidi dalla diga in valle verzasca?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
-    },
-    {
-      "id": "ed982c95",
-      "keyword": "Qualcuno ha voglia di venire al cinema con me?",
-      "normalizedKeyword": "qualcuno ha voglia di venire al cinema con me?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
-    },
-    {
       "id": "b68bf8fc",
       "keyword": "What's it like living in Lugano?",
       "normalizedKeyword": "what's it like living in lugano?",
@@ -1222,6 +801,25 @@
       "demandScore": 0,
       "noveltyScore": 0.8,
       "totalScore": 0.32
+    },
+    {
+      "id": "86cbe236",
+      "keyword": "lavoro infermiere ticino",
+      "normalizedKeyword": "lavoro infermiere ticino",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 6,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 6 imps in last window — quick-win zone",
+      "demandScore": 0.012,
+      "noveltyScore": 0.778,
+      "totalScore": 0.318
     },
     {
       "id": "0b72c178",
@@ -1268,6 +866,25 @@
       "totalScore": 0.311
     },
     {
+      "id": "fb500d78",
+      "keyword": "cerco lavoro svizzera",
+      "normalizedKeyword": "cerco lavoro svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 9,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 9 imps in last window — quick-win zone",
+      "demandScore": 0.018,
+      "noveltyScore": 0.75,
+      "totalScore": 0.311
+    },
+    {
       "id": "3b7090a7",
       "keyword": "film in inglese a bellinzona?",
       "normalizedKeyword": "film in inglese a bellinzona?",
@@ -1293,28 +910,6 @@
       "id": "b169b37c",
       "keyword": "Posti per fare aperitivo a Lugano?",
       "normalizedKeyword": "posti per fare aperitivo a lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.778,
-      "totalScore": 0.311
-    },
-    {
-      "id": "5da8b8b1",
-      "keyword": "Solo io vivrei in valle?",
-      "normalizedKeyword": "solo io vivrei in valle?",
       "angle": null,
       "locale": "it",
       "sources": [
@@ -1378,6 +973,25 @@
       "totalScore": 0.311
     },
     {
+      "id": "07aca2cc",
+      "keyword": "lavoro ticino negli ultimi 3 giorni",
+      "normalizedKeyword": "lavoro ticino negli ultimi 3 giorni",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 7,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 7 imps in last window — quick-win zone",
+      "demandScore": 0.014,
+      "noveltyScore": 0.75,
+      "totalScore": 0.308
+    },
+    {
       "id": "34b3d542",
       "keyword": "Reti metalliche alla stazione di Lugano? A cosa servono ?",
       "normalizedKeyword": "reti metalliche alla stazione di lugano? a cosa servono ?",
@@ -1400,11 +1014,68 @@
       "totalScore": 0.308
     },
     {
+      "id": "ef7b85ac",
+      "keyword": "lavoro ticino nell'ultima settimana",
+      "normalizedKeyword": "lavoro ticino nell'ultima settimana",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 6,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 6 imps in last window — quick-win zone",
+      "demandScore": 0.012,
+      "noveltyScore": 0.75,
+      "totalScore": 0.307
+    },
+    {
+      "id": "ba68bba2",
+      "keyword": "offerte di lavoro ticino da ieri",
+      "normalizedKeyword": "offerte di lavoro ticino da ieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 6,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 6 imps in last window — quick-win zone",
+      "demandScore": 0.012,
+      "noveltyScore": 0.75,
+      "totalScore": 0.307
+    },
+    {
+      "id": "8af293a8",
+      "keyword": "case anziani ticino offerte di lavoro",
+      "normalizedKeyword": "case anziani ticino offerte di lavoro",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 5,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 5 imps in last window — quick-win zone",
+      "demandScore": 0.01,
+      "noveltyScore": 0.75,
+      "totalScore": 0.306
+    },
+    {
       "id": "3de315a1",
       "keyword": "Ma la polizia svizzera ha la facolta' di inseguire persone in territorio italiano?",
       "normalizedKeyword": "ma la polizia svizzera ha la facolta' di inseguire persone in territorio italiano?",
       "angle": null,
-      "locale": "it",
+      "locale": "fr",
       "sources": [
         "redditItaly"
       ],
@@ -1444,28 +1115,6 @@
       "totalScore": 0.3
     },
     {
-      "id": "1207d544",
-      "keyword": "Mercato di lavoro al collasso?",
-      "normalizedKeyword": "mercato di lavoro al collasso?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 0,
-        "redditComments": 0,
-        "redditCombined": 0,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed (engagement metrics unavailable)",
-      "demandScore": 0,
-      "noveltyScore": 0.75,
-      "totalScore": 0.3
-    },
-    {
       "id": "4cab4a0f",
       "keyword": "Quando arrivano i sussidi cantonali della cassa malati?",
       "normalizedKeyword": "quando arrivano i sussidi cantonali della cassa malati?",
@@ -1486,6 +1135,63 @@
       "demandScore": 0,
       "noveltyScore": 0.75,
       "totalScore": 0.3
+    },
+    {
+      "id": "333036e1",
+      "keyword": "migros offerte di lavoro ticino",
+      "normalizedKeyword": "migros offerte di lavoro ticino",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 6,
+        "gscClicks": 1,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 6 imps in last window — quick-win zone",
+      "demandScore": 0.012,
+      "noveltyScore": 0.727,
+      "totalScore": 0.298
+    },
+    {
+      "id": "d5063b4d",
+      "keyword": "lidl ticino offerte di lavoro",
+      "normalizedKeyword": "lidl ticino offerte di lavoro",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 5,
+        "gscClicks": 1,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 5 imps in last window — quick-win zone",
+      "demandScore": 0.01,
+      "noveltyScore": 0.727,
+      "totalScore": 0.297
+    },
+    {
+      "id": "1bf402fe",
+      "keyword": "frontaliere ticino",
+      "normalizedKeyword": "frontaliere ticino",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 6,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 6 imps in last window — quick-win zone",
+      "demandScore": 0.012,
+      "noveltyScore": 0.714,
+      "totalScore": 0.293
     },
     {
       "id": "4c3302c7",
@@ -1510,6 +1216,82 @@
       "totalScore": 0.291
     },
     {
+      "id": "9657cf34",
+      "keyword": "offerte di lavoro ticino",
+      "normalizedKeyword": "offerte di lavoro ticino",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 9,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 9 imps in last window — quick-win zone",
+      "demandScore": 0.018,
+      "noveltyScore": 0.7,
+      "totalScore": 0.291
+    },
+    {
+      "id": "a4054113",
+      "keyword": "offerte di lavoro briga svizzera",
+      "normalizedKeyword": "offerte di lavoro briga svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 5,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 5 imps in last window — quick-win zone",
+      "demandScore": 0.01,
+      "noveltyScore": 0.7,
+      "totalScore": 0.286
+    },
+    {
+      "id": "434d46c2",
+      "keyword": "offerte di lavoro svizzera",
+      "normalizedKeyword": "offerte di lavoro svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 16,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 16 imps in last window — quick-win zone",
+      "demandScore": 0.032,
+      "noveltyScore": 0.667,
+      "totalScore": 0.286
+    },
+    {
+      "id": "54cd0162",
+      "keyword": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "normalizedKeyword": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 8,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 8 imps in last window — quick-win zone",
+      "demandScore": 0.016,
+      "noveltyScore": 0.692,
+      "totalScore": 0.286
+    },
+    {
       "id": "0b44bee5",
       "keyword": "Esistono Tutor in autostrada in Ticino e svizzera?",
       "normalizedKeyword": "esistono tutor in autostrada in ticino e svizzera?",
@@ -1532,6 +1314,44 @@
       "totalScore": 0.28
     },
     {
+      "id": "29b82c1f",
+      "keyword": "posti lavoro ticino",
+      "normalizedKeyword": "posti lavoro ticino",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 6,
+        "gscClicks": 1,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 6 imps in last window — quick-win zone",
+      "demandScore": 0.012,
+      "noveltyScore": 0.667,
+      "totalScore": 0.274
+    },
+    {
+      "id": "53767ec3",
+      "keyword": "lavori in svizzera",
+      "normalizedKeyword": "lavori in svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 5,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 5 imps in last window — quick-win zone",
+      "demandScore": 0.01,
+      "noveltyScore": 0.667,
+      "totalScore": 0.273
+    },
+    {
       "id": "f8e4c27d",
       "keyword": "lavoro in svizzera",
       "normalizedKeyword": "lavoro in svizzera",
@@ -1549,6 +1369,44 @@
       "demandScore": 0.072,
       "noveltyScore": 0.571,
       "totalScore": 0.272
+    },
+    {
+      "id": "b8bf3f65",
+      "keyword": "offerte lavoro svizzera",
+      "normalizedKeyword": "offerte lavoro svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 15,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 15 imps in last window — quick-win zone",
+      "demandScore": 0.03,
+      "noveltyScore": 0.625,
+      "totalScore": 0.268
+    },
+    {
+      "id": "a513c4fd",
+      "keyword": "cerco lavoro in svizzera",
+      "normalizedKeyword": "cerco lavoro in svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 14,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 14 imps in last window — quick-win zone",
+      "demandScore": 0.028,
+      "noveltyScore": 0.625,
+      "totalScore": 0.267
     },
     {
       "id": "1cff524b",
@@ -1571,6 +1429,44 @@
       "demandScore": 0,
       "noveltyScore": 0.667,
       "totalScore": 0.267
+    },
+    {
+      "id": "b4edbd2b",
+      "keyword": "offerte di lavoro canton ticino per frontalieri",
+      "normalizedKeyword": "offerte di lavoro canton ticino per frontalieri",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 8,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 8 imps in last window — quick-win zone",
+      "demandScore": 0.016,
+      "noveltyScore": 0.636,
+      "totalScore": 0.264
+    },
+    {
+      "id": "145d20f4",
+      "keyword": "posti di lavoro ticino",
+      "normalizedKeyword": "posti di lavoro ticino",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "gscOrphans"
+      ],
+      "demandSignals": {
+        "gscImpressions": 7,
+        "gscClicks": 0,
+        "gscPosition": null
+      },
+      "rationale": "GSC: 7 imps in last window — quick-win zone",
+      "demandScore": 0.014,
+      "noveltyScore": 0.6,
+      "totalScore": 0.248
     }
   ]
 }
