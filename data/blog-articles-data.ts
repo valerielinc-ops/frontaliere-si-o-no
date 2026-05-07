@@ -21368,4 +21368,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'spreco-alimentare-giovani-social',
+ category: 'pratico',
+ date: '2026-05-07T06:07:12.701Z',
+ image: '/images/blog/spreco-alimentare-giovani-social.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

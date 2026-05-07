@@ -6665,6 +6665,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.title': 'Uboldo: Unwetter deckt Dach ab, keine Verletzten',
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.excerpt': 'Das Unwetter vom 6. Mai 2026 hat einem Wohnhaus in Uboldo, Varese, schwere Schäden zugefügt, ohne jedoch Verletzte zu hinterlassen. Hier ist, was passiert ist und was im Notfall zu tun ist.',
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.imageAlt': 'Beschädigtes Dach in Uboldo, Varese, nach dem Sturm am 6. Mai 2026',
+    'blog.article.spreco-alimentare-giovani-social.title': 'Lebensmittelverschwendung: Soziale Medien sind entscheidend für junge Menschen',
+    'blog.article.spreco-alimentare-giovani-social.excerpt': 'Die Abgeordnete Maria Chiara Gadda betont die Bedeutung sozialer Netzwerke im Kampf gegen Lebensmittelverschwendung und zur Einbindung junger Menschen.',
+    'blog.article.spreco-alimentare-giovani-social.imageAlt': 'Konferenz zur Lebensmittelverschwendung in Lugano mit jungen Freiwilligen',
 };
 
 export default blogMetaDe;

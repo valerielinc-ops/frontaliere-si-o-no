@@ -6666,6 +6666,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.title': 'Uboldo: maltempo scoperchia tetto, nessun ferito',
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.excerpt': 'Il maltempo del 6 maggio 2026 ha causato gravi danni a un edificio residenziale a Uboldo, Varese, senza però feriti. Ecco cosa è successo e cosa fare in caso di emergenza.',
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.imageAlt': 'Tetto scoperchiato a Uboldo, Varese, dopo il maltempo del 6 maggio 2026',
+    'blog.article.spreco-alimentare-giovani-social.title': 'Spreco alimentare: social fondamentali per coinvolgere i giovani',
+    'blog.article.spreco-alimentare-giovani-social.excerpt': 'La deputata Maria Chiara Gadda sottolinea l\'importanza dei social network per combattere lo spreco alimentare e coinvolgere i giovani.',
+    'blog.article.spreco-alimentare-giovani-social.imageAlt': 'Conferenza su spreco alimentare a Lugano con giovani volontari',
 };
 
 export default blogMetaIt;

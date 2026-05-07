@@ -6665,6 +6665,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.title': 'Uboldo: bad weather damages roof, no injuries',
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.excerpt': 'The bad weather on May 6, 2026, caused severe damage to a residential building in Uboldo, Varese, but no one was injured. Here\'s what happened and what to do in case of emergency.',
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.imageAlt': 'Damaged roof in Uboldo, Varese, after the storm on May 6, 2026',
+    'blog.article.spreco-alimentare-giovani-social.title': 'Food waste: social media key to engaging youth',
+    'blog.article.spreco-alimentare-giovani-social.excerpt': 'Deputy Maria Chiara Gadda highlights the importance of social networks to combat food waste and engage young people.',
+    'blog.article.spreco-alimentare-giovani-social.imageAlt': 'Conference on food waste reduction in Lugano with young volunteers',
 };
 
 export default blogMetaEn;

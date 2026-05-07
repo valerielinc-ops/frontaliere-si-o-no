@@ -6666,6 +6666,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.title': 'Uboldo : intempéries arrachent un toit, pas de blessés',
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.excerpt': 'Les intempéries du 6 mai 2026 ont causé de graves dégâts à un bâtiment résidentiel à Uboldo, Varese, sans toutefois faire de blessés. Voici ce qui s\'est passé et que faire en cas d\'urgence.',
     'blog.article.uboldo-tetto-scoperchiato-maltempo-2026.imageAlt': 'Toit endommagé à Uboldo, Varèse, après la tempête du 6 mai 2026',
+    'blog.article.spreco-alimentare-giovani-social.title': 'Gaspillage alimentaire : les réseaux sociaux pour impliquer les jeunes',
+    'blog.article.spreco-alimentare-giovani-social.excerpt': 'La députée Maria Chiara Gadda souligne l\'importance des réseaux sociaux pour lutter contre le gaspillage alimentaire et impliquer les jeunes.',
+    'blog.article.spreco-alimentare-giovani-social.imageAlt': 'Conférence sur le gaspillage alimentaire à Lugano avec de jeunes bénévoles',
 };
 
 export default blogMetaFr;

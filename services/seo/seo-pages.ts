@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2274,
+ "numberOfItems": 2275,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6916,7 +6916,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2271, "name": "Varese: strisce pedonali invisibili, MAV chiede...", "url": `${BASE_URL}/articoli-frontaliere/varese-strisce-pedonali-invisibili-2026` },
           { "@type": "ListItem", "position": 2272, "name": "Furti nei negozi self-service: la situazione in...", "url": `${BASE_URL}/articoli-frontaliere/furti-self-service-ticino-2026` },
           { "@type": "ListItem", "position": 2273, "name": "Varese: arrestato spacciatore, droga nascosta n...", "url": `${BASE_URL}/articoli-frontaliere/varese-arresto-spacciatore-frontaliere` },
-          { "@type": "ListItem", "position": 2274, "name": "Uboldo: maltempo scoperchia tetto, nessun ferito", "url": `${BASE_URL}/articoli-frontaliere/uboldo-tetto-scoperchiato-maltempo-2026` }
+          { "@type": "ListItem", "position": 2274, "name": "Uboldo: maltempo scoperchia tetto, nessun ferito", "url": `${BASE_URL}/articoli-frontaliere/uboldo-tetto-scoperchiato-maltempo-2026` },
+          { "@type": "ListItem", "position": 2275, "name": "Spreco alimentare: social fondamentali per coin...", "url": `${BASE_URL}/articoli-frontaliere/spreco-alimentare-giovani-social` }
  ]
  },
  {
