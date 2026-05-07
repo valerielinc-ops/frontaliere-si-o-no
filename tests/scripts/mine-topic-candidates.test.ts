@@ -280,6 +280,9 @@ describe('googleTrends', () => {
       googleTrendsImpl: fake,
       playwrightFallback: fallback,
       sleepFn: async () => undefined,
+      // Stub the RSS path to empty so the lib+fallback path is the one
+      // exercised by this test.
+      fetchTrendsRssImpl: async () => '',
     });
     // For each geo, the fallback fires once and returns ≥1 query, so
     // geoOk MUST be true (data is real, even if the lib path failed).
@@ -290,7 +293,7 @@ describe('googleTrends', () => {
     }
   });
 
-  it('fallback returning [] after lib error keeps geoOk=false with original reason', async () => {
+  it('fallback returning [] after lib error keeps geoOk=false with sanitized reason', async () => {
     const fake = {
       relatedQueries: vi.fn(async () => {
         throw new Error('SyntaxError: Unexpected token < in JSON at position 0');
@@ -301,13 +304,42 @@ describe('googleTrends', () => {
       googleTrendsImpl: fake,
       playwrightFallback: fallback,
       sleepFn: async () => undefined,
+      // Empty RSS so the lib path's reason is what surfaces.
+      fetchTrendsRssImpl: async () => '',
     });
     for (const key of ['googleTrendsIt', 'googleTrendsItLombardia', 'googleTrendsCh']) {
       expect(r.perGeo[key].ok).toBe(false);
       expect(r.perGeo[key].candidates).toEqual([]);
-      // Reason should be the lib's original error, not a fallback artefact.
-      expect(r.perGeo[key].reason).toMatch(/SyntaxError|Unexpected token/);
+      // The HTML-as-JSON parse error is now surfaced as a human reason,
+      // not the raw lib error.
+      expect(r.perGeo[key].reason).toMatch(/rate-limited from CI IP/);
     }
+  });
+
+  it('RSS path produces candidates without needing the lib', async () => {
+    const fake = {
+      relatedQueries: vi.fn(async () => '{"default":{"rankedList":[{},{}]}}'),
+    };
+    const xml = `<?xml version="1.0"?><rss><channel>
+      <item><title>frontalieri rising query</title><ht:approx_traffic>2000+</ht:approx_traffic></item>
+      <item><title>varese affitti 2026</title><ht:approx_traffic>500+</ht:approx_traffic></item>
+    </channel></rss>`;
+    const fallback = vi.fn(async () => []);
+    const r = await fetchGoogleTrendsCandidates({
+      googleTrendsImpl: fake,
+      playwrightFallback: fallback,
+      sleepFn: async () => undefined,
+      fetchTrendsRssImpl: async (geo: string) => xml,
+    });
+    expect(r.perGeo.googleTrendsIt.ok).toBe(true);
+    expect(r.perGeo.googleTrendsIt.candidates.length).toBeGreaterThanOrEqual(1);
+    expect(r.perGeo.googleTrendsCh.ok).toBe(true);
+    // 'varese' triggers the Lombardia hint; cross-tag should populate IT-25.
+    expect(
+      r.perGeo.googleTrendsItLombardia.candidates.some((c: any) =>
+        /varese/i.test(c.keyword),
+      ),
+    ).toBe(true);
   });
 });
 
@@ -532,7 +564,9 @@ describe('facebookPages', () => {
     expect(r.reason).toMatch(/no public page IDs/);
   });
 
-  it('postPassesFilter requires keyword + min engagement', () => {
+  it('postPassesFilter accepts any post above the soft engagement floor', () => {
+    // No keyword filter — we want to surface "what's loud" on the page,
+    // frontaliere-relevant or not. Bias is applied at sort-time.
     expect(
       postPassesFilter({
         message: 'frontalieri news',
@@ -540,18 +574,28 @@ describe('facebookPages', () => {
         comments: { summary: { total_count: 10 } },
       }),
     ).toBe(true);
+    // Unrelated text WITH engagement passes — keyword bias not a filter.
     expect(
       postPassesFilter({
-        message: 'unrelated text',
+        message: 'unrelated but loud post',
         reactions: { summary: { total_count: 100 } },
         comments: { summary: { total_count: 100 } },
       }),
-    ).toBe(false);
+    ).toBe(true);
+    // Below the soft engagement floor (5): drop.
     expect(
       postPassesFilter({
         message: 'frontalieri',
         reactions: { summary: { total_count: 1 } },
         comments: { summary: { total_count: 1 } },
+      }),
+    ).toBe(false);
+    // Empty message: drop.
+    expect(
+      postPassesFilter({
+        message: '',
+        reactions: { summary: { total_count: 100 } },
+        comments: { summary: { total_count: 100 } },
       }),
     ).toBe(false);
   });

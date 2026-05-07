@@ -31,14 +31,30 @@ export async function fetchPostHogByPage({
     LIMIT 5000
   `.trim();
 
+  // PostHog's $pageleave event exposes scroll under different property names
+  // depending on the posthog-js version: $scroll_depth (oldest), then
+  // $max_scroll_depth, then $max_scroll_y. We coalesce across all three so
+  // the query keeps working through SDK upgrades. We also include our own
+  // SPA-emitted property `percent_scrolled` (from services/analytics.ts:653)
+  // which is logged as a `scroll_depth` event regardless of pageleave.
   const scrollQuery = `
     SELECT properties.$pathname AS path,
-           quantile(0.5)(toFloat(properties.$scroll_depth)) AS scroll_p50
+           quantile(0.5)(toFloat(coalesce(
+             properties.$scroll_depth,
+             properties.$max_scroll_depth,
+             properties.$max_scroll_y,
+             properties.percent_scrolled
+           ))) AS scroll_p50
     FROM events
-    WHERE event = '$pageleave'
+    WHERE event IN ('$pageleave', 'scroll_depth')
       AND (properties.utm_medium IS NULL OR properties.utm_medium != 'newsletter')
       AND properties.$pathname LIKE '%/articoli-frontaliere/%'
-      AND properties.$scroll_depth IS NOT NULL
+      AND coalesce(
+        properties.$scroll_depth,
+        properties.$max_scroll_depth,
+        properties.$max_scroll_y,
+        properties.percent_scrolled
+      ) IS NOT NULL
       AND timestamp >= toDateTime('${start} 00:00:00')
       AND timestamp <= toDateTime('${end} 23:59:59')
     GROUP BY path

@@ -33,9 +33,12 @@ const SEEDS_FALLBACK = [
 ];
 
 const GEOS = [
-  { id: 'IT', sourceKey: 'googleTrendsIt' },
-  { id: 'IT-25', sourceKey: 'googleTrendsItLombardia' },
-  { id: 'CH', sourceKey: 'googleTrendsCh' },
+  // RSS: only country-level (IT, CH). The IT-25 (Lombardia) geo is exposed
+  // via the JSON `relatedQueries` endpoint but blocked from CI IPs; we keep
+  // it for local runs and tag it as RSS-unsupported.
+  { id: 'IT', sourceKey: 'googleTrendsIt', rss: true },
+  { id: 'IT-25', sourceKey: 'googleTrendsItLombardia', rss: false },
+  { id: 'CH', sourceKey: 'googleTrendsCh', rss: true },
 ];
 
 const MAX_PER_GEO = 20;
@@ -244,6 +247,78 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+// ── Public RSS feed (no auth, no IP block) ────────────────────────────────
+//
+// `https://trends.google.com/trending/rss?geo=<COUNTRY>` is a public XML feed
+// served by Google for SERP-style display. Unlike the gated `relatedQueries`
+// JSON endpoint (which returns the rate-limit captcha page from CI IPs),
+// this RSS endpoint is consistently accessible from GitHub Actions runners.
+// Coverage: country-level only — `IT`, `CH`, `US`, etc. No region/Lombardia
+// cut. ~24h trending window, 25-30 items per pull.
+//
+// Item shape (Google "Hot Trends" namespace):
+//   <item>
+//     <title>some search query</title>
+//     <ht:approx_traffic>2000+</ht:approx_traffic>
+//     <ht:news_item><ht:news_item_title>...</ht:news_item_title>...</ht:news_item>
+//     <pubDate>...</pubDate>
+//   </item>
+async function fetchTrendsRss(geo, fetchImpl = fetch) {
+  const url = `https://trends.google.com/trending/rss?geo=${encodeURIComponent(geo)}`;
+  const ac = new AbortController();
+  const t = setTimeout(() => ac.abort(), REQUEST_TIMEOUT_MS);
+  if (t && typeof t.unref === 'function') t.unref();
+  try {
+    const res = await fetchImpl(url, {
+      headers: {
+        // A plausible-browser UA reduces the chance of a defensive 403.
+        'User-Agent':
+          'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+        Accept: 'application/rss+xml, application/xml, text/xml',
+      },
+      signal: ac.signal,
+    });
+    if (!res.ok) {
+      const e = new Error(`trends-rss ${res.status}`);
+      e.status = res.status;
+      throw e;
+    }
+    return await res.text();
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+// Parse the trending-RSS XML into Candidate-shape rising entries.
+export function parseTrendsRss(xml) {
+  if (!xml || typeof xml !== 'string') return [];
+  const items = [...xml.matchAll(/<item\b[\s\S]*?<\/item>/gi)];
+  const out = [];
+  for (const m of items) {
+    const block = m[0];
+    const titleM = block.match(/<title[^>]*>(?:<!\[CDATA\[([\s\S]*?)\]\]>|([\s\S]*?))<\/title>/i);
+    const title = (titleM?.[1] ?? titleM?.[2] ?? '').replace(/<[^>]+>/g, '').trim();
+    if (!title) continue;
+    const trafficM = block.match(/<ht:approx_traffic[^>]*>([\s\S]*?)<\/ht:approx_traffic>/i);
+    const traffic = (trafficM?.[1] ?? '').trim();
+    // "2,000+" or "200+" → numeric (commas stripped).
+    const trafficNum = Number(traffic.replace(/[+,\s]/g, '')) || null;
+    out.push({
+      query: title,
+      score: trafficNum, // store raw approx_traffic; mapped to 0-100 by parseTrendsScore at use sites
+      sourceLabel: 'trends-rss',
+    });
+  }
+  return out;
+}
+
+// Soft-bias (not hard-filter) for IT-25 (Lombardia): when querying RSS at
+// country level, we tag any rising query mentioning a Lombardia frontier
+// city/province as Lombardia-relevant so it can still surface in the
+// IT-25 geo bucket via cross-tagging. Rough but free.
+const LOMBARDIA_HINT_RE =
+  /\b(lombard|varese|como|milano|gallarate|busto|tradate|cantello|ponte\s*tresa|chiasso|luino|val\s*ceresio|bregaglia)\b/i;
+
 /**
  * @param {object} [opts]
  * @param {object} [opts.winnerFingerprint] — optional Phase-1 fingerprint.
@@ -277,6 +352,32 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
 
   const perGeo = {};
   const all = [];
+  const fetchImpl = opts.fetchImpl ?? globalThis.fetch;
+  const rssImpl = opts.fetchTrendsRssImpl ?? ((geo) => fetchTrendsRss(geo, fetchImpl));
+
+  // Pull country-level RSS once per RSS-enabled geo BEFORE the per-seed lib
+  // loop. RSS is unblocked from CI IPs and doesn't need keyword seeds — it
+  // returns the day's trending queries. We map each item to a Candidate
+  // tagged with the geo, then merge into IT-25 (Lombardia) too if the query
+  // mentions a Lombardia city.
+  /** @type {Map<string, Array<{query: string, score: number|null, sourceLabel: string}>>} */
+  const rssByGeo = new Map();
+  for (const geo of GEOS) {
+    if (!geo.rss) continue;
+    try {
+      const xml = await rssImpl(geo.id);
+      const items = parseTrendsRss(xml);
+      rssByGeo.set(geo.sourceKey, items);
+    } catch {
+      rssByGeo.set(geo.sourceKey, []);
+    }
+  }
+  // Lombardia cross-tag from IT RSS items mentioning Lombardia hints.
+  const itItems = rssByGeo.get('googleTrendsIt') || [];
+  const lombardiaItems = itItems.filter((it) => LOMBARDIA_HINT_RE.test(it.query));
+  if (lombardiaItems.length) {
+    rssByGeo.set('googleTrendsItLombardia', lombardiaItems);
+  }
 
   for (const geo of GEOS) {
     const collected = [];
@@ -285,6 +386,35 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
     let lastReason = null;
     let consecutiveErrors = 0;
     let fallbackTried = false;
+
+    // Seed `collected` from RSS items for this geo first. These are
+    // deduped against `seenForGeo` so the per-seed loop can still add
+    // distinct rising queries from the lib path on top.
+    const rssItems = rssByGeo.get(geo.sourceKey) || [];
+    for (const r of rssItems) {
+      if (!r.query) continue;
+      const norm = normalizeKeyword(r.query);
+      if (!norm || seenForGeo.has(norm)) continue;
+      seenForGeo.add(norm);
+      collected.push({
+        id: fnv1a8(norm),
+        keyword: r.query,
+        normalizedKeyword: norm,
+        angle: null,
+        locale: 'it',
+        sources: [geo.sourceKey],
+        demandSignals: {
+          googleTrendsScore: r.score,
+          googleTrendsGeo: geo.id,
+          googleTrendsSeed: 'rss-trending',
+          googleTrendsViaRss: true,
+        },
+        rationale: `Google Trends RSS (${geo.id}, daily trending) — approx_traffic ${
+          r.score ?? '?'
+        }`,
+      });
+      if (collected.length >= MAX_PER_GEO) break;
+    }
 
     for (const seed of seeds) {
       let rising = [];
@@ -316,7 +446,15 @@ export async function fetchGoogleTrendsCandidates(opts = {}) {
         // Capture the lib's original reason BEFORE attempting fallback so a
         // failed fallback doesn't overwrite the diagnostic.
         geoOk = false;
-        lastReason = lastErrorMsg ? lastErrorMsg.slice(0, 200) : 'unknown error';
+        // Convert raw library noise (HTML-as-JSON, ECONNRESET, etc.) into
+        // a single human-readable reason. The most common case from CI is
+        // Google returning the rate-limit captcha page, which the lib then
+        // tries to JSON.parse — surfacing as "Unexpected token '<'". Map
+        // those to a clear "rate-limited" message; keep other errors as-is.
+        const rawMsg = lastErrorMsg ? lastErrorMsg.slice(0, 200) : 'unknown error';
+        lastReason = /Unexpected token|<html|<!DOCTYPE/i.test(rawMsg)
+          ? 'rate-limited from CI IP — known limitation, residential proxy needed for reliable Trends'
+          : rawMsg;
 
         // ONE Playwright fallback attempt per geo, on first error only —
         // avoids spending 14 × Playwright launches if Trends is down.
