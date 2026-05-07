@@ -57,6 +57,17 @@ jobs:
         # Soft-fail: a missing audit blocks enrichment but not the snapshot.
         run: node scripts/audit-related-search-candidates.mjs || true
 
+      - name: Re-ingest GSC orphan slugs into candidates
+        # The audit above regenerates candidates from current jobs.json only,
+        # which DROPS synthetic candidates for cluster URLs Google has 404'd
+        # but whose underlying jobs have since expired (so they no longer
+        # produce any keyword emission via the SPA). This step re-merges the
+        # download/frontaliereticino.ch-Coverage-*/Tabella.csv exports back
+        # in as gscMatch=true synthetics, so the cluster plugin keeps trying
+        # to recover them via OR-fill matching on every build.
+        # Idempotent + soft-fail: missing CSV directory is treated as a no-op.
+        run: node scripts/ingest-gsc-orphans-into-candidates.mjs || true
+
       - name: Prepare Firebase credentials (for AI enrichment via Remote Config)
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -100,4 +111,4 @@ jobs:
           # other scheduled workflows. On rebase conflict, regenerate the
           # snapshot + delta + footer pairs + cluster data on top of the new base.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/related-search-candidates.json data/related-search-enriched.json 2>/dev/null || true"
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/related-search-candidates.json data/related-search-enriched.json 2>/dev/null || true"
