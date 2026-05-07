@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T14:07:42.638Z",
+  "generatedAt": "2026-05-07T14:30:45.851Z",
   "sources": {
     "redditTicino": {
       "ok": true,
@@ -19,7 +19,7 @@
     },
     "googleNewsRss": {
       "ok": true,
-      "candidates": 234
+      "candidates": 235
     }
   },
   "candidates": [
@@ -88,26 +88,6 @@
       "demandScore": 0.08,
       "noveltyScore": 0.842,
       "totalScore": 0.385
-    },
-    {
-      "id": "cba430b4",
-      "keyword": "Modifica LAMAL - finanziamento uniforme delle prestazioni - Democrazia Diretta - Play RSI - RSI Radiotelevisione svizzera",
-      "normalizedKeyword": "modifica lamal - finanziamento uniforme delle prestazioni - democrazia diretta - play rsi - rsi radiotelevisione svizzera",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObFM3U1hNTXZ4eXY3aWRmX1FUZWotaVVHNTNFczRFaDBXbUZlbm5XSGZENmpObUhtbnBISFJEdldDSE52OWthckVSVVpWX1hHNEdqandRTjh2dDFVM3ZfcjNZSlpQUTVCNlR5ZjBxdVhyTmpIYjN2aDlQYlNEU1hsTHgtWEZ2WF9oMlR5QjJOQVlGN05JeWY0YkpyM2VoTWNHbzZ3TnM5LXpodHBobUlnUEdLUzM1QUFRYklLa2NiMFhtS21xSmptcWU4ZGYxQQ?oc=5",
-        "googleNewsRssPubDate": "Mon, 04 Nov 2024 08:00:00 GMT",
-        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
-      },
-      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
-      "demandScore": 0,
-      "noveltyScore": 0.938,
-      "totalScore": 0.375
     },
     {
       "id": "564ef9bd",
@@ -309,26 +289,6 @@
         "googleNewsRssSource": "Money.it"
       },
       "rationale": "Google News RSS seed \"IRPEF frontalieri\" — Money.it",
-      "demandScore": 0,
-      "noveltyScore": 0.882,
-      "totalScore": 0.353
-    },
-    {
-      "id": "a023b7e0",
-      "keyword": "TF: possibile dare in affitto abitazione ottenuta con 2.o pilastro - SWI swissinfo.ch",
-      "normalizedKeyword": "tf: possibile dare in affitto abitazione ottenuta con 2.o pilastro - swi swissinfo.ch",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNTlVTRHhtaTZuMGxxRlhIZlRzanpId1ZFcXY3dU1KY1RmLW5fRUtBYk1WeDZDVE94WlBTSWRCT3FhYWdDb1hyM1ViOU9hN1ZKVnBxMGZ5UlRSM253b2Vhbzg5Mm90V2FYWXozX1VkYWJvZDNaWVFKQ2kyNGhDWnNiQjBKUzUtbW1qVkMwaktvZ2pMcWE5UUVZeVZoZVpWY3ZzYVpiMkpR?oc=5",
-        "googleNewsRssPubDate": "Thu, 29 Jul 2021 07:00:00 GMT",
-        "googleNewsRssSource": "SWI swissinfo.ch"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — SWI swissinfo.ch",
       "demandScore": 0,
       "noveltyScore": 0.882,
       "totalScore": 0.353
@@ -1013,6 +973,26 @@
         "googleNewsRssSource": "RSI Radiotelevisione svizzera"
       },
       "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.842,
+      "totalScore": 0.337
+    },
+    {
+      "id": "aa3e6eca",
+      "keyword": "Comprare casa? Uno svizzero su due svuota il secondo pilastro - TVS tvsvizzera.it",
+      "normalizedKeyword": "comprare casa? uno svizzero su due svuota il secondo pilastro - tvs tvsvizzera.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPMDJQQzJ4TjlQeG1SOFFfZUpXdXpPSFU2b1pHS3JCUmY1aFRYSUh4RDUxaWVCekFlbU9yVEhDLUhKeW9BZ2tHSHNrMUNkd3hTdGpFeFVfeVY2bFhuSVZJQnpZa0hsQk9EQWtXSmFwV0xBZ1AyVFBSZkF5OXB5THlES0xGX3B5czlhNmFxTm1tcFRZZzdlOVFEVG5CNEw0STJRRDhnTQ?oc=5",
+        "googleNewsRssPubDate": "Thu, 23 Oct 2025 07:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — TVS tvsvizzera.it",
       "demandScore": 0,
       "noveltyScore": 0.842,
       "totalScore": 0.337
@@ -2035,6 +2015,26 @@
         "googleNewsRssSource": "TVS tvsvizzera.it"
       },
       "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
+      "demandScore": 0,
+      "noveltyScore": 0.81,
+      "totalScore": 0.324
+    },
+    {
+      "id": "bcb2df97",
+      "keyword": "Sanità, Casinò e frontalieri al centro del confronto pubblico della Lista n. 2 - Italian Gaming Expo &amp; Conference",
+      "normalizedKeyword": "sanita, casino e frontalieri al centro del confronto pubblico della lista n. 2 - italian gaming expo &amp; conference",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNd01jMk0tOU10MGN5ZXRBZmJ3NzJscWVNLUhsazNRelQwTTMxa2t1RjhtNlBDMk4zSEhkYWVFYTJJNjM4dXV6ZjRiQ2hLa3Z0RDF2czZNNHdzQ1hhcGYwTzEzbTBOUzZXd0tpTTY2ZUwtYXNUQTA2eGhiaGVvTFJTMDZYaGFsSHJnQl9udEExTVY4aFpIMkhkajR3aHN4V2hmUkZORlFsRVdzSzBhbXhkZGRST3VNNGV4dHc?oc=5",
+        "googleNewsRssPubDate": "Mon, 04 May 2026 15:46:52 GMT",
+        "googleNewsRssSource": "Italian Gaming Expo &amp; Conference"
+      },
+      "rationale": "Google News RSS seed \"frontalieri\" — Italian Gaming Expo &amp; Conference",
       "demandScore": 0,
       "noveltyScore": 0.81,
       "totalScore": 0.324
