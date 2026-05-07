@@ -3483,6 +3483,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lugano-saluta-stadio-cornaredo-2024': { name: 'Eventi Ticino', path: '/articoli-frontaliere/lugano-saluta-stadio-cornaredo-2024', parent: 'blog' },
     'blog-giro-ditalia-ticino-strade-chiuse': { name: 'Giro d\'Italia', path: '/articoli-frontaliere/giro-ditalia-ticino-strade-chiuse', parent: 'blog' },
     'blog-montagne-neve-riapertura-passo-novena': { name: 'Mobilità', path: '/articoli-frontaliere/montagne-neve-riapertura-passo-novena', parent: 'blog' },
+    'blog-lucerna-paradiso-fiscale-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/lucerna-paradiso-fiscale-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -6723,6 +6723,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.montagne-neve-riapertura-passo-novena.title': 'Passo della Novena: montagne di neve da spostare per la riapertura',
     'blog.article.montagne-neve-riapertura-passo-novena.excerpt': 'Operazioni di pulizia in corso per riaprire il passo della Novena. Video delle operazioni pubblicato dal consigliere di Stato Norman Gobbi.',
     'blog.article.montagne-neve-riapertura-passo-novena.imageAlt': 'Vista aerea del Passo della Novena in Ticino, Svizzera, con macchinari per la rimozione della neve in azione. Cielo azzurro limpido.',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.title': 'Lucerna supera Zugo: nuovo paradiso fiscale per le imprese',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.excerpt': 'Lucerna riduce l\'imposta sugli utili al 11,66%, superando Zugo. Impatto sui frontalieri e confronto con l\'UE.',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.imageAlt': 'Vista del Lago di Lugano con un edificio moderno in secondo piano',
 };
 
 export default blogMetaIt;

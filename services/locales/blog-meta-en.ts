@@ -6722,6 +6722,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.montagne-neve-riapertura-passo-novena.title': 'Novena Pass: snow removal for reopening',
     'blog.article.montagne-neve-riapertura-passo-novena.excerpt': 'Cleanup operations underway to reopen the Novena Pass. Video of the operations published by State Councillor Norman Gobbi.',
     'blog.article.montagne-neve-riapertura-passo-novena.imageAlt': 'Aerial view of Passo della Novena in Ticino, Switzerland, with snow-clearing machinery at work. Clear blue sky.',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.title': 'Lucerne overtakes Zug: new tax haven for businesses',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.excerpt': 'Lucerne reduces corporate tax to 11.66%, surpassing Zug. Impact on cross-border workers and comparison with the EU.',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.imageAlt': 'View of Lake Lugano with a modern building in the background',
 };
 
 export default blogMetaEn;

@@ -21539,4 +21539,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lucerna-paradiso-fiscale-frontalieri',
+ category: 'fiscale',
+ date: '2026-05-07T09:05:42.794Z',
+ image: '/images/blog/lucerna-paradiso-fiscale-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

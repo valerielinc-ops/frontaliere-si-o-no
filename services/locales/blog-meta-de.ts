@@ -6722,6 +6722,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.montagne-neve-riapertura-passo-novena.title': 'Passo della Novena: Schneemassen für die Wiedereröffnung räumen',
     'blog.article.montagne-neve-riapertura-passo-novena.excerpt': 'Laufende Reinigungsarbeiten für die Wiedereröffnung des Passo della Novena. Video der Arbeiten vom Staatsrat Norman Gobbi veröffentlicht.',
     'blog.article.montagne-neve-riapertura-passo-novena.imageAlt': 'Luftaufnahme des Passo della Novena im Tessin, Schweiz, mit Schneeräumungsmaschinen bei der Arbeit. Klarer blauer Himmel.',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.title': 'Luzern überholt Zug: Neuer Steuerparadies für Unternehmen',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.excerpt': 'Luzern senkt die Gewinnsteuer auf 11,66%, überholt Zug. Auswirkungen auf Grenzgänger und Vergleich mit der EU.',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.imageAlt': 'Blick auf den Luganersee mit einem modernen Gebäude im Hintergrund',
 };
 
 export default blogMetaDe;

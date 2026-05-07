@@ -6723,6 +6723,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.montagne-neve-riapertura-passo-novena.title': 'Col de la Novena : des montagnes de neige à déplacer pour la réouverture',
     'blog.article.montagne-neve-riapertura-passo-novena.excerpt': 'Opérations de nettoyage en cours pour rouvrir le col de la Novena. Vidéo des opérations publiée par le conseiller d\'État Norman Gobbi.',
     'blog.article.montagne-neve-riapertura-passo-novena.imageAlt': 'Vue aérienne du col de la Novena dans le Tessin, Suisse, avec des engins de déneigement en action. Ciel bleu dégagé.',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.title': 'Lucerne dépasse Zug: nouveau paradis fiscal pour les entreprises',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.excerpt': 'Lucerne réduit l\'impôt sur les bénéfices à 11,66%, dépassant Zug. Impact sur les frontaliers et comparaison avec l\'UE.',
+    'blog.article.lucerna-paradiso-fiscale-frontalieri.imageAlt': 'Vue du lac de Lugano avec un bâtiment moderne en arrière-plan',
 };
 
 export default blogMetaFr;
