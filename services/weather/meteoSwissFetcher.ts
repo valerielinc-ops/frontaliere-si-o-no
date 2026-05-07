@@ -18,7 +18,7 @@ import type { FetcherResult, WeatherCurrent, AlertState } from './types';
 
 const OBSERVATIONS_ENDPOINT = 'https://data.geo.admin.ch/ch.meteoschweiz.ogd-smn/ogd-smn_meta.csv';
 const STATION_LATEST_BASE = 'https://data.geo.admin.ch/ch.meteoschweiz.ogd-smn';
-const ALERTS_ENDPOINT = 'https://www.meteoschweiz.admin.ch/product/output/danger/version__current/it/danger.json';
+const ALERTS_ENDPOINT = 'https://feeds.meteoalarm.org/api/v1/warnings/feeds-switzerland';
 
 export const METEO_SWISS_ATTRIBUTION_TEXT = 'MeteoSwiss';
 export const METEO_SWISS_ATTRIBUTION_URL = 'https://www.meteoswiss.admin.ch/';
@@ -154,25 +154,72 @@ export async function fetchMeteoSwissAlerts(opts: MeteoSwissAlertsFetchOpts = {}
   return { ok: true, items };
 }
 
+/**
+ * Parse MeteoAlarm CAP payload (`{warnings: [{alert: {info: [...]}}]}`).
+ * Each warning has multiple `info` entries (one per language); we pick the
+ * Italian one when present, fall back to English/German otherwise.
+ *
+ * MeteoAlarm severity → numeric level (matches existing config minLevel):
+ *   Minor=1, Moderate=2, Severe=3, Extreme=4 (rare).
+ *
+ * Region tagging from `area[].areaDesc`: "Ticino" → "TI";
+ *   "settentrionale|nord" → "TI-N"; "meridionale|sud|Mendrisio" → "TI-S".
+ *   IT-side regions are not in the CH feed (deferred follow-up).
+ */
 function parseAlertsPayload(payload: unknown): MeteoSwissAlertItem[] {
   const out: MeteoSwissAlertItem[] = [];
   if (!payload || typeof payload !== 'object') return out;
   const obj = payload as Record<string, unknown>;
-  const warnings = obj.warnings ?? obj.danger ?? obj.results;
+  const warnings = obj.warnings;
   if (!Array.isArray(warnings)) return out;
   for (const w of warnings) {
     if (!w || typeof w !== 'object') continue;
     const ww = w as Record<string, unknown>;
-    const type = mapAlertType(typeof ww.type === 'string' ? ww.type : typeof ww.warntyp_code === 'string' ? ww.warntyp_code : '');
+    const alert = ww.alert as Record<string, unknown> | undefined;
+    if (!alert || typeof alert !== 'object') continue;
+    const infoList = alert.info as Array<Record<string, unknown>> | undefined;
+    if (!Array.isArray(infoList) || infoList.length === 0) continue;
+    const info = infoList.find((i) => i.language === 'it-IT' || i.language === 'it')
+              ?? infoList.find((i) => i.language === 'en-GB' || i.language === 'en')
+              ?? infoList[0];
+    const event = typeof info.event === 'string' ? info.event : '';
+    const type = mapAlertType(event);
     if (!type) continue;
-    const level = typeof ww.level === 'number' ? ww.level : typeof ww.warnlevel === 'number' ? ww.warnlevel : 1;
-    const regionId = typeof ww.regionId === 'string' ? ww.regionId : typeof ww.region_id === 'string' ? ww.region_id : '';
-    const validFrom = typeof ww.validFrom === 'string' ? ww.validFrom : typeof ww.start_time === 'string' ? ww.start_time : undefined;
-    const validTo = typeof ww.validTo === 'string' ? ww.validTo : typeof ww.end_time === 'string' ? ww.end_time : undefined;
-    const description = typeof ww.description === 'string' ? ww.description : typeof ww.text === 'string' ? ww.text : undefined;
-    out.push({ type, level: Math.trunc(level), regionId, validFrom, validTo, description });
+    const severityStr = typeof info.severity === 'string' ? info.severity : '';
+    const level = severityToLevel(severityStr);
+    const areaArr = info.area as Array<Record<string, unknown>> | undefined;
+    const areaDesc = Array.isArray(areaArr) && typeof areaArr[0]?.areaDesc === 'string'
+      ? (areaArr[0].areaDesc as string)
+      : '';
+    const regionId = areaDescToRegionId(areaDesc);
+    const validFrom = typeof info.onset === 'string' ? info.onset : typeof info.effective === 'string' ? info.effective : undefined;
+    const validTo = typeof info.expires === 'string' ? info.expires : undefined;
+    const description = typeof info.description === 'string' ? info.description : typeof info.headline === 'string' ? info.headline : undefined;
+    out.push({ type, level, regionId, validFrom, validTo, description });
   }
   return out;
+}
+
+function severityToLevel(severity: string): number {
+  const s = severity.toLowerCase();
+  if (s === 'extreme') return 4;
+  if (s === 'severe') return 3;
+  if (s === 'moderate') return 2;
+  if (s === 'minor') return 1;
+  return 1;
+}
+
+function areaDescToRegionId(desc: string): string {
+  const d = desc.toLowerCase();
+  if (d.includes('ticin')) {
+    if (d.includes('settentrional') || d.includes('nord')) return 'TI-N';
+    if (d.includes('meridional') || d.includes('sud') || d.includes('mendrisio')) return 'TI-S';
+    return 'TI';
+  }
+  if (d.includes('lecco')) return 'IT-LECCO';
+  if (d.includes('como')) return 'IT-COMO';
+  if (d.includes('vares')) return 'IT-VARESE';
+  return desc;
 }
 
 function mapAlertType(s: string): MeteoSwissAlertType | null {
