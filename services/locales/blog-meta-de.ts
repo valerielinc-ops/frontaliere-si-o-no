@@ -6611,6 +6611,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-valli-bici-velocita.title': 'Otr Bellinzona und Valli setzt auf Radfahren',
     'blog.article.bellinzona-valli-bici-velocita.excerpt': 'Die Strategie \'Alle auf dem Fahrrad\' soll den Tourismus in der Region stärken. Erfahren Sie, wie sich dieser Projekt auf die Grenzgänger auswirken wird.',
     'blog.article.bellinzona-valli-bici-velocita.imageAlt': 'Radfahrer, die entlang der Ufer des Luganersees fahren, mit einer Berglandschaft im Hintergrund.',
+    'blog.article.varese-riapre-via-mulini-grassi.title': 'Varese: Via Mulini Grassi wieder geöffnet',
+    'blog.article.varese-riapre-via-mulini-grassi.excerpt': 'Die Straße, die Sant\'Ambrogio mit dem Olonatal verbindet, ist nach den Sicherungsarbeiten wieder befahrbar.',
+    'blog.article.varese-riapre-via-mulini-grassi.imageAlt': 'Via Mulini Grassi in Varese nach Sicherheitsarbeiten wiedereröffnet',
 };
 
 export default blogMetaDe;

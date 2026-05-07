@@ -6612,6 +6612,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-valli-bici-velocita.title': 'L\'Otr Bellinzona e Valli punta sulle due ruote',
     'blog.article.bellinzona-valli-bici-velocita.excerpt': 'Presentata la strategia \'Tutti in sella\' per rafforzare il turismo nella regione. Scopri come questo progetto impatterà i frontalieri.',
     'blog.article.bellinzona-valli-bici-velocita.imageAlt': 'Ciclisti che pedalano lungo le rive del Lago di Lugano, con il paesaggio montuoso sullo sfondo.',
+    'blog.article.varese-riapre-via-mulini-grassi.title': 'Varese, riapre via Mulini Grassi: terminati i lavori di messa in sicurezza',
+    'blog.article.varese-riapre-via-mulini-grassi.excerpt': 'La strada che collega Sant\'Ambrogio con la Valle Olona è tornata percorribile dopo i lavori di consolidamento strutturale.',
+    'blog.article.varese-riapre-via-mulini-grassi.imageAlt': 'Via Mulini Grassi riaperta a Varese dopo lavori di messa in sicurezza',
 };
 
 export default blogMetaIt;

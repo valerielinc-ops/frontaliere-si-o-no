@@ -6611,6 +6611,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-valli-bici-velocita.title': 'Bellinzona\'s Otr Puts Focus on Two Wheels',
     'blog.article.bellinzona-valli-bici-velocita.excerpt': 'The \'Tutti in sella\' strategy has been presented to strengthen tourism in the region. Find out how this project will impact cross-border workers.',
     'blog.article.bellinzona-valli-bici-velocita.imageAlt': 'Cyclists pedaling along the shores of Lake Lugano, with a mountainous landscape in the background.',
+    'blog.article.varese-riapre-via-mulini-grassi.title': 'Varese, Mulini Grassi road reopens after safety works',
+    'blog.article.varese-riapre-via-mulini-grassi.excerpt': 'The road connecting Sant\'Ambrogio with Valle Olona is now passable again after structural reinforcement works.',
+    'blog.article.varese-riapre-via-mulini-grassi.imageAlt': 'Via Mulini Grassi reopened in Varese after safety works',
 };
 
 export default blogMetaEn;

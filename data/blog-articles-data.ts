@@ -21206,4 +21206,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-riapre-via-mulini-grassi',
+ category: 'novita',
+ date: '2026-05-07T02:55:04.683Z',
+ image: '/images/blog/varese-riapre-via-mulini-grassi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

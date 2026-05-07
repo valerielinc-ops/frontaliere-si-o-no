@@ -3446,6 +3446,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-due-ticinesi-guardie-svizzere-2026': { name: 'Novità', path: '/articoli-frontaliere/due-ticinesi-guardie-svizzere-2026', parent: 'blog' },
     'blog-hantavirus-zurigo-ricovero-crocerista': { name: 'Sanità', path: '/articoli-frontaliere/hantavirus-zurigo-ricovero-crocerista', parent: 'blog' },
     'blog-bellinzona-valli-bici-velocita': { name: 'Novità', path: '/articoli-frontaliere/bellinzona-valli-bici-velocita', parent: 'blog' },
+    'blog-varese-riapre-via-mulini-grassi': { name: 'Varese', path: '/articoli-frontaliere/varese-riapre-via-mulini-grassi', parent: 'blog' },
  };
 
  const info = sectionNames[section];
