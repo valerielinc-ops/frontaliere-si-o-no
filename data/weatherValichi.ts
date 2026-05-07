@@ -32,7 +32,7 @@ export const WEATHER_VALICHI: readonly WeatherValico[] = Object.freeze([
     name: 'Stabio',
     nameLocalised: { it: 'Stabio', en: 'Stabio', de: 'Stabio', fr: 'Stabio' },
     lat: 45.8482, lng: 8.9342,
-    slug: 'stabio',
+    slug: 'rodero-stabio',
     alertIds: ['nebbia-mendrisio', 'gelo-confine', 'ghiaccio-strade'],
   },
   {
@@ -40,7 +40,7 @@ export const WEATHER_VALICHI: readonly WeatherValico[] = Object.freeze([
     name: 'Gandria',
     nameLocalised: { it: 'Gandria', en: 'Gandria', de: 'Gandria', fr: 'Gandria' },
     lat: 46.0167, lng: 9.0167,
-    slug: 'gandria',
+    slug: 'oria-gandria',
     alertIds: ['nebbia-mendrisio', 'gelo-confine'],
   },
   {
