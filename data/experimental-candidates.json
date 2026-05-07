@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-07T10:00:04.271Z",
+  "generatedAt": "2026-05-07T11:35:51.616Z",
   "sources": {
     "redditTicino": {
       "ok": true,
-      "candidates": 19
+      "candidates": 4
     },
     "redditItaly": {
       "ok": true,
@@ -11,7 +11,7 @@
     },
     "redditLugano": {
       "ok": true,
-      "candidates": 12
+      "candidates": 1
     },
     "redditSwitzerland": {
       "ok": true,
@@ -19,32 +19,10 @@
     },
     "googleNewsRss": {
       "ok": true,
-      "candidates": 234
+      "candidates": 233
     }
   },
   "candidates": [
-    {
-      "id": "ad746e23",
-      "keyword": "SBB controllers getting bonuses for fines?",
-      "normalizedKeyword": "sbb controllers getting bonuses for fines?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditSwitzerland"
-      ],
-      "demandSignals": {
-        "redditScore": 28,
-        "redditComments": 0,
-        "redditCombined": 28,
-        "redditSubreddit": "Switzerland",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 28 (engagement unavailable)",
-      "demandScore": 0.28,
-      "noveltyScore": 1,
-      "totalScore": 0.568
-    },
     {
       "id": "ceaaead6",
       "keyword": "Nottambuli di r/Italy, come fate a convivere con gli orari imposti dalla società odierna?",
@@ -108,206 +86,8 @@
       },
       "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 5 (engagement unavailable)",
       "demandScore": 0.05,
-      "noveltyScore": 1,
-      "totalScore": 0.43
-    },
-    {
-      "id": "d7d6df0a",
-      "keyword": "Looking for a job as a cleaning lady, baby sitter or pet care. Any suggestions where to apply? Cerco lavoro come addetta alle pulizie o accudimento animali. Qualche suggerimento su dove candidarsi?",
-      "normalizedKeyword": "looking for a job as a cleaning lady, baby sitter or pet care. any suggestions where to apply? cerco lavoro come addetta alle pulizie o accudimento animali. qualche suggerimento su dove candidarsi?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 7,
-        "redditComments": 0,
-        "redditCombined": 7,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 7 (engagement unavailable)",
-      "demandScore": 0.07,
-      "noveltyScore": 0.939,
-      "totalScore": 0.418
-    },
-    {
-      "id": "98a89e24",
-      "keyword": "ma voi dove cavolo buttate carta e vetro a Bellinzona?",
-      "normalizedKeyword": "ma voi dove cavolo buttate carta e vetro a bellinzona?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.917,
-      "totalScore": 0.415
-    },
-    {
-      "id": "0e2ac6b9",
-      "keyword": "Brazilian Jiu Jitsu zona Bellinzona?",
-      "normalizedKeyword": "brazilian jiu jitsu zona bellinzona?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.889,
-      "totalScore": 0.404
-    },
-    {
-      "id": "57a67d00",
-      "keyword": "SportEventsTicino ha chiuso i battenti, altre realtà ticinesi nel trail running?",
-      "normalizedKeyword": "sporteventsticino ha chiuso i battenti, altre realta ticinesi nel trail running?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.875,
-      "totalScore": 0.398
-    },
-    {
-      "id": "6957722c",
-      "keyword": "Anyone coming from Lugano tomorrow? I left a medication in my hotel and they can't send it",
-      "normalizedKeyword": "anyone coming from lugano tomorrow? i left a medication in my hotel and they can't send it",
-      "angle": null,
-      "locale": "en",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.864,
-      "totalScore": 0.394
-    },
-    {
-      "id": "bade5bab",
-      "keyword": "Avete sentito cosa è successo a Bellinzona?",
-      "normalizedKeyword": "avete sentito cosa e successo a bellinzona?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.857,
-      "totalScore": 0.391
-    },
-    {
-      "id": "f619e20c",
-      "keyword": "Iscrizione automatica al registro dei cattolici, é legale?",
-      "normalizedKeyword": "iscrizione automatica al registro dei cattolici, e legale?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.857,
-      "totalScore": 0.391
-    },
-    {
-      "id": "fce5d437",
-      "keyword": "Winterswim place in/near Locarno and coffee beans searched ?",
-      "normalizedKeyword": "winterswim place in/near locarno and coffee beans searched ?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.857,
-      "totalScore": 0.391
-    },
-    {
-      "id": "b169b37c",
-      "keyword": "Posti per fare aperitivo a Lugano?",
-      "normalizedKeyword": "posti per fare aperitivo a lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 13,
-        "redditComments": 0,
-        "redditCombined": 13,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 13 (engagement unavailable)",
-      "demandScore": 0.13,
-      "noveltyScore": 0.778,
-      "totalScore": 0.389
+      "noveltyScore": 0.941,
+      "totalScore": 0.406
     },
     {
       "id": "259d9fd7",
@@ -332,92 +112,24 @@
       "totalScore": 0.385
     },
     {
-      "id": "24fc7e80",
-      "keyword": "Skijoring outside of Lugano?",
-      "normalizedKeyword": "skijoring outside of lugano?",
+      "id": "cba430b4",
+      "keyword": "Modifica LAMAL - finanziamento uniforme delle prestazioni - Democrazia Diretta - Play RSI - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "modifica lamal - finanziamento uniforme delle prestazioni - democrazia diretta - play rsi - rsi radiotelevisione svizzera",
       "angle": null,
       "locale": "it",
       "sources": [
-        "redditLugano"
+        "googleNewsRss"
       ],
       "demandSignals": {
-        "redditScore": 5,
-        "redditComments": 0,
-        "redditCombined": 5,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObFM3U1hNTXZ4eXY3aWRmX1FUZWotaVVHNTNFczRFaDBXbUZlbm5XSGZENmpObUhtbnBISFJEdldDSE52OWthckVSVVpWX1hHNEdqandRTjh2dDFVM3ZfcjNZSlpQUTVCNlR5ZjBxdVhyTmpIYjN2aDlQYlNEU1hsTHgtWEZ2WF9oMlR5QjJOQVlGN05JeWY0YkpyM2VoTWNHbzZ3TnM5LXpodHBobUlnUEdLUzM1QUFRYklLa2NiMFhtS21xSmptcWU4ZGYxQQ?oc=5",
+        "googleNewsRssPubDate": "Mon, 04 Nov 2024 08:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
       },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 5 (engagement unavailable)",
-      "demandScore": 0.05,
-      "noveltyScore": 0.875,
-      "totalScore": 0.38
-    },
-    {
-      "id": "1b7662bc",
-      "keyword": "[Help] Looking for a place in Lugano for a work call, any suggestions?",
-      "normalizedKeyword": "[help] looking for a place in lugano for a work call, any suggestions?",
-      "angle": null,
-      "locale": "en",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 6,
-        "redditComments": 0,
-        "redditCombined": 6,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 6 (engagement unavailable)",
-      "demandScore": 0.06,
-      "noveltyScore": 0.857,
-      "totalScore": 0.379
-    },
-    {
-      "id": "7019219f",
-      "keyword": "Test per malattie veneree in Ticino. Devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
-      "normalizedKeyword": "test per malattie veneree in ticino. devo chiedere alla ragazza se ha fatto test prima di fare sesso orale?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.818,
+      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.938,
       "totalScore": 0.375
-    },
-    {
-      "id": "8baa996d",
-      "keyword": "Do you know a cheap car rent for the day in Lugano?",
-      "normalizedKeyword": "do you know a cheap car rent for the day in lugano?",
-      "angle": null,
-      "locale": "en",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 4,
-        "redditComments": 0,
-        "redditCombined": 4,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 4 (engagement unavailable)",
-      "demandScore": 0.04,
-      "noveltyScore": 0.867,
-      "totalScore": 0.371
     },
     {
       "id": "564ef9bd",
@@ -462,21 +174,21 @@
       "totalScore": 0.365
     },
     {
-      "id": "339e35f4",
-      "keyword": "Global Minimum Tax: approvato il modello della dichiarazione annuale “unificata” (imposta minima integrativa, suppletiva e nazionale) - Finanza &amp; Fisco",
-      "normalizedKeyword": "global minimum tax: approvato il modello della dichiarazione annuale “unificata” (imposta minima integrativa, suppletiva e nazionale) - finanza &amp; fisco",
+      "id": "76a1572f",
+      "keyword": "Utili e fatturato LPP S.A. – GPW:LPP - TradingView",
+      "normalizedKeyword": "utili e fatturato lpp s.a. – gpw:lpp - tradingview",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPajlUWGVaOTZHVU5fWUQ1QklTSzZIVi1wb1hSNkNFQXZpWmJHQ25iWVhlT3VTZlV5Y2RKdHREQ0ZZNjR6VmtKTDdDd2FsSE5nS3oybW11NUNwVDBxeUtqSXJtS2Z3eVdiU3RxWGgwQmo2aE5KM1BoZ1Y2cklKZVZlVjUzUF9pdGoxME5sOVViY09kWVF4SW1aVTFweTVBMjlTLXNXODJLLVNQaXFzS2JQcmdhdHBBQklQb0xra211ZGtMWktzRFdKa2d1elVoZDlKTHNLY1h2Z1lpdDNBdmZCQnozQ1BQemltV3Y1ZWJRUQ?oc=5",
-        "googleNewsRssPubDate": "Fri, 06 Feb 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Finanza &amp; Fisco"
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5lYjloTDlCdkFoak1raUpucEVfanc3aVZBenRBZDAzN2lLTDlKdmloTF9KMmFGSjg1UlNRUmQ5WklQVEEza1M5dzFHemJGWWN3U3RzWFdpN25xN0JTRjdULWlPUlJhNzZ0LUFtNlhvaDc?oc=5",
+        "googleNewsRssPubDate": "Sat, 10 Sep 2022 22:48:56 GMT",
+        "googleNewsRssSource": "TradingView"
       },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Finanza &amp; Fisco",
+      "rationale": "Google News RSS seed \"LPP\" — TradingView",
       "demandScore": 0,
       "noveltyScore": 0.909,
       "totalScore": 0.364
@@ -522,174 +234,6 @@
       "totalScore": 0.362
     },
     {
-      "id": "607afb7d",
-      "keyword": "Massimo Martino, LPP Italy: “Il nostro business diversificato ci premia” - retail&amp;food",
-      "normalizedKeyword": "massimo martino, lpp italy: “il nostro business diversificato ci premia” - retail&amp;food",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVUQ1elZXU0FDSzdKRTJTTFRxVjQ3TDdEOVF3azV5b1dlczgwbWhCNmVReFJ3VDdYTlVZb2YyZXFKbjBKcUhKbTd4Xy1nYl9pREpUMWh6SWpMQ214UEFra1BuMkt1YVBtSk1laXlyUlBqRWdhUHFxVGRhd19sNnd2VWNWM0pQSS1GLUoyOXpDQ0ZhckF3YWctdWtVVU50MjRlZDFEQTh3Um1PQQ?oc=5",
-        "googleNewsRssPubDate": "Fri, 07 Jun 2024 07:00:00 GMT",
-        "googleNewsRssSource": "retail&amp;food"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — retail&amp;food",
-      "demandScore": 0,
-      "noveltyScore": 0.905,
-      "totalScore": 0.362
-    },
-    {
-      "id": "27966ccf",
-      "keyword": "Global minimum tax: nuovo accordo OCSE - DB - Non solo Diritto Bancario",
-      "normalizedKeyword": "global minimum tax: nuovo accordo ocse - db - non solo diritto bancario",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "nuovo accordo fiscale",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5RNEtHZzJ4SjJ0djlHYmd5ZEpvMGFmOWphdmFTYkdKOUVqdkc2SmNyaWJMZ2R6RXJJdi1HTlBKQllGX3hPTjFjVldKYm5hWVEtYjFsQ1VSV055WDFQZ0ZUX1hQVnBCczZJUkxDYkk1VHRSNGZxVTlrSmwtY1c1dw?oc=5",
-        "googleNewsRssPubDate": "Tue, 13 Jan 2026 08:00:00 GMT",
-        "googleNewsRssSource": "DB - Non solo Diritto Bancario"
-      },
-      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — DB - Non solo Diritto Bancario",
-      "demandScore": 0,
-      "noveltyScore": 0.9,
-      "totalScore": 0.36
-    },
-    {
-      "id": "0b72c178",
-      "keyword": "Any Gym recommendations in Lugano?",
-      "normalizedKeyword": "any gym recommendations in lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.778,
-      "totalScore": 0.359
-    },
-    {
-      "id": "b07e183e",
-      "keyword": "Bagni termali Ticino-Grigioni?",
-      "normalizedKeyword": "bagni termali ticino-grigioni?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.778,
-      "totalScore": 0.359
-    },
-    {
-      "id": "3b7090a7",
-      "keyword": "film in inglese a bellinzona?",
-      "normalizedKeyword": "film in inglese a bellinzona?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.778,
-      "totalScore": 0.359
-    },
-    {
-      "id": "817c7629",
-      "keyword": "Tornei di calcio balilla a Lugano?",
-      "normalizedKeyword": "tornei di calcio balilla a lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.778,
-      "totalScore": 0.359
-    },
-    {
-      "id": "f30037a4",
-      "keyword": "Tajani: “Stiamo lavorando alla difesa europea, vogliamo essere secondo pilastro della Nato” - Agenzia Vista",
-      "normalizedKeyword": "tajani: “stiamo lavorando alla difesa europea, vogliamo essere secondo pilastro della nato” - agenzia vista",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOMmVGR0R3VnZjSlV5ZWVMRXNnVFdVb2RLbnl6eEN3YXU2QkZlQTFtdm5XZWo0MDRaTVduUURMalRVQnVUVUhBYnNEQm1PV3lNQmhFek52UmpuRDB2eDh5R2ZGWnJHTE9MVEtVcTRTVUZpY2J5WVJKUW5iRkNQTUhENmhmdG9SZThjMm1xWTExakVUZkc0d2RKdDcyN3NxR3ozLVctZWN2ZjY1MHVMWFE1c2gxNkdRTjMzWmZqMGVIVmFCazhuaEc0Q2VXcmRQSWJz?oc=5",
-        "googleNewsRssPubDate": "Sat, 14 Feb 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Agenzia Vista"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Agenzia Vista",
-      "demandScore": 0,
-      "noveltyScore": 0.895,
-      "totalScore": 0.358
-    },
-    {
-      "id": "75514124",
-      "keyword": "Ddl bilancio: Giorgetti, tema previdenziale secondo pilastro ineludibile (RCO) - Il Sole 24 ORE",
-      "normalizedKeyword": "ddl bilancio: giorgetti, tema previdenziale secondo pilastro ineludibile (rco) - il sole 24 ore",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5GbHRBMnc0RVV4d0h2eTRtbTdXTmlkUkw2Vl9DeTFjNlM5OUliWjdzVGNMNnFEUFotY2VfVWFUUi1ieXpUQzRsMEhJQ2pkcy10US1GdTB5elB0WkJEdlBKaDQtQlc0aXB3Y013V3ZGekM5REd0?oc=5",
-        "googleNewsRssPubDate": "Mon, 22 Dec 2025 08:00:00 GMT",
-        "googleNewsRssSource": "Il Sole 24 ORE"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Il Sole 24 ORE",
-      "demandScore": 0,
-      "noveltyScore": 0.889,
-      "totalScore": 0.356
-    },
-    {
       "id": "4b318325",
       "keyword": "Emigrazione e cassa pensione: come risparmiare sulle imposte - SWI swissinfo.ch",
       "normalizedKeyword": "emigrazione e cassa pensione: come risparmiare sulle imposte - swi swissinfo.ch",
@@ -707,28 +251,6 @@
       "rationale": "Google News RSS seed \"secondo pilastro\" — SWI swissinfo.ch",
       "demandScore": 0,
       "noveltyScore": 0.889,
-      "totalScore": 0.356
-    },
-    {
-      "id": "34b3d542",
-      "keyword": "Reti metalliche alla stazione di Lugano? A cosa servono ?",
-      "normalizedKeyword": "reti metalliche alla stazione di lugano? a cosa servono ?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.769,
       "totalScore": 0.356
     },
     {
@@ -752,21 +274,21 @@
       "totalScore": 0.353
     },
     {
-      "id": "243662c5",
-      "keyword": "OIC 25: disposizioni modello Secondo Pilastro Ocse. Approvati gli emendamenti - Fisco e Tasse",
-      "normalizedKeyword": "oic 25: disposizioni modello secondo pilastro ocse. approvati gli emendamenti - fisco e tasse",
+      "id": "d70f3f39",
+      "keyword": "Pensioni, con questo importo sei svantaggiato. Paghi più tasse - Money.it",
+      "normalizedKeyword": "pensioni, con questo importo sei svantaggiato. paghi piu tasse - money.it",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNUTdnakw5Y29uUVZQTHpzbHRaMlZ2dTluU1BkTEllS2RNWnAwZjR3eXVVWEQ4UDFHcElHZTFVYzA5aWYybTNka25zNEFiLXFqUEcxcnJrQXNxV2QtRWdxSVBTOE9YOERyR3BwbmlRejJmRGphQnVKMjctQ3lSMTlNU3p4RElEVFJ6SGl2dENqR3FYQUx2VnVVa2RNYnlBOE9LZ1EzN05LZlZZeklmeEdmV21nOE1fM3ZfUlNnXy1LMi10QzFmODV5endn?oc=5",
-        "googleNewsRssPubDate": "Mon, 25 Mar 2024 06:01:34 GMT",
-        "googleNewsRssSource": "Fisco e Tasse"
+        "googleNewsRssSeed": "IRPEF frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOSVEtcEx0SUNFVFQ0NjVVWXZfR3MtU2UyQ3BUdmx6eGMyRVhkZmNNNzREa2NoNzBrV1JzdW45R29uTHNGVmxXekVrOGZSbzBPTkpRd3FfdGpSUXNQSE1HWlNMVlU5dHBXX1Z6WFlFcWo3YXNTQ08zODdJZEY2SUg5dVl1ZTcxYkE2?oc=5",
+        "googleNewsRssPubDate": "Fri, 01 May 2026 07:10:00 GMT",
+        "googleNewsRssSource": "Money.it"
       },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Fisco e Tasse",
+      "rationale": "Google News RSS seed \"IRPEF frontalieri\" — Money.it",
       "demandScore": 0,
       "noveltyScore": 0.882,
       "totalScore": 0.353
@@ -790,6 +312,26 @@
       "demandScore": 0,
       "noveltyScore": 0.88,
       "totalScore": 0.352
+    },
+    {
+      "id": "18b4b7b9",
+      "keyword": "Agea eroga oltre 69 mln tra primo e secondo pilastro Pac - Askanews",
+      "normalizedKeyword": "agea eroga oltre 69 mln tra primo e secondo pilastro pac - askanews",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMikgFBVV95cUxONFpGZW05Qkg1WUNfaFZKaGVqa0haTlhaVDB1Y2lhZUwxeGFHazlza2Z1YXdPYXVUU2tLTndxOE4xQVg4ZURFNE9hWEJud1UxY1d2bDBSakx1aEtpVVZZbk1WWUpwZE42XzdCcjlrSU5XT1V5Y01TZUpJNVVqTXktR1o0OGRxTmV1UldYQVVmLTdRdw?oc=5",
+        "googleNewsRssPubDate": "Fri, 06 Jun 2025 07:00:00 GMT",
+        "googleNewsRssSource": "Askanews"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — Askanews",
+      "demandScore": 0,
+      "noveltyScore": 0.875,
+      "totalScore": 0.35
     },
     {
       "id": "3db516c9",
@@ -892,45 +434,25 @@
       "totalScore": 0.35
     },
     {
-      "id": "a0e40e8e",
-      "keyword": "Ritenuta del 5% sulle prestazioni LPP svizzere: irrilevante la presenza dell’intermediario residente - Filodiritto",
-      "normalizedKeyword": "ritenuta del 5% sulle prestazioni lpp svizzere: irrilevante la presenza dell’intermediario residente - filodiritto",
+      "id": "ad746e23",
+      "keyword": "SBB controllers getting bonuses for fines?",
+      "normalizedKeyword": "sbb controllers getting bonuses for fines?",
       "angle": null,
       "locale": "it",
       "sources": [
-        "googleNewsRss"
+        "redditSwitzerland"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNRlM1aEFjbFBqbjRwWWUwV3dEUk5fTWtjejE4d1J1S1RSY0JiMnlYdVA1VnZTOUM1bmhGbExCQTlyd1B6b2ZrZ21PWHdUc0xkanhrNTZ4Z2hFLTR4UE5iT0FsSWJ1UlF0MlJXQzE2V3ZMZVFrSjMzZ3FtMi1HbWRFWXJaZExzUkVYYXlSbzk5YUR4UXVSV0E1bzZWS3JBWnBlTFNITzVOb0JBX2VfRWpIdWRCbWR0cFd0dmFma2tMRk9iOG8?oc=5",
-        "googleNewsRssPubDate": "Fri, 20 Jan 2023 08:00:00 GMT",
-        "googleNewsRssSource": "Filodiritto"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — Filodiritto",
-      "demandScore": 0,
-      "noveltyScore": 0.875,
-      "totalScore": 0.35
-    },
-    {
-      "id": "b68bf8fc",
-      "keyword": "What's it like living in Lugano?",
-      "normalizedKeyword": "what's it like living in lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 5,
+        "redditScore": 28,
         "redditComments": 0,
-        "redditCombined": 5,
-        "redditSubreddit": "Lugano",
+        "redditCombined": 28,
+        "redditSubreddit": "Switzerland",
         "redditViaRss": true,
         "redditUrl": null
       },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 5 (engagement unavailable)",
-      "demandScore": 0.05,
-      "noveltyScore": 0.8,
+      "rationale": "Reddit r/Switzerland RSS feed — recency-based baseline 28 (engagement unavailable)",
+      "demandScore": 0.28,
+      "noveltyScore": 0.455,
       "totalScore": 0.35
     },
     {
@@ -996,26 +518,6 @@
       "totalScore": 0.347
     },
     {
-      "id": "e67ff368",
-      "keyword": "Secondo pilastro, rendita o capitale? I più pensano a entrambi - SWI swissinfo.ch",
-      "normalizedKeyword": "secondo pilastro, rendita o capitale? i piu pensano a entrambi - swi swissinfo.ch",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQLTBDeTJKcGVsa2tpbzBDTnZNMmdMY01fTnJ6cWpKeW9KM1ZCVHIySml6aEZwSjZRbnBUaEowbUQtS1gycXI3UkVhY2c3VWpKWDhRTXZ4cExRWGV2dU5Cem1Eek9GV2VfV3RQUndLMlFuU3d0RDNpSExOVUZvWE5pU2NMUFN3RC0xTGhwbXBuTE1xYW1Dc2RtNTE2UXdxeUlYZ2hzbUgxX29JUUY5Vnc?oc=5",
-        "googleNewsRssPubDate": "Fri, 02 May 2025 07:00:00 GMT",
-        "googleNewsRssSource": "SWI swissinfo.ch"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — SWI swissinfo.ch",
-      "demandScore": 0,
-      "noveltyScore": 0.867,
-      "totalScore": 0.347
-    },
-    {
       "id": "460bc742",
       "keyword": "Tasse sulle mance? Le opinioni divergono - SWI swissinfo.ch",
       "normalizedKeyword": "tasse sulle mance? le opinioni divergono - swi swissinfo.ch",
@@ -1036,109 +538,21 @@
       "totalScore": 0.347
     },
     {
-      "id": "2fe9e41e",
-      "keyword": "Vale la pena trasferirsi a Lugano?",
-      "normalizedKeyword": "vale la pena trasferirsi a lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 6,
-        "redditComments": 0,
-        "redditCombined": 6,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 6 (engagement unavailable)",
-      "demandScore": 0.06,
-      "noveltyScore": 0.778,
-      "totalScore": 0.347
-    },
-    {
-      "id": "6e77f463",
-      "keyword": "Art or cuisine courses in Lugano?",
-      "normalizedKeyword": "art or cuisine courses in lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 4,
-        "redditComments": 0,
-        "redditCombined": 4,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 4 (engagement unavailable)",
-      "demandScore": 0.04,
-      "noveltyScore": 0.8,
-      "totalScore": 0.344
-    },
-    {
-      "id": "2bb9ff58",
-      "keyword": "Is there a Chinese community in Lugano?",
-      "normalizedKeyword": "is there a chinese community in lugano?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 4,
-        "redditComments": 0,
-        "redditCombined": 4,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 4 (engagement unavailable)",
-      "demandScore": 0.04,
-      "noveltyScore": 0.8,
-      "totalScore": 0.344
-    },
-    {
-      "id": "7a25fdf6",
-      "keyword": "Lugano bookstores with books in English?",
-      "normalizedKeyword": "lugano bookstores with books in english?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditLugano"
-      ],
-      "demandSignals": {
-        "redditScore": 4,
-        "redditComments": 0,
-        "redditCombined": 4,
-        "redditSubreddit": "Lugano",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Lugano RSS feed — recency-based baseline 4 (engagement unavailable)",
-      "demandScore": 0.04,
-      "noveltyScore": 0.8,
-      "totalScore": 0.344
-    },
-    {
-      "id": "41b1f780",
-      "keyword": "Assicurazione malattie: Progetti pilota per il contenimento dell’aumento dei costi - Bundesamt für Gesundheit BAG",
-      "normalizedKeyword": "assicurazione malattie: progetti pilota per il contenimento dell’aumento dei costi - bundesamt fur gesundheit bag",
+      "id": "ba8fb27a",
+      "keyword": "Cooperazione in materia fiscale. Direttiva Dac9 al traguardo - Fisco Oggi",
+      "normalizedKeyword": "cooperazione in materia fiscale. direttiva dac9 al traguardo - fisco oggi",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdUNsTThOS3ExWWlDT1FESTZUVjh1bnUtRUFhVldOTE9aMzVkYllpTUZlMWFyYjdfR3Njbk5YSzlucTdQbU1JdzlqQ2FJR1pDbTkxN0VXcl9mYnhqeVNMWEJ6MzlIdy1TSWd1d3Fzd1ZwWXExNGtvRWJtTXVUczZqUUNUd1RRcHpoUC1uVmFIaUhhZ0ZsRVZmZzBjTExQLS1jTmJtYWVRRk9Fczlt?oc=5",
-        "googleNewsRssPubDate": "Mon, 23 Jun 2025 17:40:08 GMT",
-        "googleNewsRssSource": "Bundesamt für Gesundheit BAG"
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNNE5KZktYM0hDTjZfMjJJanp0UFhEUTZqenJadEwtZzZ2al9jRWk2bkJ1UFhFbWk4dms2R2VEdmpHRG8tY014V3EtS1JONGUtUF9sdmRfa1Nqal9JTndJOEdocm8zSE85c1RwbzFQSHpvdWNMYUptM3NQZXV6c25hNUVxZHFfdjFRU1IxWW9hNUo1eWJiTC1BUTUwUQ?oc=5",
+        "googleNewsRssPubDate": "Fri, 06 Jun 2025 07:00:00 GMT",
+        "googleNewsRssSource": "Fisco Oggi"
       },
-      "rationale": "Google News RSS seed \"LAMal\" — Bundesamt für Gesundheit BAG",
+      "rationale": "Google News RSS seed \"secondo pilastro\" — Fisco Oggi",
       "demandScore": 0,
       "noveltyScore": 0.857,
       "totalScore": 0.343
@@ -1159,26 +573,6 @@
         "googleNewsRssSource": "Economy Magazine"
       },
       "rationale": "Google News RSS seed \"secondo pilastro\" — Economy Magazine",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
-      "id": "59b1da32",
-      "keyword": "Frontalieri: assemblea generale il 26 novembre - San Marino Rtv",
-      "normalizedKeyword": "frontalieri: assemblea generale il 26 novembre - san marino rtv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNa3RhU1YzZ1lYeTJwZllIaGo0dGRJaF9HOXBTQ0MtZVFEUTJBTmNSZmczSnRQaGhpd0I3QzJaUVhFSHpCcGNWTmYyZTZzVldNbl9XQzZBa1l1Nmo1YVNQT3I5eTZqZnZRNDZ2bkcwQlZXTWNrRXJoa2pBRzRkQkZDVXljX2w1dm9qV1hvNXlpNkJMNURjQ2huODZR?oc=5",
-        "googleNewsRssPubDate": "Thu, 17 Oct 2013 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
-      },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
       "demandScore": 0,
       "noveltyScore": 0.857,
       "totalScore": 0.343
@@ -1244,6 +638,26 @@
       "totalScore": 0.343
     },
     {
+      "id": "41b1f780",
+      "keyword": "Assicurazione malattie: Progetti pilota per il contenimento dell’aumento dei costi - Bundesamt für Gesundheit BAG",
+      "normalizedKeyword": "assicurazione malattie: progetti pilota per il contenimento dell’aumento dei costi - bundesamt fur gesundheit bag",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdUNsTThOS3ExWWlDT1FESTZUVjh1bnUtRUFhVldOTE9aMzVkYllpTUZlMWFyYjdfR3Njbk5YSzlucTdQbU1JdzlqQ2FJR1pDbTkxN0VXcl9mYnhqeVNMWEJ6MzlIdy1TSWd1d3Fzd1ZwWXExNGtvRWJtTXVUczZqUUNUd1RRcHpoUC1uVmFIaUhhZ0ZsRVZmZzBjTExQLS1jTmJtYWVRRk9Fczlt?oc=5",
+        "googleNewsRssPubDate": "Mon, 23 Jun 2025 17:40:08 GMT",
+        "googleNewsRssSource": "Bundesamt für Gesundheit BAG"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — Bundesamt für Gesundheit BAG",
+      "demandScore": 0,
+      "noveltyScore": 0.85,
+      "totalScore": 0.34
+    },
+    {
       "id": "cf65994d",
       "keyword": "LPP: il proprietario del brand Reserved è ottimista e prepara l’espansione in Regno Unito, Italia e Grecia - FashionNetwork Italia",
       "normalizedKeyword": "lpp: il proprietario del brand reserved e ottimista e prepara l’espansione in regno unito, italia e grecia - fashionnetwork italia",
@@ -1282,28 +696,6 @@
       "demandScore": 0,
       "noveltyScore": 0.85,
       "totalScore": 0.34
-    },
-    {
-      "id": "4c3302c7",
-      "keyword": "Comprare un EV in Ticino, ha senso?",
-      "normalizedKeyword": "comprare un ev in ticino, ha senso?",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "redditTicino"
-      ],
-      "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
-      },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.727,
-      "totalScore": 0.339
     },
     {
       "id": "9e9c71ed",
@@ -1441,6 +833,26 @@
         "googleNewsRssSource": "RSI Radiotelevisione svizzera"
       },
       "rationale": "Google News RSS seed \"tasse svizzera\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.846,
+      "totalScore": 0.338
+    },
+    {
+      "id": "cab3c99f",
+      "keyword": "LPP S.A. Ripartizione dei ricavi – GPW:LPP - TradingView",
+      "normalizedKeyword": "lpp s.a. ripartizione dei ricavi – gpw:lpp - tradingview",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBNQlJLRlNjdUVaTmtDTF9CTHBEX2hrZFpDMXlGOTktQmxwMTl5ZUoyX2c0cFdGQ0J0al9PUUdHbm9oSjk5MlRWdkxORkg3T1FfekVGN2g2eElNMU1QLUJaV1VTRjB6ZUcxYU9nQk5rYw?oc=5",
+        "googleNewsRssPubDate": "Fri, 30 Jun 2023 00:06:41 GMT",
+        "googleNewsRssSource": "TradingView"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — TradingView",
       "demandScore": 0,
       "noveltyScore": 0.846,
       "totalScore": 0.338
@@ -1586,21 +998,21 @@
       "totalScore": 0.337
     },
     {
-      "id": "12816cbc",
-      "keyword": "Pensioni svizzere del secondo pilastro tassate al lordo delle imposte estere - Il Sole 24 ORE",
-      "normalizedKeyword": "pensioni svizzere del secondo pilastro tassate al lordo delle imposte estere - il sole 24 ore",
+      "id": "c5eb8c6f",
+      "keyword": "LPP: il marchio Mohito apre il suo primo punto vendita in Grecia - MarketScreener Italia",
+      "normalizedKeyword": "lpp: il marchio mohito apre il suo primo punto vendita in grecia - marketscreener italia",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQa3RUcDYwU0RvY3FJSTVRN1VYNjdPS0Z2QTRBbkp0RExLZDlxd19CUmtQTkh3OHhiVmR0czJkMUxmN0VXSzMwaTA4MFV5R3ZQQ3RyWGlpX0RzcG45NUdIcEJpdy1WZ0JRbWkxdG00MGEtdVlsRE5YVkxOWUhsVlp3V28zWnIzSWpRZHNvT25oTnd1WUVFMUtkRFVOVWg1U1h0UWh0MXRFRVRJZ1ZjMU4wVkt3?oc=5",
-        "googleNewsRssPubDate": "Fri, 21 Feb 2020 08:00:00 GMT",
-        "googleNewsRssSource": "Il Sole 24 ORE"
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPcEtHcks2SlhGSnk0RzRpdmU0cmEwOTZjWGpTSDdHMG16cEpFLUJnUTlyRVp2S2pSNk9Yc3dOVG96Wnk2THBTMjY0TzctWjNxeHpNeU9VVVNNWnpnSy16QlRKRDBjWl9BSG90SEo5QmxZclFxZERHTTA3TUI2cmFaT0xoX2NXM1VDVU9KVDNRV2VfNWFOcVE2SnpMUVJZOUpFWnZ3RW9aSWtnQTd4WGRGbmFNalZKZFFOc0E?oc=5",
+        "googleNewsRssPubDate": "Wed, 08 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "MarketScreener Italia"
       },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Il Sole 24 ORE",
+      "rationale": "Google News RSS seed \"LPP\" — MarketScreener Italia",
       "demandScore": 0,
       "noveltyScore": 0.842,
       "totalScore": 0.337
@@ -1741,26 +1153,6 @@
         "googleNewsRssSource": "Fiscomania"
       },
       "rationale": "Google News RSS seed \"tasse svizzera\" — Fiscomania",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
-      "id": "d5d58648",
-      "keyword": "Frontalieri svizzeri, come funziona la nuova flat tax al 25% - Il Sole 24 ORE",
-      "normalizedKeyword": "frontalieri svizzeri, come funziona la nuova flat tax al 25% - il sole 24 ore",
-      "angle": null,
-      "locale": "fr",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "IRPEF frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPem8yQXV3emxXZXRLeV9DZksxcmFtYndnOTNxSXViQ2F1ZEpqSnVLdkJwcVlFMzlkRG9mMkpsSDYxTkVILVB4dV83QThrLVJiLWgxblpJTEszZ0gxTmNISjYwSmZkNFZ2RG9oTWU4SnNDZl80dDMxOTJFQm9IaXJLWWtJSEtxS3BsVGpNUVdRM2FDa3NiSTV6U2VMZWpocDdTaE80?oc=5",
-        "googleNewsRssPubDate": "Thu, 15 Aug 2024 07:00:00 GMT",
-        "googleNewsRssSource": "Il Sole 24 ORE"
-      },
-      "rationale": "Google News RSS seed \"IRPEF frontalieri\" — Il Sole 24 ORE",
       "demandScore": 0,
       "noveltyScore": 0.833,
       "totalScore": 0.333
@@ -1926,26 +1318,6 @@
       "totalScore": 0.333
     },
     {
-      "id": "5737b357",
-      "keyword": "Riforma LPP, Baume-Schneider in campo - RSI Radiotelevisione svizzera",
-      "normalizedKeyword": "riforma lpp, baume-schneider in campo - rsi radiotelevisione svizzera",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOdTg3aGNQZTlUWXFyTm1BdG1EM1RXbW1JSlpPODNURXlpTm15WWlrSlVWcVJQZnRaS0YtWHB1ZFduOURaV01NTFRJVExKWXh6VzkwRFRDYVIxY2pTcHp1X2dOZE8wWlZ3U3RfS2hvUWcwdzlSNzVaTG1TZnJDLUtDOUt2U3NlbVVUSE9j?oc=5",
-        "googleNewsRssPubDate": "Mon, 24 Jun 2024 08:24:29 GMT",
-        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — RSI Radiotelevisione svizzera",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
       "id": "8d48a3ee",
       "keyword": "Scambio di dati salariali con l’Italia, arriva la legge d’applicazione - TVS tvsvizzera.it",
       "normalizedKeyword": "scambio di dati salariali con l’italia, arriva la legge d’applicazione - tvs tvsvizzera.it",
@@ -1975,12 +1347,12 @@
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssSeed": "frontalieri",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcW42b3lkQ25ISklzTG5nNFJxZ0RLS05jVHJCWnZkQk5GaDVJbm1jbVFHYmVtRVVnNWNncnBYeTVPeWROaGg1M1pNZVVacmRvRHAtNUxwMGZxaHozczQ3dlVUQzdvTkw4alBkSE5GeU5ZVUYtVkZzS1NVVVRiV0JDZ19faDFKQnVVWGhjZ2hXVmthU2FyTTU3ekNPUnA1NUhmT3ZFTVZ0Sng1aG9MWnJvX0hVQTViQ2pHRU96NHRqYkRvOTd0eWNQdEdUek1QajA?oc=5",
         "googleNewsRssPubDate": "Fri, 24 Apr 2026 05:22:02 GMT",
         "googleNewsRssSource": "ComoZero"
       },
-      "rationale": "Google News RSS seed \"busta paga svizzera\" — ComoZero",
+      "rationale": "Google News RSS seed \"frontalieri\" — ComoZero",
       "demandScore": 0,
       "noveltyScore": 0.826,
       "totalScore": 0.33
@@ -2084,6 +1456,588 @@
       "demandScore": 0,
       "noveltyScore": 0.824,
       "totalScore": 0.33
+    },
+    {
+      "id": "abad2a21",
+      "keyword": "La polacca Lpp quadruplica le vendite in Italia: 42 mln € nel 2024. In cantiere 30 aperture - pambianconews.com",
+      "normalizedKeyword": "la polacca lpp quadruplica le vendite in italia: 42 mln € nel 2024. in cantiere 30 aperture - pambianconews.com",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPZm1udmxNRVZXazQzTEF3STlGZHdYX05lam5vQk43UjhpZExaUldsTnlZMWp2ei13SGdGd1lYNElPOXh5UmFpanJlQzdJUnlveHU0M1BONVlXamIxN1VTOVN3cHBENVJGa2oxOWxZQnlRTExEVTJzV2VsQzFCb2JUYlRhSUdGWEpQSXo5RWxDdnBJTnVkbVVEdGpsR2VKVnpDeGV3eWZ0ZVJzVWxEQkp3Y1dzNU5fcVllQi1GaW8xb0wzRndwT285T0NyRW94QW9nNloxdjFrM3pYblZTc0E?oc=5",
+        "googleNewsRssPubDate": "Tue, 08 Apr 2025 07:00:00 GMT",
+        "googleNewsRssSource": "pambianconews.com"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — pambianconews.com",
+      "demandScore": 0,
+      "noveltyScore": 0.826,
+      "totalScore": 0.33
+    },
+    {
+      "id": "77eee872",
+      "keyword": "LAMal, si va verso la rilevazione unica dei dati - Ticinonline",
+      "normalizedKeyword": "lamal, si va verso la rilevazione unica dei dati - ticinonline",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOSjR5S3Q2V1FNUUtfV0tEWmQ5WGFQQy1nTS1mZWZyVVpJNWRZOHltMU1ZVWRtdWN6eE00b29KYy1XMzdXaWRfaFkyeHRsV25SU1ZhckNPVzkyUHZiZGRadTRxQWg3YzFPRkFtN0JnNDRvcjFqRVpkNDRaNUV5dWxFdlI3R2tzQ3JORnE1eDV6cHZXZFo2VURF?oc=5",
+        "googleNewsRssPubDate": "Wed, 18 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "Ticinonline"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "22e1e5f5",
+      "keyword": "PLR, Centro, UDC e Lega: “Ristorni all’Italia da sospendere” - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "plr, centro, udc e lega: “ristorni all’italia da sospendere” - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "ristorni frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOT2FCRFRyZ09QSTBwVDhyUUY4OGtuVTBKTTBpdFU2c0RWNUdkRXo2OWVMcUZqZnJFdDJPRnNOMkZxamZmcEF5QTBYVHpyYUNPSzNPR2FNNkR0VHFOaHN6Ri0teVQ5c3dXSUdDQmJCV2xxdklxakZQWVd6b05vcHAwZ1JqSGtGVjF2LU40Uk9MNklfSEdPUGJNZkR6S3hISmFvUHFvRnVCMEZoUDJScl9ZRTY1MmYwRUZfNzUwUlVVU0tpVF9hRlF5dHExTGdpUzVfYjliemZJdlFQSXM0RGp3?oc=5",
+        "googleNewsRssPubDate": "Wed, 18 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"ristorni frontalieri\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "6c4cb276",
+      "keyword": "Ristorni frontalieri, bufera dopo la mozione al Parlamento ticinese - TVS tvsvizzera.it",
+      "normalizedKeyword": "ristorni frontalieri, bufera dopo la mozione al parlamento ticinese - tvs tvsvizzera.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "ristorni frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPcmx1Um9ycGpfM3pwblROakxycVdnN2lYMG5RY3J0dEotS0g5LVlkNTNzUEt0NDdybm5ZMTEzVW5EWU9ha2VLNWNDRlRBNVZJN0E3S1FxcS1XQzh4WlhWZU93SFBCLW1XbnlUSkJ1MkUzRUJ5VERrSzRyM3E0SVFOamU1b1hvMWVKYTdULVRPZGFQNXR4VElVVmlGZWVZYm5MdUo4dVB3UWUyM0Y0RlJsdDRUdkkzMVNxTkFKaWd4RFRVSW1CRXBnZHlR?oc=5",
+        "googleNewsRssPubDate": "Sat, 21 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
+      },
+      "rationale": "Google News RSS seed \"ristorni frontalieri\" — TVS tvsvizzera.it",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "adfe93f9",
+      "keyword": "Sgravio fiscale frontalieri: già attivo il servizio Usl - San Marino Rtv",
+      "normalizedKeyword": "sgravio fiscale frontalieri: gia attivo il servizio usl - san marino rtv",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUk9yWGRqR0szemRKZF8wN3VpamF5aC1NY0hzblRNdnJua210TDlpYjFza0c3aEJtb0FsSXBhb1o3VWRwQWRWRHJLZjdiN3BtQ2FoTHdfY0g2SnlUa3VpRk1DNnJ2UjlHQ2hCYkVqcU1sb3JxbGxnWG5qWC1iQzI3cGNRYUJHTV95OGFKRTBXb3VLVVpfQkRvUldJbnIwa2Myb1EtMHJn?oc=5",
+        "googleNewsRssPubDate": "Mon, 21 Oct 2013 07:00:00 GMT",
+        "googleNewsRssSource": "San Marino Rtv"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "0b44bee5",
+      "keyword": "Esistono Tutor in autostrada in Ticino e svizzera?",
+      "normalizedKeyword": "esistono tutor in autostrada in ticino e svizzera?",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "redditTicino"
+      ],
+      "demandSignals": {
+        "redditScore": 8,
+        "redditComments": 0,
+        "redditCombined": 8,
+        "redditSubreddit": "Ticino",
+        "redditViaRss": true,
+        "redditUrl": null
+      },
+      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
+      "demandScore": 0.08,
+      "noveltyScore": 0.7,
+      "totalScore": 0.328
+    },
+    {
+      "id": "a565333e",
+      "keyword": "A Luino un confronto pubblico con Roberto Castelli su frontalieri e ristorni - VareseNews",
+      "normalizedKeyword": "a luino un confronto pubblico con roberto castelli su frontalieri e ristorni - varesenews",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "ristorni frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOV9SX2I1X2lablE5eWRjM1BOWGJqdEVrNWlMTGZMTVNWYXA0bEN0ZTBFU1BJaWhaTXllS3QtNHQ0Sl95Tkl1TmJGNkdXc08zdkVIN0xVem9xaUxqVm03VUdJLWFpenBqV1ZoN3BmMF90a3Jub1p0eVoyZ0ZKN0hhcHRubWtHLXFoZ1ZrSFFwRHg2NEFfV0t4ZnhOYVB4bVhtYVA3TmtJcHRpTkZKaFlkeUZtN1Frb2gwMFk0?oc=5",
+        "googleNewsRssPubDate": "Wed, 25 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "VareseNews"
+      },
+      "rationale": "Google News RSS seed \"ristorni frontalieri\" — VareseNews",
+      "demandScore": 0,
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "e7039aa6",
+      "keyword": "Frontalieri Svizzera con rientro settimanale: tassazione - Fiscomania",
+      "normalizedKeyword": "frontalieri svizzera con rientro settimanale: tassazione - fiscomania",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "permesso G",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMickFVX3lxTFBDSWJHUjNDSWdwYmQxVllJV3RsTXktREVhcFJucTRBQ3F2X1VIMFpoZUJHR3pxVmVjZWJVOS1HWTVUWlpuX1hpNWo3ejVrdF90bjltLWxkMk5LdGFsX0RUMDB4TGhsMkZCNkVNcXV0WHVQQQ?oc=5",
+        "googleNewsRssPubDate": "Sun, 23 Nov 2025 08:00:00 GMT",
+        "googleNewsRssSource": "Fiscomania"
+      },
+      "rationale": "Google News RSS seed \"permesso G\" — Fiscomania",
+      "demandScore": 0,
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "4ba36f14",
+      "keyword": "Frontalieri: gazebo in piazza a Rimini - San Marino Rtv",
+      "normalizedKeyword": "frontalieri: gazebo in piazza a rimini - san marino rtv",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPWTJPNmpIbnB1a05DZXg3Rko5Rm1KNkZOQnJCc3JmSzBfSjBxUU10NGl4WUp2SDI1WHctSXNHcEdQclVqYVVxVUZTd1BLWFNOV1I1REhxUVBxRFAtM3JqNnNDRFJ6Y0Y2c21hS3FSZjhSVDJEVXdoaXQwaDU1MkxkWUl4aU81SWVVZlZXQg?oc=5",
+        "googleNewsRssPubDate": "Sat, 25 Jan 2014 08:00:00 GMT",
+        "googleNewsRssSource": "San Marino Rtv"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
+      "demandScore": 0,
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "c66a4312",
+      "keyword": "Il Gruppo LPP si espande in Italia, dopo Sinsay in arrivo anche Reserved e Mohito - retail&amp;food",
+      "normalizedKeyword": "il gruppo lpp si espande in italia, dopo sinsay in arrivo anche reserved e mohito - retail&amp;food",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPeGFfeDlYdWUzV2FTMThQQl9FR2ZMVFVzTFA5REhWOEF1TFRxTl9kcmpQRjdpbzlQWmpGZDFIYTVPUjZxM0RXZlFQNnpON2VkdjB4V3lrV2lMRkFyc3ItNlcyX2lxVDI5ak1vOGc0LThmYUNDd0t1QjNBbEpNSEphSGpaT295ZEpwZDFZaVN5ejRtbGlldUo4NWp1UnRLeGNoNmVKZUF6Mk9hNzlNYzc4Y0pndndnU2ZsLTJHUFY4Mm1salZLQnRLUjFR?oc=5",
+        "googleNewsRssPubDate": "Thu, 20 Jul 2023 07:00:00 GMT",
+        "googleNewsRssSource": "retail&amp;food"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — retail&amp;food",
+      "demandScore": 0,
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "3d05b029",
+      "keyword": "LPP: la KNF polacca infligge una sanzione da 15 milioni di zloty alla società - MarketScreener Italia",
+      "normalizedKeyword": "lpp: la knf polacca infligge una sanzione da 15 milioni di zloty alla societa - marketscreener italia",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiywFBVV95cUxORHdqUnVPODN6SGV3TzhFXzN3Z3VCV3NJVTZUOG4xaUNpOGNwdUI5Ulk5MDFOVUNKODM3RFpuWUl1cnNyR1Z0Y25wOVpJelJFNzNrbnJ2bk45N1oxaXdxMzRjbUxlSnJDVUZWTTJxV0lWaXEtRFhEdHN0U3U2QjZ2enBWRTJiY2U5andnNTJ5REthanZkT3VLMGp2ZGN5MWo1V2s5MkxpMUppR0M5MERfd2ZtZ1hCM0U5RElnSmF6MF9fMVNnQjlnUW1lVQ?oc=5",
+        "googleNewsRssPubDate": "Tue, 21 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "MarketScreener Italia"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — MarketScreener Italia",
+      "demandScore": 0,
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "0d491a29",
+      "keyword": "Ristorni: 128 milioni in arrivo, 89 sicuri… e il resto si vedrà - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "ristorni: 128 milioni in arrivo, 89 sicuri… e il resto si vedra - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "ristorni frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNYW1GVjl1YTFZVHlKOXp6TzRhNC00QnltS3J2OEliWU5iWEFjOVlIMWxWcFgzSC0yc2xtU2Z6TVYyM2x1Rl9uZFZESURfU2ttTVBZeHBmbG12TGYtUXkyMjJ6STFBZkpDbmlOZVdZUk1jRkRlWlNBUW90ajgzazFsak93RGdIM2tzVC1QcjRyakZONnpaWXhKWUdHaXRnQ1JFR2dIRDFrREtDQ1V1QmFzOVV6VmQ4UEVyaVZOeGV4alEyWGp6NWY5djNDSi14ZmRwMmdDc0RR?oc=5",
+        "googleNewsRssPubDate": "Wed, 31 Dec 2025 08:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"ristorni frontalieri\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "3bb3a339",
+      "keyword": "TFR nei fondi pensione: ipotesi di versamento obbligatorio per i neo assunti dal 2026 - informazionefiscale.it",
+      "normalizedKeyword": "tfr nei fondi pensione: ipotesi di versamento obbligatorio per i neo assunti dal 2026 - informazionefiscale.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNMjM2SmV5MHlYNlZqRzU2czNEMHlRdjR5R0c1VmJXaVFIcm9zVUI4NzZqTDZ1VWxTUjdlSmE2V2hETVRKYm43VWVzTWRpWl84WVgwMnZCNWgxX1JqZWtxZDVsUXBOREVQY1hMNWtIQ0NvMHpMWVhQeXJkUzZEWlJySDF4eXAzY3Fmd2RMRHZSRVZoY3NMSTdJUUlXb3M?oc=5",
+        "googleNewsRssPubDate": "Wed, 17 Sep 2025 07:00:00 GMT",
+        "googleNewsRssSource": "informazionefiscale.it"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — informazionefiscale.it",
+      "demandScore": 0,
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "fd2c8299",
+      "keyword": "Zes e lavoratori frontalieri, Movimento Alternativo: «Basta contraddizioni» - malpensa24",
+      "normalizedKeyword": "zes e lavoratori frontalieri, movimento alternativo: «basta contraddizioni» - malpensa24",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMickFVX3lxTFBrNFpkYnhOLThCbHlsQmxoYW5YeFdEdzVEa2VtdmJBTHZJMmdHa1REZTY1VHQ0dV85M205ZC15SkZfcmtHZTR3bnV3cW1jbFRTQ2VLSE9hN2FOT0tTaVZOMlk0YmtLZmppaURxdzN0Y3lVQQ?oc=5",
+        "googleNewsRssPubDate": "Wed, 06 May 2026 03:04:20 GMT",
+        "googleNewsRssSource": "malpensa24"
+      },
+      "rationale": "Google News RSS seed \"frontalieri\" — malpensa24",
+      "demandScore": 0,
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "14d479e1",
+      "keyword": "Affitti a canone concordato, nuovo accordo per Cagliari - Comune di Cagliari",
+      "normalizedKeyword": "affitti a canone concordato, nuovo accordo per cagliari - comune di cagliari",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNVWRPelYxN1FPQ0hlTVhzLVJENW9YZ21lQmRxOGx5WEFWSXJvRGlXUEZENHVVOU9Tc2czNE9fd0Ztc09XLTVmcjVGcFV0eWM5Yll5Y3VuN0s4R3VycEN1YnNrN0NOc1o3dVVKWVZwYzVSclhadWhQSFdab25WVXBIOG5hR3V4cGRCMVFhaGxHd3FpRmMzdFNORUYyb1hibkYxNTlXSDNFNlFjTXhVVDZGR3hIa2VIZjJYQnQ2VDB3?oc=5",
+        "googleNewsRssPubDate": "Mon, 27 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "Comune di Cagliari"
+      },
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — Comune di Cagliari",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "333b3edc",
+      "keyword": "Fondo Pensione: quanto versare per lasciare prima il lavoro - PMI.it",
+      "normalizedKeyword": "fondo pensione: quanto versare per lasciare prima il lavoro - pmi.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPdDVlQmxHd0hoWGtVdGI0a2NBMmdLYmVaeXNKekNPcjF5cVJJeUtuRkdOR09LMWZDTTNhd05CbG54ejNZeVJlNHJjS1gyc0U2SXh3bmdnRG5UOHR6QjRyeGlnbGVlQzlES3UzMGxIOGd5S0stcUpIRDBNTUJVcVB2NHo3RFZEekNOMEhpRWJLbHNKNDdweWVHZmp1U2EtWlRmb3RkNW1uTEs?oc=5",
+        "googleNewsRssPubDate": "Wed, 30 Jul 2025 07:00:00 GMT",
+        "googleNewsRssSource": "PMI.it"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — PMI.it",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "ab92fc67",
+      "keyword": "Frontalieri, ancora tanti interrogativi a 20 mesi dall’Accordo fiscale - TVS tvsvizzera.it",
+      "normalizedKeyword": "frontalieri, ancora tanti interrogativi a 20 mesi dall’accordo fiscale - tvs tvsvizzera.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNRXk1S3FQTmhtN3lMYWVDRVUwN3dONHZ0bWdXZS1HQVVGcVI5cmdBZ3FLY0VndXlGYzA5OWFUX2RtTmR1b0M3NlhtTnlBLTdjdWlDSnpVQmVNX0JuWmczR3F5OU04UlJEYXhOb015emRuQ3RfQVRhb3lZZ1JsbERUVG00MTZlM08xYzJpaHE1azZFY2JsRmQ3VDRzQ3FDVWhSR0hJTkVZODV2Tld2YVJMSGpPM0pwVWpqWWNWY2tzYk1ubXlJNnRVWkpRUmk?oc=5",
+        "googleNewsRssPubDate": "Sat, 08 Mar 2025 08:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
+      },
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "300aafc9",
+      "keyword": "Frontalieri: presentati emendamenti al Mille proroghe per la franchigia - San Marino Rtv",
+      "normalizedKeyword": "frontalieri: presentati emendamenti al mille proroghe per la franchigia - san marino rtv",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOY2VWMUZpcUYweHI4UzVsNmxsM1BmMUhHTEVCVXBNcDE2b0Jtc2x4bko0TGV3VXkwZGtocWJaWENpb2JjM1cwU0xGaEZoVHpPTkNTVHI5SnFUSHlJSGhTUzZXbVNBMUQ3bUdYQXA4V0VFc29BZTZXV1JBWVRTQzU1YVY1akJKWjYydGJPNGdnMUZaRlYxZzJMSGNlN0RXZmRDNmhPejlSNzhqQ0tMUFFmYXNn?oc=5",
+        "googleNewsRssPubDate": "Thu, 12 Jan 2012 08:00:00 GMT",
+        "googleNewsRssSource": "San Marino Rtv"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "13bd6cb3",
+      "keyword": "Il lavoratore \"frontaliere\" in Italia può rientrare con reddito agevolato - Fisco Oggi",
+      "normalizedKeyword": "il lavoratore \"frontaliere\" in italia puo rientrare con reddito agevolato - fisco oggi",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5Ja2ZPb1V5eDlBNE9IM3JHdnZKeGt5OHpNSko2QkZhNk1fWVppR2hOYXBDSVFJc1VQd1diUGZHSDI5ZC1WVzNKdUNwaV8zUzdjbFV0N2ZSeXo4QjhoVkJvZVZJSkNzenBWNVRqa1dFdTJQc1l5d1JWdWpR?oc=5",
+        "googleNewsRssPubDate": "Thu, 22 Jan 2026 08:00:00 GMT",
+        "googleNewsRssSource": "Fisco Oggi"
+      },
+      "rationale": "Google News RSS seed \"frontaliere\" — Fisco Oggi",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "0be75d0a",
+      "keyword": "La tassazione del reddito dei lavoratori italiani frontalieri in Svizzera - Commercialista Telematico",
+      "normalizedKeyword": "la tassazione del reddito dei lavoratori italiani frontalieri in svizzera - commercialista telematico",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPNWFYUkVSc3AzQkNPYm9xM1h2ckJzUzFQUFg3YVkzY24zOFkzRDVSeFBPZ2pGdE1ZM19GOXVITmR4TkE5cVRnN2U4aU5xY3I1UTJiSGxxQjN6XzZZTXY5WWpoSTdZQzVTd0pYa1RDU0tPa05pY2JWcDZxTWtQQWMwUnlMcUNJb0czeWEybV9rMHlUVFN4X1VJblZVblZ6emlqUXViQ0p0WGhiRXh5TmdONy1kVnh2bTJUblZzUzNLSVg4MWM?oc=5",
+        "googleNewsRssPubDate": "Mon, 18 Jul 2022 07:00:00 GMT",
+        "googleNewsRssSource": "Commercialista Telematico"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — Commercialista Telematico",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "b108f596",
+      "keyword": "Lavoratrice frontaliera con diritto all'indennità di maternità - edotto.com",
+      "normalizedKeyword": "lavoratrice frontaliera con diritto all'indennita di maternita - edotto.com",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdVRZVWVZYV9GZldmMkpJOVBTQlpkV3JScnZzR0JFaTNaNGVkNk52dU54WE5oZ3Vib3BpR29XLVBURVdKaWNwOFN3ZlQ2dVNkNndHdlozUmNYNXRLdWhoRGZqcFZDbVZZS1dKcndaaFUwVDYyM0VLU0RLY0lPaXNHWldFM2hOdTR3RUxyRnVyTEl6ZWZNU3ZVX9IBnwFBVV95cUxQb0JUWlRjYlQ2LVItYnhZQ3FwRlhhdk1ERzZDRFFERklJanNLU2dVZ1BCSW50RHVHTG9vUVVJMHpXbGlVTnBkcnh6T1A4ZEJnODdMRkJOT2RBZTRKb3R6WlRmZFNlZV9DTElkNmg0amY5WU82WlJrVVN3YVoxUm1IQU5maXBvbTNLeWdlRkRfaUdybkJUVm9lWGR4XzRzY28?oc=5",
+        "googleNewsRssPubDate": "Mon, 09 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "edotto.com"
+      },
+      "rationale": "Google News RSS seed \"frontaliere\" — edotto.com",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "03ca4230",
+      "keyword": "Le conseguenze del nuovo accordo sui frontalieri - TVS tvsvizzera.it",
+      "normalizedKeyword": "le conseguenze del nuovo accordo sui frontalieri - tvs tvsvizzera.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMickFVX3lxTE5pWEdROEFWc1hpQWlRNTZ2ZG1YbEdDVlloTjMzMXVLdy03THZFUHg4TzBQRkE2dWlzZ2dWclBYNS14NXJHSDhkSmhqMlQ4dlZYR25rRWFFYVM3LW1PQXo0OHdnZ19yYW9tWmlZN0lZQUJQUQ?oc=5",
+        "googleNewsRssPubDate": "Sat, 01 Jun 2024 07:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
+      },
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "08845513",
+      "keyword": "Nuova riforma AVS dal 01.01.2024, in cosa consiste? - CambiaValute.ch",
+      "normalizedKeyword": "nuova riforma avs dal 01.01.2024, in cosa consiste? - cambiavalute.ch",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMickFVX3lxTE8yanR4MGpWM2ZQUVdGNWw4a1dtbk9rTE94NU1ZNnV0bVpxQ0ZKLWtya3k3aWl6QkxGNmhGeEVSMFM5TW52NnZkZEtwR0xlZEwyU0ZRSjVqQm5tdS1mTzNEbFJpQ0hyQnRodVljZnozc1M5QQ?oc=5",
+        "googleNewsRssPubDate": "Thu, 23 Nov 2023 08:00:00 GMT",
+        "googleNewsRssSource": "CambiaValute.ch"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — CambiaValute.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "e768b05a",
+      "keyword": "Oggi si discute di Credit Suisse, UNRWA, asilo e LAMal - Ticinonline",
+      "normalizedKeyword": "oggi si discute di credit suisse, unrwa, asilo e lamal - ticinonline",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOd1FqNmdEMVZmUGNWR2ZNRWw0MXBaRXJYdU93SFdhbmVWRTUtR2NaWXNySkxZeUxkNlNSX204VGFhcUlTT3luYzZ6a2ZIemxiaFozdEJsQ092UnRBemhmR2s2dEhxb1ZLM3ZiR21lR01uMWNyNVZoOElJcl9BRWM4YkRTVWtlTUFzeUd0bTBqdmxOMlp4NWJwRQ?oc=5",
+        "googleNewsRssPubDate": "Tue, 18 Mar 2025 07:00:00 GMT",
+        "googleNewsRssSource": "Ticinonline"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "47797ae1",
+      "keyword": "Pensioni, cambio di regole: lo Stato incentiva la previdenza complementare - La Legge per tutti",
+      "normalizedKeyword": "pensioni, cambio di regole: lo stato incentiva la previdenza complementare - la legge per tutti",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNYW9Odzc3ZVRCTHFSLWl3aVdzbFFGdkctMEVhcUFfUHZBQ2JGNVZTSV9oY29iYTZQQ0pkNV9VZFB0VVNGODhJWktmYWozSDRpQkkzSnRtZnRtOFRONmRTWGRnNi1BSHNFNlJnQWRmM0JIZUsyR3h6dUJOWXVTUUNGX0VWZ19wY1lSWWFNbEszT085cWV6OGI4ejlId0Z3blJ4R0xHM09HdEpIcGZ5VUVn0gG0AUFVX3lxTE55Y05XUXRBQzZ4Q3lDczNOY2dYUy1jZTg5WHYxa29YMUlqelpRY1l4ZHVORVpvUHZZZlBwelgtUzFCd3l1d0xaQlc4dG9kUlJEaWZVcVN2Tl94ZTJCSUpNOWRJcHN1dlI0SWozWXcweG5lekpZVUNyUV9UZ3g1RVY0QzRMT1FJcjZaN2dKSXpHSGxncWFvRjhDSUZwWWhVNWpxajA4VExWbUM5Q2d5QTlYUjEwOA?oc=5",
+        "googleNewsRssPubDate": "Wed, 20 Aug 2025 07:00:00 GMT",
+        "googleNewsRssSource": "La Legge per tutti"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — La Legge per tutti",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "a41ab19c",
+      "keyword": "Personale domestico, il salario orario sarà più elevato - Ticinonews",
+      "normalizedKeyword": "personale domestico, il salario orario sara piu elevato - ticinonews",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNRTRBWUZWQ2RKZmVrOFpvSGJVZlpuelhJd21JMlh6MGRETXdIVnh4RF94MG01T1NGZ1dOSkVsU1ZUSVNfWURPcUhTazRBSkI0eXh1RTU3UHl4ejA3b3dMWVNScXlJRjNEWWkwbzc1cTNhRzktNGE3MUdsbExmZmhIZjc1Y0toMVlnNmp5TkE4TmhhQ1FmS3o1dDNqN1Q?oc=5",
+        "googleNewsRssPubDate": "Fri, 05 Dec 2025 10:44:38 GMT",
+        "googleNewsRssSource": "Ticinonews"
+      },
+      "rationale": "Google News RSS seed \"busta paga svizzera\" — Ticinonews",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "dfae4978",
+      "keyword": "Salari 2026, Travaille.Suisse chiede un aumento del 2% - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "salari 2026, travaille.suisse chiede un aumento del 2% - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOOXhDa1FaZ1lrOHZCcUV1eTZQd2tROWpLZnFaaE12NnVHXzlleWR4NEN1aklhYmlIX2xxMDAtVkh3Nkd2U1B2MEd0RDBLQjhJU3JfTVFLX2VZa1VKM2pNUWl0Q1pIMXh0U3M4ZVJlOUNvQ0ZoUkNDVl9ZNnZ2NDBZRDZMY1pnVVNDZWhXZ3lEYk40TTBVWC0zTXB2N19EWXMy?oc=5",
+        "googleNewsRssPubDate": "Tue, 19 Aug 2025 07:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"busta paga svizzera\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "9836f95b",
+      "keyword": "Scambio automatico di informazioni sugli immobili: nuovo accordo multilaterale - Ipsoa",
+      "normalizedKeyword": "scambio automatico di informazioni sugli immobili: nuovo accordo multilaterale - ipsoa",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPa3B6eW5zMDQxSFNwUGJvZjhtX1ZfNUhTM183TS1uRE1SNnZBSTBwMGttRlJVSDVqMDZySGotZWIyRFdMOEozU1VFT0VreVpIOHpTT3NQem5FeURxdGRvTnNmVmY2N2NiLVFSdC1ya3Vybkw4dGhUNWtYRDZydGs4M1lJTElCdzdTOU91RE9EbFJoTTNPeTdTZW0wak4tbW1rWTJaUHJpcFBwUVg4ZWRDaW1WOE5QRXpMX2VnZ0pDTU96akNJY0JtRTAybnZnaDVFNGxWenN3?oc=5",
+        "googleNewsRssPubDate": "Fri, 05 Dec 2025 08:00:00 GMT",
+        "googleNewsRssSource": "Ipsoa"
+      },
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — Ipsoa",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
+    },
+    {
+      "id": "c77030c7",
+      "keyword": "Telelavoro dei frontalieri, le norme fiscali sono in vigore - Ticinonline",
+      "normalizedKeyword": "telelavoro dei frontalieri, le norme fiscali sono in vigore - ticinonline",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "telelavoro frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSkRsTkVmZFVINWhoZWZSNEJUSFdXWG1jLVc0TlpBUkVva3dSOU0xZ1dYYVBEYmlVaUxRcmgxQ3dtWVJqYmlsY1hJSW4tLVVCYWh5NTRaM3FUZE13cUVZVWFtSVUtQVRqckVMSVB5VlhiS0U1VGJKWG1XX0FIaTFMZGZkWFdFSHJMOVptUEpFRkIwSHFZQ1dIRm5KMA?oc=5",
+        "googleNewsRssPubDate": "Fri, 13 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "Ticinonline"
+      },
+      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
+      "totalScore": 0.325
     }
   ]
 }
