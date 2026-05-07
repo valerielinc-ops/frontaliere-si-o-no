@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-05-06T22:05:37.562Z",
+  "assembledAt": "2026-05-07T08:53:22.975Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/specialiste-en-information-documentaire-80-100-***-informations-und-dokumentationsspezialist-oder-spezialistin-80-100--214386",
@@ -155,87 +155,6 @@
       },
       "previousSlugs": [
         "collaborateur-ou-collaboratrice-technique-en-informatique-et-hes-so-valais"
-      ]
-    },
-    {
-      "url": "https://www.hevs.ch/fr/recruitee/research-associate-80-100-***-collaborateur-ou-collaboratrice-scientifique-80-100-214288",
-      "applyUrl": "https://www.hevs.ch/fr/recruitee/research-associate-80-100-***-collaborateur-ou-collaboratrice-scientifique-80-100-214288",
-      "title": "Research Associate (80-100%) *** Collaborateur ou collaboratrice",
-      "company": "HES-SO Valais-Wallis",
-      "companyKey": "hes-so-valais",
-      "location": "Sion",
-      "postalCode": "1950",
-      "canton": "VS",
-      "country": "CH",
-      "description": "To strengthen our team at the Energypolis campus, CIRAIG at the Institute of Energy and Environment of the HES-SO Valais-Wallis is seeking to fill the\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
-      "descriptionByLocale": {
-        "it": "Descrizione Per rafforzare il nostro team nel campus Energypolis, CIRAIG presso l'Istituto di Energia e Ambiente della HES-SO Valais-Wallis sta cercando di riempire il ## Informazioni sull'istituzione - La HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion Vion. - Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
-        "en": "## Descrizione To strengthen our team at the Energypolis campus, CIRAIG at the Institute of Energy and Environment of the HES-SO Valais-Wallis is seeking to fill the ## Informazioni sull'istituzione - La HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. - Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
-        "de": "Beschreibung Um unser Team am Energypolis Campus zu stärken, sucht CIRAIG am Institut für Energie und Umwelt des HES-SO Valais-Wallis die Informzioni sull'istituzione - La HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus. - Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
-        "fr": "Descrizione Pour renforcer notre équipe sur le campus d'Energypolis, le CIRAIG de l'Institut de l'énergie et de l'environnement du HES-SO Valais-Wallis cherche à remplir le ## Informazioni sull'istuzione - La HES-SO Valais-Wallis est une haute école spécialisée bilingue du canton du Valais, avec des campus à Sion, Sierre, Vsp et Saint-Maurice. - Elle forme plus de 2800 étudiants dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
-      },
-      "titleByLocale": {
-        "it": "Ricercatore (80-100%) Collaboratore ou collaboratrice",
-        "en": "Research Associate (80-100%) *** Collaborateur ou collaboratrice",
-        "de": "Forschung Associate (80-100%) *** Collaborateur ou collaboratrice",
-        "fr": "Recherche Associate (80-100%) *** Collaborateur ou collaboratrice"
-      },
-      "slug": "ricercatore-80-100-collaboratore-ou-collaboratrice-hes-so-valais-wallis-sion",
-      "slugByLocale": {
-        "it": "ricercatore-80-100-collaboratore-ou-collaboratrice-hes-so-valais-wallis-sion",
-        "en": "research-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais",
-        "de": "forschung-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais-wallis-sion",
-        "fr": "recherche-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais-wallis-sion"
-      },
-      "category": "research",
-      "datePosted": "2026-04-21",
-      "source": "hes-so-valais-crawler",
-      "sourceLang": "en",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione / Ricerca",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Sion"
-      },
-      "employmentRate": "80-100%",
-      "urlByLocale": {
-        "fr": "https://www.hevs.ch/fr/recruitee/research-associate-80-100-***-collaborateur-ou-collaboratrice-scientifique-80-100-214288",
-        "de": "https://www.hevs.ch/de/recruitee/research-associate-80-100-***-collaborateur-ou-collaboratrice-scientifique-80-100-214288",
-        "en": "https://www.hevs.ch/en/recruitee/research-associate-80-100-***-collaborateur-ou-collaboratrice-scientifique-80-100-214288"
-      },
-      "crawledAt": "",
-      "id": "hes-so-valais-a43f2f3ff03c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-21T10:12:16.481Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "research-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais"
-        ],
-        "de": [
-          "research-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais"
-        ],
-        "fr": [
-          "research-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais"
-        ]
-      },
-      "previousSlugs": [
-        "research-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais",
-        "collaborateur-ou-collaboratrice-scientifique-hes-80-100-hes-so-valais",
-        "scientific-collaborator-hes-80-100-hes-so-valais-wallis-sion",
-        "wissenschaftlicher-mitarbeiter-hes-80-100-hes-so-valais-wallis-sion"
       ]
     }
   ]
