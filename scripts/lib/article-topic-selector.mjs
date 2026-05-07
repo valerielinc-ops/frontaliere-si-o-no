@@ -55,6 +55,27 @@ export const TODAY_PICKS_BY_CLUSTER_PATH = 'data/topic-candidates-today-picks.js
 // long-tail content instead of a borderline news article.
 export const RANKER_MIN_SCORE = 0.25;
 
+// Hard floor on demand-score component. Without this floor, a headline
+// with near-zero vocab match (demand=0.067) can be picked if it lands
+// in a fresh cluster (div=1.0) and is novel (novel=1.0): 0.6*0.067 +
+// 0.2*1.0 + 0.2*1.0 = 0.44 → passes RANKER_MIN_SCORE=0.25 even though
+// the headline has NO frontaliere demand signal. Live regression
+// 2026-05-07: r/Italy "Nottambuli orari sociali" got generated as
+// "Nottambuli Ticino orari società" — completely off-topic.
+//
+// With this floor, a headline must have AT LEAST `MIN_DEMAND_SCORE`
+// match with the vocab to be considered, regardless of how fresh its
+// cluster is. Diversity+novelty are bonuses on top of demand, not
+// replacements for it.
+//
+// 0.15 chosen empirically: real frontaliere headlines typically score
+// 0.5-2.0 on demand (clear vocab match); 0.15 catches the borderline
+// "1 vocab keyword overlap" case while excluding pure misclassifications.
+export const MIN_DEMAND_SCORE = Math.max(
+  0,
+  Number.parseFloat(process.env.RANKER_MIN_DEMAND_SCORE || '0.15') || 0.15,
+);
+
 // Hard cap on picks per cluster per day (output-level diversity guard).
 // Diversity bonus alone (soft signal) can be overruled by a strong
 // demand-signal headline — e.g. picksByCluster.generic=13 in a single
@@ -1011,6 +1032,13 @@ export async function rankAndSelectHeadlines(headlines, vocab, opts = {}) {
   const picksByCluster = opts.todayPicksByCluster || {};
   const picks = [];
   for (const { headline, breakdown } of scored) {
+    // Hard demand floor: demand-vocab match below MIN_DEMAND_SCORE means
+    // the headline has no real frontaliere relevance — even if its
+    // cluster is fresh and the title is novel, it shouldn't pass.
+    // Live regression: "Nottambuli orari sociali" pick had demand=0.067,
+    // div=1.0, novel=1.0 → score 0.44 passed minScore but the article
+    // was completely off-topic. Floor blocks this case.
+    if (breakdown.demandScore < MIN_DEMAND_SCORE) continue;
     if (breakdown.score < minScore) break;
     const cluster = breakdown.cluster || 'generic';
     if ((picksByCluster[cluster] || 0) >= RANKER_MAX_PER_CLUSTER) {
