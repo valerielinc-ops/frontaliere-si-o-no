@@ -1,7 +1,127 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-05-07T11:35:40.527Z",
+  "assembledAt": "2026-05-07T22:23:51.852Z",
   "jobs": [
+    {
+      "title": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI",
+      "slug": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano",
+      "url": "https://www.pemsa.ch/it/job/montatore-meccanico-di-macchinari-industriali-2673743/",
+      "applyUrl": "https://www.pemsa.ch/it/job/montatore-meccanico-di-macchinari-industriali-2673743/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "meccanica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-07",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-05-22",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI\n\n## Missione :\n• Incarico tramite agenzia con possibilità di assunzione dopo periodo di prova. • Montaggio/assemblaggio meccanico bordo macchina di macchinari industriali ramo packaging.\n\n## Profilo :\n• Esperienza nel montaggio/assemblaggio meccanico di macchinari di automatizzati (meglio se ramo packaging). • Diploma in ambito meccanico o affine. • Lettura del disegno tecnico. • Conoscenza della pneumatica. • Residenza in Ticino o nella fascia di confine. • Disponibile da SUBITO . • Patente B e automunito.",
+      "titleByLocale": {
+        "it": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI",
+        "en": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI",
+        "de": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI",
+        "fr": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI\n\n## Missione :\n• Incarico tramite agenzia con possibilità di assunzione dopo periodo di prova. • Montaggio/assemblaggio meccanico bordo macchina di macchinari industriali ramo packaging.\n\n## Profilo :\n• Esperienza nel montaggio/assemblaggio meccanico di macchinari di automatizzati (meglio se ramo packaging). • Diploma in ambito meccanico o affine. • Lettura del disegno tecnico. • Conoscenza della pneumatica. • Residenza in Ticino o nella fascia di confine. • Disponibile da SUBITO . • Patente B e automunito.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI in Lugano. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI in Lugano. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI à Lugano. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano",
+        "en": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano",
+        "de": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano",
+        "fr": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano"
+      },
+      "id": "pemsa-9a269097d319",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-07T22:23:51.852Z"
+    },
+    {
+      "title": "MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI)",
+      "slug": "montatore-posatore-di-barriere-di-sicurezza-autostradali-pemsa-cadempino",
+      "url": "https://www.pemsa.ch/it/job/montatore-posatore-di-barriere-di-sicurezza-autostradali-2673697/",
+      "applyUrl": "https://www.pemsa.ch/it/job/montatore-posatore-di-barriere-di-sicurezza-autostradali-2673697/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Cadempino",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "meccanica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-07",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-05-22",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI)\n\n## Missione :\n• Incarico di circa 2 mesi, tramite agenzia. • Installazione di barriere, posa di guard rail metallici (barriere di sicurezza) e barriere in calcestruzzo tipo New Jersey. • Montaggio di carpenteria metallica, posa di portali segnaletici, pannelli e reti para-neve. • Lavoro in team presso cantiere autostradale seguendo piani di sicurezza e norme tecniche.\n\n## Profilo :\n• Pregressa esperienza nell’installazione, manutenzione e riparazione dei dispositivi di ritenuta (guard rail, barriere in calcestruzzo) lungo strade ed autostrade. • Resistenza fisica per lavori all’aperto. • In possesso di corso di fissaggio carichi pendenti (titolo preferenziale). • Attenzione alla qualità del montaggio. • Patente B e automunito. • DISPONIBILITÀ IMMEDIATA.",
+      "titleByLocale": {
+        "it": "MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI)",
+        "en": "MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI)",
+        "de": "MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI)",
+        "fr": "MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI)"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI)\n\n## Missione :\n• Incarico di circa 2 mesi, tramite agenzia. • Installazione di barriere, posa di guard rail metallici (barriere di sicurezza) e barriere in calcestruzzo tipo New Jersey. • Montaggio di carpenteria metallica, posa di portali segnaletici, pannelli e reti para-neve. • Lavoro in team presso cantiere autostradale seguendo piani di sicurezza e norme tecniche.\n\n## Profilo :\n• Pregressa esperienza nell’installazione, manutenzione e riparazione dei dispositivi di ritenuta (guard rail, barriere in calcestruzzo) lungo strade ed autostrade. • Resistenza fisica per lavori all’aperto. • In possesso di corso di fissaggio carichi pendenti (titolo preferenziale). • Attenzione alla qualità del montaggio. • Patente B e automunito. • DISPONIBILITÀ IMMEDIATA.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI) in Cadempino. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI) in Cadempino. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI) à Cadempino. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "montatore-posatore-di-barriere-di-sicurezza-autostradali-pemsa-cadempino",
+        "en": "montatore-posatore-di-barriere-di-sicurezza-autostradali-pemsa-cadempino",
+        "de": "montatore-posatore-di-barriere-di-sicurezza-autostradali-pemsa-cadempino",
+        "fr": "montatore-posatore-di-barriere-di-sicurezza-autostradali-pemsa-cadempino"
+      },
+      "id": "pemsa-5c3797a75e87",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-07T22:23:51.852Z"
+    },
     {
       "title": "MACCHINISTA",
       "slug": "macchinista-pemsa-locarno",
@@ -1541,7 +1661,8 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-04-27T11:27:21.629Z"
+      "firstSeenAt": "2026-04-27T11:27:21.629Z",
+      "needsRetranslation": true
     },
     {
       "title": "Pittore",
@@ -1821,65 +1942,6 @@
         "fr": "chef-d-equipe-d-asphalt-pemsa-bellinzona"
       },
       "id": "pemsa-5152bcf8f704",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-04-22T10:32:34.120Z"
-    },
-    {
-      "title": "QUADRISTA/CABLATORE BORDO MACCHINA",
-      "slug": "quadrista-cablatore-bordo-macchina-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/quadrista-cablatore-bordo-macchina-2671475/",
-      "applyUrl": "https://www.pemsa.ch/it/job/quadrista-cablatore-bordo-macchina-2671475/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-22",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-07",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA/CABLATORE BORDO MACCHINA\n\n## Missione :\n• Incarico temporaneo di circa 2 mesi tramite agenzia. • Cablaggio quadri elettrici. • Cablaggio bordo macchina. • Utilizzo di strumenti di misura per esecuzione controlli impianto elettrico, secondo normative vigenti.\n\n## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione. • Diploma in ambito elettrico o affine. • Capacità nel cablaggio di quadri e assemblaggio bordo macchina su macchinari industriali/impianti di produzione. • Conoscenza ed interpretazione del disegno tecnico elettrico. • Completa autonomia nel lavoro da svolgere. • Disponibilità IMMEDIATA. • Residenza in Ticino o fascia di confine. • Patente B.",
-      "titleByLocale": {
-        "it": "QUADRISTA/CABLATORE BORDO MACCHINA",
-        "en": "PANEL BUILDER/ON-BOARD WIRING MACHINE",
-        "de": "PANELBAUER/ONBOARD-VERKABELUNGSMASCHINE",
-        "fr": "CONSTRUCTEUR DE TABLEAUX/MACHINE DE CÂBLAGE EMBARQUÉE"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA/CABLATORE BORDO MACCHINA ## Missione : • Incarico temporaneo di circa 2 mesi tramite agenzia. • Cablaggio quadri elettrici. • Cablaggio bordo macchina. • Utilizzo di strumenti di misura per esecuzione controlli impianto elettrico, secondo normative vigenti. ## Profilo : • Esperienza di almeno 5 anni in medesima funzione. • Diploma in ambito elettrico o affine. • Capacità nel cablaggio di quadri e assemblaggio bordo macchina su macchinari industriali/impianti di produzione. • Conoscenza ed interpretazione del disegno tecnico elettrico. • Completa autonomia nel lavoro da svolgere. • Disponibilità IMMEDIATA. • Residenza in Ticino o fascia di confine. • Patente B.",
-        "en": "Do you want the freedom of temporary work and the security of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of QUADRISTA/CABLATORE BORDO MACCHINA ## Mission : • Temporary incarceration of about 2 months via agency. • Electric cabling. • Wiring machine edge. • Using measuring instruments for electrical installation control, according to current regulations. ## Profile : • Experience of at least 5 years in the same function. • Diploma in electrical or affine. • Capacity in cabling and assembly machine edge on industrial machinery/production plants. • Knowledge and interpretation of electrical technical design. • Complete autonomy in the work to be done. • IMMEDIATE availability. • Ticino residence or border. • License B.",
-        "de": "Wollen Sie die Freiheit der vorübergehenden Arbeit und die Sicherheit eines dauerhaften? Seit 30 Jahren haben wir Hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz erlebt und bieten ihnen die besten Talente. Wir lügen dich nicht an, aber wir fordern. Also, wenn Sie ein motivierter und begeisterter Mensch sind, treten Sie dem Clan für die Position von QUADRISTA/CABLATORE BORDO MACCHINA bei: • Temporäre Inhaftierung von etwa 2 Monaten über Agentur. • Elektrische Verkabelung. • Drahtmaschinenrand. • Verwendung von Messgeräten zur elektrischen Installationssteuerung, nach aktuellen Vorschriften. Profil : • Erfahrung von mindestens 5 Jahren in derselben Funktion. • Diplom in Elektro oder Affine. • Kapazität in der Verkabelung und Montagemaschine Kante auf Industriemaschinen / Produktionsanlagen. • Kenntnisse und Interpretation des elektrischen technischen Designs. • Vollständige Autonomie in der zu leistenden Arbeit. • IMMEDIATE Verfügbarkeit. • Tessin Residenz oder Grenze. • Lizenz B.",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de QUADRISTA/CABLATORE BORDO MACCHINA ## Mission : • Emprisonnement temporaire d'environ 2 mois par l'intermédiaire de l'agence. • Câble électrique. • Bord de la machine de câblage. • Utilisation d'instruments de mesure pour la commande de l'installation électrique, conformément à la réglementation en vigueur. ## Profil : • Expérience d'au moins 5 ans dans la même fonction. • Diplôme en électricité ou en affinerie. • Capacité de câblage et d'assemblage sur les machines industrielles/usines de production. • Connaissance et interprétation de la conception technique électrique. • Une autonomie totale dans le travail à accomplir. • Disponibilité immédiate. • Résidence ou frontière du Tessin. • Licence B."
-      },
-      "slugByLocale": {
-        "it": "quadrista-cablatore-bordo-macchina-pemsa-lugano",
-        "en": "panel-builder-on-board-wiring-machine-pemsa-lugano",
-        "de": "panelbauer-onboard-verkabelungsmaschine-pemsa-lugano",
-        "fr": "constructeur-de-tableaux-machine-de-cablage-embarquee-pemsa-lugano"
-      },
-      "id": "pemsa-0e83c892a3ef",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2661,7 +2723,8 @@
           "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lattoniere",
@@ -2889,7 +2952,8 @@
           "garten-pemsa-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Ferraiolo",
