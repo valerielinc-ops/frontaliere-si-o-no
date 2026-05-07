@@ -21323,4 +21323,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rimpatrio-famiglia-curda-riazzino',
+ category: 'novita',
+ date: '2026-05-07T05:13:07.967Z',
+ image: '/images/blog/rimpatrio-famiglia-curda-riazzino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

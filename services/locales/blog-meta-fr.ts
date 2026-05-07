@@ -6651,6 +6651,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parcheggi-digitali-lugano-2024.title': 'Parkings digitaux à Lugano: comment fonctionne le nouveau système',
     'blog.article.parcheggi-digitali-lugano-2024.excerpt': 'À Lugano, les parkings deviennent de plus en plus numériques. Découvrez comment fonctionne le nouveau système de paiement et de surveillance.',
     'blog.article.parcheggi-digitali-lugano-2024.imageAlt': 'Un parking moderne à Lugano avec des terminaux de paiement numériques et des caméras de surveillance, montrant l\'intégration de la technologie dans les infrastructures urbaines.',
+    'blog.article.rimpatrio-famiglia-curda-riazzino.title': 'Rapatriement forcé en Turquie: une famille kurde de Riazzino sous le choc',
+    'blog.article.rimpatrio-famiglia-curda-riazzino.excerpt': 'La famille Pokerce, d\'origine kurde, a été rapatriée en Turquie après le rejet de sa demande d\'asile. Les deux fils majeurs restent en Suisse.',
+    'blog.article.rimpatrio-famiglia-curda-riazzino.imageAlt': 'Famille kurde escortée par les autorités à l\'aéroport de Zurich',
 };
 
 export default blogMetaFr;

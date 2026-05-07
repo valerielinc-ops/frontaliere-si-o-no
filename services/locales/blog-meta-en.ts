@@ -6650,6 +6650,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parcheggi-digitali-lugano-2024.title': 'Digital parking in Lugano: how the new system works',
     'blog.article.parcheggi-digitali-lugano-2024.excerpt': 'Parking in Lugano is becoming increasingly digital. Discover how the new payment and surveillance system works.',
     'blog.article.parcheggi-digitali-lugano-2024.imageAlt': 'A modern parking lot in Lugano with digital payment terminals and surveillance cameras, showcasing the integration of technology in urban infrastructure.',
+    'blog.article.rimpatrio-famiglia-curda-riazzino.title': 'Forced repatriation to Turkey: Kurdish family from Riazzino in shock',
+    'blog.article.rimpatrio-famiglia-curda-riazzino.excerpt': 'The Pokerce family, of Kurdish origin, has been repatriated to Turkey after their asylum application was rejected. The two adult children remain in Ticino.',
+    'blog.article.rimpatrio-famiglia-curda-riazzino.imageAlt': 'Kurdish family escorted by authorities at Zurich Airport',
 };
 
 export default blogMetaEn;

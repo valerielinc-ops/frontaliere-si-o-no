@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2269,
+ "numberOfItems": 2270,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6911,7 +6911,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2266, "name": "Ex casa comunale di Lopagno in vendita: prezzo ...", "url": `${BASE_URL}/articoli-frontaliere/ex-casa-comunale-lopagno-vendita` },
           { "@type": "ListItem", "position": 2267, "name": "Ascensione e Pentecoste: mete e viaggi 2026", "url": `${BASE_URL}/articoli-frontaliere/ascensione-pentecoste-viaggi-2026` },
           { "@type": "ListItem", "position": 2268, "name": "Veglia di preghiera contro omofobia, bifobia e ...", "url": `${BASE_URL}/articoli-frontaliere/veglia-preghiera-omofobia-ticino-2026` },
-          { "@type": "ListItem", "position": 2269, "name": "Parcheggi digitali a Lugano: come funziona il n...", "url": `${BASE_URL}/articoli-frontaliere/parcheggi-digitali-lugano-2024` }
+          { "@type": "ListItem", "position": 2269, "name": "Parcheggi digitali a Lugano: come funziona il n...", "url": `${BASE_URL}/articoli-frontaliere/parcheggi-digitali-lugano-2024` },
+          { "@type": "ListItem", "position": 2270, "name": "Rimpatrio forzato in Turchia: famiglia curda di...", "url": `${BASE_URL}/articoli-frontaliere/rimpatrio-famiglia-curda-riazzino` }
  ]
  },
  {
