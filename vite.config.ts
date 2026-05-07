@@ -48,6 +48,7 @@ import { affiliateRedirectPlugin } from './build-plugins/affiliateRedirectPlugin
 import { fuelDailyPagesPlugin } from './build-plugins/fuelDailyPagesPlugin';
 import { weatherCityPagesPlugin } from './build-plugins/weatherCityPagesPlugin';
 import { weatherAlertPagesPlugin } from './build-plugins/weatherAlertPagesPlugin';
+import { weatherBorderWaitFusionPlugin } from './build-plugins/weatherBorderWaitFusionPlugin';
 import { weeklyEmployersPlugin } from './build-plugins/weeklyEmployersPlugin';
 import { jobMarketSnapshotPlugin } from './build-plugins/jobMarketSnapshotPlugin';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
@@ -134,6 +135,7 @@ export default defineConfig(({ mode }) => {
  jobMarketSnapshotPlugin(__dirname),
  healthPremiumsLandingPlugin(__dirname),
  borderWaitPagesPlugin(__dirname),
+ weatherBorderWaitFusionPlugin(__dirname),
  marketReportPlugin(__dirname),
  // Sprint 5.1 — annual salary report. Must run AFTER jobMarketSnapshotPlugin
  // so the job-market hub HTML is already on disk when we patch it with a
