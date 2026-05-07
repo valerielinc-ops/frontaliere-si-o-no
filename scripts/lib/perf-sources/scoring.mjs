@@ -126,6 +126,20 @@ function countTokensWeighted(textList, weights) {
   return counts;
 }
 
+// IDF cap: bound `fullCount` per token so corpus-size doesn't asymptotically
+// crush common evergreen terms (`frontalieri`, `ticino`, `svizzera` appearing
+// in 8000+ of 8960 articles). Without the cap, log(1 + N/fCount) for those
+// terms is ~0.001, so they rank way below 60th place and the domain filter
+// finds zero survivors. With cap=50 the IDF boost becomes
+// `log(1 + N/50)` ≈ 0.1 for any term in 50+ articles, putting evergreen
+// frontaliere terms back into the top-60.
+//
+// 50 is empirically tuned: on a 70-article corpus (winners+losers) the cap
+// is rarely hit; on a 8960-article corpus most terms are above 50 and the
+// cap kicks in. Keeps the formula stable across corpus sizes (small dev
+// fixtures and production cron both produce sensible top-N).
+const MAX_FCOUNT_IDF = 50;
+
 /**
  * Recency-weighted TF-IDF over a winner corpus vs the full corpus.
  *
@@ -137,13 +151,19 @@ function countTokensWeighted(textList, weights) {
  * ~2 weeks) so recent-but-faded winners don't dominate the keyword
  * vocabulary that gets injected into the LLM prompt.
  *
+ * The IDF term caps fCount at MAX_FCOUNT_IDF (default 50) so common
+ * evergreen frontaliere terms don't get over-penalized when the full
+ * corpus is large (8960+ articles in production). Without the cap,
+ * `log(1 + N/fCount)` for terms appearing in 8000+ articles approaches
+ * 0, dropping evergreen domain terms below the top-N threshold.
+ *
  * @param {string[]} winnerCorpus
  * @param {string[]} fullCorpus
  * @param {number} n
- * @param {{ winnerWeights?: number[]|null }} [opts]
+ * @param {{ winnerWeights?: number[]|null, maxFCount?: number }} [opts]
  * @returns {string[]}
  */
-function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null } = {}) {
+function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null, maxFCount = MAX_FCOUNT_IDF } = {}) {
   const winnerCounts = countTokensWeighted(winnerCorpus, winnerWeights);
   const fullCounts = countTokensWeighted(fullCorpus, null);
   // Effective corpus size for the TF normalizer matches the sum of weights
@@ -155,9 +175,10 @@ function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null } = {}) {
   /** @type {Array<{token:string, score:number}>} */
   const scored = [];
   for (const [tok, wCount] of winnerCounts) {
-    const fCount = fullCounts.get(tok) || 1;
-    // Boost terms common in winners but not absurdly common across the whole
-    // corpus.
+    // Cap fCount at maxFCount: any term in ≥ maxFCount articles is treated
+    // the same. Prevents corpus-size from crushing evergreen terms.
+    const rawFCount = fullCounts.get(tok) || 1;
+    const fCount = Math.min(rawFCount, maxFCount);
     const score = (wCount / Math.max(1, effectiveWinnerN)) * Math.log(1 + (Math.max(1, effectiveWinnerN) / fCount));
     scored.push({ token: tok, score });
   }

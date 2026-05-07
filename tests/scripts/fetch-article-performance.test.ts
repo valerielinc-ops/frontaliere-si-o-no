@@ -524,6 +524,30 @@ describe('fetch-article-performance / recency-weighted TF-IDF', () => {
       expect(kw).not.toMatch(/sciopero|pastori|grandine|cronaca/i);
     }
   });
+
+  it('regression: large fullCorpus does not collapse topKeywords (cap fCount at 50)', () => {
+    // Production bug 2026-05-07: with a 9000-article full corpus,
+    // evergreen frontaliere terms (`frontalieri`, `ticino`) had
+    // fCount~6000-8000 and IDF score ≈ 0, dropping below the top-60
+    // threshold. Domain filter then found < MIN_DOMAIN_KEYWORDS=3 →
+    // topKeywords = []. Fix caps fCount at MAX_FCOUNT_IDF=50 in tfidfTopN.
+    const now = '2026-05-07T00:00:00Z';
+    const winners = [
+      { title: 'Frontalieri ticino mutuo casa italia', cluster: 'pratico', wordCount: 1500, publishedAt: now },
+      { title: 'Dogana chiasso doganali frontalieri', cluster: 'mobilita', wordCount: 1500, publishedAt: now },
+      { title: 'Imposta alla fonte ticino frontalieri', cluster: 'fiscale', wordCount: 1500, publishedAt: now },
+      { title: 'Tasse svizzera ticino frontalieri', cluster: 'fiscale', wordCount: 1500, publishedAt: now },
+    ];
+    // Simulate huge corpus where evergreen terms appear in every article.
+    const allArticles: Array<{title: string, excerpt: string}> = [];
+    for (let i = 0; i < 5000; i += 1) {
+      allArticles.push({ title: `Frontalieri svizzera ticino articolo ${i}`, excerpt: '' });
+    }
+    allArticles.push(...winners.map((w) => ({ title: w.title, excerpt: '' })));
+    const fp = buildWinnerFingerprint(winners as any, allArticles as any);
+    expect(fp.topKeywords.length).toBeGreaterThanOrEqual(3);
+    expect(fp.topKeywords).toEqual(expect.arrayContaining(['frontalieri', 'ticino']));
+  });
 });
 
 // ── pensioni cluster propagation ────────────────────────────
