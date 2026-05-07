@@ -73,6 +73,7 @@ import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
   CARD_STYLE,
+  CTA_PRIMARY_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
@@ -80,6 +81,11 @@ import {
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   SMALL_HEADING_STYLE,
+  STAT_TILE_ACCENT,
+  STAT_TILE_BASE,
+  STAT_TILE_LABEL,
+  STAT_TILE_SUCCESS,
+  STAT_TILE_VALUE,
   clampSiteSuffix,
   renderDiscoverMore,
   renderEntityCard,
@@ -1646,6 +1652,112 @@ function topHubPath(locale: WeeklyEmployersLocale): string {
   return `${prefix}/${WEEKLY_EMPLOYERS_SECTION[locale]}/`.replace(/\/+/g, '/');
 }
 
+/**
+ * Localised tile labels reused by the top-hub stats grid AND by every
+ * city-hub stats grid below the H1. Single source of truth so wording
+ * drifts on either page stay consistent.
+ */
+const WEEKLY_EMPLOYERS_TILE_LABELS: Record<
+  WeeklyEmployersLocale,
+  {
+    jobs: string;
+    companies: string;
+    cities: string;
+    week: string;
+    deltaPositive: string;
+    deltaStable: string;
+    jobBoardCta: string;
+    cityCta: (city: string) => string;
+    adviceEyebrow: string;
+    adviceTopEmployer: (company: string, count: number) => string;
+    adviceColdStart: string;
+    adviceStable: string;
+  }
+> = {
+  it: {
+    jobs: 'Offerte attive',
+    companies: 'Aziende attive',
+    cities: 'Città monitorate',
+    week: 'Settimana',
+    deltaPositive: 'In crescita',
+    deltaStable: 'Stabile',
+    jobBoardCta: 'Apri il job-board completo',
+    cityCta: (c) => `Apri tutte le offerte a ${c}`,
+    adviceEyebrow: 'Consiglio',
+    adviceTopEmployer: (company, n) =>
+      `Top datore di lavoro questa settimana: ${company} con ${n} ${n === 1 ? 'nuova offerta' : 'nuove offerte'}. Concentra qui la candidatura prima che il flusso si chiuda.`,
+    adviceColdStart:
+      'Prima settimana di osservazione per questa città — il delta vs settimana scorsa apparirà nel prossimo aggiornamento (lunedì 06:00 UTC).',
+    adviceStable:
+      'Volume sostanzialmente stabile vs settimana scorsa. Apri la lista in basso e dai priorità ai datori con più offerte attive.',
+  },
+  en: {
+    jobs: 'Active openings',
+    companies: 'Active companies',
+    cities: 'Cities tracked',
+    week: 'Week',
+    deltaPositive: 'Growing',
+    deltaStable: 'Stable',
+    jobBoardCta: 'Open the full job-board',
+    cityCta: (c) => `Open all openings in ${c}`,
+    adviceEyebrow: 'Recommendation',
+    adviceTopEmployer: (company, n) =>
+      `Top employer this week: ${company} with ${n} new opening${n === 1 ? '' : 's'}. Focus your application here before the window closes.`,
+    adviceColdStart:
+      "First observation week for this city — the delta vs last week will show up in the next refresh (Monday 06:00 UTC).",
+    adviceStable:
+      'Volume broadly stable vs last week. Open the list below and prioritise employers with the most active openings.',
+  },
+  de: {
+    jobs: 'Aktive Stellen',
+    companies: 'Aktive Unternehmen',
+    cities: 'Erfasste Städte',
+    week: 'Woche',
+    deltaPositive: 'Wachsend',
+    deltaStable: 'Stabil',
+    jobBoardCta: 'Vollständiges Job-Board öffnen',
+    cityCta: (c) => `Alle Stellen in ${c} öffnen`,
+    adviceEyebrow: 'Empfehlung',
+    adviceTopEmployer: (company, n) =>
+      `Top-Arbeitgeber dieser Woche: ${company} mit ${n} neuen Stelle${n === 1 ? '' : 'n'}. Konzentrieren Sie Ihre Bewerbung hier, bevor das Fenster schliesst.`,
+    adviceColdStart:
+      'Erste Beobachtungswoche für diese Stadt — das Delta zur Vorwoche erscheint beim nächsten Refresh (Montag 06:00 UTC).',
+    adviceStable:
+      'Volumen weitgehend stabil zur Vorwoche. Öffnen Sie die Liste unten und priorisieren Sie Arbeitgeber mit den meisten aktiven Stellen.',
+  },
+  fr: {
+    jobs: 'Offres actives',
+    companies: 'Entreprises actives',
+    cities: 'Villes suivies',
+    week: 'Semaine',
+    deltaPositive: 'En hausse',
+    deltaStable: 'Stable',
+    jobBoardCta: 'Ouvrir le job-board complet',
+    cityCta: (c) => `Ouvrir toutes les offres à ${c}`,
+    adviceEyebrow: 'Conseil',
+    adviceTopEmployer: (company, n) =>
+      `Top employeur cette semaine : ${company} avec ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}. Concentrez votre candidature ici avant que la fenêtre ne se ferme.`,
+    adviceColdStart:
+      "Première semaine d'observation pour cette ville — le delta vs semaine précédente apparaîtra à la prochaine mise à jour (lundi 06:00 UTC).",
+    adviceStable:
+      'Volume globalement stable par rapport à la semaine précédente. Ouvrez la liste ci-dessous et priorisez les employeurs avec le plus de postes actifs.',
+  },
+};
+
+/** Localised job-board section path (used by the CTA in the stats area). */
+const WEEKLY_EMPLOYERS_JOB_BOARD_PATH: Record<WeeklyEmployersLocale, string> = {
+  it: '/cerca-lavoro-ticino/',
+  en: '/en/find-jobs-ticino/',
+  de: '/de/jobs-im-tessin/',
+  fr: '/fr/trouver-emploi-tessin/',
+};
+
+/** Format an integer with locale-appropriate digit grouping. */
+function formatLocalisedInteger(n: number, locale: WeeklyEmployersLocale): string {
+  const tag = locale === 'it' ? 'it-CH' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-CH';
+  return n.toLocaleString(tag);
+}
+
 /** Locale-specific labels for the city-hubs and locale-switch link blocks. */
 const LINKING_COPY: Record<
   WeeklyEmployersLocale,
@@ -1957,6 +2069,35 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     fr: "Planifier le trajet avant de postuler",
   };
 
+  // Short above-the-fold tagline (≤120 chars) — replaces the long lede in
+  // the page header. The original lede (with `${jobsCount}` / `${companiesCount}`)
+  // moves to the methodology section below the action area, preserving the
+  // page text content (and Semrush text-to-HTML ratio) while restoring
+  // mobile-first hierarchy: H1 → tagline → tiles → CTA → city list.
+  const taglineByLocale: Record<WeeklyEmployersLocale, string> = {
+    it: `Indice settimanale aggiornato ogni lunedì alle 06:00 — apri la città dove vuoi candidarti.`,
+    en: `Weekly index refreshed every Monday at 06:00 — open the city where you want to apply.`,
+    de: `Wöchentlicher Index, jeden Montag um 06:00 aktualisiert — öffnen Sie die Stadt, wo Sie sich bewerben möchten.`,
+    fr: `Index hebdomadaire mis à jour chaque lundi à 06:00 — ouvrez la ville où vous voulez postuler.`,
+  };
+
+  const topStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px" aria-label="${esc(copy.kickerCurrent)}">
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobs)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(jobsCount, locale)}</div>
+    </div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].companies)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${formatLocalisedInteger(companiesCount, locale)}</div>
+    </div>
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].cities)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${WEEKLY_EMPLOYERS_CITIES.length}</div>
+    </div>
+  </section>`;
+
+  const topJobBoardCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(WEEKLY_EMPLOYERS_JOB_BOARD_PATH[locale])}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobBoardCta)} →</a></p>`;
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -1966,11 +2107,14 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.kickerCurrent)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
     <h1 style="${H1_STYLE}">${esc(t.topHubH1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(lede[locale])}</p>
+    <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
   </header>
+  ${topStatsHtml}
+  ${topJobBoardCtaHtml}
   ${renderCityHubsListBlock(locale)}
   <section style="margin:0 0 28px" aria-labelledby="weTopMethodology">
     <h2 id="weTopMethodology" style="${H2_STYLE}">${esc(LINKING_COPY[locale].cityHubsTitle)} — ${esc(copy.kickerCurrent)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(lede[locale])}</p>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(methodology[locale])}</p>
   </section>
   <section style="margin:0 0 28px" aria-labelledby="weTopCommute">
@@ -2250,6 +2394,58 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
           .join('')}</ul>`
       : `<p style="color:var(--color-subtle);line-height:1.7">${esc(copy.newcomersEmpty)}</p>`;
 
+  // Stats grid + advice banner (mirror of the canton-hub / border-wait
+  // pattern). Tiles surface the headline data above the fold; the advice
+  // banner converts the raw numbers into an opinionated next step
+  // anchored to the top employer of the week. The CTA below the banner
+  // links straight to the job-board pre-filtered for this city so the
+  // most likely action is one tap away on mobile.
+  const tileLabels = WEEKLY_EMPLOYERS_TILE_LABELS[locale];
+  const weekTileValue =
+    variant === 'archive'
+      ? `W${weekNum} ${year}`
+      : `W${getIsoWeekAndYear(today).week} ${getIsoWeekAndYear(today).year}`;
+  const cityStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px" aria-label="${esc(kicker)}">
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(tileLabels.jobs)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(jobsCount, locale)}</div>
+    </div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(tileLabels.companies)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${formatLocalisedInteger(companiesCount, locale)}</div>
+    </div>
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(tileLabels.week)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:20px;font-variant-numeric:tabular-nums">${esc(weekTileValue)}</div>
+    </div>
+  </section>`;
+
+  // Advice — derive from the top employer with the largest positive delta
+  // when historical data exists; cold-start otherwise. The banner reuses
+  // the OKLCH semantic tokens already in use across the site (no new
+  // colour values, dark-mode-safe).
+  const topGainer = hasHistoricalDelta
+    ? stats.topCompanies.find((c) => c.delta > 0) ?? null
+    : null;
+  const cityAdviceTone = topGainer
+    ? STAT_TILE_SUCCESS
+    : !hasHistoricalDelta
+      ? STAT_TILE_BASE
+      : STAT_TILE_ACCENT;
+  const cityAdviceText = topGainer
+    ? tileLabels.adviceTopEmployer(topGainer.employer, topGainer.delta)
+    : !hasHistoricalDelta
+      ? tileLabels.adviceColdStart
+      : tileLabels.adviceStable;
+  const cityAdviceBannerHtml = stats.topCompanies.length > 0
+    ? `<aside data-we-advice aria-label="${esc(tileLabels.adviceEyebrow)}" style="${cityAdviceTone};margin:0 0 18px">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-subtle)">${esc(tileLabels.adviceEyebrow)}</div>
+      <p style="margin:6px 0 0;font-size:15px;line-height:1.55;color:var(--color-heading);font-weight:500">${esc(cityAdviceText)}</p>
+    </aside>`
+    : '';
+
+  const cityCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(WEEKLY_EMPLOYERS_JOB_BOARD_PATH[locale])}?city=${esc(city)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(tileLabels.cityCta(cityDisplay))} →</a></p>`;
+
   const jobBoardSearchBase: Record<WeeklyEmployersLocale, string> = {
     it: '/cerca-lavoro-ticino/',
     en: '/en/find-jobs-ticino/',
@@ -2410,9 +2606,11 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(kicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(heroSummary)}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+    <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
+  ${cityStatsHtml}
+  ${cityAdviceBannerHtml}
+  ${cityCtaHtml}
   ${archiveNote}
   <section style="margin:0 0 28px" aria-labelledby="topCompanies">
     <h2 id="topCompanies" style="${H2_STYLE}">${esc(copy.topCompaniesTitle)}</h2>
@@ -2429,6 +2627,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   </section>
   <section style="margin:0 0 28px" aria-labelledby="editorial">
     <h2 id="editorial" style="${H2_STYLE}">${esc(cityDisplay)}</h2>
+    <p style="margin:0 0 10px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(heroSummary)}</p>
     <p style="margin:0 0 10px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorial)}</p>
     <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px;font-size:14px">${esc(methodology)}</p>
   </section>
