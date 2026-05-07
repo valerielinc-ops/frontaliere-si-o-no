@@ -26516,6 +26516,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-deroghe-costi-sanitari-crans-montana': {
+    title: 'Costi sanitari Crans-Montana: Marchesi chiede chiarimenti',
+    description: 'Il consigliere nazionale Piero Marchesi presenta un\'interpellanza sul trattamento dei costi sanitari legati al dramma di Crans-Montana, sollevando p',
+    keywords: 'frontalieri, ticino, svizzera, italia, costi, sanitari, crans-montana, marchesi',
+    ogTitle: 'Deroghe costi sanitari Crans-Montana: Marchesi chiede chiarimenti',
+    ogDescription: 'Il consigliere nazionale Piero Marchesi presenta un\'interpellanza sul trattamento dei costi sanitari legati al dramma di Crans-Montana, sollevando p',
+    canonicalPath: '/articoli-frontaliere/svizzera-deroghe-costi-sanitari-crans-montana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costi sanitari Crans-Montana: Marchesi chiede chiarimenti",
+      "description": "Il consigliere nazionale Piero Marchesi presenta un'interpellanza sul trattamento dei costi sanitari legati al dramma di Crans-Montana, sollevando p",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-deroghe-costi-sanitari-crans-montana.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Crans-Montana con montagne innevate e impianti sciistici"
+      },
+      "datePublished": "2026-05-07T10:14:18+00:00",
+      "dateModified": "2026-05-07T10:14:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-deroghe-costi-sanitari-crans-montana`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

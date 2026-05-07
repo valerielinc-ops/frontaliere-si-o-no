@@ -6744,6 +6744,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.galleria-italo-svizzera-enigmista.title': 'Colpo di stiletto alla Galleria Italo-Svizzera',
     'blog.article.galleria-italo-svizzera-enigmista.excerpt': 'Un\'analisi sulla Galleria Italo-Svizzera e il futuro dell\'enigmistica.',
     'blog.article.galleria-italo-svizzera-enigmista.imageAlt': 'Vista panoramica di Bellinzona con i suoi castelli storici.',
+    'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.title': 'Costi sanitari Crans-Montana: Marchesi chiede chiarimenti',
+    'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.excerpt': 'Il consigliere nazionale Piero Marchesi presenta un\'interpellanza sul trattamento dei costi sanitari legati al dramma di Crans-Montana, sollevando preoccupazioni su possibili disparità di trattamento.',
+    'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.imageAlt': 'Vista panoramica di Crans-Montana con montagne innevate e impianti sciistici',
 };
 
 export default blogMetaIt;

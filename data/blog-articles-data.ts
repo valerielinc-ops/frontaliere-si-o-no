@@ -21602,4 +21602,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'svizzera-deroghe-costi-sanitari-crans-montana',
+ category: 'fiscale',
+ date: '2026-05-07T10:14:18.326Z',
+ image: '/images/blog/svizzera-deroghe-costi-sanitari-crans-montana.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

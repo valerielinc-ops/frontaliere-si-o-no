@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2300,
+ "numberOfItems": 2301,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6942,7 +6942,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2297, "name": "Hantavirus a Zurigo: crocerista in isolamento", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-zurigo-crocerista-frontalieri` },
           { "@type": "ListItem", "position": 2298, "name": "Cassis e Cornado: tensioni sul risarcimento per...", "url": `${BASE_URL}/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento` },
           { "@type": "ListItem", "position": 2299, "name": "CEDU condanna la Svizzera per violazione libert...", "url": `${BASE_URL}/articoli-frontaliere/liberta-riunione-cedu-condanna-svizzera` },
-          { "@type": "ListItem", "position": 2300, "name": "Colpo di stiletto alla Galleria Italo-Svizzera", "url": `${BASE_URL}/articoli-frontaliere/galleria-italo-svizzera-enigmista` }
+          { "@type": "ListItem", "position": 2300, "name": "Colpo di stiletto alla Galleria Italo-Svizzera", "url": `${BASE_URL}/articoli-frontaliere/galleria-italo-svizzera-enigmista` },
+          { "@type": "ListItem", "position": 2301, "name": "Costi sanitari Crans-Montana: Marchesi chiede c...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-deroghe-costi-sanitari-crans-montana` }
  ]
  },
  {

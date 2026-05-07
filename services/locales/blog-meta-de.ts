@@ -6743,6 +6743,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.galleria-italo-svizzera-enigmista.title': 'Stich ins Herz der Italo-Schweizer Galerie',
     'blog.article.galleria-italo-svizzera-enigmista.excerpt': 'Eine Analyse der Italo-Schweizer Galerie und der Zukunft der Rätsel.',
     'blog.article.galleria-italo-svizzera-enigmista.imageAlt': 'Panoramablick auf Bellinzona mit seinen historischen Burgen.',
+    'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.title': 'Krankenkosten Crans-Montana: Marchesi fordert Aufklärung',
+    'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.excerpt': 'Nationalrat Piero Marchesi stellt eine Interpellation zur Behandlung der Gesundheitskosten im Zusammenhang mit dem Drama von Crans-Montana und äussert Bedenken über mögliche Ungleichbehandlungen.',
+    'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.imageAlt': 'Panoramablick von Crans-Montana mit schneebedeckten Bergen und Skianlagen',
 };
 
 export default blogMetaDe;

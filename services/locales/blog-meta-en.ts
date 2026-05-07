@@ -6743,6 +6743,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.galleria-italo-svizzera-enigmista.title': 'Stiletto Strike at the Italo-Swiss Gallery',
     'blog.article.galleria-italo-svizzera-enigmista.excerpt': 'An analysis of the Italo-Swiss Gallery and the future of puzzles.',
     'blog.article.galleria-italo-svizzera-enigmista.imageAlt': 'Panoramic view of Bellinzona with its historic castles.',
+    'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.title': 'Health costs in Crans-Montana: Marchesi asks for clarification',
+    'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.excerpt': 'National councillor Piero Marchesi submits an interpellation on the treatment of health costs related to the Crans-Montana drama, raising concerns about possible disparities in treatment.',
+    'blog.article.svizzera-deroghe-costi-sanitari-crans-montana.imageAlt': 'Panoramic view of Crans-Montana with snow-covered mountains and ski facilities',
 };
 
 export default blogMetaEn;
