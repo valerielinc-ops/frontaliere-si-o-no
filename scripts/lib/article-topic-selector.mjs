@@ -387,32 +387,20 @@ function coerceClusterArray(parsed, expectedLength) {
  */
 function recoverTruncatedArray(text) {
   if (typeof text !== 'string' || !text) return null;
-  // Locate the array open '[' (works for top-level arrays and
-  // object-wrapped {"clusters": [...]}).
   const openIdx = text.indexOf('[');
   if (openIdx < 0) return null;
-  // Walk backwards from end looking for a `",` or `"` that closes a
-  // valid entry. The last "quote then comma or whitespace" is the safe
-  // truncation point.
-  let cutAt = -1;
-  for (let i = text.length - 1; i > openIdx; i -= 1) {
-    if (text[i] === '"') {
-      // Make sure this quote isn't escaped (preceded by an odd number
-      // of backslashes).
-      let bs = 0;
-      for (let j = i - 1; j >= 0 && text[j] === '\\'; j -= 1) bs += 1;
-      if (bs % 2 === 1) continue;
-      // Check if this quote is followed only by whitespace/comma before
-      // continuing — that means it's the close of a complete entry.
-      cutAt = i;
-      break;
-    }
-  }
-  if (cutAt < 0) return null;
-  const candidate = `${text.slice(openIdx, cutAt + 1)}]`;
+  // Extract all COMPLETE quoted strings within the array region using a
+  // regex that handles escaped quotes. Anything truncated mid-string at
+  // the end is automatically excluded since the regex requires a closing
+  // unescaped `"`. Walk-backwards approaches were brittle when the cut
+  // point was the OPENING quote of an incomplete entry — regex-extract
+  // sidesteps that entirely.
+  const arrayRegion = text.slice(openIdx);
+  const re = /"([^"\\]*(?:\\.[^"\\]*)*)"/g;
+  const matches = arrayRegion.match(re);
+  if (!matches || matches.length === 0) return null;
   try {
-    const arr = JSON.parse(candidate);
-    return Array.isArray(arr) ? arr : null;
+    return JSON.parse(`[${matches.join(',')}]`);
   } catch {
     return null;
   }
@@ -451,6 +439,17 @@ function stripFenceAndPrefix(raw) {
  * @param {{forceRegex?: boolean, callLLM?: Function, model?: string}} [opts]
  * @returns {Promise<string[]>}
  */
+// Batch size for cluster classification. Empirical 2026-05-07: free-tier
+// LLM providers (cluster in `ai-models.mjs`) cap output near 1024 chars
+// (~250 tokens) regardless of `maxTokens` setting. With 350-headline
+// batches the array got truncated at ~80 entries → 270 entries fell back
+// to regex → all 'generic' cluster → diversity bonus 0 → ranker biased.
+// Batches of 50 produce ~700 chars output (well under cap), 7 sequential
+// calls for a typical 350-headline pool. Sequential to avoid rate limits;
+// each call has its own retry + regex fallback so partial failures don't
+// kill the whole classification.
+const CLASSIFIER_BATCH_SIZE = 50;
+
 export async function classifyHeadlineClusters(headlines, opts = {}) {
   const list = Array.isArray(headlines) ? headlines : [];
   if (list.length === 0) return [];
@@ -472,6 +471,39 @@ export async function classifyHeadlineClusters(headlines, opts = {}) {
     }
   }
 
+  // Batch path: split into chunks of CLASSIFIER_BATCH_SIZE, classify each
+  // separately, concat results. Avoids the output-truncation cliff that
+  // killed full-pool classification on free-tier providers.
+  if (list.length > CLASSIFIER_BATCH_SIZE) {
+    const out = [];
+    let totalOk = 0;
+    let totalFallback = 0;
+    for (let i = 0; i < list.length; i += CLASSIFIER_BATCH_SIZE) {
+      const chunk = list.slice(i, i + CLASSIFIER_BATCH_SIZE);
+      const chunkResult = await classifyChunk(chunk, callLLM, opts);
+      out.push(...chunkResult.clusters);
+      totalOk += chunkResult.okCount;
+      totalFallback += chunkResult.fallbackCount;
+    }
+    const distMap = {};
+    for (const c of out) distMap[c] = (distMap[c] || 0) + 1;
+    const distStr = Object.entries(distMap).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}:${n}`).join(' ');
+    console.warn(`[classifier] batched ${Math.ceil(list.length / CLASSIFIER_BATCH_SIZE)} calls: LLM ok ${totalOk}/${list.length}, regex fallback ${totalFallback}/${list.length} → ${distStr}`);
+    return out;
+  }
+
+  // Single-call path (small batches, including unit tests).
+  const single = await classifyChunk(list, callLLM, opts);
+  return single.clusters;
+}
+
+/**
+ * Classify a single chunk via LLM with regex fallback. Returns an array
+ * of clusters (length = chunk.length) plus diagnostic counts.
+ *
+ * @returns {Promise<{clusters: string[], okCount: number, fallbackCount: number}>}
+ */
+async function classifyChunk(list, callLLM, opts = {}) {
   const prompt = buildClusterClassifierPrompt(list);
   const messages = [
     { role: 'system', content: 'Sei un classificatore preciso. Rispondi SOLO con un array JSON, niente altro.' },
@@ -495,7 +527,8 @@ export async function classifyHeadlineClusters(headlines, opts = {}) {
     });
   } catch (e) {
     console.warn(`[generator] cluster classifier LLM failed, regex fallback: ${e?.message || e}`);
-    return list.map((h) => classifyByRegex(String(h ?? '')));
+    const fallback = list.map((h) => classifyByRegex(String(h ?? '')));
+    return { clusters: fallback, okCount: 0, fallbackCount: list.length };
   }
 
   let parsed;
@@ -512,27 +545,15 @@ export async function classifyHeadlineClusters(headlines, opts = {}) {
     if (!parsed) {
       const preview = stripped.slice(0, 200).replace(/\s+/g, ' ');
       console.warn(`[classifier] LLM returned malformed JSON (parse error: ${e?.message || e}), regex fallback. raw[0..200]: "${preview}"`);
-      return list.map((h) => classifyByRegex(String(h ?? '')));
+      const fallback = list.map((h) => classifyByRegex(String(h ?? '')));
+      return { clusters: fallback, okCount: 0, fallbackCount: list.length };
     }
-    console.warn(`[classifier] LLM returned truncated JSON, recovered ${parsed.length}/${list.length} entries (rest: regex fallback). parse error was: ${e?.message || e}`);
   }
 
   const coerced = coerceClusterArray(parsed, list.length);
-  // If every entry is null we degraded fully — log once.
   const nullCount = coerced.reduce((acc, v) => acc + (v == null ? 1 : 0), 0);
-  if (nullCount === list.length) {
-    console.warn(`[classifier] LLM output rejected (length mismatch or all-null), regex fallback for ${list.length}/${list.length}`);
-  } else if (nullCount > 0) {
-    console.warn(`[classifier] LLM ok ${list.length - nullCount}/${list.length}, regex fallback ${nullCount}/${list.length}`);
-  } else {
-    // Diagnostic: cluster distribution from LLM (per run).
-    const dist = {};
-    for (const c of coerced) dist[c] = (dist[c] || 0) + 1;
-    const distStr = Object.entries(dist).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}:${n}`).join(' ');
-    console.warn(`[classifier] LLM ok ${list.length}/${list.length} → ${distStr}`);
-  }
-
-  return coerced.map((cluster, i) => cluster ?? classifyByRegex(String(list[i] ?? '')));
+  const final = coerced.map((cluster, i) => cluster ?? classifyByRegex(String(list[i] ?? '')));
+  return { clusters: final, okCount: list.length - nullCount, fallbackCount: nullCount };
 }
 
 // ── Headline scoring ───────────────────────────────────────────────
