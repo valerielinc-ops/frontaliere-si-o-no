@@ -857,9 +857,9 @@
     },
     {
       "id": "denner-bd8199764613",
-      "slug": "franchise-e-denner-partenaire-denner",
+      "slug": "partner-franchised-denner-denner-charmey",
       "slugByLocale": {
-        "it": "franchise-e-denner-partenaire-denner",
+        "it": "partner-franchised-denner-denner-charmey",
         "en": "franchise-e-denner-partenaire-denner",
         "de": "franchise-e-denner-partenaire-denner",
         "fr": "franchise-e-denner-partenaire-denner-charmey"
@@ -933,7 +933,15 @@
         }
       },
       "firstSeenAt": "2026-05-06T21:49:04.025Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "franchise-e-denner-partenaire-denner"
+        ]
+      },
+      "previousSlugs": [
+        "franchise-e-denner-partenaire-denner"
+      ]
     },
     {
       "id": "denner-675168afe52f",

@@ -5209,10 +5209,10 @@
     },
     {
       "id": "tether-3223e23f0531",
-      "slug": "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch",
+      "slug": "regolamentazione-e-licensing-lead-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico",
       "slugByLocale": {
         "en": "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch",
-        "it": "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch",
+        "it": "regolamentazione-e-licensing-lead-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico",
         "de": "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch",
         "fr": "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
       },
@@ -5273,7 +5273,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-06T22:47:31.514Z"
+      "firstSeenAt": "2026-05-06T22:47:31.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
+      ]
     }
   ]
 }

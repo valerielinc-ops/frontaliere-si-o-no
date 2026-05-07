@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "hilcona-b7b9fd6857d6",
-      "slug": "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan",
+      "slug": "installatore-operativo-hilcona-ag-schaan",
       "slugByLocale": {
-        "it": "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan",
+        "it": "installatore-operativo-hilcona-ag-schaan",
         "en": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
         "de": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
         "fr": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan"
@@ -46,12 +46,14 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
-        "azienda-installatrice-azienda-installatrice-hilcona-ag-schaan"
+        "azienda-installatrice-azienda-installatrice-hilcona-ag-schaan",
+        "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
-          "azienda-installatrice-azienda-installatrice-hilcona-ag-schaan"
+          "azienda-installatrice-azienda-installatrice-hilcona-ag-schaan",
+          "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan"
         ]
       },
       "needsRetranslation": true,
