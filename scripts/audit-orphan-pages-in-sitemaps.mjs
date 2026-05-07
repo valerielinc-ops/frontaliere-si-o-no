@@ -255,6 +255,8 @@ async function* walkFiles(dir, predicate) {
     return;
   }
   for (const entry of entries) {
+    // Skip dot-prefixed dirs (debug artifacts, not deployed pages).
+    if (entry.isDirectory() && entry.name.startsWith('.')) continue;
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
       yield* walkFiles(full, predicate);
@@ -722,7 +724,7 @@ async function main() {
       process.stderr.write('[audit] FATAL: --gate=baseline invoked but no baseline found.\n');
       process.exit(1);
     }
-    const cmp = compareAgainstBaseline(json, existing, perSitemap);
+    const cmp = compareAgainstBaseline(json, existing, report.perSitemap);
     if (cmp.regressed) {
       const lines = [];
       lines.push('[gate] REGRESSION — orphan-pages-in-sitemaps');

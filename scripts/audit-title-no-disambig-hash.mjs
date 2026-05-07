@@ -83,6 +83,8 @@ async function walk(dir) {
     throw err;
   }
   for (const e of entries) {
+    // Skip dot-prefixed dirs (debug artifacts, not deployed pages).
+    if (e.isDirectory() && e.name.startsWith('.')) continue;
     const p = join(dir, e.name);
     if (e.isDirectory()) {
       out.push(...(await walk(p)));

@@ -40,6 +40,8 @@ const LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
  */
 function* walkHtml(dir) {
   for (const entry of readdirSync(dir)) {
+    // Skip dot-prefixed dirs (debug artifacts, not deployed pages).
+    if (entry.startsWith('.')) continue;
     const full = join(dir, entry);
     const stat = statSync(full);
     if (stat.isDirectory()) {

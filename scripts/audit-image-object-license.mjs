@@ -48,6 +48,8 @@ const JSON_OUT = args.includes('--json');
 function walkHtml(dir, out = []) {
   if (!existsSync(dir)) return out;
   for (const entry of readdirSync(dir)) {
+    // Skip dot-prefixed dirs (debug artifacts, not deployed pages).
+    if (entry.startsWith('.')) continue;
     const full = join(dir, entry);
     const st = statSync(full);
     if (st.isDirectory()) walkHtml(full, out);
