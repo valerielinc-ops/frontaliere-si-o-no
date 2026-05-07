@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2251,
+ "numberOfItems": 2252,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6893,7 +6893,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2248, "name": "Roveredo: il patriziato sciopera contro la gest...", "url": `${BASE_URL}/articoli-frontaliere/roveredo-patriziato-sciopera-gestione-criminalit` },
           { "@type": "ListItem", "position": 2249, "name": "Varese e il Friuli: 50 anni di solidarietà e ri...", "url": `${BASE_URL}/articoli-frontaliere/varese-friuli-solidarieta-2026` },
           { "@type": "ListItem", "position": 2250, "name": "Natura a tavola: cucina vegetale a Lugano con G...", "url": `${BASE_URL}/articoli-frontaliere/natura-tavola-cucina-vegetale-lugano-2024` },
-          { "@type": "ListItem", "position": 2251, "name": "Cambio vertici commissione magistrati Ticino", "url": `${BASE_URL}/articoli-frontaliere/cambiamenti-commissione-magistrati-ticino-2026` }
+          { "@type": "ListItem", "position": 2251, "name": "Cambio vertici commissione magistrati Ticino", "url": `${BASE_URL}/articoli-frontaliere/cambiamenti-commissione-magistrati-ticino-2026` },
+          { "@type": "ListItem", "position": 2252, "name": "Filippo Armati: un ticinese alla guida di Afro-...", "url": `${BASE_URL}/articoli-frontaliere/ticinese-timone-afro-pfingsten` }
  ]
  },
  {

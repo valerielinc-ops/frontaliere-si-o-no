@@ -21161,4 +21161,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ticinese-timone-afro-pfingsten',
+ category: 'novita',
+ date: '2026-05-07T01:19:46.514Z',
+ image: '/images/blog/ticinese-timone-afro-pfingsten.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -6596,6 +6596,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambiamenti-commissione-magistrati-ticino-2026.title': 'Wechsel an der Spitze der Richterkommission im Tessin',
     'blog.article.cambiamenti-commissione-magistrati-ticino-2026.excerpt': 'Emanuela Colombo Epiney tritt aus persönlichen Gründen zurück. Der Grosse Rat wird den Nachfolger ernennen.',
     'blog.article.cambiamenti-commissione-magistrati-ticino-2026.imageAlt': 'Bellinzona mit Castelgrande im Vordergrund',
+    'blog.article.ticinese-timone-afro-pfingsten.title': 'Filippo Armati: Ein Tessinischer an der Spitze von Afro-Pfingsten',
+    'blog.article.ticinese-timone-afro-pfingsten.excerpt': 'Filippo Armati, Choreograf und Kulturschaffender, wurde zum Direktor von Afro-Pfingsten, dem Festival in Winterthur für afrikanische Kulturen und World Music, ernannt.',
+    'blog.article.ticinese-timone-afro-pfingsten.imageAlt': 'Afro-Pfingsten-Festival in Winterthur mit Künstlern aus verschiedenen Kulturen',
 };
 
 export default blogMetaDe;

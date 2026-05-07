@@ -6597,6 +6597,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambiamenti-commissione-magistrati-ticino-2026.title': 'Cambio vertici commissione magistrati Ticino',
     'blog.article.cambiamenti-commissione-magistrati-ticino-2026.excerpt': 'Emanuela Colombo Epiney lascia la presidenza per motivi personali. Il Gran Consiglio nominerà il successore.',
     'blog.article.cambiamenti-commissione-magistrati-ticino-2026.imageAlt': 'Bellinzona con il Castelgrande in primo piano',
+    'blog.article.ticinese-timone-afro-pfingsten.title': 'Filippo Armati: un ticinese alla guida di Afro-Pfingsten',
+    'blog.article.ticinese-timone-afro-pfingsten.excerpt': 'Filippo Armati, coreografo e manager culturale, è stato nominato direttore di Afro-Pfingsten, il festival di Winterthur dedicato alle culture afro e alla world music.',
+    'blog.article.ticinese-timone-afro-pfingsten.imageAlt': 'Festival Afro-Pfingsten a Winterthur con artisti di diverse culture',
 };
 
 export default blogMetaIt;

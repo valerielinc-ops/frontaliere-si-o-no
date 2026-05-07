@@ -24624,6 +24624,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticinese-timone-afro-pfingsten': {
+    title: 'Filippo Armati: un ticinese alla guida di Afro-Pfingsten',
+    description: 'Filippo Armati, coreografo e manager culturale, è stato nominato direttore di Afro-Pfingsten, il festival di Winterthur dedicato alle culture afro e alla world',
+    keywords: 'frontalieri, ticino, svizzera, italia, filippo, armati, ticinese, alla',
+    ogTitle: 'Filippo Armati: un ticinese alla guida di Afro-Pfingsten',
+    ogDescription: 'Scopri chi è Filippo Armati e come sta contribuendo a portare cultura e sostenibilità a Winterthur con Afro-Pfingsten.',
+    canonicalPath: '/articoli-frontaliere/ticinese-timone-afro-pfingsten',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Filippo Armati: un ticinese alla guida di Afro-Pfingsten",
+      "description": "Filippo Armati, coreografo e manager culturale, è stato nominato direttore di Afro-Pfingsten, il festival di Winterthur dedicato alle culture afro e alla world",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "url": `${BASE_URL}/images/blog/ticinese-timone-afro-pfingsten.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festival Afro-Pfingsten a Winterthur con artisti di diverse culture"
+      },
+      "datePublished": "2026-05-07T01:19:46+00:00",
+      "dateModified": "2026-05-07T01:19:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticinese-timone-afro-pfingsten`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
