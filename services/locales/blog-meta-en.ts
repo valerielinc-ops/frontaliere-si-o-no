@@ -6674,6 +6674,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.title': 'Switzerland misses food waste reduction target',
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.excerpt': 'Switzerland\'s action plan to reduce food waste has missed its intermediate target of a 25% reduction. Here\'s what changes for cross-border workers.',
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.imageAlt': 'Grocery store in Lugano with fresh produce and minimal food waste',
+    'blog.article.elon-musk-svizzero-processo-friburgo.title': 'Elon Musk Swiss founder on trial for fraud and financial crimes',
+    'blog.article.elon-musk-svizzero-processo-friburgo.excerpt': 'Pascal Jaussi, founder of Swiss Space Systems, on trial in Fribourg for a 30 million francs hole',
+    'blog.article.elon-musk-svizzero-processo-friburgo.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;

@@ -21395,4 +21395,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'elon-musk-svizzero-processo-friburgo',
+ category: 'novita',
+ date: '2026-05-07T06:26:43.255Z',
+ image: '/images/blog/elon-musk-svizzero-processo-friburgo.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

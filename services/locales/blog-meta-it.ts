@@ -6675,6 +6675,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.title': 'Spreco alimentare in Svizzera: obiettivo intermedio fallito',
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.excerpt': 'Il piano d\'azione contro lo spreco alimentare in Svizzera ha fallito l\'obiettivo intermedio del 25% di riduzione. Ecco cosa cambia per i frontalieri.',
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.imageAlt': 'Supermercato a Lugano con prodotti freschi e poca spreco alimentare',
+    'blog.article.elon-musk-svizzero-processo-friburgo.title': 'Elon Musk svizzero a processo per truffa e reati economici',
+    'blog.article.elon-musk-svizzero-processo-friburgo.excerpt': 'Pascal Jaussi, fondatore di Swiss Space Systems, a processo a Friburgo per un buco di 30 milioni di franchi',
+    'blog.article.elon-musk-svizzero-processo-friburgo.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

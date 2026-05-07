@@ -6674,6 +6674,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.title': 'Lebensmittelverschwendung in der Schweiz: Zwischenziel verfehlt',
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.excerpt': 'Der Aktionsplan gegen Lebensmittelverschwendung in der Schweiz hat das Zwischenziel einer 25%igen Reduktion verfehlt. Hier erfahren Grenzgänger, was sich ändert.',
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.imageAlt': 'Supermarkt in Lugano mit frischen Produkten und wenig Lebensmittelverschwendung',
+    'blog.article.elon-musk-svizzero-processo-friburgo.title': 'Elon Musk Schweizer vor Gericht wegen Betrugs und Wirtschaftsverbrechen',
+    'blog.article.elon-musk-svizzero-processo-friburgo.excerpt': 'Pascal Jaussi, Gründer von Swiss Space Systems, steht in Freiburg wegen eines Lochs von 30 Millionen Franken vor Gericht',
+    'blog.article.elon-musk-svizzero-processo-friburgo.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -6675,6 +6675,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.title': 'Gaspillage alimentaire en Suisse: objectif intermédiaire manqué',
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.excerpt': 'Le plan d\'action contre le gaspillage alimentaire en Suisse a échoué à atteindre l\'objectif intermédiaire de réduction de 25%. Voici ce qui change pour les frontaliers.',
     'blog.article.spreco-alimentare-svizzera-obiettivo-fallito.imageAlt': 'Supermarché à Lugano avec des produits frais et peu de gaspillage alimentaire',
+    'blog.article.elon-musk-svizzero-processo-friburgo.title': 'Elon Musk suisse jugé pour fraude et crimes économiques',
+    'blog.article.elon-musk-svizzero-processo-friburgo.excerpt': 'Pascal Jaussi, fondateur de Swiss Space Systems, jugé à Fribourg pour un trou de 30 millions de francs',
+    'blog.article.elon-musk-svizzero-processo-friburgo.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;
