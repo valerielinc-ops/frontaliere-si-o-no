@@ -43,15 +43,28 @@ const ENDPOINTS = [
     sub: 'italy',
     url:
       'https://www.reddit.com/r/italy/search.json?q=' +
-      encodeURIComponent('frontalieri OR grenzgaenger') +
+      encodeURIComponent(
+        'frontalieri OR "permesso G" OR "busta paga svizzera" OR chiasso OR "tasse svizzera"',
+      ) +
       '&sort=new&limit=50&restrict_sr=1',
     rssUrl:
       'https://www.reddit.com/r/italy/search.rss?q=' +
-      encodeURIComponent('frontalieri OR grenzgaenger') +
+      encodeURIComponent(
+        'frontalieri OR "permesso G" OR "busta paga svizzera" OR chiasso OR "tasse svizzera"',
+      ) +
       '&sort=new&restrict_sr=1',
-    fallbackHtml: 'https://old.reddit.com/r/italy/search?q=frontalieri&restrict_sr=on',
+    fallbackHtml:
+      'https://old.reddit.com/r/italy/search?q=' +
+      encodeURIComponent(
+        'frontalieri OR "permesso G" OR "busta paga svizzera" OR chiasso OR "tasse svizzera"',
+      ) +
+      '&restrict_sr=on',
     fallbackHtmlModern:
-      'https://www.reddit.com/r/italy/search/?q=frontalieri&restrict_sr=1&sort=new',
+      'https://www.reddit.com/r/italy/search/?q=' +
+      encodeURIComponent(
+        'frontalieri OR "permesso G" OR "busta paga svizzera" OR chiasso OR "tasse svizzera"',
+      ) +
+      '&restrict_sr=1&sort=new',
   },
   {
     sourceKey: 'redditLugano',
@@ -121,6 +134,23 @@ export function isQuestionTitle(title) {
   const t = title.trim();
   if (t.endsWith('?')) return true;
   return QUESTION_PREFIX.test(t);
+}
+
+// r/Switzerland search returns mixed EN/DE/FR/IT posts. The English-language
+// posts dominate the top scores but produce zero-value candidates for an
+// IT-language frontaliere blog ("SBB controllers getting bonuses for fines?").
+// Drop only on a CONFIDENT non-IT detection; if detectLocale falls back to 'it'
+// (its default for low-confidence input) or throws, keep the post — better to
+// over-include than to silently drop borderline IT titles.
+export function isItLocaleConfident(title) {
+  if (!title || typeof title !== 'string') return true;
+  try {
+    const locale = detectLocale(title);
+    if (locale == null) return true; // null/undefined → fail-safe keep
+    return locale === 'it';
+  } catch {
+    return true; // detector threw → fail-safe keep
+  }
 }
 
 export function passesFilters(post) {
@@ -432,6 +462,14 @@ export async function fetchRedditCandidates(opts = {}) {
       } catch {
         posts = [];
       }
+    }
+
+    // r/Switzerland-only locale filter: drop posts whose title is confidently
+    // EN/DE/FR. Other endpoints (Ticino, Lugano, Italy) are naturally IT-skewed
+    // and do not need this filter — applying it there would risk dropping
+    // brand-/proper-noun-heavy IT titles that detectLocale may misclassify.
+    if (ep.sourceKey === 'redditSwitzerland') {
+      posts = posts.filter((p) => isItLocaleConfident(p?.title));
     }
 
     const candidates = [];
