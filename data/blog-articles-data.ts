@@ -22070,4 +22070,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cross-border-teleworking-2026',
+ category: 'pratico',
+ date: '2026-05-07T21:51:18.090Z',
+ image: '/images/blog/cross-border-teleworking-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

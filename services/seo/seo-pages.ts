@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2352,
+ "numberOfItems": 2353,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6994,7 +6994,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2349, "name": "PFAS nell'acqua potabile: San Antonino attiva f...", "url": `${BASE_URL}/articoli-frontaliere/pfas-filtrazione-san-antonino-2026` },
           { "@type": "ListItem", "position": 2350, "name": "Auto in fiamme a Bellinzona-Sud, A2 riaperta", "url": `${BASE_URL}/articoli-frontaliere/incendio-auto-bellinzona-sud-2026` },
           { "@type": "ListItem", "position": 2351, "name": "Pari opportunità nella cultura: a Lugano una pr...", "url": `${BASE_URL}/articoli-frontaliere/pari-opportunita-cultura-lugano-2026` },
-          { "@type": "ListItem", "position": 2352, "name": "Mari Froes e Leo Middea in concerto a Lugano", "url": `${BASE_URL}/articoli-frontaliere/brasile-mari-froes-leo-middea-lugano` }
+          { "@type": "ListItem", "position": 2352, "name": "Mari Froes e Leo Middea in concerto a Lugano", "url": `${BASE_URL}/articoli-frontaliere/brasile-mari-froes-leo-middea-lugano` },
+          { "@type": "ListItem", "position": 2353, "name": "Lavoratori frontalieri e telelavoro: cosa cambi...", "url": `${BASE_URL}/articoli-frontaliere/cross-border-teleworking-2026` }
  ]
  },
  {

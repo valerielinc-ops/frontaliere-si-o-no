@@ -6899,6 +6899,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.brasile-mari-froes-leo-middea-lugano.title': 'Mari Froes und Leo Middea in Lugano',
     'blog.article.brasile-mari-froes-leo-middea-lugano.excerpt': 'Brasilianischer Abend beim Lugano LongLake Festival mit Mari Froes und Leo Middea, 14. Juli 2026 im Parco Ciani',
     'blog.article.brasile-mari-froes-leo-middea-lugano.imageAlt': 'Bühne des Lugano LongLake Festival im Parco Ciani mit brasilianischen Künstlern, Sommerabend',
+    'blog.article.cross-border-teleworking-2026.title': 'Grenzgänger und Telearbeit: Änderungen ab 2026',
+    'blog.article.cross-border-teleworking-2026.excerpt': 'Neue Regeln für Grenzgänger, die von zu Hause in Italien arbeiten. Erfahren Sie, was sich ändert und wie Sie sich anpassen können.',
+    'blog.article.cross-border-teleworking-2026.imageAlt': 'Grenzgänger in einem Coworking-Space in Lugano mit Blick auf den See',
 };
 
 export default blogMetaDe;
