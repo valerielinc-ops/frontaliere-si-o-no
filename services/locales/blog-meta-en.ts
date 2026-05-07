@@ -6641,6 +6641,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ex-casa-comunale-lopagno-vendita.title': 'Former municipal house of Lopagno for sale: minimum price and deadlines',
     'blog.article.ex-casa-comunale-lopagno-vendita.excerpt': 'The Municipality of Capriasca is selling the former municipal house of Lopagno for a minimum price of 315,000 francs. Bidding deadline: July 31.',
     'blog.article.ex-casa-comunale-lopagno-vendita.imageAlt': 'Panoramic view of Lake Lugano with a historic building in the background',
+    'blog.article.ascensione-pentecoste-viaggi-2026.title': 'Ascension and Pentecost: 2026 travel destinations',
+    'blog.article.ascensione-pentecoste-viaggi-2026.excerpt': 'Discover the most popular destinations for the 2026 holidays and how to reach them by train or plane',
+    'blog.article.ascensione-pentecoste-viaggi-2026.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

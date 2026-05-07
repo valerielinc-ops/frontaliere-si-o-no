@@ -6642,6 +6642,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ex-casa-comunale-lopagno-vendita.title': 'Ex casa comunale di Lopagno in vendita: prezzo minimo e scadenze',
     'blog.article.ex-casa-comunale-lopagno-vendita.excerpt': 'Il Municipio di Capriasca mette in vendita l\'ex casa comunale di Lopagno a un prezzo minimo di 315.000 franchi. Scadenza offerte: 31 luglio.',
     'blog.article.ex-casa-comunale-lopagno-vendita.imageAlt': 'Vista panoramica del Lago di Lugano con un edificio storico sullo sfondo',
+    'blog.article.ascensione-pentecoste-viaggi-2026.title': 'Ascensione e Pentecoste: mete e viaggi 2026',
+    'blog.article.ascensione-pentecoste-viaggi-2026.excerpt': 'Scopri le destinazioni più gettonate per le festività 2026 e come raggiungerle in treno o aereo',
+    'blog.article.ascensione-pentecoste-viaggi-2026.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

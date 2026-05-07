@@ -6641,6 +6641,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ex-casa-comunale-lopagno-vendita.title': 'Ehemaliges Gemeindehaus in Lopagno zum Verkauf',
     'blog.article.ex-casa-comunale-lopagno-vendita.excerpt': 'Die Gemeinde Capriasca verkauft das ehemalige Gemeindehaus in Lopagno zu einem Mindestpreis von 315.000 Franken. Angebotsfrist: 31. Juli.',
     'blog.article.ex-casa-comunale-lopagno-vendita.imageAlt': 'Panoramablick auf den Luganersee mit einem historischen Gebäude im Hintergrund',
+    'blog.article.ascensione-pentecoste-viaggi-2026.title': 'Aufstieg und Pfingsten: Reiseziele 2026',
+    'blog.article.ascensione-pentecoste-viaggi-2026.excerpt': 'Entdecken Sie die beliebtesten Reiseziele für die Feiertage 2026 und wie Sie diese mit dem Zug oder Flugzeug erreichen können',
+    'blog.article.ascensione-pentecoste-viaggi-2026.imageAlt': 'Panoramablick auf den Luganersee mit umliegenden Bergen',
 };
 
 export default blogMetaDe;

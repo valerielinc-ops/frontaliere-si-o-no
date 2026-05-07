@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2266,
+ "numberOfItems": 2267,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6908,7 +6908,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2263, "name": "9 maggio: esponiamo la bandiera dell'Unione Eur...", "url": `${BASE_URL}/articoli-frontaliere/9-maggio-europa-bandiera-unione` },
           { "@type": "ListItem", "position": 2264, "name": "Scuole Materne Gallarate: crisi non è fatalità,...", "url": `${BASE_URL}/articoli-frontaliere/scuole-materne-gallarate-crisi-piano-2026` },
           { "@type": "ListItem", "position": 2265, "name": "Regazzi rieletto all'USAM: burocrazia e iniziat...", "url": `${BASE_URL}/articoli-frontaliere/regazzi-rieletto-usam-burocrazia-udc` },
-          { "@type": "ListItem", "position": 2266, "name": "Ex casa comunale di Lopagno in vendita: prezzo ...", "url": `${BASE_URL}/articoli-frontaliere/ex-casa-comunale-lopagno-vendita` }
+          { "@type": "ListItem", "position": 2266, "name": "Ex casa comunale di Lopagno in vendita: prezzo ...", "url": `${BASE_URL}/articoli-frontaliere/ex-casa-comunale-lopagno-vendita` },
+          { "@type": "ListItem", "position": 2267, "name": "Ascensione e Pentecoste: mete e viaggi 2026", "url": `${BASE_URL}/articoli-frontaliere/ascensione-pentecoste-viaggi-2026` }
  ]
  },
  {

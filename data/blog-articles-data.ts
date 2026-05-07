@@ -21296,4 +21296,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ascensione-pentecoste-viaggi-2026',
+ category: 'pratico',
+ date: '2026-05-07T04:38:30.823Z',
+ image: '/images/blog/ascensione-pentecoste-viaggi-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
