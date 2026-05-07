@@ -6872,6 +6872,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casse-malati-frontalieri-ticino.title': 'Würden Sie die Krankenkassen auch als arrogant empfinden?',
     'blog.article.casse-malati-frontalieri-ticino.excerpt': 'Entdecken Sie, wie Grenzgänger aus dem Tessin die Herausforderungen mit den Schweizer Krankenkassen bewältigen können und welche Rechte sie haben.',
     'blog.article.casse-malati-frontalieri-ticino.imageAlt': 'Person mit Krankenversicherungsformular am Luganersee',
+    'blog.article.artekrea-open-days-varese-2026.title': 'Open Days ArteKrea in Varese: Wohlbefinden und Kreativität vom 15. bis 17. Mai',
+    'blog.article.artekrea-open-days-varese-2026.excerpt': 'Drei Tage kostenlose Aktivitäten wie Yoga, Tai Chi, ganzheitliche Behandlungen und kreative Workshops in Varese. Anmeldung erforderlich.',
+    'blog.article.artekrea-open-days-varese-2026.imageAlt': 'Menschen praktizieren Yoga und Tai Chi in einem hellen Raum mit Blick auf die Alpen',
 };
 
 export default blogMetaDe;

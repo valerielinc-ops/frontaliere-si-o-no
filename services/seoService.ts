@@ -3533,6 +3533,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-solidale-2026-frontalieri': { name: 'Varese Solidale', path: '/articoli-frontaliere/varese-solidale-2026-frontalieri', parent: 'blog' },
     'blog-festa-mamma-palazzo-lombardia-2026': { name: 'Eventi', path: '/articoli-frontaliere/festa-mamma-palazzo-lombardia-2026', parent: 'blog' },
     'blog-casse-malati-frontalieri-ticino': { name: 'Casse malati', path: '/articoli-frontaliere/casse-malati-frontalieri-ticino', parent: 'blog' },
+    'blog-artekrea-open-days-varese-2026': { name: 'Open Days ArteKrea', path: '/articoli-frontaliere/artekrea-open-days-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

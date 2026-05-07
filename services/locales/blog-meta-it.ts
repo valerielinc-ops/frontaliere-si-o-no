@@ -6873,6 +6873,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casse-malati-frontalieri-ticino.title': 'Anche a voi quelli della cassa malati sembrano arroganti?',
     'blog.article.casse-malati-frontalieri-ticino.excerpt': 'Scopri come i frontalieri del Ticino possono affrontare le sfide con le casse malati svizzere e quali sono i loro diritti.',
     'blog.article.casse-malati-frontalieri-ticino.imageAlt': 'Persona con modulo assicurazione sanitaria sul Lago di Lugano',
+    'blog.article.artekrea-open-days-varese-2026.title': 'Open Days ArteKrea a Varese: benessere e creatività dal 15 al 17 maggio',
+    'blog.article.artekrea-open-days-varese-2026.excerpt': 'Tre giorni di attività gratuite tra yoga, tai chi, trattamenti olistici e laboratori creativi a Varese. Prenotazione obbligatoria.',
+    'blog.article.artekrea-open-days-varese-2026.imageAlt': 'Persone praticano yoga e tai chi in una stanza luminosa con vista sulle Alpi',
 };
 
 export default blogMetaIt;

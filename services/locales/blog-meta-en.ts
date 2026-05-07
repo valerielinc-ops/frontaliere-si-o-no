@@ -6872,6 +6872,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casse-malati-frontalieri-ticino.title': 'Do Swiss health insurers seem arrogant to you too?',
     'blog.article.casse-malati-frontalieri-ticino.excerpt': 'Discover how Ticino cross-border workers can tackle challenges with Swiss health insurers and what their rights are.',
     'blog.article.casse-malati-frontalieri-ticino.imageAlt': 'Person holding health insurance form by Lake Lugano',
+    'blog.article.artekrea-open-days-varese-2026.title': 'ArteKrea Open Days in Varese: Wellness & Creativity May 15-17',
+    'blog.article.artekrea-open-days-varese-2026.excerpt': 'Three days of free activities including yoga, tai chi, holistic treatments, and creative workshops in Varese. Booking required.',
+    'blog.article.artekrea-open-days-varese-2026.imageAlt': 'People practicing yoga and tai chi in a bright room with a view of the Alps',
 };
 
 export default blogMetaEn;

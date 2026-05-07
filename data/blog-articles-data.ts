@@ -21989,4 +21989,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'artekrea-open-days-varese-2026',
+ category: 'pratico',
+ date: '2026-05-07T20:52:48.950Z',
+ image: '/images/blog/artekrea-open-days-varese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
