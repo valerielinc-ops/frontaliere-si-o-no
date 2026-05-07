@@ -20,7 +20,7 @@ import { evaluateAlerts, activeAlerts, dormantAlerts } from '../services/weather
 import { parseWeatherSnapshot, type AlertState, type WeatherSnapshot } from '../services/weather/types';
 import type { Locale } from '../services/weather/wmoCodes';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { svgArrowRight, svgBell, svgFacebook, svgLinkedin, svgMail } from './weatherIconsHelper';
+import { svgArrowRight, svgFacebook, svgLinkedin, svgMail } from './weatherIconsHelper';
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -444,32 +444,30 @@ function renderCta(locale: Locale, acquisitionSource: string): string {
   const followLabel = locale === 'it' ? 'Seguici anche su' : locale === 'en' ? 'Follow us also on' : locale === 'de' ? 'Folge uns auch auf' : 'Suivez-nous aussi sur';
   const privacy = locale === 'it' ? 'Privacy garantita.' : locale === 'en' ? 'Privacy protected.' : locale === 'de' ? 'Privatsphäre geschützt.' : 'Confidentialité protégée.';
 
-  return `<section class="relative overflow-hidden bg-gradient-to-br from-accent to-accent/80 text-white rounded-3xl p-6 sm:p-8 my-8 max-w-3xl mx-auto shadow-lg" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
-<div class="absolute -top-12 -right-12 text-white/10 pointer-events-none" aria-hidden="true">${svgBell(180)}</div>
-<div class="relative">
-<div class="flex items-start gap-3 mb-3">
-<span class="bg-white/15 rounded-full p-2 shrink-0">${svgMail(24)}</span>
-<div class="min-w-0 flex-1">
-<h2 class="text-xl sm:text-2xl font-bold leading-tight">${escapeHtml(heading)}</h2>
-<p class="text-white/85 text-sm sm:text-base mt-1">${escapeHtml(sub)}</p>
+  // Pattern allineato a components/community/Newsletter.tsx: bg-gradient
+  // info-strong → success-strong, text-on-accent, font-display, rounded-2xl,
+  // input bg-on-accent/15, button bg-surface text-info font-bold.
+  return `<section class="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 my-8 max-w-2xl mx-auto text-on-accent" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
+<div class="flex items-center gap-3 mb-3">
+<span class="p-2 bg-on-accent/20 rounded-xl shrink-0">${svgMail(22)}</span>
+<h3 class="font-bold text-lg" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h3>
 </div>
-</div>
-<form class="mt-5 flex flex-col sm:flex-row gap-2" data-newsletter-form action="/api/newsletter-subscribe" method="post" novalidate>
+<p class="text-on-accent/80 text-sm mb-4">${escapeHtml(sub)}</p>
+<form class="flex gap-2" data-newsletter-form action="/api/newsletter-subscribe" method="post" novalidate>
 <label class="sr-only" for="alert-newsletter-email-${escapeHtml(acquisitionSource)}">${placeholder}</label>
-<input id="alert-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-1 min-w-0 px-4 py-3 rounded-xl bg-white/95 text-heading placeholder:text-muted border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/60 text-base">
+<input id="alert-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-grow px-4 py-2.5 bg-on-accent/15 border border-on-accent/25 rounded-xl text-on-accent placeholder-on-accent/50 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-on-accent/50">
 <input type="hidden" name="acquisitionSource" value="${escapeHtml(acquisitionSource)}">
 <input type="hidden" name="locale" value="${locale}">
-<button type="submit" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-accent font-semibold hover:bg-white/90 active:scale-[0.98] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-white/60">
-<span>${escapeHtml(cta)}</span>${svgArrowRight(18)}
+<button type="submit" class="px-5 py-2.5 bg-surface text-info font-bold text-sm rounded-xl hover:bg-info-subtle transition-colors flex items-center gap-2">
+<span>${escapeHtml(cta)}</span>${svgArrowRight(16)}
 </button>
 </form>
-<div class="mt-5 flex items-center justify-between flex-wrap gap-3">
-<p class="text-xs text-white/75">${escapeHtml(privacy)}</p>
-<div class="flex items-center gap-2 text-xs text-white/85">
+<div class="mt-4 flex items-center justify-between flex-wrap gap-3">
+<p class="text-xs text-on-accent/70">${escapeHtml(privacy)}</p>
+<div class="flex items-center gap-2 text-xs text-on-accent/80">
 <span>${escapeHtml(followLabel)}</span>
-<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="bg-white/15 hover:bg-white/25 rounded-full p-1.5 transition-colors">${svgFacebook(16)}</a>
-<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="bg-white/15 hover:bg-white/25 rounded-full p-1.5 transition-colors">${svgLinkedin(16)}</a>
-</div>
+<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="text-on-accent/80 hover:text-on-accent transition-colors">${svgFacebook(16)}</a>
+<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="text-on-accent/80 hover:text-on-accent transition-colors">${svgLinkedin(16)}</a>
 </div>
 </div>
 </section>`;

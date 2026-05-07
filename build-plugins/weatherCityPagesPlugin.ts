@@ -182,17 +182,23 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
   };
   const methodology = renderHubMethodology(locale);
   const climateNotes = renderHubClimateNotes(locale);
+  const ctaHtml = renderCta(locale, 'weather-hub');
   return wrapHtml({
     locale, title, description, canonical, distDir,
     hreflangs: hubHreflangs,
     bodyHtml: `
-<header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(HUB_TITLE[locale])}</h1>
-<p class="text-base sm:text-lg text-body">${escapeHtml(HUB_TAGLINE[locale])}</p></header>
-<section class="my-6 max-w-3xl mx-auto"><p class="text-body leading-relaxed">${escapeHtml(intro)}</p></section>
-<section class="my-6 max-w-3xl mx-auto"><div class="bg-surface rounded-2xl border border-edge overflow-hidden">${cityRows}</div></section>
+${weatherFontsAndStyle()}
+${iconSprite()}
+<div data-weather-page>
+<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-stone-900 mb-2 leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(HUB_TITLE[locale])}</h1>
+<p class="text-base sm:text-lg text-stone-600 max-w-2xl">${escapeHtml(HUB_TAGLINE[locale])}</p></header>
+<section class="my-6 max-w-3xl mx-auto"><p class="text-stone-700 leading-relaxed">${escapeHtml(intro)}</p></section>
+<section class="my-6 max-w-3xl mx-auto"><ul class="bg-white rounded-2xl border border-stone-200 overflow-hidden divide-y divide-stone-100">${cityRows}</ul></section>
+${ctaHtml}
 ${climateNotes}
 ${methodology}
-<section class="my-8 max-w-3xl mx-auto pt-6 border-t border-edge"><p class="text-xs text-muted leading-relaxed">${attributionInline(locale, snap?.generatedAt)}</p></section>
+<section class="my-10 max-w-2xl mx-auto pt-6 border-t border-stone-200"><p class="text-xs text-stone-500 leading-relaxed">${attributionInline(locale, snap?.generatedAt)}</p></section>
+</div>
 `,
     generatedAt: snap?.generatedAt,
     breadcrumbs: [
@@ -244,8 +250,13 @@ function renderHubRow(locale: Locale, city: WeatherCity, cw?: CityWeather): stri
   const url = `${localePath}/${HUB_SLUG[locale]}/${slug}/`;
   const tempStr = cw ? `${Math.round(cw.current.temperature)}°` : '—';
   const condition = cw ? wmoText(cw.current.weatherCode, locale) : labelUnavailable(locale);
-  const country = city.country === 'CH' ? '🇨🇭' : '🇮🇹';
-  return `<a class="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_2fr_2fr_auto_auto] gap-3 sm:gap-4 items-center px-4 py-3 sm:py-4 hover:bg-surface-alt border-b border-edge last:border-0 transition-colors" href="${url}"><span class="text-xl" aria-hidden="true">${country}</span><span class="font-semibold text-heading">${escapeHtml(city.name)}</span><span class="hidden sm:inline text-sm text-muted">${escapeHtml(city.region[locale])}</span><span class="text-lg font-bold text-heading tabular-nums">${tempStr}</span><span class="hidden sm:inline text-sm text-body">${escapeHtml(condition)}</span></a>`;
+  const iconHtml = cw
+    ? `<span class="${colorForWmo(cw.current.weatherCode)} flex justify-center" aria-hidden="true">${useForWmo(cw.current.weatherCode, 24)}</span>`
+    : `<span class="text-stone-300 flex justify-center" aria-hidden="true">—</span>`;
+  const countryBadge = city.country === 'CH'
+    ? `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-700 text-[10px] font-bold border border-rose-100" aria-label="Svizzera">CH</span>`
+    : `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-100" aria-label="Italia">IT</span>`;
+  return `<li><a class="grid grid-cols-[auto_28px_1fr_auto] sm:grid-cols-[auto_28px_2fr_2fr_auto_auto] gap-3 sm:gap-4 items-center px-4 py-3 sm:py-4 hover:bg-orange-50/40 transition-colors" href="${url}">${countryBadge}${iconHtml}<span class="font-semibold text-stone-900 truncate">${escapeHtml(city.name)}</span><span class="hidden sm:inline text-sm text-stone-500 truncate">${escapeHtml(city.region[locale])}</span><span class="text-lg font-bold text-stone-900 tabular-nums">${tempStr}</span><span class="hidden sm:inline text-sm text-stone-600 truncate">${escapeHtml(condition)}</span></a></li>`;
 }
 
 function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefined, generatedAt: string | undefined, distDir: string): string {
@@ -570,32 +581,32 @@ function renderCta(locale: Locale, acquisitionSource: string): string {
   const followLabel = locale === 'it' ? 'Seguici anche su' : locale === 'en' ? 'Follow us also on' : locale === 'de' ? 'Folge uns auch auf' : 'Suivez-nous aussi sur';
   const privacy = locale === 'it' ? 'Privacy garantita.' : locale === 'en' ? 'Privacy protected.' : locale === 'de' ? 'Privatsphäre geschützt.' : 'Confidentialité protégée.';
 
-  // Form posts to the standard newsletter subscribe handler — the SPA hydration
-  // intercepts the submit and routes it through the same Cloud Function as the
-  // popup, tagged with `acquisitionSource` for downstream analytics.
-  return `<section class="bg-stone-900 text-stone-50 rounded-3xl p-6 sm:p-8 my-10 max-w-2xl mx-auto" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
-<div class="flex items-start gap-3 mb-4">
-<span class="bg-orange-500/20 text-orange-300 rounded-full p-2 shrink-0">${useMail(22)}</span>
-<div class="min-w-0 flex-1">
-<h2 class="text-xl sm:text-2xl font-medium leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2>
-<p class="text-stone-300 text-sm mt-1.5 leading-relaxed">${escapeHtml(sub)}</p>
+  // Pattern allineato a components/community/Newsletter.tsx:
+  // bg-gradient-to-r from-info-strong to-success-strong, text-on-accent,
+  // font-display, rounded-2xl, input bg-on-accent/15 border on-accent/25,
+  // button bg-surface text-info font-bold. Form posta al subscribe handler
+  // standard, SPA hydration intercetta e tagga con acquisitionSource.
+  return `<section class="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 my-10 max-w-2xl mx-auto text-on-accent" data-newsletter-cta data-acquisition-source="${escapeHtml(acquisitionSource)}">
+<div class="flex items-center gap-3 mb-3">
+<span class="p-2 bg-on-accent/20 rounded-xl shrink-0">${useMail(22)}</span>
+<h3 class="font-bold text-lg" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h3>
 </div>
-</div>
-<form class="mt-5 flex flex-col sm:flex-row gap-2" data-newsletter-form action="/api/newsletter-subscribe" method="post" novalidate>
+<p class="text-on-accent/80 text-sm mb-4">${escapeHtml(sub)}</p>
+<form class="flex gap-2" data-newsletter-form action="/api/newsletter-subscribe" method="post" novalidate>
 <label class="sr-only" for="weather-newsletter-email-${escapeHtml(acquisitionSource)}">${placeholder}</label>
-<input id="weather-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-1 min-w-0 px-4 py-3 rounded-xl bg-stone-800 text-stone-50 placeholder:text-stone-500 border border-stone-700 focus:outline-none focus:ring-2 focus:ring-orange-400/60 focus:border-orange-400/60 text-base">
+<input id="weather-newsletter-email-${escapeHtml(acquisitionSource)}" type="email" name="email" required autocomplete="email" placeholder="${escapeHtml(placeholder)}" class="flex-grow px-4 py-2.5 bg-on-accent/15 border border-on-accent/25 rounded-xl text-on-accent placeholder-on-accent/50 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-on-accent/50">
 <input type="hidden" name="acquisitionSource" value="${escapeHtml(acquisitionSource)}">
 <input type="hidden" name="locale" value="${locale}">
-<button type="submit" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-orange-500 text-stone-900 font-semibold hover:bg-orange-400 active:scale-[0.98] transition-all focus:outline-none focus:ring-2 focus:ring-orange-300">
-<span>${escapeHtml(cta)}</span>${useArrow(18)}
+<button type="submit" class="px-5 py-2.5 bg-surface text-info font-bold text-sm rounded-xl hover:bg-info-subtle transition-colors flex items-center gap-2">
+<span>${escapeHtml(cta)}</span>${useArrow(16)}
 </button>
 </form>
-<div class="mt-5 pt-4 border-t border-stone-800 flex items-center justify-between flex-wrap gap-3">
-<p class="text-xs text-stone-400">${escapeHtml(privacy)}</p>
-<div class="flex items-center gap-2 text-xs text-stone-400">
+<div class="mt-4 flex items-center justify-between flex-wrap gap-3">
+<p class="text-xs text-on-accent/70">${escapeHtml(privacy)}</p>
+<div class="flex items-center gap-2 text-xs text-on-accent/80">
 <span>${escapeHtml(followLabel)}</span>
-<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="text-stone-400 hover:text-orange-300 transition-colors">${useFacebook(16)}</a>
-<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="text-stone-400 hover:text-orange-300 transition-colors">${useLinkedin(16)}</a>
+<a href="https://www.facebook.com/profile.php?id=61588174947294" rel="noopener" target="_blank" aria-label="Facebook" class="text-on-accent/80 hover:text-on-accent transition-colors">${useFacebook(16)}</a>
+<a href="https://www.linkedin.com/company/frontaliere-ticino" rel="noopener" target="_blank" aria-label="LinkedIn" class="text-on-accent/80 hover:text-on-accent transition-colors">${useLinkedin(16)}</a>
 </div>
 </div>
 </section>`;
