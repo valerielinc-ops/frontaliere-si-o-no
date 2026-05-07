@@ -27803,6 +27803,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-filtrazione-carbone-attivo-san-antonino': {
+    title: 'Pfas nell’acqua: Sant’Antonino attiva filtrazione a carbone attivo',
+    description: 'Il nuovo sistema riduce i Pfas a valori inferiori ai 2 ng/l, finanziato interamente dalla Confederazione. Ecco cosa cambia per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, pfas, nell, acqua, sant',
+    ogTitle: 'Pfas nell’acqua: Sant’Antonino attiva filtrazione a carbone attivo',
+    ogDescription: 'Il nuovo sistema riduce i Pfas a valori inferiori ai 2 ng/l, finanziato interamente dalla Confederazione. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/filtrazione-carbone-attivo-san-antonino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pfas nell’acqua: Sant’Antonino attiva filtrazione a carbone attivo",
+      "description": "Il nuovo sistema riduce i Pfas a valori inferiori ai 2 ng/l, finanziato interamente dalla Confederazione. Ecco cosa cambia per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/filtrazione-carbone-attivo-san-antonino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto di filtrazione dell'acqua a Sant'Antonino, Ticino"
+      },
+      "datePublished": "2026-05-07T19:19:11+00:00",
+      "dateModified": "2026-05-07T19:19:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/filtrazione-carbone-attivo-san-antonino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

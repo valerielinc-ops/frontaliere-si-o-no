@@ -6842,6 +6842,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traduzione-documenti-finanziari-visto.title': 'Translating financial documents for a Swiss visa: what to know',
     'blog.article.traduzione-documenti-finanziari-visto.excerpt': 'Practical guide for cross-border workers on how to translate financial documents for a Swiss visa',
     'blog.article.traduzione-documenti-finanziari-visto.imageAlt': 'Panoramic view of Lake Lugano with the city of Lugano in the background',
+    'blog.article.filtrazione-carbone-attivo-san-antonino.title': 'Pfas in water: Sant\'Antonino activates carbon filtration',
+    'blog.article.filtrazione-carbone-attivo-san-antonino.excerpt': 'The new system reduces Pfas to values below 2 ng/l, fully funded by the Confederation. Here\'s what changes for cross-border workers.',
+    'blog.article.filtrazione-carbone-attivo-san-antonino.imageAlt': 'Water filtration plant in Sant\'Antonino, Ticino',
 };
 
 export default blogMetaEn;

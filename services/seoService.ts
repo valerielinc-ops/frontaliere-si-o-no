@@ -3523,6 +3523,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-turismo-varesotto-2026-frontalieri': { name: 'Turismo Varesotto', path: '/articoli-frontaliere/turismo-varesotto-2026-frontalieri', parent: 'blog' },
     'blog-filtri-pfas-san-antonino-2024': { name: 'San Antonino PFAS', path: '/articoli-frontaliere/filtri-pfas-san-antonino-2024', parent: 'blog' },
     'blog-traduzione-documenti-finanziari-visto': { name: 'Traduzione documenti', path: '/articoli-frontaliere/traduzione-documenti-finanziari-visto', parent: 'blog' },
+    'blog-filtrazione-carbone-attivo-san-antonino': { name: 'Filtrazione carbone attivo', path: '/articoli-frontaliere/filtrazione-carbone-attivo-san-antonino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

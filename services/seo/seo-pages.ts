@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2333,
+ "numberOfItems": 2334,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6975,7 +6975,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2330, "name": "Colf e badanti in Ticino: +122 mila in tre anni", "url": `${BASE_URL}/articoli-frontaliere/colf-badanti-ticino-2029` },
           { "@type": "ListItem", "position": 2331, "name": "Turismo nel Varesotto: numeri 2026 e opportunit...", "url": `${BASE_URL}/articoli-frontaliere/turismo-varesotto-2026-frontalieri` },
           { "@type": "ListItem", "position": 2332, "name": "San Antonino: nuovi filtri PFAS in funzione", "url": `${BASE_URL}/articoli-frontaliere/filtri-pfas-san-antonino-2024` },
-          { "@type": "ListItem", "position": 2333, "name": "Traduzione documenti finanziari per visto: cosa...", "url": `${BASE_URL}/articoli-frontaliere/traduzione-documenti-finanziari-visto` }
+          { "@type": "ListItem", "position": 2333, "name": "Traduzione documenti finanziari per visto: cosa...", "url": `${BASE_URL}/articoli-frontaliere/traduzione-documenti-finanziari-visto` },
+          { "@type": "ListItem", "position": 2334, "name": "Pfas nell’acqua: Sant’Antonino attiva filtrazio...", "url": `${BASE_URL}/articoli-frontaliere/filtrazione-carbone-attivo-san-antonino` }
  ]
  },
  {

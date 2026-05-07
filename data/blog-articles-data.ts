@@ -21899,4 +21899,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'filtrazione-carbone-attivo-san-antonino',
+ category: 'pratico',
+ date: '2026-05-07T19:19:11.710Z',
+ image: '/images/blog/filtrazione-carbone-attivo-san-antonino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
