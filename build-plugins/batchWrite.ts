@@ -67,8 +67,24 @@ export async function flushWrites(writes: PendingWrite[], concurrency = 500): Pr
  return written;
 }
 
-/** Default threshold above which add() kicks off a background flush. */
-const DEFAULT_AUTO_FLUSH_THRESHOLD = 5000;
+/**
+ * Default threshold above which add() kicks off a background flush.
+ *
+ * Originally 5000 (~150 MB peak at 30 KB avg) — a fine default for the
+ * historical mix of small SEO pages. With cluster pages averaging
+ * 100-167 KB and jobsSeoPagesPlugin emitting 120k+ pages per build, the
+ * 5000-entry buffer pushed peak heap to ~700 MB per plugin. Two plugins
+ * with simultaneous in-flight flushes (one accumulating, one flushing)
+ * could touch 1.4 GB just for queued WriteCollector content — enough to
+ * push the GH free-tier 7 GB runner into swap thrashing on heavy emits
+ * (the OOM at 18k cluster pages was the proximate symptom).
+ *
+ * Lowered to 500 → ~70 MB peak per plugin. Costs ~10× more flushWrites()
+ * invocations but each flush still parallelizes its writes via libuv, so
+ * actual disk I/O wall time is roughly unchanged. The win is bounding
+ * peak heap so the runner survives heavier emits like 18k+ cluster pages.
+ */
+const DEFAULT_AUTO_FLUSH_THRESHOLD = 500;
 
 /**
  * Module-level cumulative counter of intra-plugin Map.set overwrites across
@@ -102,7 +118,7 @@ export interface WriteCollectorOptions {
  concurrency?: number;
  /**
   * Pending-write count above which add() spawns a background flush.
-  * Default 5000 → ~150 MB peak with 30 KB average content.
+  * Default 500 → ~15 MB peak at 30 KB avg / ~70 MB peak at 140 KB avg.
   * Set to Infinity to opt out of streaming (legacy buffer-everything mode).
   */
  autoFlushThreshold?: number;
@@ -123,8 +139,9 @@ export interface WriteCollectorOptions {
  * files whose content hash matches the previous build are automatically skipped.
  *
  * Streaming behavior:
- * - add() returns synchronously; auto-flush kicks off when pending crosses 5000
- * - peak in-memory pending writes ≤ 5000 entries × ~30 KB = ~150 MB
+ * - add() returns synchronously; auto-flush kicks off when pending crosses 500
+ * - peak in-memory pending writes ≤ 500 entries × content size = ~70 MB at
+ *   140 KB avg (cluster pages) or ~15 MB at 30 KB avg (legacy SEO pages)
  * - flush() awaits all outstanding background flushes
  * - errors during background flush are stored and re-thrown by flush()
  */

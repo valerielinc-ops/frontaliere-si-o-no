@@ -1234,7 +1234,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs`);
 
       // Cache `${locale}::${jobIdentity}` → normalized haystack across clusters.
-      const haystackCache = new Map<string, string>();
+      // The cache is roughly 4 locales × ~2k jobs × ~5 KB per haystack ≈ 40 MB.
+      // It's only needed during the matching loop below, so we free it (drop
+      // the only reference) before the heavier render+emit phase to keep
+      // peak heap down for the rest of closeBundle.
+      let haystackCache: Map<string, string> | null = new Map<string, string>();
 
       const contexts: ClusterContext[] = [];
       for (const cand of candidates) {
@@ -1242,6 +1246,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         if (ctx) contexts.push(ctx);
       }
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);
+      haystackCache = null; // GC ~40 MB before the render/emit loop runs
 
       if (contexts.length === 0) return;
 
@@ -1360,6 +1365,20 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       writeSitemap(distDir, sitemapLocs, dateStamp);
       emittedFiles.push('sitemap-search-clusters.xml');
 
+      // Capture stats before releasing the maps that hold them.
+      const ctxCount = contexts.length;
+      const hubCount = byLocale.size;
+
+      // Release the heavy in-memory maps that hold rendered HTML transitively
+      // (contexts → matchingJobs → job descriptions; byLocale* → contexts).
+      // saveToCache below does ~3,200 fs.copyFile syscalls in parallel and
+      // doesn't need any of these — keeping them pinned would push peak
+      // heap up while the next plugin's closeBundle starts overlapping.
+      contexts.length = 0;
+      byKeywordCity.clear();
+      byLocale.clear();
+      byLocaleCity.clear();
+
       // Persist for next build. patchMasterSitemap is intentionally skipped
       // here — it patches a file owned by another plugin and is re-run on
       // every build (cache-hit and miss alike) inside the cache fast path.
@@ -1373,7 +1392,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       }
 
       console.log(
-        `\x1b[36m[related-search-clusters]\x1b[0m emitted ${contexts.length} cluster pages + ${byLocale.size} hubs (${written} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
+        `\x1b[36m[related-search-clusters]\x1b[0m emitted ${ctxCount} cluster pages + ${hubCount} hubs (${written} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
       );
     },
   };
