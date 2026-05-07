@@ -348,6 +348,7 @@ export async function mineTopicCandidates({
   // create-article path until Phase B+C wires the new vocab in.
   await safeWriteVocab({
     vocabOutputPath,
+    gscOrphansImpl,
     suggestImpl,
     buildDemandVocabularyImpl,
     articlePerformancePath,
@@ -374,6 +375,7 @@ export async function mineTopicCandidates({
 // never breaks the legacy topic-candidates pipeline.
 async function safeWriteVocab({
   vocabOutputPath,
+  gscOrphansImpl,
   suggestImpl,
   buildDemandVocabularyImpl,
   articlePerformancePath,
@@ -382,8 +384,12 @@ async function safeWriteVocab({
   now,
 }) {
   try {
+    // Bind existingTitles + blogMetaPath into the gsc impl. Test seams pass
+    // a pre-bound gscOrphansImpl that ignores its args; production passes
+    // fetchGscOrphanCandidates which needs them.
+    const boundGsc = () => gscOrphansImpl({ existingTitles, blogMetaPath });
     const vocab = await buildDemandVocabularyImpl({
-      gscOrphansImpl: () => fetchGscOrphanCandidates({ existingTitles, blogMetaPath }),
+      gscOrphansImpl: boundGsc,
       suggestImpl,
       fingerprintPath: articlePerformancePath,
       now,

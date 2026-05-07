@@ -247,7 +247,10 @@ describe('buildDemandVocabulary', () => {
             keyword: 'low signal kw',
             normalizedKeyword: 'low signal kw',
             sources: ['gscOrphans'],
-            demandSignals: { gscImpressions: 10 },
+            // 50/500 * 0.4 = 0.04 — above WEIGHT_FLOOR (0.01) but well
+            // below the high-signal entry. Earlier value 10 yielded
+            // 0.008 < floor so the kw was dropped, collapsing the test.
+            demandSignals: { gscImpressions: 50 },
           },
           {
             keyword: 'high signal kw',

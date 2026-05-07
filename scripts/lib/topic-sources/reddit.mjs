@@ -142,12 +142,19 @@ export function isQuestionTitle(title) {
 // Drop only on a CONFIDENT non-IT detection; if detectLocale falls back to 'it'
 // (its default for low-confidence input) or throws, keep the post — better to
 // over-include than to silently drop borderline IT titles.
+//
+// Note: `detectLocale` has known false-positives between IT and FR on short
+// text — Italian short words like "sa", "la", "un" overlap with French
+// markers and tip a clearly-Italian title to 'fr'. The actual noise we want
+// out of r/Switzerland is English (and German), so we only drop on those
+// two confident detections; 'fr' and 'it' are both kept. Trade-off:
+// occasional French post slips through, vs strict "drop EN/DE noise".
 export function isItLocaleConfident(title) {
   if (!title || typeof title !== 'string') return true;
   try {
     const locale = detectLocale(title);
     if (locale == null) return true; // null/undefined → fail-safe keep
-    return locale === 'it';
+    return locale !== 'en' && locale !== 'de';
   } catch {
     return true; // detector threw → fail-safe keep
   }
