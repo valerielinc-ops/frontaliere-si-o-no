@@ -6801,6 +6801,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cultura-pari-opportunita-ticino-2024.title': 'Conférence sur l\'égalité des chances au Tessin : culture et inclusion',
     'blog.article.cultura-pari-opportunita-ticino-2024.excerpt': 'Conférence bien fréquentée à Lugano sur les déséquilibres dans le secteur artistique et culturel. Focus sur les financements, la visibilité et les rôles décisionnels.',
     'blog.article.cultura-pari-opportunita-ticino-2024.imageAlt': 'Conférence sur l\'égalité des chances au Tessin avec vue sur le lac de Lugano',
+    'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.title': 'Confiscation des biens mafieux en Suisse: proposition radicale',
+    'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.excerpt': 'Proposition de confiscation préventive des biens mafieux en Suisse, comme en Italie. Arrestation d\'un fonctionnaire de la police fédérale.',
+    'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.imageAlt': 'Vue aérienne du lac de Lugano avec de l\'eau bleue cristalline, entouré de montagnes et de bâtiments',
 };
 
 export default blogMetaFr;

@@ -27257,6 +27257,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confisca-patrimoni-mafiosi-svizzera-2026': {
+    title: 'Confisca patrimoni mafiosi in Svizzera: proposta radicale',
+    description: 'Proposta di confisca preventiva dei beni mafiosi in Svizzera, come in Italia. Arresto di un funzionario della Polizia federale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, confisca, patrimoni, mafiosi, proposta',
+    ogTitle: 'Confisca patrimoni mafiosi in Svizzera: proposta radicale',
+    ogDescription: 'Proposta di confisca preventiva dei beni mafiosi in Svizzera, come in Italia. Arresto di un funzionario della Polizia federale.',
+    canonicalPath: '/articoli-frontaliere/confisca-patrimoni-mafiosi-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confisca patrimoni mafiosi in Svizzera: proposta radicale",
+      "description": "Proposta di confisca preventiva dei beni mafiosi in Svizzera, come in Italia. Arresto di un funzionario della Polizia federale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/confisca-patrimoni-mafiosi-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici"
+      },
+      "datePublished": "2026-05-07T15:01:16+00:00",
+      "dateModified": "2026-05-07T15:01:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confisca-patrimoni-mafiosi-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

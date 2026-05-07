@@ -6801,6 +6801,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cultura-pari-opportunita-ticino-2024.title': 'Convegno sulle pari opportunità in Ticino: cultura e inclusione',
     'blog.article.cultura-pari-opportunita-ticino-2024.excerpt': 'Folto convegno a Lugano su squilibri nel settore artistico e culturale. Focus su finanziamenti, visibilità e ruoli decisionali.',
     'blog.article.cultura-pari-opportunita-ticino-2024.imageAlt': 'Conferenza sulle pari opportunità in Ticino con vista sul Lago di Lugano',
+    'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.title': 'Confisca patrimoni mafiosi in Svizzera: proposta radicale',
+    'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.excerpt': 'Proposta di confisca preventiva dei beni mafiosi in Svizzera, come in Italia. Arresto di un funzionario della Polizia federale.',
+    'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici',
 };
 
 export default blogMetaIt;

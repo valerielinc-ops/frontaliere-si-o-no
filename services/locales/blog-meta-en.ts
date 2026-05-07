@@ -6800,6 +6800,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cultura-pari-opportunita-ticino-2024.title': 'Conference on equal opportunities in Ticino: culture and inclusion',
     'blog.article.cultura-pari-opportunita-ticino-2024.excerpt': 'Large conference in Lugano on imbalances in the artistic and cultural sector. Focus on funding, visibility, and decision-making roles.',
     'blog.article.cultura-pari-opportunita-ticino-2024.imageAlt': 'Conference on equal opportunities in Ticino with a view of Lake Lugano',
+    'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.title': 'Seizing mafia assets in Switzerland: radical proposal',
+    'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.excerpt': 'Proposal for preventive seizure of mafia assets in Switzerland, as in Italy. Arrest of a Federal Police officer.',
+    'blog.article.confisca-patrimoni-mafiosi-svizzera-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water, surrounded by mountains and buildings',
 };
 
 export default blogMetaEn;
