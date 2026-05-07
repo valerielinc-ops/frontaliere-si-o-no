@@ -6680,6 +6680,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.title': 'Fedpol: Informant hatte Zugang zu Ermittlungsdossiers',
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.excerpt': 'Neue Details zum festgenommenen Beamten, der Informationen an eine kriminelle Organisation verkauft hat. Zugang zu internationalen Dossiers und sofortige Maßnahmen von Fedpol.',
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin, Schweiz. Die mittelalterliche Burg erhebt sich majestätisch vor dem Hintergrund der Schweizer Alpen, während der Fluss Ticino durch das Tal darunter schlängelt.',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.title': 'Acht Betrugsfälle beim Bürgergeld aufgedeckt',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.excerpt': 'Die Guardia di Finanza von Varese hat acht Fälle von Betrug beim Bürgergeld und Inklusionsgeld aufgedeckt, mit einem Schaden von über 140.000 Euro.',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -6681,6 +6681,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.title': 'Fedpol, la talpa aveva accesso a dossier di inchiesta',
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.excerpt': 'Nuovi dettagli sul funzionario arrestato per aver venduto informazioni a un\'organizzazione criminale. Accesso a dossier internazionali e misure immediate prese da Fedpol.',
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.imageAlt': 'Vista aerea del Castelgrande a Bellinzona, Ticino, Svizzera. Il castello medievale si erge maestoso contro lo sfondo delle Alpi svizzere, con il fiume Ticino che serpeggia nella valle sottostante.',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.title': 'Otto frodi al reddito di cittadinanza scoperti dalla Guardia di Finanza',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.excerpt': 'La Guardia di Finanza di Varese ha scoperto otto casi di frode al reddito di cittadinanza e assegno di inclusione, con un danno di oltre 140mila euro.',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

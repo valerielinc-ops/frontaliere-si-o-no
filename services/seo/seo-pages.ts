@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2279,
+ "numberOfItems": 2280,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6921,7 +6921,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2276, "name": "Nuova Axenstrasse in Canton Svitto: lavori iniz...", "url": `${BASE_URL}/articoli-frontaliere/nuova-axenstrasse-svitto-2026` },
           { "@type": "ListItem", "position": 2277, "name": "Spreco alimentare in Svizzera: obiettivo interm...", "url": `${BASE_URL}/articoli-frontaliere/spreco-alimentare-svizzera-obiettivo-fallito` },
           { "@type": "ListItem", "position": 2278, "name": "Elon Musk svizzero a processo per truffa e reat...", "url": `${BASE_URL}/articoli-frontaliere/elon-musk-svizzero-processo-friburgo` },
-          { "@type": "ListItem", "position": 2279, "name": "Fedpol, la talpa aveva accesso a dossier di inc...", "url": `${BASE_URL}/articoli-frontaliere/fedpol-talpa-accesso-dossier-inchiesta` }
+          { "@type": "ListItem", "position": 2279, "name": "Fedpol, la talpa aveva accesso a dossier di inc...", "url": `${BASE_URL}/articoli-frontaliere/fedpol-talpa-accesso-dossier-inchiesta` },
+          { "@type": "ListItem", "position": 2280, "name": "Otto frodi al reddito di cittadinanza scoperti ...", "url": `${BASE_URL}/articoli-frontaliere/frode-reddito-cittadinanza-varese-2026` }
  ]
  },
  {

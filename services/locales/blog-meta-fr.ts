@@ -6681,6 +6681,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.title': 'Fedpol, la taupe avait accès aux dossiers d\'enquête',
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.excerpt': 'Nouveaux détails sur le fonctionnaire arrêté pour avoir vendu des informations à une organisation criminelle. Accès aux dossiers internationaux et mesures immédiates prises par Fedpol.',
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.imageAlt': 'Vue aérienne du Castelgrande à Bellinzone, Tessin, Suisse. Le château médiéval se dresse majestueusement contre un arrière-plan des Alpes suisses, avec le fleuve Tessin sinuant à travers la vallée en dessous.',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.title': 'Huit fraudes au revenu de solidarité active découvertes par la Garde financière',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.excerpt': 'La Garde financière de Varèse a découvert huit cas de fraude au revenu de solidarité active et à l\'allocation d\'inclusion, causant un préjudice de plus de 140 000 euros.',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.imageAlt': 'Vue aérienne du Lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

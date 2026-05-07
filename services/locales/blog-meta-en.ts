@@ -6680,6 +6680,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.title': 'Fedpol mole had access to investigation files',
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.excerpt': 'New details on the official arrested for selling information to a criminal organization. Access to international files and immediate measures taken by Fedpol.',
     'blog.article.fedpol-talpa-accesso-dossier-inchiesta.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland. The medieval castle stands majestically against a backdrop of the Swiss Alps, with the Ticino River winding through the valley below.',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.title': 'Eight cases of citizenship income fraud uncovered by the Guardia di Finanza',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.excerpt': 'The Guardia di Finanza of Varese has uncovered eight cases of fraud related to citizenship income and inclusion allowance, causing a damage of over 140,000 euros.',
+    'blog.article.frode-reddito-cittadinanza-varese-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;
