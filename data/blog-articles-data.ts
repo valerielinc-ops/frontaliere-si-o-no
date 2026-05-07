@@ -21566,4 +21566,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'hantavirus-zurigo-crocerista-frontalieri',
+ category: 'novita',
+ date: '2026-05-07T09:31:59.628Z',
+ image: '/images/blog/hantavirus-zurigo-crocerista-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

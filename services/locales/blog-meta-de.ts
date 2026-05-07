@@ -6731,6 +6731,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mengele-svizzera-1961-verifica.title': 'Josef Mengele 1961 in der Schweiz: das geheime Dossier',
     'blog.article.mengele-svizzera-1961-verifica.excerpt': 'Der NS-Verbrecher könnte 1961 in Kloten gewesen sein. Das bis 2071 geheim gehaltene Dossier könnte das Rätsel klären',
     'blog.article.mengele-svizzera-1961-verifica.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin, Schweiz, mit den Alpen im Hintergrund',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.title': 'Hantavirus in Zürich: Kreuzfahrgast in Isolation',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.excerpt': 'Ein Mann, der mit dem Hantavirus infiziert ist, wird in Zürich nach einer Reise nach Südamerika behandelt. Hier erfahren Sie, was Sie wissen müssen.',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.imageAlt': 'Luganersee mit Blick auf die umliegenden Berge',
 };
 
 export default blogMetaDe;

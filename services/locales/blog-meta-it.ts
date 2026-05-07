@@ -6732,6 +6732,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mengele-svizzera-1961-verifica.title': 'Josef Mengele in Svizzera nel 1961: il dossier segreto',
     'blog.article.mengele-svizzera-1961-verifica.excerpt': 'Il criminale nazista potrebbe aver soggiornato a Kloten nel 1961. Il dossier secretato fino al 2071 potrebbe chiarire il mistero',
     'blog.article.mengele-svizzera-1961-verifica.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera, con le Alpi sullo sfondo',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.title': 'Hantavirus a Zurigo: crocerista in isolamento',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.excerpt': 'Un uomo positivo all\'hantavirus è in cura a Zurigo dopo un viaggio in America del Sud. Ecco cosa sapere.',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.imageAlt': 'Lago di Lugano con vista sulle montagne circostanti',
 };
 
 export default blogMetaIt;

@@ -6731,6 +6731,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mengele-svizzera-1961-verifica.title': 'Josef Mengele in Switzerland in 1961: the secret file',
     'blog.article.mengele-svizzera-1961-verifica.excerpt': 'The Nazi criminal might have stayed in Kloten in 1961. The file, classified until 2071, could solve the mystery',
     'blog.article.mengele-svizzera-1961-verifica.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland, with the Alps in the background',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.title': 'Hantavirus in Zurich: cruiser in isolation',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.excerpt': 'A man positive for hantavirus is being treated in Zurich after a trip to South America. Here\'s what you need to know.',
+    'blog.article.hantavirus-zurigo-crocerista-frontalieri.imageAlt': 'Lake Lugano with a view of the surrounding mountains',
 };
 
 export default blogMetaEn;
