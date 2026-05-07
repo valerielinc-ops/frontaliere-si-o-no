@@ -6897,6 +6897,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pari-opportunita-cultura-lugano-2026.title': 'Égalité des chances dans la culture : une première en Suisse italienne',
     'blog.article.pari-opportunita-cultura-lugano-2026.excerpt': 'Le premier congrès « Quel genre de culture ? » à Lugano a mis en lumière les défis et les opportunités pour l\'égalité des chances dans le secteur artistique et culturel.',
     'blog.article.pari-opportunita-cultura-lugano-2026.imageAlt': 'Conférence sur l\'égalité des chances dans la culture à Lugano',
+    'blog.article.brasile-mari-froes-leo-middea-lugano.title': 'Mari Froes et Leo Middea en concert à Lugano',
+    'blog.article.brasile-mari-froes-leo-middea-lugano.excerpt': 'Soirée brésilienne au festival Lugano LongLake avec Mari Froes et Leo Middea, le 14 juillet 2026 au parc Ciani',
+    'blog.article.brasile-mari-froes-leo-middea-lugano.imageAlt': 'Scène du festival Lugano LongLake au parc Ciani avec des artistes brésiliens, soirée d\'été',
 };
 
 export default blogMetaFr;

@@ -6896,6 +6896,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pari-opportunita-cultura-lugano-2026.title': 'Gender equality in culture: a first in Ticino',
     'blog.article.pari-opportunita-cultura-lugano-2026.excerpt': 'The first conference \'What kind of culture?\' in Lugano highlighted challenges and opportunities for gender equality in the artistic and cultural sector.',
     'blog.article.pari-opportunita-cultura-lugano-2026.imageAlt': 'Conference on cultural equality in Lugano',
+    'blog.article.brasile-mari-froes-leo-middea-lugano.title': 'Mari Froes and Leo Middea in concert in Lugano',
+    'blog.article.brasile-mari-froes-leo-middea-lugano.excerpt': 'Brazilian evening at the Lugano LongLake Festival with Mari Froes and Leo Middea, July 14, 2026 at Parco Ciani',
+    'blog.article.brasile-mari-froes-leo-middea-lugano.imageAlt': 'Lugano LongLake Festival stage at Parco Ciani with Brazilian artists, summer evening',
 };
 
 export default blogMetaEn;

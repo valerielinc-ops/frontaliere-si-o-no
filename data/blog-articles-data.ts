@@ -22061,4 +22061,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'brasile-mari-froes-leo-middea-lugano',
+ category: 'novita',
+ date: '2026-05-07T21:39:36.602Z',
+ image: '/images/blog/brasile-mari-froes-leo-middea-lugano.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

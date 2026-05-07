@@ -6897,6 +6897,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pari-opportunita-cultura-lugano-2026.title': 'Pari opportunità nella cultura: a Lugano una prima ticinese',
     'blog.article.pari-opportunita-cultura-lugano-2026.excerpt': 'Il primo convegno «Che genere di cultura?» a Lugano ha evidenziato sfide e opportunità per le pari opportunità nel settore artistico e culturale.',
     'blog.article.pari-opportunita-cultura-lugano-2026.imageAlt': 'Conferenza sulle pari opportunità nella cultura a Lugano',
+    'blog.article.brasile-mari-froes-leo-middea-lugano.title': 'Mari Froes e Leo Middea in concerto a Lugano',
+    'blog.article.brasile-mari-froes-leo-middea-lugano.excerpt': 'Serata brasiliana al Lugano LongLake Festival con Mari Froes e Leo Middea, 14 luglio 2026 al Parco Ciani',
+    'blog.article.brasile-mari-froes-leo-middea-lugano.imageAlt': 'Palco del Lugano LongLake Festival al Parco Ciani con artisti brasiliani, serata estiva',
 };
 
 export default blogMetaIt;
