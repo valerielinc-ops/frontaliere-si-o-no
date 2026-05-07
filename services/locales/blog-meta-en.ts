@@ -6590,6 +6590,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-friuli-solidarieta-2026.title': 'Varese and Friuli: 50 Years of Solidarity and Rebuilding',
     'blog.article.varese-friuli-solidarieta-2026.excerpt': 'A report on how volunteers from the Varese area supported Friuli after the 1976 earthquake, featuring testimonies and 2026 celebrations.',
     'blog.article.varese-friuli-solidarieta-2026.imageAlt': 'Volunteers from Varese helping to rebuild a village in Friuli after the 1976 earthquake',
+    'blog.article.natura-tavola-cucina-vegetale-lugano-2024.title': 'Nature on the plate: Greenpeace\'s veggie cuisine in Lugano',
+    'blog.article.natura-tavola-cucina-vegetale-lugano-2024.excerpt': 'Greenpeace Switzerland promotes a veggie cuisine initiative in Lugano with a free meal for 300 people. Find out how and why.',
+    'blog.article.natura-tavola-cucina-vegetale-lugano-2024.imageAlt': 'An outdoor event in Lugano with people enjoying a vegetarian meal in a park overlooking the lake and mountains.',
 };
 
 export default blogMetaEn;

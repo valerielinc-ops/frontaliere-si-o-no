@@ -21143,4 +21143,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'natura-tavola-cucina-vegetale-lugano-2024',
+ category: 'novita',
+ date: '2026-05-07T00:50:40.687Z',
+ image: '/images/blog/natura-tavola-cucina-vegetale-lugano-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

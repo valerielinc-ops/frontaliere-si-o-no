@@ -6591,6 +6591,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-friuli-solidarieta-2026.title': 'Varèse et le Frioul : 50 ans de solidarité',
     'blog.article.varese-friuli-solidarieta-2026.excerpt': 'Un reportage sur la manière dont les bénévoles de Varèse ont aidé le Frioul après le tremblement de terre de 1976, avec des témoignages et des célébrations de 2026',
     'blog.article.varese-friuli-solidarieta-2026.imageAlt': 'Des bénévoles de Varèse aident à reconstruire un village en Frioul après le tremblement de terre de 1976',
+    'blog.article.natura-tavola-cucina-vegetale-lugano-2024.title': 'La nature à table : cuisine végétale à Lugano avec Greenpeace',
+    'blog.article.natura-tavola-cucina-vegetale-lugano-2024.excerpt': 'Greenpeace Suisse promeut une initiative de cuisine végétale à Lugano avec un repas gratuit pour 300 personnes. Découvrez comment et pourquoi.',
+    'blog.article.natura-tavola-cucina-vegetale-lugano-2024.imageAlt': 'Un événement en plein air à Lugano avec des personnes dégustant un repas végétarien dans un parc avec vue sur le lac et les montagnes.',
 };
 
 export default blogMetaFr;
