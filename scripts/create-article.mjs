@@ -71,6 +71,8 @@ import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
   CANDIDATES_PATH as TOPIC_CANDIDATES_PATH,
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
+  TODAY_PICKS_BY_CLUSTER_PATH,
+  EXPERIMENTAL_COUNTER_PATH,
   loadJsonSafe as _topicLoadJsonSafe,
   loadExistingItTitles as _topicLoadExistingItTitles,
   loadConsumedTracker as _topicLoadConsumedTracker,
@@ -78,6 +80,13 @@ import {
   persistConsumedTracker as _topicPersistConsumedTracker,
   pickTopCandidate as _topicPickTopCandidate,
   buildWinnerFingerprintMessage as _topicBuildFingerprintMessage,
+  loadDemandVocabulary as _loadDemandVocabulary,
+  loadExperimentalCandidates as _loadExperimentalCandidates,
+  loadTodayPicksByCluster as _loadTodayPicksByCluster,
+  persistTodayPicksByCluster as _persistTodayPicksByCluster,
+  loadExperimentalCounter as _loadExperimentalCounter,
+  persistExperimentalCounter as _persistExperimentalCounter,
+  rankAndSelectHeadlines as _rankAndSelectHeadlines,
 } from './lib/article-topic-selector.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
@@ -90,6 +99,14 @@ const _topicCandidates = _topicLoadJsonSafe(TOPIC_CANDIDATES_PATH);
 const _winnerFingerprintMessage = _articlePerformance
   ? _topicBuildFingerprintMessage(_articlePerformance)
   : null;
+
+// ── Phase B+C — Demand-driven selection inputs ───────────────────
+// data/demand-vocabulary.json: stable signals (GSC + Suggest + winnerFingerprint).
+// data/experimental-candidates.json: Reddit + News-RSS exploration tier.
+// Both OPTIONAL — when missing, ranker yields no picks and the legacy
+// LLM-based selectArticle path takes over (byte-identical to today).
+const _demandVocabulary = _loadDemandVocabulary();
+const _experimentalCandidates = _loadExperimentalCandidates();
 
 // ── C1 News Sitemap Whitelist ──────────────────────────────────
 // Loaded by parsing data/news-sitemap-whitelist.ts at startup so we don't
@@ -492,6 +509,11 @@ const RUN_REPORT = {
   selectedArticleType: null, // news | evergreen_static | evergreen_dynamic
   selectedSource: null,
   selectedUrl: null,
+  // Phase B+C — ranker telemetry. selectedTier ∈ {stable,experimental,llm-fallback,evergreen}
+  selectedTier: null,
+  selectedScore: null,
+  selectedCluster: null,
+  poolSize: 0,
   sources: {
     configured: 0,
     scanned: 0,
@@ -5307,6 +5329,17 @@ async function main() {
 
       const triedUrls = new Set();
 
+      // ── Phase B+C — Demand-driven ranker (replaces first-headline-wins) ──
+      // The news pool is the *content*; the demand-vocabulary is the *scoring
+      // signal*. Pick the headline with the strongest demand-overlap, with
+      // cluster diversity + experimental-tier rotation. If the ranker returns
+      // empty (no headline meets min-score, vocab missing), fall through to
+      // the legacy LLM-based selectArticle.
+      const _existingItTitles = _topicLoadExistingItTitles();
+      const _todayPicksState = _loadTodayPicksByCluster();
+      const _experimentalCounterState = _loadExperimentalCounter();
+      let _persistRankerStateOnSuccess = null;
+
       for (let poolIndex = 0; poolIndex < poolPlan.length; poolIndex++) {
         const pool = poolPlan[poolIndex];
         if (poolIndex > 0) {
@@ -5315,29 +5348,121 @@ async function main() {
 
         for (let attempt = 1; attempt <= MAX_DUPLICATE_RETRIES; attempt++) {
           try {
-            console.error(`\n🧠 Selezione articolo con Gemini [${pool.name}] (tentativo ${attempt}/${MAX_DUPLICATE_RETRIES})...`);
-
-            // Filter out already-tried URLs so Gemini picks something new
+            // Filter out already-tried URLs.
             const availableHeadlines = pool.headlines.filter(h => !triedUrls.has(h.url));
             if (availableHeadlines.length === 0) {
               console.error(`⚠️  Tutte le headline ${pool.name} sono state provate.`);
               break;
             }
 
-            const chosen = await selectArticle(availableHeadlines);
+            // ── Demand-driven ranker (Phase B+C) ──
+            let chosen = null;
+            let rankerTier = null;
+            let rankerScoreObj = null;
+            let rankerCluster = null;
+            if (_demandVocabulary || _experimentalCandidates) {
+              try {
+                console.error(`\n🎯 Ranker [${pool.name}] (tentativo ${attempt}/${MAX_DUPLICATE_RETRIES}): pool=${availableHeadlines.length} headlines`);
+                const consumed = _topicLoadConsumedTracker(CONSUMED_TRACKER_PATH);
+                const picks = await _rankAndSelectHeadlines(availableHeadlines, _demandVocabulary, {
+                  experimentalCandidates: _experimentalCandidates,
+                  experimentalCounter: _experimentalCounterState.count,
+                  todayPicksByCluster: _todayPicksState.picksByCluster,
+                  existingTitles: _existingItTitles,
+                  consumed,
+                  headlineTitleField: 'headline',
+                  maxPicks: 1,
+                });
+                if (picks.length > 0) {
+                  const top = picks[0];
+                  rankerTier = top._selectedSource || 'stable';
+                  rankerScoreObj = top._score || null;
+                  rankerCluster = top._cluster || null;
+                  if (rankerTier === 'experimental') {
+                    // Convert experimental candidate → evergreen-style URL.
+                    const kw = top.keyword || '';
+                    chosen = {
+                      url: `evergreen://${encodeURIComponent(kw)}`,
+                      headline: kw,
+                      source: 'experimental',
+                      _experimentalCandidate: top,
+                    };
+                    process.env._EVERGREEN_ANGLE = top.angle || kw;
+                    process.env._EVERGREEN_KEYWORD = kw;
+                  } else {
+                    chosen = top; // stable headline pick — pass through.
+                  }
+                  const scoreStr = rankerScoreObj
+                    ? `score=${rankerScoreObj.score.toFixed(3)} (demand=${rankerScoreObj.demandScore.toFixed(3)}, div=${rankerScoreObj.clusterDiversityBonus.toFixed(2)}, novel=${rankerScoreObj.noveltyScore.toFixed(2)})`
+                    : 'score=experimental';
+                  console.error(`   ✅ Ranker pick: tier=${rankerTier} cluster=${rankerCluster || 'n/a'} ${scoreStr}`);
+                  console.error(`   📰 "${(chosen.headline || chosen.keyword || '').slice(0, 80)}"\n`);
+                } else {
+                  console.error('   ⏭️  Ranker: nessuna headline sopra min-score — fallback LLM selectArticle\n');
+                }
+              } catch (rankerErr) {
+                console.error(`   ⚠️  Ranker error (graceful fallback): ${rankerErr?.message || rankerErr}\n`);
+                chosen = null;
+              }
+            }
+
+            // ── Legacy LLM selector (fallback when ranker returns nothing) ──
+            if (!chosen) {
+              console.error(`\n🧠 Selezione articolo con Gemini [${pool.name}] (tentativo ${attempt}/${MAX_DUPLICATE_RETRIES})...`);
+              chosen = await selectArticle(availableHeadlines);
+              rankerTier = 'llm-fallback';
+            }
+
             RUN_REPORT.selectionUsage.attemptsTotal += 1;
             if (chosen?._undatedFallback) RUN_REPORT.selectionUsage.attemptsUndated += 1;
             else RUN_REPORT.selectionUsage.attemptsRecent += 1;
-            RUN_REPORT.selectedArticleType = 'news';
+            RUN_REPORT.selectedArticleType = rankerTier === 'experimental' ? 'experimental' : 'news';
             RUN_REPORT.selectedSource = normalizeSourceDomain(chosen?.source || '');
             RUN_REPORT.selectedUrl = chosen?.url || null;
+            RUN_REPORT.selectedTier = rankerTier;
+            RUN_REPORT.selectedScore = rankerScoreObj ? rankerScoreObj.score : null;
+            RUN_REPORT.selectedCluster = rankerCluster;
+            RUN_REPORT.poolSize = availableHeadlines.length;
             triedUrls.add(chosen.url);
             url = chosen.url;
             console.error('');
 
+            // Stage state-mutation for AFTER successful generation only.
+            const _picked = chosen;
+            const _pickedTier = rankerTier;
+            const _pickedCluster = rankerCluster;
+            _persistRankerStateOnSuccess = () => {
+              try {
+                if (_pickedCluster && _todayPicksState.picksByCluster) {
+                  const next = {
+                    date: _todayPicksState.date,
+                    picksByCluster: { ..._todayPicksState.picksByCluster },
+                  };
+                  next.picksByCluster[_pickedCluster] = (next.picksByCluster[_pickedCluster] || 0) + 1;
+                  _persistTodayPicksByCluster(next);
+                }
+                // Always tick the experimental counter so the round-robin advances,
+                // regardless of which tier we landed on.
+                _persistExperimentalCounter({ count: (_experimentalCounterState.count || 0) + 1 });
+                // If experimental pick succeeded, mark the candidate as consumed.
+                if (_pickedTier === 'experimental' && _picked && _picked._experimentalCandidate) {
+                  const exp = _picked._experimentalCandidate;
+                  if (exp.id) {
+                    const consumed = _topicLoadConsumedTracker(CONSUMED_TRACKER_PATH);
+                    const updated = _topicAppendConsumedId(consumed, exp.id);
+                    _topicPersistConsumedTracker(updated, CONSUMED_TRACKER_PATH);
+                  }
+                }
+              } catch (e) {
+                console.warn(`[generator] could not persist ranker state: ${e?.message || e}`);
+              }
+            };
+
             // Attempt the full article generation + duplicate check
             await generateAndValidateArticle(url, chosen);
             newsSuccess = true;
+            // Persist ranker state ONLY on success (failure shouldn't bump counters).
+            if (_persistRankerStateOnSuccess) _persistRankerStateOnSuccess();
             return; // Success — exit main
           } catch (e) {
             const isDuplicate = e.message.includes('DUPLICATO');
