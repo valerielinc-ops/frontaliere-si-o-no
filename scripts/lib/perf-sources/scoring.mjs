@@ -3,10 +3,27 @@
 
 // 2026-05-07 architectural decision: article-performance.json is PURE
 // source analysis. No domain allowlist (deny). No domain boost (premium).
-// User-traffic data is ground truth — TF-IDF math + recency weighting +
-// fCount cap are the only transformations. Domain knowledge is reserved
-// for SPECULATIVE sources (Suggest/News-RSS/Reddit) where user signal
-// hasn't validated relevance yet.
+// User-traffic data is ground truth — TF-IDF math + score-weighted
+// contributions + small recency tilt + fCount cap. Domain knowledge is
+// reserved for SPECULATIVE sources (Suggest/News-RSS/Reddit) where user
+// signal hasn't validated relevance yet.
+
+// Recency influence in winner-weight blend. The composite score (clicks +
+// impressions + adsense + scroll + ctr) is the dominant signal — it IS
+// the user-validated traffic value. Recency is a mild tilt to favor fresh
+// content among same-score articles, capped at 10%.
+//
+//   weight = score * ((1 - RECENCY_INFLUENCE) + RECENCY_INFLUENCE * recency)
+//
+// Old article (recency=0.16): weight = score * 0.916
+// Fresh article (recency=1.0): weight = score * 1.000
+// Diff ≈ 8% in favor of fresh, regardless of score magnitude.
+//
+// Empirical impact 2026-05-07: switching from pure-recency to score-weighted
+// surfaces high-AdSense old winners (e.g. 'mutuo casa frontalieri italia'
+// — top adsense €0.017, top pageviews 87, but published 71 days ago) which
+// were being crushed under pure-recency at weight=0.16.
+const RECENCY_INFLUENCE = 0.1;
 
 /** Compute mean and (population) stddev. Returns {mean, sd} with sd>=1e-9. */
 export function meanStd(values) {
@@ -303,13 +320,19 @@ export function buildWinnerFingerprint(winners, allArticles) {
   // corpus sizes and bursty-vs-evergreen content.
   const winnerCorpus = winners.map((w) => `${w.title || ''} ${w.excerpt || ''}`);
   const fullCorpus = allArticles.map((a) => `${a.title || ''} ${a.excerpt || ''}`);
-  const winnerWeights = winners.map((w) => recencyWeight(w.publishedAt));
-  // 2026-05-07: pure source analysis. NO domain boost, NO domain deny.
-  // Recency weighting + fCount cap are mathematical operators (not
-  // categorical heuristics). User direction: "non sopprimerei niente
-  // e non darei premi a nessuno — solo analisi della source e tirare
-  // fuori i winner". The top-15 is whatever TF-IDF mathematics says is
-  // most distinctive of the winning corpus — full stop.
+  // Score-weighted contributions, recency contributes only 10%. The
+  // composite `score` field IS the user-validated traffic value (clicks
+  // + impressions + adsense + scroll + ctr); it should drive how much
+  // each winner contributes to the TF-IDF token pool. Recency is a
+  // small tilt (10%) so two equally-valued articles favor the fresh
+  // one — but a high-revenue old article isn't crushed for its age.
+  // No domain boost, no domain deny — pure source data, weighted by
+  // user-validated value.
+  const winnerWeights = winners.map((w) => {
+    const baseScore = Math.max(0.01, Number(w.score) || 0.01);
+    const recency = recencyWeight(w.publishedAt);
+    return baseScore * ((1 - RECENCY_INFLUENCE) + RECENCY_INFLUENCE * recency);
+  });
   const topKeywords = tfidfTopN(winnerCorpus, fullCorpus, 15, {
     winnerWeights,
   });
