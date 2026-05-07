@@ -234,6 +234,15 @@ function serializeSources(sources) {
       if (typeof s.matchedHints === 'boolean') entry.matchedHints = s.matchedHints;
       if (Array.isArray(s.matchedChannelNames)) entry.matchedChannelNames = s.matchedChannelNames;
       if (s.perChannel && typeof s.perChannel === 'object') entry.perChannel = s.perChannel;
+      // AdSense pagination diagnostics — `rows` alone hides whether the
+      // count is small because the API returned little data or because we
+      // truncated. Surface pages/truncated/dropped so the JSON consumer
+      // can tell at a glance.
+      if (typeof s.pages === 'number') entry.pages = s.pages;
+      if (typeof s.truncated === 'boolean' && s.truncated) entry.truncated = true;
+      if (typeof s.droppedMalformed === 'number' && s.droppedMalformed > 0) {
+        entry.droppedMalformed = s.droppedMalformed;
+      }
       out[name] = entry;
     } else {
       out[name] = { ok: false, reason: s.reason || 'unknown' };
