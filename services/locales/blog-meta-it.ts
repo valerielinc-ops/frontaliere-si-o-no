@@ -6741,6 +6741,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.liberta-riunione-cedu-condanna-svizzera.title': 'CEDU condanna la Svizzera per violazione libertà di riunione',
     'blog.article.liberta-riunione-cedu-condanna-svizzera.excerpt': 'La Corte europea dei diritti dell\'uomo ha condannato la Svizzera per aver violato la libertà di riunione durante una manifestazione a Ginevra nel 2019.',
     'blog.article.liberta-riunione-cedu-condanna-svizzera.imageAlt': 'Manifestazione a Ginevra con un gruppo eterogeneo di persone che tengono cartelli e striscioni, sullo sfondo dei monumenti iconici della città.',
+    'blog.article.galleria-italo-svizzera-enigmista.title': 'Colpo di stiletto alla Galleria Italo-Svizzera',
+    'blog.article.galleria-italo-svizzera-enigmista.excerpt': 'Un\'analisi sulla Galleria Italo-Svizzera e il futuro dell\'enigmistica.',
+    'blog.article.galleria-italo-svizzera-enigmista.imageAlt': 'Vista panoramica di Bellinzona con i suoi castelli storici.',
 };
 
 export default blogMetaIt;

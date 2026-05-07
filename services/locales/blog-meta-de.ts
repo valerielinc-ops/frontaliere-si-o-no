@@ -6740,6 +6740,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.liberta-riunione-cedu-condanna-svizzera.title': 'Europäischer Gerichtshof verurteilt Schweiz wegen Versammlungsfreiheit',
     'blog.article.liberta-riunione-cedu-condanna-svizzera.excerpt': 'Der Europäische Gerichtshof für Menschenrechte hat die Schweiz verurteilt, weil sie die Versammlungsfreiheit während einer Demonstration in Genf im Jahr 2019 verletzt hat.',
     'blog.article.liberta-riunione-cedu-condanna-svizzera.imageAlt': 'Eine Protestveranstaltung in Genf mit einer vielfältigen Menge, die Schilder und Banner hält, vor dem Hintergrund der ikonischen Wahrzeichen der Stadt.',
+    'blog.article.galleria-italo-svizzera-enigmista.title': 'Stich ins Herz der Italo-Schweizer Galerie',
+    'blog.article.galleria-italo-svizzera-enigmista.excerpt': 'Eine Analyse der Italo-Schweizer Galerie und der Zukunft der Rätsel.',
+    'blog.article.galleria-italo-svizzera-enigmista.imageAlt': 'Panoramablick auf Bellinzona mit seinen historischen Burgen.',
 };
 
 export default blogMetaDe;

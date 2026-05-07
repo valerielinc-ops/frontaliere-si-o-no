@@ -21593,4 +21593,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'galleria-italo-svizzera-enigmista',
+ category: 'fiscale',
+ date: '2026-05-07T10:05:09.377Z',
+ image: '/images/blog/galleria-italo-svizzera-enigmista.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

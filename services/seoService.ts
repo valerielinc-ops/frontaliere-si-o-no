@@ -3489,6 +3489,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-hantavirus-zurigo-crocerista-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-zurigo-crocerista-frontalieri', parent: 'blog' },
     'blog-cassis-cornado-crans-montana-risarcimento': { name: 'Novità', path: '/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento', parent: 'blog' },
     'blog-liberta-riunione-cedu-condanna-svizzera': { name: 'Novità', path: '/articoli-frontaliere/liberta-riunione-cedu-condanna-svizzera', parent: 'blog' },
+    'blog-galleria-italo-svizzera-enigmista': { name: 'Galleria Italo-Svizzera', path: '/articoli-frontaliere/galleria-italo-svizzera-enigmista', parent: 'blog' },
  };
 
  const info = sectionNames[section];

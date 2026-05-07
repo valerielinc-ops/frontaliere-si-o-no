@@ -6740,6 +6740,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.liberta-riunione-cedu-condanna-svizzera.title': 'ECHR condemns Switzerland for violating freedom of assembly',
     'blog.article.liberta-riunione-cedu-condanna-svizzera.excerpt': 'The European Court of Human Rights has condemned Switzerland for violating the freedom of assembly during a demonstration in Geneva in 2019.',
     'blog.article.liberta-riunione-cedu-condanna-svizzera.imageAlt': 'A protest in Geneva with a diverse crowd holding signs and banners, set against the backdrop of the city\'s iconic landmarks.',
+    'blog.article.galleria-italo-svizzera-enigmista.title': 'Stiletto Strike at the Italo-Swiss Gallery',
+    'blog.article.galleria-italo-svizzera-enigmista.excerpt': 'An analysis of the Italo-Swiss Gallery and the future of puzzles.',
+    'blog.article.galleria-italo-svizzera-enigmista.imageAlt': 'Panoramic view of Bellinzona with its historic castles.',
 };
 
 export default blogMetaEn;
