@@ -22,13 +22,17 @@ import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 
 // DENYLIST: Google Suggest sometimes autocompletes a seed into the wrong
 // sense — e.g. seed "permesso G" returns "permesso gratuito pesca in
-// mare" / "permesso caccia" / "permesso parcheggio disabili" because the
-// user-base searching for "permesso" includes hobby/admin contexts that
-// have nothing to do with the work-permit "permesso G". Drop completions
-// matching any of these false-positive senses to keep the demand-vocab
-// focused on cross-border work signals.
+// mare" / "permesso caccia" / "permesso giornaliero ZTL firenze" because
+// the user-base searching for "permesso" includes hobby/admin/civic
+// contexts that have nothing to do with the work-permit "permesso G".
+// Drop completions matching any of these false-positive senses to keep
+// the demand-vocab focused on cross-border work signals.
+//
+// `ztl` covers traffic-zone permits in IT cities (firenze/bologna/milano);
+// `giornaliero` (daily) is almost never used for work permits and almost
+// always for ZTL/parcheggio/cantiere contexts.
 const DENYLIST_RE =
-  /\b(pesca|caccia|edilizia|parcheggio|animale|matrimonio|soggiorno\s*per\s*studio|funebre|riposo|servizio\s*civile|condono\s*edilizio)\b/i;
+  /\b(pesca|caccia|edilizia|parcheggio|animale|matrimonio|soggiorno\s*per\s*studio|funebre|riposo|servizio\s*civile|condono\s*edilizio|ztl|zona\s*traffico\s*limitato|giornaliero|cantiere|circolazione|disabil[ie]|invalid[oi]|temporaneo\s*per\s*[a-z]+|funerale|comunale|abitativo)\b/i;
 
 function passesDenylist(completion) {
   if (typeof completion !== 'string') return false;
