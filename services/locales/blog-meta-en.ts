@@ -6755,6 +6755,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.title': 'New drug for chronic lymphocytic leukemia approved in Italy',
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.excerpt': 'AIFA approves pirtobrutinib for treating patients with relapsed or refractory chronic lymphocytic leukemia',
     'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.imageAlt': 'Medical research lab in Lugano, Switzerland, with scientists working on new treatments',
+    'blog.article.registro-imprese-varese-30-anni.title': 'Varese Business Register: 30 years of digital innovation',
+    'blog.article.registro-imprese-varese-30-anni.excerpt': 'Varese Chamber of Commerce celebrates 30 years of the Business Register, a digital cornerstone for businesses and institutions',
+    'blog.article.registro-imprese-varese-30-anni.imageAlt': 'Modern office in Ticino with a view of the Alps, where professionals work on digital registration systems',
 };
 
 export default blogMetaEn;

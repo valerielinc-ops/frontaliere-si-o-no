@@ -3494,6 +3494,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-2100-scenari-frontalieri': { name: 'Svizzera 2100', path: '/articoli-frontaliere/svizzera-2100-scenari-frontalieri', parent: 'blog' },
     'blog-sbb-controllers-bonuses-fines-ticino-2026': { name: 'SBB Controllers', path: '/articoli-frontaliere/sbb-controllers-bonuses-fines-ticino-2026', parent: 'blog' },
     'blog-nuovo-farmaco-leucemia-linfatica-cronica': { name: 'Novità sanitarie', path: '/articoli-frontaliere/nuovo-farmaco-leucemia-linfatica-cronica', parent: 'blog' },
+    'blog-registro-imprese-varese-30-anni': { name: 'Registro Imprese', path: '/articoli-frontaliere/registro-imprese-varese-30-anni', parent: 'blog' },
  };
 
  const info = sectionNames[section];
