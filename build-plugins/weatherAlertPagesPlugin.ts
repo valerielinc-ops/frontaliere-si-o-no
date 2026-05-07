@@ -150,13 +150,13 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
   return wrapHtml({
     locale, title, description, canonical, distDir,
     bodyHtml: `
-<header><h1>${escapeHtml(HUB_TITLE[locale])}</h1>
-<p class="tagline">${escapeHtml(HUB_TAGLINE[locale])}</p>
-<p class="alert-counter">${escapeHtml(counter)}</p></header>
-${active.length > 0 ? `<section class="alerts-active"><h2>${activeHeader(locale)}</h2>${activeRows}</section>` : ''}
-<section class="alerts-dormant"><h2>${dormantHeader(locale)}</h2>${dormantRows}</section>
-<section class="hub-intro">${intro}</section>
-<section class="attribution"><p>${attributionInline(locale, snap?.generatedAt)}</p></section>
+<header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(HUB_TITLE[locale])}</h1>
+<p class="text-base sm:text-lg text-body mb-2">${escapeHtml(HUB_TAGLINE[locale])}</p>
+<p class="text-sm text-muted">${escapeHtml(counter)}</p></header>
+${active.length > 0 ? `<section class="my-6 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-bold text-heading mb-3">${activeHeader(locale)}</h2><div class="bg-surface rounded-2xl border border-danger-border overflow-hidden">${activeRows}</div></section>` : ''}
+<section class="my-6 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-bold text-heading mb-3">${dormantHeader(locale)}</h2><div class="bg-surface rounded-2xl border border-edge overflow-hidden">${dormantRows}</div></section>
+<section class="my-8 max-w-3xl mx-auto prose prose-sm sm:prose-base"><h2 class="text-lg sm:text-xl font-bold text-heading mb-3">Come funzionano le allerte</h2>${intro}</section>
+<section class="my-8 max-w-3xl mx-auto pt-6 border-t border-edge"><p class="text-xs text-muted leading-relaxed">${attributionInline(locale, snap?.generatedAt)}</p></section>
 `,
     generatedAt: snap?.generatedAt,
     breadcrumbs: [
@@ -185,9 +185,9 @@ function renderHubRow(locale: Locale, cfg: WeatherAlertConfig, state: AlertState
   const localePath = locale === 'it' ? '' : `/${locale}`;
   const url = `${localePath}/${ALERTS_PARENT_BY_LOCALE[locale]}/${slug}/`;
   const badge = state.active
-    ? `<span class="alert-badge danger">${activeLabel(locale)}</span>`
-    : `<span class="alert-badge dormant">${dormantLabel(locale)}</span>`;
-  return `<a class="alert-row" href="${url}">${badge}<span class="alert-name">${escapeHtml(cfg.title[locale])}</span><span class="alert-tagline">${escapeHtml(cfg.tagline[locale])}</span></a>`;
+    ? `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-danger-subtle text-danger border border-danger-border whitespace-nowrap">${activeLabel(locale)}</span>`
+    : `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-surface-alt text-muted border border-edge whitespace-nowrap">${dormantLabel(locale)}</span>`;
+  return `<a class="grid grid-cols-[auto_1fr] gap-3 sm:gap-4 items-start px-4 py-3 sm:py-4 hover:bg-surface-alt border-b border-edge last:border-0 transition-colors" href="${url}">${badge}<div class="min-w-0"><div class="font-semibold text-heading">${escapeHtml(cfg.title[locale])}</div><div class="text-sm text-muted mt-0.5">${escapeHtml(cfg.tagline[locale])}</div></div></a>`;
 }
 
 function activeLabel(l: Locale): string { return l === 'it' ? 'Attiva' : l === 'en' ? 'Active' : l === 'de' ? 'Aktiv' : 'Active'; }
@@ -215,13 +215,13 @@ function renderAlertPage(locale: Locale, cfg: WeatherAlertConfig, state: AlertSt
     locale, title, description, canonical, distDir,
     bodyHtml: `
 ${breadcrumb}
-<header><h1>${escapeHtml(headline)}</h1>
-<p class="tagline">${escapeHtml(tagline)}</p></header>
+<header class="max-w-3xl mx-auto py-4"><h1 class="text-3xl sm:text-4xl font-light text-heading mb-2 leading-tight">${escapeHtml(headline)}</h1>
+<p class="text-base sm:text-lg text-body">${escapeHtml(tagline)}</p></header>
 ${stateHtml}
 ${ctaHtml}
 ${evergreenHtml}
 ${faqHtml}
-<section class="attribution"><p>${attributionInline(locale, generatedAt)}</p></section>
+<section class="my-8 max-w-3xl mx-auto pt-6 border-t border-edge"><p class="text-xs text-muted leading-relaxed">${attributionInline(locale, generatedAt)}</p></section>
 `,
     generatedAt,
     breadcrumbs: [
@@ -235,7 +235,7 @@ ${faqHtml}
 function renderBreadcrumb(locale: Locale, cfg: WeatherAlertConfig): string {
   const localePath = locale === 'it' ? '' : `/${locale}`;
   const homeText = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
-  return `<nav aria-label="Breadcrumb"><ol class="breadcrumb"><li><a href="${localePath}/">${homeText}</a></li><li><a href="${localePath}/${HUB_SLUG[locale]}/">${escapeHtml(HUB_TITLE[locale])}</a></li><li aria-current="page">${escapeHtml(cfg.title[locale])}</li></ol></nav>`;
+  return `<nav aria-label="Breadcrumb" class="max-w-3xl mx-auto py-3 text-sm"><ol class="flex flex-wrap items-center gap-1 text-muted"><li><a href="${localePath}/" class="hover:text-link">${homeText}</a></li><li class="text-muted">›</li><li><a href="${localePath}/${HUB_SLUG[locale]}/" class="hover:text-link">${escapeHtml(HUB_TITLE[locale])}</a></li><li class="text-muted">›</li><li class="text-heading font-medium" aria-current="page">${escapeHtml(cfg.title[locale])}</li></ol></nav>`;
 }
 
 function renderActiveState(locale: Locale, cfg: WeatherAlertConfig, state: AlertState): string {
@@ -244,10 +244,16 @@ function renderActiveState(locale: Locale, cfg: WeatherAlertConfig, state: Alert
   const startedLabel = state.startedAt ? `<time datetime="${escapeHtml(state.startedAt)}">${formatStarted(locale, state.startedAt)}</time>` : '';
   const metricLabel = state.metric ? `${state.metric.value}${state.metric.unit}` : '';
   const description = state.description ? `<p class="alert-description">${escapeHtml(state.description)}</p>` : '';
-  return `<section class="alert-state active" aria-live="assertive" data-state="active">
-<div class="alert-banner danger" role="alert"><strong>${escapeHtml(heading)}</strong>${metricLabel ? ` · ${escapeHtml(metricLabel)}` : ''}${startedLabel ? ` · ${startedLabel}` : ''}</div>
-${description}
-${sourceLabel ? `<p class="alert-source">${sourceLabel}</p>` : ''}
+  return `<section class="my-6 max-w-3xl mx-auto" aria-live="assertive" data-state="active">
+<div class="bg-danger-subtle border border-danger-border rounded-2xl p-5 sm:p-6" role="alert">
+<div class="flex items-baseline gap-2 flex-wrap mb-2">
+<strong class="text-lg sm:text-xl text-danger font-bold">${escapeHtml(heading)}</strong>
+${metricLabel ? `<span class="font-medium text-strong">· ${escapeHtml(metricLabel)}</span>` : ''}
+${startedLabel ? `<span class="text-sm text-muted">· ${startedLabel}</span>` : ''}
+</div>
+${description ? description.replace('class="alert-description"', 'class="text-body leading-relaxed"') : ''}
+${sourceLabel ? `<p class="text-xs text-muted mt-2">${sourceLabel}</p>` : ''}
+</div>
 </section>`;
 }
 
@@ -260,9 +266,11 @@ function renderDormantState(locale: Locale, _cfg: WeatherAlertConfig): string {
     : locale === 'de'
     ? 'Always-on-Seite: Wir überwachen das Ereignis 24/7. Wenn MeteoSwiss eine Warnung herausgibt, zeigt diese Seite Live-Daten innerhalb von 4 Stunden nach der Cron-Pipeline.'
     : 'Page toujours active: nous surveillons l\'événement 24/7. Lorsque MeteoSwiss émet une alerte, cette page affiche les données en direct dans les 4 heures suivant le pipeline cron.';
-  return `<section class="alert-state dormant" aria-live="polite" data-state="dormant">
-<div class="alert-banner success-subtle"><strong>${escapeHtml(heading)}</strong></div>
-<p>${escapeHtml(sub)}</p>
+  return `<section class="my-6 max-w-3xl mx-auto" aria-live="polite" data-state="dormant">
+<div class="bg-success-subtle border border-success-border rounded-2xl p-5 sm:p-6">
+<strong class="text-lg sm:text-xl text-success font-bold block mb-2">${escapeHtml(heading)}</strong>
+<p class="text-body leading-relaxed">${escapeHtml(sub)}</p>
+</div>
 </section>`;
 }
 
@@ -284,8 +292,8 @@ function renderEvergreen(locale: Locale, cfg: WeatherAlertConfig): string {
   const para1 = evergreenContent(locale, cfg.id);
   const climatologyHeading = locale === 'it' ? 'Climatologia tipica' : locale === 'en' ? 'Typical climatology' : locale === 'de' ? 'Typische Klimatologie' : 'Climatologie typique';
   const climatology = climatologyContent(locale, cfg.id);
-  return `<section class="evergreen"><h2>${escapeHtml(heading)}</h2><p>${escapeHtml(para1)}</p>
-<h3>${escapeHtml(climatologyHeading)}</h3><p>${escapeHtml(climatology)}</p></section>`;
+  return `<section class="my-8 max-w-3xl mx-auto prose prose-sm sm:prose-base"><h2 class="text-xl sm:text-2xl font-bold text-heading mb-4">${escapeHtml(heading)}</h2><p class="text-body leading-relaxed mb-6">${escapeHtml(para1)}</p>
+<h3 class="text-lg sm:text-xl font-bold text-heading mb-3">${escapeHtml(climatologyHeading)}</h3><p class="text-body leading-relaxed">${escapeHtml(climatology)}</p></section>`;
 }
 
 function evergreenContent(locale: Locale, alertId: string): string {
@@ -403,16 +411,16 @@ function renderFaq(locale: Locale, _cfg: WeatherAlertConfig): string {
         ['D\'où viennent les données?', 'Les alertes officielles proviennent du bulletin fédéral MeteoSwiss. Les données météo actuelles proviennent d\'un conseil de trois sources pour la redondance.'],
         ['Que faire si l\'alerte est active lorsque je dois partir?', 'Vérifiez la page du passage concerné pour les conditions routières et webcams. Considérez les alternatives recommandées. Abonnez-vous à la newsletter pour les alertes commute par e-mail.'],
       ];
-  const itemsHtml = items.map(([q, a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join('');
-  return `<section class="faq"><h2>${escapeHtml(heading)}</h2>${itemsHtml}</section>`;
+  const itemsHtml = items.map(([q, a]) => `<details class="bg-surface rounded-xl border border-edge p-4 mb-2"><summary class="font-medium text-heading cursor-pointer hover:text-accent">${escapeHtml(q)}</summary><p class="mt-3 text-body leading-relaxed">${escapeHtml(a)}</p></details>`).join('');
+  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-bold text-heading mb-4">${escapeHtml(heading)}</h2>${itemsHtml}</section>`;
 }
 
 function renderCta(locale: Locale, acquisitionSource: string): string {
   const ctaHeading = locale === 'it' ? 'Ricevi allerte commute via email' : locale === 'en' ? 'Get commute alerts by email' : locale === 'de' ? 'Pendler-Warnungen per E-Mail erhalten' : 'Recevez les alertes commute par e-mail';
   const ctaSub = locale === 'it' ? 'Newsletter trigger-based: ricevi una mail solo quando l\'evento è attivo.' : locale === 'en' ? 'Trigger-based newsletter: get an email only when the event is active.' : locale === 'de' ? 'Trigger-basierter Newsletter: erhalten Sie nur dann eine E-Mail, wenn das Ereignis aktiv ist.' : 'Newsletter déclenchée: recevez un e-mail uniquement lorsque l\'événement est actif.';
-  return `<section class="cta-newsletter" data-acquisition-source="${escapeHtml(acquisitionSource)}">
-<h2>${escapeHtml(ctaHeading)}</h2>
-<p>${escapeHtml(ctaSub)}</p>
+  return `<section class="bg-accent-subtle border border-accent-border rounded-2xl p-5 sm:p-6 my-6 max-w-3xl mx-auto text-center" data-acquisition-source="${escapeHtml(acquisitionSource)}">
+<h2 class="text-lg sm:text-xl font-bold text-heading mb-2">${escapeHtml(ctaHeading)}</h2>
+<p class="text-body">${escapeHtml(ctaSub)}</p>
 </section>`;
 }
 
