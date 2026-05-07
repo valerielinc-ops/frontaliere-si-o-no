@@ -1,18 +1,50 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-05-06T21:40:53.578Z",
+  "generatedAt": "2026-05-07T10:45:16.610Z",
   "total": 9,
   "newCount": 1,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1480,
-  "avgDurationMs": 1480,
+  "durationMs": 1476,
+  "avgDurationMs": 1476,
   "durationHistory": [
-    1480
+    1476
   ],
   "newJobs": [
+    {
+      "title": "Assistent/-in der Centerleitung ALC Monteceneri",
+      "slug": "assistent-in-der-centerleitung-alc-monteceneri-confederazione-monteceneri",
+      "url": "https://jobs.admin.ch/posti-vacanti/assistent-in-der-centerleitung-alc-monteceneri/0a219927-63fd-4ea1-a7d2-b2a640ed34c9",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18765",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Monteceneri (TI)",
+      "addressLocality": "Monteceneri",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "public-administration",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-06",
+      "validThrough": "2026-06-05",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Polizeiliche/-r Fachspezialist/-in",
       "slug": "polizeiliche-r-fachspezialist-in-confederazione-bern",
@@ -35,16 +67,23 @@
       "validThrough": "2028-05-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 63,
+      "id": "confederazione-ticino-8d8c452f77f5",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "firstSeenAt": "2026-05-06T21:40:53.578Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Greffier/greffière de langue française, pour la Cour des affaires pénales",
       "slug": "greffier-greffiere-de-langue-francaise-pour-la-cour-des-affaires-penales-confederazione-bellinzone",
@@ -148,50 +187,13 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "retranslationAttempts": 2,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Inspektor/in",
-      "slug": "inspektor-in-confederazione-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-aus-zh-sh-zentralschweiz-ag-so-be-vs",
-      "url": "https://jobs.admin.ch/posti-vacanti/inspektor-in/2f67b3a7-98a7-4fc9-adc5-4f840b4fc1aa",
-      "applyUrl": "https://jobs.admin.ch/posti-vacanti/inspektor-in/2f67b3a7-98a7-4fc9-adc5-4f840b4fc1aa",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Sie arbeiten im Homeoffice und führen Inspektionen in einem der folgenden Kantone aus: ZH, SH, Zentralschweiz, AG, SO, BE, VS",
-      "addressLocality": "Sie arbeiten im Homeoffice und führen Inspektionen in einem der folgenden Kantone aus: ZH, SH, Zentralschweiz, AG, SO, BE, VS",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-01",
-      "validThrough": "2026-05-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "id": "confederazione-ticino-15d20503ce18",
-      "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
         "completeness": 25
       }
     },
