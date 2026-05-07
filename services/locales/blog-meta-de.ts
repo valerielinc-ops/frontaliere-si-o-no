@@ -6893,6 +6893,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-auto-bellinzona-sud-2026.title': 'Auto brennt bei Bellinzona-Sud, A2 wieder geöffnet',
     'blog.article.incendio-auto-bellinzona-sud-2026.excerpt': 'Ein Auto brannte auf der Autobahn A2 bei Bellinzona-Sud, Verkehr für 40 Minuten blockiert. Feuerwehr und Polizei vor Ort',
     'blog.article.incendio-auto-bellinzona-sud-2026.imageAlt': 'Luftaufnahme des Autobahnausgangs Bellinzona-Sud mit Einsatzfahrzeugen, Rauch und Stau',
+    'blog.article.pari-opportunita-cultura-lugano-2026.title': 'Chancengleichheit in der Kultur: Eine erste Tessinerin',
+    'blog.article.pari-opportunita-cultura-lugano-2026.excerpt': 'Die erste Konferenz «Welches Geschlecht der Kultur?» in Lugano hat Herausforderungen und Chancen für die Chancengleichheit im künstlerischen und kulturellen Sektor aufgezeigt.',
+    'blog.article.pari-opportunita-cultura-lugano-2026.imageAlt': 'Konferenz über Chancengleichheit in der Kultur in Lugano',
 };
 
 export default blogMetaDe;

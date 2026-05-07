@@ -6893,6 +6893,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-auto-bellinzona-sud-2026.title': 'Car on fire at Bellinzona-Sud, A2 reopened',
     'blog.article.incendio-auto-bellinzona-sud-2026.excerpt': 'Car fire on the A2 highway at Bellinzona-Sud, traffic blocked for 40 minutes. Firefighters and police on site',
     'blog.article.incendio-auto-bellinzona-sud-2026.imageAlt': 'Aerial view of Bellinzona-Sud highway exit with emergency vehicles, smoke, and traffic jam',
+    'blog.article.pari-opportunita-cultura-lugano-2026.title': 'Gender equality in culture: a first in Ticino',
+    'blog.article.pari-opportunita-cultura-lugano-2026.excerpt': 'The first conference \'What kind of culture?\' in Lugano highlighted challenges and opportunities for gender equality in the artistic and cultural sector.',
+    'blog.article.pari-opportunita-cultura-lugano-2026.imageAlt': 'Conference on cultural equality in Lugano',
 };
 
 export default blogMetaEn;

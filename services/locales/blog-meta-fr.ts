@@ -6894,6 +6894,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-auto-bellinzona-sud-2026.title': 'Voiture en feu à Bellinzona-Sud, A2 rouverte',
     'blog.article.incendio-auto-bellinzona-sud-2026.excerpt': 'Incendie d\'une voiture sur l\'autoroute A2 à Bellinzona-Sud, trafic bloqué pendant 40 minutes. Pompiers et police sur place',
     'blog.article.incendio-auto-bellinzona-sud-2026.imageAlt': 'Vue aérienne de la sortie d\'autoroute de Bellinzona-Sud avec véhicules d\'urgence, fumée et embouteillage',
+    'blog.article.pari-opportunita-cultura-lugano-2026.title': 'Égalité des chances dans la culture : une première en Suisse italienne',
+    'blog.article.pari-opportunita-cultura-lugano-2026.excerpt': 'Le premier congrès « Quel genre de culture ? » à Lugano a mis en lumière les défis et les opportunités pour l\'égalité des chances dans le secteur artistique et culturel.',
+    'blog.article.pari-opportunita-cultura-lugano-2026.imageAlt': 'Conférence sur l\'égalité des chances dans la culture à Lugano',
 };
 
 export default blogMetaFr;

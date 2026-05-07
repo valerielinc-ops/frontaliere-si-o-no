@@ -28466,6 +28466,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pari-opportunita-cultura-lugano-2026': {
+    title: 'Pari opportunità nella cultura: a Lugano una prima ticinese',
+    description: 'Il primo convegno «Che genere di cultura?» a Lugano ha evidenziato sfide e opportunità per le pari opportunità nel settore artistico e culturale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pari, opportunità, nella, cultura',
+    ogTitle: 'Pari opportunità nella cultura: a Lugano una prima ticinese',
+    ogDescription: 'Il primo convegno «Che genere di cultura?» a Lugano ha evidenziato sfide e opportunità per le pari opportunità nel settore artistico e culturale.',
+    canonicalPath: '/articoli-frontaliere/pari-opportunita-cultura-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pari opportunità nella cultura: a Lugano una prima ticinese",
+      "description": "Il primo convegno «Che genere di cultura?» a Lugano ha evidenziato sfide e opportunità per le pari opportunità nel settore artistico e culturale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pari-opportunita-cultura-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza sulle pari opportunità nella cultura a Lugano"
+      },
+      "datePublished": "2026-05-07T21:34:21+00:00",
+      "dateModified": "2026-05-07T21:34:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pari-opportunita-cultura-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
