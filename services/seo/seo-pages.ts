@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2285,
+ "numberOfItems": 2286,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6927,7 +6927,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2282, "name": "Allerta grado 3 per temporali in Ticino: traffi...", "url": `${BASE_URL}/articoli-frontaliere/temporali-ticino-traffico-2024` },
           { "@type": "ListItem", "position": 2283, "name": "Progetto di Prossimità Locarno: cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/progetto-prossimita-locarno-2026` },
           { "@type": "ListItem", "position": 2284, "name": "Media svizzeri adottano codice etico sull'IA", "url": `${BASE_URL}/articoli-frontaliere/media-svizzera-codice-condotta-ia` },
-          { "@type": "ListItem", "position": 2285, "name": "Cassis e Cornado: tensione su fatture ospedalie...", "url": `${BASE_URL}/articoli-frontaliere/cassis-italia-cornado-risarcimento` }
+          { "@type": "ListItem", "position": 2285, "name": "Cassis e Cornado: tensione su fatture ospedalie...", "url": `${BASE_URL}/articoli-frontaliere/cassis-italia-cornado-risarcimento` },
+          { "@type": "ListItem", "position": 2286, "name": "Disoccupazione in calo al 3% in aprile in Ticino", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-ticino-aprile-2026` }
  ]
  },
  {

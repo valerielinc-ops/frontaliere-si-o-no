@@ -6699,6 +6699,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassis-italia-cornado-risarcimento.title': 'Cassis e Cornado: tensione su fatture ospedaliere per feriti di Crans-Montana',
     'blog.article.cassis-italia-cornado-risarcimento.excerpt': 'L\'ambasciatore italiano Gian Lorenzo Cornado replica a Cassis: «Parlo senza mezzi termini». La questione riguarda le fatture ospedaliere per i feriti di Crans-Montana.',
     'blog.article.cassis-italia-cornado-risarcimento.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
+    'blog.article.disoccupazione-ticino-aprile-2026.title': 'Disoccupazione in calo al 3% in aprile in Ticino',
+    'blog.article.disoccupazione-ticino-aprile-2026.excerpt': 'Il tasso di disoccupazione in Ticino è sceso al 2,8% ad aprile 2026, con 142.902 persone senza lavoro in Svizzera. Ecco cosa cambia per i frontalieri.',
+    'blog.article.disoccupazione-ticino-aprile-2026.imageAlt': 'Bellinzona, Svizzera, una giornata di sole con cieli sereni. L\'architettura medievale della città è visibile, tra cui il Castelgrande e il fiume Ticino che scorre attraverso la città.',
 };
 
 export default blogMetaIt;

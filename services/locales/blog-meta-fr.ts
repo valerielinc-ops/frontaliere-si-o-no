@@ -6699,6 +6699,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cassis-italia-cornado-risarcimento.title': 'Tension à Cassis et Cornado sur les factures d\'hôpitaux',
     'blog.article.cassis-italia-cornado-risarcimento.excerpt': 'L\'ambassadeur italien Gian Lorenzo Cornado répond à Cassis: «Je parle sans détour». La question concerne les factures d\'hôpitaux pour les blessés de Crans-Montana.',
     'blog.article.cassis-italia-cornado-risarcimento.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les bâtiments environnants',
+    'blog.article.disoccupazione-ticino-aprile-2026.title': 'Le taux de chômage baisse à 3% en avril au Tessin',
+    'blog.article.disoccupazione-ticino-aprile-2026.excerpt': 'Le taux de chômage au Tessin est passé à 2,8% en avril 2026, avec 142.902 personnes sans emploi en Suisse. Voici ce qui change pour les frontaliers.',
+    'blog.article.disoccupazione-ticino-aprile-2026.imageAlt': 'Bellinzona, Suisse, une journée ensoleillée avec des cieux dégagés. L\'architecture médiévale de la ville est visible, y compris le Castelgrande et la rivière du Ticino qui traverse la ville.',
 };
 
 export default blogMetaFr;

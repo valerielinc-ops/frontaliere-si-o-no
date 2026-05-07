@@ -25931,6 +25931,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-ticino-aprile-2026': {
+    title: 'Disoccupazione in calo al 3% in aprile in Ticino',
+    description: 'Il tasso di disoccupazione in Ticino è sceso al 2,8% ad aprile 2026. Ecco cosa cambia per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, calo, aprile, tasso',
+    ogTitle: 'Disoccupazione in calo al 3% in aprile in Ticino',
+    ogDescription: 'Il tasso di disoccupazione in Ticino è sceso al 2,8% ad aprile 2026. Ecco cosa cambia per i frontalieri che lavorano in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-ticino-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione in calo al 3% in aprile in Ticino",
+      "description": "Il tasso di disoccupazione in Ticino è sceso al 2,8% ad aprile 2026. Ecco cosa cambia per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-ticino-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, Svizzera, una giornata di sole con cieli sereni. L'architettura medievale della città è visibile, tra cui il Castelgrande e il fiume Ticino che scorre attraverso la città."
+      },
+      "datePublished": "2026-05-07T07:42:36+00:00",
+      "dateModified": "2026-05-07T07:42:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-ticino-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

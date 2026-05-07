@@ -6698,6 +6698,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cassis-italia-cornado-risarcimento.title': 'Cassis and Cornado: tension over Crans-Montana hospital bills',
     'blog.article.cassis-italia-cornado-risarcimento.excerpt': 'Italian ambassador Gian Lorenzo Cornado replies to Cassis: \'I speak without mincing words\'. The issue concerns hospital bills for Crans-Montana\'s injured.',
     'blog.article.cassis-italia-cornado-risarcimento.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
+    'blog.article.disoccupazione-ticino-aprile-2026.title': 'Unemployment rate drops to 3% in Ticino in April 2026',
+    'blog.article.disoccupazione-ticino-aprile-2026.excerpt': 'The unemployment rate in Ticino fell to 2.8% in April 2026, with 142,902 people out of work in Switzerland. Here\'s what changes for cross-border workers.',
+    'blog.article.disoccupazione-ticino-aprile-2026.imageAlt': 'Bellinzona, Switzerland, a sunny day with clear skies. The city\'s medieval architecture is visible, including the Castelgrande and the Ticino River flowing through the city.',
 };
 
 export default blogMetaEn;
