@@ -120,32 +120,38 @@ describe('fetch-article-performance / winnerFingerprint', () => {
     expect(fp.topClusters.map((c: any) => c.cluster)).toEqual(['fiscale']);
   });
 
-  it('topKeywords filtered through frontalieri-domain allowlist', () => {
-    // Pure news-of-day winners — none of these tokens are in the domain regex.
+  it('soft-boost: pure news-of-day winners still produce topKeywords (no allowlist gate)', () => {
+    // 2026-05-07 architectural shift: real-traffic data is ground truth.
+    // We no longer DROP non-domain tokens — soft-boost only multiplies
+    // domain tokens, surprise winners can still surface. This test asserts
+    // the new contract: even pure news-of-day winners produce SOME
+    // topKeywords (instead of [] under the old gate).
     const winners = [
-      { title: 'Sciopero pastori a Bellinzona oggi', excerpt: 'cronaca locale', cluster: 'novita', wordCount: 800 },
-      { title: 'Grandine danni vigneti tessinesi', excerpt: 'fenomeni meteo', cluster: 'novita', wordCount: 800 },
-      { title: 'Incidente sequestro autobus turistico', excerpt: 'cronaca regionale', cluster: 'novita', wordCount: 800 },
+      { title: 'Sciopero pastori Bellinzona', excerpt: 'manifestazione cronaca', cluster: 'novita', wordCount: 800 },
+      { title: 'Grandine vigneti tessinesi', excerpt: 'meteo danni', cluster: 'novita', wordCount: 800 },
+      { title: 'Incidente bus turistico Locarno', excerpt: 'cronaca regionale', cluster: 'novita', wordCount: 800 },
     ];
     const fp = buildWinnerFingerprint(winners as any, winners as any);
-    expect(fp.topKeywords).toEqual([]);
+    expect(fp.topKeywords.length).toBeGreaterThan(0);
   });
 
-  it('mixed winners → topKeywords keeps only domain matches', () => {
+  it('soft-boost: domain tokens dominate top-N when winners are mixed', () => {
+    // Soft boost (×3.0) means domain tokens get a score multiplier but
+    // non-domain tokens can still appear. Across 3 winners, 2 are domain-
+    // heavy and 1 is news-bursty: the top-5 should be dominated by domain
+    // tokens, with surprise tokens potentially appearing in the bottom half.
     const winners = [
       { title: 'Telelavoro frontaliere salario tasse', excerpt: 'guida fiscale stipendio irpef', cluster: 'fiscale', wordCount: 1500 },
       { title: 'Permesso G frontaliere ticino lombardia', excerpt: 'pendolari valico cambio chf', cluster: 'pratico', wordCount: 1500 },
       { title: 'Sciopero pastori grandine tessin', excerpt: 'cronaca novita locale', cluster: 'novita', wordCount: 1500 },
     ];
     const fp = buildWinnerFingerprint(winners as any, winners as any);
-    // Every kept keyword must match the domain regex (multilingual, broad).
-    for (const kw of fp.topKeywords) {
-      expect(kw).toMatch(/frontal|telelavoro|stipend|salar|tass|fiscal|irpef|permess|ticin|tessin|lombard|valic|pendol|cambio|chf/i);
-    }
-    // 'cronaca', 'pastori', 'sciopero', 'grandine' — must NOT survive.
-    for (const kw of fp.topKeywords) {
-      expect(kw).not.toMatch(/cronaca|pastori|sciopero|grandine|locale/i);
-    }
+    // At least 3 of the top 5 must be domain tokens.
+    const top5 = fp.topKeywords.slice(0, 5);
+    const domainHits = top5.filter((kw: string) =>
+      /frontal|telelavoro|stipend|salar|tass|fiscal|irpef|permess|ticin|tessin|lombard|valic|pendol|cambio|chf/i.test(kw)
+    );
+    expect(domainHits.length).toBeGreaterThanOrEqual(3);
   });
 
   it('averageWordCount=null when no winner has a wordCount', () => {
@@ -508,21 +514,24 @@ describe('fetch-article-performance / recency-weighted TF-IDF', () => {
     expect(fp.topKeywords.length).toBeGreaterThanOrEqual(3);
   });
 
-  it('recency weighting de-emphasizes news-of-day terms in older winners', () => {
-    // Old news-of-day winners (50 days old) — should get crushed by recency.
-    // Fresh evergreen winners — full weight. Domain filter still applies as
-    // final safety net, so the news terms (sciopero/grandine/pastori) get
-    // dropped. The test mainly asserts the pipeline still produces a clean
-    // fingerprint regardless of which winners are old vs new.
+  it('recency weighting de-emphasizes news-of-day terms in older winners (soft-boost)', () => {
+    // Old news-of-day winners (50 days old) get crushed by recency
+    // (recencyWeight ≈ 0.16 vs ≈ 0.93 for fresh winners). Combined with
+    // the ×3.0 soft boost on domain tokens, the top of topKeywords should
+    // be dominated by the fresh evergreen vocabulary. News-bursty tokens
+    // can still appear (no deny under soft-boost) but should rank lower.
     const winners = [
       { title: 'Sciopero pastori grandine vigneti', excerpt: 'cronaca tessinese', cluster: 'novita', wordCount: 800, publishedAt: '2026-03-18' },
       { title: 'Telelavoro frontaliere stipendio chf', excerpt: 'tasse fiscale', cluster: 'fiscale', wordCount: 1500, publishedAt: '2026-05-05' },
       { title: 'Permesso G frontaliere ticino', excerpt: 'pendolari valico', cluster: 'pratico', wordCount: 1500, publishedAt: '2026-05-06' },
     ];
     const fp = buildWinnerFingerprint(winners as any, winners as any);
-    for (const kw of fp.topKeywords) {
-      expect(kw).not.toMatch(/sciopero|pastori|grandine|cronaca/i);
-    }
+    // Top-5 must be dominated by domain tokens (fresh winners' vocabulary).
+    const top5 = fp.topKeywords.slice(0, 5);
+    const domainHits = top5.filter((kw: string) =>
+      /frontal|telelavoro|stipend|tass|fiscal|permess|ticin|chf|pendol|valic/i.test(kw)
+    );
+    expect(domainHits.length).toBeGreaterThanOrEqual(3);
   });
 
   it('regression: large fullCorpus does not collapse topKeywords (cap fCount at 50)', () => {

@@ -3,10 +3,19 @@
 
 import { isFrontalieriDomainTerm } from './domainTerms.mjs';
 
-// Minimum number of frontalieri-domain matches required to keep topKeywords.
-// Below this floor we return [] rather than a tiny noisy list — keeps the
-// fingerprint either useful or empty, never half-broken.
-const MIN_DOMAIN_KEYWORDS = 3;
+// Soft-boost multiplier for domain-passing TF-IDF tokens. The domain
+// regex no longer GATES topKeywords (real-traffic data is ground truth —
+// pre-filtering would hardcode our prior beliefs and silently drop
+// surprise winners like 'mutuo'/'casa' on a top-AdSense article).
+// Instead, domain tokens get a multiplicative boost so they rank higher
+// in the top-N, while non-domain tokens can still surface if the user
+// data shows they're driving traffic. Empirically tuned 2026-05-07:
+//   - 1.0 = no boost (back to all-noise output)
+//   - 2.0 = mild — surprise winners dominate, domain barely visible
+//   - 3.0 = moderate — domain dominates top-15, surprises appear in
+//           bottom-third
+//   - 5.0 = strong — top-15 essentially all domain, surprises rare
+const DOMAIN_BOOST_FACTOR = 3.0;
 
 /** Compute mean and (population) stddev. Returns {mean, sd} with sd>=1e-9. */
 export function meanStd(values) {
@@ -66,17 +75,52 @@ export function composeScores(rows) {
 }
 
 const STOPWORDS_IT = new Set([
+  // Articles, prepositions, conjunctions, particles
   'il', 'lo', 'la', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'a', 'da', 'in',
   'con', 'su', 'per', 'tra', 'fra', 'e', 'ed', 'o', 'ma', 'che', 'chi', 'cui',
   'non', 'al', 'allo', 'alla', 'ai', 'agli', 'alle', 'del', 'dello', 'della',
   'dei', 'degli', 'delle', 'nel', 'nello', 'nella', 'nei', 'negli', 'nelle',
   'sul', 'sullo', 'sulla', 'sui', 'sugli', 'sulle', 'dal', 'dallo', 'dalla',
-  'dai', 'dagli', 'dalle', 'è', 'sono', 'sei', 'siamo', 'siete', 'ho', 'hai',
-  'ha', 'abbiamo', 'avete', 'hanno', 'come', 'quando', 'quanto', 'quale',
+  'dai', 'dagli', 'dalle',
+  // Auxiliary verbs (essere/avere/venire/fare conjugated)
+  'è', 'sono', 'sei', 'siamo', 'siete', 'era', 'erano', 'sarà', 'saranno',
+  'ho', 'hai', 'ha', 'abbiamo', 'avete', 'hanno', 'aveva', 'avevano',
+  'fare', 'fatto', 'fanno', 'venire', 'venuti', 'andare', 'andato',
+  // Question words (also in QUESTION_WORDS for angle extraction)
+  'come', 'quando', 'quanto', 'quale', 'cosa', 'dove', 'perché', 'qual',
+  // Demonstratives, pronouns
   'questo', 'questa', 'questi', 'queste', 'quello', 'quella', 'quelli',
-  'quelle', 'se', 'più', 'meno', 'molto', 'poco', 'tutto', 'tutti', 'tutte',
-  'altro', 'altri', 'altre', 'cosa', 'tu', 'io', 'lui', 'lei', 'noi', 'voi',
-  'loro', 'mi', 'ti', 'si', 'ci', 'vi', 'me', 'te', 'ne',
+  'quelle', 'se', 'tu', 'io', 'lui', 'lei', 'noi', 'voi', 'loro', 'mi',
+  'ti', 'si', 'ci', 'vi', 'me', 'te', 'ne',
+  // Quantifiers
+  'più', 'meno', 'molto', 'poco', 'tanto', 'tutto', 'tutti', 'tutte',
+  'altro', 'altri', 'altre', 'ogni', 'qualche', 'qualcuno', 'nessun',
+  'nessuno', 'alcun', 'alcuno', 'alcuni', 'alcune',
+  // Adverbs (functional, not content) — added 2026-05-07 after seeing
+  // them dominate winnerFingerprint.topKeywords as bare TF-IDF noise.
+  'completamente', 'finalmente', 'sempre', 'spesso', 'mai', 'già',
+  'ancora', 'subito', 'presto', 'tardi', 'oggi', 'ieri', 'domani',
+  'sopra', 'sotto', 'davanti', 'dietro', 'dentro', 'fuori', 'vicino',
+  'lontano', 'insieme', 'prima', 'dopo', 'poi', 'allora', 'forse',
+  'davvero', 'invece', 'inoltre', 'comunque', 'quindi', 'perciò',
+  'cioè', 'soprattutto', 'almeno', 'circa', 'quasi',
+  // Common functional adjectives that surface as TF-IDF noise but
+  // aren't topic keywords — kept narrow to avoid over-filtering content.
+  'automatici', 'automatico', 'automatiche', 'automatica',
+  'completi', 'completa', 'completo', 'complete',
+  'presentano', 'presentato', 'presentati', 'presentata',
+  'posato', 'posata', 'posati', 'posate',
+  'finalmente', 'effettivo', 'effettiva',
+  // Date markers (year tokens are not topic content)
+  '2024', '2025', '2026', '2027', '2028',
+  // Generic story words
+  'storia', 'storie', 'caso', 'casi', 'modo', 'modi', 'parte', 'parti',
+  'volta', 'volte', 'tempo', 'tempi', 'anno', 'anni', 'mese', 'mesi',
+  'giorno', 'giorni', 'ora', 'ore', 'minuto', 'minuti',
+  // Generic news verbs
+  'arrivano', 'arriva', 'cambia', 'cambiano', 'avviene', 'succede',
+  'risulta', 'sembra', 'appare', 'mostra', 'svela', 'rivela',
+  'annuncia', 'comunica', 'dichiara', 'spiega', 'raccontano',
 ]);
 
 const QUESTION_WORDS = ['come', 'quando', 'quanto', 'quanti', 'quante', 'cosa', 'chi', 'dove', 'perché', 'quale', 'qual'];
@@ -163,7 +207,7 @@ const MAX_FCOUNT_IDF = 50;
  * @param {{ winnerWeights?: number[]|null, maxFCount?: number }} [opts]
  * @returns {string[]}
  */
-function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null, maxFCount = MAX_FCOUNT_IDF, filter = null } = {}) {
+function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null, maxFCount = MAX_FCOUNT_IDF, boostFn = null, boostFactor = 1.0 } = {}) {
   const winnerCounts = countTokensWeighted(winnerCorpus, winnerWeights);
   const fullCounts = countTokensWeighted(fullCorpus, null);
   // Effective corpus size for the TF normalizer matches the sum of weights
@@ -175,18 +219,18 @@ function tfidfTopN(winnerCorpus, fullCorpus, n, { winnerWeights = null, maxFCoun
   /** @type {Array<{token:string, score:number}>} */
   const scored = [];
   for (const [tok, wCount] of winnerCounts) {
-    // Optional domain pre-filter: when supplied, scores ONLY tokens that
-    // pass the filter. This prevents rare-recent news-of-day tokens from
-    // crowding out evergreen domain terms in the top-N. Empirical 2026-05-07:
-    // with title+excerpt corpus producing 200-600 unique tokens, the top-60
-    // by raw score was filling with proper nouns (Bellinzona, SlowUp) and
-    // leaving zero domain survivors after a post-hoc filter.
-    if (filter && !filter(tok)) continue;
     // Cap fCount at maxFCount: any term in ≥ maxFCount articles is treated
-    // the same. Prevents corpus-size from crushing evergreen terms.
+    // the same. Prevents corpus-size from crushing common terms.
     const rawFCount = fullCounts.get(tok) || 1;
     const fCount = Math.min(rawFCount, maxFCount);
-    const score = (wCount / Math.max(1, effectiveWinnerN)) * Math.log(1 + (Math.max(1, effectiveWinnerN) / fCount));
+    let score = (wCount / Math.max(1, effectiveWinnerN)) * Math.log(1 + (Math.max(1, effectiveWinnerN) / fCount));
+    // Optional soft boost: when a token passes `boostFn`, multiply its
+    // score by `boostFactor`. Used to favor domain-relevant terms WITHOUT
+    // dropping non-domain tokens — surprise winners can still surface if
+    // the user-traffic signal is strong enough. No-op when boostFn is null.
+    if (boostFn && boostFn(tok)) {
+      score *= boostFactor;
+    }
     scored.push({ token: tok, score });
   }
   // Deterministic sort: score desc, alphabetic tie-break so output is
@@ -273,33 +317,36 @@ export function buildWinnerFingerprint(winners, allArticles) {
     .map(([label]) => label);
 
   // Keywords — recency-weighted TF-IDF over winner titles+excerpts vs full
-  // corpus, then FILTERED through the frontalieri-domain allowlist.
+  // corpus. NO domain allowlist filter (removed 2026-05-07): these tokens
+  // come from articles that already brought REAL traffic + revenue, so
+  // the keyword is validated by user behavior. Pre-filtering with a
+  // hardcoded regex would silently drop surprise winners outside our
+  // prior beliefs of what counts as "frontaliere vocabulary" (e.g.,
+  // 'mutuo'/'casa' on the top-AdSense article).
   //
-  // Without recency weighting, bursty news-of-day winners ("Sciopero
-  // pastori", "Grandine vigneti") dominate the TF-IDF top-N before the
-  // domain filter even runs (memory note 2026-05-07). Each winner is
+  // Recency weighting handles bursty news-of-day risk: each winner is
   // weighted by `1/(1+ageDays/14)` so a 2-week-old article counts half
-  // as much as a fresh one and a 4-week-old article counts a third. The
-  // domain allowlist (`isFrontalieriDomainTerm`) is the final defense
-  // against any token that survives recency weighting but still isn't
-  // evergreen frontaliere vocabulary.
-  //
-  // If the filtered set is too small to be useful (< MIN_DOMAIN_KEYWORDS),
-  // return [] so the fingerprint is either useful or empty, never half-broken.
+  // and a 4-week-old article counts a third. Combined with the fCount
+  // cap in tfidfTopN, the math alone keeps the output stable across
+  // corpus sizes and bursty-vs-evergreen content.
   const winnerCorpus = winners.map((w) => `${w.title || ''} ${w.excerpt || ''}`);
   const fullCorpus = allArticles.map((a) => `${a.title || ''} ${a.excerpt || ''}`);
   const winnerWeights = winners.map((w) => recencyWeight(w.publishedAt));
-  // Pass the domain filter INTO tfidfTopN so only domain-passing tokens are
-  // scored. Previously a post-hoc filter() ran AFTER top-60 selection, which
-  // collapsed to 0 survivors when title+excerpt produced 200-600 rare tokens
-  // that crowded out evergreen domain terms in the top-60 by score. Now the
-  // top-15 is "top-15 among domain tokens" — guaranteed to include evergreen
-  // terms whenever winners contain frontaliere vocabulary.
-  const domainOnly = tfidfTopN(winnerCorpus, fullCorpus, 15, {
+  // 2026-05-07 soft-boost architecture (no deny, only boost):
+  //   - Domain-passing tokens (frontaliere/tasse/lpp/lamal/mutuo/casa
+  //     and other multilingual roots in `FRONTALIERI_DOMAIN_RE`) get a
+  //     ×3.0 score multiplier so they dominate the top-15.
+  //   - Non-domain tokens are NOT dropped. If a surprise winner has
+  //     enough user-traffic signal to outscore the boosted domain
+  //     terms, it surfaces (e.g., a hypothetical "auto-ibrida-frontaliere"
+  //     trend would appear before we ever extended the regex).
+  //   - Real user traffic = ground truth; pre-filtering would lock the
+  //     vocabulary to our prior beliefs.
+  const topKeywords = tfidfTopN(winnerCorpus, fullCorpus, 15, {
     winnerWeights,
-    filter: isFrontalieriDomainTerm,
+    boostFn: isFrontalieriDomainTerm,
+    boostFactor: DOMAIN_BOOST_FACTOR,
   });
-  const topKeywords = domainOnly.length >= MIN_DOMAIN_KEYWORDS ? domainOnly : [];
 
   // Question patterns: words appearing as the first token of any winner
   // title.
