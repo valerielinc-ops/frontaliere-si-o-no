@@ -79,7 +79,15 @@ import {
 
 // ── Constants ───────────────────────────────────────────────────────────
 
-const MIN_JOB_COUNT = 5;
+// MIN_JOB_COUNT — candidate-level frequency floor (audit time). Originally 5,
+// kept the emit set tiny (~1.5k of 52k candidates). The other 50k slugs were
+// still link-emitted by JobBoard's `<a href>` tags in the SPA, so Googlebot
+// discovered them and reported 32k+ "Non trovata (404)" in GSC. Lowering the
+// floor to 1 makes every audit-captured candidate eligible for emission; the
+// per-page MIN_MATCHING_JOBS=3 quality gate below still skips any cluster
+// that can't list ≥3 real jobs at build time, which protects against thin
+// content (CLAUDE.md non-negotiable rule #4).
+const MIN_JOB_COUNT = 1;
 const MIN_MATCHING_JOBS = 3;
 const MAX_JOBS_PER_PAGE = 30;
 const HUB_PAGE_SIZE = 200;
