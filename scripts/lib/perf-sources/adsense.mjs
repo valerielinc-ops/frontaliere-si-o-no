@@ -29,7 +29,10 @@ async function refreshAccessToken({ clientId, clientSecret, refreshToken, fetchI
  */
 export async function fetchAdsenseChannelRevenue({
   windowDays = 30,
-  channelHints = ['blog', 'article'],
+  // Order matters — first match wins for 'matchedChannelNames' display.
+  // 'articoli' is the Italian path segment for /articoli-frontaliere/* (blog).
+  // English 'article' is included for any future English-named channels.
+  channelHints = ['articoli', 'blog', 'article'],
   fetchImpl = fetch,
 } = {}) {
   const refreshToken = process.env.ADSENSE_REFRESH_TOKEN;
