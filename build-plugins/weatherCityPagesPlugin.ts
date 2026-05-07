@@ -90,6 +90,10 @@ export function weatherCityPagesPlugin(rootDir: string): Plugin {
           count += 1;
         }
       }
+      // Copy data/weather-snapshot.json to dist/data/ so the runtime
+      // hydration script can fetch it via /data/weather-snapshot.json.
+      // (Vite copies only public/* by default; data/ is build-time only.)
+      copySnapshotToDist(rootDir, distDir);
       writeSitemap(rootDir, snapshot?.generatedAt);
       console.log(`[weather-city-pages] emitted ${count} pages`);
     },
@@ -403,6 +407,19 @@ function escapeHtml(s: string): string {
       default: return c;
     }
   });
+}
+
+function copySnapshotToDist(rootDir: string, distDir: string): void {
+  const src = resolve(rootDir, 'data/weather-snapshot.json');
+  const dstDir = resolve(distDir, 'data');
+  if (!existsSync(src)) return;
+  mkdirSync(dstDir, { recursive: true });
+  try {
+    const buf = readFileSync(src);
+    writeFileSync(resolve(dstDir, 'weather-snapshot.json'), buf);
+  } catch (e) {
+    console.warn(`[weather-city-pages] snapshot copy to dist failed: ${(e as Error).message}`);
+  }
 }
 
 function writeSitemap(rootDir: string, generatedAt?: string): void {

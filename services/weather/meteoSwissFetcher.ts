@@ -18,6 +18,11 @@ import type { FetcherResult, WeatherCurrent, AlertState } from './types';
 
 const OBSERVATIONS_ENDPOINT = 'https://data.geo.admin.ch/ch.meteoschweiz.ogd-smn/ogd-smn_meta.csv';
 const STATION_LATEST_BASE = 'https://data.geo.admin.ch/ch.meteoschweiz.ogd-smn';
+/**
+ * Official EUMETNET MeteoAlarm feed for Switzerland — MeteoSwiss feeds this
+ * pan-European aggregator. CAP (Common Alerting Protocol) JSON shape.
+ * Verified live 2026-05-07.
+ */
 const ALERTS_ENDPOINT = 'https://feeds.meteoalarm.org/api/v1/warnings/feeds-switzerland';
 
 export const METEO_SWISS_ATTRIBUTION_TEXT = 'MeteoSwiss';
