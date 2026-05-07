@@ -43,8 +43,8 @@ afterEach(() => {
 
 // ── Constants ─────────────────────────────────────────────────────
 describe('selector — Phase B+C constants', () => {
-  it('RANKER_MIN_SCORE is 0.15 per design', () => {
-    expect(RANKER_MIN_SCORE).toBe(0.15);
+  it('RANKER_MIN_SCORE is 0.25 per design (raised from 0.15 on 2026-05-07)', () => {
+    expect(RANKER_MIN_SCORE).toBe(0.25);
   });
   it('EXPERIMENTAL_RATIO_DEFAULT is 0.10', () => {
     expect(EXPERIMENTAL_RATIO_DEFAULT).toBeCloseTo(0.1);

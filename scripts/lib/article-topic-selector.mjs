@@ -47,7 +47,13 @@ export const EXPERIMENTAL_COUNTER_PATH = 'data/topic-candidates-experimental-cou
 export const TODAY_PICKS_BY_CLUSTER_PATH = 'data/topic-candidates-today-picks.json';
 
 // Score floor for ranker output. Below this we fall back to evergreen.
-export const RANKER_MIN_SCORE = 0.15;
+// Empirical 2026-05-07: top scores are 1.4-1.5, demand 1.0-2.0. Min
+// 0.15 was too permissive — borderline news with weak demand-signal
+// passed when no high-quality headline was available. Bumped to 0.25
+// to drop the bottom-quartile noise; on slow news days the existing
+// evergreen fallback fills the gap with high-quality LLM-generated
+// long-tail content instead of a borderline news article.
+export const RANKER_MIN_SCORE = 0.25;
 
 // Default fraction of picks routed to the experimental tier.
 export const EXPERIMENTAL_RATIO_DEFAULT = 0.10;
@@ -423,9 +429,15 @@ export async function classifyHeadlineClusters(headlines, opts = {}) {
   // If every entry is null we degraded fully — log once.
   const nullCount = coerced.reduce((acc, v) => acc + (v == null ? 1 : 0), 0);
   if (nullCount === list.length) {
-    console.warn('[generator] cluster classifier output rejected (length mismatch or no valid entries), regex fallback');
+    console.warn(`[classifier] LLM output rejected (length mismatch or all-null), regex fallback for ${list.length}/${list.length}`);
   } else if (nullCount > 0) {
-    console.warn(`[generator] cluster classifier: ${nullCount}/${list.length} entries fell back to regex`);
+    console.warn(`[classifier] LLM ok ${list.length - nullCount}/${list.length}, regex fallback ${nullCount}/${list.length}`);
+  } else {
+    // Diagnostic: cluster distribution from LLM (per run).
+    const dist = {};
+    for (const c of coerced) dist[c] = (dist[c] || 0) + 1;
+    const distStr = Object.entries(dist).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}:${n}`).join(' ');
+    console.warn(`[classifier] LLM ok ${list.length}/${list.length} → ${distStr}`);
   }
 
   return coerced.map((cluster, i) => cluster ?? classifyByRegex(String(list[i] ?? '')));
@@ -469,11 +481,25 @@ function computeDemandScore(headline, vocab) {
  * @param {Record<string, number>} todayPicksByCluster
  * @returns {number}
  */
+// Diversity bonus floor at 0.1 — observed 2026-05-07 that the LLM
+// classifier + regex fallback collapse most regional-news headlines
+// into 'generic' cluster. With picks=11 in 'generic' on a typical day,
+// 0.5^11 ≈ 0.0005 ≈ 0, killing the bonus entirely for 'generic'. Floor
+// at 0.1 keeps a mild diversity tilt against over-represented clusters
+// without excluding them outright. Fresh clusters (picks=0) still get
+// the full 1.0; first repeat (picks=1) gets 0.5; etc.
+//
+// Curve:
+//   0 picks → 1.0
+//   1 pick  → 0.5
+//   2 picks → 0.25
+//   3 picks → 0.125
+//   4+ picks→ 0.1 (floor)
 function computeClusterDiversityBonus(cluster, todayPicksByCluster) {
   if (!cluster) return 0;
   const picks = (todayPicksByCluster && todayPicksByCluster[cluster]) || 0;
   if (picks <= 0) return 1.0;
-  return Math.pow(0.5, picks);
+  return Math.max(0.1, Math.pow(0.5, picks));
 }
 
 /**

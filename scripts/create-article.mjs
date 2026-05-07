@@ -723,6 +723,18 @@ const NEWS_SOURCES = [
   'https://www.tio.ch/ticino/cronaca',
   'https://www.rsi.ch/info/economia/',
   'https://www.rsi.ch/info/svizzera/?f=rss',
+  // ── 2026-05-07: frontaliere-specific feeds — added after diagnosis showed
+  // the news pool was 1.6% frontaliere-relevant (9/564). These tag/category
+  // pages produce mostly cross-border-work content directly.
+  'https://www.tvsvizzera.it/tvs/svizzera-italia-frontalieri/',
+  'https://www.tvsvizzera.it/tvs/economia/',
+  'https://www.cdt.ch/dossier/frontalieri-tutto-sapere-permesso-G-tasse-cassa-malati',
+  'https://www.tio.ch/svizzera/economia',
+  'https://www.tio.ch/ticino/lavoro',
+  'https://www.cdt.ch/news/lavoro',
+  'https://www.laregione.ch/economia',
+  'https://www.varesenews.it/tag/frontalieri/',          // HTML fallback
+  'https://www.varesenoi.it/sommario/argomenti/economia-7.html',
   // swissinfo.ch RSS removed — 410 Gone (FRO-415)
   // admin.ch RSS removed — WAF challenge blocks scraping (FRO-415)
 ];
