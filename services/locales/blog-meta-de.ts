@@ -6758,6 +6758,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.registro-imprese-varese-30-anni.title': 'Handelsregister Varese: 30 Jahre digitale Innovation',
     'blog.article.registro-imprese-varese-30-anni.excerpt': 'Die Handelskammer Varese feiert 30 Jahre Handelsregister, ein digitaler Eckpfeiler für Unternehmen und Institutionen',
     'blog.article.registro-imprese-varese-30-anni.imageAlt': 'Modernes Büro in Ticino mit Blick auf die Alpen, wo Fachleute an digitalen Registrierungssystemen arbeiten',
+    'blog.article.castellanza-investimenti-2025.title': 'Castellanza: 1,8 Millionen für 2025',
+    'blog.article.castellanza-investimenti-2025.excerpt': 'Die Gemeinde Castellanza hat einen Haushalt für 2025 mit 1,8 Millionen Euro für Straßen, Schulen und Sportanlagen genehmigt.',
+    'blog.article.castellanza-investimenti-2025.imageAlt': 'Luftaufnahme von Castellanza mit laufenden Infrastrukturprojekten',
 };
 
 export default blogMetaDe;

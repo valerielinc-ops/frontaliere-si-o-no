@@ -6758,6 +6758,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.registro-imprese-varese-30-anni.title': 'Varese Business Register: 30 years of digital innovation',
     'blog.article.registro-imprese-varese-30-anni.excerpt': 'Varese Chamber of Commerce celebrates 30 years of the Business Register, a digital cornerstone for businesses and institutions',
     'blog.article.registro-imprese-varese-30-anni.imageAlt': 'Modern office in Ticino with a view of the Alps, where professionals work on digital registration systems',
+    'blog.article.castellanza-investimenti-2025.title': 'Castellanza: €1.8m investments for 2025',
+    'blog.article.castellanza-investimenti-2025.excerpt': 'The municipality of Castellanza has approved a 2025 budget with €1.8 million in investments for roads, schools, and sports facilities',
+    'blog.article.castellanza-investimenti-2025.imageAlt': 'Aerial view of Castellanza with infrastructure projects underway',
 };
 
 export default blogMetaEn;

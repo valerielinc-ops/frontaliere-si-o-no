@@ -21647,4 +21647,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'castellanza-investimenti-2025',
+ category: 'pratico',
+ date: '2026-05-07T12:21:31.574Z',
+ image: '/images/blog/castellanza-investimenti-2025.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
