@@ -26633,6 +26633,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-farmaco-leucemia-linfatica-cronica': {
+    title: 'Nuovo farmaco per leucemia linfatica cronica approvato in Italia',
+    description: 'L\'AIFA approva pirtobrutinib per trattare pazienti con leucemia linfatica cronica recidivante o refrattaria. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, farmaco, leucemia, linfatica',
+    ogTitle: 'Nuovo farmaco per leucemia linfatica cronica approvato in Italia',
+    ogDescription: 'L\'AIFA approva pirtobrutinib per trattare pazienti con leucemia linfatica cronica recidivante o refrattaria. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/nuovo-farmaco-leucemia-linfatica-cronica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo farmaco per leucemia linfatica cronica approvato in Italia",
+      "description": "L'AIFA approva pirtobrutinib per trattare pazienti con leucemia linfatica cronica recidivante o refrattaria. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuovo-farmaco-leucemia-linfatica-cronica.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca medica a Lugano, Svizzera, con scienziati al lavoro su nuove terapie"
+      },
+      "datePublished": "2026-05-07T11:03:38+00:00",
+      "dateModified": "2026-05-07T11:03:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-farmaco-leucemia-linfatica-cronica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

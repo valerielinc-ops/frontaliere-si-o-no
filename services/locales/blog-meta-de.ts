@@ -6752,6 +6752,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sbb-controllers-bonuses-fines-ticino-2026.title': 'SBB-Kontrolleure erhalten Prämien für Strafen? Was Grenzgänger wissen müssen',
     'blog.article.sbb-controllers-bonuses-fines-ticino-2026.excerpt': 'SBB-Kontrolleure könnten Prämien basierend auf den eingezogenen Strafen erhalten. Auswirkungen auf die Grenzgänger im Tessin und wie man das neue System navigiert.',
     'blog.article.sbb-controllers-bonuses-fines-ticino-2026.imageAlt': 'Panoramablick auf den Luganersee mit der Stadtlandschaft von Lugano',
+    'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.title': 'Neues Medikament gegen chronische lymphatische Leukämie in Italien zugelassen',
+    'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.excerpt': 'Die AIFA genehmigt Pirtobrutinib zur Behandlung von Patienten mit rezidivierender oder refraktärer chronischer lymphatischer Leukämie',
+    'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.imageAlt': 'Medizinisches Forschungslabor in Lugano, Schweiz, mit Wissenschaftlern, die an neuen Behandlungen arbeiten',
 };
 
 export default blogMetaDe;

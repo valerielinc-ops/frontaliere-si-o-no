@@ -6752,6 +6752,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sbb-controllers-bonuses-fines-ticino-2026.title': 'SBB fines: bonuses & cross-border workers',
     'blog.article.sbb-controllers-bonuses-fines-ticino-2026.excerpt': 'SBB controllers may get bonuses based on fines. Impact on Ticino cross-border workers and how to navigate the new system.',
     'blog.article.sbb-controllers-bonuses-fines-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano with the urban landscape of Lugano',
+    'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.title': 'New drug for chronic lymphocytic leukemia approved in Italy',
+    'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.excerpt': 'AIFA approves pirtobrutinib for treating patients with relapsed or refractory chronic lymphocytic leukemia',
+    'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.imageAlt': 'Medical research lab in Lugano, Switzerland, with scientists working on new treatments',
 };
 
 export default blogMetaEn;

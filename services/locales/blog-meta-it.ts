@@ -6753,6 +6753,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sbb-controllers-bonuses-fines-ticino-2026.title': 'SBB controllers getting bonuses for fines? What frontalieri need to know',
     'blog.article.sbb-controllers-bonuses-fines-ticino-2026.excerpt': 'SBB controllers may receive bonuses based on fines collected. Impact on Ticino cross-border workers and how to navigate the new system.',
     'blog.article.sbb-controllers-bonuses-fines-ticino-2026.imageAlt': 'Vista panoramica del Lago di Lugano con il paesaggio urbano di Lugano',
+    'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.title': 'Nuovo farmaco per leucemia linfatica cronica approvato in Italia',
+    'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.excerpt': 'L\'AIFA approva pirtobrutinib per trattare pazienti con leucemia linfatica cronica recidivante o refrattaria',
+    'blog.article.nuovo-farmaco-leucemia-linfatica-cronica.imageAlt': 'Laboratorio di ricerca medica a Lugano, Svizzera, con scienziati al lavoro su nuove terapie',
 };
 
 export default blogMetaIt;
