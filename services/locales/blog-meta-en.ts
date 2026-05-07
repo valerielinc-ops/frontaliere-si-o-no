@@ -6857,6 +6857,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.elcom-preoccupata-inverno-2026.title': 'ElCom warns: electricity supply risk for winter 2026',
     'blog.article.elcom-preoccupata-inverno-2026.excerpt': 'The war in Iran and the Hormuz Strait blockade threaten Swiss energy security. ElCom emphasizes the importance of an agreement with the EU.',
     'blog.article.elcom-preoccupata-inverno-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino\'s landscape, clear blue sky, and surrounding mountains.',
+    'blog.article.balerna-2025-cifre-nere-frontalieri.title': 'Balerna defies forecasts: 2025 ends in the black',
+    'blog.article.balerna-2025-cifre-nere-frontalieri.excerpt': 'Extraordinary tax revenues consolidate Balerna\'s accounts, but the future requires realism. Here\'s what changes for cross-border workers.',
+    'blog.article.balerna-2025-cifre-nere-frontalieri.imageAlt': 'Aerial view of Balerna, Ticino, with the border to Italy visible',
 };
 
 export default blogMetaEn;

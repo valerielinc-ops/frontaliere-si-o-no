@@ -6858,6 +6858,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.elcom-preoccupata-inverno-2026.title': 'ElCom alerte: risque d\'approvisionnement électrique pour l\'hiver 2026',
     'blog.article.elcom-preoccupata-inverno-2026.excerpt': 'La guerre en Iran et le blocus du détroit d\'Hormuz menacent la sécurité énergétique suisse. L\'ElCom souligne l\'importance d\'un accord avec l\'UE.',
     'blog.article.elcom-preoccupata-inverno-2026.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin, ciel bleu clair et montagnes environnantes.',
+    'blog.article.balerna-2025-cifre-nere-frontalieri.title': 'Balerna inverse les prévisions : 2025 se termine dans le noir',
+    'blog.article.balerna-2025-cifre-nere-frontalieri.excerpt': 'Les entrées fiscales extraordinaires consolident le bilan de Balerna, mais l\'avenir exige du réalisme. Voici ce qui change pour les frontaliers.',
+    'blog.article.balerna-2025-cifre-nere-frontalieri.imageAlt': 'Vue aérienne de Balerna, Tessin, avec la frontière avec l\'Italie visible',
 };
 
 export default blogMetaFr;

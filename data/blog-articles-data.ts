@@ -21944,4 +21944,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'balerna-2025-cifre-nere-frontalieri',
+ category: 'novita',
+ date: '2026-05-07T20:13:02.902Z',
+ image: '/images/blog/balerna-2025-cifre-nere-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

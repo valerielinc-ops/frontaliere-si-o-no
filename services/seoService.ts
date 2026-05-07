@@ -3528,6 +3528,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-adeguati-assetti-imprese-ticino-2026': { name: 'Adeguati assetti', path: '/articoli-frontaliere/adeguati-assetti-imprese-ticino-2026', parent: 'blog' },
     'blog-accuse-svizzera-italia-2026': { name: 'Novità', path: '/articoli-frontaliere/accuse-svizzera-italia-2026', parent: 'blog' },
     'blog-elcom-preoccupata-inverno-2026': { name: 'Novità', path: '/articoli-frontaliere/elcom-preoccupata-inverno-2026', parent: 'blog' },
+    'blog-balerna-2025-cifre-nere-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/balerna-2025-cifre-nere-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
