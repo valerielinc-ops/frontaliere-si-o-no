@@ -347,21 +347,77 @@ function coerceClusterArray(parsed, expectedLength) {
     }
   }
   if (!Array.isArray(arr)) return new Array(expectedLength).fill(null);
-  // If length doesn't match, signal full fallback.
-  if (arr.length !== expectedLength) {
-    return new Array(expectedLength).fill(null);
-  }
-  return arr.map((entry) => {
-    if (typeof entry !== 'string') return null;
+  // 2026-05-07 graceful: if the array is SHORTER than expected (e.g.
+  // recovered from a truncated LLM output), keep the prefix entries
+  // and pad with nulls so the per-entry regex fallback fills the gap.
+  // If the array is LONGER, truncate to expected length.
+  const out = new Array(expectedLength).fill(null);
+  const limit = Math.min(arr.length, expectedLength);
+  for (let i = 0; i < limit; i += 1) {
+    const entry = arr[i];
+    if (typeof entry !== 'string') continue;
     const trimmed = entry.trim().toLowerCase();
-    return CLUSTER_TAXONOMY_SET.has(trimmed) ? trimmed : null;
-  });
+    if (CLUSTER_TAXONOMY_SET.has(trimmed)) out[i] = trimmed;
+  }
+  return out;
 }
 
 /**
  * Strip Markdown code fences, leading prose, and `<think>` blocks
  * from an LLM response so JSON.parse stands a chance.
  */
+/**
+ * Recover a partial array from a truncated JSON string. The cluster
+ * classifier sometimes runs out of output tokens mid-string when the
+ * batch is large; rather than dropping ALL classifications we recover
+ * the prefix up to the last complete `"cluster"` entry. Returns null
+ * when no recovery is possible.
+ *
+ * Strategy:
+ *   - Find the last complete quoted string by walking backwards from
+ *     the end and locating the last unescaped `"`.
+ *   - Find the last fully-closed comma after a quoted string.
+ *   - Cut at that point, append `]` to close the array, and try parsing.
+ *
+ * Handles both top-level array `["a", "b", "c` and object-wrapped
+ * `{"clusters": ["a", "b", "c` shapes (returns the array directly).
+ *
+ * @param {string} text — stripped LLM output that failed JSON.parse.
+ * @returns {Array|null} — recovered array, or null on failure.
+ */
+function recoverTruncatedArray(text) {
+  if (typeof text !== 'string' || !text) return null;
+  // Locate the array open '[' (works for top-level arrays and
+  // object-wrapped {"clusters": [...]}).
+  const openIdx = text.indexOf('[');
+  if (openIdx < 0) return null;
+  // Walk backwards from end looking for a `",` or `"` that closes a
+  // valid entry. The last "quote then comma or whitespace" is the safe
+  // truncation point.
+  let cutAt = -1;
+  for (let i = text.length - 1; i > openIdx; i -= 1) {
+    if (text[i] === '"') {
+      // Make sure this quote isn't escaped (preceded by an odd number
+      // of backslashes).
+      let bs = 0;
+      for (let j = i - 1; j >= 0 && text[j] === '\\'; j -= 1) bs += 1;
+      if (bs % 2 === 1) continue;
+      // Check if this quote is followed only by whitespace/comma before
+      // continuing — that means it's the close of a complete entry.
+      cutAt = i;
+      break;
+    }
+  }
+  if (cutAt < 0) return null;
+  const candidate = `${text.slice(openIdx, cutAt + 1)}]`;
+  try {
+    const arr = JSON.parse(candidate);
+    return Array.isArray(arr) ? arr : null;
+  } catch {
+    return null;
+  }
+}
+
 function stripFenceAndPrefix(raw) {
   if (typeof raw !== 'string') return '';
   let s = raw.trim();
@@ -426,7 +482,14 @@ export async function classifyHeadlineClusters(headlines, opts = {}) {
   try {
     raw = await callLLM(messages, {
       temperature: 0,
-      maxTokens: Math.min(1024, 32 + list.length * 16),
+      // Each cluster name (max 8 chars) + JSON quotes/comma ≈ 14 chars per
+      // entry ≈ 4 tokens. With safety margin and overhead for the wrapping
+      // object: 32 base + list.length * 8. Cap at 16384 (most providers
+      // accept up to 16k output). Old cap of 1024 truncated arrays at
+      // ~250 entries — diagnosed live 2026-05-07: log showed
+      //   "Unterminated string at position 1043"
+      // because batches of 350+ headlines blew through the 1024-token cap.
+      maxTokens: Math.min(16384, 256 + list.length * 8),
       jsonMode: true,
       ...(opts.model ? { model: opts.model } : {}),
     });
@@ -441,11 +504,17 @@ export async function classifyHeadlineClusters(headlines, opts = {}) {
   try {
     parsed = JSON.parse(stripped);
   } catch (e) {
-    // Diagnostic: print first 200 chars of stripped raw so we can fix
-    // prompt/parser if a model returns an unexpected shape.
-    const preview = stripped.slice(0, 200).replace(/\s+/g, ' ');
-    console.warn(`[classifier] LLM returned malformed JSON (parse error: ${e?.message || e}), regex fallback. raw[0..200]: "${preview}"`);
-    return list.map((h) => classifyByRegex(String(h ?? '')));
+    // 2026-05-07 graceful recovery: when JSON.parse fails (most often due
+    // to a truncated array — the model ran out of tokens mid-string), try
+    // to recover the array prefix up to the last complete entry. Falls
+    // back to all-regex only when no prefix can be recovered.
+    parsed = recoverTruncatedArray(stripped);
+    if (!parsed) {
+      const preview = stripped.slice(0, 200).replace(/\s+/g, ' ');
+      console.warn(`[classifier] LLM returned malformed JSON (parse error: ${e?.message || e}), regex fallback. raw[0..200]: "${preview}"`);
+      return list.map((h) => classifyByRegex(String(h ?? '')));
+    }
+    console.warn(`[classifier] LLM returned truncated JSON, recovered ${parsed.length}/${list.length} entries (rest: regex fallback). parse error was: ${e?.message || e}`);
   }
 
   const coerced = coerceClusterArray(parsed, list.length);
