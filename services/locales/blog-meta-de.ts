@@ -6824,6 +6824,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tax-free-dirinella-orari-ridotti.title': 'Grenzübergang Dirinella: Tax-Free-Zeiten reduziert',
     'blog.article.tax-free-dirinella-orari-ridotti.excerpt': 'Reduzierte Öffnungszeiten für Tax-Free am Grenzübergang Dirinella. Achtung beim Einkaufen. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.tax-free-dirinella-orari-ridotti.imageAlt': 'Blick auf den Luganersee mit der Schweizer-Italienischen Grenze im Hintergrund, steuerfreies Einkaufsgebiet',
+    'blog.article.lombardia-chiede-completamento-alptransit.title': 'Lombardei fordert Fertigstellung von AlpTransit',
+    'blog.article.lombardia-chiede-completamento-alptransit.excerpt': 'Der Rat der Region Lombardei stimmt einstimmig für den Antrag zur Stärkung der Zugangslinien zu den Basistunneln von Ceneri, Gotthard und Lötschberg.',
+    'blog.article.lombardia-chiede-completamento-alptransit.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

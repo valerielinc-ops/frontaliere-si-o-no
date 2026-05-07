@@ -21845,4 +21845,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lombardia-chiede-completamento-alptransit',
+ category: 'novita',
+ date: '2026-05-07T18:13:55.730Z',
+ image: '/images/blog/lombardia-chiede-completamento-alptransit.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

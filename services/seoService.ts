@@ -3517,6 +3517,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-record-organi-importati-2025': { name: 'Novità', path: '/articoli-frontaliere/record-organi-importati-2025', parent: 'blog' },
     'blog-svizzera-hockey-finlandia-2026': { name: 'Sport', path: '/articoli-frontaliere/svizzera-hockey-finlandia-2026', parent: 'blog' },
     'blog-tax-free-dirinella-orari-ridotti': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/tax-free-dirinella-orari-ridotti', parent: 'blog' },
+    'blog-lombardia-chiede-completamento-alptransit': { name: 'Mobilità', path: '/articoli-frontaliere/lombardia-chiede-completamento-alptransit', parent: 'blog' },
  };
 
  const info = sectionNames[section];

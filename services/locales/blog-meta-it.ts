@@ -6825,6 +6825,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tax-free-dirinella-orari-ridotti.title': 'Frontiera su Dirinella: orari ridotti per il tax-free',
     'blog.article.tax-free-dirinella-orari-ridotti.excerpt': 'Orari ridotti per il tax-free al valico di Dirinella, attenzione agli acquisti. Ecco cosa cambia per i frontalieri',
     'blog.article.tax-free-dirinella-orari-ridotti.imageAlt': 'Vista del Lago di Lugano con la frontiera svizzero-italiana sullo sfondo, area di shopping tax-free',
+    'blog.article.lombardia-chiede-completamento-alptransit.title': 'La Lombardia chiede il completamento di AlpTransit',
+    'blog.article.lombardia-chiede-completamento-alptransit.excerpt': 'Il Consiglio della Regione Lombardia approva all\'unanimità la mozione per il potenziamento delle linee di accesso alle gallerie di base del Ceneri, del Gottardo e del Lötschberg.',
+    'blog.article.lombardia-chiede-completamento-alptransit.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;
