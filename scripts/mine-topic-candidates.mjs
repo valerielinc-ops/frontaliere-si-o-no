@@ -58,6 +58,23 @@ function writeJsonAtomic(path, obj) {
   writeFileSync(path, JSON.stringify(obj, null, 2) + '\n', 'utf-8');
 }
 
+// Drops candidates whose keyword mentions a year that's 3+ years stale
+// (e.g. "frontalieri 2023" in 2026). Same-year + future-year are kept;
+// previous-year is kept (current news cycle); 2 years older is kept on
+// the edge. 3+ years older is dropped — historical-trends noise.
+export function filterFreshCandidates(candidates, isoNow = new Date().toISOString()) {
+  const currentYear = new Date(isoNow).getUTCFullYear();
+  const cutoff = currentYear - 2;
+  const yearRe = /\b(19[0-9]{2}|20[0-9]{2})\b/;
+  return (candidates || []).filter((c) => {
+    const m = (c?.keyword || '').match(yearRe);
+    if (!m) return true;
+    const y = Number(m[1]);
+    if (!Number.isFinite(y)) return true;
+    return y >= cutoff;
+  });
+}
+
 // Per-source signal normalization → 0-1.
 export function normalizeSignals(demandSignals) {
   const out = {};
@@ -287,8 +304,14 @@ export async function mineTopicCandidates({
   if (redditRes?.candidates) raw.push(...redditRes.candidates);
   if (facebookRes?.candidates) raw.push(...facebookRes.candidates);
 
+  // Drop candidates that mention a stale year (3+ years older than the
+  // current year). "Coronavirus frontalieri" / "frontalieri 2023" / etc.
+  // surface from Google Trends "rising" because of historical anniversary
+  // spikes — they're never useful as fresh content angles.
+  const fresh = filterFreshCandidates(raw, now());
+
   // Merge by normalized keyword.
-  const merged = mergeCandidates(raw);
+  const merged = mergeCandidates(fresh);
 
   // Score (demand + novelty) and drop low-novelty.
   const scored = scoreCandidates(merged, existingTitles).filter(

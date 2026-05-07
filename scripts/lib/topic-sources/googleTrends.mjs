@@ -80,11 +80,23 @@ export function extractRisingQueries(json) {
   if (!Array.isArray(lists) || lists.length < 2) return [];
   const rising = lists[1]?.rankedKeyword;
   if (!Array.isArray(rising)) return [];
+  // The google-trends-api shape: r.value is the numeric score, r.formattedValue
+  // is a display string like "+250%" or "Breakout". Prefer the numeric value;
+  // fall back to parsing the formatted string. Older shapes had formattedValue
+  // as an array — keep that path too, but as last-ditch.
   return rising
-    .map((r) => ({
-      query: r?.query ?? r?.topic?.title ?? null,
-      score: parseTrendsScore(r?.formattedValue?.[0] ?? r?.value ?? null),
-    }))
+    .map((r) => {
+      const formatted = Array.isArray(r?.formattedValue)
+        ? r.formattedValue[0]
+        : r?.formattedValue;
+      return {
+        query: r?.query ?? r?.topic?.title ?? null,
+        score:
+          (typeof r?.value === 'number' && Number.isFinite(r.value)
+            ? Math.max(0, Math.min(r.value, 200))
+            : null) ?? parseTrendsScore(formatted ?? null),
+      };
+    })
     .filter((r) => r.query);
 }
 

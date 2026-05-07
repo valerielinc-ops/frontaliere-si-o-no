@@ -35,8 +35,9 @@ jobs:
         run: npm ci
 
       - name: Write Firebase service-account JSON to /tmp
-        # Reused by GSC + GA4 fetchers via google-auth-library.
-        # Empty secret -> empty file -> sources skip gracefully.
+        # Reused by GSC + GA4 fetchers via google-auth-library, AND required
+        # by load-rc-env.mjs to read the Firebase Remote Config (next step).
+        # Empty secret -> empty file -> RC load skipped + sources skip gracefully.
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -44,20 +45,17 @@ jobs:
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           else
-            echo "::notice::No FIREBASE_SERVICE_ACCOUNT_JSON — GSC + GA4 will be skipped gracefully."
+            echo "::notice::No FIREBASE_SERVICE_ACCOUNT_JSON — RC load + GSC + GA4 will be skipped gracefully."
           fi
 
+      - name: Load secrets from Remote Config
+        # Maps SERVER_GA4_PROPERTY_ID / SERVER_POSTHOG_* / SERVER_ADSENSE_* /
+        # SERVER_GSC_* (set in Firebase RC) to their unprefixed names in
+        # $GITHUB_ENV so the fetcher script can read them via process.env.
+        # No-op if FIREBASE_SERVICE_ACCOUNT_JSON wasn't set above.
+        run: node scripts/load-rc-env.mjs
+
       - name: Fetch article performance snapshot
-        env:
-          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
-          POSTHOG_PROJECT_ID: ${{ secrets.POSTHOG_PROJECT_ID }}
-          POSTHOG_HOST: ${{ secrets.POSTHOG_HOST }}
-          ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
-          ADSENSE_CLIENT_SECRET: ${{ secrets.ADSENSE_CLIENT_SECRET }}
-          ADSENSE_REFRESH_TOKEN: ${{ secrets.ADSENSE_REFRESH_TOKEN }}
-          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
-          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
         run: node scripts/fetch-article-performance.mjs
 
       - name: Commit if changed

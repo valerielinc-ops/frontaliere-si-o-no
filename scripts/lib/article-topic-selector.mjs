@@ -176,6 +176,16 @@ function arr(v) {
   return Array.isArray(v) ? v.filter((x) => x != null && x !== '') : [];
 }
 
+// Keywords we accept as "frontalieri-domain" priors. Anything not matching
+// is dropped to keep the LLM prompt useful instead of polluted with bursty
+// news-of-day terms that happen to TF-IDF high.
+const FRONTALIERI_DOMAIN_RE = /\b(frontal|grenzg|permess(o|i)\s*[gbl]|tass[ae]|fisco|fiscal|imposta|irpef|quellensteuer|busta\s*paga|salar|stipend|salaire|gehalt|cassa\s*malati|lamal|cmi|assicur|krankenkass|pension|avs|ahv|lpp|bvg|terzo\s*pilastro|secondo\s*pilastro|3a|3b|cambio|chf|euro|valut|telelavoro|smart\s*working|t[ée]l[ée]travail|homeoffic|pendolar|commut|dogana|valico|frontiera|bordo|bord[ée]r|naspi|disoccupaz|ristorn|accordo|abkommen|bilateral|svizzer|switzer|tessin|ticin|lombard|comask|varesin|grigion|grauen)/i;
+
+export function isFrontalieriDomainTerm(term) {
+  if (!term || typeof term !== 'string') return false;
+  return FRONTALIERI_DOMAIN_RE.test(term);
+}
+
 /**
  * Build the Italian system-message string from a winner fingerprint.
  * Returns null when the fingerprint has no usable content — caller
@@ -188,9 +198,21 @@ export function buildWinnerFingerprintMessage(perf) {
 
   const clusters = arr(fp.topClusters)
     .map((c) => (typeof c === 'string' ? c : c?.cluster))
-    .filter(Boolean);
+    .filter(Boolean)
+    // QUALITY GATE: drop the placeholder "unknown" cluster — happens when the
+    // fingerprint can't resolve articleSection from blog-meta and falls back
+    // to a single-bucket [{cluster:"unknown",weight:1.0}]. Injecting "unknown"
+    // into the LLM prompt is misleading.
+    .filter((c) => c.toLowerCase() !== 'unknown');
   const angles = arr(fp.topAngles);
-  const keywords = arr(fp.topKeywords);
+  const keywords = arr(fp.topKeywords)
+    // QUALITY GATE: only keep keywords that look frontalieri-domain. The
+    // current TF-IDF over winner titles surfaces news-of-day words (angeli,
+    // grandine, pastori) that have nothing to do with cross-border work and
+    // would actively pollute the LLM prompt. Allowlist regex matches the
+    // evergreen domain vocabulary; stricter and noisier than precision-only
+    // ranking, but safe.
+    .filter((k) => isFrontalieriDomainTerm(k));
   const questionPatterns = arr(fp.topQuestionPatterns);
   const wordCount = typeof fp.averageWordCount === 'number' && fp.averageWordCount > 0
     ? Math.round(fp.averageWordCount)

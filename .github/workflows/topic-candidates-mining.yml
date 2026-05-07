@@ -43,10 +43,24 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install chromium --with-deps
 
-      - name: Mine topic candidates
+      - name: Write Firebase service-account JSON to /tmp
+        # Required by load-rc-env.mjs to authenticate against Firebase RC.
         env:
-          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::notice::No FIREBASE_SERVICE_ACCOUNT_JSON — RC load + Facebook will be skipped gracefully."
+          fi
+
+      - name: Load secrets from Remote Config
+        # Maps SERVER_FB_PAGE_ACCESS_TOKEN (set in Firebase RC) to FB_PAGE_ACCESS_TOKEN
+        # in $GITHUB_ENV. No-op if FIREBASE_SERVICE_ACCOUNT_JSON wasn't set.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Mine topic candidates
         run: node scripts/mine-topic-candidates.mjs
 
       - name: Commit and push
