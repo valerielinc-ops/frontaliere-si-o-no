@@ -6867,6 +6867,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-solidale-2026-frontalieri.title': 'Varese Solidale 2026: due giorni contro la povertà sanitaria',
     'blog.article.varese-solidale-2026-frontalieri.excerpt': 'Dal 15 al 16 maggio, 42 associazioni varesine si mobilitano per combattere la povertà sanitaria con convegni, screening e una cena solidale',
     'blog.article.varese-solidale-2026-frontalieri.imageAlt': 'Volontari a Varese organizzano una fiera della salute con banchetti e striscioni in centro città',
+    'blog.article.festa-mamma-palazzo-lombardia-2026.title': 'Festa della Mamma a 161 metri: Palazzo Lombardia apre il Belvedere',
+    'blog.article.festa-mamma-palazzo-lombardia-2026.excerpt': 'Domenica 10 maggio apertura straordinaria del 39esimo piano di Palazzo Lombardia per la Festa della Mamma. Visite gratuite e attività per famiglie.',
+    'blog.article.festa-mamma-palazzo-lombardia-2026.imageAlt': 'Una famiglia che ammira la vista dal Belvedere di Palazzo Lombardia',
 };
 
 export default blogMetaIt;

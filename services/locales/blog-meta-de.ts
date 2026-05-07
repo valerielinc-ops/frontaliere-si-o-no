@@ -6866,6 +6866,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-solidale-2026-frontalieri.title': 'Varese Solidale 2026: Zwei Tage gegen Gesundheitsarmut',
     'blog.article.varese-solidale-2026-frontalieri.excerpt': 'Vom 15. bis 16. Mai mobilisieren sich 42 Vereine aus Varese, um mit Konferenzen, Screenings und einem solidarischen Abendessen gegen Gesundheitsarmut zu kämpfen.',
     'blog.article.varese-solidale-2026-frontalieri.imageAlt': 'Frewillige in Varese organisieren eine Gesundheitsmesse mit Ständen und Bannern im Stadtzentrum',
+    'blog.article.festa-mamma-palazzo-lombardia-2026.title': 'Muttertag auf 161 Metern: Belvedere im Palazzo Lombardia',
+    'blog.article.festa-mamma-palazzo-lombardia-2026.excerpt': 'Am Sonntag, den 10. Mai, ist der 39. Stock des Palazzo Lombardia für den Muttertag außergewöhnlich geöffnet. Kostenlose Besichtigungen und Aktivitäten für Familien.',
+    'blog.article.festa-mamma-palazzo-lombardia-2026.imageAlt': 'Eine Familie genießt den Blick vom Belvedere des Palazzo Lombardia',
 };
 
 export default blogMetaDe;

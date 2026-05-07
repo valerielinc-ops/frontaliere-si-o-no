@@ -3531,6 +3531,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-balerna-2025-cifre-nere-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/balerna-2025-cifre-nere-frontalieri', parent: 'blog' },
     'blog-nuove-regole-scambio-informazioni-ader-enti-creditori': { name: 'Nuove regole AdER', path: '/articoli-frontaliere/nuove-regole-scambio-informazioni-ader-enti-creditori', parent: 'blog' },
     'blog-varese-solidale-2026-frontalieri': { name: 'Varese Solidale', path: '/articoli-frontaliere/varese-solidale-2026-frontalieri', parent: 'blog' },
+    'blog-festa-mamma-palazzo-lombardia-2026': { name: 'Eventi', path: '/articoli-frontaliere/festa-mamma-palazzo-lombardia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -28115,6 +28115,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-festa-mamma-palazzo-lombardia-2026': {
+    title: 'Festa della Mamma a 161 metri: Palazzo Lombardia apre il Belvedere',
+    description: 'Domenica 10 maggio apertura straordinaria del 39esimo piano di Palazzo Lombardia per la Festa della Mamma. Visite gratuite e attività per famiglie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, festa, mamma, metri, palazzo',
+    ogTitle: 'Festa della Mamma a 161 metri: Palazzo Lombardia apre il Belvedere',
+    ogDescription: 'Domenica 10 maggio apertura straordinaria del 39esimo piano di Palazzo Lombardia per la Festa della Mamma. Visite gratuite e attività per famiglie.',
+    canonicalPath: '/articoli-frontaliere/festa-mamma-palazzo-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festa della Mamma a 161 metri: Palazzo Lombardia apre il Belvedere",
+      "description": "Domenica 10 maggio apertura straordinaria del 39esimo piano di Palazzo Lombardia per la Festa della Mamma. Visite gratuite e attività per famiglie.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/festa-mamma-palazzo-lombardia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia che ammira la vista dal Belvedere di Palazzo Lombardia"
+      },
+      "datePublished": "2026-05-07T20:39:28+00:00",
+      "dateModified": "2026-05-07T20:39:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festa-mamma-palazzo-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
