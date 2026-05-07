@@ -3,12 +3,12 @@
  *
  * Google Search Console reports an "Improve appearance" warning when an
  * ImageObject is missing any of: `acquireLicensePage`, `copyrightNotice`,
- * `license`, `creator`. These four are recommended (not required) but their
- * absence prevents the image from being eligible for licensable-image rich
- * results. We treat them as required across the whole site.
+ * `license`, `creator`, `creditText`. These five are recommended (not required)
+ * but their absence prevents the image from being eligible for licensable-image
+ * rich results. We treat them as required across the whole site.
  *
  * The blocking gate lives at tests/seo/image-object-license-fields.test.ts —
- * it scans dist/ and fails CI if any ImageObject lacks one of the four.
+ * it scans dist/ and fails CI if any ImageObject lacks one of the five.
  *
  * Usage:
  *   import { imageObjectLd } from '@/services/seo/imageObjectLd';
@@ -93,19 +93,24 @@ export interface ImageObjectLd {
   copyrightNotice: string;
   license: string;
   creator: ImageCreator;
+  creditText: string;
   caption?: string;
   width?: number | string;
   height?: number | string;
   datePublished?: string;
   inLanguage?: string;
-  creditText?: string;
   [key: string]: unknown;
 }
 
 /**
- * Build a fully-licensable ImageObject. Always includes the 4 GSC-required
- * recommended fields. Pass-through for `caption`, `width`, `height`,
- * `datePublished`, `inLanguage`, `creditText`, and any extra fields.
+ * Build a fully-licensable ImageObject. Always includes the 5 GSC-required
+ * recommended fields (acquireLicensePage, copyrightNotice, license, creator,
+ * creditText). Pass-through for `caption`, `width`, `height`, `datePublished`,
+ * `inLanguage`, and any extra fields.
+ *
+ * `creditText` defaults to the resolved `creator.name` (so third-party webcams
+ * automatically get their source name credited) or `"Frontaliere Ticino"`
+ * when the site Organization is the creator.
  */
 export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
   const {
@@ -129,6 +134,8 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
     throw new Error('imageObjectLd: contentUrl (or url) is required');
   }
 
+  const resolvedCreator: ImageCreator = creator ?? { ...SITE_ORG };
+
   const out: ImageObjectLd = {
     '@type': 'ImageObject',
     contentUrl: resolvedUrl,
@@ -136,7 +143,8 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
     acquireLicensePage: acquireLicensePage ?? SITE_LICENSE_PAGE,
     copyrightNotice: copyrightNotice ?? defaultCopyrightNotice(),
     license: license ?? SITE_LICENSE_PAGE,
-    creator: creator ?? { ...SITE_ORG },
+    creator: resolvedCreator,
+    creditText: creditText ?? resolvedCreator.name,
   };
 
   if (caption !== undefined) out.caption = caption;
@@ -144,7 +152,6 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
   if (height !== undefined) out.height = height;
   if (datePublished !== undefined) out.datePublished = datePublished;
   if (inLanguage !== undefined) out.inLanguage = inLanguage;
-  if (creditText !== undefined) out.creditText = creditText;
 
   for (const [k, v] of Object.entries(rest)) {
     if (v !== undefined) out[k] = v;

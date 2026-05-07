@@ -316,12 +316,15 @@ to **add internal links**.
 # SEO content gate — ImageObject license fields
 
 **Why it exists.** Google Search Console flags every `ImageObject` in
-JSON-LD that omits the four licensable-image fields:
-`acquireLicensePage`, `copyrightNotice`, `license`, `creator`. The May 2026
-audit caught 3,871 offending ImageObjects across blog articles, SPA shells
-(de/en/fr), and several SEO landing pages. Without these fields the image
-is ineligible for licensable-image rich results and the page surfaces as
-"Migliora l'aspetto degli elementi" in GSC.
+JSON-LD that omits any of the five licensable-image fields:
+`acquireLicensePage`, `copyrightNotice`, `license`, `creator`, `creditText`.
+The May 2026 audit caught 3,871 offending ImageObjects on the four-field
+quartet, then a follow-up audit on 2026-05-07 caught a further wave of
+"Campo mancante: creditText" warnings on Organization-logo ImageObjects
+(`logo-192.png`, `logo-512.png`, `icon-512x512.png`) across blog articles,
+SPA shells (de/en/fr), and SEO landing pages. Without ALL five fields the
+image is ineligible for licensable-image rich results and the page surfaces
+as "Migliora l'aspetto degli elementi" in GSC.
 
 **Where it runs.** Three places:
 - Helper: `services/seo/imageObjectLd.ts` — every new emitter MUST go through
@@ -339,8 +342,10 @@ is ineligible for licensable-image rich results and the page surfaces as
 **Hard rule.** Zero tolerance — any single offending ImageObject fails the
 gate. There is no ratchet/baseline because the helper makes 0 the only
 acceptable count. If you need a third-party license URL (webcam feeds,
-press photos), pass `license` / `creator` / `copyrightNotice` overrides
-to `imageObjectLd()`; never strip the fields.
+press photos), pass `license` / `creator` / `copyrightNotice` / `creditText`
+overrides to `imageObjectLd()`; never strip the fields. `creditText`
+defaults to the resolved `creator.name` (so third-party webcams credit the
+source automatically) or `"Frontaliere Ticino"` for site-owned images.
 
 **If the gate fails:**
 
@@ -530,7 +535,7 @@ and brand perception. Goal: drive the count to 0 by deduping at source.
 - [ ] No `dark:` color prefixes — use semantic tokens from `index.css` (enforced by `no-dark-color-classes.test.ts`)
 - [ ] If user-facing feature, new release entry in `WhatsNewModal.tsx`
 - [ ] Text-to-HTML ratio gate passes: `npm run audit:text-html-ratio` (see *SEO content gate* above for the playbook on regression)
-- [ ] ImageObject license-fields gate passes: `npm run audit:image-object-license` (zero tolerance — every ImageObject in JSON-LD must have `acquireLicensePage`, `copyrightNotice`, `license`, `creator`; route through `services/seo/imageObjectLd.ts`)
+- [ ] ImageObject license-fields gate passes: `npm run audit:image-object-license` (zero tolerance — every ImageObject in JSON-LD must have `acquireLicensePage`, `copyrightNotice`, `license`, `creator`, `creditText`; route through `services/seo/imageObjectLd.ts`)
 - [ ] BFS-depth gate passes: `npm run audit:max-bfs-depth` (per-sitemap ratchet — every URL must be reachable from `/` at BFS depth ≤ 4 via `<a href>` chain. Fix regressions by adding internal links from a hub at depth ≤ 3, never noindex)
 - [ ] Title-length gate passes: `npm run audit:title-length` (per-feature ratchet at threshold 66 = 60 SERP-display target + 10 % tolerance. `buildTitleWithBrand` drops the brand suffix when headline + brand > 66 instead of truncating mid-headline. Never re-introduce mid-`…` truncation — it tanked CTR on `/calcola-stipendio/` 4.8 % → 0.99 % during the 70-cap era)
 - [ ] Title-no-disambig-hash gate passes: `npm run audit:title-no-disambig-hash` (per-feature ratchet — flags `(#abcdef12)` disambiguators visible in `<title>`. Fix at source by renaming colliding articles with a year/city/source qualifier so the base title is unique without the hash, never widen the cap)

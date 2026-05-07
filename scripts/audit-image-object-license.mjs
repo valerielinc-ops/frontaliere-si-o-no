@@ -3,11 +3,12 @@
  * audit-image-object-license.mjs
  *
  * Post-build gate that fails on any `ImageObject` JSON-LD in `dist/` missing
- * one of the four GSC licensable-image fields:
+ * one of the five GSC licensable-image fields:
  *   - acquireLicensePage
  *   - copyrightNotice
  *   - license
  *   - creator
+ *   - creditText
  *
  * Mirrors the vitest gate at tests/seo/image-object-license-fields.test.ts;
  * exposed as a standalone script so post-deploy-validation can run it under
@@ -32,7 +33,7 @@ const __filename = fileURLToPath(import.meta.url);
 const ROOT = resolve(__filename, '..', '..');
 const DIST_DIR = resolve(ROOT, 'dist');
 
-const REQUIRED_FIELDS = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator'];
+const REQUIRED_FIELDS = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator', 'creditText'];
 
 const args = process.argv.slice(2);
 const getArg = (name) => {

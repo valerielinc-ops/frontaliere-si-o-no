@@ -2,12 +2,13 @@
  * GSC "Migliora l'aspetto degli elementi" gate — ImageObject license fields.
  *
  * Google Search Console flags every `ImageObject` JSON-LD that does not
- * include the four licensable-image fields:
+ * include the five licensable-image fields:
  *
  *   - acquireLicensePage  (URL where one can request a license)
  *   - copyrightNotice     (e.g. "© 2024–2026 Frontaliere Ticino")
  *   - license             (URL of the license terms)
  *   - creator             (Organization or Person who created the image)
+ *   - creditText          (human-readable photo credit shown next to the image)
  *
  * The fields are technically *recommended* by schema.org but their absence
  * disqualifies the image from licensable-image rich results and shows up as
@@ -35,6 +36,7 @@ const REQUIRED_FIELDS = [
   'copyrightNotice',
   'license',
   'creator',
+  'creditText',
 ] as const;
 
 type RequiredField = (typeof REQUIRED_FIELDS)[number];
@@ -115,7 +117,7 @@ describe('dist HTML — ImageObject license-fields gate (GSC licensable-image)',
   }
 
   it(
-    'every ImageObject in dist JSON-LD has acquireLicensePage, copyrightNotice, license, creator',
+    'every ImageObject in dist JSON-LD has acquireLicensePage, copyrightNotice, license, creator, creditText',
     { timeout: 120_000 },
     () => {
       const files = walkHtml(DIST_DIR);

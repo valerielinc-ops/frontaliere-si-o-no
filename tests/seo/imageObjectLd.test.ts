@@ -1,17 +1,17 @@
 /**
  * Unit tests for services/seo/imageObjectLd.ts.
  *
- * Verifies the contract that the GSC licensable-image quartet
- * (acquireLicensePage, copyrightNotice, license, creator) is *always* present
- * in the output, even when the caller passes a sparse input.
+ * Verifies the contract that the GSC licensable-image quintet
+ * (acquireLicensePage, copyrightNotice, license, creator, creditText) is
+ * *always* present in the output, even when the caller passes a sparse input.
  */
 import { describe, expect, it } from 'vitest';
 import { imageObjectLd, imageObjectLdDocument, SITE_LICENSE_PAGE } from '@/services/seo/imageObjectLd';
 
-const REQUIRED = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator'] as const;
+const REQUIRED = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator', 'creditText'] as const;
 
-describe('imageObjectLd — GSC licensable-image quartet', () => {
-  it('emits @type ImageObject with all 4 required fields when called with only contentUrl', () => {
+describe('imageObjectLd — GSC licensable-image quintet', () => {
+  it('emits @type ImageObject with all 5 required fields when called with only contentUrl', () => {
     const ld = imageObjectLd({ contentUrl: 'https://example.com/img.png' });
     expect(ld['@type']).toBe('ImageObject');
     for (const f of REQUIRED) expect(ld).toHaveProperty(f);
@@ -89,10 +89,32 @@ describe('imageObjectLd — GSC licensable-image quartet', () => {
     expect(ld.inLanguage).toBe('it');
   });
 
-  it('imageObjectLdDocument adds @context and keeps the quartet', () => {
+  it('imageObjectLdDocument adds @context and keeps the quintet', () => {
     const ld = imageObjectLdDocument({ contentUrl: 'https://example.com/x.png' });
     expect(ld['@context']).toBe('https://schema.org');
     expect(ld['@type']).toBe('ImageObject');
     for (const f of REQUIRED) expect(ld).toHaveProperty(f);
+  });
+
+  it('defaults creditText to the site Organization name', () => {
+    const ld = imageObjectLd({ contentUrl: 'https://example.com/x.png' });
+    expect(ld.creditText).toBe('Frontaliere Ticino');
+  });
+
+  it('defaults creditText to the overridden creator name (e.g. third-party webcam)', () => {
+    const ld = imageObjectLd({
+      contentUrl: 'https://cam.example.org/snap.jpg',
+      creator: { '@type': 'Organization', name: 'USTRA' },
+    });
+    expect(ld.creditText).toBe('USTRA');
+  });
+
+  it('respects an explicit creditText override over the creator-name fallback', () => {
+    const ld = imageObjectLd({
+      contentUrl: 'https://cam.example.org/snap.jpg',
+      creator: { '@type': 'Organization', name: 'USTRA' },
+      creditText: 'USTRA / © Cantone Ticino',
+    });
+    expect(ld.creditText).toBe('USTRA / © Cantone Ticino');
   });
 });
