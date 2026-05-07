@@ -6608,6 +6608,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.hantavirus-zurigo-ricovero-crocerista.title': 'Hantavirus in Zurich: cruise passenger hospitalized, FOPH reassures',
     'blog.article.hantavirus-zurigo-ricovero-crocerista.excerpt': 'Passenger positive for Andes virus after cruise, isolated at USZ. Population not at risk, says the Federal Office of Public Health.',
     'blog.article.hantavirus-zurigo-ricovero-crocerista.imageAlt': 'University Hospital Zurich, isolation ward',
+    'blog.article.bellinzona-valli-bici-velocita.title': 'Bellinzona\'s Otr Puts Focus on Two Wheels',
+    'blog.article.bellinzona-valli-bici-velocita.excerpt': 'The \'Tutti in sella\' strategy has been presented to strengthen tourism in the region. Find out how this project will impact cross-border workers.',
+    'blog.article.bellinzona-valli-bici-velocita.imageAlt': 'Cyclists pedaling along the shores of Lake Lugano, with a mountainous landscape in the background.',
 };
 
 export default blogMetaEn;

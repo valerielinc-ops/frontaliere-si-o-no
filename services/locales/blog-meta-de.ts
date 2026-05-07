@@ -6608,6 +6608,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hantavirus-zurigo-ricovero-crocerista.title': 'Hantavirus in Zürich: Kreuzfahrgast isoliert, BAG beruhigt',
     'blog.article.hantavirus-zurigo-ricovero-crocerista.excerpt': 'Passagier nach Kreuzfahrt positiv auf Andesvirus getestet, isoliert am USZ. Bevölkerung nicht in Gefahr, sagt das Bundesamt für Gesundheit.',
     'blog.article.hantavirus-zurigo-ricovero-crocerista.imageAlt': 'Universitätsspital Zürich, Isolierstation',
+    'blog.article.bellinzona-valli-bici-velocita.title': 'Otr Bellinzona und Valli setzt auf Radfahren',
+    'blog.article.bellinzona-valli-bici-velocita.excerpt': 'Die Strategie \'Alle auf dem Fahrrad\' soll den Tourismus in der Region stärken. Erfahren Sie, wie sich dieser Projekt auf die Grenzgänger auswirken wird.',
+    'blog.article.bellinzona-valli-bici-velocita.imageAlt': 'Radfahrer, die entlang der Ufer des Luganersees fahren, mit einer Berglandschaft im Hintergrund.',
 };
 
 export default blogMetaDe;

@@ -6609,6 +6609,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.hantavirus-zurigo-ricovero-crocerista.title': 'Hantavirus a Zurigo: crocerista ricoverato, UFSP rassicura',
     'blog.article.hantavirus-zurigo-ricovero-crocerista.excerpt': 'Passeggero positivo al virus delle Ande dopo crociera, isolato all\'USZ. Popolazione non in pericolo, dice l\'Ufficio federale della sanità pubblica.',
     'blog.article.hantavirus-zurigo-ricovero-crocerista.imageAlt': 'Ospedale universitario di Zurigo, reparto isolamento',
+    'blog.article.bellinzona-valli-bici-velocita.title': 'L\'Otr Bellinzona e Valli punta sulle due ruote',
+    'blog.article.bellinzona-valli-bici-velocita.excerpt': 'Presentata la strategia \'Tutti in sella\' per rafforzare il turismo nella regione. Scopri come questo progetto impatterà i frontalieri.',
+    'blog.article.bellinzona-valli-bici-velocita.imageAlt': 'Ciclisti che pedalano lungo le rive del Lago di Lugano, con il paesaggio montuoso sullo sfondo.',
 };
 
 export default blogMetaIt;

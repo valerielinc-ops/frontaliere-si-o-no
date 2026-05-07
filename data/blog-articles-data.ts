@@ -21197,4 +21197,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bellinzona-valli-bici-velocita',
+ category: 'novita',
+ date: '2026-05-07T02:47:59.539Z',
+ image: '/images/blog/bellinzona-valli-bici-velocita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
