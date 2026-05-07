@@ -6875,6 +6875,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.artekrea-open-days-varese-2026.title': 'ArteKrea Open Days in Varese: Wellness & Creativity May 15-17',
     'blog.article.artekrea-open-days-varese-2026.excerpt': 'Three days of free activities including yoga, tai chi, holistic treatments, and creative workshops in Varese. Booking required.',
     'blog.article.artekrea-open-days-varese-2026.imageAlt': 'People practicing yoga and tai chi in a bright room with a view of the Alps',
+    'blog.article.sanremo-eurovision-campione-2026.title': 'From Sanremo to Campione: Sal Da Vinci in concert',
+    'blog.article.sanremo-eurovision-campione-2026.excerpt': 'The winner of Sanremo 2026 will enchant Campione d\'Italia with a concert at the Casino on May 18th. Discover all the details.',
+    'blog.article.sanremo-eurovision-campione-2026.imageAlt': 'Concert at LAC Lugano with lake view',
 };
 
 export default blogMetaEn;

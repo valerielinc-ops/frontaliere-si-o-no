@@ -6876,6 +6876,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.artekrea-open-days-varese-2026.title': 'Open Days ArteKrea a Varese: benessere e creatività dal 15 al 17 maggio',
     'blog.article.artekrea-open-days-varese-2026.excerpt': 'Tre giorni di attività gratuite tra yoga, tai chi, trattamenti olistici e laboratori creativi a Varese. Prenotazione obbligatoria.',
     'blog.article.artekrea-open-days-varese-2026.imageAlt': 'Persone praticano yoga e tai chi in una stanza luminosa con vista sulle Alpi',
+    'blog.article.sanremo-eurovision-campione-2026.title': 'Sanremo, l\'Eurovision e poi Campione: Sal Da Vinci in concerto',
+    'blog.article.sanremo-eurovision-campione-2026.excerpt': 'Il vincitore di Sanremo 2026 incanterà Campione d’Italia con un concerto al Casinò il 18 maggio. Scopri tutti i dettagli.',
+    'blog.article.sanremo-eurovision-campione-2026.imageAlt': 'Concerto al LAC di Lugano con vista sul lago',
 };
 
 export default blogMetaIt;

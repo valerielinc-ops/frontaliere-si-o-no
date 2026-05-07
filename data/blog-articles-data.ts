@@ -21998,4 +21998,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sanremo-eurovision-campione-2026',
+ category: 'novita',
+ date: '2026-05-07T20:58:13.110Z',
+ image: '/images/blog/sanremo-eurovision-campione-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

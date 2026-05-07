@@ -6876,6 +6876,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.artekrea-open-days-varese-2026.title': 'Journées portes ouvertes ArteKrea à Varèse : bien-être et créativité',
     'blog.article.artekrea-open-days-varese-2026.excerpt': 'Trois jours d\'activités gratuites entre yoga, tai chi, soins holistiques et ateliers créatifs à Varèse. Réservation obligatoire.',
     'blog.article.artekrea-open-days-varese-2026.imageAlt': 'Des personnes pratiquent le yoga et le tai chi dans une pièce lumineuse avec vue sur les Alpes',
+    'blog.article.sanremo-eurovision-campione-2026.title': 'Sanremo, l\'Eurovision puis Campione : Sal Da Vinci en concert',
+    'blog.article.sanremo-eurovision-campione-2026.excerpt': 'Le vainqueur de Sanremo 2026 enchantera Campione d\'Italie avec un concert au Casino le 18 mai. Découvrez tous les détails.',
+    'blog.article.sanremo-eurovision-campione-2026.imageAlt': 'Concert au LAC de Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2344,
+ "numberOfItems": 2345,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6986,7 +6986,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2341, "name": "Varese Solidale 2026: due giorni contro la pove...", "url": `${BASE_URL}/articoli-frontaliere/varese-solidale-2026-frontalieri` },
           { "@type": "ListItem", "position": 2342, "name": "Festa della Mamma a 161 metri: Palazzo Lombardi...", "url": `${BASE_URL}/articoli-frontaliere/festa-mamma-palazzo-lombardia-2026` },
           { "@type": "ListItem", "position": 2343, "name": "Anche a voi quelli della cassa malati sembrano ...", "url": `${BASE_URL}/articoli-frontaliere/casse-malati-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 2344, "name": "Open Days ArteKrea a Varese: benessere e creati...", "url": `${BASE_URL}/articoli-frontaliere/artekrea-open-days-varese-2026` }
+          { "@type": "ListItem", "position": 2344, "name": "Open Days ArteKrea a Varese: benessere e creati...", "url": `${BASE_URL}/articoli-frontaliere/artekrea-open-days-varese-2026` },
+          { "@type": "ListItem", "position": 2345, "name": "Sanremo, l'Eurovision e poi Campione: Sal Da Vi...", "url": `${BASE_URL}/articoli-frontaliere/sanremo-eurovision-campione-2026` }
  ]
  },
  {
