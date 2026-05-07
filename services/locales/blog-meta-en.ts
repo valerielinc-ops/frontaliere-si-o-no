@@ -6791,6 +6791,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cedu-condanna-svizzera-liberta-manifestazione.title': 'ECHR condemns Switzerland over protest rights',
     'blog.article.cedu-condanna-svizzera-liberta-manifestazione.excerpt': 'The European Court of Human Rights has condemned Switzerland for violating the freedom of assembly and association of a protest organiser.',
     'blog.article.cedu-condanna-svizzera-liberta-manifestazione.imageAlt': 'A protest in Locarno, Switzerland, with a diverse crowd holding signs and banners, under a clear blue sky.',
+    'blog.article.spaccio-droga-busto-18mila-euro.title': 'Drug dealing in Busto: 18,617.60 euros seized in cash',
+    'blog.article.spaccio-droga-busto-18mila-euro.excerpt': 'The State Police of Busto Arsizio arrested two foreign citizens with 18,617.60 euros in cash and drugs hidden in their home.',
+    'blog.article.spaccio-droga-busto-18mila-euro.imageAlt': 'Aerial view of Busto Arsizio, Italy, with the cityscape and surrounding areas.',
 };
 
 export default blogMetaEn;

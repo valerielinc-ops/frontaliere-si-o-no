@@ -6792,6 +6792,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cedu-condanna-svizzera-liberta-manifestazione.title': 'CEDU condanna la Svizzera per libertà di manifestazione',
     'blog.article.cedu-condanna-svizzera-liberta-manifestazione.excerpt': 'La Corte europea dei diritti dell\'uomo ha condannato la Svizzera per aver violato la libertà di riunione e associazione di un\'organizzatrice di una manifestazione.',
     'blog.article.cedu-condanna-svizzera-liberta-manifestazione.imageAlt': 'Una manifestazione a Locarno, in Svizzera, con una folla diversa che tiene cartelli e striscioni, sotto un cielo azzurro limpido.',
+    'blog.article.spaccio-droga-busto-18mila-euro.title': 'Spaccio di droga a Busto: sequestrati 18mila euro in contanti',
+    'blog.article.spaccio-droga-busto-18mila-euro.excerpt': 'La Polizia di Stato di Busto Arsizio ha arrestato due cittadini stranieri con 18.617,60 euro in contanti e droga nascosta in casa.',
+    'blog.article.spaccio-droga-busto-18mila-euro.imageAlt': 'Vista aerea di Busto Arsizio, Italia, con il panorama cittadino e le aree circostanti.',
 };
 
 export default blogMetaIt;

@@ -6791,6 +6791,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cedu-condanna-svizzera-liberta-manifestazione.title': 'EGMR verurteilt Schweiz wegen Versammlungsfreiheit',
     'blog.article.cedu-condanna-svizzera-liberta-manifestazione.excerpt': 'Der Europäische Gerichtshof für Menschenrechte hat die Schweiz verurteilt, weil sie die Versammlungs- und Vereinigungsfreiheit einer Veranstalterin missachtet hat.',
     'blog.article.cedu-condanna-svizzera-liberta-manifestazione.imageAlt': 'Eine Protestveranstaltung in Locarno, Schweiz, mit einer vielfältigen Menschenmenge, die Schilder und Banner hält, unter einem klaren blauen Himmel.',
+    'blog.article.spaccio-droga-busto-18mila-euro.title': 'Drogenhandel in Busto: 18.000 Euro Bargeld beschlagnahmt',
+    'blog.article.spaccio-droga-busto-18mila-euro.excerpt': 'Die Polizei von Busto Arsizio hat zwei Ausländer festgenommen, die 18.617,60 Euro Bargeld und Drogen in ihrer Wohnung versteckt hatten.',
+    'blog.article.spaccio-droga-busto-18mila-euro.imageAlt': 'Luftaufnahme von Busto Arsizio, Italien, mit der Stadtansicht und den umliegenden Gebieten.',
 };
 
 export default blogMetaDe;

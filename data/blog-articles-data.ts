@@ -21746,4 +21746,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'spaccio-droga-busto-18mila-euro',
+ category: 'novita',
+ date: '2026-05-07T14:28:35.064Z',
+ image: '/images/blog/spaccio-droga-busto-18mila-euro.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
