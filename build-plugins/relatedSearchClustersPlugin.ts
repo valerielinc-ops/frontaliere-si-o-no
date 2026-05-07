@@ -1079,7 +1079,40 @@ function injectHubLinkIntoSectionLanding(
 
 // ── Sitemap ─────────────────────────────────────────────────────────────
 
-function writeSitemap(distDir: string, locs: ReadonlyArray<string>, dateStamp: string): void {
+/**
+ * Filter out cluster URLs whose dist/ HTML carries a noindex meta tag.
+ * This catches cross-plugin write races where another emitter (typically
+ * jobsSeoPagesPlugin's soft-landing for an expired job sharing the same
+ * slug) overwrites our index,follow page with a noindex variant. Listing
+ * those URLs in the cluster sitemap fails validate:sitemap-pages with a
+ * BLOCKING error (noindex pages must NOT be in sitemaps — wastes Google
+ * crawl budget). Cheap to run: O(locs) reads of small HTML files.
+ */
+const NOINDEX_RE = /<meta[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i;
+function dropNoindexLocs(distDir: string, locs: ReadonlyArray<string>): string[] {
+  const out: string[] = [];
+  let dropped = 0;
+  for (const loc of locs) {
+    const urlPath = new URL(loc).pathname.replace(/\/+$/, '');
+    const indexPath = path.join(distDir, urlPath, 'index.html');
+    const flatPath = path.join(distDir, urlPath + '.html');
+    const target = fs.existsSync(indexPath) ? indexPath : flatPath;
+    if (!fs.existsSync(target)) continue; // missing HTML — skip silently
+    const html = fs.readFileSync(target, 'utf-8');
+    if (NOINDEX_RE.test(html)) {
+      dropped++;
+      continue;
+    }
+    out.push(loc);
+  }
+  if (dropped > 0) {
+    console.log(`\x1b[33m[related-search-clusters]\x1b[0m dropped ${dropped} noindex URL(s) from sitemap (cross-plugin overwrite races)`);
+  }
+  return out;
+}
+
+function writeSitemap(distDir: string, allLocs: ReadonlyArray<string>, dateStamp: string): void {
+  const locs = dropNoindexLocs(distDir, allLocs);
   if (locs.length === 0) return;
   const entries = locs.map((loc) =>
     `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
