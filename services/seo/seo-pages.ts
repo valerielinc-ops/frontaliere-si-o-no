@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2356,
+ "numberOfItems": 2357,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6998,7 +6998,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2353, "name": "Lavoratori frontalieri e telelavoro: cosa cambi...", "url": `${BASE_URL}/articoli-frontaliere/cross-border-teleworking-2026` },
           { "@type": "ListItem", "position": 2354, "name": "Fiera dell'antiquariato a Mendrisio: 160 esposi...", "url": `${BASE_URL}/articoli-frontaliere/fiera-antiquariato-mendrisio-2026` },
           { "@type": "ListItem", "position": 2355, "name": "Cure dentarie accessibili in Ticino: la battagl...", "url": `${BASE_URL}/articoli-frontaliere/cure-dentarie-accessibili-ticino-2026` },
-          { "@type": "ListItem", "position": 2356, "name": "Dolores Poretti, 91 anni: «Trovo qualcosa di be...", "url": `${BASE_URL}/articoli-frontaliere/dolores-poretti-91-anni-frontalieri` }
+          { "@type": "ListItem", "position": 2356, "name": "Dolores Poretti, 91 anni: «Trovo qualcosa di be...", "url": `${BASE_URL}/articoli-frontaliere/dolores-poretti-91-anni-frontalieri` },
+          { "@type": "ListItem", "position": 2357, "name": "Costruzioni in Ticino: impresari chiedono inves...", "url": `${BASE_URL}/articoli-frontaliere/costruzioni-ticino-impresari-investimenti-rapidi` }
  ]
  },
  {

@@ -6912,6 +6912,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dolores-poretti-91-anni-frontalieri.title': 'Dolores Poretti, 91 anni: «Trovo qualcosa di bello in ogni momento»',
     'blog.article.dolores-poretti-91-anni-frontalieri.excerpt': 'La luganese Dolores Poretti, 91 anni, residente alla Casa anziani Polis di Pregassona, racconta la sua vita e i suoi consigli per i giovani',
     'blog.article.dolores-poretti-91-anni-frontalieri.imageAlt': 'Dolores Poretti, 91 anni, sorride in una casa per anziani a Pregassona, Ticino',
+    'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.title': 'Costruzioni in Ticino: impresari chiedono investimenti e decisioni rapide',
+    'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.excerpt': 'Il settore edilizio ticinese richiede accelerazione degli investimenti pubblici e semplificazioni burocratiche per evitare rallentamenti.',
+    'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.imageAlt': 'Vista aerea di un cantiere edile a Lugano, Ticino, con edifici moderni e il Lago di Lugano sullo sfondo.',
 };
 
 export default blogMetaIt;

@@ -6911,6 +6911,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dolores-poretti-91-anni-frontalieri.title': 'Dolores Poretti, 91: \'I find beauty in every moment\'',
     'blog.article.dolores-poretti-91-anni-frontalieri.excerpt': 'Dolores Poretti, a 91-year-old resident of Pregassona\'s Polis elderly home, shares her life story and advice for the young',
     'blog.article.dolores-poretti-91-anni-frontalieri.imageAlt': 'Dolores Poretti, 91 years old, smiles in a senior home in Pregassona, Ticino',
+    'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.title': 'Construction in Ticino: contractors demand swift investments',
+    'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.excerpt': 'Ticino\'s construction sector calls for accelerated public investments and bureaucratic simplifications to avoid delays.',
+    'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.imageAlt': 'Aerial view of a construction site in Lugano, Ticino, with modern buildings and Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

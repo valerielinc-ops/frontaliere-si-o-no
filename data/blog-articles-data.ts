@@ -22106,4 +22106,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'costruzioni-ticino-impresari-investimenti-rapidi',
+ category: 'pratico',
+ date: '2026-05-07T23:16:19.032Z',
+ image: '/images/blog/costruzioni-ticino-impresari-investimenti-rapidi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
