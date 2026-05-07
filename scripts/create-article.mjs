@@ -87,7 +87,6 @@ import {
   persistExperimentalCounter as _persistExperimentalCounter,
   loadEvergreenCounter as _loadEvergreenCounter,
   persistEvergreenCounter as _persistEvergreenCounter,
-  shouldForceEvergreen as _shouldForceEvergreen,
   rankAndSelectHeadlines as _rankAndSelectHeadlines,
 } from './lib/article-topic-selector.mjs';
 
@@ -5320,30 +5319,20 @@ async function main() {
 
   // ── Auto-scan mode: no URL provided → scan news sources first, then evergreen fallback ──
   if (!url) {
-    // Evergreen quota (2026-05-07): force evergreen path on ~30% of runs
-    // round-robin via persistent counter. With ~96 articles/day cadence
-    // (every 15min), this guarantees ~29 evergreen articles/day on
-    // high-monetization keywords from winnerFingerprint, regardless of
-    // news pool composition. Override with FORCE_EVERGREEN=1 (full
-    // forced) or FORCE_EVERGREEN=0 (disabled) — ratio override via
-    // EVERGREEN_QUOTA env var.
+    // Evergreen quota counter (2026-05-07): the 30% hard-skip was reverted
+    // 2026-05-07 because the evergreen pool produces near-duplicate variants
+    // of already-published articles that pass the slug pre-flight but fail
+    // the content-duplicate post-LLM, burning ~22 min of generation per
+    // forced run with zero output. Counter still loads (informational/
+    // future-soft-preference) but no longer skips the news scan. Manual
+    // override via FORCE_EVERGREEN=1 still works for admin/testing.
     const evergreenCounterState = _loadEvergreenCounter();
-    const evergreenRatioOverride = Number.parseFloat(process.env.EVERGREEN_QUOTA);
-    const evergreenRatio = Number.isFinite(evergreenRatioOverride) && evergreenRatioOverride >= 0 && evergreenRatioOverride <= 1
-      ? evergreenRatioOverride
-      : undefined; // undefined → use default 0.30
-    const quotaSaysForceEvergreen = process.env.FORCE_EVERGREEN === '0'
-      ? false
-      : _shouldForceEvergreen(evergreenCounterState.count, evergreenRatio);
-    const forceEvergreen = process.env.FORCE_EVERGREEN === '1' || quotaSaysForceEvergreen;
+    const forceEvergreen = process.env.FORCE_EVERGREEN === '1';
     let newsSuccess = false;
 
-    // ── Phase 1: Scan external news sources (skipped when FORCE_EVERGREEN=1) ──
+    // ── Phase 1: Scan external news sources (skipped only on explicit FORCE_EVERGREEN=1) ──
     if (forceEvergreen) {
-      const reason = process.env.FORCE_EVERGREEN === '1'
-        ? 'FORCE_EVERGREEN=1 (env override)'
-        : `evergreen quota (${evergreenCounterState.count}-th run)`;
-      console.error(`📚 Forced evergreen — ${reason}. Salto scan news.\n`);
+      console.error('📚 Forced evergreen — FORCE_EVERGREEN=1 (env override). Salto scan news.\n');
     } else {
       console.error('🤖 Fase 1: Ricerca articolo da fonti ticinesi...\n');
       headlines = await scanNewsSources();
