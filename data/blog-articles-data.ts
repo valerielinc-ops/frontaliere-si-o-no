@@ -21125,4 +21125,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'roveredo-patriziato-sciopera-gestione-criminalit',
+ category: 'novita',
+ date: '2026-05-07T00:35:49.274Z',
+ image: '/images/blog/roveredo-patriziato-sciopera-gestione-criminalit.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

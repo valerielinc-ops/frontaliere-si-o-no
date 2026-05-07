@@ -6584,6 +6584,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.title': 'Mariano Comense: Barista angegriffen, 24-Jähriger festgenommen',
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.excerpt': 'Mariano Comense (Como): Assalt und Verletzung des Baristen, 24-Jähriger verhaftet',
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.title': 'Roveredo: Patriziatsstreik gegen Kriminalitätsbewältigung',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.excerpt': 'Der Patriziat von Roveredo protestiert seit über einem Monat gegen die mangelnde konkrete Maßnahmen des Kantons bei der Überwachung von Aufenthaltsgenehmigungen, einschließlich Einschränkungen bei der Einbürgerung.',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.imageAlt': 'Aussicht auf Roveredo im Tessin mit Protestsymbolen und Sicherheitskontrolle',
 };
 
 export default blogMetaDe;

@@ -6585,6 +6585,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.title': 'Mariano Comense (Como): assale e ferisce il barista, 24enne denunciato',
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.excerpt': 'Mariano Comense (Como): assale e ferisce il barista, 24enne denunciato',
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.title': 'Roveredo: il patriziato sciopera contro la gestione della criminalità',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.excerpt': 'Il Patriziato di Roveredo protesta da oltre un mese contro l\'assenza di interventi concreti del Cantone sui controlli dei permessi di soggiorno, limitando le naturalizzazioni.',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.imageAlt': 'Vista di Roveredo in Ticino con simboli di protesta e controllo di sicurezza',
 };
 
 export default blogMetaIt;

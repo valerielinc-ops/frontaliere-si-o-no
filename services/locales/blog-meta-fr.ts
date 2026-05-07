@@ -6585,6 +6585,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.title': 'Mariano Comense (Côme) : attaque un barman, un 24 ans dénoncé',
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.excerpt': 'Mariano Comense (Côme) : attaque un barman, un 24 ans dénoncé',
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.title': 'Roveredo: le patriciat fait grève contre la gestion de la criminalité',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.excerpt': 'Le patriciat de Roveredo proteste depuis plus d\'un mois contre l\'absence d\'interventions concrètes du canton sur les contrôles des permis de séjour, limitant les naturalisations.',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.imageAlt': 'Vue de Roveredo au Tessin avec symboles de protestation et contrôle de sécurité',
 };
 
 export default blogMetaFr;

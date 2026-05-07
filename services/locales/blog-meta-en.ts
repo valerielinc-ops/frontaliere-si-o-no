@@ -6584,6 +6584,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.title': 'Como: 24-year-old assaults and injures barista, arrested',
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.excerpt': 'Como: 24-year-old assaults and injures barista, arrested',
     'blog.article.mariano-comense-assale-ferisce-barista-denunciato.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.title': 'Roveredo: Patriziato strikes over crime management',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.excerpt': 'The Patriziato of Roveredo has been protesting for over a month against the Canton\'s lack of concrete actions on residence permit controls, limiting naturalizations.',
+    'blog.article.roveredo-patriziato-sciopera-gestione-criminalit.imageAlt': 'View of Roveredo in Ticino with protest symbols and security control',
 };
 
 export default blogMetaEn;
