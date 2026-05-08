@@ -176,13 +176,44 @@ export function buildStatsFromCSV(raw) {
   return { trend, ages, genderTrend, genderSnapshot, latestQuarter };
 }
 
-export async function fetchBfsCsv() {
-  const res = await fetch(CSV_URL, {
-    headers: { 'User-Agent': 'frontaliereticino.ch/refresh-bfs-stats (+admin@frontaliereticino.ch)' },
-    signal: AbortSignal.timeout(60000),
-  });
-  if (!res.ok) throw new Error(`BFS CSV HTTP ${res.status}`);
-  return res.text();
+export async function fetchBfsCsv({ maxAttempts = 5, baseDelayMs = 4000 } = {}) {
+  // BFS SDMX endpoint occasionally returns HTTP 500 to cloud IPs (observed
+  // on GitHub Actions runners) within ~1s, while the same request from a
+  // residential IP succeeds. Retrying with backoff + a browser-shaped
+  // User-Agent + Accept headers consistently recovers — empirically the 2nd
+  // or 3rd attempt clears the throttle.
+  const headers = {
+    'User-Agent':
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
+      '(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+    Accept: 'text/csv,application/csv,application/octet-stream,*/*;q=0.8',
+    'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8',
+    'Accept-Encoding': 'gzip, deflate, br',
+  };
+
+  let lastErr = null;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const res = await fetch(CSV_URL, {
+        headers,
+        signal: AbortSignal.timeout(90000),
+      });
+      if (res.ok) return await res.text();
+      lastErr = new Error(`BFS CSV HTTP ${res.status}`);
+      if (res.status >= 400 && res.status < 500 && res.status !== 429) {
+        // Hard 4xx (other than rate limit) — no point retrying.
+        throw lastErr;
+      }
+    } catch (e) {
+      lastErr = e;
+    }
+    if (attempt < maxAttempts) {
+      const delay = baseDelayMs * Math.pow(2, attempt - 1);
+      console.error(`⚠️  BFS attempt ${attempt}/${maxAttempts} failed (${lastErr?.message}); retry in ${Math.round(delay / 1000)}s…`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+  }
+  throw lastErr || new Error('BFS CSV fetch failed');
 }
 
 export const BFS_CSV_URL = CSV_URL;
