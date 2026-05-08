@@ -3632,6 +3632,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-revoca-permesso-g-steiner-ticino': { name: 'Novità', path: '/articoli-frontaliere/revoca-permesso-g-steiner-ticino', parent: 'blog' },
     'blog-rientro-lento-a2-frontalieri': { name: 'Traffico e Mobilità', path: '/articoli-frontaliere/rientro-lento-a2-frontalieri', parent: 'blog' },
     'blog-addio-tutto-compreso-ai-costi': { name: 'AI e costi', path: '/articoli-frontaliere/addio-tutto-compreso-ai-costi', parent: 'blog' },
+    'blog-arcidiacono-curia-lugano-2026': { name: 'Curia Lugano', path: '/articoli-frontaliere/arcidiacono-curia-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

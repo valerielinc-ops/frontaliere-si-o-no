@@ -7170,6 +7170,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.addio-tutto-compreso-ai-costi.title': 'Finis aux coûts fixes pour l\'IA : voici les nouvelles tarifs à la consommation',
     'blog.article.addio-tutto-compreso-ai-costi.excerpt': 'Les entreprises utilisant l\'intelligence artificielle paieront désormais en fonction de l\'utilisation réelle, avec un impact significatif sur les coûts opérationnels.',
     'blog.article.addio-tutto-compreso-ai-costi.imageAlt': 'FoxTown Factory Stores à Mendrisio, Tessin',
+    'blog.article.arcidiacono-curia-lugano-2026.title': 'Andrea Arcidiacono, nouveau attaché de presse du diocèse de Lugano',
+    'blog.article.arcidiacono-curia-lugano-2026.excerpt': 'Le Bellinzonais remplace Luca Montagner à partir du 1er juin avec un taux d\'occupation de 60%.',
+    'blog.article.arcidiacono-curia-lugano-2026.imageAlt': 'Intérieur de la cathédrale de Lugano avec bureau de presse moderne',
 };
 
 export default blogMetaFr;

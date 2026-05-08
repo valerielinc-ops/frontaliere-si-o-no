@@ -7169,6 +7169,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.addio-tutto-compreso-ai-costi.title': 'Goodbye to fixed AI costs: new usage-based rates',
     'blog.article.addio-tutto-compreso-ai-costi.excerpt': 'Companies using artificial intelligence will now pay based on actual usage, significantly impacting operating costs.',
     'blog.article.addio-tutto-compreso-ai-costi.imageAlt': 'FoxTown Factory Stores in Mendrisio, Ticino',
+    'blog.article.arcidiacono-curia-lugano-2026.title': 'Andrea Arcidiacono new press officer for Lugano Curia',
+    'blog.article.arcidiacono-curia-lugano-2026.excerpt': 'The Bellinzona native replaces Luca Montagner on June 1st with a 60% work rate.',
+    'blog.article.arcidiacono-curia-lugano-2026.imageAlt': 'Interior of Lugano Cathedral with modern press office',
 };
 
 export default blogMetaEn;

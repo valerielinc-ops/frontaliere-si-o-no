@@ -7170,6 +7170,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.addio-tutto-compreso-ai-costi.title': 'Addio ai costi fissi per l\'AI: ecco le nuove tariffe a consumo',
     'blog.article.addio-tutto-compreso-ai-costi.excerpt': 'Le aziende che utilizzano l\'intelligenza artificiale dovranno ora pagare in base all\'uso effettivo, con un impatto significativo sui costi operativi.',
     'blog.article.addio-tutto-compreso-ai-costi.imageAlt': 'FoxTown Factory Stores a Mendrisio, Ticino',
+    'blog.article.arcidiacono-curia-lugano-2026.title': 'Andrea Arcidiacono nuovo addetto stampa della Curia di Lugano',
+    'blog.article.arcidiacono-curia-lugano-2026.excerpt': 'Il bellinzonese subentra a Luca Montagner dal 1° giugno con un tasso d’occupazione del 60%.',
+    'blog.article.arcidiacono-curia-lugano-2026.imageAlt': 'Interno del Duomo di Lugano con ufficio stampa moderno',
 };
 
 export default blogMetaIt;

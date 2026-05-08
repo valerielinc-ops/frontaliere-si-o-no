@@ -7169,6 +7169,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.addio-tutto-compreso-ai-costi.title': 'Keine festen Kosten mehr für KI: Neue verbrauchsabhängige Tarife',
     'blog.article.addio-tutto-compreso-ai-costi.excerpt': 'Unternehmen, die künstliche Intelligenz nutzen, zahlen nun nach tatsächlichem Verbrauch, was die Betriebskosten erheblich beeinflusst.',
     'blog.article.addio-tutto-compreso-ai-costi.imageAlt': 'FoxTown Factory Stores in Mendrisio, Tessin',
+    'blog.article.arcidiacono-curia-lugano-2026.title': 'Andrea Arcidiacono neuer Pressesprecher der Kurie Lugano',
+    'blog.article.arcidiacono-curia-lugano-2026.excerpt': 'Der Bellinzoneser übernimmt von Luca Montagner ab dem 1. Juni mit einer Beschäftigungsquote von 60%.',
+    'blog.article.arcidiacono-curia-lugano-2026.imageAlt': 'Innenraum des Luganer Doms mit moderner Presseabteilung',
 };
 
 export default blogMetaDe;
