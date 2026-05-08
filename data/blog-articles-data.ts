@@ -22835,4 +22835,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'emolumenti-svizzera-tassazione-italia',
+ category: 'fiscale',
+ date: '2026-05-08T20:32:48.595Z',
+ image: '/images/blog/emolumenti-svizzera-tassazione-italia.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

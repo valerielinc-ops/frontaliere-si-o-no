@@ -1,0 +1,40 @@
+{
+  "id": "emolumenti-svizzera-tassazione-italia",
+  "slug": "emolumenti-svizzera-tassazione-italia",
+  "publishedAt": "2026-05-08T20:32:49.979Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.979155514790133,
+    "confidence": 0.8,
+    "finalScore": 8.783324411832107,
+    "topK": [
+      {
+        "slug": "credito-imposta-doppia-tassazione",
+        "cosine": 0.7319437009860088
+      },
+      {
+        "slug": "aufenthaltsbewilligung-b-quellensteuer-2026",
+        "cosine": 0.7198637175023682
+      },
+      {
+        "slug": "dichiarazione-redditi-ticino-2026",
+        "cosine": 0.7178250753241201
+      },
+      {
+        "slug": "congresso-varese-2026-fisco-lavoro-ticino",
+        "cosine": 0.7174803128982982
+      },
+      {
+        "slug": "simulazione-fiscale-frontaliere-2026",
+        "cosine": 0.7156031731703268
+      }
+    ],
+    "score": 0.8783324411832107,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -3627,6 +3627,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lapo-elkann-lucerna-2024': { name: 'Novità', path: '/articoli-frontaliere/lapo-elkann-lucerna-2024', parent: 'blog' },
     'blog-impatriati-fiscalita-frontalieri': { name: 'Impatriati e frontalieri', path: '/articoli-frontaliere/impatriati-fiscalita-frontalieri', parent: 'blog' },
     'blog-svizzeri-ottimisti-finanze-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzeri-ottimisti-finanze-2026', parent: 'blog' },
+    'blog-emolumenti-svizzera-tassazione-italia': { name: 'Fiscale', path: '/articoli-frontaliere/emolumenti-svizzera-tassazione-italia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

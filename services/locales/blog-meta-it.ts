@@ -7155,6 +7155,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzeri-ottimisti-finanze-2026.title': 'Svizzeri ottimisti sulla situazione finanziaria per il 2026',
     'blog.article.svizzeri-ottimisti-finanze-2026.excerpt': 'Un sondaggio rivela che i residenti svizzeri, inclusi i frontalieri, sono fiduciosi per il futuro finanziario',
     'blog.article.svizzeri-ottimisti-finanze-2026.imageAlt': 'Lago di Lugano con le Alpi svizzere sullo sfondo e una barca che naviga in primo piano',
+    'blog.article.emolumenti-svizzera-tassazione-italia.title': 'Emolumenti svizzeri: tassazione e dichiarazione in Italia',
+    'blog.article.emolumenti-svizzera-tassazione-italia.excerpt': 'Guida pratica per i frontalieri: come dichiarare gli emolumenti svizzeri in Italia e evitare la doppia imposizione.',
+    'blog.article.emolumenti-svizzera-tassazione-italia.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -7154,6 +7154,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzeri-ottimisti-finanze-2026.title': 'Swiss optimistic about 2026 financial situation',
     'blog.article.svizzeri-ottimisti-finanze-2026.excerpt': 'A survey reveals that Swiss residents, including cross-border workers, are confident about their financial future',
     'blog.article.svizzeri-ottimisti-finanze-2026.imageAlt': 'Lake Lugano with Swiss Alps in the background and a boat cruising in the foreground',
+    'blog.article.emolumenti-svizzera-tassazione-italia.title': 'Swiss earnings: taxation and declaration in Italy',
+    'blog.article.emolumenti-svizzera-tassazione-italia.excerpt': 'Practical guide for cross-border workers: how to declare Swiss earnings in Italy and avoid double taxation.',
+    'blog.article.emolumenti-svizzera-tassazione-italia.imageAlt': 'Lake Lugano with a modern building in the background',
 };
 
 export default blogMetaEn;

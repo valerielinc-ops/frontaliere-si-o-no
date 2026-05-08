@@ -7154,6 +7154,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzeri-ottimisti-finanze-2026.title': 'Schweizer optimistisch für die finanzielle Lage 2026',
     'blog.article.svizzeri-ottimisti-finanze-2026.excerpt': 'Eine Umfrage zeigt, dass die Schweizer, einschließlich Grenzgänger, zuversichtlich in die finanzielle Zukunft sind',
     'blog.article.svizzeri-ottimisti-finanze-2026.imageAlt': 'Luganersee mit den Schweizer Alpen im Hintergrund und einem Boot, das im Vordergrund fährt',
+    'blog.article.emolumenti-svizzera-tassazione-italia.title': 'Schweizer Löhne: Besteuerung und Meldung in Italien',
+    'blog.article.emolumenti-svizzera-tassazione-italia.excerpt': 'Praktische Anleitung für Grenzgänger: Wie Schweizer Löhne in Italien deklariert und eine Doppelbesteuerung vermieden wird.',
+    'blog.article.emolumenti-svizzera-tassazione-italia.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
 };
 
 export default blogMetaDe;
