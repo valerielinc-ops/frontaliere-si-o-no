@@ -7049,6 +7049,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.progetto-eiger-palace-lugano-2026.title': 'Eiger Palace project in Lugano: demolitions and three years of work',
     'blog.article.progetto-eiger-palace-lugano-2026.excerpt': 'The building permit has become final. Here are the next steps for the Eiger Palace project in Besso, Lugano.',
     'blog.article.progetto-eiger-palace-lugano-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.cartelle-pagamento-cassazione-2026.title': 'Court sets deadline for payment notices',
+    'blog.article.cartelle-pagamento-cassazione-2026.excerpt': 'The Court of Cassation rules that the deadline for notifying payment notices starts from the ordinary deadline for the declaration, not from the late submission.',
+    'blog.article.cartelle-pagamento-cassazione-2026.imageAlt': 'Castelgrande in Bellinzona, aerial view of the medieval castle in Ticino',
 };
 
 export default blogMetaEn;

@@ -1,0 +1,40 @@
+{
+  "id": "cartelle-pagamento-cassazione-2026",
+  "slug": "cartelle-pagamento-cassazione-2026",
+  "publishedAt": "2026-05-08T08:20:34.391Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "commercialistatelematico.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 15.328145614731248,
+    "confidence": 0.8,
+    "finalScore": 12.262516491785,
+    "topK": [
+      {
+        "slug": "nuove-regole-scambio-informazioni-ader-enti-creditori",
+        "cosine": 0.8289440280363909
+      },
+      {
+        "slug": "maternita-cassazione-diritti-frontalieri",
+        "cosine": 0.8230369206916605
+      },
+      {
+        "slug": "problemi-casellario-giudiziale-varese-2026",
+        "cosine": 0.8213392988210638
+      },
+      {
+        "slug": "cassa-malati-leghista-applicata-subito",
+        "cosine": 0.8172058628772707
+      },
+      {
+        "slug": "trattative-acordo-usa-oltre-31-marzo",
+        "cosine": 0.8171537677116631
+      }
+    ],
+    "score": 1.532814561473125,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

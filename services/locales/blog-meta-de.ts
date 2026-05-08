@@ -7049,6 +7049,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.progetto-eiger-palace-lugano-2026.title': 'Projekt Eiger Palace in Lugano: Abriss und drei Jahre Bauarbeiten',
     'blog.article.progetto-eiger-palace-lugano-2026.excerpt': 'Die Baubewilligung ist rechtskräftig. Hier sind die nächsten Schritte des Projekts Eiger Palace in Besso, Lugano.',
     'blog.article.progetto-eiger-palace-lugano-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.cartelle-pagamento-cassazione-2026.title': 'Frist für Zahlungsaufforderungen: Kassationshof setzt Verjährung fest',
+    'blog.article.cartelle-pagamento-cassazione-2026.excerpt': 'Der Kassationshof legt fest, dass die Frist für die Zustellung von Zahlungsaufforderungen ab dem regulären Fälligkeitsdatum der Steuererklärung und nicht ab der verspäteten Einreichung beginnt.',
+    'blog.article.cartelle-pagamento-cassazione-2026.imageAlt': 'Castelgrande in Bellinzona, Luftaufnahme des mittelalterlichen Schlosses im Tessin',
 };
 
 export default blogMetaDe;

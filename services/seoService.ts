@@ -3592,6 +3592,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-locarno-zanzara-tigre-campagna-rilancia-2026': { name: 'Campagna zanzara tigre', path: '/articoli-frontaliere/locarno-zanzara-tigre-campagna-rilancia-2026', parent: 'blog' },
     'blog-legge-foti-critica-economia-ticino': { name: 'Legge Foti', path: '/articoli-frontaliere/legge-foti-critica-economia-ticino', parent: 'blog' },
     'blog-progetto-eiger-palace-lugano-2026': { name: 'Progetto Eiger Palace', path: '/articoli-frontaliere/progetto-eiger-palace-lugano-2026', parent: 'blog' },
+    'blog-cartelle-pagamento-cassazione-2026': { name: 'Fiscale', path: '/articoli-frontaliere/cartelle-pagamento-cassazione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

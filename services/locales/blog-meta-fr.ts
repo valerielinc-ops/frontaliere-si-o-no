@@ -7050,6 +7050,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.progetto-eiger-palace-lugano-2026.title': 'Projet Eiger Palace à Lugano : démolition et trois ans de travaux',
     'blog.article.progetto-eiger-palace-lugano-2026.excerpt': 'Le permis de construire est entré en vigueur. Voici les prochaines étapes du projet Eiger Palace à Besso, Lugano.',
     'blog.article.progetto-eiger-palace-lugano-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.cartelle-pagamento-cassazione-2026.title': 'Avis d\'imposition: la Cassation fixe le délai de prescription',
+    'blog.article.cartelle-pagamento-cassazione-2026.excerpt': 'La Cassation établit que le délai pour la notification des avis d\'imposition commence à la date d\'échéance ordinaire de la déclaration, et non à la présentation tardive.',
+    'blog.article.cartelle-pagamento-cassazione-2026.imageAlt': 'Castelgrande à Bellinzone, vue aérienne du château médiéval au Tessin',
 };
 
 export default blogMetaFr;

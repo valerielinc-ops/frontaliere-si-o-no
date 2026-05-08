@@ -22520,4 +22520,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cartelle-pagamento-cassazione-2026',
+ category: 'fiscale',
+ date: '2026-05-08T08:20:33.096Z',
+ image: '/images/blog/cartelle-pagamento-cassazione-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

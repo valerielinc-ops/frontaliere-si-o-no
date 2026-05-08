@@ -7050,6 +7050,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.progetto-eiger-palace-lugano-2026.title': 'Progetto Eiger Palace a Lugano: demolizioni e tre anni di lavori',
     'blog.article.progetto-eiger-palace-lugano-2026.excerpt': 'La licenza edilizia è entrata in giudicato. Ecco le prossime tappe del progetto Eiger Palace a Besso, Lugano.',
     'blog.article.progetto-eiger-palace-lugano-2026.imageAlt': 'Veduta aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.cartelle-pagamento-cassazione-2026.title': 'Cartelle di pagamento: Cassazione fissa termine di decadenza',
+    'blog.article.cartelle-pagamento-cassazione-2026.excerpt': 'La Cassazione stabilisce che il termine per la notifica delle cartelle di pagamento decorre dalla scadenza ordinaria della dichiarazione, non dalla presentazione tardiva.',
+    'blog.article.cartelle-pagamento-cassazione-2026.imageAlt': 'Castelgrande a Bellinzona, vista aerea del castello medievale in Ticino',
 };
 
 export default blogMetaIt;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2402,
+ "numberOfItems": 2403,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7044,7 +7044,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2399, "name": "Edoardo Leo conquista il Teatro Intred di Vares...", "url": `${BASE_URL}/articoli-frontaliere/edoardo-leo-teatro-intred-varese-2026` },
           { "@type": "ListItem", "position": 2400, "name": "Locarno rilancia la campagna contro la zanzara ...", "url": `${BASE_URL}/articoli-frontaliere/locarno-zanzara-tigre-campagna-rilancia-2026` },
           { "@type": "ListItem", "position": 2401, "name": "Legge Foti sotto accusa: obiettivi solo sulla c...", "url": `${BASE_URL}/articoli-frontaliere/legge-foti-critica-economia-ticino` },
-          { "@type": "ListItem", "position": 2402, "name": "Progetto Eiger Palace a Lugano: demolizioni e t...", "url": `${BASE_URL}/articoli-frontaliere/progetto-eiger-palace-lugano-2026` }
+          { "@type": "ListItem", "position": 2402, "name": "Progetto Eiger Palace a Lugano: demolizioni e t...", "url": `${BASE_URL}/articoli-frontaliere/progetto-eiger-palace-lugano-2026` },
+          { "@type": "ListItem", "position": 2403, "name": "Cartelle di pagamento: Cassazione fissa termine...", "url": `${BASE_URL}/articoli-frontaliere/cartelle-pagamento-cassazione-2026` }
  ]
  },
  {

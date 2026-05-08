@@ -30494,6 +30494,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cartelle-pagamento-cassazione-2026': {
+    title: 'Cartelle di pagamento: Cassazione fissa termine di decadenza',
+    description: 'La Cassazione stabilisce che il termine per la notifica delle cartelle di pagamento decorre dalla scadenza ordinaria della dichiarazione, non dalla',
+    keywords: 'frontalieri, ticino, svizzera, italia, cartelle, pagamento, cassazione, fissa',
+    ogTitle: 'Cartelle di pagamento: Cassazione fissa termine di decadenza',
+    ogDescription: 'La Cassazione stabilisce che il termine per la notifica delle cartelle di pagamento decorre dalla scadenza ordinaria della dichiarazione, non dalla',
+    canonicalPath: '/articoli-frontaliere/cartelle-pagamento-cassazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cartelle di pagamento: Cassazione fissa termine di decadenza",
+      "description": "La Cassazione stabilisce che il termine per la notifica delle cartelle di pagamento decorre dalla scadenza ordinaria della dichiarazione, non dalla",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cartelle-pagamento-cassazione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, vista aerea del castello medievale in Ticino"
+      },
+      "datePublished": "2026-05-08T08:20:33+00:00",
+      "dateModified": "2026-05-08T08:20:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cartelle-pagamento-cassazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
