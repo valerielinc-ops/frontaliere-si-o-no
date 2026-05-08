@@ -50,14 +50,7 @@ export default function CalcolatoreTabContent() {
 
  if (calcolatoreSubTab === 'calculator') {
  return (
- // `adsense-auto-ads-ignore` on the existing space-y-8 parent excludes the
- // whole calculator tab from in-page Auto Ads injection (CLS recovery,
- // FRO P0.1). Anchor + Vignette overlays still serve, and our manual
- // `<AdSenseBanner>` slots inside the tab are NOT affected — Google's
- // `google-auto-ads: ignore` only suppresses Auto Ads in-page placements.
- // Applied here on the existing wrapper to avoid adding any HTML tag
- // (would otherwise +50 bytes/page and trip the text-to-HTML ratio gate).
- <div className="space-y-8 adsense-auto-ads-ignore">
+ <div className="space-y-8">
  {seoLanding === 'new-frontier-over20km' ? (
  <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
  <NewFrontierOver20KmHub />
