@@ -1,16 +1,16 @@
 {
   "key": "relewant",
   "label": "ReleWant",
-  "generatedAt": "2026-05-08T10:31:14.605Z",
+  "generatedAt": "2026-05-08T22:23:41.190Z",
   "total": 20,
-  "newCount": 9,
+  "newCount": 8,
   "updatedCount": 10,
   "removedCount": 10,
   "unchangedCount": 0,
-  "durationMs": 20565,
-  "avgDurationMs": 20565,
+  "durationMs": 18471,
+  "avgDurationMs": 18471,
   "durationHistory": [
-    20565
+    18471
   ],
   "newJobs": [
     {
@@ -31,36 +31,6 @@
       "sector": "Consulenza IT",
       "source": "relewant-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "title": "Functional Analyst",
-      "slug": "functional-analyst-relewant-chiasso",
-      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019557001/Functional-Analyst",
-      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019557001/Functional-Analyst/apply",
-      "company": "ReleWant",
-      "companyKey": "relewant",
-      "companyDomain": "zohorecruit.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "analysis",
-      "sector": "Consulenza IT",
-      "source": "relewant-dedicated-crawler",
-      "sourceLang": "it",
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
