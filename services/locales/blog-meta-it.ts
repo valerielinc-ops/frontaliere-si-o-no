@@ -7110,6 +7110,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuova-riforma-avs-2024-frontalieri.title': 'Nuova riforma AVS 2024: cosa cambia per i frontalieri',
     'blog.article.nuova-riforma-avs-2024-frontalieri.excerpt': 'Dal 1° gennaio 2024 entrano in vigore nuove regole AVS. Ecco le novità per chi lavora in Svizzera e risiede in Italia',
     'blog.article.nuova-riforma-avs-2024-frontalieri.imageAlt': 'Panorama di Lugano con il lago e le montagne',
+    'blog.article.lohnausweis-frontalieri-ticino.title': 'Lohnausweis: cos\'è e come funziona per i frontalieri del Ticino',
+    'blog.article.lohnausweis-frontalieri-ticino.excerpt': 'Guida pratica al certificato di stipendio svizzero per i lavoratori transfrontalieri: cosa cambia e come ottenerlo',
+    'blog.article.lohnausweis-frontalieri-ticino.imageAlt': 'Certificato di stipendio svizzero su una scrivania con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

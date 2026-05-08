@@ -7109,6 +7109,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuova-riforma-avs-2024-frontalieri.title': 'AVS-Reform 2024: Was sich für Grenzgänger ändert',
     'blog.article.nuova-riforma-avs-2024-frontalieri.excerpt': 'Ab dem 1. Januar 2024 gelten neue AHV-Regeln. Hier sind die Neuerungen für Personen, die in der Schweiz arbeiten und in Italien wohnen',
     'blog.article.nuova-riforma-avs-2024-frontalieri.imageAlt': 'Lugano Skyline mit dem Luganersee und Bergen',
+    'blog.article.lohnausweis-frontalieri-ticino.title': 'Lohnausweis: Was ist das und wie funktioniert es für Grenzgänger aus dem Tessin?',
+    'blog.article.lohnausweis-frontalieri-ticino.excerpt': 'Praktische Anleitung zum Schweizer Lohnausweis für Grenzgänger: Was sich ändert und wie man ihn erhält',
+    'blog.article.lohnausweis-frontalieri-ticino.imageAlt': 'Schweizer Lohnausweis auf einem Schreibtisch mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

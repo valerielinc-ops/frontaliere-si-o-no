@@ -7109,6 +7109,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuova-riforma-avs-2024-frontalieri.title': 'New AVS reform 2024: changes for cross-border workers',
     'blog.article.nuova-riforma-avs-2024-frontalieri.excerpt': 'As of January 1st, 2024, new AVS rules come into force. Here\'s what\'s new for those working in Switzerland and living in Italy',
     'blog.article.nuova-riforma-avs-2024-frontalieri.imageAlt': 'Lugano skyline with Lake Lugano and mountains',
+    'blog.article.lohnausweis-frontalieri-ticino.title': 'Salary certificate: what it is and how it works for Ticino cross-border workers',
+    'blog.article.lohnausweis-frontalieri-ticino.excerpt': 'Practical guide to the Swiss salary certificate for cross-border workers: what changes and how to obtain it',
+    'blog.article.lohnausweis-frontalieri-ticino.imageAlt': 'Swiss salary certificate on a desk with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

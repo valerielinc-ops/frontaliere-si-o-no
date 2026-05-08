@@ -22700,4 +22700,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'lohnausweis-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-05-08T12:52:05.774Z',
+ image: '/images/blog/lohnausweis-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
