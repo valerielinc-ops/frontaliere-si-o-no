@@ -1,0 +1,40 @@
+{
+  "id": "rafforzare-sicurezza-bellinzona-2026",
+  "slug": "rafforzare-sicurezza-bellinzona-2026",
+  "publishedAt": "2026-05-08T22:50:55.664Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 15.891497579077887,
+    "confidence": 0.8,
+    "finalScore": 12.713198063262311,
+    "topK": [
+      {
+        "slug": "bellinzona-crescita-qualita-vita",
+        "cosine": 0.8828609766154382
+      },
+      {
+        "slug": "benessere-scolastico-bellinzona-2026",
+        "cosine": 0.8574986779097972
+      },
+      {
+        "slug": "bellinzona-auscultazione-2026",
+        "cosine": 0.8553658649139865
+      },
+      {
+        "slug": "sicurezza-frontalieri-ticino-2024",
+        "cosine": 0.8524803335854119
+      },
+      {
+        "slug": "bellinzona-datore-lavoro-conciliabilita",
+        "cosine": 0.8523677105483366
+      }
+    ],
+    "score": 1.2713198063262312,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

@@ -32171,6 +32171,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rafforzare-sicurezza-bellinzona-2026': {
+    title: 'Sicurezza a Bellinzona: mozione per migliorare la qualità della vita',
+    description: 'Karim Spinelli (Plr) presenta mozione per rafforzare sicurezza e presenza istituzionale in zone sensibili di Bellinzona. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, bellinzona, mozione, migliorare',
+    ogTitle: 'Sicurezza a Bellinzona: mozione per migliorare la qualità della vita',
+    ogDescription: 'Karim Spinelli (Plr) presenta mozione per rafforzare sicurezza e presenza istituzionale in zone sensibili di Bellinzona',
+    canonicalPath: '/articoli-frontaliere/rafforzare-sicurezza-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza a Bellinzona: mozione per migliorare la qualità della vita",
+      "description": "Karim Spinelli (Plr) presenta mozione per rafforzare sicurezza e presenza istituzionale in zone sensibili di Bellinzona. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rafforzare-sicurezza-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Bellinzona con il Castelgrande in primo piano"
+      },
+      "datePublished": "2026-05-08T22:50:54+00:00",
+      "dateModified": "2026-05-08T22:50:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rafforzare-sicurezza-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

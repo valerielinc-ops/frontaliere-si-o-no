@@ -7178,6 +7178,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.blackout-internet-iran-70-giorni.title': 'Iran internet blackout hits 70-day mark',
     'blog.article.blackout-internet-iran-70-giorni.excerpt': 'Iran\'s internet blackout has reached its 70th day, one of the longest national blocks ever recorded.',
     'blog.article.blackout-internet-iran-70-giorni.imageAlt': 'Aerial view of Lugano Lake and the city',
+    'blog.article.rafforzare-sicurezza-bellinzona-2026.title': 'Safety in Bellinzona: motion to improve quality of life',
+    'blog.article.rafforzare-sicurezza-bellinzona-2026.excerpt': 'Karim Spinelli (PLR) presents motion to strengthen security and institutional presence in sensitive areas of Bellinzona',
+    'blog.article.rafforzare-sicurezza-bellinzona-2026.imageAlt': 'Bellinzona cityscape with Castelgrande castle in the background',
 };
 
 export default blogMetaEn;

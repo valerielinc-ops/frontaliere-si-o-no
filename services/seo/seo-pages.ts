@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2445,
+ "numberOfItems": 2446,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7087,7 +7087,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2442, "name": "Addio ai costi fissi per l'AI: ecco le nuove ta...", "url": `${BASE_URL}/articoli-frontaliere/addio-tutto-compreso-ai-costi` },
           { "@type": "ListItem", "position": 2443, "name": "Andrea Arcidiacono nuovo addetto stampa della C...", "url": `${BASE_URL}/articoli-frontaliere/arcidiacono-curia-lugano-2026` },
           { "@type": "ListItem", "position": 2444, "name": "Frontaliere morto a Visp: è Simone Grossi", "url": `${BASE_URL}/articoli-frontaliere/simone-grossi-frontaliere-visp` },
-          { "@type": "ListItem", "position": 2445, "name": "Blackout internet in Iran: 70 giorni di disconn...", "url": `${BASE_URL}/articoli-frontaliere/blackout-internet-iran-70-giorni` }
+          { "@type": "ListItem", "position": 2445, "name": "Blackout internet in Iran: 70 giorni di disconn...", "url": `${BASE_URL}/articoli-frontaliere/blackout-internet-iran-70-giorni` },
+          { "@type": "ListItem", "position": 2446, "name": "Sicurezza a Bellinzona: mozione per migliorare ...", "url": `${BASE_URL}/articoli-frontaliere/rafforzare-sicurezza-bellinzona-2026` }
  ]
  },
  {

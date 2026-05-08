@@ -22907,4 +22907,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rafforzare-sicurezza-bellinzona-2026',
+ category: 'pratico',
+ date: '2026-05-08T22:50:54.405Z',
+ image: '/images/blog/rafforzare-sicurezza-bellinzona-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

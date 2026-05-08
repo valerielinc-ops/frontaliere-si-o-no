@@ -7178,6 +7178,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blackout-internet-iran-70-giorni.title': 'Internetausfall in Iran: 70 Tage offline',
     'blog.article.blackout-internet-iran-70-giorni.excerpt': 'Der Internetausfall in Iran hat den 70. Tag erreicht, einer der längsten national registrierten Sperren.',
     'blog.article.blackout-internet-iran-70-giorni.imageAlt': 'Luftaufnahme des Luganer Sees und der Stadt',
+    'blog.article.rafforzare-sicurezza-bellinzona-2026.title': 'Sicherheit in Bellinzona: Lebensqualität verbessern',
+    'blog.article.rafforzare-sicurezza-bellinzona-2026.excerpt': 'Karim Spinelli (Plr) reicht Motion zur Stärkung von Sicherheit und institutioneller Präsenz in sensiblen Zonen von Bellinzona ein',
+    'blog.article.rafforzare-sicurezza-bellinzona-2026.imageAlt': 'Bellinzona Stadtansicht mit der Burg Castelgrande im Hintergrund',
 };
 
 export default blogMetaDe;

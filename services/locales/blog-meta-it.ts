@@ -7179,6 +7179,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blackout-internet-iran-70-giorni.title': 'Blackout internet in Iran: 70 giorni di disconnessione',
     'blog.article.blackout-internet-iran-70-giorni.excerpt': 'Il blackout di internet in Iran ha raggiunto il 70esimo giorno, uno dei blocchi più lunghi mai registrati a livello nazionale.',
     'blog.article.blackout-internet-iran-70-giorni.imageAlt': 'Vista aerea del Lago di Lugano e della città',
+    'blog.article.rafforzare-sicurezza-bellinzona-2026.title': 'Sicurezza a Bellinzona: mozione per migliorare la qualità della vita',
+    'blog.article.rafforzare-sicurezza-bellinzona-2026.excerpt': 'Karim Spinelli (Plr) presenta mozione per rafforzare sicurezza e presenza istituzionale in zone sensibili di Bellinzona',
+    'blog.article.rafforzare-sicurezza-bellinzona-2026.imageAlt': 'Panorama di Bellinzona con il Castelgrande in primo piano',
 };
 
 export default blogMetaIt;
