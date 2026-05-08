@@ -7121,6 +7121,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-dogana-tempi-attesa.title': 'Wartezeiten an der Zollstation Chiasso: Wichtiges wissen',
     'blog.article.chiasso-dogana-tempi-attesa.excerpt': 'Erfahren Sie die durchschnittlichen Wartezeiten an der Zollstation Chiasso und wie Sie Ihre grenzüberschreitenden Fahrten am besten organisieren können.',
     'blog.article.chiasso-dogana-tempi-attesa.imageAlt': 'Grenzübergang Chiasso mit Zollbereich und wartenden Autos',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.title': 'Gehälter für Absolventen: Schweiz, Österreich und Deutschland führen',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.excerpt': 'Lohnvergleich für Absolventen in der Schweiz, Österreich, Deutschland, Italien, Polen und Spanien. Wer zahlt am meisten?',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.imageAlt': 'Luftansicht von Lugano mit dem Luganersee und umliegenden Bergen',
 };
 
 export default blogMetaDe;

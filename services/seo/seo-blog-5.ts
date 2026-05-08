@@ -31430,6 +31430,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendi-neolaureati-svizzera-austria-germania': {
+    title: 'Stipendi neo-laureati: Svizzera, Austria e Germania in testa',
+    description: 'Confronto salariale per i neo-laureati in Svizzera, Austria, Germania, Italia, Polonia e Spagna. Chi paga di più?. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendi, neo-laureati, austria, germania',
+    ogTitle: 'Stipendi neo-laureati: Svizzera, Austria e Germania in testa',
+    ogDescription: 'Confronto salariale per i neo-laureati in Svizzera, Austria, Germania, Italia, Polonia e Spagna. Chi paga di più?',
+    canonicalPath: '/articoli-frontaliere/stipendi-neolaureati-svizzera-austria-germania',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendi neo-laureati: Svizzera, Austria e Germania in testa",
+      "description": "Confronto salariale per i neo-laureati in Svizzera, Austria, Germania, Italia, Polonia e Spagna. Chi paga di più?. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendi-neolaureati-svizzera-austria-germania.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Lugano con il Lago Ceresio e le montagne circostanti"
+      },
+      "datePublished": "2026-05-08T17:41:55+00:00",
+      "dateModified": "2026-05-08T17:41:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendi-neolaureati-svizzera-austria-germania`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

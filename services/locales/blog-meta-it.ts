@@ -7122,6 +7122,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-dogana-tempi-attesa.title': 'Tempi di attesa alla dogana di Chiasso: cosa sapere',
     'blog.article.chiasso-dogana-tempi-attesa.excerpt': 'Scopri i tempi medi di attesa alla dogana di Chiasso e come organizzare al meglio i tuoi spostamenti transfrontalieri.',
     'blog.article.chiasso-dogana-tempi-attesa.imageAlt': 'Confine di Chiasso con area doganale e auto in attesa',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.title': 'Stipendi neo-laureati: Svizzera, Austria e Germania in testa',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.excerpt': 'Confronto salariale per i neo-laureati in Svizzera, Austria, Germania, Italia, Polonia e Spagna. Chi paga di più?',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.imageAlt': 'Veduta aerea di Lugano con il Lago Ceresio e le montagne circostanti',
 };
 
 export default blogMetaIt;

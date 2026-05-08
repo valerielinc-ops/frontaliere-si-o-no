@@ -22736,4 +22736,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'stipendi-neolaureati-svizzera-austria-germania',
+ category: 'fiscale',
+ date: '2026-05-08T17:41:55.636Z',
+ image: '/images/blog/stipendi-neolaureati-svizzera-austria-germania.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

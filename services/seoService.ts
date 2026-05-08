@@ -3616,6 +3616,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-emigrazione-cassa-pensione-risparmio-imposte': { name: 'Fiscale', path: '/articoli-frontaliere/emigrazione-cassa-pensione-risparmio-imposte', parent: 'blog' },
     'blog-nuovo-accordo-frontalieri-pilastro-2026': { name: 'Nuovo accordo frontalieri', path: '/articoli-frontaliere/nuovo-accordo-frontalieri-pilastro-2026', parent: 'blog' },
     'blog-chiasso-dogana-tempi-attesa': { name: 'Dogana Chiasso', path: '/articoli-frontaliere/chiasso-dogana-tempi-attesa', parent: 'blog' },
+    'blog-stipendi-neolaureati-svizzera-austria-germania': { name: 'Fiscale', path: '/articoli-frontaliere/stipendi-neolaureati-svizzera-austria-germania', parent: 'blog' },
  };
 
  const info = sectionNames[section];

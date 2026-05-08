@@ -7122,6 +7122,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-dogana-tempi-attesa.title': 'Temps d\'attente à la douane de Chiasso : ce qu\'il faut savoir',
     'blog.article.chiasso-dogana-tempi-attesa.excerpt': 'Découvrez les temps d\'attente moyens à la douane de Chiasso et comment organiser au mieux vos déplacements transfrontaliers.',
     'blog.article.chiasso-dogana-tempi-attesa.imageAlt': 'Frontière de Chiasso avec zone douanière et voitures en attente',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.title': 'Salaire des diplômés : Suisse, Autriche et Allemagne en tête',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.excerpt': 'Comparaison salariale pour les diplômés en Suisse, Autriche, Allemagne, Italie, Pologne et Espagne. Qui paie le plus ?',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
 };
 
 export default blogMetaFr;

@@ -7121,6 +7121,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-dogana-tempi-attesa.title': 'Waiting times at Chiasso customs: what to know',
     'blog.article.chiasso-dogana-tempi-attesa.excerpt': 'Discover the average waiting times at Chiasso customs and how to best organize your cross-border trips.',
     'blog.article.chiasso-dogana-tempi-attesa.imageAlt': 'Chiasso border with customs area and cars waiting',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.title': 'Starting salaries: Switzerland, Austria and Germany lead',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.excerpt': 'Salary comparison for new graduates in Switzerland, Austria, Germany, Italy, Poland and Spain. Who pays the most?',
+    'blog.article.stipendi-neolaureati-svizzera-austria-germania.imageAlt': 'Aerial view of Lugano with Lake Ceresio and surrounding mountains',
 };
 
 export default blogMetaEn;
