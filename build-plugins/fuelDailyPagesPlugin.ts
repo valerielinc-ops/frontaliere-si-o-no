@@ -1539,6 +1539,18 @@ function renderPage(inp: PageInputs): string {
   const h1 = zone ? copy.zoneH1(fuelLabel, zoneLabel) : copy.regionalH1(fuelLabel);
   const intro = copy.intro(fuelLabel, zoneLabel, priceFmt, dateStamp);
   const paragraph = copy.paragraph(fuelLabel, zoneLabel, priceFmt, deltaYestFmt, delta7Fmt);
+  // Above-the-fold tagline (≤120 chars) — replaces the long intro in
+  // the page header so mobile-first hierarchy stays clean (H1 →
+  // tagline → tile → editorial review → top stations). The full intro
+  // moves to the paragraph block below the action area, preserving
+  // text-to-HTML ratio.
+  const fuelTaglineByLocale: Record<FuelDailyLocale, string> = {
+    it: `${fuelLabel} oggi a ${zoneLabel}: ${priceFmt} CHF/litro · variazione vs ieri ${deltaYestFmt}, vs 7 giorni ${delta7Fmt}.`,
+    en: `${fuelLabel} today in ${zoneLabel}: ${priceFmt} CHF/litre · change vs yesterday ${deltaYestFmt}, vs 7 days ${delta7Fmt}.`,
+    de: `${fuelLabel} heute in ${zoneLabel}: ${priceFmt} CHF/Liter · Veränderung vs gestern ${deltaYestFmt}, vs 7 Tagen ${delta7Fmt}.`,
+    fr: `${fuelLabel} aujourd'hui à ${zoneLabel} : ${priceFmt} CHF/litre · variation vs hier ${deltaYestFmt}, vs 7 jours ${delta7Fmt}.`,
+  };
+  const introTagline = fuelTaglineByLocale[locale];
   const historyCopy = copy.historySection;
 
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -1739,9 +1751,9 @@ function renderPage(inp: PageInputs): string {
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(intro)}</p>
+    <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
   </header>
-  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
+  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px">
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(copy.avgLabel)}</div>
       <div style="${STAT_TILE_VALUE};font-size:32px">${priceFmt}</div>
@@ -1757,9 +1769,6 @@ function renderPage(inp: PageInputs): string {
     </div>
   </section>
   ${unavailableNoteHtml}
-  <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-  </section>
   <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="fuelReview">
     <h2 id="fuelReview" style="${H2_STYLE}">${esc(editorialAssessment.heading)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
@@ -1774,6 +1783,10 @@ function renderPage(inp: PageInputs): string {
     ${historyCard}
     ${trendTableHtml}
     ${periodAvgNoteHtml}
+  </section>
+  <section style="margin:0 0 24px">
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
   ${faqHtml}
   ${renderFuelTodayFrontalierContext({ locale, fuelLabel, zoneLabel, priceFmt, deltaYestFmt, delta7Fmt, isZone: !!zone })}
