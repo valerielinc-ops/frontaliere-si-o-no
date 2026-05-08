@@ -22376,4 +22376,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontalieri-ticino-stabili-2026-q1',
+ category: 'novita',
+ date: '2026-05-08T05:45:35.830Z',
+ image: '/images/blog/frontalieri-ticino-stabili-2026-q1.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

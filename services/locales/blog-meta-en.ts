@@ -7001,6 +7001,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dati-precalcolati-isa-2026-frontalieri.title': 'ISA 2026: how to request precalculated data and manage the single mandate',
     'blog.article.dati-precalcolati-isa-2026-frontalieri.excerpt': 'New rules for accessing ISA 2026 precalculated data: what changes for cross-border workers and how to manage the single mandate',
     'blog.article.dati-precalcolati-isa-2026-frontalieri.imageAlt': 'Lake Lugano with a modern building in the background, a professional working on a computer with financial documents',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.title': 'Ticino cross-border workers stable in 2026-Q1',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.excerpt': 'BFS data shows 78,561 cross-border workers in Ticino, a -0.16% change from the previous quarter.',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.imageAlt': 'View of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

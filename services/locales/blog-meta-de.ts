@@ -7001,6 +7001,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dati-precalcolati-isa-2026-frontalieri.title': 'ISA 2026: Vorberechnete Daten beantragen und Einzelvollmacht verwalten',
     'blog.article.dati-precalcolati-isa-2026-frontalieri.excerpt': 'Neue Regeln für den Zugriff auf die vorberechneten ISA 2026-Daten: Was sich für Grenzgänger ändert und wie die Einzelvollmacht verwaltet wird',
     'blog.article.dati-precalcolati-isa-2026-frontalieri.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund, ein Fachmann arbeitet an einem Computer mit Finanzdokumenten',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.title': 'Grenzgänger im Tessin 2026-Q1 stabil',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.excerpt': 'Die BFS-Daten zeigen 78.561 Grenzgänger im Tessin, mit einer Veränderung von -0,16 % gegenüber dem Vorquartal.',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.imageAlt': 'Blick auf den Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

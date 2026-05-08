@@ -3576,6 +3576,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-grigioni-fattura-italia-olimpiadi': { name: 'Novità', path: '/articoli-frontaliere/grigioni-fattura-italia-olimpiadi', parent: 'blog' },
     'blog-untersander-ginevra-2026': { name: 'Novità', path: '/articoli-frontaliere/untersander-ginevra-2026', parent: 'blog' },
     'blog-dati-precalcolati-isa-2026-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/dati-precalcolati-isa-2026-frontalieri', parent: 'blog' },
+    'blog-frontalieri-ticino-stabili-2026-q1': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-ticino-stabili-2026-q1', parent: 'blog' },
  };
 
  const info = sectionNames[section];

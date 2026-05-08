@@ -7002,6 +7002,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dati-precalcolati-isa-2026-frontalieri.title': 'ISA 2026 : données précalculées et délégation unique',
     'blog.article.dati-precalcolati-isa-2026-frontalieri.excerpt': 'Nouvelles règles pour l\'accès aux données précalculées ISA 2026 : ce qui change pour les travailleurs frontaliers et comment gérer la délégation unique',
     'blog.article.dati-precalcolati-isa-2026-frontalieri.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan, un professionnel travaillant sur un ordinateur avec des documents financiers',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.title': 'Frontaliers stables dans le Tessin en 2026-Q1',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.excerpt': 'Les données de l\'OFS indiquent 78 561 frontaliers dans le Tessin, avec une variation de -0,16 % par rapport au trimestre précédent.',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.imageAlt': 'Vue du lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

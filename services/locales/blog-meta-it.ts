@@ -7002,6 +7002,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dati-precalcolati-isa-2026-frontalieri.title': 'ISA 2026: come richiedere i dati precalcolati e gestire la delega unica',
     'blog.article.dati-precalcolati-isa-2026-frontalieri.excerpt': 'Nuove regole per l\'accesso ai dati precalcolati ISA 2026: cosa cambia per i frontalieri e come gestire la delega unica',
     'blog.article.dati-precalcolati-isa-2026-frontalieri.imageAlt': 'Lago di Lugano con un edificio moderno in secondo piano, un professionista al lavoro su un computer con documenti finanziari',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.title': 'Frontalieri Ticino stabili nel 2026-Q1',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.excerpt': 'I dati BFS indicano 78.561 frontalieri in Ticino, con una variazione dello -0.16% rispetto al trimestre precedente.',
+    'blog.article.frontalieri-ticino-stabili-2026-q1.imageAlt': 'Vista del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;
