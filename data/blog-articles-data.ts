@@ -22430,4 +22430,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bioblitz-groane-2026-frontalieri',
+ category: 'pratico',
+ date: '2026-05-08T06:34:44.244Z',
+ image: '/images/blog/bioblitz-groane-2026-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

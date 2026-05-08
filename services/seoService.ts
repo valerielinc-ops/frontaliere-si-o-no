@@ -3582,6 +3582,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giardino-ferroviario-balerna-2026': { name: 'Giardino ferroviario Balerna', path: '/articoli-frontaliere/giardino-ferroviario-balerna-2026', parent: 'blog' },
     'blog-vertigini-montagna-frontalieri': { name: 'Vertigini montagna', path: '/articoli-frontaliere/vertigini-montagna-frontalieri', parent: 'blog' },
     'blog-real-madrid-caos-rissa-tchouameni-valverde': { name: 'Sport', path: '/articoli-frontaliere/real-madrid-caos-rissa-tchouameni-valverde', parent: 'blog' },
+    'blog-bioblitz-groane-2026-frontalieri': { name: 'Eventi', path: '/articoli-frontaliere/bioblitz-groane-2026-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

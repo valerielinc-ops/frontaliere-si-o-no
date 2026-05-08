@@ -7019,6 +7019,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.real-madrid-caos-rissa-tchouameni-valverde.title': 'Chaos bei Real Madrid: Tchouaméni und Valverde prügeln sich',
     'blog.article.real-madrid-caos-rissa-tchouameni-valverde.excerpt': 'Angeknackste Nerven beim Real Madrid nach einer gewalttätigen Schlägerei zwischen Tchouaméni und Valverde, wobei der uruguayische Spieler mit einem Schädel-Hirn-Trauma im Krankenhaus landete.',
     'blog.article.real-madrid-caos-rissa-tchouameni-valverde.imageAlt': 'Chaotische Szene in einem Fussballstadion im Tessin mit spielern im Konflikt',
+    'blog.article.bioblitz-groane-2026-frontalieri.title': 'BioBlitz Lombardei 2026: Drei Tage Natur im Parco delle Groane',
+    'blog.article.bioblitz-groane-2026-frontalieri.excerpt': 'Vom 15. bis 17. Mai 2026 findet im Parco delle Groane der BioBlitz Lombardei statt, ein Citizen-Science-Event zur Entdeckung der lokalen Biodiversität.',
+    'blog.article.bioblitz-groane-2026-frontalieri.imageAlt': 'Parco delle Groane, Lombardei, Natur, Biodiversität, Schmetterlinge, Glühwürmchen',
 };
 
 export default blogMetaDe;

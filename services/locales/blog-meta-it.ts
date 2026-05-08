@@ -7020,6 +7020,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.real-madrid-caos-rissa-tchouameni-valverde.title': 'Real Madrid nel caos: rissa fra Tchouaméni e Valverde',
     'blog.article.real-madrid-caos-rissa-tchouameni-valverde.excerpt': 'Nervi tesi al Real Madrid dopo una violenta rissa tra Tchouaméni e Valverde, con il giocatore uruguaiano finito in ospedale per un trauma cranico.',
     'blog.article.real-madrid-caos-rissa-tchouameni-valverde.imageAlt': 'Scena caotica allo stadio di calcio in Ticino con giocatori in conflitto',
+    'blog.article.bioblitz-groane-2026-frontalieri.title': 'BioBlitz Lombardia 2026: tre giorni di natura al Parco delle Groane',
+    'blog.article.bioblitz-groane-2026-frontalieri.excerpt': 'Dal 15 al 17 maggio 2026, il Parco delle Groane ospita il BioBlitz Lombardia, un evento di citizen science per scoprire la biodiversità locale.',
+    'blog.article.bioblitz-groane-2026-frontalieri.imageAlt': 'Parco delle Groane, Lombardia, natura, biodiversità, farfalle, lucciole',
 };
 
 export default blogMetaIt;

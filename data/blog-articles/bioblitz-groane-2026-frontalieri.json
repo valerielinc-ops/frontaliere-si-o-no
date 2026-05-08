@@ -1,0 +1,40 @@
+{
+  "id": "bioblitz-groane-2026-frontalieri",
+  "slug": "bioblitz-groane-2026-frontalieri",
+  "publishedAt": "2026-05-08T06:34:45.674Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.829947646121134,
+    "confidence": 0.8,
+    "finalScore": 6.263958116896908,
+    "topK": [
+      {
+        "slug": "inarzo-festa-oasi-palude-brabbia-2026",
+        "cosine": 0.8121750918103836
+      },
+      {
+        "slug": "spring-pride-saronno-2026",
+        "cosine": 0.799527917121732
+      },
+      {
+        "slug": "rinascita-praterie-sommerse-laghi-ticino",
+        "cosine": 0.7973802428856244
+      },
+      {
+        "slug": "malcantone-fai-di-primavera-2026",
+        "cosine": 0.794890067518433
+      },
+      {
+        "slug": "varese-luna-park-schiranna-2026",
+        "cosine": 0.7945556267004271
+      }
+    ],
+    "score": 1.565989529224227,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

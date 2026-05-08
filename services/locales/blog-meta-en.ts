@@ -7019,6 +7019,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.real-madrid-caos-rissa-tchouameni-valverde.title': 'Real Madrid in chaos: Tchouaméni vs Valverde',
     'blog.article.real-madrid-caos-rissa-tchouameni-valverde.excerpt': 'Tensions are high at Real Madrid after a violent brawl between Tchouaméni and Valverde, with the Uruguayan player ending up in hospital with a head injury.',
     'blog.article.real-madrid-caos-rissa-tchouameni-valverde.imageAlt': 'Chaotic scene at a football stadium in Ticino with players in conflict',
+    'blog.article.bioblitz-groane-2026-frontalieri.title': 'BioBlitz Lombardy 2026: three days of nature at Parco delle Groane',
+    'blog.article.bioblitz-groane-2026-frontalieri.excerpt': 'From May 15 to 17, 2026, Parco delle Groane hosts BioBlitz Lombardy, a citizen science event to discover local biodiversity.',
+    'blog.article.bioblitz-groane-2026-frontalieri.imageAlt': 'Parco delle Groane, Lombardy, nature, biodiversity, butterflies, fireflies',
 };
 
 export default blogMetaEn;
