@@ -2763,6 +2763,25 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const leafCopy = LEAF_COPY[locale];
   const year = dataset.year ?? today.getUTCFullYear();
 
+  // National headline metrics — drives the stats tile grid below the H1
+  // and the eyebrow-style summary in the lede tagline. Computed once
+  // here from the same `cantonStats` already passed in.
+  const adultMedians = HEALTH_PREMIUM_CANTONS
+    .map((c) => cantonStats[c]?.adultMedian)
+    .filter((v): v is number => typeof v === 'number');
+  const cantonsCount = adultMedians.length;
+  const nationalMedian = adultMedians.length > 0
+    ? Math.round(adultMedians.reduce((a, b) => a + b, 0) / adultMedians.length)
+    : 0;
+  const nationalCheapest = adultMedians.length > 0 ? Math.min(...adultMedians) : 0;
+  const nationalMostExpensive = adultMedians.length > 0 ? Math.max(...adultMedians) : 0;
+  const cheapestCanton = HEALTH_PREMIUM_CANTONS.find(
+    (c) => cantonStats[c]?.adultMedian === nationalCheapest && nationalCheapest > 0,
+  );
+  const cheapestCantonName = cheapestCanton
+    ? HEALTH_PREMIUM_CANTON_DISPLAY[locale][cheapestCanton]
+    : '';
+
   // Canton grid with adult median/min/max
   const cantonRows = HEALTH_PREMIUM_CANTONS.map((c) => {
     const s = cantonStats[c];
@@ -2857,6 +2876,48 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = intro.slice(0, 180);
 
+  // Tagline 1-line (≤120 chars) — replaces the long intro in the page
+  // header. Numbers live in the stats tiles below; the long intro
+  // (with year context + frontaliere note) is migrated to the
+  // `background` section so the page text content (and Semrush
+  // text-to-HTML ratio) is preserved while the action area stays
+  // mobile-first above the fold.
+  const taglineByLocale: Record<HealthPremiumLocale, string> = {
+    it: `Premi LAMal ${year}: confronto live tra ${cantonsCount} cantoni svizzeri.`,
+    en: `LAMal premiums ${year}: live comparison across ${cantonsCount} Swiss cantons.`,
+    de: `KVG-Prämien ${year}: Live-Vergleich zwischen ${cantonsCount} Schweizer Kantonen.`,
+    fr: `Primes LAMal ${year} : comparaison en direct entre ${cantonsCount} cantons suisses.`,
+  };
+  const rootTileLabels: Record<HealthPremiumLocale, { cantons: string; median: string; cheapest: string; mostExp: string }> = {
+    it: { cantons: 'Cantoni', median: 'Mediana CH', cheapest: 'Più economico', mostExp: 'Più caro' },
+    en: { cantons: 'Cantons', median: 'CH median', cheapest: 'Cheapest', mostExp: 'Most expensive' },
+    de: { cantons: 'Kantone', median: 'CH-Median', cheapest: 'Günstigster', mostExp: 'Teuerster' },
+    fr: { cantons: 'Cantons', median: 'Médiane CH', cheapest: 'Le moins cher', mostExp: 'Le plus cher' },
+  };
+  const rootTl = rootTileLabels[locale];
+  const rootStatsHtml = cantonsCount > 0
+    ? `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:0 0 18px">
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(rootTl.cantons)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${cantonsCount}</div>
+    </div>
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(rootTl.median)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalMedian, locale))}</div>
+      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(rootTl.cheapest)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:22px;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalCheapest, locale))}</div>
+      ${cheapestCantonName ? `<div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(cheapestCantonName)}</div>` : ''}
+    </div>
+    <div style="${STAT_TILE_WARNING}">
+      <div style="${STAT_TILE_LABEL}">${esc(rootTl.mostExp)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:22px;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalMostExpensive, locale))}</div>
+    </div>
+  </section>`
+    : '';
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -2866,14 +2927,21 @@ function renderRootHubPage(inp: RootHubInputs): string {
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">LAMal ${year}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(intro)}</p>
+    <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
   </header>
+  ${rootStatsHtml}
+  <section style="margin:0 0 24px" aria-labelledby="rootComparatorCta">
+    <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
+  </section>
   <section style="margin:0 0 24px" aria-labelledby="cantonGrid">
     <h2 id="cantonGrid" style="${H2_STYLE}">${esc(copy.cantonGridTitle)}</h2>
     ${cantonGridHtml}
   </section>
   <section style="margin:0 0 24px" aria-labelledby="background">
     <h2 id="background" style="${H2_STYLE}">${esc(copy.rootBackgroundTitle)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.rootBackground)}</p>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="rootMethodology">
@@ -2892,11 +2960,6 @@ function renderRootHubPage(inp: RootHubInputs): string {
     intro: copy.rootFrontalierGuide.intro,
     bullets: copy.rootFrontalierGuide.bullets,
   })}
-  <section style="margin:0 0 24px" aria-labelledby="rootComparatorCta">
-    <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
-    <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
-  </section>
   ${faqHtml}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
