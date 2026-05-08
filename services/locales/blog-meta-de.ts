@@ -6971,6 +6971,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.centromedico-castello-chirurgia-ambulatoriale.title': 'Centromedico Castello: das Reich der ambulanten Chirurgie',
     'blog.article.centromedico-castello-chirurgia-ambulatoriale.excerpt': 'Neue Einrichtung in Bellinzona für ambulante Eingriffe, inklusive Augenklinik Swiss Visio. Was sich für Grenzgänger ändert',
     'blog.article.centromedico-castello-chirurgia-ambulatoriale.imageAlt': 'Centromedico Castello, modernes medizinisches Zentrum in Bellinzona',
+    'blog.article.arresto-commissario-fedpol-mafia.title': 'Fedpol-Kommissar verhaftet: Mafia-Infos für 100.000 Franken',
+    'blog.article.arresto-commissario-fedpol-mafia.excerpt': 'Ein Kommissar des Schweizer Bundesamts für Polizei verhaftet, weil er vertrauliche Informationen an eine Mafia-Organisation weitergegeben hat.',
+    'blog.article.arresto-commissario-fedpol-mafia.imageAlt': 'Castelgrande in Bellinzona mit den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

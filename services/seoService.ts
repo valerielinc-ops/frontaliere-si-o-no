@@ -3566,6 +3566,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-maxi-blitz-cocaina-atlantico-30-tonnellate': { name: 'Novità', path: '/articoli-frontaliere/maxi-blitz-cocaina-atlantico-30-tonnellate', parent: 'blog' },
     'blog-giudici-federali-indagine-2026': { name: 'Indagine giudici', path: '/articoli-frontaliere/giudici-federali-indagine-2026', parent: 'blog' },
     'blog-centromedico-castello-chirurgia-ambulatoriale': { name: 'Sanità e assicurazioni', path: '/articoli-frontaliere/centromedico-castello-chirurgia-ambulatoriale', parent: 'blog' },
+    'blog-arresto-commissario-fedpol-mafia': { name: 'Novità', path: '/articoli-frontaliere/arresto-commissario-fedpol-mafia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

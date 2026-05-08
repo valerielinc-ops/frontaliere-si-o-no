@@ -6971,6 +6971,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.centromedico-castello-chirurgia-ambulatoriale.title': 'Centromedico Castello: the realm of outpatient surgery',
     'blog.article.centromedico-castello-chirurgia-ambulatoriale.excerpt': 'New facility in Bellinzona for outpatient procedures, including Swiss Visio ophthalmology center. Here\'s what changes for cross-border workers',
     'blog.article.centromedico-castello-chirurgia-ambulatoriale.imageAlt': 'Centromedico Castello, modern medical facility in Bellinzona',
+    'blog.article.arresto-commissario-fedpol-mafia.title': 'Fedpol officer arrested for leaking info to mafia for 100k CHF',
+    'blog.article.arresto-commissario-fedpol-mafia.excerpt': 'A Swiss Federal Security Service commissioner was arrested for passing confidential information to a mafia organization.',
+    'blog.article.arresto-commissario-fedpol-mafia.imageAlt': 'Castelgrande in Bellinzona with the Alps in the background',
 };
 
 export default blogMetaEn;
