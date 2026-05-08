@@ -22223,4 +22223,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trump-ue-accordo-commerciale-4-luglio',
+ category: 'fiscale',
+ date: '2026-05-08T02:08:48.258Z',
+ image: '/images/blog/trump-ue-accordo-commerciale-4-luglio.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

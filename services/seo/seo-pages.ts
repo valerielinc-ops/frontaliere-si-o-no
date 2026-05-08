@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2369,
+ "numberOfItems": 2370,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7011,7 +7011,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2366, "name": "Lula e Trump difendono democrazia e sovranità", "url": `${BASE_URL}/articoli-frontaliere/lula-trump-riunione-democrazia-sovranita` },
           { "@type": "ListItem", "position": 2367, "name": "Delitto di Garlasco: Chiara uccisa con odio e c...", "url": `${BASE_URL}/articoli-frontaliere/delitto-garlasco-chiara-omicidio-2026` },
           { "@type": "ListItem", "position": 2368, "name": "Hondius: cosa cambia per i frontalieri del Ticino", "url": `${BASE_URL}/articoli-frontaliere/hondius-frontalieri-ticino-2026` },
-          { "@type": "ListItem", "position": 2369, "name": "Harrods risarcirà decine di vittime dello scand...", "url": `${BASE_URL}/articoli-frontaliere/harrods-risarcimenti-vittime-al-fayed` }
+          { "@type": "ListItem", "position": 2369, "name": "Harrods risarcirà decine di vittime dello scand...", "url": `${BASE_URL}/articoli-frontaliere/harrods-risarcimenti-vittime-al-fayed` },
+          { "@type": "ListItem", "position": 2370, "name": "Trump all'Ue: tempo fino al 4 luglio per l'acco...", "url": `${BASE_URL}/articoli-frontaliere/trump-ue-accordo-commerciale-4-luglio` }
  ]
  },
  {

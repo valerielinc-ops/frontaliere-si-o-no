@@ -6950,6 +6950,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.harrods-risarcimenti-vittime-al-fayed.title': 'Harrods to compensate Al-Fayed scandal victims',
     'blog.article.harrods-risarcimenti-vittime-al-fayed.excerpt': 'The company settles with alleged victims of the late tycoon, while police investigate Scotland Yard officers',
     'blog.article.harrods-risarcimenti-vittime-al-fayed.imageAlt': 'Evening view of Harrods department store in London',
+    'blog.article.trump-ue-accordo-commerciale-4-luglio.title': 'Trump gives EU until July 4 for trade deal',
+    'blog.article.trump-ue-accordo-commerciale-4-luglio.excerpt': 'The US president sets a deadline for the European Union to honor the agreement signed in Turnberry, Scotland.',
+    'blog.article.trump-ue-accordo-commerciale-4-luglio.imageAlt': 'Aerial view of Lugano and Lake Lugano',
 };
 
 export default blogMetaEn;
