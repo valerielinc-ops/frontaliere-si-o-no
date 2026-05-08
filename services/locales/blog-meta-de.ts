@@ -7103,6 +7103,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bonnie-tyler-coma-farmacologico-2026.title': 'Bonnie Tyler nach Notoperation im künstlichen Koma',
     'blog.article.bonnie-tyler-coma-farmacologico-2026.excerpt': 'Die britische Sängerin Bonnie Tyler, 74, liegt in Portugal nach einer Operation wegen einer Darmperforation im künstlichen Koma.',
     'blog.article.bonnie-tyler-coma-farmacologico-2026.imageAlt': 'Konzert im LAC Lugano, Schweiz',
+    'blog.article.nuovo-accordo-immobili-frontalieri-2026.title': 'Automatischer Immobilieninformationsaustausch: neues multilaterales Abkommen',
+    'blog.article.nuovo-accordo-immobili-frontalieri-2026.excerpt': 'Neues Abkommen für den automatischen Austausch von Informationen über Immobilien zwischen der Schweiz und Italien. Was ändert sich für Grenzgänger?',
+    'blog.article.nuovo-accordo-immobili-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Bergen im Hintergrund, klarem blauen Himmel und einigen Booten auf dem Wasser',
 };
 
 export default blogMetaDe;

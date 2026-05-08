@@ -7104,6 +7104,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bonnie-tyler-coma-farmacologico-2026.title': 'Bonnie Tyler in coma farmacologico dopo intervento d\'urgenza',
     'blog.article.bonnie-tyler-coma-farmacologico-2026.excerpt': 'La cantante britannica Bonnie Tyler, 74 anni, è in coma farmacologico in Portogallo dopo un intervento per perforazione intestinale.',
     'blog.article.bonnie-tyler-coma-farmacologico-2026.imageAlt': 'Concerto al LAC di Lugano, Svizzera',
+    'blog.article.nuovo-accordo-immobili-frontalieri-2026.title': 'Scambio automatico informazioni immobili: nuovo accordo multilaterale',
+    'blog.article.nuovo-accordo-immobili-frontalieri-2026.excerpt': 'Nuovo accordo per lo scambio automatico di informazioni sugli immobili tra Svizzera e Italia. Cosa cambia per i frontalieri?',
+    'blog.article.nuovo-accordo-immobili-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo blu limpido e alcune barche sull\'acqua',
 };
 
 export default blogMetaIt;

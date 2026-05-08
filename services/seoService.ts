@@ -3610,6 +3610,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ddl-caregiver-frontalieri-ticino-2026': { name: 'Caregiver e frontalieri', path: '/articoli-frontaliere/ddl-caregiver-frontalieri-ticino-2026', parent: 'blog' },
     'blog-simona-waltert-ticino-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/simona-waltert-ticino-frontalieri', parent: 'blog' },
     'blog-bonnie-tyler-coma-farmacologico-2026': { name: 'Novità', path: '/articoli-frontaliere/bonnie-tyler-coma-farmacologico-2026', parent: 'blog' },
+    'blog-nuovo-accordo-immobili-frontalieri-2026': { name: 'Fiscale', path: '/articoli-frontaliere/nuovo-accordo-immobili-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

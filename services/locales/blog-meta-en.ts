@@ -7103,6 +7103,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bonnie-tyler-coma-farmacologico-2026.title': 'Bonnie Tyler in induced coma after emergency surgery',
     'blog.article.bonnie-tyler-coma-farmacologico-2026.excerpt': 'British singer Bonnie Tyler, 74, is in an induced coma in Portugal after surgery for a intestinal perforation.',
     'blog.article.bonnie-tyler-coma-farmacologico-2026.imageAlt': 'Concert at LAC Lugano, Switzerland',
+    'blog.article.nuovo-accordo-immobili-frontalieri-2026.title': 'Automatic property info exchange: new multilateral agreement',
+    'blog.article.nuovo-accordo-immobili-frontalieri-2026.excerpt': 'New agreement for automatic exchange of property information between Switzerland and Italy. What changes for cross-border workers?',
+    'blog.article.nuovo-accordo-immobili-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky, and a few boats on the water',
 };
 
 export default blogMetaEn;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2420,
+ "numberOfItems": 2421,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7062,7 +7062,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2417, "name": "Incentivi assunzioni 2026: tre sgravi contribut...", "url": `${BASE_URL}/articoli-frontaliere/incentivi-assunzioni-2026-sgravi-contributivi` },
           { "@type": "ListItem", "position": 2418, "name": "Caregiver: serve più coraggio nelle riforme", "url": `${BASE_URL}/articoli-frontaliere/ddl-caregiver-frontalieri-ticino-2026` },
           { "@type": "ListItem", "position": 2419, "name": "Simona Waltert avanza al secondo turno a Roma", "url": `${BASE_URL}/articoli-frontaliere/simona-waltert-ticino-frontalieri` },
-          { "@type": "ListItem", "position": 2420, "name": "Bonnie Tyler in coma farmacologico dopo interve...", "url": `${BASE_URL}/articoli-frontaliere/bonnie-tyler-coma-farmacologico-2026` }
+          { "@type": "ListItem", "position": 2420, "name": "Bonnie Tyler in coma farmacologico dopo interve...", "url": `${BASE_URL}/articoli-frontaliere/bonnie-tyler-coma-farmacologico-2026` },
+          { "@type": "ListItem", "position": 2421, "name": "Scambio automatico informazioni immobili: nuovo...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-immobili-frontalieri-2026` }
  ]
  },
  {

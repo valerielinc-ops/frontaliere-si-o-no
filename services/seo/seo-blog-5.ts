@@ -31196,6 +31196,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-accordo-immobili-frontalieri-2026': {
+    title: 'Scambio automatico informazioni immobili: nuovo accordo multilaterale',
+    description: 'Nuovo accordo per lo scambio automatico di informazioni sugli immobili tra Svizzera e Italia. Cosa cambia per i frontalieri?. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, scambio, automatico, informazioni, immobili',
+    ogTitle: 'Scambio automatico informazioni immobili: nuovo accordo multilaterale',
+    ogDescription: 'Nuovo accordo per lo scambio automatico di informazioni sugli immobili tra Svizzera e Italia. Cosa cambia per i frontalieri?',
+    canonicalPath: '/articoli-frontaliere/nuovo-accordo-immobili-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scambio automatico informazioni immobili: nuovo accordo multilaterale",
+      "description": "Nuovo accordo per lo scambio automatico di informazioni sugli immobili tra Svizzera e Italia. Cosa cambia per i frontalieri?. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuovo-accordo-immobili-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo blu limpido e alcune barche sull'acqua"
+      },
+      "datePublished": "2026-05-08T12:19:54+00:00",
+      "dateModified": "2026-05-08T12:19:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-immobili-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

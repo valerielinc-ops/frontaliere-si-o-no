@@ -22682,4 +22682,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuovo-accordo-immobili-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-05-08T12:19:54.472Z',
+ image: '/images/blog/nuovo-accordo-immobili-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
