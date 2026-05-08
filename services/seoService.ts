@@ -3599,6 +3599,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-gallarate-frontalieri-2026': { name: 'Incendio Gallarate', path: '/articoli-frontaliere/incendio-gallarate-frontalieri-2026', parent: 'blog' },
     'blog-cardada-cimetta-riapre-bikers-2024': { name: 'Cardada Cimetta', path: '/articoli-frontaliere/cardada-cimetta-riapre-bikers-2024', parent: 'blog' },
     'blog-frontalieri-ticino-8-maggio-2026': { name: 'Notizie per frontalieri', path: '/articoli-frontaliere/frontalieri-ticino-8-maggio-2026', parent: 'blog' },
+    'blog-adam-walder-titolo-nazionale-under-14': { name: 'Sport', path: '/articoli-frontaliere/adam-walder-titolo-nazionale-under-14', parent: 'blog' },
  };
 
  const info = sectionNames[section];

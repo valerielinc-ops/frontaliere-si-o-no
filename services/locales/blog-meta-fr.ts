@@ -7071,6 +7071,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-8-maggio-2026.title': 'GrAudio édition de 10:30 du 8 mai: infos pour les frontaliers',
     'blog.article.frontalieri-ticino-8-maggio-2026.excerpt': 'Les dernières nouvelles de l\'édition de 10:30 du 8 mai sur Varesenoi.it, avec un focus sur les événements et les nouveautés pour les frontaliers',
     'blog.article.frontalieri-ticino-8-maggio-2026.imageAlt': 'Vue panoramique de Lugano avec le Monte Brè et le lac de Lugano',
+    'blog.article.adam-walder-titolo-nazionale-under-14.title': 'Adam Walder remporte le titre national Under 14',
+    'blog.article.adam-walder-titolo-nazionale-under-14.excerpt': 'Le jeune athlète du Cercle d\'Escrime Locarno remporte le titre national Under 14 aux Championnats suisses de Morges.',
+    'blog.article.adam-walder-titolo-nazionale-under-14.imageAlt': 'Jeune avec trophée d\'escrime à Locarno',
 };
 
 export default blogMetaFr;

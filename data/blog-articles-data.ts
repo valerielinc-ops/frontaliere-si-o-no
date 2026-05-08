@@ -22583,4 +22583,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'adam-walder-titolo-nazionale-under-14',
+ category: 'pratico',
+ date: '2026-05-08T10:11:06.092Z',
+ image: '/images/blog/adam-walder-titolo-nazionale-under-14.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
