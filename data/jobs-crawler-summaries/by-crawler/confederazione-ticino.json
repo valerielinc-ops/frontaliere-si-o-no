@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-05-07T21:33:53.376Z",
+  "generatedAt": "2026-05-08T09:38:34.535Z",
   "total": 9,
   "newCount": 0,
-  "updatedCount": 8,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1409,
-  "avgDurationMs": 1409,
+  "unchangedCount": 0,
+  "durationMs": 2106,
+  "avgDurationMs": 2106,
   "durationHistory": [
-    1409
+    2106
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,13 +43,52 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-06T21:40:53.578Z",
-      "retranslationAttempts": 2,
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Assistent/-in der Centerleitung ALC Monteceneri",
+      "slug": "assistent-in-der-centerleitung-alc-monteceneri-confederazione-monteceneri",
+      "url": "https://jobs.admin.ch/posti-vacanti/assistent-in-der-centerleitung-alc-monteceneri/0a219927-63fd-4ea1-a7d2-b2a640ed34c9",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18765",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Monteceneri (TI)",
+      "addressLocality": "Monteceneri",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "public-administration",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-06",
+      "validThrough": "2026-06-05",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "confederazione-ticino-67688e13d03a",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "firstSeenAt": "2026-05-07T10:45:16.573Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
         "completeness": 25
       }
     },
@@ -156,6 +195,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -314,45 +355,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Assistent/-in der Centerleitung ALC Monteceneri",
-      "slug": "assistent-in-der-centerleitung-alc-monteceneri-confederazione-monteceneri",
-      "url": "https://jobs.admin.ch/posti-vacanti/assistent-in-der-centerleitung-alc-monteceneri/0a219927-63fd-4ea1-a7d2-b2a640ed34c9",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18765",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Monteceneri (TI)",
-      "addressLocality": "Monteceneri",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-06",
-      "validThrough": "2026-06-05",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "confederazione-ticino-67688e13d03a",
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "firstSeenAt": "2026-05-07T10:45:16.573Z",
-      "retranslationAttempts": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
