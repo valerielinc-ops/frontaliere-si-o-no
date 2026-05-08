@@ -1,49 +1,18 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-07T21:24:49.194Z",
+  "generatedAt": "2026-05-08T09:29:22.909Z",
   "total": 3,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9025,
-  "avgDurationMs": 9025,
+  "unchangedCount": 2,
+  "durationMs": 8684,
+  "avgDurationMs": 8684,
   "durationHistory": [
-    9025
+    8684
   ],
-  "newJobs": [
-    {
-      "title": "Instandhaltung (w/m/div.) - REF285547A",
-      "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125158826-instandhaltung-w-m-div-ref285547a?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-07",
-      "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Mechaniker (w/m/div.)",
@@ -85,6 +54,43 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Instandhaltung (w/m/div.) - REF285547A",
+      "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125158826-instandhaltung-w-m-div-ref285547a?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-07",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-d1984318ab03",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1950",
+      "firstSeenAt": "2026-05-07T21:24:49.193Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 22
+      }
+    },
     {
       "title": "Teamleader Production 100% (w/m/div.) - REF284854K",
       "slug": "teamleader-production-100-w-m-div-ref284854k-bosch-st-niklaus",
