@@ -7079,6 +7079,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rimborso-cure-dentarie-ticino-2026.title': 'Zahnbehandlungen im Tessin: Wer profitiert und wie funktioniert es?',
     'blog.article.rimborso-cure-dentarie-ticino-2026.excerpt': 'Erfahren Sie, wer Anspruch auf die Erstattung von Zahnbehandlungen im Tessin hat und wie das Finanzierungssystem, inspiriert von der AHV, funktioniert',
     'blog.article.rimborso-cure-dentarie-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
+    'blog.article.bolla-immobiliare-ticino-2026.title': 'Immobilienblase in der Schweiz: Risiko steigt 2026',
+    'blog.article.bolla-immobiliare-ticino-2026.excerpt': 'Der UBS Swiss Real Estate Bubble Index steigt im ersten Quartal 2026 auf 0,69 Punkte und signalisiert ein moderates Risiko einer Immobilienblase.',
+    'blog.article.bolla-immobiliare-ticino-2026.imageAlt': 'Panoramablick von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

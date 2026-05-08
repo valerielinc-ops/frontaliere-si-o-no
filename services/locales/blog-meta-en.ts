@@ -7079,6 +7079,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rimborso-cure-dentarie-ticino-2026.title': 'Dental care reimbursement in Ticino: who benefits and how it works',
     'blog.article.rimborso-cure-dentarie-ticino-2026.excerpt': 'Find out who can access dental care reimbursement in Ticino and how the funding system inspired by AHV works',
     'blog.article.rimborso-cure-dentarie-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
+    'blog.article.bolla-immobiliare-ticino-2026.title': 'Swiss housing bubble risk rises in 2026',
+    'blog.article.bolla-immobiliare-ticino-2026.excerpt': 'The UBS Swiss Real Estate Bubble Index reaches 0.69 points in Q1 2026, signaling a moderate housing bubble risk',
+    'blog.article.bolla-immobiliare-ticino-2026.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

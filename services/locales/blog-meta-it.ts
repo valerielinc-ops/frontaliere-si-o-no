@@ -7080,6 +7080,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rimborso-cure-dentarie-ticino-2026.title': 'Rimborso cure dentarie in Ticino: chi ne beneficia e come funziona',
     'blog.article.rimborso-cure-dentarie-ticino-2026.excerpt': 'Scopri chi può accedere al rimborso delle cure dentarie in Ticino e come funziona il sistema di finanziamento ispirato all\'AVS',
     'blog.article.rimborso-cure-dentarie-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
+    'blog.article.bolla-immobiliare-ticino-2026.title': 'Bolla immobiliare in Svizzera: rischio in aumento nel 2026',
+    'blog.article.bolla-immobiliare-ticino-2026.excerpt': 'L\'UBS Swiss Real Estate Bubble Index sale a 0,69 punti nel primo trimestre 2026, segnalando un rischio moderato di bolla immobiliare',
+    'blog.article.bolla-immobiliare-ticino-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

@@ -22610,4 +22610,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bolla-immobiliare-ticino-2026',
+ category: 'novita',
+ date: '2026-05-08T10:49:46.451Z',
+ image: '/images/blog/bolla-immobiliare-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

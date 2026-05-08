@@ -7080,6 +7080,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rimborso-cure-dentarie-ticino-2026.title': 'Remboursement soins dentaires: qui et comment',
     'blog.article.rimborso-cure-dentarie-ticino-2026.excerpt': 'Découvrez qui peut accéder au remboursement des soins dentaires au Tessin et comment fonctionne le système de financement inspiré de l\'AVS',
     'blog.article.rimborso-cure-dentarie-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et bâtiments',
+    'blog.article.bolla-immobiliare-ticino-2026.title': 'Bulle immobilière en Suisse : risque accru en 2026',
+    'blog.article.bolla-immobiliare-ticino-2026.excerpt': 'L\'UBS Swiss Real Estate Bubble Index atteint 0,69 points au premier trimestre 2026, signalant un risque modéré de bulle immobilière',
+    'blog.article.bolla-immobiliare-ticino-2026.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;
