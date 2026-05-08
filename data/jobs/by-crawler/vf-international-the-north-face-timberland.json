@@ -1,10 +1,10 @@
 {
   "crawlerKey": "vf-international-the-north-face-timberland",
-  "assembledAt": "2026-05-07T22:45:52.566Z",
+  "assembledAt": "2026-05-08T10:50:10.800Z",
   "jobs": [
     {
       "id": "company-wi3k2",
-      "slug": "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-0wi3k2",
+      "slug": "senior-manager-global-merchandising-rompighiaccio-vf-international-the-north-face-timberland-stabio",
       "company": "VF International (The North Face, Timberland)",
       "title": "Senior Manager, Global Merchandising (icebreaker)",
       "location": "EMEA · CHE · Stabio · VF Campus VF2",
@@ -51,19 +51,21 @@
       "crawledAt": "2026-05-07T22:45:51.259Z",
       "firstSeenAt": "2026-05-07T22:45:51.259Z",
       "slugByLocale": {
-        "it": "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-0wi3k2",
+        "it": "senior-manager-global-merchandising-rompighiaccio-vf-international-the-north-face-timberland-stabio",
         "en": "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-0wi3k2",
-        "de": "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-0wi3k2",
+        "de": "senior-manager-global-merchandising-eisbrecher-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-0wi3k2",
         "fr": "directeur-principal-global-merchandising-disjoncteur-vf-international-the-north-face-timberland-emea-che-stabio-vf-campu"
       },
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2"
+          "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2",
+          "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-0wi3k2"
         ]
       },
       "previousSlugs": [
-        "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2"
+        "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2",
+        "senior-manager-global-merchandising-icebreaker-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf2-0wi3k2"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -86,7 +88,7 @@
     },
     {
       "id": "company-bpz63y",
-      "slug": "customs-specialista-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-bpz63y",
+      "slug": "specialista-delle-dogane-emea-vf-international-the-north-face-timberland-stabio",
       "company": "VF International (The North Face, Timberland)",
       "title": "Customs Specialist – EMEA",
       "location": "EMEA · CHE · Stabio · VF Campus VF1",
@@ -133,7 +135,7 @@
       "crawledAt": "2026-05-07T22:45:51.259Z",
       "firstSeenAt": "2026-05-07T22:45:51.259Z",
       "slugByLocale": {
-        "it": "customs-specialista-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-bpz63y",
+        "it": "specialista-delle-dogane-emea-vf-international-the-north-face-timberland-stabio",
         "en": "customs-specialist-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-bpz63y",
         "de": "customs-spezialist-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-bpz63y",
         "fr": "customs-specialiste-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-bpz63y"
@@ -141,11 +143,13 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "customs-specialist-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+          "customs-specialist-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+          "customs-specialista-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-bpz63y"
         ]
       },
       "previousSlugs": [
-        "customs-specialist-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+        "customs-specialist-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+        "customs-specialista-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-bpz63y"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -248,7 +252,8 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6sjj96",
@@ -585,7 +590,8 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-rm634f",
@@ -661,7 +667,8 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-27nahc",
@@ -1422,7 +1429,7 @@
         ]
       },
       "featured": false,
-      "postedDate": "2026-05-07",
+      "postedDate": "2026-05-08",
       "url": "https://vfc.wd5.myworkdayjobs.com/vfc_careers/job/EMEA--CHE--Stabio--VF-Campus-VF1/PSS-Analyst---THE-NORTH-FACE_R-20230303-0011",
       "source": "Company Careers Crawler",
       "companyKey": "vf-international-the-north-face-timberland",
@@ -1511,7 +1518,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "featured": false,
-      "postedDate": "2026-05-07",
+      "postedDate": "2026-05-08",
       "url": "https://vfc.wd5.myworkdayjobs.com/vfc_careers/job/EMEA--CHE--Stabio--VF-Campus-VF1/Head-of-Product-Development-and-Materials_R-20260325-0013-1",
       "source": "Company Careers Crawler",
       "companyKey": "vf-international-the-north-face-timberland",
@@ -2436,9 +2443,7 @@
         "allocator-praktikant-emea-praktikumsprogramm-vf-stabio",
         "stagiaire-alloueur-programme-de-stage-emea-vf-stabio",
         "allocator-praktikant-emea-praktikumsprogramm-vf-international-the-north-face-timberland-stabio",
-        "allocator-praktikant-in-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
-        "tirocinante-allocatore-programma-di-stage-emea-vf-international-the-north-face-timberland-",
-        "tirocinante-allocatore-programma-di-stage-emea-vf-international-the-north-face-timberland-"
+        "allocator-praktikant-in-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
