@@ -7062,6 +7062,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.universita-insubria-premia-frontalieri.title': 'Université Insubria récompense un diplômé en soins infirmiers',
     'blog.article.universita-insubria-premia-frontalieri.excerpt': 'Mattia Giussani, diplômé en soins infirmiers, remporte la troisième place nationale pour la meilleure présentation orale au Congrès SIAN.',
     'blog.article.universita-insubria-premia-frontalieri.imageAlt': 'Cérémonie de remise des prix à l\'Université de l\'Insubria à Varese',
+    'blog.article.incendio-gallarate-frontalieri-2026.title': 'Incendie à Gallarate : un homme dénoncé',
+    'blog.article.incendio-gallarate-frontalieri-2026.excerpt': 'La police a identifié et dénoncé un homme pour l\'incendie de la centrale de via Cavour à Gallarate. Voici les implications pour les travailleurs frontaliers.',
+    'blog.article.incendio-gallarate-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes et les bâtiments',
 };
 
 export default blogMetaFr;

@@ -7061,6 +7061,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.universita-insubria-premia-frontalieri.title': 'Università Insubria ehrt Absolventen der Pflegewissenschaft',
     'blog.article.universita-insubria-premia-frontalieri.excerpt': 'Mattia Giussani, Absolvent der Pflegewissenschaft, belegt den dritten Platz bei der besten mündlichen Präsentation beim SIAN-Kongress.',
     'blog.article.universita-insubria-premia-frontalieri.imageAlt': 'Preisverleihung an der Universität Insubria in Varese',
+    'blog.article.incendio-gallarate-frontalieri-2026.title': 'Brand in Gallarate: Mann angezeigt',
+    'blog.article.incendio-gallarate-frontalieri-2026.excerpt': 'Die Polizei hat einen Mann identifiziert und angezeigt, der für den Brand an der Schaltzentrale in der Via Cavour in Gallarate verantwortlich ist. Hier sind die Auswirkungen auf die Grenzgänger.',
+    'blog.article.incendio-gallarate-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

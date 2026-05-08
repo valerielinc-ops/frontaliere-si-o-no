@@ -7062,6 +7062,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.universita-insubria-premia-frontalieri.title': 'Università Insubria premia neolaureato in Infermieristica',
     'blog.article.universita-insubria-premia-frontalieri.excerpt': 'Mattia Giussani, neolaureato in Infermieristica, conquista il terzo posto nazionale per la miglior presentazione orale al Congresso SIAN.',
     'blog.article.universita-insubria-premia-frontalieri.imageAlt': 'Cerimonia di premiazione all\'Università dell\'Insubria a Varese',
+    'blog.article.incendio-gallarate-frontalieri-2026.title': 'Incendio a Gallarate: denunciato un uomo',
+    'blog.article.incendio-gallarate-frontalieri-2026.excerpt': 'La polizia ha identificato e denunciato un uomo per l\'incendio alla centralina di via Cavour a Gallarate. Ecco le implicazioni per i frontalieri.',
+    'blog.article.incendio-gallarate-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti e edifici',
 };
 
 export default blogMetaIt;

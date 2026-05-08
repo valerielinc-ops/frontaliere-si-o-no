@@ -30650,6 +30650,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-gallarate-frontalieri-2026': {
+    title: 'Incendio a Gallarate: denunciato un uomo | Frontaliere Ticino',
+    description: 'La polizia ha identificato e denunciato un uomo per l\'incendio alla centralina di via Cavour a Gallarate. Ecco le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, gallarate, denunciato, uomo',
+    ogTitle: 'Identificato e denunciato un uomo per l\'incendio a Gallarate: cosa cambia per i frontalieri',
+    ogDescription: 'La polizia ha identificato e denunciato un uomo per l\'incendio alla centralina di via Cavour a Gallarate. Ecco le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/incendio-gallarate-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio a Gallarate: denunciato un uomo",
+      "description": "La polizia ha identificato e denunciato un uomo per l'incendio alla centralina di via Cavour a Gallarate. Ecco le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incendio-gallarate-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne circostanti e edifici"
+      },
+      "datePublished": "2026-05-08T09:21:13+00:00",
+      "dateModified": "2026-05-08T09:21:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-gallarate-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

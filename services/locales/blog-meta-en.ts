@@ -7061,6 +7061,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.universita-insubria-premia-frontalieri.title': 'Insubria University honors Nursing graduate',
     'blog.article.universita-insubria-premia-frontalieri.excerpt': 'Mattia Giussani, a Nursing graduate, secures third place nationally for the best oral presentation at the SIAN Congress.',
     'blog.article.universita-insubria-premia-frontalieri.imageAlt': 'Award ceremony at the University of Insubria in Varese',
+    'blog.article.incendio-gallarate-frontalieri-2026.title': 'Fire in Gallarate: Man Denounced',
+    'blog.article.incendio-gallarate-frontalieri-2026.excerpt': 'The police have identified and denounced a man for the fire at the electrical cabinet on Cavour Street in Gallarate. Here are the implications for cross-border workers.',
+    'blog.article.incendio-gallarate-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;
