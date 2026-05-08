@@ -30065,6 +30065,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-real-madrid-caos-rissa-tchouameni-valverde': {
+    title: 'Real Madrid nel caos: rissa fra Tchouaméni e Valverde',
+    description: 'Nervi tesi al Real Madrid dopo una violenta rissa tra Tchouaméni e Valverde, con il giocatore uruguaiano finito in ospedale per un trauma cranico.',
+    keywords: 'frontalieri, ticino, svizzera, italia, real, madrid, caos, rissa',
+    ogTitle: 'Real Madrid nel caos: rissa fra Tchouaméni e Valverde',
+    ogDescription: 'Nervi tesi al Real Madrid dopo una violenta rissa tra Tchouaméni e Valverde, con il giocatore uruguaiano finito in ospedale per un trauma cranico.',
+    canonicalPath: '/articoli-frontaliere/real-madrid-caos-rissa-tchouameni-valverde',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Real Madrid nel caos: rissa fra Tchouaméni e Valverde",
+      "description": "Nervi tesi al Real Madrid dopo una violenta rissa tra Tchouaméni e Valverde, con il giocatore uruguaiano finito in ospedale per un trauma cranico.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/real-madrid-caos-rissa-tchouameni-valverde.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena caotica allo stadio di calcio in Ticino con giocatori in conflitto"
+      },
+      "datePublished": "2026-05-08T06:27:22+00:00",
+      "dateModified": "2026-05-08T06:27:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/real-madrid-caos-rissa-tchouameni-valverde`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

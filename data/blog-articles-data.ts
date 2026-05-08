@@ -22421,4 +22421,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'real-madrid-caos-rissa-tchouameni-valverde',
+ category: 'novita',
+ date: '2026-05-08T06:27:22.264Z',
+ image: '/images/blog/real-madrid-caos-rissa-tchouameni-valverde.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

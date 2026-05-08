@@ -7016,6 +7016,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vertigini-montagna-frontalieri.title': 'Schwindel in den Bergen: unterschätztes Risiko für Grenzgänger',
     'blog.article.vertigini-montagna-frontalieri.excerpt': 'Fast ein Drittel der Wanderer in der Schweiz leidet unter Schwindel, was das Sturzrisiko erhöht. So können Sie das Problem angehen',
     'blog.article.vertigini-montagna-frontalieri.imageAlt': 'Wanderer mit Höhenangst auf einem Bergpfad in Tessin',
+    'blog.article.real-madrid-caos-rissa-tchouameni-valverde.title': 'Chaos bei Real Madrid: Tchouaméni und Valverde prügeln sich',
+    'blog.article.real-madrid-caos-rissa-tchouameni-valverde.excerpt': 'Angeknackste Nerven beim Real Madrid nach einer gewalttätigen Schlägerei zwischen Tchouaméni und Valverde, wobei der uruguayische Spieler mit einem Schädel-Hirn-Trauma im Krankenhaus landete.',
+    'blog.article.real-madrid-caos-rissa-tchouameni-valverde.imageAlt': 'Chaotische Szene in einem Fussballstadion im Tessin mit spielern im Konflikt',
 };
 
 export default blogMetaDe;

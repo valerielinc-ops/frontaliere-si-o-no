@@ -7016,6 +7016,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vertigini-montagna-frontalieri.title': 'Dizziness in the mountains: an underestimated risk for cross-border workers',
     'blog.article.vertigini-montagna-frontalieri.excerpt': 'Almost a third of hikers in Switzerland suffer from dizziness, increasing the risk of falls. Here\'s how to tackle the problem',
     'blog.article.vertigini-montagna-frontalieri.imageAlt': 'Hiker with vertigo on a mountain trail in Ticino',
+    'blog.article.real-madrid-caos-rissa-tchouameni-valverde.title': 'Real Madrid in chaos: Tchouaméni vs Valverde',
+    'blog.article.real-madrid-caos-rissa-tchouameni-valverde.excerpt': 'Tensions are high at Real Madrid after a violent brawl between Tchouaméni and Valverde, with the Uruguayan player ending up in hospital with a head injury.',
+    'blog.article.real-madrid-caos-rissa-tchouameni-valverde.imageAlt': 'Chaotic scene at a football stadium in Ticino with players in conflict',
 };
 
 export default blogMetaEn;

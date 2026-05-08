@@ -7017,6 +7017,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vertigini-montagna-frontalieri.title': 'Vertiges en montagne : un risque sous-estimé pour les frontaliers',
     'blog.article.vertigini-montagna-frontalieri.excerpt': 'Presque un tiers des randonneurs en Suisse souffrent de vertiges, augmentant le risque de chute. Voici comment aborder le problème',
     'blog.article.vertigini-montagna-frontalieri.imageAlt': 'Randonneur avec le vertige sur un sentier de montagne en Tessin',
+    'blog.article.real-madrid-caos-rissa-tchouameni-valverde.title': 'Real Madrid dans le chaos : bagarre entre Tchouaméni et Valverde',
+    'blog.article.real-madrid-caos-rissa-tchouameni-valverde.excerpt': 'Nervosité au Real Madrid après une violente bagarre entre Tchouaméni et Valverde, le joueur uruguayen ayant fini à l\'hôpital pour un traumatisme crânien.',
+    'blog.article.real-madrid-caos-rissa-tchouameni-valverde.imageAlt': 'Scène chaotique dans un stade de football au Tessin avec des joueurs en conflit',
 };
 
 export default blogMetaFr;
