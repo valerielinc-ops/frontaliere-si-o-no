@@ -48,6 +48,9 @@ import {
   BREADCRUMB_STYLE,
   CTA_PRIMARY_STYLE,
   CARD_STYLE,
+  H1_STYLE,
+  HERO_EYEBROW_STYLE,
+  LEDE_STYLE,
   STAT_TILE_BASE,
   STAT_TILE_LABEL,
   STAT_TILE_VALUE,
@@ -497,9 +500,9 @@ function renderPage(opts: {
       <span>${esc(cluster.canonicalQuery)}</span>
     </nav>
     <header style="margin-bottom:20px">
-      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(t('orphanLanding.updatedLabel', 'Updated'))} · ${esc(dateStamp)}</p>
-      <h1 style="margin:0 0 14px;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
-      <p style="margin:0;color:var(--color-body);font-size:17px;line-height:1.55;max-width:60ch">${esc(matchingJobs.length > 0 ? (locale === 'it' ? `${matchingJobs.length} offerte attive per "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · mediana salario CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'en' ? `${matchingJobs.length} active openings for "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · median salary CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'de' ? `${matchingJobs.length} aktive Stellen für "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · Median CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : `${matchingJobs.length} offres actives pour « ${cluster.canonicalQuery} »${medianSalary > 0 ? ` · médiane CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.`) : esc(t('orphanLanding.noResults', 'No openings.')))}</p>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(t('orphanLanding.updatedLabel', 'Updated'))} · ${esc(dateStamp)}</p>
+      <h1 style="${H1_STYLE}">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
+      <p style="${LEDE_STYLE}">${esc(matchingJobs.length > 0 ? (locale === 'it' ? `${matchingJobs.length} offerte attive per "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · mediana salario CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'en' ? `${matchingJobs.length} active openings for "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · median salary CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'de' ? `${matchingJobs.length} aktive Stellen für "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · Median CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : `${matchingJobs.length} offres actives pour « ${cluster.canonicalQuery} »${medianSalary > 0 ? ` · médiane CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.`) : esc(t('orphanLanding.noResults', 'No openings.')))}</p>
     </header>
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 24px">
       <div style="${STAT_TILE_BASE}">

@@ -22,8 +22,8 @@ These directives have the highest priority. No exceptions, workarounds, or "temp
 10. **Subagents inherit the current session model** — do not override the model when launching agents unless the task explicitly requires a specific model.
 11. **GitHub: always use `gh` CLI** for all GitHub operations (issues, PRs, repos, actions, API calls). Never use any MCP GitHub tools — they route to GitHub Enterprise and will 404 on this repo. The `gh` CLI is pre-authenticated and targets `github.com` by default.
 12. **NEVER run `send-newsletter.mjs --send` locally.** Real newsletter sends to subscribers MUST go through the `send-newsletter` GitHub Actions workflow (`gh workflow run send-newsletter.yml`). For local testing, use `--preview` (stdout, no Firebase) or `--test --target-email <email>` (sends only to that one address). Running `--send` locally bypasses the workflow guardrails and sends to all subscribers.
-13. **Every NEW GitHub Actions workflow MUST be lanciato live after merge.** When a development introduces a workflow file (anything new in `.github/workflows/`), the task is NOT closed until: `gh workflow run <name>.yml --ref main` lanciato post-merge, `gh run view <id>` shows `conclusion: success`, side effects validated (committed files, Firestore payload, sitemap entries match expected shape), and any errors (auth, TOS bundle, schema parse, secret typo) fixed with commit + re-run until clean. Type-check (`tsc --noEmit`), vitest mock, Lighthouse CI, and deploy.yml DO NOT touch the custom workflow. Only live execution validates auth + endpoint + schema. Typical bug classes: User-Agent strict missing (Met.no 403), If-Modified-Since header missing, secret name typo, Firestore SA permissions, schema mismatch on real payload.
-14. **Every static SSG page MUST use the SPA shell + hydration.** When a build plugin emits HTML to `dist/` (SEO landings, hub indexes, per-leaf static-overlay pages), it MUST wrap content via `build-plugins/shared/seoPageShell.ts` (`buildSeoPageHtml`). Standalone HTML without the shell renders without site nav/footer/theme/design-tokens/popup-newsletter/analytics/consent — pages look orphaned and don't React-hydrate. The helper injects `<body class="bg-surface-alt text-heading overflow-x-hidden">`, the hashed entry JS/CSS, and `<div id="root"><main>` wrapper. Plugin contract: `apply: 'build'` + `enforce: 'post'` + emit in `closeBundle()`. Pass `distDir` to every `buildSeoPageHtml` call. For body styling use Tailwind utility classes inline (`bg-surface rounded-2xl border border-edge`) — never custom class names that aren't in `index.css` (Tailwind purges them). Pair with `services/router.ts` `staticOverlay: true` so App.tsx doesn't replace the static content. **CRITICAL — Tailwind scan**: any utility class used INLINE in plugin-emitted HTML strings (`<div class="bg-surface ...">`) must be discoverable by Tailwind's content scan. `tailwind.config.js` `content` array MUST include `./build-plugins/**/*.{js,ts}` (already added 2026-05-07). Without this, Tailwind purges the utilities from the CSS bundle and pages render unstyled even after deploy. Test post-deploy with curl + visual check (Playwright snapshot) — bare HTML in the browser = Tailwind purged the classes. Exceptions: robots.txt, llms.txt, sitemap*.xml; 404/500/503 error pages.
+13. **Every NEW GitHub Actions workflow MUST be lanciato live after merge.** When a development introduces a workflow file (anything new in `.github/workflows/`), the task is NOT closed until: `gh workflow run <name>.yml --ref main` lanciato post-merge, `gh run view <id>` shows `conclusion: success`, side effects validated (committed files, Firestore payload, sitemap entries match expected shape), and any errors fixed with commit + re-run until clean. Type-check, vitest mock, Lighthouse CI, and deploy.yml DO NOT touch the custom workflow. Only live execution validates auth + endpoint + schema. Typical bug classes: User-Agent strict missing (Met.no 403), If-Modified-Since header missing, secret name typo, Firestore SA permissions, schema mismatch on real payload.
+14. **Every static SSG page MUST use the SPA shell + hydration.** When a build plugin emits HTML to `dist/` (SEO landings, hub indexes, per-leaf static-overlay pages), it MUST wrap content via `build-plugins/shared/seoPageShell.ts` (`buildSeoPageHtml`). Standalone HTML without the shell renders without site nav/footer/theme/design-tokens/popup-newsletter/analytics/consent. The helper injects `<body class="bg-surface-alt text-heading overflow-x-hidden">`, the hashed entry JS/CSS, and `<div id="root"><main>` wrapper. Plugin contract: `apply: 'build'` + `enforce: 'post'` + emit in `closeBundle()`. Pass `distDir` to every `buildSeoPageHtml` call. For body styling use Tailwind utility classes inline — never custom class names that aren't in `index.css` (Tailwind purges them). Pair with `services/router.ts` `staticOverlay: true` so App.tsx doesn't replace the static content. **CRITICAL — Tailwind scan:** `tailwind.config.js` `content` array MUST include `./build-plugins/**/*.{js,ts}` (added 2026-05-07). Without this, Tailwind purges utilities and pages render unstyled. Test post-deploy with curl + Playwright snapshot. Exceptions: robots.txt, llms.txt, sitemap*.xml; 404/500/503 error pages.
 
 ## Mobile-First Content Positioning
 
@@ -33,7 +33,21 @@ These directives have the highest priority. No exceptions, workarounds, or "temp
     - **Collapsed in an accordion** ("Leggi di più" toggle, expanded only on user action), or
     - **Sidebar on desktop, bottom on mobile** (responsive split — mobile always sees content first).
 
-    Acceptable mobile layout: `H1 → 1-line tagline (≤120 chars) → real content → filler`. Forbidden: `H1 → 80-word intro → content`. This rule applies to **all new pages**: SEO landings, search clusters, comparator pages, blog articles with chart data, anything that has both filler and "ciccia" content.
+    Acceptable mobile layout: `H1 → 1-line tagline (≤120 chars) → real content → filler`. Forbidden: `H1 → 80-word intro → content`. Applies to all new pages.
+
+17. **SEO-landing UI/UX template — every static page emitted by a build plugin MUST follow this layout in this order:**
+
+    1. `<nav>` breadcrumb
+    2. `<header>`: eyebrow line · H1 · LEDE = **1-line tagline ≤120 chars** (NOT a 60-word intro with all the numbers — those go into the tiles below)
+    3. **Stats tile grid** (3-5 tiles) right after the header, using only the shared OKLCH semantic tokens from `build-plugins/shared/seoContentTokens.ts`: `STAT_TILE_ACCENT` (headline metric), `STAT_TILE_SUCCESS` (good/cheap/improving), `STAT_TILE_WARNING` (moderate/yellow), `STAT_TILE_DANGER` (bad/expensive/regressing), `STAT_TILE_BASE` (neutral). **Never inline `background-color`/`border-color` hex values** — every tile binds to `var(--color-*-subtle)` + `var(--color-*-border)`.
+    4. **"Consiglio" / actionable banner** (when applicable — when the page has data that translates into a recommendation): same `STAT_TILE_*` styling reused, with `<aside data-*-advice>` and a 1-2 sentence interpretation. Examples already shipped: border-wait `data-bw-advice`, health-premiums `data-hp-advice`, weekly-employers `data-we-advice`, fuel-daily editorial review.
+    5. **Primary CTA** (link to comparator / job-board / calculator / next page in the funnel) immediately under the tile area, **above the fold on mobile**. Style: `CTA_PRIMARY_STYLE` from `seoContentTokens.ts`.
+    6. The actual data area (table, list of cards, ranking, …)
+    7. **Long prose** (intro paragraph, methodology, frontaliere context, FAQ): **always below the action area**. The text content is preserved for the Semrush text-to-HTML ratio gate but it never pushes the data below the mobile fold.
+
+    **No new color values, ever.** If you need a colour, it must already exist as a `--color-*` token in `index.css`. The 5 tile variants + accent/link/heading/body/subtle covers every case shipped today.
+
+    **Reference commits** for the canonical implementation: `2f845817eb` (border-wait), `74866f13b4` (health-premiums leaf), `cfde4aca6c` (weekly-employers city), `26421ccb6c` (fuel-daily root). Read those diffs before adding a new SEO landing.
 
 ---
 
@@ -120,30 +134,25 @@ npm test             # npx vitest run (single run)
 After any code change, always verify:
 1. `npx tsc --noEmit` — TypeScript check
 2. `npx vite build` — must exit 0
+3. `npx vitest run` — all tests must pass
+
+Pre-push hook (`.githooks/pre-push`) runs tests then build. Push is blocked if either fails.
+
+**First-time setup:** run `scripts/dev/local-ignore-cron.sh apply` once to hide ~600 cron-generated files from `git status`. After that, use `scripts/dev/local-ignore-cron.sh pull` instead of `git pull`. Full rationale: [docs/LOCAL-DEV.md](docs/LOCAL-DEV.md).
 
 ## ⚠️ FAST_BUILD trap when verifying SEO landing pages
 
-Agent sessions inherit `FAST_BUILD=1` from `.claude/settings.json`. With that flag,
-**vite.config.ts skips every SEO plugin** in the `if (!isFastBuild)` block at
-line 112 — including `nursingLandingsPlugin`, `careerLandingsPlugin`,
-`professionLandingsPlugin`, `costOfLivingLandingsPlugin`, `comparisonsHubPlugin`,
-`faqHubPlugin`, `frSalaireNetLandingPlugin`, `staticPagesPlugin`, etc.
+Agent sessions inherit `FAST_BUILD=1` from `.claude/settings.json`. With that flag, `vite.config.ts` skips every SEO plugin in the `if (!isFastBuild)` block — including `nursingLandingsPlugin`, `careerLandingsPlugin`, `professionLandingsPlugin`, `costOfLivingLandingsPlugin`, `comparisonsHubPlugin`, `faqHubPlugin`, `frSalaireNetLandingPlugin`, `staticPagesPlugin`, etc.
 
-**Symptom:** you edit a build plugin, run `npx vite build`, the build exits 0,
-but the generated HTML in `dist/` still has the old content (no log line for
-the plugin appears either). It looks like the file write is being cached or
-your edit didn't take — but the plugin literally never ran.
+**Symptom:** edit a build plugin, run `npx vite build`, exits 0, but generated HTML in `dist/` still has old content (no log line for the plugin appears) — the plugin literally never ran.
 
-**Fix when you need to verify SEO pages locally:** run with `FAST_BUILD=` (empty)
-explicitly to override the inherited flag:
+**Fix.** Override the inherited flag explicitly:
 
 ```bash
 FAST_BUILD= npx vite build
 ```
 
-Combine with the per-feature `SKIP_*` env gates documented above to keep the
-build fast while still exercising the specific plugin you're testing
-(e.g. nursing landings):
+Combine with per-feature `SKIP_*` env gates to keep the build fast while exercising one plugin:
 
 ```bash
 FAST_BUILD= SKIP_FUEL_DAILY=1 SKIP_WEEKLY_EMPLOYERS=1 SKIP_JOB_MARKET_SNAPSHOT=1 \
@@ -151,13 +160,7 @@ SKIP_HEALTH_PREMIUMS=1 SKIP_ORPHAN_LANDINGS=1 SKIP_BORDER_WAIT=1 \
 npx vite build
 ```
 
-CI runs the full pipeline (`build:ci`) without FAST_BUILD, so production output
-is always correct — this is only a local-verification footgun.
-3. `npx vitest run` — all tests must pass
-
-Pre-push hook (`.githooks/pre-push`) runs tests then build. Push is blocked if either fails.
-
-**First-time setup:** run `scripts/dev/local-ignore-cron.sh apply` once to hide ~600 cron-generated files from `git status`. After that, use `scripts/dev/local-ignore-cron.sh pull` instead of `git pull` (plain pull breaks against skip-worktree files). Full rationale: [docs/LOCAL-DEV.md](docs/LOCAL-DEV.md).
+CI runs full pipeline (`build:ci`) without FAST_BUILD, so production output is always correct — this is only a local-verification footgun.
 
 ---
 
@@ -179,9 +182,9 @@ Tests that read `data/jobs.json` (gitignored): MUST exclude `needsRetranslation:
 - **Never use `text-slate-400`** on light backgrounds — use `text-slate-500` or `text-slate-600`
 - **Every button** must have an accessible name (text, `aria-label`, or `title`)
 - **All `<img>` tags** must have `width`, `height`, and `alt` attributes
-- **Dark mode**: NEVER use `dark:` color prefixes in component code. All colors use semantic tokens from `index.css` that auto-switch between light/dark via CSS custom properties. The only allowed `dark:` usage is `dark:prose-invert` (Tailwind Typography plugin). If you need a new color, add a semantic token to `index.css` — do not hardcode `dark:bg-*`, `dark:text-*`, `dark:border-*`, etc. See `index.css` `:root` / `html.dark` / `@theme` blocks for the full token inventory.
+- **Dark mode**: NEVER use `dark:` color prefixes in component code. All colors use semantic tokens from `index.css` that auto-switch via CSS custom properties. Only allowed `dark:` usage is `dark:prose-invert` (Tailwind Typography). If you need a new color, add a semantic token to `index.css` — do not hardcode `dark:bg-*`, `dark:text-*`, etc.
 
-For detailed SEO rules (JobPosting structured data, validation gates, fallback rules): read [docs/SEO-RULES.md](docs/SEO-RULES.md)
+For detailed SEO rules (JobPosting structured data, validation gates, fallback rules): [docs/SEO-RULES.md](docs/SEO-RULES.md).
 
 ---
 
@@ -211,318 +214,28 @@ For fast local builds only. CI (`npm run build:ci`) exercises all plugins and mu
 | `SKIP_ORPHAN_LANDINGS=1` | F3b GSC orphan-query landing pages (`orphanQueryLanding` plugin) |
 | `SKIP_BORDER_WAIT=1` | F8 border wait-time pages + webcam embeds (`borderWaitPages` plugin) |
 
-## SEO feature details
-
-Page catalog, cron pipelines, build config, and webcam hotlink policy: see [docs/SEO-FEATURES.md](docs/SEO-FEATURES.md).
+Page catalog, cron pipelines, build config, and webcam hotlink policy: [docs/SEO-FEATURES.md](docs/SEO-FEATURES.md).
 
 ---
 
-# SEO content gate — text-to-HTML ratio
+# SEO Content Gates (per-PR)
 
-**Why it exists.** Semrush flags any page with `visibleText / totalHTML ≤ 10 %`
-as "low text-to-HTML ratio". The Apr 2026 audit caught 1,193 such pages
-(mostly fuel-daily, weekly-employers, health-premiums, job-board, and the SPA
-shell for non-IT locales). These pages rank worse — search engines see lots of
-markup wrapping very little content.
+Every PR must pass these per-feature ratchet audits. Each gate has a baseline (`data/*-baseline.json`) that can only go DOWN. **Never widen a baseline as a workaround. Never noindex without explicit per-URL approval (CLAUDE.md non-negotiables #1, #5).** Full playbooks per gate: [docs/SEO-GATES.md](docs/SEO-GATES.md).
 
-**Where it runs.** Two places:
-- Local: `npm run audit:text-html-ratio` (after `npm run build`).
-- CI: `Gate — text-to-HTML ratio` step in `.github/workflows/deploy.yml`,
-  blocking deploy on regression.
+| Gate | Audit script | Where it runs | Baseline |
+|---|---|---|---|
+| Text-to-HTML ratio (≥10 %) | `npm run audit:text-html-ratio` | `deploy.yml` | `data/text-html-ratio-baseline.json` |
+| Orphan pages in sitemaps | `npm run audit:orphan-sitemap-pages` | `deploy.yml` | `data/orphan-pages-baseline.json` |
+| ImageObject license fields (zero tolerance) | `npm run audit:image-object-license` | `post-deploy-validation.yml` | none — must be 0 |
+| BFS depth ≤ 4 from `/` | `npm run audit:max-bfs-depth` | `post-deploy-validation.yml` | `data/bfs-depth-baseline.json` |
+| `<title>` length ≤ 66 (60 + 10 % tolerance) | `npm run audit:title-length` | `post-build-tasks.sh` shard 3 | `data/title-length-baseline.json` |
+| `(#hash)` disambiguator visible in `<title>` | `npm run audit:title-no-disambig-hash` | `post-build-tasks.sh` shard 3 | `data/title-no-disambig-hash-baseline.json` |
 
-**The gate is a ratchet.** It compares the current dist/ offender count to
-`data/text-html-ratio-baseline.json` and FAILS only when any feature bucket
-goes UP. Improvements (count goes down) are always accepted.
+Each audit has a matching `:rebaseline` script (e.g. `npm run audit:title-length:rebaseline`). After a deliberate improvement, run rebaseline and commit the new baseline together with the fix in the same PR.
 
-**If the gate fails, here is the playbook:**
+**Critical context for `<title>`:** never reintroduce mid-`…` truncation — it tanked CTR on `/calcola-stipendio/` 4.8 % → 0.99 % during the cap=70 era. The `buildTitleWithBrand()` helper (`build-plugins/shared/titleSuffix.ts`) drops the brand suffix instead. Job-board exception: `composeJobPageTitle` uses `JOB_TITLE_MAX = 70` for city + (#hash) disambiguator structure.
 
-1. Reproduce locally: `npm run build && npm run audit:text-html-ratio`. The
-   stderr names which feature bucket regressed.
-2. Inspect the worst offenders for that bucket:
-   ```
-   node scripts/audit-text-html-ratio.mjs --feature=<name> --limit=20
-   ```
-3. Locate the build plugin that emits those pages (one per feature):
-
-   | Feature bucket | Plugin / source |
-   |---|---|
-   | `fuel-daily` | `build-plugins/fuelDailyPagesPlugin.ts` |
-   | `weekly-employers` / `weekly-employers-hub` | `build-plugins/weeklyEmployersPlugin.ts` |
-   | `health-premiums` | `build-plugins/healthPremiumsLandingPlugin.ts` |
-   | `job-board` | `build-plugins/jobsSeoPagesPlugin.ts` |
-   | `blog` | `scripts/create-article.mjs` (article generator) |
-   | `spa-locale` / `spa-other` | `build-plugins/htmlTemplate.ts` + SPA prerender shell |
-
-4. Add **coherent, page-relevant** content — never filler. Acceptable kinds:
-   methodology paragraph, FAQ block, scenario walk-through tied to the
-   frontaliere use case, contextual cross-references to related comparators.
-   **Never** add hidden text, repeated boilerplate, or invisible spans.
-   Google penalises template-wide duplication and cloaking.
-5. Rebuild and rerun the audit. Once the bucket count is lower, regenerate
-   the baseline so the gate locks in the new floor:
-   ```
-   npm run audit:text-html-ratio:rebaseline
-   ```
-   Commit the updated `data/text-html-ratio-baseline.json` together with the
-   template change in the same PR.
-
-**Hard rule.** The baseline numbers must only ever **decrease**. Raising any
-number means new pages have dropped below the 10 % threshold — fix that, do
-not ratchet up.
-
----
-
-# SEO content gate — orphaned pages in sitemaps
-
-**Why it exists.** Semrush flagged 4,936 "orphaned pages in sitemaps" — pages
-listed in any sitemap-*.xml but not reachable via internal `<a href>` BFS from
-the homepage. Crawlers waste budget on these pages, and they tend to rank
-worse since they lack site-structure support.
-
-**Where it runs.** Two places:
-- Local: `npm run audit:orphan-sitemap-pages` (after `npm run build`).
-- CI: `Gate — orphan pages in sitemaps` step in `.github/workflows/deploy.yml`,
-  blocking deploy on regression.
-
-**The gate is a ratchet.** It compares the current dist/ orphan count to
-`data/orphan-pages-baseline.json` and FAILS only when any sitemap's orphan
-count goes UP. Improvements (count drops) are always accepted but do NOT
-auto-rebaseline; run `npm run audit:orphan-sitemap-pages:rebaseline` after
-a deliberate improvement and commit the new baseline together with the fix.
-
-**If the gate fails, here is the playbook:**
-
-1. Reproduce locally: `npm run build && npm run audit:orphan-sitemap-pages`.
-   Stdout names which sitemap regressed and shows top-10 newly-orphan URLs.
-2. The cause is almost always one of:
-   - **Static archive page lost an internal link** (e.g. nav widget removed).
-     Fix the link source.
-   - **New auto-generated content** (cron-published article/job) that no
-     existing static page links to. Add a link from the relevant index
-     (e.g. `/articoli-frontaliere/` → `/articoli-frontaliere/tutti/`) or
-     update the archive pagination so the new content is reachable.
-   - **Sitemap entry without HTML** (stale entry). Either restore the page
-     or remove from the sitemap.
-3. Rebuild and rerun the audit. Once the regression is gone:
-   ```
-   npm run audit:orphan-sitemap-pages:rebaseline
-   ```
-   Commit the updated baseline together with the fix in the same PR.
-
-**Hard rule.** Per CLAUDE.md non-negotiable rule #5, **never** "fix" an
-orphan by setting `noindex` without explicit approval. The default fix is
-to **add internal links**.
-
----
-
-# SEO content gate — ImageObject license fields
-
-**Why it exists.** Google Search Console flags every `ImageObject` in
-JSON-LD that omits any of the five licensable-image fields:
-`acquireLicensePage`, `copyrightNotice`, `license`, `creator`, `creditText`.
-The May 2026 audit caught 3,871 offending ImageObjects on the four-field
-quartet, then a follow-up audit on 2026-05-07 caught a further wave of
-"Campo mancante: creditText" warnings on Organization-logo ImageObjects
-(`logo-192.png`, `logo-512.png`, `icon-512x512.png`) across blog articles,
-SPA shells (de/en/fr), and SEO landing pages. Without ALL five fields the
-image is ineligible for licensable-image rich results and the page surfaces
-as "Migliora l'aspetto degli elementi" in GSC.
-
-**Where it runs.** Three places:
-- Helper: `services/seo/imageObjectLd.ts` — every new emitter MUST go through
-  `imageObjectLd()` / `imageObjectLdDocument()`. The helper always populates
-  the four fields (defaults to the site Organization as creator + the
-  `/termini-di-servizio#licenza-immagini` license URL).
-- Local audit: `npm run audit:image-object-license` (after a build).
-  Exits 1 if any ImageObject in `dist/` is missing one of the four.
-- CI: `audit:image-object-license` step in
-  `.github/workflows/post-deploy-validation.yml` (capped-parallel pool with
-  the other dist gates), blocking deploy on regression.
-- Vitest: `tests/seo/image-object-license-fields.test.ts` runs in pre-push
-  when `RUN_DIST_GATES=1` is set.
-
-**Hard rule.** Zero tolerance — any single offending ImageObject fails the
-gate. There is no ratchet/baseline because the helper makes 0 the only
-acceptable count. If you need a third-party license URL (webcam feeds,
-press photos), pass `license` / `creator` / `copyrightNotice` / `creditText`
-overrides to `imageObjectLd()`; never strip the fields. `creditText`
-defaults to the resolved `creator.name` (so third-party webcams credit the
-source automatically) or `"Frontaliere Ticino"` for site-owned images.
-
-**If the gate fails:**
-
-1. Run `npm run audit:image-object-license` locally to see the offending
-   pages, missing fields, and current keys.
-2. Find the emitter — usually a build plugin or `services/seo/seo-blog*.ts`
-   entry that emits an inline `'@type': 'ImageObject'` literal.
-3. Either route through the helper (`imageObjectLd({ url, width, height })`)
-   or, for auto-generated blog entries, regenerate via `create-article.mjs`
-   which already injects the four fields.
-4. For third-party images (webcams), pass explicit overrides:
-   ```ts
-   imageObjectLd({
-     contentUrl: webcam.imageUrl,
-     creator: { '@type': 'Organization', name: webcam.sourceName },
-     license: webcam.license,
-     copyrightNotice: `© ${webcam.sourceName}`,
-   })
-   ```
-
----
-
-# SEO content gate — BFS depth from `/`
-
-**Why it exists.** Real crawlers (Ahrefs, Googlebot) cap their crawl depth.
-A URL only reachable at BFS depth ≥ 5 from `/` is effectively orphan from
-their perspective even if our `audit:orphan-sitemap-pages` gate (which
-walks transitively through "next" pagination) accepts it. The May 2026
-Ahrefs audit caught 1,854 IT blog articles in this exact gap: linked from
-`/articoli-frontaliere/tutti/page-3..21/` chain, passing the existing
-gate, flagged orphan by Ahrefs.
-
-**Where it runs.** Two places:
-- Local: `npm run audit:max-bfs-depth` (after `npm run build`).
-- CI: `audit:max-bfs-depth` step in `.github/workflows/post-deploy-validation.yml`,
-  blocking deploy on regression.
-
-**The gate is a ratchet.** It compares the current dist/ per-sitemap
-"URLs at depth > MAX_DEPTH" count to `data/bfs-depth-baseline.json` and
-FAILS only when any sitemap's count goes UP. Improvements (count drops)
-are accepted but do NOT auto-rebaseline; run
-`npm run audit:max-bfs-depth:rebaseline` after a deliberate improvement
-and commit the new baseline together with the linking change.
-
-**MAX_DEPTH** is baked into the baseline. Default is 4 (depth 0=`/`,
-1=tab, 2=hub index, 3=archive page, 4=leaf URL — articles, jobs, etc.).
-Running with a different `--max-depth` than the baseline refuses to
-compare.
-
-**If the gate fails, here is the playbook:**
-
-1. Reproduce locally: `npm run build && npm run audit:max-bfs-depth`.
-   Stdout names which sitemap regressed and shows the deepest URLs.
-2. The cause is almost always:
-   - **Compact pagination ate the link graph**: the section index links
-     only `page-1, current-1, current, current+1, last` — pages 3..N-2
-     end up reachable only via chained "next" clicks (depth ≥ 5). Fix:
-     emit a full page navigator on the section index that links every
-     `page-N` directly. See commit `aa987d38f7` for the
-     `/articoli-frontaliere/` fix as a reference pattern.
-   - **Hub page lost a child-list section**: e.g. `/mercato-lavoro-ticino/`
-     stopped listing per-sector snapshot pages. Fix: add a child-list
-     `<section>` to the hub render function so each child page is at
-     depth 2 from `/`.
-3. Rebuild and rerun the audit. Once the regression is gone:
-   ```
-   npm run audit:max-bfs-depth:rebaseline
-   ```
-   Commit the updated `data/bfs-depth-baseline.json` together with the
-   linking change in the same PR.
-
-**Hard rule.** Per CLAUDE.md non-negotiable rule #5, **never** "fix" a
-deep URL by setting `noindex` without explicit approval. The default
-fix is to **add internal links** from a hub at depth ≤ MAX_DEPTH-1.
-
----
-
-# SEO content gate — `<title>` length (60 + 10 % tolerance)
-
-**Why it exists.** Google's SERP-display budget is ~60 char on most
-queries; titles past it get visually truncated or rewritten by Google,
-costing keyword visibility. The May 2026 Semrush audit flagged 2 740
-indexable pages above the 60-char floor — almost all with the
-`" | Frontaliere Ticino"` brand suffix (22 char) appended on top of an
-already-near-cap headline.
-
-**Where it runs.**
-- Helper: `build-plugins/shared/titleSuffix.ts` exports
-  `TITLE_TARGET_CHARS = 60`, `TITLE_MAX_CHARS = 66` (target + 10 %
-  tolerance), and `buildTitleWithBrand()`. The helper **drops the
-  brand suffix** when `headline + brand > 66` instead of truncating
-  mid-headline. NEVER reintroduce mid-`…` truncation: it tanked CTR on
-  `/calcola-stipendio/` 4.8 % → 0.99 % during the cap=70 era.
-- Local audit: `npm run audit:title-length` (after a build). Threshold
-  66, per-feature ratchet against `data/title-length-baseline.json`.
-- CI: `audit:title-length` step in shard 3 of
-  `scripts/lib/post-build-tasks.sh`, blocking deploy on regression.
-
-**The gate is a ratchet.** Counts can only go DOWN per feature bucket.
-Improvements never auto-rebaseline; run
-`npm run audit:title-length:rebaseline` after an intentional drop and
-commit the new baseline together with the template change.
-
-**Job-board exception.** `composeJobPageTitle` in
-`build-plugins/jobsSeoPagesPlugin.ts` passes `JOB_TITLE_MAX = 70`
-explicitly to `buildTitleWithBrand` to preserve the city-preserving
-job-detail structure (job title + company + city + (#hash)
-disambiguator). Job pages account for the bulk of the baseline by
-design.
-
-**If the gate fails:**
-
-1. Reproduce locally: `FAST_BUILD= npx vite build && npm run audit:title-length`
-   (FAST_BUILD env trap — see *Developer Workflows* in this file).
-   Stdout names which feature bucket regressed and shows the worst
-   offenders.
-2. The cause is almost always:
-   - **A new template added a brand-preserving caller**: a build plugin
-     copied the old "always append brand and truncate" pattern instead
-     of going through `buildTitleWithBrand`. Fix: route through the
-     helper so the brand drops automatically.
-   - **AI-generated headline drift**: blog `create-article.mjs` AI
-     prompts started returning ~70-char headlines. Fix the prompt to
-     target 50-60 char (see `scripts/create-article.mjs` headline
-     guidance section).
-   - **Cap intentionally raised**: someone bumped `TITLE_MAX_CHARS`
-     past 66. Reject — never widen the cap to mute the audit.
-3. Rebuild and rerun. Once regression cleared:
-   ```
-   npm run audit:title-length:rebaseline
-   ```
-
----
-
-# SEO content gate — `(#hash)` disambiguator visible in `<title>`
-
-**Why it exists.** When two articles produce the same base `<title>`,
-the og-pages plugin appends a runtime disambiguator
-(`build-plugins/ogPagesPlugin.ts:articleHashFromSlug`). The disambiguator
-prefers a HUMAN-READABLE token (year `(2026)`, known city
-`— Bellinzona`, trailing slug word) and falls back to an FNV-1a
-8-hex hash `(#abcd1234)` only as last resort. The May 2026 Semrush audit
-caught **935 IT blog pages** with the hash visible in SERP — kills CTR
-and brand perception. Goal: drive the count to 0 by deduping at source.
-
-**Where it runs.**
-- Local: `npm run audit:title-no-disambig-hash` (after a build). Greps
-  `dist/` for `\(#[0-9a-f]{8}\)` inside `<title>`. Per-feature ratchet
-  vs `data/title-no-disambig-hash-baseline.json`.
-- CI: shard 3 of `scripts/lib/post-build-tasks.sh`.
-- Preventive: `scripts/create-article.mjs:optimizeSeoMetadata` checks
-  the new article's IT title against existing `blog-meta-it.ts` titles
-  AT CREATE TIME and auto-appends year/city to the headline if a
-  collision is detected. Hard-fails (per CLAUDE.md rule #1) when
-  year+city are insufficient — the author must manually add a more
-  specific qualifier (source, sub-topic, edition) to `content.it.title`.
-
-**If the gate fails:**
-
-1. Reproduce: `FAST_BUILD= npx vite build && npm run audit:title-no-disambig-hash`.
-   Stdout shows offending pages with their hash and base title.
-2. Find the colliding pair: grep `services/locales/blog-meta-it.ts`
-   for the base title (without the brand suffix). Two articles with
-   the same `'.title'` value will be the cause.
-3. Fix at source by editing one article's `'.title'` in all four
-   locale meta files (`blog-meta-{it,en,de,fr}.ts`). Add a year, city,
-   or source qualifier that makes the title self-explaining
-   (e.g. `"Primo Maggio a Varese"` →
-   `"Primo Maggio a Varese 2026: corteo CGIL"`). NEVER widen the
-   `audit:title-no-disambig-hash` baseline as a workaround — the
-   ratchet only goes DOWN.
-4. Rebuild and rerun. Once gone:
-   ```
-   npm run audit:title-no-disambig-hash:rebaseline
-   ```
+**Critical context for ImageObject:** every emitter MUST go through `services/seo/imageObjectLd.ts`. For third-party images (webcams), pass `license` / `creator` / `copyrightNotice` / `creditText` overrides; never strip fields.
 
 ---
 
@@ -536,11 +249,7 @@ and brand perception. Goal: drive the count to 0 by deduping at source.
 - [ ] New pages have SEO metadata + sitemap entry + static HTML generated
 - [ ] No `dark:` color prefixes — use semantic tokens from `index.css` (enforced by `no-dark-color-classes.test.ts`)
 - [ ] If user-facing feature, new release entry in `WhatsNewModal.tsx`
-- [ ] Text-to-HTML ratio gate passes: `npm run audit:text-html-ratio` (see *SEO content gate* above for the playbook on regression)
-- [ ] ImageObject license-fields gate passes: `npm run audit:image-object-license` (zero tolerance — every ImageObject in JSON-LD must have `acquireLicensePage`, `copyrightNotice`, `license`, `creator`, `creditText`; route through `services/seo/imageObjectLd.ts`)
-- [ ] BFS-depth gate passes: `npm run audit:max-bfs-depth` (per-sitemap ratchet — every URL must be reachable from `/` at BFS depth ≤ 4 via `<a href>` chain. Fix regressions by adding internal links from a hub at depth ≤ 3, never noindex)
-- [ ] Title-length gate passes: `npm run audit:title-length` (per-feature ratchet at threshold 66 = 60 SERP-display target + 10 % tolerance. `buildTitleWithBrand` drops the brand suffix when headline + brand > 66 instead of truncating mid-headline. Never re-introduce mid-`…` truncation — it tanked CTR on `/calcola-stipendio/` 4.8 % → 0.99 % during the 70-cap era)
-- [ ] Title-no-disambig-hash gate passes: `npm run audit:title-no-disambig-hash` (per-feature ratchet — flags `(#abcdef12)` disambiguators visible in `<title>`. Fix at source by renaming colliding articles with a year/city/source qualifier so the base title is unique without the hash, never widen the cap)
+- [ ] All 6 SEO content gates pass (see table above + [docs/SEO-GATES.md](docs/SEO-GATES.md))
 
 ## Auto-push Rule
 
@@ -580,9 +289,30 @@ Key routing rules:
 
 | Topic | File |
 |-------|------|
-| CI/CD pipeline, workflows, data files | [docs/CI-CD-PIPELINE.md](docs/CI-CD-PIPELINE.md) — includes `snapshot-jobs-weekly.yml` (Monday 06:00 UTC) which feeds F4 job-market-snapshot + F5 weekly-employers delta computation |
+| CI/CD pipeline, workflows, data files | [docs/CI-CD-PIPELINE.md](docs/CI-CD-PIPELINE.md) — includes `snapshot-jobs-weekly.yml` (Mon 06:00 UTC) feeding F4 + F5 |
 | SEO rules, structured data, validation | [docs/SEO-RULES.md](docs/SEO-RULES.md) |
+| SEO content gate playbooks (6 ratchets) | [docs/SEO-GATES.md](docs/SEO-GATES.md) |
+| SEO feature catalog (F2/F3b/F4/F5/F6/F8) | [docs/SEO-FEATURES.md](docs/SEO-FEATURES.md) |
 | Job crawlers, slugs, translation cache | [docs/CRAWLERS.md](docs/CRAWLERS.md) |
 | Design context, brand, users, principles | [docs/DESIGN-CONTEXT.md](docs/DESIGN-CONTEXT.md) |
-| Local dev hygiene (hide cron noise from `git status`) | [docs/LOCAL-DEV.md](docs/LOCAL-DEV.md) — `scripts/dev/local-ignore-cron.sh` |
-| Build-plugin cache experiment (why we tried it, why we removed it) | [docs/CACHE-EXPERIMENT.md](docs/CACHE-EXPERIMENT.md) — `assemble-jobs` cache stays; plugin-level cache cost ~11 min/deploy more than fresh regen |
+| Local dev hygiene (hide cron noise) | [docs/LOCAL-DEV.md](docs/LOCAL-DEV.md) |
+| GitNexus code-intelligence MCP guide | [docs/GITNEXUS.md](docs/GITNEXUS.md) |
+| Build-plugin cache experiment | [docs/CACHE-EXPERIMENT.md](docs/CACHE-EXPERIMENT.md) |
+
+---
+
+<!-- gitnexus:start -->
+# GitNexus — Code Intelligence (summary)
+
+This project is indexed by GitNexus as **frontaliere-si-o-no** (26095 symbols, 55967 relationships, 300 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+
+**Always do:**
+- Run `gitnexus_impact({target, direction: "upstream"})` BEFORE editing any symbol; report blast radius and warn on HIGH/CRITICAL risk.
+- Run `gitnexus_detect_changes()` BEFORE committing.
+- Use `gitnexus_query()` / `gitnexus_context()` to explore unfamiliar code instead of grep.
+- Use `gitnexus_rename({dry_run: true})` for renames — never find-and-replace.
+
+**Index freshness.** After commits the index becomes stale: `npx gitnexus analyze` (add `--embeddings` to preserve embeddings — without the flag they're deleted). A PostToolUse hook handles this automatically after `git commit` / `git merge`.
+
+Full tool reference, debugging/refactoring playbooks, risk levels, resources, and CLI skill files: [docs/GITNEXUS.md](docs/GITNEXUS.md).
+<!-- gitnexus:end -->
