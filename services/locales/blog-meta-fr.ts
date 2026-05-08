@@ -6918,6 +6918,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.title': 'Ex-patients oncologiques aident les malades au Ticino',
     'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.excerpt': 'Un projet innovant à l\'Hôpital civil de Lugano transforme les patients en acteurs actifs dans la révision des soins et des services de santé',
     'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.imageAlt': 'Groupe de soutien à l\'Ospedale Civico de Lugano, anciens patients cancéreux aident les patients actuels',
+    'blog.article.picnic-stadio-cornaredo.title': 'Fête populaire au Cornaredo : le 4 juin, picnic final',
+    'blog.article.picnic-stadio-cornaredo.excerpt': 'Le 4 juin, le Stade de Cornaredo accueillera un grand événement pour célébrer la structure à 75 ans depuis son inauguration, avec des activités et de la musique.',
+    'blog.article.picnic-stadio-cornaredo.imageAlt': 'Événement communautaire au stade Cornaredo à Lugano avec public et activités sur le terrain',
 };
 
 export default blogMetaFr;

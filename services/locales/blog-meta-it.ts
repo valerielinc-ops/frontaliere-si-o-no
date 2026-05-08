@@ -6918,6 +6918,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.title': 'Ex pazienti oncologici aiutano i malati in Ticino',
     'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.excerpt': 'Un progetto innovativo all\'Ospedale Civico di Lugano trasforma i pazienti in protagonisti attivi nella revisione delle cure e dei servizi sanitari',
     'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.imageAlt': 'Gruppo di supporto all\'Ospedale Civico di Lugano, ex pazienti oncologici aiutano i malati',
+    'blog.article.picnic-stadio-cornaredo.title': 'Grande festa popolare al Cornaredo: il 4 giugno in scena il picnic finale',
+    'blog.article.picnic-stadio-cornaredo.excerpt': 'Il 4 giugno, lo Stadio di Cornaredo ospiterà un grande evento per salutare la struttura a 75 anni dalla sua inaugurazione, con attività e musica.',
+    'blog.article.picnic-stadio-cornaredo.imageAlt': 'Evento di festa popolare allo stadio Cornaredo di Lugano con pubblico e attività sul campo',
 };
 
 export default blogMetaIt;

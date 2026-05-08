@@ -22124,4 +22124,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'picnic-stadio-cornaredo',
+ category: 'novita',
+ date: '2026-05-08T00:15:38.773Z',
+ image: '/images/blog/picnic-stadio-cornaredo.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

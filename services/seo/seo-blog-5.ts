@@ -28778,6 +28778,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-picnic-stadio-cornaredo': {
+    title: 'Grande festa popolare al Cornaredo: il 4 giugno in scena il picnic finale',
+    description: 'Il 4 giugno, lo Stadio di Cornaredo ospiterà un grande evento per salutare la struttura a 75 anni dalla sua inaugurazione, con attività e musica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grande, festa, popolare, cornaredo',
+    ogTitle: 'Grande festa popolare al Cornaredo: il 4 giugno in scena',
+    ogDescription: 'Il 4 giugno, lo Stadio di Cornaredo ospiterà un grande evento per salutare la struttura a 75 anni dalla sua inaugurazione, con attività e musica.',
+    canonicalPath: '/articoli-frontaliere/picnic-stadio-cornaredo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grande festa popolare al Cornaredo: il 4 giugno in scena il picnic finale",
+      "description": "Il 4 giugno, lo Stadio di Cornaredo ospiterà un grande evento per salutare la struttura a 75 anni dalla sua inaugurazione, con attività e musica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/picnic-stadio-cornaredo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento di festa popolare allo stadio Cornaredo di Lugano con pubblico e attività sul campo"
+      },
+      "datePublished": "2026-05-08T00:15:38+00:00",
+      "dateModified": "2026-05-08T00:15:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/picnic-stadio-cornaredo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

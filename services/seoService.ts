@@ -3548,6 +3548,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dolores-poretti-91-anni-frontalieri': { name: 'Storia di vita', path: '/articoli-frontaliere/dolores-poretti-91-anni-frontalieri', parent: 'blog' },
     'blog-costruzioni-ticino-impresari-investimenti-rapidi': { name: 'Costruzioni Ticino', path: '/articoli-frontaliere/costruzioni-ticino-impresari-investimenti-rapidi', parent: 'blog' },
     'blog-ex-pazienti-oncologici-aiutano-malati-ticino': { name: 'Progetto innovativo', path: '/articoli-frontaliere/ex-pazienti-oncologici-aiutano-malati-ticino', parent: 'blog' },
+    'blog-picnic-stadio-cornaredo': { name: 'Grande festa popolare al Cornaredo', path: '/articoli-frontaliere/picnic-stadio-cornaredo', parent: 'blog' },
  };
 
  const info = sectionNames[section];
