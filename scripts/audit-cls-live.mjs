@@ -60,30 +60,36 @@ const REL_REGRESSION = 0.10; // +10% worse than baseline
 const ABS_REGRESSION = 0.05; // +0.05 absolute (filters noisy small samples)
 
 /**
- * URLs to audit. One representative per template + the known high-CLS surfaces
- * from the 2026-05-08 PostHog $web_vitals query (homepage, job-board).
+ * URLs to audit. Tightened from 14 → 7 representatives in 2026-05-08:
+ *
+ *   - 14 × 2 strategies = 28 PSI calls → ~30 min serial run
+ *   - Most leaf URLs reported the same site-wide CrUX origin fallback
+ *     (0.73 mobile / 0.66 desktop) anyway, so they were redundant.
+ *   - Kept: surfaces with their OWN URL-level CrUX (homepage, jobs_index)
+ *     plus one representative per template family that has distinct CLS.
  *
  * Adding here = locked into the ratchet. Choose URLs that:
  *  - Have stable, evergreen content (so the lab number is reproducible)
- *  - Cover every major template (no per-template surprise regression)
+ *  - Cover every major template
  *  - Have enough live traffic for CrUX field data when possible
  */
 const TARGETS = [
   { id: 'home', path: '/' },
   { id: 'jobs_index', path: '/cerca-lavoro-ticino/' },
   { id: 'jobs_filter_concorsi', path: '/cerca-lavoro-ticino/concorsi-per-l-assunzione-di-personale-citta-di-lugano-lugano/' },
-  { id: 'jobs_filter_addetti', path: '/cerca-lavoro-ticino/addetti-servizi-alla-casa/' },
   { id: 'articles_index', path: '/articoli-frontaliere/' },
-  { id: 'comparators_currency', path: '/compara-servizi/cambio-franco-euro/' },
-  { id: 'guide_lamal', path: '/guida-frontaliere/lamal-frontalieri/' },
-  { id: 'guide_border_wait', path: '/guida-frontaliere/tempi-attesa-dogana/' },
   { id: 'calculator_root', path: '/calcola-stipendio/' },
-  { id: 'fisco_simulation', path: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/' },
+  { id: 'comparators_currency', path: '/compara-servizi/cambio-franco-euro/' },
   { id: 'border_wait_hub', path: '/traffico-dogane/' },
-  { id: 'fuel_today', path: '/prezzi-benzina/oggi/' },
-  { id: 'health_premiums', path: '/premi-cassa-malati/' },
-  { id: 'weekly_employers', path: '/aziende-che-assumono/ticino/settimana-corrente/' },
 ];
+
+/**
+ * Parallelism for PSI calls. PSI's documented quota is 25k req/day with key
+ * and there is no documented per-second cap; in practice, running ~12 calls
+ * concurrently is reliable and cuts the gate from ~30 min to ~3 min on the
+ * 7-target × 2-strategy matrix.
+ */
+const PSI_CONCURRENCY = 6;
 
 function fmt(n) {
   if (n == null || Number.isNaN(n)) return 'n/a';
@@ -170,33 +176,52 @@ async function run() {
   const results = [];
   const errors = [];
 
+  // Build the full call grid first, then dispatch in parallel batches of
+  // PSI_CONCURRENCY. Order doesn't matter for the final report — we
+  // reconstruct it by sorted key after the fact.
+  const calls = [];
   for (const target of TARGETS) {
     const url = `${BASE_URL}${target.path}`;
     for (const strategy of STRATEGIES) {
-      const key = `${target.id}@${strategy}`;
-      try {
-        const data = await runPsi(url, strategy);
-        const baselineValue = baseline.entries?.[key]?.cls ?? null;
-        const verdict = classifyRegression(data.effective, baselineValue);
-        results.push({ key, url, strategy, ...data, baseline: baselineValue, verdict });
-        if (!JSON_OUT) {
-          const tag =
-            verdict.state === 'hard_regression' ? '🔴'
-            : verdict.state === 'soft_regression' ? '⚠️'
-            : verdict.state === 'improved' ? '✅'
-            : verdict.state === 'new' ? '🆕'
-            : verdict.state === 'flat' ? '·'
-            : '?';
-          console.log(`${tag} ${key.padEnd(40)} cls=${fmt(data.effective)} (src=${data.source}) baseline=${fmt(baselineValue)} — ${verdict.reason}`);
-        }
-        // Be polite to the API (default 25 req/100s without key)
-        if (!API_KEY) await new Promise((r) => setTimeout(r, 4500));
-      } catch (e) {
-        errors.push({ key, url, strategy, error: e.message });
-        if (!JSON_OUT) console.error(`❌ ${key}: ${e.message.slice(0, 200)}`);
-      }
+      calls.push({ key: `${target.id}@${strategy}`, url, strategy });
     }
   }
+
+  async function execOne(c) {
+    try {
+      const data = await runPsi(c.url, c.strategy);
+      const baselineValue = baseline.entries?.[c.key]?.cls ?? null;
+      const verdict = classifyRegression(data.effective, baselineValue);
+      const row = { ...c, ...data, baseline: baselineValue, verdict };
+      results.push(row);
+      if (!JSON_OUT) {
+        const tag =
+          verdict.state === 'hard_regression' ? '🔴'
+          : verdict.state === 'soft_regression' ? '⚠️'
+          : verdict.state === 'improved' ? '✅'
+          : verdict.state === 'new' ? '🆕'
+          : verdict.state === 'flat' ? '·'
+          : '?';
+        console.log(`${tag} ${c.key.padEnd(40)} cls=${fmt(data.effective)} (src=${data.source}) baseline=${fmt(baselineValue)} — ${verdict.reason}`);
+      }
+    } catch (e) {
+      errors.push({ key: c.key, url: c.url, strategy: c.strategy, error: e.message });
+      if (!JSON_OUT) console.error(`❌ ${c.key}: ${e.message.slice(0, 200)}`);
+    }
+  }
+
+  // Polite to PSI without an API key: stick to a tiny pool. With key, fan out.
+  const concurrency = API_KEY ? PSI_CONCURRENCY : 2;
+  let cursor = 0;
+  async function worker() {
+    while (cursor < calls.length) {
+      const i = cursor++;
+      await execOne(calls[i]);
+    }
+  }
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
+  // Stable order in the persisted report (results was filled in completion order).
+  results.sort((a, b) => a.key.localeCompare(b.key));
 
   const hardRegressions = results.filter((r) => r.verdict.state === 'hard_regression');
   const softRegressions = results.filter((r) => r.verdict.state === 'soft_regression');
