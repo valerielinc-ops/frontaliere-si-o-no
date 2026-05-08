@@ -1670,8 +1670,16 @@ const WEEKLY_EMPLOYERS_TILE_LABELS: Record<
     cityCta: (city: string) => string;
     adviceEyebrow: string;
     adviceTopEmployer: (company: string, count: number) => string;
+    /**
+     * Variant shown on archive pages (e.g. settimana-16-2026/) — the
+     * "concentra qui prima che chiuda" wording is wrong on a historical
+     * snapshot; this variant frames the same data as a retrospective
+     * record + nudge to the current week.
+     */
+    adviceTopEmployerArchive: (company: string, count: number, weekNum: number, year: number) => string;
     adviceColdStart: string;
     adviceStable: string;
+    adviceStableArchive: (weekNum: number, year: number) => string;
   }
 > = {
   it: {
@@ -1686,10 +1694,14 @@ const WEEKLY_EMPLOYERS_TILE_LABELS: Record<
     adviceEyebrow: 'Consiglio',
     adviceTopEmployer: (company, n) =>
       `Top datore di lavoro questa settimana: ${company} con ${n} ${n === 1 ? 'nuova offerta' : 'nuove offerte'}. Concentra qui la candidatura prima che il flusso si chiuda.`,
+    adviceTopEmployerArchive: (company, n, w, y) =>
+      `Top datore di lavoro nella settimana ${w}/${y}: ${company} con ${n} ${n === 1 ? 'nuova offerta' : 'nuove offerte'}. Snapshot storico — verifica la situazione corrente.`,
     adviceColdStart:
       'Prima settimana di osservazione per questa città — il delta vs settimana scorsa apparirà nel prossimo aggiornamento (lunedì 06:00 UTC).',
     adviceStable:
       'Volume sostanzialmente stabile vs settimana scorsa. Apri la lista in basso e dai priorità ai datori con più offerte attive.',
+    adviceStableArchive: (w, y) =>
+      `Snapshot della settimana ${w}/${y} — volume stabile rispetto alla settimana precedente. Per la situazione corrente apri la pagina della settimana in corso.`,
   },
   en: {
     jobs: 'Active openings',
@@ -1703,10 +1715,14 @@ const WEEKLY_EMPLOYERS_TILE_LABELS: Record<
     adviceEyebrow: 'Recommendation',
     adviceTopEmployer: (company, n) =>
       `Top employer this week: ${company} with ${n} new opening${n === 1 ? '' : 's'}. Focus your application here before the window closes.`,
+    adviceTopEmployerArchive: (company, n, w, y) =>
+      `Top employer in week ${w}/${y}: ${company} with ${n} new opening${n === 1 ? '' : 's'}. Historical snapshot — check the current situation.`,
     adviceColdStart:
       "First observation week for this city — the delta vs last week will show up in the next refresh (Monday 06:00 UTC).",
     adviceStable:
       'Volume broadly stable vs last week. Open the list below and prioritise employers with the most active openings.',
+    adviceStableArchive: (w, y) =>
+      `Snapshot of week ${w}/${y} — volume broadly stable vs the previous week. For the current situation open the live week page.`,
   },
   de: {
     jobs: 'Aktive Stellen',
@@ -1720,10 +1736,14 @@ const WEEKLY_EMPLOYERS_TILE_LABELS: Record<
     adviceEyebrow: 'Empfehlung',
     adviceTopEmployer: (company, n) =>
       `Top-Arbeitgeber dieser Woche: ${company} mit ${n} neuen Stelle${n === 1 ? '' : 'n'}. Konzentrieren Sie Ihre Bewerbung hier, bevor das Fenster schliesst.`,
+    adviceTopEmployerArchive: (company, n, w, y) =>
+      `Top-Arbeitgeber in Woche ${w}/${y}: ${company} mit ${n} neuen Stelle${n === 1 ? '' : 'n'}. Historischer Snapshot — prüfen Sie die aktuelle Situation.`,
     adviceColdStart:
       'Erste Beobachtungswoche für diese Stadt — das Delta zur Vorwoche erscheint beim nächsten Refresh (Montag 06:00 UTC).',
     adviceStable:
       'Volumen weitgehend stabil zur Vorwoche. Öffnen Sie die Liste unten und priorisieren Sie Arbeitgeber mit den meisten aktiven Stellen.',
+    adviceStableArchive: (w, y) =>
+      `Snapshot der Woche ${w}/${y} — Volumen weitgehend stabil zur Vorwoche. Für die aktuelle Situation öffnen Sie die laufende Wochenseite.`,
   },
   fr: {
     jobs: 'Offres actives',
@@ -1737,10 +1757,14 @@ const WEEKLY_EMPLOYERS_TILE_LABELS: Record<
     adviceEyebrow: 'Conseil',
     adviceTopEmployer: (company, n) =>
       `Top employeur cette semaine : ${company} avec ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}. Concentrez votre candidature ici avant que la fenêtre ne se ferme.`,
+    adviceTopEmployerArchive: (company, n, w, y) =>
+      `Top employeur de la semaine ${w}/${y} : ${company} avec ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}. Snapshot historique — vérifiez la situation actuelle.`,
     adviceColdStart:
       "Première semaine d'observation pour cette ville — le delta vs semaine précédente apparaîtra à la prochaine mise à jour (lundi 06:00 UTC).",
     adviceStable:
       'Volume globalement stable par rapport à la semaine précédente. Ouvrez la liste ci-dessous et priorisez les employeurs avec le plus de postes actifs.',
+    adviceStableArchive: (w, y) =>
+      `Snapshot de la semaine ${w}/${y} — volume globalement stable par rapport à la semaine précédente. Pour la situation actuelle, ouvrez la page de la semaine en cours.`,
   },
 };
 
@@ -2433,10 +2457,14 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       ? STAT_TILE_BASE
       : STAT_TILE_ACCENT;
   const cityAdviceText = topGainer
-    ? tileLabels.adviceTopEmployer(topGainer.employer, topGainer.delta)
+    ? variant === 'archive'
+      ? tileLabels.adviceTopEmployerArchive(topGainer.employer, topGainer.delta, weekNum, year)
+      : tileLabels.adviceTopEmployer(topGainer.employer, topGainer.delta)
     : !hasHistoricalDelta
       ? tileLabels.adviceColdStart
-      : tileLabels.adviceStable;
+      : variant === 'archive'
+        ? tileLabels.adviceStableArchive(weekNum, year)
+        : tileLabels.adviceStable;
   const cityAdviceBannerHtml = stats.topCompanies.length > 0
     ? `<aside data-we-advice aria-label="${esc(tileLabels.adviceEyebrow)}" style="${cityAdviceTone};margin:0 0 18px">
       <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-subtle)">${esc(tileLabels.adviceEyebrow)}</div>
@@ -3075,6 +3103,61 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       ? `<p style="margin:0 0 16px;color:var(--color-warning);background:var(--color-warning-subtle);padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
+  // Company × city stats tile + advice + CTA — same UX pattern as the
+  // city hub one level up. Tiles surface jobs/topRole/week so the
+  // visitor sees the headline data above the fold; the advice banner
+  // reuses the localised copy already used by the city page (positive
+  // delta = "top employer this week", archive = retrospective wording);
+  // the CTA links to the job-board pre-filtered for this employer.
+  const ccTileLabels = WEEKLY_EMPLOYERS_TILE_LABELS[locale];
+  const topRoleDisplay = stats.topRoles[0]?.role ?? '';
+  const ccWeekTileValue =
+    variant === 'archive'
+      ? `W${weekNum} ${year}`
+      : `W${getIsoWeekAndYear(today).week} ${getIsoWeekAndYear(today).year}`;
+  const ccTopRoleLabel: Record<WeeklyEmployersLocale, string> = {
+    it: 'Ruolo top',
+    en: 'Top role',
+    de: 'Top-Rolle',
+    fr: 'Rôle principal',
+  };
+  const ccStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px" aria-label="${esc(copy.companyCityKicker)}">
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(ccTileLabels.jobs)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(stats.activeJobsCount, locale)}</div>
+    </div>${topRoleDisplay
+      ? `
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(ccTopRoleLabel[locale])}</div>
+      <div style="${STAT_TILE_VALUE};font-size:18px">${esc(topRoleDisplay)}</div>
+    </div>`
+      : ''}
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(ccTileLabels.week)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:20px;font-variant-numeric:tabular-nums">${esc(ccWeekTileValue)}</div>
+    </div>
+  </section>`;
+
+  const ccHasPositiveDelta = hasHistoricalDelta && stats.delta > 0;
+  const ccAdviceTone = ccHasPositiveDelta
+    ? STAT_TILE_SUCCESS
+    : variant === 'archive'
+      ? STAT_TILE_BASE
+      : STAT_TILE_ACCENT;
+  const ccAdviceText = ccHasPositiveDelta
+    ? variant === 'archive'
+      ? ccTileLabels.adviceTopEmployerArchive(employer, stats.delta, weekNum, year)
+      : ccTileLabels.adviceTopEmployer(employer, stats.delta)
+    : variant === 'archive'
+      ? ccTileLabels.adviceStableArchive(weekNum, year)
+      : ccTileLabels.adviceStable;
+  const ccAdviceBannerHtml = `<aside data-we-advice aria-label="${esc(ccTileLabels.adviceEyebrow)}" style="${ccAdviceTone};margin:0 0 18px">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-subtle)">${esc(ccTileLabels.adviceEyebrow)}</div>
+    <p style="margin:6px 0 0;font-size:15px;line-height:1.55;color:var(--color-heading);font-weight:500">${esc(ccAdviceText)}</p>
+  </aside>`;
+
+  const ccCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(WEEKLY_EMPLOYERS_JOB_BOARD_PATH[locale])}?city=${esc(city)}&q=${encodeURIComponent(employer)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -3091,9 +3174,11 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.companyCityKicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(heroSummary)}</p>
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
     </div>
   </header>
+  ${ccStatsHtml}
+  ${ccAdviceBannerHtml}
+  ${ccCtaHtml}
   ${archiveNote}
   <section style="margin:0 0 28px" aria-labelledby="companyCityJobs">
     <h2 id="companyCityJobs" style="${H2_STYLE}">${esc(copy.companyCityJobsHeading(employer, cityDisplay))}</h2>
@@ -3101,6 +3186,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   </section>
   <section style="margin:0 0 28px" aria-labelledby="companyCityEditorial">
     <h2 id="companyCityEditorial" style="${H2_STYLE}">${esc(employer)} · ${esc(cityDisplay)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorial)}</p>
   </section>
   <section style="margin:0 0 28px" aria-labelledby="companyCityFrontalier">
