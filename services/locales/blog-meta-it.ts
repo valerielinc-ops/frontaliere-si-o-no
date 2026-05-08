@@ -7113,6 +7113,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lohnausweis-frontalieri-ticino.title': 'Lohnausweis: cos\'è e come funziona per i frontalieri del Ticino',
     'blog.article.lohnausweis-frontalieri-ticino.excerpt': 'Guida pratica al certificato di stipendio svizzero per i lavoratori transfrontalieri: cosa cambia e come ottenerlo',
     'blog.article.lohnausweis-frontalieri-ticino.imageAlt': 'Certificato di stipendio svizzero su una scrivania con vista sul Lago di Lugano',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.title': 'Emigrazione e cassa pensione: come risparmiare sulle imposte',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.excerpt': 'Scopri come i frontalieri del Ticino possono risparmiare sulle imposte con la cassa pensione svizzera. Guida pratica con dati e procedure.',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.imageAlt': 'Lago di Lugano con vista sul confine tra Svizzera e Italia',
 };
 
 export default blogMetaIt;

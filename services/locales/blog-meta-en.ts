@@ -7112,6 +7112,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lohnausweis-frontalieri-ticino.title': 'Salary certificate: what it is and how it works for Ticino cross-border workers',
     'blog.article.lohnausweis-frontalieri-ticino.excerpt': 'Practical guide to the Swiss salary certificate for cross-border workers: what changes and how to obtain it',
     'blog.article.lohnausweis-frontalieri-ticino.imageAlt': 'Swiss salary certificate on a desk with a view of Lake Lugano',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.title': 'Cross-border workers: save on taxes with pension fund',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.excerpt': 'Learn how Ticino cross-border workers can save on taxes with the Swiss pension fund. Practical guide with data and procedures.',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
 };
 
 export default blogMetaEn;

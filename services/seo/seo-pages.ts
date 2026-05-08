@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2423,
+ "numberOfItems": 2424,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7065,7 +7065,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2420, "name": "Bonnie Tyler in coma farmacologico dopo interve...", "url": `${BASE_URL}/articoli-frontaliere/bonnie-tyler-coma-farmacologico-2026` },
           { "@type": "ListItem", "position": 2421, "name": "Scambio automatico informazioni immobili: nuovo...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-immobili-frontalieri-2026` },
           { "@type": "ListItem", "position": 2422, "name": "Nuova riforma AVS 2024: cosa cambia per i front...", "url": `${BASE_URL}/articoli-frontaliere/nuova-riforma-avs-2024-frontalieri` },
-          { "@type": "ListItem", "position": 2423, "name": "Lohnausweis: cos'è e come funziona per i fronta...", "url": `${BASE_URL}/articoli-frontaliere/lohnausweis-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 2423, "name": "Lohnausweis: cos'è e come funziona per i fronta...", "url": `${BASE_URL}/articoli-frontaliere/lohnausweis-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 2424, "name": "Emigrazione e cassa pensione: come risparmiare ...", "url": `${BASE_URL}/articoli-frontaliere/emigrazione-cassa-pensione-risparmio-imposte` }
  ]
  },
  {

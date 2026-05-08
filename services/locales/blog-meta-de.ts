@@ -7112,6 +7112,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lohnausweis-frontalieri-ticino.title': 'Lohnausweis: Was ist das und wie funktioniert es für Grenzgänger aus dem Tessin?',
     'blog.article.lohnausweis-frontalieri-ticino.excerpt': 'Praktische Anleitung zum Schweizer Lohnausweis für Grenzgänger: Was sich ändert und wie man ihn erhält',
     'blog.article.lohnausweis-frontalieri-ticino.imageAlt': 'Schweizer Lohnausweis auf einem Schreibtisch mit Blick auf den Luganersee',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.title': 'Auswanderung und Pensionskasse: Steuern sparen',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.excerpt': 'Erfahren Sie, wie Grenzgänger aus dem Tessin mit der Schweizer Pensionskasse Steuern sparen können. Praktische Anleitung mit Daten und Verfahren.',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.imageAlt': 'Luganersee mit Blick auf die Schweizer-Italienische Grenze',
 };
 
 export default blogMetaDe;

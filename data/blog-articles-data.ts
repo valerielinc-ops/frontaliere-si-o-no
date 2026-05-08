@@ -22709,4 +22709,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'emigrazione-cassa-pensione-risparmio-imposte',
+ category: 'fiscale',
+ date: '2026-05-08T17:11:26.439Z',
+ image: '/images/blog/emigrazione-cassa-pensione-risparmio-imposte.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

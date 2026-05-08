@@ -7113,6 +7113,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lohnausweis-frontalieri-ticino.title': 'Certificat de salaire: guide pour les frontaliers du Ticino',
     'blog.article.lohnausweis-frontalieri-ticino.excerpt': 'Guide pratique du certificat de salaire suisse pour les travailleurs frontaliers: ce qui change et comment l\'obtenir',
     'blog.article.lohnausweis-frontalieri-ticino.imageAlt': 'Certificat de salaire suisse sur un bureau avec vue sur le lac de Lugano',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.title': 'Expatriation et caisse de pension: économiser sur les impôts',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.excerpt': 'Découvrez comment les frontaliers du Tessin peuvent économiser sur les impôts avec la caisse de pension suisse. Guide pratique avec données et procédures.',
+    'blog.article.emigrazione-cassa-pensione-risparmio-imposte.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
 };
 
 export default blogMetaFr;
