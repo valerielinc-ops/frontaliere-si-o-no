@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2365,
+ "numberOfItems": 2366,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7007,7 +7007,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2362, "name": "Friburgo in finale di Europa League: Manzambi d...", "url": `${BASE_URL}/articoli-frontaliere/friburgo-finale-europa-manzambi` },
           { "@type": "ListItem", "position": 2363, "name": "Assicurazione legale in Svizzera: è davvero utile?", "url": `${BASE_URL}/articoli-frontaliere/legal-insurance-utilita-sicurezza` },
           { "@type": "ListItem", "position": 2364, "name": "Dazi Trump bocciati: Corte per il commercio USA...", "url": `${BASE_URL}/articoli-frontaliere/trump-dazi-corte-commercio-2026` },
-          { "@type": "ListItem", "position": 2365, "name": "Pirata della strada a Lipsia: preannunciato il ...", "url": `${BASE_URL}/articoli-frontaliere/lipsia-pirata-strada-frontalieri` }
+          { "@type": "ListItem", "position": 2365, "name": "Pirata della strada a Lipsia: preannunciato il ...", "url": `${BASE_URL}/articoli-frontaliere/lipsia-pirata-strada-frontalieri` },
+          { "@type": "ListItem", "position": 2366, "name": "Lula e Trump difendono democrazia e sovranità", "url": `${BASE_URL}/articoli-frontaliere/lula-trump-riunione-democrazia-sovranita` }
  ]
  },
  {

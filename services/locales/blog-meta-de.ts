@@ -6938,6 +6938,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lipsia-pirata-strada-frontalieri.title': 'Fahrer flüchtet in Leipzig: Tat angekündigt',
     'blog.article.lipsia-pirata-strada-frontalieri.excerpt': 'Ein 33-jähriger Mann hat in Leipzig mehrere Menschen angefahren, wobei zwei Menschen starben und sechs verletzt wurden. Die Tat wurde in einer Nachricht an seine Frau angekündigt.',
     'blog.article.lipsia-pirata-strada-frontalieri.imageAlt': 'Eine chaotische Straßenszene in Leipzig, Deutschland, mit Rettungsfahrzeugen und Menschen, die auf einen Vorfall reagieren.',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.title': 'Lula und Trump verteidigen Demokratie und Souveränität',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.excerpt': 'Der brasilianische Präsident Lula trifft Trump im Weißen Haus und betont die Bedeutung der wirtschaftlichen Beziehungen und der geopolitischen Zusammenarbeit.',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.imageAlt': 'Luganersee im Frühling mit Menschen, die den See genießen',
 };
 
 export default blogMetaDe;

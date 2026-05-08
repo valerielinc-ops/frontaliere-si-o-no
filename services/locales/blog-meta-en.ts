@@ -6938,6 +6938,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lipsia-pirata-strada-frontalieri.title': 'Road rage in Leipzig: attack was announced',
     'blog.article.lipsia-pirata-strada-frontalieri.excerpt': 'A 33-year-old man ran over several people in Leipzig, killing two and injuring six. The act was announced in a message to his wife.',
     'blog.article.lipsia-pirata-strada-frontalieri.imageAlt': 'A chaotic street scene in Leipzig, Germany, with emergency vehicles and people reacting to an incident.',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.title': 'Lula and Trump defend democracy and sovereignty',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.excerpt': 'Brazilian President Lula meets Trump at the White House, emphasizing the importance of economic relations and geopolitical cooperation.',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.imageAlt': 'Lake Lugano in spring with people enjoying the lakeside',
 };
 
 export default blogMetaEn;

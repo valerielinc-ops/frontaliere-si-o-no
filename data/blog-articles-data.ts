@@ -22187,4 +22187,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lula-trump-riunione-democrazia-sovranita',
+ category: 'novita',
+ date: '2026-05-08T01:35:05.711Z',
+ image: '/images/blog/lula-trump-riunione-democrazia-sovranita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

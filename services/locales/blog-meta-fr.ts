@@ -6939,6 +6939,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lipsia-pirata-strada-frontalieri.title': 'Pirate de la route à Leipzig : l\'acte annoncé',
     'blog.article.lipsia-pirata-strada-frontalieri.excerpt': 'Un homme de 33 ans a renversé plusieurs personnes à Leipzig, causant deux morts et six blessés. L\'acte avait été annoncé dans un message à sa femme.',
     'blog.article.lipsia-pirata-strada-frontalieri.imageAlt': 'Une scène de rue chaotique à Leipzig, en Allemagne, avec des véhicules d\'urgence et des personnes réagissant à un incident.',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.title': 'Lula et Trump défendent la démocratie et la souveraineté',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.excerpt': 'Le président brésilien Lula rencontre Trump à la Maison Blanche, soulignant l\'importance des relations économiques et de la coopération géopolitique.',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.imageAlt': 'Lac de Lugano au printemps avec des personnes profitant du bord du lac',
 };
 
 export default blogMetaFr;

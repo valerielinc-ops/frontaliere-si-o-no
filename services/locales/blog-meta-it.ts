@@ -6939,6 +6939,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lipsia-pirata-strada-frontalieri.title': 'Pirata della strada a Lipsia: preannunciato il gesto',
     'blog.article.lipsia-pirata-strada-frontalieri.excerpt': 'Un uomo di 33 anni ha investito diverse persone a Lipsia, causando due morti e sei feriti. Il gesto era stato preannunciato in un messaggio alla moglie.',
     'blog.article.lipsia-pirata-strada-frontalieri.imageAlt': 'Una scena caotica di una strada a Lipsia, Germania, con veicoli di emergenza e persone che reagiscono a un incidente.',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.title': 'Lula e Trump difendono democrazia e sovranità',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.excerpt': 'Il presidente brasiliano Lula incontra Trump alla Casa Bianca, sottolineando l\'importanza dei rapporti economici e della cooperazione geopolitica.',
+    'blog.article.lula-trump-riunione-democrazia-sovranita.imageAlt': 'Lago di Lugano in primavera con persone che godono del lungolago',
 };
 
 export default blogMetaIt;
