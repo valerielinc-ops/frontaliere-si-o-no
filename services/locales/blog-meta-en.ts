@@ -6977,6 +6977,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.processo-broker-vip-retrocessioni.title': 'VIP broker trial: clash over kickbacks and conflict of interest',
     'blog.article.processo-broker-vip-retrocessioni.excerpt': 'Second day of hearings for a 53-year-old accused of million-dollar damages. Over 5 years of investigation',
     'blog.article.processo-broker-vip-retrocessioni.imageAlt': 'Courtroom in Lugano during the trial of the VIP broker',
+    'blog.article.durisch-dado-blocco-frontalieri-ticino.title': 'Durisch: \'The blockade? Only Dadò sees it...\'',
+    'blog.article.durisch-dado-blocco-frontalieri-ticino.excerpt': 'The head of the Ticino Socialist group responds to the accusations of Centro president, Fiorenzo Dadò, about the blockade of the Administrative Court.',
+    'blog.article.durisch-dado-blocco-frontalieri-ticino.imageAlt': 'Bellinzona, view of the city center with Castelgrande',
 };
 
 export default blogMetaEn;

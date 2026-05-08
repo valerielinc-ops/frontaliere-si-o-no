@@ -6978,6 +6978,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.processo-broker-vip-retrocessioni.title': 'Procès du courtier des VIP : conflit d’intérêts et rétrocessions',
     'blog.article.processo-broker-vip-retrocessioni.excerpt': 'Deuxième journée de débat pour un quinquagénaire accusé de préjudice millionnaire. Plus de 5 ans d’enquête',
     'blog.article.processo-broker-vip-retrocessioni.imageAlt': 'Salle d\'audience à Lugano pendant le procès du courtier VIP',
+    'blog.article.durisch-dado-blocco-frontalieri-ticino.title': 'Durisch: \'Le blocage? Seul Dadò le voit...\'',
+    'blog.article.durisch-dado-blocco-frontalieri-ticino.excerpt': 'Le chef de groupe socialiste du Tessin répond aux accusations du président du Centre, Fiorenzo Dadò, sur le blocage du Tribunal administratif.',
+    'blog.article.durisch-dado-blocco-frontalieri-ticino.imageAlt': 'Bellinzona, vue du centre-ville avec le Castelgrande',
 };
 
 export default blogMetaFr;

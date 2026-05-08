@@ -22304,4 +22304,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'durisch-dado-blocco-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-05-08T03:39:48.832Z',
+ image: '/images/blog/durisch-dado-blocco-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

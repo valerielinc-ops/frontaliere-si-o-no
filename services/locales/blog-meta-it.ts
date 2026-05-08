@@ -6978,6 +6978,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.processo-broker-vip-retrocessioni.title': 'Processo al broker dei VIP: scontro su retrocessioni e conflitto d’interessi',
     'blog.article.processo-broker-vip-retrocessioni.excerpt': 'Seconda giornata di dibattimento per un 53enne accusato di danno millionario. Oltre 5 anni d’inchiesta',
     'blog.article.processo-broker-vip-retrocessioni.imageAlt': 'Aula del tribunale di Lugano durante il processo al broker dei VIP',
+    'blog.article.durisch-dado-blocco-frontalieri-ticino.title': 'Durisch: \'Il blocco? Lo vede solo Dadò...\'',
+    'blog.article.durisch-dado-blocco-frontalieri-ticino.excerpt': 'Il capogruppo socialista del Ticino risponde alle accuse del presidente del Centro, Fiorenzo Dadò, sul blocco del Tribunale amministrativo.',
+    'blog.article.durisch-dado-blocco-frontalieri-ticino.imageAlt': 'Bellinzona, vista del centro città con il Castelgrande',
 };
 
 export default blogMetaIt;
