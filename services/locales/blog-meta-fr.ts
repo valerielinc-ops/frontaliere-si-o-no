@@ -7026,6 +7026,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.joris-begevoord-intervista-aebr-2026.title': 'Entretien avec Joris Begevoord - Président de l\'AEBR',
     'blog.article.joris-begevoord-intervista-aebr-2026.excerpt': 'Joris Begevoord, Président de l\'AEBR, parle des défis et opportunités pour les frontaliers en 2026.',
     'blog.article.joris-begevoord-intervista-aebr-2026.imageAlt': 'Entretien avec Joris Begevoord, Président de l\'Association européenne des régions frontalières (AEBR), dans un bureau à Mendrisio.',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.title': 'Permis G réduits : ce qui change pour les frontaliers',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.excerpt': 'Le Conseil d\'État du canton du Tessin peut décider du sort de deux frères kurdes restés en Suisse. Voici ce qu\'il faut savoir.',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.imageAlt': 'Une famille de quatre personnes près du lac de Lugano, avec le paysage urbain en arrière-plan. La famille semble préoccupée, avec deux enfants regardant un document tenu par leurs parents.',
 };
 
 export default blogMetaFr;

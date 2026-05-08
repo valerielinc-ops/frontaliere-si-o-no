@@ -7025,6 +7025,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.joris-begevoord-intervista-aebr-2026.title': 'Interview mit Joris Begevoord - AEBR-Präsident',
     'blog.article.joris-begevoord-intervista-aebr-2026.excerpt': 'Joris Begevoord, Präsident der AEBR, spricht über die Herausforderungen und Chancen für Grenzgänger im Tessin im Jahr 2026.',
     'blog.article.joris-begevoord-intervista-aebr-2026.imageAlt': 'Interview mit Joris Begevoord, Präsident des Europäischen Verbands der Grenzregionen (AEBR), in einem Büro in Mendrisio.',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.title': 'Halbierte Poker: Was sich für Grenzgänger ändert',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.excerpt': 'Der Staatsrat des Kantons Tessin kann über das Schicksal zweier kurdischer Brüder entscheiden, die in der Schweiz geblieben sind. Hier erfahren Sie, was Sie wissen müssen.',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.imageAlt': 'Eine Familie von vier Personen in der Nähe des Luganer Sees, mit der Stadt im Hintergrund. Die Familie wirkt besorgt, mit zwei Kindern, die ein Dokument betrachten, das von ihren Eltern gehalten wird.',
 };
 
 export default blogMetaDe;

@@ -7025,6 +7025,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.joris-begevoord-intervista-aebr-2026.title': 'Interview with Joris Begevoord - AEBR President',
     'blog.article.joris-begevoord-intervista-aebr-2026.excerpt': 'Joris Begevoord, President of AEBR, discusses the challenges and opportunities for cross-border workers in Ticino in 2026.',
     'blog.article.joris-begevoord-intervista-aebr-2026.imageAlt': 'Interview with Joris Begevoord, President of the European Association of Border Regions (AEBR), in an office in Mendrisio.',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.title': 'Cross-border workers\' allowances halved: what changes',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.excerpt': 'The Canton Ticino\'s State Council can decide the fate of two Kurdish brothers who remained in Switzerland. Here\'s what you need to know.',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.imageAlt': 'A family of four near Lake Lugano, with the cityscape in the background. The family appears concerned, with two children looking at a document held by their parents.',
 };
 
 export default blogMetaEn;

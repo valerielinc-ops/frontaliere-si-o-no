@@ -30182,6 +30182,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-pokerce-dimezzati': {
+    title: 'Pokerce dimezzati: cosa cambia per i frontalieri',
+    description: 'Il Consiglio di Stato del Canton Ticino può decidere il destino di due fratelli curdi rimasti in Svizzera. Ecco cosa sapere. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pokerce, dimezzati, cosa, cambia',
+    ogTitle: 'Pokerce dimezzati: cosa cambia per i frontalieri | Frontaliere Ticino',
+    ogDescription: 'Il Consiglio di Stato del Canton Ticino può decidere il destino di due fratelli curdi rimasti in Svizzera. Ecco cosa sapere.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-pokerce-dimezzati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pokerce dimezzati: cosa cambia per i frontalieri",
+      "description": "Il Consiglio di Stato del Canton Ticino può decidere il destino di due fratelli curdi rimasti in Svizzera. Ecco cosa sapere. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-pokerce-dimezzati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia di quattro persone vicino al Lago di Lugano, con lo sfondo della città. La famiglia sembra preoccupata, con due bambini che guardano un documento tenuto dai genitori."
+      },
+      "datePublished": "2026-05-08T06:47:53+00:00",
+      "dateModified": "2026-05-08T06:47:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-pokerce-dimezzati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7026,6 +7026,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.joris-begevoord-intervista-aebr-2026.title': 'Intervista a Joris Begevoord - Presidente AEBR',
     'blog.article.joris-begevoord-intervista-aebr-2026.excerpt': 'Joris Begevoord, Presidente dell\'AEBR, parla delle sfide e opportunità per i frontalieri in Ticino nel 2026.',
     'blog.article.joris-begevoord-intervista-aebr-2026.imageAlt': 'Intervista a Joris Begevoord, Presidente dell\'Associazione delle regioni frontaliere europee (AEBR), in un ufficio a Mendrisio.',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.title': 'Pokerce dimezzati: cosa cambia per i frontalieri',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.excerpt': 'Il Consiglio di Stato del Canton Ticino può decidere il destino di due fratelli curdi rimasti in Svizzera. Ecco cosa sapere.',
+    'blog.article.frontalieri-ticino-pokerce-dimezzati.imageAlt': 'Una famiglia di quattro persone vicino al Lago di Lugano, con lo sfondo della città. La famiglia sembra preoccupata, con due bambini che guardano un documento tenuto dai genitori.',
 };
 
 export default blogMetaIt;
