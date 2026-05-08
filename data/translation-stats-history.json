@@ -1,69 +1,5 @@
 [
   {
-    "timestamp": "2026-04-24T08:31:53.436Z",
-    "label": "before",
-    "total": 2602,
-    "needsRetranslation": 45,
-    "incomplete": 24,
-    "complete": 2578,
-    "missingByLocale": {
-      "it": 23,
-      "en": 4,
-      "de": 22,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 2
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-24T08:52:39.902Z",
-    "label": "after",
-    "total": 2602,
-    "needsRetranslation": 46,
-    "incomplete": 24,
-    "complete": 2578,
-    "missingByLocale": {
-      "it": 23,
-      "en": 4,
-      "de": 22,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 2
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-24T11:11:40.641Z",
     "label": "before",
     "total": 2660,
@@ -9487,6 +9423,118 @@
       },
       {
         "company": "Center da Sanadad Engiadina Bassa",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-08T22:48:44.077Z",
+    "label": "before",
+    "total": 2632,
+    "needsRetranslation": 1161,
+    "incomplete": 71,
+    "complete": 2561,
+    "missingByLocale": {
+      "it": 43,
+      "en": 36,
+      "de": 28,
+      "fr": 52
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 7
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 6
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 5
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 4
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 3
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-08T23:52:02.485Z",
+    "label": "after",
+    "total": 2632,
+    "needsRetranslation": 186,
+    "incomplete": 40,
+    "complete": 2592,
+    "missingByLocale": {
+      "it": 31,
+      "en": 17,
+      "de": 16,
+      "fr": 31
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 6
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 4
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 3
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 3
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
         "pending": 1
       },
       {
