@@ -1596,12 +1596,12 @@
     },
     {
       "id": "siegfried-8bf702f14b39",
-      "slug": "betriebsingenieur-in-siegfried-zofingen",
+      "slug": "ingegnere-di-produzione-siegfried-zofingen",
       "slugByLocale": {
         "de": "betriebsingenieur-in-siegfried-ch",
-        "it": "betriebsingenieur-in-siegfried-zofingen",
+        "it": "ingegnere-di-produzione-siegfried-zofingen",
         "en": "betriebsingenieur-in-siegfried-zofingen",
-        "fr": "betriebsingenieur-in-siegfried-zofingen"
+        "fr": "ingenieur-de-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1646,11 +1646,16 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsingenieur-in-siegfried-ch"
+          "betriebsingenieur-in-siegfried-ch",
+          "betriebsingenieur-in-siegfried-zofingen"
+        ],
+        "fr": [
+          "betriebsingenieur-in-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
-        "betriebsingenieur-in-siegfried-ch"
+        "betriebsingenieur-in-siegfried-ch",
+        "betriebsingenieur-in-siegfried-zofingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-46qgy7",
-      "slug": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden",
+      "slug": "venditore-in-contanti-servizi-jumbo-division-der-coop-genossenschaft-ilanz-glion",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Ilanz/Glion",
@@ -50,10 +50,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
-        "en": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
+        "it": "venditore-in-contanti-servizi-jumbo-division-der-coop-genossenschaft-ilanz-glion",
+        "en": "seller-in-cash-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
         "de": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
-        "fr": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7"
+        "fr": "vendeur-en-especes-services-jumbo-division-der-coop-genossenschaft-ilanz-glion"
       },
       "addressLocality": "Ilanz/Glion",
       "sourceLang": "de",
@@ -68,11 +68,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
+        "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden"
+      ]
     },
     {
       "id": "company-lzsoh3",
-      "slug": "verkaufer-in-food-coop-felsberg-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-felsberg",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Felsberg",
@@ -98,10 +114,10 @@
       "crawledAt": "2026-05-08T09:44:50.172Z",
       "firstSeenAt": "2026-05-08T09:44:50.172Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "en": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "it": "venditore-in-food-coop-genossenschaft-felsberg",
+        "en": "seller-in-food-coop-genossenschaft-felsberg",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "fr": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -136,11 +152,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+          "verkaufer-in-food-coop-felsberg-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "verkaufer-in-food-coop-felsberg-graubunden"
+      ]
     },
     {
       "id": "company-hy7w7d",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Verkaufsberater:in",
       "location": "Chur",
@@ -166,10 +198,10 @@
       "crawledAt": "2026-05-08T09:44:50.172Z",
       "firstSeenAt": "2026-05-08T09:44:50.172Z",
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "it": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur",
         "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -204,11 +236,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
+        ],
+        "en": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        ],
+        "fr": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
+      ]
     },
     {
       "id": "company-tyijpe",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Chur",
@@ -234,10 +282,10 @@
       "crawledAt": "2026-05-08T09:44:50.172Z",
       "firstSeenAt": "2026-05-08T09:44:50.172Z",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "it": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur",
         "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -272,11 +320,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
+      ]
     },
     {
       "id": "company-metayj",
-      "slug": "verkaufer-in-food-coop-felsberg-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-felsberg-6dde92",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Felsberg",
@@ -302,10 +366,10 @@
       "crawledAt": "2026-05-07T10:51:02.656Z",
       "firstSeenAt": "2026-05-07T10:51:02.656Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "en": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "it": "venditore-in-food-coop-genossenschaft-felsberg-6dde92",
+        "en": "seller-in-food-coop-genossenschaft-felsberg-6dde92",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "fr": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -344,33 +408,36 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "venditore-in-food-coop-genossenschaft-felsberg"
+          "venditore-in-food-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+          "verkaufer-in-food-coop-felsberg-graubunden"
         ],
         "en": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "seller-in-food-coop-genossenschaft-felsberg"
+          "seller-in-food-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
         ],
         "de": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj"
         ],
         "fr": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "venditore-in-food-coop-genossenschaft-felsberg-6dde92",
-        "seller-in-food-coop-genossenschaft-felsberg-6dde92",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92",
         "venditore-in-food-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "verkaufer-in-food-coop-felsberg-graubunden",
         "seller-in-food-coop-genossenschaft-felsberg",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       ]
     },
     {
       "id": "company-g6dub0",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Verkaufsberater:in",
       "location": "Chur",
@@ -396,10 +463,10 @@
       "crawledAt": "2026-05-07T10:51:02.656Z",
       "firstSeenAt": "2026-05-07T10:51:02.656Z",
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "it": "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437",
         "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -438,33 +505,36 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-chur"
+          "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur"
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
         ],
         "de": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0"
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       ]
     },
     {
       "id": "company-3br90q",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "slug": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Chur",
@@ -490,10 +560,10 @@
       "crawledAt": "2026-05-07T10:51:02.656Z",
       "firstSeenAt": "2026-05-07T10:51:02.656Z",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "it": "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -532,26 +602,29 @@
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "amministratore-delegato-in-christ-uhren-schmuck-ag-chur"
+          "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
         ],
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "managing-director-in-christ-uhren-schmuck-ag-chur"
+          "managing-director-in-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
         ],
         "de": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q"
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "directeur-general-christ-uhren-schmuck-ag-chur"
+          "directeur-general-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
-        "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d",
-        "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
         "managing-director-in-christ-uhren-schmuck-ag-chur",
         "directeur-general-christ-uhren-schmuck-ag-chur"
       ]
@@ -3427,7 +3500,7 @@
     },
     {
       "id": "company-hs6koo",
-      "slug": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden",
+      "slug": "venditore-in-contanti-servizi-jumbo-division-der-coop-genossenschaft-ilanz-glion-b6cfef",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Ilanz/Glion",
@@ -3472,10 +3545,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
-        "en": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
+        "it": "venditore-in-contanti-servizi-jumbo-division-der-coop-genossenschaft-ilanz-glion-b6cfef",
+        "en": "seller-in-cash-services-jumbo-division-der-coop-genossenschaft-ilanz-glion-b6cfef",
         "de": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
-        "fr": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7"
+        "fr": "vendeur-en-especes-services-jumbo-division-der-coop-genossenschaft-ilanz-glion-b6cfef"
       },
       "addressLocality": "Ilanz/Glion",
       "sourceLang": "de",
@@ -3493,30 +3566,36 @@
       },
       "firstSeenAt": "2026-04-09T21:20:49.553Z",
       "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-hs6koo",
+        "venditore-ca-kassa-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
+        "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
+        "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden",
+        "cashier-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
+        "vendeur-se-caisse-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
         "consulente-vendite-giardinaggio-jumbo-division-der-coop-genossenschaft-ilanz-glion",
         "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-ilanz-glion",
-        "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-hs6koo",
         "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden",
         "venditore-in-contanti-servizi-coop-genossenschaft-klosters-serneus",
         "seller-in-cash-services-coop-genossenschaft-klosters-serneus",
         "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-s7h9kk",
-        "vendeur-en-especes-services-coop-genossenschaft-klosters-serneus",
-        "venditore-ca-kassa-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
-        "cashier-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
-        "vendeur-se-caisse-services-jumbo-division-der-coop-genossenschaft-ilanz-glion"
+        "vendeur-en-especes-services-coop-genossenschaft-klosters-serneus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-hs6koo",
-          "venditore-ca-kassa-services-jumbo-division-der-coop-genossenschaft-ilanz-glion"
+          "venditore-ca-kassa-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7",
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden"
         ],
         "en": [
           "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-hs6koo",
-          "cashier-services-jumbo-division-der-coop-genossenschaft-ilanz-glion"
+          "cashier-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7"
         ],
         "fr": [
           "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-hs6koo",
-          "vendeur-se-caisse-services-jumbo-division-der-coop-genossenschaft-ilanz-glion"
+          "vendeur-se-caisse-services-jumbo-division-der-coop-genossenschaft-ilanz-glion",
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7"
         ],
         "de": [
           "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-hs6koo"

@@ -71,12 +71,12 @@
     },
     {
       "id": "tschuggen-61a4e72f1c3c",
-      "slug": "tecnico-alberghiero-a-tempo-indeterminato-tschuggen-collection-arosa",
+      "slug": "tecnici-dell-hotel-nella-produzione-annuale-tschuggen-collection-arosa",
       "slugByLocale": {
         "de": "hoteltechniker-in-jahresanstellung-tschuggen-collection-arosa",
-        "it": "tecnico-alberghiero-a-tempo-indeterminato-tschuggen-collection-arosa",
-        "en": "hotel-technician-permanent-position-tschuggen-collection-arosa",
-        "fr": "technicien-d-hotel-en-cdi-tschuggen-collection-arosa"
+        "it": "tecnici-dell-hotel-nella-produzione-annuale-tschuggen-collection-arosa",
+        "en": "hotel-technicians-in-annual-production-tschuggen-collection-arosa",
+        "fr": "techniciens-hoteliers-en-production-annuelle-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -123,10 +123,22 @@
       "previousSlugsByLocale": {
         "de": [
           "hoteltechniker-in-jahresanstellung-tschuggen-ch"
+        ],
+        "it": [
+          "tecnico-alberghiero-a-tempo-indeterminato-tschuggen-collection-arosa"
+        ],
+        "en": [
+          "hotel-technician-permanent-position-tschuggen-collection-arosa"
+        ],
+        "fr": [
+          "technicien-d-hotel-en-cdi-tschuggen-collection-arosa"
         ]
       },
       "previousSlugs": [
-        "hoteltechniker-in-jahresanstellung-tschuggen-ch"
+        "hoteltechniker-in-jahresanstellung-tschuggen-ch",
+        "tecnico-alberghiero-a-tempo-indeterminato-tschuggen-collection-arosa",
+        "hotel-technician-permanent-position-tschuggen-collection-arosa",
+        "technicien-d-hotel-en-cdi-tschuggen-collection-arosa"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -215,10 +215,10 @@
     },
     {
       "id": "otis-89c5140e6854",
-      "slug": "technical-expert-m-w-d-otis-belp",
+      "slug": "esperto-tecnico-m-f-d-otis-sa-belp-b38cfb",
       "slugByLocale": {
         "en": "technical-expert-m-w-d-otis-belp",
-        "it": "technical-expert-m-w-d-otis-belp",
+        "it": "esperto-tecnico-m-f-d-otis-sa-belp-b38cfb",
         "de": "technical-expert-m-w-d-otis-belp",
         "fr": "technical-expert-m-w-d-otis-belp"
       },
@@ -272,14 +272,15 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-05-08T10:26:07.827Z",
       "previousSlugs": [
-        "technical-expert-m-w-d-otis-belp",
         "esperto-tecnico-m-f-d-otis-sa-belp",
+        "technical-expert-m-w-d-otis-belp",
         "technischer-sachverstandiger-m-w-d-otis-sa-belp",
         "expert-technique-h-f-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "esperto-tecnico-m-f-d-otis-sa-belp"
+          "esperto-tecnico-m-f-d-otis-sa-belp",
+          "technical-expert-m-w-d-otis-belp"
         ],
         "de": [
           "technischer-sachverstandiger-m-w-d-otis-sa-belp"
@@ -1788,12 +1789,12 @@
     },
     {
       "id": "otis-1384f837d648",
-      "slug": "o-t-sales-lead-oa-otis-cp-1136",
+      "slug": "o-t-vendite-piombo-oa-otis-sa-fribourg",
       "slugByLocale": {
         "en": "o-t-sales-lead-oa-otis-fribourg",
-        "it": "o-t-sales-lead-oa-otis-cp-1136",
-        "de": "o-t-sales-lead-oa-otis-cp-1136",
-        "fr": "o-t-sales-lead-oa-otis-cp-1136"
+        "it": "o-t-vendite-piombo-oa-otis-sa-fribourg",
+        "de": "o-t-vertriebsleiter-oa-otis-sa-fribourg",
+        "fr": "o-t-ventes-de-plomb-oa-otis-sa-fribourg"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1843,7 +1844,21 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-05-08T10:25:58.604Z"
+      "firstSeenAt": "2026-05-08T10:25:58.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "o-t-sales-lead-oa-otis-cp-1136"
+        ],
+        "de": [
+          "o-t-sales-lead-oa-otis-cp-1136"
+        ],
+        "fr": [
+          "o-t-sales-lead-oa-otis-cp-1136"
+        ]
+      },
+      "previousSlugs": [
+        "o-t-sales-lead-oa-otis-cp-1136"
+      ]
     },
     {
       "id": "otis-dd28c0864d38",
