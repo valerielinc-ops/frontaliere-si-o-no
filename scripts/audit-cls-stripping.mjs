@@ -40,7 +40,21 @@ const FILL_WAIT_MS = 8000;
 
 async function probeOne(page, url, viewport, label) {
   await page.setViewportSize(viewport);
-  await page.goto(`${BASE}${url}`, { waitUntil: 'networkidle', timeout: 30000 });
+  // `networkidle` never settles with AdSense + analytics polling. `load` is
+  // enough — the explicit FILL_WAIT_MS that follows is what gives ads time
+  // to render and our CSS time to apply.
+  await page.goto(`${BASE}${url}`, { waitUntil: 'load', timeout: 60000 });
+  // Scroll the page so the IntersectionObserver-based ADSENSE_LAZY_LOADER fires
+  // and Auto Ads have a chance to scan + inject. Without this, .google-auto-placed
+  // never appears in headless and the audit reports a false "no Auto Ads" state.
+  await page.evaluate(async () => {
+    const step = window.innerHeight * 0.8;
+    for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 250));
+    }
+    window.scrollTo(0, 0);
+  });
   await page.waitForTimeout(FILL_WAIT_MS);
   return await page.evaluate(() => {
     const out = { ins: [], autoPlaced: [], userAgent: navigator.userAgent };
@@ -82,10 +96,35 @@ async function probeOne(page, url, viewport, label) {
 
 const browser = await chromium.launch({ headless: true });
 const ctx = await browser.newContext({
-  // Use a real desktop UA so AdSense doesn't bot-skip us — same UA we're
-  // trying to validate the experience for.
   userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
 });
+
+// We deliberately bypass our own bot gate (services/adAnalytics.ts +
+// build-plugins/constants.ts ADSENSE_LAZY_LOADER) so we can observe real
+// ad rendering. The site correctly rejects Playwright by default — that's
+// the desired protection in production. For this internal audit only:
+//   - delete `navigator.webdriver`
+//   - inject a plausible plugins/permissions/languages surface so the
+//     modern stealth signals don't fire either.
+await ctx.addInitScript(() => {
+  // Hide automation fingerprint
+  Object.defineProperty(Navigator.prototype, 'webdriver', { get: () => undefined });
+  // Real Chrome ships ≥1 plugin (PDF viewer); headless reports 0
+  Object.defineProperty(Navigator.prototype, 'plugins', {
+    get: () => ({ length: 3, item: () => null, namedItem: () => null }),
+  });
+  // Real Chrome ships en-US at minimum; headless ships []
+  Object.defineProperty(Navigator.prototype, 'languages', { get: () => ['en-US', 'en'] });
+  // Real Chrome exposes Permissions API
+  if (!('permissions' in Navigator.prototype)) {
+    Object.defineProperty(Navigator.prototype, 'permissions', {
+      get: () => ({ query: () => Promise.resolve({ state: 'prompt' }) }),
+    });
+  }
+  // window.chrome must exist to bypass the chrome-without-chrome heuristic
+  if (!('chrome' in window)) Object.defineProperty(window, 'chrome', { value: { runtime: {} } });
+});
+
 const page = await ctx.newPage();
 
 const results = [];
