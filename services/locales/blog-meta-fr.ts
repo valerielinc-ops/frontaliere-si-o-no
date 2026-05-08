@@ -7068,6 +7068,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cardada-cimetta-riapre-bikers-2024.title': 'Cardada Cimetta rouvre aux bikers : voici ce qui change',
     'blog.article.cardada-cimetta-riapre-bikers-2024.excerpt': 'Après la fermeture pour entretien extraordinaire, le sentier 397 à Cardada Cimetta est à nouveau praticable. Voici les nouveautés pour les amateurs de VTT',
     'blog.article.cardada-cimetta-riapre-bikers-2024.imageAlt': 'Sentier Cardada Cimetta à Locarno après la tempête hivernale',
+    'blog.article.frontalieri-ticino-8-maggio-2026.title': 'GrAudio édition de 10:30 du 8 mai: infos pour les frontaliers',
+    'blog.article.frontalieri-ticino-8-maggio-2026.excerpt': 'Les dernières nouvelles de l\'édition de 10:30 du 8 mai sur Varesenoi.it, avec un focus sur les événements et les nouveautés pour les frontaliers',
+    'blog.article.frontalieri-ticino-8-maggio-2026.imageAlt': 'Vue panoramique de Lugano avec le Monte Brè et le lac de Lugano',
 };
 
 export default blogMetaFr;
