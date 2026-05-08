@@ -5283,10 +5283,10 @@
     },
     {
       "id": "tether-57aebf79fc7f",
-      "slug": "engagement-manager-ai-implementations-tether-ch",
+      "slug": "engagement-manager-implementazioni-ai-tether-operations-warsaw-mazowieckie",
       "slugByLocale": {
         "en": "engagement-manager-ai-implementations-tether-ch",
-        "it": "engagement-manager-ai-implementations-tether-ch",
+        "it": "engagement-manager-implementazioni-ai-tether-operations-warsaw-mazowieckie",
         "de": "engagement-manager-ai-implementations-tether-ch",
         "fr": "engagement-manager-ai-implementations-tether-ch"
       },
@@ -5347,7 +5347,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-07T22:40:27.140Z"
+      "firstSeenAt": "2026-05-07T22:40:27.140Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "engagement-manager-ai-implementations-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engagement-manager-ai-implementations-tether-ch"
+      ]
     }
   ]
 }

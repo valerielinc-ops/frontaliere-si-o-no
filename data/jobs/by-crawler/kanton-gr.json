@@ -641,9 +641,9 @@
     },
     {
       "id": "kanton-gr-198a06daac5c",
-      "slug": "strassenwart-vorarbeiter-in-kanton-gr-ch",
+      "slug": "caposquadra-di-strada-kantonale-verwaltung-graubunden-davos-frauenkirch",
       "slugByLocale": {
-        "it": "strassenwart-vorarbeiter-in-kanton-gr-ch",
+        "it": "caposquadra-di-strada-kantonale-verwaltung-graubunden-davos-frauenkirch",
         "en": "strassenwart-vorarbeiter-in-kanton-gr-ch",
         "de": "strassenwart-vorarbeiter-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
         "fr": "strassenwart-vorarbeiter-in-kanton-gr-ch"
@@ -703,7 +703,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strassenwart-vorarbeiter-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-f23b47ad0049",
