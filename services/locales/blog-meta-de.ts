@@ -7172,6 +7172,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arcidiacono-curia-lugano-2026.title': 'Andrea Arcidiacono neuer Pressesprecher der Kurie Lugano',
     'blog.article.arcidiacono-curia-lugano-2026.excerpt': 'Der Bellinzoneser übernimmt von Luca Montagner ab dem 1. Juni mit einer Beschäftigungsquote von 60%.',
     'blog.article.arcidiacono-curia-lugano-2026.imageAlt': 'Innenraum des Luganer Doms mit moderner Presseabteilung',
+    'blog.article.simone-grossi-frontaliere-visp.title': 'Grenzgänger in Visp tot aufgefunden: Simone Grossi',
+    'blog.article.simone-grossi-frontaliere-visp.excerpt': 'Simone Grossi, ein italienischer Grenzgänger, ist heute Morgen in Visp verstorben. Die Behörden ermitteln noch zu den Umständen des Vorfalls.',
+    'blog.article.simone-grossi-frontaliere-visp.imageAlt': 'Bahnhof Visp in der Schweiz mit anwesenden Rettungsdiensten',
 };
 
 export default blogMetaDe;

@@ -7173,6 +7173,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arcidiacono-curia-lugano-2026.title': 'Andrea Arcidiacono nuovo addetto stampa della Curia di Lugano',
     'blog.article.arcidiacono-curia-lugano-2026.excerpt': 'Il bellinzonese subentra a Luca Montagner dal 1° giugno con un tasso d’occupazione del 60%.',
     'blog.article.arcidiacono-curia-lugano-2026.imageAlt': 'Interno del Duomo di Lugano con ufficio stampa moderno',
+    'blog.article.simone-grossi-frontaliere-visp.title': 'Frontaliere morto a Visp: è Simone Grossi',
+    'blog.article.simone-grossi-frontaliere-visp.excerpt': 'Simone Grossi, frontaliere italiano, è deceduto questa mattina a Visp. Le autorità stanno indagando sulle cause dell\'incidente.',
+    'blog.article.simone-grossi-frontaliere-visp.imageAlt': 'Stazione di Visp in Svizzera con servizi di emergenza presenti',
 };
 
 export default blogMetaIt;

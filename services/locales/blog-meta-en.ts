@@ -7172,6 +7172,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arcidiacono-curia-lugano-2026.title': 'Andrea Arcidiacono new press officer for Lugano Curia',
     'blog.article.arcidiacono-curia-lugano-2026.excerpt': 'The Bellinzona native replaces Luca Montagner on June 1st with a 60% work rate.',
     'blog.article.arcidiacono-curia-lugano-2026.imageAlt': 'Interior of Lugano Cathedral with modern press office',
+    'blog.article.simone-grossi-frontaliere-visp.title': 'Cross-border worker dies in Visp: Simone Grossi',
+    'blog.article.simone-grossi-frontaliere-visp.excerpt': 'Simone Grossi, an Italian cross-border worker, died this morning in Visp. Authorities are investigating the cause of the accident.',
+    'blog.article.simone-grossi-frontaliere-visp.imageAlt': 'Visp train station in Switzerland with emergency services present',
 };
 
 export default blogMetaEn;

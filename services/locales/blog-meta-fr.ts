@@ -7173,6 +7173,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arcidiacono-curia-lugano-2026.title': 'Andrea Arcidiacono, nouveau attaché de presse du diocèse de Lugano',
     'blog.article.arcidiacono-curia-lugano-2026.excerpt': 'Le Bellinzonais remplace Luca Montagner à partir du 1er juin avec un taux d\'occupation de 60%.',
     'blog.article.arcidiacono-curia-lugano-2026.imageAlt': 'Intérieur de la cathédrale de Lugano avec bureau de presse moderne',
+    'blog.article.simone-grossi-frontaliere-visp.title': 'Frontalier décédé à Visp: c\'est Simone Grossi',
+    'blog.article.simone-grossi-frontaliere-visp.excerpt': 'Simone Grossi, frontalier italien, est décédé ce matin à Visp. Les autorités enquêtent sur les causes de l\'accident.',
+    'blog.article.simone-grossi-frontaliere-visp.imageAlt': 'Gare de Visp en Suisse avec les services d\'urgence présents',
 };
 
 export default blogMetaFr;
