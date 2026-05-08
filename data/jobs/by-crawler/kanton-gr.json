@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-05-07T22:05:31.634Z",
+  "assembledAt": "2026-05-08T10:10:09.281Z",
   "jobs": [
     {
       "id": "kanton-gr-cb30f2200bf1",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2677/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:29.501Z",
+      "crawledAt": "2026-05-08T10:10:07.085Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://apply.refline.ch/514915/2620/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:28.888Z",
+      "crawledAt": "2026-05-08T10:10:06.455Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -178,6 +178,7 @@
         "stagiaire-comme-dessinateur-ice-efz-batiment-civil-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:49:03.502Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -222,7 +223,7 @@
       "url": "https://apply.refline.ch/514915/2595/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:28.270Z",
+      "crawledAt": "2026-05-08T10:10:05.826Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -298,7 +299,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:27.651Z",
+      "crawledAt": "2026-05-08T10:10:05.196Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -368,6 +369,7 @@
         "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-13T10:49:01.647Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -412,7 +414,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:27.031Z",
+      "crawledAt": "2026-05-08T10:10:04.566Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -455,6 +457,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:49:00.412Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -499,7 +502,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:26.411Z",
+      "crawledAt": "2026-05-08T10:10:03.931Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -542,6 +545,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:59.793Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -586,7 +590,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:25.790Z",
+      "crawledAt": "2026-05-08T10:10:03.303Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -626,6 +630,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:58.993Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -670,7 +675,7 @@
       "url": "https://apply.refline.ch/514915/2683/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:25.171Z",
+      "crawledAt": "2026-05-08T10:10:02.669Z",
       "addressLocality": "Davos Frauenkirch",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -691,7 +696,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
+      "previousSlugsByLocale": {
+        "de": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch"
+        ],
+        "it": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strassenwart-vorarbeiter-in-kanton-gr-ch"
+      ],
       "firstSeenAt": "2026-05-07T11:16:43.554Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -703,15 +720,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "strassenwart-vorarbeiter-in-kanton-gr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "strassenwart-vorarbeiter-in-kanton-gr-ch"
-      ]
+      }
     },
     {
       "id": "kanton-gr-f23b47ad0049",
@@ -744,7 +753,7 @@
       "url": "https://apply.refline.ch/514915/2690/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:24.552Z",
+      "crawledAt": "2026-05-08T10:10:02.039Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -785,6 +794,7 @@
         "sekretar-in-sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-07T11:16:42.931Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -829,7 +839,7 @@
       "url": "https://apply.refline.ch/514915/2692/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:23.932Z",
+      "crawledAt": "2026-05-08T10:10:01.391Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -913,7 +923,7 @@
       "url": "https://apply.refline.ch/514915/2691/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:23.313Z",
+      "crawledAt": "2026-05-08T10:10:00.744Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -955,6 +965,7 @@
         "collaboratore-trice-in-administration-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-07T11:16:41.686Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -999,7 +1010,7 @@
       "url": "https://apply.refline.ch/514915/2689/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:22.694Z",
+      "crawledAt": "2026-05-08T10:10:00.111Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1038,6 +1049,7 @@
         "bereichsleiter-in-sicherheit-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-05-07T11:16:41.063Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1082,7 +1094,7 @@
       "url": "https://apply.refline.ch/514915/2693/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:22.074Z",
+      "crawledAt": "2026-05-08T10:09:59.480Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1121,6 +1133,7 @@
         "teamleiter-in-administration-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-05-07T11:16:40.439Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1165,7 +1178,7 @@
       "url": "https://apply.refline.ch/514915/2694/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:21.454Z",
+      "crawledAt": "2026-05-08T10:09:58.851Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1248,7 +1261,7 @@
       "url": "https://apply.refline.ch/514915/2673/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:20.834Z",
+      "crawledAt": "2026-05-08T10:09:58.221Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1284,6 +1297,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:02:52.921Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1328,7 +1342,7 @@
       "url": "https://apply.refline.ch/514915/2670/pub/6/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:20.212Z",
+      "crawledAt": "2026-05-08T10:09:57.589Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -1413,7 +1427,7 @@
       "url": "https://apply.refline.ch/514915/2671/pub/6/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:19.591Z",
+      "crawledAt": "2026-05-08T10:09:56.958Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1498,7 +1512,7 @@
       "url": "https://apply.refline.ch/514915/2669/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:18.968Z",
+      "crawledAt": "2026-05-08T10:09:56.335Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1577,7 +1591,7 @@
       "url": "https://apply.refline.ch/514915/2685/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:18.349Z",
+      "crawledAt": "2026-05-08T10:09:55.703Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1655,7 +1669,7 @@
       "descriptionByLocale": {
         "it": "Descrizione L'autorità di protezione per bambini e adulti KESB è lì per le persone in difficoltà. Chiunque abbia bisogno di aiuto e supporto può contare sul KESB. Non abbiamo un giorno come l'altro. Nel team interdisciplinare formiamo attivamente un futuro sicuro per adulti vulnerabili, famiglie, bambini e giovani. Stiamo cercando KESB Graubünden, filiale Nordbünden, il 1o luglio 2026 o d'accordo un avvocato o un avvocato. Nel caso di una persona che ha il diritto di lavorare e che ha il diritto di lavorare e che ha il diritto di lavorare e che ha il diritto di lavorare, che ha il diritto di lavorare e che ha il diritto di lavorare, che ha il diritto di lavorare e che ha il diritto di lavorare, che ha il diritto di lavorare e che ha il diritto di lavorare e che ha il diritto di farlo",
         "en": "Descrizione The child and adult protection authority KESB is there for people in need. Anyone who needs help and support can count on the KESB. We don't have a day like the other. In the interdisciplinary team we actively shape a safe future for vulnerable adults, families, children and youth. We are looking for KESB Graubünden, Nordbünden branch office, on 1 July 2026 or by agreement a lawyer or a lawyer. In the case of a person who has a right to work and who has a right to work and who has a right to work and who has a right to work, who has a right to work and who has a right to work, who has a right to work and who has a right to work, who has a right to work and who has a right to work and who has a right to do so",
-        "de": "Descrizione Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Wir suchen für die KESB Graubünden, Zweigstelle Nordbünden, per 1. Juli 2026 oder nach Vereinbarung eine Juristin oder einen Juristen. ## Aufgaben - Unterstützung und Beratung der Behördemitglieder sowie Beistandspersonen bei materiellen und formellen rechtlichen Fragestellungen (Kindes- und Erwachsenenschutzrecht, Ehe- und Erbrecht, Grundstückgeschäfte, Versicherungsrecht, internationales Privatrecht) - Selbstständige Bearbeitung zugeteilter Verfahren, unter anderem zustimmungsbedürftige Geschäfte (Art. 416 ZGB) - Erstellen von Entscheidentwürfen in den zugeteilten Verfahren - Aktuariatstätigkeit zuhanden der Behörde - Aktive Mitarbeit in verschiedenen Projektgruppen (z.B. Praxisfindung, Gesetzesrevisionen) - Protokollführung bei Anhörungen ## Anforderungen - Universitärer Abschluss in Rechtswissenschaft - Berufserfahrung, vorzugsweise in der Advokatur oder bei Gericht und solide Kenntnisse im Privatrecht - Selbstständige, belastbare, flexible und vernetzt denkende Persönlichkeit - Sehr gutes mündliches und schriftliches Ausdrucksvermögen in Deutsch, Fremdsprachenkenntnisse sind von Vorteil - Umsichtige, effiziente und präzise Arbeitsweise - Hohe Dienstleistungsbereitschaft und Teamfähigkeit im interdisziplinären Dienst - Ausgewiesene Sozialkompetenz und Empathie gegenüber Menschen in schwierigen Lebenssituationen",
+        "de": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Wir suchen für die KESB Graubünden, Zweigstelle Nordbünden, per 1. Juli 2026 oder nach Vereinbarung eine Juristin oder einen Juristen. Aufgaben • Unterstützung und Beratung der Behördemitglieder sowie Beistandspersonen bei materiellen und formellen rechtlichen Fragestellungen (Kindes- und Erwachsenenschutzrecht, Ehe- und Erbrecht, Grundstückgeschäfte, Versicherungsrecht, internationales Privatrecht) • Selbstständige Bearbeitung zugeteilter Verfahren, unter anderem zustimmungsbedürftige Geschäfte (Art. 416 ZGB) • Erstellen von Entscheidentwürfen in den zugeteilten Verfahren • Aktuariatstätigkeit zuhanden der Behörde • Aktive Mitarbeit in verschiedenen Projektgruppen (z.B. Praxisfindung, Gesetzesrevisionen) • Protokollführung bei Anhörungen Anforderungen • Universitärer Abschluss in Rechtswissenschaft • Berufserfahrung, vorzugsweise in der Advokatur oder bei Gericht und solide Kenntnisse im Privatrecht • Selbstständige, belastbare, flexible und vernetzt denkende Persönlichkeit • Sehr gutes mündliches und schriftliches Ausdrucksvermögen in Deutsch, Fremdsprachenkenntnisse sind von Vorteil • Umsichtige, effiziente und präzise Arbeitsweise • Hohe Dienstleistungsbereitschaft und Teamfähigkeit im interdisziplinären Dienst • Ausgewiesene Sozialkompetenz und Empathie gegenüber Menschen in schwierigen Lebenssituationen",
         "fr": "Descrizione L'autorité de protection des enfants et des adultes KESB est là pour les personnes dans le besoin. Quiconque a besoin d'aide et de soutien peut compter sur le KESB. On n'a pas un jour comme l'autre. Au sein de l'équipe interdisciplinaire, nous élaborons activement un avenir sûr pour les adultes, les familles, les enfants et les jeunes vulnérables. Nous sommes à la recherche de KESB Graubünden, filiale de Nordbünden, le 1er juillet 2026 ou par accord d'un avocat ou d'un avocat. Dans le cas d'une personne qui a le droit de travailler et qui a le droit de travailler et qui a le droit de travailler et qui a le droit de travailler, qui a le droit de travailler et qui a le droit de travailler, qui a le droit de travailler et qui a le droit de travailler, qui a le droit de travailler et qui a le droit de travailler"
       },
       "location": "Chur",
@@ -1663,7 +1677,7 @@
       "url": "https://apply.refline.ch/514915/2686/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:17.724Z",
+      "crawledAt": "2026-05-08T10:09:55.072Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1701,6 +1715,7 @@
       "previousSlugs": [
         "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-30T11:01:18.166Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1713,9 +1728,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "kanton-gr-8e05f7137c3f",
@@ -1748,7 +1761,7 @@
       "url": "https://apply.refline.ch/514915/2684/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:17.105Z",
+      "crawledAt": "2026-05-08T10:09:54.440Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1790,6 +1803,7 @@
         "responsabile-administration-e-sachbearbeitung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-30T11:01:17.492Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1834,7 +1848,7 @@
       "url": "https://apply.refline.ch/514915/2682/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:16.450Z",
+      "crawledAt": "2026-05-08T10:09:53.817Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1917,7 +1931,7 @@
       "url": "https://apply.refline.ch/514915/2681/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:15.810Z",
+      "crawledAt": "2026-05-08T10:09:52.910Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1958,6 +1972,7 @@
         "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-30T11:01:16.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2002,7 +2017,7 @@
       "url": "https://apply.refline.ch/514915/2675/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:15.191Z",
+      "crawledAt": "2026-05-08T10:09:51.504Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2044,6 +2059,7 @@
         "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-30T11:01:15.456Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2088,7 +2104,7 @@
       "url": "https://apply.refline.ch/514915/2664/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:14.570Z",
+      "crawledAt": "2026-05-08T10:09:50.872Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2127,6 +2143,7 @@
         "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-30T11:01:14.777Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2171,7 +2188,7 @@
       "url": "https://apply.refline.ch/514915/2679/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:13.949Z",
+      "crawledAt": "2026-05-08T10:09:50.241Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2206,6 +2223,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:48.704Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2250,7 +2268,7 @@
       "url": "https://apply.refline.ch/514915/2662/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:13.331Z",
+      "crawledAt": "2026-05-08T10:09:49.612Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2286,6 +2304,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:48.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2330,7 +2349,7 @@
       "url": "https://apply.refline.ch/514915/2666/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:12.710Z",
+      "crawledAt": "2026-05-08T10:09:48.982Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2370,6 +2389,7 @@
         "mitarbeiter-in-aufbewahrung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:47.341Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2414,7 +2434,7 @@
       "url": "https://apply.refline.ch/514915/2667/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:12.091Z",
+      "crawledAt": "2026-05-08T10:09:48.352Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2454,6 +2474,7 @@
         "mitarbeiter-in-katalog-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:46.656Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2498,7 +2519,7 @@
       "url": "https://apply.refline.ch/514915/2680/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:11.470Z",
+      "crawledAt": "2026-05-08T10:09:47.722Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2531,6 +2552,7 @@
         "assistent-in-der-amtsleitung-mit-personalverantwortung-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:45.967Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2575,7 +2597,7 @@
       "url": "https://apply.refline.ch/514915/2658/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:10.857Z",
+      "crawledAt": "2026-05-08T10:09:47.092Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2616,6 +2638,7 @@
         "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:45.283Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2660,7 +2683,7 @@
       "url": "https://apply.refline.ch/514915/2663/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:10.234Z",
+      "crawledAt": "2026-05-08T10:09:46.460Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2699,6 +2722,7 @@
         "ict-system-spezialist-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:44.599Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2743,7 +2767,7 @@
       "url": "https://apply.refline.ch/514915/2678/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:09.613Z",
+      "crawledAt": "2026-05-08T10:09:45.827Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2827,7 +2851,7 @@
       "url": "https://apply.refline.ch/514915/2668/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:08.994Z",
+      "crawledAt": "2026-05-08T10:09:45.196Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2911,7 +2935,7 @@
       "url": "https://apply.refline.ch/514915/2665/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:08.374Z",
+      "crawledAt": "2026-05-08T10:09:44.565Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2952,6 +2976,7 @@
         "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:42.549Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2996,7 +3021,7 @@
       "url": "https://apply.refline.ch/514915/2672/pub/4/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:07.755Z",
+      "crawledAt": "2026-05-08T10:09:43.935Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3084,7 +3109,7 @@
       "url": "https://apply.refline.ch/514915/2674/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:07.137Z",
+      "crawledAt": "2026-05-08T10:09:43.291Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3120,6 +3145,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:41.182Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3164,7 +3190,7 @@
       "url": "https://apply.refline.ch/514915/2659/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:06.515Z",
+      "crawledAt": "2026-05-08T10:09:42.660Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3204,6 +3230,7 @@
         "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:48.296Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3248,7 +3275,7 @@
       "url": "https://apply.refline.ch/514915/2660/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:05.893Z",
+      "crawledAt": "2026-05-08T10:09:42.027Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3291,6 +3318,7 @@
         "betriebsokonom-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-16T10:12:47.679Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3335,7 +3363,7 @@
       "url": "https://apply.refline.ch/514915/2654/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:05.274Z",
+      "crawledAt": "2026-05-08T10:09:41.395Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3376,6 +3404,7 @@
         "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:47.062Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3420,7 +3449,7 @@
       "url": "https://apply.refline.ch/514915/2657/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:04.654Z",
+      "crawledAt": "2026-05-08T10:09:40.764Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -3456,6 +3485,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:12:46.446Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3500,7 +3530,7 @@
       "url": "https://apply.refline.ch/514915/2656/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:04.040Z",
+      "crawledAt": "2026-05-08T10:09:40.135Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3535,6 +3565,7 @@
         "wissenschaftliches-volontariat-bundner-kunstmuseum-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:45.213Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3579,7 +3610,7 @@
       "url": "https://apply.refline.ch/514915/2655/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:03.420Z",
+      "crawledAt": "2026-05-08T10:09:39.504Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3620,6 +3651,7 @@
         "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:44.581Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3664,7 +3696,7 @@
       "url": "https://apply.refline.ch/514915/2640/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:02.798Z",
+      "crawledAt": "2026-05-08T10:09:38.871Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3749,7 +3781,7 @@
       "url": "https://apply.refline.ch/514915/2651/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:02.182Z",
+      "crawledAt": "2026-05-08T10:09:38.240Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3813,6 +3845,7 @@
         "messtechniker-in-emissionen-luft-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:58.185Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3857,7 +3890,7 @@
       "url": "https://apply.refline.ch/514915/2647/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:01.562Z",
+      "crawledAt": "2026-05-08T10:09:37.609Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3910,6 +3943,7 @@
         "it-oder-juristische-fachperson-als-stv-leiter-in-datenschutzaufsichtsstelle-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.673Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -3954,7 +3988,7 @@
       "url": "https://apply.refline.ch/514915/2642/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:00.940Z",
+      "crawledAt": "2026-05-08T10:09:36.969Z",
       "addressLocality": "Haldenstein",
       "postalCode": "7023",
       "addressCountry": "CH",
@@ -4018,6 +4052,7 @@
         "leiter-in-amt-fur-militar-und-zivilschutz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.050Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4062,7 +4097,7 @@
       "url": "https://apply.refline.ch/514915/2638/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:05:00.318Z",
+      "crawledAt": "2026-05-08T10:09:36.335Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4125,6 +4160,7 @@
         "sachbearbeiter-in-rechtsdienst-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:47.335Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4169,7 +4205,7 @@
       "url": "https://apply.refline.ch/514915/2629/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:04:59.698Z",
+      "crawledAt": "2026-05-08T10:09:35.704Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -4215,6 +4251,7 @@
         "schulpsychologin-schulpsychologe-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:45.478Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4259,7 +4296,7 @@
       "url": "https://apply.refline.ch/514915/2639/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:04:59.052Z",
+      "crawledAt": "2026-05-08T10:09:35.048Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4314,6 +4351,7 @@
         "chemiker-in-fh-umweltingenieur-in-fh-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:44.857Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4358,7 +4396,7 @@
       "url": "https://apply.refline.ch/514915/2516/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:04:58.432Z",
+      "crawledAt": "2026-05-08T10:09:34.414Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4422,6 +4460,7 @@
         "polizeikommandant-in-kantonspolizei-graubunden-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:43.616Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4466,7 +4505,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:04:57.813Z",
+      "crawledAt": "2026-05-08T10:09:33.779Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4530,6 +4569,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
