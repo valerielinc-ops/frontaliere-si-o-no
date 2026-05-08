@@ -6981,6 +6981,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.durisch-dado-blocco-frontalieri-ticino.title': 'Durisch: \'Il blocco? Lo vede solo Dadò...\'',
     'blog.article.durisch-dado-blocco-frontalieri-ticino.excerpt': 'Il capogruppo socialista del Ticino risponde alle accuse del presidente del Centro, Fiorenzo Dadò, sul blocco del Tribunale amministrativo.',
     'blog.article.durisch-dado-blocco-frontalieri-ticino.imageAlt': 'Bellinzona, vista del centro città con il Castelgrande',
+    'blog.article.frontalieri-lugano-chiarezza-2026.title': 'Ex dipendenti in affitto con privilegi? La Città faccia chiarezza',
+    'blog.article.frontalieri-lugano-chiarezza-2026.excerpt': 'Interrogazione della Lega al Municipio di Lugano per maggiore trasparenza su immobili comunali e ex dipendenti',
+    'blog.article.frontalieri-lugano-chiarezza-2026.imageAlt': 'Veduta aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

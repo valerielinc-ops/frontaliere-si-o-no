@@ -6980,6 +6980,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.durisch-dado-blocco-frontalieri-ticino.title': 'Durisch: \'Die Blockade? Nur Dadò sieht sie...\'',
     'blog.article.durisch-dado-blocco-frontalieri-ticino.excerpt': 'Der sozialdemokratische Fraktionschef des Tessin reagiert auf die Vorwürfe des Zentrumspräsidenten Fiorenzo Dadò bezüglich der Blockade des Verwaltungsgerichts.',
     'blog.article.durisch-dado-blocco-frontalieri-ticino.imageAlt': 'Bellinzona, Blick auf die Innenstadt mit Castelgrande',
+    'blog.article.frontalieri-lugano-chiarezza-2026.title': 'Ex-Mitarbeiter mit Privilegien? Stadt soll Klarheit schaffen',
+    'blog.article.frontalieri-lugano-chiarezza-2026.excerpt': 'Interpellation der Lega an den Luganer Stadtrat für mehr Transparenz bei kommunalen Immobilien und Ex-Mitarbeitern',
+    'blog.article.frontalieri-lugano-chiarezza-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

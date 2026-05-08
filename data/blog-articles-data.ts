@@ -22313,4 +22313,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-lugano-chiarezza-2026',
+ category: 'pratico',
+ date: '2026-05-08T03:46:34.553Z',
+ image: '/images/blog/frontalieri-lugano-chiarezza-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

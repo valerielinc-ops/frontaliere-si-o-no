@@ -3569,6 +3569,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-arresto-commissario-fedpol-mafia': { name: 'Novità', path: '/articoli-frontaliere/arresto-commissario-fedpol-mafia', parent: 'blog' },
     'blog-processo-broker-vip-retrocessioni': { name: 'Processo broker VIP', path: '/articoli-frontaliere/processo-broker-vip-retrocessioni', parent: 'blog' },
     'blog-durisch-dado-blocco-frontalieri-ticino': { name: 'Notizie Ticino', path: '/articoli-frontaliere/durisch-dado-blocco-frontalieri-ticino', parent: 'blog' },
+    'blog-frontalieri-lugano-chiarezza-2026': { name: 'Frontalieri Lugano', path: '/articoli-frontaliere/frontalieri-lugano-chiarezza-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
