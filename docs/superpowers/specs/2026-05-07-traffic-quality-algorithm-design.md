@@ -296,12 +296,17 @@ export function buildClusterStats(ga4Pages) {...}
 
 ### 4.7 Embedding builder (`build-article-embeddings.mjs`)
 
-**Model**: `text-embedding-3-small` (OpenAI) — 1536 dim, $0.02 per 1M tokens, ~512 tokens per article (title + first 800 char of body) → ~$0.01 per 1k articles full refresh.
+**Provider chain**: Mistral primary, Cohere fallback. Both already in Firebase Remote Config (`SERVER_MISTRAL_API_KEY`, `SERVER_COHERE_API_KEY`) — no new GitHub secrets to add.
+
+- **Mistral** `mistral-embed` (1024 dim, EU-hosted, $0.10/1M tokens via Mistral La Plateforme)
+- **Cohere** `embed-multilingual-v3.0` (1024 dim, free tier 100k req/month) — drop-in fallback (same dim)
+
+For 2300 articles × ~512 tokens = 1.2M tokens, full refresh costs ~$0.12 on Mistral.
 
 **File format**: `data/article-embeddings.bin`
 - Header (32 bytes): magic `EMBV1` + count uint32 + dim uint32 + reserved
-- Per-record (1536 × 4 bytes float32 + 32 bytes slug-hash): ~6KB per article
-- For 5000 articles: ~30 MB — OK for git commit (no LFS needed, single binary file).
+- Per-record (1024 × 4 bytes float32 + 32 bytes slug-hash): ~4KB per article
+- For 5000 articles: ~20 MB — OK for git commit.
 
 **Incremental strategy**:
 - Read existing `article-embeddings.bin` if present, build set of slug-hashes
@@ -309,19 +314,19 @@ export function buildClusterStats(ga4Pages) {...}
 - For each article whose hash is NOT in the existing set, compute embedding (batched 100/request)
 - Write new combined file (atomic rename)
 
-**Auth**: try `OPENROUTER_API_KEY` first (the project's preferred routing per existing `scripts/lib/ai-models.mjs`). If the OpenRouter `/embeddings` endpoint does not support `text-embedding-3-small` (verify before implementing), fall back to direct OpenAI by reading the existing `scripts/lib/ai-models.mjs` provider list and using the first entry that exposes embeddings. Concretely the agent picks ONE provider and hardcodes it in `scripts/lib/evidence/embeddingClient.mjs` — no runtime selection logic.
+**Auth**: `embeddingClient.mjs` selects the first provider whose API key is in env. If neither key is present, the build script logs a warning and writes a meta-only sidecar so downstream tools know embeddings were skipped (cascadedScore falls through to cluster-median for unembedded articles).
 
 **Function signature**:
 ```js
-export async function buildIncrementalEmbeddings({ articlesMap, existingFile, outputFile, model }) {...}
+export async function buildIncrementalEmbeddings({ articlesMap, existingFile, outputFile }) {...}
 ```
 
 **Sidecar JSON**: also produce `data/article-embeddings-meta.json` for human-debuggability:
 ```json
 {
-  "model": "text-embedding-3-small",
-  "dim": 1536,
-  "count": 5000,
+  "model": "mistral-embed",
+  "dim": 1024,
+  "count": 2300,
   "builtAt": "...",
   "perArticle": { "<slug>": { "hash": "...", "byteOffset": 32 } }
 }
@@ -481,7 +486,7 @@ export function extractTerms(headline) {...}
 ### 5.5 Embedding similarity (step 3 of cascade)
 
 **Logic**:
-1. Compute embedding for headline (single API call to `text-embedding-3-small`)
+1. Compute embedding for headline (single API call via `embeddingClient.mjs`, currently routed to Mistral `mistral-embed`)
 2. Read `article-embeddings.bin` into memory (cached across slot calls in same process)
 3. Compute cosine similarity headline_emb vs each stored article emb
 4. Take top 5 by cosine sim
@@ -1111,8 +1116,8 @@ These lines are grep-able from workflow logs, no external infra needed.
 | GSC API | $0 | Free quota: 1200 queries/day per site, we use ~5/day |
 | GA4 Data API | $0 | Free quota: 200k tokens/day per project, we use ~50k/day |
 | PostHog API | $0 | Self-hosted or free tier sufficient |
-| OpenAI embeddings | $0.10-$0.50 | $0.02/1M tokens; 5k articles × 512 tokens = 2.5M tokens = $0.05 daily incremental, $0.50 full refresh weekly |
-| **Total** | **~$0.50/day** | <$15/month |
+| Mistral embeddings | ~$0.001-$0.12 | $0.10/1M tokens via Mistral La Plateforme; 2.3k articles × 512 tokens = 1.2M tokens = ~$0.001 daily incremental, ~$0.12 full refresh weekly |
+| **Total** | **~$0.001/day** | <$1/month |
 
 ### 12.2 GitHub Actions minutes
 
@@ -1216,6 +1221,6 @@ Total ~45 MB additional repo bloat at steady state. Acceptable.
 - Google Trends source (no stable free API)
 - PostHog event-based winner definition (currently traffic-only)
 - Per-article canary alerts (deferred — too noisy)
-- Embedding model upgrade to `text-embedding-3-large` (cost 10x; only if `text-embedding-3-small` proves insufficient)
+- Embedding model upgrade to a higher-dim provider (Mistral `mistral-embed-large`, Cohere `embed-multilingual-v4.0`) — only if current 1024-dim Mistral chain proves insufficient on cosine quality
 - Multi-language (DE/FR/EN) winner tracking (current scope: IT articles only)
 - A/B testing framework for cluster scoring weights (after Phase 2 stabilizes)

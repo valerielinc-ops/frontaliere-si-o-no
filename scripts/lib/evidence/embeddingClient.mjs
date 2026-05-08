@@ -1,12 +1,11 @@
 // Embedding client — multi-provider chain.
 //
-// Reuses the centralized AI key surface (Mistral / Cohere) already in
-// Firebase Remote Config + scripts/lib/ai-models.mjs. No GitHub secret
-// for OpenAI required. Chain order:
+// Reuses the centralized AI key surface already in Firebase Remote Config
+// + scripts/lib/ai-models.mjs. Chain order:
 //   1. Mistral (`mistral-embed`, 1024-dim, EU-hosted)
 //   2. Cohere (`embed-multilingual-v3.0`, 1024-dim, multilingual)
 // Both share dim 1024 so the binary store format is provider-agnostic
-// as long as the chain stays within these two.
+// across the chain.
 //
 // If both keys are missing, embedBatch throws a typed error with a stable
 // message — build-article-embeddings.mjs catches it and graceful-skips.
@@ -28,7 +27,7 @@ function selectProvider() {
 }
 
 /**
- * Mistral request adapter. Mistral uses OpenAI-compatible /embeddings.
+ * Mistral request adapter. POST /v1/embeddings with { model, input }.
  */
 async function callMistral({ provider, inputs, fetchImpl }) {
   const res = await fetchImpl(provider.url, {
