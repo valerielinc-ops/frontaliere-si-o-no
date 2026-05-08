@@ -1,18 +1,54 @@
 {
   "key": "wuerth-international",
   "label": "Würth International",
-  "generatedAt": "2026-05-08T10:52:34.655Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-05-08T22:45:01.415Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4511,
-  "avgDurationMs": 4511,
+  "durationMs": 5171,
+  "avgDurationMs": 5171,
   "durationHistory": [
-    4511
+    5171
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "wuerth-international-9ce638ebba29",
+      "slug": "strategischer-einkaufer-w-m-a-wuerth-international-chur",
+      "company": "Würth International",
+      "companyKey": "wuerth-international",
+      "companyDomain": "wurth-international.com",
+      "title": "Strategischer Einkäufer (w/m/a)",
+      "location": "Chur",
+      "canton": "GR",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Chur, Graubünden",
+      "category": "finance",
+      "sector": "Industria / Distribuzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-05-08",
+      "url": "https://www.wurth-international.com/wurth-international-group/Karriere/Job-Portal/Job-details_17344.php",
+      "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_StrategischerEinkauf.php",
+      "source": "Wuerth International Dedicated Parser (HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-08T22:44:58.843Z",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "wuerth-international-282c8e472e82",
@@ -40,7 +76,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_SBRechnungswesen.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:52:32.095Z",
+      "crawledAt": "2026-05-08T22:44:58.386Z",
       "firstSeenAt": "2026-05-05T11:39:02.805Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -76,7 +112,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_Steuerexperte.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:52:31.631Z",
+      "crawledAt": "2026-05-08T22:44:57.928Z",
       "firstSeenAt": "2026-04-13T11:31:48.734Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -112,7 +148,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular-Praktikum-Empfang.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:52:31.166Z",
+      "crawledAt": "2026-05-08T22:44:57.471Z",
       "firstSeenAt": "2026-04-13T11:31:48.270Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
