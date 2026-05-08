@@ -13,7 +13,10 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { applyNoStructureRatchet } from '../../scripts/audit-parser-quality.mjs';
+import {
+  applyNoStructureRatchet,
+  applyDuplicateDescriptionRatchet,
+} from '../../scripts/audit-parser-quality.mjs';
 
 type Issue = {
   type: string;
@@ -145,5 +148,101 @@ describe('applyNoStructureRatchet', () => {
 
     expect(report['borderline'].severity).toBe('WARNING');
     expect(regressions).toHaveLength(0);
+  });
+});
+
+/**
+ * The duplicate-description ratchet escalates a crawler to CRITICAL when
+ * ≥80 % of its jobs share the same description AND there are ≥5 jobs.
+ *
+ * Motivating regression: Moncucco shipped 9/9 jobs with an identical 4 125-char
+ * blob (the page nav/megamenu). Thin-description and tag-soup checks all passed
+ * because the blob was long, prose-shaped, and unique to that crawler. The only
+ * remaining signal was the duplicate ratio, which was previously a WARNING.
+ */
+function makeDuplicateEntry(dupeCount: number, total: number, severity: Entry['severity'] = 'WARNING'): Entry {
+  return {
+    total,
+    severity,
+    issues: [
+      {
+        type: 'duplicate-descriptions',
+        count: dupeCount,
+        total,
+        message: `${dupeCount}/${total} duplicate descriptions`,
+      },
+    ],
+  };
+}
+
+describe('applyDuplicateDescriptionRatchet', () => {
+  it('escalates a crawler with 100% duplicate descriptions and >=5 jobs to CRITICAL', () => {
+    const report: Record<string, Entry> = {
+      'moncucco-style': makeDuplicateEntry(9, 9),
+    };
+
+    const regressions = applyDuplicateDescriptionRatchet(report);
+
+    expect(report['moncucco-style'].severity).toBe('CRITICAL');
+    expect(regressions).toHaveLength(1);
+    expect(regressions[0]).toMatchObject({ key: 'moncucco-style', count: 9, total: 9 });
+    expect(regressions[0].ratio).toBeCloseTo(1, 5);
+    expect(report['moncucco-style'].issues[0].message).toMatch(/PARSER LIKELY GRABBING CHROME/);
+    expect(report['moncucco-style'].action).toMatch(/page chrome/i);
+  });
+
+  it('escalates at exactly 80% duplicate ratio with >=5 jobs', () => {
+    const report: Record<string, Entry> = {
+      'eighty-pct': makeDuplicateEntry(8, 10),
+    };
+
+    const regressions = applyDuplicateDescriptionRatchet(report);
+
+    expect(report['eighty-pct'].severity).toBe('CRITICAL');
+    expect(regressions).toHaveLength(1);
+  });
+
+  it('does NOT escalate below 80% duplicate ratio', () => {
+    const report: Record<string, Entry> = {
+      'mild-dupes': makeDuplicateEntry(7, 10),
+    };
+
+    const regressions = applyDuplicateDescriptionRatchet(report);
+
+    expect(report['mild-dupes'].severity).toBe('WARNING');
+    expect(regressions).toHaveLength(0);
+  });
+
+  it('does NOT escalate small crawlers (<5 jobs) even at 100% duplicate', () => {
+    const report: Record<string, Entry> = {
+      'tiny': makeDuplicateEntry(4, 4),
+    };
+
+    const regressions = applyDuplicateDescriptionRatchet(report);
+
+    expect(report['tiny'].severity).toBe('WARNING');
+    expect(regressions).toHaveLength(0);
+  });
+
+  it('skips crawlers with no duplicate-descriptions issue', () => {
+    const report: Record<string, Entry> = {
+      'no-dupes': { total: 20, severity: 'OK', issues: [] },
+    };
+
+    const regressions = applyDuplicateDescriptionRatchet(report);
+
+    expect(report['no-dupes'].severity).toBe('OK');
+    expect(regressions).toHaveLength(0);
+  });
+
+  it('preserves an existing action prefix when escalating', () => {
+    const entry = makeDuplicateEntry(10, 10, 'WARNING');
+    entry.action = 'Existing hint.';
+    const report: Record<string, Entry> = { 'with-action': entry };
+
+    applyDuplicateDescriptionRatchet(report);
+
+    expect(report['with-action'].action).toMatch(/^Existing hint\. /);
+    expect(report['with-action'].action).toMatch(/page chrome/i);
   });
 });

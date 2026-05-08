@@ -30,6 +30,42 @@ export function loadNoStructureBaseline(p = BASELINE_PATH) {
 }
 
 /**
+ * Escalate a `duplicate-descriptions` warning to CRITICAL when nearly every
+ * job in a crawler shares the same description.
+ *
+ * Real openings differ. When 80%+ of jobs from one parser have an identical
+ * (after boilerplate stripping) description, the parser is almost always
+ * capturing site chrome (nav, footer, megamenu) instead of the per-job body.
+ * The Moncucco regression that motivated this gate had 9/9 jobs sharing a
+ * 4 125-char nav blob; the existing thin-description heuristics didn't fire
+ * because the blob was long, prose-shaped, and unique to that crawler.
+ *
+ * Threshold rationale: require ≥5 jobs and ≥80% duplicates so small or
+ * naturally-templated crawlers (e.g. a 3-job listing where two postings
+ * happen to share boilerplate) don't get falsely escalated.
+ *
+ * @param {Record<string, { total: number, issues: Array<any>, severity?: string, action?: string }>} report
+ * @returns {Array<{ key: string, count: number, total: number, ratio: number }>} regressions
+ */
+export function applyDuplicateDescriptionRatchet(report) {
+  const regressions = [];
+  for (const [key, entry] of Object.entries(report)) {
+    const issue = entry.issues.find((i) => i.type === 'duplicate-descriptions');
+    if (!issue) continue;
+    if (issue.total < 5) continue;
+    const ratio = issue.count / issue.total;
+    if (ratio < 0.8) continue;
+
+    entry.severity = 'CRITICAL';
+    issue.message += ` [PARSER LIKELY GRABBING CHROME: ${(ratio * 100).toFixed(0)}% of jobs share a description]`;
+    const ratchetAction = `Most jobs share the same description — parser is probably scraping the page chrome (nav/footer/menu) instead of the per-job body. Inspect the detail-page selectors.`;
+    entry.action = `${entry.action ? entry.action + ' ' : ''}${ratchetAction}`;
+    regressions.push({ key, count: issue.count, total: issue.total, ratio });
+  }
+  return regressions;
+}
+
+/**
  * Apply the no-structured-content ratchet to a parser-quality report.
  *
  * Mutates entries in `report` in place: any crawler whose
@@ -342,6 +378,15 @@ async function main() {
   if (regressions.length > 0) {
     console.log(`\n🛑 No-structure ratchet: ${regressions.length} crawler(s) regressed or newly flat:`);
     for (const r of regressions) console.log(`   ${r.key}: ${r.was} → ${r.now}/${r.total}`);
+  }
+
+  // ── Ratchet: ≥80% duplicate descriptions escalates to CRITICAL ──
+  const dupeRegressions = applyDuplicateDescriptionRatchet(report);
+  if (dupeRegressions.length > 0) {
+    console.log(`\n🛑 Duplicate-description ratchet: ${dupeRegressions.length} crawler(s) likely grabbing chrome:`);
+    for (const r of dupeRegressions) {
+      console.log(`   ${r.key}: ${r.count}/${r.total} (${(r.ratio * 100).toFixed(0)}%)`);
+    }
   }
 
   // ── Rebaseline mode: write baseline and exit ──

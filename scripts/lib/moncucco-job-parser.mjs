@@ -77,14 +77,29 @@ export function isTrustedDomain(rawUrl = '') {
 
 /* ── HTML Parsing ─────────────────────────────────────────── */
 
+/* Exported for tests — pure HTML→data transforms. */
+export { parseListingPage, parseDetailPage };
+
 /**
  * Parse the Moncucco careers listing page.
- * Jobs are <a> card links containing:
- *   <h3>Job Title</h3>
- *   <p>Percentuale di impiego: 80-100%</p>
- *   <p>Disponibilità: Da convenire</p>
  *
- * Returns an array of { title, url, percentage, availability } objects.
+ * The careers page (/lavora-con-noi.php) wraps each open position in a
+ * `.item-job` block:
+ *   <div class="item-job">
+ *     <a href="https://www.moncucco.ch/{slug}.php5">
+ *       <h3>Job Title</h3>
+ *       <p>Lead paragraph…</p>
+ *       <div class="info-job">Percentuale di impiego: <span>…</span></div>
+ *       <div class="info-job">Disponibilità: <span>…</span></div>
+ *     </a>
+ *   </div>
+ *
+ * The page also contains other `<a><h3>` blocks (CANDIDATURA SPONTANEA box,
+ * "Unione Clinica Moncucco" group card, megamenu items). Scoping to
+ * `.item-job a` keeps real openings and rejects those decoys.
+ *
+ * Detail URLs always end in `.php5` — used as a final guard in case the
+ * markup grows new sibling cards inside `.listing-job`.
  */
 function parseListingPage(html = '') {
   if (!html) return [];
@@ -92,30 +107,30 @@ function parseListingPage(html = '') {
   const jobs = [];
   const seen = new Set();
 
-  // Strategy 1: Find <a> links that contain <h3> headings (job cards)
-  const allLinks = document.querySelectorAll('a[href]');
-  for (const link of allLinks) {
+  const cardLinks = document.querySelectorAll('.item-job a[href], .listing-job .item-job a[href]');
+  for (const link of cardLinks) {
     const h3 = link.querySelector('h3, h4');
     if (!h3) continue;
 
     const title = normalizeSpace(h3.textContent || '');
     if (!title || title.length < 3) continue;
 
-    let href = link.getAttribute('href') || '';
+    const href = link.getAttribute('href') || '';
     if (!href) continue;
     const url = href.startsWith('http') ? href : `${BASE_URL}/${href.replace(/^\//, '')}`;
+    // Job detail pages on moncucco.ch end with `.php5`; reject anything else.
+    if (!/\.php5(?:[?#]|$)/i.test(url)) continue;
     if (seen.has(url)) continue;
     seen.add(url);
 
-    // Extract percentage and availability from <p> tags
-    const paragraphs = link.querySelectorAll('p');
     let percentage = '';
     let availability = '';
-    for (const p of paragraphs) {
-      const text = normalizeSpace(p.textContent || '');
-      if (/percentuale|impiego|%/i.test(text)) {
+    for (const info of link.querySelectorAll('.info-job, p')) {
+      const text = normalizeSpace(info.textContent || '');
+      if (!text) continue;
+      if (!percentage && /percentuale|impiego|%/i.test(text)) {
         percentage = text;
-      } else if (/disponibilit/i.test(text)) {
+      } else if (!availability && /disponibilit/i.test(text)) {
         availability = text;
       }
     }
@@ -123,68 +138,42 @@ function parseListingPage(html = '') {
     jobs.push({ title, url, percentage, availability });
   }
 
-  // Strategy 2: Fallback — look for h3 headings near links
-  if (jobs.length === 0) {
-    const headings = document.querySelectorAll('h3, h4');
-    for (const h of headings) {
-      const title = normalizeSpace(h.textContent || '');
-      if (!title || title.length < 5) continue;
-
-      // Look for a sibling or parent link
-      const parent = h.closest('a') || h.parentElement?.closest('a');
-      const link = parent || h.querySelector('a') || h.parentElement?.querySelector('a');
-      if (!link) continue;
-
-      let href = link.getAttribute('href') || '';
-      if (!href) continue;
-      const url = href.startsWith('http') ? href : `${BASE_URL}/${href.replace(/^\//, '')}`;
-      if (seen.has(url)) continue;
-      seen.add(url);
-
-      jobs.push({ title, url, percentage: '', availability: '' });
-    }
-  }
-
   return jobs;
 }
 
 /**
  * Parse a Moncucco job detail page for full description.
+ *
+ * On moncucco.ch detail pages (`/{slug}.php5`), the job body lives inside
+ * `<div class="testo-pagina">`. The previous implementation walked generic
+ * selectors like `.container` / `main` / `article`, which on this template
+ * match the whole page — so descriptions ended up containing the megamenu
+ * (Pronto soccorso, Le strutture, Specializzazioni…) instead of the offer.
+ *
+ * Strip `<script>`, `<style>`, and the `.section-altri-job` carousel
+ * ("Le altre posizioni aperte") before extracting text so the description
+ * doesn't bleed sibling job titles into this one.
  */
 function parseDetailPage(html = '') {
   if (!html) return '';
 
   const { document } = new JSDOM(html).window;
 
-  const BODY_SELECTORS = [
-    '.content',
-    '.job-detail',
-    '#content',
-    'article',
-    'main',
-    '.container',
-  ];
+  for (const noisy of document.querySelectorAll(
+    'script, style, noscript, .section-altri-job, .droopmenu-navbar, footer, .footer',
+  )) {
+    noisy.remove();
+  }
+
+  const BODY_SELECTORS = ['.testo-pagina', '.col-testo-pagina', '.section-contenuto-info'];
 
   let body = '';
   for (const sel of BODY_SELECTORS) {
-    const els = document.querySelectorAll(sel);
-    for (const el of els) {
+    for (const el of document.querySelectorAll(sel)) {
       const candidate = stripHtml(el.innerHTML || '');
       if (candidate.length > body.length) body = candidate;
     }
     if (body.length >= MIN_DESC_LENGTH) break;
-  }
-
-  if (body.length < MIN_DESC_LENGTH) {
-    let best = null;
-    let bestLen = 0;
-    for (const el of document.querySelectorAll('div, section, article')) {
-      const len = (el.textContent || '').trim().length;
-      if (len > bestLen) { best = el; bestLen = len; }
-    }
-    if (best && bestLen > body.length) {
-      body = stripHtml(best.innerHTML || '');
-    }
   }
 
   return body;
@@ -234,7 +223,7 @@ export async function fetchAllMoncuccoJobs() {
 
   let html = '';
   try {
-  
+    html = await fetchHtml(CAREERS_URL, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`  Failed to fetch: ${err.message}`);
     return [];
