@@ -7047,6 +7047,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.legge-foti-critica-economia-ticino.title': 'Loi Foti critiquée : des objectifs seulement sur papier',
     'blog.article.legge-foti-critica-economia-ticino.excerpt': 'Des experts critiquent la loi Foti pour ses inefficacités et distorsions, avec des impacts sur la bureaucratie et l\'administration publique.',
     'blog.article.legge-foti-critica-economia-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et villages du Tessin',
+    'blog.article.progetto-eiger-palace-lugano-2026.title': 'Projet Eiger Palace à Lugano : démolition et trois ans de travaux',
+    'blog.article.progetto-eiger-palace-lugano-2026.excerpt': 'Le permis de construire est entré en vigueur. Voici les prochaines étapes du projet Eiger Palace à Besso, Lugano.',
+    'blog.article.progetto-eiger-palace-lugano-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

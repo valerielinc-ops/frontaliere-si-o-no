@@ -7047,6 +7047,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.legge-foti-critica-economia-ticino.title': 'Legge Foti sotto accusa: obiettivi solo sulla carta',
     'blog.article.legge-foti-critica-economia-ticino.excerpt': 'Esperti criticano la legge Foti per inefficienze e distorsioni, con impatti su burocrazia e pubblica amministrazione.',
     'blog.article.legge-foti-critica-economia-ticino.imageAlt': 'Vista aerea del Lago di Lugano con montagne e paesi del Ticino',
+    'blog.article.progetto-eiger-palace-lugano-2026.title': 'Progetto Eiger Palace a Lugano: demolizioni e tre anni di lavori',
+    'blog.article.progetto-eiger-palace-lugano-2026.excerpt': 'La licenza edilizia è entrata in giudicato. Ecco le prossime tappe del progetto Eiger Palace a Besso, Lugano.',
+    'blog.article.progetto-eiger-palace-lugano-2026.imageAlt': 'Veduta aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

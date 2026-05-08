@@ -22511,4 +22511,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'progetto-eiger-palace-lugano-2026',
+ category: 'pratico',
+ date: '2026-05-08T08:12:53.737Z',
+ image: '/images/blog/progetto-eiger-palace-lugano-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
