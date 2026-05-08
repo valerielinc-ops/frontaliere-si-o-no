@@ -1,18 +1,49 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-05-07T22:41:10.690Z",
-  "total": 18,
-  "newCount": 0,
+  "generatedAt": "2026-05-08T10:45:48.480Z",
+  "total": 19,
+  "newCount": 1,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 20594,
-  "avgDurationMs": 20594,
+  "durationMs": 18132,
+  "avgDurationMs": 18132,
   "durationHistory": [
-    20594
+    18132
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213ibk",
+      "slug": "specialista-in-sicurezza-a-tempo-pieno-100-presso-la-sezione-della-logistica-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Specialista in sicurezza a tempo pieno (100%), presso la Sezione della logistica, Bellinzona",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-08",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4176",
+      "source": "Company Careers Crawler",
+      "salaryMin": 83633,
+      "salaryMax": 133310,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-05-08T10:45:43.136Z",
+      "firstSeenAt": "2026-05-08T10:45:43.136Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 15,
+        "completeness": 19
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213j3w",
