@@ -7077,6 +7077,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fart-2025-frontalieri-transporti.title': 'FART 2025: boom di utenti sui bus e nuovi treni in crescita',
     'blog.article.fart-2025-frontalieri-transporti.excerpt': 'Le Ferrovie Autolinee Regionali Ticinesi (FART) registrano un aumento del 10% di passeggeri sui bus e miglioramenti con i nuovi treni.',
     'blog.article.fart-2025-frontalieri-transporti.imageAlt': 'Stazione degli autobus di Locarno con mezzi moderni e passeggeri in attesa',
+    'blog.article.rimborso-cure-dentarie-ticino-2026.title': 'Rimborso cure dentarie in Ticino: chi ne beneficia e come funziona',
+    'blog.article.rimborso-cure-dentarie-ticino-2026.excerpt': 'Scopri chi può accedere al rimborso delle cure dentarie in Ticino e come funziona il sistema di finanziamento ispirato all\'AVS',
+    'blog.article.rimborso-cure-dentarie-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;

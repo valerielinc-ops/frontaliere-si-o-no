@@ -7076,6 +7076,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fart-2025-frontalieri-transporti.title': 'FART 2025: Nutzerboom bei Bussen und neue Züge im Kommen',
     'blog.article.fart-2025-frontalieri-transporti.excerpt': 'Die Ferrovie Autolinee Regionali Ticinesi (FART) verzeichnen einen Anstieg von 10 % der Fahrgäste bei Bussen und Verbesserungen mit den neuen Zügen.',
     'blog.article.fart-2025-frontalieri-transporti.imageAlt': 'Bushaltestelle in Locarno mit modernen Bussen und wartenden Menschen',
+    'blog.article.rimborso-cure-dentarie-ticino-2026.title': 'Zahnbehandlungen im Tessin: Wer profitiert und wie funktioniert es?',
+    'blog.article.rimborso-cure-dentarie-ticino-2026.excerpt': 'Erfahren Sie, wer Anspruch auf die Erstattung von Zahnbehandlungen im Tessin hat und wie das Finanzierungssystem, inspiriert von der AHV, funktioniert',
+    'blog.article.rimborso-cure-dentarie-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

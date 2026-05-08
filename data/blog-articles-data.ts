@@ -22601,4 +22601,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rimborso-cure-dentarie-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-08T10:42:56.798Z',
+ image: '/images/blog/rimborso-cure-dentarie-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

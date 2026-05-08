@@ -7076,6 +7076,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fart-2025-frontalieri-transporti.title': 'FART 2025: surge in bus users and new trains growing',
     'blog.article.fart-2025-frontalieri-transporti.excerpt': 'Ferrovie Autolinee Regionali Ticinesi (FART) report a 10% increase in bus passengers and improvements with new trains.',
     'blog.article.fart-2025-frontalieri-transporti.imageAlt': 'Bus station in Locarno with modern buses and people waiting',
+    'blog.article.rimborso-cure-dentarie-ticino-2026.title': 'Dental care reimbursement in Ticino: who benefits and how it works',
+    'blog.article.rimborso-cure-dentarie-ticino-2026.excerpt': 'Find out who can access dental care reimbursement in Ticino and how the funding system inspired by AHV works',
+    'blog.article.rimborso-cure-dentarie-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
 };
 
 export default blogMetaEn;
