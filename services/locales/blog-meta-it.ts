@@ -7158,6 +7158,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.emolumenti-svizzera-tassazione-italia.title': 'Emolumenti svizzeri: tassazione e dichiarazione in Italia',
     'blog.article.emolumenti-svizzera-tassazione-italia.excerpt': 'Guida pratica per i frontalieri: come dichiarare gli emolumenti svizzeri in Italia e evitare la doppia imposizione.',
     'blog.article.emolumenti-svizzera-tassazione-italia.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
+    'blog.article.assicurazione-malattie-pilota-ticino.title': 'Piloti per l\'assicurazione malattie in Ticino: cosa cambia per i frontalieri',
+    'blog.article.assicurazione-malattie-pilota-ticino.excerpt': 'Il BAG lancia progetti pilota per contenere i costi dell\'assicurazione malattie. Ecco cosa sapere se lavori in Ticino',
+    'blog.article.assicurazione-malattie-pilota-ticino.imageAlt': 'Lago di Lugano con montagne e barche, fotografia professionale',
 };
 
 export default blogMetaIt;

@@ -3628,6 +3628,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-impatriati-fiscalita-frontalieri': { name: 'Impatriati e frontalieri', path: '/articoli-frontaliere/impatriati-fiscalita-frontalieri', parent: 'blog' },
     'blog-svizzeri-ottimisti-finanze-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzeri-ottimisti-finanze-2026', parent: 'blog' },
     'blog-emolumenti-svizzera-tassazione-italia': { name: 'Fiscale', path: '/articoli-frontaliere/emolumenti-svizzera-tassazione-italia', parent: 'blog' },
+    'blog-assicurazione-malattie-pilota-ticino': { name: 'Assicurazione malattie', path: '/articoli-frontaliere/assicurazione-malattie-pilota-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

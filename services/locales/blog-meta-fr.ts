@@ -7158,6 +7158,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.emolumenti-svizzera-tassazione-italia.title': 'Rémunérations suisses : imposition et déclaration en Italie',
     'blog.article.emolumenti-svizzera-tassazione-italia.excerpt': 'Guide pratique pour les frontaliers : comment déclarer les revenus suisses en Italie et éviter la double imposition.',
     'blog.article.emolumenti-svizzera-tassazione-italia.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan',
+    'blog.article.assicurazione-malattie-pilota-ticino.title': 'Assurance maladie au Tessin: ce qui change pour les frontaliers',
+    'blog.article.assicurazione-malattie-pilota-ticino.excerpt': 'L\'OFSP lance des projets pilotes pour contenir les coûts de l\'assurance maladie. Voici ce qu\'il faut savoir si vous travaillez au Tessin',
+    'blog.article.assicurazione-malattie-pilota-ticino.imageAlt': 'Lac de Lugano avec montagnes et bateaux, photographie professionnelle',
 };
 
 export default blogMetaFr;

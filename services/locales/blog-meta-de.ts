@@ -7157,6 +7157,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.emolumenti-svizzera-tassazione-italia.title': 'Schweizer Löhne: Besteuerung und Meldung in Italien',
     'blog.article.emolumenti-svizzera-tassazione-italia.excerpt': 'Praktische Anleitung für Grenzgänger: Wie Schweizer Löhne in Italien deklariert und eine Doppelbesteuerung vermieden wird.',
     'blog.article.emolumenti-svizzera-tassazione-italia.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
+    'blog.article.assicurazione-malattie-pilota-ticino.title': 'Krankenversicherung im Tessin: Änderungen für Grenzgänger',
+    'blog.article.assicurazione-malattie-pilota-ticino.excerpt': 'Das BAG startet Pilotprojekte, um die Kosten der Krankenversicherung zu senken. Hier erfahren Sie, was Sie wissen müssen, wenn Sie im Tessin arbeiten.',
+    'blog.article.assicurazione-malattie-pilota-ticino.imageAlt': 'Luganersee mit Bergen und Booten, professionelle Fotografie',
 };
 
 export default blogMetaDe;

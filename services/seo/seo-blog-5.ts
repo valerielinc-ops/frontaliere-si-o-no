@@ -31898,6 +31898,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assicurazione-malattie-pilota-ticino': {
+    title: 'Piloti per l\'assicurazione malattie in Ticino: cosa cambia per i frontalieri',
+    description: 'Il BAG lancia progetti pilota per contenere i costi dell\'assicurazione malattie. Ecco cosa sapere se lavori in Ticino. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, piloti, assicurazione, malattie, cosa',
+    ogTitle: 'Piloti per l\'assicurazione malattie in Ticino: cosa cambia per i frontalieri',
+    ogDescription: 'Il BAG lancia progetti pilota per contenere i costi dell\'assicurazione malattie. Ecco cosa sapere se lavori in Ticino',
+    canonicalPath: '/articoli-frontaliere/assicurazione-malattie-pilota-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Piloti per l'assicurazione malattie in Ticino: cosa cambia per i frontalieri",
+      "description": "Il BAG lancia progetti pilota per contenere i costi dell'assicurazione malattie. Ecco cosa sapere se lavori in Ticino. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-malattie-pilota-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne e barche, fotografia professionale"
+      },
+      "datePublished": "2026-05-08T21:33:36+00:00",
+      "dateModified": "2026-05-08T21:33:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assicurazione-malattie-pilota-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

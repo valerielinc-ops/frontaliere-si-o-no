@@ -7157,6 +7157,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.emolumenti-svizzera-tassazione-italia.title': 'Swiss earnings: taxation and declaration in Italy',
     'blog.article.emolumenti-svizzera-tassazione-italia.excerpt': 'Practical guide for cross-border workers: how to declare Swiss earnings in Italy and avoid double taxation.',
     'blog.article.emolumenti-svizzera-tassazione-italia.imageAlt': 'Lake Lugano with a modern building in the background',
+    'blog.article.assicurazione-malattie-pilota-ticino.title': 'Health insurance pilot projects in Ticino: what changes for cross-border workers',
+    'blog.article.assicurazione-malattie-pilota-ticino.excerpt': 'The BAG launches pilot projects to contain health insurance costs. Here\'s what to know if you work in Ticino',
+    'blog.article.assicurazione-malattie-pilota-ticino.imageAlt': 'Lake Lugano with mountains and boats, professional photography',
 };
 
 export default blogMetaEn;

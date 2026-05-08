@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2438,
+ "numberOfItems": 2439,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7080,7 +7080,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2435, "name": "Lapo Elkann si trasferisce a Lucerna: perché la...", "url": `${BASE_URL}/articoli-frontaliere/lapo-elkann-lucerna-2024` },
           { "@type": "ListItem", "position": 2436, "name": "Impatriati: il passato da frontaliere non precl...", "url": `${BASE_URL}/articoli-frontaliere/impatriati-fiscalita-frontalieri` },
           { "@type": "ListItem", "position": 2437, "name": "Svizzeri ottimisti sulla situazione finanziaria...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-ottimisti-finanze-2026` },
-          { "@type": "ListItem", "position": 2438, "name": "Emolumenti svizzeri: tassazione e dichiarazione...", "url": `${BASE_URL}/articoli-frontaliere/emolumenti-svizzera-tassazione-italia` }
+          { "@type": "ListItem", "position": 2438, "name": "Emolumenti svizzeri: tassazione e dichiarazione...", "url": `${BASE_URL}/articoli-frontaliere/emolumenti-svizzera-tassazione-italia` },
+          { "@type": "ListItem", "position": 2439, "name": "Piloti per l'assicurazione malattie in Ticino: ...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-malattie-pilota-ticino` }
  ]
  },
  {
