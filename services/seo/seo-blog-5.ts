@@ -32288,6 +32288,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-malattie-renali-campagna-cl3ar-milano': {
+    title: 'Malattie renali rare: parte da Milano la campagna CL3AR',
+    description: 'La campagna itinerante CL3AR mira a sensibilizzare sulla salute dei reni, con focus su malattie croniche rare come la C3G e la IC-MPGN primaria. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, malattie, renali, rare, parte',
+    ogTitle: 'Malattie renali rare: parte da Milano la campagna CL3AR',
+    ogDescription: 'La campagna itinerante CL3AR mira a sensibilizzare sulla salute dei reni, con focus su malattie croniche rare come la C3G e la IC-MPGN primaria.',
+    canonicalPath: '/articoli-frontaliere/malattie-renali-campagna-cl3ar-milano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malattie renali rare: parte da Milano la campagna CL3AR",
+      "description": "La campagna itinerante CL3AR mira a sensibilizzare sulla salute dei reni, con focus su malattie croniche rare come la C3G e la IC-MPGN primaria. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/malattie-renali-campagna-cl3ar-milano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne in lontananza"
+      },
+      "datePublished": "2026-05-08T23:13:27+00:00",
+      "dateModified": "2026-05-08T23:13:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malattie-renali-campagna-cl3ar-milano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

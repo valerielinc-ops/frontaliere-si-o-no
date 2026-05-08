@@ -7187,6 +7187,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.isa-liquidazione-frontalieri-2026.title': 'ISA und Selbstständige: Ausschluss bei Liquidation',
     'blog.article.isa-liquidazione-frontalieri-2026.excerpt': 'Selbstständige in Liquidation könnten von den ISA ausgeschlossen werden. Erfahren Sie, was sich ändert und wie Sie sich vorbereiten können',
     'blog.article.isa-liquidazione-frontalieri-2026.imageAlt': 'Luganersee mit umliegenden Bergen an einem klaren Tag',
+    'blog.article.malattie-renali-campagna-cl3ar-milano.title': 'Seltene Nierenerkrankungen: CL3AR-Kampagne startet in Mailand',
+    'blog.article.malattie-renali-campagna-cl3ar-milano.excerpt': 'Die Wanderkampagne CL3AR soll auf die Nierengesundheit aufmerksam machen, mit Fokus auf seltene chronische Erkrankungen wie C3G und primäre IC-MPGN.',
+    'blog.article.malattie-renali-campagna-cl3ar-milano.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

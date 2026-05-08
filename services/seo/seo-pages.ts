@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2448,
+ "numberOfItems": 2449,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7090,7 +7090,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2445, "name": "Blackout internet in Iran: 70 giorni di disconn...", "url": `${BASE_URL}/articoli-frontaliere/blackout-internet-iran-70-giorni` },
           { "@type": "ListItem", "position": 2446, "name": "Sicurezza a Bellinzona: mozione per migliorare ...", "url": `${BASE_URL}/articoli-frontaliere/rafforzare-sicurezza-bellinzona-2026` },
           { "@type": "ListItem", "position": 2447, "name": "Austria e Ticino più vicini grazie a due ambasc...", "url": `${BASE_URL}/articoli-frontaliere/austria-ticino-ambasciatori-2026` },
-          { "@type": "ListItem", "position": 2448, "name": "ISA e professionisti: esclusione in fase di liq...", "url": `${BASE_URL}/articoli-frontaliere/isa-liquidazione-frontalieri-2026` }
+          { "@type": "ListItem", "position": 2448, "name": "ISA e professionisti: esclusione in fase di liq...", "url": `${BASE_URL}/articoli-frontaliere/isa-liquidazione-frontalieri-2026` },
+          { "@type": "ListItem", "position": 2449, "name": "Malattie renali rare: parte da Milano la campag...", "url": `${BASE_URL}/articoli-frontaliere/malattie-renali-campagna-cl3ar-milano` }
  ]
  },
  {

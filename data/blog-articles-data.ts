@@ -22934,4 +22934,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'malattie-renali-campagna-cl3ar-milano',
+ category: 'pratico',
+ date: '2026-05-08T23:13:27.473Z',
+ image: '/images/blog/malattie-renali-campagna-cl3ar-milano.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

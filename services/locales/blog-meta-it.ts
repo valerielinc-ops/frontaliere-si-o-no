@@ -7188,6 +7188,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.isa-liquidazione-frontalieri-2026.title': 'ISA e professionisti: esclusione in fase di liquidazione',
     'blog.article.isa-liquidazione-frontalieri-2026.excerpt': 'Professionisti in liquidazione potrebbero essere esclusi dagli ISA. Scopri cosa cambia e come prepararti',
     'blog.article.isa-liquidazione-frontalieri-2026.imageAlt': 'Lago di Lugano con montagne circostanti in una giornata limpida',
+    'blog.article.malattie-renali-campagna-cl3ar-milano.title': 'Malattie renali rare: parte da Milano la campagna CL3AR',
+    'blog.article.malattie-renali-campagna-cl3ar-milano.excerpt': 'La campagna itinerante CL3AR mira a sensibilizzare sulla salute dei reni, con focus su malattie croniche rare come la C3G e la IC-MPGN primaria.',
+    'blog.article.malattie-renali-campagna-cl3ar-milano.imageAlt': 'Lago di Lugano con montagne in lontananza',
 };
 
 export default blogMetaIt;
