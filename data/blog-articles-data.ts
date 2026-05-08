@@ -22142,4 +22142,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico',
+ category: 'novita',
+ date: '2026-05-08T00:57:24.014Z',
+ image: '/images/blog/desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

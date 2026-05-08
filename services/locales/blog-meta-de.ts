@@ -6923,6 +6923,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malessere-polizia-cantonale-audit.title': 'Unwohlsein bei der Kantonspolizei: Unabhängiger Audit startet',
     'blog.article.malessere-polizia-cantonale-audit.excerpt': '72% der Beamten haben an einen Austritt aus der Kantonspolizei gedacht. Unabhängiger Audit steht bevor.',
     'blog.article.malessere-polizia-cantonale-audit.imageAlt': 'Bellinzona mit seinen historischen Burgen und lebendigen Kultur.',
+    'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.title': 'Desiderio ohne Erlaubnis: Wut über Erotik-Lokale',
+    'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.excerpt': 'Slogan des Erotik-Lokals hat Kritik ausgelöst. Kollektiv Feminist des Vallese: \'Das ist eine Botschaft, die als Anreiz zum Vergewaltigungspotenzial wahrgenommen werden kann.\'',
+    'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.imageAlt': 'Lugano, Ticino',
 };
 
 export default blogMetaDe;

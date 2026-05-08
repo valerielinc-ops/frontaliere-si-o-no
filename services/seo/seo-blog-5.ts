@@ -28856,6 +28856,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico': {
+    title: 'Il desiderio non chiede permesso: bufera sui cartelloni di un locale erotico',
+    description: 'Il slogan del locale erotico a Vallese ha scatenato critiche. Collettivo Femminista del Vallese: \'È un messaggio che può essere percepito come un incitamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, desiderio, chiede, permesso, bufera',
+    ogTitle: 'Il desiderio non chiede permesso: bufera sui cartelloni di un locale erotico',
+    ogDescription: 'Il slogan del locale erotico a Vallese ha scatenato critiche. Collettivo Femminista del Vallese: \'È un messaggio che può essere percepito come un incitamento',
+    canonicalPath: '/articoli-frontaliere/desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il desiderio non chiede permesso: bufera sui cartelloni di un locale erotico",
+      "description": "Il slogan del locale erotico a Vallese ha scatenato critiche. Collettivo Femminista del Vallese: 'È un messaggio che può essere percepito come un incitamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano, Ticino"
+      },
+      "datePublished": "2026-05-08T00:57:24+00:00",
+      "dateModified": "2026-05-08T00:57:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -6924,6 +6924,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malessere-polizia-cantonale-audit.title': 'Malessere nella Polizia cantonale: al via un audit indipendente',
     'blog.article.malessere-polizia-cantonale-audit.excerpt': 'Il 72% degli agenti ha pensato di lasciare la Polizia cantonale. Audit indipendente in arrivo.',
     'blog.article.malessere-polizia-cantonale-audit.imageAlt': 'Bellinzona con i suoi castelli storici e cultura vibrante.',
+    'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.title': 'Il desiderio non chiede permesso: bufera sui cartelloni di un locale erotico',
+    'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.excerpt': 'Slogan del locale erotico ha scatenato critiche. Collettivo Femminista del Vallese: \'È un messaggio che può essere percepito come un incitamento allo stupro\'.',
+    'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.imageAlt': 'Lugano, Ticino',
 };
 
 export default blogMetaIt;
