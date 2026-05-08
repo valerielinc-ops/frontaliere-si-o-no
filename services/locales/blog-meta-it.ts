@@ -7041,6 +7041,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.edoardo-leo-teatro-intred-varese-2026.title': 'Edoardo Leo conquista il Teatro Intred di Varese con parole, risate e poesia',
     'blog.article.edoardo-leo-teatro-intred-varese-2026.excerpt': 'L\'attore romano ha portato in scena \'Ti racconto una storia\' il 6 maggio, coinvolgendo il pubblico con aneddoti, barzellette e riflessioni sulla narrazione.',
     'blog.article.edoardo-leo-teatro-intred-varese-2026.imageAlt': 'Edoardo Leo sul palco del Teatro Intred a Varese, circondato da libri, con il pubblico attento e divertito.',
+    'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.title': 'Locarno rilancia la campagna contro la zanzara tigre',
+    'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.excerpt': 'Il Municipio di Locarno distribuisce gratuitamente Vectobac® G per contrastare la diffusione della zanzara tigre. Scopri come partecipare.',
+    'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.imageAlt': 'Vista aerea di Locarno, Ticino, con il Lago Maggiore sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -7040,6 +7040,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.edoardo-leo-teatro-intred-varese-2026.title': 'Edoardo Leo begeistert mit Worten, Lachen und Poesie',
     'blog.article.edoardo-leo-teatro-intred-varese-2026.excerpt': 'Der römische Schauspieler brachte am 6. Mai \'Ti racconto una storia\' auf die Bühne und begeisterte das Publikum mit Anekdoten, Witzen und Reflexionen über das Erzählen.',
     'blog.article.edoardo-leo-teatro-intred-varese-2026.imageAlt': 'Edoardo Leo auf der Bühne des Teatro Intred in Varese, umgeben von Büchern, mit einem aufmerksamen und amüsierten Publikum.',
+    'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.title': 'Locarno startet Kampagne gegen Tigermücke',
+    'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.excerpt': 'Die Gemeinde Locarno verteilt kostenlos Vectobac® G, um die Ausbreitung der Tigermücke zu bekämpfen. Erfahren Sie, wie Sie teilnehmen können.',
+    'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.imageAlt': 'Luftaufnahme von Locarno, Tessin, mit dem Lago Maggiore im Hintergrund',
 };
 
 export default blogMetaDe;

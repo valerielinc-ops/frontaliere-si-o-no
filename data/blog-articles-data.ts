@@ -22493,4 +22493,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'locarno-zanzara-tigre-campagna-rilancia-2026',
+ category: 'pratico',
+ date: '2026-05-08T07:50:45.680Z',
+ image: '/images/blog/locarno-zanzara-tigre-campagna-rilancia-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

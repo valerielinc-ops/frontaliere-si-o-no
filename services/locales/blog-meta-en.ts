@@ -7040,6 +7040,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.edoardo-leo-teatro-intred-varese-2026.title': 'Edoardo Leo charms Varese\'s Teatro Intred with words, laughter, and poetry',
     'blog.article.edoardo-leo-teatro-intred-varese-2026.excerpt': 'The Roman actor brought \'Ti racconto una storia\' to the stage on May 6th, engaging the audience with anecdotes, jokes, and reflections on storytelling.',
     'blog.article.edoardo-leo-teatro-intred-varese-2026.imageAlt': 'Edoardo Leo performing on stage at Teatro Intred in Varese, surrounded by books, with an attentive and amused audience.',
+    'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.title': 'Locarno launches campaign against tiger mosquito',
+    'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.excerpt': 'Locarno Municipality is distributing Vectobac® G for free to combat the spread of the tiger mosquito. Find out how to participate.',
+    'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.imageAlt': 'Aerial view of Locarno, Ticino, with Lake Maggiore in the background',
 };
 
 export default blogMetaEn;
