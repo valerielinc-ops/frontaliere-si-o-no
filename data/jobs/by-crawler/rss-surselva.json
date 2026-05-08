@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rss-surselva",
-  "assembledAt": "2026-05-07T22:27:48.297Z",
+  "assembledAt": "2026-05-08T10:32:26.294Z",
   "jobs": [
     {
       "id": "rss-surselva-5d1ebe0be7bd",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung/7z0s6e3l21p5x0vrbh5qa3260d8f11ki0ldx02uq0l3oka6pordnbsw0m34y2nai",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:46.376Z",
+      "crawledAt": "2026-05-08T10:32:24.352Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -115,7 +115,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-fuer-unsere-interdisziplinaere-abteilung/1pp4k3ioaji4qveyjqk0ivfrsi6q772snoexvauxgwom4txo8l6ay2o1w35kzfl8",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:46.275Z",
+      "crawledAt": "2026-05-08T10:32:24.228Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -159,6 +159,7 @@
         "qualified-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz"
       ],
       "firstSeenAt": "2026-04-13T11:11:29.466Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -203,7 +204,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-anaesthesie/lmhdndueihv35vccfrljxo37zy1bi0r2qob0fw0s0aq8ry2urcpef5zxfr9qp3u1",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:46.172Z",
+      "crawledAt": "2026-05-08T10:32:24.110Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -244,6 +245,7 @@
         "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz"
       ],
       "firstSeenAt": "2026-04-30T11:23:44.264Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -288,7 +290,7 @@
       "url": "https://link.ostendis.com/publication/med-praxisassistenz-mpa-efz-praxis-mediselva/8a0wy3tpjictkqfktpr6ukg5rk3aq8uxynvukdjcsfyggh1nkewk578ua7nnm77s",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:46.069Z",
+      "crawledAt": "2026-05-08T10:32:23.988Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -329,6 +331,7 @@
         "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz"
       ],
       "firstSeenAt": "2026-05-01T10:49:47.698Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -344,71 +347,67 @@
     },
     {
       "id": "rss-surselva-f1decb860110",
-      "slug": "assistenza-medica-supporto-amministrativo-per-la-radiologia-30-40-regionalspital-surselva-ilanz",
+      "slug": "med-praxisassistenz-per-sekretariat-radiologie-30-40-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "assistenza-medica-supporto-amministrativo-per-la-radiologia-30-40-regionalspital-surselva-ilanz",
-        "en": "medical-practice-assistance-administrative-support-for-radiology-30-40-regionalspital-surselva-ilanz",
-        "de": "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-rss-surselva-ch",
-        "fr": "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-regionalspital-surselva-ilanz"
+        "de": "med-praxisassistenz-fur-sekretariat-radiologie-30-40-rss-surselva-ch",
+        "it": "med-praxisassistenz-per-sekretariat-radiologie-30-40-regionalspital-surselva-ilanz",
+        "en": "med-praxisassistenz-fur-sekretariat-radiologie-30-40-regionalspital-surselva-ilanz",
+        "fr": "med-praxisassistenz-fur-sekretariat-radiologie-30-40-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
       "companyDomain": "rss.ch",
-      "title": "Med. Praxisassistenz / Administrationshilfe für die Radiologie 30-40%",
+      "title": "Med. Praxisassistenz für Sekretariat Radiologie 30-40%",
       "titleByLocale": {
-        "it": "Assistenza medica / Supporto amministrativo per la Radiologia 30-40%",
-        "en": "Medical Practice Assistance / Administrative Support for Radiology 30-40%",
-        "de": "Med. Praxisassistenz / Administrationshilfe für die Radiologie 30-40%",
-        "fr": "Med. Praxisassistenz / Administrationshilfe für die Radiologie 30-40%"
+        "de": "Med. Praxisassistenz für Sekretariat Radiologie 30-40%",
+        "fr": "Med. Praxisassistenz für Sekretariat Radiologie 30-40%",
+        "it": "Med. Praxisassistenz per Sekretariat Radiologie 30-40%",
+        "en": "Med. Praxisassistenz für Sekretariat Radiologie 30-40%"
       },
-      "description": "Med. Praxisassistenz / Administrationshilfe für die Radiologie 30-40% — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+      "description": "Med. Praxisassistenz für Sekretariat Radiologie 30-40% — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
       "descriptionByLocale": {
-        "it": "Descrizione - Med. Assistenza pratica / Assistenza amministrativa per la radiologia 30-40% — Ospedale regionale Surselva (RSS) - Dipartimento: Personale tecnico medico - Luogo di lavoro: Ilanz (GR) - L'ospedale regionale Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e garantisce l'assistenza di base e di emergenza estesa per circa 22'000 abitanti e ospiti stagionali 20'000 nella regione di Survasel",
-        "en": "Descrizione - Med. Practical assistance / Administration assistance for radiology 30-40% — Regional hospital Surselva (RSS) - Department: Medical technical personnel - Working place: Ilanz (GR) - Regional hospital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and ensures the extended basic and emergency care for around 22'000 inhabitants and seasonal 20'000 holiday guests in the region of Survasel",
-        "de": "Med. Praxisassistenz / Administrationshilfe für die Radiologie 30-40% — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-        "fr": "Descrizione - Med. Assistance pratique / Assistance administrative en radiologie 30-40% — Hôpital régional Surselva (RSS) - Département: Personnel médical technique - Lieu de travail: Ilanz (GR) - Hôpital régional Surselva AG est un hôpital régional ancré à Ilanz dans le canton des Grisons et assure les soins de base et d'urgence prolongés pour environ 22'000 habitants et 20'000 hôtes saisonniers dans la région de Survasel"
+        "de": "Med. Praxisassistenz für Sekretariat Radiologie 30-40% — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "it": "Med. Praxisassistenz für Sekretariat Radiologie 30-40% — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "en": "Med. Praxisassistenz für Sekretariat Radiologie 30-40% — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "fr": "Med. Praxisassistenz für Sekretariat Radiologie 30-40% — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten"
       },
       "location": "Ilanz",
       "canton": "GR",
-      "url": "https://link.ostendis.com/publication/med-praxisassistenz-administrationshilfe-fuer-die-radiologie/2ikhith76bm6x1yf472dzksbeuls5o6ltnkdzqyjhiompue7tyl1a5wf6tmif4q2",
+      "url": "https://link.ostendis.com/publication/med-praxisassistenz-fuer-sekretariat-radiologie/2ikhith76bm6x1yf472dzksbeuls5o6ltnkdzqyjhiompue7tyl1a5wf6tmif4q2",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.965Z",
+      "crawledAt": "2026-05-08T10:32:23.873Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Amministrazione",
+      "category": "Medicina",
       "contract": "part-time",
       "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "2026-05-08",
       "applyUrl": "https://link.ostendis.com/cvdropper/2fb1bdd1e6934d71911022af08055b2c/DE?src=2ikhith76bm6x1yf472dzksbeuls5o6ltnkdzqyjhiompue7tyl1a5wf6tmif4q2",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "Medizinisch technisches Personal",
       "pensum": "30 - 40%",
       "pensumMin": 30,
       "pensumMax": 40,
-      "previousSlugs": [
-        "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-rss-surselva-ch",
-        "med-praxisassistenz-administrationshilfe-per-la-radiologie-30-40-regionalspital-surselva-ilanz",
-        "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-regionalspital-surselva-ilanz"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-rss-surselva-ch",
-          "med-praxisassistenz-administrationshilfe-per-la-radiologie-30-40-regionalspital-surselva-ilanz"
-        ],
-        "en": [
-          "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-regionalspital-surselva-ilanz"
+          "med-praxisassistenz-fur-sekretariat-radiologie-30-40-rss-surselva-ch"
         ]
       },
-      "firstSeenAt": "2026-04-27T11:31:10.497Z",
+      "previousSlugs": [
+        "med-praxisassistenz-fur-sekretariat-radiologie-30-40-rss-surselva-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -420,7 +419,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-08T10:32:23.873Z"
     },
     {
       "id": "rss-surselva-8c9a647176e5",
@@ -453,7 +453,7 @@
       "url": "https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/c0exl3nzrqrtgp1rleaygvrc3xlbqh0adsriq57hzcefttziardlm1ddghdgv3d2",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.864Z",
+      "crawledAt": "2026-05-08T10:32:23.749Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -539,7 +539,7 @@
       "url": "https://link.ostendis.com/publication/chefarztsekretaer-in-orthopaedie/tcgttzohj41jr4xew4rxazr6l3ofq77wyqmby5c6j0fho35dyrbci1ochqmhkmvm",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.760Z",
+      "crawledAt": "2026-05-08T10:32:23.631Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -617,7 +617,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op/xwf6ayr6toklo7tf3gpbb1sfm4wgzaoc52mx1s2wvtw3rtts2g4wa47ljc32zinc",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.656Z",
+      "crawledAt": "2026-05-08T10:32:23.508Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -651,6 +651,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:11:29.343Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -695,7 +696,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experten-expertin-hf-notfallpflege/vfrppklwtsu2zvfvrwyyo4vr68txzlxik0hr17bvv7d0f0nlfaui3vjq7rx0ucfn",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.551Z",
+      "crawledAt": "2026-05-08T10:32:23.391Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -728,6 +729,7 @@
         ]
       },
       "firstSeenAt": "2026-04-27T11:31:10.133Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -772,7 +774,7 @@
       "url": "https://link.ostendis.com/publication/radiologie-fachperson-mtr-hf/cqc4g5hihd3yo54po3ii8ehjvonrxgybwaivmkx4gr3nd7235opk8fp2uzqsp6rt",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.449Z",
+      "crawledAt": "2026-05-08T10:32:23.270Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -809,6 +811,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:11:29.105Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -853,7 +856,7 @@
       "url": "https://link.ostendis.com/publication/leiter-in-notfall-lips-tagesklinik-funktionslabor/7sp564vhef38w408xu8rsq4drpt2lx8pj2d5xqeqdsyffnywtscc0yivml1llq0k",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.345Z",
+      "crawledAt": "2026-05-08T10:32:23.152Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -939,7 +942,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-gastronomie/ya025gb3c28upzio24xkb00y4tdetsedk7cpj1c5bhkcoi2540cp5bhukbczz2ad",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.242Z",
+      "crawledAt": "2026-05-08T10:32:23.026Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -981,6 +984,7 @@
         "collaboratore-trice-in-gastronomie-40-90-regionalspital-surselva-ilanz"
       ],
       "firstSeenAt": "2026-04-13T11:11:28.866Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1025,7 +1029,7 @@
       "url": "https://link.ostendis.com/publication/chefarzt-aerztin-innere-medizin/iojm7jfq6m428zcon33jgqooqmctzpb6kuccg6vezv6an0mlyo7zriseolaq2drq",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.140Z",
+      "crawledAt": "2026-05-08T10:32:22.908Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1100,7 +1104,7 @@
       "url": "https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-paediatrie-kombinierbar-mit-praxistaetigkeit/lb2tlrhc70p0pm0mj6wanl2ju39g8kak2ypzkl5vv22xty7rznbw5ctk41la4nyj",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:45.035Z",
+      "crawledAt": "2026-05-08T10:32:22.783Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1186,7 +1190,7 @@
       "url": "https://link.ostendis.com/publication/hausaerztin-hausarzt/0na83sidjo3kfcjdj75k3827g7efq03w8zpm0mwfg38n3a5rs2unhxe8eezypgum",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-07T22:27:44.545Z",
+      "crawledAt": "2026-05-08T10:32:22.144Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
