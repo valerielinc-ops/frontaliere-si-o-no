@@ -499,9 +499,7 @@ function renderPage(opts: {
     <header style="margin-bottom:20px">
       <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(t('orphanLanding.updatedLabel', 'Updated'))} · ${esc(dateStamp)}</p>
       <h1 style="margin:0 0 14px;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
-      <p style="margin:0 0 14px;color:var(--color-body);font-size:17px;line-height:1.6;max-width:860px">${esc(editorialBody)}</p>
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.65;max-width:860px">${esc(buildClusterSignalsParagraph(cluster, locale))}</p>
-      <p style="margin:0;color:var(--color-subtle);line-height:1.65;max-width:860px">${esc(genericBody)}</p>
+      <p style="margin:0;color:var(--color-body);font-size:17px;line-height:1.55;max-width:60ch">${esc(matchingJobs.length > 0 ? (locale === 'it' ? `${matchingJobs.length} offerte attive per "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · mediana salario CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'en' ? `${matchingJobs.length} active openings for "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · median salary CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'de' ? `${matchingJobs.length} aktive Stellen für "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · Median CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : `${matchingJobs.length} offres actives pour « ${cluster.canonicalQuery} »${medianSalary > 0 ? ` · médiane CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.`) : esc(t('orphanLanding.noResults', 'No openings.')))}</p>
     </header>
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 24px">
       <div style="${STAT_TILE_BASE}">
@@ -541,6 +539,11 @@ function renderPage(opts: {
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
       <a href="${esc(jobBoardRoot[locale])}" style="${CTA_PRIMARY_STYLE}">${esc(t('orphanLanding.ctaAllJobs', 'All jobs'))}</a>
       <a href="${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(t('orphanLanding.ctaCalculator', 'Calculate net salary'))}</a>
+    </section>
+    <section style="margin:0 0 28px;max-width:860px">
+      <p style="margin:0 0 14px;color:var(--color-body);font-size:16px;line-height:1.6">${esc(editorialBody)}</p>
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.65">${esc(buildClusterSignalsParagraph(cluster, locale))}</p>
+      <p style="margin:0;color:var(--color-subtle);line-height:1.65">${esc(genericBody)}</p>
     </section>
     ${generateRelatedLinksBlock(locale, 'orphan_landing', { city: topCities[0]?.name })}
     ${(() => {

@@ -2230,6 +2230,21 @@ function renderArchivePage(inp: ArchiveInputs): string {
           ? `Archive temps d'attente ${crossingDisplay} — ${monthKey}`
           : `${crossingDisplay} wait-time archive — ${monthKey}`;
 
+  // Peak / best hour summaries for the stats tile grid below the H1.
+  // Excludes hours with no data (`null`) so the min/max are meaningful.
+  const numericHours: Array<{ h: number; v: number }> = [];
+  for (let h = 0; h < 24; h++) {
+    const v = hourAvgs[h];
+    if (typeof v === 'number') numericHours.push({ h, v });
+  }
+  const peakHour = numericHours.length > 0
+    ? numericHours.reduce((a, b) => (b.v > a.v ? b : a))
+    : null;
+  const bestHour = numericHours.length > 0
+    ? numericHours.reduce((a, b) => (b.v < a.v ? b : a))
+    : null;
+  const fmtHour = (h: number): string => `${String(h).padStart(2, '0')}:00`;
+
   const intro =
     locale === 'it'
       ? `Statistiche aggregate dei tempi di attesa al valico ${crossingDisplay} nel mese ${monthKey}. Media mensile: ${overallAvg === null ? '—' : overallAvg + ' min'}. I dati derivano dal monitoraggio TomTom ogni 15 minuti nelle ore di picco pendolare. Utile per pianificare viaggi futuri in base al comportamento storico osservato.`
@@ -2297,6 +2312,45 @@ function renderArchivePage(inp: ArchiveInputs): string {
     daysInMonth.length,
   );
 
+  // Tagline above-the-fold (≤120 chars). Long intro migrates to the body
+  // section above archiveProse, preserving text-to-HTML ratio.
+  const archiveTaglineByLocale: Record<BorderWaitLocale, string> = {
+    it: `Archivio mensile ${crossingDisplay} (${monthKey}): ${overallAvg === null ? '—' : `media ${overallAvg} min`} su ${daysInMonth.length} giorni di dati.`,
+    en: `${crossingDisplay} monthly archive (${monthKey}): ${overallAvg === null ? '—' : `${overallAvg} min average`} across ${daysInMonth.length} days of data.`,
+    de: `${crossingDisplay} Monatsarchiv (${monthKey}): ${overallAvg === null ? '—' : `Durchschnitt ${overallAvg} Min.`} über ${daysInMonth.length} Datentage.`,
+    fr: `Archive mensuelle ${crossingDisplay} (${monthKey}) : ${overallAvg === null ? '—' : `moyenne ${overallAvg} min`} sur ${daysInMonth.length} jours de données.`,
+  };
+
+  // Stats tile labels — shared OKLCH semantic tokens already imported.
+  const archiveTileLabels: Record<BorderWaitLocale, { avg: string; peak: string; best: string; days: string }> = {
+    it: { avg: 'Media mensile', peak: 'Ora peggiore', best: 'Ora migliore', days: 'Giorni di dati' },
+    en: { avg: 'Monthly avg', peak: 'Worst hour', best: 'Best hour', days: 'Days of data' },
+    de: { avg: 'Monatsdurchschnitt', peak: 'Schlechteste Stunde', best: 'Beste Stunde', days: 'Datentage' },
+    fr: { avg: 'Moyenne mensuelle', peak: 'Heure pire', best: 'Heure meilleure', days: 'Jours de données' },
+  };
+  const archiveStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:0 0 22px" aria-label="${esc(archiveTileLabels[locale].avg)}">
+    <div style="padding:18px;border-radius:16px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);color:var(--color-heading)">
+      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(archiveTileLabels[locale].avg)}</div>
+      <div style="margin-top:8px;font-size:32px;font-weight:800;color:var(--color-heading);line-height:1.1;font-variant-numeric:tabular-nums">${overallAvg === null ? '—' : `${overallAvg} min`}</div>
+    </div>
+    ${peakHour
+      ? `<div style="padding:18px;border-radius:16px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-heading)">
+      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(archiveTileLabels[locale].peak)}</div>
+      <div style="margin-top:8px;font-size:22px;font-weight:700;color:var(--color-warning);line-height:1.1;font-variant-numeric:tabular-nums">${esc(fmtHour(peakHour.h))} · ${peakHour.v} min</div>
+    </div>`
+      : ''}
+    ${bestHour
+      ? `<div style="padding:18px;border-radius:16px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);color:var(--color-heading)">
+      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(archiveTileLabels[locale].best)}</div>
+      <div style="margin-top:8px;font-size:22px;font-weight:700;color:var(--color-success);line-height:1.1;font-variant-numeric:tabular-nums">${esc(fmtHour(bestHour.h))} · ${bestHour.v} min</div>
+    </div>`
+      : ''}
+    <div style="padding:18px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body)">
+      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(archiveTileLabels[locale].days)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:var(--color-heading);line-height:1.1;font-variant-numeric:tabular-nums">${daysInMonth.length}</div>
+    </div>
+  </section>`;
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
         <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
           <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -2307,8 +2361,9 @@ function renderArchivePage(inp: ArchiveInputs): string {
         </nav>
         <header style="margin-bottom:22px">
           <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-          <p style="${LEDE_STYLE}">${esc(intro)}</p>
+          <p style="${LEDE_STYLE}">${esc(archiveTaglineByLocale[locale])}</p>
         </header>
+        ${archiveStatsHtml}
         <section>
           <h2 style="${H2_STYLE}">${esc(copy.hourlyTodayLabel)}</h2>
           <table style="${TABLE_STYLE};font-size:14px">
@@ -2318,6 +2373,9 @@ function renderArchivePage(inp: ArchiveInputs): string {
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>
+        </section>
+        <section style="margin:24px 0 0">
+          <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
         </section>
         ${archiveProse}
         <section style="margin-top:32px" aria-label="advertisement">
