@@ -69,6 +69,12 @@ const FILE_SPECS: FileSpec[] = [
   { file: 'build-plugins/marketReportPlugin.ts', expectedCount: 1, expectedSlot: 'ARTICLE_END_MULTIPLEX' },
 ];
 
+const AUTO_ADS_ENABLED_FILES = [
+  'build-plugins/borderWaitPagesPlugin.ts',
+  'build-plugins/fuelDailyPagesPlugin.ts',
+  'build-plugins/healthPremiumsLandingPlugin.ts',
+];
+
 /**
  * Extract the source body of a top-level render function by scanning from
  * `function <name>(` (or `export function <name>(`) to the next top-level
@@ -117,4 +123,12 @@ describe('SEO static-page ad slots — regression guard', () => {
       }
     });
   }
+
+  it('keeps Auto Ads enabled on utility pages with proven ad inventory gaps', () => {
+    for (const file of AUTO_ADS_ENABLED_FILES) {
+      const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      expect(src, `${file} should not opt utility SEO pages out of Auto Ads`)
+        .not.toContain('disableAutoAds: true');
+    }
+  });
 });

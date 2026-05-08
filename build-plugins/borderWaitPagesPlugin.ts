@@ -1744,7 +1744,7 @@ function renderLeafPage(inp: LeafInputs): string {
   if (imageLd) jsonLdScripts.push(imageLd);
 
   return buildSeoPageHtml({
-    disableAutoAds: true,
+    disableAutoAds: false,
     locale,
     title,
     description,
@@ -2065,7 +2065,7 @@ function renderHubPage(inp: HubInputs): string {
     <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
-    disableAutoAds: true,
+    disableAutoAds: false,
     locale,
     title,
     description,
@@ -2384,7 +2384,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
       </article>`;
 
   return buildSeoPageHtml({
-    disableAutoAds: true,
+    disableAutoAds: false,
     locale,
     title,
     description,
