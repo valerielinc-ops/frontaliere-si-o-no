@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-24T02:42:32.510Z",
-    "label": "before",
-    "total": 2660,
-    "needsRetranslation": 77,
-    "incomplete": 27,
-    "complete": 2633,
-    "missingByLocale": {
-      "it": 23,
-      "en": 6,
-      "de": 25,
-      "fr": 24
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Fusalp",
-        "pending": 2
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-24T03:22:42.196Z",
-    "label": "after",
-    "total": 2660,
-    "needsRetranslation": 48,
-    "incomplete": 24,
-    "complete": 2636,
-    "missingByLocale": {
-      "it": 23,
-      "en": 4,
-      "de": 22,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 2
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-24T03:55:50.248Z",
     "label": "before",
     "total": 2660,
@@ -9314,6 +9242,118 @@
     "needsRetranslation": 170,
     "incomplete": 44,
     "complete": 2612,
+    "missingByLocale": {
+      "it": 35,
+      "en": 22,
+      "de": 17,
+      "fr": 36
+    },
+    "topPending": [
+      {
+        "company": "Lonza",
+        "pending": 16
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ariston Group",
+        "pending": 1
+      },
+      {
+        "company": "Bosch Thermotechnik AG",
+        "pending": 1
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-08T08:05:46.263Z",
+    "label": "before",
+    "total": 2599,
+    "needsRetranslation": 168,
+    "incomplete": 44,
+    "complete": 2555,
+    "missingByLocale": {
+      "it": 35,
+      "en": 22,
+      "de": 17,
+      "fr": 36
+    },
+    "topPending": [
+      {
+        "company": "Lonza",
+        "pending": 16
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ariston Group",
+        "pending": 1
+      },
+      {
+        "company": "Bosch Thermotechnik AG",
+        "pending": 1
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-08T08:20:48.279Z",
+    "label": "after",
+    "total": 2599,
+    "needsRetranslation": 168,
+    "incomplete": 44,
+    "complete": 2555,
     "missingByLocale": {
       "it": 35,
       "en": 22,
