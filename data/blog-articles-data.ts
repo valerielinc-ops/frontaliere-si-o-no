@@ -22646,4 +22646,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incentivi-assunzioni-2026-sgravi-contributivi',
+ category: 'fiscale',
+ date: '2026-05-08T11:21:58.883Z',
+ image: '/images/blog/incentivi-assunzioni-2026-sgravi-contributivi.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

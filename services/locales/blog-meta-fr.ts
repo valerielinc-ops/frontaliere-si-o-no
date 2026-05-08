@@ -7092,6 +7092,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aquile-mannheim-coppa-spengler-2026.title': 'Les Aigles de Mannheim à la Coupe Spengler 2026',
     'blog.article.aquile-mannheim-coppa-spengler-2026.excerpt': 'Les Aigles de Mannheim, vice-champions d\'Allemagne, participeront à la 98e Coupe Spengler. Voici les implications pour les amateurs de hockey.',
     'blog.article.aquile-mannheim-coppa-spengler-2026.imageAlt': 'Match de hockey sur glace à Davos, Suisse, avec des spectateurs dans les tribunes',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.title': 'Aides à l\'embauche 2026: trois exonérations peu utilisées',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.excerpt': 'Découvrez les trois exonérations pour les embauches en 2026, dont la NASpI, l\'ADI et les femmes victimes de violence, avec des exonérations allant jusqu\'à 100%.',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.imageAlt': 'Vue du lac de Lugano avec un bâtiment moderne au premier plan',
 };
 
 export default blogMetaFr;

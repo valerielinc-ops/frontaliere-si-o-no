@@ -31040,6 +31040,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incentivi-assunzioni-2026-sgravi-contributivi': {
+    title: 'Incentivi assunzioni 2026: tre sgravi contributivi poco utilizzati',
+    description: 'Scopri i tre sgravi contributivi per le assunzioni nel 2026, tra cui NASpI, ADI e donne vittime di violenza, con esoneri fino al 100%. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incentivi, assunzioni, sgravi, contributivi',
+    ogTitle: 'Incentivi assunzioni 2026: tre sgravi contributivi poco utilizzati',
+    ogDescription: 'Scopri i tre sgravi contributivi per le assunzioni nel 2026, tra cui NASpI, ADI e donne vittime di violenza, con esoneri fino al 100%.',
+    canonicalPath: '/articoli-frontaliere/incentivi-assunzioni-2026-sgravi-contributivi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incentivi assunzioni 2026: tre sgravi contributivi poco utilizzati",
+      "description": "Scopri i tre sgravi contributivi per le assunzioni nel 2026, tra cui NASpI, ADI e donne vittime di violenza, con esoneri fino al 100%. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incentivi-assunzioni-2026-sgravi-contributivi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con un edificio moderno in primo piano"
+      },
+      "datePublished": "2026-05-08T11:21:58+00:00",
+      "dateModified": "2026-05-08T11:21:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incentivi-assunzioni-2026-sgravi-contributivi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

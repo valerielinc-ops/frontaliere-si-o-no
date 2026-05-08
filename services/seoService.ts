@@ -3606,6 +3606,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-imprinting-saggio-architettura-italiana': { name: 'Architettura Italiana', path: '/articoli-frontaliere/imprinting-saggio-architettura-italiana', parent: 'blog' },
     'blog-pagaiate-internazionali-grigioni-ticino-2026': { name: 'Eventi sportivi', path: '/articoli-frontaliere/pagaiate-internazionali-grigioni-ticino-2026', parent: 'blog' },
     'blog-aquile-mannheim-coppa-spengler-2026': { name: 'Coppa Spengler', path: '/articoli-frontaliere/aquile-mannheim-coppa-spengler-2026', parent: 'blog' },
+    'blog-incentivi-assunzioni-2026-sgravi-contributivi': { name: 'Incentivi assunzioni', path: '/articoli-frontaliere/incentivi-assunzioni-2026-sgravi-contributivi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

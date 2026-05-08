@@ -7092,6 +7092,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aquile-mannheim-coppa-spengler-2026.title': 'Le Aquile di Mannheim alla Coppa Spengler 2026',
     'blog.article.aquile-mannheim-coppa-spengler-2026.excerpt': 'Le Aquile di Mannheim, vicecampioni di Germania, parteciperanno alla 98esima Coppa Spengler. Ecco le implicazioni per gli appassionati di hockey.',
     'blog.article.aquile-mannheim-coppa-spengler-2026.imageAlt': 'Partita di hockey su ghiaccio a Davos, Svizzera, con spettatori nelle tribune',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.title': 'Incentivi assunzioni 2026: tre sgravi contributivi poco utilizzati',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.excerpt': 'Scopri i tre sgravi contributivi per le assunzioni nel 2026, tra cui NASpI, ADI e donne vittime di violenza, con esoneri fino al 100%.',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.imageAlt': 'Vista del Lago di Lugano con un edificio moderno in primo piano',
 };
 
 export default blogMetaIt;

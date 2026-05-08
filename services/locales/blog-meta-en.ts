@@ -7091,6 +7091,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aquile-mannheim-coppa-spengler-2026.title': 'Mannheim Eagles to Compete in 2026 Spengler Cup',
     'blog.article.aquile-mannheim-coppa-spengler-2026.excerpt': 'The Mannheim Eagles, runners-up in Germany, will participate in the 98th Spengler Cup. Here are the implications for hockey fans.',
     'blog.article.aquile-mannheim-coppa-spengler-2026.imageAlt': 'Ice hockey game in Davos, Switzerland, with spectators in the stands',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.title': '2026 hiring incentives: three underused tax breaks',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.excerpt': 'Discover the three tax breaks for hiring in 2026, including NASpI, ADI, and women victims of violence, with exemptions up to 100%.',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.imageAlt': 'View of Lake Lugano with a modern building in the foreground',
 };
 
 export default blogMetaEn;

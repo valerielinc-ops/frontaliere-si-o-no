@@ -7091,6 +7091,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aquile-mannheim-coppa-spengler-2026.title': 'Die Adler Mannheim beim Spengler Cup 2026',
     'blog.article.aquile-mannheim-coppa-spengler-2026.excerpt': 'Die Adler Mannheim, Vizemeister Deutschlands, nehmen am 98. Spengler Cup teil. Das sind die Auswirkungen für die Eishockey-Fans.',
     'blog.article.aquile-mannheim-coppa-spengler-2026.imageAlt': 'Eishockeyspiel in Davos, Schweiz, mit Zuschauern auf den Rängen',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.title': 'Förderungen für Einstellungen 2026: Drei wenig genutzte Sozialabgabenbefreiungen',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.excerpt': 'Entdecken Sie die drei Sozialabgabenbefreiungen für Einstellungen im Jahr 2026, darunter NASpI, ADI und Frauen, die Opfer von Gewalt geworden sind, mit Befreiungen von bis zu 100%.',
+    'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.imageAlt': 'Blick auf den Luganersee mit einem modernen Gebäude im Vordergrund',
 };
 
 export default blogMetaDe;
