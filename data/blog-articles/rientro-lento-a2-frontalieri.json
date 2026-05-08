@@ -1,0 +1,40 @@
+{
+  "id": "rientro-lento-a2-frontalieri",
+  "slug": "rientro-lento-a2-frontalieri",
+  "publishedAt": "2026-05-08T21:55:04.189Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 8.045259776317591,
+    "confidence": 0.8,
+    "finalScore": 6.436207821054073,
+    "topK": [
+      {
+        "slug": "rientro-a2-incubo-30-aprile-2026",
+        "cosine": 0.8482178041053059
+      },
+      {
+        "slug": "ponti-primaverili-traffico-2026",
+        "cosine": 0.8480148349100706
+      },
+      {
+        "slug": "raffica-chiusure-a9-2026",
+        "cosine": 0.8435726084806491
+      },
+      {
+        "slug": "restringimento-a2-ritardi-2026",
+        "cosine": 0.8339288895507335
+      },
+      {
+        "slug": "ponti-primaverili-traffico-ticino-2026",
+        "cosine": 0.8316429792739959
+      }
+    ],
+    "score": 0.6436207821054074,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

@@ -3630,6 +3630,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-emolumenti-svizzera-tassazione-italia': { name: 'Fiscale', path: '/articoli-frontaliere/emolumenti-svizzera-tassazione-italia', parent: 'blog' },
     'blog-assicurazione-malattie-pilota-ticino': { name: 'Assicurazione malattie', path: '/articoli-frontaliere/assicurazione-malattie-pilota-ticino', parent: 'blog' },
     'blog-revoca-permesso-g-steiner-ticino': { name: 'Novità', path: '/articoli-frontaliere/revoca-permesso-g-steiner-ticino', parent: 'blog' },
+    'blog-rientro-lento-a2-frontalieri': { name: 'Traffico e Mobilità', path: '/articoli-frontaliere/rientro-lento-a2-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

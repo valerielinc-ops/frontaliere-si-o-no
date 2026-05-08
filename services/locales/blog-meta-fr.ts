@@ -7164,6 +7164,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.revoca-permesso-g-steiner-ticino.title': 'Permis G révoqué : impact pour les frontaliers',
     'blog.article.revoca-permesso-g-steiner-ticino.excerpt': 'Le directeur de Steiner a perdu son permis G. Voici les implications pour les frontaliers et ce qu\'il faut faire pour éviter les problèmes.',
     'blog.article.revoca-permesso-g-steiner-ticino.imageAlt': 'Vue aérienne de Mendrisio, Tessin, Suisse, avec la frontière italienne en arrière-plan. La ville est nichée entre des collines ondulées et des vignobles, mettant en évidence sa position transfrontalière unique.',
+    'blog.article.rientro-lento-a2-frontalieri.title': 'Retour lent sur l\'A2 : 40 minutes de retard pour les frontaliers',
+    'blog.article.rientro-lento-a2-frontalieri.excerpt': 'Trafic intense et pluie rendent le retour du sud sur l\'A2 particulièrement lent. Retards jusqu\'à 40 minutes entre Rivera et Chiasso.',
+    'blog.article.rientro-lento-a2-frontalieri.imageAlt': 'Autoroute A2 avec un trafic intense et de la pluie près de Mendrisio',
 };
 
 export default blogMetaFr;

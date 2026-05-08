@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2440,
+ "numberOfItems": 2441,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7082,7 +7082,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2437, "name": "Svizzeri ottimisti sulla situazione finanziaria...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-ottimisti-finanze-2026` },
           { "@type": "ListItem", "position": 2438, "name": "Emolumenti svizzeri: tassazione e dichiarazione...", "url": `${BASE_URL}/articoli-frontaliere/emolumenti-svizzera-tassazione-italia` },
           { "@type": "ListItem", "position": 2439, "name": "Piloti per l'assicurazione malattie in Ticino: ...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-malattie-pilota-ticino` },
-          { "@type": "ListItem", "position": 2440, "name": "Revoca permesso G a direttore Steiner: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/revoca-permesso-g-steiner-ticino` }
+          { "@type": "ListItem", "position": 2440, "name": "Revoca permesso G a direttore Steiner: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/revoca-permesso-g-steiner-ticino` },
+          { "@type": "ListItem", "position": 2441, "name": "Rientro lento sulla A2: 40 minuti di ritardo pe...", "url": `${BASE_URL}/articoli-frontaliere/rientro-lento-a2-frontalieri` }
  ]
  },
  {

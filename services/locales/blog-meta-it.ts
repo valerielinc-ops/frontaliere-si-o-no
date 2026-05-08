@@ -7164,6 +7164,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.revoca-permesso-g-steiner-ticino.title': 'Revoca permesso G a direttore Steiner: cosa cambia per i frontalieri',
     'blog.article.revoca-permesso-g-steiner-ticino.excerpt': 'Il direttore della Steiner ha perso il permesso G. Ecco le implicazioni per i frontalieri e cosa fare per evitare problemi.',
     'blog.article.revoca-permesso-g-steiner-ticino.imageAlt': 'Vista aerea di Mendrisio, Ticino, Svizzera, con il confine italiano sullo sfondo. La città è annidata tra colline ondulate e vigneti, mostrando la sua unica posizione transfrontaliera.',
+    'blog.article.rientro-lento-a2-frontalieri.title': 'Rientro lento sulla A2: 40 minuti di ritardo per i frontalieri',
+    'blog.article.rientro-lento-a2-frontalieri.excerpt': 'Traffico intenso e pioggia rendono il rientro da sud sulla A2 particolarmente lento. Ritardi fino a 40 minuti tra Rivera e Chiasso.',
+    'blog.article.rientro-lento-a2-frontalieri.imageAlt': 'Autostrada A2 con traffico intenso e pioggia vicino a Mendrisio',
 };
 
 export default blogMetaIt;

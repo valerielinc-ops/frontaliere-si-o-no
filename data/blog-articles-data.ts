@@ -22862,4 +22862,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rientro-lento-a2-frontalieri',
+ category: 'pratico',
+ date: '2026-05-08T21:55:02.596Z',
+ image: '/images/blog/rientro-lento-a2-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7163,6 +7163,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.revoca-permesso-g-steiner-ticino.title': 'Steiner director loses G permit: what changes for cross-border workers',
     'blog.article.revoca-permesso-g-steiner-ticino.excerpt': 'The Steiner director has lost their G permit. Here are the implications for cross-border workers and what to do to avoid problems.',
     'blog.article.revoca-permesso-g-steiner-ticino.imageAlt': 'Aerial view of Mendrisio, Ticino, Switzerland, with the Italian border in the background. The town is nestled between rolling hills and vineyards, showcasing its unique cross-border location.',
+    'blog.article.rientro-lento-a2-frontalieri.title': 'Slow return on A2: 40-minute delay for cross-border workers',
+    'blog.article.rientro-lento-a2-frontalieri.excerpt': 'Heavy traffic and rain make the return from the south on the A2 particularly slow. Delays of up to 40 minutes between Rivera and Chiasso.',
+    'blog.article.rientro-lento-a2-frontalieri.imageAlt': 'A2 highway with heavy traffic and rain near Mendrisio',
 };
 
 export default blogMetaEn;
