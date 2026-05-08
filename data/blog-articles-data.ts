@@ -22412,4 +22412,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vertigini-montagna-frontalieri',
+ category: 'pratico',
+ date: '2026-05-08T06:20:11.126Z',
+ image: '/images/blog/vertigini-montagna-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

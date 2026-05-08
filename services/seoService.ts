@@ -3580,6 +3580,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ricorso-patente-lavoro-varese-2026': { name: 'Ricorso patente', path: '/articoli-frontaliere/ricorso-patente-lavoro-varese-2026', parent: 'blog' },
     'blog-aggregazione-comuni-vedeggio-2026': { name: 'Aggregazione Comuni', path: '/articoli-frontaliere/aggregazione-comuni-vedeggio-2026', parent: 'blog' },
     'blog-giardino-ferroviario-balerna-2026': { name: 'Giardino ferroviario Balerna', path: '/articoli-frontaliere/giardino-ferroviario-balerna-2026', parent: 'blog' },
+    'blog-vertigini-montagna-frontalieri': { name: 'Vertigini montagna', path: '/articoli-frontaliere/vertigini-montagna-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

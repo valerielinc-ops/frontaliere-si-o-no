@@ -7014,6 +7014,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giardino-ferroviario-balerna-2026.title': 'Jardin ferroviaire à Balerna: un nouvel espace vert durable',
     'blog.article.giardino-ferroviario-balerna-2026.excerpt': 'La Municipalité de Balerna et les CFF inaugurent le Jardin ferroviaire, une zone unique en Suisse avec des jardins urbains et des espaces de rassemblement',
     'blog.article.giardino-ferroviario-balerna-2026.imageAlt': 'Jardin ferroviaire de Balerna, une zone verte durable avec des jardins urbains et des espaces communautaires',
+    'blog.article.vertigini-montagna-frontalieri.title': 'Vertiges en montagne : un risque sous-estimé pour les frontaliers',
+    'blog.article.vertigini-montagna-frontalieri.excerpt': 'Presque un tiers des randonneurs en Suisse souffrent de vertiges, augmentant le risque de chute. Voici comment aborder le problème',
+    'blog.article.vertigini-montagna-frontalieri.imageAlt': 'Randonneur avec le vertige sur un sentier de montagne en Tessin',
 };
 
 export default blogMetaFr;

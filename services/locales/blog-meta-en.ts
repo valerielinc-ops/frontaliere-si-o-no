@@ -7013,6 +7013,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giardino-ferroviario-balerna-2026.title': 'Railway garden in Balerna: a new sustainable green space',
     'blog.article.giardino-ferroviario-balerna-2026.excerpt': 'The Municipality of Balerna and the SBB inaugurate the Railway Garden, a unique area in Switzerland with urban gardens and community spaces',
     'blog.article.giardino-ferroviario-balerna-2026.imageAlt': 'Balerna Railway Garden, a sustainable green area with urban gardens and community spaces',
+    'blog.article.vertigini-montagna-frontalieri.title': 'Dizziness in the mountains: an underestimated risk for cross-border workers',
+    'blog.article.vertigini-montagna-frontalieri.excerpt': 'Almost a third of hikers in Switzerland suffer from dizziness, increasing the risk of falls. Here\'s how to tackle the problem',
+    'blog.article.vertigini-montagna-frontalieri.imageAlt': 'Hiker with vertigo on a mountain trail in Ticino',
 };
 
 export default blogMetaEn;

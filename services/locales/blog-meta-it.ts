@@ -7014,6 +7014,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giardino-ferroviario-balerna-2026.title': 'Giardino ferroviario a Balerna: un nuovo spazio verde sostenibile',
     'blog.article.giardino-ferroviario-balerna-2026.excerpt': 'Il Municipio di Balerna e le FFS inaugurano il Giardino ferroviario, un\'area unica in Svizzera con orti urbani e spazi di aggregazione',
     'blog.article.giardino-ferroviario-balerna-2026.imageAlt': 'Giardino ferroviario di Balerna, un\'area verde sostenibile con orti urbani e spazi di aggregazione',
+    'blog.article.vertigini-montagna-frontalieri.title': 'Vertigini in montagna: rischio sottovalutato per i frontalieri',
+    'blog.article.vertigini-montagna-frontalieri.excerpt': 'Quasi un terzo degli escursionisti in Svizzera soffre di vertigini, aumentando il rischio di cadute. Ecco come affrontare il problema',
+    'blog.article.vertigini-montagna-frontalieri.imageAlt': 'Escursionista con vertigini su un sentiero di montagna in Ticino',
 };
 
 export default blogMetaIt;

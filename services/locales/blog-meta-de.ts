@@ -7013,6 +7013,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giardino-ferroviario-balerna-2026.title': 'Bahnhofsgarten in Balerna: ein neuer nachhaltiger Grünbereich',
     'blog.article.giardino-ferroviario-balerna-2026.excerpt': 'Die Gemeinde Balerna und die SBB eröffnen den Bahnhofsgarten, eine einzigartige Fläche in der Schweiz mit urbanen Gärten und Gemeinschaftsräumen',
     'blog.article.giardino-ferroviario-balerna-2026.imageAlt': 'Bahnhofsgarten Balerna, ein nachhaltiger Grünbereich mit Urban Gardens und Gemeinschaftsräumen',
+    'blog.article.vertigini-montagna-frontalieri.title': 'Schwindel in den Bergen: unterschätztes Risiko für Grenzgänger',
+    'blog.article.vertigini-montagna-frontalieri.excerpt': 'Fast ein Drittel der Wanderer in der Schweiz leidet unter Schwindel, was das Sturzrisiko erhöht. So können Sie das Problem angehen',
+    'blog.article.vertigini-montagna-frontalieri.imageAlt': 'Wanderer mit Höhenangst auf einem Bergpfad in Tessin',
 };
 
 export default blogMetaDe;
