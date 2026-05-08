@@ -7055,6 +7055,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crd-output-floor-ii-pilastro.title': 'CRD: Wechselwirkung zwischen Output Floor und II-Säulen-Anforderungen',
     'blog.article.crd-output-floor-ii-pilastro.excerpt': 'Analyse der Auswirkungen für Grenzgänger im Tessin: Was sich durch die Wechselwirkung zwischen Output Floor und den Anforderungen der II. Säule ändert',
     'blog.article.crd-output-floor-ii-pilastro.imageAlt': 'Blick auf den Luganersee mit dem modernen Finanzdistrikt im Hintergrund',
+    'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.title': 'Letzter Schweizer aus dem Ausland kehrt nach der Schweiz zurück',
+    'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.excerpt': 'Der letzte Schweizer Bürger, der nach dem Silvesterbrand in Crans-Montana im Ausland behandelt wurde, kehrt in die Schweiz zurück. Drei neue Anhörungen sind geplant.',
+    'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.imageAlt': 'Luftaufnahme von Crans-Montana nach dem Brand, mit dem beschädigten Gebiet und den umliegenden Alpen',
 };
 
 export default blogMetaDe;

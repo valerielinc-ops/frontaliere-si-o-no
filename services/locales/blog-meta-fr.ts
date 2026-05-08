@@ -7056,6 +7056,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crd-output-floor-ii-pilastro.title': 'CRD : interaction entre output floor et exigences du pilier II',
     'blog.article.crd-output-floor-ii-pilastro.excerpt': 'Analyse des implications pour les frontaliers du Tessin : que change l\'interaction entre output floor et exigences du pilier II',
     'blog.article.crd-output-floor-ii-pilastro.imageAlt': 'Vue du lac de Lugano avec le quartier financier moderne en arrière-plan',
+    'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.title': 'Dernier Suisse hospitalisé à l\'étranger rentre en Suisse',
+    'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.excerpt': 'Le dernier citoyen suisse hospitalisé à l\'étranger après l\'incendie du Nouvel An à Crans-Montana rentre en Suisse. Trois nouvelles auditions prévues',
+    'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.imageAlt': 'Vue aérienne de Crans-Montana après l\'incendie, montrant la zone endommagée et les Alpes environnantes',
 };
 
 export default blogMetaFr;

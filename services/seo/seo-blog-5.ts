@@ -30572,6 +30572,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ultimo-svizzero-rientra-incendio-crans-montana': {
+    title: 'Ultimo svizzero ricoverato all\'estero torna in Svizzera',
+    description: 'L\'ultimo cittadino svizzero ricoverato all\'estero dopo l\'incendio di Capodanno a Crans-Montana torna in Svizzera. Tre nuove audizioni in programma',
+    keywords: 'frontalieri, ticino, svizzera, italia, ultimo, svizzero, ricoverato, estero',
+    ogTitle: 'Ultimo svizzero ricoverato torna in Svizzera dopo incendio Crans-Montana',
+    ogDescription: 'L\'ultimo cittadino svizzero ricoverato all\'estero dopo l\'incendio di Capodanno a Crans-Montana torna in Svizzera. Tre nuove audizioni in programma',
+    canonicalPath: '/articoli-frontaliere/ultimo-svizzero-rientra-incendio-crans-montana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ultimo svizzero ricoverato all'estero torna in Svizzera",
+      "description": "L'ultimo cittadino svizzero ricoverato all'estero dopo l'incendio di Capodanno a Crans-Montana torna in Svizzera. Tre nuove audizioni in programma",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ultimo-svizzero-rientra-incendio-crans-montana.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Crans-Montana dopo l'incendio, con l'area danneggiata e le Alpi circostanti"
+      },
+      "datePublished": "2026-05-08T08:35:41+00:00",
+      "dateModified": "2026-05-08T08:35:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ultimo-svizzero-rientra-incendio-crans-montana`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

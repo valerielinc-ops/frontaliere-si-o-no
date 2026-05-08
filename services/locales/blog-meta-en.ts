@@ -7055,6 +7055,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crd-output-floor-ii-pilastro.title': 'CRD: interaction between output floor and Pillar 2 requirements',
     'blog.article.crd-output-floor-ii-pilastro.excerpt': 'Analysis of the implications for Ticino cross-border workers: what changes with the interaction between output floor and Pillar 2 requirements',
     'blog.article.crd-output-floor-ii-pilastro.imageAlt': 'View of Lake Lugano with the modern financial district in the background',
+    'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.title': 'Last Swiss patient from abroad returns to Switzerland',
+    'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.excerpt': 'The last Swiss citizen hospitalized abroad after the New Year\'s Eve fire in Crans-Montana returns to Switzerland. Three new hearings scheduled',
+    'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.imageAlt': 'Aerial view of Crans-Montana after the fire, showing the damaged area and surrounding Alps',
 };
 
 export default blogMetaEn;

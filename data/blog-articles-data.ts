@@ -22538,4 +22538,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ultimo-svizzero-rientra-incendio-crans-montana',
+ category: 'novita',
+ date: '2026-05-08T08:35:41.511Z',
+ image: '/images/blog/ultimo-svizzero-rientra-incendio-crans-montana.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
