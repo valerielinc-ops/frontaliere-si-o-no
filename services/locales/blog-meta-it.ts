@@ -7134,6 +7134,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lista-morosi-cassa-malati-ticino.title': 'Lista morosi cassa malati: serve tempo per l\'attuazione',
     'blog.article.lista-morosi-cassa-malati-ticino.excerpt': 'Il Canton Ticino sta lavorando per implementare la lista dei morosi delle casse malati, ma servono ancora tempo e chiarimenti',
     'blog.article.lista-morosi-cassa-malati-ticino.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido',
+    'blog.article.falegnami-stipendi-2025.title': 'Falegnami: aumento stipendi in busta paga dal 2025',
+    'blog.article.falegnami-stipendi-2025.excerpt': 'Dal 2025 gli stipendi dei falegnami in Ticino aumenteranno. Ecco cosa cambia per i frontalieri',
+    'blog.article.falegnami-stipendi-2025.imageAlt': 'Skyline di Lugano con il Lago Ceresio in una giornata di sole',
 };
 
 export default blogMetaIt;

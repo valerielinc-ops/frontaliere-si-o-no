@@ -3620,6 +3620,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuove-basi-lpp-2025-frontalieri': { name: 'Pensioni', path: '/articoli-frontaliere/nuove-basi-lpp-2025-frontalieri', parent: 'blog' },
     'blog-aumenti-stipendi-svizzera-2026': { name: 'Aumenti stipendi', path: '/articoli-frontaliere/aumenti-stipendi-svizzera-2026', parent: 'blog' },
     'blog-lista-morosi-cassa-malati-ticino': { name: 'Lista morosi', path: '/articoli-frontaliere/lista-morosi-cassa-malati-ticino', parent: 'blog' },
+    'blog-falegnami-stipendi-2025': { name: 'Fiscale', path: '/articoli-frontaliere/falegnami-stipendi-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

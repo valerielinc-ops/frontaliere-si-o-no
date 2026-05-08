@@ -22772,4 +22772,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'falegnami-stipendi-2025',
+ category: 'fiscale',
+ date: '2026-05-08T18:42:06.481Z',
+ image: '/images/blog/falegnami-stipendi-2025.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

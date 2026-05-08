@@ -7134,6 +7134,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lista-morosi-cassa-malati-ticino.title': 'Liste des débiteurs des caisses maladie: du temps nécessaire',
     'blog.article.lista-morosi-cassa-malati-ticino.excerpt': 'Le canton du Tessin travaille à mettre en place la liste des débiteurs des caisses maladie, mais il faut encore du temps et des éclaircissements',
     'blog.article.lista-morosi-cassa-malati-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan, ciel bleu clair',
+    'blog.article.falegnami-stipendi-2025.title': 'Charpentiers: augmentation des salaires dès 2025',
+    'blog.article.falegnami-stipendi-2025.excerpt': 'Dès 2025, les salaires des charpentiers au Tessin augmenteront. Voici ce qui change pour les frontaliers',
+    'blog.article.falegnami-stipendi-2025.imageAlt': 'Skyline de Lugano avec le Lac de Lugano par une journée ensoleillée',
 };
 
 export default blogMetaFr;

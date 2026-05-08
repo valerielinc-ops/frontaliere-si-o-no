@@ -7133,6 +7133,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lista-morosi-cassa-malati-ticino.title': 'Schuldnerliste der Krankenkassen: Umsetzung braucht Zeit',
     'blog.article.lista-morosi-cassa-malati-ticino.excerpt': 'Der Kanton Tessin arbeitet an der Umsetzung der Schuldnerliste der Krankenkassen, doch es braucht noch Zeit und Klarstellungen.',
     'blog.article.lista-morosi-cassa-malati-ticino.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund, klarer blauer Himmel',
+    'blog.article.falegnami-stipendi-2025.title': 'Tischler: Lohnsteigerung ab 2025',
+    'blog.article.falegnami-stipendi-2025.excerpt': 'Ab 2025 steigen die Löhne der Tischler im Tessin. Hier erfahren Grenzgänger, was sich ändert.',
+    'blog.article.falegnami-stipendi-2025.imageAlt': 'Skyline von Lugano mit dem Luganersee an einem sonnigen Tag',
 };
 
 export default blogMetaDe;
