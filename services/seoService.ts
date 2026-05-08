@@ -3564,6 +3564,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-josi-fischer-lettera-cuore': { name: 'Sport', path: '/articoli-frontaliere/josi-fischer-lettera-cuore', parent: 'blog' },
     'blog-votazione-popolare-lamal-frontalieri': { name: 'Votazione LAMal', path: '/articoli-frontaliere/votazione-popolare-lamal-frontalieri', parent: 'blog' },
     'blog-maxi-blitz-cocaina-atlantico-30-tonnellate': { name: 'Novità', path: '/articoli-frontaliere/maxi-blitz-cocaina-atlantico-30-tonnellate', parent: 'blog' },
+    'blog-giudici-federali-indagine-2026': { name: 'Indagine giudici', path: '/articoli-frontaliere/giudici-federali-indagine-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

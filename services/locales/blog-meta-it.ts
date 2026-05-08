@@ -6966,6 +6966,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.title': 'Maxi blitz nell\'Atlantico: sequestrate 30 tonnellate di cocaina',
     'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.excerpt': 'La Guardia Civil spagnola ha intercettato 30,2 tonnellate di cocaina a bordo del mercantile Arconian, il più grande sequestro in Spagna in una sola operazione.',
     'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.giudici-federali-indagine-2026.title': 'Indagine su due giudici federali: implicazioni per il Ticino',
+    'blog.article.giudici-federali-indagine-2026.excerpt': 'Due esperti esterni indagano sulla relazione tra Beatrice van de Graaf e Yves Donzallaz del Tribunale federale.',
+    'blog.article.giudici-federali-indagine-2026.imageAlt': 'Due giudici davanti al Tribunale federale di Losanna',
 };
 
 export default blogMetaIt;

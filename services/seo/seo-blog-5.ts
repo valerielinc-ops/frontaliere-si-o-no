@@ -29402,6 +29402,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giudici-federali-indagine-2026': {
+    title: 'Indagine su due giudici federali: implicazioni per il Ticino',
+    description: 'Due esperti esterni indagano sulla relazione tra Beatrice van de Graaf e Yves Donzallaz del Tribunale federale. Scopri le implicazioni per i frontalieri del',
+    keywords: 'frontalieri, ticino, svizzera, italia, indagine, giudici, federali, implicazioni',
+    ogTitle: 'Indagine su due giudici federali: implicazioni per il Ticino',
+    ogDescription: 'Due esperti esterni indagano sulla relazione tra Beatrice van de Graaf e Yves Donzallaz del Tribunale federale. Scopri le implicazioni per i frontalieri del',
+    canonicalPath: '/articoli-frontaliere/giudici-federali-indagine-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indagine su due giudici federali: implicazioni per il Ticino",
+      "description": "Due esperti esterni indagano sulla relazione tra Beatrice van de Graaf e Yves Donzallaz del Tribunale federale. Scopri le implicazioni per i frontalieri del",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giudici-federali-indagine-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Due giudici davanti al Tribunale federale di Losanna"
+      },
+      "datePublished": "2026-05-08T03:07:04+00:00",
+      "dateModified": "2026-05-08T03:07:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giudici-federali-indagine-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

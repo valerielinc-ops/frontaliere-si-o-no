@@ -6965,6 +6965,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.title': 'Massive Atlantic raid: 30 tons of cocaine seized',
     'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.excerpt': 'The Spanish Guardia Civil intercepted 30.2 tons of cocaine aboard the Arconian merchant ship, the largest seizure in Spain in a single operation.',
     'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.giudici-federali-indagine-2026.title': 'Investigation into two federal judges: implications for Ticino',
+    'blog.article.giudici-federali-indagine-2026.excerpt': 'Two external experts are investigating the relationship between Beatrice van de Graaf and Yves Donzallaz of the Federal Court.',
+    'blog.article.giudici-federali-indagine-2026.imageAlt': 'Two judges in front of the Federal Supreme Court in Lausanne',
 };
 
 export default blogMetaEn;

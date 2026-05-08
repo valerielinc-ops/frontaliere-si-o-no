@@ -6965,6 +6965,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.title': 'Rekordbeschlagnahme: 30 Tonnen Kokain im Atlantik',
     'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.excerpt': 'Die spanische Guardia Civil hat 30,2 Tonnen Kokain an Bord des Frachters Arconian beschlagnahmt, die größte Einzelbeschlagnahme in Spanien.',
     'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.giudici-federali-indagine-2026.title': 'Untersuchung zu zwei Bundesrichtern: Auswirkungen auf den Tessin',
+    'blog.article.giudici-federali-indagine-2026.excerpt': 'Zwei externe Experten untersuchen die Beziehung zwischen Beatrice van de Graaf und Yves Donzallaz des Bundesgerichts.',
+    'blog.article.giudici-federali-indagine-2026.imageAlt': 'Zwei Richter vor dem Bundesgericht in Lausanne',
 };
 
 export default blogMetaDe;
