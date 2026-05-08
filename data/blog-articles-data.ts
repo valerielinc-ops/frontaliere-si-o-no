@@ -22367,4 +22367,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dati-precalcolati-isa-2026-frontalieri',
+ category: 'fiscale',
+ date: '2026-05-08T05:36:26.628Z',
+ image: '/images/blog/dati-precalcolati-isa-2026-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

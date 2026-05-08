@@ -6998,6 +6998,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.untersander-ginevra-2026.title': 'Untersander wechselt vom Bern zum Servette Genf',
     'blog.article.untersander-ginevra-2026.excerpt': 'Der Verteidiger Ramon Untersander, ehemaliger Kapitän des Bern, wechselt zum Servette Genf. Hier erfahren Sie, was sich für die Fans und Eishockeybegeisterten ändert.',
     'blog.article.untersander-ginevra-2026.imageAlt': 'Hockeyspieler feiert Sieg vor dem Luganersee',
+    'blog.article.dati-precalcolati-isa-2026-frontalieri.title': 'ISA 2026: Vorberechnete Daten beantragen und Einzelvollmacht verwalten',
+    'blog.article.dati-precalcolati-isa-2026-frontalieri.excerpt': 'Neue Regeln für den Zugriff auf die vorberechneten ISA 2026-Daten: Was sich für Grenzgänger ändert und wie die Einzelvollmacht verwaltet wird',
+    'blog.article.dati-precalcolati-isa-2026-frontalieri.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund, ein Fachmann arbeitet an einem Computer mit Finanzdokumenten',
 };
 
 export default blogMetaDe;

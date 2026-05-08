@@ -3575,6 +3575,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lamal-low-cost-premi-bassi-2026': { name: 'LAMal low cost', path: '/articoli-frontaliere/lamal-low-cost-premi-bassi-2026', parent: 'blog' },
     'blog-grigioni-fattura-italia-olimpiadi': { name: 'Novità', path: '/articoli-frontaliere/grigioni-fattura-italia-olimpiadi', parent: 'blog' },
     'blog-untersander-ginevra-2026': { name: 'Novità', path: '/articoli-frontaliere/untersander-ginevra-2026', parent: 'blog' },
+    'blog-dati-precalcolati-isa-2026-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/dati-precalcolati-isa-2026-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

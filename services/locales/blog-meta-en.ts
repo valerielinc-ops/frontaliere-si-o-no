@@ -6998,6 +6998,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.untersander-ginevra-2026.title': 'Untersander leaves Bern for Servette Geneva',
     'blog.article.untersander-ginevra-2026.excerpt': 'Ramon Untersander, former captain of Bern, moves to Geneva Servette. Here\'s what changes for fans and hockey enthusiasts.',
     'blog.article.untersander-ginevra-2026.imageAlt': 'Hockey player celebrating victory in front of Lake Lugano',
+    'blog.article.dati-precalcolati-isa-2026-frontalieri.title': 'ISA 2026: how to request precalculated data and manage the single mandate',
+    'blog.article.dati-precalcolati-isa-2026-frontalieri.excerpt': 'New rules for accessing ISA 2026 precalculated data: what changes for cross-border workers and how to manage the single mandate',
+    'blog.article.dati-precalcolati-isa-2026-frontalieri.imageAlt': 'Lake Lugano with a modern building in the background, a professional working on a computer with financial documents',
 };
 
 export default blogMetaEn;

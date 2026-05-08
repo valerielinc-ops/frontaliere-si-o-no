@@ -6999,6 +6999,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.untersander-ginevra-2026.title': 'Untersander lascia il Berna per il Ginevra Servette',
     'blog.article.untersander-ginevra-2026.excerpt': 'Il difensore Ramon Untersander, ex capitano del Berna, si trasferisce al Ginevra Servette. Ecco cosa cambia per i tifosi e gli appassionati di hockey.',
     'blog.article.untersander-ginevra-2026.imageAlt': 'Giocatore di hockey festeggia vittoria davanti al Lago di Lugano',
+    'blog.article.dati-precalcolati-isa-2026-frontalieri.title': 'ISA 2026: come richiedere i dati precalcolati e gestire la delega unica',
+    'blog.article.dati-precalcolati-isa-2026-frontalieri.excerpt': 'Nuove regole per l\'accesso ai dati precalcolati ISA 2026: cosa cambia per i frontalieri e come gestire la delega unica',
+    'blog.article.dati-precalcolati-isa-2026-frontalieri.imageAlt': 'Lago di Lugano con un edificio moderno in secondo piano, un professionista al lavoro su un computer con documenti finanziari',
 };
 
 export default blogMetaIt;
