@@ -6957,6 +6957,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ginevra-manifestazione-frontalieri-2026.title': '3\'000 fonctionnaires manifestent contre les mesures d\'austérité à Genève',
     'blog.article.ginevra-manifestazione-frontalieri-2026.excerpt': 'Entre 2\'500 et 3\'000 personnes ont manifesté à Genève contre les mesures d\'austérité prévues par le canton, avec blocage des augmentations salariales et gel de l\'indexation.',
     'blog.article.ginevra-manifestazione-frontalieri-2026.imageAlt': 'Manifestation à Genève avec des milliers de travailleurs du secteur public',
+    'blog.article.josi-fischer-lettera-cuore.title': 'Josi écrit à la fédération : « Pour Fischer, pas contre Cadieux »',
+    'blog.article.josi-fischer-lettera-cuore.excerpt': 'Roman Josi explique sa lettre à la fédération après le licenciement de Patrick Fischer, en vue des championnats du monde de hockey 2026',
+    'blog.article.josi-fischer-lettera-cuore.imageAlt': 'LAC Lugano pendant un concert, avec un public diversifié incluant des travailleurs frontaliers',
 };
 
 export default blogMetaFr;

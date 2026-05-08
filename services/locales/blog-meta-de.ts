@@ -6956,6 +6956,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ginevra-manifestazione-frontalieri-2026.title': '3\'000 Beamte demonstrieren gegen Sparmaßnahmen in Genf',
     'blog.article.ginevra-manifestazione-frontalieri-2026.excerpt': 'Zwischen 2\'500 und 3\'000 Personen haben in Genf gegen die vom Kanton geplanten Sparmaßnahmen demonstriert, darunter Gehaltsstagnation und Einfrieren der Lohnanpassungen.',
     'blog.article.ginevra-manifestazione-frontalieri-2026.imageAlt': 'Protest in Genf mit tausenden öffentlichen Angestellten',
+    'blog.article.josi-fischer-lettera-cuore.title': 'Josi schreibt an den Verband: «Für Fischer, nicht gegen Cadieux»',
+    'blog.article.josi-fischer-lettera-cuore.excerpt': 'Roman Josi erklärt seinen Brief an den Verband nach der Entlassung von Patrick Fischer im Hinblick auf die Eishockey-WM 2026',
+    'blog.article.josi-fischer-lettera-cuore.imageAlt': 'LAC Lugano während eines Konzerts, mit einem vielfältigen Publikum, darunter Grenzgänger',
 };
 
 export default blogMetaDe;

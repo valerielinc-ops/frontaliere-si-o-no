@@ -22241,4 +22241,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'josi-fischer-lettera-cuore',
+ category: 'novita',
+ date: '2026-05-08T02:47:45.316Z',
+ image: '/images/blog/josi-fischer-lettera-cuore.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

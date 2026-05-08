@@ -6956,6 +6956,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ginevra-manifestazione-frontalieri-2026.title': '3,000 officials protest austerity measures in Geneva',
     'blog.article.ginevra-manifestazione-frontalieri-2026.excerpt': 'Between 2,500 and 3,000 people protested in Geneva against the austerity measures planned by the Canton, including wage freezes and indexation freezes.',
     'blog.article.ginevra-manifestazione-frontalieri-2026.imageAlt': 'Protest in Geneva with thousands of public sector workers',
+    'blog.article.josi-fischer-lettera-cuore.title': 'Josi writes to federation: \'For Fischer, not against Cadieux\'',
+    'blog.article.josi-fischer-lettera-cuore.excerpt': 'Roman Josi explains his letter to the federation after Patrick Fischer\'s dismissal, ahead of the 2026 World Hockey Championship',
+    'blog.article.josi-fischer-lettera-cuore.imageAlt': 'LAC Lugano during a concert, with a diverse audience including cross-border workers',
 };
 
 export default blogMetaEn;
