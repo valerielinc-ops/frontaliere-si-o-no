@@ -108,9 +108,9 @@ jobs:
         continue-on-error: true
         run: node scripts/assemble-jobs-dataset.mjs 2>&1 || echo "⚠️ Jobs assembly failed — newsletter will proceed without job data"
 
-      - name: Fetch job popularity data from Firestore
-        continue-on-error: true
-        run: node scripts/fetch-job-popularity.mjs
+      # Job popularity is refreshed once a day by refresh-job-popularity.yml
+      # and committed to data/job-popularity.json. The newsletter reads the
+      # file directly from the checked-out tree.
 
       - name: Run newsletter job
         env:

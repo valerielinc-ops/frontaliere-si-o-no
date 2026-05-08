@@ -210,9 +210,9 @@ jobs:
           restore-keys: |
             cluster-pages-${{ runner.os }}-
 
-      - name: Fetch job popularity data from Firestore
-        continue-on-error: true
-        run: node scripts/fetch-job-popularity.mjs
+      # Job popularity is refreshed once a day by refresh-job-popularity.yml
+      # and committed to data/job-popularity.json. The build reads the file
+      # directly — no Firestore read on every push.
 
       - name: Cache responsive image thumbnails
         id: thumb-cache

@@ -649,6 +649,19 @@ const _stats = {
 // so quality-based ordering is preserved until real data shifts it.
 
 const FIRESTORE_COLLECTION = 'ai_model_scores';
+// All per-model state lives inside this single aggregate doc as a `models`
+// map (encoded modelId → state). Loading the whole store costs 1 Firestore
+// read instead of N (one per model variant). The collection layout is kept
+// only as a one-time migration source for installs that still have the old
+// per-model docs.
+const FIRESTORE_AGGREGATE_DOC = '_all';
+
+// Firestore field names cannot contain `/`. The original modelId may include
+// slashes (e.g. `openrouter/meta-llama/llama-3.3-70b:free`) so we encode them
+// with the same `__` substitution the legacy per-doc layout used.
+function _encodeModelId(modelId) {
+  return modelId.replace(/\//g, '__');
+}
 
 /** @type {Map<string, number>} model → cumulative score */
 const _modelScores = new Map();
@@ -807,18 +820,49 @@ export async function initScoreStore() {
     }
     _firestoreDb = admin.firestore();
 
-    // Load all persisted scores
-    const snapshot = await _firestoreDb.collection(FIRESTORE_COLLECTION).get();
+    // Load all persisted scores from the single aggregate doc (1 read).
+    // If the aggregate doesn't exist yet, fall back to the legacy per-model
+    // collection so the very first run after this refactor migrates state
+    // forward — the next flush() rewrites everything into the aggregate doc.
     const now = new Date();
     let loaded = 0;
     let decayed = 0;
     let exhaustedRestored = 0;
+    let source = 'aggregate';
 
-    for (const doc of snapshot.docs) {
-      const data = doc.data();
-      const modelId = doc.id;
+    const aggregateRef = _firestoreDb
+      .collection(FIRESTORE_COLLECTION)
+      .doc(FIRESTORE_AGGREGATE_DOC);
+    const aggregateSnap = await aggregateRef.get();
+    const aggregateData = aggregateSnap.exists ? aggregateSnap.data() : null;
+    const aggregateModels = aggregateData?.models;
 
-      // Apply time-decay to score
+    /** @type {Array<[string, any]>} */
+    let entries = [];
+
+    if (aggregateModels && Object.keys(aggregateModels).length > 0) {
+      // Field names use the encoded form; the original id is stored alongside.
+      entries = Object.entries(aggregateModels).map(([encId, data]) => [
+        data?.modelId || encId.replace(/__/g, '/'),
+        data || {},
+      ]);
+    } else {
+      // One-time migration path: read the legacy per-model docs.
+      source = 'legacy-collection';
+      const snapshot = await _firestoreDb.collection(FIRESTORE_COLLECTION).get();
+      for (const doc of snapshot.docs) {
+        if (doc.id === FIRESTORE_AGGREGATE_DOC) continue;
+        const data = doc.data();
+        const modelId = data?.modelId || doc.id.replace(/__/g, '/');
+        entries.push([modelId, data]);
+        // Mark every migrated model as dirty so the next flush rewrites it
+        // into the aggregate doc — after which the legacy docs become
+        // unused snapshots and can be deleted out-of-band.
+        _dirtyModels.add(modelId);
+      }
+    }
+
+    for (const [modelId, data] of entries) {
       const rawScore = data.score || 0;
       const decayedScore = _decayScore(rawScore, data.lastUsed);
       if (decayedScore !== 0) {
@@ -827,7 +871,6 @@ export async function initScoreStore() {
         if (decayedScore !== rawScore) decayed++;
       }
 
-      // Restore detailed counters
       if (data.successes || data.failures) {
         _modelDetails.set(modelId, {
           successes: data.successes || 0,
@@ -835,7 +878,6 @@ export async function initScoreStore() {
         });
       }
 
-      // Restore exhausted models whose daily limit hasn't reset
       if (data.exhaustedUntil) {
         const resetTime = data.exhaustedUntil.toDate
           ? data.exhaustedUntil.toDate()   // Firestore Timestamp
@@ -848,7 +890,7 @@ export async function initScoreStore() {
       }
     }
 
-    console.log(`☁️  [ScoreStore] Loaded ${loaded} model scores from Firestore (${decayed} decayed, ${exhaustedRestored} still exhausted)`);
+    console.log(`☁️  [ScoreStore] Loaded ${loaded} model scores from Firestore [${source}] (${decayed} decayed, ${exhaustedRestored} still exhausted)`);
 
     // Register exit hooks for final flush
     _registerExitHooks();
@@ -868,24 +910,28 @@ export async function initScoreStore() {
 
 // ── Firestore persist (debounced) ────────────────────────────
 
-/** Batch-write all dirty model scores to Firestore */
+/**
+ * Write all dirty model scores into the single aggregate doc.
+ *
+ * Uses `set({models: {...}}, {merge: true})`: Firestore deep-merges the
+ * `models` map, so unspecified entries stay untouched and concurrent
+ * writers from other workflows don't clobber each other's models.
+ */
 async function _persistScoresToFirestore() {
   if (!_firestoreDb || _dirtyModels.size === 0) return;
 
-  const batch = _firestoreDb.batch();
   const now = new Date().toISOString();
   const toPersist = [..._dirtyModels];
   _dirtyModels.clear();
   _mutationCount = 0;
 
+  /** @type {Record<string, any>} */
+  const modelsDelta = {};
   for (const modelId of toPersist) {
-    // Firestore doc IDs can't contain '/' — encode them
-    const docId = modelId.replace(/\//g, '__');
-    const ref = _firestoreDb.collection(FIRESTORE_COLLECTION).doc(docId);
     const details = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
     const score = _modelScores.get(modelId) || 0;
 
-    const docData = {
+    const entry = {
       modelId,                 // Original model ID (with slashes)
       score,
       successes: details.successes,
@@ -899,16 +945,19 @@ async function _persistScoresToFirestore() {
       const tomorrow = new Date();
       tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
       tomorrow.setUTCHours(0, 0, 0, 0);
-      docData.exhaustedUntil = tomorrow.toISOString();
+      entry.exhaustedUntil = tomorrow.toISOString();
     } else {
-      docData.exhaustedUntil = null;
+      entry.exhaustedUntil = null;
     }
 
-    batch.set(ref, docData, { merge: true });
+    modelsDelta[_encodeModelId(modelId)] = entry;
   }
 
   try {
-    await batch.commit();
+    const ref = _firestoreDb
+      .collection(FIRESTORE_COLLECTION)
+      .doc(FIRESTORE_AGGREGATE_DOC);
+    await ref.set({ models: modelsDelta, updatedAt: now }, { merge: true });
   } catch (err) {
     console.warn(`⚠️  [ScoreStore] Persist failed: ${err?.message || err}`);
     // Re-add dirty models so next flush retries them

@@ -1,0 +1,77 @@
+name: Refresh Job Popularity
+
+# Reads the `job_views` Firestore collection ONCE per day and commits the
+# resulting `data/job-popularity.json` snapshot to main. Other workflows
+# (deploy.yml, send-newsletter.yml) read the committed file instead of
+# re-fetching the whole collection on every push.
+#
+# Cost rationale: before this workflow, fetch-job-popularity.mjs ran on
+# every deploy + every newsletter send (~511 executions / 7d), each one
+# scanning ~2.9k docs in `job_views` (~1.48M Firestore reads / 7d).
+# Daily cron drops that to ~7 executions / week, ~20k reads / week (-98.6%).
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * *'  # 06:00 CET / 07:00 CEST — before the morning deploys
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-job-popularity
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Fetch job popularity from Firestore
+        run: node scripts/fetch-job-popularity.mjs
+
+      - name: Commit and push popularity snapshot
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git add data/job-popularity.json
+          git diff --cached --quiet && echo "No popularity changes to commit" && exit 0
+          git commit -m "chore(data): refresh job popularity snapshot"
+          # Concurrent data-refresh workflows can push to main at the same time
+          # (memory project_workflow_push_race_pattern). Use the shared
+          # rebase-retry helper. The fetch is deterministic given the current
+          # job_views state, so on conflict we re-run it after rebasing.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/fetch-job-popularity.mjs && git add data/job-popularity.json"
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        env:
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "CI Failure: Refresh Job Popularity — run ${{ github.run_number }}" \
+            --description "Job popularity refresh failed. Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
