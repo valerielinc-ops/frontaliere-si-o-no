@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-hsy2pf",
-      "slug": "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden",
+      "slug": "scala-di-stv-rayon-vino-bevande-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Stv. Rayonleiter:in Wein/Getränke",
       "location": "Chur",
@@ -52,10 +52,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf",
-        "en": "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf",
+        "it": "scala-di-stv-rayon-vino-bevande-coop-genossenschaft-chur",
+        "en": "stv-rayon-ladder-in-wine-drinks-coop-genossenschaft-chur",
         "de": "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf",
-        "fr": "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf"
+        "fr": "echelle-de-rayon-dans-le-vin-boissons-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -70,7 +70,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf",
+          "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden"
+        ],
+        "en": [
+          "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf"
+        ],
+        "fr": [
+          "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf"
+        ]
+      },
+      "previousSlugs": [
+        "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf",
+        "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden"
+      ]
     },
     {
       "id": "company-46qgy7",
@@ -470,13 +486,11 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "venditore-in-food-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
           "venditore-in-food-coop-genossenschaft-felsberg-6dde92"
         ],
         "en": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "seller-in-food-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
           "seller-in-food-coop-genossenschaft-felsberg-6dde92"
         ],
@@ -485,17 +499,13 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
           "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "venditore-in-food-coop-genossenschaft-felsberg",
         "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "seller-in-food-coop-genossenschaft-felsberg",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
         "venditore-in-food-coop-genossenschaft-felsberg-6dde92",
         "seller-in-food-coop-genossenschaft-felsberg-6dde92",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
@@ -571,13 +581,11 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
           "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437"
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
           "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437"
         ],
@@ -586,17 +594,13 @@
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
           "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur-47d437",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-47d437",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur-47d437"
@@ -672,13 +676,11 @@
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
           "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d"
         ],
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "managing-director-in-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
           "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d"
         ],
@@ -687,17 +689,13 @@
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-          "directeur-general-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
           "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "managing-director-in-christ-uhren-schmuck-ag-chur",
-        "directeur-general-christ-uhren-schmuck-ag-chur",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "managing-director-in-christ-uhren-schmuck-ag-chur-fdce9d",
         "directeur-general-christ-uhren-schmuck-ag-chur-fdce9d"

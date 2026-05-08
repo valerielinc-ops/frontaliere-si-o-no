@@ -1025,9 +1025,9 @@
     },
     {
       "id": "corner-banca-8d0bd2e49371",
-      "slug": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+      "slug": "consulente-clienti-100-team-zurigo-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+        "it": "consulente-clienti-100-team-zurigo-corner-banca-wallisellen",
         "en": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "de": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "fr": "customer-advisor-100-team-zurich-corner-banca-wallisellen"
@@ -1106,7 +1106,15 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-08T21:36:01.978Z"
+      "firstSeenAt": "2026-05-08T21:36:01.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-advisor-100-team-zurich-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "customer-advisor-100-team-zurich-corner-banca-wallisellen"
+      ]
     }
   ]
 }
