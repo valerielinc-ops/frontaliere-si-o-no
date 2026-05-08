@@ -22169,4 +22169,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'trump-dazi-corte-commercio-2026',
+ category: 'novita',
+ date: '2026-05-08T01:22:47.455Z',
+ image: '/images/blog/trump-dazi-corte-commercio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

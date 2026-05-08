@@ -6933,6 +6933,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.legal-insurance-utilita-sicurezza.title': 'Assurance juridique en Suisse : est-ce utile ?',
     'blog.article.legal-insurance-utilita-sicurezza.excerpt': 'Découvrez si l\'assurance juridique en Suisse est un investissement valable ou une simple illusion de sécurité pour les frontaliers.',
     'blog.article.legal-insurance-utilita-sicurezza.imageAlt': 'Vue sur les châteaux de Bellinzona en automne avec des arbres colorés.',
+    'blog.article.trump-dazi-corte-commercio-2026.title': 'Droits de douane Trump rejetés: illégaux selon la Cour américaine',
+    'blog.article.trump-dazi-corte-commercio-2026.excerpt': 'La Cour américaine du commerce a déclaré illégaux les droits de douane globaux de 10% imposés par Donald Trump. Voici ce qui change pour les frontaliers.',
+    'blog.article.trump-dazi-corte-commercio-2026.imageAlt': 'Vue aérienne du lac et de la ville de Lugano',
 };
 
 export default blogMetaFr;

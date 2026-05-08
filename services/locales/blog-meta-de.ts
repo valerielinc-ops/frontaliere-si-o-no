@@ -6932,6 +6932,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.legal-insurance-utilita-sicurezza.title': 'Rechtsschutzversicherung in der Schweiz: Lohnt sie sich?',
     'blog.article.legal-insurance-utilita-sicurezza.excerpt': 'Erfahren Sie, ob die Rechtsschutzversicherung in der Schweiz eine lohnende Investition oder nur ein trügerisches Sicherheitsgefühl für Grenzgänger ist.',
     'blog.article.legal-insurance-utilita-sicurezza.imageAlt': 'Blick auf die Schlösser von Bellinzona im Herbst mit bunten Bäumen.',
+    'blog.article.trump-dazi-corte-commercio-2026.title': 'US-Handelsgericht erklärt Trumps Zölle für illegal',
+    'blog.article.trump-dazi-corte-commercio-2026.excerpt': 'Das US-Handelsgericht hat die globalen Zölle von 10%, die von Donald Trump verhängt wurden, für illegal erklärt. Hier erfahren Sie, was sich für Grenzgänger ändert.',
+    'blog.article.trump-dazi-corte-commercio-2026.imageAlt': 'Luftaufnahme vom Luganersee und der Stadt',
 };
 
 export default blogMetaDe;

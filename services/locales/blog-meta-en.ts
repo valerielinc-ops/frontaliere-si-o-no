@@ -6932,6 +6932,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.legal-insurance-utilita-sicurezza.title': 'Is legal insurance in Switzerland really useful?',
     'blog.article.legal-insurance-utilita-sicurezza.excerpt': 'Find out if legal insurance in Switzerland is a valid investment or just an illusory safety net for cross-border workers.',
     'blog.article.legal-insurance-utilita-sicurezza.imageAlt': 'View of Bellinzona castles in autumn with colorful trees.',
+    'blog.article.trump-dazi-corte-commercio-2026.title': 'US court rules Trump\'s tariffs illegal',
+    'blog.article.trump-dazi-corte-commercio-2026.excerpt': 'The US Court of International Trade has declared illegal the 10% global tariffs imposed by Donald Trump. Here\'s what changes for cross-border workers.',
+    'blog.article.trump-dazi-corte-commercio-2026.imageAlt': 'Aerial view of Lugano lake and city',
 };
 
 export default blogMetaEn;

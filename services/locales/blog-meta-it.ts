@@ -6933,6 +6933,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.legal-insurance-utilita-sicurezza.title': 'Assicurazione legale in Svizzera: è davvero utile?',
     'blog.article.legal-insurance-utilita-sicurezza.excerpt': 'Scopri se l\'assicurazione legale in Svizzera è un investimento valido o solo una sicurezza illusoria per i frontalieri.',
     'blog.article.legal-insurance-utilita-sicurezza.imageAlt': 'Vista dei castelli di Bellinzona in autunno con alberi colorati.',
+    'blog.article.trump-dazi-corte-commercio-2026.title': 'Dazi Trump bocciati: Corte per il commercio USA li dichiara illegali',
+    'blog.article.trump-dazi-corte-commercio-2026.excerpt': 'La Corte per il commercio americana ha dichiarato illegali i dazi globali al 10% imposti da Donald Trump. Ecco cosa cambia per i frontalieri.',
+    'blog.article.trump-dazi-corte-commercio-2026.imageAlt': 'Vista aerea del lago e della città di Lugano',
 };
 
 export default blogMetaIt;
