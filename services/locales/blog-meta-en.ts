@@ -6953,6 +6953,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trump-ue-accordo-commerciale-4-luglio.title': 'Trump gives EU until July 4 for trade deal',
     'blog.article.trump-ue-accordo-commerciale-4-luglio.excerpt': 'The US president sets a deadline for the European Union to honor the agreement signed in Turnberry, Scotland.',
     'blog.article.trump-ue-accordo-commerciale-4-luglio.imageAlt': 'Aerial view of Lugano and Lake Lugano',
+    'blog.article.ginevra-manifestazione-frontalieri-2026.title': '3,000 officials protest austerity measures in Geneva',
+    'blog.article.ginevra-manifestazione-frontalieri-2026.excerpt': 'Between 2,500 and 3,000 people protested in Geneva against the austerity measures planned by the Canton, including wage freezes and indexation freezes.',
+    'blog.article.ginevra-manifestazione-frontalieri-2026.imageAlt': 'Protest in Geneva with thousands of public sector workers',
 };
 
 export default blogMetaEn;

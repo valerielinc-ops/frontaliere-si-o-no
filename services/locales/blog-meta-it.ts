@@ -6954,6 +6954,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trump-ue-accordo-commerciale-4-luglio.title': 'Trump all\'Ue: tempo fino al 4 luglio per l\'accordo commerciale',
     'blog.article.trump-ue-accordo-commerciale-4-luglio.excerpt': 'Il presidente USA concede una scadenza all\'Unione europea per rispettare l\'intesa siglata a Turnberry, in Scozia.',
     'blog.article.trump-ue-accordo-commerciale-4-luglio.imageAlt': 'Vista aerea di Lugano e del Lago di Lugano',
+    'blog.article.ginevra-manifestazione-frontalieri-2026.title': '3\'000 funzionari manifestano contro misure di risparmio a Ginevra',
+    'blog.article.ginevra-manifestazione-frontalieri-2026.excerpt': 'Tra le 2\'500 e le 3\'000 persone hanno manifestato a Ginevra contro le misure di austerità previste dal Cantone, con blocco degli scatti salariali e congelamento dell\'indicizzazione.',
+    'blog.article.ginevra-manifestazione-frontalieri-2026.imageAlt': 'Manifestazione a Ginevra con migliaia di lavoratori del settore pubblico',
 };
 
 export default blogMetaIt;

@@ -6953,6 +6953,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trump-ue-accordo-commerciale-4-luglio.title': 'Trump gibt der EU bis zum 4. Juli für Handelsabkommen Zeit',
     'blog.article.trump-ue-accordo-commerciale-4-luglio.excerpt': 'Der US-Präsident setzt der Europäischen Union eine Frist, um die in Turnberry, Schottland, unterzeichnete Vereinbarung einzuhalten.',
     'blog.article.trump-ue-accordo-commerciale-4-luglio.imageAlt': 'Luftaufnahme von Lugano und dem Luganersee',
+    'blog.article.ginevra-manifestazione-frontalieri-2026.title': '3\'000 Beamte demonstrieren gegen Sparmaßnahmen in Genf',
+    'blog.article.ginevra-manifestazione-frontalieri-2026.excerpt': 'Zwischen 2\'500 und 3\'000 Personen haben in Genf gegen die vom Kanton geplanten Sparmaßnahmen demonstriert, darunter Gehaltsstagnation und Einfrieren der Lohnanpassungen.',
+    'blog.article.ginevra-manifestazione-frontalieri-2026.imageAlt': 'Protest in Genf mit tausenden öffentlichen Angestellten',
 };
 
 export default blogMetaDe;

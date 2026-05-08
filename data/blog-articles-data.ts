@@ -22232,4 +22232,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ginevra-manifestazione-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-05-08T02:30:20.038Z',
+ image: '/images/blog/ginevra-manifestazione-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

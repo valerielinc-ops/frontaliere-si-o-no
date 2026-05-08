@@ -3560,6 +3560,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-hondius-frontalieri-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/hondius-frontalieri-ticino-2026', parent: 'blog' },
     'blog-harrods-risarcimenti-vittime-al-fayed': { name: 'Novità', path: '/articoli-frontaliere/harrods-risarcimenti-vittime-al-fayed', parent: 'blog' },
     'blog-trump-ue-accordo-commerciale-4-luglio': { name: 'Accordo commerciale', path: '/articoli-frontaliere/trump-ue-accordo-commerciale-4-luglio', parent: 'blog' },
+    'blog-ginevra-manifestazione-frontalieri-2026': { name: 'Fiscale', path: '/articoli-frontaliere/ginevra-manifestazione-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
