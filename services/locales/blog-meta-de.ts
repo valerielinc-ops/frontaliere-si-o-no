@@ -6992,6 +6992,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lamal-low-cost-premi-bassi-2026.title': 'Elizabeth Baume-Schneider: Nein zu einer günstigen Grundversicherung',
     'blog.article.lamal-low-cost-premi-bassi-2026.excerpt': 'Die Bundesrätin Elizabeth Baume-Schneider lehnt den Vorschlag einer günstigen Grundversicherung mit tieferen Prämien ab und verteidigt das bestehende System.',
     'blog.article.lamal-low-cost-premi-bassi-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze',
+    'blog.article.grigioni-fattura-italia-olimpiadi.title': 'Graubünden stellt Italien Rechnung für olympischen Verkehr',
+    'blog.article.grigioni-fattura-italia-olimpiadi.excerpt': 'Der Kanton Graubünden hat Italien eine Rechnung über 2,6 Millionen Franken für die Transportkosten während der Olympischen Spiele Mailand-Cortina 2026 gestellt.',
+    'blog.article.grigioni-fattura-italia-olimpiadi.imageAlt': 'Bahnhof Mendrisio, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

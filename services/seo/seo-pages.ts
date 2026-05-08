@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2383,
+ "numberOfItems": 2384,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7025,7 +7025,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2380, "name": "Ex dipendenti in affitto con privilegi? La Citt...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-lugano-chiarezza-2026` },
           { "@type": "ListItem", "position": 2381, "name": "Sgombero macerie Ex Macello Lugano: attenzione ...", "url": `${BASE_URL}/articoli-frontaliere/sgombero-macerie-lugano-amianto` },
           { "@type": "ListItem", "position": 2382, "name": "Lamanotesa.ch trasforma il dolore in un bene co...", "url": `${BASE_URL}/articoli-frontaliere/lamanotesa-ch-dolore-bene-condiviso` },
-          { "@type": "ListItem", "position": 2383, "name": "Elizabeth Baume-Schneider: No a una LAMal low c...", "url": `${BASE_URL}/articoli-frontaliere/lamal-low-cost-premi-bassi-2026` }
+          { "@type": "ListItem", "position": 2383, "name": "Elizabeth Baume-Schneider: No a una LAMal low c...", "url": `${BASE_URL}/articoli-frontaliere/lamal-low-cost-premi-bassi-2026` },
+          { "@type": "ListItem", "position": 2384, "name": "Grigioni inviano fattura all'Italia per i costi...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-fattura-italia-olimpiadi` }
  ]
  },
  {

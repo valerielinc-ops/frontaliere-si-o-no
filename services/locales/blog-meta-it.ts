@@ -6993,6 +6993,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lamal-low-cost-premi-bassi-2026.title': 'Elizabeth Baume-Schneider: No a una LAMal low cost con premi più bassi',
     'blog.article.lamal-low-cost-premi-bassi-2026.excerpt': 'La Consigliera federale Elizabeth Baume-Schneider si oppone alla proposta di una LAMal low cost con premi più bassi, difendendo il sistema attuale.',
     'blog.article.lamal-low-cost-premi-bassi-2026.imageAlt': 'Vista aerea del Lago di Lugano con confine svizzero-italiano',
+    'blog.article.grigioni-fattura-italia-olimpiadi.title': 'Grigioni inviano fattura all\'Italia per i costi del traffico olimpico',
+    'blog.article.grigioni-fattura-italia-olimpiadi.excerpt': 'Il cantone dei Grigioni ha inviato una fattura da 2,6 milioni di franchi all\'Italia per coprire i costi del piano trasporti durante le Olimpiadi di Milano-Cortina 2026.',
+    'blog.article.grigioni-fattura-italia-olimpiadi.imageAlt': 'Stazione ferroviaria di Mendrisio, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

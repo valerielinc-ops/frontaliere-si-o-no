@@ -22349,4 +22349,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'grigioni-fattura-italia-olimpiadi',
+ category: 'novita',
+ date: '2026-05-08T04:56:14.368Z',
+ image: '/images/blog/grigioni-fattura-italia-olimpiadi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

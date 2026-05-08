@@ -29753,6 +29753,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-fattura-italia-olimpiadi': {
+    title: 'Grigioni inviano fattura all\'Italia per i costi del traffico olimpico',
+    description: 'Il cantone dei Grigioni ha inviato una fattura da 2,6 milioni di franchi all\'Italia per coprire i costi del piano trasporti durante le Olimpiadi di',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, inviano, fattura, costi',
+    ogTitle: 'Grigioni inviano fattura all\'Italia per i costi del traffico olimpico',
+    ogDescription: 'Il cantone dei Grigioni ha inviato una fattura da 2,6 milioni di franchi all\'Italia per coprire i costi del piano trasporti durante le Olimpiadi di',
+    canonicalPath: '/articoli-frontaliere/grigioni-fattura-italia-olimpiadi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni inviano fattura all'Italia per i costi del traffico olimpico",
+      "description": "Il cantone dei Grigioni ha inviato una fattura da 2,6 milioni di franchi all'Italia per coprire i costi del piano trasporti durante le Olimpiadi di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-fattura-italia-olimpiadi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Mendrisio, Ticino, Svizzera"
+      },
+      "datePublished": "2026-05-08T04:56:14+00:00",
+      "dateModified": "2026-05-08T04:56:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grigioni-fattura-italia-olimpiadi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

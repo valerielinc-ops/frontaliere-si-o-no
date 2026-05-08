@@ -3573,6 +3573,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sgombero-macerie-lugano-amianto': { name: 'Sgombero macerie', path: '/articoli-frontaliere/sgombero-macerie-lugano-amianto', parent: 'blog' },
     'blog-lamanotesa-ch-dolore-bene-condiviso': { name: 'Giustizia riparativa', path: '/articoli-frontaliere/lamanotesa-ch-dolore-bene-condiviso', parent: 'blog' },
     'blog-lamal-low-cost-premi-bassi-2026': { name: 'LAMal low cost', path: '/articoli-frontaliere/lamal-low-cost-premi-bassi-2026', parent: 'blog' },
+    'blog-grigioni-fattura-italia-olimpiadi': { name: 'Novità', path: '/articoli-frontaliere/grigioni-fattura-italia-olimpiadi', parent: 'blog' },
  };
 
  const info = sectionNames[section];
