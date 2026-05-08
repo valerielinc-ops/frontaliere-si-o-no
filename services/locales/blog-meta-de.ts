@@ -7115,6 +7115,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.title': 'Auswanderung und Pensionskasse: Steuern sparen',
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.excerpt': 'Erfahren Sie, wie Grenzgänger aus dem Tessin mit der Schweizer Pensionskasse Steuern sparen können. Praktische Anleitung mit Daten und Verfahren.',
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.imageAlt': 'Luganersee mit Blick auf die Schweizer-Italienische Grenze',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.title': 'Neue Grenzpendler-Vereinbarung: Reform der zweiten Säule zur Abstimmung',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.excerpt': 'Die Zukunft der zweiten Säule für Grenzpendler im Tessin steht zur Debatte. Hier erfahren Sie, was sich ändert und was zu tun ist',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
 };
 
 export default blogMetaDe;

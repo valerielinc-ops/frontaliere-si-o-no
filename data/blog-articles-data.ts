@@ -22718,4 +22718,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'nuovo-accordo-frontalieri-pilastro-2026',
+ category: 'fiscale',
+ date: '2026-05-08T17:17:21.916Z',
+ image: '/images/blog/nuovo-accordo-frontalieri-pilastro-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

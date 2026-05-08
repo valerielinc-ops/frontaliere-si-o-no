@@ -7115,6 +7115,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.title': 'Cross-border workers: save on taxes with pension fund',
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.excerpt': 'Learn how Ticino cross-border workers can save on taxes with the Swiss pension fund. Practical guide with data and procedures.',
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.title': 'New cross-border worker agreement: second pillar reform up for vote',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.excerpt': 'The future of the second pillar for cross-border workers in Ticino is under discussion. Here\'s what changes and what to do',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.imageAlt': 'Lake Lugano with a modern building in the background',
 };
 
 export default blogMetaEn;

@@ -7116,6 +7116,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.title': 'Emigrazione e cassa pensione: come risparmiare sulle imposte',
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.excerpt': 'Scopri come i frontalieri del Ticino possono risparmiare sulle imposte con la cassa pensione svizzera. Guida pratica con dati e procedure.',
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.imageAlt': 'Lago di Lugano con vista sul confine tra Svizzera e Italia',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.title': 'Nuovo accordo frontalieri: riforma del secondo pilastro in votazione',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.excerpt': 'Il futuro del secondo pilastro per i frontalieri in Ticino è in discussione. Ecco cosa cambia e cosa fare',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.imageAlt': 'Lago di Lugano con un edificio moderno in secondo piano',
 };
 
 export default blogMetaIt;

@@ -7116,6 +7116,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.title': 'Expatriation et caisse de pension: économiser sur les impôts',
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.excerpt': 'Découvrez comment les frontaliers du Tessin peuvent économiser sur les impôts avec la caisse de pension suisse. Guide pratique avec données et procédures.',
     'blog.article.emigrazione-cassa-pensione-risparmio-imposte.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.title': 'Nouvel accord frontalier: réforme du 2e pilier en votation',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.excerpt': 'L\'avenir du deuxième pilier pour les frontaliers au Tessin est en discussion. Voici ce qui change et que faire',
+    'blog.article.nuovo-accordo-frontalieri-pilastro-2026.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan',
 };
 
 export default blogMetaFr;
