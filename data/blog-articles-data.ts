@@ -22547,4 +22547,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'universita-insubria-premia-frontalieri',
+ category: 'novita',
+ date: '2026-05-08T08:48:35.030Z',
+ image: '/images/blog/universita-insubria-premia-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

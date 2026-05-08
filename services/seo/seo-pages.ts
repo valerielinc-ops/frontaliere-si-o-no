@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2405,
+ "numberOfItems": 2406,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7047,7 +7047,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2402, "name": "Progetto Eiger Palace a Lugano: demolizioni e t...", "url": `${BASE_URL}/articoli-frontaliere/progetto-eiger-palace-lugano-2026` },
           { "@type": "ListItem", "position": 2403, "name": "Cartelle di pagamento: Cassazione fissa termine...", "url": `${BASE_URL}/articoli-frontaliere/cartelle-pagamento-cassazione-2026` },
           { "@type": "ListItem", "position": 2404, "name": "CRD: interazione tra output floor e requisiti d...", "url": `${BASE_URL}/articoli-frontaliere/crd-output-floor-ii-pilastro` },
-          { "@type": "ListItem", "position": 2405, "name": "Ultimo svizzero ricoverato all'estero torna in ...", "url": `${BASE_URL}/articoli-frontaliere/ultimo-svizzero-rientra-incendio-crans-montana` }
+          { "@type": "ListItem", "position": 2405, "name": "Ultimo svizzero ricoverato all'estero torna in ...", "url": `${BASE_URL}/articoli-frontaliere/ultimo-svizzero-rientra-incendio-crans-montana` },
+          { "@type": "ListItem", "position": 2406, "name": "Università Insubria premia neolaureato in Infer...", "url": `${BASE_URL}/articoli-frontaliere/universita-insubria-premia-frontalieri` }
  ]
  },
  {

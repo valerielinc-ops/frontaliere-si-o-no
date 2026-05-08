@@ -1,0 +1,40 @@
+{
+  "id": "universita-insubria-premia-frontalieri",
+  "slug": "universita-insubria-premia-frontalieri",
+  "publishedAt": "2026-05-08T08:48:36.584Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 13.284220862693665,
+    "confidence": 0.8,
+    "finalScore": 10.627376690154932,
+    "topK": [
+      {
+        "slug": "intesa-sanpaolo-premia-10-imprese-vincenti",
+        "cosine": 0.8302638039183541
+      },
+      {
+        "slug": "regione-lombardia-4-4-milioni-insubria",
+        "cosine": 0.8295456108907238
+      },
+      {
+        "slug": "reclutamento-infermieri-lombardia",
+        "cosine": 0.8262410839693957
+      },
+      {
+        "slug": "infermieri-ticinesi-ricerca-lavoro-milano",
+        "cosine": 0.8190485965393604
+      },
+      {
+        "slug": "universita-varese-intelligenza-artificiale-2026",
+        "cosine": 0.8175591528023646
+      }
+    ],
+    "score": 1.0627376690154933,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

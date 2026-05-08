@@ -7058,6 +7058,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.title': 'Letzter Schweizer aus dem Ausland kehrt nach der Schweiz zurück',
     'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.excerpt': 'Der letzte Schweizer Bürger, der nach dem Silvesterbrand in Crans-Montana im Ausland behandelt wurde, kehrt in die Schweiz zurück. Drei neue Anhörungen sind geplant.',
     'blog.article.ultimo-svizzero-rientra-incendio-crans-montana.imageAlt': 'Luftaufnahme von Crans-Montana nach dem Brand, mit dem beschädigten Gebiet und den umliegenden Alpen',
+    'blog.article.universita-insubria-premia-frontalieri.title': 'Università Insubria ehrt Absolventen der Pflegewissenschaft',
+    'blog.article.universita-insubria-premia-frontalieri.excerpt': 'Mattia Giussani, Absolvent der Pflegewissenschaft, belegt den dritten Platz bei der besten mündlichen Präsentation beim SIAN-Kongress.',
+    'blog.article.universita-insubria-premia-frontalieri.imageAlt': 'Preisverleihung an der Universität Insubria in Varese',
 };
 
 export default blogMetaDe;

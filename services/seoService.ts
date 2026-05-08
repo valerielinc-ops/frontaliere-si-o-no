@@ -3595,6 +3595,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cartelle-pagamento-cassazione-2026': { name: 'Fiscale', path: '/articoli-frontaliere/cartelle-pagamento-cassazione-2026', parent: 'blog' },
     'blog-crd-output-floor-ii-pilastro': { name: 'Fiscale', path: '/articoli-frontaliere/crd-output-floor-ii-pilastro', parent: 'blog' },
     'blog-ultimo-svizzero-rientra-incendio-crans-montana': { name: 'Notizie', path: '/articoli-frontaliere/ultimo-svizzero-rientra-incendio-crans-montana', parent: 'blog' },
+    'blog-universita-insubria-premia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/universita-insubria-premia-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
