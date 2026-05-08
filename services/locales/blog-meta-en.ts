@@ -7094,6 +7094,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.title': '2026 hiring incentives: three underused tax breaks',
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.excerpt': 'Discover the three tax breaks for hiring in 2026, including NASpI, ADI, and women victims of violence, with exemptions up to 100%.',
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.imageAlt': 'View of Lake Lugano with a modern building in the foreground',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.title': 'Caregivers: more courage needed in reforms',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.excerpt': 'On May 6, 2026, Aila meets with the Social Affairs Commission to amend the bill on family caregivers. Three million Italians care for relatives, saving welfare 6-7 billion euros a year.',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.imageAlt': 'A caregiver assisting an elderly person with Lake Lugano in the background in Ticino',
 };
 
 export default blogMetaEn;

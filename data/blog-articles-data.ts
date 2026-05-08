@@ -22655,4 +22655,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ddl-caregiver-frontalieri-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-08T11:29:15.059Z',
+ image: '/images/blog/ddl-caregiver-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

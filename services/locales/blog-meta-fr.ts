@@ -7095,6 +7095,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.title': 'Aides à l\'embauche 2026: trois exonérations peu utilisées',
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.excerpt': 'Découvrez les trois exonérations pour les embauches en 2026, dont la NASpI, l\'ADI et les femmes victimes de violence, avec des exonérations allant jusqu\'à 100%.',
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.imageAlt': 'Vue du lac de Lugano avec un bâtiment moderne au premier plan',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.title': 'Aidants familiaux : des réformes plus courageuses',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.excerpt': 'Le 6 mai 2026, Aila rencontre la Commission des affaires sociales pour modifier le projet de loi sur les aidants familiaux. Trois millions d\'Italiens assistent leurs proches, économisant 6 à 7 milliards par an au système de protection sociale.',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.imageAlt': 'Un aidant soignant une personne âgée avec le lac de Lugano en arrière-plan au Tessin',
 };
 
 export default blogMetaFr;

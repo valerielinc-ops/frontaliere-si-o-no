@@ -7095,6 +7095,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.title': 'Incentivi assunzioni 2026: tre sgravi contributivi poco utilizzati',
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.excerpt': 'Scopri i tre sgravi contributivi per le assunzioni nel 2026, tra cui NASpI, ADI e donne vittime di violenza, con esoneri fino al 100%.',
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.imageAlt': 'Vista del Lago di Lugano con un edificio moderno in primo piano',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.title': 'Caregiver: serve più coraggio nelle riforme',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.excerpt': 'Il 6 maggio 2026 Aila incontra la Commissione Affari Sociali per modifiche al disegno di legge sui caregiver familiari. Tre milioni di italiani assistono parenti, risparmiando al welfare 6-7 miliardi l\'anno.',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.imageAlt': 'Un caregiver assiste un anziano sullo sfondo del Lago di Lugano in Ticino',
 };
 
 export default blogMetaIt;

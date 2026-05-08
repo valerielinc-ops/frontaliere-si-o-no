@@ -7094,6 +7094,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.title': 'Förderungen für Einstellungen 2026: Drei wenig genutzte Sozialabgabenbefreiungen',
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.excerpt': 'Entdecken Sie die drei Sozialabgabenbefreiungen für Einstellungen im Jahr 2026, darunter NASpI, ADI und Frauen, die Opfer von Gewalt geworden sind, mit Befreiungen von bis zu 100%.',
     'blog.article.incentivi-assunzioni-2026-sgravi-contributivi.imageAlt': 'Blick auf den Luganersee mit einem modernen Gebäude im Vordergrund',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.title': 'Pflegepersonen: Mehr Mut bei Reformen',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.excerpt': 'Am 6. Mai 2026 trifft sich Aila mit der Kommission für soziale Angelegenheiten, um Änderungen am Gesetzesentwurf über pflegende Angehörige zu besprechen. Drei Millionen Italiener pflegen Angehörige und sparen dem Wohlfahrtsstaat 6-7 Milliarden Franken pro Jahr.',
+    'blog.article.ddl-caregiver-frontalieri-ticino-2026.imageAlt': 'Ein Betreuer hilft einer älteren Person mit dem Luganersee im Hintergrund in Tessin',
 };
 
 export default blogMetaDe;
