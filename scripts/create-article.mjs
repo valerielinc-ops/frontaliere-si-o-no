@@ -102,6 +102,7 @@ import {
 } from './lib/scheduler/quotaController.mjs';
 import { buildDiscoveryPool as _buildDiscoveryPool } from './lib/discovery/discoveryPool.mjs';
 import { isNearDuplicate as _isNearDuplicateHeadline } from './lib/scheduler/slugSimilarity.mjs';
+import { fetchWordpressSearchHeadlines } from './lib/topic-sources/wordpressSearch.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -1489,7 +1490,7 @@ async function llmFactCheck(contentIt, sourceContent = '', sourceUrl = '') {
     contentIt?.body1 || '', contentIt?.body2 || '', contentIt?.body3 || '',
   ].join('\n\n');
 
-  const isEvergreen = !sourceContent || sourceContent.length < 100 || sourceUrl.startsWith('evergreen://');
+  const isEvergreen = !sourceContent || sourceContent.length < 100 || sourceUrl.startsWith('evergreen://') || sourceUrl.startsWith('stats-bfs://');
 
   const prompt = `Sei un fact-checker senior specializzato in diritto fiscale svizzero e italiano, con focus specifico su frontalieri e Canton Ticino.
 
@@ -1722,8 +1723,100 @@ function idToSlugKey(id) {
   return 'blog' + camel.charAt(0).toUpperCase() + camel.slice(1);
 }
 
+// ── Stats-BFS prompt builder ────────────────────────────────
+// Reads the freshly-written config/bfs_stats Firestore doc and turns the
+// numbers into a structured prompt the LLM can summarise. Triggered by the
+// refresh-bfs-stats workflow whenever a new BFS quarter (e.g. 2026-Q1) goes
+// live, so the editorial team automatically publishes a Ticino frontalieri
+// trend article every ~3 months in the same voice as the rest of the blog.
+async function buildStatsBfsPromptContent(quarter) {
+  const adminMod = await import('firebase-admin');
+  const admin = adminMod.default || adminMod;
+  if (!admin.apps.length) {
+    admin.initializeApp({
+      credential: admin.credential.applicationDefault(),
+      projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
+    });
+  }
+  const db = admin.firestore();
+  const snap = await db.collection('config').doc('bfs_stats').get();
+  if (!snap.exists) {
+    throw new Error('config/bfs_stats Firestore doc missing — refresh-bfs-stats has not run yet.');
+  }
+  const data = snap.data() || {};
+  const trend = Array.isArray(data.trend) ? data.trend : [];
+  if (trend.length === 0) {
+    throw new Error('Empty trend in config/bfs_stats Firestore doc.');
+  }
+
+  const findValue = (q) => trend.find((p) => p.year === q)?.frontalieri ?? null;
+  const latest = findValue(quarter) ?? trend[trend.length - 1].frontalieri;
+  const latestQuarter = findValue(quarter) != null ? quarter : trend[trend.length - 1].year;
+  const latestIdx = trend.findIndex((p) => p.year === latestQuarter);
+  const prevPoint = latestIdx > 0 ? trend[latestIdx - 1] : null;
+  const yearMatch = String(latestQuarter).match(/^(\d{4})-Q([1-4])$/);
+  const yoyKey = yearMatch ? `${Number(yearMatch[1]) - 1}-Q${yearMatch[2]}` : null;
+  const yoyValue = yoyKey ? findValue(yoyKey) : null;
+
+  const fmt = (n) => Number(n).toLocaleString('it-IT');
+  const sign = (n) => (n >= 0 ? '+' : '');
+  const qoqAbs = prevPoint ? latest - prevPoint.frontalieri : null;
+  const qoqPct = prevPoint ? ((latest - prevPoint.frontalieri) / prevPoint.frontalieri) * 100 : null;
+  const yoyAbs = yoyValue != null ? latest - yoyValue : null;
+  const yoyPct = yoyValue != null && yoyValue > 0 ? ((latest - yoyValue) / yoyValue) * 100 : null;
+
+  const trendTable = trend.slice(-8).map((p) => `| ${p.year} | ${fmt(p.frontalieri)} |`).join('\n');
+  const ages = Array.isArray(data.ages) ? data.ages : [];
+  const ageTable = ages.map((a) => `- ${a.name}: ${fmt(a.value)}`).join('\n');
+  const gender = Array.isArray(data.genderSnapshot) ? data.genderSnapshot : [];
+  const genderLine = gender.map((g) => `${g.name} ${g.pct}% (${fmt(g.value)})`).join(' · ');
+
+  const trendDirection = qoqPct == null
+    ? 'stabile'
+    : qoqPct > 0.3 ? 'in crescita'
+    : qoqPct < -0.3 ? 'in calo'
+    : 'stabile';
+
+  return [
+    '[ARTICOLO DATI BFS STATISTICA FRONTALIERI TICINO]',
+    `Trimestre appena pubblicato dall'Ufficio Federale di Statistica (BFS): ${latestQuarter}`,
+    `Tendenza vs trimestre precedente (${prevPoint?.year || 'n/d'}): ${trendDirection}.`,
+    '',
+    '=== DATI VERIFICATI (usare ESATTAMENTE questi numeri, non inventarne altri) ===',
+    `- Frontalieri totali Canton Ticino al ${latestQuarter}: ${fmt(latest)}`,
+    prevPoint ? `- Trimestre precedente (${prevPoint.year}): ${fmt(prevPoint.frontalieri)} (variazione QoQ ${sign(qoqAbs)}${fmt(qoqAbs)} unità, ${sign(qoqPct)}${qoqPct.toFixed(2)}%)` : '',
+    yoyValue != null ? `- Stesso trimestre anno precedente (${yoyKey}): ${fmt(yoyValue)} (variazione YoY ${sign(yoyAbs)}${fmt(yoyAbs)} unità, ${sign(yoyPct)}${yoyPct.toFixed(2)}%)` : '',
+    '',
+    '=== SERIE STORICA (ultimi 8 trimestri) ===',
+    '| Trimestre | Frontalieri Ticino |',
+    '|-----------|-------------------:|',
+    trendTable,
+    '',
+    ages.length ? '=== DISTRIBUZIONE PER ETÀ (trimestre corrente) ===' : '',
+    ageTable,
+    '',
+    gender.length ? `=== RIPARTIZIONE PER GENERE (trimestre corrente) ===\n${genderLine}` : '',
+    '',
+    '=== ANGOLO EDITORIALE RICHIESTO ===',
+    `Stile: cronaca dati come https://comozero.it/attualita/statistiche-frontalieri-ticino-svizzera-primo-trimestre-2026/.`,
+    'Lead di 2-3 frasi con il numero principale e la variazione. Poi sezioni separate per: confronto con il trimestre precedente, confronto YoY, distribuzione per età, ripartizione per genere, contesto ticinese (assunzioni, settori se inferibili dai trend storici, accordo Italia-Svizzera 2026).',
+    'Tono giornalistico-istituzionale italiano, non opinionistico. Usa formulazioni neutre tipo "i dati BFS indicano…", "secondo l\'Ufficio Federale di Statistica…", "la statistica trimestrale registra…".',
+    'Se la variazione QoQ è positiva titola "in crescita", se negativa "in calo", se sotto ±0.3% "stabile".',
+    'NON inventare percentuali, settori, comuni o aziende che non sono nei dati forniti. Se non sai, ometti.',
+    `Includi link interno alla dashboard /statistiche/ ("vedi i grafici aggiornati") e alla pagina /calcola-stipendio/ (CTA finale).`,
+    `Fonte da citare: Ufficio Federale di Statistica (BFS), tabella DF_GGS_6 — link https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html`,
+  ].filter(Boolean).join('\n');
+}
+
 // ── Step 1: Fetch web page content ──────────────────────────
 async function fetchPageContent(url) {
+  // Handle BFS stats-update articles — no web page to scrape, build the
+  // prompt from Firestore numbers written by refresh-bfs-stats.
+  if (url.startsWith('stats-bfs://')) {
+    const quarter = decodeURIComponent(url.slice('stats-bfs://'.length));
+    console.error(`📊 Articolo statistica BFS: trimestre ${quarter}`);
+    return await buildStatsBfsPromptContent(quarter);
+  }
   // Handle evergreen topics — no URL to fetch, use keyword angle as content
   if (url.startsWith('evergreen://')) {
     const keyword = process.env._EVERGREEN_KEYWORD || decodeURIComponent(url.replace('evergreen://', ''));
@@ -2003,7 +2096,22 @@ async function scanNewsSources() {
     allHeadlines.push(...batch);
   }
 
-  console.error(`\n  📊 Totale: ${allHeadlines.length} articoli trovati da ${NEWS_SOURCES.length} fonti`);
+  // ── Search-based ingestion via WordPress REST API ──
+  // Catches articles whose editor didn't apply a /categoria/frontalieri/
+  // tag but whose title/body contains the keyword. Standard RSS+tag-page
+  // crawl misses these. Currently covers comozero.it + malpensa24.it.
+  // Same headline shape as extractRssItems, drop-in merge.
+  try {
+    const wpHeadlines = await fetchWordpressSearchHeadlines();
+    if (wpHeadlines.length > 0) {
+      console.error(`  🔌 wp-search: ${wpHeadlines.length} articoli totali da ricerca WordPress`);
+      allHeadlines.push(...wpHeadlines);
+    }
+  } catch (err) {
+    console.error(`  ⚠️ wp-search fallito globalmente: ${err.message}`);
+  }
+
+  console.error(`\n  📊 Totale: ${allHeadlines.length} articoli trovati da ${NEWS_SOURCES.length} fonti + WP search`);
 
   // Filter: only keep articles from the last 3 days
   const recent = allHeadlines.filter(h => {
@@ -2377,7 +2485,7 @@ permesso G, AVS, LPP, LAMal, ristorni, imposta alla fonte, Brogeda, INPS, Canton
   const prompt = `You are a senior financial journalist specializing in Swiss-Italian cross-border work and Ticino economics.
 You write for "Frontaliere Ticino" (frontaliereticino.ch). Based on the following source, write a blog article.
 
-SOURCE URL: ${url.startsWith('evergreen://') ? '(editorial research)' : url}
+SOURCE URL: ${url.startsWith('evergreen://') ? '(editorial research)' : url.startsWith('stats-bfs://') ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html (BFS)' : url}
 SOURCE CONTENT:
 ${truncatedContent}
 ${sourceContext?.headline ? `\nHEADLINE: ${sourceContext.headline}` : ''}
@@ -5894,7 +6002,7 @@ async function main() {
   }
 
   // ── Manual URL mode ──
-  if (!url || (!url.startsWith('http') && !url.startsWith('evergreen://'))) {
+  if (!url || (!url.startsWith('http') && !url.startsWith('evergreen://') && !url.startsWith('stats-bfs://'))) {
     finalizeRunReport('error', { notes: [...RUN_REPORT.notes, 'Invalid URL input'] });
     console.error('❌ URL non valido. Uso: node scripts/create-article.mjs [url]');
     process.exit(1);
@@ -6300,16 +6408,21 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   enforceStrongInternalLinks(data);
 
   // Step 3e: Append source citation to body3 (E-E-A-T compliance)
-  if (url && !url.startsWith('evergreen://')) {
+  // For stats-bfs:// articles, the URL is a synthetic per-quarter dedup key
+  // — the human-readable citation must point to the public BFS landing page.
+  const citationUrl = url.startsWith('stats-bfs://')
+    ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html'
+    : url;
+  if (citationUrl && !citationUrl.startsWith('evergreen://')) {
     try {
-      const sourceDomain = new URL(url).hostname.replace(/^www\./, '');
+      const sourceDomain = new URL(citationUrl).hostname.replace(/^www\./, '');
       const SOURCE_LABEL = { it: 'Fonte', en: 'Source', de: 'Quelle', fr: 'Source' };
       for (const locale of ['it', 'en', 'de', 'fr']) {
         if (!data.content[locale]?.body3) continue;
         const label = SOURCE_LABEL[locale] || 'Source';
         // Only append if not already present
         if (!data.content[locale].body3.includes(sourceDomain)) {
-          data.content[locale].body3 += `\n\n*${label}: [${sourceDomain}](${url})*`;
+          data.content[locale].body3 += `\n\n*${label}: [${sourceDomain}](${citationUrl})*`;
         }
       }
       console.error(`  📰 Citazione fonte aggiunta: ${sourceDomain}`);
@@ -6364,9 +6477,13 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   validateStructuredData(data);
 
   // Track source-domain weekly quotas only on successful article generation.
+  // Stats-bfs:// is editorial-internal — bucket it under 'bfs.admin.ch' so the
+  // weekly quota system sees the BFS data updates as a real source.
   const sourceDomain = normalizeSourceDomain(
     sourceContext?.source
-      || (!url.startsWith('evergreen://') ? new URL(url).hostname : 'evergreen'),
+      || (url.startsWith('evergreen://') ? 'evergreen'
+          : url.startsWith('stats-bfs://') ? 'bfs.admin.ch'
+          : new URL(url).hostname),
   );
   if (SOURCE_QUOTA_ENABLED && sourceDomain && sourceDomain !== 'evergreen') {
     incrementWeeklySourceCount(sourceDomain);
