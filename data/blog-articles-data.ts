@@ -22691,4 +22691,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'nuova-riforma-avs-2024-frontalieri',
+ category: 'fiscale',
+ date: '2026-05-08T12:38:56.147Z',
+ image: '/images/blog/nuova-riforma-avs-2024-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

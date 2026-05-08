@@ -7107,6 +7107,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-accordo-immobili-frontalieri-2026.title': 'Scambio automatico informazioni immobili: nuovo accordo multilaterale',
     'blog.article.nuovo-accordo-immobili-frontalieri-2026.excerpt': 'Nuovo accordo per lo scambio automatico di informazioni sugli immobili tra Svizzera e Italia. Cosa cambia per i frontalieri?',
     'blog.article.nuovo-accordo-immobili-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo blu limpido e alcune barche sull\'acqua',
+    'blog.article.nuova-riforma-avs-2024-frontalieri.title': 'Nuova riforma AVS 2024: cosa cambia per i frontalieri',
+    'blog.article.nuova-riforma-avs-2024-frontalieri.excerpt': 'Dal 1° gennaio 2024 entrano in vigore nuove regole AVS. Ecco le novità per chi lavora in Svizzera e risiede in Italia',
+    'blog.article.nuova-riforma-avs-2024-frontalieri.imageAlt': 'Panorama di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;

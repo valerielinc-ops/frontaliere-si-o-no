@@ -3611,6 +3611,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-simona-waltert-ticino-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/simona-waltert-ticino-frontalieri', parent: 'blog' },
     'blog-bonnie-tyler-coma-farmacologico-2026': { name: 'Novità', path: '/articoli-frontaliere/bonnie-tyler-coma-farmacologico-2026', parent: 'blog' },
     'blog-nuovo-accordo-immobili-frontalieri-2026': { name: 'Fiscale', path: '/articoli-frontaliere/nuovo-accordo-immobili-frontalieri-2026', parent: 'blog' },
+    'blog-nuova-riforma-avs-2024-frontalieri': { name: 'Riforma AVS', path: '/articoli-frontaliere/nuova-riforma-avs-2024-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

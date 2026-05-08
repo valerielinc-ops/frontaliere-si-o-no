@@ -7106,6 +7106,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-accordo-immobili-frontalieri-2026.title': 'Automatic property info exchange: new multilateral agreement',
     'blog.article.nuovo-accordo-immobili-frontalieri-2026.excerpt': 'New agreement for automatic exchange of property information between Switzerland and Italy. What changes for cross-border workers?',
     'blog.article.nuovo-accordo-immobili-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky, and a few boats on the water',
+    'blog.article.nuova-riforma-avs-2024-frontalieri.title': 'New AVS reform 2024: changes for cross-border workers',
+    'blog.article.nuova-riforma-avs-2024-frontalieri.excerpt': 'As of January 1st, 2024, new AVS rules come into force. Here\'s what\'s new for those working in Switzerland and living in Italy',
+    'blog.article.nuova-riforma-avs-2024-frontalieri.imageAlt': 'Lugano skyline with Lake Lugano and mountains',
 };
 
 export default blogMetaEn;

@@ -7106,6 +7106,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-accordo-immobili-frontalieri-2026.title': 'Automatischer Immobilieninformationsaustausch: neues multilaterales Abkommen',
     'blog.article.nuovo-accordo-immobili-frontalieri-2026.excerpt': 'Neues Abkommen für den automatischen Austausch von Informationen über Immobilien zwischen der Schweiz und Italien. Was ändert sich für Grenzgänger?',
     'blog.article.nuovo-accordo-immobili-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Bergen im Hintergrund, klarem blauen Himmel und einigen Booten auf dem Wasser',
+    'blog.article.nuova-riforma-avs-2024-frontalieri.title': 'AVS-Reform 2024: Was sich für Grenzgänger ändert',
+    'blog.article.nuova-riforma-avs-2024-frontalieri.excerpt': 'Ab dem 1. Januar 2024 gelten neue AHV-Regeln. Hier sind die Neuerungen für Personen, die in der Schweiz arbeiten und in Italien wohnen',
+    'blog.article.nuova-riforma-avs-2024-frontalieri.imageAlt': 'Lugano Skyline mit dem Luganersee und Bergen',
 };
 
 export default blogMetaDe;
