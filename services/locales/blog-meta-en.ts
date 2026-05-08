@@ -7139,6 +7139,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tasse-mance-frontalieri-ticino.title': 'Tipping taxes: changes for Ticino cross-border workers',
     'blog.article.tasse-mance-frontalieri-ticino.excerpt': 'Opinions diverge on tipping tax for cross-border workers in Ticino. Here\'s what to know',
     'blog.article.tasse-mance-frontalieri-ticino.imageAlt': 'Lake Lugano with an Italian-Swiss border marker in the foreground',
+    'blog.article.tasse-aeree-kerosene-2026.title': 'No to taxes on air tickets and kerosene in Ticino',
+    'blog.article.tasse-aeree-kerosene-2026.excerpt': 'Switzerland renounces taxing air tickets and kerosene. Here\'s what changes for cross-border workers',
+    'blog.article.tasse-aeree-kerosene-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

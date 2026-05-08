@@ -7140,6 +7140,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tasse-mance-frontalieri-ticino.title': 'Tasse sulle mance: cosa cambia per i frontalieri del Ticino',
     'blog.article.tasse-mance-frontalieri-ticino.excerpt': 'Le opinioni divergono sulla tassazione delle mance per i lavoratori transfrontalieri in Ticino. Ecco cosa sapere',
     'blog.article.tasse-mance-frontalieri-ticino.imageAlt': 'Lago di Lugano con un confine italo-svizzero in primo piano',
+    'blog.article.tasse-aeree-kerosene-2026.title': 'No a tasse su biglietti aerei e kerosene in Ticino',
+    'blog.article.tasse-aeree-kerosene-2026.excerpt': 'La Svizzera rinuncia a tassare biglietti aerei e kerosene. Ecco cosa cambia per i frontalieri',
+    'blog.article.tasse-aeree-kerosene-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

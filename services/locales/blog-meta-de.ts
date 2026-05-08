@@ -7139,6 +7139,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tasse-mance-frontalieri-ticino.title': 'Steuern auf Trinkgelder: Änderungen für Grenzgänger im Tessin',
     'blog.article.tasse-mance-frontalieri-ticino.excerpt': 'Die Meinungen gehen auseinander zur Besteuerung von Trinkgeldern für Grenzgänger im Tessin. Hier erfahren Sie, was Sie wissen müssen',
     'blog.article.tasse-mance-frontalieri-ticino.imageAlt': 'Luganersee mit einem italienisch-schweizerischen Grenzzeichen im Vordergrund',
+    'blog.article.tasse-aeree-kerosene-2026.title': 'Keine Steuern auf Flugtickets und Kerosin im Tessin',
+    'blog.article.tasse-aeree-kerosene-2026.excerpt': 'Die Schweiz verzichtet darauf, Flugtickets und Kerosin zu besteuern. Das sind die Änderungen für Grenzgänger',
+    'blog.article.tasse-aeree-kerosene-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

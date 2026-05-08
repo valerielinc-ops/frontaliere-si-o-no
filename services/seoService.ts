@@ -3622,6 +3622,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lista-morosi-cassa-malati-ticino': { name: 'Lista morosi', path: '/articoli-frontaliere/lista-morosi-cassa-malati-ticino', parent: 'blog' },
     'blog-falegnami-stipendi-2025': { name: 'Fiscale', path: '/articoli-frontaliere/falegnami-stipendi-2025', parent: 'blog' },
     'blog-tasse-mance-frontalieri-ticino': { name: 'Fiscale', path: '/articoli-frontaliere/tasse-mance-frontalieri-ticino', parent: 'blog' },
+    'blog-tasse-aeree-kerosene-2026': { name: 'Tasse aeree e kerosene', path: '/articoli-frontaliere/tasse-aeree-kerosene-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

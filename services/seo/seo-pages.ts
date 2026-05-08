@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2432,
+ "numberOfItems": 2433,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7074,7 +7074,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2429, "name": "Aumenti stipendi in Svizzera: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/aumenti-stipendi-svizzera-2026` },
           { "@type": "ListItem", "position": 2430, "name": "Lista morosi cassa malati: serve tempo per l'at...", "url": `${BASE_URL}/articoli-frontaliere/lista-morosi-cassa-malati-ticino` },
           { "@type": "ListItem", "position": 2431, "name": "Falegnami: aumento stipendi in busta paga dal 2025", "url": `${BASE_URL}/articoli-frontaliere/falegnami-stipendi-2025` },
-          { "@type": "ListItem", "position": 2432, "name": "Tasse sulle mance: cosa cambia per i frontalier...", "url": `${BASE_URL}/articoli-frontaliere/tasse-mance-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 2432, "name": "Tasse sulle mance: cosa cambia per i frontalier...", "url": `${BASE_URL}/articoli-frontaliere/tasse-mance-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 2433, "name": "No a tasse su biglietti aerei e kerosene in Ticino", "url": `${BASE_URL}/articoli-frontaliere/tasse-aeree-kerosene-2026` }
  ]
  },
  {

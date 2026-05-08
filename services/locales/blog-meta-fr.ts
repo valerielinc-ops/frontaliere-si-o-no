@@ -7140,6 +7140,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tasse-mance-frontalieri-ticino.title': 'Impôts sur les pourboires: ce qui change pour les frontaliers du Tessin',
     'blog.article.tasse-mance-frontalieri-ticino.excerpt': 'Les avis divergent sur la taxation des pourboires pour les travailleurs frontaliers au Tessin. Voici ce qu\'il faut savoir',
     'blog.article.tasse-mance-frontalieri-ticino.imageAlt': 'Lac de Lugano avec un marqueur de frontière italo-suisse au premier plan',
+    'blog.article.tasse-aeree-kerosene-2026.title': 'Non aux taxes sur les billets d\'avion et le kérosène au Tessin',
+    'blog.article.tasse-aeree-kerosene-2026.excerpt': 'La Suisse renonce à taxer les billets d\'avion et le kérosène. Voici ce qui change pour les frontaliers',
+    'blog.article.tasse-aeree-kerosene-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

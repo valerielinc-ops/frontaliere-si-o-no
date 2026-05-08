@@ -22790,4 +22790,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tasse-aeree-kerosene-2026',
+ category: 'fiscale',
+ date: '2026-05-08T19:20:17.436Z',
+ image: '/images/blog/tasse-aeree-kerosene-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
