@@ -29636,6 +29636,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sgombero-macerie-lugano-amianto': {
+    title: 'Sgombero macerie Ex Macello Lugano: attenzione all\'amianto',
+    description: 'Iniziati i lavori di sgombero delle macerie dell\'ex Macello di Lugano. Possibile presenza di polveri di amianto. Ecco cosa sapere. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, sgombero, macerie, macello, lugano',
+    ogTitle: 'Sgombero macerie Ex Macello Lugano: attenzione all\'amianto',
+    ogDescription: 'Iniziati i lavori di sgombero delle macerie dell\'ex Macello di Lugano. Possibile presenza di polveri di amianto. Ecco cosa sapere.',
+    canonicalPath: '/articoli-frontaliere/sgombero-macerie-lugano-amianto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sgombero macerie Ex Macello Lugano: attenzione all'amianto",
+      "description": "Iniziati i lavori di sgombero delle macerie dell'ex Macello di Lugano. Possibile presenza di polveri di amianto. Ecco cosa sapere. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sgombero-macerie-lugano-amianto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lago di Lugano con un cantiere in primo piano"
+      },
+      "datePublished": "2026-05-08T03:54:32+00:00",
+      "dateModified": "2026-05-08T03:54:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sgombero-macerie-lugano-amianto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

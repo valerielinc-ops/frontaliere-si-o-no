@@ -22322,4 +22322,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sgombero-macerie-lugano-amianto',
+ category: 'pratico',
+ date: '2026-05-08T03:54:32.066Z',
+ image: '/images/blog/sgombero-macerie-lugano-amianto.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -3570,6 +3570,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-processo-broker-vip-retrocessioni': { name: 'Processo broker VIP', path: '/articoli-frontaliere/processo-broker-vip-retrocessioni', parent: 'blog' },
     'blog-durisch-dado-blocco-frontalieri-ticino': { name: 'Notizie Ticino', path: '/articoli-frontaliere/durisch-dado-blocco-frontalieri-ticino', parent: 'blog' },
     'blog-frontalieri-lugano-chiarezza-2026': { name: 'Frontalieri Lugano', path: '/articoli-frontaliere/frontalieri-lugano-chiarezza-2026', parent: 'blog' },
+    'blog-sgombero-macerie-lugano-amianto': { name: 'Sgombero macerie', path: '/articoli-frontaliere/sgombero-macerie-lugano-amianto', parent: 'blog' },
  };
 
  const info = sectionNames[section];

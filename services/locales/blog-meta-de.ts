@@ -6983,6 +6983,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-lugano-chiarezza-2026.title': 'Ex-Mitarbeiter mit Privilegien? Stadt soll Klarheit schaffen',
     'blog.article.frontalieri-lugano-chiarezza-2026.excerpt': 'Interpellation der Lega an den Luganer Stadtrat für mehr Transparenz bei kommunalen Immobilien und Ex-Mitarbeitern',
     'blog.article.frontalieri-lugano-chiarezza-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.sgombero-macerie-lugano-amianto.title': 'Abriss Ex-Schlachthof Lugano: Achtung Asbest',
+    'blog.article.sgombero-macerie-lugano-amianto.excerpt': 'Die Abrissarbeiten am ehemaligen Schlachthof Lugano haben begonnen. Mögliche Asbeststaubbelastung. Hier erfahren Sie, was Sie wissen müssen.',
+    'blog.article.sgombero-macerie-lugano-amianto.imageAlt': 'Luftaufnahme des Luganer Sees mit einer Baustelle im Vordergrund',
 };
 
 export default blogMetaDe;

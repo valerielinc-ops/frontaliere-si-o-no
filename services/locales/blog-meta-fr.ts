@@ -6984,6 +6984,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-lugano-chiarezza-2026.title': 'Ex-employés en location avec privilèges ? La Ville fasse la lumière',
     'blog.article.frontalieri-lugano-chiarezza-2026.excerpt': 'Interpellation de la Lega au Conseil communal de Lugano pour plus de transparence sur les biens immobiliers communaux et les ex-employés',
     'blog.article.frontalieri-lugano-chiarezza-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.sgombero-macerie-lugano-amianto.title': 'Dégagement des décombres de l\'ex abattoir de Lugano : attention à l\'amiante',
+    'blog.article.sgombero-macerie-lugano-amianto.excerpt': 'Les travaux de dégagement des décombres de l\'ex abattoir de Lugano ont commencé. Présence possible de poussières d\'amiante. Voici ce qu\'il faut savoir.',
+    'blog.article.sgombero-macerie-lugano-amianto.imageAlt': 'Vue aérienne du lac de Lugano avec un chantier en premier plan',
 };
 
 export default blogMetaFr;

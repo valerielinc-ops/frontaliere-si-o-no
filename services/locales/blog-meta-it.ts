@@ -6984,6 +6984,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-lugano-chiarezza-2026.title': 'Ex dipendenti in affitto con privilegi? La Città faccia chiarezza',
     'blog.article.frontalieri-lugano-chiarezza-2026.excerpt': 'Interrogazione della Lega al Municipio di Lugano per maggiore trasparenza su immobili comunali e ex dipendenti',
     'blog.article.frontalieri-lugano-chiarezza-2026.imageAlt': 'Veduta aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.sgombero-macerie-lugano-amianto.title': 'Sgombero macerie Ex Macello Lugano: attenzione all\'amianto',
+    'blog.article.sgombero-macerie-lugano-amianto.excerpt': 'Iniziati i lavori di sgombero delle macerie dell\'ex Macello di Lugano. Possibile presenza di polveri di amianto. Ecco cosa sapere.',
+    'blog.article.sgombero-macerie-lugano-amianto.imageAlt': 'Vista aerea del lago di Lugano con un cantiere in primo piano',
 };
 
 export default blogMetaIt;

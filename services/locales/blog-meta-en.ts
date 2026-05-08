@@ -6983,6 +6983,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-lugano-chiarezza-2026.title': 'Ex-employees renting with privileges? City must clarify',
     'blog.article.frontalieri-lugano-chiarezza-2026.excerpt': 'Lega interrogation to Lugano Municipality for more transparency on municipal properties and ex-employees',
     'blog.article.frontalieri-lugano-chiarezza-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.sgombero-macerie-lugano-amianto.title': 'Ex Lugano Slaughterhouse: Asbestos Warning',
+    'blog.article.sgombero-macerie-lugano-amianto.excerpt': 'Work has begun to clear the rubble from the former Lugano Slaughterhouse. Asbestos dust may be present. Here\'s what you need to know.',
+    'blog.article.sgombero-macerie-lugano-amianto.imageAlt': 'Aerial view of Lake Lugano with a construction site in the foreground',
 };
 
 export default blogMetaEn;
