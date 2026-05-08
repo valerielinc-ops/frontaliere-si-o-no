@@ -22925,4 +22925,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'isa-liquidazione-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-05-08T23:06:12.318Z',
+ image: '/images/blog/isa-liquidazione-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

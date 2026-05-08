@@ -3637,6 +3637,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-blackout-internet-iran-70-giorni': { name: 'Novità', path: '/articoli-frontaliere/blackout-internet-iran-70-giorni', parent: 'blog' },
     'blog-rafforzare-sicurezza-bellinzona-2026': { name: 'Sicurezza Bellinzona', path: '/articoli-frontaliere/rafforzare-sicurezza-bellinzona-2026', parent: 'blog' },
     'blog-austria-ticino-ambasciatori-2026': { name: 'Novità', path: '/articoli-frontaliere/austria-ticino-ambasciatori-2026', parent: 'blog' },
+    'blog-isa-liquidazione-frontalieri-2026': { name: 'Fiscale', path: '/articoli-frontaliere/isa-liquidazione-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

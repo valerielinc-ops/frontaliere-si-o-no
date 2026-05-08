@@ -1,0 +1,40 @@
+{
+  "id": "isa-liquidazione-frontalieri-2026",
+  "slug": "isa-liquidazione-frontalieri-2026",
+  "publishedAt": "2026-05-08T23:06:13.934Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "commercialistatelematico.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.140534498563165,
+    "confidence": 0.8,
+    "finalScore": 7.312427598850532,
+    "topK": [
+      {
+        "slug": "dati-precalcolati-isa-2026-frontalieri",
+        "cosine": 0.8308021580158905
+      },
+      {
+        "slug": "nuove-regole-scambio-informazioni-ader-enti-creditori",
+        "cosine": 0.8088485075653162
+      },
+      {
+        "slug": "nessun-prelievo-avs-sulle-mance",
+        "cosine": 0.8055664253176252
+      },
+      {
+        "slug": "processo-mendrisio-19-capit",
+        "cosine": 0.8035354385149704
+      },
+      {
+        "slug": "stop-agli-artigiani-per-caso",
+        "cosine": 0.8022556511538408
+      }
+    ],
+    "score": 0.7312427598850533,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

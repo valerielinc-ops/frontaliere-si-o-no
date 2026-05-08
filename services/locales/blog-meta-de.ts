@@ -7184,6 +7184,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.austria-ticino-ambasciatori-2026.title': 'Österreich und der Tessin durch zwei Botschafter näher',
     'blog.article.austria-ticino-ambasciatori-2026.excerpt': 'Auszeichnungen für Helga Martinelli und Giuseppe Perale für ihr Engagement in den Beziehungen zwischen Österreich und dem Tessin',
     'blog.article.austria-ticino-ambasciatori-2026.imageAlt': 'Offizielle Zeremonie am Rathaus von Lugano mit österreichischen und Schweizer Flaggen',
+    'blog.article.isa-liquidazione-frontalieri-2026.title': 'ISA und Selbstständige: Ausschluss bei Liquidation',
+    'blog.article.isa-liquidazione-frontalieri-2026.excerpt': 'Selbstständige in Liquidation könnten von den ISA ausgeschlossen werden. Erfahren Sie, was sich ändert und wie Sie sich vorbereiten können',
+    'blog.article.isa-liquidazione-frontalieri-2026.imageAlt': 'Luganersee mit umliegenden Bergen an einem klaren Tag',
 };
 
 export default blogMetaDe;

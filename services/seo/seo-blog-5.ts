@@ -32249,6 +32249,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-isa-liquidazione-frontalieri-2026': {
+    title: 'ISA e professionisti: esclusione in fase di liquidazione',
+    description: 'Professionisti in liquidazione potrebbero essere esclusi dagli ISA. Scopri cosa cambia e come prepararti. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, professionisti, esclusione, fase, liquidazione',
+    ogTitle: 'ISA e professionisti: esclusione in fase di liquidazione',
+    ogDescription: 'Professionisti in liquidazione potrebbero essere esclusi dagli ISA. Scopri cosa cambia e come prepararti',
+    canonicalPath: '/articoli-frontaliere/isa-liquidazione-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ISA e professionisti: esclusione in fase di liquidazione",
+      "description": "Professionisti in liquidazione potrebbero essere esclusi dagli ISA. Scopri cosa cambia e come prepararti. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/isa-liquidazione-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne circostanti in una giornata limpida"
+      },
+      "datePublished": "2026-05-08T23:06:12+00:00",
+      "dateModified": "2026-05-08T23:06:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/isa-liquidazione-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
