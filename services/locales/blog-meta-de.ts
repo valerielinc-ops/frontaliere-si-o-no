@@ -7052,6 +7052,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cartelle-pagamento-cassazione-2026.title': 'Frist für Zahlungsaufforderungen: Kassationshof setzt Verjährung fest',
     'blog.article.cartelle-pagamento-cassazione-2026.excerpt': 'Der Kassationshof legt fest, dass die Frist für die Zustellung von Zahlungsaufforderungen ab dem regulären Fälligkeitsdatum der Steuererklärung und nicht ab der verspäteten Einreichung beginnt.',
     'blog.article.cartelle-pagamento-cassazione-2026.imageAlt': 'Castelgrande in Bellinzona, Luftaufnahme des mittelalterlichen Schlosses im Tessin',
+    'blog.article.crd-output-floor-ii-pilastro.title': 'CRD: Wechselwirkung zwischen Output Floor und II-Säulen-Anforderungen',
+    'blog.article.crd-output-floor-ii-pilastro.excerpt': 'Analyse der Auswirkungen für Grenzgänger im Tessin: Was sich durch die Wechselwirkung zwischen Output Floor und den Anforderungen der II. Säule ändert',
+    'blog.article.crd-output-floor-ii-pilastro.imageAlt': 'Blick auf den Luganersee mit dem modernen Finanzdistrikt im Hintergrund',
 };
 
 export default blogMetaDe;

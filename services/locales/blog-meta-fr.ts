@@ -7053,6 +7053,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cartelle-pagamento-cassazione-2026.title': 'Avis d\'imposition: la Cassation fixe le délai de prescription',
     'blog.article.cartelle-pagamento-cassazione-2026.excerpt': 'La Cassation établit que le délai pour la notification des avis d\'imposition commence à la date d\'échéance ordinaire de la déclaration, et non à la présentation tardive.',
     'blog.article.cartelle-pagamento-cassazione-2026.imageAlt': 'Castelgrande à Bellinzone, vue aérienne du château médiéval au Tessin',
+    'blog.article.crd-output-floor-ii-pilastro.title': 'CRD : interaction entre output floor et exigences du pilier II',
+    'blog.article.crd-output-floor-ii-pilastro.excerpt': 'Analyse des implications pour les frontaliers du Tessin : que change l\'interaction entre output floor et exigences du pilier II',
+    'blog.article.crd-output-floor-ii-pilastro.imageAlt': 'Vue du lac de Lugano avec le quartier financier moderne en arrière-plan',
 };
 
 export default blogMetaFr;

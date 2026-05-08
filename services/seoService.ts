@@ -3593,6 +3593,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-legge-foti-critica-economia-ticino': { name: 'Legge Foti', path: '/articoli-frontaliere/legge-foti-critica-economia-ticino', parent: 'blog' },
     'blog-progetto-eiger-palace-lugano-2026': { name: 'Progetto Eiger Palace', path: '/articoli-frontaliere/progetto-eiger-palace-lugano-2026', parent: 'blog' },
     'blog-cartelle-pagamento-cassazione-2026': { name: 'Fiscale', path: '/articoli-frontaliere/cartelle-pagamento-cassazione-2026', parent: 'blog' },
+    'blog-crd-output-floor-ii-pilastro': { name: 'Fiscale', path: '/articoli-frontaliere/crd-output-floor-ii-pilastro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

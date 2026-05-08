@@ -7052,6 +7052,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cartelle-pagamento-cassazione-2026.title': 'Court sets deadline for payment notices',
     'blog.article.cartelle-pagamento-cassazione-2026.excerpt': 'The Court of Cassation rules that the deadline for notifying payment notices starts from the ordinary deadline for the declaration, not from the late submission.',
     'blog.article.cartelle-pagamento-cassazione-2026.imageAlt': 'Castelgrande in Bellinzona, aerial view of the medieval castle in Ticino',
+    'blog.article.crd-output-floor-ii-pilastro.title': 'CRD: interaction between output floor and Pillar 2 requirements',
+    'blog.article.crd-output-floor-ii-pilastro.excerpt': 'Analysis of the implications for Ticino cross-border workers: what changes with the interaction between output floor and Pillar 2 requirements',
+    'blog.article.crd-output-floor-ii-pilastro.imageAlt': 'View of Lake Lugano with the modern financial district in the background',
 };
 
 export default blogMetaEn;

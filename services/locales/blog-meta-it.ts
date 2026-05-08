@@ -7053,6 +7053,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cartelle-pagamento-cassazione-2026.title': 'Cartelle di pagamento: Cassazione fissa termine di decadenza',
     'blog.article.cartelle-pagamento-cassazione-2026.excerpt': 'La Cassazione stabilisce che il termine per la notifica delle cartelle di pagamento decorre dalla scadenza ordinaria della dichiarazione, non dalla presentazione tardiva.',
     'blog.article.cartelle-pagamento-cassazione-2026.imageAlt': 'Castelgrande a Bellinzona, vista aerea del castello medievale in Ticino',
+    'blog.article.crd-output-floor-ii-pilastro.title': 'CRD: interazione tra output floor e requisiti del II pilastro',
+    'blog.article.crd-output-floor-ii-pilastro.excerpt': 'Analisi delle implicazioni per i frontalieri Ticino: cosa cambia con l\'interazione tra output floor e requisiti del II pilastro',
+    'blog.article.crd-output-floor-ii-pilastro.imageAlt': 'Vista del lago di Lugano con il distretto finanziario moderno sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -22529,4 +22529,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'crd-output-floor-ii-pilastro',
+ category: 'fiscale',
+ date: '2026-05-08T08:28:50.106Z',
+ image: '/images/blog/crd-output-floor-ii-pilastro.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
