@@ -1,19 +1,51 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-05-08T09:16:35.296Z",
+  "generatedAt": "2026-05-08T21:08:45.025Z",
   "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5623,
-  "avgDurationMs": 5623,
+  "durationMs": 5057,
+  "avgDurationMs": 5057,
   "durationHistory": [
-    5623
+    5057
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "title": "Key Account Manager (m/f) - 100%",
+      "slug": "key-account-manager-m-f-100",
+      "url": "https://jobs.amag-group.ch/Key-Account-Manager-mf-100-it-j22824.html",
+      "applyUrl": "https://jobs.amag-group.ch/Key-Account-Manager-mf-100-it-f22824.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "management",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-08",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-07-31",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "Consulente di vendita Senior VW (m/f) - 100%",
       "slug": "consulente-di-vendita-senior-vw-m-f-100",
@@ -52,6 +84,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
