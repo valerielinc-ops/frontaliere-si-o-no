@@ -6996,6 +6996,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grigioni-fattura-italia-olimpiadi.title': 'Les Grisons envoient une facture à l\'Italie pour les coûts du trafic olympique',
     'blog.article.grigioni-fattura-italia-olimpiadi.excerpt': 'Le canton des Grisons a envoyé une facture de 2,6 millions de francs à l\'Italie pour couvrir les coûts du plan de transport pendant les Jeux olympiques de Milan-Cortina 2026.',
     'blog.article.grigioni-fattura-italia-olimpiadi.imageAlt': 'Gare de Mendrisio, Tessin, Suisse',
+    'blog.article.untersander-ginevra-2026.title': 'Untersander quitte Berne pour Servette Genève',
+    'blog.article.untersander-ginevra-2026.excerpt': 'Le défenseur Ramon Untersander, ancien capitaine de Berne, rejoint le Servette Genève. Voici ce qui change pour les supporters et les passionnés de hockey.',
+    'blog.article.untersander-ginevra-2026.imageAlt': 'Joueur de hockey célébrant la victoire devant le lac de Lugano',
 };
 
 export default blogMetaFr;

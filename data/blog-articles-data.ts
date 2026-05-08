@@ -22358,4 +22358,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'untersander-ginevra-2026',
+ category: 'novita',
+ date: '2026-05-08T05:22:13.715Z',
+ image: '/images/blog/untersander-ginevra-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

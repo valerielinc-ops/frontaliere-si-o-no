@@ -3574,6 +3574,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lamanotesa-ch-dolore-bene-condiviso': { name: 'Giustizia riparativa', path: '/articoli-frontaliere/lamanotesa-ch-dolore-bene-condiviso', parent: 'blog' },
     'blog-lamal-low-cost-premi-bassi-2026': { name: 'LAMal low cost', path: '/articoli-frontaliere/lamal-low-cost-premi-bassi-2026', parent: 'blog' },
     'blog-grigioni-fattura-italia-olimpiadi': { name: 'Novità', path: '/articoli-frontaliere/grigioni-fattura-italia-olimpiadi', parent: 'blog' },
+    'blog-untersander-ginevra-2026': { name: 'Novità', path: '/articoli-frontaliere/untersander-ginevra-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -6996,6 +6996,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grigioni-fattura-italia-olimpiadi.title': 'Grigioni inviano fattura all\'Italia per i costi del traffico olimpico',
     'blog.article.grigioni-fattura-italia-olimpiadi.excerpt': 'Il cantone dei Grigioni ha inviato una fattura da 2,6 milioni di franchi all\'Italia per coprire i costi del piano trasporti durante le Olimpiadi di Milano-Cortina 2026.',
     'blog.article.grigioni-fattura-italia-olimpiadi.imageAlt': 'Stazione ferroviaria di Mendrisio, Ticino, Svizzera',
+    'blog.article.untersander-ginevra-2026.title': 'Untersander lascia il Berna per il Ginevra Servette',
+    'blog.article.untersander-ginevra-2026.excerpt': 'Il difensore Ramon Untersander, ex capitano del Berna, si trasferisce al Ginevra Servette. Ecco cosa cambia per i tifosi e gli appassionati di hockey.',
+    'blog.article.untersander-ginevra-2026.imageAlt': 'Giocatore di hockey festeggia vittoria davanti al Lago di Lugano',
 };
 
 export default blogMetaIt;

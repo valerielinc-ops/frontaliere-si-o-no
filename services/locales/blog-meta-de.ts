@@ -6995,6 +6995,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grigioni-fattura-italia-olimpiadi.title': 'Graubünden stellt Italien Rechnung für olympischen Verkehr',
     'blog.article.grigioni-fattura-italia-olimpiadi.excerpt': 'Der Kanton Graubünden hat Italien eine Rechnung über 2,6 Millionen Franken für die Transportkosten während der Olympischen Spiele Mailand-Cortina 2026 gestellt.',
     'blog.article.grigioni-fattura-italia-olimpiadi.imageAlt': 'Bahnhof Mendrisio, Tessin, Schweiz',
+    'blog.article.untersander-ginevra-2026.title': 'Untersander wechselt vom Bern zum Servette Genf',
+    'blog.article.untersander-ginevra-2026.excerpt': 'Der Verteidiger Ramon Untersander, ehemaliger Kapitän des Bern, wechselt zum Servette Genf. Hier erfahren Sie, was sich für die Fans und Eishockeybegeisterten ändert.',
+    'blog.article.untersander-ginevra-2026.imageAlt': 'Hockeyspieler feiert Sieg vor dem Luganersee',
 };
 
 export default blogMetaDe;

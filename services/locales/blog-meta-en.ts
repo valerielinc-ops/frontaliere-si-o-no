@@ -6995,6 +6995,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.grigioni-fattura-italia-olimpiadi.title': 'Grisons send Italy bill for Olympic traffic costs',
     'blog.article.grigioni-fattura-italia-olimpiadi.excerpt': 'The canton of Grisons has sent a bill for 2.6 million francs to Italy to cover the costs of the transport plan during the Milan-Cortina 2026 Olympics.',
     'blog.article.grigioni-fattura-italia-olimpiadi.imageAlt': 'Mendrisio train station, Ticino, Switzerland',
+    'blog.article.untersander-ginevra-2026.title': 'Untersander leaves Bern for Servette Geneva',
+    'blog.article.untersander-ginevra-2026.excerpt': 'Ramon Untersander, former captain of Bern, moves to Geneva Servette. Here\'s what changes for fans and hockey enthusiasts.',
+    'blog.article.untersander-ginevra-2026.imageAlt': 'Hockey player celebrating victory in front of Lake Lugano',
 };
 
 export default blogMetaEn;
