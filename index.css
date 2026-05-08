@@ -387,6 +387,19 @@ aside.seo-footer-block .seo-fb-disclaimer {
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 
+/* Tell AdSense Auto Ads to skip injecting in-page ads inside this region.
+   `google-auto-ads: ignore` is a non-standard CSS property that Auto Ads'
+   detection script reads when scanning the DOM for valid insertion points.
+   Google docs:
+   https://support.google.com/adsense/answer/12626543
+   Use this on hero/above-the-fold sections where in-page injection would
+   compete with the LCP element and cause CLS. Anchor + Vignette overlay
+   formats are NOT affected (overlays are not "in-page"). */
+.adsense-auto-ads-ignore,
+.adsense-auto-ads-ignore * {
+  google-auto-ads: ignore;
+}
+
 /* Hide AdSense auto-ads when a high-priority modal is open.
    AdSense overlays use z-index up to 2147483647, which covers our popups.
    Using display:none (not just visibility:hidden) to fully remove the ads'

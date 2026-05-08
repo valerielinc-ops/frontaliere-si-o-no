@@ -57,12 +57,16 @@ export default function CalcolatoreTabContent() {
  </Suspense>
  ) : (
  <>
+ {/* Above-the-fold zone — exclude from in-page Auto Ads injection (CLS recovery, FRO P0.1).
+     Anchor / Vignette overlays still serve. See index.css `.adsense-auto-ads-ignore`. */}
+ <div className="adsense-auto-ads-ignore">
  <h1 className="text-xl sm:text-2xl font-extrabold font-display text-heading tracking-tight mb-1">
  {t('seoContent.calculator.title')}
  </h1>
  <p className="text-sm text-muted mb-4">
  {t('seoContent.calculator.subtitle')}
  </p>
+ </div>
 
  {showDeferredHomeWidgets ? (
  // SilentErrorBoundary contains React #31 / render errors in the home
