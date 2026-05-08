@@ -3639,6 +3639,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-austria-ticino-ambasciatori-2026': { name: 'Novità', path: '/articoli-frontaliere/austria-ticino-ambasciatori-2026', parent: 'blog' },
     'blog-isa-liquidazione-frontalieri-2026': { name: 'Fiscale', path: '/articoli-frontaliere/isa-liquidazione-frontalieri-2026', parent: 'blog' },
     'blog-malattie-renali-campagna-cl3ar-milano': { name: 'Salute renale', path: '/articoli-frontaliere/malattie-renali-campagna-cl3ar-milano', parent: 'blog' },
+    'blog-hantavirus-ginevrino-isolamento-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-ginevrino-isolamento-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

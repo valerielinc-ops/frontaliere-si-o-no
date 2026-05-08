@@ -1,0 +1,40 @@
+{
+  "id": "hantavirus-ginevrino-isolamento-frontalieri",
+  "slug": "hantavirus-ginevrino-isolamento-frontalieri",
+  "publishedAt": "2026-05-08T23:21:51.566Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.292469635078873,
+    "confidence": 0.8,
+    "finalScore": 5.033975708063099,
+    "topK": [
+      {
+        "slug": "hantavirus-zurigo-crocerista-frontalieri",
+        "cosine": 0.8989242335826961
+      },
+      {
+        "slug": "hantavirus-oms-passeggeri-sudafrica",
+        "cosine": 0.8875643964374876
+      },
+      {
+        "slug": "hantavirus-zurigo-ricovero-crocerista",
+        "cosine": 0.8842858673618496
+      },
+      {
+        "slug": "hantavirus-crociera-isolamento",
+        "cosine": 0.8808489489675784
+      },
+      {
+        "slug": "hondius-hantavirus-frontalieri",
+        "cosine": 0.8743533313272478
+      }
+    ],
+    "score": 0.5033975708063099,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

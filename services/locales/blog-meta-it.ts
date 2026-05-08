@@ -7191,6 +7191,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malattie-renali-campagna-cl3ar-milano.title': 'Malattie renali rare: parte da Milano la campagna CL3AR',
     'blog.article.malattie-renali-campagna-cl3ar-milano.excerpt': 'La campagna itinerante CL3AR mira a sensibilizzare sulla salute dei reni, con focus su malattie croniche rare come la C3G e la IC-MPGN primaria.',
     'blog.article.malattie-renali-campagna-cl3ar-milano.imageAlt': 'Lago di Lugano con montagne in lontananza',
+    'blog.article.hantavirus-ginevrino-isolamento-frontalieri.title': 'Hantavirus: ginevrino in isolamento, basso rischio per frontalieri',
+    'blog.article.hantavirus-ginevrino-isolamento-frontalieri.excerpt': 'Un ginevrino è in isolamento dopo un volo con un malato di hantavirus. L\'UFSP rassicura: basso rischio per la popolazione.',
+    'blog.article.hantavirus-ginevrino-isolamento-frontalieri.imageAlt': 'Vista aerea del lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;
