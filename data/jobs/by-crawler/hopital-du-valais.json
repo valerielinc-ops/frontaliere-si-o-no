@@ -550,9 +550,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -601,12 +601,12 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
@@ -3960,12 +3960,12 @@
     },
     {
       "id": "hopital-du-valais-45c175d25382",
-      "slug": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole",
+      "slug": "assc-assistants-in-community-health-and-care-80-100-in-cdd-e-cdi-per-psichiatria-e-psicoterapia-hopital-du-valais-monthe",
       "slugByLocale": {
         "fr": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole",
-        "it": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole",
-        "en": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole",
-        "de": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole"
+        "it": "assc-assistants-in-community-health-and-care-80-100-in-cdd-e-cdi-per-psichiatria-e-psicoterapia-hopital-du-valais-monthe",
+        "en": "assc-assistants-in-community-health-and-care-80-100-in-cdd-and-cdi-for-psychiatry-and-psychotherapy-hopital-du-valais-mo",
+        "de": "assc-assistants-in-community-health-and-care-80-100-in-cdd-und-cdi-fur-psychiatrie-und-psychotherapie-hopital-du-valais-"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4021,16 +4021,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-07T22:00:03.903Z"
+      "firstSeenAt": "2026-05-07T22:00:03.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole"
+        ],
+        "en": [
+          "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole"
+        ],
+        "de": [
+          "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole"
+        ]
+      },
+      "previousSlugs": [
+        "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole"
+      ]
     },
     {
       "id": "hopital-du-valais-565ebf65fbc4",
-      "slug": "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de-malevo",
+      "slug": "40-laurea-ergoterapist-per-la-psichiatria-adulta-presso-l-ospedale-malevoz-hopital-du-valais-monthey",
       "slugByLocale": {
         "fr": "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de-malevoz-hopital-du-valais-monthey",
-        "it": "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de-malevo",
-        "en": "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de-malevo",
-        "de": "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de-malevo"
+        "it": "40-laurea-ergoterapist-per-la-psichiatria-adulta-presso-l-ospedale-malevoz-hopital-du-valais-monthey",
+        "en": "40-graduate-ergotherapist-for-adult-psychiatry-at-malevoz-hospital-hopital-du-valais-monthey",
+        "de": "40-absolventen-ergotherapist-fur-erwachsene-psychiatrie-im-krankenhaus-malevoz-hopital-du-valais-monthey"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4086,7 +4100,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-07T22:00:03.569Z"
+      "firstSeenAt": "2026-05-07T22:00:03.569Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de-malevo"
+        ],
+        "en": [
+          "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de-malevo"
+        ],
+        "de": [
+          "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de-malevo"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de-malevo"
+      ]
     }
   ]
 }
