@@ -6941,6 +6941,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lula-trump-riunione-democrazia-sovranita.title': 'Lula and Trump defend democracy and sovereignty',
     'blog.article.lula-trump-riunione-democrazia-sovranita.excerpt': 'Brazilian President Lula meets Trump at the White House, emphasizing the importance of economic relations and geopolitical cooperation.',
     'blog.article.lula-trump-riunione-democrazia-sovranita.imageAlt': 'Lake Lugano in spring with people enjoying the lakeside',
+    'blog.article.delitto-garlasco-chiara-omicidio-2026.title': 'Garlasco murder: Chiara killed with hatred and cruelty',
+    'blog.article.delitto-garlasco-chiara-omicidio-2026.excerpt': 'New revelations about Chiara Poggi\'s murder: Andrea Sempio accused of murder with aggravating circumstances.',
+    'blog.article.delitto-garlasco-chiara-omicidio-2026.imageAlt': 'A quiet residential street in Garlasco, Italy, with a house in the background, evoking a sense of calm disrupted.',
 };
 
 export default blogMetaEn;

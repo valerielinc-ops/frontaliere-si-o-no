@@ -3556,6 +3556,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trump-dazi-corte-commercio-2026': { name: 'Novità', path: '/articoli-frontaliere/trump-dazi-corte-commercio-2026', parent: 'blog' },
     'blog-lipsia-pirata-strada-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/lipsia-pirata-strada-frontalieri', parent: 'blog' },
     'blog-lula-trump-riunione-democrazia-sovranita': { name: 'Novità', path: '/articoli-frontaliere/lula-trump-riunione-democrazia-sovranita', parent: 'blog' },
+    'blog-delitto-garlasco-chiara-omicidio-2026': { name: 'Delitto Garlasco', path: '/articoli-frontaliere/delitto-garlasco-chiara-omicidio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

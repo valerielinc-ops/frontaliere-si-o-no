@@ -6942,6 +6942,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lula-trump-riunione-democrazia-sovranita.title': 'Lula e Trump difendono democrazia e sovranità',
     'blog.article.lula-trump-riunione-democrazia-sovranita.excerpt': 'Il presidente brasiliano Lula incontra Trump alla Casa Bianca, sottolineando l\'importanza dei rapporti economici e della cooperazione geopolitica.',
     'blog.article.lula-trump-riunione-democrazia-sovranita.imageAlt': 'Lago di Lugano in primavera con persone che godono del lungolago',
+    'blog.article.delitto-garlasco-chiara-omicidio-2026.title': 'Delitto di Garlasco: Chiara uccisa con odio e crudeltà',
+    'blog.article.delitto-garlasco-chiara-omicidio-2026.excerpt': 'Nuove rivelazioni sull\'omicidio di Chiara Poggi: Andrea Sempio accusato di omicidio con aggravanti.',
+    'blog.article.delitto-garlasco-chiara-omicidio-2026.imageAlt': 'Vista di una tranquilla strada residenziale a Garlasco, Italia, con una casa sullo sfondo, che evoca un senso di calma interrotta.',
 };
 
 export default blogMetaIt;
