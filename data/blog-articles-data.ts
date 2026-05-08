@@ -22178,4 +22178,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lipsia-pirata-strada-frontalieri',
+ category: 'novita',
+ date: '2026-05-08T01:28:32.025Z',
+ image: '/images/blog/lipsia-pirata-strada-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

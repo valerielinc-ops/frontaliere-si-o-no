@@ -3554,6 +3554,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-friburgo-finale-europa-manzambi': { name: 'Novità', path: '/articoli-frontaliere/friburgo-finale-europa-manzambi', parent: 'blog' },
     'blog-legal-insurance-utilita-sicurezza': { name: 'Assicurazione legale', path: '/articoli-frontaliere/legal-insurance-utilita-sicurezza', parent: 'blog' },
     'blog-trump-dazi-corte-commercio-2026': { name: 'Novità', path: '/articoli-frontaliere/trump-dazi-corte-commercio-2026', parent: 'blog' },
+    'blog-lipsia-pirata-strada-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/lipsia-pirata-strada-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

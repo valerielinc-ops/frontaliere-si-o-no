@@ -6935,6 +6935,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trump-dazi-corte-commercio-2026.title': 'US court rules Trump\'s tariffs illegal',
     'blog.article.trump-dazi-corte-commercio-2026.excerpt': 'The US Court of International Trade has declared illegal the 10% global tariffs imposed by Donald Trump. Here\'s what changes for cross-border workers.',
     'blog.article.trump-dazi-corte-commercio-2026.imageAlt': 'Aerial view of Lugano lake and city',
+    'blog.article.lipsia-pirata-strada-frontalieri.title': 'Road rage in Leipzig: attack was announced',
+    'blog.article.lipsia-pirata-strada-frontalieri.excerpt': 'A 33-year-old man ran over several people in Leipzig, killing two and injuring six. The act was announced in a message to his wife.',
+    'blog.article.lipsia-pirata-strada-frontalieri.imageAlt': 'A chaotic street scene in Leipzig, Germany, with emergency vehicles and people reacting to an incident.',
 };
 
 export default blogMetaEn;

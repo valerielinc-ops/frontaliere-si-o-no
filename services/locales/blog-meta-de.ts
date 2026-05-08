@@ -6935,6 +6935,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trump-dazi-corte-commercio-2026.title': 'US-Handelsgericht erklärt Trumps Zölle für illegal',
     'blog.article.trump-dazi-corte-commercio-2026.excerpt': 'Das US-Handelsgericht hat die globalen Zölle von 10%, die von Donald Trump verhängt wurden, für illegal erklärt. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.trump-dazi-corte-commercio-2026.imageAlt': 'Luftaufnahme vom Luganersee und der Stadt',
+    'blog.article.lipsia-pirata-strada-frontalieri.title': 'Fahrer flüchtet in Leipzig: Tat angekündigt',
+    'blog.article.lipsia-pirata-strada-frontalieri.excerpt': 'Ein 33-jähriger Mann hat in Leipzig mehrere Menschen angefahren, wobei zwei Menschen starben und sechs verletzt wurden. Die Tat wurde in einer Nachricht an seine Frau angekündigt.',
+    'blog.article.lipsia-pirata-strada-frontalieri.imageAlt': 'Eine chaotische Straßenszene in Leipzig, Deutschland, mit Rettungsfahrzeugen und Menschen, die auf einen Vorfall reagieren.',
 };
 
 export default blogMetaDe;

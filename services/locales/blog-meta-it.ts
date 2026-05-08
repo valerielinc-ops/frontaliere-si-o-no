@@ -6936,6 +6936,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trump-dazi-corte-commercio-2026.title': 'Dazi Trump bocciati: Corte per il commercio USA li dichiara illegali',
     'blog.article.trump-dazi-corte-commercio-2026.excerpt': 'La Corte per il commercio americana ha dichiarato illegali i dazi globali al 10% imposti da Donald Trump. Ecco cosa cambia per i frontalieri.',
     'blog.article.trump-dazi-corte-commercio-2026.imageAlt': 'Vista aerea del lago e della città di Lugano',
+    'blog.article.lipsia-pirata-strada-frontalieri.title': 'Pirata della strada a Lipsia: preannunciato il gesto',
+    'blog.article.lipsia-pirata-strada-frontalieri.excerpt': 'Un uomo di 33 anni ha investito diverse persone a Lipsia, causando due morti e sei feriti. Il gesto era stato preannunciato in un messaggio alla moglie.',
+    'blog.article.lipsia-pirata-strada-frontalieri.imageAlt': 'Una scena caotica di una strada a Lipsia, Germania, con veicoli di emergenza e persone che reagiscono a un incidente.',
 };
 
 export default blogMetaIt;

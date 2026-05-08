@@ -6936,6 +6936,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trump-dazi-corte-commercio-2026.title': 'Droits de douane Trump rejetés: illégaux selon la Cour américaine',
     'blog.article.trump-dazi-corte-commercio-2026.excerpt': 'La Cour américaine du commerce a déclaré illégaux les droits de douane globaux de 10% imposés par Donald Trump. Voici ce qui change pour les frontaliers.',
     'blog.article.trump-dazi-corte-commercio-2026.imageAlt': 'Vue aérienne du lac et de la ville de Lugano',
+    'blog.article.lipsia-pirata-strada-frontalieri.title': 'Pirate de la route à Leipzig : l\'acte annoncé',
+    'blog.article.lipsia-pirata-strada-frontalieri.excerpt': 'Un homme de 33 ans a renversé plusieurs personnes à Leipzig, causant deux morts et six blessés. L\'acte avait été annoncé dans un message à sa femme.',
+    'blog.article.lipsia-pirata-strada-frontalieri.imageAlt': 'Une scène de rue chaotique à Leipzig, en Allemagne, avec des véhicules d\'urgence et des personnes réagissant à un incident.',
 };
 
 export default blogMetaFr;
