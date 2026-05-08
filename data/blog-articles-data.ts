@@ -22799,4 +22799,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'nuovo-accordo-cremona-fisco-2026',
+ category: 'fiscale',
+ date: '2026-05-08T19:26:37.972Z',
+ image: '/images/blog/nuovo-accordo-cremona-fisco-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

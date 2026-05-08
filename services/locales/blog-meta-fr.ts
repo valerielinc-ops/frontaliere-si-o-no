@@ -7143,6 +7143,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tasse-aeree-kerosene-2026.title': 'Non aux taxes sur les billets d\'avion et le kérosène au Tessin',
     'blog.article.tasse-aeree-kerosene-2026.excerpt': 'La Suisse renonce à taxer les billets d\'avion et le kérosène. Voici ce qui change pour les frontaliers',
     'blog.article.tasse-aeree-kerosene-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.title': 'Cremone, nouvel accord entre l\'Agence, la GDF et le Procureur',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.excerpt': 'Nouvel accord pour lutter contre l\'évasion fiscale entre l\'Agence des Entrées, la Garde des Finances et le Procureur de Cremone. Voici les nouveautés pour les frontaliers du Tessin.',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

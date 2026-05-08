@@ -7143,6 +7143,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tasse-aeree-kerosene-2026.title': 'No a tasse su biglietti aerei e kerosene in Ticino',
     'blog.article.tasse-aeree-kerosene-2026.excerpt': 'La Svizzera rinuncia a tassare biglietti aerei e kerosene. Ecco cosa cambia per i frontalieri',
     'blog.article.tasse-aeree-kerosene-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.title': 'Cremona, nuovo accordo tra Agenzia, Gdf e Procura - Fisco Oggi',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.excerpt': 'Nuovo accordo per contrastare l\'evasione fiscale tra Agenzia delle Entrate, Guardia di Finanza e Procura di Cremona. Ecco le novità per i frontalieri Ticino.',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

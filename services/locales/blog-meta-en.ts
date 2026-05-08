@@ -7142,6 +7142,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tasse-aeree-kerosene-2026.title': 'No to taxes on air tickets and kerosene in Ticino',
     'blog.article.tasse-aeree-kerosene-2026.excerpt': 'Switzerland renounces taxing air tickets and kerosene. Here\'s what changes for cross-border workers',
     'blog.article.tasse-aeree-kerosene-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.title': 'Cremona: new agreement between Agency, Gdf and Prosecution',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.excerpt': 'New agreement to combat tax evasion between the Revenue Agency, Guardia di Finanza and Prosecution of Cremona. Here are the updates for Ticino cross-border workers.',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;

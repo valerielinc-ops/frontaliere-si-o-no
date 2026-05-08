@@ -31703,6 +31703,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-accordo-cremona-fisco-2026': {
+    title: 'Cremona, nuovo accordo tra Agenzia, Gdf e Procura - Fisco Oggi',
+    description: 'Nuovo accordo per contrastare l\'evasione fiscale tra Agenzia delle Entrate, Guardia di Finanza e Procura di Cremona. Ecco le novità per i frontalieri Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cremona, nuovo, accordo, agenzia',
+    ogTitle: 'Cremona, nuovo accordo tra Agenzia, Gdf e Procura - Fisco Oggi',
+    ogDescription: 'Nuovo accordo per contrastare l\'evasione fiscale tra Agenzia delle Entrate, Guardia di Finanza e Procura di Cremona. Ecco le novità per i frontalieri Ticino.',
+    canonicalPath: '/articoli-frontaliere/nuovo-accordo-cremona-fisco-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cremona, nuovo accordo tra Agenzia, Gdf e Procura - Fisco Oggi",
+      "description": "Nuovo accordo per contrastare l'evasione fiscale tra Agenzia delle Entrate, Guardia di Finanza e Procura di Cremona. Ecco le novità per i frontalieri Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuovo-accordo-cremona-fisco-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-05-08T19:26:38+00:00",
+      "dateModified": "2026-05-08T19:26:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-cremona-fisco-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

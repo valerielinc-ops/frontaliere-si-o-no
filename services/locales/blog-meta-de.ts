@@ -7142,6 +7142,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tasse-aeree-kerosene-2026.title': 'Keine Steuern auf Flugtickets und Kerosin im Tessin',
     'blog.article.tasse-aeree-kerosene-2026.excerpt': 'Die Schweiz verzichtet darauf, Flugtickets und Kerosin zu besteuern. Das sind die Änderungen für Grenzgänger',
     'blog.article.tasse-aeree-kerosene-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.title': 'Cremona: Neues Abkommen zwischen Behörde, Finanzwache und Staatsanwaltschaft',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.excerpt': 'Neue Vereinbarung zur Bekämpfung der Steuerhinterziehung zwischen der italienischen Finanzbehörde, der Guardia di Finanza und der Staatsanwaltschaft von Cremona. Hier sind die Neuigkeiten für die Grenzgänger aus dem Tessin.',
+    'blog.article.nuovo-accordo-cremona-fisco-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;

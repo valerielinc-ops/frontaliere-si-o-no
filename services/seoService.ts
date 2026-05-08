@@ -3623,6 +3623,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-falegnami-stipendi-2025': { name: 'Fiscale', path: '/articoli-frontaliere/falegnami-stipendi-2025', parent: 'blog' },
     'blog-tasse-mance-frontalieri-ticino': { name: 'Fiscale', path: '/articoli-frontaliere/tasse-mance-frontalieri-ticino', parent: 'blog' },
     'blog-tasse-aeree-kerosene-2026': { name: 'Tasse aeree e kerosene', path: '/articoli-frontaliere/tasse-aeree-kerosene-2026', parent: 'blog' },
+    'blog-nuovo-accordo-cremona-fisco-2026': { name: 'Fisco Oggi', path: '/articoli-frontaliere/nuovo-accordo-cremona-fisco-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
