@@ -7089,6 +7089,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pagaiate-internazionali-grigioni-ticino-2026.title': 'Courses internationales de canoë entre les Grisons et le Tessin',
     'blog.article.pagaiate-internazionali-grigioni-ticino-2026.excerpt': 'Samedi 9 et dimanche 10 mai 2026, compétitions de canoë sur les rivières Moesa et Tessin. Plus de 110 athlètes de 7 nations, dont l\'Australie.',
     'blog.article.pagaiate-internazionali-grigioni-ticino-2026.imageAlt': 'Vue aérienne des rivières Moesa et Ticino au Tessin, Suisse, avec des kayakistes participant à des courses internationales.',
+    'blog.article.aquile-mannheim-coppa-spengler-2026.title': 'Les Aigles de Mannheim à la Coupe Spengler 2026',
+    'blog.article.aquile-mannheim-coppa-spengler-2026.excerpt': 'Les Aigles de Mannheim, vice-champions d\'Allemagne, participeront à la 98e Coupe Spengler. Voici les implications pour les amateurs de hockey.',
+    'blog.article.aquile-mannheim-coppa-spengler-2026.imageAlt': 'Match de hockey sur glace à Davos, Suisse, avec des spectateurs dans les tribunes',
 };
 
 export default blogMetaFr;

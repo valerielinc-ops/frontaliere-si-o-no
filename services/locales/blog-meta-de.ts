@@ -7088,6 +7088,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pagaiate-internazionali-grigioni-ticino-2026.title': 'Internationale Kanu-Wettkämpfe zwischen Graubünden und Tessin',
     'blog.article.pagaiate-internazionali-grigioni-ticino-2026.excerpt': 'Am Samstag, den 9. und Sonntag, den 10. Mai 2026, finden Kanu-Wettkämpfe auf den Flüssen Moesa und Ticino statt. Über 110 Athleten aus 7 Nationen, darunter Australien.',
     'blog.article.pagaiate-internazionali-grigioni-ticino-2026.imageAlt': 'Luftaufnahme der Flüsse Moesa und Ticino im Tessin, Schweiz, mit Kanuten, die an internationalen Rennen teilnehmen.',
+    'blog.article.aquile-mannheim-coppa-spengler-2026.title': 'Die Adler Mannheim beim Spengler Cup 2026',
+    'blog.article.aquile-mannheim-coppa-spengler-2026.excerpt': 'Die Adler Mannheim, Vizemeister Deutschlands, nehmen am 98. Spengler Cup teil. Das sind die Auswirkungen für die Eishockey-Fans.',
+    'blog.article.aquile-mannheim-coppa-spengler-2026.imageAlt': 'Eishockeyspiel in Davos, Schweiz, mit Zuschauern auf den Rängen',
 };
 
 export default blogMetaDe;

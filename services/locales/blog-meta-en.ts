@@ -7088,6 +7088,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pagaiate-internazionali-grigioni-ticino-2026.title': 'International canoe races between Grisons and Ticino: what you need to know',
     'blog.article.pagaiate-internazionali-grigioni-ticino-2026.excerpt': 'On Saturday 9 and Sunday 10 May 2026, canoe races on the Moesa and Ticino rivers. Over 110 athletes from 7 nations, including Australia.',
     'blog.article.pagaiate-internazionali-grigioni-ticino-2026.imageAlt': 'Aerial view of the Moesa and Ticino rivers in Ticino, Switzerland, with kayakers competing in international races.',
+    'blog.article.aquile-mannheim-coppa-spengler-2026.title': 'Mannheim Eagles to Compete in 2026 Spengler Cup',
+    'blog.article.aquile-mannheim-coppa-spengler-2026.excerpt': 'The Mannheim Eagles, runners-up in Germany, will participate in the 98th Spengler Cup. Here are the implications for hockey fans.',
+    'blog.article.aquile-mannheim-coppa-spengler-2026.imageAlt': 'Ice hockey game in Davos, Switzerland, with spectators in the stands',
 };
 
 export default blogMetaEn;
