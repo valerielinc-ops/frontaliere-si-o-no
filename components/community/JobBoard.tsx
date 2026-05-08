@@ -4909,7 +4909,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialJobTodayLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8 adsense-auto-ads-ignore">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialJobTodayLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5008,7 +5008,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialOfficialGazetteLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8 adsense-auto-ads-ignore">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialOfficialGazetteLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5126,7 +5126,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialNursesHubLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8 adsense-auto-ads-ignore">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialNursesHubLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5235,7 +5235,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const parentSlug = editorialCareVariantLanding.parentHubHref.split('/').filter(Boolean).pop() || '';
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8 adsense-auto-ads-ignore">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialCareVariantLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5332,7 +5332,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialLocationLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8 adsense-auto-ads-ignore">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialLocationLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5446,7 +5446,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const parentSlug = editorialLocationTypeLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8 adsense-auto-ads-ignore">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialLocationTypeLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5543,7 +5543,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const parentSlug = editorialLocationSectorLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8 adsense-auto-ads-ignore">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialLocationSectorLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
@@ -5639,7 +5639,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialSectorRegionLanding) {
  return (
  <div className="space-y-6">
- <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
+ <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8 adsense-auto-ads-ignore">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialSectorRegionLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
  </p>
