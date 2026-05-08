@@ -31118,6 +31118,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-simona-waltert-ticino-frontalieri': {
+    title: 'Simona Waltert avanza al secondo turno a Roma | Frontaliere Ticino',
+    description: 'La tennista grigionese si qualifica per il secondo turno del WTA 1\'000 di Roma, raggiungendo altre tre svizzere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, simona, waltert, avanza, secondo',
+    ogTitle: 'Simona Waltert avanza al secondo turno a Roma',
+    ogDescription: 'La tennista grigionese si qualifica per il secondo turno del WTA 1\'000 di Roma, raggiungendo altre tre svizzere',
+    canonicalPath: '/articoli-frontaliere/simona-waltert-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Simona Waltert avanza al secondo turno a Roma",
+      "description": "La tennista grigionese si qualifica per il secondo turno del WTA 1'000 di Roma, raggiungendo altre tre svizzere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/simona-waltert-ticino-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Simona Waltert in azione al Foro Italico"
+      },
+      "datePublished": "2026-05-08T11:42:04+00:00",
+      "dateModified": "2026-05-08T11:42:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/simona-waltert-ticino-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

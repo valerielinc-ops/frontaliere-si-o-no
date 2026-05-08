@@ -7097,6 +7097,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.title': 'Caregivers: more courage needed in reforms',
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.excerpt': 'On May 6, 2026, Aila meets with the Social Affairs Commission to amend the bill on family caregivers. Three million Italians care for relatives, saving welfare 6-7 billion euros a year.',
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.imageAlt': 'A caregiver assisting an elderly person with Lake Lugano in the background in Ticino',
+    'blog.article.simona-waltert-ticino-frontalieri.title': 'Simona Waltert advances to Rome\'s second round',
+    'blog.article.simona-waltert-ticino-frontalieri.excerpt': 'The Grisons tennis player qualifies for the second round of the WTA 1\'000 in Rome, joining three other Swiss players',
+    'blog.article.simona-waltert-ticino-frontalieri.imageAlt': 'Simona Waltert in action at Foro Italico',
 };
 
 export default blogMetaEn;

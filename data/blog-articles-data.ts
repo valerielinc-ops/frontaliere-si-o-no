@@ -22664,4 +22664,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'simona-waltert-ticino-frontalieri',
+ category: 'novita',
+ date: '2026-05-08T11:42:04.197Z',
+ image: '/images/blog/simona-waltert-ticino-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

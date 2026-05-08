@@ -7098,6 +7098,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.title': 'Caregiver: serve più coraggio nelle riforme',
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.excerpt': 'Il 6 maggio 2026 Aila incontra la Commissione Affari Sociali per modifiche al disegno di legge sui caregiver familiari. Tre milioni di italiani assistono parenti, risparmiando al welfare 6-7 miliardi l\'anno.',
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.imageAlt': 'Un caregiver assiste un anziano sullo sfondo del Lago di Lugano in Ticino',
+    'blog.article.simona-waltert-ticino-frontalieri.title': 'Simona Waltert avanza al secondo turno a Roma',
+    'blog.article.simona-waltert-ticino-frontalieri.excerpt': 'La tennista grigionese si qualifica per il secondo turno del WTA 1\'000 di Roma, raggiungendo altre tre svizzere',
+    'blog.article.simona-waltert-ticino-frontalieri.imageAlt': 'Simona Waltert in azione al Foro Italico',
 };
 
 export default blogMetaIt;

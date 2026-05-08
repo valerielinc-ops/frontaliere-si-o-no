@@ -7098,6 +7098,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.title': 'Aidants familiaux : des réformes plus courageuses',
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.excerpt': 'Le 6 mai 2026, Aila rencontre la Commission des affaires sociales pour modifier le projet de loi sur les aidants familiaux. Trois millions d\'Italiens assistent leurs proches, économisant 6 à 7 milliards par an au système de protection sociale.',
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.imageAlt': 'Un aidant soignant une personne âgée avec le lac de Lugano en arrière-plan au Tessin',
+    'blog.article.simona-waltert-ticino-frontalieri.title': 'Simona Waltert passe au deuxième tour à Rome',
+    'blog.article.simona-waltert-ticino-frontalieri.excerpt': 'La joueuse de tennis grisonne se qualifie pour le deuxième tour du WTA 1\'000 de Rome, rejoignant trois autres Suissesses',
+    'blog.article.simona-waltert-ticino-frontalieri.imageAlt': 'Simona Waltert en action au Foro Italico',
 };
 
 export default blogMetaFr;

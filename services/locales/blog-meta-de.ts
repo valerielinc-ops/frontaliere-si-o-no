@@ -7097,6 +7097,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.title': 'Pflegepersonen: Mehr Mut bei Reformen',
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.excerpt': 'Am 6. Mai 2026 trifft sich Aila mit der Kommission für soziale Angelegenheiten, um Änderungen am Gesetzesentwurf über pflegende Angehörige zu besprechen. Drei Millionen Italiener pflegen Angehörige und sparen dem Wohlfahrtsstaat 6-7 Milliarden Franken pro Jahr.',
     'blog.article.ddl-caregiver-frontalieri-ticino-2026.imageAlt': 'Ein Betreuer hilft einer älteren Person mit dem Luganersee im Hintergrund in Tessin',
+    'blog.article.simona-waltert-ticino-frontalieri.title': 'Simona Waltert zieht in Rom in die zweite Runde ein',
+    'blog.article.simona-waltert-ticino-frontalieri.excerpt': 'Die Graubündner Tennisspielerin qualifiziert sich für die zweite Runde des WTA 1\'000 in Rom und erreicht damit drei weitere Schweizerinnen',
+    'blog.article.simona-waltert-ticino-frontalieri.imageAlt': 'Simona Waltert im Einsatz am Foro Italico',
 };
 
 export default blogMetaDe;
