@@ -19,7 +19,7 @@
 
 import type fsT from 'node:fs';
 import type npT from 'node:path';
-import { BASE_URL } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL } from './constants';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -711,6 +711,7 @@ function buildHtml(args: BuildHtmlArgs): string {
 ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     <div id="root"></div>

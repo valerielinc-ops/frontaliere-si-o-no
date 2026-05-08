@@ -904,7 +904,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         </article>`;
 
         const hubHtml = buildSeoPageHtml({
-          disableAutoAds: true,
+          disableAutoAds: false,
           locale: loc,
           title: clampSiteSuffix(copy.title, 'Frontaliere Ticino'),
           description: copy.description,
