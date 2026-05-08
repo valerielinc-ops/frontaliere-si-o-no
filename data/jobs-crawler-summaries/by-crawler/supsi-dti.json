@@ -1,21 +1,21 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-05-07T22:38:40.403Z",
+  "generatedAt": "2026-05-08T10:43:09.742Z",
   "total": 9,
   "newCount": 9,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 45331,
-  "avgDurationMs": 45331,
+  "durationMs": 32821,
+  "avgDurationMs": 32821,
   "durationHistory": [
-    45331
+    32821
   ],
   "newJobs": [
     {
       "id": "company-l4u53l",
-      "slug": "ricercatrice-ricercatore-con-phd-in-resource-constrained-nanorobotics-supsi-dti-presso-idsia-usi-supsi",
+      "slug": "ricercatrice-ricercatore-con-phd-in-resource-constrained-nanorobotics-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore con PhD in Resource-constrained NanoRobotics",
       "location": "presso IDSIA USI-SUPSI",
@@ -36,7 +36,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-05-07T22:38:16.284Z",
       "firstSeenAt": "2026-05-07T22:38:16.284Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -47,6 +46,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,7 +78,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-05-07T22:38:16.284Z",
       "firstSeenAt": "2026-05-07T22:38:16.284Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -89,6 +88,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
