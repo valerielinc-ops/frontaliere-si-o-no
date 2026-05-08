@@ -6969,6 +6969,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giudici-federali-indagine-2026.title': 'Indagine su due giudici federali: implicazioni per il Ticino',
     'blog.article.giudici-federali-indagine-2026.excerpt': 'Due esperti esterni indagano sulla relazione tra Beatrice van de Graaf e Yves Donzallaz del Tribunale federale.',
     'blog.article.giudici-federali-indagine-2026.imageAlt': 'Due giudici davanti al Tribunale federale di Losanna',
+    'blog.article.centromedico-castello-chirurgia-ambulatoriale.title': 'Centromedico Castello: ecco il regno della chirurgia ambulatoriale',
+    'blog.article.centromedico-castello-chirurgia-ambulatoriale.excerpt': 'Nuova struttura a Bellinzona per interventi ambulatoriali, incluso centro oftalmologico Swiss Visio. Ecco cosa cambia per i frontalieri',
+    'blog.article.centromedico-castello-chirurgia-ambulatoriale.imageAlt': 'Centromedico Castello, struttura medica moderna a Bellinzona',
 };
 
 export default blogMetaIt;

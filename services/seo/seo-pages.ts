@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2375,
+ "numberOfItems": 2376,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7017,7 +7017,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2372, "name": "Josi scrive alla federazione: «Per Fischer, non...", "url": `${BASE_URL}/articoli-frontaliere/josi-fischer-lettera-cuore` },
           { "@type": "ListItem", "position": 2373, "name": "Votazione popolare sulla LAMal: cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/votazione-popolare-lamal-frontalieri` },
           { "@type": "ListItem", "position": 2374, "name": "Maxi blitz nell'Atlantico: sequestrate 30 tonne...", "url": `${BASE_URL}/articoli-frontaliere/maxi-blitz-cocaina-atlantico-30-tonnellate` },
-          { "@type": "ListItem", "position": 2375, "name": "Indagine su due giudici federali: implicazioni ...", "url": `${BASE_URL}/articoli-frontaliere/giudici-federali-indagine-2026` }
+          { "@type": "ListItem", "position": 2375, "name": "Indagine su due giudici federali: implicazioni ...", "url": `${BASE_URL}/articoli-frontaliere/giudici-federali-indagine-2026` },
+          { "@type": "ListItem", "position": 2376, "name": "Centromedico Castello: ecco il regno della chir...", "url": `${BASE_URL}/articoli-frontaliere/centromedico-castello-chirurgia-ambulatoriale` }
  ]
  },
  {

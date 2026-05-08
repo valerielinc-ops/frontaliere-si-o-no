@@ -22277,4 +22277,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'centromedico-castello-chirurgia-ambulatoriale',
+ category: 'pratico',
+ date: '2026-05-08T03:15:33.545Z',
+ image: '/images/blog/centromedico-castello-chirurgia-ambulatoriale.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

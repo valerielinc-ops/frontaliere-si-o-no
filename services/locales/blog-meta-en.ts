@@ -6968,6 +6968,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giudici-federali-indagine-2026.title': 'Investigation into two federal judges: implications for Ticino',
     'blog.article.giudici-federali-indagine-2026.excerpt': 'Two external experts are investigating the relationship between Beatrice van de Graaf and Yves Donzallaz of the Federal Court.',
     'blog.article.giudici-federali-indagine-2026.imageAlt': 'Two judges in front of the Federal Supreme Court in Lausanne',
+    'blog.article.centromedico-castello-chirurgia-ambulatoriale.title': 'Centromedico Castello: the realm of outpatient surgery',
+    'blog.article.centromedico-castello-chirurgia-ambulatoriale.excerpt': 'New facility in Bellinzona for outpatient procedures, including Swiss Visio ophthalmology center. Here\'s what changes for cross-border workers',
+    'blog.article.centromedico-castello-chirurgia-ambulatoriale.imageAlt': 'Centromedico Castello, modern medical facility in Bellinzona',
 };
 
 export default blogMetaEn;
