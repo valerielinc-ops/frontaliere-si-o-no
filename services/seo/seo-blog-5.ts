@@ -31625,6 +31625,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tasse-mance-frontalieri-ticino': {
+    title: 'Tasse sulle mance: cosa cambia per i frontalieri del Ticino',
+    description: 'Scopri le ultime novità sulla tassazione delle mance per i frontalieri del Ticino e le implicazioni per i lavoratori e i datori di lavoro. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasse, sulle, mance, cosa',
+    ogTitle: 'Tasse sulle mance: cosa cambia per i frontalieri del Ticino',
+    ogDescription: 'Scopri le ultime novità sulla tassazione delle mance per i frontalieri del Ticino e le implicazioni per i lavoratori e i datori di lavoro.',
+    canonicalPath: '/articoli-frontaliere/tasse-mance-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasse sulle mance: cosa cambia per i frontalieri del Ticino",
+      "description": "Scopri le ultime novità sulla tassazione delle mance per i frontalieri del Ticino e le implicazioni per i lavoratori e i datori di lavoro. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tasse-mance-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un confine italo-svizzero in primo piano"
+      },
+      "datePublished": "2026-05-08T18:57:00+00:00",
+      "dateModified": "2026-05-08T18:57:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tasse-mance-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

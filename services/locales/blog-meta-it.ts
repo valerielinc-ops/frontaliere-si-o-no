@@ -7137,6 +7137,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.falegnami-stipendi-2025.title': 'Falegnami: aumento stipendi in busta paga dal 2025',
     'blog.article.falegnami-stipendi-2025.excerpt': 'Dal 2025 gli stipendi dei falegnami in Ticino aumenteranno. Ecco cosa cambia per i frontalieri',
     'blog.article.falegnami-stipendi-2025.imageAlt': 'Skyline di Lugano con il Lago Ceresio in una giornata di sole',
+    'blog.article.tasse-mance-frontalieri-ticino.title': 'Tasse sulle mance: cosa cambia per i frontalieri del Ticino',
+    'blog.article.tasse-mance-frontalieri-ticino.excerpt': 'Le opinioni divergono sulla tassazione delle mance per i lavoratori transfrontalieri in Ticino. Ecco cosa sapere',
+    'blog.article.tasse-mance-frontalieri-ticino.imageAlt': 'Lago di Lugano con un confine italo-svizzero in primo piano',
 };
 
 export default blogMetaIt;

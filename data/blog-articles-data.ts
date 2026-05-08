@@ -22781,4 +22781,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tasse-mance-frontalieri-ticino',
+ category: 'fiscale',
+ date: '2026-05-08T18:57:00.057Z',
+ image: '/images/blog/tasse-mance-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

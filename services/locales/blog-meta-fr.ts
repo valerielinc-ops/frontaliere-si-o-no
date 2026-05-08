@@ -7137,6 +7137,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.falegnami-stipendi-2025.title': 'Charpentiers: augmentation des salaires dès 2025',
     'blog.article.falegnami-stipendi-2025.excerpt': 'Dès 2025, les salaires des charpentiers au Tessin augmenteront. Voici ce qui change pour les frontaliers',
     'blog.article.falegnami-stipendi-2025.imageAlt': 'Skyline de Lugano avec le Lac de Lugano par une journée ensoleillée',
+    'blog.article.tasse-mance-frontalieri-ticino.title': 'Impôts sur les pourboires: ce qui change pour les frontaliers du Tessin',
+    'blog.article.tasse-mance-frontalieri-ticino.excerpt': 'Les avis divergent sur la taxation des pourboires pour les travailleurs frontaliers au Tessin. Voici ce qu\'il faut savoir',
+    'blog.article.tasse-mance-frontalieri-ticino.imageAlt': 'Lac de Lugano avec un marqueur de frontière italo-suisse au premier plan',
 };
 
 export default blogMetaFr;

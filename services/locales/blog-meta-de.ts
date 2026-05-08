@@ -7136,6 +7136,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.falegnami-stipendi-2025.title': 'Tischler: Lohnsteigerung ab 2025',
     'blog.article.falegnami-stipendi-2025.excerpt': 'Ab 2025 steigen die Löhne der Tischler im Tessin. Hier erfahren Grenzgänger, was sich ändert.',
     'blog.article.falegnami-stipendi-2025.imageAlt': 'Skyline von Lugano mit dem Luganersee an einem sonnigen Tag',
+    'blog.article.tasse-mance-frontalieri-ticino.title': 'Steuern auf Trinkgelder: Änderungen für Grenzgänger im Tessin',
+    'blog.article.tasse-mance-frontalieri-ticino.excerpt': 'Die Meinungen gehen auseinander zur Besteuerung von Trinkgeldern für Grenzgänger im Tessin. Hier erfahren Sie, was Sie wissen müssen',
+    'blog.article.tasse-mance-frontalieri-ticino.imageAlt': 'Luganersee mit einem italienisch-schweizerischen Grenzzeichen im Vordergrund',
 };
 
 export default blogMetaDe;

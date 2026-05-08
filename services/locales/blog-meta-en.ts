@@ -7136,6 +7136,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.falegnami-stipendi-2025.title': 'Carpenters: pay raise from 2025',
     'blog.article.falegnami-stipendi-2025.excerpt': 'From 2025, carpenters\' salaries in Ticino will increase. Here\'s what changes for cross-border workers',
     'blog.article.falegnami-stipendi-2025.imageAlt': 'Lugano skyline with Lake Ceresio on a sunny day',
+    'blog.article.tasse-mance-frontalieri-ticino.title': 'Tipping taxes: changes for Ticino cross-border workers',
+    'blog.article.tasse-mance-frontalieri-ticino.excerpt': 'Opinions diverge on tipping tax for cross-border workers in Ticino. Here\'s what to know',
+    'blog.article.tasse-mance-frontalieri-ticino.imageAlt': 'Lake Lugano with an Italian-Swiss border marker in the foreground',
 };
 
 export default blogMetaEn;
