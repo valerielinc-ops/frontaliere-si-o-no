@@ -6920,6 +6920,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.picnic-stadio-cornaredo.title': 'Großes Volksfest in Cornaredo: Am 4. Juni das Finale-Picknick',
     'blog.article.picnic-stadio-cornaredo.excerpt': 'Am 4. Juni findet im Cornaredo-Stadion ein großes Event statt, um die Struktur 75 Jahre nach ihrer Eröffnung zu feiern, mit Aktivitäten und Musik.',
     'blog.article.picnic-stadio-cornaredo.imageAlt': 'Gemeinschaftsveranstaltung im Cornaredo-Stadion in Lugano mit Publikum und Aktivitäten',
+    'blog.article.malessere-polizia-cantonale-audit.title': 'Unwohlsein bei der Kantonspolizei: Unabhängiger Audit startet',
+    'blog.article.malessere-polizia-cantonale-audit.excerpt': '72% der Beamten haben an einen Austritt aus der Kantonspolizei gedacht. Unabhängiger Audit steht bevor.',
+    'blog.article.malessere-polizia-cantonale-audit.imageAlt': 'Bellinzona mit seinen historischen Burgen und lebendigen Kultur.',
 };
 
 export default blogMetaDe;

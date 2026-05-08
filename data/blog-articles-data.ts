@@ -22133,4 +22133,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'malessere-polizia-cantonale-audit',
+ category: 'novita',
+ date: '2026-05-08T00:24:20.901Z',
+ image: '/images/blog/malessere-polizia-cantonale-audit.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

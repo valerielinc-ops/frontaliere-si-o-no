@@ -28817,6 +28817,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-malessere-polizia-cantonale-audit': {
+    title: 'Malessere nella Polizia cantonale: al via un audit indipendente',
+    description: 'Il 72% degli agenti ha considerato di lasciare la Polizia cantonale. Audit indipendente avviato. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, malessere, nella, polizia, cantonale',
+    ogTitle: 'Malessere nella Polizia cantonale: audit in arrivo',
+    ogDescription: 'Audit indipendente per migliorare il clima di lavoro nella Polizia cantonale.',
+    canonicalPath: '/articoli-frontaliere/malessere-polizia-cantonale-audit',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malessere nella Polizia cantonale: al via un audit indipendente",
+      "description": "Il 72% degli agenti ha considerato di lasciare la Polizia cantonale. Audit indipendente avviato. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/malessere-polizia-cantonale-audit.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona con i suoi castelli storici e cultura vibrante."
+      },
+      "datePublished": "2026-05-08T00:24:20+00:00",
+      "dateModified": "2026-05-08T00:24:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malessere-polizia-cantonale-audit`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
