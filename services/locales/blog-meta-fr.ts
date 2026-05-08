@@ -6990,6 +6990,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lamanotesa-ch-dolore-bene-condiviso.title': 'Lamanotesa.ch transforme la douleur en un bien partagé',
     'blog.article.lamanotesa-ch-dolore-bene-condiviso.excerpt': 'La Fondation Lamanotesa.ch organise une rencontre sur la justice réparatrice à 15 ans de l\'attentat de Marrakech',
     'blog.article.lamanotesa-ch-dolore-bene-condiviso.imageAlt': 'Mémorial à Locarno, Tessin, avec des personnes réunies pour commémorer',
+    'blog.article.lamal-low-cost-premi-bassi-2026.title': 'Elizabeth Baume-Schneider: Non à une LAMal low cost avec des primes plus basses',
+    'blog.article.lamal-low-cost-premi-bassi-2026.excerpt': 'La conseillère fédérale Elizabeth Baume-Schneider s\'oppose à la proposition d\'une LAMal low cost avec des primes plus basses, défendant le système actuel.',
+    'blog.article.lamal-low-cost-premi-bassi-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

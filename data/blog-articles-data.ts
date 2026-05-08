@@ -22340,4 +22340,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lamal-low-cost-premi-bassi-2026',
+ category: 'fiscale',
+ date: '2026-05-08T04:35:53.730Z',
+ image: '/images/blog/lamal-low-cost-premi-bassi-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

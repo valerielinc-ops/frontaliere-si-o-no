@@ -6989,6 +6989,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lamanotesa-ch-dolore-bene-condiviso.title': 'Lamanotesa.ch verwandelt Schmerz in ein gemeinsames Gut',
     'blog.article.lamanotesa-ch-dolore-bene-condiviso.excerpt': 'Die Stiftung Lamanotesa.ch organisiert ein Treffen zur Wiedergutmachungsjustiz 15 Jahre nach dem Anschlag von Marrakesch',
     'blog.article.lamanotesa-ch-dolore-bene-condiviso.imageAlt': 'Gedenkstätte in Locarno, Tessin, mit Menschen, die sich versammeln, um zu gedenken',
+    'blog.article.lamal-low-cost-premi-bassi-2026.title': 'Elizabeth Baume-Schneider: Nein zu einer günstigen Grundversicherung',
+    'blog.article.lamal-low-cost-premi-bassi-2026.excerpt': 'Die Bundesrätin Elizabeth Baume-Schneider lehnt den Vorschlag einer günstigen Grundversicherung mit tieferen Prämien ab und verteidigt das bestehende System.',
+    'blog.article.lamal-low-cost-premi-bassi-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze',
 };
 
 export default blogMetaDe;
