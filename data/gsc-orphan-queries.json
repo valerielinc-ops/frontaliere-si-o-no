@@ -3,12 +3,12 @@
     {
       "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
       "clicks": 0,
-      "impressions": 10
+      "impressions": 11
     },
     {
       "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
-      "impressions": 9
+      "impressions": 10
     },
     {
       "query": "نعم ابحث",
@@ -23,14 +23,14 @@
       "impressions": 7
     },
     {
-      "query": "offerte di lavoro casa di riposo svizzera",
+      "query": "case anziani lugano posti di lavoro",
       "clicks": 0,
       "impressions": 3
     },
     {
-      "query": "case anziani lugano posti di lavoro",
+      "query": "offerte di lavoro casa di riposo svizzera",
       "clicks": 0,
-      "impressions": 2
+      "impressions": 3
     },
     {
       "query": "casa anziani mendrisio lavoro",
@@ -43,6 +43,11 @@
       "impressions": 1
     },
     {
+      "query": "casa anziani ticino lavoro",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
       "query": "offerte di lavoro casa anziani ticino",
       "clicks": 0,
       "impressions": 1
@@ -50,13 +55,13 @@
   ],
   "ristorazione": [
     {
-      "query": "offerte lavoro ristorazione ticino",
-      "clicks": 1,
-      "impressions": 3
-    },
-    {
       "query": "offerte di lavoro ticino ristorazione",
       "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "offerte lavoro ristorazione ticino",
+      "clicks": 1,
       "impressions": 3
     },
     {
@@ -65,12 +70,12 @@
       "impressions": 2
     },
     {
-      "query": "offerte di lavoro ristorazione svizzera",
+      "query": "offerte lavoro svizzera ristorazione",
       "clicks": 0,
-      "impressions": 1
+      "impressions": 2
     },
     {
-      "query": "offerte lavoro svizzera ristorazione",
+      "query": "offerte di lavoro ristorazione svizzera",
       "clicks": 0,
       "impressions": 1
     },
@@ -82,36 +87,16 @@
   ],
   "locarno": [
     {
-      "query": "job locarno",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "jobs locarno",
+      "query": "locarno",
       "clicks": 0,
       "impressions": 1
     }
   ],
   "lugano": [
     {
-      "query": "lavora con noi lugano",
+      "query": "je vise un emploi à lugano",
       "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "offerte ticino",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "tutti ch lavoro lugano",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "tutti.ch lavoro lugano",
-      "clicks": 0,
-      "impressions": 1
+      "impressions": 2
     }
   ],
   "altenpflege": [
@@ -126,6 +111,32 @@
       "impressions": 1
     }
   ],
+  "bellinzona": [
+    {
+      "query": "offerte lavoro bellinzona",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
+  "ingegneri": [
+    {
+      "query": "disegnatore",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
+  "operatori-socio-sanitari": [
+    {
+      "query": "offerte di lavoro oss svizzera italiana",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "oss svizzera offerte lavoro",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "sviluppatori": [
     {
       "query": "\"qvac\" -\"career\" -\"job\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
@@ -134,6 +145,18 @@
     },
     {
       "query": "consulente software ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "vendita-denner-wilderswil": [
+    {
+      "query": "denner offerte di lavoro ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "denner ticino lavoro",
       "clicks": 0,
       "impressions": 1
     }
@@ -164,9 +187,23 @@
       "impressions": 2
     }
   ],
-  "ingegneri": [
+  "autisti": [
     {
-      "query": "disegnatore",
+      "query": "lavoro autista svizzera canton ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "pavimenti-e-rivestimenti-per-pareti-e-sanitari-in-esposizione-f-m-d-100-bms-building-materials-conthey": [
+    {
+      "query": "job bms",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "chiasso": [
+    {
+      "query": "job contact chiasso",
       "clicks": 0,
       "impressions": 1
     }
@@ -178,9 +215,37 @@
       "impressions": 1
     }
   ],
+  "educators": [
+    {
+      "query": "teaching jobs in the canton of ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "ingenieure": [
     {
       "query": "ingenieure stellenvermittlung",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "pflegepersonal": [
+    {
+      "query": "pflegejobs regionalspital surselva ag",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "chauffeurs": [
+    {
+      "query": "je veux au tessin un job de chauffeur poids lourd avec permis valide et tournées régionales du lundi au vendredi",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "gestionnaire-de-produits-80-100-ferrovia-retica-rhb-chur": [
+    {
+      "query": "rhb jobs",
       "clicks": 0,
       "impressions": 1
     }
