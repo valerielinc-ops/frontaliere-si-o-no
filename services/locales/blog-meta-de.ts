@@ -7148,6 +7148,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lapo-elkann-lucerna-2024.title': 'Lapo Elkann zieht nach Luzern: Warum die Schweiz',
     'blog.article.lapo-elkann-lucerna-2024.excerpt': 'Lapo Elkann erklärt seinen Umzug nach Luzern: Sicherheit und Neutralität der Schweiz stehen im Mittelpunkt der Entscheidung',
     'blog.article.lapo-elkann-lucerna-2024.imageAlt': 'Vierwaldstättersee in Luzern mit Stadtblick',
+    'blog.article.impatriati-fiscalita-frontalieri.title': 'Grenzgängerstatus schliesst Steuervergünstigungen nicht aus',
+    'blog.article.impatriati-fiscalita-frontalieri.excerpt': 'Die neue Regelung bestätigt, dass der frühere Status als Grenzgänger den Zugang zu Steuervergünstigungen für Zugezogene im Tessin nicht ausschließt.',
+    'blog.article.impatriati-fiscalita-frontalieri.imageAlt': 'Mendrisio, Tessin, italienisch-schweizerische Grenze',
 };
 
 export default blogMetaDe;

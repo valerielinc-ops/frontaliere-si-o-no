@@ -7149,6 +7149,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lapo-elkann-lucerna-2024.title': 'Lapo Elkann s\'installe à Lucerne : pourquoi la Suisse',
     'blog.article.lapo-elkann-lucerna-2024.excerpt': 'Lapo Elkann explique son déménagement à Lucerne : la sécurité et la neutralité suisse au cœur de son choix',
     'blog.article.lapo-elkann-lucerna-2024.imageAlt': 'Lac des Quatre Cantons à Lucerne avec vue sur la ville',
+    'blog.article.impatriati-fiscalita-frontalieri.title': 'Impatriés: le passé de frontalier n\'exclut pas les avantages fiscaux',
+    'blog.article.impatriati-fiscalita-frontalieri.excerpt': 'La nouvelle réglementation confirme que le statut antérieur de frontalier n\'empêche pas d\'accéder aux avantages fiscaux pour les impatriés au Tessin.',
+    'blog.article.impatriati-fiscalita-frontalieri.imageAlt': 'Mendrisio, Tessin, frontière italo-suisse',
 };
 
 export default blogMetaFr;

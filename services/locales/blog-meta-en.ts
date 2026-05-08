@@ -7148,6 +7148,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lapo-elkann-lucerna-2024.title': 'Lapo Elkann moves to Lucerne: why Switzerland',
     'blog.article.lapo-elkann-lucerna-2024.excerpt': 'Lapo Elkann explains his move to Lucerne: Swiss security and neutrality at the heart of his choice',
     'blog.article.lapo-elkann-lucerna-2024.imageAlt': 'Lake of the Four Cantons in Lucerne with city view',
+    'blog.article.impatriati-fiscalita-frontalieri.title': 'Impatriates: past cross-border status doesn\'t block tax breaks',
+    'blog.article.impatriati-fiscalita-frontalieri.excerpt': 'The new rules confirm that a previous cross-border worker status doesn\'t prevent access to tax incentives for impatriates in Ticino.',
+    'blog.article.impatriati-fiscalita-frontalieri.imageAlt': 'Mendrisio, Ticino, Italian-Swiss border',
 };
 
 export default blogMetaEn;

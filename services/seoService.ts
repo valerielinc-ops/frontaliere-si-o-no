@@ -3625,6 +3625,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tasse-aeree-kerosene-2026': { name: 'Tasse aeree e kerosene', path: '/articoli-frontaliere/tasse-aeree-kerosene-2026', parent: 'blog' },
     'blog-nuovo-accordo-cremona-fisco-2026': { name: 'Fisco Oggi', path: '/articoli-frontaliere/nuovo-accordo-cremona-fisco-2026', parent: 'blog' },
     'blog-lapo-elkann-lucerna-2024': { name: 'Novità', path: '/articoli-frontaliere/lapo-elkann-lucerna-2024', parent: 'blog' },
+    'blog-impatriati-fiscalita-frontalieri': { name: 'Impatriati e frontalieri', path: '/articoli-frontaliere/impatriati-fiscalita-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

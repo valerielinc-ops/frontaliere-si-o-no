@@ -22817,4 +22817,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'impatriati-fiscalita-frontalieri',
+ category: 'fiscale',
+ date: '2026-05-08T19:59:15.550Z',
+ image: '/images/blog/impatriati-fiscalita-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
