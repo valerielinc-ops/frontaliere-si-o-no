@@ -6987,6 +6987,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sgombero-macerie-lugano-amianto.title': 'Dégagement des décombres de l\'ex abattoir de Lugano : attention à l\'amiante',
     'blog.article.sgombero-macerie-lugano-amianto.excerpt': 'Les travaux de dégagement des décombres de l\'ex abattoir de Lugano ont commencé. Présence possible de poussières d\'amiante. Voici ce qu\'il faut savoir.',
     'blog.article.sgombero-macerie-lugano-amianto.imageAlt': 'Vue aérienne du lac de Lugano avec un chantier en premier plan',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.title': 'Lamanotesa.ch transforme la douleur en un bien partagé',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.excerpt': 'La Fondation Lamanotesa.ch organise une rencontre sur la justice réparatrice à 15 ans de l\'attentat de Marrakech',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.imageAlt': 'Mémorial à Locarno, Tessin, avec des personnes réunies pour commémorer',
 };
 
 export default blogMetaFr;

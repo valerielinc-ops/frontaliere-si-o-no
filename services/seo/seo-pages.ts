@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2381,
+ "numberOfItems": 2382,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7023,7 +7023,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2378, "name": "Processo al broker dei VIP: scontro su retroces...", "url": `${BASE_URL}/articoli-frontaliere/processo-broker-vip-retrocessioni` },
           { "@type": "ListItem", "position": 2379, "name": "Durisch: 'Il blocco? Lo vede solo Dadò...'", "url": `${BASE_URL}/articoli-frontaliere/durisch-dado-blocco-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2380, "name": "Ex dipendenti in affitto con privilegi? La Citt...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-lugano-chiarezza-2026` },
-          { "@type": "ListItem", "position": 2381, "name": "Sgombero macerie Ex Macello Lugano: attenzione ...", "url": `${BASE_URL}/articoli-frontaliere/sgombero-macerie-lugano-amianto` }
+          { "@type": "ListItem", "position": 2381, "name": "Sgombero macerie Ex Macello Lugano: attenzione ...", "url": `${BASE_URL}/articoli-frontaliere/sgombero-macerie-lugano-amianto` },
+          { "@type": "ListItem", "position": 2382, "name": "Lamanotesa.ch trasforma il dolore in un bene co...", "url": `${BASE_URL}/articoli-frontaliere/lamanotesa-ch-dolore-bene-condiviso` }
  ]
  },
  {

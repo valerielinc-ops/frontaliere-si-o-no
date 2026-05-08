@@ -6987,6 +6987,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sgombero-macerie-lugano-amianto.title': 'Sgombero macerie Ex Macello Lugano: attenzione all\'amianto',
     'blog.article.sgombero-macerie-lugano-amianto.excerpt': 'Iniziati i lavori di sgombero delle macerie dell\'ex Macello di Lugano. Possibile presenza di polveri di amianto. Ecco cosa sapere.',
     'blog.article.sgombero-macerie-lugano-amianto.imageAlt': 'Vista aerea del lago di Lugano con un cantiere in primo piano',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.title': 'Lamanotesa.ch trasforma il dolore in un bene condiviso',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.excerpt': 'La Fondazione Lamanotesa.ch organizza un incontro sulla giustizia riparativa a 15 anni dall\'attentato di Marrakech',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.imageAlt': 'Memoriale a Locarno, Ticino, con persone riunite per commemorare',
 };
 
 export default blogMetaIt;

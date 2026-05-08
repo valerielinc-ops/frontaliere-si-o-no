@@ -6986,6 +6986,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sgombero-macerie-lugano-amianto.title': 'Ex Lugano Slaughterhouse: Asbestos Warning',
     'blog.article.sgombero-macerie-lugano-amianto.excerpt': 'Work has begun to clear the rubble from the former Lugano Slaughterhouse. Asbestos dust may be present. Here\'s what you need to know.',
     'blog.article.sgombero-macerie-lugano-amianto.imageAlt': 'Aerial view of Lake Lugano with a construction site in the foreground',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.title': 'Lamanotesa.ch turns pain into shared good',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.excerpt': 'The Lamanotesa.ch Foundation organizes a meeting on restorative justice 15 years after the Marrakech attack',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.imageAlt': 'Memorial in Locarno, Ticino, with people gathered to commemorate',
 };
 
 export default blogMetaEn;

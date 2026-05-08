@@ -3571,6 +3571,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-durisch-dado-blocco-frontalieri-ticino': { name: 'Notizie Ticino', path: '/articoli-frontaliere/durisch-dado-blocco-frontalieri-ticino', parent: 'blog' },
     'blog-frontalieri-lugano-chiarezza-2026': { name: 'Frontalieri Lugano', path: '/articoli-frontaliere/frontalieri-lugano-chiarezza-2026', parent: 'blog' },
     'blog-sgombero-macerie-lugano-amianto': { name: 'Sgombero macerie', path: '/articoli-frontaliere/sgombero-macerie-lugano-amianto', parent: 'blog' },
+    'blog-lamanotesa-ch-dolore-bene-condiviso': { name: 'Giustizia riparativa', path: '/articoli-frontaliere/lamanotesa-ch-dolore-bene-condiviso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -6986,6 +6986,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sgombero-macerie-lugano-amianto.title': 'Abriss Ex-Schlachthof Lugano: Achtung Asbest',
     'blog.article.sgombero-macerie-lugano-amianto.excerpt': 'Die Abrissarbeiten am ehemaligen Schlachthof Lugano haben begonnen. Mögliche Asbeststaubbelastung. Hier erfahren Sie, was Sie wissen müssen.',
     'blog.article.sgombero-macerie-lugano-amianto.imageAlt': 'Luftaufnahme des Luganer Sees mit einer Baustelle im Vordergrund',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.title': 'Lamanotesa.ch verwandelt Schmerz in ein gemeinsames Gut',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.excerpt': 'Die Stiftung Lamanotesa.ch organisiert ein Treffen zur Wiedergutmachungsjustiz 15 Jahre nach dem Anschlag von Marrakesch',
+    'blog.article.lamanotesa-ch-dolore-bene-condiviso.imageAlt': 'Gedenkstätte in Locarno, Tessin, mit Menschen, die sich versammeln, um zu gedenken',
 };
 
 export default blogMetaDe;
