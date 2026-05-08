@@ -22565,4 +22565,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cardada-cimetta-riapre-bikers-2024',
+ category: 'novita',
+ date: '2026-05-08T09:31:59.961Z',
+ image: '/images/blog/cardada-cimetta-riapre-bikers-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

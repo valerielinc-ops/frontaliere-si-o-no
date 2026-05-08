@@ -1,0 +1,40 @@
+{
+  "id": "cardada-cimetta-riapre-bikers-2024",
+  "slug": "cardada-cimetta-riapre-bikers-2024",
+  "publishedAt": "2026-05-08T09:32:01.487Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.24015279184213,
+    "confidence": 0.8,
+    "finalScore": 9.792122233473705,
+    "topK": [
+      {
+        "slug": "bellinzona-valli-bici-velocita",
+        "cosine": 0.8315576585563245
+      },
+      {
+        "slug": "ambasciatore-italiano-ritorno-berna",
+        "cosine": 0.826782975878778
+      },
+      {
+        "slug": "crans-montana-nuovo-solco-italia-svizzera-2026",
+        "cosine": 0.8162813009875681
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8162020418647897
+      },
+      {
+        "slug": "quadri-interpella-consiglio-frontiere-tasse",
+        "cosine": 0.8111332842289402
+      }
+    ],
+    "score": 1.2240152791842132,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

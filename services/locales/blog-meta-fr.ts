@@ -7065,6 +7065,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-gallarate-frontalieri-2026.title': 'Incendie à Gallarate : un homme dénoncé',
     'blog.article.incendio-gallarate-frontalieri-2026.excerpt': 'La police a identifié et dénoncé un homme pour l\'incendie de la centrale de via Cavour à Gallarate. Voici les implications pour les travailleurs frontaliers.',
     'blog.article.incendio-gallarate-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes et les bâtiments',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.title': 'Cardada Cimetta rouvre aux bikers : voici ce qui change',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.excerpt': 'Après la fermeture pour entretien extraordinaire, le sentier 397 à Cardada Cimetta est à nouveau praticable. Voici les nouveautés pour les amateurs de VTT',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.imageAlt': 'Sentier Cardada Cimetta à Locarno après la tempête hivernale',
 };
 
 export default blogMetaFr;

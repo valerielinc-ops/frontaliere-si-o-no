@@ -7065,6 +7065,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-gallarate-frontalieri-2026.title': 'Incendio a Gallarate: denunciato un uomo',
     'blog.article.incendio-gallarate-frontalieri-2026.excerpt': 'La polizia ha identificato e denunciato un uomo per l\'incendio alla centralina di via Cavour a Gallarate. Ecco le implicazioni per i frontalieri.',
     'blog.article.incendio-gallarate-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti e edifici',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.title': 'Cardada Cimetta riapre ai bikers: ecco cosa cambia',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.excerpt': 'Dopo la chiusura per manutenzione straordinaria, il trail 397 a Cardada Cimetta è nuovamente percorribile. Ecco le novità per gli appassionati di mountain bike',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.imageAlt': 'Trail Cardada Cimetta Locarno dopo tempesta invernale',
 };
 
 export default blogMetaIt;

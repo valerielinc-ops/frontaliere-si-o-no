@@ -7064,6 +7064,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-gallarate-frontalieri-2026.title': 'Brand in Gallarate: Mann angezeigt',
     'blog.article.incendio-gallarate-frontalieri-2026.excerpt': 'Die Polizei hat einen Mann identifiziert und angezeigt, der für den Brand an der Schaltzentrale in der Via Cavour in Gallarate verantwortlich ist. Hier sind die Auswirkungen auf die Grenzgänger.',
     'blog.article.incendio-gallarate-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Gebäuden',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.title': 'Cardada Cimetta wieder für Biker geöffnet: Das ändert sich',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.excerpt': 'Nach der außerordentlichen Wartungsschließung ist der Trail 397 auf der Cardada Cimetta wieder befahrbar. Hier sind die Neuigkeiten für Mountainbike-Fans',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.imageAlt': 'Cardada Cimetta Weg in Locarno nach Wintersturm',
 };
 
 export default blogMetaDe;

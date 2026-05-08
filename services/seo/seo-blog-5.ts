@@ -30689,6 +30689,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cardada-cimetta-riapre-bikers-2024': {
+    title: 'Cardada Cimetta riapre ai bikers: ecco cosa cambia',
+    description: 'Dopo la chiusura per manutenzione straordinaria, il trail 397 a Cardada Cimetta è nuovamente percorribile. Ecco le novità per gli appassionati di mountain bike',
+    keywords: 'frontalieri, ticino, svizzera, italia, cardada, cimetta, riapre, bikers',
+    ogTitle: 'Cardada Cimetta riapre ai bikers: ecco cosa cambia',
+    ogDescription: 'Dopo la chiusura per manutenzione straordinaria, il trail 397 a Cardada Cimetta è nuovamente percorribile. Ecco le novità per gli appassionati di mountain bike',
+    canonicalPath: '/articoli-frontaliere/cardada-cimetta-riapre-bikers-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cardada Cimetta riapre ai bikers: ecco cosa cambia",
+      "description": "Dopo la chiusura per manutenzione straordinaria, il trail 397 a Cardada Cimetta è nuovamente percorribile. Ecco le novità per gli appassionati di mountain bike",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cardada-cimetta-riapre-bikers-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Trail Cardada Cimetta Locarno dopo tempesta invernale"
+      },
+      "datePublished": "2026-05-08T09:32:00+00:00",
+      "dateModified": "2026-05-08T09:32:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cardada-cimetta-riapre-bikers-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

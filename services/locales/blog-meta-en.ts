@@ -7064,6 +7064,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-gallarate-frontalieri-2026.title': 'Fire in Gallarate: Man Denounced',
     'blog.article.incendio-gallarate-frontalieri-2026.excerpt': 'The police have identified and denounced a man for the fire at the electrical cabinet on Cavour Street in Gallarate. Here are the implications for cross-border workers.',
     'blog.article.incendio-gallarate-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.title': 'Cardada Cimetta reopens to bikers: here\'s what changes',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.excerpt': 'After the closure for extraordinary maintenance, trail 397 at Cardada Cimetta is once again rideable. Here are the new features for mountain bike enthusiasts',
+    'blog.article.cardada-cimetta-riapre-bikers-2024.imageAlt': 'Cardada Cimetta trail in Locarno after winter storm',
 };
 
 export default blogMetaEn;

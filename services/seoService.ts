@@ -3597,6 +3597,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ultimo-svizzero-rientra-incendio-crans-montana': { name: 'Notizie', path: '/articoli-frontaliere/ultimo-svizzero-rientra-incendio-crans-montana', parent: 'blog' },
     'blog-universita-insubria-premia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/universita-insubria-premia-frontalieri', parent: 'blog' },
     'blog-incendio-gallarate-frontalieri-2026': { name: 'Incendio Gallarate', path: '/articoli-frontaliere/incendio-gallarate-frontalieri-2026', parent: 'blog' },
+    'blog-cardada-cimetta-riapre-bikers-2024': { name: 'Cardada Cimetta', path: '/articoli-frontaliere/cardada-cimetta-riapre-bikers-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];
