@@ -7043,6 +7043,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.title': 'Locarno launches campaign against tiger mosquito',
     'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.excerpt': 'Locarno Municipality is distributing Vectobac® G for free to combat the spread of the tiger mosquito. Find out how to participate.',
     'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.imageAlt': 'Aerial view of Locarno, Ticino, with Lake Maggiore in the background',
+    'blog.article.legge-foti-critica-economia-ticino.title': 'Foti Law under fire: paper targets only',
+    'blog.article.legge-foti-critica-economia-ticino.excerpt': 'Experts criticize the Foti Law for inefficiencies and distortions, impacting bureaucracy and public administration.',
+    'blog.article.legge-foti-critica-economia-ticino.imageAlt': 'Aerial view of Lake Lugano with mountains and Ticino towns',
 };
 
 export default blogMetaEn;

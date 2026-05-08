@@ -22502,4 +22502,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'legge-foti-critica-economia-ticino',
+ category: 'fiscale',
+ date: '2026-05-08T08:02:00.232Z',
+ image: '/images/blog/legge-foti-critica-economia-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

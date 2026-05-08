@@ -30416,6 +30416,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-legge-foti-critica-economia-ticino': {
+    title: 'Legge Foti sotto accusa: obiettivi solo sulla carta',
+    description: 'Esperti criticano la legge Foti per inefficienze e distorsioni, con impatti su burocrazia e pubblica amministrazione. Scopri di più. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, legge, foti, sotto, accusa',
+    ogTitle: 'Legge Foti sotto accusa: obiettivi solo sulla carta',
+    ogDescription: 'Esperti criticano la legge Foti per inefficienze e distorsioni, con impatti su burocrazia e pubblica amministrazione. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/legge-foti-critica-economia-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Legge Foti sotto accusa: obiettivi solo sulla carta",
+      "description": "Esperti criticano la legge Foti per inefficienze e distorsioni, con impatti su burocrazia e pubblica amministrazione. Scopri di più. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/legge-foti-critica-economia-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e paesi del Ticino"
+      },
+      "datePublished": "2026-05-08T08:02:00+00:00",
+      "dateModified": "2026-05-08T08:02:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/legge-foti-critica-economia-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

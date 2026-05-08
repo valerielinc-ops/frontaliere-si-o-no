@@ -7044,6 +7044,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.title': 'Locarno lance une campagne contre le moustique tigre',
     'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.excerpt': 'La municipalité de Locarno distribue gratuitement Vectobac® G pour lutter contre la propagation du moustique tigre. Découvrez comment participer.',
     'blog.article.locarno-zanzara-tigre-campagna-rilancia-2026.imageAlt': 'Vue aérienne de Locarno, Tessin, avec le lac Majeur en arrière-plan',
+    'blog.article.legge-foti-critica-economia-ticino.title': 'Loi Foti critiquée : des objectifs seulement sur papier',
+    'blog.article.legge-foti-critica-economia-ticino.excerpt': 'Des experts critiquent la loi Foti pour ses inefficacités et distorsions, avec des impacts sur la bureaucratie et l\'administration publique.',
+    'blog.article.legge-foti-critica-economia-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et villages du Tessin',
 };
 
 export default blogMetaFr;
