@@ -3603,6 +3603,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fart-2025-frontalieri-transporti': { name: 'Trasporti FART', path: '/articoli-frontaliere/fart-2025-frontalieri-transporti', parent: 'blog' },
     'blog-rimborso-cure-dentarie-ticino-2026': { name: 'Rimborso cure dentarie', path: '/articoli-frontaliere/rimborso-cure-dentarie-ticino-2026', parent: 'blog' },
     'blog-bolla-immobiliare-ticino-2026': { name: 'Bolla immobiliare', path: '/articoli-frontaliere/bolla-immobiliare-ticino-2026', parent: 'blog' },
+    'blog-imprinting-saggio-architettura-italiana': { name: 'Architettura Italiana', path: '/articoli-frontaliere/imprinting-saggio-architettura-italiana', parent: 'blog' },
  };
 
  const info = sectionNames[section];

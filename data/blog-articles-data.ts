@@ -22619,4 +22619,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'imprinting-saggio-architettura-italiana',
+ category: 'pratico',
+ date: '2026-05-08T10:56:20.703Z',
+ image: '/images/blog/imprinting-saggio-architettura-italiana.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

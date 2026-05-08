@@ -7083,6 +7083,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bolla-immobiliare-ticino-2026.title': 'Bolla immobiliare in Svizzera: rischio in aumento nel 2026',
     'blog.article.bolla-immobiliare-ticino-2026.excerpt': 'L\'UBS Swiss Real Estate Bubble Index sale a 0,69 punti nel primo trimestre 2026, segnalando un rischio moderato di bolla immobiliare',
     'blog.article.bolla-immobiliare-ticino-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
+    'blog.article.imprinting-saggio-architettura-italiana.title': 'L’Imprinting di Antonino Saggio: l\'architettura italiana in Ticino',
+    'blog.article.imprinting-saggio-architettura-italiana.excerpt': 'Scopri come l\'architettura italiana influisce sul paesaggio urbano del Ticino, con un focus sull\'imprinting di Antonino Saggio.',
+    'blog.article.imprinting-saggio-architettura-italiana.imageAlt': 'Architettura di Mendrisio che riflette l\'imprinting italiano',
 };
 
 export default blogMetaIt;

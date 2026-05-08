@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2413,
+ "numberOfItems": 2414,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7055,7 +7055,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2410, "name": "Adam Walder vince il titolo nazionale Under 14", "url": `${BASE_URL}/articoli-frontaliere/adam-walder-titolo-nazionale-under-14` },
           { "@type": "ListItem", "position": 2411, "name": "FART 2025: boom di utenti sui bus e nuovi treni...", "url": `${BASE_URL}/articoli-frontaliere/fart-2025-frontalieri-transporti` },
           { "@type": "ListItem", "position": 2412, "name": "Rimborso cure dentarie in Ticino: chi ne benefi...", "url": `${BASE_URL}/articoli-frontaliere/rimborso-cure-dentarie-ticino-2026` },
-          { "@type": "ListItem", "position": 2413, "name": "Bolla immobiliare in Svizzera: rischio in aumen...", "url": `${BASE_URL}/articoli-frontaliere/bolla-immobiliare-ticino-2026` }
+          { "@type": "ListItem", "position": 2413, "name": "Bolla immobiliare in Svizzera: rischio in aumen...", "url": `${BASE_URL}/articoli-frontaliere/bolla-immobiliare-ticino-2026` },
+          { "@type": "ListItem", "position": 2414, "name": "L’Imprinting di Antonino Saggio: l'architettura...", "url": `${BASE_URL}/articoli-frontaliere/imprinting-saggio-architettura-italiana` }
  ]
  },
  {

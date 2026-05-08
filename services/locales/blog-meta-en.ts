@@ -7082,6 +7082,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bolla-immobiliare-ticino-2026.title': 'Swiss housing bubble risk rises in 2026',
     'blog.article.bolla-immobiliare-ticino-2026.excerpt': 'The UBS Swiss Real Estate Bubble Index reaches 0.69 points in Q1 2026, signaling a moderate housing bubble risk',
     'blog.article.bolla-immobiliare-ticino-2026.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
+    'blog.article.imprinting-saggio-architettura-italiana.title': 'Antonino Saggio\'s Architectural Imprint in Ticino',
+    'blog.article.imprinting-saggio-architettura-italiana.excerpt': 'Discover how Italian architecture influences Ticino\'s urban landscape, focusing on Antonino Saggio\'s imprint.',
+    'blog.article.imprinting-saggio-architettura-italiana.imageAlt': 'Architecture of Mendrisio reflecting the Italian imprint',
 };
 
 export default blogMetaEn;

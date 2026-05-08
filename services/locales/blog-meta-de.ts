@@ -7082,6 +7082,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bolla-immobiliare-ticino-2026.title': 'Immobilienblase in der Schweiz: Risiko steigt 2026',
     'blog.article.bolla-immobiliare-ticino-2026.excerpt': 'Der UBS Swiss Real Estate Bubble Index steigt im ersten Quartal 2026 auf 0,69 Punkte und signalisiert ein moderates Risiko einer Immobilienblase.',
     'blog.article.bolla-immobiliare-ticino-2026.imageAlt': 'Panoramablick von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.imprinting-saggio-architettura-italiana.title': 'Antonino Saggio: Italienische Architektur im Tessin',
+    'blog.article.imprinting-saggio-architettura-italiana.excerpt': 'Entdecken Sie, wie die italienische Architektur das Stadtbild des Tessin prägt, mit einem Fokus auf den Einfluss von Antonino Saggio.',
+    'blog.article.imprinting-saggio-architettura-italiana.imageAlt': 'Architektur von Mendrisio, die den italienischen Einfluss widerspiegelt',
 };
 
 export default blogMetaDe;
