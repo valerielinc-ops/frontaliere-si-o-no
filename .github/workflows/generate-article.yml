@@ -157,6 +157,16 @@ jobs:
       - name: Commit and push
         id: commit
         if: steps.changes.outputs.has_changes == 'true'
+        # Pass step outputs via env: rather than inline `${{ }}` interpolation
+        # so they survive bash quoting safely. Article titles can contain
+        # double quotes ('No a una LAMal "low cost"') which break inline
+        # substitution: the literal `"` closes the bash assignment and
+        # subsequent tokens are interpreted as commands. With env: GitHub
+        # injects the value as a real env var, accessed via "$VAR".
+        env:
+          ARTICLE_TITLE: ${{ steps.generate.outputs.article_title }}
+          AUTHOR_SLUG: ${{ steps.generate.outputs.author_slug }}
+          AUTHOR_NAME: ${{ steps.generate.outputs.author_name }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -205,9 +215,7 @@ jobs:
           # trailer pointing to the assigned author from the registry.
           # Falls back to the generic message when the create-article step
           # didn't emit byline outputs (older runs / generation failure).
-          ARTICLE_TITLE="${{ steps.generate.outputs.article_title }}"
-          AUTHOR_SLUG="${{ steps.generate.outputs.author_slug }}"
-          AUTHOR_NAME="${{ steps.generate.outputs.author_name }}"
+          # ARTICLE_TITLE / AUTHOR_SLUG / AUTHOR_NAME come from env: above.
           if [ -n "$ARTICLE_TITLE" ]; then
             COMMIT_SUBJECT="feat(article): ${ARTICLE_TITLE}"
             if [ -n "$AUTHOR_SLUG" ] && [ -n "$AUTHOR_NAME" ]; then
