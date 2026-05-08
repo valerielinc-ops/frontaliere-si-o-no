@@ -7199,6 +7199,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.croce-rossa-160-anni-tagli-educatori.title': 'Swiss Red Cross celebrates 160 years, but cuts persist',
     'blog.article.croce-rossa-160-anni-tagli-educatori.excerpt': 'Celebration at Lugano\'s Ciani grove, but concerns remain over cuts to educational staff',
     'blog.article.croce-rossa-160-anni-tagli-educatori.imageAlt': 'Ciani Park in Lugano during a celebration',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.title': 'School dental services: government tackles conflicts of interest',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.excerpt': 'The Ticino League questions the State Council on transparency and conflicts of interest in the awarding of school dental services',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.imageAlt': 'School dental clinic in Mendrisio, Ticino',
 };
 
 export default blogMetaEn;

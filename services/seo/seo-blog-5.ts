@@ -32444,6 +32444,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-servizi-dentari-scolastici-conflitti-interesse': {
+    title: 'Servizi dentari scolastici: il governo interviene sui conflitti d\'interesse',
+    description: 'La Lega dei Ticinesi interroga il Consiglio di Stato su trasparenza e conflitti d\'interesse nell\'assegnazione dei servizi dentari scolastici. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, servizi, dentari, scolastici, governo',
+    ogTitle: 'Servizi dentari scolastici: il governo interviene sui conflitti d\'interesse',
+    ogDescription: 'La Lega dei Ticinesi interroga il Consiglio di Stato su trasparenza e conflitti d\'interesse nell\'assegnazione dei servizi dentari scolastici',
+    canonicalPath: '/articoli-frontaliere/servizi-dentari-scolastici-conflitti-interesse',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Servizi dentari scolastici: il governo interviene sui conflitti d'interesse",
+      "description": "La Lega dei Ticinesi interroga il Consiglio di Stato su trasparenza e conflitti d'interesse nell'assegnazione dei servizi dentari scolastici. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/servizi-dentari-scolastici-conflitti-interesse.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Clinica dentale scolastica a Mendrisio, Ticino"
+      },
+      "datePublished": "2026-05-08T23:53:42+00:00",
+      "dateModified": "2026-05-08T23:53:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/servizi-dentari-scolastici-conflitti-interesse`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

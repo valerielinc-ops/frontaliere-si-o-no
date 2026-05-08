@@ -7200,6 +7200,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.croce-rossa-160-anni-tagli-educatori.title': 'Croce Rossa Svizzera festeggia 160 anni, ma restano i tagli agli educatori',
     'blog.article.croce-rossa-160-anni-tagli-educatori.excerpt': 'Celebrazione al boschetto Ciani di Lugano, ma persistono le preoccupazioni per la riduzione del personale educativo',
     'blog.article.croce-rossa-160-anni-tagli-educatori.imageAlt': 'Parco Ciani a Lugano durante una celebrazione',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.title': 'Servizi dentari scolastici: il governo interviene sui conflitti d\'interesse',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.excerpt': 'La Lega dei Ticinesi interroga il Consiglio di Stato su trasparenza e conflitti d\'interesse nell\'assegnazione dei servizi dentari scolastici',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.imageAlt': 'Clinica dentale scolastica a Mendrisio, Ticino',
 };
 
 export default blogMetaIt;

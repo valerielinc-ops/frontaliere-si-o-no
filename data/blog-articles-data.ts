@@ -22970,4 +22970,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'servizi-dentari-scolastici-conflitti-interesse',
+ category: 'pratico',
+ date: '2026-05-08T23:53:42.487Z',
+ image: '/images/blog/servizi-dentari-scolastici-conflitti-interesse.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

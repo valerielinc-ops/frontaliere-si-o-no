@@ -7199,6 +7199,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.croce-rossa-160-anni-tagli-educatori.title': 'Rotes Kreuz Schweiz feiert 160 Jahre, aber Kündigungen bleiben',
     'blog.article.croce-rossa-160-anni-tagli-educatori.excerpt': 'Feier im Boschetto Ciani in Lugano, aber Sorgen über Personalabbau im Bildungsbereich bleiben',
     'blog.article.croce-rossa-160-anni-tagli-educatori.imageAlt': 'Ciani-Park in Lugano während einer Feier',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.title': 'Schulzahnpflege: Regierung greift bei Interessenkonflikten ein',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.excerpt': 'Die Lega der Tessiner befragt den Staatsrat zu Transparenz und Interessenkonflikten bei der Vergabe von Schulzahnpflegediensten',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.imageAlt': 'Schulzahnklinik in Mendrisio, Tessin',
 };
 
 export default blogMetaDe;

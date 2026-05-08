@@ -7200,6 +7200,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.croce-rossa-160-anni-tagli-educatori.title': 'La Croix-Rouge suisse fête ses 160 ans, mais les éducateurs sont touchés',
     'blog.article.croce-rossa-160-anni-tagli-educatori.excerpt': 'Célébration au bosquet Ciani de Lugano, mais les préoccupations persistent concernant la réduction du personnel éducatif',
     'blog.article.croce-rossa-160-anni-tagli-educatori.imageAlt': 'Parc Ciani à Lugano pendant une célébration',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.title': 'Gouvernement intervient sur les conflits d\'intérêts dentaires scolaires',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.excerpt': 'La Lega dei Ticinesi interroge le Conseil d\'État sur la transparence et les conflits d\'intérêts dans l\'attribution des services dentaires scolaires',
+    'blog.article.servizi-dentari-scolastici-conflitti-interesse.imageAlt': 'Clinique dentaire scolaire à Mendrisio, Tessin',
 };
 
 export default blogMetaFr;
