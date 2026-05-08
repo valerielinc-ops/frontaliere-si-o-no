@@ -253,6 +253,14 @@ export const ADSENSE_LAZY_LOADER = `<script>
   var P=${BOT_PATTERNS_LITERAL};
   for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return;
   if(ua.indexOf('chrome')>=0&&!('chrome' in window))return;
+  // Modern stealth signals — only fire on a UA claiming desktop Chrome.
+  // Mirror the layered logic in services/adAnalytics.ts isLikelyBot().
+  if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){
+    var L=navigator.languages;
+    if(L&&L.length===0)return;
+    if(navigator.plugins&&navigator.plugins.length===0)return;
+    if(typeof navigator.permissions==='undefined')return;
+  }
   var loaded=false;
   function loadScript(){
     if(loaded)return;loaded=true;

@@ -109,6 +109,28 @@ jobs:
           npm run probe:5xx
           npm run test:e2e:live
 
+      # CLS ratchet — fails if any audited template's CLS p75 regresses past
+      # Google's "needs improvement" threshold (0.25) or by more than 10%/+0.05
+      # absolute vs `data/cls-baseline.json`. CLS poor crushes AdSense viewability
+      # and ad-bid; without this gate, every refactor risks pushing it up another
+      # notch. Improving the baseline requires running `audit-cls-live --rebaseline`
+      # locally and committing the diff together with the fix.
+      - name: Load RC secrets (PageSpeed API key)
+        run: node scripts/load-rc-env.mjs
+
+      - name: CLS regression gate
+        env:
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: node scripts/audit-cls-live.mjs
+
+      - name: Upload CLS report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: cls-report-${{ github.run_id }}
+          path: reports/cls-*.json
+          retention-days: 30
+
       # Visual regression on the LIVE site. Skipped until linux baselines
       # are committed (run regenerate-visual-baselines.yml workflow_dispatch
       # to generate them). On failure, validate-live fails → rollback fires

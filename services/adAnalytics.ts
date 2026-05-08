@@ -22,6 +22,24 @@
 import { captureEvent as posthogCapture } from './posthog';
 import { BOT_UA_PATTERNS } from './botPatterns';
 
+/**
+ * Layered bot detection. Each layer cuts a different population:
+ *  1. SSR / no UA      — never an ad-eligible session.
+ *  2. webdriver flag   — Playwright/Selenium/Puppeteer base.
+ *  3. UA substring     — known crawler / AI / monitoring strings.
+ *  4. Chrome-without-chrome-object — old headless Chrome stealth.
+ *  5. Inconsistent navigator props — modern stealth-puppeteer signals
+ *     (empty languages, missing plugins on a real Chrome UA, missing
+ *     `permissions` API). False-positive risk on iframes / restricted
+ *     contexts is bounded by REQUIRING the UA to claim a "real" browser.
+ *
+ * On purpose NOT here: WebGL renderer / canvas fingerprint / TLS JA3.
+ * Those add weight but are bypassable by `puppeteer-extra-plugin-stealth`
+ * and other anti-detect kits — false confidence at high bundle cost. We'd
+ * spend ~25KB to catch a rounding error in invalid traffic. The honest
+ * structural fix is a Cloudflare gray-cloud edge filter; until then this
+ * client-side gate stays purposely lightweight.
+ */
 export function isLikelyBot(): boolean {
   if (typeof window === 'undefined' || typeof navigator === 'undefined') return true;
   // navigator.webdriver is set true by Selenium/Playwright/Puppeteer (most cases)
@@ -33,6 +51,31 @@ export function isLikelyBot(): boolean {
   }
   // Headless Chrome variants without "headlesschrome" in UA
   if (ua.includes('chrome') && !('chrome' in window)) return true;
+
+  // ── Modern stealth signals — only fire when UA claims a real desktop browser ──
+  // (otherwise we'd reject restricted iframes, IGNORE preview bots Google wants
+  // through, and other legit edge cases.)
+  const claimsDesktopChrome = ua.includes('chrome') && !ua.includes('mobile');
+  if (claimsDesktopChrome) {
+    // Real Chrome ships ≥1 language; headless defaults to [].
+    const langs = navigator.languages;
+    if (Array.isArray(langs) && langs.length === 0) return true;
+
+    // Real Chrome on desktop ships ≥1 plugin (PDF Viewer at minimum since
+    // Chrome 87). Headless Chrome reports plugins.length === 0 by default.
+    const plugins = (navigator as Navigator & { plugins?: { length: number } }).plugins;
+    if (plugins && plugins.length === 0) {
+      // Don't reject mobile — mobile Chrome reports 0 plugins legitimately.
+      return true;
+    }
+
+    // The Permissions API exists in all real Chrome ≥ 43. Missing on the
+    // claimed-Chrome UA = stealth.
+    if (typeof (navigator as Navigator & { permissions?: unknown }).permissions === 'undefined') {
+      return true;
+    }
+  }
+
   return false;
 }
 
