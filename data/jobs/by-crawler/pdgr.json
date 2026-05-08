@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-05-08T10:27:11.324Z",
+  "assembledAt": "2026-05-08T22:20:04.952Z",
   "jobs": [
     {
       "id": "pdgr-f5bd59e961b0",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:27:09.173Z",
+      "crawledAt": "2026-05-08T22:20:02.487Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:27:08.007Z",
+      "crawledAt": "2026-05-08T22:20:01.163Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -158,6 +158,7 @@
         "praktikant-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -202,7 +203,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:27:06.857Z",
+      "crawledAt": "2026-05-08T22:19:59.945Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -263,6 +264,7 @@
         "fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -307,7 +309,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:27:05.719Z",
+      "crawledAt": "2026-05-08T22:19:58.792Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -356,6 +358,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -400,7 +403,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:27:04.552Z",
+      "crawledAt": "2026-05-08T22:19:57.616Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -446,6 +449,7 @@
         "unterassistent-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -490,7 +494,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:27:03.393Z",
+      "crawledAt": "2026-05-08T22:19:56.424Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -549,6 +553,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -593,7 +598,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:27:01.937Z",
+      "crawledAt": "2026-05-08T22:19:55.258Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -654,6 +659,7 @@
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -698,7 +704,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:27:00.734Z",
+      "crawledAt": "2026-05-08T22:19:54.106Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -762,6 +768,7 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -806,7 +813,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:59.549Z",
+      "crawledAt": "2026-05-08T22:19:52.936Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -859,6 +866,7 @@
         "oberarztin-oberarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -903,7 +911,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:58.402Z",
+      "crawledAt": "2026-05-08T22:19:51.737Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -957,6 +965,7 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1001,7 +1010,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:57.266Z",
+      "crawledAt": "2026-05-08T22:19:50.559Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1056,6 +1065,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1100,7 +1110,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:56.109Z",
+      "crawledAt": "2026-05-08T22:19:49.368Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1151,6 +1161,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1195,7 +1206,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:52.682Z",
+      "crawledAt": "2026-05-08T22:19:45.758Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1248,6 +1259,7 @@
         "fachpsychologe-in-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1292,7 +1304,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:51.537Z",
+      "crawledAt": "2026-05-08T22:19:44.544Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1346,6 +1358,7 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1390,7 +1403,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-4-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:50.398Z",
+      "crawledAt": "2026-05-08T22:19:43.338Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1455,6 +1468,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1499,7 +1513,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:49.251Z",
+      "crawledAt": "2026-05-08T22:19:42.186Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1557,6 +1571,7 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1601,7 +1616,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:48.171Z",
+      "crawledAt": "2026-05-08T22:19:40.998Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1657,6 +1672,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1701,7 +1717,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:45.909Z",
+      "crawledAt": "2026-05-08T22:19:38.669Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1753,6 +1769,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1797,7 +1814,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:44.751Z",
+      "crawledAt": "2026-05-08T22:19:37.508Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1850,6 +1867,7 @@
         "fachperson-gesundheit-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1894,7 +1912,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:43.609Z",
+      "crawledAt": "2026-05-08T22:19:36.300Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1945,6 +1963,7 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1989,7 +2008,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-4-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:41.249Z",
+      "crawledAt": "2026-05-08T22:19:33.951Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2044,6 +2063,7 @@
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2088,7 +2108,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:38.920Z",
+      "crawledAt": "2026-05-08T22:19:31.589Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2146,6 +2166,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2190,7 +2211,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:37.759Z",
+      "crawledAt": "2026-05-08T22:19:30.419Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2249,6 +2270,7 @@
         "oberarztin-oberarzt-pdgr-ch-4"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2293,7 +2315,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:36.605Z",
+      "crawledAt": "2026-05-08T22:19:29.215Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2345,6 +2367,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2389,7 +2412,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-controlling/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:35.483Z",
+      "crawledAt": "2026-05-08T22:19:28.034Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2452,6 +2475,7 @@
         "leiter-in-controlling-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2496,7 +2520,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-21/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:34.369Z",
+      "crawledAt": "2026-05-08T22:19:26.838Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2562,6 +2586,7 @@
         "personale-hotel-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2606,7 +2631,7 @@
       "url": "https://www.pdgr.ch/jobs/stationsleiter-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:33.250Z",
+      "crawledAt": "2026-05-08T22:19:25.648Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2667,6 +2692,7 @@
         "stationsleiter-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2676,108 +2702,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "pdgr-328ebb6f40ca",
-      "slug": "personale-cucina-psychiatrische-dienste-graubunden-cazis",
-      "slugByLocale": {
-        "it": "personale-cucina-psychiatrische-dienste-graubunden-cazis",
-        "en": "hotel-staff-psychiatrische-dienste-graubunden-cazis",
-        "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
-        "fr": "personnel-cuisine-psychiatrische-dienste-graubunden-cazis"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Mitarbeiter/in Hotellerie",
-      "titleByLocale": {
-        "it": "Personale Cucina",
-        "en": "Hotel Staff",
-        "de": "Mitarbeiter/in Hotellerie",
-        "fr": "Personnel Cuisine"
-      },
-      "description": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die allgemeinen Rüst- und Reinigungsarbeiten\n\n- Sie übernehmen Standortübergreifende Einsätze\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
-      "descriptionByLocale": {
-        "it": "Il tuo ambiente: In cucina troverai un team motivato e un ambiente di lavoro moderno, dove pulizia, igiene e spirito di squadra sono al centro. Il tuo lavoro contribuisce in modo importante al benessere dei nostri pazienti. Le tue responsabilità: Supporti il nostro team nel lavoro quotidiano in cucina fredda e calda Aiuti a servire i pasti ai pazienti Sei responsabile delle attività di preparazione e pulizia generali Partecipi a missioni inter-sede Lavori occasionalmente anche nella lavanderia Il nostro profilo richiesto: Conosci il concetto HACCP e sai come applicarlo Hai un aspetto curato e buone conoscenze di tedesco Sei resistente e non hai problemi a pulire pentole e attrezzature pesanti Hai disponibilità per missioni anche nei weekend Lavori rapidamente e pulito e dimostri senso dell'ordine, flessibilità e affidabilità Ti offriamo: Un'attività varia e stimolante in un ambiente vivace Puoi applicare le tue esperienze in diversi settori dell'hospitalità Lavori in un ambiente sociale e gradevole Benefici avanzati (prestazioni sociali superiori, 30 giorni di ferie garantiti) Hai la possibilità di seguire corsi di formazione",
-        "en": "Your environment: In the kitchen, you'll find a motivated team and a modern work environment where cleanliness, hygiene, and team spirit are at the heart of things. Your work contributes significantly to the well-being of our patients. Your responsibilities: You support our team in the daily work in the cold and warm kitchen You assist in serving patients' meals You are responsible for general preparation and cleaning tasks You participate in cross-site deployments You also work occasionally in the dishwashing area Our requirements profile: You know the HACCP concept and how to apply it You have a neat appearance and good German language skills You are resilient and have no problems cleaning heavy pots and equipment You bring readiness for deployment work also on weekends You work quickly and cleanly and are characterized by orderliness, flexibility, and reliability We offer you: A varied and stimulating activity in a lively setting You can apply your experience in various areas of hospitality You work in a pleasant, social environment You benefit from advanced working conditions (above-average social benefits, at least 30 days of vacation) You have the opportunity to attend training courses",
-        "de": "Ihre Umgebung: In der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten. Ihre Aufgaben: - Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche - Sie helfen beim Tablettieren der Patientenmahlzeiten mit - Sie sind mitverantwortlich für die allgemeinen Rüst- und Reinigungsarbeiten - Sie übernehmen Standortübergreifende Einsätze - Sie arbeiten auch vereinzelt in der Abwaschküche mit Unser Anforderungsprofil: - Sie kennen das HACCP-Konzept und wissen es anzuwenden - Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse - Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen - Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit - Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus Wir bieten Ihnen: - Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib - Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen - Sie arbeiten in einem angenehmen, sozialen Umfeld - Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen) - Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
-        "fr": "Votre environnement: En cuisine, vous trouverez une équipe motivée et un environnement de travail moderne où la propreté, l'hygiène et l'esprit d'équipe sont au cœur des choses. Votre travail contribue significativement au bien-être de nos patients. Vos responsabilités: Vous soutenez notre équipe dans le travail quotidien en cuisine froide et chaude Vous aidez à servir les repas des patients Vous êtes responsable des tâches de préparation et de nettoyage générales Vous participez à des déploiements inter-sites Vous travaillez également occasionnellement dans la salle de lavage Notre profil de compétences: Vous connaissez le concept HACCP et savez l'appliquer Vous avez un aspect soigné et de bonnes connaissances en allemand Vous êtes résistant et n'avez aucun problème à nettoyer les casseroles et les équipements lourds Vous apportez la disponibilité pour des travaux de déploiement également les week-ends Vous travaillez rapidement et proprement et vous êtes caractérisé par l'ordre, la flexibilité et la fiabilité Nous vous offrons: Une activité variée et stimulante dans un cadre animé Vous pouvez appliquer vos expériences dans divers domaines de l'hôtellerie Vous travaillez dans un environnement agréable et social Vous bénéficiez de conditions de travail avancées (prestations sociales supérieures, au moins 30 jours de vacances) Vous avez la possibilité de suivre des cours de formation"
-      },
-      "location": "Cazis",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-6-5/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:32.147Z",
-      "addressLocality": "Cazis",
-      "postalCode": "7408",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "applyUrl": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-6-5/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Conoscenza del concetto HACCP",
-          "Aspetto curato e buone conoscenze di tedesco",
-          "Resistenza e capacità di pulire pentole e attrezzature pesanti",
-          "Disponibilità per missioni anche nei weekend",
-          "Lavoro rapido e pulito",
-          "Senso dell'ordine, flessibilità e affidabilità"
-        ],
-        "en": [
-          "Knowledge of the HACCP concept",
-          "Neat appearance and good German language skills",
-          "Resilience and ability to clean heavy pots and equipment",
-          "Readiness for deployment work also on weekends",
-          "Quick and clean work",
-          "Orderliness, flexibility, and reliability"
-        ],
-        "fr": [
-          "Connaissance du concept HACCP",
-          "Apparence soignée et bonnes connaissances en allemand",
-          "Résistance et capacité à nettoyer les casseroles et les équipements lourds",
-          "Disponibilité pour des travaux de déploiement également les week-ends",
-          "Travail rapide et propre",
-          "Ordre, flexibilité et fiabilité"
-        ]
-      },
-      "facility": "Küche",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "mitarbeiter-in-hotellerie-pdgr-ch"
-        ],
-        "it": [
-          "mitarbeiter-in-hotellerie-pdgr-ch-3"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-hotellerie-pdgr-ch",
-        "mitarbeiter-in-hotellerie-pdgr-ch-3"
-      ],
-      "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2813,7 +2737,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:30.987Z",
+      "crawledAt": "2026-05-08T22:19:24.499Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2866,6 +2790,7 @@
         "fachperson-gesundheit-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2910,7 +2835,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:29.826Z",
+      "crawledAt": "2026-05-08T22:19:23.330Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2972,6 +2897,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3016,7 +2942,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:26.363Z",
+      "crawledAt": "2026-05-08T22:19:19.759Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3058,6 +2984,7 @@
         "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3102,7 +3029,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-textil/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:25.236Z",
+      "crawledAt": "2026-05-08T22:19:18.583Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3150,6 +3077,7 @@
         "responsabile-textil-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3194,7 +3122,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:24.109Z",
+      "crawledAt": "2026-05-08T22:19:17.406Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -3286,7 +3214,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:22.949Z",
+      "crawledAt": "2026-05-08T22:19:16.218Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3327,6 +3255,7 @@
         "assistenzpsychologe-in-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-21T22:10:58.899Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3371,7 +3300,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-7-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:21.805Z",
+      "crawledAt": "2026-05-08T22:19:15.069Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3449,7 +3378,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:19.439Z",
+      "crawledAt": "2026-05-08T22:19:04.016Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3540,7 +3469,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-2-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:18.221Z",
+      "crawledAt": "2026-05-08T22:19:02.775Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3578,6 +3507,7 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-05-06T22:28:54.378Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3622,7 +3552,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-3-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T10:26:17.009Z",
+      "crawledAt": "2026-05-08T22:19:01.568Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3657,6 +3587,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:33:07.021Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
