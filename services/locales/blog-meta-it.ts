@@ -7128,6 +7128,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuove-basi-lpp-2025-frontalieri.title': 'Nuove basi tecniche LPP 2025: impatto su aspettativa di vita e invalidità',
     'blog.article.nuove-basi-lpp-2025-frontalieri.excerpt': 'Le nuove basi tecniche LPP 2025 confermano le tendenze relative all\'aspettativa di vita e all\'invalidità, con implicazioni per i frontalieri in Ticino.',
     'blog.article.nuove-basi-lpp-2025-frontalieri.imageAlt': 'Monte San Salvatore con vista su Lugano e Lago di Lugano',
+    'blog.article.aumenti-stipendi-svizzera-2026.title': 'Aumenti stipendi in Svizzera: cosa cambia per i frontalieri',
+    'blog.article.aumenti-stipendi-svizzera-2026.excerpt': 'Le buste paga in Svizzera registrano aumenti consistenti. Ecco cosa significa per i lavoratori frontalieri del Ticino.',
+    'blog.article.aumenti-stipendi-svizzera-2026.imageAlt': 'Lugano lago con edifici moderni e persone che lavorano',
 };
 
 export default blogMetaIt;

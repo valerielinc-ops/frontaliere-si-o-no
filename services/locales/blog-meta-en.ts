@@ -7127,6 +7127,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-basi-lpp-2025-frontalieri.title': 'LPP 2025 technical bases: impact on life expectancy and disability',
     'blog.article.nuove-basi-lpp-2025-frontalieri.excerpt': 'The new LPP 2025 technical bases confirm trends related to life expectancy and disability, with implications for cross-border workers in Ticino.',
     'blog.article.nuove-basi-lpp-2025-frontalieri.imageAlt': 'Monte San Salvatore overlooking Lugano and Lake Lugano',
+    'blog.article.aumenti-stipendi-svizzera-2026.title': 'Swiss wage increases: what changes for cross-border workers',
+    'blog.article.aumenti-stipendi-svizzera-2026.excerpt': 'Swiss paychecks are seeing significant increases. Here\'s what it means for Ticino cross-border workers.',
+    'blog.article.aumenti-stipendi-svizzera-2026.imageAlt': 'Lake Lugano with modern buildings and people working',
 };
 
 export default blogMetaEn;

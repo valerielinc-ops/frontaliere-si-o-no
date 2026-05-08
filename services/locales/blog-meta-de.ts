@@ -7127,6 +7127,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuove-basi-lpp-2025-frontalieri.title': 'LPP 2025: Auswirkungen auf Leben und Invalidität',
     'blog.article.nuove-basi-lpp-2025-frontalieri.excerpt': 'Die neuen technischen Grundlagen LPP 2025 bestätigen die Trends zur Lebenserwartung und Invalidität, mit Auswirkungen auf Grenzgänger im Tessin.',
     'blog.article.nuove-basi-lpp-2025-frontalieri.imageAlt': 'Monte San Salvatore mit Blick auf Lugano und Luganersee',
+    'blog.article.aumenti-stipendi-svizzera-2026.title': 'Lohnanstieg in der Schweiz: Was sich für Grenzgänger ändert',
+    'blog.article.aumenti-stipendi-svizzera-2026.excerpt': 'Die Lohnabrechnungen in der Schweiz verzeichnen deutliche Steigerungen. Hier erfahren Sie, was das für die Grenzgänger aus dem Tessin bedeutet.',
+    'blog.article.aumenti-stipendi-svizzera-2026.imageAlt': 'Luganer See mit modernen Gebäuden und arbeitenden Menschen',
 };
 
 export default blogMetaDe;

@@ -3618,6 +3618,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiasso-dogana-tempi-attesa': { name: 'Dogana Chiasso', path: '/articoli-frontaliere/chiasso-dogana-tempi-attesa', parent: 'blog' },
     'blog-stipendi-neolaureati-svizzera-austria-germania': { name: 'Fiscale', path: '/articoli-frontaliere/stipendi-neolaureati-svizzera-austria-germania', parent: 'blog' },
     'blog-nuove-basi-lpp-2025-frontalieri': { name: 'Pensioni', path: '/articoli-frontaliere/nuove-basi-lpp-2025-frontalieri', parent: 'blog' },
+    'blog-aumenti-stipendi-svizzera-2026': { name: 'Aumenti stipendi', path: '/articoli-frontaliere/aumenti-stipendi-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

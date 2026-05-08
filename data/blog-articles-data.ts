@@ -22754,4 +22754,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aumenti-stipendi-svizzera-2026',
+ category: 'novita',
+ date: '2026-05-08T18:08:20.014Z',
+ image: '/images/blog/aumenti-stipendi-svizzera-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
