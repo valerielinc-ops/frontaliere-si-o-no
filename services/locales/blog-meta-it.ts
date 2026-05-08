@@ -6930,6 +6930,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.friburgo-finale-europa-manzambi.title': 'Friburgo in finale di Europa League: Manzambi decide',
     'blog.article.friburgo-finale-europa-manzambi.excerpt': 'Il gol del nazionale elvetico Johan Manzambi manda il Friburgo in finale di Europa League. Il 20 maggio a Istanbul contro l\'Aston Villa.',
     'blog.article.friburgo-finale-europa-manzambi.imageAlt': 'Stadio di Lugano illuminato di notte durante una partita di calcio',
+    'blog.article.legal-insurance-utilita-sicurezza.title': 'Assicurazione legale in Svizzera: è davvero utile?',
+    'blog.article.legal-insurance-utilita-sicurezza.excerpt': 'Scopri se l\'assicurazione legale in Svizzera è un investimento valido o solo una sicurezza illusoria per i frontalieri.',
+    'blog.article.legal-insurance-utilita-sicurezza.imageAlt': 'Vista dei castelli di Bellinzona in autunno con alberi colorati.',
 };
 
 export default blogMetaIt;

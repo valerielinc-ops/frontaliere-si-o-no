@@ -6929,6 +6929,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.friburgo-finale-europa-manzambi.title': 'Fribourg reaches Europa League final: Manzambi scores',
     'blog.article.friburgo-finale-europa-manzambi.excerpt': 'The goal by Swiss national Johan Manzambi sends Fribourg to the Europa League final. On May 20 in Istanbul against Aston Villa.',
     'blog.article.friburgo-finale-europa-manzambi.imageAlt': 'Lugano Stadium illuminated at night during a soccer match',
+    'blog.article.legal-insurance-utilita-sicurezza.title': 'Is legal insurance in Switzerland really useful?',
+    'blog.article.legal-insurance-utilita-sicurezza.excerpt': 'Find out if legal insurance in Switzerland is a valid investment or just an illusory safety net for cross-border workers.',
+    'blog.article.legal-insurance-utilita-sicurezza.imageAlt': 'View of Bellinzona castles in autumn with colorful trees.',
 };
 
 export default blogMetaEn;

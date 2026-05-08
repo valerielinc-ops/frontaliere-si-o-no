@@ -22160,4 +22160,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'legal-insurance-utilita-sicurezza',
+ category: 'fiscale',
+ date: '2026-05-08T01:16:05.126Z',
+ image: '/images/blog/legal-insurance-utilita-sicurezza.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

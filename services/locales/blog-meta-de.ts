@@ -6929,6 +6929,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.friburgo-finale-europa-manzambi.title': 'Freiburg steht im Europa-League-Finale: Manzambi trifft',
     'blog.article.friburgo-finale-europa-manzambi.excerpt': 'Das Tor des Schweizer Nationalspielers Johan Manzambi bringt Freiburg ins Finale der Europa League. Am 20. Mai in Istanbul gegen Aston Villa.',
     'blog.article.friburgo-finale-europa-manzambi.imageAlt': 'Lugano-Stadion nachts bei einem Fußballspiel beleuchtet',
+    'blog.article.legal-insurance-utilita-sicurezza.title': 'Rechtsschutzversicherung in der Schweiz: Lohnt sie sich?',
+    'blog.article.legal-insurance-utilita-sicurezza.excerpt': 'Erfahren Sie, ob die Rechtsschutzversicherung in der Schweiz eine lohnende Investition oder nur ein trügerisches Sicherheitsgefühl für Grenzgänger ist.',
+    'blog.article.legal-insurance-utilita-sicurezza.imageAlt': 'Blick auf die Schlösser von Bellinzona im Herbst mit bunten Bäumen.',
 };
 
 export default blogMetaDe;
