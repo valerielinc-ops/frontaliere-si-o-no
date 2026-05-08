@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2373,
+ "numberOfItems": 2374,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7015,7 +7015,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2370, "name": "Trump all'Ue: tempo fino al 4 luglio per l'acco...", "url": `${BASE_URL}/articoli-frontaliere/trump-ue-accordo-commerciale-4-luglio` },
           { "@type": "ListItem", "position": 2371, "name": "3'000 funzionari manifestano contro misure di r...", "url": `${BASE_URL}/articoli-frontaliere/ginevra-manifestazione-frontalieri-2026` },
           { "@type": "ListItem", "position": 2372, "name": "Josi scrive alla federazione: «Per Fischer, non...", "url": `${BASE_URL}/articoli-frontaliere/josi-fischer-lettera-cuore` },
-          { "@type": "ListItem", "position": 2373, "name": "Votazione popolare sulla LAMal: cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/votazione-popolare-lamal-frontalieri` }
+          { "@type": "ListItem", "position": 2373, "name": "Votazione popolare sulla LAMal: cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/votazione-popolare-lamal-frontalieri` },
+          { "@type": "ListItem", "position": 2374, "name": "Maxi blitz nell'Atlantico: sequestrate 30 tonne...", "url": `${BASE_URL}/articoli-frontaliere/maxi-blitz-cocaina-atlantico-30-tonnellate` }
  ]
  },
  {

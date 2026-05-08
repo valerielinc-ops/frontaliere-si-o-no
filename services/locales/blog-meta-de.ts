@@ -6962,6 +6962,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.votazione-popolare-lamal-frontalieri.title': 'Volksabstimmung zur Krankenversicherung: Auswirkungen auf Grenzgänger',
     'blog.article.votazione-popolare-lamal-frontalieri.excerpt': 'Die Änderung des Bundesgesetzes über die Krankenversicherung (KVG) könnte die Grenzgänger im Tessin beeinflussen. Hier erfahren Sie, was Sie wissen müssen',
     'blog.article.votazione-popolare-lamal-frontalieri.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
+    'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.title': 'Rekordbeschlagnahme: 30 Tonnen Kokain im Atlantik',
+    'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.excerpt': 'Die spanische Guardia Civil hat 30,2 Tonnen Kokain an Bord des Frachters Arconian beschlagnahmt, die größte Einzelbeschlagnahme in Spanien.',
+    'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -22259,4 +22259,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'maxi-blitz-cocaina-atlantico-30-tonnellate',
+ category: 'novita',
+ date: '2026-05-08T03:01:02.382Z',
+ image: '/images/blog/maxi-blitz-cocaina-atlantico-30-tonnellate.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

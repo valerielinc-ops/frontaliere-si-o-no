@@ -29363,6 +29363,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maxi-blitz-cocaina-atlantico-30-tonnellate': {
+    title: 'Maxi blitz nell\'Atlantico: sequestrate 30 tonnellate di cocaina',
+    description: 'La Guardia Civil spagnola ha intercettato 30,2 tonnellate di cocaina a bordo del mercantile Arconian, il più grande sequestro in Spagna in una sola operazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, maxi, blitz, nell, atlantico',
+    ogTitle: 'Maxi blitz nell\'Atlantico: sequestrate 30 tonnellate di cocaina',
+    ogDescription: 'La Guardia Civil spagnola ha intercettato 30,2 tonnellate di cocaina a bordo del mercantile Arconian, il più grande sequestro in Spagna in una sola operazione.',
+    canonicalPath: '/articoli-frontaliere/maxi-blitz-cocaina-atlantico-30-tonnellate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maxi blitz nell'Atlantico: sequestrate 30 tonnellate di cocaina",
+      "description": "La Guardia Civil spagnola ha intercettato 30,2 tonnellate di cocaina a bordo del mercantile Arconian, il più grande sequestro in Spagna in una sola operazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/maxi-blitz-cocaina-atlantico-30-tonnellate.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-08T03:01:02+00:00",
+      "dateModified": "2026-05-08T03:01:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maxi-blitz-cocaina-atlantico-30-tonnellate`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

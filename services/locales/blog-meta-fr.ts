@@ -6963,6 +6963,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.votazione-popolare-lamal-frontalieri.title': 'Votation sur la LAMal: ce qui change pour les frontaliers',
     'blog.article.votazione-popolare-lamal-frontalieri.excerpt': 'La modification de la loi fédérale sur l\'assurance maladie (LAMal) pourrait influencer les frontaliers en Ticino. Voici ce qu\'il faut savoir',
     'blog.article.votazione-popolare-lamal-frontalieri.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan',
+    'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.title': 'Mega opération dans l\'Atlantique : 30 tonnes de cocaïne saisies',
+    'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.excerpt': 'La Garde civile espagnole a intercepté 30,2 tonnes de cocaïne à bord du cargo Arconian, la plus grande saisie en Espagne lors d\'une seule opération.',
+    'blog.article.maxi-blitz-cocaina-atlantico-30-tonnellate.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

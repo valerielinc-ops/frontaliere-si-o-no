@@ -3563,6 +3563,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ginevra-manifestazione-frontalieri-2026': { name: 'Fiscale', path: '/articoli-frontaliere/ginevra-manifestazione-frontalieri-2026', parent: 'blog' },
     'blog-josi-fischer-lettera-cuore': { name: 'Sport', path: '/articoli-frontaliere/josi-fischer-lettera-cuore', parent: 'blog' },
     'blog-votazione-popolare-lamal-frontalieri': { name: 'Votazione LAMal', path: '/articoli-frontaliere/votazione-popolare-lamal-frontalieri', parent: 'blog' },
+    'blog-maxi-blitz-cocaina-atlantico-30-tonnellate': { name: 'Novità', path: '/articoli-frontaliere/maxi-blitz-cocaina-atlantico-30-tonnellate', parent: 'blog' },
  };
 
  const info = sectionNames[section];
