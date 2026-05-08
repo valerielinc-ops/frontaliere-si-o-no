@@ -3641,6 +3641,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-malattie-renali-campagna-cl3ar-milano': { name: 'Salute renale', path: '/articoli-frontaliere/malattie-renali-campagna-cl3ar-milano', parent: 'blog' },
     'blog-hantavirus-ginevrino-isolamento-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/hantavirus-ginevrino-isolamento-frontalieri', parent: 'blog' },
     'blog-pentagono-ufo-documenti-inediti-2026': { name: 'Novità', path: '/articoli-frontaliere/pentagono-ufo-documenti-inediti-2026', parent: 'blog' },
+    'blog-croce-rossa-160-anni-tagli-educatori': { name: 'Novità', path: '/articoli-frontaliere/croce-rossa-160-anni-tagli-educatori', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -32405,6 +32405,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-croce-rossa-160-anni-tagli-educatori': {
+    title: 'Croce Rossa Svizzera festeggia 160 anni, ma restano i tagli agli educatori',
+    description: 'Celebrazione al boschetto Ciani di Lugano per i 160 anni di Croce Rossa Svizzera, ma persistono le preoccupazioni per la riduzione del personale educativo',
+    keywords: 'frontalieri, ticino, svizzera, italia, croce, rossa, festeggia, anni',
+    ogTitle: 'Croce Rossa Svizzera festeggia 160 anni, ma restano i tagli agli educatori',
+    ogDescription: 'Celebrazione al boschetto Ciani di Lugano per i 160 anni di Croce Rossa Svizzera, ma persistono le preoccupazioni per la riduzione del personale educativo',
+    canonicalPath: '/articoli-frontaliere/croce-rossa-160-anni-tagli-educatori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Croce Rossa Svizzera festeggia 160 anni, ma restano i tagli agli educatori",
+      "description": "Celebrazione al boschetto Ciani di Lugano per i 160 anni di Croce Rossa Svizzera, ma persistono le preoccupazioni per la riduzione del personale educativo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/croce-rossa-160-anni-tagli-educatori.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parco Ciani a Lugano durante una celebrazione"
+      },
+      "datePublished": "2026-05-08T23:45:21+00:00",
+      "dateModified": "2026-05-08T23:45:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/croce-rossa-160-anni-tagli-educatori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

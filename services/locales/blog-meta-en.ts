@@ -7196,6 +7196,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pentagono-ufo-documenti-inediti-2026.title': 'Pentagon releases new UFO documents and images',
     'blog.article.pentagono-ufo-documenti-inediti-2026.excerpt': 'The Pentagon has released 162 previously unseen documents on unidentified anomalous phenomena as part of a program initiated by Donald Trump.',
     'blog.article.pentagono-ufo-documenti-inediti-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water, surrounded by mountains and buildings.',
+    'blog.article.croce-rossa-160-anni-tagli-educatori.title': 'Swiss Red Cross celebrates 160 years, but cuts persist',
+    'blog.article.croce-rossa-160-anni-tagli-educatori.excerpt': 'Celebration at Lugano\'s Ciani grove, but concerns remain over cuts to educational staff',
+    'blog.article.croce-rossa-160-anni-tagli-educatori.imageAlt': 'Ciani Park in Lugano during a celebration',
 };
 
 export default blogMetaEn;

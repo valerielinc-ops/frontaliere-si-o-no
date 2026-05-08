@@ -22961,4 +22961,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'croce-rossa-160-anni-tagli-educatori',
+ category: 'novita',
+ date: '2026-05-08T23:45:21.415Z',
+ image: '/images/blog/croce-rossa-160-anni-tagli-educatori.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

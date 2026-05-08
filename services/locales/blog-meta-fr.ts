@@ -7197,6 +7197,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pentagono-ufo-documenti-inediti-2026.title': 'Le Pentagone publie des documents inédits sur les OVNIs',
     'blog.article.pentagono-ufo-documenti-inediti-2026.excerpt': 'Le Pentagone a rendu publics 162 documents inédits sur des phénomènes anomaux non identifiés, dans le cadre d\'un programme voulu par Donald Trump.',
     'blog.article.pentagono-ufo-documenti-inediti-2026.imageAlt': 'Vue aérienne du lac de Lugano avec de l\'eau bleue claire, entourée de montagnes et de bâtiments.',
+    'blog.article.croce-rossa-160-anni-tagli-educatori.title': 'La Croix-Rouge suisse fête ses 160 ans, mais les éducateurs sont touchés',
+    'blog.article.croce-rossa-160-anni-tagli-educatori.excerpt': 'Célébration au bosquet Ciani de Lugano, mais les préoccupations persistent concernant la réduction du personnel éducatif',
+    'blog.article.croce-rossa-160-anni-tagli-educatori.imageAlt': 'Parc Ciani à Lugano pendant une célébration',
 };
 
 export default blogMetaFr;

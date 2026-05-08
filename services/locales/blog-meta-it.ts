@@ -7197,6 +7197,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pentagono-ufo-documenti-inediti-2026.title': 'Pentagono pubblica documenti e immagini inedite sugli Ufo',
     'blog.article.pentagono-ufo-documenti-inediti-2026.excerpt': 'Il Pentagono ha reso pubblici 162 documenti inediti su fenomeni anomali non identificati, nell\'ambito di un programma voluto da Donald Trump.',
     'blog.article.pentagono-ufo-documenti-inediti-2026.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici.',
+    'blog.article.croce-rossa-160-anni-tagli-educatori.title': 'Croce Rossa Svizzera festeggia 160 anni, ma restano i tagli agli educatori',
+    'blog.article.croce-rossa-160-anni-tagli-educatori.excerpt': 'Celebrazione al boschetto Ciani di Lugano, ma persistono le preoccupazioni per la riduzione del personale educativo',
+    'blog.article.croce-rossa-160-anni-tagli-educatori.imageAlt': 'Parco Ciani a Lugano durante una celebrazione',
 };
 
 export default blogMetaIt;

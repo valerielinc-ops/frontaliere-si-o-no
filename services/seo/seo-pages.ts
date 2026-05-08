@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2451,
+ "numberOfItems": 2452,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7093,7 +7093,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2448, "name": "ISA e professionisti: esclusione in fase di liq...", "url": `${BASE_URL}/articoli-frontaliere/isa-liquidazione-frontalieri-2026` },
           { "@type": "ListItem", "position": 2449, "name": "Malattie renali rare: parte da Milano la campag...", "url": `${BASE_URL}/articoli-frontaliere/malattie-renali-campagna-cl3ar-milano` },
           { "@type": "ListItem", "position": 2450, "name": "Hantavirus: ginevrino in isolamento, basso risc...", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-ginevrino-isolamento-frontalieri` },
-          { "@type": "ListItem", "position": 2451, "name": "Pentagono pubblica documenti e immagini inedite...", "url": `${BASE_URL}/articoli-frontaliere/pentagono-ufo-documenti-inediti-2026` }
+          { "@type": "ListItem", "position": 2451, "name": "Pentagono pubblica documenti e immagini inedite...", "url": `${BASE_URL}/articoli-frontaliere/pentagono-ufo-documenti-inediti-2026` },
+          { "@type": "ListItem", "position": 2452, "name": "Croce Rossa Svizzera festeggia 160 anni, ma res...", "url": `${BASE_URL}/articoli-frontaliere/croce-rossa-160-anni-tagli-educatori` }
  ]
  },
  {
