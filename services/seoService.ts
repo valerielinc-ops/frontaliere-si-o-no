@@ -3558,6 +3558,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lula-trump-riunione-democrazia-sovranita': { name: 'Novità', path: '/articoli-frontaliere/lula-trump-riunione-democrazia-sovranita', parent: 'blog' },
     'blog-delitto-garlasco-chiara-omicidio-2026': { name: 'Delitto Garlasco', path: '/articoli-frontaliere/delitto-garlasco-chiara-omicidio-2026', parent: 'blog' },
     'blog-hondius-frontalieri-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/hondius-frontalieri-ticino-2026', parent: 'blog' },
+    'blog-harrods-risarcimenti-vittime-al-fayed': { name: 'Novità', path: '/articoli-frontaliere/harrods-risarcimenti-vittime-al-fayed', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -22214,4 +22214,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'harrods-risarcimenti-vittime-al-fayed',
+ category: 'novita',
+ date: '2026-05-08T02:00:06.956Z',
+ image: '/images/blog/harrods-risarcimenti-vittime-al-fayed.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

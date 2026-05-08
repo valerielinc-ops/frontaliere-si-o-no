@@ -6947,6 +6947,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.hondius-frontalieri-ticino-2026.title': 'Hondius: what changes for Ticino cross-border workers',
     'blog.article.hondius-frontalieri-ticino-2026.excerpt': 'The cruise ship with a hantavirus outbreak will remain at anchor. Here\'s what\'s happening and how it could affect cross-border workers.',
     'blog.article.hondius-frontalieri-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, showing the Swiss-Italian border and the surrounding mountains.',
+    'blog.article.harrods-risarcimenti-vittime-al-fayed.title': 'Harrods to compensate Al-Fayed scandal victims',
+    'blog.article.harrods-risarcimenti-vittime-al-fayed.excerpt': 'The company settles with alleged victims of the late tycoon, while police investigate Scotland Yard officers',
+    'blog.article.harrods-risarcimenti-vittime-al-fayed.imageAlt': 'Evening view of Harrods department store in London',
 };
 
 export default blogMetaEn;

@@ -6948,6 +6948,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.hondius-frontalieri-ticino-2026.title': 'Hondius: cosa cambia per i frontalieri del Ticino',
     'blog.article.hondius-frontalieri-ticino-2026.excerpt': 'La nave crociera con focolaio di hantavirus resterà in rada. Ecco cosa succede e come potrebbe influenzare i frontalieri.',
     'blog.article.hondius-frontalieri-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, mostrando il confine svizzero-italiano e le montagne circostanti.',
+    'blog.article.harrods-risarcimenti-vittime-al-fayed.title': 'Harrods risarcirà decine di vittime dello scandalo Al-Fayed',
+    'blog.article.harrods-risarcimenti-vittime-al-fayed.excerpt': 'L\'azienda liquida con indennizzi le presunte vittime del magnate defunto, mentre la polizia indaga su agenti di Scotland Yard',
+    'blog.article.harrods-risarcimenti-vittime-al-fayed.imageAlt': 'Vista serale del grande magazzino Harrods a Londra',
 };
 
 export default blogMetaIt;
