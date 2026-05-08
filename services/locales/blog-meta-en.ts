@@ -7193,6 +7193,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.title': 'Hantavirus: Geneva resident in isolation, low risk for cross-border workers',
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.excerpt': 'A Geneva resident is in isolation after a flight with a hantavirus patient. The FOPH reassures: low risk for the population.',
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.title': 'Pentagon releases new UFO documents and images',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.excerpt': 'The Pentagon has released 162 previously unseen documents on unidentified anomalous phenomena as part of a program initiated by Donald Trump.',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water, surrounded by mountains and buildings.',
 };
 
 export default blogMetaEn;

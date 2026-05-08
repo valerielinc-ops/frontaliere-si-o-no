@@ -7193,6 +7193,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.title': 'Hantavirus: Genfer in Isolation, geringes Risiko für Grenzgänger',
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.excerpt': 'Ein Genfer befindet sich nach einem Flug mit einem Hantavirus-Infizierten in Isolation. Das UFSP beruhigt: geringes Risiko für die Bevölkerung.',
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.title': 'Pentagon veröffentlicht neue UFO-Dokumente',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.excerpt': 'Das Pentagon hat 162 bisher unveröffentlichte Dokumente zu unerklärlichen Phänomenen veröffentlicht, im Rahmen eines Programms, das von Donald Trump gewünscht wurde.',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.imageAlt': 'Luftaufnahme des Luganersees mit klarem blauem Wasser, umgeben von Bergen und Gebäuden.',
 };
 
 export default blogMetaDe;

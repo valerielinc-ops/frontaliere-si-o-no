@@ -32366,6 +32366,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pentagono-ufo-documenti-inediti-2026': {
+    title: 'Pentagono pubblica documenti e immagini inedite sugli Ufo',
+    description: 'Il Pentagono ha reso pubblici 162 documenti inediti su fenomeni anomali non identificati, nell\'ambito di un programma voluto da Donald Trump. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, pentagono, pubblica, documenti, immagini',
+    ogTitle: 'Pentagono pubblica documenti e immagini inedite sugli Ufo',
+    ogDescription: 'Il Pentagono ha reso pubblici 162 documenti inediti su fenomeni anomali non identificati, nell\'ambito di un programma voluto da Donald Trump.',
+    canonicalPath: '/articoli-frontaliere/pentagono-ufo-documenti-inediti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pentagono pubblica documenti e immagini inedite sugli Ufo",
+      "description": "Il Pentagono ha reso pubblici 162 documenti inediti su fenomeni anomali non identificati, nell'ambito di un programma voluto da Donald Trump. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pentagono-ufo-documenti-inediti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici."
+      },
+      "datePublished": "2026-05-08T23:29:08+00:00",
+      "dateModified": "2026-05-08T23:29:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pentagono-ufo-documenti-inediti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -22952,4 +22952,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pentagono-ufo-documenti-inediti-2026',
+ category: 'novita',
+ date: '2026-05-08T23:29:08.055Z',
+ image: '/images/blog/pentagono-ufo-documenti-inediti-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7194,6 +7194,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.title': 'Hantavirus: ginevrino in isolamento, basso rischio per frontalieri',
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.excerpt': 'Un ginevrino è in isolamento dopo un volo con un malato di hantavirus. L\'UFSP rassicura: basso rischio per la popolazione.',
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.imageAlt': 'Vista aerea del lago di Lugano con montagne sullo sfondo',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.title': 'Pentagono pubblica documenti e immagini inedite sugli Ufo',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.excerpt': 'Il Pentagono ha reso pubblici 162 documenti inediti su fenomeni anomali non identificati, nell\'ambito di un programma voluto da Donald Trump.',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici.',
 };
 
 export default blogMetaIt;

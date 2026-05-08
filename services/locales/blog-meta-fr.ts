@@ -7194,6 +7194,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.title': 'Hantavirus: un Genevois en isolement, faible risque pour les frontaliers',
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.excerpt': 'Un Genevois est en isolement après un vol avec un malade de l\'hantavirus. L\'UFSP rassure: faible risque pour la population.',
     'blog.article.hantavirus-ginevrino-isolamento-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.title': 'Le Pentagone publie des documents inédits sur les OVNIs',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.excerpt': 'Le Pentagone a rendu publics 162 documents inédits sur des phénomènes anomaux non identifiés, dans le cadre d\'un programme voulu par Donald Trump.',
+    'blog.article.pentagono-ufo-documenti-inediti-2026.imageAlt': 'Vue aérienne du lac de Lugano avec de l\'eau bleue claire, entourée de montagnes et de bâtiments.',
 };
 
 export default blogMetaFr;
