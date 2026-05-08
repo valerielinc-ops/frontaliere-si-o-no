@@ -3578,6 +3578,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dati-precalcolati-isa-2026-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/dati-precalcolati-isa-2026-frontalieri', parent: 'blog' },
     'blog-frontalieri-ticino-stabili-2026-q1': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-ticino-stabili-2026-q1', parent: 'blog' },
     'blog-ricorso-patente-lavoro-varese-2026': { name: 'Ricorso patente', path: '/articoli-frontaliere/ricorso-patente-lavoro-varese-2026', parent: 'blog' },
+    'blog-aggregazione-comuni-vedeggio-2026': { name: 'Aggregazione Comuni', path: '/articoli-frontaliere/aggregazione-comuni-vedeggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

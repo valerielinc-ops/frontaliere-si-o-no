@@ -7007,6 +7007,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ricorso-patente-lavoro-varese-2026.title': 'License appeal: job at risk due to justice delays',
     'blog.article.ricorso-patente-lavoro-varese-2026.excerpt': 'A professional from Varese shares her wait for an appeal on a revoked license: 1500 euros spent and still no answer. What to do if your job depends on driving?',
     'blog.article.ricorso-patente-lavoro-varese-2026.imageAlt': 'Person holding Swiss driver\'s license and Italian work contract with Castelgrande in the background',
+    'blog.article.aggregazione-comuni-vedeggio-2026.title': 'Vedeggio municipalities take first step towards merger',
+    'blog.article.aggregazione-comuni-vedeggio-2026.excerpt': 'Bedano, Cadempino, Gravesano and Lamone submit formal request to State Council for aggregation study. Goal: shared project by spring 2028',
+    'blog.article.aggregazione-comuni-vedeggio-2026.imageAlt': 'Aerial view of the Vedeggio Valley with the four municipalities of Bedano, Cadempino, Gravesano, and Lamone',
 };
 
 export default blogMetaEn;

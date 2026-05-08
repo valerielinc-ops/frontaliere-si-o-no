@@ -7008,6 +7008,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ricorso-patente-lavoro-varese-2026.title': 'Ricorso patente: lavoro in bilico per i tempi della giustizia',
     'blog.article.ricorso-patente-lavoro-varese-2026.excerpt': 'Una professionista di Varese racconta l\'attesa di un ricorso per patente ritirata: 1500 euro spesi e ancora nessuna risposta. Cosa fare se il lavoro dipende dalla guida?',
     'blog.article.ricorso-patente-lavoro-varese-2026.imageAlt': 'Persona tiene patente svizzera e contratto di lavoro italiano con Castelgrande in sfondo',
+    'blog.article.aggregazione-comuni-vedeggio-2026.title': 'Aggregazione Comuni Vedeggio: primo passo verso la fusione',
+    'blog.article.aggregazione-comuni-vedeggio-2026.excerpt': 'Bedano, Cadempino, Gravesano e Lamone presentano istanza formale al Consiglio di Stato per uno studio aggregativo. Obiettivo: progetto condiviso entro primavera 2028',
+    'blog.article.aggregazione-comuni-vedeggio-2026.imageAlt': 'Veduta aerea della Valle del Vedeggio con i quattro comuni di Bedano, Cadempino, Gravesano e Lamone',
 };
 
 export default blogMetaIt;

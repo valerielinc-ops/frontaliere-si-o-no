@@ -7008,6 +7008,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ricorso-patente-lavoro-varese-2026.title': 'Recours permis G : l\'emploi en suspens',
     'blog.article.ricorso-patente-lavoro-varese-2026.excerpt': 'Une professionnelle de Varèse raconte l\'attente d\'un recours pour un permis G retiré : 1500 francs dépensés et toujours aucune réponse. Que faire si l\'emploi dépend de la conduite ?',
     'blog.article.ricorso-patente-lavoro-varese-2026.imageAlt': 'Personne tenant un permis de conduire suisse et un contrat de travail italien avec Castelgrande en arrière-plan',
+    'blog.article.aggregazione-comuni-vedeggio-2026.title': 'Fusion des communes du Vedeggio: première étape',
+    'blog.article.aggregazione-comuni-vedeggio-2026.excerpt': 'Bedano, Cadempino, Gravesano et Lamone présentent une demande formelle au Conseil d\'État pour une étude d\'agrégation. Objectif: un projet commun d\'ici le printemps 2028',
+    'blog.article.aggregazione-comuni-vedeggio-2026.imageAlt': 'Vue aérienne de la vallée du Vedeggio avec les quatre communes de Bedano, Cadempino, Gravesano et Lamone',
 };
 
 export default blogMetaFr;

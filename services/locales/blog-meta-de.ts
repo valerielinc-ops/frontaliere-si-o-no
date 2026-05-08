@@ -7007,6 +7007,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ricorso-patente-lavoro-varese-2026.title': 'Führerschein-Widerspruch: Job in der Schwebe',
     'blog.article.ricorso-patente-lavoro-varese-2026.excerpt': 'Eine Fachkraft aus Varese erzählt von der Wartezeit auf einen Widerspruch gegen einen entzogenen Führerschein: 1500 Franken ausgegeben und noch immer keine Antwort. Was tun, wenn der Job vom Fahren abhängt?',
     'blog.article.ricorso-patente-lavoro-varese-2026.imageAlt': 'Person hält Schweizer Führerschein und italienischen Arbeitsvertrag mit Castelgrande im Hintergrund',
+    'blog.article.aggregazione-comuni-vedeggio-2026.title': 'Gemeindenfusion Vedeggio: erster Schritt',
+    'blog.article.aggregazione-comuni-vedeggio-2026.excerpt': 'Bedano, Cadempino, Gravesano und Lamone reichen formellen Antrag beim Staatsrat für eine Aggregationsstudie ein. Ziel: gemeinsames Projekt bis Frühling 2028',
+    'blog.article.aggregazione-comuni-vedeggio-2026.imageAlt': 'Luftaufnahme des Vedeggio-Tals mit den vier Gemeinden Bedano, Cadempino, Gravesano und Lamone',
 };
 
 export default blogMetaDe;
