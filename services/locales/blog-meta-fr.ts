@@ -7011,6 +7011,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aggregazione-comuni-vedeggio-2026.title': 'Fusion des communes du Vedeggio: première étape',
     'blog.article.aggregazione-comuni-vedeggio-2026.excerpt': 'Bedano, Cadempino, Gravesano et Lamone présentent une demande formelle au Conseil d\'État pour une étude d\'agrégation. Objectif: un projet commun d\'ici le printemps 2028',
     'blog.article.aggregazione-comuni-vedeggio-2026.imageAlt': 'Vue aérienne de la vallée du Vedeggio avec les quatre communes de Bedano, Cadempino, Gravesano et Lamone',
+    'blog.article.giardino-ferroviario-balerna-2026.title': 'Jardin ferroviaire à Balerna: un nouvel espace vert durable',
+    'blog.article.giardino-ferroviario-balerna-2026.excerpt': 'La Municipalité de Balerna et les CFF inaugurent le Jardin ferroviaire, une zone unique en Suisse avec des jardins urbains et des espaces de rassemblement',
+    'blog.article.giardino-ferroviario-balerna-2026.imageAlt': 'Jardin ferroviaire de Balerna, une zone verte durable avec des jardins urbains et des espaces communautaires',
 };
 
 export default blogMetaFr;

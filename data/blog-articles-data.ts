@@ -22403,4 +22403,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'giardino-ferroviario-balerna-2026',
+ category: 'pratico',
+ date: '2026-05-08T06:12:53.079Z',
+ image: '/images/blog/giardino-ferroviario-balerna-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

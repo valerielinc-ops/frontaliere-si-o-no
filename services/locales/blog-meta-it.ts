@@ -7011,6 +7011,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aggregazione-comuni-vedeggio-2026.title': 'Aggregazione Comuni Vedeggio: primo passo verso la fusione',
     'blog.article.aggregazione-comuni-vedeggio-2026.excerpt': 'Bedano, Cadempino, Gravesano e Lamone presentano istanza formale al Consiglio di Stato per uno studio aggregativo. Obiettivo: progetto condiviso entro primavera 2028',
     'blog.article.aggregazione-comuni-vedeggio-2026.imageAlt': 'Veduta aerea della Valle del Vedeggio con i quattro comuni di Bedano, Cadempino, Gravesano e Lamone',
+    'blog.article.giardino-ferroviario-balerna-2026.title': 'Giardino ferroviario a Balerna: un nuovo spazio verde sostenibile',
+    'blog.article.giardino-ferroviario-balerna-2026.excerpt': 'Il Municipio di Balerna e le FFS inaugurano il Giardino ferroviario, un\'area unica in Svizzera con orti urbani e spazi di aggregazione',
+    'blog.article.giardino-ferroviario-balerna-2026.imageAlt': 'Giardino ferroviario di Balerna, un\'area verde sostenibile con orti urbani e spazi di aggregazione',
 };
 
 export default blogMetaIt;

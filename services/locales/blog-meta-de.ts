@@ -7010,6 +7010,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aggregazione-comuni-vedeggio-2026.title': 'Gemeindenfusion Vedeggio: erster Schritt',
     'blog.article.aggregazione-comuni-vedeggio-2026.excerpt': 'Bedano, Cadempino, Gravesano und Lamone reichen formellen Antrag beim Staatsrat für eine Aggregationsstudie ein. Ziel: gemeinsames Projekt bis Frühling 2028',
     'blog.article.aggregazione-comuni-vedeggio-2026.imageAlt': 'Luftaufnahme des Vedeggio-Tals mit den vier Gemeinden Bedano, Cadempino, Gravesano und Lamone',
+    'blog.article.giardino-ferroviario-balerna-2026.title': 'Bahnhofsgarten in Balerna: ein neuer nachhaltiger Grünbereich',
+    'blog.article.giardino-ferroviario-balerna-2026.excerpt': 'Die Gemeinde Balerna und die SBB eröffnen den Bahnhofsgarten, eine einzigartige Fläche in der Schweiz mit urbanen Gärten und Gemeinschaftsräumen',
+    'blog.article.giardino-ferroviario-balerna-2026.imageAlt': 'Bahnhofsgarten Balerna, ein nachhaltiger Grünbereich mit Urban Gardens und Gemeinschaftsräumen',
 };
 
 export default blogMetaDe;

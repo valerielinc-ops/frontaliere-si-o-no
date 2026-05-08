@@ -7010,6 +7010,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aggregazione-comuni-vedeggio-2026.title': 'Vedeggio municipalities take first step towards merger',
     'blog.article.aggregazione-comuni-vedeggio-2026.excerpt': 'Bedano, Cadempino, Gravesano and Lamone submit formal request to State Council for aggregation study. Goal: shared project by spring 2028',
     'blog.article.aggregazione-comuni-vedeggio-2026.imageAlt': 'Aerial view of the Vedeggio Valley with the four municipalities of Bedano, Cadempino, Gravesano, and Lamone',
+    'blog.article.giardino-ferroviario-balerna-2026.title': 'Railway garden in Balerna: a new sustainable green space',
+    'blog.article.giardino-ferroviario-balerna-2026.excerpt': 'The Municipality of Balerna and the SBB inaugurate the Railway Garden, a unique area in Switzerland with urban gardens and community spaces',
+    'blog.article.giardino-ferroviario-balerna-2026.imageAlt': 'Balerna Railway Garden, a sustainable green area with urban gardens and community spaces',
 };
 
 export default blogMetaEn;
