@@ -7124,6 +7124,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendi-neolaureati-svizzera-austria-germania.title': 'Gehälter für Absolventen: Schweiz, Österreich und Deutschland führen',
     'blog.article.stipendi-neolaureati-svizzera-austria-germania.excerpt': 'Lohnvergleich für Absolventen in der Schweiz, Österreich, Deutschland, Italien, Polen und Spanien. Wer zahlt am meisten?',
     'blog.article.stipendi-neolaureati-svizzera-austria-germania.imageAlt': 'Luftansicht von Lugano mit dem Luganersee und umliegenden Bergen',
+    'blog.article.nuove-basi-lpp-2025-frontalieri.title': 'LPP 2025: Auswirkungen auf Leben und Invalidität',
+    'blog.article.nuove-basi-lpp-2025-frontalieri.excerpt': 'Die neuen technischen Grundlagen LPP 2025 bestätigen die Trends zur Lebenserwartung und Invalidität, mit Auswirkungen auf Grenzgänger im Tessin.',
+    'blog.article.nuove-basi-lpp-2025-frontalieri.imageAlt': 'Monte San Salvatore mit Blick auf Lugano und Luganersee',
 };
 
 export default blogMetaDe;

@@ -22745,4 +22745,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'nuove-basi-lpp-2025-frontalieri',
+ category: 'novita',
+ date: '2026-05-08T17:53:16.535Z',
+ image: '/images/blog/nuove-basi-lpp-2025-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7124,6 +7124,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendi-neolaureati-svizzera-austria-germania.title': 'Starting salaries: Switzerland, Austria and Germany lead',
     'blog.article.stipendi-neolaureati-svizzera-austria-germania.excerpt': 'Salary comparison for new graduates in Switzerland, Austria, Germany, Italy, Poland and Spain. Who pays the most?',
     'blog.article.stipendi-neolaureati-svizzera-austria-germania.imageAlt': 'Aerial view of Lugano with Lake Ceresio and surrounding mountains',
+    'blog.article.nuove-basi-lpp-2025-frontalieri.title': 'LPP 2025 technical bases: impact on life expectancy and disability',
+    'blog.article.nuove-basi-lpp-2025-frontalieri.excerpt': 'The new LPP 2025 technical bases confirm trends related to life expectancy and disability, with implications for cross-border workers in Ticino.',
+    'blog.article.nuove-basi-lpp-2025-frontalieri.imageAlt': 'Monte San Salvatore overlooking Lugano and Lake Lugano',
 };
 
 export default blogMetaEn;

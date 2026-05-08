@@ -7125,6 +7125,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendi-neolaureati-svizzera-austria-germania.title': 'Stipendi neo-laureati: Svizzera, Austria e Germania in testa',
     'blog.article.stipendi-neolaureati-svizzera-austria-germania.excerpt': 'Confronto salariale per i neo-laureati in Svizzera, Austria, Germania, Italia, Polonia e Spagna. Chi paga di più?',
     'blog.article.stipendi-neolaureati-svizzera-austria-germania.imageAlt': 'Veduta aerea di Lugano con il Lago Ceresio e le montagne circostanti',
+    'blog.article.nuove-basi-lpp-2025-frontalieri.title': 'Nuove basi tecniche LPP 2025: impatto su aspettativa di vita e invalidità',
+    'blog.article.nuove-basi-lpp-2025-frontalieri.excerpt': 'Le nuove basi tecniche LPP 2025 confermano le tendenze relative all\'aspettativa di vita e all\'invalidità, con implicazioni per i frontalieri in Ticino.',
+    'blog.article.nuove-basi-lpp-2025-frontalieri.imageAlt': 'Monte San Salvatore con vista su Lugano e Lago di Lugano',
 };
 
 export default blogMetaIt;

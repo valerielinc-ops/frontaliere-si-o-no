@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2427,
+ "numberOfItems": 2428,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7069,7 +7069,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2424, "name": "Emigrazione e cassa pensione: come risparmiare ...", "url": `${BASE_URL}/articoli-frontaliere/emigrazione-cassa-pensione-risparmio-imposte` },
           { "@type": "ListItem", "position": 2425, "name": "Nuovo accordo frontalieri: riforma del secondo ...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-frontalieri-pilastro-2026` },
           { "@type": "ListItem", "position": 2426, "name": "Tempi di attesa alla dogana di Chiasso: cosa sa...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-dogana-tempi-attesa` },
-          { "@type": "ListItem", "position": 2427, "name": "Stipendi neo-laureati: Svizzera, Austria e Germ...", "url": `${BASE_URL}/articoli-frontaliere/stipendi-neolaureati-svizzera-austria-germania` }
+          { "@type": "ListItem", "position": 2427, "name": "Stipendi neo-laureati: Svizzera, Austria e Germ...", "url": `${BASE_URL}/articoli-frontaliere/stipendi-neolaureati-svizzera-austria-germania` },
+          { "@type": "ListItem", "position": 2428, "name": "Nuove basi tecniche LPP 2025: impatto su aspett...", "url": `${BASE_URL}/articoli-frontaliere/nuove-basi-lpp-2025-frontalieri` }
  ]
  },
  {
