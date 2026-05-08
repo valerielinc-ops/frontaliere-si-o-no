@@ -7130,6 +7130,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumenti-stipendi-svizzera-2026.title': 'Swiss wage increases: what changes for cross-border workers',
     'blog.article.aumenti-stipendi-svizzera-2026.excerpt': 'Swiss paychecks are seeing significant increases. Here\'s what it means for Ticino cross-border workers.',
     'blog.article.aumenti-stipendi-svizzera-2026.imageAlt': 'Lake Lugano with modern buildings and people working',
+    'blog.article.lista-morosi-cassa-malati-ticino.title': 'Debtors\' list for health insurers: time needed for implementation',
+    'blog.article.lista-morosi-cassa-malati-ticino.excerpt': 'The Canton of Ticino is working to implement the debtors\' list for health insurers, but more time and clarifications are still needed',
+    'blog.article.lista-morosi-cassa-malati-ticino.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, clear blue sky',
 };
 
 export default blogMetaEn;

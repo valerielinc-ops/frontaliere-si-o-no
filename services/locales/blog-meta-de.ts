@@ -7130,6 +7130,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumenti-stipendi-svizzera-2026.title': 'Lohnanstieg in der Schweiz: Was sich für Grenzgänger ändert',
     'blog.article.aumenti-stipendi-svizzera-2026.excerpt': 'Die Lohnabrechnungen in der Schweiz verzeichnen deutliche Steigerungen. Hier erfahren Sie, was das für die Grenzgänger aus dem Tessin bedeutet.',
     'blog.article.aumenti-stipendi-svizzera-2026.imageAlt': 'Luganer See mit modernen Gebäuden und arbeitenden Menschen',
+    'blog.article.lista-morosi-cassa-malati-ticino.title': 'Schuldnerliste der Krankenkassen: Umsetzung braucht Zeit',
+    'blog.article.lista-morosi-cassa-malati-ticino.excerpt': 'Der Kanton Tessin arbeitet an der Umsetzung der Schuldnerliste der Krankenkassen, doch es braucht noch Zeit und Klarstellungen.',
+    'blog.article.lista-morosi-cassa-malati-ticino.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund, klarer blauer Himmel',
 };
 
 export default blogMetaDe;

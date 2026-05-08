@@ -7131,6 +7131,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumenti-stipendi-svizzera-2026.title': 'Augmentation des salaires en Suisse: ce qui change pour les frontaliers',
     'blog.article.aumenti-stipendi-svizzera-2026.excerpt': 'Les bulletins de salaire en Suisse enregistrent des augmentations substantielles. Voici ce que cela signifie pour les travailleurs frontaliers du Ticino.',
     'blog.article.aumenti-stipendi-svizzera-2026.imageAlt': 'Lac de Lugano avec des bâtiments modernes et des personnes travaillant',
+    'blog.article.lista-morosi-cassa-malati-ticino.title': 'Liste des débiteurs des caisses maladie: du temps nécessaire',
+    'blog.article.lista-morosi-cassa-malati-ticino.excerpt': 'Le canton du Tessin travaille à mettre en place la liste des débiteurs des caisses maladie, mais il faut encore du temps et des éclaircissements',
+    'blog.article.lista-morosi-cassa-malati-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan, ciel bleu clair',
 };
 
 export default blogMetaFr;

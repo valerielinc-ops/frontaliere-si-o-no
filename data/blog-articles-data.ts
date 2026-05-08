@@ -22763,4 +22763,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lista-morosi-cassa-malati-ticino',
+ category: 'pratico',
+ date: '2026-05-08T18:28:55.896Z',
+ image: '/images/blog/lista-morosi-cassa-malati-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

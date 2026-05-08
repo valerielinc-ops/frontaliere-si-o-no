@@ -1,0 +1,40 @@
+{
+  "id": "lista-morosi-cassa-malati-ticino",
+  "slug": "lista-morosi-cassa-malati-ticino",
+  "publishedAt": "2026-05-08T18:28:57.484Z",
+  "cluster": "salute",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.596848608991131,
+    "confidence": 0.8,
+    "finalScore": 9.277478887192904,
+    "topK": [
+      {
+        "slug": "sussidi-cassa-malati-mendrisio-rallentamenti",
+        "cosine": 0.7740008613561381
+      },
+      {
+        "slug": "sussidi-cassa-malati-mendrisio-ritardi",
+        "cosine": 0.7683870287550195
+      },
+      {
+        "slug": "iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps",
+        "cosine": 0.7624636165875635
+      },
+      {
+        "slug": "sussidi-cassa-malati-mendrisio-ritardi-2026",
+        "cosine": 0.7571185348376198
+      },
+      {
+        "slug": "iniziative-cassa-malati-piano-lega-ticino",
+        "cosine": 0.7568838937237821
+      }
+    ],
+    "score": 0.9277478887192905,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

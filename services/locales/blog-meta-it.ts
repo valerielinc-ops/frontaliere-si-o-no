@@ -7131,6 +7131,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumenti-stipendi-svizzera-2026.title': 'Aumenti stipendi in Svizzera: cosa cambia per i frontalieri',
     'blog.article.aumenti-stipendi-svizzera-2026.excerpt': 'Le buste paga in Svizzera registrano aumenti consistenti. Ecco cosa significa per i lavoratori frontalieri del Ticino.',
     'blog.article.aumenti-stipendi-svizzera-2026.imageAlt': 'Lugano lago con edifici moderni e persone che lavorano',
+    'blog.article.lista-morosi-cassa-malati-ticino.title': 'Lista morosi cassa malati: serve tempo per l\'attuazione',
+    'blog.article.lista-morosi-cassa-malati-ticino.excerpt': 'Il Canton Ticino sta lavorando per implementare la lista dei morosi delle casse malati, ma servono ancora tempo e chiarimenti',
+    'blog.article.lista-morosi-cassa-malati-ticino.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido',
 };
 
 export default blogMetaIt;
