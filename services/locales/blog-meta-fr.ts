@@ -7101,6 +7101,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.simona-waltert-ticino-frontalieri.title': 'Simona Waltert passe au deuxième tour à Rome',
     'blog.article.simona-waltert-ticino-frontalieri.excerpt': 'La joueuse de tennis grisonne se qualifie pour le deuxième tour du WTA 1\'000 de Rome, rejoignant trois autres Suissesses',
     'blog.article.simona-waltert-ticino-frontalieri.imageAlt': 'Simona Waltert en action au Foro Italico',
+    'blog.article.bonnie-tyler-coma-farmacologico-2026.title': 'Bonnie Tyler en coma après une opération d\'urgence',
+    'blog.article.bonnie-tyler-coma-farmacologico-2026.excerpt': 'La chanteuse britannique Bonnie Tyler, 74 ans, est en coma au Portugal après une opération pour une perforation intestinale.',
+    'blog.article.bonnie-tyler-coma-farmacologico-2026.imageAlt': 'Concert au LAC de Lugano, Suisse',
 };
 
 export default blogMetaFr;

@@ -7100,6 +7100,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.simona-waltert-ticino-frontalieri.title': 'Simona Waltert zieht in Rom in die zweite Runde ein',
     'blog.article.simona-waltert-ticino-frontalieri.excerpt': 'Die Graubündner Tennisspielerin qualifiziert sich für die zweite Runde des WTA 1\'000 in Rom und erreicht damit drei weitere Schweizerinnen',
     'blog.article.simona-waltert-ticino-frontalieri.imageAlt': 'Simona Waltert im Einsatz am Foro Italico',
+    'blog.article.bonnie-tyler-coma-farmacologico-2026.title': 'Bonnie Tyler nach Notoperation im künstlichen Koma',
+    'blog.article.bonnie-tyler-coma-farmacologico-2026.excerpt': 'Die britische Sängerin Bonnie Tyler, 74, liegt in Portugal nach einer Operation wegen einer Darmperforation im künstlichen Koma.',
+    'blog.article.bonnie-tyler-coma-farmacologico-2026.imageAlt': 'Konzert im LAC Lugano, Schweiz',
 };
 
 export default blogMetaDe;

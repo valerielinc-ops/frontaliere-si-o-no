@@ -7100,6 +7100,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.simona-waltert-ticino-frontalieri.title': 'Simona Waltert advances to Rome\'s second round',
     'blog.article.simona-waltert-ticino-frontalieri.excerpt': 'The Grisons tennis player qualifies for the second round of the WTA 1\'000 in Rome, joining three other Swiss players',
     'blog.article.simona-waltert-ticino-frontalieri.imageAlt': 'Simona Waltert in action at Foro Italico',
+    'blog.article.bonnie-tyler-coma-farmacologico-2026.title': 'Bonnie Tyler in induced coma after emergency surgery',
+    'blog.article.bonnie-tyler-coma-farmacologico-2026.excerpt': 'British singer Bonnie Tyler, 74, is in an induced coma in Portugal after surgery for a intestinal perforation.',
+    'blog.article.bonnie-tyler-coma-farmacologico-2026.imageAlt': 'Concert at LAC Lugano, Switzerland',
 };
 
 export default blogMetaEn;
