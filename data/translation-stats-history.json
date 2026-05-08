@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-23T11:06:44.597Z",
-    "label": "before",
-    "total": 2672,
-    "needsRetranslation": 1186,
-    "incomplete": 148,
-    "complete": 2524,
-    "missingByLocale": {
-      "it": 85,
-      "en": 112,
-      "de": 96,
-      "fr": 135
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 48
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Kantonale Verwaltung Graubünden",
-        "pending": 13
-      },
-      {
-        "company": "Lonza",
-        "pending": 7
-      },
-      {
-        "company": "Hubers Landhendl GmbH",
-        "pending": 5
-      },
-      {
-        "company": "Prada Group",
-        "pending": 4
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 3
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-23T12:12:47.054Z",
-    "label": "after",
-    "total": 2672,
-    "needsRetranslation": 100,
-    "incomplete": 53,
-    "complete": 2619,
-    "missingByLocale": {
-      "it": 41,
-      "en": 26,
-      "de": 34,
-      "fr": 42
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 3
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Fusalp",
-        "pending": 2
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-23T14:06:33.506Z",
     "label": "before",
     "total": 2672,
@@ -9283,6 +9171,118 @@
       "en": 23,
       "de": 18,
       "fr": 37
+    },
+    "topPending": [
+      {
+        "company": "Lonza",
+        "pending": 16
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ariston Group",
+        "pending": 1
+      },
+      {
+        "company": "Bosch Thermotechnik AG",
+        "pending": 1
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-08T02:58:07.805Z",
+    "label": "before",
+    "total": 2656,
+    "needsRetranslation": 178,
+    "incomplete": 46,
+    "complete": 2610,
+    "missingByLocale": {
+      "it": 36,
+      "en": 23,
+      "de": 18,
+      "fr": 37
+    },
+    "topPending": [
+      {
+        "company": "Lonza",
+        "pending": 16
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ariston Group",
+        "pending": 1
+      },
+      {
+        "company": "Bosch Thermotechnik AG",
+        "pending": 1
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-08T03:29:16.055Z",
+    "label": "after",
+    "total": 2656,
+    "needsRetranslation": 172,
+    "incomplete": 44,
+    "complete": 2612,
+    "missingByLocale": {
+      "it": 35,
+      "en": 22,
+      "de": 17,
+      "fr": 36
     },
     "topPending": [
       {
