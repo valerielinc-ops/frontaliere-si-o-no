@@ -7032,6 +7032,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-orari-lavorativi-residenzialita.title': 'Horaires flexibles et résidence pour les frontaliers',
     'blog.article.frontalieri-orari-lavorativi-residenzialita.excerpt': 'Lea propose des horaires de travail plus flexibles et la résidence pour les frontaliers afin d\'alléger le trafic et d\'améliorer la qualité de vie en Ticino.',
     'blog.article.frontalieri-orari-lavorativi-residenzialita.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan, montrant un groupe de professionnels travaillant sur des ordinateurs portables dans un espace de co-working',
+    'blog.article.lumen-claro-premiati-varese-1989.title': 'Lumen Claro: les lauréats depuis 1989 à Varèse',
+    'blog.article.lumen-claro-premiati-varese-1989.excerpt': 'Depuis 1989, le Lions Club Varèse Prealpi récompense les excellences du territoire. Voici tous les gagnants du prix Lumen Claro.',
+    'blog.article.lumen-claro-premiati-varese-1989.imageAlt': 'Cérémonie de remise des prix Lumen Claro à Varese, avec des invités en tenue de soirée et trophée sur scène',
 };
 
 export default blogMetaFr;

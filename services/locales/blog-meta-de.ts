@@ -7031,6 +7031,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-orari-lavorativi-residenzialita.title': 'Flexible Arbeitszeiten und Wohnsitz für Grenzgänger',
     'blog.article.frontalieri-orari-lavorativi-residenzialita.excerpt': 'Lea schlägt flexiblere Arbeitszeiten und Wohnsitzregelungen für Grenzgänger vor, um den Verkehr zu entlasten und die Lebensqualität im Tessin zu verbessern.',
     'blog.article.frontalieri-orari-lavorativi-residenzialita.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund, das eine Gruppe von Fachleuten zeigt, die in einem Co-Working-Space an Laptops arbeiten',
+    'blog.article.lumen-claro-premiati-varese-1989.title': 'Lumen Claro: Die Preisträger seit 1989 in Varese',
+    'blog.article.lumen-claro-premiati-varese-1989.excerpt': 'Seit 1989 ehrt der Lions Club Varese Prealpi die Exzellenzen der Region. Hier sind alle Gewinner des Lumen Claro Preises.',
+    'blog.article.lumen-claro-premiati-varese-1989.imageAlt': 'Preisverleihung Lumen Claro in Varese, mit Gästen in Abendkleidung und Trophäe auf der Bühne',
 };
 
 export default blogMetaDe;

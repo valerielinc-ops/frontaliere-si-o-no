@@ -22466,4 +22466,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lumen-claro-premiati-varese-1989',
+ category: 'novita',
+ date: '2026-05-08T07:07:50.601Z',
+ image: '/images/blog/lumen-claro-premiati-varese-1989.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -1,0 +1,40 @@
+{
+  "id": "lumen-claro-premiati-varese-1989",
+  "slug": "lumen-claro-premiati-varese-1989",
+  "publishedAt": "2026-05-08T07:07:51.760Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 15.00799897973867,
+    "confidence": 0.8,
+    "finalScore": 12.006399183790936,
+    "topK": [
+      {
+        "slug": "intesa-sanpaolo-premia-10-imprese-vincenti",
+        "cosine": 0.7503999489869335
+      },
+      {
+        "slug": "varese-celebra-san-vittore-girometta-oro-2026",
+        "cosine": 0.7381431649166086
+      },
+      {
+        "slug": "girometta-doro-andrea-chiodi-varese-2026",
+        "cosine": 0.7322328926737467
+      },
+      {
+        "slug": "nuovi-maestri-lavoro-varese-leonardo-2026",
+        "cosine": 0.7301759836955866
+      },
+      {
+        "slug": "varese-lago-perduto-memoria-comunita",
+        "cosine": 0.7243545871604269
+      }
+    ],
+    "score": 1.2006399183790937,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
