@@ -3604,6 +3604,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rimborso-cure-dentarie-ticino-2026': { name: 'Rimborso cure dentarie', path: '/articoli-frontaliere/rimborso-cure-dentarie-ticino-2026', parent: 'blog' },
     'blog-bolla-immobiliare-ticino-2026': { name: 'Bolla immobiliare', path: '/articoli-frontaliere/bolla-immobiliare-ticino-2026', parent: 'blog' },
     'blog-imprinting-saggio-architettura-italiana': { name: 'Architettura Italiana', path: '/articoli-frontaliere/imprinting-saggio-architettura-italiana', parent: 'blog' },
+    'blog-pagaiate-internazionali-grigioni-ticino-2026': { name: 'Eventi sportivi', path: '/articoli-frontaliere/pagaiate-internazionali-grigioni-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

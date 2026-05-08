@@ -22628,4 +22628,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pagaiate-internazionali-grigioni-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-08T11:04:46.775Z',
+ image: '/images/blog/pagaiate-internazionali-grigioni-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

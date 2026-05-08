@@ -7085,6 +7085,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.imprinting-saggio-architettura-italiana.title': 'Antonino Saggio: Italienische Architektur im Tessin',
     'blog.article.imprinting-saggio-architettura-italiana.excerpt': 'Entdecken Sie, wie die italienische Architektur das Stadtbild des Tessin prägt, mit einem Fokus auf den Einfluss von Antonino Saggio.',
     'blog.article.imprinting-saggio-architettura-italiana.imageAlt': 'Architektur von Mendrisio, die den italienischen Einfluss widerspiegelt',
+    'blog.article.pagaiate-internazionali-grigioni-ticino-2026.title': 'Internationale Kanu-Wettkämpfe zwischen Graubünden und Tessin',
+    'blog.article.pagaiate-internazionali-grigioni-ticino-2026.excerpt': 'Am Samstag, den 9. und Sonntag, den 10. Mai 2026, finden Kanu-Wettkämpfe auf den Flüssen Moesa und Ticino statt. Über 110 Athleten aus 7 Nationen, darunter Australien.',
+    'blog.article.pagaiate-internazionali-grigioni-ticino-2026.imageAlt': 'Luftaufnahme der Flüsse Moesa und Ticino im Tessin, Schweiz, mit Kanuten, die an internationalen Rennen teilnehmen.',
 };
 
 export default blogMetaDe;

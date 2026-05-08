@@ -7086,6 +7086,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.imprinting-saggio-architettura-italiana.title': 'L’Imprinting di Antonino Saggio: l\'architettura italiana in Ticino',
     'blog.article.imprinting-saggio-architettura-italiana.excerpt': 'Scopri come l\'architettura italiana influisce sul paesaggio urbano del Ticino, con un focus sull\'imprinting di Antonino Saggio.',
     'blog.article.imprinting-saggio-architettura-italiana.imageAlt': 'Architettura di Mendrisio che riflette l\'imprinting italiano',
+    'blog.article.pagaiate-internazionali-grigioni-ticino-2026.title': 'Pagaiate internazionali fra Grigioni e Ticino: tutto quello che devi sapere',
+    'blog.article.pagaiate-internazionali-grigioni-ticino-2026.excerpt': 'Sabato 9 e domenica 10 maggio 2026, gare di canoa sui fiumi Moesa e Ticino. Over 110 atleti da 7 nazioni, tra cui l\'Australia.',
+    'blog.article.pagaiate-internazionali-grigioni-ticino-2026.imageAlt': 'Vista aerea dei fiumi Moesa e Ticino in Ticino, Svizzera, con canoisti che competono nelle gare internazionali.',
 };
 
 export default blogMetaIt;

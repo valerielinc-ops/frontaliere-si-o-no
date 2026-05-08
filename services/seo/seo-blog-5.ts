@@ -30962,6 +30962,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pagaiate-internazionali-grigioni-ticino-2026': {
+    title: 'Pagaiate internazionali fra Grigioni e Ticino: tutto quello che devi sapere',
+    description: 'Sabato 9 e domenica 10 maggio 2026, gare di canoa sui fiumi Moesa e Ticino. Over 110 atleti da 7 nazioni, tra cui l\'Australia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pagaiate, internazionali, grigioni, tutto',
+    ogTitle: 'Pagaiate internazionali fra Grigioni e Ticino 2026',
+    ogDescription: 'Sabato 9 e domenica 10 maggio 2026, gare di canoa sui fiumi Moesa e Ticino. Over 110 atleti da 7 nazioni, tra cui l\'Australia.',
+    canonicalPath: '/articoli-frontaliere/pagaiate-internazionali-grigioni-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pagaiate internazionali fra Grigioni e Ticino: tutto quello che devi sapere",
+      "description": "Sabato 9 e domenica 10 maggio 2026, gare di canoa sui fiumi Moesa e Ticino. Over 110 atleti da 7 nazioni, tra cui l'Australia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pagaiate-internazionali-grigioni-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dei fiumi Moesa e Ticino in Ticino, Svizzera, con canoisti che competono nelle gare internazionali."
+      },
+      "datePublished": "2026-05-08T11:04:46+00:00",
+      "dateModified": "2026-05-08T11:04:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pagaiate-internazionali-grigioni-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

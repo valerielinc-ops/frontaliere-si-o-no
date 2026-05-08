@@ -7085,6 +7085,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.imprinting-saggio-architettura-italiana.title': 'Antonino Saggio\'s Architectural Imprint in Ticino',
     'blog.article.imprinting-saggio-architettura-italiana.excerpt': 'Discover how Italian architecture influences Ticino\'s urban landscape, focusing on Antonino Saggio\'s imprint.',
     'blog.article.imprinting-saggio-architettura-italiana.imageAlt': 'Architecture of Mendrisio reflecting the Italian imprint',
+    'blog.article.pagaiate-internazionali-grigioni-ticino-2026.title': 'International canoe races between Grisons and Ticino: what you need to know',
+    'blog.article.pagaiate-internazionali-grigioni-ticino-2026.excerpt': 'On Saturday 9 and Sunday 10 May 2026, canoe races on the Moesa and Ticino rivers. Over 110 athletes from 7 nations, including Australia.',
+    'blog.article.pagaiate-internazionali-grigioni-ticino-2026.imageAlt': 'Aerial view of the Moesa and Ticino rivers in Ticino, Switzerland, with kayakers competing in international races.',
 };
 
 export default blogMetaEn;
