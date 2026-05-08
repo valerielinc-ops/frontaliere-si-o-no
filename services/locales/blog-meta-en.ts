@@ -7118,6 +7118,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-accordo-frontalieri-pilastro-2026.title': 'New cross-border worker agreement: second pillar reform up for vote',
     'blog.article.nuovo-accordo-frontalieri-pilastro-2026.excerpt': 'The future of the second pillar for cross-border workers in Ticino is under discussion. Here\'s what changes and what to do',
     'blog.article.nuovo-accordo-frontalieri-pilastro-2026.imageAlt': 'Lake Lugano with a modern building in the background',
+    'blog.article.chiasso-dogana-tempi-attesa.title': 'Waiting times at Chiasso customs: what to know',
+    'blog.article.chiasso-dogana-tempi-attesa.excerpt': 'Discover the average waiting times at Chiasso customs and how to best organize your cross-border trips.',
+    'blog.article.chiasso-dogana-tempi-attesa.imageAlt': 'Chiasso border with customs area and cars waiting',
 };
 
 export default blogMetaEn;

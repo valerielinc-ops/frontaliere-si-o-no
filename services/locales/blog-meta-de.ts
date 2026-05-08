@@ -7118,6 +7118,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-accordo-frontalieri-pilastro-2026.title': 'Neue Grenzpendler-Vereinbarung: Reform der zweiten Säule zur Abstimmung',
     'blog.article.nuovo-accordo-frontalieri-pilastro-2026.excerpt': 'Die Zukunft der zweiten Säule für Grenzpendler im Tessin steht zur Debatte. Hier erfahren Sie, was sich ändert und was zu tun ist',
     'blog.article.nuovo-accordo-frontalieri-pilastro-2026.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
+    'blog.article.chiasso-dogana-tempi-attesa.title': 'Wartezeiten an der Zollstation Chiasso: Wichtiges wissen',
+    'blog.article.chiasso-dogana-tempi-attesa.excerpt': 'Erfahren Sie die durchschnittlichen Wartezeiten an der Zollstation Chiasso und wie Sie Ihre grenzüberschreitenden Fahrten am besten organisieren können.',
+    'blog.article.chiasso-dogana-tempi-attesa.imageAlt': 'Grenzübergang Chiasso mit Zollbereich und wartenden Autos',
 };
 
 export default blogMetaDe;

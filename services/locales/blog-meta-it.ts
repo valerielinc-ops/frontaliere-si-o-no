@@ -7119,6 +7119,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-accordo-frontalieri-pilastro-2026.title': 'Nuovo accordo frontalieri: riforma del secondo pilastro in votazione',
     'blog.article.nuovo-accordo-frontalieri-pilastro-2026.excerpt': 'Il futuro del secondo pilastro per i frontalieri in Ticino è in discussione. Ecco cosa cambia e cosa fare',
     'blog.article.nuovo-accordo-frontalieri-pilastro-2026.imageAlt': 'Lago di Lugano con un edificio moderno in secondo piano',
+    'blog.article.chiasso-dogana-tempi-attesa.title': 'Tempi di attesa alla dogana di Chiasso: cosa sapere',
+    'blog.article.chiasso-dogana-tempi-attesa.excerpt': 'Scopri i tempi medi di attesa alla dogana di Chiasso e come organizzare al meglio i tuoi spostamenti transfrontalieri.',
+    'blog.article.chiasso-dogana-tempi-attesa.imageAlt': 'Confine di Chiasso con area doganale e auto in attesa',
 };
 
 export default blogMetaIt;

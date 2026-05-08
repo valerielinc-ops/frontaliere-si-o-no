@@ -1,0 +1,40 @@
+{
+  "id": "chiasso-dogana-tempi-attesa",
+  "slug": "chiasso-dogana-tempi-attesa",
+  "publishedAt": "2026-05-08T17:27:09.015Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 18.48623569612601,
+    "confidence": 0.8,
+    "finalScore": 14.788988556900808,
+    "topK": [
+      {
+        "slug": "dogana-chiasso-centro-tecnologico",
+        "cosine": 0.8480676326038463
+      },
+      {
+        "slug": "lite-dogana-ponte-chiasso-ferito-contuso",
+        "cosine": 0.812817585515607
+      },
+      {
+        "slug": "dogana-chiasso-traffico-2026",
+        "cosine": 0.7928421919714923
+      },
+      {
+        "slug": "multa-vignetta-pasqua-chiasso-2024",
+        "cosine": 0.782060375631209
+      },
+      {
+        "slug": "estate-chiasso-2026-eventi",
+        "cosine": 0.7792561402080097
+      }
+    ],
+    "score": 1.4788988556900808,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
