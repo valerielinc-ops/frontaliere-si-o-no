@@ -30,8 +30,11 @@ describe('evidence-index constants', () => {
     expect(constants.GSC_MIN_IMP).toBe(5);
     expect(constants.GA4_MIN_SESSIONS).toBe(3);
     expect(constants.CLUSTER_MIN_N).toBe(5);
-    expect(constants.EMBEDDING_DIM).toBe(1536);
-    expect(constants.EMBEDDING_MODEL).toBe('text-embedding-3-small');
+    expect(constants.EMBEDDING_DIM).toBe(1024);
+    expect(constants.EMBEDDING_MODEL).toBe('mistral-embed');
+    expect(constants.EMBEDDING_PROVIDERS).toHaveLength(2);
+    expect(constants.EMBEDDING_PROVIDERS[0].id).toBe('mistral');
+    expect(constants.EMBEDDING_PROVIDERS[1].id).toBe('cohere');
   });
 });
 

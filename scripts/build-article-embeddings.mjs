@@ -161,16 +161,16 @@ async function main() {
   }
 
   if (toEmbed.length > 0) {
-    if (!process.env.OPENAI_API_KEY) {
-      console.error(`EMBEDDINGS_BUILD skipped — OPENAI_API_KEY missing. ${toEmbed.length} articles would have been embedded; cascadedScore will fall through to cluster median for unembedded articles. Set the secret to enable embedding step.`);
-      // Preserve existing embeddings file (if any). Do not write a new one.
-      // Still emit the meta sidecar so downstream tools know the count.
+    const hasMistral = !!(process.env.MISTRAL_API_KEY || '').trim();
+    const hasCohere = !!(process.env.COHERE_API_KEY || '').trim();
+    if (!hasMistral && !hasCohere) {
+      console.error(`EMBEDDINGS_BUILD skipped — no embedding provider configured (set MISTRAL_API_KEY or COHERE_API_KEY in Remote Config). ${toEmbed.length} articles would have been embedded; cascadedScore will fall through to cluster median for unembedded articles.`);
       const meta = {
         model: EMBEDDING_MODEL,
         dim: EMBEDDING_DIM,
         count: existingStore.count,
         builtAt: new Date().toISOString(),
-        skipped: 'OPENAI_API_KEY missing',
+        skipped: 'no provider key in env',
       };
       writeFileSync(OUTPUT_META, JSON.stringify(meta, null, 2) + '\n');
       console.error(`EMBEDDINGS_BUILD wrote meta-only sidecar at ${OUTPUT_META}`);
