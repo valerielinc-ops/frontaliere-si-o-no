@@ -465,18 +465,16 @@ body.modal-open .google-auto-placed {
   }
 }
 
-/* P0.1.D — confine layout shifts to the section that produced them so a
-   shift in one place doesn't cascade through main content. The cost is
-   purely correctness: any sub-tree that depends on absolutely-positioned
-   children outside the container would need to opt out. None of our SEO
-   surfaces do.
-   Scope: `main` (Tailwind layout root) + every `<section>` that already
-   has an inset layout token. Keeping the selector list explicit (instead
-   of `section`) so we don't accidentally bound flex/grid wrappers we want
-   to overflow naturally. */
-main {
-  contain: layout;
-}
+/* P0.1.D — `main { contain: layout }` was reverted on 2026-05-08 because
+   the visual-regression baseline on / and /calcola-stipendio/ flagged a
+   ~28-px page-wide shift starting at the news ticker, traceable to the
+   containment context changing how absolutely-positioned descendants of
+   <main> resolve their layout pass.
+   The 5-10% CLS recovery from `contain: layout` is small compared to the
+   blast radius (every page on the site uses the same <main>), so the
+   correct trade is to keep this off until we re-introduce it on a
+   narrower selector that doesn't cross the visual baseline. Tracked as
+   follow-up. */
 
 /* ===== Non-critical CSS moved from inline <style> to reduce render-blocking ===== */
 
