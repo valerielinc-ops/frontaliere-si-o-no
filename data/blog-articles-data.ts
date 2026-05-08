@@ -22295,4 +22295,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'processo-broker-vip-retrocessioni',
+ category: 'pratico',
+ date: '2026-05-08T03:32:40.720Z',
+ image: '/images/blog/processo-broker-vip-retrocessioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

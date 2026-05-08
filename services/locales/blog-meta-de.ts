@@ -6974,6 +6974,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-commissario-fedpol-mafia.title': 'Fedpol-Kommissar verhaftet: Mafia-Infos für 100.000 Franken',
     'blog.article.arresto-commissario-fedpol-mafia.excerpt': 'Ein Kommissar des Schweizer Bundesamts für Polizei verhaftet, weil er vertrauliche Informationen an eine Mafia-Organisation weitergegeben hat.',
     'blog.article.arresto-commissario-fedpol-mafia.imageAlt': 'Castelgrande in Bellinzona mit den Alpen im Hintergrund',
+    'blog.article.processo-broker-vip-retrocessioni.title': 'Prozess gegen VIP-Broker: Streit um Rückvergütungen und Interessenkonflikt',
+    'blog.article.processo-broker-vip-retrocessioni.excerpt': 'Zweiter Verhandlungstag für einen 53-Jährigen, der eines millionenschweren Schadens beschuldigt wird. Über 5 Jahre Ermittlungen',
+    'blog.article.processo-broker-vip-retrocessioni.imageAlt': 'Gerichtsraum in Lugano während des Prozesses gegen den VIP-Makler',
 };
 
 export default blogMetaDe;

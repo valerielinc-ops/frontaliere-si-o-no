@@ -6975,6 +6975,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-commissario-fedpol-mafia.title': 'Arresto commissario Fedpol: informazioni alla mafia per 100mila franchi',
     'blog.article.arresto-commissario-fedpol-mafia.excerpt': 'Un commissario del Servizio Federale di Sicurezza svizzero arrestato per aver trasmesso informazioni riservate a un\'organizzazione mafiosa.',
     'blog.article.arresto-commissario-fedpol-mafia.imageAlt': 'Castelgrande a Bellinzona con le Alpi sullo sfondo',
+    'blog.article.processo-broker-vip-retrocessioni.title': 'Processo al broker dei VIP: scontro su retrocessioni e conflitto d’interessi',
+    'blog.article.processo-broker-vip-retrocessioni.excerpt': 'Seconda giornata di dibattimento per un 53enne accusato di danno millionario. Oltre 5 anni d’inchiesta',
+    'blog.article.processo-broker-vip-retrocessioni.imageAlt': 'Aula del tribunale di Lugano durante il processo al broker dei VIP',
 };
 
 export default blogMetaIt;

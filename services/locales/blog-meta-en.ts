@@ -6974,6 +6974,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-commissario-fedpol-mafia.title': 'Fedpol officer arrested for leaking info to mafia for 100k CHF',
     'blog.article.arresto-commissario-fedpol-mafia.excerpt': 'A Swiss Federal Security Service commissioner was arrested for passing confidential information to a mafia organization.',
     'blog.article.arresto-commissario-fedpol-mafia.imageAlt': 'Castelgrande in Bellinzona with the Alps in the background',
+    'blog.article.processo-broker-vip-retrocessioni.title': 'VIP broker trial: clash over kickbacks and conflict of interest',
+    'blog.article.processo-broker-vip-retrocessioni.excerpt': 'Second day of hearings for a 53-year-old accused of million-dollar damages. Over 5 years of investigation',
+    'blog.article.processo-broker-vip-retrocessioni.imageAlt': 'Courtroom in Lugano during the trial of the VIP broker',
 };
 
 export default blogMetaEn;

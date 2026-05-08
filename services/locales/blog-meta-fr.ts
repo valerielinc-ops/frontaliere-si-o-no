@@ -6975,6 +6975,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-commissario-fedpol-mafia.title': 'Commissaire Fedpol arrêté pour informations à la mafia',
     'blog.article.arresto-commissario-fedpol-mafia.excerpt': 'Un commissaire du Service fédéral de sécurité suisse arrêté pour avoir transmis des informations réservées à une organisation mafieuse.',
     'blog.article.arresto-commissario-fedpol-mafia.imageAlt': 'Castelgrande à Bellinzona avec les Alpes en arrière-plan',
+    'blog.article.processo-broker-vip-retrocessioni.title': 'Procès du courtier des VIP : conflit d’intérêts et rétrocessions',
+    'blog.article.processo-broker-vip-retrocessioni.excerpt': 'Deuxième journée de débat pour un quinquagénaire accusé de préjudice millionnaire. Plus de 5 ans d’enquête',
+    'blog.article.processo-broker-vip-retrocessioni.imageAlt': 'Salle d\'audience à Lugano pendant le procès du courtier VIP',
 };
 
 export default blogMetaFr;
