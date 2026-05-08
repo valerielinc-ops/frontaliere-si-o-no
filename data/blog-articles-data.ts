@@ -22898,4 +22898,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'blackout-internet-iran-70-giorni',
+ category: 'novita',
+ date: '2026-05-08T22:43:46.621Z',
+ image: '/images/blog/blackout-internet-iran-70-giorni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

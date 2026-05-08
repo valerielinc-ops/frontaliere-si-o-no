@@ -7175,6 +7175,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.simone-grossi-frontaliere-visp.title': 'Cross-border worker dies in Visp: Simone Grossi',
     'blog.article.simone-grossi-frontaliere-visp.excerpt': 'Simone Grossi, an Italian cross-border worker, died this morning in Visp. Authorities are investigating the cause of the accident.',
     'blog.article.simone-grossi-frontaliere-visp.imageAlt': 'Visp train station in Switzerland with emergency services present',
+    'blog.article.blackout-internet-iran-70-giorni.title': 'Iran internet blackout hits 70-day mark',
+    'blog.article.blackout-internet-iran-70-giorni.excerpt': 'Iran\'s internet blackout has reached its 70th day, one of the longest national blocks ever recorded.',
+    'blog.article.blackout-internet-iran-70-giorni.imageAlt': 'Aerial view of Lugano Lake and the city',
 };
 
 export default blogMetaEn;

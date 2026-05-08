@@ -3634,6 +3634,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-addio-tutto-compreso-ai-costi': { name: 'AI e costi', path: '/articoli-frontaliere/addio-tutto-compreso-ai-costi', parent: 'blog' },
     'blog-arcidiacono-curia-lugano-2026': { name: 'Curia Lugano', path: '/articoli-frontaliere/arcidiacono-curia-lugano-2026', parent: 'blog' },
     'blog-simone-grossi-frontaliere-visp': { name: 'Novità', path: '/articoli-frontaliere/simone-grossi-frontaliere-visp', parent: 'blog' },
+    'blog-blackout-internet-iran-70-giorni': { name: 'Novità', path: '/articoli-frontaliere/blackout-internet-iran-70-giorni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

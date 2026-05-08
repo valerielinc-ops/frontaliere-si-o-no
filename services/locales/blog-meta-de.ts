@@ -7175,6 +7175,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.simone-grossi-frontaliere-visp.title': 'Grenzgänger in Visp tot aufgefunden: Simone Grossi',
     'blog.article.simone-grossi-frontaliere-visp.excerpt': 'Simone Grossi, ein italienischer Grenzgänger, ist heute Morgen in Visp verstorben. Die Behörden ermitteln noch zu den Umständen des Vorfalls.',
     'blog.article.simone-grossi-frontaliere-visp.imageAlt': 'Bahnhof Visp in der Schweiz mit anwesenden Rettungsdiensten',
+    'blog.article.blackout-internet-iran-70-giorni.title': 'Internetausfall in Iran: 70 Tage offline',
+    'blog.article.blackout-internet-iran-70-giorni.excerpt': 'Der Internetausfall in Iran hat den 70. Tag erreicht, einer der längsten national registrierten Sperren.',
+    'blog.article.blackout-internet-iran-70-giorni.imageAlt': 'Luftaufnahme des Luganer Sees und der Stadt',
 };
 
 export default blogMetaDe;
