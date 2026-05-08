@@ -1,16 +1,16 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-05-08T09:30:50.494Z",
-  "total": 95,
+  "generatedAt": "2026-05-08T21:23:05.298Z",
+  "total": 92,
   "newCount": 0,
-  "updatedCount": 91,
-  "removedCount": 0,
+  "updatedCount": 88,
+  "removedCount": 3,
   "unchangedCount": 4,
-  "durationMs": 7854,
-  "avgDurationMs": 7854,
+  "durationMs": 13635,
+  "avgDurationMs": 13635,
   "durationHistory": [
-    7854
+    13635
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.087Z",
+      "crawledAt": "2026-05-08T21:23:04.911Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -76,7 +76,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.088Z",
+      "crawledAt": "2026-05-08T21:23:04.912Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -117,7 +117,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.090Z",
+      "crawledAt": "2026-05-08T21:23:04.913Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -158,7 +158,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.090Z",
+      "crawledAt": "2026-05-08T21:23:04.914Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -199,7 +199,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.091Z",
+      "crawledAt": "2026-05-08T21:23:04.914Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -240,7 +240,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.092Z",
+      "crawledAt": "2026-05-08T21:23:04.915Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -281,7 +281,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.092Z",
+      "crawledAt": "2026-05-08T21:23:04.916Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -322,7 +322,7 @@
       "postedDate": "2026-02-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.093Z",
+      "crawledAt": "2026-05-08T21:23:04.917Z",
       "coordinates": [
         46.2496614,
         10.1292791
@@ -363,7 +363,7 @@
       "postedDate": "2026-02-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.093Z",
+      "crawledAt": "2026-05-08T21:23:04.917Z",
       "coordinates": [
         46.2496614,
         10.1292791
@@ -404,7 +404,7 @@
       "postedDate": "2026-02-23",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.093Z",
+      "crawledAt": "2026-05-08T21:23:04.917Z",
       "coordinates": [
         46.6199306,
         9.784457
@@ -445,7 +445,7 @@
       "postedDate": "2026-02-02",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.093Z",
+      "crawledAt": "2026-05-08T21:23:04.918Z",
       "coordinates": [
         46.9150041,
         9.7611799
@@ -486,7 +486,7 @@
       "postedDate": "2026-01-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.094Z",
+      "crawledAt": "2026-05-08T21:23:04.918Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -527,7 +527,7 @@
       "postedDate": "2026-01-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.094Z",
+      "crawledAt": "2026-05-08T21:23:04.918Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -568,7 +568,7 @@
       "postedDate": "2026-01-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.094Z",
+      "crawledAt": "2026-05-08T21:23:04.919Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -584,47 +584,6 @@
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Standortleiter/in (80 - 100%)",
-      "slug": "standortleiter-in-80-100-derungs-ag-lumbrein",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-derungs-ag-1",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-derungs-ag-1",
-      "company": "Derungs AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lumbrein",
-      "addressLocality": "Lumbrein",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-01-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.095Z",
-      "coordinates": [
-        46.665138,
-        9.1156719
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "id": "burkhalter-group-491fe5bd4960",
-      "firstSeenAt": "2026-04-13T10:09:28.523Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
         "translation": 25,
         "completeness": 25
       }
@@ -650,7 +609,7 @@
       "postedDate": "2026-01-23",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.095Z",
+      "crawledAt": "2026-05-08T21:23:04.919Z",
       "coordinates": [
         46.1080222,
         7.9256477
@@ -691,7 +650,7 @@
       "postedDate": "2026-01-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.097Z",
+      "crawledAt": "2026-05-08T21:23:04.919Z",
       "coordinates": [
         46.5857467,
         9.9378046
@@ -732,7 +691,7 @@
       "postedDate": "2025-11-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.097Z",
+      "crawledAt": "2026-05-08T21:23:04.920Z",
       "coordinates": [
         46.2942876,
         7.8924291
@@ -773,7 +732,7 @@
       "postedDate": "2025-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.097Z",
+      "crawledAt": "2026-05-08T21:23:04.920Z",
       "coordinates": [
         46.8581986,
         9.5080121
@@ -814,7 +773,7 @@
       "postedDate": "2025-07-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.098Z",
+      "crawledAt": "2026-05-08T21:23:04.920Z",
       "coordinates": [
         46.7635608,
         9.7937703
@@ -855,7 +814,7 @@
       "postedDate": "2025-07-29",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.098Z",
+      "crawledAt": "2026-05-08T21:23:04.921Z",
       "coordinates": [
         46.7204645,
         9.5593501
@@ -896,7 +855,7 @@
       "postedDate": "2025-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.098Z",
+      "crawledAt": "2026-05-08T21:23:04.922Z",
       "coordinates": [
         46.1078893,
         7.0998918
@@ -937,7 +896,7 @@
       "postedDate": "2025-06-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.098Z",
+      "crawledAt": "2026-05-08T21:23:04.922Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -978,7 +937,7 @@
       "postedDate": "2025-06-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.098Z",
+      "crawledAt": "2026-05-08T21:23:04.923Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -1019,7 +978,7 @@
       "postedDate": "2025-06-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.099Z",
+      "crawledAt": "2026-05-08T21:23:04.923Z",
       "coordinates": [
         46.2693588,
         6.9555405
@@ -1060,7 +1019,7 @@
       "postedDate": "2025-06-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.099Z",
+      "crawledAt": "2026-05-08T21:23:04.923Z",
       "coordinates": [
         46.8581986,
         9.5080121
@@ -1101,7 +1060,7 @@
       "postedDate": "2025-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.099Z",
+      "crawledAt": "2026-05-08T21:23:04.923Z",
       "coordinates": [
         46.9709598,
         9.5592226
@@ -1142,7 +1101,7 @@
       "postedDate": "2025-04-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.099Z",
+      "crawledAt": "2026-05-08T21:23:04.924Z",
       "coordinates": [
         46.29387391848841,
         7.892500949590563
@@ -1163,8 +1122,174 @@
       }
     },
     {
+      "title": "Gebäudetechnikplaner/in HLS (60 - 100%)",
+      "slug": "gebaudetechnikplaner-in-hls-60-100-mathieu-ingenieure-ag-visp",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudetechnikplaner-in-hls-1359",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudetechnikplaner-in-hls-1359",
+      "company": "Mathieu Ingenieure AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Visp",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2025-04-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-05-08T21:23:04.924Z",
+      "coordinates": [
+        46.29387391848841,
+        7.892500949590563
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale",
+      "postalCode": "6928",
+      "id": "burkhalter-group-504a84c7d9ca",
+      "firstSeenAt": "2026-04-13T10:09:28.529Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Lüftungsmonteur/in - Quereinsteiger/in (100%)",
+      "slug": "luftungsmonteur-in-quereinsteiger-in-100-imwinkelried-luftung-und-klima-ag-visp",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/lueftungsmonteur-in-1364",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/lueftungsmonteur-in-1364",
+      "company": "Imwinkelried Lüftung und Klima AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Visp",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2025-03-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-05-08T21:23:04.924Z",
+      "coordinates": [
+        46.2942876,
+        7.8924291
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale",
+      "postalCode": "6928",
+      "id": "burkhalter-group-635e25b4d51c",
+      "firstSeenAt": "2026-04-13T10:09:28.529Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Gebäudeinformatiker/in (100%)",
+      "slug": "gebaudeinformatiker-in-100-bassi-elektro-ag-arosa",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudeinformatiker-1271",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudeinformatiker-1271",
+      "company": "Bassi Elektro AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Arosa",
+      "addressLocality": "Arosa",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2024-06-25",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-05-08T21:23:04.924Z",
+      "coordinates": [
+        46.782653,
+        9.681166
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale",
+      "postalCode": "6928",
+      "id": "burkhalter-group-fec2f38f1190",
+      "firstSeenAt": "2026-04-13T10:09:28.529Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [
+    {
+      "title": "Standortleiter/in (80 - 100%)",
+      "slug": "responsabile-di-sede-80-100-derungs-ag-lumbrein",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-derungs-ag-1",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-derungs-ag-1",
+      "company": "Derungs AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Lumbrein",
+      "addressLocality": "Lumbrein",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-01-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-05-08T09:30:50.095Z",
+      "coordinates": [
+        46.665138,
+        9.1156719
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale",
+      "postalCode": "6928",
+      "id": "burkhalter-group-491fe5bd4960",
+      "firstSeenAt": "2026-04-13T10:09:28.523Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
       "title": "Unterhaltsfachmann/frau, Servicetechniker/in (80 - 100%)",
-      "slug": "unterhaltsfachmann-frau-servicetechniker-in-80-100-imwinkelried-luftung-und-klima-ag-visp",
+      "slug": "tecnico-a-di-manutenzione-tecnico-a-di-servizio-80-100-imwinkelried-luftung-und-klima-ag-visp",
       "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/unterhaltsfachmann-frau-servicetechniker-in-1396",
       "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/unterhaltsfachmann-frau-servicetechniker-in-1396",
       "company": "Imwinkelried Lüftung und Klima AG",
@@ -1195,20 +1320,20 @@
       "postalCode": "6928",
       "id": "burkhalter-group-ec31614384f5",
       "firstSeenAt": "2026-04-13T10:09:28.528Z",
-      "_qualityScore": 88,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
         "completeness": 25
       }
     },
     {
-      "title": "Gebäudetechnikplaner/in HLS (60 - 100%)",
-      "slug": "gebaudetechnikplaner-in-hls-60-100-mathieu-ingenieure-ag-visp",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudetechnikplaner-in-hls-1359",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudetechnikplaner-in-hls-1359",
-      "company": "Mathieu Ingenieure AG",
+      "title": "Chef/fe de projet en technique du bâtiment Valais romand (80 - 100%)",
+      "slug": "capo-a-progetto-in-tecnologia-degli-edifici-vallese-romando-80-100-imwinkelried-luftung-und-klima-ag-visp",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projet-en-technique-du-batiment-valais-romand-1300",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projet-en-technique-du-batiment-valais-romand-1300",
+      "company": "Imwinkelried Lüftung und Klima AG",
       "companyKey": "burkhalter-group",
       "companyDomain": "burkhalter.ch",
       "location": "Visp",
@@ -1220,32 +1345,31 @@
       "category": "Ingegneria & Tecnica",
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-04-01",
+      "sourceLang": "fr",
+      "postedDate": "2024-09-29",
       "employmentType": "full-time",
       "contractType": "full-time",
       "crawledAt": "2026-05-08T09:30:50.100Z",
       "coordinates": [
-        46.29387391848841,
-        7.892500949590563
+        46.2942876,
+        7.8924291
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Cantonale",
       "postalCode": "6928",
-      "id": "burkhalter-group-504a84c7d9ca",
+      "id": "burkhalter-group-8c08bb70f42d",
       "firstSeenAt": "2026-04-13T10:09:28.529Z",
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Heizungsinstallateur/in (100%)",
@@ -1268,7 +1392,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.089Z",
+      "crawledAt": "2026-05-08T21:23:04.913Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -1309,7 +1433,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.091Z",
+      "crawledAt": "2026-05-08T21:23:04.915Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -1350,7 +1474,7 @@
       "postedDate": "2023-07-18",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.105Z",
+      "crawledAt": "2026-05-08T21:23:04.928Z",
       "coordinates": [
         46.7635608,
         9.7937703
@@ -1391,7 +1515,7 @@
       "postedDate": "2023-04-20",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-08T09:30:50.107Z",
+      "crawledAt": "2026-05-08T21:23:04.930Z",
       "coordinates": [
         46.9709598,
         9.5592226
