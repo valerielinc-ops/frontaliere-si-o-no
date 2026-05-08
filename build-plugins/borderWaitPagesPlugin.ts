@@ -1791,9 +1791,21 @@ function renderHubPage(inp: HubInputs): string {
     : '';
 
   let h1 = region ? copy.regionalH1(regionDisplay) : copy.rootH1;
-  const introParagraph = region
+  // Long-form intro stays in the page text but moves below the action area
+  // (best-crossing banner + stats tiles + table) so mobile-first hierarchy
+  // is preserved and the Semrush text-to-HTML ratio gate is unchanged.
+  const introLong = region
     ? copy.regionalIntro(regionDisplay, crossingsInScope.length)
     : copy.rootIntro;
+  // Above-the-fold tagline (≤120 chars) — keeps the lede information-dense
+  // without burying the table that visitors actually came for.
+  const taglineByLocale: Record<BorderWaitLocale, string> = {
+    it: `Stato live dei ${crossingsInScope.length} valichi ${region ? regionDisplay : 'Ticino–Italia'}, aggiornato ogni 15 minuti nelle ore di punta.`,
+    en: `Live status of ${crossingsInScope.length} ${region ? regionDisplay : 'Ticino–Italy'} crossings, refreshed every 15 minutes during peak hours.`,
+    de: `Live-Status der ${crossingsInScope.length} ${region ? regionDisplay : 'Tessin–Italien'}-Übergänge, alle 15 Minuten während der Spitzenzeiten aktualisiert.`,
+    fr: `État en direct des ${crossingsInScope.length} passages ${region ? regionDisplay : 'Tessin–Italie'}, rafraîchi toutes les 15 minutes en heures de pointe.`,
+  };
+  const introTagline = taglineByLocale[locale];
 
   // Build live table of all crossings in scope. Each <tr> carries the
   // data-bw-crossing attribute so the inline hydration IIFE can swap the
@@ -1873,7 +1885,7 @@ function renderHubPage(inp: HubInputs): string {
     '@type': 'WebPage',
     name: h1,
     url: canonicalUrl,
-    description: introParagraph.slice(0, 200),
+    description: introLong.slice(0, 200),
     inLanguage: locale,
     dateModified: today.toISOString(),
   });
@@ -1881,7 +1893,7 @@ function renderHubPage(inp: HubInputs): string {
   const title = `${h1} | Frontaliere Ticino`;
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = introParagraph.slice(0, 180);
+  const description = introLong.slice(0, 180);
 
   // Secondary editorial paragraph for word-count
   const secondary =
@@ -1953,6 +1965,50 @@ function renderHubPage(inp: HubInputs): string {
       })()
     : '';
 
+  // Status counters for the stats tile grid below the H1. Mirrors the
+  // border-wait leaf-page tile pattern: the headline metric (open
+  // crossings) sits in the accent tile; the breakdown by tier
+  // (scorrevole / coda moderata / coda lunga) lives in semantic-token
+  // tiles so the visitor reads the page in one glance instead of
+  // scanning the full per-crossing table. Build-time snapshot of the
+  // current.perCrossing data; the inline hydration script already
+  // refreshes the per-row pills, so the tile counts naturally drift to
+  // the snapshot taken at deploy and refresh on the next deploy.
+  let statusOk = 0;
+  let statusWarn = 0;
+  let statusBad = 0;
+  for (const c of crossingsInScope) {
+    const w = current.perCrossing[c]?.waitTimeMinutes ?? null;
+    if (w === null || w < 5) statusOk += 1;
+    else if (w < 15) statusWarn += 1;
+    else statusBad += 1;
+  }
+
+  const hubTileLabels: Record<BorderWaitLocale, { open: string; ok: string; warn: string; bad: string }> = {
+    it: { open: 'Valichi monitorati', ok: 'Scorrevoli', warn: 'Coda moderata', bad: 'Coda lunga' },
+    en: { open: 'Crossings tracked', ok: 'Free-flowing', warn: 'Moderate queue', bad: 'Long queue' },
+    de: { open: 'Erfasste Übergänge', ok: 'Fliessend', warn: 'Moderate Schlange', bad: 'Lange Schlange' },
+    fr: { open: 'Passages suivis', ok: 'Fluides', warn: 'File modérée', bad: 'File longue' },
+  };
+  const hubStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:0 0 18px" aria-label="${esc(copy.currentStatusLabel)}">
+    <div style="padding:18px;border-radius:16px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);color:var(--color-heading)">
+      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(hubTileLabels[locale].open)}</div>
+      <div style="margin-top:8px;font-size:32px;font-weight:800;color:var(--color-heading);line-height:1.1;font-variant-numeric:tabular-nums">${crossingsInScope.length}</div>
+    </div>
+    <div style="padding:18px;border-radius:16px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);color:var(--color-heading)">
+      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(hubTileLabels[locale].ok)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:var(--color-success);line-height:1.1;font-variant-numeric:tabular-nums">${statusOk}</div>
+    </div>
+    <div style="padding:18px;border-radius:16px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-heading)">
+      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(hubTileLabels[locale].warn)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:var(--color-warning);line-height:1.1;font-variant-numeric:tabular-nums">${statusWarn}</div>
+    </div>
+    <div style="padding:18px;border-radius:16px;background:var(--color-danger-subtle);border:1px solid var(--color-danger-border);color:var(--color-heading)">
+      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(hubTileLabels[locale].bad)}</div>
+      <div style="margin-top:8px;font-size:24px;font-weight:700;color:var(--color-danger);line-height:1.1;font-variant-numeric:tabular-nums">${statusBad}</div>
+    </div>
+  </section>`;
+
   // Live-badge pre-rendered text (see leaf page for rationale).
   const hubSnapshotBadgeText =
     locale === 'it'
@@ -1972,8 +2028,9 @@ function renderHubPage(inp: HubInputs): string {
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp} <span data-bw-live-badge style="display:inline-block;margin-left:8px;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;background:var(--color-surface-alt);color:var(--color-subtle);border:1px solid var(--color-edge);vertical-align:middle">${esc(hubSnapshotBadgeText)}</span></p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(introParagraph)}</p>
+    <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
   </header>
+  ${hubStatsHtml}
   ${bestBannerHtml}
   <section style="margin:0 0 24px" aria-labelledby="crossingTable">
     <h2 id="crossingTable" style="${H2_STYLE}">${esc(
@@ -1989,6 +2046,7 @@ function renderHubPage(inp: HubInputs): string {
   </section>
   ${otherLocaleHubsHtml}
   <section style="margin:0 0 24px">
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(introLong)}</p>
     <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(secondary)}</p>
     <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(methodologyPara)}</p>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${commuterImpactPara}</p>
