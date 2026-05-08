@@ -22205,4 +22205,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'hondius-frontalieri-ticino-2026',
+ category: 'novita',
+ date: '2026-05-08T01:51:38.279Z',
+ image: '/images/blog/hondius-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

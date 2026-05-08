@@ -29129,6 +29129,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hondius-frontalieri-ticino-2026': {
+    title: 'Hondius: cosa cambia per i frontalieri del Ticino',
+    description: 'La nave crociera con focolaio di hantavirus resterà in rada. Ecco cosa succede e come potrebbe influenzare i frontalieri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, hondius, cosa, cambia, nave',
+    ogTitle: 'Hondius: cosa cambia per i frontalieri del Ticino',
+    ogDescription: 'La nave crociera con focolaio di hantavirus resterà in rada. Ecco cosa succede e come potrebbe influenzare i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/hondius-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hondius: cosa cambia per i frontalieri del Ticino",
+      "description": "La nave crociera con focolaio di hantavirus resterà in rada. Ecco cosa succede e come potrebbe influenzare i frontalieri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/hondius-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, mostrando il confine svizzero-italiano e le montagne circostanti."
+      },
+      "datePublished": "2026-05-08T01:51:38+00:00",
+      "dateModified": "2026-05-08T01:51:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hondius-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

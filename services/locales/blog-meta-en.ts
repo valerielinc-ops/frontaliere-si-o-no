@@ -6944,6 +6944,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.delitto-garlasco-chiara-omicidio-2026.title': 'Garlasco murder: Chiara killed with hatred and cruelty',
     'blog.article.delitto-garlasco-chiara-omicidio-2026.excerpt': 'New revelations about Chiara Poggi\'s murder: Andrea Sempio accused of murder with aggravating circumstances.',
     'blog.article.delitto-garlasco-chiara-omicidio-2026.imageAlt': 'A quiet residential street in Garlasco, Italy, with a house in the background, evoking a sense of calm disrupted.',
+    'blog.article.hondius-frontalieri-ticino-2026.title': 'Hondius: what changes for Ticino cross-border workers',
+    'blog.article.hondius-frontalieri-ticino-2026.excerpt': 'The cruise ship with a hantavirus outbreak will remain at anchor. Here\'s what\'s happening and how it could affect cross-border workers.',
+    'blog.article.hondius-frontalieri-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, showing the Swiss-Italian border and the surrounding mountains.',
 };
 
 export default blogMetaEn;

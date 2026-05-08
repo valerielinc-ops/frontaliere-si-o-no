@@ -6945,6 +6945,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.delitto-garlasco-chiara-omicidio-2026.title': 'Delitto di Garlasco: Chiara uccisa con odio e crudeltà',
     'blog.article.delitto-garlasco-chiara-omicidio-2026.excerpt': 'Nuove rivelazioni sull\'omicidio di Chiara Poggi: Andrea Sempio accusato di omicidio con aggravanti.',
     'blog.article.delitto-garlasco-chiara-omicidio-2026.imageAlt': 'Vista di una tranquilla strada residenziale a Garlasco, Italia, con una casa sullo sfondo, che evoca un senso di calma interrotta.',
+    'blog.article.hondius-frontalieri-ticino-2026.title': 'Hondius: cosa cambia per i frontalieri del Ticino',
+    'blog.article.hondius-frontalieri-ticino-2026.excerpt': 'La nave crociera con focolaio di hantavirus resterà in rada. Ecco cosa succede e come potrebbe influenzare i frontalieri.',
+    'blog.article.hondius-frontalieri-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, mostrando il confine svizzero-italiano e le montagne circostanti.',
 };
 
 export default blogMetaIt;
