@@ -1,0 +1,120 @@
+name: Refresh BFS Stats
+
+# Refreshes the BFS cross-border worker dataset shown on /statistiche/.
+# Replaces the legacy first-visitor-pays-the-fetch flow on the client.
+#
+# Two runs/day cover the BFS publication window for new quarters; subsequent
+# revisions of the same quarter just overwrite Firestore (clients still see
+# the freshest values, no notification fires). Only an actual quarter change
+# (e.g. 2025-Q4 → 2026-Q1) dispatches generate-article.yml so the editorial
+# team announces the new dataset to subscribers.
+
+on:
+  schedule:
+    # 07:15 + 19:15 UTC — twice a day, offset off-the-hour to avoid
+    # cron contention with deploy.yml / generate-article.yml.
+    - cron: '15 7,19 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: refresh-bfs-stats
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing — cannot write Firestore."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        # Loads GITHUB_PAT (used to dispatch generate-article.yml) from RC.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Refresh BFS stats
+        id: refresh
+        run: node scripts/refresh-bfs-stats.mjs
+
+      - name: Job summary
+        if: always()
+        env:
+          NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
+          PREV_QUARTER: ${{ steps.refresh.outputs.prev_quarter }}
+          LATEST_VALUE: ${{ steps.refresh.outputs.latest_value }}
+          PREV_VALUE: ${{ steps.refresh.outputs.prev_value }}
+          DELTA_ABS: ${{ steps.refresh.outputs.delta_abs }}
+          DELTA_PCT: ${{ steps.refresh.outputs.delta_pct }}
+          YOY_DELTA_PCT: ${{ steps.refresh.outputs.yoy_delta_pct }}
+          LATEST_QUARTER: ${{ steps.refresh.outputs.latest_quarter }}
+        run: |
+          {
+            echo "## BFS stats refresh"
+            echo ""
+            echo "| Field | Value |"
+            echo "|-------|-------|"
+            echo "| Latest quarter (in CSV) | \`$LATEST_QUARTER\` |"
+            echo "| Previous quarter (in Firestore) | \`$PREV_QUARTER\` |"
+            if [ -n "$NEW_QUARTER" ]; then
+              echo "| New quarter detected | **$NEW_QUARTER** |"
+              echo "| Latest value | $LATEST_VALUE |"
+              echo "| Previous value | $PREV_VALUE |"
+              echo "| QoQ delta | $DELTA_ABS ($DELTA_PCT%) |"
+              echo "| YoY delta | $YOY_DELTA_PCT% |"
+            else
+              echo "| New quarter detected | _no — Firestore overwritten with refreshed data only_ |"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Dispatch generate-article (new quarter only)
+        if: steps.refresh.outputs.new_quarter != ''
+        env:
+          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
+        run: |
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "❌ No PAT/token available to dispatch generate-article.yml."
+            exit 1
+          fi
+          URL="stats-bfs://${NEW_QUARTER}"
+          echo "🚀 Dispatching generate-article.yml with url=$URL"
+          gh workflow run generate-article.yml \
+            --ref main \
+            -f url="$URL"
+          echo "## 📰 Generate-article dispatch" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Dispatched with \`url=$URL\` for new quarter \`$NEW_QUARTER\`." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        env:
+          LINEAR_API_KEY: ${{ env.LINEAR_API_KEY }}
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "CI Failure: Refresh BFS Stats — run ${{ github.run_number }}" \
+            --description "BFS stats refresh failed. Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

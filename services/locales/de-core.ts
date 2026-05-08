@@ -536,7 +536,6 @@ const deCore: Record<string, string> = {
 
  'stats.title': 'Echtdaten-Observatorium',
  'stats.source': 'Offizielle Quelle: Bundesamt für Statistik (BFS) • Grenzgänger (STAF)',
- 'stats.refreshData': 'Daten aktualisieren',
  'stats.totalFrontierWorkers': 'Grenzgänger gesamt',
  'stats.totalTooltipTitle': 'Gesamtzahl der Grenzgänger',
  'stats.totalTooltipDesc': 'Italienische Arbeitnehmer mit G-Bewilligung, die in der Schweiz arbeiten und täglich nach Italien pendeln. Daten vom Bundesamt für Statistik (BFS).',

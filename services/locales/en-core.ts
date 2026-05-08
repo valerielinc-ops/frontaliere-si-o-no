@@ -536,7 +536,6 @@ const enCore: Record<string, string> = {
 
  'stats.title': 'Real Data Observatory',
  'stats.source': 'Official source: Federal Statistical Office (BFS) • Cross-border workers (STAF)',
- 'stats.refreshData': 'Refresh Data',
  'stats.totalFrontierWorkers': 'Total Cross-Border Workers',
  'stats.totalTooltipTitle': 'Total number of cross-border workers',
  'stats.totalTooltipDesc': 'Italian workers with a G permit who work in Switzerland and commute back to Italy daily. Data updated from the Federal Statistical Office (BFS).',

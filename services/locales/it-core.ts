@@ -567,7 +567,6 @@ const translations: Record<string, string> = {
  // Transport Calculator
  'stats.title': 'Osservatorio Dati Reali',
  'stats.source': 'Fonte ufficiale: Ufficio Federale di Statistica (BFS) • Frontalieri (STAF)',
- 'stats.refreshData': 'Aggiorna Dati',
  'stats.totalFrontierWorkers': 'Totale Frontalieri',
  'stats.totalTooltipTitle': 'Numero totale di frontalieri',
  'stats.totalTooltipDesc': 'Lavoratori italiani con permesso G che lavorano in Svizzera e rientrano in Italia quotidianamente. Dati aggiornati dall\'Ufficio Federale di Statistica (BFS).',

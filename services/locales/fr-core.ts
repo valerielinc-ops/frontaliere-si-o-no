@@ -536,7 +536,6 @@ const frCore: Record<string, string> = {
 
  'stats.title': 'Observatoire de données réelles',
  'stats.source': 'Source officielle : Office fédéral de la statistique (OFS) • Frontaliers (STAF)',
- 'stats.refreshData': 'Actualiser les données',
  'stats.totalFrontierWorkers': 'Frontaliers au total',
  'stats.totalTooltipTitle': 'Nombre total de frontaliers',
  'stats.totalTooltipDesc': 'Travailleurs italiens avec permis G qui travaillent en Suisse et font la navette quotidiennement vers l\'Italie. Données de l\'Office fédéral de la statistique (OFS).',

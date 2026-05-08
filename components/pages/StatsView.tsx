@@ -3,10 +3,10 @@ import {
  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
  Legend, Cell, BarChart, Bar, LineChart, Line
 } from 'recharts';
-import { TrendingUp, Info, ExternalLink, Loader2, Database, PersonStanding, RefreshCw, BarChart2, ChevronDown, ChevronUp } from 'lucide-react';
+import { TrendingUp, Info, ExternalLink, Loader2, Database, PersonStanding, BarChart2, ChevronDown, ChevronUp } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
-import { fetchStats, SOURCE_LINK, type TrendPoint, type AgePoint, type GenderTrendPoint, type GenderSnapshot, type StatsSource } from '@/services/statsService';
+import { fetchStats, SOURCE_LINK, type TrendPoint, type AgePoint, type GenderTrendPoint, type GenderSnapshot } from '@/services/statsService';
 import { Analytics } from '@/services/analytics';
 import JobBoardStatsOverview from './JobBoardStatsOverview';
 
@@ -34,13 +34,16 @@ const StatsViewInner: React.FC = () => {
 
  const chart = useChartColors(isDark);
 
- const fetchBFSData = async (forceRefresh = false) => {
+ useEffect(() => {
+ Analytics.trackPageView('/statistiche', 'Statistiche frontalieri');
+ Analytics.trackUIInteraction('stats', 'dashboard', 'stats_view', 'view');
+ let cancelled = false;
+ (async () => {
  try {
  setLoading(true);
  setApiError(null);
- 
- const result = await fetchStats(forceRefresh);
-
+ const result = await fetchStats();
+ if (cancelled) return;
  if (result.data) {
  setHistoricalData(result.data.trend);
  setAgeData(result.data.ages);
@@ -48,22 +51,18 @@ const StatsViewInner: React.FC = () => {
  setGenderData(result.data.genderSnapshot);
  setUsingRealData(true);
  setLastUpdated(new Date(result.data.lastUpdated));
- console.log(`📊 BFS Data loaded from ${result.source}`);
  } else {
- throw new Error(result.error || 'Errore scaricamento dati BFS');
+ throw new Error(result.error || 'Dati BFS non ancora disponibili');
  }
  } catch (error: any) {
- console.error("BFS Fetch Error:", error);
- setApiError(error.message ||"Errore scaricamento dati BFS");
+ if (cancelled) return;
+ console.error('BFS Fetch Error:', error);
+ setApiError(error.message || 'Dati BFS non ancora disponibili');
  } finally {
- setLoading(false);
+ if (!cancelled) setLoading(false);
  }
- };
-
- useEffect(() => {
- Analytics.trackPageView('/statistiche', 'Statistiche frontalieri');
- Analytics.trackUIInteraction('stats', 'dashboard', 'stats_view', 'view');
- fetchBFSData(false);
+ })();
+ return () => { cancelled = true; };
  }, []);
 
  // --- KPI CALCULATIONS ---
@@ -78,29 +77,13 @@ const StatsViewInner: React.FC = () => {
  return (
  <div className="bg-surface rounded-2xl shadow-sm border border-edge flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
  {/* Header */}
- <div className="p-6 border-b border-edge flex justify-between items-center sticky top-0 z-10 bg-surface rounded-t-2xl">
- <div>
+ <div className="p-6 border-b border-edge sticky top-0 z-10 bg-surface rounded-t-2xl">
  <h2 className="text-xl font-bold font-display text-strong tracking-tight flex items-center gap-2">
  <Database size={20} className="text-accent"/> {t('stats.title')}
  </h2>
  <p className="text-muted text-xs mt-1">
  {t('stats.source')}
  </p>
- </div>
- 
- {usingRealData && (
- <button 
- onClick={() => {
- Analytics.trackUIInteraction('stats', 'header', 'refresh_data', 'click');
- fetchBFSData(true);
- }}
- disabled={loading}
- className="p-2 bg-surface rounded-xl shadow-sm border border-edge text-muted hover:text-accent transition-[color,background-color,border-color,opacity,transform] hover:rotate-180 disabled:opacity-50"
- title={t('stats.refreshData')}
- >
- <RefreshCw size={18} className={loading ?"animate-spin" :""} />
- </button>
- )}
  </div>
 
  <div className="p-3 sm:p-6 space-y-6 sm:space-y-8">
