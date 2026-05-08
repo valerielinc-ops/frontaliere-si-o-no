@@ -738,7 +738,11 @@
     "hodler-dipinto-eredita-frontalieri",
     "tensioni-geopolitiche-elettrico-ticino",
     "menaggio-test-automobilisti-guai",
-    "udc-sostenibilita-lavoro-ticino-2026"
+    "udc-sostenibilita-lavoro-ticino-2026",
+    "centromedico-castello-chirurgia-ambulatoriale",
+    "nottambuli-ticino-orari-societa",
+    "spaccio-droga-busto-18mila-euro",
+    "traduzione-documenti-finanziari-visto"
   ],
   "failed": [
     {
@@ -6560,8 +6564,33 @@
       "id": "hendsichen-arresto-francese-autodiebstahl",
       "error": "Unterminated string in JSON at position 560 (line 8 column 6)",
       "at": "2026-05-07T04:13:46.106Z"
+    },
+    {
+      "id": "adeguati-assetti-imprese-ticino-2026",
+      "error": "Unterminated string in JSON at position 995 (line 8 column 387)",
+      "at": "2026-05-08T04:00:01.039Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 262 (line 4 column 157)",
+      "at": "2026-05-08T04:00:22.005Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 205 (line 4 column 137)",
+      "at": "2026-05-08T04:01:37.464Z"
+    },
+    {
+      "id": "frontalieri-ticino-calo-2026",
+      "error": "Unterminated string in JSON at position 2119 (line 20 column 397)",
+      "at": "2026-05-08T04:01:56.472Z"
+    },
+    {
+      "id": "hendsichen-arresto-francese-autodiebstahl",
+      "error": "Unterminated string in JSON at position 442 (line 4 column 347)",
+      "at": "2026-05-08T04:02:16.646Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-07T04:14:12.063Z"
+  "updatedAt": "2026-05-08T04:02:56.123Z"
 }
