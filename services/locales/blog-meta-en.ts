@@ -7034,6 +7034,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lumen-claro-premiati-varese-1989.title': 'Lumen Claro: award winners since 1989 in Varese',
     'blog.article.lumen-claro-premiati-varese-1989.excerpt': 'Since 1989, the Lions Club Varese Prealpi has awarded the best in the area. Here are all the winners of the Lumen Claro prize.',
     'blog.article.lumen-claro-premiati-varese-1989.imageAlt': 'Lumen Claro award ceremony in Varese, with guests in formal attire and trophy on stage',
+    'blog.article.grandine-cislago-protezione-civile-2026.title': 'Hail in Cislago: Civil Protection active all night',
+    'blog.article.grandine-cislago-protezione-civile-2026.excerpt': 'The bad weather on May 7, 2026 caused disruptions in Cislago. The Municipality thanks the volunteers for their timely intervention.',
+    'blog.article.grandine-cislago-protezione-civile-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns',
 };
 
 export default blogMetaEn;

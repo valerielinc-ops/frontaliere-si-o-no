@@ -1,0 +1,40 @@
+{
+  "id": "grandine-cislago-protezione-civile-2026",
+  "slug": "grandine-cislago-protezione-civile-2026",
+  "publishedAt": "2026-05-08T07:18:56.984Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 24.48879169305063,
+    "confidence": 0.8,
+    "finalScore": 19.591033354440505,
+    "topK": [
+      {
+        "slug": "allerta-gialla-temporali-varese-2026",
+        "cosine": 0.844441092863815
+      },
+      {
+        "slug": "piogge-intense-ceresio-2026",
+        "cosine": 0.8263187592370432
+      },
+      {
+        "slug": "allerta-meteo-ticino-lombardia-2026",
+        "cosine": 0.8167117888654974
+      },
+      {
+        "slug": "incidente-stradale-laghi",
+        "cosine": 0.8150924048861677
+      },
+      {
+        "slug": "grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026",
+        "cosine": 0.8145819704240811
+      }
+    ],
+    "score": 1.9591033354440506,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
