@@ -28,7 +28,8 @@
  */
 
 import admin from 'firebase-admin';
-import { appendFileSync } from 'node:fs';
+import { appendFileSync, readFileSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { buildStatsFromCSV, fetchBfsCsv } from './lib/bfs-stats-parser.mjs';
 
 const FIRESTORE_COLLECTION = 'config';
@@ -50,6 +51,28 @@ function emitOutput(key, value) {
 function quarterToYear(q) {
   const m = String(q || '').match(/^(\d{4})-Q([1-4])$/);
   return m ? Number(m[1]) : null;
+}
+
+/**
+ * Idempotency check: has create-article.mjs already produced an article for
+ * this quarter? Reads the per-repo article-source-urls.json registry that
+ * create-article writes after a successful publish. The synthetic URL
+ * `stats-bfs://2026-Q1` (lowercased by normalizeNewsUrl) is the dedup key.
+ *
+ * Used to keep dispatching across cron ticks until the article actually
+ * lands in main — the generate-article concurrency chain frequently cancels
+ * one-shot dispatches, so a single trigger isn't reliable.
+ */
+function articleAlreadyPublished(latestQuarter) {
+  const path = resolve('data/article-source-urls.json');
+  if (!existsSync(path)) return false;
+  try {
+    const map = JSON.parse(readFileSync(path, 'utf8'));
+    const key = `stats-bfs://${String(latestQuarter).toLowerCase()}`;
+    return Object.prototype.hasOwnProperty.call(map, key);
+  } catch {
+    return false;
+  }
 }
 
 function findValueAt(trend, quarter) {
@@ -97,21 +120,33 @@ async function main() {
   emitOutput('firestore_written', 'true');
   emitOutput('latest_quarter', latestQuarter);
 
+  // ── Article-dispatch decision ───────────────────────────────────────
+  // Decoupled from the Firestore write so:
+  //  (a) clients always see fresh data even on intra-quarter revisions
+  //  (b) if a previous dispatch was cancelled by the generate-article
+  //      concurrency chain, the next cron retries until the article lands
+  //      (idempotency check via data/article-source-urls.json registry).
+  if (articleAlreadyPublished(latestQuarter)) {
+    logInfo(`Articolo per ${latestQuarter} già pubblicato (registrato in data/article-source-urls.json) — niente dispatch.`);
+    emitOutput('new_quarter', '');
+    return;
+  }
+
   if (!prevQuarter) {
-    logInfo('Nessun valore precedente in Firestore — primo write, niente notifica.');
+    // First write ever to Firestore — typically the very first deploy. We
+    // intentionally do NOT publish an article retroactively for the bootstrap
+    // case, otherwise every fresh environment gets spammed with a "now-old"
+    // quarter article. Operators can force one with a manual workflow_dispatch
+    // on generate-article.yml.
+    logInfo('Nessun valore precedente in Firestore — primo write, niente articolo retroattivo.');
     emitOutput('new_quarter', '');
     return;
   }
 
   if (prevQuarter === latestQuarter) {
-    logInfo(`Quarter invariato (${latestQuarter}) — dati aggiornati, niente articolo.`);
-    emitOutput('new_quarter', '');
-    return;
-  }
-
-  // Compare prevQuarter only when it really came before latestQuarter
-  // (prevents firing if BFS ever republishes an older quarter).
-  if (prevQuarter.localeCompare(latestQuarter) >= 0) {
+    logInfo(`Quarter invariato (${latestQuarter}) ma articolo non ancora pubblicato — re-dispatch (precedente probabilmente cancellato dalla concurrency chain).`);
+    // Fall through to dispatch path
+  } else if (prevQuarter.localeCompare(latestQuarter) >= 0) {
     logWarn(`prevQuarter=${prevQuarter} non precede latestQuarter=${latestQuarter}; salto notifica.`);
     emitOutput('new_quarter', '');
     return;
@@ -144,10 +179,14 @@ async function main() {
     }
   }
 
-  logOk(`Nuovo quarter rilevato: ${prevQuarter} → ${latestQuarter}  (${deltaAbs >= 0 ? '+' : ''}${deltaAbs}, ${deltaPct}%${yoyDeltaPct ? `, YoY ${yoyDeltaPct}%` : ''})`);
+  // For the dispatch payload always use the actual preceding quarter from
+  // the trend, not the Firestore prevQuarter field (those diverge in the
+  // re-dispatch path where Firestore was already advanced).
+  const trendPrevQuarter = prevIdx >= 0 ? parsed.trend[prevIdx].year : prevQuarter;
+  logOk(`Quarter da pubblicare: ${trendPrevQuarter} → ${latestQuarter}  (${deltaAbs >= 0 ? '+' : ''}${deltaAbs}, ${deltaPct}%${yoyDeltaPct ? `, YoY ${yoyDeltaPct}%` : ''})`);
 
   emitOutput('new_quarter', latestQuarter);
-  emitOutput('prev_quarter', prevQuarter);
+  emitOutput('prev_quarter', trendPrevQuarter);
   emitOutput('latest_value', String(latestValue));
   emitOutput('prev_value', String(prevValue));
   emitOutput('delta_abs', String(deltaAbs));
