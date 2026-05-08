@@ -30221,6 +30221,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-orari-lavorativi-residenzialita': {
+    title: 'Orari flessibili e residenzialità: nuove proposte per i frontalieri',
+    description: 'Lea propone orari lavorativi più flessibili e residenzialità per i frontalieri per alleggerire il traffico e migliorare la qualità della vita in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, orari, flessibili, residenzialità, nuove',
+    ogTitle: 'Orari flessibili e residenzialità: nuove proposte per i frontalieri',
+    ogDescription: 'Lea propone orari lavorativi più flessibili e residenzialità per i frontalieri per alleggerire il traffico e migliorare la qualità della vita in Ticino.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-orari-lavorativi-residenzialita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orari flessibili e residenzialità: nuove proposte per i frontalieri",
+      "description": "Lea propone orari lavorativi più flessibili e residenzialità per i frontalieri per alleggerire il traffico e migliorare la qualità della vita in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-orari-lavorativi-residenzialita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un edificio moderno sullo sfondo, che mostra un gruppo di professionisti che lavorano su laptop in uno spazio di co-working"
+      },
+      "datePublished": "2026-05-08T06:55:55+00:00",
+      "dateModified": "2026-05-08T06:55:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-orari-lavorativi-residenzialita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

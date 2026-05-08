@@ -7028,6 +7028,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-pokerce-dimezzati.title': 'Halbierte Poker: Was sich für Grenzgänger ändert',
     'blog.article.frontalieri-ticino-pokerce-dimezzati.excerpt': 'Der Staatsrat des Kantons Tessin kann über das Schicksal zweier kurdischer Brüder entscheiden, die in der Schweiz geblieben sind. Hier erfahren Sie, was Sie wissen müssen.',
     'blog.article.frontalieri-ticino-pokerce-dimezzati.imageAlt': 'Eine Familie von vier Personen in der Nähe des Luganer Sees, mit der Stadt im Hintergrund. Die Familie wirkt besorgt, mit zwei Kindern, die ein Dokument betrachten, das von ihren Eltern gehalten wird.',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.title': 'Flexible Arbeitszeiten und Wohnsitz für Grenzgänger',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.excerpt': 'Lea schlägt flexiblere Arbeitszeiten und Wohnsitzregelungen für Grenzgänger vor, um den Verkehr zu entlasten und die Lebensqualität im Tessin zu verbessern.',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund, das eine Gruppe von Fachleuten zeigt, die in einem Co-Working-Space an Laptops arbeiten',
 };
 
 export default blogMetaDe;

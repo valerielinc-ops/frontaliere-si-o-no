@@ -7029,6 +7029,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-pokerce-dimezzati.title': 'Pokerce dimezzati: cosa cambia per i frontalieri',
     'blog.article.frontalieri-ticino-pokerce-dimezzati.excerpt': 'Il Consiglio di Stato del Canton Ticino può decidere il destino di due fratelli curdi rimasti in Svizzera. Ecco cosa sapere.',
     'blog.article.frontalieri-ticino-pokerce-dimezzati.imageAlt': 'Una famiglia di quattro persone vicino al Lago di Lugano, con lo sfondo della città. La famiglia sembra preoccupata, con due bambini che guardano un documento tenuto dai genitori.',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.title': 'Orari flessibili e residenzialità: nuove proposte per i frontalieri',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.excerpt': 'Lea propone orari lavorativi più flessibili e residenzialità per i frontalieri per alleggerire il traffico e migliorare la qualità della vita in Ticino.',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo, che mostra un gruppo di professionisti che lavorano su laptop in uno spazio di co-working',
 };
 
 export default blogMetaIt;

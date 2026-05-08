@@ -3585,6 +3585,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bioblitz-groane-2026-frontalieri': { name: 'Eventi', path: '/articoli-frontaliere/bioblitz-groane-2026-frontalieri', parent: 'blog' },
     'blog-joris-begevoord-intervista-aebr-2026': { name: 'Intervista AEBR', path: '/articoli-frontaliere/joris-begevoord-intervista-aebr-2026', parent: 'blog' },
     'blog-frontalieri-ticino-pokerce-dimezzati': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-pokerce-dimezzati', parent: 'blog' },
+    'blog-frontalieri-orari-lavorativi-residenzialita': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-orari-lavorativi-residenzialita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -7029,6 +7029,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-pokerce-dimezzati.title': 'Permis G réduits : ce qui change pour les frontaliers',
     'blog.article.frontalieri-ticino-pokerce-dimezzati.excerpt': 'Le Conseil d\'État du canton du Tessin peut décider du sort de deux frères kurdes restés en Suisse. Voici ce qu\'il faut savoir.',
     'blog.article.frontalieri-ticino-pokerce-dimezzati.imageAlt': 'Une famille de quatre personnes près du lac de Lugano, avec le paysage urbain en arrière-plan. La famille semble préoccupée, avec deux enfants regardant un document tenu par leurs parents.',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.title': 'Horaires flexibles et résidence pour les frontaliers',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.excerpt': 'Lea propose des horaires de travail plus flexibles et la résidence pour les frontaliers afin d\'alléger le trafic et d\'améliorer la qualité de vie en Ticino.',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan, montrant un groupe de professionnels travaillant sur des ordinateurs portables dans un espace de co-working',
 };
 
 export default blogMetaFr;

@@ -7028,6 +7028,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-pokerce-dimezzati.title': 'Cross-border workers\' allowances halved: what changes',
     'blog.article.frontalieri-ticino-pokerce-dimezzati.excerpt': 'The Canton Ticino\'s State Council can decide the fate of two Kurdish brothers who remained in Switzerland. Here\'s what you need to know.',
     'blog.article.frontalieri-ticino-pokerce-dimezzati.imageAlt': 'A family of four near Lake Lugano, with the cityscape in the background. The family appears concerned, with two children looking at a document held by their parents.',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.title': 'Flexible hours and residency: new proposals for cross-border workers',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.excerpt': 'Lea proposes more flexible working hours and residency options for cross-border workers to ease traffic and improve quality of life in Ticino.',
+    'blog.article.frontalieri-orari-lavorativi-residenzialita.imageAlt': 'Lake Lugano with a modern building in the background, showing a group of professionals working on laptops in a co-working space',
 };
 
 export default blogMetaEn;
