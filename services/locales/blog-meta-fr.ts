@@ -7038,6 +7038,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grandine-cislago-protezione-civile-2026.title': 'Grêle à Cislago: la Protection civile en action toute la nuit',
     'blog.article.grandine-cislago-protezione-civile-2026.excerpt': 'Le mauvais temps du 7 mai 2026 a causé des désagréments à Cislago. La commune remercie les volontaires pour leur intervention rapide.',
     'blog.article.grandine-cislago-protezione-civile-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les villes environnantes',
+    'blog.article.edoardo-leo-teatro-intred-varese-2026.title': 'Edoardo Leo charme Varèse avec des mots et des rires',
+    'blog.article.edoardo-leo-teatro-intred-varese-2026.excerpt': 'L\'acteur romain a présenté \'Je te raconte une histoire\' le 6 mai, captivant le public avec des anecdotes, des blagues et des réflexions sur la narration.',
+    'blog.article.edoardo-leo-teatro-intred-varese-2026.imageAlt': 'Edoardo Leo sur scène au Teatro Intred à Varese, entouré de livres, avec un public attentif et amusé.',
 };
 
 export default blogMetaFr;

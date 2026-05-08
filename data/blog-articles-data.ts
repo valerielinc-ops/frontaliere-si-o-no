@@ -22484,4 +22484,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'edoardo-leo-teatro-intred-varese-2026',
+ category: 'pratico',
+ date: '2026-05-08T07:43:16.870Z',
+ image: '/images/blog/edoardo-leo-teatro-intred-varese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

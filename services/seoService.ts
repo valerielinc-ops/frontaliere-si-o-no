@@ -3588,6 +3588,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-orari-lavorativi-residenzialita': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-orari-lavorativi-residenzialita', parent: 'blog' },
     'blog-lumen-claro-premiati-varese-1989': { name: 'Lumen Claro', path: '/articoli-frontaliere/lumen-claro-premiati-varese-1989', parent: 'blog' },
     'blog-grandine-cislago-protezione-civile-2026': { name: 'Grandine a Cislago', path: '/articoli-frontaliere/grandine-cislago-protezione-civile-2026', parent: 'blog' },
+    'blog-edoardo-leo-teatro-intred-varese-2026': { name: 'Eventi culturali', path: '/articoli-frontaliere/edoardo-leo-teatro-intred-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
