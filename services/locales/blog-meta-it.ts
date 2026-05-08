@@ -6960,6 +6960,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.josi-fischer-lettera-cuore.title': 'Josi scrive alla federazione: «Per Fischer, non contro Cadieux»',
     'blog.article.josi-fischer-lettera-cuore.excerpt': 'Roman Josi spiega la sua lettera alla federazione dopo il licenziamento di Patrick Fischer, in vista dei Mondiali di hockey 2026',
     'blog.article.josi-fischer-lettera-cuore.imageAlt': 'LAC Lugano durante un concerto, con pubblico eterogeneo tra cui frontalieri',
+    'blog.article.votazione-popolare-lamal-frontalieri.title': 'Votazione popolare sulla LAMal: cosa cambia per i frontalieri',
+    'blog.article.votazione-popolare-lamal-frontalieri.excerpt': 'La modifica della legge federale sull’assicurazione malattie (LAMal) potrebbe influenzare i frontalieri in Ticino. Ecco cosa sapere',
+    'blog.article.votazione-popolare-lamal-frontalieri.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
 };
 
 export default blogMetaIt;

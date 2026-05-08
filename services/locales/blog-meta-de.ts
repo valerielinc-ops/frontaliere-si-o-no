@@ -6959,6 +6959,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.josi-fischer-lettera-cuore.title': 'Josi schreibt an den Verband: «Für Fischer, nicht gegen Cadieux»',
     'blog.article.josi-fischer-lettera-cuore.excerpt': 'Roman Josi erklärt seinen Brief an den Verband nach der Entlassung von Patrick Fischer im Hinblick auf die Eishockey-WM 2026',
     'blog.article.josi-fischer-lettera-cuore.imageAlt': 'LAC Lugano während eines Konzerts, mit einem vielfältigen Publikum, darunter Grenzgänger',
+    'blog.article.votazione-popolare-lamal-frontalieri.title': 'Volksabstimmung zur Krankenversicherung: Auswirkungen auf Grenzgänger',
+    'blog.article.votazione-popolare-lamal-frontalieri.excerpt': 'Die Änderung des Bundesgesetzes über die Krankenversicherung (KVG) könnte die Grenzgänger im Tessin beeinflussen. Hier erfahren Sie, was Sie wissen müssen',
+    'blog.article.votazione-popolare-lamal-frontalieri.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
 };
 
 export default blogMetaDe;

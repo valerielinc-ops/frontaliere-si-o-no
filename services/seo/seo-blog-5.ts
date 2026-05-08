@@ -29324,6 +29324,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazione-popolare-lamal-frontalieri': {
+    title: 'Votazione popolare sulla LAMal: cosa cambia per i frontalieri',
+    description: 'Scopri cosa cambia con la votazione popolare sulla modifica della LAMal e come potrebbe influenzare i frontalieri in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazione, popolare, sulla, lamal',
+    ogTitle: 'Votazione LAMal: impatto sui frontalieri in Ticino',
+    ogDescription: 'Scopri cosa cambia con la votazione popolare sulla modifica della LAMal e come potrebbe influenzare i frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/votazione-popolare-lamal-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazione popolare sulla LAMal: cosa cambia per i frontalieri",
+      "description": "Scopri cosa cambia con la votazione popolare sulla modifica della LAMal e come potrebbe influenzare i frontalieri in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazione-popolare-lamal-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un edificio moderno sullo sfondo"
+      },
+      "datePublished": "2026-05-08T02:54:51+00:00",
+      "dateModified": "2026-05-08T02:54:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazione-popolare-lamal-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

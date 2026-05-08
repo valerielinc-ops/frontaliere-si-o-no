@@ -22250,4 +22250,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'votazione-popolare-lamal-frontalieri',
+ category: 'fiscale',
+ date: '2026-05-08T02:54:51.566Z',
+ image: '/images/blog/votazione-popolare-lamal-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

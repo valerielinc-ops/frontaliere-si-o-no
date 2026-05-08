@@ -6959,6 +6959,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.josi-fischer-lettera-cuore.title': 'Josi writes to federation: \'For Fischer, not against Cadieux\'',
     'blog.article.josi-fischer-lettera-cuore.excerpt': 'Roman Josi explains his letter to the federation after Patrick Fischer\'s dismissal, ahead of the 2026 World Hockey Championship',
     'blog.article.josi-fischer-lettera-cuore.imageAlt': 'LAC Lugano during a concert, with a diverse audience including cross-border workers',
+    'blog.article.votazione-popolare-lamal-frontalieri.title': 'Referendum on LAMal: changes for cross-border workers',
+    'blog.article.votazione-popolare-lamal-frontalieri.excerpt': 'The amendment to the federal law on health insurance (LAMal) could affect cross-border workers in Ticino. Here\'s what you need to know',
+    'blog.article.votazione-popolare-lamal-frontalieri.imageAlt': 'Lake Lugano with a modern building in the background',
 };
 
 export default blogMetaEn;
