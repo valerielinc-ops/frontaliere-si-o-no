@@ -7166,6 +7166,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rientro-lento-a2-frontalieri.title': 'Slow return on A2: 40-minute delay for cross-border workers',
     'blog.article.rientro-lento-a2-frontalieri.excerpt': 'Heavy traffic and rain make the return from the south on the A2 particularly slow. Delays of up to 40 minutes between Rivera and Chiasso.',
     'blog.article.rientro-lento-a2-frontalieri.imageAlt': 'A2 highway with heavy traffic and rain near Mendrisio',
+    'blog.article.addio-tutto-compreso-ai-costi.title': 'Goodbye to fixed AI costs: new usage-based rates',
+    'blog.article.addio-tutto-compreso-ai-costi.excerpt': 'Companies using artificial intelligence will now pay based on actual usage, significantly impacting operating costs.',
+    'blog.article.addio-tutto-compreso-ai-costi.imageAlt': 'FoxTown Factory Stores in Mendrisio, Ticino',
 };
 
 export default blogMetaEn;

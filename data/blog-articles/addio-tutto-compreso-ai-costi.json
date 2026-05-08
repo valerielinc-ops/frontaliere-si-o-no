@@ -1,0 +1,40 @@
+{
+  "id": "addio-tutto-compreso-ai-costi",
+  "slug": "addio-tutto-compreso-ai-costi",
+  "publishedAt": "2026-05-08T22:20:29.234Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.364028731362012,
+    "confidence": 0.8,
+    "finalScore": 7.49122298508961,
+    "topK": [
+      {
+        "slug": "comco-ia-criteri-2026",
+        "cosine": 0.780335727613501
+      },
+      {
+        "slug": "assistente-ai-frontalieri",
+        "cosine": 0.7791957006035822
+      },
+      {
+        "slug": "startup-investimenti-boom-ticino",
+        "cosine": 0.7769739313476415
+      },
+      {
+        "slug": "ai-lombardia-impatto-ticino",
+        "cosine": 0.7752621344535539
+      },
+      {
+        "slug": "ia-svizzera-uso-frontalieri-2026",
+        "cosine": 0.7749510991780818
+      }
+    ],
+    "score": 0.7491222985089611,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

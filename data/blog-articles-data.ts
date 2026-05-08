@@ -22871,4 +22871,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'addio-tutto-compreso-ai-costi',
+ category: 'pratico',
+ date: '2026-05-08T22:20:27.976Z',
+ image: '/images/blog/addio-tutto-compreso-ai-costi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

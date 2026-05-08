@@ -7166,6 +7166,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rientro-lento-a2-frontalieri.title': 'Langsamer Rückweg auf der A2: 40 Minuten Verspätung für Grenzgänger',
     'blog.article.rientro-lento-a2-frontalieri.excerpt': 'Dichter Verkehr und Regen machen die Rückfahrt von Süden auf der A2 besonders langsam. Verspätungen von bis zu 40 Minuten zwischen Rivera und Chiasso.',
     'blog.article.rientro-lento-a2-frontalieri.imageAlt': 'Autobahn A2 mit starkem Verkehr und Regen in der Nähe von Mendrisio',
+    'blog.article.addio-tutto-compreso-ai-costi.title': 'Keine festen Kosten mehr für KI: Neue verbrauchsabhängige Tarife',
+    'blog.article.addio-tutto-compreso-ai-costi.excerpt': 'Unternehmen, die künstliche Intelligenz nutzen, zahlen nun nach tatsächlichem Verbrauch, was die Betriebskosten erheblich beeinflusst.',
+    'blog.article.addio-tutto-compreso-ai-costi.imageAlt': 'FoxTown Factory Stores in Mendrisio, Tessin',
 };
 
 export default blogMetaDe;

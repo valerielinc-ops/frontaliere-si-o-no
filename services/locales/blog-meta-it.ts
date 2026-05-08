@@ -7167,6 +7167,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rientro-lento-a2-frontalieri.title': 'Rientro lento sulla A2: 40 minuti di ritardo per i frontalieri',
     'blog.article.rientro-lento-a2-frontalieri.excerpt': 'Traffico intenso e pioggia rendono il rientro da sud sulla A2 particolarmente lento. Ritardi fino a 40 minuti tra Rivera e Chiasso.',
     'blog.article.rientro-lento-a2-frontalieri.imageAlt': 'Autostrada A2 con traffico intenso e pioggia vicino a Mendrisio',
+    'blog.article.addio-tutto-compreso-ai-costi.title': 'Addio ai costi fissi per l\'AI: ecco le nuove tariffe a consumo',
+    'blog.article.addio-tutto-compreso-ai-costi.excerpt': 'Le aziende che utilizzano l\'intelligenza artificiale dovranno ora pagare in base all\'uso effettivo, con un impatto significativo sui costi operativi.',
+    'blog.article.addio-tutto-compreso-ai-costi.imageAlt': 'FoxTown Factory Stores a Mendrisio, Ticino',
 };
 
 export default blogMetaIt;
