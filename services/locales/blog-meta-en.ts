@@ -7181,6 +7181,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rafforzare-sicurezza-bellinzona-2026.title': 'Safety in Bellinzona: motion to improve quality of life',
     'blog.article.rafforzare-sicurezza-bellinzona-2026.excerpt': 'Karim Spinelli (PLR) presents motion to strengthen security and institutional presence in sensitive areas of Bellinzona',
     'blog.article.rafforzare-sicurezza-bellinzona-2026.imageAlt': 'Bellinzona cityscape with Castelgrande castle in the background',
+    'blog.article.austria-ticino-ambasciatori-2026.title': 'Austria and Ticino closer thanks to two ambassadors',
+    'blog.article.austria-ticino-ambasciatori-2026.excerpt': 'Honors for Helga Martinelli and Giuseppe Perale for their commitment to relations between Austria and Ticino',
+    'blog.article.austria-ticino-ambasciatori-2026.imageAlt': 'Official ceremony at Lugano\'s city hall with Austrian and Swiss flags',
 };
 
 export default blogMetaEn;

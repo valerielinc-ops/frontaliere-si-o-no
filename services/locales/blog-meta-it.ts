@@ -7182,6 +7182,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rafforzare-sicurezza-bellinzona-2026.title': 'Sicurezza a Bellinzona: mozione per migliorare la qualità della vita',
     'blog.article.rafforzare-sicurezza-bellinzona-2026.excerpt': 'Karim Spinelli (Plr) presenta mozione per rafforzare sicurezza e presenza istituzionale in zone sensibili di Bellinzona',
     'blog.article.rafforzare-sicurezza-bellinzona-2026.imageAlt': 'Panorama di Bellinzona con il Castelgrande in primo piano',
+    'blog.article.austria-ticino-ambasciatori-2026.title': 'Austria e Ticino più vicini grazie a due ambasciatori',
+    'blog.article.austria-ticino-ambasciatori-2026.excerpt': 'Onorificenze a Helga Martinelli e Giuseppe Perale per il loro impegno nelle relazioni tra Austria e Ticino',
+    'blog.article.austria-ticino-ambasciatori-2026.imageAlt': 'Cerimonia ufficiale a Palazzo Civico di Lugano con bandiere austriache e svizzere',
 };
 
 export default blogMetaIt;
