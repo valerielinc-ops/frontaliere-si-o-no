@@ -6927,6 +6927,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.title': 'Polémique autour des affiches érotiques',
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.excerpt': 'Le slogan d\'un club érotique a provoqué des critiques. Le collectif féministe du Valais : \'C\'est un message qui peut être perçu comme une incitation au viol\'.',
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.imageAlt': 'Lugano, Ticino',
+    'blog.article.friburgo-finale-europa-manzambi.title': 'Fribourg en finale de Ligue Europa : Manzambi décide',
+    'blog.article.friburgo-finale-europa-manzambi.excerpt': 'Le but du Suisse Johan Manzambi envoie Fribourg en finale de Ligue Europa. Le 20 mai à Istanbul contre Aston Villa.',
+    'blog.article.friburgo-finale-europa-manzambi.imageAlt': 'Stade de Lugano éclairé la nuit pendant un match de football',
 };
 
 export default blogMetaFr;

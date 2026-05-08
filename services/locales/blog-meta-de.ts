@@ -6926,6 +6926,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.title': 'Desiderio ohne Erlaubnis: Wut über Erotik-Lokale',
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.excerpt': 'Slogan des Erotik-Lokals hat Kritik ausgelöst. Kollektiv Feminist des Vallese: \'Das ist eine Botschaft, die als Anreiz zum Vergewaltigungspotenzial wahrgenommen werden kann.\'',
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.imageAlt': 'Lugano, Ticino',
+    'blog.article.friburgo-finale-europa-manzambi.title': 'Freiburg steht im Europa-League-Finale: Manzambi trifft',
+    'blog.article.friburgo-finale-europa-manzambi.excerpt': 'Das Tor des Schweizer Nationalspielers Johan Manzambi bringt Freiburg ins Finale der Europa League. Am 20. Mai in Istanbul gegen Aston Villa.',
+    'blog.article.friburgo-finale-europa-manzambi.imageAlt': 'Lugano-Stadion nachts bei einem Fußballspiel beleuchtet',
 };
 
 export default blogMetaDe;

@@ -28895,6 +28895,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-friburgo-finale-europa-manzambi': {
+    title: 'Friburgo in finale di Europa League: Manzambi decide',
+    description: 'Il gol del nazionale elvetico Johan Manzambi manda il Friburgo in finale di Europa League. Il 20 maggio a Istanbul contro l\'Aston Villa. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, friburgo, finale, europa, league',
+    ogTitle: 'Friburgo in finale di Europa League: Manzambi decide',
+    ogDescription: 'Il gol del nazionale elvetico Johan Manzambi manda il Friburgo in finale di Europa League. Il 20 maggio a Istanbul contro l\'Aston Villa.',
+    canonicalPath: '/articoli-frontaliere/friburgo-finale-europa-manzambi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Friburgo in finale di Europa League: Manzambi decide",
+      "description": "Il gol del nazionale elvetico Johan Manzambi manda il Friburgo in finale di Europa League. Il 20 maggio a Istanbul contro l'Aston Villa. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/friburgo-finale-europa-manzambi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di Lugano illuminato di notte durante una partita di calcio"
+      },
+      "datePublished": "2026-05-08T01:06:28+00:00",
+      "dateModified": "2026-05-08T01:06:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/friburgo-finale-europa-manzambi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -6927,6 +6927,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.title': 'Il desiderio non chiede permesso: bufera sui cartelloni di un locale erotico',
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.excerpt': 'Slogan del locale erotico ha scatenato critiche. Collettivo Femminista del Vallese: \'È un messaggio che può essere percepito come un incitamento allo stupro\'.',
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.imageAlt': 'Lugano, Ticino',
+    'blog.article.friburgo-finale-europa-manzambi.title': 'Friburgo in finale di Europa League: Manzambi decide',
+    'blog.article.friburgo-finale-europa-manzambi.excerpt': 'Il gol del nazionale elvetico Johan Manzambi manda il Friburgo in finale di Europa League. Il 20 maggio a Istanbul contro l\'Aston Villa.',
+    'blog.article.friburgo-finale-europa-manzambi.imageAlt': 'Stadio di Lugano illuminato di notte durante una partita di calcio',
 };
 
 export default blogMetaIt;

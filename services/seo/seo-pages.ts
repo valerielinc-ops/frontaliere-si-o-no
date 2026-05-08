@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2361,
+ "numberOfItems": 2362,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7003,7 +7003,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2358, "name": "Ex pazienti oncologici aiutano i malati in Ticino", "url": `${BASE_URL}/articoli-frontaliere/ex-pazienti-oncologici-aiutano-malati-ticino` },
           { "@type": "ListItem", "position": 2359, "name": "Grande festa popolare al Cornaredo: il 4 giugno...", "url": `${BASE_URL}/articoli-frontaliere/picnic-stadio-cornaredo` },
           { "@type": "ListItem", "position": 2360, "name": "Malessere nella Polizia cantonale: al via un au...", "url": `${BASE_URL}/articoli-frontaliere/malessere-polizia-cantonale-audit` },
-          { "@type": "ListItem", "position": 2361, "name": "Il desiderio non chiede permesso: bufera sui ca...", "url": `${BASE_URL}/articoli-frontaliere/desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico` }
+          { "@type": "ListItem", "position": 2361, "name": "Il desiderio non chiede permesso: bufera sui ca...", "url": `${BASE_URL}/articoli-frontaliere/desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico` },
+          { "@type": "ListItem", "position": 2362, "name": "Friburgo in finale di Europa League: Manzambi d...", "url": `${BASE_URL}/articoli-frontaliere/friburgo-finale-europa-manzambi` }
  ]
  },
  {

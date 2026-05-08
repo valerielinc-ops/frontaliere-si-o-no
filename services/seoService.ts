@@ -3551,6 +3551,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-picnic-stadio-cornaredo': { name: 'Grande festa popolare al Cornaredo', path: '/articoli-frontaliere/picnic-stadio-cornaredo', parent: 'blog' },
     'blog-malessere-polizia-cantonale-audit': { name: 'Audit Polizia', path: '/articoli-frontaliere/malessere-polizia-cantonale-audit', parent: 'blog' },
     'blog-desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico': { name: 'Il desiderio non chiede permesso: bufera', path: '/articoli-frontaliere/desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico', parent: 'blog' },
+    'blog-friburgo-finale-europa-manzambi': { name: 'Novità', path: '/articoli-frontaliere/friburgo-finale-europa-manzambi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -22151,4 +22151,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'friburgo-finale-europa-manzambi',
+ category: 'novita',
+ date: '2026-05-08T01:06:28.704Z',
+ image: '/images/blog/friburgo-finale-europa-manzambi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

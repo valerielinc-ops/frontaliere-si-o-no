@@ -6926,6 +6926,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.title': 'Desire Unleashed: Backlash Against Erotic Bar\'s Slogan',
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.excerpt': 'Slogan of the erotic bar has sparked criticism. Feminist Collective of the Valais: \'It\'s a message that can be perceived as an incitement to rape.\'',
     'blog.article.desiderio-non-chiede-permesso-bufera-sui-cartelloni-di-un-locale-erotico.imageAlt': 'Lugano, Ticino',
+    'blog.article.friburgo-finale-europa-manzambi.title': 'Fribourg reaches Europa League final: Manzambi scores',
+    'blog.article.friburgo-finale-europa-manzambi.excerpt': 'The goal by Swiss national Johan Manzambi sends Fribourg to the Europa League final. On May 20 in Istanbul against Aston Villa.',
+    'blog.article.friburgo-finale-europa-manzambi.imageAlt': 'Lugano Stadium illuminated at night during a soccer match',
 };
 
 export default blogMetaEn;
