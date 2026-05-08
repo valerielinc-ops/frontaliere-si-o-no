@@ -27,19 +27,17 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
 
+      # Env for build-evidence-index.mjs (GA4_PROPERTY_ID, POSTHOG_*) +
+      # build-article-embeddings.mjs (OPENAI_API_KEY) is populated via
+      # load-rc-env.mjs above, which writes RC keys to $GITHUB_ENV.
+      # No explicit `env:` here — that would shadow RC values with empty
+      # GitHub secret references. FIREBASE_SERVICE_ACCOUNT_JSON also
+      # already in env via the first step.
       - name: Build evidence index
         run: node scripts/build-evidence-index.mjs
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
-          POSTHOG_PROJECT_ID: ${{ secrets.POSTHOG_PROJECT_ID }}
-          POSTHOG_HOST: ${{ secrets.POSTHOG_HOST }}
 
       - name: Build article embeddings (incremental)
         run: node scripts/build-article-embeddings.mjs --incremental
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Commit evidence
         run: |
