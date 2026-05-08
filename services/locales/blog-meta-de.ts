@@ -7004,6 +7004,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-stabili-2026-q1.title': 'Grenzgänger im Tessin 2026-Q1 stabil',
     'blog.article.frontalieri-ticino-stabili-2026-q1.excerpt': 'Die BFS-Daten zeigen 78.561 Grenzgänger im Tessin, mit einer Veränderung von -0,16 % gegenüber dem Vorquartal.',
     'blog.article.frontalieri-ticino-stabili-2026-q1.imageAlt': 'Blick auf den Luganersee mit Bergen im Hintergrund',
+    'blog.article.ricorso-patente-lavoro-varese-2026.title': 'Führerschein-Widerspruch: Job in der Schwebe',
+    'blog.article.ricorso-patente-lavoro-varese-2026.excerpt': 'Eine Fachkraft aus Varese erzählt von der Wartezeit auf einen Widerspruch gegen einen entzogenen Führerschein: 1500 Franken ausgegeben und noch immer keine Antwort. Was tun, wenn der Job vom Fahren abhängt?',
+    'blog.article.ricorso-patente-lavoro-varese-2026.imageAlt': 'Person hält Schweizer Führerschein und italienischen Arbeitsvertrag mit Castelgrande im Hintergrund',
 };
 
 export default blogMetaDe;

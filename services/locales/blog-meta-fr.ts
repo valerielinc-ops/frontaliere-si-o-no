@@ -7005,6 +7005,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-stabili-2026-q1.title': 'Frontaliers stables dans le Tessin en 2026-Q1',
     'blog.article.frontalieri-ticino-stabili-2026-q1.excerpt': 'Les données de l\'OFS indiquent 78 561 frontaliers dans le Tessin, avec une variation de -0,16 % par rapport au trimestre précédent.',
     'blog.article.frontalieri-ticino-stabili-2026-q1.imageAlt': 'Vue du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.ricorso-patente-lavoro-varese-2026.title': 'Recours permis G : l\'emploi en suspens',
+    'blog.article.ricorso-patente-lavoro-varese-2026.excerpt': 'Une professionnelle de Varèse raconte l\'attente d\'un recours pour un permis G retiré : 1500 francs dépensés et toujours aucune réponse. Que faire si l\'emploi dépend de la conduite ?',
+    'blog.article.ricorso-patente-lavoro-varese-2026.imageAlt': 'Personne tenant un permis de conduire suisse et un contrat de travail italien avec Castelgrande en arrière-plan',
 };
 
 export default blogMetaFr;

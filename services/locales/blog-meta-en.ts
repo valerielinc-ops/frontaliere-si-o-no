@@ -7004,6 +7004,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-stabili-2026-q1.title': 'Ticino cross-border workers stable in 2026-Q1',
     'blog.article.frontalieri-ticino-stabili-2026-q1.excerpt': 'BFS data shows 78,561 cross-border workers in Ticino, a -0.16% change from the previous quarter.',
     'blog.article.frontalieri-ticino-stabili-2026-q1.imageAlt': 'View of Lake Lugano with mountains in the background',
+    'blog.article.ricorso-patente-lavoro-varese-2026.title': 'License appeal: job at risk due to justice delays',
+    'blog.article.ricorso-patente-lavoro-varese-2026.excerpt': 'A professional from Varese shares her wait for an appeal on a revoked license: 1500 euros spent and still no answer. What to do if your job depends on driving?',
+    'blog.article.ricorso-patente-lavoro-varese-2026.imageAlt': 'Person holding Swiss driver\'s license and Italian work contract with Castelgrande in the background',
 };
 
 export default blogMetaEn;

@@ -29909,6 +29909,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricorso-patente-lavoro-varese-2026': {
+    title: 'Ricorso patente: lavoro in bilico per i tempi della giustizia',
+    description: 'Una professionista di Varese racconta l\'attesa di un ricorso per patente ritirata: 1500 euro spesi e ancora nessuna risposta. Cosa fare se il lavoro dipende',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricorso, patente, lavoro, bilico',
+    ogTitle: 'Ricorso patente: lavoro in bilico per i tempi della giustizia',
+    ogDescription: 'Una professionista di Varese racconta l\'attesa di un ricorso per patente ritirata: 1500 euro spesi e ancora nessuna risposta. Cosa fare se il lavoro dipende',
+    canonicalPath: '/articoli-frontaliere/ricorso-patente-lavoro-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricorso patente: lavoro in bilico per i tempi della giustizia",
+      "description": "Una professionista di Varese racconta l'attesa di un ricorso per patente ritirata: 1500 euro spesi e ancora nessuna risposta. Cosa fare se il lavoro dipende",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ricorso-patente-lavoro-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona tiene patente svizzera e contratto di lavoro italiano con Castelgrande in sfondo"
+      },
+      "datePublished": "2026-05-08T05:54:52+00:00",
+      "dateModified": "2026-05-08T05:54:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ricorso-patente-lavoro-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

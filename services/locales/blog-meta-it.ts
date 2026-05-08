@@ -7005,6 +7005,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-stabili-2026-q1.title': 'Frontalieri Ticino stabili nel 2026-Q1',
     'blog.article.frontalieri-ticino-stabili-2026-q1.excerpt': 'I dati BFS indicano 78.561 frontalieri in Ticino, con una variazione dello -0.16% rispetto al trimestre precedente.',
     'blog.article.frontalieri-ticino-stabili-2026-q1.imageAlt': 'Vista del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.ricorso-patente-lavoro-varese-2026.title': 'Ricorso patente: lavoro in bilico per i tempi della giustizia',
+    'blog.article.ricorso-patente-lavoro-varese-2026.excerpt': 'Una professionista di Varese racconta l\'attesa di un ricorso per patente ritirata: 1500 euro spesi e ancora nessuna risposta. Cosa fare se il lavoro dipende dalla guida?',
+    'blog.article.ricorso-patente-lavoro-varese-2026.imageAlt': 'Persona tiene patente svizzera e contratto di lavoro italiano con Castelgrande in sfondo',
 };
 
 export default blogMetaIt;

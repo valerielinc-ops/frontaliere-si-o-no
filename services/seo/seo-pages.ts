@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2387,
+ "numberOfItems": 2388,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7029,7 +7029,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2384, "name": "Grigioni inviano fattura all'Italia per i costi...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-fattura-italia-olimpiadi` },
           { "@type": "ListItem", "position": 2385, "name": "Untersander lascia il Berna per il Ginevra Serv...", "url": `${BASE_URL}/articoli-frontaliere/untersander-ginevra-2026` },
           { "@type": "ListItem", "position": 2386, "name": "ISA 2026: come richiedere i dati precalcolati e...", "url": `${BASE_URL}/articoli-frontaliere/dati-precalcolati-isa-2026-frontalieri` },
-          { "@type": "ListItem", "position": 2387, "name": "Frontalieri Ticino stabili nel 2026-Q1", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-stabili-2026-q1` }
+          { "@type": "ListItem", "position": 2387, "name": "Frontalieri Ticino stabili nel 2026-Q1", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-stabili-2026-q1` },
+          { "@type": "ListItem", "position": 2388, "name": "Ricorso patente: lavoro in bilico per i tempi d...", "url": `${BASE_URL}/articoli-frontaliere/ricorso-patente-lavoro-varese-2026` }
  ]
  },
  {
