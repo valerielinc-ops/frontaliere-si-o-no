@@ -7023,6 +7023,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bioblitz-groane-2026-frontalieri.title': 'BioBlitz Lombardia 2026: tre giorni di natura al Parco delle Groane',
     'blog.article.bioblitz-groane-2026-frontalieri.excerpt': 'Dal 15 al 17 maggio 2026, il Parco delle Groane ospita il BioBlitz Lombardia, un evento di citizen science per scoprire la biodiversità locale.',
     'blog.article.bioblitz-groane-2026-frontalieri.imageAlt': 'Parco delle Groane, Lombardia, natura, biodiversità, farfalle, lucciole',
+    'blog.article.joris-begevoord-intervista-aebr-2026.title': 'Intervista a Joris Begevoord - Presidente AEBR',
+    'blog.article.joris-begevoord-intervista-aebr-2026.excerpt': 'Joris Begevoord, Presidente dell\'AEBR, parla delle sfide e opportunità per i frontalieri in Ticino nel 2026.',
+    'blog.article.joris-begevoord-intervista-aebr-2026.imageAlt': 'Intervista a Joris Begevoord, Presidente dell\'Associazione delle regioni frontaliere europee (AEBR), in un ufficio a Mendrisio.',
 };
 
 export default blogMetaIt;

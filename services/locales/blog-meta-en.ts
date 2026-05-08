@@ -7022,6 +7022,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bioblitz-groane-2026-frontalieri.title': 'BioBlitz Lombardy 2026: three days of nature at Parco delle Groane',
     'blog.article.bioblitz-groane-2026-frontalieri.excerpt': 'From May 15 to 17, 2026, Parco delle Groane hosts BioBlitz Lombardy, a citizen science event to discover local biodiversity.',
     'blog.article.bioblitz-groane-2026-frontalieri.imageAlt': 'Parco delle Groane, Lombardy, nature, biodiversity, butterflies, fireflies',
+    'blog.article.joris-begevoord-intervista-aebr-2026.title': 'Interview with Joris Begevoord - AEBR President',
+    'blog.article.joris-begevoord-intervista-aebr-2026.excerpt': 'Joris Begevoord, President of AEBR, discusses the challenges and opportunities for cross-border workers in Ticino in 2026.',
+    'blog.article.joris-begevoord-intervista-aebr-2026.imageAlt': 'Interview with Joris Begevoord, President of the European Association of Border Regions (AEBR), in an office in Mendrisio.',
 };
 
 export default blogMetaEn;

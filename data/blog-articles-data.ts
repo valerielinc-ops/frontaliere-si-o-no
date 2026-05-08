@@ -22439,4 +22439,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'joris-begevoord-intervista-aebr-2026',
+ category: 'novita',
+ date: '2026-05-08T06:39:32.769Z',
+ image: '/images/blog/joris-begevoord-intervista-aebr-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2393,
+ "numberOfItems": 2394,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7035,7 +7035,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2390, "name": "Giardino ferroviario a Balerna: un nuovo spazio...", "url": `${BASE_URL}/articoli-frontaliere/giardino-ferroviario-balerna-2026` },
           { "@type": "ListItem", "position": 2391, "name": "Vertigini in montagna: rischio sottovalutato pe...", "url": `${BASE_URL}/articoli-frontaliere/vertigini-montagna-frontalieri` },
           { "@type": "ListItem", "position": 2392, "name": "Real Madrid nel caos: rissa fra Tchouaméni e Va...", "url": `${BASE_URL}/articoli-frontaliere/real-madrid-caos-rissa-tchouameni-valverde` },
-          { "@type": "ListItem", "position": 2393, "name": "BioBlitz Lombardia 2026: tre giorni di natura a...", "url": `${BASE_URL}/articoli-frontaliere/bioblitz-groane-2026-frontalieri` }
+          { "@type": "ListItem", "position": 2393, "name": "BioBlitz Lombardia 2026: tre giorni di natura a...", "url": `${BASE_URL}/articoli-frontaliere/bioblitz-groane-2026-frontalieri` },
+          { "@type": "ListItem", "position": 2394, "name": "Intervista a Joris Begevoord - Presidente AEBR", "url": `${BASE_URL}/articoli-frontaliere/joris-begevoord-intervista-aebr-2026` }
  ]
  },
  {
