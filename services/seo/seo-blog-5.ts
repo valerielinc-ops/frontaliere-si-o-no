@@ -31937,6 +31937,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-revoca-permesso-g-steiner-ticino': {
+    title: 'Revoca permesso G a direttore Steiner: cosa cambia per i frontalieri',
+    description: 'Il direttore della Steiner ha perso il permesso G. Ecco le implicazioni per i frontalieri e cosa fare per evitare problemi. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, revoca, permesso, direttore, steiner',
+    ogTitle: 'Revoca permesso G a direttore Steiner: implicazioni per i frontalieri',
+    ogDescription: 'Il direttore della Steiner ha perso il permesso G. Ecco le implicazioni per i frontalieri e cosa fare per evitare problemi.',
+    canonicalPath: '/articoli-frontaliere/revoca-permesso-g-steiner-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Revoca permesso G a direttore Steiner: cosa cambia per i frontalieri",
+      "description": "Il direttore della Steiner ha perso il permesso G. Ecco le implicazioni per i frontalieri e cosa fare per evitare problemi. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/revoca-permesso-g-steiner-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Ticino, Svizzera, con il confine italiano sullo sfondo. La città è annidata tra colline ondulate e vigneti, mostrando la sua unica posizione transfrontaliera."
+      },
+      "datePublished": "2026-05-08T21:46:10+00:00",
+      "dateModified": "2026-05-08T21:46:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/revoca-permesso-g-steiner-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

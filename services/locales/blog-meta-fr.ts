@@ -7161,6 +7161,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assicurazione-malattie-pilota-ticino.title': 'Assurance maladie au Tessin: ce qui change pour les frontaliers',
     'blog.article.assicurazione-malattie-pilota-ticino.excerpt': 'L\'OFSP lance des projets pilotes pour contenir les coûts de l\'assurance maladie. Voici ce qu\'il faut savoir si vous travaillez au Tessin',
     'blog.article.assicurazione-malattie-pilota-ticino.imageAlt': 'Lac de Lugano avec montagnes et bateaux, photographie professionnelle',
+    'blog.article.revoca-permesso-g-steiner-ticino.title': 'Permis G révoqué : impact pour les frontaliers',
+    'blog.article.revoca-permesso-g-steiner-ticino.excerpt': 'Le directeur de Steiner a perdu son permis G. Voici les implications pour les frontaliers et ce qu\'il faut faire pour éviter les problèmes.',
+    'blog.article.revoca-permesso-g-steiner-ticino.imageAlt': 'Vue aérienne de Mendrisio, Tessin, Suisse, avec la frontière italienne en arrière-plan. La ville est nichée entre des collines ondulées et des vignobles, mettant en évidence sa position transfrontalière unique.',
 };
 
 export default blogMetaFr;

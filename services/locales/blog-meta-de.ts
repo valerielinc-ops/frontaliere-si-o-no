@@ -7160,6 +7160,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assicurazione-malattie-pilota-ticino.title': 'Krankenversicherung im Tessin: Änderungen für Grenzgänger',
     'blog.article.assicurazione-malattie-pilota-ticino.excerpt': 'Das BAG startet Pilotprojekte, um die Kosten der Krankenversicherung zu senken. Hier erfahren Sie, was Sie wissen müssen, wenn Sie im Tessin arbeiten.',
     'blog.article.assicurazione-malattie-pilota-ticino.imageAlt': 'Luganersee mit Bergen und Booten, professionelle Fotografie',
+    'blog.article.revoca-permesso-g-steiner-ticino.title': 'Grenzgänger: Was sich mit dem Verlust der G-Bewilligung ändert',
+    'blog.article.revoca-permesso-g-steiner-ticino.excerpt': 'Der Direktor von Steiner hat seine G-Bewilligung verloren. Hier sind die Auswirkungen für Grenzgänger und was sie tun können, um Probleme zu vermeiden.',
+    'blog.article.revoca-permesso-g-steiner-ticino.imageAlt': 'Luftansicht von Mendrisio, Tessin, Schweiz, mit der italienischen Grenze im Hintergrund. Die Stadt liegt zwischen sanften Hügeln und Weinbergen und zeigt ihre einzigartige Grenzlage.',
 };
 
 export default blogMetaDe;

@@ -7160,6 +7160,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assicurazione-malattie-pilota-ticino.title': 'Health insurance pilot projects in Ticino: what changes for cross-border workers',
     'blog.article.assicurazione-malattie-pilota-ticino.excerpt': 'The BAG launches pilot projects to contain health insurance costs. Here\'s what to know if you work in Ticino',
     'blog.article.assicurazione-malattie-pilota-ticino.imageAlt': 'Lake Lugano with mountains and boats, professional photography',
+    'blog.article.revoca-permesso-g-steiner-ticino.title': 'Steiner director loses G permit: what changes for cross-border workers',
+    'blog.article.revoca-permesso-g-steiner-ticino.excerpt': 'The Steiner director has lost their G permit. Here are the implications for cross-border workers and what to do to avoid problems.',
+    'blog.article.revoca-permesso-g-steiner-ticino.imageAlt': 'Aerial view of Mendrisio, Ticino, Switzerland, with the Italian border in the background. The town is nestled between rolling hills and vineyards, showcasing its unique cross-border location.',
 };
 
 export default blogMetaEn;

@@ -22853,4 +22853,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'revoca-permesso-g-steiner-ticino',
+ category: 'novita',
+ date: '2026-05-08T21:46:10.531Z',
+ image: '/images/blog/revoca-permesso-g-steiner-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

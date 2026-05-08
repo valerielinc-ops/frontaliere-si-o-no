@@ -7161,6 +7161,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assicurazione-malattie-pilota-ticino.title': 'Piloti per l\'assicurazione malattie in Ticino: cosa cambia per i frontalieri',
     'blog.article.assicurazione-malattie-pilota-ticino.excerpt': 'Il BAG lancia progetti pilota per contenere i costi dell\'assicurazione malattie. Ecco cosa sapere se lavori in Ticino',
     'blog.article.assicurazione-malattie-pilota-ticino.imageAlt': 'Lago di Lugano con montagne e barche, fotografia professionale',
+    'blog.article.revoca-permesso-g-steiner-ticino.title': 'Revoca permesso G a direttore Steiner: cosa cambia per i frontalieri',
+    'blog.article.revoca-permesso-g-steiner-ticino.excerpt': 'Il direttore della Steiner ha perso il permesso G. Ecco le implicazioni per i frontalieri e cosa fare per evitare problemi.',
+    'blog.article.revoca-permesso-g-steiner-ticino.imageAlt': 'Vista aerea di Mendrisio, Ticino, Svizzera, con il confine italiano sullo sfondo. La città è annidata tra colline ondulate e vigneti, mostrando la sua unica posizione transfrontaliera.',
 };
 
 export default blogMetaIt;
