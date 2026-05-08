@@ -423,11 +423,22 @@ body.modal-open .google-auto-placed {
   pointer-events: none !important;
 }
 
-/* ===== Mobile Auto-Ad Controls ═════════════════════════════════════════
-   Google Auto Ads inject .google-auto-placed divs anywhere on the page.
-   On mobile these consume the entire above-the-fold viewport, pushing real
-   content below the fold. Cap their height and ensure they collapse when
-   empty so content is always visible first. */
+/* ===== Auto-Ad Containment + CLS Bounding (P0.1.C / P0.1.D) ═════════════
+   Google Auto Ads inject `.google-auto-placed` divs anywhere on the page,
+   bypassing our React component reservation. We can't pre-reserve space
+   (the shift has already happened by the time the class lands in the DOM),
+   but we can:
+     1. Cap their max-height so the shift is bounded.
+     2. Use `contain: layout` so the shift does NOT propagate up to siblings
+        — only the local container reflows.
+     3. Set an `aspect-ratio` hint so the browser allocates rough space when
+        the iframe is being measured (browser still picks max-content if
+        unset, which is what causes the violent shift).
+     4. Collapse fully when ad failed to fill so empty space doesn't sit. */
+.google-auto-placed {
+  contain: layout;
+  aspect-ratio: 4 / 1;
+}
 @media (max-width: 767px) {
   .google-auto-placed {
     max-height: 250px;
@@ -440,6 +451,31 @@ body.modal-open .google-auto-placed {
     margin: 0;
     padding: 0;
   }
+}
+@media (min-width: 768px) {
+  .google-auto-placed {
+    max-height: 400px;
+    overflow: hidden;
+  }
+  .google-auto-placed:empty,
+  .google-auto-placed:has(ins[data-ad-status="unfilled"]) {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* P0.1.D — confine layout shifts to the section that produced them so a
+   shift in one place doesn't cascade through main content. The cost is
+   purely correctness: any sub-tree that depends on absolutely-positioned
+   children outside the container would need to opt out. None of our SEO
+   surfaces do.
+   Scope: `main` (Tailwind layout root) + every `<section>` that already
+   has an inset layout token. Keeping the selector list explicit (instead
+   of `section`) so we don't accidentally bound flex/grid wrappers we want
+   to overflow naturally. */
+main {
+  contain: layout;
 }
 
 /* ===== Non-critical CSS moved from inline <style> to reduce render-blocking ===== */
