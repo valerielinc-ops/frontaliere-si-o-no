@@ -7152,6 +7152,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.impatriati-fiscalita-frontalieri.title': 'Impatriés: le passé de frontalier n\'exclut pas les avantages fiscaux',
     'blog.article.impatriati-fiscalita-frontalieri.excerpt': 'La nouvelle réglementation confirme que le statut antérieur de frontalier n\'empêche pas d\'accéder aux avantages fiscaux pour les impatriés au Tessin.',
     'blog.article.impatriati-fiscalita-frontalieri.imageAlt': 'Mendrisio, Tessin, frontière italo-suisse',
+    'blog.article.svizzeri-ottimisti-finanze-2026.title': 'Les Suisses optimistes sur la situation financière pour 2026',
+    'blog.article.svizzeri-ottimisti-finanze-2026.excerpt': 'Un sondage révèle que les résidents suisses, y compris les frontaliers, sont confiants pour l\'avenir financier',
+    'blog.article.svizzeri-ottimisti-finanze-2026.imageAlt': 'Lac de Lugano avec les Alpes suisses en arrière-plan et un bateau naviguant au premier plan',
 };
 
 export default blogMetaFr;

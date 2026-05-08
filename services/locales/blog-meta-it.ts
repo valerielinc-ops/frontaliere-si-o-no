@@ -7152,6 +7152,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.impatriati-fiscalita-frontalieri.title': 'Impatriati: il passato da frontaliere non preclude le agevolazioni fiscali',
     'blog.article.impatriati-fiscalita-frontalieri.excerpt': 'La nuova normativa conferma che il precedente status di frontaliere non impedisce di accedere alle agevolazioni fiscali per impatriati in Ticino.',
     'blog.article.impatriati-fiscalita-frontalieri.imageAlt': 'Mendrisio, Ticino, confine italo-svizzero',
+    'blog.article.svizzeri-ottimisti-finanze-2026.title': 'Svizzeri ottimisti sulla situazione finanziaria per il 2026',
+    'blog.article.svizzeri-ottimisti-finanze-2026.excerpt': 'Un sondaggio rivela che i residenti svizzeri, inclusi i frontalieri, sono fiduciosi per il futuro finanziario',
+    'blog.article.svizzeri-ottimisti-finanze-2026.imageAlt': 'Lago di Lugano con le Alpi svizzere sullo sfondo e una barca che naviga in primo piano',
 };
 
 export default blogMetaIt;

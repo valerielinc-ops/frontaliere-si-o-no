@@ -22826,4 +22826,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'svizzeri-ottimisti-finanze-2026',
+ category: 'novita',
+ date: '2026-05-08T20:14:41.255Z',
+ image: '/images/blog/svizzeri-ottimisti-finanze-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

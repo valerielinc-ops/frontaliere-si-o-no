@@ -7151,6 +7151,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.impatriati-fiscalita-frontalieri.title': 'Grenzgängerstatus schliesst Steuervergünstigungen nicht aus',
     'blog.article.impatriati-fiscalita-frontalieri.excerpt': 'Die neue Regelung bestätigt, dass der frühere Status als Grenzgänger den Zugang zu Steuervergünstigungen für Zugezogene im Tessin nicht ausschließt.',
     'blog.article.impatriati-fiscalita-frontalieri.imageAlt': 'Mendrisio, Tessin, italienisch-schweizerische Grenze',
+    'blog.article.svizzeri-ottimisti-finanze-2026.title': 'Schweizer optimistisch für die finanzielle Lage 2026',
+    'blog.article.svizzeri-ottimisti-finanze-2026.excerpt': 'Eine Umfrage zeigt, dass die Schweizer, einschließlich Grenzgänger, zuversichtlich in die finanzielle Zukunft sind',
+    'blog.article.svizzeri-ottimisti-finanze-2026.imageAlt': 'Luganersee mit den Schweizer Alpen im Hintergrund und einem Boot, das im Vordergrund fährt',
 };
 
 export default blogMetaDe;

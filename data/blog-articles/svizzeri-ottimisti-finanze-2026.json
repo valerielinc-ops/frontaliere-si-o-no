@@ -1,0 +1,40 @@
+{
+  "id": "svizzeri-ottimisti-finanze-2026",
+  "slug": "svizzeri-ottimisti-finanze-2026",
+  "publishedAt": "2026-05-08T20:14:42.813Z",
+  "cluster": "pensioni",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.8418214845951,
+    "confidence": 0.8,
+    "finalScore": 8.67345718767608,
+    "topK": [
+      {
+        "slug": "crescita-economica-ticino-2026",
+        "cosine": 0.7758606068072764
+      },
+      {
+        "slug": "economia-svizzera-ripresa-2026",
+        "cosine": 0.7711893498177465
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-2026",
+        "cosine": 0.7560758026948263
+      },
+      {
+        "slug": "kof-prospettive-lavoro-ticino-2026",
+        "cosine": 0.7533100482135809
+      },
+      {
+        "slug": "disoccupazione-svizzera-2026",
+        "cosine": 0.7513428243478049
+      }
+    ],
+    "score": 0.867345718767608,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

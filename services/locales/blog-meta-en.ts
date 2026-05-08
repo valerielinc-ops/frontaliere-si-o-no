@@ -7151,6 +7151,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.impatriati-fiscalita-frontalieri.title': 'Impatriates: past cross-border status doesn\'t block tax breaks',
     'blog.article.impatriati-fiscalita-frontalieri.excerpt': 'The new rules confirm that a previous cross-border worker status doesn\'t prevent access to tax incentives for impatriates in Ticino.',
     'blog.article.impatriati-fiscalita-frontalieri.imageAlt': 'Mendrisio, Ticino, Italian-Swiss border',
+    'blog.article.svizzeri-ottimisti-finanze-2026.title': 'Swiss optimistic about 2026 financial situation',
+    'blog.article.svizzeri-ottimisti-finanze-2026.excerpt': 'A survey reveals that Swiss residents, including cross-border workers, are confident about their financial future',
+    'blog.article.svizzeri-ottimisti-finanze-2026.imageAlt': 'Lake Lugano with Swiss Alps in the background and a boat cruising in the foreground',
 };
 
 export default blogMetaEn;
