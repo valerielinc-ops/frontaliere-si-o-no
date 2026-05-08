@@ -7145,6 +7145,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-accordo-cremona-fisco-2026.title': 'Cremona: Neues Abkommen zwischen Behörde, Finanzwache und Staatsanwaltschaft',
     'blog.article.nuovo-accordo-cremona-fisco-2026.excerpt': 'Neue Vereinbarung zur Bekämpfung der Steuerhinterziehung zwischen der italienischen Finanzbehörde, der Guardia di Finanza und der Staatsanwaltschaft von Cremona. Hier sind die Neuigkeiten für die Grenzgänger aus dem Tessin.',
     'blog.article.nuovo-accordo-cremona-fisco-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.lapo-elkann-lucerna-2024.title': 'Lapo Elkann zieht nach Luzern: Warum die Schweiz',
+    'blog.article.lapo-elkann-lucerna-2024.excerpt': 'Lapo Elkann erklärt seinen Umzug nach Luzern: Sicherheit und Neutralität der Schweiz stehen im Mittelpunkt der Entscheidung',
+    'blog.article.lapo-elkann-lucerna-2024.imageAlt': 'Vierwaldstättersee in Luzern mit Stadtblick',
 };
 
 export default blogMetaDe;

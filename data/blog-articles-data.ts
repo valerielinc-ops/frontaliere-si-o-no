@@ -22808,4 +22808,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lapo-elkann-lucerna-2024',
+ category: 'novita',
+ date: '2026-05-08T19:47:20.611Z',
+ image: '/images/blog/lapo-elkann-lucerna-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

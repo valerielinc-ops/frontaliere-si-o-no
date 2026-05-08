@@ -7146,6 +7146,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-accordo-cremona-fisco-2026.title': 'Cremone, nouvel accord entre l\'Agence, la GDF et le Procureur',
     'blog.article.nuovo-accordo-cremona-fisco-2026.excerpt': 'Nouvel accord pour lutter contre l\'évasion fiscale entre l\'Agence des Entrées, la Garde des Finances et le Procureur de Cremone. Voici les nouveautés pour les frontaliers du Tessin.',
     'blog.article.nuovo-accordo-cremona-fisco-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.lapo-elkann-lucerna-2024.title': 'Lapo Elkann s\'installe à Lucerne : pourquoi la Suisse',
+    'blog.article.lapo-elkann-lucerna-2024.excerpt': 'Lapo Elkann explique son déménagement à Lucerne : la sécurité et la neutralité suisse au cœur de son choix',
+    'blog.article.lapo-elkann-lucerna-2024.imageAlt': 'Lac des Quatre Cantons à Lucerne avec vue sur la ville',
 };
 
 export default blogMetaFr;

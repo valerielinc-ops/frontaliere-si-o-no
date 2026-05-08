@@ -7145,6 +7145,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-accordo-cremona-fisco-2026.title': 'Cremona: new agreement between Agency, Gdf and Prosecution',
     'blog.article.nuovo-accordo-cremona-fisco-2026.excerpt': 'New agreement to combat tax evasion between the Revenue Agency, Guardia di Finanza and Prosecution of Cremona. Here are the updates for Ticino cross-border workers.',
     'blog.article.nuovo-accordo-cremona-fisco-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.lapo-elkann-lucerna-2024.title': 'Lapo Elkann moves to Lucerne: why Switzerland',
+    'blog.article.lapo-elkann-lucerna-2024.excerpt': 'Lapo Elkann explains his move to Lucerne: Swiss security and neutrality at the heart of his choice',
+    'blog.article.lapo-elkann-lucerna-2024.imageAlt': 'Lake of the Four Cantons in Lucerne with city view',
 };
 
 export default blogMetaEn;

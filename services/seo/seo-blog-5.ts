@@ -31742,6 +31742,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lapo-elkann-lucerna-2024': {
+    title: 'Lapo Elkann si trasferisce a Lucerna: perché la Svizzera',
+    description: 'Lapo Elkann spiega il suo trasferimento a Lucerna: sicurezza e neutralità svizzera al centro della scelta. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lapo, elkann, trasferisce, lucerna',
+    ogTitle: 'Lapo Elkann si trasferisce a Lucerna: perché la Svizzera',
+    ogDescription: 'Lapo Elkann spiega il suo trasferimento a Lucerna: sicurezza e neutralità svizzera al centro della scelta',
+    canonicalPath: '/articoli-frontaliere/lapo-elkann-lucerna-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lapo Elkann si trasferisce a Lucerna: perché la Svizzera",
+      "description": "Lapo Elkann spiega il suo trasferimento a Lucerna: sicurezza e neutralità svizzera al centro della scelta. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lapo-elkann-lucerna-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago dei Quattro Cantoni a Lucerna con vista sulla città"
+      },
+      "datePublished": "2026-05-08T19:47:20+00:00",
+      "dateModified": "2026-05-08T19:47:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lapo-elkann-lucerna-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

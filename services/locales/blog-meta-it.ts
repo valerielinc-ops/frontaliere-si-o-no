@@ -7146,6 +7146,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-accordo-cremona-fisco-2026.title': 'Cremona, nuovo accordo tra Agenzia, Gdf e Procura - Fisco Oggi',
     'blog.article.nuovo-accordo-cremona-fisco-2026.excerpt': 'Nuovo accordo per contrastare l\'evasione fiscale tra Agenzia delle Entrate, Guardia di Finanza e Procura di Cremona. Ecco le novità per i frontalieri Ticino.',
     'blog.article.nuovo-accordo-cremona-fisco-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
+    'blog.article.lapo-elkann-lucerna-2024.title': 'Lapo Elkann si trasferisce a Lucerna: perché la Svizzera',
+    'blog.article.lapo-elkann-lucerna-2024.excerpt': 'Lapo Elkann spiega il suo trasferimento a Lucerna: sicurezza e neutralità svizzera al centro della scelta',
+    'blog.article.lapo-elkann-lucerna-2024.imageAlt': 'Lago dei Quattro Cantoni a Lucerna con vista sulla città',
 };
 
 export default blogMetaIt;
