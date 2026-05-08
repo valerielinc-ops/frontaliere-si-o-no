@@ -6915,6 +6915,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.title': 'Costruzioni in Ticino: impresari chiedono investimenti e decisioni rapide',
     'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.excerpt': 'Il settore edilizio ticinese richiede accelerazione degli investimenti pubblici e semplificazioni burocratiche per evitare rallentamenti.',
     'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.imageAlt': 'Vista aerea di un cantiere edile a Lugano, Ticino, con edifici moderni e il Lago di Lugano sullo sfondo.',
+    'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.title': 'Ex pazienti oncologici aiutano i malati in Ticino',
+    'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.excerpt': 'Un progetto innovativo all\'Ospedale Civico di Lugano trasforma i pazienti in protagonisti attivi nella revisione delle cure e dei servizi sanitari',
+    'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.imageAlt': 'Gruppo di supporto all\'Ospedale Civico di Lugano, ex pazienti oncologici aiutano i malati',
 };
 
 export default blogMetaIt;

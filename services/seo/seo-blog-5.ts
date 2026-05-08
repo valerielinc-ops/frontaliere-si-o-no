@@ -28739,6 +28739,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ex-pazienti-oncologici-aiutano-malati-ticino': {
+    title: 'Ex pazienti oncologici aiutano i malati in Ticino',
+    description: 'Un progetto innovativo all\'Ospedale Civico di Lugano trasforma i pazienti in protagonisti attivi nella revisione delle cure e dei servizi sanitari',
+    keywords: 'frontalieri, ticino, svizzera, italia, pazienti, oncologici, aiutano, malati',
+    ogTitle: 'Ex pazienti oncologici aiutano i malati in Ticino',
+    ogDescription: 'Un progetto innovativo all\'Ospedale Civico di Lugano trasforma i pazienti in protagonisti attivi nella revisione delle cure e dei servizi sanitari',
+    canonicalPath: '/articoli-frontaliere/ex-pazienti-oncologici-aiutano-malati-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ex pazienti oncologici aiutano i malati in Ticino",
+      "description": "Un progetto innovativo all'Ospedale Civico di Lugano trasforma i pazienti in protagonisti attivi nella revisione delle cure e dei servizi sanitari",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ex-pazienti-oncologici-aiutano-malati-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di supporto all'Ospedale Civico di Lugano, ex pazienti oncologici aiutano i malati"
+      },
+      "datePublished": "2026-05-07T23:58:15+00:00",
+      "dateModified": "2026-05-07T23:58:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ex-pazienti-oncologici-aiutano-malati-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

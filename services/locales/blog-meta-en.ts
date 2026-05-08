@@ -6914,6 +6914,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.title': 'Construction in Ticino: contractors demand swift investments',
     'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.excerpt': 'Ticino\'s construction sector calls for accelerated public investments and bureaucratic simplifications to avoid delays.',
     'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.imageAlt': 'Aerial view of a construction site in Lugano, Ticino, with modern buildings and Lake Lugano in the background.',
+    'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.title': 'Former cancer patients aid the sick in Ticino',
+    'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.excerpt': 'An innovative project at Lugano Civil Hospital turns patients into active protagonists in reviewing care and healthcare services',
+    'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.imageAlt': 'Support group at Ospedale Civico in Lugano, former cancer patients helping current patients',
 };
 
 export default blogMetaEn;

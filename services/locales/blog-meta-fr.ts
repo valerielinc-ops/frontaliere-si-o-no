@@ -6915,6 +6915,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.title': 'Constructions au Tessin : investissements et décisions rapides',
     'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.excerpt': 'Le secteur de la construction tessinois demande une accélération des investissements publics et des simplifications bureaucratiques pour éviter les ralentissements.',
     'blog.article.costruzioni-ticino-impresari-investimenti-rapidi.imageAlt': 'Vue aérienne d\'un chantier de construction à Lugano, Tessin, avec des bâtiments modernes et le lac de Lugano en arrière-plan.',
+    'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.title': 'Ex-patients oncologiques aident les malades au Ticino',
+    'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.excerpt': 'Un projet innovant à l\'Hôpital civil de Lugano transforme les patients en acteurs actifs dans la révision des soins et des services de santé',
+    'blog.article.ex-pazienti-oncologici-aiutano-malati-ticino.imageAlt': 'Groupe de soutien à l\'Ospedale Civico de Lugano, anciens patients cancéreux aident les patients actuels',
 };
 
 export default blogMetaFr;

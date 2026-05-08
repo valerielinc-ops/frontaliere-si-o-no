@@ -3547,6 +3547,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cure-dentarie-accessibili-ticino-2026': { name: 'Cure dentarie', path: '/articoli-frontaliere/cure-dentarie-accessibili-ticino-2026', parent: 'blog' },
     'blog-dolores-poretti-91-anni-frontalieri': { name: 'Storia di vita', path: '/articoli-frontaliere/dolores-poretti-91-anni-frontalieri', parent: 'blog' },
     'blog-costruzioni-ticino-impresari-investimenti-rapidi': { name: 'Costruzioni Ticino', path: '/articoli-frontaliere/costruzioni-ticino-impresari-investimenti-rapidi', parent: 'blog' },
+    'blog-ex-pazienti-oncologici-aiutano-malati-ticino': { name: 'Progetto innovativo', path: '/articoli-frontaliere/ex-pazienti-oncologici-aiutano-malati-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

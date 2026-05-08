@@ -22115,4 +22115,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ex-pazienti-oncologici-aiutano-malati-ticino',
+ category: 'pratico',
+ date: '2026-05-07T23:58:15.774Z',
+ image: '/images/blog/ex-pazienti-oncologici-aiutano-malati-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
