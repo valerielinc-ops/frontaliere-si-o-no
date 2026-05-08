@@ -1727,6 +1727,18 @@ function renderHubPage(inp: HubPageInputs): string {
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = truncateAtWordBoundary(copy.hubIntro, 180);
 
+  // Above-the-fold tagline (≤120 chars) — replaces the long hubIntro
+  // in the page header so mobile-first hierarchy stays clean (H1 →
+  // tagline → tile → CTA → archives). The hubIntro full prose moves
+  // to the body paragraph block, paired with hubParagraph, preserving
+  // text-to-HTML ratio.
+  const taglineByLocale: Record<JobMarketSnapshotLocale, string> = {
+    it: `Snapshot settimanale del mercato del lavoro ticinese — nuove offerte, datori più attivi, ruoli richiesti.`,
+    en: `Weekly snapshot of the Ticino job market — new openings, most-active employers, top-demanded roles.`,
+    de: `Wöchentlicher Snapshot des Tessiner Arbeitsmarkts — neue Stellen, aktivste Arbeitgeber, gefragte Rollen.`,
+    fr: `Snapshot hebdomadaire du marché du travail tessinois — nouvelles offres, employeurs les plus actifs, métiers demandés.`,
+  };
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
     <nav style="${BREADCRUMB_STYLE}">
       <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -1737,12 +1749,13 @@ function renderHubPage(inp: HubPageInputs): string {
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.seriesKicker)}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="margin:0 0 10px;color:var(--color-subtle);font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
-      <p style="${LEDE_STYLE}">${esc(copy.hubIntro)}</p>
+      <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
     </header>
     ${degradedNote}
-    ${ctaHtml}
     ${heroStatsHtml}
+    ${ctaHtml}
     <section style="margin:0 0 22px">
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.hubIntro)}</p>
       <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.hubParagraph)}</p>
     </section>
     ${latestWeeksHtml}
