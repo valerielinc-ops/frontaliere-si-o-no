@@ -1201,6 +1201,24 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       : JOB_MARKET_HUB_NAME[locale];
   const intro = kind === 'weekly' ? copy.weeklyIntro(stats) : copy.monthlyIntro(stats);
   const paragraph = kind === 'weekly' ? copy.weeklyParagraph(stats) : copy.monthlyParagraph(stats);
+  // Above-the-fold tagline (≤120 chars) — replaces the long intro in
+  // the page header so mobile-first hierarchy stays clean. The long
+  // intro/paragraph migrate to the body section below the action area
+  // (stats + lists), preserving text-to-HTML ratio.
+  const snapshotTaglineByLocale: Record<JobMarketSnapshotLocale, (k: 'weekly' | 'monthly', n: number, e: number) => string> = {
+    it: (k, n, e) => k === 'weekly'
+      ? `Snapshot settimanale del mercato Ticino: ${n} nuove offerte distribuite su ${e} datori attivi.`
+      : `Snapshot mensile del mercato Ticino: ${n} nuove offerte distribuite su ${e} datori attivi.`,
+    en: (k, n, e) => k === 'weekly'
+      ? `Ticino weekly job-market snapshot: ${n} new openings across ${e} active employers.`
+      : `Ticino monthly job-market snapshot: ${n} new openings across ${e} active employers.`,
+    de: (k, n, e) => k === 'weekly'
+      ? `Tessiner Wochen-Snapshot: ${n} neue Stellen verteilt auf ${e} aktive Arbeitgeber.`
+      : `Tessiner Monats-Snapshot: ${n} neue Stellen verteilt auf ${e} aktive Arbeitgeber.`,
+    fr: (k, n, e) => k === 'weekly'
+      ? `Snapshot hebdomadaire Tessin : ${n} nouvelles offres réparties sur ${e} employeurs actifs.`
+      : `Snapshot mensuel Tessin : ${n} nouvelles offres réparties sur ${e} employeurs actifs.`,
+  };
 
   const periodRange =
     kind === 'weekly'
@@ -1471,17 +1489,18 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.seriesKicker)} · ${esc(periodRange)}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="margin:0 0 10px;color:var(--color-subtle);font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
-      <p style="${LEDE_STYLE}">${esc(intro)}</p>
+      <p style="${LEDE_STYLE}">${esc(snapshotTaglineByLocale[locale](kind, stats.newJobs, stats.activeEmployers))}</p>
     </header>
     ${degradedNote}
     ${statTiles}
-    <section style="margin:0 0 22px">
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-    </section>
     ${topRolesList}
     ${topEmployersList}
     ${cityBreakdown}
     ${trendSection}
+    <section style="margin:24px 0 0">
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
+    </section>
     ${frontalierContextHtml}
     ${methodology}
     ${faqHtml}
@@ -2686,6 +2705,16 @@ function renderSectorPage(inp: SectorPageInputs): string {
     medianSalary: stats.medianSalary,
   });
 
+  // Above-the-fold tagline (≤120 chars) — replaces the long intro in
+  // the page header. Long intro/paragraph migrate to the body section
+  // below the action area, preserving text-to-HTML ratio.
+  const sectorTaglineByLocale: Record<JobMarketSnapshotLocale, string> = {
+    it: `Snapshot settimanale settore ${sectorLabel}: ${stats.activeJobs} offerte attive in Ticino.`,
+    en: `Weekly ${sectorLabel} sector snapshot: ${stats.activeJobs} active openings in Ticino.`,
+    de: `Wöchentlicher ${sectorLabel}-Snapshot: ${stats.activeJobs} aktive Stellen im Tessin.`,
+    fr: `Snapshot hebdomadaire secteur ${sectorLabel} : ${stats.activeJobs} offres actives au Tessin.`,
+  };
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
     <nav style="${BREADCRUMB_STYLE}">
       <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -2698,11 +2727,12 @@ function renderSectorPage(inp: SectorPageInputs): string {
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.kicker)} · ${esc(sectorLabel)}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="margin:0 0 10px;color:var(--color-subtle);font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
-      <p style="${LEDE_STYLE}">${esc(copy.intro(sectorLabel, stats.activeJobs))}</p>
+      <p style="${LEDE_STYLE}">${esc(sectorTaglineByLocale[locale])}</p>
     </header>
-    ${ctaHtml}
     ${statTiles}
+    ${ctaHtml}
     <section style="margin:0 0 22px">
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.intro(sectorLabel, stats.activeJobs))}</p>
       <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.paragraph1(sectorLabel, stats))}</p>
       <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.paragraph2(sectorLabel))}</p>
     </section>

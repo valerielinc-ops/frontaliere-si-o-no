@@ -1948,6 +1948,16 @@ function renderArchive(inp: ArchiveInputs): string {
     ? `Diese Seite sammelt den täglichen ${fuelLabel}preis in ${zoneLabel} für den Monat ${monthKey}, mit einem Monatsdurchschnitt von ${formatPrice(avg, locale)} CHF/Liter. Nutzen Sie sie, um den historischen Verlauf einzuordnen und zu beurteilen, ob der aktuelle Preis hoch oder niedrig ist. Die Daten stammen von Schweizer Tankstellen, die täglich von unserer Pipeline auf Basis TCS Benzinpreis erfasst werden.`
     : `Cette page rassemble le prix quotidien du ${fuelLabel.toLowerCase()} à ${zoneLabel} pour le mois ${monthKey}, avec une moyenne mensuelle de ${formatPrice(avg, locale)} CHF/litre. Utile pour évaluer la tendance historique et déterminer si le prix actuel est haut ou bas. Les données viennent des stations suisses surveillées chaque jour par notre pipeline basée sur TCS Benzinpreis.`;
 
+  // Above-the-fold tagline (≤120 chars). The full archive intro
+  // migrates to the body section below the chart + table, preserving
+  // text-to-HTML ratio.
+  const archiveTaglineByLocale: Record<FuelDailyLocale, string> = {
+    it: `Archivio mensile ${fuelLabel} a ${zoneLabel} (${monthKey}): media ${formatPrice(avg, locale)} CHF/litro.`,
+    en: `${fuelLabel} monthly archive in ${zoneLabel} (${monthKey}): average ${formatPrice(avg, locale)} CHF/litre.`,
+    de: `${fuelLabel}-Monatsarchiv in ${zoneLabel} (${monthKey}): Durchschnitt ${formatPrice(avg, locale)} CHF/Liter.`,
+    fr: `Archive mensuelle ${fuelLabel} à ${zoneLabel} (${monthKey}) : moyenne ${formatPrice(avg, locale)} CHF/litre.`,
+  };
+
   const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
     <thead><tr>
       <th style="${TABLE_HEAD_STYLE}">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
@@ -2037,10 +2047,13 @@ function renderArchive(inp: ArchiveInputs): string {
         <header style="margin-bottom:22px">
           <p style="${HERO_EYEBROW_STYLE}">${esc(copy.archiveLabel)} · ${esc(monthKey)}</p>
           <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-          <p style="${LEDE_STYLE}">${esc(intro)}</p>
+          <p style="${LEDE_STYLE}">${esc(archiveTaglineByLocale[locale])}</p>
         </header>
         ${archiveChartHtml}
         <section>${tableHtml}</section>
+        <section style="margin:24px 0 0">
+          <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+        </section>
         ${archiveProse}
         <section style="margin-top:32px" aria-label="advertisement">
           ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
@@ -2491,6 +2504,15 @@ function renderStationPage(opts: {
   let h1 = copy.h1(ctx.brandDisplay, ctx.streetDisplay, ctx.city, fuelLabel);
   const intro = copy.intro(ctx.brandDisplay, ctx.city, priceFmt, fuelLabel);
   const paragraph = copy.paragraph(ctx.brandDisplay, ctx.city, priceFmt, zoneAvgFmt, fuelLabel);
+  // Above-the-fold tagline (≤120 chars). Long intro/paragraph migrate
+  // to the body section below the editorial review (advice), keeping
+  // mobile-first hierarchy and preserving text-to-HTML ratio.
+  const stationTaglineByLocale: Record<FuelDailyLocale, string> = {
+    it: `${ctx.brandDisplay} a ${ctx.city}: ${fuelLabel} a ${priceFmt} CHF/litro · vs media zona ${deltaZoneFmt}.`,
+    en: `${ctx.brandDisplay} in ${ctx.city}: ${fuelLabel} at ${priceFmt} CHF/litre · vs zone average ${deltaZoneFmt}.`,
+    de: `${ctx.brandDisplay} in ${ctx.city}: ${fuelLabel} zu ${priceFmt} CHF/Liter · vs Zonen-Durchschnitt ${deltaZoneFmt}.`,
+    fr: `${ctx.brandDisplay} à ${ctx.city} : ${fuelLabel} à ${priceFmt} CHF/litre · vs moyenne de zone ${deltaZoneFmt}.`,
+  };
   const rankingLine = copy.ranking(rankLabel, total, ctx.city);
   const editorialAssessment = buildStationEditorialAssessment(
     locale,
@@ -2617,9 +2639,9 @@ function renderStationPage(opts: {
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(intro)}</p>
+    <p style="${LEDE_STYLE}">${esc(stationTaglineByLocale[locale])}</p>
   </header>
-  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
+  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px">
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(fuel === 'diesel' ? copy.priceDiesel : copy.priceBenzina)}</div>
       <div style="${STAT_TILE_VALUE};font-size:32px">${priceFmt}</div>
@@ -2634,12 +2656,13 @@ function renderStationPage(opts: {
       <div style="${STAT_TILE_VALUE};font-size:18px">${esc(rankingLine)}</div>
     </div>
   </section>
-  <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-  </section>
   <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="stationReview">
     <h2 id="stationReview" style="${H2_STYLE}">${esc(editorialAssessment.heading)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
+  </section>
+  <section style="margin:0 0 24px">
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
   <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="stationInfo">
     <h2 id="stationInfo" style="${H2_STYLE}">${esc(copy.infoHeading)}</h2>
@@ -3008,6 +3031,14 @@ function renderItalianCityPage(opts: {
   let h1 = copy.h1(fuelLabel, entry.display);
   const intro = copy.intro(fuelLabel, entry.display, minPriceFmt);
   const paragraph = copy.paragraph(fuelLabel, entry.display, minPriceFmt, nearestZoneLabel);
+  // Above-the-fold tagline (≤120 chars). The long intro/paragraph migrate
+  // to the body section below the action area, preserving text-to-HTML ratio.
+  const italianCityTaglineByLocale: Record<FuelDailyLocale, string> = {
+    it: `${fuelLabel} a ${entry.display}: prezzo minimo ${minPriceFmt} €/L · zona CH più vicina ${nearestZoneLabel}.`,
+    en: `${fuelLabel} in ${entry.display}: lowest price ${minPriceFmt} €/L · nearest CH zone ${nearestZoneLabel}.`,
+    de: `${fuelLabel} in ${entry.display}: Mindestpreis ${minPriceFmt} €/L · nächste CH-Zone ${nearestZoneLabel}.`,
+    fr: `${fuelLabel} à ${entry.display} : prix minimum ${minPriceFmt} €/L · zone CH la plus proche ${nearestZoneLabel}.`,
+  };
 
   const alternatesHtml = renderHreflangTags(alternates);
 
@@ -3135,7 +3166,7 @@ function renderItalianCityPage(opts: {
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(intro)}</p>
+    <p style="${LEDE_STYLE}">${esc(italianCityTaglineByLocale[locale])}</p>
   </header>
   <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 24px">
     <div style="${STAT_TILE_ACCENT}">
@@ -3148,12 +3179,13 @@ function renderItalianCityPage(opts: {
       <div style="${STAT_TILE_VALUE};font-size:22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="color:inherit;text-decoration:underline">${esc(nearestZoneLabel)}</a></div>
     </div>
   </section>
-  <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-  </section>
   <section style="margin:0 0 24px" aria-labelledby="itCityTable">
     <h2 id="itCityTable" style="${H2_STYLE}">${esc(copy.tableTitle(entry.display))}</h2>
     ${stationListHtml}
+  </section>
+  <section style="margin:0 0 24px">
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
   ${historyCard
     ? `<section style="margin:0 0 24px" aria-labelledby="itCityTrend">
@@ -3711,6 +3743,14 @@ function renderItalianStationPage(opts: {
   const intro = copy.intro(ctx.brandDisplay, cityName, priceFmt, fuelLabel);
   const paragraph = copy.paragraph(ctx.brandDisplay, cityName, priceFmt, cityAvgFmt, fuelLabel);
   const rankingLine = copy.ranking(rankLabel, total, cityName);
+  // Above-the-fold tagline (≤120 chars). Long intro/paragraph migrate
+  // to the body section below the action area, preserving text-to-HTML ratio.
+  const italianStationTaglineByLocale: Record<FuelDailyLocale, string> = {
+    it: `${ctx.brandDisplay} a ${cityName}: ${fuelLabel} a ${priceFmt} €/L · vs media città ${deltaCityFmt}.`,
+    en: `${ctx.brandDisplay} in ${cityName}: ${fuelLabel} at ${priceFmt} €/L · vs city average ${deltaCityFmt}.`,
+    de: `${ctx.brandDisplay} in ${cityName}: ${fuelLabel} zu ${priceFmt} €/L · vs Stadt-Durchschnitt ${deltaCityFmt}.`,
+    fr: `${ctx.brandDisplay} à ${cityName} : ${fuelLabel} à ${priceFmt} €/L · vs moyenne ville ${deltaCityFmt}.`,
+  };
 
   const alternatesHtml = renderHreflangTags(alternates);
 
@@ -3841,9 +3881,9 @@ function renderItalianStationPage(opts: {
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(intro)}</p>
+    <p style="${LEDE_STYLE}">${esc(italianStationTaglineByLocale[locale])}</p>
   </header>
-  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
+  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px">
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(copy.priceLabel)}</div>
       <div style="${STAT_TILE_VALUE};font-size:32px">${priceFmt}</div>
@@ -3858,9 +3898,6 @@ function renderItalianStationPage(opts: {
       <div style="${STAT_TILE_VALUE};font-size:18px">${esc(rankingLine)}</div>
     </div>
   </section>
-  <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-  </section>
   <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="itStationInfo">
     <h2 id="itStationInfo" style="${H2_STYLE}">${esc(copy.infoHeading)}</h2>
     <dl style="margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:16px;row-gap:8px;font-size:14px;color:var(--color-body)">
@@ -3872,6 +3909,8 @@ function renderItalianStationPage(opts: {
   </section>
   <section style="margin:0 0 24px" aria-labelledby="itStationContext">
     <h2 id="itStationContext" style="${H2_STYLE}">${esc(copy.contextHeading)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
     ${copy.contextParagraphs(ctx.brandDisplay, cityName, nearestZoneLabel)
       .map((p) => `<p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${p}</p>`)
       .join('')}
