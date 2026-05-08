@@ -22592,4 +22592,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fart-2025-frontalieri-transporti',
+ category: 'pratico',
+ date: '2026-05-08T10:18:15.470Z',
+ image: '/images/blog/fart-2025-frontalieri-transporti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

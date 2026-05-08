@@ -7074,6 +7074,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.adam-walder-titolo-nazionale-under-14.title': 'Adam Walder vince il titolo nazionale Under 14',
     'blog.article.adam-walder-titolo-nazionale-under-14.excerpt': 'Il giovane atleta del Circolo Scherma Locarno si aggiudica il titolo nazionale Under 14 ai Campionati svizzeri di Morges.',
     'blog.article.adam-walder-titolo-nazionale-under-14.imageAlt': 'Ragazzo con trofeo di scherma a Locarno',
+    'blog.article.fart-2025-frontalieri-transporti.title': 'FART 2025: boom di utenti sui bus e nuovi treni in crescita',
+    'blog.article.fart-2025-frontalieri-transporti.excerpt': 'Le Ferrovie Autolinee Regionali Ticinesi (FART) registrano un aumento del 10% di passeggeri sui bus e miglioramenti con i nuovi treni.',
+    'blog.article.fart-2025-frontalieri-transporti.imageAlt': 'Stazione degli autobus di Locarno con mezzi moderni e passeggeri in attesa',
 };
 
 export default blogMetaIt;

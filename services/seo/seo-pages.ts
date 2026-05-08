@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2410,
+ "numberOfItems": 2411,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7052,7 +7052,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2407, "name": "Incendio a Gallarate: denunciato un uomo", "url": `${BASE_URL}/articoli-frontaliere/incendio-gallarate-frontalieri-2026` },
           { "@type": "ListItem", "position": 2408, "name": "Cardada Cimetta riapre ai bikers: ecco cosa cambia", "url": `${BASE_URL}/articoli-frontaliere/cardada-cimetta-riapre-bikers-2024` },
           { "@type": "ListItem", "position": 2409, "name": "GrAudio edizione delle 10:30 dell'8 maggio: not...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-8-maggio-2026` },
-          { "@type": "ListItem", "position": 2410, "name": "Adam Walder vince il titolo nazionale Under 14", "url": `${BASE_URL}/articoli-frontaliere/adam-walder-titolo-nazionale-under-14` }
+          { "@type": "ListItem", "position": 2410, "name": "Adam Walder vince il titolo nazionale Under 14", "url": `${BASE_URL}/articoli-frontaliere/adam-walder-titolo-nazionale-under-14` },
+          { "@type": "ListItem", "position": 2411, "name": "FART 2025: boom di utenti sui bus e nuovi treni...", "url": `${BASE_URL}/articoli-frontaliere/fart-2025-frontalieri-transporti` }
  ]
  },
  {

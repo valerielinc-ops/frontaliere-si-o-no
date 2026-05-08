@@ -30806,6 +30806,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fart-2025-frontalieri-transporti': {
+    title: 'FART 2025: boom di utenti sui bus e nuovi treni in crescita',
+    description: 'Le Ferrovie Autolinee Regionali Ticinesi (FART) registrano un aumento del 10% di passeggeri sui bus e miglioramenti con i nuovi treni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, fart, 2025, boom, utenti',
+    ogTitle: 'FART 2025: boom di utenti sui bus e nuovi treni in crescita',
+    ogDescription: 'Le Ferrovie Autolinee Regionali Ticinesi (FART) registrano un aumento del 10% di passeggeri sui bus e miglioramenti con i nuovi treni.',
+    canonicalPath: '/articoli-frontaliere/fart-2025-frontalieri-transporti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FART 2025: boom di utenti sui bus e nuovi treni in crescita",
+      "description": "Le Ferrovie Autolinee Regionali Ticinesi (FART) registrano un aumento del 10% di passeggeri sui bus e miglioramenti con i nuovi treni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fart-2025-frontalieri-transporti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione degli autobus di Locarno con mezzi moderni e passeggeri in attesa"
+      },
+      "datePublished": "2026-05-08T10:18:15+00:00",
+      "dateModified": "2026-05-08T10:18:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fart-2025-frontalieri-transporti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
