@@ -7211,6 +7211,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.onorificenze-austriache-lugano-2024.title': 'Austrian honors in Lugano: awards for Italian-Swiss dialogue',
     'blog.article.onorificenze-austriache-lugano-2024.excerpt': 'Helga Martinelli and Giuseppe Perale awarded for their contribution to relations between Austria and Ticino',
     'blog.article.onorificenze-austriache-lugano-2024.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.votazioni-svizzera-10-milioni-frontalieri.title': 'Switzerland divided over 10 million initiative',
+    'blog.article.votazioni-svizzera-10-milioni-frontalieri.excerpt': 'SSR poll: 47% in favor, 47% against the UDC initiative. Cross-border workers: what changes?',
+    'blog.article.votazioni-svizzera-10-milioni-frontalieri.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border visible',
 };
 
 export default blogMetaEn;

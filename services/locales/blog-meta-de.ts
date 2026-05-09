@@ -7211,6 +7211,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.onorificenze-austriache-lugano-2024.title': 'Österreichische Auszeichnungen für italo-schweizerischen Dialog',
     'blog.article.onorificenze-austriache-lugano-2024.excerpt': 'Helga Martinelli und Giuseppe Perale wurden für ihren Beitrag zu den Beziehungen zwischen Österreich und dem Tessin ausgezeichnet',
     'blog.article.onorificenze-austriache-lugano-2024.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.votazioni-svizzera-10-milioni-frontalieri.title': 'Schweiz gespalten zur Initiative für 10 Millionen Einwohner',
+    'blog.article.votazioni-svizzera-10-milioni-frontalieri.excerpt': 'SSR-Umfrage: 47% dafür, 47% dagegen. Was ändert sich für Grenzgänger?',
+    'blog.article.votazioni-svizzera-10-milioni-frontalieri.imageAlt': 'Luftaufnahme des Luganer Sees mit der schweizerisch-italienischen Grenze',
 };
 
 export default blogMetaDe;

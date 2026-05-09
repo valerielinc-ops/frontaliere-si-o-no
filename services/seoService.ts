@@ -3646,6 +3646,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pensioni-svantaggio-tasse-frontalieri': { name: 'Pensioni Frontalieri', path: '/articoli-frontaliere/pensioni-svantaggio-tasse-frontalieri', parent: 'blog' },
     'blog-takahashia-japonica-ticino-2026': { name: 'Pratico', path: '/articoli-frontaliere/takahashia-japonica-ticino-2026', parent: 'blog' },
     'blog-onorificenze-austriache-lugano-2024': { name: 'Novità', path: '/articoli-frontaliere/onorificenze-austriache-lugano-2024', parent: 'blog' },
+    'blog-votazioni-svizzera-10-milioni-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/votazioni-svizzera-10-milioni-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

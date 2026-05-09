@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2456,
+ "numberOfItems": 2457,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7098,7 +7098,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2453, "name": "Servizi dentari scolastici: il governo intervie...", "url": `${BASE_URL}/articoli-frontaliere/servizi-dentari-scolastici-conflitti-interesse` },
           { "@type": "ListItem", "position": 2454, "name": "Pensioni, con questo importo sei svantaggiato. ...", "url": `${BASE_URL}/articoli-frontaliere/pensioni-svantaggio-tasse-frontalieri` },
           { "@type": "ListItem", "position": 2455, "name": "Takahashia japonica in Ticino: come proteggere ...", "url": `${BASE_URL}/articoli-frontaliere/takahashia-japonica-ticino-2026` },
-          { "@type": "ListItem", "position": 2456, "name": "Onorificenze austriache a Lugano: riconosciment...", "url": `${BASE_URL}/articoli-frontaliere/onorificenze-austriache-lugano-2024` }
+          { "@type": "ListItem", "position": 2456, "name": "Onorificenze austriache a Lugano: riconosciment...", "url": `${BASE_URL}/articoli-frontaliere/onorificenze-austriache-lugano-2024` },
+          { "@type": "ListItem", "position": 2457, "name": "Svizzera divisa sull'iniziativa per 10 milioni ...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-svizzera-10-milioni-frontalieri` }
  ]
  },
  {

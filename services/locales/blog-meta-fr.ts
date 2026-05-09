@@ -7212,6 +7212,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.onorificenze-austriache-lugano-2024.title': 'Distinctions autrichiennes à Lugano pour le dialogue italo-suisse',
     'blog.article.onorificenze-austriache-lugano-2024.excerpt': 'Helga Martinelli et Giuseppe Perale récompensés pour leur contribution aux relations entre l\'Autriche et le Tessin',
     'blog.article.onorificenze-austriache-lugano-2024.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.votazioni-svizzera-10-milioni-frontalieri.title': 'Suisse divisée sur l\'initiative pour 10 millions d\'habitants',
+    'blog.article.votazioni-svizzera-10-milioni-frontalieri.excerpt': 'Sondage SSR: 47% pour, 47% contre l\'initiative UDC. Frontaliers: qu\'est-ce qui change?',
+    'blog.article.votazioni-svizzera-10-milioni-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne visible',
 };
 
 export default blogMetaFr;
