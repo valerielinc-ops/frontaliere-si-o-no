@@ -1,16 +1,16 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-05-08T22:38:36.050Z",
+  "generatedAt": "2026-05-09T10:47:22.896Z",
   "total": 19,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 22637,
-  "avgDurationMs": 22637,
+  "durationMs": 22987,
+  "avgDurationMs": 22987,
   "durationHistory": [
-    22637
+    22987
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -284,7 +284,6 @@
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-05-08T10:45:43.136Z",
       "firstSeenAt": "2026-05-08T10:45:43.136Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
@@ -292,7 +291,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
