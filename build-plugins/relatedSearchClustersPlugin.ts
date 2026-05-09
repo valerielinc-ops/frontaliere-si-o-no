@@ -58,6 +58,7 @@ import {
   renderJobBoardCommuterContext,
   renderSearchQueryIntro,
   buildJobBoardCommuterFaqLd,
+  type JobBoardCommuterContextOpts,
 } from './shared/jobBoardCommuterContext';
 import {
   getJobBoardSectionSlug,
@@ -751,6 +752,20 @@ function renderHreflang(
   return lines.join('\n');
 }
 
+// Memoize renderJobBoardCommuterContext: pure function, ~52k calls per build
+// across only ~560 unique (locale, location, sectorOrType, omitCommute) inputs.
+// Cleared at the top of closeBundle so it can't leak across builds in dev/tests.
+const commuterCtxCache = new Map<string, string>();
+function memoCommuterCtx(opts: JobBoardCommuterContextOpts): string {
+  const k = `${opts.locale}::${opts.location}::${opts.sectorOrType ?? '_'}::${opts.omitCommute ? '1' : '0'}`;
+  let cached = commuterCtxCache.get(k);
+  if (cached === undefined) {
+    cached = renderJobBoardCommuterContext(opts);
+    commuterCtxCache.set(k, cached);
+  }
+  return cached;
+}
+
 /** Render a single cluster page. */
 function renderClusterPage(inputs: PageInputs): PageOutput {
   const { ctx, enriched, hreflang, related, distDir } = inputs;
@@ -832,7 +847,7 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
 
   // Commuter-context prose: 5-7 KB methodology + city-specific commute
   // table + salary breakdown + scenario callout + 4-FAQ + cross-links.
-  const commuterContextHtml = renderJobBoardCommuterContext({
+  const commuterContextHtml = memoCommuterCtx({
     locale: locale as 'it' | 'en' | 'de' | 'fr',
     location: commuterLocation,
     sectorOrType: sectorLabel,
@@ -1033,7 +1048,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
         de: 'Grenzgänger-Leitfaden: Lohn, G-Bewilligung, Steuer, Rückkehr',
         fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
       } as Record<Locale, string>)[locale];
-      const inner = renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true });
+      const inner = memoCommuterCtx({ locale, location: 'Ticino', omitCommute: true });
       return `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
         <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${summary}</summary>
         <div style="padding:8px 0 0">
@@ -1221,6 +1236,8 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         console.log('\x1b[36m[related-search-clusters]\x1b[0m skipped via SKIP_RELATED_SEARCH_CLUSTERS');
         return;
       }
+
+      commuterCtxCache.clear();
 
       const distDir = path.resolve(rootDir, 'dist');
       const startedAt = Date.now();
