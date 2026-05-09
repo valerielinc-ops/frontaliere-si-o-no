@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-e66ikm",
-      "slug": "verkaufer-in-food-coop-city-chur-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-chur-ddc182",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Chur",
@@ -50,10 +50,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
-        "en": "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
+        "it": "venditore-in-food-coop-genossenschaft-chur-ddc182",
+        "en": "seller-in-food-coop-genossenschaft-chur-ddc182",
         "de": "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
-        "fr": "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-ddc182"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -68,7 +68,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
+          "verkaufer-in-food-coop-city-chur-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
+        "verkaufer-in-food-coop-city-chur-graubunden"
+      ]
     },
     {
       "id": "company-metayj",
@@ -152,8 +168,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        "verkaufer-in-food-coop-felsberg-graubunden-metayj"
       ]
     },
     {
@@ -238,8 +253,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d"
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-g6dub0"
       ]
     },
     {
@@ -324,8 +338,7 @@
         ]
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe"
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-3br90q"
       ]
     },
     {

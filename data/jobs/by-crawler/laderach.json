@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau",
         "it": "verkaufer-60-befristet-chocolaterie-aarau-m-w-d-laderach-schweiz-ag-aarau",
-        "en": "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau",
-        "fr": "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau"
+        "en": "seller-60-terminated-chocolaterie-aarau-w-m-d-laderach-schweiz-ag-aarau",
+        "fr": "vendeur-60-chocolaterie-aarau-m-j-laderach-schweiz-ag-aarau"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -48,6 +48,12 @@
       "crawledAt": "2026-05-09T10:15:01.782Z",
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau"
+        ],
+        "en": [
+          "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau"
+        ],
+        "fr": [
           "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau"
         ]
       },
