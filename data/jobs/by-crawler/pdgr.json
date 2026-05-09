@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-05-09T10:28:58.816Z",
+  "assembledAt": "2026-05-09T22:01:49.771Z",
   "jobs": [
     {
       "id": "pdgr-f5bd59e961b0",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:56.684Z",
+      "crawledAt": "2026-05-09T22:01:47.538Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:55.531Z",
+      "crawledAt": "2026-05-09T22:01:46.469Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -158,6 +158,7 @@
         "praktikant-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -202,7 +203,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:54.383Z",
+      "crawledAt": "2026-05-09T22:01:45.378Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -263,6 +264,7 @@
         "fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -307,7 +309,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:53.194Z",
+      "crawledAt": "2026-05-09T22:01:44.307Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -356,6 +358,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -400,7 +403,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:52.006Z",
+      "crawledAt": "2026-05-09T22:01:43.240Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -446,6 +449,7 @@
         "unterassistent-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -490,7 +494,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:50.849Z",
+      "crawledAt": "2026-05-09T22:01:42.162Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -549,6 +553,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -593,7 +598,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:49.680Z",
+      "crawledAt": "2026-05-09T22:01:41.059Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -654,6 +659,7 @@
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -698,7 +704,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:48.521Z",
+      "crawledAt": "2026-05-09T22:01:39.913Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -762,6 +768,7 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -806,7 +813,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:47.353Z",
+      "crawledAt": "2026-05-09T22:01:38.794Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -859,6 +866,7 @@
         "oberarztin-oberarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -903,7 +911,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:46.207Z",
+      "crawledAt": "2026-05-09T22:01:37.676Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -957,6 +965,7 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1001,7 +1010,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:45.068Z",
+      "crawledAt": "2026-05-09T22:01:36.579Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1056,6 +1065,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1100,7 +1110,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:43.873Z",
+      "crawledAt": "2026-05-09T22:01:35.504Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1151,6 +1161,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1195,7 +1206,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:40.426Z",
+      "crawledAt": "2026-05-09T22:01:32.165Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1248,6 +1259,7 @@
         "fachpsychologe-in-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1292,7 +1304,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:39.264Z",
+      "crawledAt": "2026-05-09T22:01:31.076Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1346,6 +1358,7 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1390,7 +1403,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-4-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:38.088Z",
+      "crawledAt": "2026-05-09T22:01:29.993Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1455,6 +1468,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1499,7 +1513,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:36.923Z",
+      "crawledAt": "2026-05-09T22:01:28.918Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1557,6 +1571,7 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1601,7 +1616,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:35.740Z",
+      "crawledAt": "2026-05-09T22:01:27.823Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1657,6 +1672,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1701,7 +1717,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:33.469Z",
+      "crawledAt": "2026-05-09T22:01:25.620Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1753,6 +1769,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1797,7 +1814,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:32.309Z",
+      "crawledAt": "2026-05-09T22:01:24.531Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1850,6 +1867,7 @@
         "fachperson-gesundheit-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1894,7 +1912,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:31.145Z",
+      "crawledAt": "2026-05-09T22:01:23.410Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1945,6 +1963,7 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1989,7 +2008,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-4-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:28.862Z",
+      "crawledAt": "2026-05-09T22:01:21.221Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2044,6 +2063,7 @@
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2088,7 +2108,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:26.568Z",
+      "crawledAt": "2026-05-09T22:01:19.016Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2146,6 +2166,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2190,7 +2211,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:25.408Z",
+      "crawledAt": "2026-05-09T22:01:17.914Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2249,6 +2270,7 @@
         "oberarztin-oberarzt-pdgr-ch-4"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2293,7 +2315,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:24.210Z",
+      "crawledAt": "2026-05-09T22:01:16.829Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2345,6 +2367,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2389,7 +2412,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-controlling/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:23.012Z",
+      "crawledAt": "2026-05-09T22:01:15.743Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2452,6 +2475,7 @@
         "leiter-in-controlling-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2496,7 +2520,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-21/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:21.762Z",
+      "crawledAt": "2026-05-09T22:01:14.583Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2562,6 +2586,7 @@
         "personale-hotel-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2606,7 +2631,7 @@
       "url": "https://www.pdgr.ch/jobs/stationsleiter-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:20.580Z",
+      "crawledAt": "2026-05-09T22:01:13.432Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2667,6 +2692,7 @@
         "stationsleiter-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2711,7 +2737,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:19.395Z",
+      "crawledAt": "2026-05-09T22:01:12.319Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2764,6 +2790,7 @@
         "fachperson-gesundheit-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2808,7 +2835,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:18.220Z",
+      "crawledAt": "2026-05-09T22:01:11.206Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2870,6 +2897,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2914,7 +2942,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:14.704Z",
+      "crawledAt": "2026-05-09T22:01:07.957Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2956,6 +2984,7 @@
         "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3000,7 +3029,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-textil/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:13.559Z",
+      "crawledAt": "2026-05-09T22:01:06.818Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3048,6 +3077,7 @@
         "responsabile-textil-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3092,7 +3122,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:12.378Z",
+      "crawledAt": "2026-05-09T22:01:05.689Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -3184,7 +3214,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:11.187Z",
+      "crawledAt": "2026-05-09T22:01:04.573Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3225,6 +3255,7 @@
         "assistenzpsychologe-in-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-21T22:10:58.899Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3269,7 +3300,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-7-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:09.980Z",
+      "crawledAt": "2026-05-09T22:01:03.464Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3347,7 +3378,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:07.641Z",
+      "crawledAt": "2026-05-09T22:01:01.119Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3438,7 +3469,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-2-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:06.443Z",
+      "crawledAt": "2026-05-09T22:00:59.937Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3476,6 +3507,7 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-05-06T22:28:54.378Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3520,7 +3552,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-3-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:28:05.248Z",
+      "crawledAt": "2026-05-09T22:00:58.785Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3555,6 +3587,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:33:07.021Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
