@@ -1512,6 +1512,24 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       fileCount: snapshotted,
     }, null, 2));
     console.log(`💾 assemble-jobs cached ${snapshotted} files at .cache/assemble-jobs/${cacheKey.slice(0, 12)}...`);
+
+    // Prune sibling subdirs (older fingerprint entries) so the GH Actions
+    // cache that wraps CACHE_ROOT doesn't accumulate stale snapshots over
+    // time. Each cron run that touches a slice file changes the
+    // inputFingerprint → new cacheKey → previously-saved subdir becomes
+    // dead weight inside the tarball. Without this prune, the assemble-jobs
+    // cache POST grew from ~5 small JSONs (~37 MB raw) to 540 MB compressed
+    // on cold deploys (observed in run 25581472175). Mirrors the cluster-pages
+    // fix (deploy 25593562039 / commit ca7cfa3a3b). Wrapped in its own
+    // try/catch so a partial prune never breaks the just-written snapshot.
+    try {
+      for (const entry of fs.readdirSync(CACHE_ROOT)) {
+        if (entry === cacheKey) continue;
+        fs.rmSync(path.join(CACHE_ROOT, entry), { recursive: true, force: true });
+      }
+    } catch (pruneErr) {
+      console.warn(`⚠️  assemble-jobs sibling-prune failed (non-fatal): ${pruneErr.message}`);
+    }
   } catch (err) {
     console.warn(`⚠️  assemble-jobs cache snapshot failed (non-fatal): ${err.message}`);
   }
