@@ -7250,6 +7250,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-sconfitta-svezia-frontalieri.title': 'Schweiz von Schweden besiegt: Auswirkungen für Grenzgänger',
     'blog.article.svizzera-sconfitta-svezia-frontalieri.excerpt': 'Die Schweiz verliert 3-0 gegen Schweden im vorletzten Freundschaftsspiel vor der WM. Analyse der Auswirkungen für Grenzgänger.',
     'blog.article.svizzera-sconfitta-svezia-frontalieri.imageAlt': 'Foto eines Eishockeyspiels in einer Schweizer Arena mit begeisterten Fans',
+    'blog.article.tregua-ucraina-improbabile-cremlino.title': 'Kreml: Längere Ukraine-Waffenruhe unwahrscheinlich',
+    'blog.article.tregua-ucraina-improbabile-cremlino.excerpt': 'Der russische Präsidialberater Yuri Ushakov erklärte, dass eine Verlängerung des Waffenstillstands unwahrscheinlich ist. Hier ist, was sich für Grenzgänger ändert.',
+    'blog.article.tregua-ucraina-improbabile-cremlino.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

@@ -1,0 +1,40 @@
+{
+  "id": "tregua-ucraina-improbabile-cremlino",
+  "slug": "tregua-ucraina-improbabile-cremlino",
+  "publishedAt": "2026-05-09T21:07:38.169Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.453039957296643,
+    "confidence": 0.8,
+    "finalScore": 5.162431965837315,
+    "topK": [
+      {
+        "slug": "teheran-proposta-pakistan-mediatori",
+        "cosine": 0.8066299946620804
+      },
+      {
+        "slug": "usa-iran-nucleare-sanzioni-2026",
+        "cosine": 0.8035975773382446
+      },
+      {
+        "slug": "ucraina-russia-droni-2026",
+        "cosine": 0.8028363923528902
+      },
+      {
+        "slug": "svizzera-italia-nuova-fase-relazioni",
+        "cosine": 0.8012260315303081
+      },
+      {
+        "slug": "trump-cina-russia-patto-2026",
+        "cosine": 0.8004822386500803
+      }
+    ],
+    "score": 2.5812159829186574,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

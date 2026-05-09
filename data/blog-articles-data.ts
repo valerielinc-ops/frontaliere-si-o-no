@@ -23123,4 +23123,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tregua-ucraina-improbabile-cremlino',
+ category: 'novita',
+ date: '2026-05-09T21:07:36.697Z',
+ image: '/images/blog/tregua-ucraina-improbabile-cremlino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

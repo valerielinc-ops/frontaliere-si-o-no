@@ -7251,6 +7251,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-sconfitta-svezia-frontalieri.title': 'Svizzera sconfitta dalla Svezia: implicazioni per i frontalieri',
     'blog.article.svizzera-sconfitta-svezia-frontalieri.excerpt': 'La Svizzera perde 3-0 contro la Svezia nella penultima amichevole premondiale. Analisi delle implicazioni per i frontalieri.',
     'blog.article.svizzera-sconfitta-svezia-frontalieri.imageAlt': 'Foto di una partita di hockey in un\'arena svizzera con tifosi entusiasti',
+    'blog.article.tregua-ucraina-improbabile-cremlino.title': 'Cremlino: tregua Ucraina più lunga improbabile',
+    'blog.article.tregua-ucraina-improbabile-cremlino.excerpt': 'Il consigliere presidenziale russo Yuri Ushakov ha dichiarato che l\'estensione del cessate il fuoco è improbabile. Ecco cosa cambia per i frontalieri.',
+    'blog.article.tregua-ucraina-improbabile-cremlino.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;

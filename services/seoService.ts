@@ -3659,6 +3659,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casa-hockey-lugano-frontalieri': { name: 'Novità Lugano Hockey', path: '/articoli-frontaliere/casa-hockey-lugano-frontalieri', parent: 'blog' },
     'blog-papa-leone-incontra-madre-frontaliere': { name: 'Novità', path: '/articoli-frontaliere/papa-leone-incontra-madre-frontaliere', parent: 'blog' },
     'blog-svizzera-sconfitta-svezia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/svizzera-sconfitta-svezia-frontalieri', parent: 'blog' },
+    'blog-tregua-ucraina-improbabile-cremlino': { name: 'Novità', path: '/articoli-frontaliere/tregua-ucraina-improbabile-cremlino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

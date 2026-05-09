@@ -7250,6 +7250,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-sconfitta-svezia-frontalieri.title': 'Switzerland loses to Sweden: implications for cross-border workers',
     'blog.article.svizzera-sconfitta-svezia-frontalieri.excerpt': 'Switzerland loses 3-0 to Sweden in the penultimate pre-World Cup friendly. Analysis of the implications for cross-border workers.',
     'blog.article.svizzera-sconfitta-svezia-frontalieri.imageAlt': 'Photo of a hockey game in a Swiss arena with enthusiastic fans',
+    'blog.article.tregua-ucraina-improbabile-cremlino.title': 'Kremlin: Longer Ukraine truce unlikely',
+    'blog.article.tregua-ucraina-improbabile-cremlino.excerpt': 'Russian presidential advisor Yuri Ushakov stated that extending the ceasefire is unlikely. Here\'s what changes for cross-border workers.',
+    'blog.article.tregua-ucraina-improbabile-cremlino.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
 };
 
 export default blogMetaEn;
