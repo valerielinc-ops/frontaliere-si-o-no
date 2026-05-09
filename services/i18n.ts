@@ -131,22 +131,24 @@ export async function loadArticleBody(articleId: string): Promise<void> {
  // Load IT fallback body if not loaded
  if (!loadedArticleBodies.has(itKey) && !articleBodyPromises.has(itKey)) {
  articleBodyPromises.set(itKey, (async () => {
- try {
- const mod = await import(`./locales/blog-body/it/${articleId}.ts`);
- mergeLocaleTranslations('it', mod.default);
+ const { loadBlogBodyChunk } = await import('./blogBodyLoader');
+ const data = await loadBlogBodyChunk('it', articleId);
+ if (data) {
+ mergeLocaleTranslations('it', data);
  loadedArticleBodies.add(itKey);
- } catch { /* article body file may not exist yet */ }
+ }
  })());
  }
 
  // Load current locale body if not IT and not loaded
  if (locale !== 'it' && !loadedArticleBodies.has(key) && !articleBodyPromises.has(key)) {
  articleBodyPromises.set(key, (async () => {
- try {
- const mod = await import(`./locales/blog-body/${locale}/${articleId}.ts`);
- mergeLocaleTranslations(locale, mod.default);
+ const { loadBlogBodyChunk } = await import('./blogBodyLoader');
+ const data = await loadBlogBodyChunk(locale, articleId);
+ if (data) {
+ mergeLocaleTranslations(locale, data);
  loadedArticleBodies.add(key);
- } catch { /* fallback to IT */ }
+ }
  })());
  }
 
