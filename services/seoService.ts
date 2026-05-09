@@ -3652,6 +3652,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lugano-calcio-frontalieri-2026': { name: 'FC Lugano', path: '/articoli-frontaliere/lugano-calcio-frontalieri-2026', parent: 'blog' },
     'blog-premiate-classi-acqua-vita-2026': { name: 'Novità', path: '/articoli-frontaliere/premiate-classi-acqua-vita-2026', parent: 'blog' },
     'blog-biasca-ucraina-aiuto-medico-2026': { name: 'Novità', path: '/articoli-frontaliere/biasca-ucraina-aiuto-medico-2026', parent: 'blog' },
+    'blog-criptovalute-frontalieri-timing-perfetto': { name: 'Criptovalute', path: '/articoli-frontaliere/criptovalute-frontalieri-timing-perfetto', parent: 'blog' },
  };
 
  const info = sectionNames[section];

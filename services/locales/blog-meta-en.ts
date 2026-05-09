@@ -7229,6 +7229,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.biasca-ucraina-aiuto-medico-2026.title': 'From Biasca to Ukraine: six volunteers on humanitarian mission',
     'blog.article.biasca-ucraina-aiuto-medico-2026.excerpt': 'Six Hunpa volunteers leave Biasca to provide medical aid in Ukraine, with two teams splitting to cover the northeast and south of the country.',
     'blog.article.biasca-ucraina-aiuto-medico-2026.imageAlt': 'An ambulance from Hunpa traveling from Biasca, Ticino, to Ukraine',
+    'blog.article.criptovalute-frontalieri-timing-perfetto.title': 'Crypto expert advises against perfect timing',
+    'blog.article.criptovalute-frontalieri-timing-perfetto.excerpt': 'Mathias Imbach, CEO of Sygnum Bank, explains how to invest in cryptocurrencies without seeking the ideal moment.',
+    'blog.article.criptovalute-frontalieri-timing-perfetto.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

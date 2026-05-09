@@ -23060,4 +23060,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'criptovalute-frontalieri-timing-perfetto',
+ category: 'fiscale',
+ date: '2026-05-09T19:55:04.720Z',
+ image: '/images/blog/criptovalute-frontalieri-timing-perfetto.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
