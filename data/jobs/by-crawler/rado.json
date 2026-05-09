@@ -1,10 +1,10 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-05-07T11:50:03.154Z",
+  "assembledAt": "2026-05-09T10:44:53.387Z",
   "jobs": [
     {
       "id": "company-7uavcj",
-      "slug": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj",
+      "slug": "responsabile-vendite-omega-boutique-zermatt-omega-ltd-lengnau",
       "company": "Omega Ltd.",
       "title": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZERMATT",
       "location": "Bahnhofstrasse 30a 3920 Zermatt (Valais) Schweiz Firmenadresse Omega AG Jakob-St",
@@ -23,10 +23,10 @@
       "crawledAt": "2026-05-07T11:50:03.038Z",
       "firstSeenAt": "2026-05-07T11:50:03.038Z",
       "slugByLocale": {
-        "it": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj",
-        "en": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj",
-        "de": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj",
-        "fr": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj"
+        "it": "responsabile-vendite-omega-boutique-zermatt-omega-ltd-lengnau",
+        "en": "sales-representative-omega-boutique-zermatt-omega-ltd-lengnau",
+        "de": "verkaufsmitarbeiter-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj",
+        "fr": "representant-e-commercial-e-boutique-omega-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj"
       },
       "titleByLocale": {
         "en": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZERMATT",
@@ -59,7 +59,18 @@
       "addressLocality": "Lengnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj"
+        ],
+        "en": [
+          "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7uavcj"
+        ]
+      }
     },
     {
       "id": "company-7uave2",
@@ -84,7 +95,7 @@
       "crawledAt": "2026-05-06T22:45:47.224Z",
       "firstSeenAt": "2026-05-06T22:45:47.224Z",
       "titleByLocale": {
-        "it": "Venditore/a Puerto Banús. Temporal sustitución",
+        "it": "Vendedor/a Puerto Banús. Temporal sustitución",
         "fr": "Vendedor/a Puerto Banús. Temporal sustitución",
         "en": "Vendedor/a Puerto Banús. Temporal sustitución",
         "de": "Vendedor/a Puerto Banús. Temporal sustitución"
