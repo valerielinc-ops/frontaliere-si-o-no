@@ -1,0 +1,98 @@
+{
+  "date": "2026-05-09",
+  "generatedAt": "2026-05-09T08:19:31.035Z",
+  "zones": {
+    "chiasso": {
+      "diesel": 2.204,
+      "benzina": 1.886
+    },
+    "mendrisio": {
+      "diesel": 2.125,
+      "benzina": 1.837
+    },
+    "lugano": {
+      "diesel": 2.2,
+      "benzina": 1.912
+    },
+    "bellinzona": {
+      "diesel": 2.248,
+      "benzina": 1.986
+    },
+    "locarno": {
+      "diesel": 2.112,
+      "benzina": 1.915
+    }
+  },
+  "regional": {
+    "diesel": 2.149,
+    "benzina": 1.901
+  },
+  "diesel": {
+    "source": "mixed",
+    "realCoveragePct": 93.3,
+    "realStationCount": 97,
+    "totalStationCount": 104
+  },
+  "italianCities": {
+    "como": {
+      "benzina": 1.937,
+      "stationCount": 16
+    },
+    "varese": {
+      "benzina": 1.947,
+      "stationCount": 26
+    },
+    "luino": {
+      "benzina": 1.949,
+      "stationCount": 1
+    },
+    "lavena-ponte-tresa": {
+      "benzina": null,
+      "stationCount": 0
+    },
+    "gallarate": {
+      "benzina": 1.933,
+      "stationCount": 21
+    },
+    "cantu": {
+      "benzina": 1.922,
+      "stationCount": 12
+    },
+    "saronno": {
+      "benzina": 1.945,
+      "stationCount": 15
+    },
+    "menaggio": {
+      "benzina": 1.949,
+      "stationCount": 1
+    },
+    "porto-ceresio": {
+      "benzina": null,
+      "stationCount": 0
+    },
+    "lecco": {
+      "benzina": null,
+      "stationCount": 0
+    },
+    "sondrio": {
+      "benzina": 1.963,
+      "stationCount": 8
+    },
+    "tirano": {
+      "benzina": 1.939,
+      "stationCount": 1
+    },
+    "chiavenna": {
+      "benzina": 1.969,
+      "stationCount": 3
+    },
+    "morbegno": {
+      "benzina": 1.954,
+      "stationCount": 2
+    },
+    "cernobbio": {
+      "benzina": null,
+      "stationCount": 0
+    }
+  }
+}
