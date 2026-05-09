@@ -879,7 +879,12 @@ jobs:
       contents: read
       pages: write
       id-token: write
-      actions: read
+      # `actions: write` is required so the rollback can DELETE the failed
+      # build's `github-pages` artifact before re-uploading the last-known-good
+      # one — otherwise actions/deploy-pages@v5 sees two artifacts with the
+      # same name in the same run and fails with "Multiple artifacts named
+      # 'github-pages' were unexpectedly found for this workflow run."
+      actions: write
     environment:
       name: github-pages
       url: ${{ steps.rollback_deploy.outputs.page_url }}
@@ -1005,6 +1010,34 @@ jobs:
           test -f ./rollback-archive/artifact.tar
           mkdir -p ./rollback-dist
           tar -xf ./rollback-archive/artifact.tar -C ./rollback-dist
+
+      # The build job uploaded its own "github-pages" artifact (the failed
+      # dist). actions/upload-pages-artifact@v5 always uses the name
+      # "github-pages", and actions/deploy-pages@v5 queries by NAME (not
+      # id), so a second upload here would surface "Multiple artifacts
+      # named 'github-pages'" and fail the rollback. Delete the build's
+      # artifact first via the REST API before re-uploading the good one.
+      - name: Delete failed deploy's github-pages artifact (so rollback can re-upload)
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != '' && steps.last-good-artifact.outputs.id != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # The build job in THIS run uploaded a github-pages artifact.
+          # If there are multiple (rare), delete them all to leave the
+          # run with a clean slate before the rollback re-upload.
+          ids=$(gh api \
+            "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" \
+            --jq '[.artifacts[] | select(.name == "github-pages") | .id] | .[]')
+          if [ -z "$ids" ]; then
+            echo "No existing github-pages artifact in this run — nothing to delete."
+          else
+            for id in $ids; do
+              echo "Deleting failed-build artifact id=$id"
+              gh api -X DELETE \
+                "repos/${{ github.repository }}/actions/artifacts/$id"
+            done
+          fi
 
       - name: Re-upload last known good artifact for Pages
         if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != '' && steps.last-good-artifact.outputs.id != ''
