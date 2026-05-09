@@ -23078,4 +23078,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'interroll-acquisisce-royal-apollo-group',
+ category: 'novita',
+ date: '2026-05-09T20:24:00.824Z',
+ image: '/images/blog/interroll-acquisisce-royal-apollo-group.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

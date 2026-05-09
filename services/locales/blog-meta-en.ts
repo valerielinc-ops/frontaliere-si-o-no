@@ -7235,6 +7235,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.super-ricco-tasse-frontalieri-ticino.title': 'Wealthy Swiss man wants to pay more taxes, but he\'s the only one',
     'blog.article.super-ricco-tasse-frontalieri-ticino.excerpt': 'A well-off Swiss citizen wants to pay more taxes, but he\'s the only known case. Here\'s what changes for Ticino cross-border workers.',
     'blog.article.super-ricco-tasse-frontalieri-ticino.imageAlt': 'Businessman in a suit and tie in front of Lake Lugano holding tax documents',
+    'blog.article.interroll-acquisisce-royal-apollo-group.title': 'Interroll acquires Royal Apollo Group: what changes for cross-border workers',
+    'blog.article.interroll-acquisisce-royal-apollo-group.excerpt': 'Interroll, a Ticino-based leader in logistics automation, acquires Royal Apollo Group. Discover the implications for cross-border workers and the job market.',
+    'blog.article.interroll-acquisisce-royal-apollo-group.imageAlt': 'Foxtown outlet in Mendrisio, Ticino, with people shopping and enjoying the sun.',
 };
 
 export default blogMetaEn;

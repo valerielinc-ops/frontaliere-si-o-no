@@ -7236,6 +7236,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.super-ricco-tasse-frontalieri-ticino.title': 'Un Suisse riche veut payer plus d\'impôts, mais il est seul',
     'blog.article.super-ricco-tasse-frontalieri-ticino.excerpt': 'Un citoyen suisse aisé souhaite payer plus d\'impôts, mais c\'est le seul cas connu. Voici ce qui change pour les frontaliers du Tessin.',
     'blog.article.super-ricco-tasse-frontalieri-ticino.imageAlt': 'Homme d\'affaires en costume et cravate devant le lac de Lugano tenant des documents fiscaux',
+    'blog.article.interroll-acquisisce-royal-apollo-group.title': 'Interroll rachète Royal Apollo Group: qu\'est-ce qui change pour les frontaliers',
+    'blog.article.interroll-acquisisce-royal-apollo-group.excerpt': 'Interroll, entreprise tessinoise leader dans l\'automatisation logistique, rachète Royal Apollo Group. Découvrez les implications pour les frontaliers et le marché du travail.',
+    'blog.article.interroll-acquisisce-royal-apollo-group.imageAlt': 'Centre commercial Foxtown à Mendrisio, Tessin, avec des personnes faisant du shopping et profitant du soleil.',
 };
 
 export default blogMetaFr;

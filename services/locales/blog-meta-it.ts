@@ -7236,6 +7236,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.super-ricco-tasse-frontalieri-ticino.title': 'Super-ricco svizzero vuole pagare più tasse, ma è l’unico',
     'blog.article.super-ricco-tasse-frontalieri-ticino.excerpt': 'Un cittadino svizzero benestante desidera pagare più tasse, ma è l’unico caso noto. Ecco cosa cambia per i frontalieri Ticino.',
     'blog.article.super-ricco-tasse-frontalieri-ticino.imageAlt': 'Uomo d\'affari in giacca e cravatta davanti al Lago di Lugano con documenti fiscali in mano',
+    'blog.article.interroll-acquisisce-royal-apollo-group.title': 'Interroll acquisisce Royal Apollo Group: cosa cambia per i frontalieri',
+    'blog.article.interroll-acquisisce-royal-apollo-group.excerpt': 'Interroll, azienda ticinese leader nell\'automazione logistica, acquisisce Royal Apollo Group. Scopri le implicazioni per i frontalieri e il mercato del lavoro.',
+    'blog.article.interroll-acquisisce-royal-apollo-group.imageAlt': 'Foxtown outlet a Mendrisio, Ticino, con persone che fanno shopping e godono del sole.',
 };
 
 export default blogMetaIt;

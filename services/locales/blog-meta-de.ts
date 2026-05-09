@@ -7235,6 +7235,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.super-ricco-tasse-frontalieri-ticino.title': 'Reicher Schweizer will mehr Steuern zahlen, ist aber allein',
     'blog.article.super-ricco-tasse-frontalieri-ticino.excerpt': 'Ein wohlhabender Schweizer möchte gerne mehr Steuern zahlen, aber er ist der einzige bekannte Fall. Hier erfahren Sie, was sich für Grenzgänger im Tessin ändert.',
     'blog.article.super-ricco-tasse-frontalieri-ticino.imageAlt': 'Geschäftsmann im Anzug und Krawatte vor dem Luganersee mit Steuerdokumenten in der Hand',
+    'blog.article.interroll-acquisisce-royal-apollo-group.title': 'Interroll übernimmt Royal Apollo Group: Was ändert sich für Grenzgänger?',
+    'blog.article.interroll-acquisisce-royal-apollo-group.excerpt': 'Interroll, ein führendes Logistikautomatisierungsunternehmen im Tessin, übernimmt die Royal Apollo Group. Erfahren Sie mehr über die Auswirkungen auf Grenzgänger und den Arbeitsmarkt.',
+    'blog.article.interroll-acquisisce-royal-apollo-group.imageAlt': 'Foxtown Outlet in Mendrisio, Tessin, mit Menschen, die einkaufen und die Sonne genießen.',
 };
 
 export default blogMetaDe;

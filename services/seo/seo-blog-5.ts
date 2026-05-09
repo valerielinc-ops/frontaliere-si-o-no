@@ -32912,6 +32912,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-interroll-acquisisce-royal-apollo-group': {
+    title: 'Interroll acquisisce Royal Apollo Group: cosa cambia per i frontalieri',
+    description: 'Interroll, azienda ticinese leader nell\'automazione logistica, acquisisce Royal Apollo Group. Scopri le implicazioni per i frontalieri e il mercato del lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, interroll, acquisisce, royal, apollo',
+    ogTitle: 'Interroll acquisisce Royal Apollo Group: implicazioni per i frontalieri',
+    ogDescription: 'Interroll, azienda ticinese leader nell\'automazione logistica, acquisisce Royal Apollo Group. Scopri le implicazioni per i frontalieri e il mercato del lavoro.',
+    canonicalPath: '/articoli-frontaliere/interroll-acquisisce-royal-apollo-group',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Interroll acquisisce Royal Apollo Group: cosa cambia per i frontalieri",
+      "description": "Interroll, azienda ticinese leader nell'automazione logistica, acquisisce Royal Apollo Group. Scopri le implicazioni per i frontalieri e il mercato del lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/interroll-acquisisce-royal-apollo-group.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foxtown outlet a Mendrisio, Ticino, con persone che fanno shopping e godono del sole."
+      },
+      "datePublished": "2026-05-09T20:24:00+00:00",
+      "dateModified": "2026-05-09T20:24:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/interroll-acquisisce-royal-apollo-group`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
