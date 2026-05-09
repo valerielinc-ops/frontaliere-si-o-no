@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-05-09T10:06:45.342Z",
+  "assembledAt": "2026-05-09T21:39:51.588Z",
   "jobs": [
     {
       "id": "hopital-du-valais-797cf717f9ca",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/314398ac97577d50e7ce346e2153afd4/ATSANN0003364/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:42.833Z",
+      "crawledAt": "2026-05-09T21:39:49.183Z",
       "_hvsMeta": {
         "number": "ATSANN0003364",
         "sysId": "314398ac97577d50e7ce346e2153afd4",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -123,7 +124,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:42.499Z",
+      "crawledAt": "2026-05-09T21:39:48.831Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -172,16 +173,16 @@
       "title": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE",
       "titleByLocale": {
         "it": "CONTATTO DEL TEAM PERSONALE DI RICERCA",
-        "en": "CONTACT THE RESERVE PERSONNEL TEAM",
+        "en": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE",
         "de": "TRETE DER RESERVEPERSONAL-MITGLIEDER BEI",
         "fr": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE"
       },
       "description": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE\n\n ... et aide-nous à surmonter la prochaine crise!\n\nMission:\nEn cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises.\n\n Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand.\n\nProfil:\n• Infirmier/ère instrumentiste ou TSO\n\n • Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n\n • Au moins 2 ans d'expérience professionnelle\n\n • Capacité à fixer des priorités et conscience de ses responsabilités\n\n • Personnalité flexible et résistante au stress\n\n • Prêt/e à s'engager en cas de situation extraordinaire\n\n • Volonté de maintenir ses compétences via la formation\n\n • Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins.\n\nOffre:\n• 2 jours de formation continue par an\n\n • 4 jours de formation théorique et pratique initiale\n\n • 1 indemnité annuelle de disponibilité\n\n • 1 indemnité par jour de formation\n\n • Possibilité de suivre le cours ALS",
       "descriptionByLocale": {
         "it": "Descrizione CONTATTA IL TEAM PERSONNEL RISERVATO ... e aiutaci a superare la prossima crisi! Missione: In caso di pandemia, terremoto,..., il team \"Reserve Personnel\" del Centro ospedaliero romano del Vallese sarà un aiuto molto importante per superare le crisi future. Anche tu puoi far parte del \"personale di riserva\" e dare un importante contributo alla popolazione del Vallese Romand. ## Profilo: • Infermiera strumentale o OSI • HES/ES Infermiera specializzata in assistenza di emergenza, assistenza intensiva e anestesia • Almeno 2 anni di esperienza professionale • Capacità di fissare priorità e consapevolezza delle responsabilità • Personalità flessibile e resistente allo stress • Pronta ad impegnarsi in situazioni straordinarie • Volontà di mantenere le proprie competenze attraverso la formazione • Se lavori in-house, la tua applicazione sarà idonea solo se non sei impegnato nel campo di cura. • 2 giorni di formazione continua all'anno • 4 giorni di formazione teorica e pratica iniziale • 1 indennità annuale • 1 indennità al giorno di formazione • Possibilità di seguire il corso ALS",
-        "en": "Descrizione CONTACT THE RESERVE PERSONNEL TEAM ... and help us overcome the next crisis! Mission: In the event of a pandemic, earthquake,..., the \"Reserve Personnel\" team at the Valais Romand Hospital Center will be a very important help to overcome future crises. You too can be part of the \"reserve staff\" and make an important contribution to the population of Valais Romand. ## Profile: • Instrumental Nurse or OSI • HES/ES Nurse specializing in emergency care, intensive care and anaesthesia • At least 2 years of professional experience • Ability to set priorities and awareness of responsibilities • Flexible and stress-resistant personality • Ready to engage in extraordinary situations • Willingness to maintain its skills through training • If you work in-house, your application will only be eligible if you are not engaged in the care field. ## Offer: • 2 days of continuing training per year • 4 days of initial theoretical and practical training • 1 annual allowance • 1 allowance per day of training • Possibility of taking the ALS course",
+        "en": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE ... et aide-nous à surmonter la prochaine crise! Mission: En cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises. Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand. Profil: • Infirmier/ère instrumentiste ou TSO • Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie • Au moins 2 ans d'expérience professionnelle • Capacité à fixer des priorités et conscience de ses responsabilités • Personnalité flexible et résistante au stress • Prêt/e à s'engager en cas de situation extraordinaire • Volonté de maintenir ses compétences via la formation • Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins. Offre: • 2 jours de formation continue par an • 4 jours de formation théorique et pratique initiale • 1 indemnité annuelle de disponibilité • 1 indemnité par jour de formation • Possibilité de suivre le cours ALS",
         "de": "Beschreiben Sie KONTAKT DER RESERVE PERSONNEL TEAM ... und helfen Sie uns, die nächste Krise zu überwinden! Mission: Im Falle einer Pandemie, Erdbeben,... wird das \"Reserve Personal\" Team im Wallis Romand Hospital Center eine sehr wichtige Hilfe zur Bewältigung zukünftiger Krisen sein. Auch Sie können Teil des \"Reservenpersonals\" sein und einen wichtigen Beitrag zur Bevölkerung von Wallis Romand leisten. Â Profil: • Instrumentale Krankenschwester oder OSI • HES/ES Krankenschwester spezialisiert auf Notfallpflege, Intensivpflege und Anästhesie • Mindestens 2 Jahre Berufserfahrung • Fähigkeit, Prioritäten und Verantwortungsbewusstsein festzulegen • Flexible und stressfeste Persönlichkeit • Bereit, sich in außergewöhnlichen Situationen zu engagieren • Bereitschaft, seine Fähigkeiten durch Ausbildung zu erhalten • Wenn Sie im Haus arbeiten, wird Ihre Bewerbung nur dann förderfähig sein, wenn Sie nicht im Pflegebereich tätig sind. Angebot: • 2 Tage Weiterbildung pro Jahr • 4 Tage theoretische und praktische Ausbildung • 1 Jahreszulage • 1 Zulage pro Ausbildungstag • Möglichkeit der ALS-Kurse",
-        "fr": "## Descrizione\n\nREJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE\n\n... et aide-nous à surmonter la prochaine crise!\n\nMission:\nEn cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises.\n\nVous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand.\n\n## Profil:\n• Infirmier/ère instrumentiste ou TSO\n\n• Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n\n• Au moins 2 ans d'expérience professionnelle\n\n• Capacité à fixer des priorités et conscience de ses responsabilités\n\n• Personnalité flexible et résistante au stress\n\n• Prêt/e à s'engager en cas de situation extraordinaire\n\n• Volonté de maintenir ses compétences via la formation\n\n• Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins.\n\n## Offre:\n• 2 jours de formation continue par an\n\n• 4 jours de formation théorique et pratique initiale\n\n• 1 indemnité annuelle de disponibilité\n\n• 1 indemnité par jour de formation\n\n• Possibilité de suivre le cours ALS"
+        "fr": "## Descrizione REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE ... et aide-nous à surmonter la prochaine crise! Mission: En cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises. Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand. ## Profil: • Infirmier/ère instrumentiste ou TSO • Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie • Au moins 2 ans d'expérience professionnelle • Capacité à fixer des priorités et conscience de ses responsabilités • Personnalité flexible et résistante au stress • Prêt/e à s'engager en cas de situation extraordinaire • Volonté de maintenir ses compétences via la formation • Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins. ## Offre: • 2 jours de formation continue par an • 4 jours de formation théorique et pratique initiale • 1 indemnité annuelle de disponibilité • 1 indemnité par jour de formation • Possibilité de suivre le cours ALS"
       },
       "location": "Sion",
       "canton": "VS",
@@ -199,7 +200,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c64b8d797c30290316bb0b71153af06/ATSANN0003642/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:42.166Z",
+      "crawledAt": "2026-05-09T21:39:48.484Z",
       "_hvsMeta": {
         "number": "ATSANN0003642",
         "sysId": "5c64b8d797c30290316bb0b71153af06",
@@ -225,6 +226,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -281,7 +283,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1c12d59597145290316bb0b71153af70/ATSANN0003701/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:41.830Z",
+      "crawledAt": "2026-05-09T21:39:48.131Z",
       "_hvsMeta": {
         "number": "ATSANN0003701",
         "sysId": "1c12d59597145290316bb0b71153af70",
@@ -298,6 +300,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T21:46:02.683Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -354,7 +357,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:41.497Z",
+      "crawledAt": "2026-05-09T21:39:47.784Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -374,6 +377,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -430,7 +434,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:41.161Z",
+      "crawledAt": "2026-05-09T21:39:47.436Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -509,7 +513,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6c4165297e41654316bb0b71153afc3/ATSANN0003725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:40.821Z",
+      "crawledAt": "2026-05-09T21:39:47.091Z",
       "_hvsMeta": {
         "number": "ATSANN0003725",
         "sysId": "c6c4165297e41654316bb0b71153afc3",
@@ -550,9 +554,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
+      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
+        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -562,17 +566,17 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Médecin adjoint-e spécialiste en radiologie à 100%",
       "titleByLocale": {
-        "it": "100% Assistant X-ray Specialist",
+        "it": "Médecin adjoint-e spécialiste en radiologie à 100%",
         "en": "Associate Physician Specialist in Radiology at 100%",
         "de": "Oberarzt/Oberärztin für Radiologie zu 100%",
         "fr": "Médecin adjoint-e spécialiste en radiologie à 100%"
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\n \n \n\n \n\n L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\n \n\n Médecin adjoint-e spécialiste en radiologie à 100% \n\n Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny.\n\nMission:\nAssurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM.\n\n Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies.\n\n Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire.\n\n Encadrer, former et superviser les médecins en formation\n\n Participer aux réunions multidisciplinaires.\n\n Participer aux gardes du service de radiologie.\n\nProfil:\nTitre de spécialiste fédéral en radiologie ou formation jugée équivalente.\n\n Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels.\n\n Expérience comme chef de clinique dans un hôpital universitaire.\n\n Sens de la coopération, engagement et disponibilité.\n\n Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie.\n\n \n\n Seules les offres répondant au profil seront traitées.",
       "descriptionByLocale": {
-        "it": "Descrizione, il primo datore di lavoro del cantone, ha 6.200 dipendenti. L'Ospedale Vallese è alla ricerca di uno specialista medico al 100% in radiologia per il Centro ospedaliero Vallese Romand Il servizio di imaging diagnostico e di intervento opera a Sion, Sierre e Martigny. ## Mission - Attività clinica nella radiologia osteoarticolare: radiografia standard, ultrasuoni, scanner e risonanza magnetica. - Mantenere il riconoscimento dell'Ospedale Vallese come centro di formazione in radiologia e contribuire allo sviluppo della radiologia osteoarticolare. - No. Per supervisionare, formare e supervisionare i medici in formazione - Partecipare a incontri multidisciplinari. - Partecipate alle guardie radiologiche. ## Profilo - Specialista federale in radiologia o formazione equivalente. - Competenze confermate nella radiologia osteoarticolare, comprese le azioni interventistiche. - Esperienza come capo della clinica in un ospedale universitario. - Significato di cooperazione, impegno e disponibilità. - Interessi di qualità, sicurezza dei pazienti, protezione dalle radiazioni e sviluppo di nuove tecniche di imaging. Verranno elaborate solo offerte che rispondono al profilo.",
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin adjoint-e spécialiste en radiologie à 100% Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny. Mission: Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM. Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies. Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire. Encadrer, former et superviser les médecins en formation Participer aux réunions multidisciplinaires. Participer aux gardes du service de radiologie. Profil: Titre de spécialiste fédéral en radiologie ou formation jugée équivalente. Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels. Expérience comme chef de clinique dans un hôpital universitaire. Sens de la coopération, engagement et disponibilité. Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie. Seules les offres répondant au profil seront traitées.",
         "en": "Descrizione, the canton's first employer, has 6,200 employees. The Valais Hospital is looking for a 100% assistant medical specialist in radiology for the Valais Romand Hospital Centre The diagnostic and intervention imaging service operates in Sion, Sierre and Martigny. ## Mission - Clinical activity in osteoarticular radiology: standard radiography, ultrasound, scanner and MRI. - Take care of the interventional acts: infiltration, arthrography, biopsies. - Maintain the recognition of the Valais Hospital as a training centre in radiology and contribute to the development of osteoarticular radiology. - To supervise, train and supervise doctors in training - Participate in multidisciplinary meetings. - Participate in the radiology wardens. ## Profile - Federal specialist in radiology or equivalent training. - Confirmed expertise in osteoarticular radiology, including interventional actions. - Experience as head of clinic in a university hospital. - Meaning of cooperation, commitment and availability. - Interest in quality, patient safety, radiation protection and the development of new imaging techniques. Only offers responding to the profile will be processed.",
         "de": "Beschreibung, der erste Arbeitgeber des Kantons, hat 6.200 Mitarbeiter. Das Wallis-Krankenhaus ist auf der Suche nach einem 100-prozentigen medizinischen Facharzt für Radiologie für das Walliser Römisches Krankenhauszentrum Der diagnostische und interventionsbildende Dienst arbeitet in Sion, Sierre und Martigny. Mission - Klinische Aktivität in osteoartikulärer Radiologie: Standard-Radiographie, Ultraschall, Scanner und MRT. - Achten Sie auf die Interventionshandlungen: Infiltration, Arthrographie, Biopsien. - Bewahren Sie die Anerkennung des Walliser Krankenhauses als Ausbildungszentrum in der Radiologie und tragen zur Entwicklung der osteoartikulären Radiologie bei. - Ja. Um die Ärzte in der Ausbildung zu betreuen, zu trainieren und zu überwachen - Nehmen Sie an multidisziplinären Treffen teil. - Nehmen Sie an den Radiologie-Warden teil. Profil - Föderaler Spezialist für Radiologie oder gleichwertige Ausbildung. - Bestätigte Expertise in der osteoartikulären Radiologie, einschließlich Interventionsmaßnahmen. - Erfahrung als Klinikleiter in einem Universitätsklinikum. - Bedeutung von Zusammenarbeit, Engagement und Verfügbarkeit. - Interesse an Qualität, Patientensicherheit, Strahlenschutz und Entwicklung neuer Bildgebungsverfahren. Nur Angebote, die auf das Profil reagieren, werden bearbeitet.",
-        "fr": "## Descrizione\n\n1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin adjoint-e spécialiste en radiologie à 100%\n\nLe service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny.\n\n## Mission\n\n- Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM.\n- Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies.\n- Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire.\n- Encadrer, former et superviser les médecins en formation\n- Participer aux réunions multidisciplinaires.\n- Participer aux gardes du service de radiologie.\n\n## Profil\n\n- Titre de spécialiste fédéral en radiologie ou formation jugée équivalente.\n- Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels.\n- Expérience comme chef de clinique dans un hôpital universitaire.\n- Sens de la coopération, engagement et disponibilité.\n- Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie.\n\nSeules les offres répondant au profil seront traitées."
+        "fr": "## Descrizione 1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin adjoint-e spécialiste en radiologie à 100% Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny. ## Mission - Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM. - Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies. - Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire. - Encadrer, former et superviser les médecins en formation - Participer aux réunions multidisciplinaires. - Participer aux gardes du service de radiologie. ## Profil - Titre de spécialiste fédéral en radiologie ou formation jugée équivalente. - Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels. - Expérience comme chef de clinique dans un hôpital universitaire. - Sens de la coopération, engagement et disponibilité. - Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie. Seules les offres répondant au profil seront traitées."
       },
       "location": "Sion",
       "canton": "VS",
@@ -590,7 +594,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/07c0eee447c0c754ff8065f8736d4369/ATSANN0004598/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:40.487Z",
+      "crawledAt": "2026-05-09T21:39:46.737Z",
       "_hvsMeta": {
         "number": "ATSANN0004598",
         "sysId": "07c0eee447c0c754ff8065f8736d4369",
@@ -601,14 +605,15 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -665,7 +670,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9dfd00d997c047101b87322f2153af63/ATSANN0004603/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:40.152Z",
+      "crawledAt": "2026-05-09T21:39:46.393Z",
       "_hvsMeta": {
         "number": "ATSANN0004603",
         "sysId": "9dfd00d997c047101b87322f2153af63",
@@ -688,6 +693,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T10:51:11.162Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -744,7 +750,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/379b503047548710296bd1eb736d439d/ATSANN0004616/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:39.817Z",
+      "crawledAt": "2026-05-09T21:39:46.045Z",
       "_hvsMeta": {
         "number": "ATSANN0004616",
         "sysId": "379b503047548710296bd1eb736d439d",
@@ -764,6 +770,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T11:06:37.133Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -820,7 +827,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c7f1cd749794075012f9322f2153af89/ATSANN0004617/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:39.148Z",
+      "crawledAt": "2026-05-09T21:39:45.350Z",
       "_hvsMeta": {
         "number": "ATSANN0004617",
         "sysId": "c7f1cd749794075012f9322f2153af89",
@@ -899,7 +906,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/12d272159790c7901b87322f2153af70/ATSANN0004619/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:38.814Z",
+      "crawledAt": "2026-05-09T21:39:45.003Z",
       "_hvsMeta": {
         "number": "ATSANN0004619",
         "sysId": "12d272159790c7901b87322f2153af70",
@@ -922,6 +929,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T21:45:48.472Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -978,7 +986,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c805fa947584f90ff8065f8736d43b2/ATSANN0004622/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:38.478Z",
+      "crawledAt": "2026-05-09T21:39:44.655Z",
       "_hvsMeta": {
         "number": "ATSANN0004622",
         "sysId": "3c805fa947584f90ff8065f8736d43b2",
@@ -1057,7 +1065,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d57004ed975ccb5012f9322f2153afc0/ATSANN0004621/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:38.143Z",
+      "crawledAt": "2026-05-09T21:39:44.307Z",
       "_hvsMeta": {
         "number": "ATSANN0004621",
         "sysId": "d57004ed975ccb5012f9322f2153afc0",
@@ -1116,8 +1124,8 @@
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine:\n\n Pflegefachperson 60-80%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Wertschätzung im täglichen Umgang mit Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
       "descriptionByLocale": {
         "it": "• Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato",
-        "en": "• Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff Attractive employment conditions",
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine:\n\n Pflegefachperson 60-80%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Wertschätzung im täglichen Umgang mit Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
+        "en": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine: Pflegefachperson 60-80% Mission: • Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern • Eigenverantwortung und aktives Mitdenken • Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess • Mitarbeit in Arbeits- und Projektgruppen • Begleitung und Unterstützung der Lernenden während der Ausbildung Profil: • Abgeschlossene Ausbildung in Pflege (FH, HF) • Wertschätzung im täglichen Umgang mit Patienten • Kommunikative, initiative und flexible Persönlichkeit • Speditive und exakte Arbeitsweise • Gute EDV-Kenntnisse Offre: • Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit • Unterstützung durch ein motiviertes und engagiertes Team • Möglichkeit zur Weiterbildung • Attraktive Anstellungsbedingungen",
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine: Pflegefachperson 60-80% Mission: • Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern • Eigenverantwortung und aktives Mitdenken • Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess • Mitarbeit in Arbeits- und Projektgruppen • Begleitung und Unterstützung der Lernenden während der Ausbildung Profil: • Abgeschlossene Ausbildung in Pflege (FH, HF) • Wertschätzung im täglichen Umgang mit Patienten • Kommunikative, initiative und flexible Persönlichkeit • Speditive und exakte Arbeitsweise • Gute EDV-Kenntnisse Offre: • Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit • Unterstützung durch ein motiviertes und engagiertes Team • Möglichkeit zur Weiterbildung • Attraktive Anstellungsbedingungen",
         "fr": "• Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié"
       },
       "location": "Brig",
@@ -1136,7 +1144,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c054fae47d407d0ff8065f8736d43b1/ATSANN0004625/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:37.808Z",
+      "crawledAt": "2026-05-09T21:39:43.960Z",
       "_hvsMeta": {
         "number": "ATSANN0004625",
         "sysId": "5c054fae47d407d0ff8065f8736d43b1",
@@ -1169,8 +1177,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-cf22ec3bc8da",
@@ -1214,7 +1221,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/88f5fffe97d84b9012f9322f2153af62/ATSANN0004627/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:37.473Z",
+      "crawledAt": "2026-05-09T21:39:43.611Z",
       "_hvsMeta": {
         "number": "ATSANN0004627",
         "sysId": "88f5fffe97d84b9012f9322f2153af62",
@@ -1296,7 +1303,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ea57e7efc3540754a043be4c0501314a/ATSANN0004631/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:37.139Z",
+      "crawledAt": "2026-05-09T21:39:43.263Z",
       "_hvsMeta": {
         "number": "ATSANN0004631",
         "sysId": "ea57e7efc3540754a043be4c0501314a",
@@ -1375,7 +1382,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/028b2a6bc314c354a043be4c0501313d/ATSANN0004629/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:36.802Z",
+      "crawledAt": "2026-05-09T21:39:42.917Z",
       "_hvsMeta": {
         "number": "ATSANN0004629",
         "sysId": "028b2a6bc314c354a043be4c0501313d",
@@ -1454,7 +1461,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6bc188c197a807141b87322f2153af81/ATSANN0004633/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:36.462Z",
+      "crawledAt": "2026-05-09T21:39:42.568Z",
       "_hvsMeta": {
         "number": "ATSANN0004633",
         "sysId": "6bc188c197a807141b87322f2153af81",
@@ -1530,7 +1537,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0cbd33b8972807141b87322f2153aff4/ATSANN0004632/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:36.124Z",
+      "crawledAt": "2026-05-09T21:39:42.223Z",
       "_hvsMeta": {
         "number": "ATSANN0004632",
         "sysId": "0cbd33b8972807141b87322f2153aff4",
@@ -1612,7 +1619,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/afecf9ba837abe1017a39d20ceaad302/ATSANN0004521/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:35.790Z",
+      "crawledAt": "2026-05-09T21:39:41.877Z",
       "_hvsMeta": {
         "number": "ATSANN0004521",
         "sysId": "afecf9ba837abe1017a39d20ceaad302",
@@ -1691,7 +1698,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2ff90c91c3e8c710a043be4c05013155/ATSANN0004636/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:35.455Z",
+      "crawledAt": "2026-05-09T21:39:41.528Z",
       "_hvsMeta": {
         "number": "ATSANN0004636",
         "sysId": "2ff90c91c3e8c710a043be4c05013155",
@@ -1714,6 +1721,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T11:03:22.014Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1770,7 +1778,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e7099891c3e40b10a043be4c050131e8/ATSANN0004637/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:35.115Z",
+      "crawledAt": "2026-05-09T21:39:41.181Z",
       "_hvsMeta": {
         "number": "ATSANN0004637",
         "sysId": "e7099891c3e40b10a043be4c050131e8",
@@ -1790,6 +1798,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:02:17.108Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -1846,7 +1855,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9de4b411c3a04b10a043be4c05013191/ATSANN0004640/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:34.780Z",
+      "crawledAt": "2026-05-09T21:39:40.834Z",
       "_hvsMeta": {
         "number": "ATSANN0004640",
         "sysId": "9de4b411c3a04b10a043be4c05013191",
@@ -1868,8 +1877,8 @@
           "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l"
         ]
       },
-      "firstSeenAt": "2026-04-28T11:03:21.611Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-28T11:03:21.611Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1882,8 +1891,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-dfcd39b2e281",
@@ -1927,7 +1935,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/76c6bc59c3a04b10a043be4c05013107/ATSANN0004641/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:34.443Z",
+      "crawledAt": "2026-05-09T21:39:40.488Z",
       "_hvsMeta": {
         "number": "ATSANN0004641",
         "sysId": "76c6bc59c3a04b10a043be4c05013107",
@@ -1978,9 +1986,9 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Direktor/in Spitalzentrum Oberwallis 100%",
       "titleByLocale": {
-        "it": "Direttore/in Spitalzentrum Oberwallis 100%",
+        "it": "Direktor/in Spitalzentrum Oberwallis 100%",
         "en": "Direktor/in Spitalzentrum Oberwallis 100%",
-        "de": "Direktor/in Spitalzentrum Oberwallis zu 100 %",
+        "de": "Direktor/in Spitalzentrum Oberwallis 100%",
         "fr": "Direktor/dans le Spitalzentrum Oberwallis 100%"
       },
       "description": "Direktor/in Spitalzentrum Oberwallis 100%",
@@ -2003,7 +2011,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4ae0259d4760c750ff8065f8736d43cc/ATSANN0004642/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-09T10:06:34.109Z",
+      "crawledAt": "2026-05-09T21:39:40.139Z",
       "_hvsMeta": {
         "number": "ATSANN0004642",
         "sysId": "4ae0259d4760c750ff8065f8736d43cc",
@@ -2025,8 +2033,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-9f9bbbeabd09",
@@ -2070,7 +2077,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2a15933197e44b5412f9322f2153afeb/ATSANN0004647/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:33.774Z",
+      "crawledAt": "2026-05-09T21:39:39.792Z",
       "_hvsMeta": {
         "number": "ATSANN0004647",
         "sysId": "2a15933197e44b5412f9322f2153afeb",
@@ -2149,7 +2156,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b0911b3597644b5412f9322f2153af84/ATSANN0004646/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:33.438Z",
+      "crawledAt": "2026-05-09T21:39:39.444Z",
       "_hvsMeta": {
         "number": "ATSANN0004646",
         "sysId": "b0911b3597644b5412f9322f2153af84",
@@ -2172,6 +2179,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T21:57:19.964Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -2228,7 +2236,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f61562bd97204f141b87322f2153af6b/ATSANN0004645/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:33.102Z",
+      "crawledAt": "2026-05-09T21:39:39.095Z",
       "_hvsMeta": {
         "number": "ATSANN0004645",
         "sysId": "f61562bd97204f141b87322f2153af6b",
@@ -2310,7 +2318,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:32.766Z",
+      "crawledAt": "2026-05-09T21:39:38.743Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -2319,6 +2327,7 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2375,7 +2384,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:32.429Z",
+      "crawledAt": "2026-05-09T21:39:38.395Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -2399,6 +2408,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2455,7 +2465,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:32.093Z",
+      "crawledAt": "2026-05-09T21:39:38.046Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -2536,7 +2546,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/38125af197e00b5412f9322f2153af56/ATSANN0004644/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:31.750Z",
+      "crawledAt": "2026-05-09T21:39:37.700Z",
       "_hvsMeta": {
         "number": "ATSANN0004644",
         "sysId": "38125af197e00b5412f9322f2153af56",
@@ -2545,6 +2555,7 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-04-30T10:55:54.039Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2601,7 +2612,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:31.414Z",
+      "crawledAt": "2026-05-09T21:39:37.353Z",
       "_hvsMeta": {
         "number": "ATSANN0003762",
         "sysId": "94b27b0597c11a90316bb0b71153af92",
@@ -2682,7 +2693,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:31.078Z",
+      "crawledAt": "2026-05-09T21:39:37.005Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -2761,7 +2772,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8931be8b9735b25012f9322f2153af59/ATSANN0004456/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:30.738Z",
+      "crawledAt": "2026-05-09T21:39:36.657Z",
       "_hvsMeta": {
         "number": "ATSANN0004456",
         "sysId": "8931be8b9735b25012f9322f2153af59",
@@ -2840,7 +2851,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:30.401Z",
+      "crawledAt": "2026-05-09T21:39:36.309Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -2919,7 +2930,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/ATSANN0003761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:30.066Z",
+      "crawledAt": "2026-05-09T21:39:35.961Z",
       "_hvsMeta": {
         "number": "ATSANN0003761",
         "sysId": "32ce638d97411a90316bb0b71153af77",
@@ -2997,7 +3008,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/93ee5c5697ec0f5412f9322f2153af31/ATSANN0004648/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:29.725Z",
+      "crawledAt": "2026-05-09T21:39:35.615Z",
       "_hvsMeta": {
         "number": "ATSANN0004648",
         "sysId": "93ee5c5697ec0f5412f9322f2153af31",
@@ -3076,7 +3087,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/79ae66cb47e04fd0296bd1eb736d435a/ATSANN0004649/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:29.390Z",
+      "crawledAt": "2026-05-09T21:39:35.266Z",
       "_hvsMeta": {
         "number": "ATSANN0004649",
         "sysId": "79ae66cb47e04fd0296bd1eb736d435a",
@@ -3155,7 +3166,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d5a6fca797a883941b87322f2153af92/ATSANN0004650/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:29.054Z",
+      "crawledAt": "2026-05-09T21:39:34.920Z",
       "_hvsMeta": {
         "number": "ATSANN0004650",
         "sysId": "d5a6fca797a883941b87322f2153af92",
@@ -3178,6 +3189,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:59:04.662Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3234,7 +3246,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1134a52397a807941b87322f2153aff6/ATSANN0004652/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:28.721Z",
+      "crawledAt": "2026-05-09T21:39:34.573Z",
       "_hvsMeta": {
         "number": "ATSANN0004652",
         "sysId": "1134a52397a807941b87322f2153aff6",
@@ -3313,7 +3325,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/912a742b972c83941b87322f2153af09/ATSANN0004651/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:06:28.384Z",
+      "crawledAt": "2026-05-09T21:39:34.223Z",
       "_hvsMeta": {
         "number": "ATSANN0004651",
         "sysId": "912a742b972c83941b87322f2153af09",
@@ -3336,6 +3348,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:59:05.416Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3392,7 +3405,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:28.050Z",
+      "crawledAt": "2026-05-09T21:39:33.876Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -3474,7 +3487,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8773e73b973b3ad012f9322f2153afa8/ATSANN0004592/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:27.712Z",
+      "crawledAt": "2026-05-09T21:39:33.527Z",
       "_hvsMeta": {
         "number": "ATSANN0004592",
         "sysId": "8773e73b973b3ad012f9322f2153afa8",
@@ -3529,7 +3542,7 @@
         "it": "Mansioni - Assunzione delle diverse attività legate al laboratorio - Eescuzione dei serviszi di guardia, di fine settimana o di notte ## Profilo - Diploma di tecnico/a in analisi biomediche ES - Capacità di asicurare a posto polivalente - Competenze in immunoematologica, ematologia, chimica, immunologia vantaggi emostasi ## Offerta - Ambiente stimolante e diversificato con la possibilità di utilizzare le proprie esperienze continue",
         "en": "Mansioni - Assunzione delle diverse attività legate al laboratorio - Eescuzione dei serviszi di guardia, di weekend o di notte ## Profile - Diploma di tecnico/a in analisi biomediche ES - Capacità di asicurare a posto polivalente - Competenze in immunoematologica, ematologia, chimica, immunologia e emostasi ## Offerta - Ambiente stimolante e diversificato con la possibilityà di utilizzare le proprie conoscenze e esperienze - Condizioni di impiego attraenti - Possibilità di formazione continua e di perfezionamento - Tutti i vantaggi per i nostri colaboratori/trici ## Contatato L",
         "de": "Mansioni - Assunzione delle divers attività legate al laboratorio - Eescuzione dei serviszi di guardia, di Weekend o di notte Profil - Diploma di tecnico/a in analisi biomediche ES - Capacità di assicurare a posto polivalente - Competenze in immunematologica, ematologia",
-        "fr": "## Mansioni\n- Assunzione delle diverse attività legate al laboratorio\n- Esecuzione dei servizi di guardia, di weekend o di notte\n\n## Profilo\n- Diploma di tecnico/a in analisi biomediche ES\n- Capacità di assicurare un posto polivalente\n- Competenze in immunoematologia, ematologia, chimica, immunologia e emostasi\n\n## Offerta\n- Ambiente stimolante e diversificato con la possibilità di utilizzare le proprie conoscenze e esperienze\n- Condizioni di impiego attraenti\n- Possibilità di formazione continua e di perfezionamento\n- [Tutti i vantaggi per i nostri collaboratori/trici](link)\n\n## Contatto\nL’Hôpital du Valais cerca per l'Institut Central des Hôpitaux un-e Tecnico/a in analisi biomediche (50-60%) per il laboratorio di Martigny"
+        "fr": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e Technicien-ne en analyses biomédicales (50-60 %) pour le laboratoire de Martigny Mission: Vous assumez les différentes activités liées au laboratoire et êtes amené-e à effectuer des services de garde, de week-end ou de nuit. Profil: Vous avez un diplôme de technicien-ne en analyses biomédicales ES. Vous êtes apte à assurer un poste polyvalent et avez des compétences en immuno-hématologie, hématologie, chimie, immunologie et hémostase . Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "Martigny",
       "canton": "VS",
@@ -3547,7 +3560,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2bb992f3976c0f9412f9322f2153af46/ATSANN0004657/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:27.376Z",
+      "crawledAt": "2026-05-09T21:39:33.179Z",
       "_hvsMeta": {
         "number": "ATSANN0004657",
         "sysId": "2bb992f3976c0f9412f9322f2153af46",
@@ -3583,8 +3596,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-74e45df19df1",
@@ -3628,7 +3640,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9c5f113b972ccb9412f9322f2153af60/ATSANN0004656/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:27.039Z",
+      "crawledAt": "2026-05-09T21:39:32.829Z",
       "_hvsMeta": {
         "number": "ATSANN0004656",
         "sysId": "9c5f113b972ccb9412f9322f2153af60",
@@ -3654,6 +3666,7 @@
         "assc-assistant-e-en-soins-et-sante-communautaire-a-100-pour-le-service-du-j1-cerebrovascul"
       ],
       "firstSeenAt": "2026-05-06T11:06:23.296Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3710,7 +3723,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3a2a91f797a8cb9412f9322f2153afbb/ATSANN0004654/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:26.700Z",
+      "crawledAt": "2026-05-09T21:39:32.481Z",
       "_hvsMeta": {
         "number": "ATSANN0004654",
         "sysId": "3a2a91f797a8cb9412f9322f2153afbb",
@@ -3733,6 +3746,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T11:06:23.653Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3789,7 +3803,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5e0da63f97604f9412f9322f2153afc4/ATSANN0004658/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:26.364Z",
+      "crawledAt": "2026-05-09T21:39:32.131Z",
       "_hvsMeta": {
         "number": "ATSANN0004658",
         "sysId": "5e0da63f97604f9412f9322f2153afc4",
@@ -3843,14 +3857,14 @@
         "it": "Chief Information Security Officer 80% - 100%",
         "en": "Chief-fe Information Security Officer 80% - 100%",
         "de": "Chieffe Information Security Officer 80% - 100%",
-        "fr": "Dirigeant de la sécurité de l'information 80% - 100%"
+        "fr": "Chief-fe Information Security Officer 80% - 100%"
       },
       "description": "L’Hôpital du Valais cherche un-e :\n\n \n\n Chief-fe Information Security Officer 80% - 100% \n\n Pour le service Informatique \n\n \n\n \n Vous jouez un rôle essentiel dans la définition et le pilotage de la stratégie de cybersécurité, en garantissant la protection des systèmes et des données tout en accompagnant la transformation digitale.\n\n Envie de relever un défi stratégique au cœur des enjeux numériques ? Postulez sans attendre !\n\nMission:\n• Définir, mettre en œuvre et piloter la stratégie de cybersécurité du système d’information ;\n\n• garantir un niveau de sécurité adapté aux enjeux opérationnels, réglementaires et métier tout en soutenant la stratégie de digitalisations et la continuité des activités ;\n\n• assurer la protection des actifs informatiques et des données ;\n\n• élaborer et maintenir les politiques, normes, directives et procédures de sécurité de l’information ;\n\n• mettre en place et piloter un système de management de la sécurité de l’information SMSI ;\n\n• piloter ou coordonner les audits de sécurité internes et externes et le suivi des plans d’actions associés ;\n\n• définir le périmètre de certification ISO 27001, les objectifs de sécurité et les indicateurs associés ;\n\n• définir et piloter les dispositifs de gestion des incidents de sécurité et de crise cyber ;\n\n• définir et déployer des programmes de sensibilisation et de formation à la cybersécurité pour l’ensemble des collaborateurs.\n\nProfil:\n• Bachelor ou Master en informatique ou ingénierie (EPF, HES) ou formation jugée équivalente ;\n\n• Minimum 5 ans d'expérience dans un poste similaire ;\n\n• connaissances des normes et standards de cybersécurité et informatiques (e.g. ISO 27001, NIST, CIS, OWASP, ITIL) ;\n\n• bonne capacité de communication et d’écoute ;\n\n• sens de la collaboration et de la transversalité ;\n\n• sens de l’innovation et de l’organisation ;\n\n• proactivité et sens des responsabilités ;\n\n• de langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
       "descriptionByLocale": {
         "it": "Descrizione L-Hôpital du Valais cerca un Chief Information Security Officer (80% - 100%) per il reparto IT. Si gioca un ruolo essenziale nella definizione e nella guida della strategia di sicurezza informatica, assicurando la protezione dei sistemi e dei dati, accompagnando la trasformazione digitale. Vuoi affrontare una sfida strategica nel cuore delle questioni digitali? Applicare senza indugio! ## Mission - Definire, implementare e pilotare la strategia per la sicurezza informatica - garantire un livello di sicurezza adattato alle sfide operative, regolamentari e aziendali, mentre sostenere la strategia di digitalizzazione e la continuità aziendale - garantire la protezione dei beni informatici e dei dati - sviluppare e mantenere le politiche di sicurezza dell'informazione, gli standard, le direttive e le procedure - impostare e pilotare un sistema di gestione della sicurezza informatica WSIS - pilota o coordinare gli audit interni e la sicurezza esterna e il follow-up dei piani d'azione",
         "en": "Descrizione L-Hôpital du Valais is looking for a Chief Information Security Officer (80% - 100%) for the IT department. You play an essential role in defining and guiding the cybersecurity strategy, ensuring the protection of systems and data while accompanying digital transformation. Want to meet a strategic challenge at the heart of digital issues? Apply without delay! ## Mission - Defining, implementing and piloting the information system cybersecurity strategy - ensure a level of security adapted to operational, regulatory and business challenges, while supporting the digitalisation strategy and business continuity - ensuring the protection of computer assets and data - develop and maintain information security policies, standards, directives and procedures - set up and pilot a WSIS information security management system - pilot or coordinate internal and external security audits and follow-up of associated action plans - define the ISO 27001 certification scope, security objectives and associated indicators - define and manage cyber security and crisis incident management devices - define and deploy cyber security awareness and training programmes for all employees ## Profile - Bachelor or Master in Computer or Engineering (EPF, HES) or equivalent training - Minimum 5 years of experience in a similar position - knowledge of cybersecurity and IT standards and standards (e.g. ISO 27001, NIST, CIS, OWASP, ITIL) - good communication and listening capacity - sense of collaboration and transversality - sense of innovation and organisation - proactivity and sense of responsibility - French or German mother tongue with very good knowledge of the second language and English ## Offer - A stimulating and diverse environment with the possibility to use your knowledge and experience - attractive conditions of employment - opportunities for further training and further training - Find here all the advantages for our employees",
         "de": "Beschreibung L-Hôpital du Wallais sucht einen Chief Information Security Officer (80% - 100%) für die IT-Abteilung. Sie spielen eine wesentliche Rolle bei der Definition und Führung der Cybersicherheitsstrategie, um den Schutz von Systemen und Daten bei der digitalen Transformation zu gewährleisten. Möchten Sie eine strategische Herausforderung im Herzen der digitalen Themen erfüllen? Wenden Sie sich unverzüglich an! Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â",
-        "fr": "## Descrizione\nL’Hôpital du Valais cherche un-e **Chief-fe Information Security Officer** (80% - 100%) pour le service Informatique.\n\nVous jouez un rôle essentiel dans la définition et le pilotage de la stratégie de cybersécurité, en garantissant la protection des systèmes et des données tout en accompagnant la transformation digitale.\n\nEnvie de relever un défi stratégique au cœur des enjeux numériques ? Postulez sans attendre !\n\n## Mission\n- Définir, mettre en œuvre et piloter la stratégie de cybersécurité du système d’information\n- garantir un niveau de sécurité adapté aux enjeux opérationnels, réglementaires et métier tout en soutenant la stratégie de digitalisations et la continuité des activités\n- assurer la protection des actifs informatiques et des données\n- élaborer et maintenir les politiques, normes, directives et procédures de sécurité de l’information\n- mettre en place et piloter un système de management de la sécurité de l’information SMSI\n- piloter ou coordonner les audits de sécurité internes et externes et le suivi des plans d’actions associés\n- définir le périmètre de certification ISO 27001, les objectifs de sécurité et les indicateurs associés\n- définir et piloter les dispositifs de gestion des incidents de sécurité et de crise cyber\n- définir et déployer des programmes de sensibilisation et de formation à la cybersécurité pour l’ensemble des collaborateurs\n\n## Profil\n- Bachelor ou Master en informatique ou ingénierie (EPF, HES) ou formation jugée équivalente\n- Minimum 5 ans d'expérience dans un poste similaire\n- connaissances des normes et standards de cybersécurité et informatiques (e.g. ISO 27001, NIST, CIS, OWASP, ITIL)\n- bonne capacité de communication et d’écoute\n- sens de la collaboration et de la transversalité\n- sens de l’innovation et de l’organisation\n- proactivité et sens des responsabilités\n- de langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue et de l’anglais\n\n## Offre\n- Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience\n- des conditions d’emploi attrayantes\n- des possibilités de formation continue et de perfectionnement\n- Retrouvez ici tous les avantages pour nos collaboratrices-trices"
+        "fr": "L’Hôpital du Valais cherche un-e : Chief-fe Information Security Officer 80% - 100% Pour le service Informatique Vous jouez un rôle essentiel dans la définition et le pilotage de la stratégie de cybersécurité, en garantissant la protection des systèmes et des données tout en accompagnant la transformation digitale. Envie de relever un défi stratégique au cœur des enjeux numériques ? Postulez sans attendre ! Mission: • Définir, mettre en œuvre et piloter la stratégie de cybersécurité du système d’information ; • garantir un niveau de sécurité adapté aux enjeux opérationnels, réglementaires et métier tout en soutenant la stratégie de digitalisations et la continuité des activités ; • assurer la protection des actifs informatiques et des données ; • élaborer et maintenir les politiques, normes, directives et procédures de sécurité de l’information ; • mettre en place et piloter un système de management de la sécurité de l’information SMSI ; • piloter ou coordonner les audits de sécurité internes et externes et le suivi des plans d’actions associés ; • définir le périmètre de certification ISO 27001, les objectifs de sécurité et les indicateurs associés ; • définir et piloter les dispositifs de gestion des incidents de sécurité et de crise cyber ; • définir et déployer des programmes de sensibilisation et de formation à la cybersécurité pour l’ensemble des collaborateurs. Profil: • Bachelor ou Master en informatique ou ingénierie (EPF, HES) ou formation jugée équivalente ; • Minimum 5 ans d'expérience dans un poste similaire ; • connaissances des normes et standards de cybersécurité et informatiques (e.g. ISO 27001, NIST, CIS, OWASP, ITIL) ; • bonne capacité de communication et d’écoute ; • sens de la collaboration et de la transversalité ; • sens de l’innovation et de l’organisation ; • proactivité et sens des responsabilités ; • de langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue et de l’anglais. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "Sion",
       "canton": "VS",
@@ -3868,7 +3882,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/509e4e8c97f0cf9412f9322f2153af2d/ATSANN0004659/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:25.687Z",
+      "crawledAt": "2026-05-09T21:39:31.401Z",
       "_hvsMeta": {
         "number": "ATSANN0004659",
         "sysId": "509e4e8c97f0cf9412f9322f2153af2d",
@@ -3890,8 +3904,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-565ebf65fbc4",
@@ -3935,7 +3948,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ce59d3c4477847d0ff8065f8736d4301/ATSANN0004662/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:25.351Z",
+      "crawledAt": "2026-05-09T21:39:31.054Z",
       "_hvsMeta": {
         "number": "ATSANN0004662",
         "sysId": "ce59d3c4477847d0ff8065f8736d4301",
@@ -4017,7 +4030,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d411970047b447d0ff8065f8736d4337/ATSANN0004660/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:25.008Z",
+      "crawledAt": "2026-05-09T21:39:30.705Z",
       "_hvsMeta": {
         "number": "ATSANN0004660",
         "sysId": "d411970047b447d0ff8065f8736d4337",
@@ -4096,7 +4109,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9873d34047f447d0ff8065f8736d4310/ATSANN0004661/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:24.672Z",
+      "crawledAt": "2026-05-09T21:39:30.354Z",
       "_hvsMeta": {
         "number": "ATSANN0004661",
         "sysId": "9873d34047f447d0ff8065f8736d4310",
@@ -4175,7 +4188,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6df81b1c47f00bd0ff8065f8736d43ed/ATSANN0004663/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-09T10:06:24.325Z",
+      "crawledAt": "2026-05-09T21:39:30.001Z",
       "_hvsMeta": {
         "number": "ATSANN0004663",
         "sysId": "6df81b1c47f00bd0ff8065f8736d43ed",
