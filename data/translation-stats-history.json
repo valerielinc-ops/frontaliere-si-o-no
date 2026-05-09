@@ -1,69 +1,5 @@
 [
   {
-    "timestamp": "2026-04-25T07:56:40.418Z",
-    "label": "before",
-    "total": 2600,
-    "needsRetranslation": 51,
-    "incomplete": 25,
-    "complete": 2575,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 23,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-25T08:18:38.867Z",
-    "label": "after",
-    "total": 2600,
-    "needsRetranslation": 52,
-    "incomplete": 25,
-    "complete": 2575,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 23,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-25T10:29:00.756Z",
     "label": "before",
     "total": 2658,
@@ -9711,6 +9647,118 @@
       },
       {
         "company": "Prada Group",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-09T22:30:39.191Z",
+    "label": "before",
+    "total": 2596,
+    "needsRetranslation": 1140,
+    "incomplete": 51,
+    "complete": 2545,
+    "missingByLocale": {
+      "it": 26,
+      "en": 26,
+      "de": 17,
+      "fr": 33
+    },
+    "topPending": [
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 7
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Lonza",
+        "pending": 3
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Manor AG",
+        "pending": 2
+      },
+      {
+        "company": "TRUMPF Schweiz AG",
+        "pending": 2
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-09T23:25:33.209Z",
+    "label": "after",
+    "total": 2596,
+    "needsRetranslation": 181,
+    "incomplete": 27,
+    "complete": 2569,
+    "missingByLocale": {
+      "it": 21,
+      "en": 14,
+      "de": 9,
+      "fr": 21
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 3
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 3
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Omega Ltd.",
         "pending": 1
       }
     ]
