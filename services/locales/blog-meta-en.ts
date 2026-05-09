@@ -7259,6 +7259,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ghiacciai-svizzera-frontalieri.title': 'Swiss glaciers lose protective shield: cross-border worker impact',
     'blog.article.ghiacciai-svizzera-frontalieri.excerpt': 'Dry winter and Swiss glaciers at risk. Discover the implications for Ticino cross-border workers.',
     'blog.article.ghiacciai-svizzera-frontalieri.imageAlt': 'Aerial view of Lake Lugano with snow-capped mountains in the background, winter landscape.',
+    'blog.article.frontalieri-luino-caserma-fornasette.title': 'No migrant center in Fornasette: fire station instead',
+    'blog.article.frontalieri-luino-caserma-fornasette.excerpt': 'The former barracks of the carabinieri in Fornasette, Luino, will be assigned to the fire department, not to migrants. Here\'s what changes for cross-border workers',
+    'blog.article.frontalieri-luino-caserma-fornasette.imageAlt': 'Former carabinieri barracks in Fornasette, Luino',
 };
 
 export default blogMetaEn;

@@ -23150,4 +23150,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-luino-caserma-fornasette',
+ category: 'novita',
+ date: '2026-05-09T21:30:25.187Z',
+ image: '/images/blog/frontalieri-luino-caserma-fornasette.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

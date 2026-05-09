@@ -7260,6 +7260,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ghiacciai-svizzera-frontalieri.title': 'Glaciers suisses sans protection: qu\'est-ce qui change pour les frontaliers',
     'blog.article.ghiacciai-svizzera-frontalieri.excerpt': 'Hiver sec et glaciers suisses en danger. Découvrez les implications pour les frontaliers du Tessin.',
     'blog.article.ghiacciai-svizzera-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes enneigées en arrière-plan, paysage hivernal.',
+    'blog.article.frontalieri-luino-caserma-fornasette.title': 'Pas de centre pour migrants à Fornasette: la caserne aux pompiers',
+    'blog.article.frontalieri-luino-caserma-fornasette.excerpt': 'L\'ex-caserne des carabiniers de Fornasette à Luino sera destinée aux pompiers, pas aux migrants. Voici ce qui change pour les frontaliers',
+    'blog.article.frontalieri-luino-caserma-fornasette.imageAlt': 'Ancienne caserne des carabiniers à Fornasette, Luino',
 };
 
 export default blogMetaFr;

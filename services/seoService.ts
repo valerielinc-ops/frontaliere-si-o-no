@@ -3662,6 +3662,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tregua-ucraina-improbabile-cremlino': { name: 'Novità', path: '/articoli-frontaliere/tregua-ucraina-improbabile-cremlino', parent: 'blog' },
     'blog-incidente-tuta-alare-svizzera-2026': { name: 'Incidente in tuta alare', path: '/articoli-frontaliere/incidente-tuta-alare-svizzera-2026', parent: 'blog' },
     'blog-ghiacciai-svizzera-frontalieri': { name: 'Ghiacciai Svizzeri', path: '/articoli-frontaliere/ghiacciai-svizzera-frontalieri', parent: 'blog' },
+    'blog-frontalieri-luino-caserma-fornasette': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-luino-caserma-fornasette', parent: 'blog' },
  };
 
  const info = sectionNames[section];

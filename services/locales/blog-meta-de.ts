@@ -7259,6 +7259,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ghiacciai-svizzera-frontalieri.title': 'Schweizer Gletscher ohne Schutz: Auswirkungen für Grenzgänger',
     'blog.article.ghiacciai-svizzera-frontalieri.excerpt': 'Trockener Winter und gefährdete Schweizer Gletscher. Erfahren Sie die Auswirkungen für die Grenzgänger des Tessin.',
     'blog.article.ghiacciai-svizzera-frontalieri.imageAlt': 'Luftaufnahme des Luganer Sees mit schneebedeckten Bergen im Hintergrund, Winterlandschaft.',
+    'blog.article.frontalieri-luino-caserma-fornasette.title': 'Kein Migranten-Zentrum in Fornasette: Die Kaserne geht an die Feuerwehr',
+    'blog.article.frontalieri-luino-caserma-fornasette.excerpt': 'Die ehemalige Kaserne der Carabinieri in Fornasette bei Luino wird der Feuerwehr übergeben, nicht den Migranten. Hier erfahren Sie, was sich für Grenzgänger ändert.',
+    'blog.article.frontalieri-luino-caserma-fornasette.imageAlt': 'Ehemalige Kaserne der Carabinieri in Fornasette, Luino',
 };
 
 export default blogMetaDe;

@@ -7260,6 +7260,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ghiacciai-svizzera-frontalieri.title': 'Ghiacciai svizzeri senza scudo protettivo: cosa cambia per i frontalieri',
     'blog.article.ghiacciai-svizzera-frontalieri.excerpt': 'Inverno secco e ghiacciai svizzeri a rischio. Scopri le implicazioni per i frontalieri del Ticino.',
     'blog.article.ghiacciai-svizzera-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con montagne innevate sullo sfondo, paesaggio invernale.',
+    'blog.article.frontalieri-luino-caserma-fornasette.title': 'Niente centro migranti a Fornasette: la caserma ai pompieri',
+    'blog.article.frontalieri-luino-caserma-fornasette.excerpt': 'La ex caserma dei carabinieri di Fornasette a Luino sarà destinata ai vigili del fuoco, non ai migranti. Ecco cosa cambia per i frontalieri',
+    'blog.article.frontalieri-luino-caserma-fornasette.imageAlt': 'Ex caserma dei carabinieri di Fornasette a Luino',
 };
 
 export default blogMetaIt;
