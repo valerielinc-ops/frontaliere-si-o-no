@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2471,
+ "numberOfItems": 2472,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7113,7 +7113,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2468, "name": "Papa Leone incontra a Napoli la madre di un fro...", "url": `${BASE_URL}/articoli-frontaliere/papa-leone-incontra-madre-frontaliere` },
           { "@type": "ListItem", "position": 2469, "name": "Svizzera sconfitta dalla Svezia: implicazioni p...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-sconfitta-svezia-frontalieri` },
           { "@type": "ListItem", "position": 2470, "name": "Cremlino: tregua Ucraina più lunga improbabile", "url": `${BASE_URL}/articoli-frontaliere/tregua-ucraina-improbabile-cremlino` },
-          { "@type": "ListItem", "position": 2471, "name": "Incidente in tuta alare: 32enne svizzera gravem...", "url": `${BASE_URL}/articoli-frontaliere/incidente-tuta-alare-svizzera-2026` }
+          { "@type": "ListItem", "position": 2471, "name": "Incidente in tuta alare: 32enne svizzera gravem...", "url": `${BASE_URL}/articoli-frontaliere/incidente-tuta-alare-svizzera-2026` },
+          { "@type": "ListItem", "position": 2472, "name": "Ghiacciai svizzeri senza scudo protettivo: cosa...", "url": `${BASE_URL}/articoli-frontaliere/ghiacciai-svizzera-frontalieri` }
  ]
  },
  {

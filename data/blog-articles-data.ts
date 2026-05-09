@@ -23141,4 +23141,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ghiacciai-svizzera-frontalieri',
+ category: 'novita',
+ date: '2026-05-09T21:23:54.218Z',
+ image: '/images/blog/ghiacciai-svizzera-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

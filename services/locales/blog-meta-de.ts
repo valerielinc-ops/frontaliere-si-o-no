@@ -7256,6 +7256,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-tuta-alare-svizzera-2026.title': 'Schwerer Unfall mit Gleitschirm: 32-jährige Schweizerin in Österreich verletzt',
     'blog.article.incidente-tuta-alare-svizzera-2026.excerpt': 'Eine 32-jährige Schweizerin wurde bei einem Gleitschirmunfall in Hohenems, Österreich, schwer verletzt, als sie mit 15 anderen Springern unterwegs war.',
     'blog.article.incidente-tuta-alare-svizzera-2026.imageAlt': 'Drachenflugunfall in Hohenems, Österreich, mit einer Frau, die in der Nähe von Stromleitungen fällt',
+    'blog.article.ghiacciai-svizzera-frontalieri.title': 'Schweizer Gletscher ohne Schutz: Auswirkungen für Grenzgänger',
+    'blog.article.ghiacciai-svizzera-frontalieri.excerpt': 'Trockener Winter und gefährdete Schweizer Gletscher. Erfahren Sie die Auswirkungen für die Grenzgänger des Tessin.',
+    'blog.article.ghiacciai-svizzera-frontalieri.imageAlt': 'Luftaufnahme des Luganer Sees mit schneebedeckten Bergen im Hintergrund, Winterlandschaft.',
 };
 
 export default blogMetaDe;

@@ -7256,6 +7256,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-tuta-alare-svizzera-2026.title': '32-year-old Swiss woman seriously injured in wingsuit accident in Austria',
     'blog.article.incidente-tuta-alare-svizzera-2026.excerpt': 'A 32-year-old Swiss citizen was seriously injured in a wingsuit accident in Hohenems, Austria, during a flight with 15 jumpers.',
     'blog.article.incidente-tuta-alare-svizzera-2026.imageAlt': 'Paragliding accident in Hohenems, Austria, with a woman falling near power lines',
+    'blog.article.ghiacciai-svizzera-frontalieri.title': 'Swiss glaciers lose protective shield: cross-border worker impact',
+    'blog.article.ghiacciai-svizzera-frontalieri.excerpt': 'Dry winter and Swiss glaciers at risk. Discover the implications for Ticino cross-border workers.',
+    'blog.article.ghiacciai-svizzera-frontalieri.imageAlt': 'Aerial view of Lake Lugano with snow-capped mountains in the background, winter landscape.',
 };
 
 export default blogMetaEn;

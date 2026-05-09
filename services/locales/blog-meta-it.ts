@@ -7257,6 +7257,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-tuta-alare-svizzera-2026.title': 'Incidente in tuta alare: 32enne svizzera gravemente ferita in Austria',
     'blog.article.incidente-tuta-alare-svizzera-2026.excerpt': 'Una cittadina svizzera di 32 anni è rimasta gravemente ferita in un incidente di tuta alare a Hohenems, Austria, durante un volo con 15 saltatori.',
     'blog.article.incidente-tuta-alare-svizzera-2026.imageAlt': 'Incidente in tuta alare a Hohenems, Austria, con una donna che cade vicino a linee elettriche',
+    'blog.article.ghiacciai-svizzera-frontalieri.title': 'Ghiacciai svizzeri senza scudo protettivo: cosa cambia per i frontalieri',
+    'blog.article.ghiacciai-svizzera-frontalieri.excerpt': 'Inverno secco e ghiacciai svizzeri a rischio. Scopri le implicazioni per i frontalieri del Ticino.',
+    'blog.article.ghiacciai-svizzera-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con montagne innevate sullo sfondo, paesaggio invernale.',
 };
 
 export default blogMetaIt;

@@ -7257,6 +7257,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-tuta-alare-svizzera-2026.title': 'Accident en wingsuit : une Suissesse de 32 ans grièvement blessée en Autriche',
     'blog.article.incidente-tuta-alare-svizzera-2026.excerpt': 'Une citoyenne suisse de 32 ans a été grièvement blessée dans un accident de wingsuit à Hohenems, en Autriche, lors d\'un vol avec 15 sauteurs.',
     'blog.article.incidente-tuta-alare-svizzera-2026.imageAlt': 'Accident de parapente à Hohenems, Autriche, avec une femme tombant près de lignes électriques',
+    'blog.article.ghiacciai-svizzera-frontalieri.title': 'Glaciers suisses sans protection: qu\'est-ce qui change pour les frontaliers',
+    'blog.article.ghiacciai-svizzera-frontalieri.excerpt': 'Hiver sec et glaciers suisses en danger. Découvrez les implications pour les frontaliers du Tessin.',
+    'blog.article.ghiacciai-svizzera-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes enneigées en arrière-plan, paysage hivernal.',
 };
 
 export default blogMetaFr;

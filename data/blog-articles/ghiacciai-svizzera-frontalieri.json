@@ -1,0 +1,40 @@
+{
+  "id": "ghiacciai-svizzera-frontalieri",
+  "slug": "ghiacciai-svizzera-frontalieri",
+  "publishedAt": "2026-05-09T21:23:55.415Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.999352724750201,
+    "confidence": 0.8,
+    "finalScore": 9.59948217980016,
+    "topK": [
+      {
+        "slug": "vertigini-montagna-frontalieri",
+        "cosine": 0.8275629414366936
+      },
+      {
+        "slug": "pagare-vittime-crans-montana-2026",
+        "cosine": 0.8212936163134914
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8176517846141889
+      },
+      {
+        "slug": "piu-interventi-soccorso-meno-vittime-montagna-ticino-2025",
+        "cosine": 0.8175575702551919
+      },
+      {
+        "slug": "fuga-ammoniaca-chiasso-pista-ghiaccio",
+        "cosine": 0.8151342875604559
+      }
+    ],
+    "score": 1.19993527247502,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
