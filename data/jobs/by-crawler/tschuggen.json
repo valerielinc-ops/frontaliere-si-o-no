@@ -1,12 +1,12 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-05-08T22:40:40.667Z",
+  "assembledAt": "2026-05-09T10:49:32.774Z",
   "jobs": [
     {
       "id": "tschuggen-2cb375117405",
-      "slug": "responsabile-food-beverage-tschuggen-collection-st-moritz",
+      "slug": "food-and-beverage-manager-m-f-d-a-tempo-indeterminato-tschuggen-collection-st-moritz",
       "slugByLocale": {
-        "it": "responsabile-food-beverage-tschuggen-collection-st-moritz",
+        "it": "food-and-beverage-manager-m-f-d-a-tempo-indeterminato-tschuggen-collection-st-moritz",
         "en": "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "de": "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "fr": "responsable-food-beverage-tschuggen-collection-st-moritz"
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:38.072Z",
+      "crawledAt": "2026-05-09T10:49:30.331Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -51,6 +51,14 @@
       "requirementsByLocale": {},
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-food-beverage-tschuggen-collection-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-food-beverage-tschuggen-collection-st-moritz"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-08T10:48:10.039Z",
       "salaryMin": 68000,
@@ -97,7 +105,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1332/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:37.327Z",
+      "crawledAt": "2026-05-09T10:49:29.416Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -163,7 +171,7 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Night Auditor (m/w/d) Wintersaison 2026/2027",
       "titleByLocale": {
-        "it": "Night Auditor (m/f/d) stagione invernale 2026/2027",
+        "it": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "en": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "de": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "fr": "Night Auditor (m/w/d) Wintersaison 2026/2027"
@@ -180,7 +188,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1336/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:36.366Z",
+      "crawledAt": "2026-05-09T10:49:28.523Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -256,7 +264,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1339/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:35.363Z",
+      "crawledAt": "2026-05-09T10:49:27.605Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -275,6 +283,7 @@
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
       "firstSeenAt": "2026-04-21T22:32:28.567Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -319,7 +328,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:34.398Z",
+      "crawledAt": "2026-05-09T10:49:26.675Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -399,7 +408,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1340/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:33.415Z",
+      "crawledAt": "2026-05-09T10:49:25.767Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -418,6 +427,7 @@
       "department": "Housekeeping",
       "hotelName": "Carlton Hotel St. Moritz",
       "firstSeenAt": "2026-04-23T22:32:29.347Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -462,7 +472,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1341/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:32.456Z",
+      "crawledAt": "2026-05-09T10:49:24.810Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -495,6 +505,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T22:32:28.478Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -539,7 +550,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:31.530Z",
+      "crawledAt": "2026-05-09T10:49:23.905Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -569,6 +580,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T22:32:27.610Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -613,7 +625,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:30.554Z",
+      "crawledAt": "2026-05-09T10:49:22.999Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -690,7 +702,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1348/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-08T22:40:29.575Z",
+      "crawledAt": "2026-05-09T10:49:22.065Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
