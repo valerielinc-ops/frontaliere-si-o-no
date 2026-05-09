@@ -1,18 +1,19 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-09T09:50:14.207Z",
+  "generatedAt": "2026-05-09T21:24:26.916Z",
   "total": 159,
-  "newCount": 4,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 154,
-  "durationMs": 416156,
-  "avgDurationMs": 416156,
+  "unchangedCount": 158,
+  "durationMs": 487926,
+  "avgDurationMs": 487926,
   "durationHistory": [
-    416156
+    487926
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-e66ikm",
       "slug": "verkaufer-in-food-coop-city-chur-graubunden",
@@ -36,17 +37,22 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-09T09:47:05.612Z",
       "firstSeenAt": "2026-05-09T09:47:05.612Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-metayj",
       "slug": "verkaufer-in-food-coop-felsberg-graubunden",
@@ -70,15 +76,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-09T09:47:05.612Z",
       "firstSeenAt": "2026-05-09T09:47:05.612Z",
-      "needsRetranslation": true,
       "addressLocality": "Felsberg",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -104,15 +112,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-09T09:47:05.612Z",
       "firstSeenAt": "2026-05-09T09:47:05.612Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -138,19 +148,19 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-09T09:47:05.612Z",
       "firstSeenAt": "2026-05-09T09:47:05.612Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-hsy2pf",
       "slug": "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden",
@@ -186,10 +196,7 @@
         "translation": 25,
         "completeness": 19
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-46qgy7",
       "slug": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden",
@@ -1117,148 +1124,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-632dx5",
-      "slug": "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Gastronomie",
-      "location": "Landquart",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-22",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/f4696eff-f078-41e8-b832-ea29650d8d08",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-22T09:48:22.005Z",
-      "firstSeenAt": "2026-04-22T09:48:22.005Z",
-      "addressLocality": "Landquart",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-zb8ot5",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-20",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/37d5e4fe-2dae-42bd-8f3a-bcf71538fef5",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-22T09:48:22.005Z",
-      "firstSeenAt": "2026-04-22T09:48:22.005Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-ke4f2c",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-ke4f2c",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "health",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/88b7c251-8463-4cfe-acb1-f0b6083d3824",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-21T21:30:10.756Z",
-      "firstSeenAt": "2026-04-21T21:30:10.756Z",
-      "addressLocality": "Bellinzona",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-ricett",
-      "slug": "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden",
-      "company": "Transgourmet Schweiz AG",
-      "title": "Mitarbeiterin / Mitarbeiter Verkauf Getränke",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-getraenke/e1c76c23-04c1-4412-9cf4-ea1986fdc6aa",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-21T09:55:02.164Z",
-      "firstSeenAt": "2026-04-21T09:55:02.164Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
