@@ -129,6 +129,15 @@ jobs:
           df -h /
           echo "::endgroup::"
 
+      - name: Record build job start time
+        # Captured here (immediately after disk cleanup, before any cache
+        # restore) so the wall-clock total emitted by the `Build profile
+        # summary` step reflects the full job duration. Used to detect
+        # CI-level regressions (cache restore slowdowns, runner queue,
+        # plugin emit growth) without needing to query the GH API.
+        shell: bash
+        run: echo "$(date +%s)" > /tmp/job-start.txt
+
       - name: Checkout
         uses: actions/checkout@v5
 
@@ -211,29 +220,25 @@ jobs:
       - name: Mine all job slugs for comprehensive 404 coverage
         run: node scripts/mine-all-job-slugs.mjs
 
-      - name: Cache related-search cluster pages
-        # Placed AFTER assemble-jobs + cleanup-jobs + mine-all-job-slugs
-        # so hashFiles('data/jobs.json', ...) reads the FINAL jobs.json
-        # content the cluster plugin will see at vite build time. The
-        # earlier placement (before assemble) keyed against the old/empty
-        # jobs.json and produced false-positive HITs from prior builds —
-        # the plugin's internal computeCacheKey hash (which DOES read the
-        # final jobs.json) then mismatched and forced a full re-emit
-        # anyway, wasting the 1.3 MB GH cache restore.
-        uses: actions/cache@v5
-        with:
-          path: .cache/related-search-clusters
-          # Hash inputs match the ones the plugin uses internally for its
-          # per-build cache key (see CACHE_KEY_INPUTS in
-          # build-plugins/relatedSearchClustersPlugin.ts). When jobs.json
-          # changes daily via the cron crawlers, we miss; on pushes that
-          # don't touch jobs (most blog/code commits) we hit and skip the
-          # ~30s cluster emit + matching loop. Restore-keys cascade keeps
-          # older subdirs around so the plugin can re-use partial state
-          # while writing a new entry.
-          key: cluster-pages-${{ runner.os }}-${{ hashFiles('data/jobs.json', 'data/related-search-candidates.json', 'data/related-search-enriched.json', 'build-plugins/relatedSearchClustersPlugin.ts', 'build-plugins/relatedSearchClustersData.ts', 'services/relatedSearchClusters.ts') }}
-          restore-keys: |
-            cluster-pages-${{ runner.os }}-
+      # Cluster-pages cache REMOVED (2026-05-09).
+      # Build instrumentation on 5 recent deploys showed:
+      #   - cache MISS (4/5 runs, jobs.json invalidates daily via cron):
+      #       restore 265s + plugin re-emit 652s + Post Cache tar+zstd
+      #       of ~106k files → 844 MB compressed = ~1020s
+      #       → ~21 min cache overhead to save ~0s of work
+      #   - cache HIT (1/5 runs, blog/code-only push):
+      #       ~3 min cache I/O to save ~10 min of plugin emit (net positive)
+      #   - HIT-rate ≈ 20%; expected build saving = 0.2×10.5 - 0.8×21.4
+      #       = -15.6 min/build (negative)
+      # Plus a structural bug: saveToCache() wipes only the same-key subdir,
+      # so prior runs' subdirs accumulate under .cache/related-search-clusters/
+      # and inflate the tarball indefinitely.
+      # Same anti-pattern documented in docs/CACHE-EXPERIMENT.md for the
+      # plugin-level cache removed 2026-05-04.
+      # Plugin's internal cache (saveToCache/tryRestoreFromCache) is disabled
+      # at runtime via RELATED_SEARCH_CLUSTERS_NO_CACHE=1 in the Build env
+      # below — without the GH cache wrapper, the .cache/ directory on the
+      # ephemeral runner is throwaway, so internal save is wasted I/O.
 
       # Job popularity is refreshed once a day by refresh-job-popularity.yml
       # and committed to data/job-popularity.json. The build reads the file
@@ -354,6 +359,15 @@ jobs:
           # render-archive-week, companycity-pass1-stats,
           # render-company-city-page, process-page, flush, sitemap-write).
           WEEKLY_EMPLOYERS_PROFILE: ${{ github.event.inputs.profile_weekly_employers == 'true' && '1' || '' }}
+          # Disable the plugin-internal save/restore for related-search-clusters
+          # since the GH Actions cache wrapper around .cache/related-search-clusters/
+          # was removed (see comment in cluster-pages cache section above). On the
+          # ephemeral CI runner the .cache/ directory is throwaway, so writing
+          # ~106k cached HTML copies via fs.copyFileSync is pure waste (~50s/build).
+          # The plugin still emits to dist/ as normal — only the disk-side cache
+          # path is short-circuited. Keeps local dev paths (where the cache IS
+          # persisted) unchanged: unset this flag locally to re-enable.
+          RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
           # POST_WALK_WORKERS rollback removed (commit 4b412bc8a + 36dfd0e9c
           # added explicit `.ts` extensions to the two extension-less local
           # imports the worker tree pulled in — `./blogContextualLinksData`
@@ -377,6 +391,21 @@ jobs:
         if: always()
         shell: bash
         run: |
+          # Total job wall-clock: emitted first so it shows at the top of
+          # the summary even when the profile log is missing or partial.
+          if [ -f /tmp/job-start.txt ]; then
+            START_TS="$(cat /tmp/job-start.txt)"
+            NOW_TS="$(date +%s)"
+            ELAPSED_S=$((NOW_TS - START_TS))
+            ELAPSED_M=$((ELAPSED_S / 60))
+            ELAPSED_R=$((ELAPSED_S % 60))
+            {
+              echo "## Build job wall-clock"
+              echo ""
+              echo "**${ELAPSED_S}s** (${ELAPSED_M}m ${ELAPSED_R}s) from job start to profile summary."
+              echo ""
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
           if [ ! -f /tmp/build.log ]; then
             echo "Build log not found — profiling skipped" >> "$GITHUB_STEP_SUMMARY"
             exit 0
