@@ -51,6 +51,11 @@ const {
 const existingHtmlSet = new Set(existingHtmlPaths);
 const blogIndexHtmlByPath = new Map(blogIndexEntries);
 
+// `transformFlatRedirect` requires a SYNC sibling-existence + body reader
+// (it short-circuits when the sibling index.html is missing or empty). We
+// keep that sync surface and back it with the in-memory `existingHtmlSet`
+// + readFileSync only when the sibling actually exists. Sibling reads are
+// rare relative to the per-file walk so the sync hop here is negligible.
 const readSibling = (siblingPath) => {
   if (!existingHtmlSet.has(siblingPath)) return null;
   try {
@@ -71,12 +76,27 @@ let hreflangLinksDropped = 0;
 let totalWrites = 0;
 const writeFailures = [];
 
-for (const filePath of assignedFiles) {
+/**
+ * In-flight concurrency limit per worker. The coordinator spawns N=4 workers
+ * on the standard 4-vCPU CI runner; with 4 in-flight async file ops per
+ * worker the runner can have ~16 concurrent reads/writes, fully saturating
+ * SSD-backed I/O. Sequential profile measured CPU=170s wall=87s (~2× speedup
+ * across 4 workers due to per-worker sync blocking); switching to async
+ * within each worker should overlap I/O wait with peer-file CPU and bring
+ * wall closer to CPU/N.
+ *
+ * We avoid going higher to keep aggregate fd count bounded (workers × IN_FLIGHT
+ * ≤ 32 here, well under the 65535 ulimit on ubuntu-latest and the 1024
+ * conservative ulimit honoured elsewhere in the repo, see batchWrite.ts).
+ */
+const IN_FLIGHT = 4;
+
+async function processFile(filePath) {
   let html;
   try {
-    html = fs.readFileSync(filePath, 'utf-8');
+    html = await fs.promises.readFile(filePath, 'utf-8');
   } catch {
-    continue;
+    return;
   }
   const original = html;
   let mutated = false;
@@ -125,7 +145,7 @@ for (const filePath of assignedFiles) {
 
   if (mutated && html !== original) {
     try {
-      fs.writeFileSync(filePath, html, 'utf-8');
+      await fs.promises.writeFile(filePath, html, 'utf-8');
       totalWrites++;
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
@@ -133,6 +153,20 @@ for (const filePath of assignedFiles) {
     }
   }
 }
+
+// Drive `assignedFiles` through a fixed-size pool of in-flight async ops.
+// Order of completion does not matter: each file is independent and the
+// per-file counters mutate only worker-local state (no cross-file race).
+let cursor = 0;
+const lane = async () => {
+  while (cursor < assignedFiles.length) {
+    const idx = cursor++;
+    await processFile(assignedFiles[idx]);
+  }
+};
+const lanes = [];
+for (let i = 0; i < IN_FLIGHT; i++) lanes.push(lane());
+await Promise.all(lanes);
 
 parentPort.postMessage({
   bridgeConverted,
