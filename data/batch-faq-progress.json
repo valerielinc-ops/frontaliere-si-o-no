@@ -742,7 +742,10 @@
     "centromedico-castello-chirurgia-ambulatoriale",
     "nottambuli-ticino-orari-societa",
     "spaccio-droga-busto-18mila-euro",
-    "traduzione-documenti-finanziari-visto"
+    "traduzione-documenti-finanziari-visto",
+    "adeguati-assetti-imprese-ticino-2026",
+    "emigrazione-cassa-pensione-risparmio-imposte",
+    "incentivi-assunzioni-2026-sgravi-contributivi"
   ],
   "failed": [
     {
@@ -6589,8 +6592,28 @@
       "id": "hendsichen-arresto-francese-autodiebstahl",
       "error": "Unterminated string in JSON at position 442 (line 4 column 347)",
       "at": "2026-05-08T04:02:16.646Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 269 (line 4 column 154)",
+      "at": "2026-05-09T04:05:06.524Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 230 (line 4 column 142)",
+      "at": "2026-05-09T04:05:40.997Z"
+    },
+    {
+      "id": "frontalieri-ticino-calo-2026",
+      "error": "Unterminated string in JSON at position 930 (line 12 column 80)",
+      "at": "2026-05-09T04:05:57.580Z"
+    },
+    {
+      "id": "hendsichen-arresto-francese-autodiebstahl",
+      "error": "Unterminated string in JSON at position 1034 (line 11 column 67)",
+      "at": "2026-05-09T04:06:15.426Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-08T04:02:56.123Z"
+  "updatedAt": "2026-05-09T04:06:32.731Z"
 }
