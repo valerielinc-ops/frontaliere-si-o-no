@@ -7221,6 +7221,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crans-montana-ore-straordinarie-non-pagate.title': 'Crans Montana : heures supplémentaires non payées aux sauveteurs',
     'blog.article.crans-montana-ore-straordinarie-non-pagate.excerpt': 'Quatre mois après l\'incendie, les sauveteurs de l\'Hôpital du Valais attendent toujours le paiement des heures supplémentaires.',
     'blog.article.crans-montana-ore-straordinarie-non-pagate.imageAlt': 'Travailleurs de la santé dans un hôpital à Lugano',
+    'blog.article.lugano-calcio-frontalieri-2026.title': 'FC Lugano : quatre joueurs quittent le club',
+    'blog.article.lugano-calcio-frontalieri-2026.excerpt': 'Mohamed Belhadj Mahmoud, Hicham Mahou, Zachary Brault-Guillard et Serif Berbic ne renouvellent pas leur contrat avec le FC Lugano.',
+    'blog.article.lugano-calcio-frontalieri-2026.imageAlt': 'Stade du FC Lugano avec terrain et tribunes',
 };
 
 export default blogMetaFr;
