@@ -7205,6 +7205,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pensioni-svantaggio-tasse-frontalieri.title': 'Cross-border workers, this pension puts you at a disadvantage',
     'blog.article.pensioni-svantaggio-tasse-frontalieri.excerpt': 'Discover how Ticino cross-border workers can be disadvantaged with pensions and pay more taxes. Detailed analysis and practical solutions.',
     'blog.article.pensioni-svantaggio-tasse-frontalieri.imageAlt': 'Mendrisio, Ticino, at the border with Italy',
+    'blog.article.takahashia-japonica-ticino-2026.title': 'Takahashia japonica in Ticino: how to protect trees',
+    'blog.article.takahashia-japonica-ticino-2026.excerpt': 'Cantonal authorities reassure: the situation is not alarming, but action is needed to contain the spread of the scale insect.',
+    'blog.article.takahashia-japonica-ticino-2026.imageAlt': 'View of Lake Lugano with trees and surrounding landscape',
 };
 
 export default blogMetaEn;

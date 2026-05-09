@@ -7206,6 +7206,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pensioni-svantaggio-tasse-frontalieri.title': 'Pensioni, con questo importo sei svantaggiato. Paghi più tasse',
     'blog.article.pensioni-svantaggio-tasse-frontalieri.excerpt': 'Scopri come i frontalieri del Ticino possono essere svantaggiati con le pensioni e pagare più tasse. Analisi dettagliata e soluzioni pratiche.',
     'blog.article.pensioni-svantaggio-tasse-frontalieri.imageAlt': 'Mendrisio, Ticino, al confine con l\'Italia',
+    'blog.article.takahashia-japonica-ticino-2026.title': 'Takahashia japonica in Ticino: come proteggere gli alberi',
+    'blog.article.takahashia-japonica-ticino-2026.excerpt': 'Le autorità cantonali rassicurano: la situazione non è allarmante, ma è necessario agire per contenere la diffusione della cocciniglia.',
+    'blog.article.takahashia-japonica-ticino-2026.imageAlt': 'Vista del Lago di Lugano con alberi e paesaggio circostante',
 };
 
 export default blogMetaIt;

@@ -3644,6 +3644,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-croce-rossa-160-anni-tagli-educatori': { name: 'Novità', path: '/articoli-frontaliere/croce-rossa-160-anni-tagli-educatori', parent: 'blog' },
     'blog-servizi-dentari-scolastici-conflitti-interesse': { name: 'Servizi dentari scolastici', path: '/articoli-frontaliere/servizi-dentari-scolastici-conflitti-interesse', parent: 'blog' },
     'blog-pensioni-svantaggio-tasse-frontalieri': { name: 'Pensioni Frontalieri', path: '/articoli-frontaliere/pensioni-svantaggio-tasse-frontalieri', parent: 'blog' },
+    'blog-takahashia-japonica-ticino-2026': { name: 'Pratico', path: '/articoli-frontaliere/takahashia-japonica-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

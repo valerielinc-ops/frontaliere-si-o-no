@@ -22988,4 +22988,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'takahashia-japonica-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-09T18:26:11.384Z',
+ image: '/images/blog/takahashia-japonica-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

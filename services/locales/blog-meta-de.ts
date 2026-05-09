@@ -7205,6 +7205,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pensioni-svantaggio-tasse-frontalieri.title': 'Rentner mit diesem Betrag sind benachteiligt. Höhere Steuern',
     'blog.article.pensioni-svantaggio-tasse-frontalieri.excerpt': 'Erfahren Sie, wie Grenzgänger aus dem Tessin bei Renten benachteiligt sein können und mehr Steuern zahlen. Detaillierte Analyse und praktische Lösungen.',
     'blog.article.pensioni-svantaggio-tasse-frontalieri.imageAlt': 'Mendrisio, Tessin, an der Grenze zu Italien',
+    'blog.article.takahashia-japonica-ticino-2026.title': 'Takahashia japonica im Tessin: Bäume schützen',
+    'blog.article.takahashia-japonica-ticino-2026.excerpt': 'Die kantonalen Behörden beruhigen: Die Situation ist nicht alarmierend, aber es muss gehandelt werden, um die Ausbreitung der Schildlaus einzudämmen.',
+    'blog.article.takahashia-japonica-ticino-2026.imageAlt': 'Blick auf den Luganersee mit Bäumen und umliegender Landschaft',
 };
 
 export default blogMetaDe;
