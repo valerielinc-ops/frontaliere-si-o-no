@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-05-08T21:19:47.576Z",
+  "generatedAt": "2026-05-09T09:29:24.879Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2265,
-  "avgDurationMs": 2265,
+  "durationMs": 2142,
+  "avgDurationMs": 2142,
   "durationHistory": [
-    2265
+    2142
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -181,10 +181,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-08",
+      "postedDate": "2026-05-09",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-05-08",
+      "validThrough": "2026-05-09",
       "salaryMin": 94000,
       "salaryMax": 127000,
       "currency": "CHF",
@@ -218,10 +218,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-08",
+      "postedDate": "2026-05-09",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-05-08",
+      "validThrough": "2026-05-09",
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -349,44 +349,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "AI Product Manager",
-      "slug": "responsabile-prodotto-ai-board-international-chiasso-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/P9W2xHIinG/AI-Product-Manager",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/P9W2xHIinG/AI-Product-Manager",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Chiasso, Switzerland",
-      "addressLocality": "Chiasso, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-03-09",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "2026-06-07",
-      "salaryMin": 94000,
-      "salaryMax": 127000,
-      "currency": "CHF",
-      "streetAddress": "Via Campagna 11",
-      "postalCode": "6982",
-      "id": "board-international-434035af3016",
-      "firstSeenAt": "2026-04-13T21:14:48.639Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
