@@ -7226,6 +7226,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.premiate-classi-acqua-vita-2026.title': 'Gewinnerklassen des Wettbewerbs \'Wasser ist Leben\' gekürt',
     'blog.article.premiate-classi-acqua-vita-2026.excerpt': 'Die Klassen 5B von Bellinzona Nord, 2B von Gambarogno und 3/4 von Brissago gewinnen den kreativen Wettbewerb, der von der Vereinigung der Fontanieri Ticinesi ausgetragen wird.',
     'blog.article.premiate-classi-acqua-vita-2026.imageAlt': 'Luftaufnahme des Luganersees mit klarem blauem Wasser und umliegenden Bergen',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.title': 'Von Biasca in die Ukraine: Sechs Freiwillige im Einsatz',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.excerpt': 'Sechs Freiwillige der Hunpa brechen von Biasca auf, um medizinische Hilfe in der Ukraine zu leisten. Zwei Teams werden sich aufteilen, um den Nordosten und den Süden des Landes abzudecken.',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.imageAlt': 'Ein Krankenwagen von Hunpa reist von Biasca, Tessin, in die Ukraine',
 };
 
 export default blogMetaDe;

@@ -7227,6 +7227,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.premiate-classi-acqua-vita-2026.title': 'Premiate le classi vincitrici del concorso \'L\'acqua è vita\'',
     'blog.article.premiate-classi-acqua-vita-2026.excerpt': 'Le classi 5B di Bellinzona Nord, 2B di Gambarogno e 3/4 di Brissago si aggiudicano il concorso creativo promosso dall\'Associazione Fontanieri Ticinesi',
     'blog.article.premiate-classi-acqua-vita-2026.imageAlt': 'Vista aerea del Lago di Lugano con acque cristalline e montagne circostanti',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.title': 'Da Biasca all\'Ucraina: sei volontari in missione umanitaria',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.excerpt': 'Sei volontari della Hunpa partono da Biasca per portare aiuto medico in Ucraina, con due squadre che si divideranno per coprire il nord-est e il sud del Paese.',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.imageAlt': 'Un\'ambulanza della Hunpa in viaggio verso l\'Ucraina da Biasca, Ticino',
 };
 
 export default blogMetaIt;

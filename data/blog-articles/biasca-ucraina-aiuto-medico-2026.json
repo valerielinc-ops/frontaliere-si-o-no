@@ -1,0 +1,40 @@
+{
+  "id": "biasca-ucraina-aiuto-medico-2026",
+  "slug": "biasca-ucraina-aiuto-medico-2026",
+  "publishedAt": "2026-05-09T19:47:12.665Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "ilgiornaledelticino.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.441780011770282,
+    "confidence": 0.8,
+    "finalScore": 9.953424009416226,
+    "topK": [
+      {
+        "slug": "ticinesi-missione-ucraina-2026",
+        "cosine": 0.8886985722693058
+      },
+      {
+        "slug": "ponte-chiasso-sanita-2026",
+        "cosine": 0.8661133411615585
+      },
+      {
+        "slug": "aiuti-svizzera-ucraina-2026",
+        "cosine": 0.8570185216587678
+      },
+      {
+        "slug": "incontro-solidarieta-sicurezza-bioggio",
+        "cosine": 0.8492519696292034
+      },
+      {
+        "slug": "ucraini-in-ticino-aiuti-incognite",
+        "cosine": 0.8421467217861103
+      }
+    ],
+    "score": 4.976712004708113,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

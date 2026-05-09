@@ -7226,6 +7226,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.premiate-classi-acqua-vita-2026.title': 'Winning classes of \'Water is Life\' contest awarded',
     'blog.article.premiate-classi-acqua-vita-2026.excerpt': 'Classes 5B of Bellinzona Nord, 2B of Gambarogno and 3/4 of Brissago win the creative contest promoted by the Ticino Plumbers Association',
     'blog.article.premiate-classi-acqua-vita-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water and surrounding mountains',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.title': 'From Biasca to Ukraine: six volunteers on humanitarian mission',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.excerpt': 'Six Hunpa volunteers leave Biasca to provide medical aid in Ukraine, with two teams splitting to cover the northeast and south of the country.',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.imageAlt': 'An ambulance from Hunpa traveling from Biasca, Ticino, to Ukraine',
 };
 
 export default blogMetaEn;

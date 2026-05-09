@@ -3651,6 +3651,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-ore-straordinarie-non-pagate': { name: 'Ore straordinarie non pagate', path: '/articoli-frontaliere/crans-montana-ore-straordinarie-non-pagate', parent: 'blog' },
     'blog-lugano-calcio-frontalieri-2026': { name: 'FC Lugano', path: '/articoli-frontaliere/lugano-calcio-frontalieri-2026', parent: 'blog' },
     'blog-premiate-classi-acqua-vita-2026': { name: 'Novità', path: '/articoli-frontaliere/premiate-classi-acqua-vita-2026', parent: 'blog' },
+    'blog-biasca-ucraina-aiuto-medico-2026': { name: 'Novità', path: '/articoli-frontaliere/biasca-ucraina-aiuto-medico-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

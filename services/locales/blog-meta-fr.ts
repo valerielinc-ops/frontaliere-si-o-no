@@ -7227,6 +7227,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.premiate-classi-acqua-vita-2026.title': 'Classes lauréates du concours \'L\'eau c\'est la vie\'',
     'blog.article.premiate-classi-acqua-vita-2026.excerpt': 'Les classes 5B de Bellinzona Nord, 2B de Gambarogno et 3/4 de Brissago remportent le concours créatif promu par l\'Association des Fontaniers Tessinois',
     'blog.article.premiate-classi-acqua-vita-2026.imageAlt': 'Vue aérienne du lac de Lugano avec de l\'eau bleue claire et des montagnes environnantes',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.title': 'De Biasca à l\'Ukraine: six volontaires en mission humanitaire',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.excerpt': 'Six volontaires de la Hunpa quittent Biasca pour apporter une aide médicale en Ukraine, avec deux équipes qui se partageront le nord-est et le sud du pays.',
+    'blog.article.biasca-ucraina-aiuto-medico-2026.imageAlt': 'Une ambulance de Hunpa en route de Biasca, Tessin, vers l\'Ukraine',
 };
 
 export default blogMetaFr;

@@ -32795,6 +32795,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-biasca-ucraina-aiuto-medico-2026': {
+    title: 'Da Biasca all\'Ucraina: sei volontari in missione umanitaria',
+    description: 'Sei volontari della Hunpa partono da Biasca per portare aiuto medico in Ucraina, con due squadre che si divideranno per coprire il nord-est e il sud del Paese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, biasca, ucraina, volontari, missione',
+    ogTitle: 'Da Biasca all\'Ucraina: sei volontari in missione umanitaria',
+    ogDescription: 'Sei volontari della Hunpa partono da Biasca per portare aiuto medico in Ucraina, con due squadre che si divideranno per coprire il nord-est e il sud del Paese.',
+    canonicalPath: '/articoli-frontaliere/biasca-ucraina-aiuto-medico-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da Biasca all'Ucraina: sei volontari in missione umanitaria",
+      "description": "Sei volontari della Hunpa partono da Biasca per portare aiuto medico in Ucraina, con due squadre che si divideranno per coprire il nord-est e il sud del Paese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/biasca-ucraina-aiuto-medico-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un'ambulanza della Hunpa in viaggio verso l'Ucraina da Biasca, Ticino"
+      },
+      "datePublished": "2026-05-09T19:47:11+00:00",
+      "dateModified": "2026-05-09T19:47:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/biasca-ucraina-aiuto-medico-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
