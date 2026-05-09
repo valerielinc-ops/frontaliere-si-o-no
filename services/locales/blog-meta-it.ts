@@ -7254,6 +7254,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tregua-ucraina-improbabile-cremlino.title': 'Cremlino: tregua Ucraina più lunga improbabile',
     'blog.article.tregua-ucraina-improbabile-cremlino.excerpt': 'Il consigliere presidenziale russo Yuri Ushakov ha dichiarato che l\'estensione del cessate il fuoco è improbabile. Ecco cosa cambia per i frontalieri.',
     'blog.article.tregua-ucraina-improbabile-cremlino.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
+    'blog.article.incidente-tuta-alare-svizzera-2026.title': 'Incidente in tuta alare: 32enne svizzera gravemente ferita in Austria',
+    'blog.article.incidente-tuta-alare-svizzera-2026.excerpt': 'Una cittadina svizzera di 32 anni è rimasta gravemente ferita in un incidente di tuta alare a Hohenems, Austria, durante un volo con 15 saltatori.',
+    'blog.article.incidente-tuta-alare-svizzera-2026.imageAlt': 'Incidente in tuta alare a Hohenems, Austria, con una donna che cade vicino a linee elettriche',
 };
 
 export default blogMetaIt;

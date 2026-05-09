@@ -7253,6 +7253,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tregua-ucraina-improbabile-cremlino.title': 'Kremlin: Longer Ukraine truce unlikely',
     'blog.article.tregua-ucraina-improbabile-cremlino.excerpt': 'Russian presidential advisor Yuri Ushakov stated that extending the ceasefire is unlikely. Here\'s what changes for cross-border workers.',
     'blog.article.tregua-ucraina-improbabile-cremlino.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
+    'blog.article.incidente-tuta-alare-svizzera-2026.title': '32-year-old Swiss woman seriously injured in wingsuit accident in Austria',
+    'blog.article.incidente-tuta-alare-svizzera-2026.excerpt': 'A 32-year-old Swiss citizen was seriously injured in a wingsuit accident in Hohenems, Austria, during a flight with 15 jumpers.',
+    'blog.article.incidente-tuta-alare-svizzera-2026.imageAlt': 'Paragliding accident in Hohenems, Austria, with a woman falling near power lines',
 };
 
 export default blogMetaEn;

@@ -7254,6 +7254,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tregua-ucraina-improbabile-cremlino.title': 'Kremlin: une trêve prolongée en Ukraine improbable',
     'blog.article.tregua-ucraina-improbabile-cremlino.excerpt': 'Le conseiller présidentiel russe Yuri Ushakov a déclaré que l\'extension du cessez-le-feu est improbable. Voici ce qui change pour les frontaliers.',
     'blog.article.tregua-ucraina-improbabile-cremlino.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bâtiments',
+    'blog.article.incidente-tuta-alare-svizzera-2026.title': 'Accident en wingsuit : une Suissesse de 32 ans grièvement blessée en Autriche',
+    'blog.article.incidente-tuta-alare-svizzera-2026.excerpt': 'Une citoyenne suisse de 32 ans a été grièvement blessée dans un accident de wingsuit à Hohenems, en Autriche, lors d\'un vol avec 15 sauteurs.',
+    'blog.article.incidente-tuta-alare-svizzera-2026.imageAlt': 'Accident de parapente à Hohenems, Autriche, avec une femme tombant près de lignes électriques',
 };
 
 export default blogMetaFr;

@@ -23132,4 +23132,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-tuta-alare-svizzera-2026',
+ category: 'novita',
+ date: '2026-05-09T21:16:14.959Z',
+ image: '/images/blog/incidente-tuta-alare-svizzera-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

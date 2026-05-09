@@ -7253,6 +7253,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tregua-ucraina-improbabile-cremlino.title': 'Kreml: Längere Ukraine-Waffenruhe unwahrscheinlich',
     'blog.article.tregua-ucraina-improbabile-cremlino.excerpt': 'Der russische Präsidialberater Yuri Ushakov erklärte, dass eine Verlängerung des Waffenstillstands unwahrscheinlich ist. Hier ist, was sich für Grenzgänger ändert.',
     'blog.article.tregua-ucraina-improbabile-cremlino.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
+    'blog.article.incidente-tuta-alare-svizzera-2026.title': 'Schwerer Unfall mit Gleitschirm: 32-jährige Schweizerin in Österreich verletzt',
+    'blog.article.incidente-tuta-alare-svizzera-2026.excerpt': 'Eine 32-jährige Schweizerin wurde bei einem Gleitschirmunfall in Hohenems, Österreich, schwer verletzt, als sie mit 15 anderen Springern unterwegs war.',
+    'blog.article.incidente-tuta-alare-svizzera-2026.imageAlt': 'Drachenflugunfall in Hohenems, Österreich, mit einer Frau, die in der Nähe von Stromleitungen fällt',
 };
 
 export default blogMetaDe;
