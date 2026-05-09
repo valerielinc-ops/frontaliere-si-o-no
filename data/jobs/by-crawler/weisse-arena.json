@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-05-09T10:53:32.815Z",
+  "assembledAt": "2026-05-09T22:26:42.030Z",
   "jobs": [
     {
       "id": "weisse-arena-3ba6d893ef9b",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4462&jobTitle=Restaurantleiter%3Ain+Camino",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:53:30.858Z",
+      "crawledAt": "2026-05-09T22:26:40.064Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -75,6 +75,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -119,7 +120,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4461&jobTitle=Stellvertretende%3Ar+K%C3%BCchenchef%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:53:30.858Z",
+      "crawledAt": "2026-05-09T22:26:40.064Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -179,6 +180,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -188,6 +190,85 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "weisse-arena-ae454ebcb7f1",
+      "slug": "specialista-in-contabilita-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "specialista-in-contabilita-weisse-arena-gruppe-laax",
+        "en": "editor-in-accounting-weisse-arena-gruppe-laax",
+        "de": "sachbearbeiter-in-buchhaltung-weisse-arena-ch",
+        "fr": "specialiste-en-comptabilite-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Sachbearbeiter:in Buchhaltung",
+      "titleByLocale": {
+        "it": "Specialista in Contabilità",
+        "en": "Editor:in Accounting",
+        "de": "Sachbearbeiter:in Buchhaltung",
+        "fr": "Spécialiste en comptabilité"
+      },
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Unser Accounting Team verantwortet die finanziellen Aufgaben der Weissen Arena Gruppe verantwortlich. Wir gewährleisten eine gesetzeskonforme Buchführung, liefern verlässliche Datengrundlagen für das interne Berichtswesen und sind Anlaufstelle für alle finanziellen Fragestellungen. | Du hast ein Flair für Zahlen und behältst auch bei komplexen Buchungsvorgängen den Überblick? Dann bist du bei uns genau richtig! | Was du bewegst: • Selbstständige Verbuchung laufender Geschäftsfälle (Hauptbuch und Nebenbücher) • Durchführung von Kontenabstimmungen und Mitarbeit beim Monats- und Jahresabschluss • Bearbeitung des Zahlungsverkehrs und Mahnwesens • Unterstützung bei der Budgetierung und bei internen Finanzreports • Zusammenarbeit mit internen Abteilungen und externen Partnern (z. B. Treuhand, Revision) • Allgemeine administrative Tätigkeiten im Finanzbereich | Was dich ausmacht: Kaufmännische Grundausbildung mit Weiterbildung im Finanz- und Rechnungswesen (z. B. Sachbearbeiter:in Rechnungswesen) • Mehrjährige Berufserfahrung in der Buchhaltung • Gute IT-Anwenderkenntnisse (MS Office, insbesondere Excel; idealerweise Erfahrung mit Abacus oder vergleichbarer Software) • Exakte, strukturierte und selbständige Arbeitsweise • Freude in einem lebendigen Umfeld zu arbeiten, teamorientiert und aufgeschlossen • Deutsch als Muttersprache oder ausgezeichnete Deutschkenntnisse; Englischkenntnisse von Vorteil | Doch was dich erwartet geht weit über Zahlen und Fakten hinaus. Du wirst Teil einer Unternehmenskultur, die Offenheit, Nachhaltigkeit und echtes Miteinander lebt. Wir suchen Menschen, die Verantwortung übernehmen, mitdenken und den Wandel aktiv mitgestalten wollen – in einem Umfeld, das von Innovationskraft, Naturverbundenheit und flachen Hierarchien geprägt ist. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Finanz- und Rechnungswesen Daniela Marschall www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Il Weisse Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie strutture alberghiere e gastronomiche, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una gestione e una società di costruzione. Il nostro successo? Un team motivato e impegnato che vive quotidianamente la sua passione. | Il nostro team di contabilità è responsabile dei compiti finanziari del Gruppo Weissen Arena. Garantiamo una contabilità legale, forniamo basi di dati affidabili per la segnalazione interna e siamo un punto di contatto per tutte le questioni finanziarie. # Hai un tocco per i numeri e tiene traccia dei complessi processi di prenotazione? Allora hai ragione con noi! # • l'autogestione dei casi aziendali attuali (libri principali e secondari) • l'attuazione dei conti e della cooperazione nei conti mensili e annuali • l'elaborazione del pagamento e l'esecuzione • il supporto nel bilancio e nelle relazioni finanziarie interne • la cooperazione con i dipartimenti interni e con i partner esterni (ad esempio la fiducia, la revisione) • Attività amministrative generali nel settore finanziario | Che cosa ti fa piacere: formazione commerciale di base con un'ulteriore formazione in ambito finanziario e contabile (ad e contabile) Sarete parte di una cultura aziendale che vive apertura, sostenibilità e reale coesistenza. Siamo alla ricerca di persone che vogliano assumersi la responsabilità, pensare insieme e plasmare attivamente il cambiamento – in un ambiente caratterizzato da potenza innovativa, connessione naturale e gerarchie piatte. Puoi usufruire di numerosi vantaggi per i dipendenti, come escursioni in montagna gratuite, sconti nei nostri negozi, hotel e aziende gastronomiche, nonché vantaggi per la tua famiglia. Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa con la foto. Non vediamo l'ora. | Mountain Vision AG Finanza e Contabilità Daniela Marschall www.weissearena.com I www.laax.com",
+        "en": "The Weisse Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and gastronomy facilities, sports and rental shops, a ski, snowboard and bike school as well as a management and a construction company. Our success? A motivated and committed team that lives his passion daily. | Our Accounting Team is responsible for the financial tasks of the Weissen Arena Group. We guarantee a statutory accounting, provide reliable data bases for internal reporting and are a point of contact for all financial issues. | You have a flair for numbers and keeps track of complex booking processes? Then you are right with us! | What you move: • Self-booking of current business cases (main book and secondary books) • implementation of accounts and cooperation in the monthly and annual accounts • processing of payment and dunning • support in budgeting and internal financial reports • cooperation with internal departments and external partners (e.g. trust, revision) • General administrative activities in the financial sector | What makes you like: basic commercial training with further training in financial and accounting (e.g. specialist:in accounting) • Multiannual professional experience in accounting • Good IT user knowledge (MS Office, especially Excel; ideally experience with Abacus or comparable software) • Exact, structured and independent working • Joy in a living environment to work, team-oriented and open-minded • German as a native language or excellent knowledge of German; English knowledge of advantage | But what awaits you goes far beyond facts and figures. You will be part of a corporate culture that lives openness, sustainability and real coexistence. We are looking for people who want to take responsibility, think together and actively shape change – in an environment characterised by innovative power, natural connectedness and flat hierarchies. You can enjoy numerous employee benefits, such as free mountain trips, discounts in our shops, hotels and gastronomy companies, as well as benefits for your family. Start your professional adventure at the Weissen Arena Group with your full online application with photo. We look forward to it. | Mountain Vision AG Finance and Accounting Daniela Marschall www.weissearena.com I www.laax.com",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Unser Accounting Team verantwortet die finanziellen Aufgaben der Weissen Arena Gruppe verantwortlich. Wir gewährleisten eine gesetzeskonforme Buchführung, liefern verlässliche Datengrundlagen für das interne Berichtswesen und sind Anlaufstelle für alle finanziellen Fragestellungen. | Du hast ein Flair für Zahlen und behältst auch bei komplexen Buchungsvorgängen den Überblick? Dann bist du bei uns genau richtig! | Was du bewegst: • Selbstständige Verbuchung laufender Geschäftsfälle (Hauptbuch und Nebenbücher) • Durchführung von Kontenabstimmungen und Mitarbeit beim Monats- und Jahresabschluss • Bearbeitung des Zahlungsverkehrs und Mahnwesens • Unterstützung bei der Budgetierung und bei internen Finanzreports • Zusammenarbeit mit internen Abteilungen und externen Partnern (z. B. Treuhand, Revision) • Allgemeine administrative Tätigkeiten im Finanzbereich | Was dich ausmacht: Kaufmännische Grundausbildung mit Weiterbildung im Finanz- und Rechnungswesen (z. B. Sachbearbeiter:in Rechnungswesen) • Mehrjährige Berufserfahrung in der Buchhaltung • Gute IT-Anwenderkenntnisse (MS Office, insbesondere Excel; idealerweise Erfahrung mit Abacus oder vergleichbarer Software) • Exakte, strukturierte und selbständige Arbeitsweise • Freude in einem lebendigen Umfeld zu arbeiten, teamorientiert und aufgeschlossen • Deutsch als Muttersprache oder ausgezeichnete Deutschkenntnisse; Englischkenntnisse von Vorteil | Doch was dich erwartet geht weit über Zahlen und Fakten hinaus. Du wirst Teil einer Unternehmenskultur, die Offenheit, Nachhaltigkeit und echtes Miteinander lebt. Wir suchen Menschen, die Verantwortung übernehmen, mitdenken und den Wandel aktiv mitgestalten wollen – in einem Umfeld, das von Innovationskraft, Naturverbundenheit und flachen Hierarchien geprägt ist. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Finanz- und Rechnungswesen Daniela Marschall www.weissearena.com I www.laax.com",
+        "fr": "Le groupe Weisse Arena à LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses installations hôtelières et gastronomiques, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une direction et une entreprise de construction. Notre succès ? Une équipe motivée et engagée qui vit sa passion au quotidien. Notre équipe comptable est responsable des tâches financières du Groupe Weissen Arena. Nous garantissons une comptabilité légale, fournissons des bases de données fiables pour les rapports internes et sommes un point de contact pour toutes les questions financières. Autres Vous avez un flair pour les chiffres et garde une trace des processus de réservation complexes? Alors tu as raison avec nous ! Autres Ce que vous déplacez: • auto-réservation des affaires courantes (livre principal et livres secondaires) • mise en œuvre des comptes et coopération dans les comptes mensuels et annuels • traitement des paiements et dunning • soutien dans la budgétisation et les rapports financiers internes • coopération avec les services internes et les partenaires externes (par exemple, confiance, révision) • activités administratives générales dans le secteur financier (Ce qui vous plaît: formation commerciale de base avec perfectionnement en matière financière et comptable (par exemple, spécialiste:en comptabilité) • expérience professionnelle pluriannuelle en comptabilité • bonne connaissance de l'utilisateur informatique (MS Office, en particulier Excel; idéalement expérience avec Abacus ou un logiciel comparable) • travail précis, structuré et indépendant • Joy dans un environnement de vie pour travailler, axé sur l'équipe et ouvert • allemand comme langue maternelle ou excellente connaissance de l'allemand; connaissance de l'anglais comme avantage). Vous ferez partie d'une culture d'entreprise qui vit l'ouverture, la durabilité et la coexistence réelle. Nous recherchons des personnes qui veulent prendre des responsabilités, penser ensemble et façonner activement le changement – dans un environnement caractérisé par une puissance innovante, une connexion naturelle et des hiérarchies plates. Vous pouvez profiter de nombreux avantages sociaux, tels que des voyages en montagne gratuits, des réductions dans nos magasins, hôtels et compagnies gastronomiques, ainsi que des avantages pour votre famille. Commencez votre aventure professionnelle au Groupe Weissen Arena avec votre application complète en ligne avec photo. Nous nous réjouissons de cela. Mountain Vision AG Finance et comptabilité Daniela Marschall www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4487&jobTitle=Sachbearbeiter%3Ain+Buchhaltung",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-09T22:26:40.063Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4487&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Finanz- und Rechnungswesen",
+      "jobNumber": "WAG02367",
+      "pensum": "80 - 100%",
+      "contractLabel": "Festanstellung",
+      "previousSlugs": [
+        "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-14T10:53:14.907Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -223,7 +304,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4470&jobTitle=Pizzaiolo%3Aa+%2F+Koch%2FK%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:53:30.857Z",
+      "crawledAt": "2026-05-09T22:26:40.063Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -283,6 +364,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.307Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -327,7 +409,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4472&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:53:30.857Z",
+      "crawledAt": "2026-05-09T22:26:40.063Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -391,6 +473,7 @@
         "addetto-a-alla-pulizia-cucina-weisse-arena-gruppe-laax"
       ],
       "firstSeenAt": "2026-04-13T11:31:26.308Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -435,7 +518,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4492&jobTitle=H%C3%BCtten-Gastgeber%3Ain+%2F+Allrounder%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:53:30.856Z",
+      "crawledAt": "2026-05-09T22:26:40.062Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -467,166 +550,7 @@
         ]
       },
       "firstSeenAt": "2026-04-21T11:00:57.817Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "weisse-arena-ae454ebcb7f1",
-      "slug": "specialista-in-contabilita-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "specialista-in-contabilita-weisse-arena-gruppe-laax",
-        "en": "editor-in-accounting-weisse-arena-gruppe-laax",
-        "de": "sachbearbeiter-in-buchhaltung-weisse-arena-ch",
-        "fr": "specialiste-en-comptabilite-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Sachbearbeiter:in Buchhaltung",
-      "titleByLocale": {
-        "it": "Specialista in Contabilità",
-        "en": "Editor:in Accounting",
-        "de": "Sachbearbeiter:in Buchhaltung",
-        "fr": "Spécialiste en comptabilité"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Unser Accounting Team verantwortet die finanziellen Aufgaben der Weissen Arena Gruppe verantwortlich. Wir gewährleisten eine gesetzeskonforme Buchführung, liefern verlässliche Datengrundlagen für das interne Berichtswesen und sind Anlaufstelle für alle finanziellen Fragestellungen. | Du hast ein Flair für Zahlen und behältst auch bei komplexen Buchungsvorgängen den Überblick? Dann bist du bei uns genau richtig! | Was du bewegst: • Selbstständige Verbuchung laufender Geschäftsfälle (Hauptbuch und Nebenbücher) • Durchführung von Kontenabstimmungen und Mitarbeit beim Monats- und Jahresabschluss • Bearbeitung des Zahlungsverkehrs und Mahnwesens • Unterstützung bei der Budgetierung und bei internen Finanzreports • Zusammenarbeit mit internen Abteilungen und externen Partnern (z. B. Treuhand, Revision) • Allgemeine administrative Tätigkeiten im Finanzbereich | Was dich ausmacht: Kaufmännische Grundausbildung mit Weiterbildung im Finanz- und Rechnungswesen (z. B. Sachbearbeiter:in Rechnungswesen) • Mehrjährige Berufserfahrung in der Buchhaltung • Gute IT-Anwenderkenntnisse (MS Office, insbesondere Excel; idealerweise Erfahrung mit Abacus oder vergleichbarer Software) • Exakte, strukturierte und selbständige Arbeitsweise • Freude in einem lebendigen Umfeld zu arbeiten, teamorientiert und aufgeschlossen • Deutsch als Muttersprache oder ausgezeichnete Deutschkenntnisse; Englischkenntnisse von Vorteil | Doch was dich erwartet geht weit über Zahlen und Fakten hinaus. Du wirst Teil einer Unternehmenskultur, die Offenheit, Nachhaltigkeit und echtes Miteinander lebt. Wir suchen Menschen, die Verantwortung übernehmen, mitdenken und den Wandel aktiv mitgestalten wollen – in einem Umfeld, das von Innovationskraft, Naturverbundenheit und flachen Hierarchien geprägt ist. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Finanz- und Rechnungswesen Daniela Marschall www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Il Weisse Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie strutture alberghiere e gastronomiche, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una gestione e una società di costruzione. Il nostro successo? Un team motivato e impegnato che vive quotidianamente la sua passione. | Il nostro team di contabilità è responsabile dei compiti finanziari del Gruppo Weissen Arena. Garantiamo una contabilità legale, forniamo basi di dati affidabili per la segnalazione interna e siamo un punto di contatto per tutte le questioni finanziarie. # Hai un tocco per i numeri e tiene traccia dei complessi processi di prenotazione? Allora hai ragione con noi! # • l'autogestione dei casi aziendali attuali (libri principali e secondari) • l'attuazione dei conti e della cooperazione nei conti mensili e annuali • l'elaborazione del pagamento e l'esecuzione • il supporto nel bilancio e nelle relazioni finanziarie interne • la cooperazione con i dipartimenti interni e con i partner esterni (ad esempio la fiducia, la revisione) • Attività amministrative generali nel settore finanziario | Che cosa ti fa piacere: formazione commerciale di base con un'ulteriore formazione in ambito finanziario e contabile (ad e contabile) Sarete parte di una cultura aziendale che vive apertura, sostenibilità e reale coesistenza. Siamo alla ricerca di persone che vogliano assumersi la responsabilità, pensare insieme e plasmare attivamente il cambiamento – in un ambiente caratterizzato da potenza innovativa, connessione naturale e gerarchie piatte. Puoi usufruire di numerosi vantaggi per i dipendenti, come escursioni in montagna gratuite, sconti nei nostri negozi, hotel e aziende gastronomiche, nonché vantaggi per la tua famiglia. Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa con la foto. Non vediamo l'ora. | Mountain Vision AG Finanza e Contabilità Daniela Marschall www.weissearena.com I www.laax.com",
-        "en": "The Weisse Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and gastronomy facilities, sports and rental shops, a ski, snowboard and bike school as well as a management and a construction company. Our success? A motivated and committed team that lives his passion daily. | Our Accounting Team is responsible for the financial tasks of the Weissen Arena Group. We guarantee a statutory accounting, provide reliable data bases for internal reporting and are a point of contact for all financial issues. | You have a flair for numbers and keeps track of complex booking processes? Then you are right with us! | What you move: • Self-booking of current business cases (main book and secondary books) • implementation of accounts and cooperation in the monthly and annual accounts • processing of payment and dunning • support in budgeting and internal financial reports • cooperation with internal departments and external partners (e.g. trust, revision) • General administrative activities in the financial sector | What makes you like: basic commercial training with further training in financial and accounting (e.g. specialist:in accounting) • Multiannual professional experience in accounting • Good IT user knowledge (MS Office, especially Excel; ideally experience with Abacus or comparable software) • Exact, structured and independent working • Joy in a living environment to work, team-oriented and open-minded • German as a native language or excellent knowledge of German; English knowledge of advantage | But what awaits you goes far beyond facts and figures. You will be part of a corporate culture that lives openness, sustainability and real coexistence. We are looking for people who want to take responsibility, think together and actively shape change – in an environment characterised by innovative power, natural connectedness and flat hierarchies. You can enjoy numerous employee benefits, such as free mountain trips, discounts in our shops, hotels and gastronomy companies, as well as benefits for your family. Start your professional adventure at the Weissen Arena Group with your full online application with photo. We look forward to it. | Mountain Vision AG Finance and Accounting Daniela Marschall www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Unser Accounting Team verantwortet die finanziellen Aufgaben der Weissen Arena Gruppe verantwortlich. Wir gewährleisten eine gesetzeskonforme Buchführung, liefern verlässliche Datengrundlagen für das interne Berichtswesen und sind Anlaufstelle für alle finanziellen Fragestellungen. | Du hast ein Flair für Zahlen und behältst auch bei komplexen Buchungsvorgängen den Überblick? Dann bist du bei uns genau richtig! | Was du bewegst: • Selbstständige Verbuchung laufender Geschäftsfälle (Hauptbuch und Nebenbücher) • Durchführung von Kontenabstimmungen und Mitarbeit beim Monats- und Jahresabschluss • Bearbeitung des Zahlungsverkehrs und Mahnwesens • Unterstützung bei der Budgetierung und bei internen Finanzreports • Zusammenarbeit mit internen Abteilungen und externen Partnern (z. B. Treuhand, Revision) • Allgemeine administrative Tätigkeiten im Finanzbereich | Was dich ausmacht: Kaufmännische Grundausbildung mit Weiterbildung im Finanz- und Rechnungswesen (z. B. Sachbearbeiter:in Rechnungswesen) • Mehrjährige Berufserfahrung in der Buchhaltung • Gute IT-Anwenderkenntnisse (MS Office, insbesondere Excel; idealerweise Erfahrung mit Abacus oder vergleichbarer Software) • Exakte, strukturierte und selbständige Arbeitsweise • Freude in einem lebendigen Umfeld zu arbeiten, teamorientiert und aufgeschlossen • Deutsch als Muttersprache oder ausgezeichnete Deutschkenntnisse; Englischkenntnisse von Vorteil | Doch was dich erwartet geht weit über Zahlen und Fakten hinaus. Du wirst Teil einer Unternehmenskultur, die Offenheit, Nachhaltigkeit und echtes Miteinander lebt. Wir suchen Menschen, die Verantwortung übernehmen, mitdenken und den Wandel aktiv mitgestalten wollen – in einem Umfeld, das von Innovationskraft, Naturverbundenheit und flachen Hierarchien geprägt ist. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Vision AG Finanz- und Rechnungswesen Daniela Marschall www.weissearena.com I www.laax.com",
-        "fr": "Le groupe Weisse Arena à LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses installations hôtelières et gastronomiques, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une direction et une entreprise de construction. Notre succès ? Une équipe motivée et engagée qui vit sa passion au quotidien. Notre équipe comptable est responsable des tâches financières du Groupe Weissen Arena. Nous garantissons une comptabilité légale, fournissons des bases de données fiables pour les rapports internes et sommes un point de contact pour toutes les questions financières. Autres Vous avez un flair pour les chiffres et garde une trace des processus de réservation complexes? Alors tu as raison avec nous ! Autres Ce que vous déplacez: • auto-réservation des affaires courantes (livre principal et livres secondaires) • mise en œuvre des comptes et coopération dans les comptes mensuels et annuels • traitement des paiements et dunning • soutien dans la budgétisation et les rapports financiers internes • coopération avec les services internes et les partenaires externes (par exemple, confiance, révision) • activités administratives générales dans le secteur financier (Ce qui vous plaît: formation commerciale de base avec perfectionnement en matière financière et comptable (par exemple, spécialiste:en comptabilité) • expérience professionnelle pluriannuelle en comptabilité • bonne connaissance de l'utilisateur informatique (MS Office, en particulier Excel; idéalement expérience avec Abacus ou un logiciel comparable) • travail précis, structuré et indépendant • Joy dans un environnement de vie pour travailler, axé sur l'équipe et ouvert • allemand comme langue maternelle ou excellente connaissance de l'allemand; connaissance de l'anglais comme avantage). Vous ferez partie d'une culture d'entreprise qui vit l'ouverture, la durabilité et la coexistence réelle. Nous recherchons des personnes qui veulent prendre des responsabilités, penser ensemble et façonner activement le changement – dans un environnement caractérisé par une puissance innovante, une connexion naturelle et des hiérarchies plates. Vous pouvez profiter de nombreux avantages sociaux, tels que des voyages en montagne gratuits, des réductions dans nos magasins, hôtels et compagnies gastronomiques, ainsi que des avantages pour votre famille. Commencez votre aventure professionnelle au Groupe Weissen Arena avec votre application complète en ligne avec photo. Nous nous réjouissons de cela. Mountain Vision AG Finance et comptabilité Daniela Marschall www.weissearena.com I www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4487&jobTitle=Sachbearbeiter%3Ain+Buchhaltung",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:53:30.856Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4487&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Finanz- und Rechnungswesen",
-      "jobNumber": "WAG02367",
-      "pensum": "80 - 100%",
-      "contractLabel": "Festanstellung",
-      "previousSlugs": [
-        "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
-        ],
-        "en": [
-          "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
-        ],
-        "fr": [
-          "sachbearbeiter-in-buchhaltung-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-14T10:53:14.907Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "weisse-arena-b82eb7536f39",
-      "slug": "supporto-come-storyteller-in-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "supporto-come-storyteller-in-weisse-arena-gruppe-laax",
-        "en": "support-as-a-storyteller-in-weisse-arena-gruppe-laax",
-        "de": "begleitung-als-geschichtenerzahler-in-weisse-arena-ch",
-        "fr": "accompagne-comme-conteur-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Begleitung als Geschichtenerzähler:in",
-      "titleByLocale": {
-        "it": "Begleitung come Geschichtenerzähler:in",
-        "en": "Support as a storyteller:in",
-        "de": "Begleitung als Geschichtenerzähler:in",
-        "fr": "Soutien en tant que conteur:in"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Die Mountain Adventures AG ist eine Tochtergesellschaft der Weisse Arena Gruppe . Sie betreibt die Ski- und Snowboardschule sowie im Sommer die Bikeschule. Zudem ist sie für die Kinderbetreuung und die Freestyle Academy LAAX zuständig. | Wir suchen eine einfühlsame und kreative Persönlichkeit als \"Salamandra\" zur Begleitung von \"Ami Sabi\". Die Einsätze finden jeweils Montags, Mittwochs und Freitags statt. • Im Sommer: 13.07.2026 – 16.08.2026 Ganztags • Im Herbst: 28.09.2026 – 16.10.2026 Ganztags • Im Winter: 14.12.2026 – 11.04.2027 Halb-und Ganztags | Was du bewegst: • Musikalische und erzählerische Begleitung von Geschichten und Märchen • Untermalung der Erzählungen mit einem Instrument (bevorzugt Gitarre) • Aktives Einbeziehen der Kinder durch Gesang, Rhythmus und einfache Mitmach-Elemente • Unterstützung bei der Gestaltung einer lebendigen und fantasievollen Atmosphäre | Was dich ausmacht: • Freude am Geschichtenerzählen und an der Arbeit mit Kindern • Fähigkeit, ein Instrument zu spielen (idealerweise Gitarre) • Singfreude und ein gutes Gespür für musikalische Begleitung • Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise • Kreativität, Geduld und Empathie | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Adventures AG LAAX School Hans Peter Casutt Tel. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Il Weisse Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie strutture alberghiere e gastronomiche, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una gestione e una società di costruzione. Il nostro successo? Un team motivato e impegnato che vive quotidianamente la sua passione. | Mountain Adventures AG è una filiale del Weisse Arena Group . Guida la scuola di sci e snowboard e la scuola di bicicletta in estate. È anche responsabile dell'infanzia e della Freestyle Academy LAAX. | Cerchiamo una personalità sensibile e creativa come \"Salamandra\" per accompagnare \"Ami Sabi\". Le scommesse si svolgono il lunedì, il mercoledì e il venerdì. • In estate: 13.07.2026 – 16.08.2026 Giorno intero • Autunno: 28.09.2026 – 16.10.2026 Giorno intero • In inverno: 14.12.2026 – 11.04.2027 Mezzo e Giorno intero • Accompagnamento musicale e narrativo di storie e fiabe • Rivestimento di narrazioni con uno strumento (chitarra privata) • Partecipazione attiva dei bambini cantando, ritmo e semplici elementi mitmach • Supporto nella formazione di un'atmosfera vivace e fantasy Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è certamente vostro. Avrete anche l'opportunità di svilupparsi nel nostro team dinamico, risvegliato e vivace cultura aziendale. Gli ospiti possono godere di numerosi vantaggi per i dipendenti, come gite in montagna gratuite, sconti nei nostri negozi, hotel e aziende gastronomiche e vantaggi per la vostra famiglia. Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa con la foto. Non vediamo l'ora. | Mountain Adventures AG LAAX School Hans Peter Casutt Tel. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax",
-        "en": "The Weisse Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and gastronomy facilities, sports and rental shops, a ski, snowboard and bike school as well as a management and a construction company. Our success? A motivated and committed team that lives his passion daily. | Mountain Adventures AG is a subsidiary of Weisse Arena Group . She runs the ski and snowboard school as well as the bike school in summer. She is also responsible for childcare and the Freestyle Academy LAAX. | We are looking for a sensitive and creative personality as \"Salamandra\" to accompany \"Ami Sabi\". The bets take place on Mondays, Wednesdays and Fridays. • In summer: 13.07.2026 – 16.08.2026 Full day • Autumn: 28.09.2026 – 16.10.2026 Full day • In winter: 14.12.2026 – 11.04.2027 Half- and Full-Day | What you move: • Musical and narrative accompaniment of stories and fairy tales • Underpainting of narratives with an instrument (privileged guitar) • Active involvement of children by singing, rhythm and simple mitmach elements • Support in shaping a lively and fantasy atmosphere An attractive workplace in the midst of a breathtaking mountain world is certainly yours. You will also have the opportunity to develop yourself in our dynamic, awakened team and lively corporate culture. Guests can enjoy numerous employee benefits such as free mountain rides, discounts in our shops, hotels and gastronomy companies and benefits for your family. Start your professional adventure at the Weissen Arena Group with your full online application with photo. We look forward to it. | Mountain Adventures AG LAAX School Hans Peter Casutt Tel. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Die Mountain Adventures AG ist eine Tochtergesellschaft der Weisse Arena Gruppe . Sie betreibt die Ski- und Snowboardschule sowie im Sommer die Bikeschule. Zudem ist sie für die Kinderbetreuung und die Freestyle Academy LAAX zuständig. | Wir suchen eine einfühlsame und kreative Persönlichkeit als \"Salamandra\" zur Begleitung von \"Ami Sabi\". Die Einsätze finden jeweils Montags, Mittwochs und Freitags statt. • Im Sommer: 13.07.2026 – 16.08.2026 Ganztags • Im Herbst: 28.09.2026 – 16.10.2026 Ganztags • Im Winter: 14.12.2026 – 11.04.2027 Halb-und Ganztags | Was du bewegst: • Musikalische und erzählerische Begleitung von Geschichten und Märchen • Untermalung der Erzählungen mit einem Instrument (bevorzugt Gitarre) • Aktives Einbeziehen der Kinder durch Gesang, Rhythmus und einfache Mitmach-Elemente • Unterstützung bei der Gestaltung einer lebendigen und fantasievollen Atmosphäre | Was dich ausmacht: • Freude am Geschichtenerzählen und an der Arbeit mit Kindern • Fähigkeit, ein Instrument zu spielen (idealerweise Gitarre) • Singfreude und ein gutes Gespür für musikalische Begleitung • Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise • Kreativität, Geduld und Empathie | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Adventures AG LAAX School Hans Peter Casutt Tel. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax.com",
-        "fr": "Le groupe Weisse Arena à LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses installations hôtelières et gastronomiques, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une direction et une entreprise de construction. Notre succès ? Une équipe motivée et engagée qui vit sa passion au quotidien. Mountain Adventures AG est une filiale de Weisse Arena Group. Elle dirige l'école de ski et de snowboard ainsi que l'école de vélo en été. Elle est également responsable de la garde des enfants et de la Freestyle Academy LAAX. Nous recherchons une personnalité sensible et créative comme \"Salamandra\" pour accompagner \"Ami Sabi\". Les paris ont lieu le lundi, le mercredi et le vendredi. • En été: 13.07.2026 – 16.08.2026 Journée complète • Automne: 28.09.2026 – 16.10.2026 Journée complète • En hiver: 14.12.2026 – 11.04.2027 Demi-journée complète Ce que vous bougez : • Accompagnement musical et narratif d'histoires et de contes de fées • Sous-peinture de récits avec un instrument (guitare privilégiée) • Participation active des enfants par le chant, le rythme et des éléments simples de mitmach • Support dans la formation d'une atmosphère vivante et fantasme Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certainement le vôtre. Vous aurez également l'occasion de vous développer dans notre équipe dynamique, éveillée et animée de la culture d'entreprise. Vous pourrez profiter de nombreux avantages pour vos employés tels que des promenades en montagne gratuites, des réductions dans nos magasins, hôtels et compagnies gastronomiques et des avantages pour votre famille. Commencez votre aventure professionnelle au Weissen Arena Group avec votre application complète en ligne avec photo. Nous attendons avec impatience. LAX School Hans Peter Casutt Tél. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4494&jobTitle=Begleitung+als+Geschichtenerz%C3%A4hler%3Ain",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:53:30.855Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Turismo",
-      "contract": "full-time",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-22",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4494&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "LAAX School",
-      "jobNumber": "WAG02375",
-      "pensum": "100%",
-      "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "begleitung-als-geschichtenerzahler-in-weisse-arena-ch",
-        "begleitung-come-geschichtenerzahler-in-weisse-arena-gruppe-laax"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "begleitung-als-geschichtenerzahler-in-weisse-arena-ch",
-          "begleitung-come-geschichtenerzahler-in-weisse-arena-gruppe-laax"
-        ],
-        "en": [
-          "begleitung-als-geschichtenerzahler-in-weisse-arena-ch"
-        ],
-        "fr": [
-          "begleitung-als-geschichtenerzahler-in-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-23T11:02:51.124Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -671,7 +595,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4495&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft+-+Grandis+Ustria+da+vin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T10:53:30.854Z",
+      "crawledAt": "2026-05-09T22:26:40.061Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -708,6 +632,89 @@
         ]
       },
       "firstSeenAt": "2026-05-06T11:54:28.381Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "weisse-arena-b82eb7536f39",
+      "slug": "supporto-come-storyteller-in-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "supporto-come-storyteller-in-weisse-arena-gruppe-laax",
+        "en": "support-as-a-storyteller-in-weisse-arena-gruppe-laax",
+        "de": "begleitung-als-geschichtenerzahler-in-weisse-arena-ch",
+        "fr": "accompagne-comme-conteur-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Begleitung als Geschichtenerzähler:in",
+      "titleByLocale": {
+        "it": "Begleitung come Geschichtenerzähler:in",
+        "en": "Support as a storyteller:in",
+        "de": "Begleitung als Geschichtenerzähler:in",
+        "fr": "Soutien en tant que conteur:in"
+      },
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Die Mountain Adventures AG ist eine Tochtergesellschaft der Weisse Arena Gruppe . Sie betreibt die Ski- und Snowboardschule sowie im Sommer die Bikeschule. Zudem ist sie für die Kinderbetreuung und die Freestyle Academy LAAX zuständig. | Wir suchen eine einfühlsame und kreative Persönlichkeit als \"Salamandra\" zur Begleitung von \"Ami Sabi\". Die Einsätze finden jeweils Montags, Mittwochs und Freitags statt. • Im Sommer: 13.07.2026 – 16.08.2026 Ganztags • Im Herbst: 28.09.2026 – 16.10.2026 Ganztags • Im Winter: 14.12.2026 – 11.04.2027 Halb-und Ganztags | Was du bewegst: • Musikalische und erzählerische Begleitung von Geschichten und Märchen • Untermalung der Erzählungen mit einem Instrument (bevorzugt Gitarre) • Aktives Einbeziehen der Kinder durch Gesang, Rhythmus und einfache Mitmach-Elemente • Unterstützung bei der Gestaltung einer lebendigen und fantasievollen Atmosphäre | Was dich ausmacht: • Freude am Geschichtenerzählen und an der Arbeit mit Kindern • Fähigkeit, ein Instrument zu spielen (idealerweise Gitarre) • Singfreude und ein gutes Gespür für musikalische Begleitung • Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise • Kreativität, Geduld und Empathie | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Adventures AG LAAX School Hans Peter Casutt Tel. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Il Weisse Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie strutture alberghiere e gastronomiche, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una gestione e una società di costruzione. Il nostro successo? Un team motivato e impegnato che vive quotidianamente la sua passione. | Mountain Adventures AG è una filiale del Weisse Arena Group . Guida la scuola di sci e snowboard e la scuola di bicicletta in estate. È anche responsabile dell'infanzia e della Freestyle Academy LAAX. | Cerchiamo una personalità sensibile e creativa come \"Salamandra\" per accompagnare \"Ami Sabi\". Le scommesse si svolgono il lunedì, il mercoledì e il venerdì. • In estate: 13.07.2026 – 16.08.2026 Giorno intero • Autunno: 28.09.2026 – 16.10.2026 Giorno intero • In inverno: 14.12.2026 – 11.04.2027 Mezzo e Giorno intero • Accompagnamento musicale e narrativo di storie e fiabe • Rivestimento di narrazioni con uno strumento (chitarra privata) • Partecipazione attiva dei bambini cantando, ritmo e semplici elementi mitmach • Supporto nella formazione di un'atmosfera vivace e fantasy Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è certamente vostro. Avrete anche l'opportunità di svilupparsi nel nostro team dinamico, risvegliato e vivace cultura aziendale. Gli ospiti possono godere di numerosi vantaggi per i dipendenti, come gite in montagna gratuite, sconti nei nostri negozi, hotel e aziende gastronomiche e vantaggi per la vostra famiglia. Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa con la foto. Non vediamo l'ora. | Mountain Adventures AG LAAX School Hans Peter Casutt Tel. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax",
+        "en": "The Weisse Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and gastronomy facilities, sports and rental shops, a ski, snowboard and bike school as well as a management and a construction company. Our success? A motivated and committed team that lives his passion daily. | Mountain Adventures AG is a subsidiary of Weisse Arena Group . She runs the ski and snowboard school as well as the bike school in summer. She is also responsible for childcare and the Freestyle Academy LAAX. | We are looking for a sensitive and creative personality as \"Salamandra\" to accompany \"Ami Sabi\". The bets take place on Mondays, Wednesdays and Fridays. • In summer: 13.07.2026 – 16.08.2026 Full day • Autumn: 28.09.2026 – 16.10.2026 Full day • In winter: 14.12.2026 – 11.04.2027 Half- and Full-Day | What you move: • Musical and narrative accompaniment of stories and fairy tales • Underpainting of narratives with an instrument (privileged guitar) • Active involvement of children by singing, rhythm and simple mitmach elements • Support in shaping a lively and fantasy atmosphere An attractive workplace in the midst of a breathtaking mountain world is certainly yours. You will also have the opportunity to develop yourself in our dynamic, awakened team and lively corporate culture. Guests can enjoy numerous employee benefits such as free mountain rides, discounts in our shops, hotels and gastronomy companies and benefits for your family. Start your professional adventure at the Weissen Arena Group with your full online application with photo. We look forward to it. | Mountain Adventures AG LAAX School Hans Peter Casutt Tel. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax.com",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Die Mountain Adventures AG ist eine Tochtergesellschaft der Weisse Arena Gruppe . Sie betreibt die Ski- und Snowboardschule sowie im Sommer die Bikeschule. Zudem ist sie für die Kinderbetreuung und die Freestyle Academy LAAX zuständig. | Wir suchen eine einfühlsame und kreative Persönlichkeit als \"Salamandra\" zur Begleitung von \"Ami Sabi\". Die Einsätze finden jeweils Montags, Mittwochs und Freitags statt. • Im Sommer: 13.07.2026 – 16.08.2026 Ganztags • Im Herbst: 28.09.2026 – 16.10.2026 Ganztags • Im Winter: 14.12.2026 – 11.04.2027 Halb-und Ganztags | Was du bewegst: • Musikalische und erzählerische Begleitung von Geschichten und Märchen • Untermalung der Erzählungen mit einem Instrument (bevorzugt Gitarre) • Aktives Einbeziehen der Kinder durch Gesang, Rhythmus und einfache Mitmach-Elemente • Unterstützung bei der Gestaltung einer lebendigen und fantasievollen Atmosphäre | Was dich ausmacht: • Freude am Geschichtenerzählen und an der Arbeit mit Kindern • Fähigkeit, ein Instrument zu spielen (idealerweise Gitarre) • Singfreude und ein gutes Gespür für musikalische Begleitung • Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise • Kreativität, Geduld und Empathie | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Adventures AG LAAX School Hans Peter Casutt Tel. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax.com",
+        "fr": "Le groupe Weisse Arena à LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses installations hôtelières et gastronomiques, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une direction et une entreprise de construction. Notre succès ? Une équipe motivée et engagée qui vit sa passion au quotidien. Mountain Adventures AG est une filiale de Weisse Arena Group. Elle dirige l'école de ski et de snowboard ainsi que l'école de vélo en été. Elle est également responsable de la garde des enfants et de la Freestyle Academy LAAX. Nous recherchons une personnalité sensible et créative comme \"Salamandra\" pour accompagner \"Ami Sabi\". Les paris ont lieu le lundi, le mercredi et le vendredi. • En été: 13.07.2026 – 16.08.2026 Journée complète • Automne: 28.09.2026 – 16.10.2026 Journée complète • En hiver: 14.12.2026 – 11.04.2027 Demi-journée complète Ce que vous bougez : • Accompagnement musical et narratif d'histoires et de contes de fées • Sous-peinture de récits avec un instrument (guitare privilégiée) • Participation active des enfants par le chant, le rythme et des éléments simples de mitmach • Support dans la formation d'une atmosphère vivante et fantasme Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certainement le vôtre. Vous aurez également l'occasion de vous développer dans notre équipe dynamique, éveillée et animée de la culture d'entreprise. Vous pourrez profiter de nombreux avantages pour vos employés tels que des promenades en montagne gratuites, des réductions dans nos magasins, hôtels et compagnies gastronomiques et des avantages pour votre famille. Commencez votre aventure professionnelle au Weissen Arena Group avec votre application complète en ligne avec photo. Nous attendons avec impatience. LAX School Hans Peter Casutt Tél. +41 81 927 71 71 hanspeter.casutt@laax.com www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4494&jobTitle=Begleitung+als+Geschichtenerz%C3%A4hler%3Ain",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-09T22:26:40.061Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Turismo",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4494&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "LAAX School",
+      "jobNumber": "WAG02375",
+      "pensum": "100%",
+      "contractLabel": "Saisonanstellung",
+      "previousSlugs": [
+        "begleitung-als-geschichtenerzahler-in-weisse-arena-ch",
+        "begleitung-come-geschichtenerzahler-in-weisse-arena-gruppe-laax"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "begleitung-als-geschichtenerzahler-in-weisse-arena-ch",
+          "begleitung-come-geschichtenerzahler-in-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "begleitung-als-geschichtenerzahler-in-weisse-arena-ch"
+        ],
+        "fr": [
+          "begleitung-als-geschichtenerzahler-in-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-23T11:02:51.124Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
