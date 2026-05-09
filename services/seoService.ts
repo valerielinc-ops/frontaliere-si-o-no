@@ -3645,6 +3645,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-servizi-dentari-scolastici-conflitti-interesse': { name: 'Servizi dentari scolastici', path: '/articoli-frontaliere/servizi-dentari-scolastici-conflitti-interesse', parent: 'blog' },
     'blog-pensioni-svantaggio-tasse-frontalieri': { name: 'Pensioni Frontalieri', path: '/articoli-frontaliere/pensioni-svantaggio-tasse-frontalieri', parent: 'blog' },
     'blog-takahashia-japonica-ticino-2026': { name: 'Pratico', path: '/articoli-frontaliere/takahashia-japonica-ticino-2026', parent: 'blog' },
+    'blog-onorificenze-austriache-lugano-2024': { name: 'Novità', path: '/articoli-frontaliere/onorificenze-austriache-lugano-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

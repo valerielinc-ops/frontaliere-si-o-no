@@ -7208,6 +7208,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.takahashia-japonica-ticino-2026.title': 'Takahashia japonica im Tessin: Bäume schützen',
     'blog.article.takahashia-japonica-ticino-2026.excerpt': 'Die kantonalen Behörden beruhigen: Die Situation ist nicht alarmierend, aber es muss gehandelt werden, um die Ausbreitung der Schildlaus einzudämmen.',
     'blog.article.takahashia-japonica-ticino-2026.imageAlt': 'Blick auf den Luganersee mit Bäumen und umliegender Landschaft',
+    'blog.article.onorificenze-austriache-lugano-2024.title': 'Österreichische Auszeichnungen für italo-schweizerischen Dialog',
+    'blog.article.onorificenze-austriache-lugano-2024.excerpt': 'Helga Martinelli und Giuseppe Perale wurden für ihren Beitrag zu den Beziehungen zwischen Österreich und dem Tessin ausgezeichnet',
+    'blog.article.onorificenze-austriache-lugano-2024.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

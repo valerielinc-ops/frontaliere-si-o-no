@@ -7208,6 +7208,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.takahashia-japonica-ticino-2026.title': 'Takahashia japonica in Ticino: how to protect trees',
     'blog.article.takahashia-japonica-ticino-2026.excerpt': 'Cantonal authorities reassure: the situation is not alarming, but action is needed to contain the spread of the scale insect.',
     'blog.article.takahashia-japonica-ticino-2026.imageAlt': 'View of Lake Lugano with trees and surrounding landscape',
+    'blog.article.onorificenze-austriache-lugano-2024.title': 'Austrian honors in Lugano: awards for Italian-Swiss dialogue',
+    'blog.article.onorificenze-austriache-lugano-2024.excerpt': 'Helga Martinelli and Giuseppe Perale awarded for their contribution to relations between Austria and Ticino',
+    'blog.article.onorificenze-austriache-lugano-2024.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

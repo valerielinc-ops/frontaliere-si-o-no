@@ -7209,6 +7209,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.takahashia-japonica-ticino-2026.title': 'Takahashia japonica in Ticino: come proteggere gli alberi',
     'blog.article.takahashia-japonica-ticino-2026.excerpt': 'Le autorità cantonali rassicurano: la situazione non è allarmante, ma è necessario agire per contenere la diffusione della cocciniglia.',
     'blog.article.takahashia-japonica-ticino-2026.imageAlt': 'Vista del Lago di Lugano con alberi e paesaggio circostante',
+    'blog.article.onorificenze-austriache-lugano-2024.title': 'Onorificenze austriache a Lugano: riconoscimenti per il dialogo italo-svizzero',
+    'blog.article.onorificenze-austriache-lugano-2024.excerpt': 'Helga Martinelli e Giuseppe Perale premiati per il contributo alle relazioni tra Austria e Ticino',
+    'blog.article.onorificenze-austriache-lugano-2024.imageAlt': 'Veduta aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

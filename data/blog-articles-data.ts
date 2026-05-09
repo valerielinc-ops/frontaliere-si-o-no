@@ -22997,4 +22997,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'onorificenze-austriache-lugano-2024',
+ category: 'novita',
+ date: '2026-05-09T18:34:37.993Z',
+ image: '/images/blog/onorificenze-austriache-lugano-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7209,6 +7209,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.takahashia-japonica-ticino-2026.title': 'Takahashia japonica au Tessin : comment protéger les arbres',
     'blog.article.takahashia-japonica-ticino-2026.excerpt': 'Les autorités cantonales rassurent : la situation n\'est pas alarmante, mais il est nécessaire d\'agir pour contenir la propagation de la cochenille.',
     'blog.article.takahashia-japonica-ticino-2026.imageAlt': 'Vue du lac de Lugano avec des arbres et le paysage environnant',
+    'blog.article.onorificenze-austriache-lugano-2024.title': 'Distinctions autrichiennes à Lugano pour le dialogue italo-suisse',
+    'blog.article.onorificenze-austriache-lugano-2024.excerpt': 'Helga Martinelli et Giuseppe Perale récompensés pour leur contribution aux relations entre l\'Autriche et le Tessin',
+    'blog.article.onorificenze-austriache-lugano-2024.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;
