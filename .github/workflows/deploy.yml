@@ -49,6 +49,11 @@ on:
         required: false
         type: boolean
         default: false
+      write_collision_dump:
+        description: 'Investigation-only: dump every unique-by-hash content claim() to dist/.write-collisions-data/ for triaging colliding paths. Off by default — adds ~200k synchronous writeFileSync calls during build (~100-200s overhead) that get pruned at end. The collisions JSON report is emitted regardless; only enable this when you need the actual HTML payload of a colliding path.'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   # This workflow only needs repository read access: the previous-slug winners
@@ -374,14 +379,20 @@ jobs:
           # and `./shared/hreflangGuard`). Workers now resolve cleanly under
           # tsx 4.x `--import`. Default = max(availableParallelism, cpus.length).
           #
-          # WRITE_COLLISION_DUMP=1 makes sharedWriteRegistry dump every
-          # unique-by-hash content claim()'d during the build to
-          # `dist/.write-collisions-data/<hash>.html`. After the build, the
-          # registry's report plugin prunes that directory to keep only
-          # hashes referenced by colliding paths (typically <50 MB out of
-          # GBs of intermediate writes). The pruned set is uploaded as the
-          # `write-collisions-analysis` artifact for end-of-build analysis.
-          WRITE_COLLISION_DUMP: '1'
+          # WRITE_COLLISION_DUMP gated to workflow_dispatch input
+          # `write_collision_dump` (default false). When enabled,
+          # sharedWriteRegistry dumps every unique-by-hash content claim()'d
+          # during the build to `dist/.write-collisions-data/<hash>.html`
+          # — that's ~200k synchronous writeFileSync calls per build,
+          # 99.8% of which are pruned at end (only ~330 referenced by
+          # colliding paths survive). The collisions JSON report is
+          # emitted unconditionally, so push deploys still surface paths
+          # + plugins + callsites of every collision; only the raw HTML
+          # payload requires the dump dir. Flip on via
+          # `gh workflow run deploy.yml -f write_collision_dump=true`
+          # when triaging a specific collision and you need the rendered
+          # HTML. Saves ~100-200s/build on push events.
+          WRITE_COLLISION_DUMP: ${{ github.event.inputs.write_collision_dump == 'true' && '1' || '' }}
         shell: bash
         run: |
           set -o pipefail
