@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-05-08T21:46:30.421Z",
+  "generatedAt": "2026-05-09T09:55:56.094Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1202,
-  "avgDurationMs": 1202,
+  "unchangedCount": 0,
+  "durationMs": 1180,
+  "avgDurationMs": 1180,
   "durationHistory": [
-    1202
+    1180
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -230,6 +230,49 @@
       }
     },
     {
+      "title": "Senior Java Engineer",
+      "slug": "senior-java-engineer-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/tuRSZCeNYN/Senior-Java-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/tuRSZCeNYN/Senior-Java-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-08",
+      "validThrough": "2026-08-06",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260508075344_JOTQTAK9Z8FHRZGD",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": "Lugano"
+      },
+      "id": "fincons-group-d16214865bea",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-05-08T09:54:10.263Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
       "title": "ServiceNow Developer (ITSM - CMDB)",
       "slug": "servicenow-developer-itsm-cmdb-fincons-group-lugano-switzerland",
       "url": "https://fincons.applytojob.com/apply/9q4OLkyxDB/ServiceNow-Developer-ITSM-CMDB",
@@ -274,49 +317,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Senior Java Engineer",
-      "slug": "senior-java-engineer-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/tuRSZCeNYN/Senior-Java-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/tuRSZCeNYN/Senior-Java-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-08",
-      "validThrough": "2026-08-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260508075344_JOTQTAK9Z8FHRZGD",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": "Lugano"
-      },
-      "id": "fincons-group-d16214865bea",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-05-08T09:54:10.263Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
