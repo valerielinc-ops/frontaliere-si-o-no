@@ -10,6 +10,7 @@
     "generic_ats"
   ],
   "seedUrls": [
+    "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-50-der-filiale-waedenswil-2",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-40-der-region-bern-lyss",
     "https://jobs.de.jysk.ch/offene-stellen/jchdestellvertretende-filialleitung-80-100-region-sargans",
     "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-100-fuer-die-region-st-gallen-rheintal",
@@ -28,9 +29,8 @@
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-60-der-filiale-schattdorf",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-der-filiale-schattdorf",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-der-filiale-bachenbuelach-mit-samstag-einsaetzen",
-    "https://jobs.de.jysk.ch/offene-stellen/jchdeverkaeuferin-20-der-filiale-schlieren-samstag",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-schlieren",
-    "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-lager-hilfe-40-der-filiale-schlieren",
+    "https://jobs.de.jysk.ch/offene-stellen/jchdeverkaeuferin-20-der-filiale-schlieren-samstag",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-40-60-der-filiale-thalwil",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-samstags-der-filiale-cham",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-60-der-filiale-jysk-sirnach",
@@ -52,5 +52,5 @@
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-60-der-filiale-thalwil"
   ],
   "notes": "JYSK Swiss-German careers portal (Drupal CMS). Detail pages at /offene-stellen/{slug} have JSON-LD JobPosting structured data. Seed URLs auto-discovered from listing page.",
-  "updatedAt": "2026-05-09T10:10:50.572Z"
+  "updatedAt": "2026-05-09T21:44:04.948Z"
 }
