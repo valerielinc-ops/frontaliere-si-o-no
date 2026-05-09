@@ -7224,6 +7224,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lugano-calcio-frontalieri-2026.title': 'FC Lugano: quattro giocatori lasciano la squadra',
     'blog.article.lugano-calcio-frontalieri-2026.excerpt': 'Mohamed Belhadj Mahmoud, Hicham Mahou, Zachary Brault-Guillard e Serif Berbic non rinnovano il contratto con il FC Lugano.',
     'blog.article.lugano-calcio-frontalieri-2026.imageAlt': 'Stadio del FC Lugano con campo e tribune',
+    'blog.article.premiate-classi-acqua-vita-2026.title': 'Premiate le classi vincitrici del concorso \'L\'acqua è vita\'',
+    'blog.article.premiate-classi-acqua-vita-2026.excerpt': 'Le classi 5B di Bellinzona Nord, 2B di Gambarogno e 3/4 di Brissago si aggiudicano il concorso creativo promosso dall\'Associazione Fontanieri Ticinesi',
+    'blog.article.premiate-classi-acqua-vita-2026.imageAlt': 'Vista aerea del Lago di Lugano con acque cristalline e montagne circostanti',
 };
 
 export default blogMetaIt;

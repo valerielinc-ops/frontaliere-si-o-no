@@ -23042,4 +23042,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'premiate-classi-acqua-vita-2026',
+ category: 'novita',
+ date: '2026-05-09T19:34:20.601Z',
+ image: '/images/blog/premiate-classi-acqua-vita-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

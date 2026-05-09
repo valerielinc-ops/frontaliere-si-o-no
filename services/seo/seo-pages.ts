@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2460,
+ "numberOfItems": 2461,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7102,7 +7102,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2457, "name": "Svizzera divisa sull'iniziativa per 10 milioni ...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-svizzera-10-milioni-frontalieri` },
           { "@type": "ListItem", "position": 2458, "name": "Protezione antincendio: modifiche al regolament...", "url": `${BASE_URL}/articoli-frontaliere/modifiche-regolamento-antincendio-ticino-2026` },
           { "@type": "ListItem", "position": 2459, "name": "Crans Montana: ore straordinarie non pagate ai ...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-ore-straordinarie-non-pagate` },
-          { "@type": "ListItem", "position": 2460, "name": "FC Lugano: quattro giocatori lasciano la squadra", "url": `${BASE_URL}/articoli-frontaliere/lugano-calcio-frontalieri-2026` }
+          { "@type": "ListItem", "position": 2460, "name": "FC Lugano: quattro giocatori lasciano la squadra", "url": `${BASE_URL}/articoli-frontaliere/lugano-calcio-frontalieri-2026` },
+          { "@type": "ListItem", "position": 2461, "name": "Premiate le classi vincitrici del concorso 'L'a...", "url": `${BASE_URL}/articoli-frontaliere/premiate-classi-acqua-vita-2026` }
  ]
  },
  {
