@@ -91,6 +91,29 @@ const writeFailures = [];
  */
 const IN_FLIGHT = 4;
 
+/**
+ * Detect a flat .html that's already a redirect bridge — emitted that way
+ * directly by relatedSearchClustersPlugin / jobsSeoPagesPlugin (commit
+ * 45399c0779). When we recognise it, skip the sibling read + bridge
+ * recompute; the file already matches what `transformFlatRedirect` would
+ * produce, so blog/hreflang transforms don't apply (bridges carry
+ * noindex,follow + canonical and aren't full pages).
+ *
+ * Cheap: a string check on the first ~200 bytes. Avoids the sync 30 KB
+ * `fs.readFileSync(sibling)` × ~150 k flat files = ~30 s of redundant
+ * CPU+IO across the worker pool.
+ */
+const FLAT_BRIDGE_MARKER = '<meta name="robots" content="noindex,follow">';
+function isPreEmittedFlatBridge(html) {
+  // Quick prefix discriminator: bridges always open with this exact head.
+  if (!html.startsWith('<!DOCTYPE html>\n<html lang="it">\n<head>\n<meta charset="utf-8">')) {
+    return false;
+  }
+  // Bridge marker — distinguishes bridges from full HTML that happens to
+  // share the doctype/lang prefix (none currently, but cheap insurance).
+  return html.includes(FLAT_BRIDGE_MARKER) && html.includes('<script>location.replace(');
+}
+
 async function processFile(filePath) {
   let html;
   try {
@@ -103,6 +126,14 @@ async function processFile(filePath) {
   let isBridge = false;
 
   if (path.basename(filePath) !== 'index.html') {
+    if (isPreEmittedFlatBridge(html)) {
+      // Pre-emitted by the originating plugin and byte-identical to what
+      // transformFlatRedirect would produce. Counts as bridgeConverted for
+      // the summary line; skips both sibling read + (no-op) write.
+      isBridge = true;
+      bridgeConverted++;
+      return;
+    }
     const bridge = transformFlatRedirect({
       filePath,
       distDir,
