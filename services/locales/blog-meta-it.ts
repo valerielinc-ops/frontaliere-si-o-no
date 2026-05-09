@@ -7248,6 +7248,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.papa-leone-incontra-madre-frontaliere.title': 'Papa Leone incontra a Napoli la madre di un frontaliere',
     'blog.article.papa-leone-incontra-madre-frontaliere.excerpt': 'Papa Leone XIV ha incontrato Patrizia Mercolino, madre di Domenico Caliendo, un bambino di due anni deceduto dopo un trapianto di cuore.',
     'blog.article.papa-leone-incontra-madre-frontaliere.imageAlt': 'Papa Leone XIV incontra la madre di un frontaliere a Lugano, con vista sul lago e la città sullo sfondo.',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.title': 'Svizzera sconfitta dalla Svezia: implicazioni per i frontalieri',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.excerpt': 'La Svizzera perde 3-0 contro la Svezia nella penultima amichevole premondiale. Analisi delle implicazioni per i frontalieri.',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.imageAlt': 'Foto di una partita di hockey in un\'arena svizzera con tifosi entusiasti',
 };
 
 export default blogMetaIt;

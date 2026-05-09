@@ -7247,6 +7247,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.papa-leone-incontra-madre-frontaliere.title': 'Papst Leo trifft in Neapel Mutter eines Grenzgängers',
     'blog.article.papa-leone-incontra-madre-frontaliere.excerpt': 'Papst Leo XIV traf Patrizia Mercolino, die Mutter von Domenico Caliendo, einem zweijährigen Jungen, der nach einer Herztransplantation verstorben ist.',
     'blog.article.papa-leone-incontra-madre-frontaliere.imageAlt': 'Papst Leo XIV trifft die Mutter eines Grenzgängers in Lugano, mit Blick auf den See und die Stadt im Hintergrund.',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.title': 'Schweiz von Schweden besiegt: Auswirkungen für Grenzgänger',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.excerpt': 'Die Schweiz verliert 3-0 gegen Schweden im vorletzten Freundschaftsspiel vor der WM. Analyse der Auswirkungen für Grenzgänger.',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.imageAlt': 'Foto eines Eishockeyspiels in einer Schweizer Arena mit begeisterten Fans',
 };
 
 export default blogMetaDe;

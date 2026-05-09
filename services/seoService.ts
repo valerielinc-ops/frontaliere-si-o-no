@@ -3658,6 +3658,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-alpini-paracadutisti-genova-2026': { name: 'Alpini Genova', path: '/articoli-frontaliere/alpini-paracadutisti-genova-2026', parent: 'blog' },
     'blog-casa-hockey-lugano-frontalieri': { name: 'Novità Lugano Hockey', path: '/articoli-frontaliere/casa-hockey-lugano-frontalieri', parent: 'blog' },
     'blog-papa-leone-incontra-madre-frontaliere': { name: 'Novità', path: '/articoli-frontaliere/papa-leone-incontra-madre-frontaliere', parent: 'blog' },
+    'blog-svizzera-sconfitta-svezia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/svizzera-sconfitta-svezia-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

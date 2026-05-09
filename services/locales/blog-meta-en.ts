@@ -7247,6 +7247,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.papa-leone-incontra-madre-frontaliere.title': 'Pope Leo meets cross-border worker\'s mother in Naples',
     'blog.article.papa-leone-incontra-madre-frontaliere.excerpt': 'Pope Leo XIV met Patrizia Mercolino, mother of Domenico Caliendo, a two-year-old boy who died after a heart transplant.',
     'blog.article.papa-leone-incontra-madre-frontaliere.imageAlt': 'Pope Leo XIV meets with the mother of a cross-border worker in Lugano, with a view of the lake and the city in the background.',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.title': 'Switzerland loses to Sweden: implications for cross-border workers',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.excerpt': 'Switzerland loses 3-0 to Sweden in the penultimate pre-World Cup friendly. Analysis of the implications for cross-border workers.',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.imageAlt': 'Photo of a hockey game in a Swiss arena with enthusiastic fans',
 };
 
 export default blogMetaEn;

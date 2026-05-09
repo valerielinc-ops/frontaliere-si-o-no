@@ -33068,6 +33068,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-sconfitta-svezia-frontalieri': {
+    title: 'Svizzera sconfitta dalla Svezia: implicazioni per i frontalieri',
+    description: 'Analisi della sconfitta della Svizzera contro la Svezia e delle implicazioni per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sconfitta, dalla, svezia, implicazioni',
+    ogTitle: 'Svizzera sconfitta dalla Svezia: implicazioni per i frontalieri',
+    ogDescription: 'Analisi della sconfitta della Svizzera contro la Svezia e delle implicazioni per i frontalieri che lavorano in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/svizzera-sconfitta-svezia-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera sconfitta dalla Svezia: implicazioni per i frontalieri",
+      "description": "Analisi della sconfitta della Svizzera contro la Svezia e delle implicazioni per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-sconfitta-svezia-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto di una partita di hockey in un'arena svizzera con tifosi entusiasti"
+      },
+      "datePublished": "2026-05-09T20:54:51+00:00",
+      "dateModified": "2026-05-09T20:54:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-sconfitta-svezia-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

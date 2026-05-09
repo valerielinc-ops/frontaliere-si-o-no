@@ -7248,6 +7248,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.papa-leone-incontra-madre-frontaliere.title': 'Pape Léon rencontre à Naples la mère d\'un frontalier',
     'blog.article.papa-leone-incontra-madre-frontaliere.excerpt': 'Le pape Léon XIV a rencontré Patrizia Mercolino, mère de Domenico Caliendo, un enfant de deux ans décédé après une transplantation cardiaque.',
     'blog.article.papa-leone-incontra-madre-frontaliere.imageAlt': 'Le pape Léon XIV rencontre la mère d\'un travailleur frontalier à Lugano, avec une vue sur le lac et la ville en arrière-plan.',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.title': 'Suisse battue par la Suède: implications pour les frontaliers',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.excerpt': 'La Suisse perd 3-0 contre la Suède dans la penultième amicale pré-mondiale. Analyse des implications pour les frontaliers.',
+    'blog.article.svizzera-sconfitta-svezia-frontalieri.imageAlt': 'Photo d\'un match de hockey dans une arène suisse avec des fans enthousiastes',
 };
 
 export default blogMetaFr;
