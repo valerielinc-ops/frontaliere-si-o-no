@@ -7214,6 +7214,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.title': 'Switzerland divided over 10 million initiative',
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.excerpt': 'SSR poll: 47% in favor, 47% against the UDC initiative. Cross-border workers: what changes?',
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border visible',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.title': 'Fire protection: changes to regulations in Ticino',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.excerpt': 'The Association of Ticino Municipalities appeals to the Federal Court against the government\'s changes to the fire protection regulations',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

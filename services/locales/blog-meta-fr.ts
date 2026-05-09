@@ -7215,6 +7215,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.title': 'Suisse divisée sur l\'initiative pour 10 millions d\'habitants',
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.excerpt': 'Sondage SSR: 47% pour, 47% contre l\'initiative UDC. Frontaliers: qu\'est-ce qui change?',
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne visible',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.title': 'Protection incendie: modifications du règlement au Tessin',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.excerpt': 'L\'Association des Communes Tessinoises recourt au Tribunal Fédéral contre les modifications gouvernementales au règlement sur la protection incendie',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

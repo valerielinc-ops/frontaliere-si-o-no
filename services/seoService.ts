@@ -3647,6 +3647,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-takahashia-japonica-ticino-2026': { name: 'Pratico', path: '/articoli-frontaliere/takahashia-japonica-ticino-2026', parent: 'blog' },
     'blog-onorificenze-austriache-lugano-2024': { name: 'Novità', path: '/articoli-frontaliere/onorificenze-austriache-lugano-2024', parent: 'blog' },
     'blog-votazioni-svizzera-10-milioni-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/votazioni-svizzera-10-milioni-frontalieri', parent: 'blog' },
+    'blog-modifiche-regolamento-antincendio-ticino-2026': { name: 'Protezione antincendio', path: '/articoli-frontaliere/modifiche-regolamento-antincendio-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -7215,6 +7215,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.title': 'Svizzera divisa sull\'iniziativa per 10 milioni di abitanti',
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.excerpt': 'Sondaggio SSR: 47% a favore, 47% contro l\'iniziativa UDC. Frontalieri: cosa cambia?',
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano visibile',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.title': 'Protezione antincendio: modifiche al regolamento in Ticino',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.excerpt': 'L\'Associazione dei Comuni Ticinesi ricorre al Tribunale Federale contro le modifiche governative al regolamento sulla protezione antincendio',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

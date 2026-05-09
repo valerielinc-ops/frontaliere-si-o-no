@@ -23015,4 +23015,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'modifiche-regolamento-antincendio-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-09T19:13:35.190Z',
+ image: '/images/blog/modifiche-regolamento-antincendio-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

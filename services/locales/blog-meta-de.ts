@@ -7214,6 +7214,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.title': 'Schweiz gespalten zur Initiative für 10 Millionen Einwohner',
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.excerpt': 'SSR-Umfrage: 47% dafür, 47% dagegen. Was ändert sich für Grenzgänger?',
     'blog.article.votazioni-svizzera-10-milioni-frontalieri.imageAlt': 'Luftaufnahme des Luganer Sees mit der schweizerisch-italienischen Grenze',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.title': 'Brandschutz: Änderungen am Reglement im Tessin',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.excerpt': 'Der Verband der Tessiner Gemeinden zieht vor das Bundesgericht gegen die Regierungsänderungen am Brandschutzreglement',
+    'blog.article.modifiche-regolamento-antincendio-ticino-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;
