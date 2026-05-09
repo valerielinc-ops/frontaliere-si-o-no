@@ -54,6 +54,11 @@ on:
         required: false
         type: boolean
         default: false
+      parallel_plugins:
+        description: 'EXPERIMENTAL: drop SEQUENTIAL_PROFILE=1 so independent closeBundle hooks overlap. Historic risk = OOM on 18k cluster pages (run a7f28ce129) on 2 vCPU runners. Today the runner has 4 vCPU, cluster uses inverted index (lower mem), bridge-direct emit (smaller WriteCollector buffer), and auto-flush 5000 caps peak heap per plugin to ~150 MB. Pair with profile_sequential to test safely; if the build completes, total wall-clock should drop ~60-200 s.'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   # This workflow only needs repository read access: the previous-slug winners
@@ -358,8 +363,13 @@ jobs:
           # pages). The original `profile_sequential` workflow_dispatch
           # input now only controls whether the deploy steps are skipped
           # (for profile-only investigation runs) — sequential plugin
-          # execution is on regardless.
-          SEQUENTIAL_PROFILE: '1'
+          # execution is on regardless, UNLESS `parallel_plugins=true` is
+          # passed via workflow_dispatch (experimental escape hatch added
+          # 2026-05-10 to test whether the May 9-10 memory optimizations
+          # — inverted index + bridge-direct emit + auto-flush 5000 —
+          # have moved the OOM ceiling enough to safely overlap plugins
+          # on today's 4 vCPU runner).
+          SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
           # Opt-in jobsSeoPagesPlugin per-category profiler. Emits a sorted
           # table at end of the plugin's closeBundle showing count + total +
           # avg + p50 + p99 + min + max (ms) for each emission category
