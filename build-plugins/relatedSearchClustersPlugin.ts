@@ -47,6 +47,7 @@ import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
 import { BASE_URL } from './constants';
+import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
   BREADCRUMB_LINK_STYLE,
@@ -1410,7 +1411,14 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const indexPath = path.join(distDir, out.urlPath, 'index.html');
         const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
         collector.add(indexPath, out.html);
-        collector.add(flatPath, out.html);
+        // Emit the flat .html as a redirect bridge directly: postWalkCoordinator
+        // would otherwise read this file (~30 KB), build the same bridge from
+        // the sibling, and rewrite (~500 B). Pre-emitting the bridge cuts
+        // ~52k × 30 KB writes here AND post-walk's `html === original` guard
+        // skips the rewrite. Trims ~30-50 s off closeBundle.
+        const slashUrl = `${BASE_URL}${out.urlPath.replace(/\/+$/, '')}/`;
+        const flatBridge = buildFlatBridgeFromSibling(out.html, slashUrl);
+        collector.add(flatPath, flatBridge);
         emittedFiles.push(path.relative(distDir, indexPath));
         emittedFiles.push(path.relative(distDir, flatPath));
         sitemapLocs.push(out.loc);

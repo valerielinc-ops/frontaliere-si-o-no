@@ -12,6 +12,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
+import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
@@ -559,6 +560,25 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  function _qw(filePath: string, content: string) {
  _writtenPaths.add(filePath);
  collector.add(filePath, content);
+ }
+
+ /**
+  * Emit a flat `.html` file as a redirect bridge directly. The full HTML at
+  * `siblingHtml` was already written to the matching `outDir/index.html`,
+  * so postWalkCoordinator's `transformFlatRedirect` will read it later and
+  * synthesise the same bridge from it. Writing the bridge here (~500 B)
+  * instead of the full ~30 KB sibling content cuts ~150 k × 30 KB ≈ 4 GB
+  * of redundant write+rewrite traffic across the closeBundle thread; the
+  * coordinator's `html === original` guard then short-circuits the
+  * post-walk rewrite for these paths. slashUrl is derived from the file
+  * path the same way the coordinator does, so the pre-emitted bridge is
+  * byte-identical to the post-walk one (no rewrite needed).
+  */
+ function _qwFlat(flatFile: string, siblingHtml: string) {
+ const stem = flatFile.slice(0, -'.html'.length);
+ const relPath = np.relative(distDir, stem).replace(/\\/g, '/');
+ const slashUrl = `${BASE_URL}/${relPath}/`;
+ _qw(flatFile, buildFlatBridgeFromSibling(siblingHtml, slashUrl));
  }
 
  /* ── Find SPA entry bundle so job pages hydrate into the full app ── */
@@ -2562,7 +2582,7 @@ ${hreflangHtml}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(flatFile, html);
  }
  recordEmit('active-job', __tActiveJob);
 
@@ -3326,7 +3346,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, companyHtml);
+ _qwFlat(flatFile, companyHtml);
  }
  // Redirect pages for raw slugs that differ from canonical (e.g. lidl-svizzera → lidl).
  // These are non-canonical alternate URLs that exist only so older inbound links
@@ -3347,7 +3367,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const rawFlat = np.join(distDir, rawRelPath + '.html');
  if (!fs.existsSync(rawFlat)) {
  _md(np.dirname(rawFlat));
- _qw(rawFlat, companyHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(rawFlat, companyHtml);
  }
  }
  // Declarative brand-alias bridge pages (P5 dedup).
@@ -3391,7 +3411,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const aliasFlat = np.join(distDir, aliasRelPath + '.html');
  if (!fs.existsSync(aliasFlat)) {
  _md(np.dirname(aliasFlat));
- _qw(aliasFlat, aliasHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(aliasFlat, aliasHtml);
  }
  }
  }
@@ -3848,7 +3868,7 @@ ${alternates}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, editorialHtml);
+ _qwFlat(flatFile, editorialHtml);
  }
  recordEmit('editorial-jobs-today', __tEdJobsToday);
  }
@@ -4004,7 +4024,7 @@ ${alternates}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(flatFile, html);
  }
  recordEmit('editorial-gazette', __tEdGazette);
  }
@@ -4167,7 +4187,7 @@ ${alternates}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(flatFile, html);
  }
  // Alias: /cerca-lavoro-ticino/lavoro-infermieri/ → same content, canonical inside already points to infermieri-in-ticino
  if (editorialCanton === 'TI' && locale === 'it') {
@@ -4336,7 +4356,7 @@ ${alternates}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(flatFile, html);
  }
  recordEmit('editorial-parttime-canton', __tEdPartTimeCanton);
  }
@@ -4498,7 +4518,7 @@ ${alternates}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(flatFile, html);
  }
  recordEmit('editorial-care-variant', __tEdCareVariant);
  }
@@ -4693,7 +4713,7 @@ ${alternates}
  if (flat) {
  const flatFile = np.join(distDir, flat.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, body.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(flatFile, body);
  }
  };
  // Hard-fail guard mirroring the jobSectorPagesPlugin invariant — keeps
@@ -4909,7 +4929,7 @@ ${alternates}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(flatFile, html);
  }
  recordEmit('editorial-contract-type', __tEdContractType);
  }
@@ -5072,7 +5092,7 @@ ${alternates}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(flatFile, html);
  }
  recordEmit('editorial-sector', __tEdSector);
  }
@@ -5611,7 +5631,7 @@ ${alternates}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, searchHtml);
+ _qwFlat(flatFile, searchHtml);
  }
  searchPageCount++;
  recordEmit('search-stats-landing', __tSearchStats);
@@ -5755,7 +5775,7 @@ ${alternates}
  if (flatPath) {
  const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, comboHtml);
+ _qwFlat(flatFile, comboHtml);
  }
  searchPageCount++;
  recordEmit('search-combo-landing', __tSearchCombo);
@@ -6961,7 +6981,7 @@ ${hreflangLinks}
  const outDir = np.join(distDir, normPath);
  _qw(np.join(outDir, 'index.html'), html);
  const flatFile = np.join(distDir, normPath + '.html');
- _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qwFlat(flatFile, html);
  };
 
  // Pre-compute company → active jobs lookup (O(1) instead of O(n) per expired page)
@@ -7787,7 +7807,7 @@ ${hreflangLinks}
 
  const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, flatHtml);
+ _qwFlat(flatFile, indexHtml);
  bridgeCount++;
  recordEmit('previous-slug-bridge', __tPrevSlugBridge);
  }

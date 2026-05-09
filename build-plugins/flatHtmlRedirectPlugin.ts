@@ -118,18 +118,25 @@ export interface FlatRedirectTransformInput {
   readonly readSibling: (siblingPath: string) => string | null;
 }
 
-export function transformFlatRedirect(input: FlatRedirectTransformInput): string | null {
-  const { filePath, distDir, trimmedBase, readSibling } = input;
-  if (path.basename(filePath) === 'index.html') return null;
-  if (!filePath.endsWith('.html')) return null;
-
-  const stem = filePath.slice(0, -'.html'.length);
-  const sibling = path.join(stem, 'index.html');
-  const siblingHtml = readSibling(sibling);
-  if (siblingHtml === null) return null;
-
-  const relPath = path.relative(distDir, stem).replace(/\\/g, '/');
-  const slashUrl = `${trimmedBase}/${relPath}/`;
+/**
+ * Build the redirect-bridge HTML directly from the canonical (sibling)
+ * HTML content + the trailing-slash URL. Title and OG tags are extracted
+ * via the same regex the post-walk transform uses, so a bridge produced
+ * here is byte-identical to the one `transformFlatRedirect` would produce
+ * given the same `siblingHtml`.
+ *
+ * Why public: build plugins that emit BOTH `dist/foo.html` and
+ * `dist/foo/index.html` (cluster pages, jobs-seo-pages, …) can call this
+ * directly for the flat path instead of writing the full ~30 KB HTML and
+ * waiting for `postWalkCoordinator` to rewrite it as a bridge. With ~150 k
+ * such pairs across the build, that's ~4 GB of redundant write+read
+ * traffic on the closeBundle thread — the canonical bridge content is
+ * already known the moment we render the sibling. Post-walk still runs
+ * `transformFlatRedirect` on every flat .html for safety; when the
+ * pre-emitted bridge matches its output (same sibling → same bridge) the
+ * coordinator's `html === original` guard skips the rewrite.
+ */
+export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string): string {
   let title = `Redirecting to ${slashUrl}`;
   let ogTags = '';
   try {
@@ -145,6 +152,21 @@ export function transformFlatRedirect(input: FlatRedirectTransformInput): string
     // fallback already set; ogTags stays empty
   }
   return NOINDEX_BRIDGE(slashUrl, title, ogTags);
+}
+
+export function transformFlatRedirect(input: FlatRedirectTransformInput): string | null {
+  const { filePath, distDir, trimmedBase, readSibling } = input;
+  if (path.basename(filePath) === 'index.html') return null;
+  if (!filePath.endsWith('.html')) return null;
+
+  const stem = filePath.slice(0, -'.html'.length);
+  const sibling = path.join(stem, 'index.html');
+  const siblingHtml = readSibling(sibling);
+  if (siblingHtml === null) return null;
+
+  const relPath = path.relative(distDir, stem).replace(/\\/g, '/');
+  const slashUrl = `${trimmedBase}/${relPath}/`;
+  return buildFlatBridgeFromSibling(siblingHtml, slashUrl);
 }
 
 /**
