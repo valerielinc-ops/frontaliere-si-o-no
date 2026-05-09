@@ -7239,6 +7239,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.interroll-acquisisce-royal-apollo-group.title': 'Interroll acquisisce Royal Apollo Group: cosa cambia per i frontalieri',
     'blog.article.interroll-acquisisce-royal-apollo-group.excerpt': 'Interroll, azienda ticinese leader nell\'automazione logistica, acquisisce Royal Apollo Group. Scopri le implicazioni per i frontalieri e il mercato del lavoro.',
     'blog.article.interroll-acquisisce-royal-apollo-group.imageAlt': 'Foxtown outlet a Mendrisio, Ticino, con persone che fanno shopping e godono del sole.',
+    'blog.article.alpini-paracadutisti-genova-2026.title': 'Alpini paracadutisti a Genova per l\'Adunata nazionale: il video dell\'atterraggio',
+    'blog.article.alpini-paracadutisti-genova-2026.excerpt': 'Migliaia di Alpini in arrivo a Genova per la 97esima Adunata nazionale. Video dell\'atterraggio dei paracadutisti sulla spiaggia.',
+    'blog.article.alpini-paracadutisti-genova-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;

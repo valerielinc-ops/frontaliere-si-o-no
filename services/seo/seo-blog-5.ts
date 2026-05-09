@@ -32951,6 +32951,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-alpini-paracadutisti-genova-2026': {
+    title: 'Alpini paracadutisti a Genova per l\'Adunata nazionale: il video dell\'atterraggio',
+    description: 'Migliaia di Alpini in arrivo a Genova per la 97esima Adunata nazionale. Video dell\'atterraggio dei paracadutisti sulla spiaggia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, alpini, paracadutisti, genova, adunata',
+    ogTitle: 'Alpini paracadutisti a Genova per l\'Adunata nazionale: il video',
+    ogDescription: 'Migliaia di Alpini in arrivo a Genova per la 97esima Adunata nazionale. Video dell\'atterraggio dei paracadutisti sulla spiaggia.',
+    canonicalPath: '/articoli-frontaliere/alpini-paracadutisti-genova-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alpini paracadutisti a Genova per l'Adunata nazionale: il video dell'atterraggio",
+      "description": "Migliaia di Alpini in arrivo a Genova per la 97esima Adunata nazionale. Video dell'atterraggio dei paracadutisti sulla spiaggia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/alpini-paracadutisti-genova-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici"
+      },
+      "datePublished": "2026-05-09T20:31:50+00:00",
+      "dateModified": "2026-05-09T20:31:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/alpini-paracadutisti-genova-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

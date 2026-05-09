@@ -23087,4 +23087,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'alpini-paracadutisti-genova-2026',
+ category: 'novita',
+ date: '2026-05-09T20:31:50.259Z',
+ image: '/images/blog/alpini-paracadutisti-genova-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

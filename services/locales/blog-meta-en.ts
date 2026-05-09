@@ -7238,6 +7238,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.interroll-acquisisce-royal-apollo-group.title': 'Interroll acquires Royal Apollo Group: what changes for cross-border workers',
     'blog.article.interroll-acquisisce-royal-apollo-group.excerpt': 'Interroll, a Ticino-based leader in logistics automation, acquires Royal Apollo Group. Discover the implications for cross-border workers and the job market.',
     'blog.article.interroll-acquisisce-royal-apollo-group.imageAlt': 'Foxtown outlet in Mendrisio, Ticino, with people shopping and enjoying the sun.',
+    'blog.article.alpini-paracadutisti-genova-2026.title': 'Paratroopers land in Genoa for national gathering',
+    'blog.article.alpini-paracadutisti-genova-2026.excerpt': 'Thousands of Alpini arriving in Genoa for the 97th national gathering. Video of paratroopers landing on the beach.',
+    'blog.article.alpini-paracadutisti-genova-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
 };
 
 export default blogMetaEn;
