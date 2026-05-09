@@ -7245,6 +7245,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casa-hockey-lugano-frontalieri.title': 'Lugano Hockey: novità per i frontalieri',
     'blog.article.casa-hockey-lugano-frontalieri.excerpt': 'Nuovi giocatori e strategie per la stagione 2024-2025. Cosa cambia per i tifosi frontalieri',
     'blog.article.casa-hockey-lugano-frontalieri.imageAlt': 'Partita di hockey a Lugano con tifosi svizzeri e italiani',
+    'blog.article.papa-leone-incontra-madre-frontaliere.title': 'Papa Leone incontra a Napoli la madre di un frontaliere',
+    'blog.article.papa-leone-incontra-madre-frontaliere.excerpt': 'Papa Leone XIV ha incontrato Patrizia Mercolino, madre di Domenico Caliendo, un bambino di due anni deceduto dopo un trapianto di cuore.',
+    'blog.article.papa-leone-incontra-madre-frontaliere.imageAlt': 'Papa Leone XIV incontra la madre di un frontaliere a Lugano, con vista sul lago e la città sullo sfondo.',
 };
 
 export default blogMetaIt;

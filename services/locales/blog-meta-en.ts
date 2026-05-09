@@ -7244,6 +7244,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casa-hockey-lugano-frontalieri.title': 'Lugano Hockey: updates for cross-border workers',
     'blog.article.casa-hockey-lugano-frontalieri.excerpt': 'New players and strategies for the 2024-2025 season. What changes for cross-border worker fans',
     'blog.article.casa-hockey-lugano-frontalieri.imageAlt': 'Hockey game in Lugano with Swiss and Italian fans',
+    'blog.article.papa-leone-incontra-madre-frontaliere.title': 'Pope Leo meets cross-border worker\'s mother in Naples',
+    'blog.article.papa-leone-incontra-madre-frontaliere.excerpt': 'Pope Leo XIV met Patrizia Mercolino, mother of Domenico Caliendo, a two-year-old boy who died after a heart transplant.',
+    'blog.article.papa-leone-incontra-madre-frontaliere.imageAlt': 'Pope Leo XIV meets with the mother of a cross-border worker in Lugano, with a view of the lake and the city in the background.',
 };
 
 export default blogMetaEn;

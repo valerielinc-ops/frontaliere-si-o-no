@@ -7244,6 +7244,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casa-hockey-lugano-frontalieri.title': 'Lugano Hockey: Neuerungen für Grenzgänger',
     'blog.article.casa-hockey-lugano-frontalieri.excerpt': 'Neue Spieler und Strategien für die Saison 2024-2025. Was sich für die Grenzgänger-Fans ändert',
     'blog.article.casa-hockey-lugano-frontalieri.imageAlt': 'Eishockeyspiel in Lugano mit Schweizer und italienischen Fans',
+    'blog.article.papa-leone-incontra-madre-frontaliere.title': 'Papst Leo trifft in Neapel Mutter eines Grenzgängers',
+    'blog.article.papa-leone-incontra-madre-frontaliere.excerpt': 'Papst Leo XIV traf Patrizia Mercolino, die Mutter von Domenico Caliendo, einem zweijährigen Jungen, der nach einer Herztransplantation verstorben ist.',
+    'blog.article.papa-leone-incontra-madre-frontaliere.imageAlt': 'Papst Leo XIV trifft die Mutter eines Grenzgängers in Lugano, mit Blick auf den See und die Stadt im Hintergrund.',
 };
 
 export default blogMetaDe;

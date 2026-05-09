@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2467,
+ "numberOfItems": 2468,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7109,7 +7109,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2464, "name": "Super-ricco svizzero vuole pagare più tasse, ma...", "url": `${BASE_URL}/articoli-frontaliere/super-ricco-tasse-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2465, "name": "Interroll acquisisce Royal Apollo Group: cosa c...", "url": `${BASE_URL}/articoli-frontaliere/interroll-acquisisce-royal-apollo-group` },
           { "@type": "ListItem", "position": 2466, "name": "Alpini paracadutisti a Genova per l'Adunata naz...", "url": `${BASE_URL}/articoli-frontaliere/alpini-paracadutisti-genova-2026` },
-          { "@type": "ListItem", "position": 2467, "name": "Lugano Hockey: novità per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/casa-hockey-lugano-frontalieri` }
+          { "@type": "ListItem", "position": 2467, "name": "Lugano Hockey: novità per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/casa-hockey-lugano-frontalieri` },
+          { "@type": "ListItem", "position": 2468, "name": "Papa Leone incontra a Napoli la madre di un fro...", "url": `${BASE_URL}/articoli-frontaliere/papa-leone-incontra-madre-frontaliere` }
  ]
  },
  {

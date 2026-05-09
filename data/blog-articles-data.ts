@@ -23105,4 +23105,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'papa-leone-incontra-madre-frontaliere',
+ category: 'novita',
+ date: '2026-05-09T20:46:00.547Z',
+ image: '/images/blog/papa-leone-incontra-madre-frontaliere.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

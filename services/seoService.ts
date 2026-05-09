@@ -3657,6 +3657,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-interroll-acquisisce-royal-apollo-group': { name: 'Interroll acquisisce Royal Apollo Group', path: '/articoli-frontaliere/interroll-acquisisce-royal-apollo-group', parent: 'blog' },
     'blog-alpini-paracadutisti-genova-2026': { name: 'Alpini Genova', path: '/articoli-frontaliere/alpini-paracadutisti-genova-2026', parent: 'blog' },
     'blog-casa-hockey-lugano-frontalieri': { name: 'Novità Lugano Hockey', path: '/articoli-frontaliere/casa-hockey-lugano-frontalieri', parent: 'blog' },
+    'blog-papa-leone-incontra-madre-frontaliere': { name: 'Novità', path: '/articoli-frontaliere/papa-leone-incontra-madre-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -7245,6 +7245,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casa-hockey-lugano-frontalieri.title': 'Hockey Lugano : nouvelles pour les frontaliers',
     'blog.article.casa-hockey-lugano-frontalieri.excerpt': 'Nouveaux joueurs et stratégies pour la saison 2024-2025. Qu\'est-ce qui change pour les supporters frontaliers ?',
     'blog.article.casa-hockey-lugano-frontalieri.imageAlt': 'Match de hockey à Lugano avec des supporters suisses et italiens',
+    'blog.article.papa-leone-incontra-madre-frontaliere.title': 'Pape Léon rencontre à Naples la mère d\'un frontalier',
+    'blog.article.papa-leone-incontra-madre-frontaliere.excerpt': 'Le pape Léon XIV a rencontré Patrizia Mercolino, mère de Domenico Caliendo, un enfant de deux ans décédé après une transplantation cardiaque.',
+    'blog.article.papa-leone-incontra-madre-frontaliere.imageAlt': 'Le pape Léon XIV rencontre la mère d\'un travailleur frontalier à Lugano, avec une vue sur le lac et la ville en arrière-plan.',
 };
 
 export default blogMetaFr;
