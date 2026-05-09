@@ -3787,10 +3787,10 @@
     },
     {
       "id": "ubp-3d8a65cc31b9",
-      "slug": "financial-controller-transfer-pricing-analytics-ubp-ch",
+      "slug": "controllore-finanziario-prezzi-di-trasferimento-e-analisi-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "financial-controller-transfer-pricing-analytics-ubp-ch",
-        "it": "financial-controller-transfer-pricing-analytics-ubp-ch",
+        "it": "controllore-finanziario-prezzi-di-trasferimento-e-analisi-union-bancaire-privee-geneva-switzerland",
         "de": "financial-controller-transfer-pricing-analytics-ubp-ch",
         "fr": "financial-controller-transfer-pricing-analytics-union-bancaire-privee-geneva-switzerland"
       },
@@ -3848,7 +3848,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-08T22:41:19.124Z"
+      "firstSeenAt": "2026-05-08T22:41:19.124Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-controller-transfer-pricing-analytics-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "financial-controller-transfer-pricing-analytics-ubp-ch"
+      ]
     },
     {
       "id": "ubp-1df14b2a2b73",
