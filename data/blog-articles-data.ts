@@ -23024,4 +23024,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'crans-montana-ore-straordinarie-non-pagate',
+ category: 'pratico',
+ date: '2026-05-09T19:20:06.207Z',
+ image: '/images/blog/crans-montana-ore-straordinarie-non-pagate.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7217,6 +7217,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.title': 'Fire protection: changes to regulations in Ticino',
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.excerpt': 'The Association of Ticino Municipalities appeals to the Federal Court against the government\'s changes to the fire protection regulations',
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.title': 'Crans Montana: unpaid overtime for rescuers',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.excerpt': 'Four months after the fire, rescuers at Valais Hospital are still waiting to be paid for their overtime hours.',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.imageAlt': 'Healthcare workers in a hospital in Lugano',
 };
 
 export default blogMetaEn;

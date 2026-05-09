@@ -7218,6 +7218,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.title': 'Protezione antincendio: modifiche al regolamento in Ticino',
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.excerpt': 'L\'Associazione dei Comuni Ticinesi ricorre al Tribunale Federale contro le modifiche governative al regolamento sulla protezione antincendio',
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.title': 'Crans Montana: ore straordinarie non pagate ai soccorritori',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.excerpt': 'A quattro mesi dall\'incendio, i soccorritori dell\'Ospedale del Vallese attendono ancora il pagamento delle ore straordinarie.',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.imageAlt': 'Sanitari in ospedale a Lugano',
 };
 
 export default blogMetaIt;

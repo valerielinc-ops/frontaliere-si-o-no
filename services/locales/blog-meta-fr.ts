@@ -7218,6 +7218,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.title': 'Protection incendie: modifications du règlement au Tessin',
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.excerpt': 'L\'Association des Communes Tessinoises recourt au Tribunal Fédéral contre les modifications gouvernementales au règlement sur la protection incendie',
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.title': 'Crans Montana : heures supplémentaires non payées aux sauveteurs',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.excerpt': 'Quatre mois après l\'incendie, les sauveteurs de l\'Hôpital du Valais attendent toujours le paiement des heures supplémentaires.',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.imageAlt': 'Travailleurs de la santé dans un hôpital à Lugano',
 };
 
 export default blogMetaFr;

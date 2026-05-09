@@ -7217,6 +7217,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.title': 'Brandschutz: Änderungen am Reglement im Tessin',
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.excerpt': 'Der Verband der Tessiner Gemeinden zieht vor das Bundesgericht gegen die Regierungsänderungen am Brandschutzreglement',
     'blog.article.modifiche-regolamento-antincendio-ticino-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.title': 'Crans Montana: Überstunden der Rettungskräfte unbezahlt',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.excerpt': 'Vier Monate nach dem Brand warten die Rettungskräfte des Wallis-Spitals noch immer auf die Bezahlung der Überstunden.',
+    'blog.article.crans-montana-ore-straordinarie-non-pagate.imageAlt': 'Gesundheitsarbeiter in einem Krankenhaus in Lugano',
 };
 
 export default blogMetaDe;
