@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-24T11:11:40.641Z",
-    "label": "before",
-    "total": 2660,
-    "needsRetranslation": 1165,
-    "incomplete": 128,
-    "complete": 2532,
-    "missingByLocale": {
-      "it": 61,
-      "en": 91,
-      "de": 92,
-      "fr": 115
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 49
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Denner",
-        "pending": 8
-      },
-      {
-        "company": "Lonza",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 4
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 4
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "PEMSA",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-24T12:24:05.761Z",
-    "label": "after",
-    "total": 2660,
-    "needsRetranslation": 98,
-    "incomplete": 45,
-    "complete": 2615,
-    "missingByLocale": {
-      "it": 30,
-      "en": 17,
-      "de": 30,
-      "fr": 33
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "PEMSA",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 2
-      },
-      {
-        "company": "Fusalp",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-24T14:00:31.911Z",
     "label": "before",
     "total": 2660,
@@ -9496,6 +9384,118 @@
     "label": "after",
     "total": 2632,
     "needsRetranslation": 186,
+    "incomplete": 40,
+    "complete": 2592,
+    "missingByLocale": {
+      "it": 31,
+      "en": 17,
+      "de": 16,
+      "fr": 31
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 6
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 4
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 3
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 3
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-09T02:53:18.056Z",
+    "label": "before",
+    "total": 2632,
+    "needsRetranslation": 188,
+    "incomplete": 40,
+    "complete": 2592,
+    "missingByLocale": {
+      "it": 31,
+      "en": 17,
+      "de": 16,
+      "fr": 31
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 6
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 4
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 3
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 3
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-09T03:09:29.594Z",
+    "label": "after",
+    "total": 2632,
+    "needsRetranslation": 184,
     "incomplete": 40,
     "complete": 2592,
     "missingByLocale": {
