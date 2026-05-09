@@ -66,6 +66,14 @@ export type CollisionMode = 'report' | 'throw';
  * an array of these per path so end-of-build analysis can compare ALL the
  * variants ever proposed for that path (not just the last winner) and decide
  * which plugin should be the canonical owner.
+ *
+ * `callSite` is a getter that lazily formats the Error stack on first access.
+ * Stack formatting via `Error.stack` costs ~50-200μs per frame walk; with
+ * 200k+ claims per build it adds up to ~20-40s of CPU on the closeBundle
+ * thread, all paid for diagnostics that are only consumed when collisions
+ * surface (collisions: ~330 of 200k+ writes per build per the writeRegistry
+ * report). Lazy resolution keeps the diagnostic surface intact while
+ * deferring the cost to the rare consumer paths.
  */
 export interface ClaimVersion {
   readonly plugin: string;
@@ -75,6 +83,68 @@ export interface ClaimVersion {
   readonly size: number;
   /** ms since the registry was last reset; useful for ordering across plugins. */
   readonly timestamp: number;
+}
+
+/**
+ * Internal class implementing ClaimVersion. The `callSite` getter formats the
+ * Error stack on first access and caches the result; subsequent reads are O(1).
+ * `new Error()` itself is cheap (V8 captures call frames lazily); the expensive
+ * part is `String(err.stack)` which formats the frames — that's what we defer.
+ */
+class LazyClaimVersion implements ClaimVersion {
+  readonly plugin: string;
+  readonly contentHash: string;
+  readonly timestamp: number;
+  private _err: Error | null;
+  private _callSite: string | null = null;
+  private _content: string | null;
+  private _size: number = -1;
+
+  constructor(plugin: string, contentHash: string, content: string, timestamp: number, err: Error | null) {
+    this.plugin = plugin;
+    this.contentHash = contentHash;
+    this.timestamp = timestamp;
+    this._err = err;
+    this._content = content;
+  }
+
+  /**
+   * UTF-8 byte size. Buffer.byteLength on ~30 KB content costs ~30 μs per
+   * call; with 200 k+ claims per build that's ~6 s on the closeBundle
+   * thread. Like callSite, this is a diagnostic field consumed only by
+   * collision reports — defer until accessed. The content reference is
+   * dropped after first read so we don't pin ~6 GB in memory.
+   */
+  get size(): number {
+    if (this._size !== -1) return this._size;
+    this._size = this._content !== null ? Buffer.byteLength(this._content, 'utf-8') : 0;
+    this._content = null; // release content reference once measured
+    return this._size;
+  }
+
+  get callSite(): string {
+    if (this._callSite !== null) return this._callSite;
+    this._callSite = this._err ? extractCallSiteFromError(this._err) : 'unknown';
+    this._err = null; // release frame data once formatted
+    return this._callSite;
+  }
+
+  /**
+   * Class getters are non-enumerable on the prototype, so a plain
+   * JSON.stringify(this) would silently DROP `callSite` from the output.
+   * The lifecycle plugin persists `dist/.write-collisions.json` with full
+   * version history — toJSON() ensures the resolved call site survives
+   * serialization while keeping the lazy semantics on hot-path access.
+   */
+  toJSON(): { plugin: string; callSite: string; contentHash: string; size: number; timestamp: number } {
+    return {
+      plugin: this.plugin,
+      callSite: this.callSite,
+      contentHash: this.contentHash,
+      size: this.size,
+      timestamp: this.timestamp,
+    };
+  }
 }
 
 /**
@@ -159,13 +229,12 @@ function hashContent(content: string): string {
 }
 
 /**
- * Best-effort caller location extraction from an Error stack. Cheap (~0.05 ms
- * on Node 22) and skipped when the stack is unavailable. Returns the first
- * frame outside this module, node internals, and node_modules — i.e. the
- * actual plugin call site that triggered the write.
+ * Format an Error stack into the first frame that names the actual plugin
+ * call site (skipping this module, batchWrite, node internals, node_modules).
+ * Called lazily by `LazyClaimVersion.callSite` getter — the cost is paid
+ * only when collision diagnostics actually consume the call site.
  */
-function detectCallSite(): string {
-  const err = new Error();
+function extractCallSiteFromError(err: Error): string {
   const stack = String(err.stack || '');
   if (!stack) return 'unknown';
   const lines = stack.split('\n').slice(1);
@@ -259,13 +328,13 @@ export type ClaimOutcome = 'allow-write' | 'skip-write';
 export function claim(claimPath: string, plugin: string, content: string): ClaimOutcome {
   const contentHash = hashContent(content);
   const versions = pathHistory.get(claimPath);
-  const newVersion = (): ClaimVersion => ({
+  const newVersion = (): ClaimVersion => new LazyClaimVersion(
     plugin,
-    callSite: detectCallSite(),
     contentHash,
-    size: Buffer.byteLength(content, 'utf-8'),
-    timestamp: Date.now() - buildStartMs,
-  });
+    content, // size deferred — Buffer.byteLength fired only when .size is read
+    Date.now() - buildStartMs,
+    new Error(), // captured cheaply; .stack formatted only if a collision report later reads .callSite
+  );
 
   if (!versions) {
     pathHistory.set(claimPath, [newVersion()]);
@@ -303,7 +372,7 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
     const record: CollisionRecord = {
       path: claimPath,
       first: { plugin: previous.plugin, callSite: previous.callSite, contentHash: previous.contentHash },
-      attempted: { plugin, callSite: detectCallSite(), contentHash },
+      attempted: { plugin, callSite: extractCallSiteFromError(new Error()), contentHash },
     };
     throw new WriteCollisionError(record);
   }
