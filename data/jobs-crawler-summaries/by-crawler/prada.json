@@ -1,21 +1,22 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-05-09T10:30:03.458Z",
+  "generatedAt": "2026-05-09T22:03:13.418Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5997,
-  "avgDurationMs": 5997,
+  "durationMs": 5657,
+  "avgDurationMs": 5657,
   "durationHistory": [
-    5997
+    5657
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-4e350178493d",
-      "slug": "prada-client-advisor-bicester-prada-group-bicester",
+      "slug": "prada-client-advisor-bicester-prada-group-mendrisio",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -33,17 +34,17 @@
       "url": "https://jobs.pradagroup.com/job/Bicester-PRADA-Client-Advisor%2C-Bicester/1382826233/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T10:30:00.909Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-05-09T22:03:10.998Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-09T10:30:00.909Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-b8ab80bfb2e1",
       "slug": "prada-store-manager-zurich-prada-group-zurich",
@@ -64,7 +65,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T10:29:59.244Z",
+      "crawledAt": "2026-05-09T22:03:09.324Z",
       "firstSeenAt": "2026-04-20T05:11:26.980Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -94,7 +95,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T10:29:59.567Z",
+      "crawledAt": "2026-05-09T22:03:09.677Z",
       "firstSeenAt": "2026-04-13T11:07:34.691Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -105,46 +106,11 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-48b56cba13d0",
-      "slug": "prada-crm-manager-korea-prada-group-mendrisio",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "PRADA CRM Manager, Korea",
-      "location": "Seoul",
-      "canton": "TI",
-      "addressLocality": "Seoul",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-08",
-      "url": "https://jobs.pradagroup.com/job/Seoul-PRADA-CRM-Manager%2C-Korea/1292238601/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-08T22:21:07.633Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-08T10:28:23.535Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "postalCode": "6500",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-4e350178493d",
-      "slug": "prada-client-advisor-bicester-prada-group-mendrisio",
+      "slug": "prada-client-consulente-bicester-prada-group-bicester",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -162,8 +128,9 @@
       "url": "https://jobs.pradagroup.com/job/Bicester-PRADA-Client-Advisor%2C-Bicester/1382826233/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T10:30:00.909Z",
+      "crawledAt": "2026-05-09T22:03:10.998Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-09T10:30:00.909Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
@@ -195,7 +162,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T10:29:59.567Z",
+      "crawledAt": "2026-05-09T22:03:09.677Z",
       "firstSeenAt": "2026-04-13T11:07:34.691Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -228,7 +195,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T10:29:59.244Z",
+      "crawledAt": "2026-05-09T22:03:09.324Z",
       "firstSeenAt": "2026-04-20T05:11:26.980Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
