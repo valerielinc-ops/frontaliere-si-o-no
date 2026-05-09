@@ -182,6 +182,19 @@ function runSingleThreaded(
     let isBridge = false;
 
     if (path.basename(filePath) !== 'index.html') {
+      // Fast-path: pre-emitted bridge from cluster/jobs-seo plugins (commit
+      // 45399c0779). Avoids a sync 30 KB sibling read + regex pass that
+      // would re-derive the same bridge content. Mirrors the worker fast
+      // path in postWalkWorker.mjs (commit 7a00222681).
+      if (
+        html.startsWith('<!DOCTYPE html>\n<html lang="it">\n<head>\n<meta charset="utf-8">') &&
+        html.includes('<meta name="robots" content="noindex,follow">') &&
+        html.includes('<script>location.replace(')
+      ) {
+        isBridge = true;
+        result.bridgeConverted++;
+        continue;
+      }
       const bridge = transformFlatRedirect({
         filePath,
         distDir,
