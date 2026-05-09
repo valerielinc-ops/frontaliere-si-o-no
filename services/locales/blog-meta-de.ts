@@ -7241,6 +7241,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.alpini-paracadutisti-genova-2026.title': 'Fallschirmjäger der Alpini landen in Genua',
     'blog.article.alpini-paracadutisti-genova-2026.excerpt': 'Tausende Alpini kommen nach Genua zur 97. Nationalen Adunata. Video der Landung der Fallschirmjäger am Strand.',
     'blog.article.alpini-paracadutisti-genova-2026.imageAlt': 'Luftaufnahme vom Luganersee mit Bergen und Gebäuden',
+    'blog.article.casa-hockey-lugano-frontalieri.title': 'Lugano Hockey: Neuerungen für Grenzgänger',
+    'blog.article.casa-hockey-lugano-frontalieri.excerpt': 'Neue Spieler und Strategien für die Saison 2024-2025. Was sich für die Grenzgänger-Fans ändert',
+    'blog.article.casa-hockey-lugano-frontalieri.imageAlt': 'Eishockeyspiel in Lugano mit Schweizer und italienischen Fans',
 };
 
 export default blogMetaDe;

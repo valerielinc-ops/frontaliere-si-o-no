@@ -7241,6 +7241,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.alpini-paracadutisti-genova-2026.title': 'Paratroopers land in Genoa for national gathering',
     'blog.article.alpini-paracadutisti-genova-2026.excerpt': 'Thousands of Alpini arriving in Genoa for the 97th national gathering. Video of paratroopers landing on the beach.',
     'blog.article.alpini-paracadutisti-genova-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
+    'blog.article.casa-hockey-lugano-frontalieri.title': 'Lugano Hockey: updates for cross-border workers',
+    'blog.article.casa-hockey-lugano-frontalieri.excerpt': 'New players and strategies for the 2024-2025 season. What changes for cross-border worker fans',
+    'blog.article.casa-hockey-lugano-frontalieri.imageAlt': 'Hockey game in Lugano with Swiss and Italian fans',
 };
 
 export default blogMetaEn;

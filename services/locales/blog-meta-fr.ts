@@ -7242,6 +7242,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.alpini-paracadutisti-genova-2026.title': 'Parachutistes alpins à Gênes pour l\'adunata nationale',
     'blog.article.alpini-paracadutisti-genova-2026.excerpt': 'Des milliers d\'Alpini arrivent à Gênes pour la 97e Adunata nationale. Vidéo de l\'atterrissage des parachutistes sur la plage.',
     'blog.article.alpini-paracadutisti-genova-2026.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et bâtiments',
+    'blog.article.casa-hockey-lugano-frontalieri.title': 'Hockey Lugano : nouvelles pour les frontaliers',
+    'blog.article.casa-hockey-lugano-frontalieri.excerpt': 'Nouveaux joueurs et stratégies pour la saison 2024-2025. Qu\'est-ce qui change pour les supporters frontaliers ?',
+    'blog.article.casa-hockey-lugano-frontalieri.imageAlt': 'Match de hockey à Lugano avec des supporters suisses et italiens',
 };
 
 export default blogMetaFr;

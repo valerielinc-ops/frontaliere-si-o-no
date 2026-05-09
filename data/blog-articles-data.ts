@@ -23096,4 +23096,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casa-hockey-lugano-frontalieri',
+ category: 'novita',
+ date: '2026-05-09T20:38:44.587Z',
+ image: '/images/blog/casa-hockey-lugano-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

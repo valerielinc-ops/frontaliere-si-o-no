@@ -7242,6 +7242,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.alpini-paracadutisti-genova-2026.title': 'Alpini paracadutisti a Genova per l\'Adunata nazionale: il video dell\'atterraggio',
     'blog.article.alpini-paracadutisti-genova-2026.excerpt': 'Migliaia di Alpini in arrivo a Genova per la 97esima Adunata nazionale. Video dell\'atterraggio dei paracadutisti sulla spiaggia.',
     'blog.article.alpini-paracadutisti-genova-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
+    'blog.article.casa-hockey-lugano-frontalieri.title': 'Lugano Hockey: novità per i frontalieri',
+    'blog.article.casa-hockey-lugano-frontalieri.excerpt': 'Nuovi giocatori e strategie per la stagione 2024-2025. Cosa cambia per i tifosi frontalieri',
+    'blog.article.casa-hockey-lugano-frontalieri.imageAlt': 'Partita di hockey a Lugano con tifosi svizzeri e italiani',
 };
 
 export default blogMetaIt;
