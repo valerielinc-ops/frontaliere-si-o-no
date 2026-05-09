@@ -23,6 +23,7 @@ type Issue = {
   count: number;
   total: number;
   message: string;
+  hidden?: boolean;
 };
 
 type Entry = {
@@ -152,26 +153,44 @@ describe('applyNoStructureRatchet', () => {
 });
 
 /**
- * The duplicate-description ratchet escalates a crawler to CRITICAL when
- * ≥80 % of its jobs share the same description AND there are ≥5 jobs.
+ * The duplicate-description ratchet now distinguishes two signals:
+ *   1. `duplicate-descriptions` (title-aware fingerprint, ≥80%) — real source
+ *      duplicates: same title AND same body across multiple records.
+ *   2. `duplicate-descriptions-desc-only` (chrome fingerprint, ≥95%) — chrome
+ *      scraping: identical bodies across records with distinct titles.
  *
  * Motivating regression: Moncucco shipped 9/9 jobs with an identical 4 125-char
- * blob (the page nav/megamenu). Thin-description and tag-soup checks all passed
- * because the blob was long, prose-shaped, and unique to that crawler. The only
- * remaining signal was the duplicate ratio, which was previously a WARNING.
+ * blob (the page nav/megamenu). The titles WERE distinct, so this is the chrome
+ * case — both signals would have fired, but in a real run the chrome signal is
+ * the one we want surfaced (the action item is "fix the parser selectors", not
+ * "dedupe duplicate listings"). Tests below set both signals when simulating
+ * the moncucco case to verify chrome-scraping detection still works.
  */
-function makeDuplicateEntry(dupeCount: number, total: number, severity: Entry['severity'] = 'WARNING'): Entry {
+function makeDuplicateEntry(dupeCount: number, total: number, severity: Entry['severity'] = 'WARNING', kind: 'chrome' | 'listings' = 'chrome'): Entry {
+  // Default to chrome-style: distinct titles, identical bodies. Only the
+  // hidden desc-only signal fires; the visible duplicate-descriptions issue
+  // is synthesized by the ratchet itself when chrome is detected.
+  const issues: Entry['issues'] = [];
+  if (kind === 'listings') {
+    issues.push({
+      type: 'duplicate-descriptions',
+      count: dupeCount,
+      total,
+      message: `${dupeCount}/${total} duplicate descriptions`,
+    });
+  } else {
+    issues.push({
+      type: 'duplicate-descriptions-desc-only',
+      count: dupeCount,
+      total,
+      message: '',
+      hidden: true,
+    });
+  }
   return {
     total,
     severity,
-    issues: [
-      {
-        type: 'duplicate-descriptions',
-        count: dupeCount,
-        total,
-        message: `${dupeCount}/${total} duplicate descriptions`,
-      },
-    ],
+    issues,
   };
 }
 
@@ -185,21 +204,31 @@ describe('applyDuplicateDescriptionRatchet', () => {
 
     expect(report['moncucco-style'].severity).toBe('CRITICAL');
     expect(regressions).toHaveLength(1);
-    expect(regressions[0]).toMatchObject({ key: 'moncucco-style', count: 9, total: 9 });
+    expect(regressions[0]).toMatchObject({ key: 'moncucco-style', count: 9, total: 9, kind: 'chrome-scraping' });
     expect(regressions[0].ratio).toBeCloseTo(1, 5);
-    expect(report['moncucco-style'].issues[0].message).toMatch(/PARSER LIKELY GRABBING CHROME/);
+    // The chrome path synthesizes a visible duplicate-descriptions issue and
+    // appends the chrome warning to its message. The original hidden chrome
+    // signal stays in issues[0]; the visible message is the non-hidden one.
+    const visible = report['moncucco-style'].issues.find((i) => !i.hidden);
+    expect(visible?.message).toMatch(/PARSER LIKELY GRABBING CHROME/);
     expect(report['moncucco-style'].action).toMatch(/page chrome/i);
   });
 
-  it('escalates at exactly 80% duplicate ratio with >=5 jobs', () => {
+  it('escalates at exactly 80% duplicate ratio with >=5 jobs (title-aware listings signal)', () => {
+    // 80% is the threshold for the title-aware "duplicate listings" signal,
+    // which catches feeds publishing the same role multiple times (bitfinex
+    // posts each opening 9× via Recruitee). Chrome scraping uses a stricter
+    // 95% threshold to avoid false-positives on legitimately templated
+    // sources (reboot-monkey: 142 city-specific listings sharing a template).
     const report: Record<string, Entry> = {
-      'eighty-pct': makeDuplicateEntry(8, 10),
+      'eighty-pct': makeDuplicateEntry(8, 10, 'WARNING', 'listings'),
     };
 
     const regressions = applyDuplicateDescriptionRatchet(report);
 
     expect(report['eighty-pct'].severity).toBe('CRITICAL');
     expect(regressions).toHaveLength(1);
+    expect(regressions[0].kind).toBe('duplicate-listings');
   });
 
   it('does NOT escalate below 80% duplicate ratio', () => {
@@ -244,5 +273,28 @@ describe('applyDuplicateDescriptionRatchet', () => {
 
     expect(report['with-action'].action).toMatch(/^Existing hint\. /);
     expect(report['with-action'].action).toMatch(/page chrome/i);
+  });
+
+  it('does NOT false-positive on templated sources (chrome signal between 80% and 95%)', () => {
+    // reboot-monkey case: 142 city-specific data-center-technician listings
+    // sharing a templated body. Title-aware fingerprint dropped the duplicate
+    // ratio from 90% to 41% (each city → distinct title). The chrome signal
+    // (desc-only) is still ~90%, but a templated parser should not be flagged
+    // as chrome scraping unless duplicates are essentially universal (≥95%).
+    const report: Record<string, Entry> = {
+      'templated-source': {
+        total: 142,
+        severity: 'WARNING',
+        issues: [
+          { type: 'duplicate-descriptions', count: 58, total: 142, message: '58/142 duplicate descriptions' },
+          { type: 'duplicate-descriptions-desc-only', count: 128, total: 142, message: '', hidden: true },
+        ],
+      },
+    };
+
+    const regressions = applyDuplicateDescriptionRatchet(report);
+
+    expect(report['templated-source'].severity).toBe('WARNING');
+    expect(regressions).toHaveLength(0);
   });
 });

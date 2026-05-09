@@ -220,6 +220,30 @@ function normalizeSpace(s) {
 }
 
 /**
+ * Normalize whitespace WITHOUT collapsing newlines.
+ *
+ * Job descriptions arrive here with structure already encoded as line
+ * breaks ("## Section\n- bullet\n- bullet\n\n") via htmlToStructuredText
+ * or by the dedicated parsers. The earlier `normalizeSpace(text)` call
+ * before each translation request flattened all of that into a single
+ * line, DeepL returned a single line, and the audit's no-structure
+ * ratchet escalated VF (and others) to CRITICAL because the translated
+ * output had zero `<li>`/bullet markers.
+ *
+ * This variant collapses runs of horizontal whitespace, normalizes CRLF,
+ * trims trailing spaces around line breaks, and caps blank-line runs.
+ */
+function normalizeBlock(s) {
+  return String(s || '')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\r\n/g, '\n')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
  * Split text into chunks ≤ maxChars at sentence boundaries.
  * Splits at: paragraph breaks (\n\n), newlines (\n), sentence-ending punctuation (. ! ?),
  * markdown headers (##), and list items (- *).
@@ -264,7 +288,12 @@ function _chunkAtSentences(text, maxChars = 480) {
 // On 456 (quota exceeded) or 429 (rate limit): rotate to next key.
 async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
   const MAX_CHUNK = 5000;
-  const clean = normalizeSpace(text);
+  // Preserve line breaks: DeepL's `preserve_formatting=1` keeps paragraph
+  // structure (and `tag_handling=xml` would too if we wrapped content).
+  // Using normalizeBlock (instead of the legacy normalizeSpace) keeps
+  // bullet/section markers intact so the translated output is still
+  // recognisable as structured prose to the audit.
+  const clean = normalizeBlock(text);
   const chunks = clean.length <= MAX_CHUNK ? [clean] : chunkText(clean, MAX_CHUNK);
   const translated = [];
 
@@ -273,6 +302,8 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
     body.append('text', chunk);
     if (srcCode) body.append('source_lang', srcCode);
     body.append('target_lang', tgtCode);
+    body.append('preserve_formatting', '1');
+    body.append('split_sentences', 'nonewlines');
 
     const res = await fetch('https://api-free.deepl.com/v2/translate', {
       method: 'POST',
@@ -294,12 +325,12 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
     if (chunks.length > 1) await delay(200);
   }
 
-  return normalizeSpace(translated.join('\n\n'));
+  return normalizeBlock(translated.join('\n\n'));
 }
 
 async function translateWithDeepL(text, sourceLang, targetLang) {
   if (DEEPL_API_KEYS.length === 0) return '';
-  const clean = normalizeSpace(text);
+  const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
 
   const srcCode = DEEPL_LANG_MAP[sourceLang] || sourceLang?.toUpperCase() || '';

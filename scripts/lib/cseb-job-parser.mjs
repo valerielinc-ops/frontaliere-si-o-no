@@ -49,13 +49,42 @@ function normalizeSpace(s = '') {
 }
 
 /**
- * Decode HTML entities and strip tags from an HTML string.
- * The Abacus API double-encodes HTML: entity-encoded tags inside JSON strings.
+ * Collapse runs of horizontal whitespace but preserve newlines, then trim
+ * leading/trailing whitespace and cap consecutive blank lines.
+ *
+ * The original parser used `normalizeSpace` (which collapses every \s+ run
+ * to a single space) on each section AFTER stripping HTML, so list items
+ * like `<ul><li>A</li><li>B</li></ul>` \u2014 which `decodeAndStrip` now turns
+ * into `\n\u2022 A\n\u2022 B\n` \u2014 were folded into `\u2022 A \u2022 B`. The audit's
+ * `hasStructuredContent` check uses a multiline anchor (`/^\s*[-\u2022*]\s/m`),
+ * so mid-line bullets failed the bullet-detection and the no-structure
+ * ratchet escalated cseb to CRITICAL.
+ */
+function normalizeBlock(s = '') {
+  return String(s || '')
+    .replace(/\r\n/g, '\n')
+    .replace(/[ \t]+/g, ' ')      // collapse spaces/tabs only
+    .replace(/[ \t]*\n[ \t]*/g, '\n') // trim around newlines
+    .replace(/\n{3,}/g, '\n\n')   // cap blank-line runs
+    .trim();
+}
+
+/**
+ * Decode HTML entities and strip tags from an HTML string while preserving
+ * paragraph + list structure as plain-text bullets and line breaks.
+ *
+ * The Abacus API double-encodes HTML (entity-encoded tags inside JSON
+ * strings). Both passes need to happen here:
+ *   1. Decode entities (`&lt;li&gt;` \u2192 `<li>`).
+ *   2. Convert structural tags to plain-text equivalents BEFORE we strip
+ *      the rest of the HTML, so `<li>` items become `\n\u2022 ` bullets that
+ *      survive into the final string. Without this, the no-structure
+ *      ratchet kept tripping on cseb because every job's tasks/requirements
+ *      were rendered as one long inline run.
  */
 function decodeAndStrip(html = '') {
   if (!html) return '';
-  // First decode HTML entities to get actual HTML tags
-  const decoded = html
+  let decoded = html
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&amp;/g, '&')
@@ -76,7 +105,17 @@ function decodeAndStrip(html = '') {
     .replace(/&ouml;/g, '\u00F6')
     .replace(/&uuml;/g, '\u00FC')
     .replace(/&eacute;/g, '\u00E9');
-  // Then strip remaining HTML tags
+
+  // Convert structural HTML to newline/bullet markers before stripping tags.
+  // Order matters: <li> first so we don't drop list boundaries when <ul>/<ol>
+  // wrappers get removed.
+  decoded = decoded
+    .replace(/<\s*br\s*\/?>/gi, '\n')
+    .replace(/<\s*li[^>]*>/gi, '\n\u2022 ')
+    .replace(/<\s*\/\s*li\s*>/gi, '\n')
+    .replace(/<\s*\/\s*(p|div|h[1-6]|ul|ol)\s*>/gi, '\n')
+    .replace(/<\s*(p|div|h[1-6])[^>]*>/gi, '\n');
+
   return stripHtml(decoded);
 }
 
@@ -206,37 +245,24 @@ function extractPensum(title = '') {
 function buildDescription(pub) {
   const parts = [];
 
-  if (pub.Introduction) {
-    const intro = normalizeSpace(decodeAndStrip(pub.Introduction));
-    if (intro.length > 10) parts.push(intro);
-  }
+  // Use normalizeBlock (preserves \n) instead of normalizeSpace so the
+  // bullets/newlines emitted by decodeAndStrip survive into the final
+  // string. Sections are joined with a blank line so each shows up as a
+  // distinct paragraph block to the audit and to AI translation.
+  const section = (label, html) => {
+    const text = normalizeBlock(decodeAndStrip(html));
+    if (text.length <= 10) return null;
+    return label ? `${label}:\n${text}` : text;
+  };
 
-  if (pub.Tasks) {
-    const tasks = normalizeSpace(decodeAndStrip(pub.Tasks));
-    if (tasks.length > 10) parts.push(`Aufgaben: ${tasks}`);
-  }
+  if (pub.Introduction)  { const s = section('', pub.Introduction);   if (s) parts.push(s); }
+  if (pub.Tasks)         { const s = section('Aufgaben', pub.Tasks);  if (s) parts.push(s); }
+  if (pub.Requirements)  { const s = section('Anforderungen', pub.Requirements); if (s) parts.push(s); }
+  if (pub.Benefits)      { const s = section('Wir bieten', pub.Benefits); if (s) parts.push(s); }
+  if (pub.Organization)  { const s = section('', pub.Organization);   if (s) parts.push(s); }
+  if (pub.Closure)       { const s = section('', pub.Closure);        if (s) parts.push(s); }
 
-  if (pub.Requirements) {
-    const reqs = normalizeSpace(decodeAndStrip(pub.Requirements));
-    if (reqs.length > 10) parts.push(`Anforderungen: ${reqs}`);
-  }
-
-  if (pub.Benefits) {
-    const benefits = normalizeSpace(decodeAndStrip(pub.Benefits));
-    if (benefits.length > 10) parts.push(`Wir bieten: ${benefits}`);
-  }
-
-  if (pub.Organization) {
-    const org = normalizeSpace(decodeAndStrip(pub.Organization));
-    if (org.length > 10) parts.push(org);
-  }
-
-  if (pub.Closure) {
-    const closure = normalizeSpace(decodeAndStrip(pub.Closure));
-    if (closure.length > 10) parts.push(closure);
-  }
-
-  return parts.join(' | ');
+  return parts.join('\n\n');
 }
 
 /* ── Parse a Single Publication ──────────────────────────── */

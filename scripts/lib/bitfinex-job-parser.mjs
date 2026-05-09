@@ -143,6 +143,57 @@ function isGenericOffer(offer = {}) {
   return GENERIC_PATTERNS.some((re) => re.test(title));
 }
 
+/**
+ * Deduplicate parsed jobs whose title and body collapse to the same content.
+ *
+ * Bitfinex's Recruitee feed publishes the same role multiple times with
+ * different IDs (the API listing for `/api/offers` typically returns 9× the
+ * same "Senior Backend Developer", 9× the same "Mobile Developer", etc.).
+ * Without dedup the output looks like 37 distinct postings even though there
+ * are only ~8 unique roles, which trips the audit's duplicate-listings
+ * ratchet (89% jobs share both title + description) and floods Google with
+ * thin/duplicate job pages.
+ *
+ * Key: normalized title + first 500 chars of plain-text description (after
+ * lower-casing). We keep the most-recently-published listing in each group
+ * so applicants land on the freshest posting, and we preserve insertion
+ * order otherwise so downstream behaviour stays stable.
+ */
+function dedupeBitfinexJobs(jobs) {
+  if (!Array.isArray(jobs) || jobs.length <= 1) return jobs;
+
+  const fingerprint = (job) => {
+    const title = normalize(job.title || '').replace(/\s+/g, ' ');
+    const desc = String(job.description || '')
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/&[a-z]+;/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .toLowerCase()
+      .slice(0, 500);
+    return `${title}|${desc}`;
+  };
+
+  const groups = new Map();
+  jobs.forEach((job, index) => {
+    const fp = fingerprint(job);
+    const existing = groups.get(fp);
+    if (!existing) {
+      groups.set(fp, { job, index, postedDate: job.datePosted || '' });
+      return;
+    }
+    // Keep the most-recent posting; tie-break on lowest original index.
+    if ((job.datePosted || '') > existing.postedDate) {
+      groups.set(fp, { job, index, postedDate: job.datePosted || '' });
+    }
+  });
+
+  // Preserve original insertion order of the kept entries.
+  return [...groups.values()]
+    .sort((a, b) => a.index - b.index)
+    .map((g) => g.job);
+}
+
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
@@ -283,6 +334,10 @@ export async function fetchAllBitfinexJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total Bitfinex jobs discovered: ${jobs.length}`);
-  return jobs;
+  const deduped = dedupeBitfinexJobs(jobs);
+  if (deduped.length < jobs.length) {
+    console.log(`  🧹 Deduplicated ${jobs.length - deduped.length} duplicate listing(s) (kept most-recent per role)`);
+  }
+  console.log(`\n📋 Total Bitfinex jobs discovered: ${deduped.length}`);
+  return deduped;
 }

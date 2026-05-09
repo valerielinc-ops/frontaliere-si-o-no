@@ -30,37 +30,75 @@ export function loadNoStructureBaseline(p = BASELINE_PATH) {
 }
 
 /**
- * Escalate a `duplicate-descriptions` warning to CRITICAL when nearly every
- * job in a crawler shares the same description.
+ * Escalate duplicate-description warnings to CRITICAL using two complementary
+ * signals: real source duplicates (title-aware) and chrome scraping (desc-only).
  *
- * Real openings differ. When 80%+ of jobs from one parser have an identical
- * (after boilerplate stripping) description, the parser is almost always
- * capturing site chrome (nav, footer, megamenu) instead of the per-job body.
- * The Moncucco regression that motivated this gate had 9/9 jobs sharing a
- * 4 125-char nav blob; the existing thin-description heuristics didn't fire
- * because the blob was long, prose-shaped, and unique to that crawler.
+ * SIGNAL 1 — duplicate listings (title-aware fingerprint, ≥80%):
+ *   Many records share the same TITLE *and* same body. Either the source
+ *   feed publishes the same role multiple times (bitfinex's Recruitee setup
+ *   posts each role 9× with different IDs) or the parser is keeping records
+ *   that should have been deduped. Action: dedupe in the parser.
  *
- * Threshold rationale: require ≥5 jobs and ≥80% duplicates so small or
- * naturally-templated crawlers (e.g. a 3-job listing where two postings
- * happen to share boilerplate) don't get falsely escalated.
+ * SIGNAL 2 — chrome scraping (desc-only fingerprint, ≥95%):
+ *   Almost every job — regardless of title — carries the SAME body. That's
+ *   the Moncucco-class failure: the parser is grabbing nav/footer/megamenu
+ *   instead of the per-job body. Action: inspect detail-page selectors.
+ *
+ * Threshold rationale: title-aware stays at 80% (the original threshold);
+ * desc-only is tightened to 95% so legitimately templated content (companies
+ * that publish the same role across many cities — reboot-monkey, lidl-svizzera)
+ * doesn't false-positive. A real chrome-scraping parser produces near-100%
+ * desc-only duplicates because every job carries the same nav blob.
+ *
+ * Both signals require ≥5 jobs to skip naturally-templated tiny crawlers.
  *
  * @param {Record<string, { total: number, issues: Array<any>, severity?: string, action?: string }>} report
- * @returns {Array<{ key: string, count: number, total: number, ratio: number }>} regressions
+ * @returns {Array<{ key: string, count: number, total: number, ratio: number, kind: string }>} regressions
  */
 export function applyDuplicateDescriptionRatchet(report) {
   const regressions = [];
   for (const [key, entry] of Object.entries(report)) {
     const issue = entry.issues.find((i) => i.type === 'duplicate-descriptions');
-    if (!issue) continue;
-    if (issue.total < 5) continue;
-    const ratio = issue.count / issue.total;
-    if (ratio < 0.8) continue;
+    const chromeIssue = entry.issues.find((i) => i.type === 'duplicate-descriptions-desc-only');
 
-    entry.severity = 'CRITICAL';
-    issue.message += ` [PARSER LIKELY GRABBING CHROME: ${(ratio * 100).toFixed(0)}% of jobs share a description]`;
-    const ratchetAction = `Most jobs share the same description — parser is probably scraping the page chrome (nav/footer/menu) instead of the per-job body. Inspect the detail-page selectors.`;
-    entry.action = `${entry.action ? entry.action + ' ' : ''}${ratchetAction}`;
-    regressions.push({ key, count: issue.count, total: issue.total, ratio });
+    // Signal 1: real duplicate listings (title-aware ≥80%)
+    if (issue && issue.total >= 5) {
+      const ratio = issue.count / issue.total;
+      if (ratio >= 0.8) {
+        entry.severity = 'CRITICAL';
+        issue.message += ` [DUPLICATE LISTINGS: ${(ratio * 100).toFixed(0)}% of jobs share both title and description]`;
+        const ratchetAction = `Many records share the same title AND description — the source feed is publishing duplicates (or the parser is not deduping). Add a deduplication step in the parser keyed on (normalized title, description fingerprint).`;
+        entry.action = `${entry.action ? entry.action + ' ' : ''}${ratchetAction}`;
+        regressions.push({ key, count: issue.count, total: issue.total, ratio, kind: 'duplicate-listings' });
+        continue; // don't double-flag chrome on the same crawler
+      }
+    }
+
+    // Signal 2: chrome scraping (desc-only ≥95%, only when title-aware didn't fire)
+    if (chromeIssue && chromeIssue.total >= 5) {
+      const chromeRatio = chromeIssue.count / chromeIssue.total;
+      if (chromeRatio >= 0.95) {
+        entry.severity = 'CRITICAL';
+        // Render the chrome signal on the user-facing duplicate-descriptions
+        // issue (chromeIssue itself stays hidden). If the user-facing issue
+        // doesn't exist (count was below the >1 threshold for rendering),
+        // synthesize one so the warning surfaces.
+        const renderIssue = issue || (() => {
+          const synth = {
+            type: 'duplicate-descriptions',
+            count: chromeIssue.count,
+            total: chromeIssue.total,
+            message: `${chromeIssue.count}/${chromeIssue.total} duplicate descriptions`,
+          };
+          entry.issues.push(synth);
+          return synth;
+        })();
+        renderIssue.message += ` [PARSER LIKELY GRABBING CHROME: ${(chromeRatio * 100).toFixed(0)}% of jobs share a description regardless of title]`;
+        const ratchetAction = `Nearly every job carries the same description — parser is probably scraping the page chrome (nav/footer/menu) instead of the per-job body. Inspect the detail-page selectors.`;
+        entry.action = `${entry.action ? entry.action + ' ' : ''}${ratchetAction}`;
+        regressions.push({ key, count: chromeIssue.count, total: chromeIssue.total, ratio: chromeRatio, kind: 'chrome-scraping' });
+      }
+    }
   }
   return regressions;
 }
@@ -175,13 +213,56 @@ function estimateBoilerplateLength(plain) {
   return maxPrefix;
 }
 
-function fingerprintsForCrawler(jobs) {
+/**
+ * Build per-job fingerprints for duplicate detection.
+ *
+ * Two modes are supported because the original "all-jobs-share-the-same-500-char
+ * description-slice" heuristic conflates two very different parser problems:
+ *
+ *   1. CHROME SCRAPING — the parser grabs nav/footer/megamenu instead of the
+ *      job body, so dozens of UNRELATED jobs (different titles, different
+ *      cities) all carry the same prose. This is the Moncucco regression that
+ *      motivated the original ratchet.
+ *
+ *   2. TEMPLATED SOURCES — the source company publishes the same role across
+ *      many cities (reboot-monkey: 142 "Data Center Technician — Switzerland —
+ *      <city>" listings; lidl-svizzera: 8 apprendistato in 8 filiali). Titles
+ *      ARE distinct (one per city) but the body is templated so post-boilerplate
+ *      slices collide. The parser is doing the right thing — flagging it as
+ *      "chrome scraping" is a false positive.
+ *
+ * We separate the two:
+ *   - mode 'title-aware'  : title || desc-slice. Catches real duplicate listings
+ *                           where multiple postings share the same title AND body
+ *                           (bitfinex's Recruitee feed publishes 9× the same role).
+ *   - mode 'desc-only'    : the original desc-only slice. Used at a stricter
+ *                           threshold to keep chrome-scraping detection alive
+ *                           (chrome makes ALL descriptions identical regardless
+ *                           of title).
+ */
+function fingerprintsForCrawler(jobs, mode = 'title-aware') {
   const plain = jobs.map((j) => plainText(j.description).toLowerCase());
   const boilerLen = estimateBoilerplateLength(plain);
   // Only strip when the boilerplate is long enough to be meaningful and not
   // so long that stripping it leaves no signal.
   const stripLen = boilerLen >= 120 ? Math.max(boilerLen - 20, 0) : 0;
-  return plain.map((p) => p.slice(stripLen, stripLen + 500));
+  return plain.map((p, i) => {
+    const slice = p.slice(stripLen, stripLen + 500);
+    if (mode === 'title-aware') {
+      const title = plainText(jobs[i]?.title || '').toLowerCase();
+      return `${title}||${slice}`;
+    }
+    return slice;
+  });
+}
+
+function countDuplicates(fps) {
+  const counts = new Map();
+  for (const fp of fps) {
+    if (fp.length < 20) continue; // skip empty/tiny
+    counts.set(fp, (counts.get(fp) || 0) + 1);
+  }
+  return [...counts.values()].filter((c) => c > 1).reduce((s, c) => s + c, 0);
 }
 
 /* ── URL checker with concurrency limit ────────────────────── */
@@ -315,20 +396,43 @@ async function main() {
       });
     }
 
-    // 5. Duplicate descriptions — strip common company boilerplate prefix first
-    const fps = fingerprintsForCrawler(jobs);
-    const fpMap = new Map();
-    for (const fp of fps) {
-      if (fp.length < 20) continue; // skip empty/tiny
-      fpMap.set(fp, (fpMap.get(fp) || 0) + 1);
-    }
-    const dupeCount = [...fpMap.values()].filter((c) => c > 1).reduce((s, c) => s + c, 0);
+    // 5. Duplicate descriptions — strip common company boilerplate prefix first.
+    //
+    // Title-aware fingerprint catches REAL duplicate listings (same title +
+    // same body across many records, e.g. bitfinex's Recruitee feed posting
+    // the same role 9× with different IDs). Templated city-listings stay
+    // unflagged because each city has a distinct title.
+    //
+    // The desc-only chrome signal (handled by applyChromeScrapingRatchet
+    // below) keeps the original Moncucco-class detection alive — when ALL
+    // descriptions are byte-identical regardless of title, the parser is
+    // probably grabbing nav/footer chrome instead of the per-job body.
+    const fps = fingerprintsForCrawler(jobs, 'title-aware');
+    const dupeCount = countDuplicates(fps);
     if (dupeCount > 1) {
       issues.push({
         type: 'duplicate-descriptions',
         count: dupeCount,
         total: jobs.length,
         message: `${dupeCount}/${jobs.length} duplicate descriptions`,
+      });
+    }
+
+    // 5b. Chrome-scraping signal — desc-only slice at a stricter threshold.
+    // Stored separately so applyChromeScrapingRatchet() can escalate without
+    // double-flagging templated content (which the title-aware check above
+    // already filters out).
+    const fpsDescOnly = fingerprintsForCrawler(jobs, 'desc-only');
+    const chromeDupes = countDuplicates(fpsDescOnly);
+    if (chromeDupes > 1) {
+      issues.push({
+        type: 'duplicate-descriptions-desc-only',
+        count: chromeDupes,
+        total: jobs.length,
+        // No user-facing message: this issue exists only to feed
+        // applyChromeScrapingRatchet(). We don't render warnings for it.
+        message: '',
+        hidden: true,
       });
     }
 
@@ -380,12 +484,13 @@ async function main() {
     for (const r of regressions) console.log(`   ${r.key}: ${r.was} → ${r.now}/${r.total}`);
   }
 
-  // ── Ratchet: ≥80% duplicate descriptions escalates to CRITICAL ──
+  // ── Ratchet: duplicate listings (≥80% title-aware) and chrome scraping (≥95% desc-only) ──
   const dupeRegressions = applyDuplicateDescriptionRatchet(report);
   if (dupeRegressions.length > 0) {
-    console.log(`\n🛑 Duplicate-description ratchet: ${dupeRegressions.length} crawler(s) likely grabbing chrome:`);
+    console.log(`\n🛑 Duplicate-description ratchet: ${dupeRegressions.length} crawler(s) regressed:`);
     for (const r of dupeRegressions) {
-      console.log(`   ${r.key}: ${r.count}/${r.total} (${(r.ratio * 100).toFixed(0)}%)`);
+      const label = r.kind === 'duplicate-listings' ? 'duplicate-listings' : 'chrome-scraping';
+      console.log(`   ${r.key}: ${r.count}/${r.total} (${(r.ratio * 100).toFixed(0)}%) — ${label}`);
     }
   }
 
@@ -444,6 +549,7 @@ function printReport(report) {
     for (const [key, entry] of critical) {
       console.log(`  ${key} (${entry.total} jobs):`);
       for (const issue of entry.issues) {
+        if (issue.hidden) continue;
         console.log(`    \u274C ${issue.message}`);
       }
       if (entry.action) {
@@ -457,6 +563,7 @@ function printReport(report) {
     for (const [key, entry] of warnings) {
       console.log(`  ${key} (${entry.total} jobs):`);
       for (const issue of entry.issues) {
+        if (issue.hidden) continue;
         console.log(`    \u26A0\uFE0F ${issue.message}`);
       }
     }
