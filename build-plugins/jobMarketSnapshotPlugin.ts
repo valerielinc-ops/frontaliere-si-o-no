@@ -1932,7 +1932,11 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
   }
 
   // ── Hub pages (always emitted for all 4 locales)
-  const latestWeeksSummary = completedWeeks.slice(-4).reverse().map((b) => {
+  // Link every weekly that is emitted as index,follow from the hub.
+  // Mismatch between this slice and WEEKLY_INDEXABLE_LIMIT below produces
+  // orphan weeklies in the sitemap (BFS depth=unreachable from /),
+  // tripping audit:max-bfs-depth.
+  const latestWeeksSummary = completedWeeks.slice(-WEEKLY_INDEXABLE_LIMIT).reverse().map((b) => {
     const summary = aggregateStatsForEntries(b.entries);
     return { bucket: b, summary };
   });
