@@ -23069,4 +23069,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'super-ricco-tasse-frontalieri-ticino',
+ category: 'fiscale',
+ date: '2026-05-09T20:01:59.849Z',
+ image: '/images/blog/super-ricco-tasse-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

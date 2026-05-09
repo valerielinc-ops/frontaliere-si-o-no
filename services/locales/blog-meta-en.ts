@@ -7232,6 +7232,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.criptovalute-frontalieri-timing-perfetto.title': 'Crypto expert advises against perfect timing',
     'blog.article.criptovalute-frontalieri-timing-perfetto.excerpt': 'Mathias Imbach, CEO of Sygnum Bank, explains how to invest in cryptocurrencies without seeking the ideal moment.',
     'blog.article.criptovalute-frontalieri-timing-perfetto.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.super-ricco-tasse-frontalieri-ticino.title': 'Wealthy Swiss man wants to pay more taxes, but he\'s the only one',
+    'blog.article.super-ricco-tasse-frontalieri-ticino.excerpt': 'A well-off Swiss citizen wants to pay more taxes, but he\'s the only known case. Here\'s what changes for Ticino cross-border workers.',
+    'blog.article.super-ricco-tasse-frontalieri-ticino.imageAlt': 'Businessman in a suit and tie in front of Lake Lugano holding tax documents',
 };
 
 export default blogMetaEn;

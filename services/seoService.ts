@@ -3653,6 +3653,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-premiate-classi-acqua-vita-2026': { name: 'Novità', path: '/articoli-frontaliere/premiate-classi-acqua-vita-2026', parent: 'blog' },
     'blog-biasca-ucraina-aiuto-medico-2026': { name: 'Novità', path: '/articoli-frontaliere/biasca-ucraina-aiuto-medico-2026', parent: 'blog' },
     'blog-criptovalute-frontalieri-timing-perfetto': { name: 'Criptovalute', path: '/articoli-frontaliere/criptovalute-frontalieri-timing-perfetto', parent: 'blog' },
+    'blog-super-ricco-tasse-frontalieri-ticino': { name: 'Fiscale', path: '/articoli-frontaliere/super-ricco-tasse-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

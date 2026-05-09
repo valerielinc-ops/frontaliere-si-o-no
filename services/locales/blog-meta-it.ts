@@ -7233,6 +7233,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.criptovalute-frontalieri-timing-perfetto.title': 'Criptovalute: l\'esperto consiglia di evitare il timing perfetto',
     'blog.article.criptovalute-frontalieri-timing-perfetto.excerpt': 'Mathias Imbach, CEO di Sygnum Bank, spiega come investire in criptovalute senza cercare il momento ideale.',
     'blog.article.criptovalute-frontalieri-timing-perfetto.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
+    'blog.article.super-ricco-tasse-frontalieri-ticino.title': 'Super-ricco svizzero vuole pagare più tasse, ma è l’unico',
+    'blog.article.super-ricco-tasse-frontalieri-ticino.excerpt': 'Un cittadino svizzero benestante desidera pagare più tasse, ma è l’unico caso noto. Ecco cosa cambia per i frontalieri Ticino.',
+    'blog.article.super-ricco-tasse-frontalieri-ticino.imageAlt': 'Uomo d\'affari in giacca e cravatta davanti al Lago di Lugano con documenti fiscali in mano',
 };
 
 export default blogMetaIt;

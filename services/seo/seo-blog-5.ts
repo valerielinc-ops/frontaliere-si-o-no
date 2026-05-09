@@ -32873,6 +32873,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-super-ricco-tasse-frontalieri-ticino': {
+    title: 'Super-ricco svizzero vuole pagare più tasse, ma è l’unico',
+    description: 'Un cittadino svizzero benestante desidera pagare più tasse, un caso unico in Svizzera. Ecco cosa cambia per i frontalieri Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, super-ricco, svizzero, vuole, pagare',
+    ogTitle: 'Super-ricco svizzero vuole pagare più tasse, ma è l’unico',
+    ogDescription: 'Un cittadino svizzero benestante desidera pagare più tasse, un caso unico in Svizzera. Ecco cosa cambia per i frontalieri Ticino.',
+    canonicalPath: '/articoli-frontaliere/super-ricco-tasse-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Super-ricco svizzero vuole pagare più tasse, ma è l’unico",
+      "description": "Un cittadino svizzero benestante desidera pagare più tasse, un caso unico in Svizzera. Ecco cosa cambia per i frontalieri Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/super-ricco-tasse-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uomo d'affari in giacca e cravatta davanti al Lago di Lugano con documenti fiscali in mano"
+      },
+      "datePublished": "2026-05-09T20:01:59+00:00",
+      "dateModified": "2026-05-09T20:01:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/super-ricco-tasse-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

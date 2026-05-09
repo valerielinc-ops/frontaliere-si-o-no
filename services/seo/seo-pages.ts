@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2463,
+ "numberOfItems": 2464,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7105,7 +7105,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2460, "name": "FC Lugano: quattro giocatori lasciano la squadra", "url": `${BASE_URL}/articoli-frontaliere/lugano-calcio-frontalieri-2026` },
           { "@type": "ListItem", "position": 2461, "name": "Premiate le classi vincitrici del concorso 'L'a...", "url": `${BASE_URL}/articoli-frontaliere/premiate-classi-acqua-vita-2026` },
           { "@type": "ListItem", "position": 2462, "name": "Da Biasca all'Ucraina: sei volontari in mission...", "url": `${BASE_URL}/articoli-frontaliere/biasca-ucraina-aiuto-medico-2026` },
-          { "@type": "ListItem", "position": 2463, "name": "Criptovalute: l'esperto consiglia di evitare il...", "url": `${BASE_URL}/articoli-frontaliere/criptovalute-frontalieri-timing-perfetto` }
+          { "@type": "ListItem", "position": 2463, "name": "Criptovalute: l'esperto consiglia di evitare il...", "url": `${BASE_URL}/articoli-frontaliere/criptovalute-frontalieri-timing-perfetto` },
+          { "@type": "ListItem", "position": 2464, "name": "Super-ricco svizzero vuole pagare più tasse, ma...", "url": `${BASE_URL}/articoli-frontaliere/super-ricco-tasse-frontalieri-ticino` }
  ]
  },
  {
