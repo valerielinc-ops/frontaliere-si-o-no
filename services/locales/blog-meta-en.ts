@@ -7202,6 +7202,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.servizi-dentari-scolastici-conflitti-interesse.title': 'School dental services: government tackles conflicts of interest',
     'blog.article.servizi-dentari-scolastici-conflitti-interesse.excerpt': 'The Ticino League questions the State Council on transparency and conflicts of interest in the awarding of school dental services',
     'blog.article.servizi-dentari-scolastici-conflitti-interesse.imageAlt': 'School dental clinic in Mendrisio, Ticino',
+    'blog.article.pensioni-svantaggio-tasse-frontalieri.title': 'Cross-border workers, this pension puts you at a disadvantage',
+    'blog.article.pensioni-svantaggio-tasse-frontalieri.excerpt': 'Discover how Ticino cross-border workers can be disadvantaged with pensions and pay more taxes. Detailed analysis and practical solutions.',
+    'blog.article.pensioni-svantaggio-tasse-frontalieri.imageAlt': 'Mendrisio, Ticino, at the border with Italy',
 };
 
 export default blogMetaEn;

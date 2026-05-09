@@ -22979,4 +22979,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pensioni-svantaggio-tasse-frontalieri',
+ category: 'novita',
+ date: '2026-05-09T18:18:51.681Z',
+ image: '/images/blog/pensioni-svantaggio-tasse-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

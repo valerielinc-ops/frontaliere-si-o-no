@@ -7203,6 +7203,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.servizi-dentari-scolastici-conflitti-interesse.title': 'Servizi dentari scolastici: il governo interviene sui conflitti d\'interesse',
     'blog.article.servizi-dentari-scolastici-conflitti-interesse.excerpt': 'La Lega dei Ticinesi interroga il Consiglio di Stato su trasparenza e conflitti d\'interesse nell\'assegnazione dei servizi dentari scolastici',
     'blog.article.servizi-dentari-scolastici-conflitti-interesse.imageAlt': 'Clinica dentale scolastica a Mendrisio, Ticino',
+    'blog.article.pensioni-svantaggio-tasse-frontalieri.title': 'Pensioni, con questo importo sei svantaggiato. Paghi più tasse',
+    'blog.article.pensioni-svantaggio-tasse-frontalieri.excerpt': 'Scopri come i frontalieri del Ticino possono essere svantaggiati con le pensioni e pagare più tasse. Analisi dettagliata e soluzioni pratiche.',
+    'blog.article.pensioni-svantaggio-tasse-frontalieri.imageAlt': 'Mendrisio, Ticino, al confine con l\'Italia',
 };
 
 export default blogMetaIt;

@@ -7202,6 +7202,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.servizi-dentari-scolastici-conflitti-interesse.title': 'Schulzahnpflege: Regierung greift bei Interessenkonflikten ein',
     'blog.article.servizi-dentari-scolastici-conflitti-interesse.excerpt': 'Die Lega der Tessiner befragt den Staatsrat zu Transparenz und Interessenkonflikten bei der Vergabe von Schulzahnpflegediensten',
     'blog.article.servizi-dentari-scolastici-conflitti-interesse.imageAlt': 'Schulzahnklinik in Mendrisio, Tessin',
+    'blog.article.pensioni-svantaggio-tasse-frontalieri.title': 'Rentner mit diesem Betrag sind benachteiligt. Höhere Steuern',
+    'blog.article.pensioni-svantaggio-tasse-frontalieri.excerpt': 'Erfahren Sie, wie Grenzgänger aus dem Tessin bei Renten benachteiligt sein können und mehr Steuern zahlen. Detaillierte Analyse und praktische Lösungen.',
+    'blog.article.pensioni-svantaggio-tasse-frontalieri.imageAlt': 'Mendrisio, Tessin, an der Grenze zu Italien',
 };
 
 export default blogMetaDe;
