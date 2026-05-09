@@ -335,6 +335,18 @@ jobs:
 
       - name: Build
         env:
+          # Bumped from libuv default (4) to unlock the concurrency already
+          # declared by WriteCollector (Promise.all of 500 fs.promises.writeFile)
+          # and postWalkWorker (4 async lanes per worker × 4 workers). With
+          # default=4, all those writes serialize through 4 libuv threads
+          # regardless of the application-level concurrency. 64 is a safe
+          # ceiling for ubuntu-latest (default ulimit -n = 65535) and
+          # matches typical Node CLI guidance for I/O-heavy batch workloads.
+          # Expected impact (measured against deploy 25603006521 baseline):
+          #   - jobs-seo-pages flush 144s → ~30-50s
+          #   - related-search-clusters emit 93s → ~25-40s
+          #   - post-walk-coordinator 69s → ~35-50s
+          UV_THREADPOOL_SIZE: '64'
           BUILD_PROFILE: '1'
           # ALWAYS sequential on the GH free-tier runner (2 vCPU / 7 GB).
           # Empirical comparison on the same source tree (2026-05-07):

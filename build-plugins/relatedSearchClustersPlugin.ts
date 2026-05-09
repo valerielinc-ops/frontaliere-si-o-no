@@ -133,28 +133,6 @@ function tokenizeQuery(query: string): string[] {
     .filter((tok) => tok.length >= 2);
 }
 
-/**
- * Count how many query tokens appear as a substring of the normalized job
- * haystack. A score of `queryTokens.length` means the job matches every
- * token (best match — equivalent to the original AND-match used by the
- * SPA's `indexedQueryMatch`). A score in `[1, queryTokens.length)` means
- * the job is a partial match (OR-fallback candidate). Zero means no match.
- *
- * Stemming is intentionally skipped — at build time we cannot afford the
- * per-job stemming overhead. The shorter-token substring match is permissive
- * in the same direction the SPA's stemmer is permissive (matches plurals,
- * feminine forms) so the AND-tier output is essentially identical to the
- * SPA's user-facing filter.
- */
-function queryMatchScore(haystack: string, queryTokens: ReadonlyArray<string>): number {
-  if (queryTokens.length === 0) return 0;
-  let score = 0;
-  for (const token of queryTokens) {
-    if (haystack.includes(token)) score++;
-  }
-  return score;
-}
-
 /** Build the per-locale normalized haystack once and cache it on the job. */
 function buildJobHaystack(job: RawJob, locale: Locale): string {
   const title = job.titleByLocale?.[locale] ?? job.title ?? '';
@@ -188,10 +166,6 @@ function stripCityFromKeyword(sampleTerm: string, city: string | null): string {
 function capitalize(value: string): string {
   if (!value) return value;
   return value.charAt(0).toUpperCase() + value.slice(1);
-}
-
-function jobIdentity(job: RawJob): string {
-  return job.slug || job.id || `${job.company}-${job.title}`;
 }
 
 // ── Cache (skip slow emit when inputs unchanged) ────────────────────────
@@ -423,6 +397,64 @@ interface ClusterContext {
   topCompanies: string[];
 }
 
+// ── Inverted index for token → posting list of jobIdx ────────────────────
+// Lazy-builds posting lists per (locale, token) pair. Each posting list is
+// computed once with a full O(jobs) substring scan, then reused across every
+// candidate that contains the same token. Across the candidate corpus there
+// are ~13.6k unique (locale, token) pairs vs ~53k candidates × 1.9k jobs
+// for the naive nested scan — a measured ~4× ceiling on the inner loop.
+//
+// Substring semantics are preserved exactly: each posting list contains
+// jobIdx for every job whose locale-specific haystack contains `token` as a
+// substring — the same `haystack.includes(token)` condition the prior
+// per-candidate scan applied via queryMatchScore. Stemming is intentionally
+// skipped (matches plurals/feminines via substring, like the SPA filter).
+class TokenIndex {
+  private haystacksByLocale = new Map<Locale, string[]>();
+  private postingsByLocale = new Map<Locale, Map<string, number[]>>();
+  private readonly jobs: ReadonlyArray<RawJob>;
+
+  constructor(jobs: ReadonlyArray<RawJob>) {
+    this.jobs = jobs;
+  }
+
+  /** Posting list for (locale, token), sorted ascending by jobIdx (corpus order). */
+  postings(locale: Locale, token: string): readonly number[] {
+    let perLocale = this.postingsByLocale.get(locale);
+    if (!perLocale) {
+      perLocale = new Map<string, number[]>();
+      this.postingsByLocale.set(locale, perLocale);
+    }
+    const cached = perLocale.get(token);
+    if (cached !== undefined) return cached;
+
+    const haystacks = this.getHaystacks(locale);
+    const list: number[] = [];
+    for (let i = 0; i < haystacks.length; i++) {
+      if (haystacks[i].includes(token)) list.push(i);
+    }
+    perLocale.set(token, list);
+    return list;
+  }
+
+  /** Free the haystack + postings cache once index queries are complete. */
+  clear(): void {
+    this.haystacksByLocale.clear();
+    this.postingsByLocale.clear();
+  }
+
+  private getHaystacks(locale: Locale): string[] {
+    const cached = this.haystacksByLocale.get(locale);
+    if (cached) return cached;
+    const arr = new Array<string>(this.jobs.length);
+    for (let i = 0; i < this.jobs.length; i++) {
+      arr[i] = buildJobHaystack(this.jobs[i], locale);
+    }
+    this.haystacksByLocale.set(locale, arr);
+    return arr;
+  }
+}
+
 function filterAndDedupeCandidates(all: CandidateEntry[]): CandidateEntry[] {
   const passing = all.filter((c) =>
     c.jobCount >= MIN_JOB_COUNT
@@ -443,7 +475,7 @@ function filterAndDedupeCandidates(all: CandidateEntry[]): CandidateEntry[] {
 
 function buildClusterContext(
   candidate: CandidateEntry,
-  haystackByLocale: Map<string, string>,
+  index: TokenIndex,
   jobs: ReadonlyArray<RawJob>,
 ): ClusterContext | null {
   const sampleTerm = (candidate.sampleTerms || [])[0] || '';
@@ -465,29 +497,40 @@ function buildClusterContext(
   //     (Davos isn't Ticino) but OR surfaces relevant "koch" listings —
   //     turning a 404 into an indexable page that still respects the
   //     MIN_MATCHING_JOBS=3 / MIN_INDEXABLE_WORDS quality gates.
+  //
+  // Each token's posting list is computed once per (locale, token) inside
+  // TokenIndex and reused across every candidate that shares it — so the
+  // expensive O(jobs) substring scan does NOT repeat per candidate. The
+  // resulting AND/OR arrays are byte-identical to the prior naive scan:
+  //   - `andMatches` ends up in corpus order (sort by jobIdx ascending),
+  //   - `orMatches` ends up sorted by score desc with ties broken by
+  //     corpus order (jobIdx ascending) — the same ordering produced by
+  //     a stable sort over jobs[]-iteration-order entries.
   const fullScore = tokens.length;
-  const andMatches: RawJob[] = [];
-  const orMatches: { job: RawJob; score: number }[] = [];
-  for (const job of jobs) {
-    const cacheKey = `${candidate.locale}::${jobIdentity(job)}`;
-    let haystack = haystackByLocale.get(cacheKey);
-    if (haystack === undefined) {
-      haystack = buildJobHaystack(job, candidate.locale);
-      haystackByLocale.set(cacheKey, haystack);
-    }
-    const score = queryMatchScore(haystack, tokens);
-    if (score === 0) continue;
-    if (score === fullScore) andMatches.push(job);
-    else orMatches.push({ job, score });
+
+  const scoreByIdx = new Map<number, number>();
+  for (const tok of tokens) {
+    const list = index.postings(candidate.locale, tok);
+    for (const idx of list) scoreByIdx.set(idx, (scoreByIdx.get(idx) || 0) + 1);
   }
 
-  // Higher partial-score first; preserve corpus order on ties (sort is stable).
-  orMatches.sort((a, b) => b.score - a.score);
+  const andIdx: number[] = [];
+  const orEntries: { idx: number; score: number }[] = [];
+  for (const [idx, score] of scoreByIdx) {
+    if (score === fullScore) andIdx.push(idx);
+    else orEntries.push({ idx, score });
+  }
+  andIdx.sort((a, b) => a - b);
+  orEntries.sort((a, b) => (b.score - a.score) || (a.idx - b.idx));
 
-  const matching: RawJob[] = andMatches.slice(0, MAX_JOBS_PER_PAGE);
-  for (const { job } of orMatches) {
+  const matching: RawJob[] = [];
+  for (const idx of andIdx) {
     if (matching.length >= MAX_JOBS_PER_PAGE) break;
-    matching.push(job);
+    matching.push(jobs[idx]);
+  }
+  for (const { idx } of orEntries) {
+    if (matching.length >= MAX_JOBS_PER_PAGE) break;
+    matching.push(jobs[idx]);
   }
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
@@ -1278,20 +1321,21 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const jobs = loadJobs(rootDir);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs`);
 
-      // Cache `${locale}::${jobIdentity}` → normalized haystack across clusters.
-      // The cache is roughly 4 locales × ~2k jobs × ~5 KB per haystack ≈ 40 MB.
-      // It's only needed during the matching loop below, so we free it (drop
-      // the only reference) before the heavier render+emit phase to keep
-      // peak heap down for the rest of closeBundle.
-      let haystackCache: Map<string, string> | null = new Map<string, string>();
-
+      // Inverted token index: lazy posting lists per (locale, token), shared
+      // across every candidate. Memory budget is dominated by the haystack
+      // cache (4 locales × ~2k jobs × ~5 KB ≈ 40 MB) plus posting lists
+      // (~13.6k entries × ~100 idx avg ≈ 5 MB). Index queries are only
+      // needed during the match loop below; we free both haystacks and
+      // postings before the heavier render+emit phase to keep peak heap
+      // down for the rest of closeBundle.
+      const tokenIndex = new TokenIndex(jobs);
       const contexts: ClusterContext[] = [];
       for (const cand of candidates) {
-        const ctx = buildClusterContext(cand, haystackCache, jobs);
+        const ctx = buildClusterContext(cand, tokenIndex, jobs);
         if (ctx) contexts.push(ctx);
       }
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);
-      haystackCache = null; // GC ~40 MB before the render/emit loop runs
+      tokenIndex.clear(); // GC haystacks + posting lists before the render/emit loop runs
 
       if (contexts.length === 0) return;
 
