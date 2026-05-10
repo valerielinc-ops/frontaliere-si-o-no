@@ -1482,8 +1482,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-arzneimittelherstellung-kantonsspital-graubunden-chur",
         "it": "personale-nella-produzione-farmaceutica-kantonsspital-graubunden-chur",
-        "en": "staff-in-pharmaceutical-production-kantonsspital-graubunden-chur",
-        "fr": "personnel-de-production-pharmaceutique-kantonsspital-graubunden-chur"
+        "en": "associate-arzneimittelherstellung-kantonsspital-graubunden-chur",
+        "fr": "collaborateur-trice-arzneimittelherstellung-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Arzneimittelherstellung",
@@ -1509,11 +1509,19 @@
       },
       "featured": false,
       "previousSlugs": [
-        "mitarbeiter-in-arzneimittelherstellung-kantonsspital-graubunden-chur"
+        "mitarbeiter-in-arzneimittelherstellung-kantonsspital-graubunden-chur",
+        "staff-in-pharmaceutical-production-kantonsspital-graubunden-chur",
+        "personnel-de-production-pharmaceutique-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-arzneimittelherstellung-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "staff-in-pharmaceutical-production-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "personnel-de-production-pharmaceutique-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -2669,7 +2677,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-kuche-kantonsspital-graubunden-walenstadt",
         "it": "addetto-a-cucina-kantonsspital-graubunden-walenstadt",
-        "en": "kitchen-assistant-kantonsspital-graubunden-walenstadt",
+        "en": "associate-kuche-kantonsspital-graubunden-walenstadt",
         "fr": "assistant-e-de-cuisine-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
@@ -2697,12 +2705,16 @@
       "featured": false,
       "previousSlugs": [
         "mitarbeiter-in-kuche-kantonsspital-graubunden-walenstadt",
+        "kitchen-assistant-kantonsspital-graubunden-walenstadt",
         "collaboratore-trice-kuche-kantonsspital-graubunden-walenstadt",
         "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-walenstadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kuche-kantonsspital-graubunden-walenstadt"
+        ],
+        "en": [
+          "kitchen-assistant-kantonsspital-graubunden-walenstadt"
         ]
       },
       "needsRetranslation": false,

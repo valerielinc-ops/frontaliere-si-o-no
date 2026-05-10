@@ -1706,7 +1706,7 @@
     },
     {
       "id": "company-4whh8x",
-      "slug": "personale-in-inventario-coop-genossenschaft-basel",
+      "slug": "collaboratore-trice-inventuren-coop-genossenschaft-basel",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Inventuren",
       "location": "Basel",
@@ -1752,10 +1752,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "personale-in-inventario-coop-genossenschaft-basel",
-        "en": "staff-in-inventory-coop-genossenschaft-basel",
+        "it": "collaboratore-trice-inventuren-coop-genossenschaft-basel",
+        "en": "associate-inventuren-coop-genossenschaft-basel",
         "de": "mitarbeiter-in-inventuren-coop-genossenschaft-basel",
-        "fr": "personnel-en-inventaire-coop-genossenschaft-basel"
+        "fr": "collaborateur-trice-inventuren-coop-genossenschaft-basel"
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
@@ -1774,13 +1774,16 @@
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-inventuren-coop-grigioni-4whh8x",
-          "mitarbeiter-in-inventuren-coop-grigioni"
+          "mitarbeiter-in-inventuren-coop-grigioni",
+          "personale-in-inventario-coop-genossenschaft-basel"
         ],
         "en": [
-          "associate-inventuren-coop-grigioni-4whh8x"
+          "associate-inventuren-coop-grigioni-4whh8x",
+          "staff-in-inventory-coop-genossenschaft-basel"
         ],
         "fr": [
-          "collaborateur-trice-inventuren-coop-grigioni-4whh8x"
+          "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
+          "personnel-en-inventaire-coop-genossenschaft-basel"
         ],
         "de": [
           "mitarbeiter-in-inventuren-coop-grigioni-4whh8x"
@@ -1789,8 +1792,11 @@
       "previousSlugs": [
         "collaboratore-trice-inventuren-coop-grigioni-4whh8x",
         "mitarbeiter-in-inventuren-coop-grigioni",
+        "personale-in-inventario-coop-genossenschaft-basel",
         "associate-inventuren-coop-grigioni-4whh8x",
+        "staff-in-inventory-coop-genossenschaft-basel",
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
+        "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x"
       ]
     },
@@ -2255,7 +2261,7 @@
       },
       "slugByLocale": {
         "it": "personale-nella-gastronomia-coop-genossenschaft-landquart",
-        "en": "staff-in-gastronomy-coop-genossenschaft-landquart",
+        "en": "associate-gastronomie-coop-genossenschaft-landquart",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart",
         "fr": "collaborateur-trice-gastronomie-coop-landquart-graubunden-632dx5"
       },
@@ -2279,7 +2285,8 @@
           "mitarbeiter-in-gastronomie-coop-landquart-graubunden"
         ],
         "en": [
-          "associate-gastronomie-coop-landquart-graubunden-632dx5"
+          "associate-gastronomie-coop-landquart-graubunden-632dx5",
+          "staff-in-gastronomy-coop-genossenschaft-landquart"
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-landquart-graubunden-632dx5"
@@ -2289,6 +2296,7 @@
         "collaboratore-trice-gastronomie-coop-landquart-graubunden-632dx5",
         "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
         "associate-gastronomie-coop-landquart-graubunden-632dx5",
+        "staff-in-gastronomy-coop-genossenschaft-landquart",
         "mitarbeiter-in-gastronomie-coop-landquart-graubunden-632dx5"
       ]
     },
@@ -2467,7 +2475,7 @@
     },
     {
       "id": "company-ricett",
-      "slug": "bevande-di-vendita-dei-dipendenti-transgourmet-schweiz-ag-chur",
+      "slug": "mitarbeiterin-addetto-a-alle-vendite-getranke-transgourmet-schweiz-ag-chur",
       "company": "Transgourmet Schweiz AG",
       "title": "Mitarbeiterin / Mitarbeiter Verkauf Getränke",
       "location": "Chur",
@@ -2504,7 +2512,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "bevande-di-vendita-dei-dipendenti-transgourmet-schweiz-ag-chur",
+        "it": "mitarbeiterin-addetto-a-alle-vendite-getranke-transgourmet-schweiz-ag-chur",
         "en": "employees-sales-drinks-transgourmet-schweiz-ag-chur",
         "de": "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-schweiz-ag-chur",
         "fr": "mitarbeiterin-vendeur-se-getranke-transgourmet-schweiz-ag-chur"
@@ -2526,7 +2534,8 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-addetto-a-alle-vendite-getranke-transgourmet-prodega-chur-graubunden-ricett",
-          "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden"
+          "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden",
+          "bevande-di-vendita-dei-dipendenti-transgourmet-schweiz-ag-chur"
         ],
         "en": [
           "mitarbeiterin-sales-associate-getranke-transgourmet-prodega-chur-graubunden-ricett"
@@ -2541,6 +2550,7 @@
       "previousSlugs": [
         "mitarbeiterin-addetto-a-alle-vendite-getranke-transgourmet-prodega-chur-graubunden-ricett",
         "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden",
+        "bevande-di-vendita-dei-dipendenti-transgourmet-schweiz-ag-chur",
         "mitarbeiterin-sales-associate-getranke-transgourmet-prodega-chur-graubunden-ricett",
         "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden-ricett",
         "mitarbeiterin-vendeur-se-getranke-transgourmet-prodega-chur-graubunden-ricett"
@@ -2595,7 +2605,7 @@
       },
       "slugByLocale": {
         "it": "personale-in-gastronomia-coop-genossenschaft-davos",
-        "en": "staff-in-gastronomy-coop-genossenschaft-davos",
+        "en": "associate-gastronomie-coop-genossenschaft-davos",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-davos",
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-davos-platz-wpsadl"
       },
@@ -2619,7 +2629,8 @@
           "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz"
         ],
         "en": [
-          "associate-gastronomie-coop-ristorante-davos-platz-wpsadl"
+          "associate-gastronomie-coop-ristorante-davos-platz-wpsadl",
+          "staff-in-gastronomy-coop-genossenschaft-davos"
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz-wpsadl"
@@ -2629,6 +2640,7 @@
         "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-wpsadl",
         "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
         "associate-gastronomie-coop-ristorante-davos-platz-wpsadl",
+        "staff-in-gastronomy-coop-genossenschaft-davos",
         "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz-wpsadl"
       ]
     },
@@ -3965,7 +3977,7 @@
         "it": "membro-di-sostegno-saison-coop-genossenschaft-davos",
         "en": "seasonal-support-staff-coop-genossenschaft-davos",
         "de": "mitarbeiter-in-saison-coop-genossenschaft-davos",
-        "fr": "membre-de-soutien-saisonnier-coop-genossenschaft-davos"
+        "fr": "collaborateur-trice-saison-coop-genossenschaft-davos"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Saison",
@@ -3999,7 +4011,7 @@
         "collaborateur-trice-saison-coop-davos-graubunden-6lujcy",
         "collaboratore-trice-saison-coop-davos-graubunden-6lujcy",
         "mitarbeiter-in-saison-coop-davos-graubunden-6lujcy",
-        "collaborateur-trice-saison-coop-genossenschaft-davos",
+        "membre-de-soutien-saisonnier-coop-genossenschaft-davos",
         "collaboratore-trice-in-saison-coop-genossenschaft-davos",
         "collaboratore-trice-saison-coop-genossenschaft-davos",
         "aspirant-in-coop-genossenschaft-davos"
@@ -4021,7 +4033,8 @@
         ],
         "fr": [
           "associate-saison-coop-davos-graubunden-6lujcy",
-          "collaborateur-trice-saison-coop-davos-graubunden-6lujcy"
+          "collaborateur-trice-saison-coop-davos-graubunden-6lujcy",
+          "membre-de-soutien-saisonnier-coop-genossenschaft-davos"
         ]
       },
       "firstSeenAt": "2026-03-31T07:18:28.826Z"
@@ -4535,7 +4548,7 @@
     },
     {
       "id": "company-7qutu2",
-      "slug": "systemgastronomia-donna-uomo-efz-marche-dietlikon",
+      "slug": "systemgastronomiefachfrau-mann-cfc-marche-dietlikon",
       "company": "Marché",
       "title": "Systemgastronomiefachfrau:mann EFZ",
       "location": "Dietlikon",
@@ -4558,7 +4571,7 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
       "slugByLocale": {
-        "it": "systemgastronomia-donna-uomo-efz-marche-dietlikon",
+        "it": "systemgastronomiefachfrau-mann-cfc-marche-dietlikon",
         "en": "system-gastronomy-woman-man-efz-marche-dietlikon",
         "de": "systemgastronomiefachfrau-mann-efz-marche-dietlikon",
         "fr": "system-gastronomie-femme-homme-efz-marche-dietlikon"
@@ -4598,6 +4611,7 @@
         "systemgastronomiefachfrau-mann-efz-marche-grigioni-7qutu2",
         "specialista-di-gastronomia-e-cucina-praticante-marche-grigioni",
         "efz-system-gastronomy-specialist-marche-grigioni",
+        "systemgastronomia-donna-uomo-efz-marche-dietlikon",
         "specialiste-en-gastronomie-systematique-efz-marche-grigioni"
       ],
       "previousSlugsByLocale": {
@@ -4613,7 +4627,8 @@
           "systemgastronomiefachfrau-mann-praktiker-in-marche-grigioni-2p2jlr",
           "specialiste-en-gastronomie-et-cuisine-stagiaire-marche-grigioni",
           "systemgastronomiefachfrau-mann-efz-marche-dietlikon",
-          "efz-system-gastronomy-specialist-marche-grigioni"
+          "efz-system-gastronomy-specialist-marche-grigioni",
+          "systemgastronomia-donna-uomo-efz-marche-dietlikon"
         ],
         "de": [
           "systemgastronomiefachfrau-mann-praktiker-in-marche-grigioni-2p2jlr",
@@ -5288,7 +5303,7 @@
     },
     {
       "id": "company-pzx8dt",
-      "slug": "logistiche-efz-coop-gossau",
+      "slug": "impiegata-impiegato-in-logistica-cfc-coop-gossau",
       "company": "Coop",
       "title": "Logistiker:in EFZ",
       "location": "Gossau",
@@ -5311,7 +5326,7 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
       "slugByLocale": {
-        "it": "logistiche-efz-coop-gossau",
+        "it": "impiegata-impiegato-in-logistica-cfc-coop-gossau",
         "en": "logistics-efz-coop-gossau",
         "de": "logistiker-in-efz-coop-gossau",
         "fr": "logistique-efz-coop-gossau"
@@ -5346,15 +5361,16 @@
       "previousSlugs": [
         "logistics-in-efz-coop-gossau",
         "impiegata-impiegato-in-logistica-cfc-coop-grigioni-pzx8dt",
+        "logistiche-efz-coop-gossau",
         "logistiker-in-efz-coop-grigioni-pzx8dt",
         "logistique-dans-efz-coop-gossau",
-        "impiegata-impiegato-in-logistica-cfc-coop-gossau",
         "impiegata-impiegato-in-logistica-cfc-coop-grigioni"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistics-in-efz-coop-gossau",
-          "impiegata-impiegato-in-logistica-cfc-coop-grigioni-pzx8dt"
+          "impiegata-impiegato-in-logistica-cfc-coop-grigioni-pzx8dt",
+          "logistiche-efz-coop-gossau"
         ],
         "en": [
           "logistics-in-efz-coop-gossau",
