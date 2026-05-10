@@ -23411,4 +23411,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'malpensa-arresto-frontaliere-omicidio-2026',
+ category: 'pratico',
+ date: '2026-05-10T09:59:11.209Z',
+ image: '/images/blog/malpensa-arresto-frontaliere-omicidio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

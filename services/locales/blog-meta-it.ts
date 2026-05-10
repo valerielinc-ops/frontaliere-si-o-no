@@ -7347,6 +7347,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.acb-debito-futuro-2026.title': 'Acb in difficoltà: oltre 2 milioni di franchi di debiti',
     'blog.article.acb-debito-futuro-2026.excerpt': 'La società Acb cerca di saldare debiti per oltre 2 milioni di franchi. Martedì attesi chiarimenti dalla società.',
     'blog.article.acb-debito-futuro-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano e le montagne circostanti',
+    'blog.article.malpensa-arresto-frontaliere-omicidio-2026.title': 'Frontaliere arrestato a Malpensa: ricercato negli USA per omicidio',
+    'blog.article.malpensa-arresto-frontaliere-omicidio-2026.excerpt': 'Un ingegnere informatico statunitense, ricercato per l\'omicidio della moglie incinta, è stato fermato a Malpensa dopo una fuga attraverso Stati Uniti e Canada.',
+    'blog.article.malpensa-arresto-frontaliere-omicidio-2026.imageAlt': 'Vista aerea dell\'aeroporto di Malpensa con il confine svizzero-italiano sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -7346,6 +7346,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.acb-debito-futuro-2026.title': 'Acb in trouble: over 2 million francs in debt',
     'blog.article.acb-debito-futuro-2026.excerpt': 'Acb is trying to settle debts of over 2 million francs. Clarifications expected from the company on Tuesday.',
     'blog.article.acb-debito-futuro-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano and surrounding mountains',
+    'blog.article.malpensa-arresto-frontaliere-omicidio-2026.title': 'Cross-border worker arrested at Malpensa: wanted in USA for murder',
+    'blog.article.malpensa-arresto-frontaliere-omicidio-2026.excerpt': 'A US computer engineer, wanted for the murder of his pregnant wife, was stopped at Malpensa after a flight through the United States and Canada.',
+    'blog.article.malpensa-arresto-frontaliere-omicidio-2026.imageAlt': 'Aerial view of Malpensa Airport with the Swiss-Italian border in the background',
 };
 
 export default blogMetaEn;
