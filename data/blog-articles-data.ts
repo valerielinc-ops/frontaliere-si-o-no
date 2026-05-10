@@ -23501,4 +23501,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'locarno-lugano-mendrisio-alleanza-2026',
+ category: 'novita',
+ date: '2026-05-10T11:39:06.157Z',
+ image: '/images/blog/locarno-lugano-mendrisio-alleanza-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

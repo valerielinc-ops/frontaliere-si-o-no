@@ -7376,6 +7376,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.votazioni-federali-14-giugno-2026.title': 'June 14: what you need to know',
     'blog.article.votazioni-federali-14-giugno-2026.excerpt': 'Sustainability initiative and amendment to the civil service law: here\'s what changes for cross-border workers',
     'blog.article.votazioni-federali-14-giugno-2026.imageAlt': 'Bellinzona with Castelgrande Castle and the Ticino River',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.title': 'Locarno, Lugano, Mendrisio vie for 2030 Cultural Capital',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.excerpt': 'Locarno management agrees to joint candidacy but asks for measures to avoid a marginal position',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.imageAlt': 'Locarno cityscape with lake and mountains',
 };
 
 export default blogMetaEn;

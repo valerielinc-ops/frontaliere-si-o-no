@@ -7376,6 +7376,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.votazioni-federali-14-giugno-2026.title': '14. Juni: Was Sie wissen müssen',
     'blog.article.votazioni-federali-14-giugno-2026.excerpt': 'Initiative für Nachhaltigkeit und Änderung des Gesetzes über den Zivildienst: Das ändert sich für Grenzgänger',
     'blog.article.votazioni-federali-14-giugno-2026.imageAlt': 'Bellinzona mit der Burg Castelgrande und dem Fluss Ticino',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.title': 'Locarno, Lugano und Mendrisio für Kulturhauptstadt 2030',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.excerpt': 'Die Verwaltung von Locarno stimmt der gemeinsamen Bewerbung zu, fordert aber Maßnahmen, um eine marginale Position zu vermeiden',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.imageAlt': 'Panorama von Locarno mit See und Bergen',
 };
 
 export default blogMetaDe;

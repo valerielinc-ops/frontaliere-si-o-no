@@ -3701,6 +3701,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giro-ditalia-silva-maglia-rosa': { name: 'Giro d\'Italia', path: '/articoli-frontaliere/giro-ditalia-silva-maglia-rosa', parent: 'blog' },
     'blog-crans-montana-audizioni-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-audizioni-frontalieri-2026', parent: 'blog' },
     'blog-votazioni-federali-14-giugno-2026': { name: 'Votazioni federali', path: '/articoli-frontaliere/votazioni-federali-14-giugno-2026', parent: 'blog' },
+    'blog-locarno-lugano-mendrisio-alleanza-2026': { name: 'Novità', path: '/articoli-frontaliere/locarno-lugano-mendrisio-alleanza-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

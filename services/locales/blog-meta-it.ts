@@ -7377,6 +7377,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.votazioni-federali-14-giugno-2026.title': '14 giugno: quel che c’è da sapere',
     'blog.article.votazioni-federali-14-giugno-2026.excerpt': 'Iniziativa per la sostenibilità e modifica della legge sul servizio civile: ecco cosa cambia per i frontalieri',
     'blog.article.votazioni-federali-14-giugno-2026.imageAlt': 'Bellinzona con il Castello di Castelgrande e il fiume Ticino',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.title': 'Locarno, Lugano e Mendrisio per Capitale Culturale 2030',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.excerpt': 'La Gestione di Locarno dice sì alla candidatura congiunta, ma chiede misure per evitare una posizione marginale',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.imageAlt': 'Panorama di Locarno con lago e montagne',
 };
 
 export default blogMetaIt;
