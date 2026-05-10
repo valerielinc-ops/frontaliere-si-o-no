@@ -1,16 +1,16 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-05-09T21:07:06.537Z",
-  "total": 10,
+  "generatedAt": "2026-05-10T09:45:48.313Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 2215,
-  "avgDurationMs": 2215,
+  "unchangedCount": 7,
+  "durationMs": 1675,
+  "avgDurationMs": 1675,
   "durationHistory": [
-    2215
+    1675
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -47,6 +47,7 @@
       "salaryMax": 73500,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "id": "casale-7e2513dafd4a",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -69,7 +70,7 @@
       "addressCountry": "CH",
       "postalCode": "6900",
       "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "spedizione-casale-sa-lugano-ticino",
+      "slug": "spedizione-casale-sa-lugano",
       "category": "logistics",
       "datePosted": "2026-01-27",
       "source": "casale-careers-crawler",
@@ -86,88 +87,11 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "id": "casale-da760cf6afeb",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://recruit.casale.ch/o/junior-technical-visual-designer",
-      "applyUrl": "https://recruit.casale.ch/o/junior-technical-visual-designer/c/new",
-      "title": "Junior Technical Visual Designer",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "tecnico-visual-designer-junior-casale-sa-lugano-ticino",
-      "category": "design",
-      "datePosted": "2026-01-20",
-      "source": "casale-careers-crawler",
-      "employmentType": "INTERNSHIP",
-      "experienceLevel": "ENTRY",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://recruit.casale.ch/o/electrical-engineer-2",
-      "applyUrl": "https://recruit.casale.ch/o/electrical-engineer-2/c/new",
-      "title": "Electrical Engineer",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "electrical-ingegnere-casale-sa-lugano",
-      "category": "engineering",
-      "datePosted": "2025-06-13",
-      "source": "casale-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 20
       }
@@ -203,6 +127,7 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "id": "casale-514116c6eb40",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -242,6 +167,7 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "id": "casale-6eac33d20ff5",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -281,49 +207,11 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "id": "casale-8e2b66d8ba74",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://recruit.casale.ch/o/technology-engineer-liquid-and-solid-techologies-2",
-      "applyUrl": "https://recruit.casale.ch/o/technology-engineer-liquid-and-solid-techologies-2/c/new",
-      "title": "Technology Engineer Liquid and Solid Technologies",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "technology-ingegnere-liquid-and-solid-technologies-casale-sa-lugano",
-      "category": "engineering",
-      "datePosted": "2026-01-08",
-      "source": "casale-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -359,6 +247,7 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "id": "casale-c01363cdc151",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -398,6 +287,7 @@
       "salaryMax": 89000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "id": "casale-396a795f6ade",
       "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
