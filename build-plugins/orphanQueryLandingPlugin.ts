@@ -186,19 +186,33 @@ function buildEditorialH1(query: string, locale: OrphanLandingLocale): string {
 }
 
 /**
- * Build an editorialised page title per locale, clamped to ≤60 chars.
+ * Build an editorialised page title per locale, clamped to ≤66 chars
+ * (audit:title-length deploy gate).
  *
- * Phase 3A — only append the brand suffix when it still fits the SERP budget.
- * The bare canonical query alone always wins over a truncated brand suffix.
+ * Strategy mirrors {@link buildTitleWithBrand} from shared/titleSuffix.ts:
+ *   1. `query | brand` fits inside MAX → append brand
+ *   2. `query` alone fits → drop brand
+ *   3. `query` itself exceeds MAX → cap on a whitespace boundary (no `…`)
+ *
+ * Long GSC queries (e.g. "help me find ticino caregiver jobs for elderly
+ * care with live-in option and clear legal contract terms" — 107 chars)
+ * push the bare query past the cap; capping on a word boundary keeps the
+ * title readable while staying ≤66 chars and clearing the audit gate.
  */
 function buildEditorialTitle(query: string, locale: OrphanLandingLocale): string {
+  const MAX = 66;
   const q = cap(query);
   const brand =
     locale === 'it' ? 'Frontaliere Ticino'
     : locale === 'en' ? 'Cross-border Workers Ticino'
     : locale === 'de' ? 'Grenzgänger Tessin'
     : 'Frontaliers Tessin';
-  return clampSiteSuffix(q, brand);
+  const withBrand = `${q} | ${brand}`;
+  if (withBrand.length <= MAX) return withBrand;
+  if (q.length <= MAX) return q;
+  const sliced = q.slice(0, MAX);
+  const lastSpace = sliced.lastIndexOf(' ');
+  return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
 }
 
 /**

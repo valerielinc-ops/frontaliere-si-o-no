@@ -5638,7 +5638,21 @@ ${alternates}
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${fullSlug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const copy = searchPageCopy[locale];
- const title = buildTitleWithBrand(copy.title(name));
+ // Search-stats-landing titles wrap the keyword in locale frame
+ // ("Offerte di lavoro {name} in Svizzera" / "{name} job openings in
+ // Switzerland" / etc). With long compound queries the wrapped title
+ // blows past TITLE_MAX_CHARS (66) and audit:title-length fails. Cap
+ // the wrapped title on a whitespace boundary, no ellipsis (per
+ // titleSuffix.ts no-`…` policy that protects SERP CTR).
+ const rawTitle = copy.title(name);
+ const cappedTitle = rawTitle.length > TITLE_MAX_CHARS
+   ? (() => {
+       const sliced = rawTitle.slice(0, TITLE_MAX_CHARS);
+       const lastSpace = sliced.lastIndexOf(' ');
+       return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
+     })()
+   : rawTitle;
+ const title = buildTitleWithBrand(cappedTitle);
  const description = copy.description(name, matchingJobs.length);
  const _altPairs = localeList
  .map((altLocale) => {
