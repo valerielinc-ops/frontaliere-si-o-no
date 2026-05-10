@@ -7304,6 +7304,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.title': 'Faithful ask Diocese of Lugano for clarity',
     'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.excerpt': 'The group behind the 2025 petition asks the Apostolic Administrator to intervene on the Ticino Catholic Action.',
     'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.imageAlt': 'LAC Lugano, modern building by the lake',
+    'blog.article.incidente-ispra-frontaliere-2026.title': 'Accident in Ispra: 19-year-old cross-border worker rescued',
+    'blog.article.incidente-ispra-frontaliere-2026.excerpt': 'A road accident in Ispra involves a young cross-border worker. Here\'s what happened and the implications for cross-border workers.',
+    'blog.article.incidente-ispra-frontaliere-2026.imageAlt': 'Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

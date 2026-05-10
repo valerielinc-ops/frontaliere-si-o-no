@@ -23285,4 +23285,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-ispra-frontaliere-2026',
+ category: 'pratico',
+ date: '2026-05-10T06:44:14.121Z',
+ image: '/images/blog/incidente-ispra-frontaliere-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

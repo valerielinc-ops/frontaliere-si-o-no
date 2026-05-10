@@ -7305,6 +7305,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.title': 'Fedeli chiedono chiarezza alla Diocesi di Lugano',
     'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.excerpt': 'Il gruppo promotore della petizione 2025 chiede all\'Amministratore Apostolico di intervenire sull\'Azione Cattolica Ticinese.',
     'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.imageAlt': 'LAC Lugano, edificio moderno sul lago',
+    'blog.article.incidente-ispra-frontaliere-2026.title': 'Incidente a Ispra: soccorso un giovane di 19 anni',
+    'blog.article.incidente-ispra-frontaliere-2026.excerpt': 'Un incidente stradale a Ispra coinvolge un giovane frontaliero. Ecco cosa è successo e le implicazioni per i frontalieri.',
+    'blog.article.incidente-ispra-frontaliere-2026.imageAlt': 'Lago di Lugano con montagne circostanti',
 };
 
 export default blogMetaIt;

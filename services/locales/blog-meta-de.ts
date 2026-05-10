@@ -7304,6 +7304,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.title': 'Gläubige fordern Klarheit von der Diözese Lugano',
     'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.excerpt': 'Die Initiatorengruppe der Petition 2025 bittet den Apostolischen Administrator, in die Katholische Aktion des Tessin einzugreifen.',
     'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.imageAlt': 'LAC Lugano, modernes Gebäude am See',
+    'blog.article.incidente-ispra-frontaliere-2026.title': 'Unfall in Ispra: 19-Jähriger gerettet',
+    'blog.article.incidente-ispra-frontaliere-2026.excerpt': 'Ein Verkehrsunfall in Ispra betrifft einen jungen Grenzgänger. Hier ist, was passiert ist und die Auswirkungen für Grenzgänger.',
+    'blog.article.incidente-ispra-frontaliere-2026.imageAlt': 'Luganersee mit umliegenden Bergen',
 };
 
 export default blogMetaDe;

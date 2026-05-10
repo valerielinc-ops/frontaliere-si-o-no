@@ -1,0 +1,40 @@
+{
+  "id": "incidente-ispra-frontaliere-2026",
+  "slug": "incidente-ispra-frontaliere-2026",
+  "publishedAt": "2026-05-10T06:44:15.546Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.096111005364918,
+    "confidence": 0.8,
+    "finalScore": 7.276888804291935,
+    "topK": [
+      {
+        "slug": "auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate",
+        "cosine": 0.8269191823059016
+      },
+      {
+        "slug": "incidente-giovane-frontaliere",
+        "cosine": 0.8210433421462432
+      },
+      {
+        "slug": "gavirate-incidente-frontalieri-2026",
+        "cosine": 0.813930127766497
+      },
+      {
+        "slug": "incidente-a8-castellanza-busto-arsizio-2026",
+        "cosine": 0.8126339435952791
+      },
+      {
+        "slug": "gravincidente-stradale-regina-feriti",
+        "cosine": 0.8097500868679831
+      }
+    ],
+    "score": 3.6384444021459674,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

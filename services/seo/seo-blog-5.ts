@@ -33809,6 +33809,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-ispra-frontaliere-2026': {
+    title: 'Incidente a Ispra: soccorso un giovane di 19 anni',
+    description: 'Un incidente stradale a Ispra coinvolge un giovane frontaliero. Ecco cosa è successo e le implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, ispra, soccorso, giovane',
+    ogTitle: 'Incidente a Ispra: soccorso un giovane di 19 anni',
+    ogDescription: 'Un incidente stradale a Ispra coinvolge un giovane frontaliero. Ecco cosa è successo e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/incidente-ispra-frontaliere-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente a Ispra: soccorso un giovane di 19 anni",
+      "description": "Un incidente stradale a Ispra coinvolge un giovane frontaliero. Ecco cosa è successo e le implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-ispra-frontaliere-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne circostanti"
+      },
+      "datePublished": "2026-05-10T06:44:14+00:00",
+      "dateModified": "2026-05-10T06:44:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-ispra-frontaliere-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
