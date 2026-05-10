@@ -1,89 +1,5 @@
 [
   {
-    "timestamp": "2026-04-25T13:25:09.912Z",
-    "label": "before",
-    "total": 2658,
-    "needsRetranslation": 78,
-    "incomplete": 34,
-    "complete": 2624,
-    "missingByLocale": {
-      "it": 28,
-      "en": 11,
-      "de": 28,
-      "fr": 29
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 2
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Manor AG",
-        "pending": 1
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-25T14:10:08.856Z",
-    "label": "after",
-    "total": 2658,
-    "needsRetranslation": 71,
-    "incomplete": 25,
-    "complete": 2633,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 23,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-25T22:26:03.076Z",
     "label": "before",
     "total": 2666,
@@ -9716,6 +9632,118 @@
     "label": "after",
     "total": 2596,
     "needsRetranslation": 184,
+    "incomplete": 27,
+    "complete": 2569,
+    "missingByLocale": {
+      "it": 21,
+      "en": 14,
+      "de": 9,
+      "fr": 21
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 3
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 3
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Omega Ltd.",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-10T04:20:28.514Z",
+    "label": "before",
+    "total": 2596,
+    "needsRetranslation": 184,
+    "incomplete": 27,
+    "complete": 2569,
+    "missingByLocale": {
+      "it": 21,
+      "en": 14,
+      "de": 9,
+      "fr": 21
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 6
+      },
+      {
+        "company": "Lonza",
+        "pending": 3
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 3
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Omega Ltd.",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-10T04:36:16.505Z",
+    "label": "after",
+    "total": 2596,
+    "needsRetranslation": 159,
     "incomplete": 27,
     "complete": 2569,
     "missingByLocale": {
