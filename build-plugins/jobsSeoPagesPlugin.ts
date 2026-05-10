@@ -543,10 +543,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   * Mirrors the runtime helpers in scripts/lib/canton-url-slugs.mjs but inlined
   * here as the build plugin runs in TS and cannot import the .mjs at compile
   * time — single source of truth is the JSON file.
+  *
+  * Half-canton merge (2026-05-10): the `cantons` table is keyed by URL
+  * group code (24 entries: 22 single + APPENZELLO + BASILEA). The
+  * `cantonGroups` table records member BFS codes so URL emission can
+  * collapse AI/AR/BL/BS onto APPENZELLO/BASILEA via {@link resolveCantonGroup}.
   */
  type CantonLocale = 'it' | 'en' | 'de' | 'fr';
+ type CantonSlugRecord = Record<CantonLocale, string> & { dePrefix?: string };
  type CantonSlugFile = {
-   cantons: Record<string, Record<CantonLocale, string>>;
+   cantons: Record<string, CantonSlugRecord>;
+   cantonGroups?: Record<string, { members: readonly string[] }>;
    aggregate: Record<CantonLocale, string>;
  };
  const cantonSlugFile: CantonSlugFile = (() => {
@@ -559,6 +566,28 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  })();
  const ALL_CANTON_CODES: readonly string[] = Object.freeze(Object.keys(cantonSlugFile.cantons).sort());
  const AGGREGATE_KEY = '_AGGREGATE_';
+
+ /**
+  * Member BFS code → URL group key (e.g. 'AI' → 'APPENZELLO'). Built once
+  * from cantonSlugFile.cantonGroups so the URL/shard emission boundary can
+  * collapse AI/AR/BL/BS onto the group key while internal BFS/quorum logic
+  * keeps using the real codes.
+  */
+ const CANTON_MEMBER_TO_GROUP: ReadonlyMap<string, string> = (() => {
+   const map = new Map<string, string>();
+   const groups = cantonSlugFile.cantonGroups ?? {};
+   for (const [groupKey, def] of Object.entries(groups)) {
+     for (const member of def?.members ?? []) {
+       map.set(String(member).toUpperCase(), groupKey);
+     }
+   }
+   return map;
+ })();
+ function resolveCantonGroup(cantonCode: string): string {
+   const code = String(cantonCode || '').toUpperCase().trim();
+   if (!code) return code;
+   return CANTON_MEMBER_TO_GROUP.get(code) ?? code;
+ }
 
  /**
   * Localised display name for a canton (e.g. 'TI' → 'Ticino' in IT/EN, 'Tessin' in DE/FR).
@@ -621,12 +650,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  /**
   * Resolve a canton code (or '_AGGREGATE_') to its locale-specific URL slug.
   * Returns the IT slug as a defensive fallback if the locale is missing.
+  *
+  * Half-canton merge: AI/AR/BL/BS callers are remapped via
+  * {@link resolveCantonGroup} before the lookup so callers passing a real
+  * BFS code still get the merged group slug.
   */
  function getCantonUrlSlugLocal(cantonCode: string, locale: CantonLocale): string {
-   const code = String(cantonCode || '').toUpperCase();
-   if (code === AGGREGATE_KEY) {
+   const raw = String(cantonCode || '').toUpperCase();
+   if (raw === AGGREGATE_KEY) {
      return cantonSlugFile.aggregate[locale] ?? cantonSlugFile.aggregate.it;
    }
+   const code = resolveCantonGroup(raw);
    const entry = cantonSlugFile.cantons[code];
    if (!entry) return cantonSlugFile.aggregate[locale] ?? cantonSlugFile.aggregate.it;
    return entry[locale] ?? entry.it;
@@ -768,11 +802,27 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const SECTION_PREFIX_BY_LOCALE: Record<CantonLocale, string> = {
    it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi',
  };
+ /**
+  * Build the canton-aware top-level URL segment (e.g. `cerca-lavoro-zurigo`,
+  * `jobs-im-aargau`, `jobs-in-der-waadt`). For non-TI cantons we honour the
+  * optional `dePrefix` override on the canton record so cantons whose name
+  * takes a definite article in German (im Aargau, im Thurgau, im Jura,
+  * im Wallis, in der Waadt) emit grammatically correct URLs. Note `dePrefix`
+  * is the FULL prefix INCLUDING trailing hyphen (`jobs-im-`, `jobs-in-der-`),
+  * so we concatenate directly with the slug — no inserted hyphen.
+  */
  function buildCantonAwareSection(locale: CantonLocale, cantonCode: string): string {
-   const code = String(cantonCode || '').toUpperCase();
-   if (!code || code === 'TI') return sectionByLocale[locale];
-   if (code === AGGREGATE_KEY) {
+   const raw = String(cantonCode || '').toUpperCase();
+   if (!raw || raw === 'TI') return sectionByLocale[locale];
+   if (raw === AGGREGATE_KEY) {
      return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(AGGREGATE_KEY, locale)}`;
+   }
+   const code = resolveCantonGroup(raw);
+   if (locale === 'de') {
+     const entry = cantonSlugFile.cantons[code];
+     if (entry?.dePrefix) {
+       return `${entry.dePrefix}${entry.de}`;
+     }
    }
    return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(code, locale)}`;
  }
@@ -6350,7 +6400,11 @@ ${alternates}
          postalCode: job?.postalCode,
          canton: job?.canton,
        });
-       if (r.cantonConfidence === 'high' && r.canton) return r.canton.toUpperCase();
+       // Half-canton merge: BFS may return 'AI'/'AR'/'BL'/'BS' but the
+       // URL/shard layer treats them as 'APPENZELLO'/'BASILEA'.
+       if (r.cantonConfidence === 'high' && r.canton) {
+         return resolveCantonGroup(r.canton.toUpperCase());
+       }
        return AGGREGATE_KEY;
      } catch {
        return AGGREGATE_KEY;

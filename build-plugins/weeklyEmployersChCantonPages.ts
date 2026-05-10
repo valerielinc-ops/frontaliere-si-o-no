@@ -44,7 +44,6 @@ import {
 } from './shared/seoContentTokens';
 import {
   buildCantonJobsIndex,
-  listEligibleChCantons,
   loadChCantonMunicipalities,
   type ChCantonJobsIndex,
   type WeeklyCountableJob,
@@ -196,11 +195,10 @@ const COPY: Record<
 /** Localised display name for a canton. */
 const CANTON_DISPLAY: Record<string, Record<Locale, string>> = {
   AG: { it: 'Argovia', en: 'Aargau', de: 'Aargau', fr: 'Argovie' },
-  AI: { it: 'Appenzello Interno', en: 'Appenzell Innerrhoden', de: 'Appenzell Innerrhoden', fr: 'Appenzell Rhodes-Intérieures' },
-  AR: { it: 'Appenzello Esterno', en: 'Appenzell Ausserrhoden', de: 'Appenzell Ausserrhoden', fr: 'Appenzell Rhodes-Extérieures' },
+  // Half-canton URL groups (2026-05-10 merge): AI+AR -> APPENZELLO, BL+BS -> BASILEA.
+  APPENZELLO: { it: 'Appenzello', en: 'Appenzell', de: 'Appenzell', fr: 'Appenzell' },
   BE: { it: 'Berna', en: 'Bern', de: 'Bern', fr: 'Berne' },
-  BL: { it: 'Basilea Campagna', en: 'Basel-Country', de: 'Baselland', fr: 'Bâle-Campagne' },
-  BS: { it: 'Basilea Città', en: 'Basel-City', de: 'Basel-Stadt', fr: 'Bâle-Ville' },
+  BASILEA: { it: 'Basilea', en: 'Basel', de: 'Basel', fr: 'Bâle' },
   FR: { it: 'Friburgo', en: 'Fribourg', de: 'Freiburg', fr: 'Fribourg' },
   GE: { it: 'Ginevra', en: 'Geneva', de: 'Genf', fr: 'Genève' },
   GL: { it: 'Glarona', en: 'Glarus', de: 'Glarus', fr: 'Glaris' },
@@ -225,10 +223,12 @@ const CANTON_DISPLAY: Record<string, Record<Locale, string>> = {
 
 interface CantonSlugFile {
   cantons: Record<string, Record<Locale, string>>;
+  cantonGroups?: Record<string, { members: readonly string[] }>;
   aggregate: Record<Locale, string>;
 }
 
 let cantonSlugFileCache: CantonSlugFile | null = null;
+let memberToGroupCache: ReadonlyMap<string, string> | null = null;
 
 function loadCantonSlugFile(rootDir: string): CantonSlugFile | null {
   if (cantonSlugFileCache) return cantonSlugFileCache;
@@ -237,6 +237,13 @@ function loadCantonSlugFile(rootDir: string): CantonSlugFile | null {
     const parsed = JSON.parse(raw) as CantonSlugFile;
     if (!parsed?.cantons || !parsed?.aggregate) return null;
     cantonSlugFileCache = parsed;
+    const map = new Map<string, string>();
+    for (const [groupKey, def] of Object.entries(parsed.cantonGroups ?? {})) {
+      for (const m of def?.members ?? []) {
+        map.set(String(m).toUpperCase(), groupKey);
+      }
+    }
+    memberToGroupCache = map;
     return parsed;
   } catch (err) {
     console.warn('[weekly-employers] canton-url-slugs.json missing — CH-wide canton pages disabled', err);
@@ -244,9 +251,21 @@ function loadCantonSlugFile(rootDir: string): CantonSlugFile | null {
   }
 }
 
+/**
+ * Half-canton merge: collapse 'AI'/'AR' onto 'APPENZELLO', 'BL'/'BS' onto
+ * 'BASILEA'. Every other canton code (and the aggregate sentinel) round-trips
+ * unchanged. Requires {@link loadCantonSlugFile} to have been called first.
+ */
+function resolveCantonGroup(cantonCode: string): string {
+  const code = String(cantonCode || '').toUpperCase().trim();
+  if (!code) return code;
+  return memberToGroupCache?.get(code) ?? code;
+}
+
 /** Reset the canton-slug file cache (test-only). */
 export function clearChCantonPagesCache(): void {
   cantonSlugFileCache = null;
+  memberToGroupCache = null;
 }
 
 function getCantonUrlSlugLocal(file: CantonSlugFile, code: string, locale: Locale): string | null {
@@ -412,8 +431,10 @@ export interface ChCantonEmployersEmitOptions {
 
 export interface ChCantonEmployersEmitResult {
   pagesWritten: number;
-  cantonsEmitted: Array<{ code: SwissCantonCode; jobsCount: number; employersCount: number }>;
-  cantonsSkipped: Array<{ code: SwissCantonCode; jobsCount: number }>;
+  // `code` may be either a real BFS canton code (TI/ZH/...) or a virtual
+  // URL group key ('APPENZELLO' | 'BASILEA') after the half-canton merge.
+  cantonsEmitted: Array<{ code: SwissCantonCode | string; jobsCount: number; employersCount: number }>;
+  cantonsSkipped: Array<{ code: SwissCantonCode | string; jobsCount: number }>;
   pagesSkippedForWordCount: number;
 }
 
@@ -437,13 +458,46 @@ export async function emitChCantonEmployersPages(
 
   const cantonMunicipalities = loadChCantonMunicipalities(opts.rootDir);
   const index: ChCantonJobsIndex = buildCantonJobsIndex(opts.jobs, cantonMunicipalities);
-  const eligibleCantons = listEligibleChCantons(index);
 
-  // Track skipped (below threshold) cantons for the report.
-  for (const [code, bucket] of index.byCanton.entries()) {
-    if (code === 'TI') continue;
-    if (eligibleCantons.includes(code)) continue;
-    result.cantonsSkipped.push({ code, jobsCount: bucket.activeJobsCount });
+  // Half-canton merge: collapse buckets keyed by AI/AR into APPENZELLO and
+  // BL/BS into BASILEA before the threshold gate, so the merged jobs count
+  // (and merged byEmployer map) drives eligibility + emission. We don't call
+  // listEligibleChCantons here because it operates on individual BFS buckets
+  // — combining AI+AR and BL+BS may push the merged group above threshold
+  // even when each member alone is below it.
+  type MergedBucket = {
+    code: string; // URL group key (e.g. 'APPENZELLO') or single canton code
+    activeJobsCount: number;
+    byEmployer: Map<string, readonly WeeklyCountableJob[]>;
+  };
+  const MERGE_THRESHOLD = 5; // mirrors MIN_JOBS_FOR_CANTON_PAGE in weeklyEmployersPlugin
+  const mergedByCanton = new Map<string, MergedBucket>();
+  for (const [bfsCode, bucket] of index.byCanton.entries()) {
+    if (bfsCode === 'TI') continue; // legacy TI pipeline owns its hubs
+    const urlKey = resolveCantonGroup(bfsCode);
+    let merged = mergedByCanton.get(urlKey);
+    if (!merged) {
+      merged = { code: urlKey, activeJobsCount: 0, byEmployer: new Map() };
+      mergedByCanton.set(urlKey, merged);
+    }
+    merged.activeJobsCount += bucket.activeJobsCount;
+    for (const [empKey, jobs] of bucket.byEmployer.entries()) {
+      const existing = merged.byEmployer.get(empKey);
+      if (existing) {
+        merged.byEmployer.set(empKey, [...existing, ...jobs]);
+      } else {
+        merged.byEmployer.set(empKey, jobs);
+      }
+    }
+  }
+
+  const eligibleCantons: string[] = [];
+  for (const [code, bucket] of mergedByCanton.entries()) {
+    if (bucket.activeJobsCount >= MERGE_THRESHOLD) {
+      eligibleCantons.push(code);
+    } else {
+      result.cantonsSkipped.push({ code, jobsCount: bucket.activeJobsCount });
+    }
   }
 
   const collector = new WriteCollector({
@@ -452,7 +506,7 @@ export async function emitChCantonEmployersPages(
   });
 
   for (const cantonCode of eligibleCantons) {
-    const bucket = index.byCanton.get(cantonCode);
+    const bucket = mergedByCanton.get(cantonCode);
     if (!bucket) continue;
     const employerCount = bucket.byEmployer.size;
     result.cantonsEmitted.push({
