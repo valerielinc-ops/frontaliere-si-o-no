@@ -1,19 +1,18 @@
 {
   "key": "grace-la-margna",
   "label": "grace",
-  "generatedAt": "2026-05-09T21:36:20.808Z",
+  "generatedAt": "2026-05-10T10:16:55.526Z",
   "total": 13,
-  "newCount": 0,
-  "updatedCount": 13,
+  "newCount": 13,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 93548,
-  "avgDurationMs": 93548,
+  "durationMs": 190284,
+  "avgDurationMs": 190284,
   "durationHistory": [
-    93548
+    190284
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "title": "Assistant Outlet Manager (m/w) - restaurants are your stage",
       "slug": "assistant-outlet-manager-m-w-restaurants-are-your-stage",
@@ -37,20 +36,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:35:30.252Z",
-      "id": "grace-la-margna-c0f1d3a6a815",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-27T21:54:48.385Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:14:34.645Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -76,20 +68,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:35:34.754Z",
-      "id": "grace-la-margna-bbc2c160c4ea",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-27T21:54:52.739Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:14:38.984Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -115,20 +100,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:35:38.860Z",
-      "id": "grace-la-margna-8aa7c6b5079c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-23T21:45:01.223Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:14:50.430Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -154,20 +132,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:35:43.066Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "id": "grace-la-margna-6a2375a0437c",
-      "firstSeenAt": "2026-04-13T10:39:44.131Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:14:54.834Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -193,20 +164,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:35:47.206Z",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "id": "grace-la-margna-038d720c8ba9",
-      "firstSeenAt": "2026-04-13T10:39:48.123Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:14:59.319Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -232,20 +196,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:35:51.238Z",
-      "id": "grace-la-margna-3a693cb7389a",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-13T10:39:52.090Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:15:03.816Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -271,20 +228,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:35:55.328Z",
-      "id": "grace-la-margna-e5b905980c76",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-27T21:55:21.846Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:15:08.256Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -310,20 +260,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:35:59.389Z",
-      "id": "grace-la-margna-ba6898120278",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-27T21:55:26.210Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:15:19.735Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -349,20 +292,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:36:03.439Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "id": "grace-la-margna-566c2c95b923",
-      "firstSeenAt": "2026-04-13T10:40:04.123Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:15:24.124Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -388,20 +324,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:36:07.485Z",
-      "id": "grace-la-margna-ba221949eef3",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-05-01T10:18:24.519Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:15:35.504Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -427,20 +356,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:36:11.534Z",
-      "id": "grace-la-margna-1e3784aea151",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-27T21:55:34.942Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:15:39.832Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -466,20 +388,13 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:36:15.869Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "id": "grace-la-margna-cc1efb3e11f3",
-      "firstSeenAt": "2026-04-13T10:40:12.096Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:15:44.167Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -505,23 +420,17 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-09T21:36:19.878Z",
-      "id": "grace-la-margna-34a5e3acb295",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Serlas 5",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-14T21:48:01.107Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:15:48.561Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     }
   ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
