@@ -7317,6 +7317,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crans-montana-audizioni-frontalieri.title': 'Crans-Montana: trois nouvelles auditions pour l\'incendie du Nouvel An',
     'blog.article.crans-montana-audizioni-frontalieri.excerpt': 'Trois nouvelles auditions prévues la semaine prochaine pour l\'incendie du Nouvel An à Crans-Montana, dont deux figures politiques.',
     'blog.article.crans-montana-audizioni-frontalieri.imageAlt': 'Vue aérienne de Crans-Montana, Suisse, avec des montagnes enneigées et un centre-ville animé.',
+    'blog.article.sommer-bocciato-inter-frontalieri.title': 'Sommer recalé par l\'Inter : conséquences pour les frontaliers',
+    'blog.article.sommer-bocciato-inter-frontalieri.excerpt': 'Emiliano Viviano critique le gardien suisse : « Cette année, il n\'a presque rien apporté à l\'Inter ». Analyse des implications pour les frontaliers',
+    'blog.article.sommer-bocciato-inter-frontalieri.imageAlt': 'Match de football en cours au LAC de Lugano, avec le gardien en action',
 };
 
 export default blogMetaFr;

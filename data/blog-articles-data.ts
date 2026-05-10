@@ -23321,4 +23321,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sommer-bocciato-inter-frontalieri',
+ category: 'novita',
+ date: '2026-05-10T08:04:42.427Z',
+ image: '/images/blog/sommer-bocciato-inter-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
