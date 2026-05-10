@@ -207,12 +207,15 @@ export const COMPANY_HQ = {
   'siegfried':                    { city: 'Evionnaz',            canton: 'VS', postalCode: '1902', addressRegion: 'VS' },
   'vaxcyte':                      { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'srg-ssr':                      { city: 'Bern',               canton: 'BE', postalCode: '3000', addressRegion: 'BE' },
+  'inselspital':                  { city: 'Bern',               canton: 'BE', postalCode: '3010', addressRegion: 'BE' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'fusalp':                       { city: 'Annecy',             canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'localsearch':                  { city: 'Zurich',             canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   'tally-weijl':                  { city: 'Basel',              canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'transgourmet':                 { city: 'Basel',              canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  'novartis':                     { city: 'Basel',              canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  'roche':                        { city: 'Basel',              canton: 'BS', postalCode: '4070', addressRegion: 'BS' },
   'bcvs':                         { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'coopers':                      { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
   'kone':                         { city: 'Luzern',             canton: 'LU', postalCode: '6003', addressRegion: 'LU' },
@@ -252,6 +255,17 @@ export const COMPANY_HQ = {
   'kudelski-nagra':               { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'franklin-university':          { city: 'Sorengo',            canton: 'TI', postalCode: '6924', addressRegion: 'TI' },
   'elettra-1938':                 { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  'zurich-insurance':             { city: 'Zürich',             canton: 'ZH', postalCode: '8002', addressRegion: 'ZH' },
+  // ── Cathedral Phase 2 Wave C Batch 2 ──
+  'nestle':                       { city: 'Vevey',              canton: 'VD', postalCode: '1800', addressRegion: 'VD' },
+  'migros-hq':                    { city: 'Zürich',             canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
+  'schindler':                    { city: 'Ebikon',             canton: 'LU', postalCode: '6030', addressRegion: 'LU' },
+  // ── Cathedral Phase 2 Wave C Batch 3 ──
+  'swiss-re':                     { city: 'Zürich',             canton: 'ZH', postalCode: '8022', addressRegion: 'ZH' },
+  'eth-zurich':                   { city: 'Zürich',             canton: 'ZH', postalCode: '8092', addressRegion: 'ZH' },
+  'epfl':                         { city: 'Lausanne',           canton: 'VD', postalCode: '1015', addressRegion: 'VD' },
+  // ── Cathedral Phase 2 Wave C Batch 3 Wave 2 ──
+  'chuv':                         { city: 'Lausanne',           canton: 'VD', postalCode: '1011', addressRegion: 'VD' },
 };
 
 /**

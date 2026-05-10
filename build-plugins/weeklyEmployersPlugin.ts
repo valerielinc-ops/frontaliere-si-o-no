@@ -4098,6 +4098,34 @@ ${urlEntries}
         `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive + ${result.companyCityPages} company×city pages (skipped ${result.skippedForWordCount}) — degraded=${result.degradedMode}`,
       );
 
+      // ── P2.S1: per-canton CH-wide "companies hiring" pages ────────
+      // Iterates `listEligibleChCantons(index)` (TI excluded; cantons
+      // above MIN_JOBS_FOR_CANTON_PAGE). One page per (canton × locale),
+      // noindex,follow initially.
+      try {
+        const { emitChCantonEmployersPages } = await import('./weeklyEmployersChCantonPages');
+        const r = await emitChCantonEmployersPages({
+          rootDir,
+          distDir,
+          jobs,
+        });
+        const localesCount = WEEKLY_EMPLOYERS_LOCALES.length;
+        console.log(
+          `\x1b[36m[weekly-employers]\x1b[0m P2.S1 emitted ${r.cantonsEmitted.length} per-canton employer pages × ${localesCount} locales`,
+        );
+        if (r.cantonsSkipped.length > 0) {
+          const skipped = r.cantonsSkipped
+            .filter((s) => s.jobsCount > 0)
+            .map((s) => `${s.code}:${s.jobsCount}`)
+            .join(', ');
+          if (skipped) {
+            console.log(`[weekly-employers] P2.S1 skipped (below 5 jobs): ${skipped}`);
+          }
+        }
+      } catch (err) {
+        console.warn('[weekly-employers] P2.S1 per-canton emit failed:', err);
+      }
+
       // Per-category profile summary (no-op unless WEEKLY_EMPLOYERS_PROFILE=1)
       __weProfPrint();
     },

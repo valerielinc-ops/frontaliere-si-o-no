@@ -3228,6 +3228,30 @@ ${sitemapEntries.join('\n')}
           console.warn('[job-market-snapshot] sitemap-index patch failed:', err);
         }
       }
+
+      // ── P2.S1: per-canton CH-wide snapshot pages ───────────────────
+      // Scope-guarded: emits ONE snapshot page per (canton × locale) for
+      // cantons above MIN_JOBS_FOR_CANTON_PAGE. TI is excluded — its
+      // pipeline is the legacy flow above. Pages are emitted noindex,follow
+      // initially; flip to index,follow after first crawl confirms quality.
+      try {
+        const { emitChCantonSnapshotPages } = await import('./jobMarketSnapshotChCantonPages');
+        const r = await emitChCantonSnapshotPages({
+          rootDir,
+          distDir,
+          jobs,
+        });
+        const localesCount = JOB_MARKET_SNAPSHOT_LOCALES.length;
+        console.log(
+          `\x1b[36m[job-market-snapshot]\x1b[0m P2.S1 emitted ${r.cantonsEmitted.length} per-canton snapshot pages × ${localesCount} locales`,
+        );
+        if (r.cantonsSkipped.length > 0) {
+          const skipped = r.cantonsSkipped.map((s) => `${s.code}:${s.jobsCount}`).join(', ');
+          console.log(`[job-market-snapshot] P2.S1 skipped (below 5 jobs): ${skipped}`);
+        }
+      } catch (err) {
+        console.warn('[job-market-snapshot] P2.S1 per-canton emit failed:', err);
+      }
     },
   };
 }

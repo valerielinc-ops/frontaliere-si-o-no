@@ -188,5 +188,21 @@
         "note": "Uses 2-letter canton codes directly — auto-expands"
       }
     }
+  },
+
+  "smartrecruiters": {
+    "_comment": "SmartRecruiters public postings API — no per-canton filter; we paginate `https://api.smartrecruiters.com/v1/companies/{Company}/postings?limit=100&offset=N` and filter Swiss postings client-side via `location.country.code === 'ch'` (fallback: isTargetSwissLocation against `location.fullLocation`). The {Company} path segment is the SmartRecruiters tenant slug shown on jobs.smartrecruiters.com/{Company}.",
+    "platforms": {
+      "schindler": {
+        "name": "Schindler",
+        "tenant": "Schindler",
+        "filterMethod": "location.country.code === 'ch' (fallback: isTargetSwissLocation)",
+        "endpoint": "https://api.smartrecruiters.com/v1/companies/Schindler/postings",
+        "publicJobsUrl": "https://jobs.smartrecruiters.com/Schindler",
+        "pageSize": 100,
+        "note": "First SmartRecruiters tenant onboarded (Cathedral Phase 2 Wave C Batch 2). When a 2nd tenant lands, extract pagination loop into scripts/lib/ats-clients/smartrecruiters-client.mjs."
+      }
+    },
+    "discoveryMethod": "GET /v1/companies/{tenant}/postings?limit=1 → response.totalFound + first page facets"
   }
 }
