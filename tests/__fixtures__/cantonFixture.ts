@@ -29,7 +29,6 @@ import {
   COMPANY_HQ,
   SWISS_CANTONS,
   TARGET_CANTONS,
-  // @ts-expect-error — .mjs import has no .d.ts; consumers test runtime values.
 } from '@/scripts/lib/crawler-location-config.mjs';
 
 /**
