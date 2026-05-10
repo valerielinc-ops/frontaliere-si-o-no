@@ -81,8 +81,8 @@
 1. **AdSense URL channels per canton** — manual UI work in AdSense dashboard. +18 nuovi cantoni, ~30 min totali.
 2. **LinkedIn discovery** (D12 deferred per ToS) — strategic decision: accetti il rischio ToS o no? Se sì, c'è già `scripts/discover-marquee-companies-linkedin.mjs` da eseguire localmente con account autenticato.
 3. **Brand monitor baseline bootstrap** — `gh workflow run gsc-frontaliere-monitor.yml -f update_baseline=true` dopo ~1 settimana di traffic stabilizzato post-cathedral.
-4. **noindex→index flip** — dopo 7-14 giorni di data accumulation, valuta quali canton/F4/F5 pages hanno ≥5 jobs canonical e meritano flip da noindex,follow a index,follow. Già wired via MIN_JOBS_FOR_CANTON_PAGE gate, just needs data + verification.
-5. **6 SEO content gates rebaseline** dopo cathedral data accumulation: text-html-ratio, orphan-pages, image-license, bfs-depth, title-length, title-no-disambig-hash. Run `npm run audit:{name}:rebaseline` per ognuno.
+4. **noindex→index flip** — DONE-AUTOMATION-WIRED 2026-05-10. Weekly workflow `.github/workflows/cathedral-noindex-flip.yml` (Mon 05:13 UTC) walks every canton shard, detects pages that crossed `MIN_JOBS_FOR_CANTON_PAGE` (=5), appends one-way-ratchet entries to `data/cathedral-flip-log.json`, commits + pushes (triggers `deploy.yml` to rebuild with `index,follow` meta tags). Operator can dry-run via `gh workflow run cathedral-noindex-flip.yml -f dry_run=true`. Helper script: `scripts/cathedral-noindex-flip.mjs`.
+5. **6 SEO content gates rebaseline** — DONE-AUTOMATION-WIRED 2026-05-10. Weekly workflow `.github/workflows/cathedral-seo-gates-check.yml` (Mon 04:47 UTC) rebuilds dist + runs all 6 audits in read-only mode + compares vs baselines. Detects regressions (fails workflow + opens one issue per regressed gate) and improvements (opens a single rebaseline-opportunity issue with the exact `npm run audit:*:rebaseline` command). NEVER mutates baselines — operator decides per CLAUDE.md non-negotiables #1 + #5. Helper script: `scripts/cathedral-seo-gates-check.mjs`.
 
 ### 🟡 Code follow-ups (richiedono nuova sessione orchestrator)
 
