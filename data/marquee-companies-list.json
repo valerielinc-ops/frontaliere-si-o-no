@@ -24,7 +24,13 @@
       "sector": "banking",
       "size_bucket": "XL",
       "ats_hint": "Workday",
-      "alreadyCrawled": false
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 0.5,
+      "ats_hint_evidence": [
+        "page has detectable job-listing structure (custom ATS)"
+      ],
+      "ats_hint_career_url": "https://www.ubs.com/global/en/careers.html",
+      "ats_hint_detected_at": "2026-05-10T11:38:44.744Z"
     },
     {
       "name": "Raiffeisen Schweiz",
@@ -193,8 +199,14 @@
       "hq_city": "Zurich",
       "sector": "insurance",
       "size_bucket": "XL",
-      "ats_hint": "Workday",
-      "alreadyCrawled": false
+      "ats_hint": "workday",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 1,
+      "ats_hint_evidence": [
+        "hostname matches *.myworkdayjobs.com"
+      ],
+      "ats_hint_career_url": "https://zurich.wd3.myworkdayjobs.com/Zurich_Careers",
+      "ats_hint_detected_at": "2026-05-10T11:37:56.712Z"
     },
     {
       "name": "Swiss Re",
@@ -203,8 +215,14 @@
       "hq_city": "Zurich",
       "sector": "insurance",
       "size_bucket": "XL",
-      "ats_hint": "Workday",
-      "alreadyCrawled": false
+      "ats_hint": "successfactors",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 0.85,
+      "ats_hint_evidence": [
+        "html contains successfactors / /career?company= reference"
+      ],
+      "ats_hint_career_url": "https://careers.swissre.com",
+      "ats_hint_detected_at": "2026-05-10T11:38:18.615Z"
     },
     {
       "name": "Swiss Life",
@@ -323,8 +341,14 @@
       "hq_city": "Basel",
       "sector": "pharma",
       "size_bucket": "XL",
-      "ats_hint": "Workday",
-      "alreadyCrawled": false
+      "ats_hint": "workday",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 1,
+      "ats_hint_evidence": [
+        "hostname matches *.myworkdayjobs.com"
+      ],
+      "ats_hint_career_url": "https://roche.wd3.myworkdayjobs.com/roche-ext",
+      "ats_hint_detected_at": "2026-05-10T11:37:47.764Z"
     },
     {
       "name": "Novartis",
@@ -333,8 +357,14 @@
       "hq_city": "Basel",
       "sector": "pharma",
       "size_bucket": "XL",
-      "ats_hint": "Workday",
-      "alreadyCrawled": false
+      "ats_hint": "workday",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 1,
+      "ats_hint_evidence": [
+        "hostname matches *.myworkdayjobs.com"
+      ],
+      "ats_hint_career_url": "https://novartis.wd3.myworkdayjobs.com/Novartis_Careers",
+      "ats_hint_detected_at": "2026-05-10T11:37:52.311Z"
     },
     {
       "name": "Lonza",
@@ -453,8 +483,14 @@
       "hq_city": "Zurich",
       "sector": "retail",
       "size_bucket": "XL",
-      "ats_hint": "?",
-      "alreadyCrawled": false
+      "ats_hint": "smartrecruiters",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 0.9,
+      "ats_hint_evidence": [
+        "html contains smartrecruiters.com"
+      ],
+      "ats_hint_career_url": "https://jobs.smartrecruiters.com/Migros",
+      "ats_hint_detected_at": "2026-05-10T11:38:05.677Z"
     },
     {
       "name": "Coop",
@@ -533,8 +569,14 @@
       "hq_city": "Vevey",
       "sector": "food",
       "size_bucket": "XL",
-      "ats_hint": "Workday",
-      "alreadyCrawled": false
+      "ats_hint": "workday",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 1,
+      "ats_hint_evidence": [
+        "hostname matches *.myworkdayjobs.com"
+      ],
+      "ats_hint_career_url": "https://nestle.wd3.myworkdayjobs.com/Nestle_External_Careers",
+      "ats_hint_detected_at": "2026-05-10T11:38:00.999Z"
     },
     {
       "name": "Lindt & Sprüngli",
@@ -633,8 +675,14 @@
       "hq_city": "Ebikon",
       "sector": "industrial",
       "size_bucket": "XL",
-      "ats_hint": "?",
-      "alreadyCrawled": false
+      "ats_hint": "smartrecruiters",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 0.9,
+      "ats_hint_evidence": [
+        "html contains smartrecruiters.com"
+      ],
+      "ats_hint_career_url": "https://jobs.smartrecruiters.com/Schindler",
+      "ats_hint_detected_at": "2026-05-10T11:38:10.087Z"
     },
     {
       "name": "Sulzer",
@@ -843,8 +891,14 @@
       "hq_city": "Bern",
       "sector": "transport",
       "size_bucket": "XL",
-      "ats_hint": "SAP SuccessFactors",
-      "alreadyCrawled": false
+      "ats_hint": "successfactors",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 1,
+      "ats_hint_evidence": [
+        "hostname matches *.successfactors.{eu,com}"
+      ],
+      "ats_hint_career_url": "https://career5.successfactors.eu/career?company=sbbcffP",
+      "ats_hint_detected_at": "2026-05-10T11:38:14.274Z"
     },
     {
       "name": "Die Post / La Poste",
@@ -913,8 +967,14 @@
       "hq_city": "Zurich",
       "sector": "education",
       "size_bucket": "L",
-      "ats_hint": "?",
-      "alreadyCrawled": false
+      "ats_hint": "custom",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 0.5,
+      "ats_hint_evidence": [
+        "page has detectable job-listing structure (custom ATS)"
+      ],
+      "ats_hint_career_url": "https://jobs.ethz.ch/",
+      "ats_hint_detected_at": "2026-05-10T11:38:23.476Z"
     },
     {
       "name": "EPFL",
@@ -923,8 +983,14 @@
       "hq_city": "Lausanne",
       "sector": "education",
       "size_bucket": "L",
-      "ats_hint": "?",
-      "alreadyCrawled": false
+      "ats_hint": "custom",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 0.5,
+      "ats_hint_evidence": [
+        "page has detectable job-listing structure (custom ATS)"
+      ],
+      "ats_hint_career_url": "https://www.epfl.ch/campus/services/human-resources/jobs/",
+      "ats_hint_detected_at": "2026-05-10T11:38:27.599Z"
     },
     {
       "name": "University of Zurich",
@@ -1023,8 +1089,14 @@
       "hq_city": "Lausanne",
       "sector": "healthcare",
       "size_bucket": "XL",
-      "ats_hint": "?",
-      "alreadyCrawled": false
+      "ats_hint": "custom",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 0.5,
+      "ats_hint_evidence": [
+        "page has detectable job-listing structure (custom ATS)"
+      ],
+      "ats_hint_career_url": "https://www.chuv.ch/fr/chuv-home/le-chuv/emplois",
+      "ats_hint_detected_at": "2026-05-10T11:38:31.794Z"
     },
     {
       "name": "USZ — UniversitätsSpital Zürich",
@@ -1043,8 +1115,14 @@
       "hq_city": "Bern",
       "sector": "healthcare",
       "size_bucket": "XL",
-      "ats_hint": "?",
-      "alreadyCrawled": false
+      "ats_hint": "custom",
+      "alreadyCrawled": false,
+      "ats_hint_confidence": 0.5,
+      "ats_hint_evidence": [
+        "page has detectable job-listing structure (custom ATS)"
+      ],
+      "ats_hint_career_url": "https://jobs.insel.ch",
+      "ats_hint_detected_at": "2026-05-10T11:38:36.359Z"
     },
     {
       "name": "HUG — Hôpitaux Universitaires de Genève",
