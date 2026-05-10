@@ -1,21 +1,22 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-10T11:06:23.858Z",
+  "generatedAt": "2026-05-10T22:42:46.895Z",
   "total": 35,
-  "newCount": 29,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 29,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 43515,
-  "avgDurationMs": 43515,
+  "unchangedCount": 6,
+  "durationMs": 28878,
+  "avgDurationMs": 28878,
   "durationHistory": [
-    43515
+    28878
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-hjhzm7",
-      "slug": "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern-hjhzm7",
+      "slug": "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Sattler/-in (Textilcenter Sursee)",
       "location": "Bern",
@@ -36,19 +37,24 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-v4y5uq",
-      "slug": "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bern-v4y5uq",
+      "slug": "specialista-del-data-center-in-ict-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Rechenzentrum-Spezialist/-in IKT",
       "location": "Bern",
@@ -69,19 +75,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-8lndw",
-      "slug": "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bern-08lndw",
+      "slug": "hlks-riscaldamento-ventilazione-aria-condizionata-sanitari-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Spezialist/-in Technik HLKS (Heizung, Lüftung, Klima, Sanitär)",
       "location": "Bern",
@@ -97,19 +110,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-8fkp0u",
-      "slug": "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-8fkp0u",
+      "slug": "dottor-arzt-reclutamento-presso-il-centro-di-reclutamento-mels-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Ärztin/Arzt Rekrutierung im Rekrutierungszentrum Mels",
       "location": "Bern",
@@ -130,19 +150,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-40eki6",
-      "slug": "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-40eki6",
+      "slug": "meccatronica-automobilistica-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Automobil-Mechatroniker/-in",
       "location": "Bern",
@@ -158,19 +185,24 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 81,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-etokcg",
-      "slug": "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg",
+      "slug": "personale-attenzione-al-reclutamento-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Sachbearbeiter/-in Personal (Schwerpunkt Rekrutierung)",
       "location": "Bern",
@@ -191,19 +223,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-gt0ems",
-      "slug": "wissenschaftliche-r-collaboratore-trice-in-swiss-armed-forces-vtg-bern-gt0ems",
+      "slug": "personale-scientifico-industriale-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Wissenschaftliche/-r Mitarbeiter/-in",
       "location": "Bern",
@@ -225,17 +264,25 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-e6dvt1",
-      "slug": "collaboratore-trice-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bern-e6dvt1",
+      "slug": "staff-in-operazione-di-costruzione-mollis-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mitarbeiter/-in Gebäudebetrieb Mollis",
       "location": "Bern",
@@ -252,17 +299,25 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-ef6h2c",
-      "slug": "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bern-ef6h2c",
+      "slug": "capo-sartoria-centro-tessile-sursee-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Chef/-in Schneiderei (Textilcenter Sursee)",
       "location": "Bern",
@@ -283,19 +338,24 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-qblpi0",
-      "slug": "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-qblpi0",
+      "slug": "meccanico-dell-aviazione-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Luftfahrzeugmechaniker/-in",
       "location": "Bern",
@@ -316,19 +376,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-b7b6ds",
-      "slug": "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds",
+      "slug": "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Chefärztin/-arzt Rekrutierungszentrum Mels",
       "location": "Bern",
@@ -349,19 +416,24 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-u9uu98",
-      "slug": "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bern-u9uu98",
+      "slug": "velivolo-meccanico-campo-militare-alpnach-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Luftfahrzeugmechaniker/-in, Militärflugplatz Alpnach",
       "location": "Bern",
@@ -382,19 +454,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-3huou9",
-      "slug": "collaboratore-trice-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern-3huou9",
+      "slug": "staff-in-costruzione-operazione-glarus-sud-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mitarbeiter/-in Gebäudebetrieb Glarus Süd",
       "location": "Bern",
@@ -411,12 +490,20 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -443,17 +530,23 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-tofvru",
-      "slug": "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern",
+      "slug": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
       "location": "Bern",
@@ -469,19 +562,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-ro8zhx",
-      "slug": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern",
+      "slug": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-assistente-professionale-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Dein Beruf sollte mehr bieten? Werde Berufsunteroffizier/-in",
       "location": "Bern",
@@ -497,19 +597,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-6gmxu3",
-      "slug": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
+      "slug": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mannschaft und Kader im gastgewerblichen Bereich (m/w)",
       "location": "Bern",
@@ -526,17 +633,25 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-4hynmv",
-      "slug": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
+      "slug": "autista-in-comando-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Fahrer/in / Transporthelfer/in",
       "location": "Bern",
@@ -552,19 +667,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-6okqpl",
-      "slug": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
+      "slug": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mannschaft und Kader im Bereich Infrastruktur (m/w)",
       "location": "Bern",
@@ -581,17 +703,25 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-o3sbqw",
-      "slug": "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw",
+      "slug": "agenti-del-personale-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Staff Officers HQ KFOR",
       "location": "Bern",
@@ -607,19 +737,24 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-p0hvci",
-      "slug": "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-p0hvci",
+      "slug": "camion-automobile-meccatronica-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "LKW-/Automobil-Mechatroniker/in",
       "location": "Bern",
@@ -635,14 +770,21 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -663,19 +805,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-6iaf9o",
-      "slug": "mannschaft-e-kader-aller-stufen-im-bereich-hoch-genio-civile-swiss-armed-forces-vtg-bern-6iaf9o",
+      "slug": "squadre-e-quadri-di-tutti-i-livelli-nel-campo-della-costruzione-alta-bassa-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mannschaft und Kader aller Stufen im Bereich Hoch-/Tiefbau",
       "location": "Bern",
@@ -692,17 +841,25 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-4u21rw",
-      "slug": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
+      "slug": "infrastrutture-specialista-in-sanitario-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Infrastruktur Spezialist/in Sanitär",
       "location": "Bern",
@@ -723,19 +880,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-r2rk7v",
-      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
       "location": "Bern",
@@ -756,19 +920,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-ta786n",
-      "slug": "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern-ta786n",
+      "slug": "specialista-della-tecnologia-dell-informazione-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Übermittlungs- / Informatikspezialist/in",
       "location": "Bern",
@@ -789,19 +960,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-qtsz9d",
-      "slug": "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
+      "slug": "consulente-senior-m-w-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Offiziere für friedensfördernde Auslandseinsätze (m/w)",
       "location": "Bern",
@@ -823,17 +1001,25 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-q6f59r",
-      "slug": "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r",
+      "slug": "projektleiter-m-w-d-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Militärisches Kaderspersonal (m/w)",
       "location": "Bern",
@@ -854,19 +1040,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-i476a6",
-      "slug": "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6",
+      "slug": "account-manager-m-w-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Observer LMT/LOT (m/w)",
       "location": "Bern",
@@ -887,18 +1080,26 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-8ci491",
       "slug": "assistente-nella-linea-centrale-alc-monteceneri-swiss-armed-forces-vtg-bellinzona",
@@ -929,6 +1130,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -967,6 +1170,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1005,6 +1210,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1043,6 +1250,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1081,6 +1290,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1119,6 +1330,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-03-31T21:53:35.437Z",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1127,7 +1340,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
