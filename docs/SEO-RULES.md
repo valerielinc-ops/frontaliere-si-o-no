@@ -83,3 +83,24 @@ When adding any new schema.org type, include ALL fields from Google's documentat
 3. Add router slugs in all 4 locale `SlugTable` objects
 4. Verify static HTML generated: `dist/{slug}/index.html` exists with correct `<title>` and `<meta>`
 5. Add to `SiteSearch.tsx` search index
+
+## Job-board URL architecture (cathedral 2026-05-10)
+
+Since the CH-wide cathedral expansion, job-board pages use a per-canton URL pattern:
+
+- **Per-canton**: `/cerca-lavoro-{italian-canton-slug}/{job-slug}` for IT (e.g. `/cerca-lavoro-zurigo/`, `/cerca-lavoro-ticino/`); anglicized ASCII for non-IT locales (e.g. `/find-jobs-zurich/`, `/jobs-in-zurich/`, `/trouver-emploi-zurich/`).
+- **Aggregator**: `/cerca-lavoro-svizzera/` (CH-wide listing) plus locale variants (`/find-jobs-switzerland/`, `/jobs-in-schweiz/`, `/trouver-emploi-suisse/`).
+- **Slug source of truth**: `data/canton-url-slugs.json` (26 cantons + `_AGGREGATE_` × 4 locales = 104 entries).
+- **Multi-canton jobs**: emit a SINGLE canonical URL with `JobPosting.jobLocation[]` array — never duplicate slugs across cantons (E8).
+- **Frozen URL guarantee (E9)**: `data/slug-registry.json` is immutable per fingerprint. Reclassification (e.g. quorum gate moves a job from TI to GR) preserves the originally indexed URL.
+
+### Sitemap-index + per-canton shards
+
+The cathedral replaces the monolithic `sitemap-jobs.xml` with a sitemap-index:
+
+- `dist/sitemap-index.xml` — top-level index referencing all per-canton + aggregator shards
+- `dist/sitemap-jobs-{canton}.xml` — one per active canton (lowercase canton code)
+- `dist/sitemap-jobs-svizzera.xml` — aggregator
+- Generator: `scripts/lib/sitemap-shard.mjs`
+
+Every new job page MUST land in the correct per-canton shard via the canton-quorum gate (`scripts/lib/canton-quorum-gate.mjs`); low-confidence classifications are excluded from sitemaps until upgraded. See [docs/CRAWLERS.md](CRAWLERS.md#cathedral-ch-wide-expansion-2026-05-10) for the gate logic and [docs/CATHEDRAL-IMPLEMENTATION-PLAN.md](CATHEDRAL-IMPLEMENTATION-PLAN.md) for the full design.

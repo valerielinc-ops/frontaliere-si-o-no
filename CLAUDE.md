@@ -59,6 +59,7 @@ These directives have the highest priority. No exceptions, workarounds, or "temp
 - **Primary language**: Italian (UI and domain), with i18n support for EN/DE/FR
 - **Domain context**: Swiss/Italian tax law (2026 New Agreement), LAMal health insurance, AVS/LPP pensions, CHF-EUR exchange
 - **Task management**: Linear (team "Frontaliere Ticino")
+- **Crawler scope**: as of 2026-05-10 the cathedral expansion covers **all 26 Swiss cantons** (was TI/GR/VS only). Per-canton URL architecture + slug-registry frozen URLs + canton-quorum gate. See [docs/CATHEDRAL-IMPLEMENTATION-PLAN.md](docs/CATHEDRAL-IMPLEMENTATION-PLAN.md) and [docs/CATHEDRAL-ROLLBACK.md](docs/CATHEDRAL-ROLLBACK.md).
 
 ---
 
@@ -294,6 +295,8 @@ Key routing rules:
 | SEO content gate playbooks (6 ratchets) | [docs/SEO-GATES.md](docs/SEO-GATES.md) |
 | SEO feature catalog (F2/F3b/F4/F5/F6/F8) | [docs/SEO-FEATURES.md](docs/SEO-FEATURES.md) |
 | Job crawlers, slugs, translation cache | [docs/CRAWLERS.md](docs/CRAWLERS.md) |
+| Cathedral CH-wide expansion master plan | [docs/CATHEDRAL-IMPLEMENTATION-PLAN.md](docs/CATHEDRAL-IMPLEMENTATION-PLAN.md) |
+| Cathedral rollback runbook | [docs/CATHEDRAL-ROLLBACK.md](docs/CATHEDRAL-ROLLBACK.md) |
 | Design context, brand, users, principles | [docs/DESIGN-CONTEXT.md](docs/DESIGN-CONTEXT.md) |
 | Local dev hygiene (hide cron noise) | [docs/LOCAL-DEV.md](docs/LOCAL-DEV.md) |
 | GitNexus code-intelligence MCP guide | [docs/GITNEXUS.md](docs/GITNEXUS.md) |
