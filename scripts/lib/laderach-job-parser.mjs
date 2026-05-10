@@ -15,17 +15,28 @@ const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontali
 // ── shared utilities ──────────────────────────────────────────────────
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  const out = String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<\/h[1-6]>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&apos;/gi, "'")
     .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
-    .replace(/\s+/g, ' ').trim();
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+  // Preserve newlines introduced by <li>, <br>, <p>, <h*> markers — the audit
+  // detects structured content via "^\\s*[-•*]\\s/m". Collapsing \s+ → ' ' would
+  // flatten every bullet into one line and trip the no-structured-content gate.
+  return out
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/\n[^\S\n]+/g, '\n')
+    .replace(/[^\S\n]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
 export function slugify(value = '') {

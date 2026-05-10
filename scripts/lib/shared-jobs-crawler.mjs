@@ -983,7 +983,28 @@ function isLikelyListingSummaryContent(title = '', description = '') {
 
 
 function cleanDescription(desc) {
-  let text = stripHtml(desc);
+  // Strip HTML while preserving \n newlines. The general stripHtml helper calls
+  // normalizeSpace which collapses every \s+ to a single space, so any newline
+  // markers introduced by upstream htmlToStructuredText() (e.g. "\n- " for <li>,
+  // "\n" for <p>/<br>) get flattened — descriptions arrive as one giant
+  // paragraph and trip the audit's no-structured-content ratchet. Keep the
+  // newlines so the rest of cleanDescription (already designed around \n) can
+  // do its job.
+  let text = String(desc || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<\/h[1-6]>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
   // Remove noisy legal / cookie / nav fragments
   text = text
     .replace(/(privacy policy|cookie policy|all rights reserved|accept all cookies|manage preferences)/gi, ' ')
@@ -993,6 +1014,8 @@ function cleanDescription(desc) {
     .replace(/^#{1,6}\s+/gm, '')               // ## Heading → Heading
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')   // [text](url) → text
     .replace(/[^\S\n]+/g, ' ')      // collapse horizontal whitespace, preserve \n
+    .replace(/\n[^\S\n]+/g, '\n')   // strip leading horizontal whitespace on each line
+    .replace(/[^\S\n]+\n/g, '\n')   // strip trailing horizontal whitespace on each line
     .replace(/\n{3,}/g, '\n\n')      // max 2 consecutive newlines
     .replace(/^\n+|\n+$/g, '')       // trim leading/trailing newlines
     .trim();

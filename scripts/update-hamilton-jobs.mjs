@@ -248,11 +248,29 @@ function buildJob(listing, detail) {
   const timeType = info.timeType || 'Full time';
   const rawDescription = info.jobDescription || '';
 
-  // Clean HTML from description
+  // Clean HTML from description.
+  // Convert structural tags (<li>, <p>, <br>, <h*>) to newline markers BEFORE
+  // stripping the rest, so the audit's "^\s*[-•*]\s/m" detector can see the
+  // bullet structure. Replacing \s+ → ' ' here flattened the markers and
+  // tripped the no-structured-content ratchet. Preserve \n explicitly.
   const description = rawDescription
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<\/h[1-6]>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
     .replace(/&[a-z]+;/gi, ' ')
-    .replace(/\s+/g, ' ')
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/\n[^\S\n]+/g, '\n')
+    .replace(/[^\S\n]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
     .trim()
     .slice(0, 3000);
 

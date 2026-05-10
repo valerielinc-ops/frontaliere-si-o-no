@@ -593,6 +593,80 @@ function postProcessLidlJobs() {
     }
   }
 
+  // Second-pass dedup keyed on (normalized title, normalized location).
+  // The reqId-based key above lets through Lidl's multilingual re-publications
+  // of the same opening (same role + same filiale, two different reqIds —
+  // e.g. an Apprendistato in Locarno listed once in DE and once in IT). The
+  // audit's title-aware fingerprint flags those as duplicate listings, so
+  // collapse them here keeping the highest-scoring copy.
+  const bestByTitleCity = new Map();
+  for (let idx = 0; idx < allJobs.length; idx += 1) {
+    if (toDrop.has(idx)) continue;
+    const job = allJobs[idx];
+    if (!isLidlJob(job)) continue;
+    const titleKey = normalizeKey(job?.title || '');
+    const locKey = normalizeKey(job?.addressLocality || job?.location || '');
+    if (!titleKey || !locKey) continue;
+    const key = `tc:${titleKey}@${locKey}`;
+    const score = lidlJobQualityScore(job);
+    const prev = bestByTitleCity.get(key);
+    if (!prev) {
+      bestByTitleCity.set(key, { idx, score });
+      continue;
+    }
+    if (score > prev.score) {
+      toDrop.add(prev.idx);
+      bestByTitleCity.set(key, { idx, score });
+    } else {
+      toDrop.add(idx);
+    }
+  }
+
+  // Third pass: when the same source title is published across multiple
+  // distinct cities (Lidl ships every per-filiale apprendistato with the
+  // same generic title), append the city to disambiguate. This keeps each
+  // per-city listing visible while resolving the title-aware fingerprint
+  // collision the audit flags as DUPLICATE LISTINGS.
+  const titleGroups = new Map();
+  for (let idx = 0; idx < allJobs.length; idx += 1) {
+    if (toDrop.has(idx)) continue;
+    const job = allJobs[idx];
+    if (!isLidlJob(job)) continue;
+    const titleKey = normalizeKey(job?.title || '');
+    const locKey = normalizeKey(job?.addressLocality || job?.location || '');
+    if (!titleKey || !locKey) continue;
+    const cities = titleGroups.get(titleKey) || new Set();
+    cities.add(locKey);
+    titleGroups.set(titleKey, cities);
+  }
+  let disambiguated = 0;
+  for (const job of allJobs) {
+    if (!isLidlJob(job)) continue;
+    const titleKey = normalizeKey(job?.title || '');
+    if (!titleKey) continue;
+    const cities = titleGroups.get(titleKey);
+    if (!cities || cities.size <= 1) continue;
+    const city = String(job?.addressLocality || job?.location || '').trim();
+    if (!city) continue;
+    const titleStr = String(job?.title || '').trim();
+    if (!titleStr) continue;
+    const suffix = ` — ${city}`;
+    if (titleStr.toLowerCase().includes(city.toLowerCase())) continue;
+    job.title = `${titleStr}${suffix}`;
+    if (job.titleByLocale && typeof job.titleByLocale === 'object') {
+      for (const lang of Object.keys(job.titleByLocale)) {
+        const localized = String(job.titleByLocale[lang] || '').trim();
+        if (!localized || localized.toLowerCase().includes(city.toLowerCase())) continue;
+        job.titleByLocale[lang] = `${localized}${suffix}`;
+      }
+    }
+    disambiguated += 1;
+    fixed += 1;
+  }
+  if (disambiguated > 0) {
+    console.log(`🔤 Disambiguated ${disambiguated} Lidl titles with city suffix.`);
+  }
+
   const deduped = toDrop.size > 0
     ? allJobs.filter((_, idx) => !toDrop.has(idx))
     : allJobs;
