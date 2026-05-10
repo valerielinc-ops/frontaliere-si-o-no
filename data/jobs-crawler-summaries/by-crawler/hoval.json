@@ -1,18 +1,19 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-10T10:18:58.925Z",
+  "generatedAt": "2026-05-10T21:47:20.087Z",
   "total": 6,
-  "newCount": 5,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12141,
-  "avgDurationMs": 12141,
+  "unchangedCount": 4,
+  "durationMs": 11393,
+  "avgDurationMs": 11393,
   "durationHistory": [
-    12141
+    11393
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Frontoffice Mitarbeiter/in (m/w/d)",
       "slug": "frontoffice-mitarbeiter-in-m-w-d-hoval-harkingen",
@@ -35,12 +36,19 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "hoval-0e4d4355721b",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Pasquale Lucchini 4",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-05-10T10:18:58.925Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -65,14 +73,24 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "hoval-0760d1c85ec3",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Pasquale Lucchini 4",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-05-10T10:18:58.925Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Servicetechniker Wärmepumpen Region Zürich (m/w/d)",
       "slug": "servicetechniker-warmepumpen-region-zurich-m-w-d-hoval-region-zurich",
@@ -95,12 +113,21 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "hoval-52337b034fbb",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Pasquale Lucchini 4",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-05-10T10:18:58.925Z",
+      "retranslationAttempts": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 16,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
@@ -125,12 +152,21 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "hoval-0dcbc94c2c7a",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Pasquale Lucchini 4",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-05-10T10:18:58.925Z",
+      "retranslationAttempts": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 16,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
@@ -155,16 +191,21 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 75,
+      "id": "hoval-fd8e3ab9018c",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Pasquale Lucchini 4",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-05-10T10:18:58.925Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento olio/gas (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino",
@@ -202,7 +243,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
