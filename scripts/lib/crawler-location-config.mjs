@@ -214,6 +214,11 @@ export const COMPANY_HQ = {
   'kssg':                         { city: 'St. Gallen',         canton: 'SG', postalCode: '9007', addressRegion: 'SG' },
   'stadtspital-zuerich':          { city: 'Zürich',             canton: 'ZH', postalCode: '8063', addressRegion: 'ZH' },
   'luks':                         { city: 'Luzern',             canton: 'LU', postalCode: '6000', addressRegion: 'LU' },
+  // ── Cathedral Phase 5 hospital crawlers (wave 2) ──
+  'hirslanden':                   { city: 'Zürich',             canton: 'ZH', postalCode: '8008', addressRegion: 'ZH' },
+  'spital-sts':                   { city: 'Thun',               canton: 'BE', postalCode: '3600', addressRegion: 'BE' },
+  'lindenhofgruppe':              { city: 'Bern',               canton: 'BE', postalCode: '3012', addressRegion: 'BE' },
+  'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'fusalp':                       { city: 'Annecy',             canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
