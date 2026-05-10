@@ -4,21 +4,27 @@
  *
  * Usage:
  *   node scripts/scaffold-crawler.mjs <company-key> [options]
+ *   node scripts/scaffold-crawler.mjs --marquee <slug> [options]
  *
  * Examples:
  *   node scripts/scaffold-crawler.mjs my-company
- *   node scripts/scaffold-crawler.mjs my-company --name "My Company SA" --domain mycompany.ch --lang de --source workday
+ *   node scripts/scaffold-crawler.mjs my-company --name "My Company SA" --domain mycompany.ch --lang de --ats workday
+ *   node scripts/scaffold-crawler.mjs roche --ats workday --url "https://roche.wd3.myworkdayjobs.com/roche"
+ *   node scripts/scaffold-crawler.mjs --marquee credit-suisse        # auto-pull name/canton/ats from marquee list
  *
  * Options:
- *   --name      Company display name (default: Title Case of key)
- *   --domain    Company website domain (default: {key}.ch)
- *   --lang      Source language: it, en, de, fr (default: it)
- *   --source    Career page type: generic, api, workday, successfactors, greenhouse (default: generic)
- *   --url       Career page URL (used in parser template)
- *   --force     Overwrite existing files
+ *   --name        Company display name (default: Title Case of key)
+ *   --domain      Company website domain (default: {key}.ch)
+ *   --lang        Source language: it, en, de, fr (default: it)
+ *   --ats         ATS tier: workday | greenhouse | lever | successfactors | custom (default: custom)
+ *   --source      Legacy alias for --ats. Old `generic|api` values map to --ats=custom.
+ *   --url         Career page URL (used in parser template)
+ *   --marquee     Slug from data/marquee-companies-list.json — auto-pulls name/hq_canton/hq_city/ats_hint/careerUrl
+ *   --playwright  Workflow installs Chromium (for SPA / JS-only ATS pages)
+ *   --force       Overwrite existing files
  *
  * Generated files:
- *   1. scripts/lib/{key}-job-parser.mjs        — Parser (fetch + parse logic)
+ *   1. scripts/lib/{key}-job-parser.mjs        — Parser (ATS-aware when --ats != custom; ~50 lines instead of ~200)
  *   2. scripts/update-{key}-jobs.mjs           — Runner (30-line entry point)
  *   3. .github/workflows/update-jobs-{key}.yml — GitHub Actions workflow
  *   4. tests/{key}-crawler.test.ts             — Parser unit tests
@@ -37,42 +43,141 @@ const args = process.argv.slice(2);
 if (args.length === 0 || args[0] === '--help' || args[0] === '-h') {
   console.log(`
 Usage: node scripts/scaffold-crawler.mjs <company-key> [options]
+       node scripts/scaffold-crawler.mjs --marquee <slug> [options]
 
 Options:
   --name <name>       Company display name (e.g. "Lonza AG")
   --domain <domain>   Company domain (e.g. "lonza.com")
   --lang <code>       Source language: it, en, de, fr (default: it)
-  --source <type>     Career page type: generic, api, workday, successfactors, greenhouse
+  --ats <tier>        ATS tier: workday | greenhouse | lever | successfactors | custom (default: custom)
+  --source <type>     Legacy alias for --ats (deprecated)
   --url <url>         Career page URL
+  --marquee <slug>    Auto-pull name/canton/city/ats_hint/careerUrl from data/marquee-companies-list.json
+  --playwright        Workflow installs Chromium (for SPA / JS-only ATS pages)
   --force             Overwrite existing files
 
-Example:
+Examples:
   node scripts/scaffold-crawler.mjs hes-so-valais --name "HES-SO Valais" --domain hes-so.ch --lang fr --url "https://www.hes-so.ch/careers"
+  node scripts/scaffold-crawler.mjs roche --ats workday --url "https://roche.wd3.myworkdayjobs.com/roche"
+  node scripts/scaffold-crawler.mjs --marquee credit-suisse
 `);
   process.exit(0);
 }
 
-const companyKey = args[0].toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/^-+|-+$/g, '');
-if (!companyKey || companyKey.length < 2) {
-  console.error('❌ Company key must be at least 2 characters (kebab-case).');
+/**
+ * Get a CLI option value by flag name. Supports both `--flag value` and
+ * `--flag=value` forms.
+ *
+ * @param {string} flag
+ * @param {string} [defaultValue='']
+ * @returns {string}
+ */
+function getOption(flag, defaultValue = '') {
+  const eqPrefix = `${flag}=`;
+  for (let i = 0; i < args.length; i += 1) {
+    const a = args[i];
+    if (a === flag) return args[i + 1] || defaultValue;
+    if (a && a.startsWith(eqPrefix)) return a.slice(eqPrefix.length) || defaultValue;
+  }
+  return defaultValue;
+}
+
+/**
+ * Look up a company entry in `data/marquee-companies-list.json` by slug.
+ * Saves typing on `--name`, `--domain`, `--ats`, and `--url` for the
+ * curated 119-company marquee list.
+ *
+ * @param {string} slug Lower-case slug (e.g. `'credit-suisse'`).
+ * @returns {object|null} Marquee record or null when missing/unreadable.
+ */
+function loadMarqueeEntry(slug) {
+  if (!slug) return null;
+  const file = path.join(ROOT, 'data', 'marquee-companies-list.json');
+  if (!fs.existsSync(file)) return null;
+  try {
+    const json = JSON.parse(fs.readFileSync(file, 'utf-8'));
+    const list = Array.isArray(json?.companies) ? json.companies : [];
+    const want = slug.toLowerCase();
+    return list.find((c) => String(c?.slug_suggestion || '').toLowerCase() === want) || null;
+  } catch (err) {
+    console.warn(`⚠️  Could not read marquee-companies-list.json: ${err?.message || err}`);
+    return null;
+  }
+}
+
+/**
+ * Map a marquee `ats_hint` string (e.g. `'Workday'`, `'SAP SuccessFactors'`,
+ * `'Greenhouse'`, `'Lever'`, `'?'`) to the canonical `--ats` tier slug.
+ *
+ * @param {string} hint
+ * @returns {'workday'|'greenhouse'|'lever'|'successfactors'|'custom'}
+ */
+function normalizeAtsHint(hint) {
+  const h = String(hint || '').toLowerCase();
+  if (/workday/.test(h)) return 'workday';
+  if (/greenhouse/.test(h)) return 'greenhouse';
+  if (/lever/.test(h)) return 'lever';
+  if (/success ?factors|sap.*sf|^sf$/.test(h)) return 'successfactors';
+  return 'custom';
+}
+
+const VALID_ATS_TIERS = new Set(['workday', 'greenhouse', 'lever', 'successfactors', 'custom']);
+
+// First pass: resolve --marquee so its values can act as defaults below.
+const marqueeSlug = getOption('--marquee', '').toLowerCase();
+const marquee = marqueeSlug ? loadMarqueeEntry(marqueeSlug) : null;
+if (marqueeSlug && !marquee) {
+  console.error(`❌ No marquee entry found for slug "${marqueeSlug}" in data/marquee-companies-list.json.`);
   process.exit(1);
 }
 
-function getOption(flag, defaultValue = '') {
-  const idx = args.indexOf(flag);
-  return idx >= 0 && args[idx + 1] ? args[idx + 1] : defaultValue;
+// Company key: positional arg first; fall back to --marquee slug.
+const positional = args[0] && !args[0].startsWith('--') ? args[0] : '';
+const rawKey = positional || marqueeSlug;
+const companyKey = rawKey.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/^-+|-+$/g, '');
+if (!companyKey || companyKey.length < 2) {
+  console.error('❌ Company key must be at least 2 characters (kebab-case). Pass it as the first arg or via --marquee.');
+  process.exit(1);
 }
 
 const force = args.includes('--force');
-const companyName = getOption('--name') || companyKey.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+const playwrightTier = args.includes('--playwright');
+
+const companyName =
+  getOption('--name') ||
+  marquee?.name ||
+  companyKey.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 const companyDomain = getOption('--domain') || `${companyKey.replace(/-/g, '')}.ch`;
 const sourceLang = getOption('--lang', 'it');
+
+// --ats wins; --source is the legacy alias. Marquee `ats_hint` is the
+// fallback. Anything not in VALID_ATS_TIERS (e.g. legacy `generic`/`api`)
+// degrades to 'custom' so backward compatibility is preserved.
+const atsRaw = (getOption('--ats', '') || getOption('--source', '')).toLowerCase();
+let atsTier = atsRaw;
+if (!atsTier && marquee?.ats_hint) atsTier = normalizeAtsHint(marquee.ats_hint);
+if (!atsTier) atsTier = 'custom';
+if (!VALID_ATS_TIERS.has(atsTier)) atsTier = 'custom';
+
+// Legacy `sourceType` retained for the API-template fallback when --ats=custom
+// (preserves the original `--source api` paginated stub).
 const sourceType = getOption('--source', 'generic');
-const careerUrl = getOption('--url', `https://${companyDomain}/careers`);
+
+const careerUrl =
+  getOption('--url') ||
+  marquee?.careerUrl ||
+  `https://${companyDomain}/careers`;
 
 const CONST_PREFIX = companyKey.toUpperCase().replace(/-/g, '_');
 const camelKey = companyKey.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
 const pascalKey = camelKey.charAt(0).toUpperCase() + camelKey.slice(1);
+
+if (marquee) {
+  console.log(
+    `🎯 Marquee match: ${marquee.name} (${marquee.hq_canton || '?'}/${marquee.hq_city || '?'}, ` +
+    `ats_hint="${marquee.ats_hint || '?'}" → --ats=${atsTier})`,
+  );
+}
 
 /* ── File Paths ──────────────────────────────────────────────── */
 
@@ -94,6 +199,194 @@ if (!force) {
   }
 }
 
+/* ── ATS-tier Parser Section Builder ─────────────────────────── */
+
+/**
+ * Produce the ATS-specific imports + `fetchJobListings()` body for the
+ * generated parser. Each branch is a thin shim around the corresponding
+ * `scripts/lib/ats-clients/*-client.mjs` module — the goal is ~50 lines
+ * of generated parser code (vs ~200 for the legacy from-scratch template).
+ *
+ * The returned `fetchBlock` MUST define a top-level `async function
+ * fetchJobListings()` that returns an array of plain listing objects with
+ * at least `{ title, location, url }`. The post-fetch loop in the parser
+ * template (slug + locale + Job-shape assembly) consumes that array and
+ * is identical for every ATS tier.
+ *
+ * @param {string} tier 'workday' | 'greenhouse' | 'lever' | 'successfactors' | 'custom'
+ * @returns {{ imports: string, fetchBlock: string }}
+ */
+function buildAtsParserSection(tier) {
+  if (tier === 'workday') {
+    return {
+      imports: `import {
+  buildWorkdayApiBase,
+  fetchWorkdayJobs,
+  parseWorkdayPostedDate,
+  extractWorkdayJobIdentity,
+  WorkdayAuthError,
+} from './ats-clients/workday-client.mjs';`,
+      fetchBlock: `/* ── Workday fetcher ──────────────────────────────────────────
+ * The career URL must point to a Workday CXS site, e.g.:
+ *   https://{tenant}.wd3.myworkdayjobs.com/{site}
+ * Switzerland location filter ID varies per tenant — inspect the network
+ * tab on the live site to find the correct facet value.
+ */
+const _WORKDAY_URL = new URL(CAREER_URL);
+const WORKDAY_TENANT_HOST = _WORKDAY_URL.hostname;
+const WORKDAY_SITE_PATH = (_WORKDAY_URL.pathname.replace(/^\\/+|\\/+$/g, '').split('/').pop()) || 'External';
+const WORKDAY_LOCATION_FILTERS = []; // TODO: e.g. ['187134fccb084a0ea9b4b95f23890dbe'] for CH on most tenants
+
+async function fetchJobListings() {
+  const apiBase = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
+  const out = [];
+  try {
+    for await (const posting of fetchWorkdayJobs(apiBase, {
+      locationFilters: WORKDAY_LOCATION_FILTERS,
+      maxPages: 10,
+    })) {
+      const id = extractWorkdayJobIdentity(posting, { apiBase, company: ${CONST_PREFIX}_COMPANY_NAME });
+      out.push({
+        title: id.title,
+        location: id.location,
+        url: id.applyUrl,
+        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        externalPath: id.externalPath,
+        jobReqId: id.jobReqId,
+      });
+    }
+  } catch (err) {
+    if (err instanceof WorkdayAuthError) {
+      console.error(\`❌ Workday anti-bot block: \${err.message}\`);
+      return [];
+    }
+    throw err;
+  }
+  return out;
+}`,
+    };
+  }
+
+  if (tier === 'greenhouse') {
+    return {
+      imports: `import {
+  fetchGreenhouseJobs,
+  extractGreenhouseBoardToken,
+} from './ats-clients/greenhouse-client.mjs';`,
+      fetchBlock: `/* ── Greenhouse fetcher ───────────────────────────────────────
+ * Pass either a boards.greenhouse.io URL (auto-extracts board token) or
+ * override GREENHOUSE_BOARD_TOKEN below. Location filter is a list of
+ * substrings matched (case-insensitive) against \`location.name\`.
+ */
+const GREENHOUSE_BOARD_TOKEN =
+  extractGreenhouseBoardToken(CAREER_URL) || ${CONST_PREFIX}_KEY;
+const GREENHOUSE_LOCATION_CONTAINS = []; // TODO: e.g. ['Switzerland', 'Zurich', 'Lausanne']
+
+async function fetchJobListings() {
+  const jobs = await fetchGreenhouseJobs(GREENHOUSE_BOARD_TOKEN, {
+    includeContent: true,
+    locationContains: GREENHOUSE_LOCATION_CONTAINS,
+    companyName: ${CONST_PREFIX}_COMPANY_NAME,
+  });
+  return jobs.map((j) => ({
+    title: j.title,
+    location: j.location,
+    url: j.applyUrl,
+    postedAt: j.postedAt,
+    description: j.descriptionHtml || '',
+    jobReqId: j.jobReqId,
+  }));
+}`,
+    };
+  }
+
+  if (tier === 'lever') {
+    return {
+      imports: `import {
+  fetchLeverJobs,
+  extractLeverCompanySlug,
+} from './ats-clients/lever-client.mjs';`,
+      fetchBlock: `/* ── Lever fetcher ────────────────────────────────────────────
+ * Pass either a jobs.lever.co URL (auto-extracts company slug) or
+ * override LEVER_COMPANY_SLUG below.
+ */
+const LEVER_COMPANY_SLUG =
+  extractLeverCompanySlug(CAREER_URL) || ${CONST_PREFIX}_KEY;
+const LEVER_LOCATION_CONTAINS = []; // TODO: e.g. ['switzerland', 'zurich']
+
+async function fetchJobListings() {
+  const jobs = await fetchLeverJobs(LEVER_COMPANY_SLUG, {
+    company: ${CONST_PREFIX}_COMPANY_NAME,
+    locationContains: LEVER_LOCATION_CONTAINS,
+  });
+  return jobs.map((j) => ({
+    title: j.title,
+    location: j.location,
+    url: j.applyUrl,
+    postedAt: j.postedAt,
+    description: j.descriptionHtml || '',
+    jobReqId: j.jobReqId,
+  }));
+}`,
+    };
+  }
+
+  if (tier === 'successfactors') {
+    return {
+      imports: `import {
+  detectSuccessFactorsKind,
+  fetchSuccessFactorsJobs,
+  SuccessFactorsAuthError,
+} from './ats-clients/successfactors-client.mjs';`,
+      fetchBlock: `/* ── SuccessFactors fetcher ───────────────────────────────────
+ * Three flavors auto-detected from CAREER_URL:
+ *   - 'odata-api'    → api{N}.successfactors.com/odata/v2/...
+ *   - 'html-career'  → career5.successfactors.eu/career?company=...
+ *   - 'html-jobreq'  → jobs2web / SSR overlay (jobs.sbb.ch, etc.)
+ * For 'html-career' listing index you typically need Playwright
+ * (re-scaffold with --playwright if so).
+ */
+const SF_LOCATION_FILTERS = []; // TODO: e.g. ['Ticino', 'Lugano', 'Zurich']
+
+async function fetchJobListings() {
+  const kind = detectSuccessFactorsKind(CAREER_URL);
+  if (!kind) {
+    console.warn(\`⚠️ URL not recognised as SuccessFactors: \${CAREER_URL}\`);
+    return [];
+  }
+  const out = [];
+  try {
+    for await (const job of fetchSuccessFactorsJobs(CAREER_URL, {
+      locationFilters: SF_LOCATION_FILTERS,
+      company: ${CONST_PREFIX}_COMPANY_NAME,
+    })) {
+      out.push({
+        title: job.title,
+        location: job.location,
+        url: job.applyUrl,
+        postedAt: job.postedAt,
+        jobReqId: job.jobReqId,
+      });
+    }
+  } catch (err) {
+    if (err instanceof SuccessFactorsAuthError) {
+      console.error(\`❌ SuccessFactors anti-bot block: \${err.message}\`);
+      return [];
+    }
+    throw err;
+  }
+  return out;
+}`,
+    };
+  }
+
+  // tier === 'custom' (default): empty marker — caller falls back to legacy
+  // `sourceType === 'api'` API-paginated stub or generic fetch placeholder.
+  return { imports: '', fetchBlock: '' };
+}
+
+const atsSection = buildAtsParserSection(atsTier);
+
 /* ── Template: Parser ────────────────────────────────────────── */
 
 const parserContent = `#!/usr/bin/env node
@@ -112,7 +405,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-
+${atsSection.imports ? `${atsSection.imports}\n` : ''}
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const ${CONST_PREFIX}_KEY = '${companyKey}';
@@ -200,7 +493,7 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-${sourceType === 'api' ? `/* ── API Client ────────────────────────────────────────────── */
+${atsSection.fetchBlock ? atsSection.fetchBlock : (sourceType === 'api' ? `/* ── API Client ────────────────────────────────────────────── */
 
 const PAGE_SIZE = 20; // TODO: Adjust to match the API's page size
 
@@ -272,9 +565,10 @@ async function fetchJobDetail(jobId) {
 //
 // Common patterns:
 //   - JSON API:     use --source api for a ready-made paginated API template
-//   - Workday API:  POST to /wday/cxs/{tenant}/{site}/jobs with JSON body
-//   - SuccessFactors: GET /go/{category}/{id}/
-//   - Greenhouse:   GET https://boards-api.greenhouse.io/v1/boards/{board}/jobs
+//   - Workday API:  re-scaffold with --ats=workday for a ready-made template
+//   - Greenhouse:   --ats=greenhouse
+//   - Lever:        --ats=lever
+//   - SuccessFactors: --ats=successfactors
 //   - Generic HTML: fetch + parse with regex or cheerio
 
 async function fetchJobListings() {
@@ -289,7 +583,7 @@ async function fetchJobListings() {
   // return await res.json();
 
   return [];
-}`}
+}`)}
 
 /**
  * Fetch all ${companyName} jobs.
@@ -461,7 +755,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
+${playwrightTier ? `
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+` : ''}
       - name: Prepare Firebase credentials (optional)
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: \${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -656,7 +953,7 @@ function writeFile(filePath, content, label) {
   console.log(`  ✅ ${label}: ${path.relative(ROOT, filePath)}`);
 }
 
-console.log(`\n🏗️  Scaffolding crawler: ${companyKey} (${companyName})\n`);
+console.log(`\n🏗️  Scaffolding crawler: ${companyKey} (${companyName}) [--ats=${atsTier}${playwrightTier ? ', --playwright' : ''}]\n`);
 
 writeFile(files.parser, parserContent, 'Parser');
 writeFile(files.runner, runnerContent, 'Runner');
