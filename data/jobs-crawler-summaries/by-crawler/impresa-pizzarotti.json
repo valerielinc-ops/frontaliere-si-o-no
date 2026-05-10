@@ -1,19 +1,18 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-05-09T22:01:45.585Z",
+  "generatedAt": "2026-05-10T10:40:53.341Z",
   "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1715,
-  "avgDurationMs": 1715,
+  "durationMs": 1758,
+  "avgDurationMs": 1758,
   "durationHistory": [
-    1715
+    1758
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "title": "PROJECT CONTROL MANAGER - SVIZZERA",
       "slug": "project-control-manager-svizzera-impresa-pizzarotti-c-s-p-a-impresa-pizzarotti-c-s-p-a",
@@ -32,24 +31,20 @@
       "sector": "Costruzioni & Infrastrutture",
       "source": "pizzarotti-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "impresa-pizzarotti-ec6ee74e2f70",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-28T11:25:44.061Z",
-      "_qualityScore": 88,
+      "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 25,
-        "completeness": 19
+        "translation": 4,
+        "completeness": 14
       }
     }
   ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
