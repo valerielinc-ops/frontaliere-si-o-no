@@ -33302,6 +33302,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-documentario-claire-ghiringhelli-lugano': {
+    title: 'Documentario su Claire Ghiringhelli a Lugano: la storia di una rinascita',
+    description: 'Scopri il documentario su Claire Ghiringhelli, atleta paralimpica di canottaggio, in proiezione a Lugano. Una storia di resilienza e determinazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, documentario, claire, ghiringhelli, lugano',
+    ogTitle: 'Documentario Claire Ghiringhelli Lugano | Frontaliere Ticino',
+    ogDescription: 'Scopri il documentario su Claire Ghiringhelli, atleta paralimpica di canottaggio, in proiezione a Lugano. Una storia di resilienza e determinazione.',
+    canonicalPath: '/articoli-frontaliere/documentario-claire-ghiringhelli-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Documentario su Claire Ghiringhelli a Lugano: la storia di una rinascita",
+      "description": "Scopri il documentario su Claire Ghiringhelli, atleta paralimpica di canottaggio, in proiezione a Lugano. Una storia di resilienza e determinazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/documentario-claire-ghiringhelli-lugano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Claire Ghiringhelli remiera paralimpica sul Lago di Lugano"
+      },
+      "datePublished": "2026-05-10T04:55:24+00:00",
+      "dateModified": "2026-05-10T04:55:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/documentario-claire-ghiringhelli-lugano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

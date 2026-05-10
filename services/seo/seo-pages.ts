@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2474,
+ "numberOfItems": 2475,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7116,7 +7116,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2471, "name": "Incidente in tuta alare: 32enne svizzera gravem...", "url": `${BASE_URL}/articoli-frontaliere/incidente-tuta-alare-svizzera-2026` },
           { "@type": "ListItem", "position": 2472, "name": "Ghiacciai svizzeri senza scudo protettivo: cosa...", "url": `${BASE_URL}/articoli-frontaliere/ghiacciai-svizzera-frontalieri` },
           { "@type": "ListItem", "position": 2473, "name": "Niente centro migranti a Fornasette: la caserma...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-luino-caserma-fornasette` },
-          { "@type": "ListItem", "position": 2474, "name": "Black list morosi cassa malati: cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/black-list-morosi-cassa-malati-ticino` }
+          { "@type": "ListItem", "position": 2474, "name": "Black list morosi cassa malati: cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/black-list-morosi-cassa-malati-ticino` },
+          { "@type": "ListItem", "position": 2475, "name": "Documentario su Claire Ghiringhelli a Lugano: l...", "url": `${BASE_URL}/articoli-frontaliere/documentario-claire-ghiringhelli-lugano` }
  ]
  },
  {

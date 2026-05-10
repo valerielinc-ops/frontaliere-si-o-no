@@ -7265,6 +7265,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.black-list-morosi-cassa-malati-ticino.title': 'Black list for unpaid health insurance: changes for cross-border workers',
     'blog.article.black-list-morosi-cassa-malati-ticino.excerpt': 'New rules for unpaid health insurance in Ticino. Here\'s what you need to know and how to avoid ending up on the black list',
     'blog.article.black-list-morosi-cassa-malati-ticino.imageAlt': 'Lake Lugano with a modern building in the background',
+    'blog.article.documentario-claire-ghiringhelli-lugano.title': 'Claire Ghiringhelli documentary in Lugano: a story of rebirth',
+    'blog.article.documentario-claire-ghiringhelli-lugano.excerpt': 'The story of Claire Ghiringhelli, a Paralympic rowing athlete, told in a documentary screened in Lugano',
+    'blog.article.documentario-claire-ghiringhelli-lugano.imageAlt': 'Claire Ghiringhelli Paralympic rower on Lake Lugano',
 };
 
 export default blogMetaEn;

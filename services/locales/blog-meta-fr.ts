@@ -7266,6 +7266,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.black-list-morosi-cassa-malati-ticino.title': 'Liste noire des mauvais payeurs: changements pour les frontaliers',
     'blog.article.black-list-morosi-cassa-malati-ticino.excerpt': 'Nouvelles règles pour les mauvais payeurs de l\'assurance maladie au Tessin. Voici ce qu\'il faut savoir et comment éviter de se retrouver sur la liste noire',
     'blog.article.black-list-morosi-cassa-malati-ticino.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan',
+    'blog.article.documentario-claire-ghiringhelli-lugano.title': 'Documentaire sur Claire Ghiringhelli à Lugano : l\'histoire d\'une renaissance',
+    'blog.article.documentario-claire-ghiringhelli-lugano.excerpt': 'L\'histoire de Claire Ghiringhelli, athlète paralympique de canoë, racontée dans un documentaire projeté à Lugano',
+    'blog.article.documentario-claire-ghiringhelli-lugano.imageAlt': 'Claire Ghiringhelli rameuse paralympique sur le lac de Lugano',
 };
 
 export default blogMetaFr;

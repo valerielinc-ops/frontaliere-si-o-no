@@ -7265,6 +7265,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.black-list-morosi-cassa-malati-ticino.title': 'Schwarze Liste für säumige Krankenkassen: Was ändert sich für Grenzgänger?',
     'blog.article.black-list-morosi-cassa-malati-ticino.excerpt': 'Neue Regeln für säumige Krankenkassen in Ticino. Hier erfahren Sie, was Sie wissen müssen und wie Sie vermeiden, auf der schwarzen Liste zu landen.',
     'blog.article.black-list-morosi-cassa-malati-ticino.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
+    'blog.article.documentario-claire-ghiringhelli-lugano.title': 'Claire Ghiringhelli: Neuanfang in Lugano',
+    'blog.article.documentario-claire-ghiringhelli-lugano.excerpt': 'Die Geschichte von Claire Ghiringhelli, paralympische Ruderin, wird in einem Dokumentarfilm erzählt, der in Lugano gezeigt wird',
+    'blog.article.documentario-claire-ghiringhelli-lugano.imageAlt': 'Claire Ghiringhelli paralympische Ruderin auf dem Luganersee',
 };
 
 export default blogMetaDe;

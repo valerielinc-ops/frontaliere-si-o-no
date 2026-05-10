@@ -23168,4 +23168,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'documentario-claire-ghiringhelli-lugano',
+ category: 'novita',
+ date: '2026-05-10T04:55:24.719Z',
+ image: '/images/blog/documentario-claire-ghiringhelli-lugano.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

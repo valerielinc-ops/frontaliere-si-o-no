@@ -7266,6 +7266,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.black-list-morosi-cassa-malati-ticino.title': 'Black list morosi cassa malati: cosa cambia per i frontalieri',
     'blog.article.black-list-morosi-cassa-malati-ticino.excerpt': 'Nuove regole per i morosi della cassa malati in Ticino. Ecco cosa sapere e come evitare di finire nella black list',
     'blog.article.black-list-morosi-cassa-malati-ticino.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
+    'blog.article.documentario-claire-ghiringhelli-lugano.title': 'Documentario su Claire Ghiringhelli a Lugano: la storia di una rinascita',
+    'blog.article.documentario-claire-ghiringhelli-lugano.excerpt': 'La storia di Claire Ghiringhelli, atleta paralimpica di canottaggio, raccontata in un documentario proiettato a Lugano',
+    'blog.article.documentario-claire-ghiringhelli-lugano.imageAlt': 'Claire Ghiringhelli remiera paralimpica sul Lago di Lugano',
 };
 
 export default blogMetaIt;
