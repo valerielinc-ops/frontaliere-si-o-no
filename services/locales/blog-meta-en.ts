@@ -7280,6 +7280,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.minivan-chioggia-frontalieri-incidente.title': 'Minivan in Chioggia canal: three cross-border workers killed',
     'blog.article.minivan-chioggia-frontalieri-incidente.excerpt': 'A fatal accident in Chioggia involving Moroccan cross-border workers heading to work in the radicchio fields. Three victims, including the driver.',
     'blog.article.minivan-chioggia-frontalieri-incidente.imageAlt': 'Minivan crashed into a canal in Chioggia, with emergency services and local authorities present',
+    'blog.article.curiosita-rossocrociate-ticino-2026.title': 'Unique Swiss traditions in Ticino',
+    'blog.article.curiosita-rossocrociate-ticino-2026.excerpt': 'Discover the quirkiest Swiss and Ticino traditions, from fighting cows to springtime egg rituals.',
+    'blog.article.curiosita-rossocrociate-ticino-2026.imageAlt': 'View of Lake Lugano with the city of Lugano in the background',
 };
 
 export default blogMetaEn;

@@ -7281,6 +7281,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.minivan-chioggia-frontalieri-incidente.title': 'Minivan nel canale a Chioggia: tre vittime tra i frontalieri',
     'blog.article.minivan-chioggia-frontalieri-incidente.excerpt': 'Un incidente mortale a Chioggia coinvolge frontalieri marocchini diretti al lavoro nei campi del radicchio. Tre vittime, tra cui il conducente.',
     'blog.article.minivan-chioggia-frontalieri-incidente.imageAlt': 'Minivan precipitato in un canale a Chioggia, con soccorritori e autorità locali sul posto',
+    'blog.article.curiosita-rossocrociate-ticino-2026.title': 'Curiosità svizzere: tradizioni e usanze uniche in Ticino',
+    'blog.article.curiosita-rossocrociate-ticino-2026.excerpt': 'Scopri le tradizioni più insolite della Svizzera e del Ticino, dalle mucche che combattono ai riti primaverili con le uova.',
+    'blog.article.curiosita-rossocrociate-ticino-2026.imageAlt': 'Vista del Lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -7280,6 +7280,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.minivan-chioggia-frontalieri-incidente.title': 'Minivan in Kanal in Chioggia: drei Opfer unter Grenzgängern',
     'blog.article.minivan-chioggia-frontalieri-incidente.excerpt': 'Ein tödlicher Unfall in Chioggia betrifft marokkanische Grenzgänger auf dem Weg zur Arbeit in den Radicchio-Feldern. Drei Opfer, darunter der Fahrer.',
     'blog.article.minivan-chioggia-frontalieri-incidente.imageAlt': 'Ein Minivan ist in einen Kanal in Chioggia gestürzt, mit Rettungskräften und lokalen Behörden vor Ort',
+    'blog.article.curiosita-rossocrociate-ticino-2026.title': 'Schweizer Kuriositäten: Traditionen im Tessin',
+    'blog.article.curiosita-rossocrociate-ticino-2026.excerpt': 'Entdecken Sie die ungewöhnlichsten Traditionen der Schweiz und des Tessin, von kämpfenden Kühen bis zu Frühlingsritualen mit Eiern.',
+    'blog.article.curiosita-rossocrociate-ticino-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

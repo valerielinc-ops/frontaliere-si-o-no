@@ -23213,4 +23213,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'curiosita-rossocrociate-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-10T05:34:11.923Z',
+ image: '/images/blog/curiosita-rossocrociate-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
