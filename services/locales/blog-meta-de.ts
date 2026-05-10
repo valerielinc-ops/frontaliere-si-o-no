@@ -7376,6 +7376,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.votazioni-federali-14-giugno-2026.title': '14. Juni: Was Sie wissen müssen',
     'blog.article.votazioni-federali-14-giugno-2026.excerpt': 'Initiative für Nachhaltigkeit und Änderung des Gesetzes über den Zivildienst: Das ändert sich für Grenzgänger',
     'blog.article.votazioni-federali-14-giugno-2026.imageAlt': 'Bellinzona mit der Burg Castelgrande und dem Fluss Ticino',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.title': 'Locarno, Lugano und Mendrisio für Kulturhauptstadt 2030',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.excerpt': 'Die Verwaltung von Locarno stimmt der gemeinsamen Bewerbung zu, fordert aber Maßnahmen, um eine marginale Position zu vermeiden',
+    'blog.article.locarno-lugano-mendrisio-alleanza-2026.imageAlt': 'Panorama von Locarno mit See und Bergen',
+    'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.title': 'Nachtschließungen auf der Autobahn A9: betroffene Abschnitte',
+    'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.excerpt': 'Vom Montag, den 11. bis Freitag, den 15. Mai 2026, nächtliche Schließungen auf der A9 zwischen Lainate, Como und Chiasso für Grünflächenwartung. Was sich für Grenzgänger ändert',
+    'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.imageAlt': 'Luftaufnahme der Autobahn A9 in der Nähe von Lugano mit Baustellen und Nachtverkehr',
 };
 
 export default blogMetaDe;

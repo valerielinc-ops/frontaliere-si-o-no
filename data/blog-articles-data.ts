@@ -23501,4 +23501,22 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'locarno-lugano-mendrisio-alleanza-2026',
+ category: 'novita',
+ date: '2026-05-10T11:39:06.157Z',
+ image: '/images/blog/locarno-lugano-mendrisio-alleanza-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'autostrada-a9-chiusure-11-15-maggio-2026',
+ category: 'pratico',
+ date: '2026-05-10T11:48:39.294Z',
+ image: '/images/blog/autostrada-a9-chiusure-11-15-maggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

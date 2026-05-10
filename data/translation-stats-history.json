@@ -1,69 +1,5 @@
 [
   {
-    "timestamp": "2026-04-26T04:00:05.308Z",
-    "label": "before",
-    "total": 2666,
-    "needsRetranslation": 46,
-    "incomplete": 25,
-    "complete": 2641,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 23,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-26T04:23:16.670Z",
-    "label": "after",
-    "total": 2666,
-    "needsRetranslation": 25,
-    "incomplete": 25,
-    "complete": 2641,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 23,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-26T05:49:42.455Z",
     "label": "before",
     "total": 2666,
@@ -9808,6 +9744,118 @@
       {
         "company": "Spital Davos",
         "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-10T11:10:09.363Z",
+    "label": "before",
+    "total": 2755,
+    "needsRetranslation": 1557,
+    "incomplete": 859,
+    "complete": 1896,
+    "missingByLocale": {
+      "it": 705,
+      "en": 452,
+      "de": 428,
+      "fr": 735
+    },
+    "topPending": [
+      {
+        "company": "Jumbo",
+        "pending": 92
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 76
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 71
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 51
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 49
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "Swisscom (sede Ticino)",
+        "pending": 41
+      },
+      {
+        "company": "Lonza",
+        "pending": 40
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-10T12:21:50.700Z",
+    "label": "after",
+    "total": 2755,
+    "needsRetranslation": 714,
+    "incomplete": 755,
+    "complete": 2000,
+    "missingByLocale": {
+      "it": 649,
+      "en": 391,
+      "de": 353,
+      "fr": 663
+    },
+    "topPending": [
+      {
+        "company": "Jumbo",
+        "pending": 92
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 76
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 71
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 51
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 49
+      },
+      {
+        "company": "Swisscom (sede Ticino)",
+        "pending": 41
+      },
+      {
+        "company": "Lonza",
+        "pending": 40
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
       }
     ]
   }

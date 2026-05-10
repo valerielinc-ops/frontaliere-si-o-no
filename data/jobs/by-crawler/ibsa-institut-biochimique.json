@@ -43,8 +43,8 @@
       "slugByLocale": {
         "it": "responsabile-cmo-ibsa-institut-biochimique-montagnola",
         "en": "cmo-manager-ibsa-institut-biochimique-grancia",
-        "de": "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4",
-        "fr": "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area"
+        "de": "cmo-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
+        "fr": "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia"
       },
       "sourceLang": "it",
       "country": "CH",
@@ -56,6 +56,12 @@
         "en": [
           "cmo-manager-ibsa-institut-biochimique-6916-working-area",
           "cmo-manager-ibsa-institut-biochimique-montagnola"
+        ],
+        "de": [
+          "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4"
+        ],
+        "fr": [
+          "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area"
         ]
       },
       "previousSlugs": [
@@ -63,6 +69,8 @@
         "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
         "cmo-manager-ibsa-institut-biochimique-6916-working-area",
         "cmo-manager-ibsa-institut-biochimique-montagnola",
+        "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4",
+        "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area",
         "responsabile-cmo-ibsa-institut-biochimique-grancia"
       ],
       "salaryMin": 82500,
@@ -132,9 +140,9 @@
       },
       "slugByLocale": {
         "it": "funzionario-della-ricerca-clinica-ibsa-institut-biochimique-montagnola",
-        "en": "clinical-research-officer-ibsa-institut-biochimique-montagnola",
-        "de": "klinischer-forschungsbeauftragter-ibsa-institut-biochimique-6926-working-area",
-        "fr": "responsable-de-projet-clinique-ibsa-institut-biochimique-6926-working-area"
+        "en": "clinical-research-officer-ibsa-institut-biochimique-all-area-all-clear-apply-now-clinical-research-officer-location-coll",
+        "de": "klinischer-forschungsbeauftragter-ibsa-institut-biochimique-all-area-all-clear-apply-now-clinical-research-officer-locat",
+        "fr": "responsable-de-projet-clinique-ibsa-institut-biochimique-all-area-all-clear-apply-now-clinical-research-officer-location"
       },
       "sourceLang": "it",
       "country": "CH",
@@ -145,6 +153,9 @@
         "clinical-recherche-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-stud-u7vkyi",
         "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
         "clinical-research-officer-ibsa-institut-biochimique-6926-working-area",
+        "clinical-research-officer-ibsa-institut-biochimique-montagnola",
+        "klinischer-forschungsbeauftragter-ibsa-institut-biochimique-6926-working-area",
+        "responsable-de-projet-clinique-ibsa-institut-biochimique-6926-working-area",
         "biochemical-laboratory-technician-ibsa-institut-biochimique-montagnola",
         "tecnico-di-laboratorio-biochimico-ibsa-institut-biochimique-montagnola"
       ],
@@ -175,17 +186,19 @@
           "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi"
         ],
         "en": [
-          "clinical-research-officer-ibsa-institut-biochimique-6926-working-area"
+          "clinical-research-officer-ibsa-institut-biochimique-6926-working-area",
+          "clinical-research-officer-ibsa-institut-biochimique-montagnola"
         ],
         "de": [
-          "clinical-forschung-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-stud-u7vkyi"
+          "clinical-forschung-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-stud-u7vkyi",
+          "klinischer-forschungsbeauftragter-ibsa-institut-biochimique-6926-working-area"
         ],
         "fr": [
-          "clinical-recherche-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-stud-u7vkyi"
+          "clinical-recherche-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-stud-u7vkyi",
+          "responsable-de-projet-clinique-ibsa-institut-biochimique-6926-working-area"
         ]
       },
-      "firstSeenAt": "2026-04-09T21:37:33.940Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-09T21:37:33.940Z"
     },
     {
       "id": "company-um2f7f",
@@ -235,9 +248,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-industrial-controlling-ibsa-institut-biochimique-montagnola",
-        "en": "industrial-controlling-manager-ibsa-institut-biochimique-montagnola",
+        "en": "industrial-controlling-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-industrial-controlling-manager-loc",
         "de": "industrieller-controlling-manager-ibsa-institut-biochimique-6926-working-area",
-        "fr": "responsable-de-controlling-industriel-ibsa-institut-biochimique-6926-working-area-um2f7f"
+        "fr": "responsable-de-controlling-industriel-ibsa-institut-biochimique-all-area-all-clear-apply-now-industrial-controlling-mana"
       },
       "sourceLang": "it",
       "country": "CH",
@@ -245,6 +258,8 @@
         "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co",
         "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
         "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area",
+        "industrial-controlling-manager-ibsa-institut-biochimique-montagnola",
+        "responsable-de-controlling-industriel-ibsa-institut-biochimique-6926-working-area-um2f7f",
         "responsable-de-controlling-industriel-ibsa-institut-biochimique-montagnola"
       ],
       "salaryMin": 142000,
@@ -272,21 +287,22 @@
           "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area"
         ],
         "en": [
-          "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area"
+          "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area",
+          "industrial-controlling-manager-ibsa-institut-biochimique-montagnola"
         ],
         "de": [
           "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f"
         ],
         "fr": [
-          "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area"
+          "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area",
+          "responsable-de-controlling-industriel-ibsa-institut-biochimique-6926-working-area-um2f7f"
         ]
       },
-      "firstSeenAt": "2026-04-09T21:37:33.940Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-09T21:37:33.940Z"
     },
     {
       "id": "company-dbsgw8",
-      "slug": "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-6916-working-area",
+      "slug": "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-all-area-all-clear-apply-now-customer-business-support-s",
       "company": "IBSA Institut Biochimique",
       "title": "Customer & Business Support Specialist",
       "location": "All Area All Clear Apply now » Customer & Business Support Specialist Location",
@@ -311,9 +327,9 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
       "slugByLocale": {
-        "it": "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-6916-working-area",
+        "it": "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-all-area-all-clear-apply-now-customer-business-support-s",
         "en": "customer-business-support-specialist-ibsa-institut-biochimique-grancia",
-        "de": "kunden-und-geschaftsbeauftragter-ibsa-institut-biochimique-6916-working-area",
+        "de": "kunden-und-geschaftsbeauftragter-ibsa-institut-biochimique-all-area-all-clear-apply-now-customer-business-support-specia",
         "fr": "customer-business-support-specialiste-ibsa-institut-biochimique-6916-working-area-dbsgw8"
       },
       "titleByLocale": {
@@ -343,8 +359,10 @@
         "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
         "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area",
         "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-montagnola",
+        "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-6916-working-area",
         "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
         "customer-business-support-specialist-ibsa-institut-biochimique-montagnola",
+        "kunden-und-geschaftsbeauftragter-ibsa-institut-biochimique-6916-working-area",
         "specialista-supporto-clienti-e-business-ibsa-institut-biochimique-montagnola",
         "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-grancia"
       ],
@@ -371,7 +389,8 @@
           "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area-dbsgw8",
           "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
           "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area",
-          "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-montagnola"
+          "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-montagnola",
+          "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-6916-working-area"
         ],
         "en": [
           "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
@@ -379,14 +398,14 @@
           "customer-business-support-specialist-ibsa-institut-biochimique-montagnola"
         ],
         "de": [
-          "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8"
+          "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
+          "kunden-und-geschaftsbeauftragter-ibsa-institut-biochimique-6916-working-area"
         ],
         "fr": [
           "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-03-31T21:23:52.685Z"
     },
     {
       "id": "company-q2u6mq",
@@ -592,9 +611,9 @@
       "crawledAt": "2026-03-31T21:23:52.685Z",
       "slugByLocale": {
         "it": "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl",
-        "en": "contractors-audits-specialist-ibsa-institut-biochimique-montagnola",
-        "de": "contractors-audits-spezialist-ibsa-institut-biochimique-ticino",
-        "fr": "contractors-audits-specialiste-ibsa-institut-biochimique-ticino"
+        "en": "contractors-audits-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-contractors-audits-specialist-locat",
+        "de": "contractors-audits-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-contractors-audits-specialist-locat",
+        "fr": "contractors-audits-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-contractors-audits-specialist-loca"
       },
       "titleByLocale": {
         "it": "Contractors & Audits Specialista",
@@ -621,12 +640,15 @@
         "specialiste-des-contractants-et-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-c",
         "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parla",
         "contractors-audits-specialist-ibsa-institut-biochimique-ticino",
+        "contractors-audits-specialist-ibsa-institut-biochimique-montagnola",
         "spezialist-fur-auftragnehmer-und-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-",
         "spezialist-fur-vertragsunternehmen-und-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-o",
         "contractors-audits-spezialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parla",
+        "contractors-audits-spezialist-ibsa-institut-biochimique-ticino",
         "specialiste-des-entrepreneurs-et-des-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ott",
         "specialiste-des-entreprises-et-des-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottim",
         "contractors-audits-specialiste-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl",
+        "contractors-audits-specialiste-ibsa-institut-biochimique-ticino",
         "contractors-audits-specialista-ibsa-institut-biochimique-montagnola"
       ],
       "salaryMin": 80000,
@@ -662,7 +684,8 @@
           "specialiste-des-entrepreneurs-et-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-",
           "specialiste-des-contractants-et-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-c",
           "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parla",
-          "contractors-audits-specialist-ibsa-institut-biochimique-ticino"
+          "contractors-audits-specialist-ibsa-institut-biochimique-ticino",
+          "contractors-audits-specialist-ibsa-institut-biochimique-montagnola"
         ],
         "de": [
           "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
@@ -671,7 +694,8 @@
           "spezialist-fur-auftragnehmer-und-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-",
           "spezialist-fur-vertragsunternehmen-und-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-o",
           "contractors-audits-spezialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
-          "contractors-audits-spezialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parla"
+          "contractors-audits-spezialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parla",
+          "contractors-audits-spezialist-ibsa-institut-biochimique-ticino"
         ],
         "fr": [
           "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
@@ -680,7 +704,8 @@
           "specialiste-des-entrepreneurs-et-des-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ott",
           "specialiste-des-entreprises-et-des-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottim",
           "contractors-audits-specialiste-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
-          "contractors-audits-specialiste-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl"
+          "contractors-audits-specialiste-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl",
+          "contractors-audits-specialiste-ibsa-institut-biochimique-ticino"
         ]
       },
       "firstSeenAt": "2026-03-31T21:23:52.685Z"
@@ -711,9 +736,9 @@
       "crawledAt": "2026-03-31T21:23:52.685Z",
       "slugByLocale": {
         "it": "jr-et-t-qa-specialista-ibsa-institut-biochimique-6926-working-area",
-        "en": "jr-et-t-qa-specialist-ibsa-institut-biochimique-montagnola",
-        "de": "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area",
-        "fr": "jr-et-t-qa-specialiste-ibsa-institut-biochimique-6926-working-area"
+        "en": "jr-et-t-qa-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-et-t-qa-specialist-location-collina-d-or",
+        "de": "jr-et-t-qa-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-et-t-qa-specialist-location-collina-d-or",
+        "fr": "jr-et-t-qa-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-et-t-qa-specialist-location-collina-d-o"
       },
       "titleByLocale": {
         "it": "Jr ET&T QA Specialista",
@@ -741,8 +766,11 @@
         "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area-u9trv9",
         "jr-et-t-qa-specialist-ibsa-institut-biochimique-6926-working-area",
         "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
+        "jr-et-t-qa-specialist-ibsa-institut-biochimique-montagnola",
         "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
+        "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area",
         "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9",
+        "jr-et-t-qa-specialiste-ibsa-institut-biochimique-6926-working-area",
         "jr-et-t-qa-specialista-ibsa-institut-biochimique-montagnola",
         "ot-security-specialista-ibsa-institut-biochimique-montagnola"
       ],
@@ -780,19 +808,22 @@
           "junior-it-specialista-qa-ibsa-institut-biochimique-6926-working-area",
           "jr-et-t-qa-specialiste-ibsa-institut-biochimique-6926-working-area-u9trv9",
           "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area-u9trv9",
-          "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9"
+          "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
+          "jr-et-t-qa-specialist-ibsa-institut-biochimique-montagnola"
         ],
         "de": [
           "junior-it-specialista-qa-ibsa-institut-biochimique-6926-working-area",
           "jr-et-t-qa-specialiste-ibsa-institut-biochimique-6926-working-area-u9trv9",
           "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area-u9trv9",
-          "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9"
+          "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
+          "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area"
         ],
         "fr": [
           "junior-it-specialista-qa-ibsa-institut-biochimique-6926-working-area",
           "jr-et-t-qa-specialiste-ibsa-institut-biochimique-6926-working-area-u9trv9",
           "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area-u9trv9",
-          "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9"
+          "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9",
+          "jr-et-t-qa-specialiste-ibsa-institut-biochimique-6926-working-area"
         ]
       },
       "firstSeenAt": "2026-03-31T21:23:52.685Z"
@@ -827,9 +858,9 @@
       "crawledAt": "2026-03-31T21:23:52.685Z",
       "slugByLocale": {
         "it": "ot-security-specialista-ibsa-institut-biochimique-6926-working-area",
-        "en": "ot-security-specialist-ibsa-institut-biochimique-montagnola",
-        "de": "ot-security-spezialist-ibsa-institut-biochimique-6926-working-area",
-        "fr": "ot-security-specialiste-ibsa-institut-biochimique-6926-working-area"
+        "en": "ot-security-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-ot-security-specialist-location-collina-d-",
+        "de": "ot-security-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-ot-security-specialist-location-collina-d-",
+        "fr": "ot-security-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-ot-security-specialist-location-collina-d"
       },
       "titleByLocale": {
         "en": "OT Security Specialist",
@@ -873,7 +904,10 @@
         "ot-security-specialiste-ibsa-institut-biochimique-6926-working-area-2pgzo8",
         "ot-sicherheitsspezialist-ibsa-institut-biochimique-6926-working-area",
         "ot-security-specialist-ibsa-institut-biochimique-6926-working-area-2pgzo8",
-        "ot-security-specialist-ibsa-institut-biochimique-6926-working-area"
+        "ot-security-specialist-ibsa-institut-biochimique-6926-working-area",
+        "ot-security-specialist-ibsa-institut-biochimique-montagnola",
+        "ot-security-spezialist-ibsa-institut-biochimique-6926-working-area",
+        "ot-security-specialiste-ibsa-institut-biochimique-6926-working-area"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -905,21 +939,23 @@
           "ot-security-specialist-ibsa-institut-biochimique-6926-working-area",
           "ot-security-spezialist-ibsa-institut-biochimique-6926-working-area-2pgzo8",
           "ot-security-specialiste-ibsa-institut-biochimique-6926-working-area-2pgzo8",
-          "ot-sicherheitsspezialist-ibsa-institut-biochimique-6926-working-area"
+          "ot-sicherheitsspezialist-ibsa-institut-biochimique-6926-working-area",
+          "ot-security-specialist-ibsa-institut-biochimique-montagnola"
         ],
         "de": [
           "ot-security-spezialist-ibsa-institut-biochimique-6926-working-area-2pgzo8",
           "ot-security-specialiste-ibsa-institut-biochimique-6926-working-area-2pgzo8",
-          "ot-sicherheitsspezialist-ibsa-institut-biochimique-6926-working-area"
+          "ot-sicherheitsspezialist-ibsa-institut-biochimique-6926-working-area",
+          "ot-security-spezialist-ibsa-institut-biochimique-6926-working-area"
         ],
         "fr": [
           "ot-security-spezialist-ibsa-institut-biochimique-6926-working-area-2pgzo8",
           "ot-security-specialiste-ibsa-institut-biochimique-6926-working-area-2pgzo8",
-          "ot-sicherheitsspezialist-ibsa-institut-biochimique-6926-working-area"
+          "ot-sicherheitsspezialist-ibsa-institut-biochimique-6926-working-area",
+          "ot-security-specialiste-ibsa-institut-biochimique-6926-working-area"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-03-31T21:23:52.685Z"
     },
     {
       "id": "company-399kaj",
@@ -1008,8 +1044,7 @@
           "jr-drug-safety-unit-specialist-ibsa-institut-biochimique-6926-working-area"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-03-31T21:23:52.685Z"
     },
     {
       "id": "company-toyw1a",
@@ -1038,7 +1073,7 @@
       "slugByLocale": {
         "it": "contabile-sost-maternita-ibsa-institut-biochimique-montagnola",
         "en": "accounting-officer-maternity-leave-replacement-ibsa-institut-biochimique-6926-working-area",
-        "de": "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-6926-working-area",
+        "de": "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-all-area-all-clear-apply-now-accounting-officer-sost",
         "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-montagnola"
       },
       "titleByLocale": {
@@ -1079,6 +1114,7 @@
         "responsabile-contabile-sostituzione-maternita-ibsa-institut-biochimique-montagnola",
         "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
         "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area",
+        "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-6926-working-area",
         "ragioniere-maternita-sost-ibsa-institut-biochimique-montagnola"
       ],
       "previousSlugsByLocale": {
@@ -1094,7 +1130,8 @@
         ],
         "de": [
           "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
-          "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area"
+          "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area",
+          "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-6926-working-area"
         ],
         "fr": [
           "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
