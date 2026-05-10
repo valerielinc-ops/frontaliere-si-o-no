@@ -1,9 +1,13 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 import {
   MSC_CARGO_KEY,
   MSC_CARGO_COMPANY_NAME,
   isMscCargoJob,
   isTrustedDomain,
+  fetchAllMscCargoJobs,
 } from '../scripts/lib/msc-cargo-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -47,6 +51,11 @@ describe('MSC Cargo crawler parser', () => {
 
     it('trusts subdomains', () => {
       expect(isTrustedDomain('https://careers.msc.com/job/456')).toBe(true);
+    });
+
+    it('trusts Adzuna domains (fallback aggregator)', () => {
+      expect(isTrustedDomain('https://www.adzuna.ch/jobs/details/abc')).toBe(true);
+      expect(isTrustedDomain('https://adzuna.com/jobs/details/abc')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -124,6 +133,91 @@ describe('MSC Cargo crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── fetchAllMscCargoJobs (Adzuna fallback path, mocked fetch) ──
+  describe('fetchAllMscCargoJobs (Adzuna fallback)', () => {
+    let tmpCacheDir: string;
+
+    beforeEach(async () => {
+      tmpCacheDir = await fs.mkdtemp(path.join(os.tmpdir(), 'adz-msc-'));
+    });
+
+    afterEach(async () => {
+      await fs.rm(tmpCacheDir, { recursive: true, force: true });
+    });
+
+    it('returns ParsedJobs from a mocked Adzuna response, excluding MSC Cruises', async () => {
+      const fetchImpl = async () =>
+        ({
+          ok: true,
+          status: 200,
+          json: async () => ({
+            count: 4,
+            results: [
+              {
+                id: '1',
+                title: 'Logistics Coordinator',
+                company: { display_name: 'MSC Mediterranean Shipping' },
+                location: { display_name: 'Geneva' },
+                redirect_url: 'https://www.adzuna.ch/jobs/details/1',
+                created: '2026-05-01T10:00:00Z',
+                description: 'Coordinator role.',
+              },
+              {
+                id: '2',
+                title: 'IT Operations Specialist',
+                company: { display_name: 'MSC Technology' },
+                location: { display_name: 'Geneva' },
+                redirect_url: 'https://www.adzuna.ch/jobs/details/2',
+                created: '2026-05-02T10:00:00Z',
+                description: 'Ops role.',
+              },
+              {
+                id: '3',
+                title: 'Cruise Director',
+                company: { display_name: 'MSC Cruises' },
+                location: { display_name: 'Geneva' },
+                redirect_url: 'https://www.adzuna.ch/jobs/details/3',
+                created: '2026-05-03T10:00:00Z',
+                description: 'Cruise role.',
+              },
+              {
+                id: '4',
+                title: 'Sales Lead',
+                company: { display_name: 'Some Other Company' },
+                location: { display_name: 'Zurich' },
+                redirect_url: 'https://www.adzuna.ch/jobs/details/4',
+                created: '2026-05-04T10:00:00Z',
+                description: 'Sales role.',
+              },
+            ],
+          }),
+        }) as unknown as Response;
+
+      const jobs = await fetchAllMscCargoJobs({
+        appId: 'TEST_ID',
+        appKey: 'TEST_KEY',
+        cacheDir: tmpCacheDir,
+        _fetchImpl: fetchImpl,
+        _cacheDate: '2026-05-10',
+        maxPages: 1,
+      });
+
+      expect(jobs).toHaveLength(2);
+      const titles = jobs.map((j: { title: string }) => j.title);
+      expect(titles).toContain('Logistics Coordinator');
+      expect(titles).toContain('IT Operations Specialist');
+      expect(titles).not.toContain('Cruise Director');
+      expect(titles).not.toContain('Sales Lead');
+      for (const job of jobs) {
+        expect(job.companyKey).toBe('msc-cargo');
+        expect(job.source).toBe('MSC Cargo Adzuna Fallback');
+        expect(job.sector).toBe('Logistica');
+        expect(job.applyUrl).toMatch(/^https:\/\/www\.adzuna\.ch\//);
+        expect(isTrustedDomain(job.applyUrl)).toBe(true);
+      }
     });
   });
 });

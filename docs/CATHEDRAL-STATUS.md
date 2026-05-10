@@ -103,7 +103,9 @@
 
 6. **Sitemap submission to Google + IndexNow** — script esistono (`scripts/submit-google-indexing-jobs.js`, `scripts/submit-indexnow-batch.mjs`) ma NON sono wired in `deploy.yml`. Va aggiunto un step post-deploy. Deve usare auth Service Account + GSC ownership configurata.
 7. **5 alreadyCrawled marquee** (UBS, Pictet, Mobiliar HQ, HUG, Syngenta) — verifica se la loro location filter è ancora TI-anchored e se va espansa a CH-wide tramite canton-quorum-gate.
-8. **Tier-3 marquee Playwright DOM logic** (Richemont, MSC Cargo, Bobst, Vaudoise) — placeholder con `--playwright` flag ma DOM selectors non implementati. Richiedono CH-residential-proxy per anti-bot Cloudflare/Akamai.
+8. **Tier-3 marquee Playwright DOM logic** (Bobst, Vaudoise) — placeholder con `--playwright` flag ma DOM selectors non implementati. Richiedono CH-residential-proxy per anti-bot Cloudflare/Akamai.
+   - ✅ **Richemont — DONE-WITH-ADZUNA-FALLBACK 2026-05-10** — Cloudflare 403 sulla pagina careers; sostituita con il client free-tier Adzuna (`scripts/lib/adzuna-client.mjs`). `applyUrl` punta alla landing Adzuna (aggregator → deep-link ufficiale, ToS-compliant). Cache giornaliera in `data/adzuna-cache/` per stare nei 1000 calls/mo della free tier. Richiede secrets `ADZUNA_APP_ID` + `ADZUNA_APP_KEY` (signup gratuito su https://developer.adzuna.com/, no credit card). Budget: $0/mo.
+   - ✅ **MSC Cargo — DONE-WITH-ADZUNA-FALLBACK 2026-05-10** — Akamai BMP 403 sulla pagina careers; stesso pattern Adzuna. Filtro brand-family include MSC Mediterranean/Technology/Logistics e ESCLUDE MSC Cruises (employer separato). Budget: $0/mo.
 9. **Hospital wave 3 runners + workflows** (gzo-wetzikon, spital-maennedorf, spital-uster, ksb, see-spital) — parser scaffolded ma `scripts/update-{slug}-jobs.mjs` + `.github/workflows/update-jobs-{slug}.yml` skippati. Quick fix: `node scripts/scaffold-crawler.mjs --finish-existing-parser {slug}` (~5 min ognuno).
 10. **3 NEW ATS client extractions** (quando 2° tenant landa per ognuno):
     - `phenom-client.mjs` — quando trovi un secondo Phenom-using employer
