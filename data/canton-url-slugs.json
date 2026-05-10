@@ -1,13 +1,11 @@
 {
-  "_comment": "Source of truth: canton code -> URL-safe slug per locale. ASCII anglicized for non-IT locales; Italian-native for IT. Slugs are lowercase, hyphen-separated, ASCII-only (no umlauts/diacritics).",
+  "_comment": "Source of truth: canton code -> URL-safe slug per locale. ASCII anglicized for non-IT locales; Italian-native for IT. Slugs are lowercase, hyphen-separated, ASCII-only (no umlauts/diacritics). NOTE (2026-05-10): half-cantons AI+AR merged into URL group APPENZELLO; BL+BS merged into URL group BASILEA. The `cantons` table contains the 22 single cantons + the 2 virtual groups (24 entries total). The `cantonGroups` table records group membership so internal BFS/quorum logic can keep using AI/AR/BL/BS while URL emission and per-canton shards collapse onto the group code. Use resolveCantonGroup() to map a real canton code to its URL key.",
   "_lastUpdated": "2026-05-10",
   "cantons": {
     "AG": {"it": "argovia",             "en": "aargau",              "de": "aargau",              "fr": "argovie"},
-    "AI": {"it": "appenzello-interno",  "en": "appenzell-innerrhoden","de": "appenzell-innerrhoden","fr": "appenzell-rhodes-interieures"},
-    "AR": {"it": "appenzello-esterno",  "en": "appenzell-ausserrhoden","de": "appenzell-ausserrhoden","fr": "appenzell-rhodes-exterieures"},
+    "APPENZELLO": {"it": "appenzello",  "en": "appenzell",           "de": "appenzell",           "fr": "appenzell"},
     "BE": {"it": "berna",               "en": "bern",                "de": "bern",                "fr": "berne"},
-    "BL": {"it": "basilea-campagna",    "en": "basel-country",       "de": "baselland",           "fr": "bale-campagne"},
-    "BS": {"it": "basilea-citta",       "en": "basel-city",          "de": "basel-stadt",         "fr": "bale-ville"},
+    "BASILEA": {"it": "basilea",        "en": "basel",               "de": "basel",               "fr": "bale"},
     "FR": {"it": "friburgo",            "en": "fribourg",            "de": "freiburg",            "fr": "fribourg"},
     "GE": {"it": "ginevra",             "en": "geneva",              "de": "genf",                "fr": "geneve"},
     "GL": {"it": "glarona",             "en": "glarus",              "de": "glarus",              "fr": "glaris"},
@@ -28,6 +26,10 @@
     "VS": {"it": "vallese",             "en": "valais",              "de": "wallis",              "fr": "valais"},
     "ZG": {"it": "zugo",                "en": "zug",                 "de": "zug",                 "fr": "zoug"},
     "ZH": {"it": "zurigo",              "en": "zurich",              "de": "zurich",              "fr": "zurich"}
+  },
+  "cantonGroups": {
+    "APPENZELLO": {"members": ["AI", "AR"]},
+    "BASILEA":    {"members": ["BL", "BS"]}
   },
   "aggregate": {"it": "svizzera", "en": "switzerland", "de": "schweiz", "fr": "suisse"}
 }

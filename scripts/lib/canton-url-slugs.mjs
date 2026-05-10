@@ -3,20 +3,29 @@
  *
  * Source of truth: data/canton-url-slugs.json
  *
- * Provides locale-aware URL slug lookup + reverse parse for the 26 Swiss
- * cantons + the CH-wide aggregator key (`_AGGREGATE_`). Use this module
- * everywhere a crawler/build-plugin needs to emit a canton-scoped URL.
+ * Provides locale-aware URL slug lookup + reverse parse for the 22 single
+ * Swiss cantons + 2 virtual half-canton groups (APPENZELLO, BASILEA) + the
+ * CH-wide aggregator key (`_AGGREGATE_`). Use this module everywhere a
+ * crawler/build-plugin needs to emit a canton-scoped URL.
  *
  * Conventions:
  *  - Italian (it) keeps Italian-native names (zurigo, ginevra, san-gallo).
  *  - en/de/fr use ASCII anglicized forms (zurich, geneva, graubunden).
  *  - All slugs are lowercase, hyphen-separated, ASCII-only.
  *
+ * Half-canton merge (2026-05-10):
+ *  - AI + AR are surfaced as a single URL group `APPENZELLO`.
+ *  - BL + BS are surfaced as a single URL group `BASILEA`.
+ *  Internal BFS/quorum logic still tags jobs with the real BFS code
+ *  (AI/AR/BL/BS); call {@link resolveCantonGroup} at the URL/shard
+ *  emission boundary to collapse onto the group key.
+ *
  * Public API:
  *   loadCantonUrlSlugs() -> object
  *   getCantonUrlSlug(cantonCode, locale) -> string | null
- *   parseCantonUrlSlug(slug, locale) -> '_AGGREGATE_' | cantonCode | null
+ *   parseCantonUrlSlug(slug, locale) -> '_AGGREGATE_' | cantonCode | groupKey | null
  *   getAggregatorUrlSlug(locale) -> string
+ *   resolveCantonGroup(cantonCode) -> string  // AI/AR -> APPENZELLO etc.
  */
 
 import { readFileSync } from 'node:fs';
@@ -67,7 +76,17 @@ function buildCache() {
     reverse[locale] = map;
   }
 
-  return { data: parsed, reverse };
+  // Build member -> group reverse lookup (e.g. 'AI' -> 'APPENZELLO').
+  const memberToGroup = new Map();
+  const groups = parsed.cantonGroups || {};
+  for (const [groupKey, def] of Object.entries(groups)) {
+    const members = Array.isArray(def?.members) ? def.members : [];
+    for (const m of members) {
+      memberToGroup.set(String(m).toUpperCase(), groupKey);
+    }
+  }
+
+  return { data: parsed, reverse, memberToGroup };
 }
 
 function ensureCache() {
@@ -127,6 +146,37 @@ export function getAggregatorUrlSlug(locale) {
   assertLocale(locale);
   const { data } = ensureCache();
   return data.aggregate[locale];
+}
+
+/**
+ * Resolve a real BFS canton code to its URL canton group key. AI/AR collapse
+ * to `APPENZELLO`; BL/BS collapse to `BASILEA`; every other code (and the
+ * `_AGGREGATE_` sentinel) round-trips unchanged. Empty/invalid input returns
+ * the input verbatim — callers decide how to handle it.
+ *
+ * @param {string} cantonCode - BFS code (TI, ZH, AI, BS, ...) or '_AGGREGATE_'.
+ * @returns {string} URL group key.
+ */
+export function resolveCantonGroup(cantonCode) {
+  const code = String(cantonCode || '').toUpperCase().trim();
+  if (!code) return code;
+  const { memberToGroup } = ensureCache();
+  return memberToGroup.get(code) ?? code;
+}
+
+/**
+ * Member BFS codes for a URL canton group key. Returns `[]` for non-group
+ * codes (single cantons, aggregate sentinel) so callers can blindly iterate.
+ *
+ * @param {string} groupKey - e.g. 'APPENZELLO', 'BASILEA'.
+ * @returns {string[]} member BFS codes (e.g. ['AI', 'AR']).
+ */
+export function getCantonGroupMembers(groupKey) {
+  const key = String(groupKey || '').toUpperCase().trim();
+  if (!key) return [];
+  const { data } = ensureCache();
+  const def = data.cantonGroups?.[key];
+  return Array.isArray(def?.members) ? def.members.slice() : [];
 }
 
 export const CANTON_URL_SLUG_LOCALES = SUPPORTED_LOCALES;
