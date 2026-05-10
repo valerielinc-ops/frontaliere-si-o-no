@@ -6507,6 +6507,18 @@ ${alternates}
      if (meetsThreshold) cantonIndexIndexable++; else cantonIndexNoindex++;
      const labels = buildCantonLocaleLabels(entry.locale, display);
      const legacyJobBoardHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${sectionByLocale[entry.locale]}`.replace(/\/+/g, '/'))}`;
+     // BreadcrumbList JSON-LD: required by tests/seo/breadcrumb-coverage.test.ts
+     // (D.2 — every non-exempt dist/ HTML page must include a BreadcrumbList).
+     // Three-level chain: Home → Job Board (locale legacy section) → canton.
+     const cantonBreadcrumbLd = `<script type="application/ld+json">${JSON.stringify({
+       '@context': 'https://schema.org',
+       '@type': 'BreadcrumbList',
+       itemListElement: [
+         { '@type': 'ListItem', position: 1, name: homeLabel[entry.locale], item: `${BASE_URL}${entry.locale === 'it' ? '/' : `/${entry.locale}/`}` },
+         { '@type': 'ListItem', position: 2, name: sectionByLocale[entry.locale], item: legacyJobBoardHref },
+         { '@type': 'ListItem', position: 3, name: display, item: canonicalUrl },
+       ],
+     })}</script>`;
      // bodyHtml is wrapped in <main> because buildSeoPageHtml runs in
      // seoContentOutsideRoot=true mode by default — the caller-provided
      // <main> is hosted as a sibling of <div id="root"> so React's hydration
@@ -6525,6 +6537,7 @@ ${alternates}
        locale: entry.locale,
        bodyHtml,
        distDir,
+       jsonLdScripts: [cantonBreadcrumbLd],
        // T2.6 — robots set by MIN_JOBS gate above. Pages with ≥ 5 canonical
        // jobs from the cathedral flip to 'index,follow'; thin pages stay
        // 'noindex,follow' (CLAUDE.md #4 — no thin content gets indexed). The
