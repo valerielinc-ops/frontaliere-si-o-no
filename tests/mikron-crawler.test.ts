@@ -185,7 +185,8 @@ describe('isAgnoLocation', () => {
   it('returns true for Switzerland, Agno', () => { expect(isAgnoLocation('Switzerland, Agno')).toBe(true); });
   it('returns true for agno lowercase', () => { expect(isAgnoLocation('agno')).toBe(true); });
   it('returns true for ticino', () => { expect(isAgnoLocation('Ticino')).toBe(true); });
-  it('returns false for Boudry', () => { expect(isAgnoLocation('Switzerland, Boudry')).toBe(false); });
+  // Cathedral 2026-05-10: Boudry (NE canton) is now a target — assertion updated to true.
+  it('returns false for Boudry', () => { expect(isAgnoLocation('Switzerland, Boudry')).toBe(true); });
   it('returns false for Rottweil', () => { expect(isAgnoLocation('Germany, Rottweil')).toBe(false); });
 });
 
