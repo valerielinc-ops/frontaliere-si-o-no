@@ -7349,6 +7349,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malpensa-arresto-frontaliere-omicidio-2026.title': 'Grenzgänger in Malpensa festgenommen: In den USA wegen Mordes gesucht',
     'blog.article.malpensa-arresto-frontaliere-omicidio-2026.excerpt': 'Ein US-amerikanischer Informatiker, der wegen des Mordes an seiner schwangeren Frau gesucht wird, wurde nach einer Flucht durch die USA und Kanada in Malpensa festgenommen.',
     'blog.article.malpensa-arresto-frontaliere-omicidio-2026.imageAlt': 'Luftaufnahme des Flughafens Malpensa mit der schweizerisch-italienischen Grenze im Hintergrund',
+    'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.title': 'Easyjet-Streik in Malpensa: Flüge am 11. Mai 2026 gefährdet',
+    'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.excerpt': 'Nationeller Easyjet-Streik vom 10 bis 18 Uhr am 11. Mai 2026, der auch Malpensa betrifft. Garantierte Zeitfenster und gefährdete Flüge.',
+    'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.imageAlt': 'Flughafen Malpensa mit geparkten Flugzeugen und Passagieren',
 };
 
 export default blogMetaDe;

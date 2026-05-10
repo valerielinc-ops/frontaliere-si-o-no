@@ -7349,6 +7349,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malpensa-arresto-frontaliere-omicidio-2026.title': 'Cross-border worker arrested at Malpensa: wanted in USA for murder',
     'blog.article.malpensa-arresto-frontaliere-omicidio-2026.excerpt': 'A US computer engineer, wanted for the murder of his pregnant wife, was stopped at Malpensa after a flight through the United States and Canada.',
     'blog.article.malpensa-arresto-frontaliere-omicidio-2026.imageAlt': 'Aerial view of Malpensa Airport with the Swiss-Italian border in the background',
+    'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.title': 'Easyjet strike at Malpensa: flights at risk on May 11, 2026',
+    'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.excerpt': 'Easyjet national strike from 10am to 6pm on May 11, 2026, also affecting Malpensa. Guaranteed time slots and flights at risk.',
+    'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.imageAlt': 'Malpensa airport with parked planes and passengers walking',
 };
 
 export default blogMetaEn;

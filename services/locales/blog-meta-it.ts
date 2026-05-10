@@ -7350,6 +7350,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malpensa-arresto-frontaliere-omicidio-2026.title': 'Frontaliere arrestato a Malpensa: ricercato negli USA per omicidio',
     'blog.article.malpensa-arresto-frontaliere-omicidio-2026.excerpt': 'Un ingegnere informatico statunitense, ricercato per l\'omicidio della moglie incinta, è stato fermato a Malpensa dopo una fuga attraverso Stati Uniti e Canada.',
     'blog.article.malpensa-arresto-frontaliere-omicidio-2026.imageAlt': 'Vista aerea dell\'aeroporto di Malpensa con il confine svizzero-italiano sullo sfondo',
+    'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.title': 'Sciopero Easyjet a Malpensa: voli a rischio l\'11 maggio 2026',
+    'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.excerpt': 'Sciopero nazionale Easyjet dal 10 alle 18 l\'11 maggio 2026, coinvolgendo anche Malpensa. Fasce orarie garantite e voli a rischio.',
+    'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.imageAlt': 'Aeroporto di Malpensa con aerei parcheggiati e passeggeri in movimento',
 };
 
 export default blogMetaIt;
