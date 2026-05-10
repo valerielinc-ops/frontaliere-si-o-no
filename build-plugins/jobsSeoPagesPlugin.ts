@@ -6486,6 +6486,14 @@ ${alternates}
      const display = getCantonDisplayLabel(entry.key, entry.locale);
      const path = withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'));
      const canonicalUrl = `${BASE_URL}${path}`;
+     // T2.6 — MIN_JOBS gate. The aggregator (svizzera, AGGREGATE_KEY) always
+     // ships index,follow regardless of count; per-canton pages need at least
+     // MIN_JOBS_FOR_CANTON_PAGE canonical jobs. TI is filtered out earlier
+     // (owned by staticPagesPlugin), so it never reaches this branch.
+     const cantonCount = cantonJobCounts.get(entry.key) ?? 0;
+     const meetsThreshold = entry.key === AGGREGATE_KEY || cantonCount >= MIN_JOBS_FOR_CANTON_PAGE;
+     const robotsValue: 'index,follow' | 'noindex,follow' = meetsThreshold ? 'index,follow' : 'noindex,follow';
+     if (meetsThreshold) cantonIndexIndexable++; else cantonIndexNoindex++;
      const labels = buildCantonLocaleLabels(entry.locale, display);
      const legacyJobBoardHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${sectionByLocale[entry.locale]}`.replace(/\/+/g, '/'))}`;
      // bodyHtml is wrapped in <main> because buildSeoPageHtml runs in
@@ -6506,12 +6514,12 @@ ${alternates}
        locale: entry.locale,
        bodyHtml,
        distDir,
-       // P1.11 — initial emit is noindex until real per-canton listings land.
-       // Per CLAUDE.md #4 we never ship thin indexed pages; once we wire real
-       // listing tables onto these landings (follow-up task), flip to
-       // 'index,follow'. The pages still hydrate via the SPA shell so the
-       // visitor lands on the real React JobBoard immediately.
-       robots: 'noindex,follow',
+       // T2.6 — robots set by MIN_JOBS gate above. Pages with ≥ 5 canonical
+       // jobs from the cathedral flip to 'index,follow'; thin pages stay
+       // 'noindex,follow' (CLAUDE.md #4 — no thin content gets indexed). The
+       // aggregator (svizzera) is always 'index,follow'. Pages still hydrate
+       // via the SPA shell so the visitor lands on the real React JobBoard.
+       robots: robotsValue,
      });
      const outDir = np.join(distDir, path.slice(1).replace(/\/$/, ''));
      _md(outDir);
@@ -6539,6 +6547,7 @@ ${alternates}
      console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P1.11 wrote ${shardPaths.length} canton sitemap shards + ${np.relative(distDir, indexPath)}`);
    }
    console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P2.B1+B2+B3 emitted ${cantonIndexEmitted} locale-variant pages + ${shardPaths.length} sitemap shards`);
+   console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P2.S2 canton index emit: ${cantonIndexIndexable} indexable / ${cantonIndexNoindex} thin (threshold: ${MIN_JOBS_FOR_CANTON_PAGE})`);
  } catch (err) {
    // Defensive: P1.11 additions must not break the legacy emit. Log + continue.
    console.warn('[jobs-seo-pages] P1.11 canton-aware emit failed (legacy output unaffected):', err instanceof Error ? err.message : String(err));
