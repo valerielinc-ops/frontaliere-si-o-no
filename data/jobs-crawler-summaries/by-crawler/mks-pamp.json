@@ -1,50 +1,59 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-05-10T10:37:10.729Z",
+  "generatedAt": "2026-05-10T22:08:27.548Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 10297,
-  "avgDurationMs": 10297,
+  "unchangedCount": 4,
+  "durationMs": 9925,
+  "avgDurationMs": 9925,
   "durationHistory": [
-    10297
+    9925
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
-      "title": "Senior Full Stack Developer",
-      "slug": "senior-full-stack-developer-mks-pamp-geneve",
-      "url": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
+      "title": "Metal &amp; Inventory Controller",
+      "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
       "company": "MKS PAMP",
       "companyKey": "mks-pamp",
       "companyDomain": "mkspamp.com",
-      "location": "Genève",
-      "addressLocality": "Genève",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "AG",
       "country": "CH",
-      "category": "technology",
+      "category": "finance",
       "sector": "Metalli preziosi",
       "source": "mkspamp-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-14",
+      "postedDate": "2026-02-04",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "_qualityScore": 73,
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "streetAddress": "Via delle Fornaci",
+      "postalCode": "6828",
+      "id": "mks-pamp-3b2040222bc6",
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Operatore Trattamenti Reflui",
       "slug": "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro",
@@ -83,37 +92,37 @@
       }
     },
     {
-      "title": "Metal &amp; Inventory Controller",
-      "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
+      "title": "Senior Full Stack Developer",
+      "slug": "senior-full-stack-developer-mks-pamp-geneve",
+      "url": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
       "company": "MKS PAMP",
       "companyKey": "mks-pamp",
       "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
+      "location": "Genève",
+      "addressLocality": "Genève",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "AG",
       "country": "CH",
-      "category": "finance",
+      "category": "technology",
       "sector": "Metalli preziosi",
       "source": "mkspamp-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-02-04",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
+      "id": "mks-pamp-6ff3eb9664fc",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "currency": "CHF",
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
-      "id": "mks-pamp-3b2040222bc6",
-      "firstSeenAt": "2026-04-13T22:10:50.570Z",
-      "_qualityScore": 88,
+      "firstSeenAt": "2026-05-10T10:37:10.728Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
         "completeness": 25
@@ -193,7 +202,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
