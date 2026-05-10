@@ -1,6 +1,6 @@
 {
   "crawlerKey": "marriott",
-  "assembledAt": "2026-05-09T21:53:14.350Z",
+  "assembledAt": "2026-05-10T10:32:19.723Z",
   "jobs": [
     {
       "id": "marriott-42c22aa8b3ba",
@@ -33,7 +33,7 @@
       "url": "https://careers.marriott.com/whatever-whenever-agent-guest-relations-winter-26-27-w-verbier/job/BB88C98CD3BEB0590605B84CD5E5CC31",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.965Z",
+      "crawledAt": "2026-05-10T10:32:17.346Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -68,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:16:13.090Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -112,7 +113,7 @@
       "url": "https://careers.marriott.com/welcome-ambassador-bellboy-winter-26-27-w-verbier/job/0E9FA5F9B5BA232125EAAF5D784E9445",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.965Z",
+      "crawledAt": "2026-05-10T10:32:17.345Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -172,6 +173,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.156Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -216,7 +218,7 @@
       "url": "https://careers.marriott.com/welcome-agent-receptionist-long-term-w-verbier/job/2F884702F648846F1DF77E7E8C4ED65E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.964Z",
+      "crawledAt": "2026-05-10T10:32:17.344Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -254,6 +256,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:16:13.088Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -298,7 +301,7 @@
       "url": "https://careers.marriott.com/welcome-agent-receptionist-day-night-winter-26-27-w-verbier/job/373D988B9FBA7A403CED8201F924F01E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.964Z",
+      "crawledAt": "2026-05-10T10:32:17.344Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -325,6 +328,7 @@
         "publishEndDate": "2026-06-12T11:09:00.000Z"
       },
       "firstSeenAt": "2026-04-28T22:16:13.089Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -369,7 +373,7 @@
       "url": "https://careers.marriott.com/waiter-tress-restaurant-w-verbier/job/1D7F65A2C148D334BFA8A9F1F5C618C8",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.963Z",
+      "crawledAt": "2026-05-10T10:32:17.343Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -412,6 +416,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:11:20.522Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -456,7 +461,7 @@
       "url": "https://careers.marriott.com/welcome-agent-receptionist-winter-26-27-w-verbier/job/A20860740E80036072695B018C876698",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.963Z",
+      "crawledAt": "2026-05-10T10:32:17.343Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -483,77 +488,7 @@
         "publishEndDate": "2026-06-12T11:17:00.000Z"
       },
       "firstSeenAt": "2026-04-28T22:16:13.087Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "marriott-7398350e5835",
-      "slug": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-      "slugByLocale": {
-        "it": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "en": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "de": "kellner-baum-brasserie-u-yama-winter-26-27-w-verbier-marriott-international-verbier",
-        "fr": "garcon-chaine-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
-      "titleByLocale": {
-        "it": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
-        "en": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
-        "de": "Kellner/Baum Brasserie & U-Yama (Winter 26/27) - W VERBIER",
-        "fr": "Garçon/chaîne Brasserie & U-Yama (Hiver 26/27) - W VERBIER"
-      },
-      "description": "JOB DESCRIPTION \n \n Become a W Talent and Embody the W Art of Living! \n \n As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. \n \n \n \n A UNIQUE OPPORTUNITY TO JOIN THE W VERBIER TEAM \n \n \n \n As a Rotating Serveur in our Brasserie 1519 & U-Yama sushi bar restaurants , you will welcome, serve and assist our guests with enthusiasm, professionalism, and creativity, while using appropriate sales techniques. \n \n As a true ambassador of the W experience, you help achieve service objectives and ensure tables are impeccably clean and presented. \n \n You will handle bills and facilitate payments accurately and efficiently. \n \n Passionate about hospitality, you create memorable and personalized experiences for our guests, following our standards and responding to the guidance of your Talent Coach. \n \n \n \n PROFILE \n \n \n• Outgoing, dynamic, attentive, and empathetic. \n \n• Fluent in French and English. Knowledge of additional languages is a plus. \n \n• Enjoys working in an international, innovative, and bold team. \n \n• Impeccable presentation, reflecting the image and values of the W brand. \n \n• BAC PRO / CFC / BTS in Hospitality or at least 2 years of experience in a similar role. \n \n• Motivated, detail-oriented, and committed to delivering an exceptional guest experience. \n \n• Interest in the brand’s values: taste, sound, body, stage, and expression. \n \n \n Position to be filled for the Winter season : December 2026 to March 2027 \n \n \n \n Due to visa restrictions, only applications from Switzerland and the European Union will be considered\n \n \n \n\n \n At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. \n\n \n W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "Descrizione Diventa un talente W e incarna l'arte W di vivere! Come ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione. ## A UNIQUE OPPORTUNITY to JOIN the W VERBIER TEAM In qualità di Serveur Rotating nei nostri ristoranti sushi bar Brasserie 1519 & U-Yama, potrete accogliere, servire e assistere i nostri ospiti con entusiasmo, professionalità e creatività, utilizzando tecniche di vendita appropriate. Come vero ambasciatore dell'esperienza W, aiuta a raggiungere gli obiettivi di servizio e assicurarsi che i tavoli siano impeccabilmente puliti e presentati. Potrai gestire le fatture e facilitare i pagamenti con precisione ed efficienza. Appassionato di ospitalità, crei esperienze memorabili e personalizzate per i nostri ospiti, seguendo i nostri standard e rispondendo alla guida del tuo Talent Coach. ## PROFILE • In uscita, dinamica, attenta ed empatica. • Fluente in francese e inglese. La conoscenza delle lingue aggiuntive è un plus. • Gode di lavorare in un team internazionale, innovativo e audace. • Presentazione impeccabile, riflettendo l'immagine e i valori del marchio W. • BAC PRO / CFC / BTS in Ospitalità o almeno 2 anni di esperienza in un ruolo simile. • Motivato, orientato al dettaglio e impegnato a offrire un'esperienza eccezionale agli ospiti. • Interesse ai valori del marchio: gusto, suono, corpo, stadio ed espressione. Posizione da riempire per la stagione invernale: dal dicembre 2026 al marzo 2027 A causa delle restrizioni del visto, solo le domande dalla Svizzera e dall'Unione Europea saranno considerate ## Equal Opportunity Employer At Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile. La missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "JOB DESCRIPTION Become a W Talent and Embody the W Art of Living! As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. A UNIQUE OPPORTUNITY TO JOIN THE W VERBIER TEAM As a Rotating Serveur in our Brasserie 1519 & U-Yama sushi bar restaurants , you will welcome, serve and assist our guests with enthusiasm, professionalism, and creativity, while using appropriate sales techniques. As a true ambassador of the W experience, you help achieve service objectives and ensure tables are impeccably clean and presented. You will handle bills and facilitate payments accurately and efficiently. Passionate about hospitality, you create memorable and personalized experiences for our guests, following our standards and responding to the guidance of your Talent Coach. PROFILE • Outgoing, dynamic, attentive, and empathetic. • Fluent in French and English. Knowledge of additional languages is a plus. • Enjoys working in an international, innovative, and bold team. • Impeccable presentation, reflecting the image and values of the W brand. • BAC PRO / CFC / BTS in Hospitality or at least 2 years of experience in a similar role. • Motivated, detail-oriented, and committed to delivering an exceptional guest experience. • Interest in the brand’s values: taste, sound, body, stage, and expression. Position to be filled for the Winter season : December 2026 to March 2027 Due to visa restrictions, only applications from Switzerland and the European Union will be considered At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "Become a W Talent und Embody the W Art of Living! Als „Talent“ sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Sie sind einzigartig, leidenschaftlich und Ihre Persönlichkeit scheint in jeder Interaktion durch. Eine UNIQUE-ÖFFENTLICHKEIT zu den W VERBIER TEAM Als rotierender Serveur in unseren Brasserie 1519 & U-Yama Sushi Bar Restaurants werden Sie unsere Gäste mit Enthusiasmus, Professionalität und Kreativität willkommen, bedienen und unterstützen und dabei geeignete Verkaufstechniken einsetzen. Als wahrer Botschafter der W-Erfahrung helfen Sie, Serviceziele zu erreichen und sicherzustellen, dass Tische einwandfrei sauber und präsentiert werden. Sie behandeln Rechnungen und erleichtern Zahlungen genau und effizient. Leidenschaftlich über Gastfreundschaft, schaffen Sie unvergessliche und personalisierte Erfahrungen für unsere Gäste, nach unseren Standards und auf die Führung Ihres Talent Coach reagieren. • Ausgehen, dynamisch, aufmerksam und empathisch. • Flöent auf Französisch und Englisch. Die Kenntnis zusätzlicher Sprachen ist ein Plus. • Genießen Sie die Arbeit in einem internationalen, innovativen und mutigen Team. • Eine einwandfreie Präsentation, die das Bild und die Werte der Marke W widerspiegelt. • BAC PRO / CFC / BTS in Hospitality oder mindestens 2 Jahre Erfahrung in einer ähnlichen Rolle. • Motiviert, detailorientiert und verpflichtet, ein außergewöhnliches Gästeerlebnis zu bieten. • Interesse an den Werten der Marke: Geschmack, Klang, Körper, Bühne und Ausdruck. Position zu erfüllen für die Wintersaison: Dezember 2026 bis März 2027 Aufgrund von Visa-Einschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union als Chancengleichheit Arbeitgeber bei Marriott International betrachtet, wir sind darauf spezialisiert, ein Chancengleichheit Arbeitgeber zu sein, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage. Die Mission von W Hotels ist es, Kuriosität zu erkennen, erweiterte Welten. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen zu öffnen und Gedanken zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, aufstrebender Geist ist in unserem Kern und hat uns bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / wann immer unsere Kultur- und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben bringt. Wenn Sie originell, innovativ und immer auf die Zukunft von dem, was möglich ist, willkommen bei W Hotels. Bei W Hotels stoßen Sie auf ein Markenportfolio mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.",
-        "fr": "Descrizione Devenez un W Talent et Embody le W Art de vivre! En tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction. ## UNE OPPORTUNITÉ UNIQUE DE JOUER DANS L'ÉQUIPE VÉRIBIÈRE En tant que serveur rotatif dans nos restaurants de brasserie 1519 et U-Yama sushi bar, vous accueillerez, servirez et assisterez nos clients avec enthousiasme, professionnalisme et créativité, tout en utilisant les techniques de vente appropriées. En tant que véritable ambassadeur de l'expérience W, vous aidez à atteindre les objectifs de service et vous assurez que les tableaux sont impeccablement propres et présentés. Vous traiterez les factures et faciliterez les paiements avec précision et efficacité. Passionnés d'hospitalité, vous créez des expériences mémorables et personnalisées pour nos invités, suivant nos normes et répondant aux conseils de votre Talent Coach. ## PROFIL • Envolée, dynamique, attentive et empathique. • En français et en anglais. La connaissance de langues supplémentaires est un plus. • Profitez de travailler dans une équipe internationale, innovante et audacieuse. • Présentation impeccable, reflétant l'image et les valeurs de la marque W. • BAC PRO / CFC / BTS in Hospitality ou au moins 2 ans d'expérience dans un rôle similaire. • Motivé, orienté vers le détail et engagé à offrir une expérience client exceptionnelle. • Intérêt pour les valeurs de la marque: goût, son, corps, scène et expression. Poste à pourvoir pour la saison d'hiver : décembre 2026 à mars 2027 En raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront considérées ## Employeur de l'égalité des chances Chez Marriott International, nous nous engageons à être un employeur de l'égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable. W Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "VS",
-      "url": "https://careers.marriott.com/waiter-tress-brasserie-u-yama-winter-26-27-w-verbier/job/C052454AD38407D9CFAEF4C3FAA13254",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.962Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-food-beverage",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-30",
-      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26045105/apply/email",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26045105",
-        "uniqueID": "C052454AD38407D9CFAEF4C3FAA13254",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "Food and Beverage Services",
-        "accountName": "Non-Management",
-        "publishEndDate": "2026-05-28T12:40:00.000Z"
-      },
-      "firstSeenAt": "2026-04-30T11:09:31.159Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -598,7 +533,7 @@
       "url": "https://careers.marriott.com/waiter-tress-morning-winter-26-27-w-verbier/job/B6E914F28A18CC7B48C4729D73A6A896",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.962Z",
+      "crawledAt": "2026-05-10T10:32:17.342Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -670,6 +605,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.154Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -714,7 +650,7 @@
       "url": "https://careers.marriott.com/waiter-tress-bars-winter-26-27-w-verbier/job/8F5C6224F17E2243903F3A55519C0CFE",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.961Z",
+      "crawledAt": "2026-05-10T10:32:17.341Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -757,6 +693,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.158Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -771,37 +708,37 @@
       }
     },
     {
-      "id": "marriott-d767732201b6",
-      "slug": "sushiman-inverno-26-27-w-verbier-marriott-international-verbier",
+      "id": "marriott-7398350e5835",
+      "slug": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
       "slugByLocale": {
-        "it": "sushiman-inverno-26-27-w-verbier-marriott-international-verbier",
-        "en": "sushiman-winter-26-27-w-verbier-marriott-verbier",
-        "de": "sushiman-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "sushiman-hiver-26-27-w-verbier-marriott-international-verbier"
+        "it": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "en": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "de": "kellner-baum-brasserie-u-yama-winter-26-27-w-verbier-marriott-international-verbier",
+        "fr": "garcon-chaine-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
       "companyDomain": "marriott.com",
-      "title": "Sushiman (Winter 26/27) - W VERBIER",
+      "title": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
       "titleByLocale": {
-        "it": "Sushiman (inverno 26/27) - W VERBIER",
-        "en": "Sushiman (Winter 26/27) - W VERBIER",
-        "de": "Sushiman (Winter 26/27) - W VERBIER",
-        "fr": "Sushiman (hiver 26/27) - W VERBIER"
+        "it": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
+        "en": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
+        "de": "Kellner/Baum Brasserie & U-Yama (Winter 26/27) - W VERBIER",
+        "fr": "Garçon/chaîne Brasserie & U-Yama (Hiver 26/27) - W VERBIER"
       },
-      "description": "JOB DESCRIPTION \n \n Become a W Talent and Embody the W Art of Living! \n \n As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. \n \n \n \n AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM ! \n \n \n \n Are you passionate about Japanese cuisine and love creating dishes that tickle the taste buds? At W Verbier, we're looking for our future sushi rockstar to join our dynamic team. If you have a flair for detail and are ready to take on a challenge while igniting the curiosity of our customers, we want to meet you! \n \n \n \n As a Sushiman, you'll be helping the Sushi Chef make delicious Japanese dishes. This includes cleaning and cutting meat and fish, preparing seafood, as well as cooking, frying, assembling and seasoning dishes. You will warmly welcome our customers and present your culinary creations in an elegant and appetising manner. \n \n \n \n PROFILE \n \n Previous experience in a similar position or in Japanese cuisine \n \n A genuine interest in the Japanese / sushi world \n \n Previous experience in the kitchen of a 5* hotel \n \n Knowledge of hygiene and cleanliness standards \n \n Fluent French and English/Spanish \n \n You should be highly motivated. \n \n Real interest in the worlds of taste, sound, body, scene and stance \n \n Be detail oriented and have a passion for giving guests an exceptional experience. \n \n \n \n Position to be filled for the Winter season : December 2026 to March 2027 \n \n \n \n Due to visa restrictions only applicants from Switzerland and European Union can be considered. \n \n \n\n \n At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. \n\n \n W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+      "description": "JOB DESCRIPTION \n \n Become a W Talent and Embody the W Art of Living! \n \n As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. \n \n \n \n A UNIQUE OPPORTUNITY TO JOIN THE W VERBIER TEAM \n \n \n \n As a Rotating Serveur in our Brasserie 1519 & U-Yama sushi bar restaurants , you will welcome, serve and assist our guests with enthusiasm, professionalism, and creativity, while using appropriate sales techniques. \n \n As a true ambassador of the W experience, you help achieve service objectives and ensure tables are impeccably clean and presented. \n \n You will handle bills and facilitate payments accurately and efficiently. \n \n Passionate about hospitality, you create memorable and personalized experiences for our guests, following our standards and responding to the guidance of your Talent Coach. \n \n \n \n PROFILE \n \n \n• Outgoing, dynamic, attentive, and empathetic. \n \n• Fluent in French and English. Knowledge of additional languages is a plus. \n \n• Enjoys working in an international, innovative, and bold team. \n \n• Impeccable presentation, reflecting the image and values of the W brand. \n \n• BAC PRO / CFC / BTS in Hospitality or at least 2 years of experience in a similar role. \n \n• Motivated, detail-oriented, and committed to delivering an exceptional guest experience. \n \n• Interest in the brand’s values: taste, sound, body, stage, and expression. \n \n \n Position to be filled for the Winter season : December 2026 to March 2027 \n \n \n \n Due to visa restrictions, only applications from Switzerland and the European Union will be considered\n \n \n \n\n \n At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. \n\n \n W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
       "descriptionByLocale": {
-        "it": "Descrizione Diventa un talente W e incarna l'arte W di vivere! Come ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione. ## Opportunità di lavoro UNA OPPORTUNITÀ ESTRATZIONALE PER IL TEAM VERBIER W! Sei appassionato di cucina giapponese e amore creare piatti che solleticano le papille gustative? A W Verbier, stiamo cercando il nostro futuro sushi rockstar per unirsi al nostro team dinamico. Se avete un tocco per i dettagli e siete pronti ad affrontare una sfida mentre accendono la curiosità dei nostri clienti, vogliamo incontrarvi! ## Mansioni Come Sushiman, aiuterai il Sushi Chef a preparare deliziosi piatti giapponesi. Si tratta di: - pulire e tagliare la carne e il pesce - preparare i frutti di mare - cucinare, friggere, assemblare e condire i piatti - caldamente accogliere i nostri clienti e presentare le vostre creazioni culinarie in modo elegante e appetibile ## Requisiti - Esperienza precedente in una posizione simile o in cucina giapponese - Un vero interesse per il mondo giapponese / sushi - Esperienza precedente nella cucina di un hotel 5* - Conoscenza dell'igiene e pulizia standard marzo A Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile. La missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi. ## Contatto Nessuna informazione di contatto fornita.",
-        "en": "JOB DESCRIPTION Become a W Talent and Embody the W Art of Living! As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM ! Are you passionate about Japanese cuisine and love creating dishes that tickle the taste buds? At W Verbier, we're looking for our future sushi rockstar to join our dynamic team. If you have a flair for detail and are ready to take on a challenge while igniting the curiosity of our customers, we want to meet you! As a Sushiman, you'll be helping the Sushi Chef make delicious Japanese dishes. This includes cleaning and cutting meat and fish, preparing seafood, as well as cooking, frying, assembling and seasoning dishes. You will warmly welcome our customers and present your culinary creations in an elegant and appetising manner. PROFILE Previous experience in a similar position or in Japanese cuisine A genuine interest in the Japanese / sushi world Previous experience in the kitchen of a 5* hotel Knowledge of hygiene and cleanliness standards Fluent French and English/Spanish You should be highly motivated. Real interest in the worlds of taste, sound, body, scene and stance Be detail oriented and have a passion for giving guests an exceptional experience. Position to be filled for the Winter season : December 2026 to March 2027 Due to visa restrictions only applicants from Switzerland and European Union can be considered. At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "Become a W Talent und Embody the W Art of Living! Als „Talent“ sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Sie sind einzigartig, leidenschaftlich und Ihre Persönlichkeit scheint in jeder Interaktion durch. Opportunità di lavoro Eine EXCEPTIONELLE OPPORTUNITY TO JOIN THE W VERBIER TEAM! Sind Sie leidenschaftlich über japanische Küche und Liebe zu kreieren Gerichte, die den Geschmack Knospen kitzeln? Bei W Verbier suchen wir nach unserem zukünftigen Sushi Rockstar, um unserem dynamischen Team beizutreten. Wenn Sie ein Flair zum Detail haben und bereit sind, eine Herausforderung anzugehen, während Sie die Neugier unserer Kunden entzünden, wollen wir Sie treffen! In den Warenkorb Als Sushiman helfen Sie dem Sushi Chef dabei, leckere japanische Gerichte zu kreieren. Das beinhaltet: - Reinigung und Schneiden von Fleisch und Fisch - Vorbereitung von Meeresfrüchten - Kochen, Braten, Montage und Gewürze - herzlich willkommen unsere Kunden und präsentieren Ihre kulinarischen Kreationen in einer eleganten und appetitlichen Weise Bei Marriott International widmen wir uns als Arbeitgeber der Chancengleichheit, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage. Die Mission von W Hotels ist es, Kuriosität zu erkennen, erweiterte Welten. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen zu öffnen und Gedanken zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, aufstrebender Geist ist in unserem Kern und hat uns bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / wann immer unsere Kultur- und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben bringt. Wenn Sie originell, innovativ und immer auf die Zukunft von dem, was möglich ist, willkommen bei W Hotels. Bei W Hotels stoßen Sie auf ein Markenportfolio mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen. (Contatto) Keine Kontaktinformationen zur Verfügung gestellt.",
-        "fr": "Descrizione Devenez un W Talent et Embody le W Art de vivre! En tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction. ## Opportunità di lavoro UNE OPPORTUNITÉ EXCEPTIONNELLE DE S'INSCRIRE DANS L'ÉQUIPE W VERBIERE ! Vous êtes passionné par la cuisine japonaise et aimez créer des plats qui chatouillent les papilles ? Chez W Verbier, nous cherchons notre future rockstar de sushi pour rejoindre notre équipe dynamique. Si vous avez un flair pour le détail et êtes prêt à relever un défi tout en dégageant la curiosité de nos clients, nous voulons vous rencontrer! Les hommes En tant que Sushiman, vous aiderez le chef Sushi à préparer de délicieux plats japonais. Cela comprend: - nettoyage et découpe de la viande et du poisson - préparation des fruits de mer - cuisson, friture, assemblage et assaisonnement des plats - accueil chaleureux de nos clients et présentation de vos créations culinaires d'une manière élégante et appétissante ## Requisiti - Expérience antérieure dans une position similaire ou dans une cuisine japonaise - Un véritable intérêt pour le monde japonais / sushi - Expérience antérieure dans la cuisine d'un hôtel 5* - Connaissance des normes d'hygiène et de propreté - Fluent français et anglais/espagnol - très motivé - Véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position - Être orienté vers le détail et avoir une passion pour donner aux invités une expérience exceptionnelle ## Condizioni - Position à remplir pour la saison d'hiver : décembre 2026 à mars 2027 - En raison des restrictions de visa, seuls les candidats de Suisse et de l'Union européenne peuvent être considérés ## Cosa offriamo Chez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable. W Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous. Contatto Aucune information de contact fournie."
+        "it": "Descrizione Diventa un talente W e incarna l'arte W di vivere! Come ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione. ## A UNIQUE OPPORTUNITY to JOIN the W VERBIER TEAM In qualità di Serveur Rotating nei nostri ristoranti sushi bar Brasserie 1519 & U-Yama, potrete accogliere, servire e assistere i nostri ospiti con entusiasmo, professionalità e creatività, utilizzando tecniche di vendita appropriate. Come vero ambasciatore dell'esperienza W, aiuta a raggiungere gli obiettivi di servizio e assicurarsi che i tavoli siano impeccabilmente puliti e presentati. Potrai gestire le fatture e facilitare i pagamenti con precisione ed efficienza. Appassionato di ospitalità, crei esperienze memorabili e personalizzate per i nostri ospiti, seguendo i nostri standard e rispondendo alla guida del tuo Talent Coach. ## PROFILE • In uscita, dinamica, attenta ed empatica. • Fluente in francese e inglese. La conoscenza delle lingue aggiuntive è un plus. • Gode di lavorare in un team internazionale, innovativo e audace. • Presentazione impeccabile, riflettendo l'immagine e i valori del marchio W. • BAC PRO / CFC / BTS in Ospitalità o almeno 2 anni di esperienza in un ruolo simile. • Motivato, orientato al dettaglio e impegnato a offrire un'esperienza eccezionale agli ospiti. • Interesse ai valori del marchio: gusto, suono, corpo, stadio ed espressione. Posizione da riempire per la stagione invernale: dal dicembre 2026 al marzo 2027 A causa delle restrizioni del visto, solo le domande dalla Svizzera e dall'Unione Europea saranno considerate ## Equal Opportunity Employer At Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile. La missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
+        "en": "JOB DESCRIPTION Become a W Talent and Embody the W Art of Living! As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. A UNIQUE OPPORTUNITY TO JOIN THE W VERBIER TEAM As a Rotating Serveur in our Brasserie 1519 & U-Yama sushi bar restaurants , you will welcome, serve and assist our guests with enthusiasm, professionalism, and creativity, while using appropriate sales techniques. As a true ambassador of the W experience, you help achieve service objectives and ensure tables are impeccably clean and presented. You will handle bills and facilitate payments accurately and efficiently. Passionate about hospitality, you create memorable and personalized experiences for our guests, following our standards and responding to the guidance of your Talent Coach. PROFILE • Outgoing, dynamic, attentive, and empathetic. • Fluent in French and English. Knowledge of additional languages is a plus. • Enjoys working in an international, innovative, and bold team. • Impeccable presentation, reflecting the image and values of the W brand. • BAC PRO / CFC / BTS in Hospitality or at least 2 years of experience in a similar role. • Motivated, detail-oriented, and committed to delivering an exceptional guest experience. • Interest in the brand’s values: taste, sound, body, stage, and expression. Position to be filled for the Winter season : December 2026 to March 2027 Due to visa restrictions, only applications from Switzerland and the European Union will be considered At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+        "de": "Become a W Talent und Embody the W Art of Living! Als „Talent“ sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Sie sind einzigartig, leidenschaftlich und Ihre Persönlichkeit scheint in jeder Interaktion durch. Eine UNIQUE-ÖFFENTLICHKEIT zu den W VERBIER TEAM Als rotierender Serveur in unseren Brasserie 1519 & U-Yama Sushi Bar Restaurants werden Sie unsere Gäste mit Enthusiasmus, Professionalität und Kreativität willkommen, bedienen und unterstützen und dabei geeignete Verkaufstechniken einsetzen. Als wahrer Botschafter der W-Erfahrung helfen Sie, Serviceziele zu erreichen und sicherzustellen, dass Tische einwandfrei sauber und präsentiert werden. Sie behandeln Rechnungen und erleichtern Zahlungen genau und effizient. Leidenschaftlich über Gastfreundschaft, schaffen Sie unvergessliche und personalisierte Erfahrungen für unsere Gäste, nach unseren Standards und auf die Führung Ihres Talent Coach reagieren. • Ausgehen, dynamisch, aufmerksam und empathisch. • Flöent auf Französisch und Englisch. Die Kenntnis zusätzlicher Sprachen ist ein Plus. • Genießen Sie die Arbeit in einem internationalen, innovativen und mutigen Team. • Eine einwandfreie Präsentation, die das Bild und die Werte der Marke W widerspiegelt. • BAC PRO / CFC / BTS in Hospitality oder mindestens 2 Jahre Erfahrung in einer ähnlichen Rolle. • Motiviert, detailorientiert und verpflichtet, ein außergewöhnliches Gästeerlebnis zu bieten. • Interesse an den Werten der Marke: Geschmack, Klang, Körper, Bühne und Ausdruck. Position zu erfüllen für die Wintersaison: Dezember 2026 bis März 2027 Aufgrund von Visa-Einschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union als Chancengleichheit Arbeitgeber bei Marriott International betrachtet, wir sind darauf spezialisiert, ein Chancengleichheit Arbeitgeber zu sein, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage. Die Mission von W Hotels ist es, Kuriosität zu erkennen, erweiterte Welten. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen zu öffnen und Gedanken zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, aufstrebender Geist ist in unserem Kern und hat uns bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / wann immer unsere Kultur- und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben bringt. Wenn Sie originell, innovativ und immer auf die Zukunft von dem, was möglich ist, willkommen bei W Hotels. Bei W Hotels stoßen Sie auf ein Markenportfolio mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.",
+        "fr": "Descrizione Devenez un W Talent et Embody le W Art de vivre! En tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction. ## UNE OPPORTUNITÉ UNIQUE DE JOUER DANS L'ÉQUIPE VÉRIBIÈRE En tant que serveur rotatif dans nos restaurants de brasserie 1519 et U-Yama sushi bar, vous accueillerez, servirez et assisterez nos clients avec enthousiasme, professionnalisme et créativité, tout en utilisant les techniques de vente appropriées. En tant que véritable ambassadeur de l'expérience W, vous aidez à atteindre les objectifs de service et vous assurez que les tableaux sont impeccablement propres et présentés. Vous traiterez les factures et faciliterez les paiements avec précision et efficacité. Passionnés d'hospitalité, vous créez des expériences mémorables et personnalisées pour nos invités, suivant nos normes et répondant aux conseils de votre Talent Coach. ## PROFIL • Envolée, dynamique, attentive et empathique. • En français et en anglais. La connaissance de langues supplémentaires est un plus. • Profitez de travailler dans une équipe internationale, innovante et audacieuse. • Présentation impeccable, reflétant l'image et les valeurs de la marque W. • BAC PRO / CFC / BTS in Hospitality ou au moins 2 ans d'expérience dans un rôle similaire. • Motivé, orienté vers le détail et engagé à offrir une expérience client exceptionnelle. • Intérêt pour les valeurs de la marque: goût, son, corps, scène et expression. Poste à pourvoir pour la saison d'hiver : décembre 2026 à mars 2027 En raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront considérées ## Employeur de l'égalité des chances Chez Marriott International, nous nous engageons à être un employeur de l'égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable. W Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
       },
       "location": "Verbier",
       "canton": "VS",
-      "url": "https://careers.marriott.com/sushiman-winter-26-27-w-verbier/job/299A6D17D77775916270ACB22CA6016A",
+      "url": "https://careers.marriott.com/waiter-tress-brasserie-u-yama-winter-26-27-w-verbier/job/C052454AD38407D9CFAEF4C3FAA13254",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.959Z",
+      "crawledAt": "2026-05-10T10:32:17.341Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -814,37 +751,21 @@
       "sector": "Hôtellerie / Hospitality",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26045593/apply/email",
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26045105/apply/email",
       "requirements": [],
       "requirementsByLocale": {},
       "_marriottMeta": {
-        "requisitionID": "26045593",
-        "uniqueID": "299A6D17D77775916270ACB22CA6016A",
+        "requisitionID": "26045105",
+        "uniqueID": "C052454AD38407D9CFAEF4C3FAA13254",
         "brandName": "W Hotels",
         "locationName": "W Verbier",
-        "jobField": "Kitchen & Stewarding",
+        "jobField": "Food and Beverage Services",
         "accountName": "Non-Management",
-        "publishEndDate": "2026-05-29T09:32:00.000Z"
+        "publishEndDate": "2026-05-28T12:40:00.000Z"
       },
-      "previousSlugs": [
-        "sushiman-winter-26-27-w-verbier-marriott-verbier",
-        "concierge-hiver-26-27-w-verbier-marriott-international-verbier",
-        "concierge-inverno-26-27-w-verbier-marriott-international-verbier",
-        "concierge-winter-26-27-w-verbier-marriott-verbier",
-        "mezzo-capopartita-marriott-international-verbier",
-        "partiekoch-marriott-international-verbier",
-        "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sushiman-winter-26-27-w-verbier-marriott-verbier"
-        ],
-        "fr": [
-          "sushiman-winter-26-27-w-verbier-marriott-verbier"
-        ]
-      },
-      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "firstSeenAt": "2026-04-30T11:09:31.159Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -889,7 +810,7 @@
       "url": "https://careers.marriott.com/switzerland-voyage-program-september-2026-food-beverage/job/012F9A46866E1F312AB27BF74F80C389",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.959Z",
+      "crawledAt": "2026-05-10T10:32:17.339Z",
       "addressLocality": "Geneva",
       "streetAddress": "Chemin du Ruisseau 1, Cointrin",
       "postalCode": "1216",
@@ -955,6 +876,96 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.152Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "marriott-d767732201b6",
+      "slug": "sushiman-inverno-26-27-w-verbier-marriott-international-verbier",
+      "slugByLocale": {
+        "it": "sushiman-inverno-26-27-w-verbier-marriott-international-verbier",
+        "en": "sushiman-winter-26-27-w-verbier-marriott-verbier",
+        "de": "sushiman-winter-26-27-w-verbier-marriott-verbier",
+        "fr": "sushiman-hiver-26-27-w-verbier-marriott-international-verbier"
+      },
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Sushiman (Winter 26/27) - W VERBIER",
+      "titleByLocale": {
+        "it": "Sushiman (inverno 26/27) - W VERBIER",
+        "en": "Sushiman (Winter 26/27) - W VERBIER",
+        "de": "Sushiman (Winter 26/27) - W VERBIER",
+        "fr": "Sushiman (hiver 26/27) - W VERBIER"
+      },
+      "description": "JOB DESCRIPTION \n \n Become a W Talent and Embody the W Art of Living! \n \n As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. \n \n \n \n AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM ! \n \n \n \n Are you passionate about Japanese cuisine and love creating dishes that tickle the taste buds? At W Verbier, we're looking for our future sushi rockstar to join our dynamic team. If you have a flair for detail and are ready to take on a challenge while igniting the curiosity of our customers, we want to meet you! \n \n \n \n As a Sushiman, you'll be helping the Sushi Chef make delicious Japanese dishes. This includes cleaning and cutting meat and fish, preparing seafood, as well as cooking, frying, assembling and seasoning dishes. You will warmly welcome our customers and present your culinary creations in an elegant and appetising manner. \n \n \n \n PROFILE \n \n Previous experience in a similar position or in Japanese cuisine \n \n A genuine interest in the Japanese / sushi world \n \n Previous experience in the kitchen of a 5* hotel \n \n Knowledge of hygiene and cleanliness standards \n \n Fluent French and English/Spanish \n \n You should be highly motivated. \n \n Real interest in the worlds of taste, sound, body, scene and stance \n \n Be detail oriented and have a passion for giving guests an exceptional experience. \n \n \n \n Position to be filled for the Winter season : December 2026 to March 2027 \n \n \n \n Due to visa restrictions only applicants from Switzerland and European Union can be considered. \n \n \n\n \n At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. \n\n \n W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+      "descriptionByLocale": {
+        "it": "Descrizione Diventa un talente W e incarna l'arte W di vivere! Come ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione. ## Opportunità di lavoro UNA OPPORTUNITÀ ESTRATZIONALE PER IL TEAM VERBIER W! Sei appassionato di cucina giapponese e amore creare piatti che solleticano le papille gustative? A W Verbier, stiamo cercando il nostro futuro sushi rockstar per unirsi al nostro team dinamico. Se avete un tocco per i dettagli e siete pronti ad affrontare una sfida mentre accendono la curiosità dei nostri clienti, vogliamo incontrarvi! ## Mansioni Come Sushiman, aiuterai il Sushi Chef a preparare deliziosi piatti giapponesi. Si tratta di: - pulire e tagliare la carne e il pesce - preparare i frutti di mare - cucinare, friggere, assemblare e condire i piatti - caldamente accogliere i nostri clienti e presentare le vostre creazioni culinarie in modo elegante e appetibile ## Requisiti - Esperienza precedente in una posizione simile o in cucina giapponese - Un vero interesse per il mondo giapponese / sushi - Esperienza precedente nella cucina di un hotel 5* - Conoscenza dell'igiene e pulizia standard marzo A Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile. La missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi. ## Contatto Nessuna informazione di contatto fornita.",
+        "en": "JOB DESCRIPTION Become a W Talent and Embody the W Art of Living! As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM ! Are you passionate about Japanese cuisine and love creating dishes that tickle the taste buds? At W Verbier, we're looking for our future sushi rockstar to join our dynamic team. If you have a flair for detail and are ready to take on a challenge while igniting the curiosity of our customers, we want to meet you! As a Sushiman, you'll be helping the Sushi Chef make delicious Japanese dishes. This includes cleaning and cutting meat and fish, preparing seafood, as well as cooking, frying, assembling and seasoning dishes. You will warmly welcome our customers and present your culinary creations in an elegant and appetising manner. PROFILE Previous experience in a similar position or in Japanese cuisine A genuine interest in the Japanese / sushi world Previous experience in the kitchen of a 5* hotel Knowledge of hygiene and cleanliness standards Fluent French and English/Spanish You should be highly motivated. Real interest in the worlds of taste, sound, body, scene and stance Be detail oriented and have a passion for giving guests an exceptional experience. Position to be filled for the Winter season : December 2026 to March 2027 Due to visa restrictions only applicants from Switzerland and European Union can be considered. At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+        "de": "Become a W Talent und Embody the W Art of Living! Als „Talent“ sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Sie sind einzigartig, leidenschaftlich und Ihre Persönlichkeit scheint in jeder Interaktion durch. Opportunità di lavoro Eine EXCEPTIONELLE OPPORTUNITY TO JOIN THE W VERBIER TEAM! Sind Sie leidenschaftlich über japanische Küche und Liebe zu kreieren Gerichte, die den Geschmack Knospen kitzeln? Bei W Verbier suchen wir nach unserem zukünftigen Sushi Rockstar, um unserem dynamischen Team beizutreten. Wenn Sie ein Flair zum Detail haben und bereit sind, eine Herausforderung anzugehen, während Sie die Neugier unserer Kunden entzünden, wollen wir Sie treffen! In den Warenkorb Als Sushiman helfen Sie dem Sushi Chef dabei, leckere japanische Gerichte zu kreieren. Das beinhaltet: - Reinigung und Schneiden von Fleisch und Fisch - Vorbereitung von Meeresfrüchten - Kochen, Braten, Montage und Gewürze - herzlich willkommen unsere Kunden und präsentieren Ihre kulinarischen Kreationen in einer eleganten und appetitlichen Weise Bei Marriott International widmen wir uns als Arbeitgeber der Chancengleichheit, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage. Die Mission von W Hotels ist es, Kuriosität zu erkennen, erweiterte Welten. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen zu öffnen und Gedanken zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, aufstrebender Geist ist in unserem Kern und hat uns bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / wann immer unsere Kultur- und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben bringt. Wenn Sie originell, innovativ und immer auf die Zukunft von dem, was möglich ist, willkommen bei W Hotels. Bei W Hotels stoßen Sie auf ein Markenportfolio mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen. (Contatto) Keine Kontaktinformationen zur Verfügung gestellt.",
+        "fr": "Descrizione Devenez un W Talent et Embody le W Art de vivre! En tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction. ## Opportunità di lavoro UNE OPPORTUNITÉ EXCEPTIONNELLE DE S'INSCRIRE DANS L'ÉQUIPE W VERBIERE ! Vous êtes passionné par la cuisine japonaise et aimez créer des plats qui chatouillent les papilles ? Chez W Verbier, nous cherchons notre future rockstar de sushi pour rejoindre notre équipe dynamique. Si vous avez un flair pour le détail et êtes prêt à relever un défi tout en dégageant la curiosité de nos clients, nous voulons vous rencontrer! Les hommes En tant que Sushiman, vous aiderez le chef Sushi à préparer de délicieux plats japonais. Cela comprend: - nettoyage et découpe de la viande et du poisson - préparation des fruits de mer - cuisson, friture, assemblage et assaisonnement des plats - accueil chaleureux de nos clients et présentation de vos créations culinaires d'une manière élégante et appétissante ## Requisiti - Expérience antérieure dans une position similaire ou dans une cuisine japonaise - Un véritable intérêt pour le monde japonais / sushi - Expérience antérieure dans la cuisine d'un hôtel 5* - Connaissance des normes d'hygiène et de propreté - Fluent français et anglais/espagnol - très motivé - Véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position - Être orienté vers le détail et avoir une passion pour donner aux invités une expérience exceptionnelle ## Condizioni - Position à remplir pour la saison d'hiver : décembre 2026 à mars 2027 - En raison des restrictions de visa, seuls les candidats de Suisse et de l'Union européenne peuvent être considérés ## Cosa offriamo Chez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable. W Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous. Contatto Aucune information de contact fournie."
+      },
+      "location": "Verbier",
+      "canton": "VS",
+      "url": "https://careers.marriott.com/sushiman-winter-26-27-w-verbier/job/299A6D17D77775916270ACB22CA6016A",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-10T10:32:17.338Z",
+      "addressLocality": "Verbier",
+      "streetAddress": "Rue de Medran 70",
+      "postalCode": "1936",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "hospitality-food-beverage",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26045593/apply/email",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_marriottMeta": {
+        "requisitionID": "26045593",
+        "uniqueID": "299A6D17D77775916270ACB22CA6016A",
+        "brandName": "W Hotels",
+        "locationName": "W Verbier",
+        "jobField": "Kitchen & Stewarding",
+        "accountName": "Non-Management",
+        "publishEndDate": "2026-05-29T09:32:00.000Z"
+      },
+      "previousSlugs": [
+        "sushiman-winter-26-27-w-verbier-marriott-verbier",
+        "concierge-hiver-26-27-w-verbier-marriott-international-verbier",
+        "concierge-inverno-26-27-w-verbier-marriott-international-verbier",
+        "concierge-winter-26-27-w-verbier-marriott-verbier",
+        "mezzo-capopartita-marriott-international-verbier",
+        "partiekoch-marriott-international-verbier",
+        "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sushiman-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "sushiman-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -999,7 +1010,7 @@
       "url": "https://careers.marriott.com/style-agent-housekeeper-summer-winter-w-verbier/job/C2BD60895B35049AC747D77811886B52",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.958Z",
+      "crawledAt": "2026-05-10T10:32:17.337Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1034,6 +1045,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.156Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1078,7 +1090,7 @@
       "url": "https://careers.marriott.com/storekeeper-winter-26-27-w-verbier/job/526100185770696B7AA519837D1F13DB",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.958Z",
+      "crawledAt": "2026-05-10T10:32:17.337Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1135,6 +1147,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.151Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1179,7 +1192,7 @@
       "url": "https://careers.marriott.com/stagiaire-superviseur-housekeeping/job/5FB4748BCEF80B422DC7DC860150C992",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.957Z",
+      "crawledAt": "2026-05-10T10:32:17.336Z",
       "addressLocality": "Geneva",
       "streetAddress": "Chemin du Ruisseau 1, Cointrin",
       "postalCode": "1216",
@@ -1234,6 +1247,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.149Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1278,7 +1292,7 @@
       "url": "https://careers.marriott.com/stagiaire-sales-events/job/514ACC580A3E9033FE2F45E67D649AA8",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.956Z",
+      "crawledAt": "2026-05-10T10:32:17.335Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -1355,7 +1369,7 @@
       "url": "https://careers.marriott.com/stagiaire-restaurant-septembre-2026/job/4463DA89A89F5B53AC16B7F83F9E3974",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.956Z",
+      "crawledAt": "2026-05-10T10:32:17.335Z",
       "addressLocality": "Geneva",
       "streetAddress": "Chemin du Ruisseau 1, Cointrin",
       "postalCode": "1216",
@@ -1421,6 +1435,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.148Z",
+      "needsRetranslation": true,
       "salaryMin": 47658,
       "salaryMax": 57200,
       "baseSalary": {
@@ -1465,7 +1480,7 @@
       "url": "https://careers.marriott.com/stagiaire-ressources-humaines/job/F2F8990DC3607D7BF75F456CA0C22318",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.955Z",
+      "crawledAt": "2026-05-10T10:32:17.334Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -1492,6 +1507,7 @@
         "publishEndDate": ""
       },
       "firstSeenAt": "2026-04-30T11:09:31.151Z",
+      "needsRetranslation": true,
       "salaryMin": 47658,
       "salaryMax": 57200,
       "baseSalary": {
@@ -1536,7 +1552,7 @@
       "url": "https://careers.marriott.com/stagiaire-pâtisserie/job/18B951E8C8023CE0273D37C8D85B1856",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.954Z",
+      "crawledAt": "2026-05-10T10:32:17.333Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -1579,6 +1595,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:21:00.982Z",
+      "needsRetranslation": true,
       "salaryMin": 47658,
       "salaryMax": 57200,
       "baseSalary": {
@@ -1623,7 +1640,7 @@
       "url": "https://careers.marriott.com/stagiaire-marketing/job/78FBC9A92960EA2D6E2DD50FD1139B5A",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.954Z",
+      "crawledAt": "2026-05-10T10:32:17.333Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -1702,7 +1719,7 @@
       "url": "https://careers.marriott.com/stagiaire-mclub-lounge/job/AAA56C011A9DB64C276FE2B7485842AF",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.953Z",
+      "crawledAt": "2026-05-10T10:32:17.332Z",
       "addressLocality": "Geneva",
       "streetAddress": "Chemin du Ruisseau 1, Cointrin",
       "postalCode": "1216",
@@ -1743,6 +1760,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.147Z",
+      "needsRetranslation": true,
       "salaryMin": 47658,
       "salaryMax": 57200,
       "baseSalary": {
@@ -1787,7 +1805,7 @@
       "url": "https://careers.marriott.com/stagiaire-food-beverage/job/7EC28C0D7339405E9DD1A40455478AB5",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.952Z",
+      "crawledAt": "2026-05-10T10:32:17.331Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -1825,6 +1843,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T22:12:49.948Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1869,7 +1888,7 @@
       "url": "https://careers.marriott.com/stagiaire-housekeeping/job/658306740F1DF4FBDC1CAB3E1FCC6F8E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.952Z",
+      "crawledAt": "2026-05-10T10:32:17.331Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -1896,6 +1915,7 @@
         "publishEndDate": ""
       },
       "firstSeenAt": "2026-04-30T11:09:31.149Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1940,7 +1960,7 @@
       "url": "https://careers.marriott.com/stagiaire-finance/job/D76ACBBC9577640AD8EC654D5F20EC88",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.951Z",
+      "crawledAt": "2026-05-10T10:32:17.330Z",
       "addressLocality": "Geneva",
       "streetAddress": "Chemin du Ruisseau 1, Cointrin",
       "postalCode": "1216",
@@ -2002,6 +2022,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.147Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2046,7 +2067,7 @@
       "url": "https://careers.marriott.com/stagiaire-cuisine/job/E75B49B836D6CFE82A12F964989B8E26",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.950Z",
+      "crawledAt": "2026-05-10T10:32:17.329Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -2073,6 +2094,7 @@
         "publishEndDate": ""
       },
       "firstSeenAt": "2026-04-30T11:09:31.147Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2117,7 +2139,7 @@
       "url": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-summer-winter-26-27-w-verbier/job/A708801A969F61A20DA4990AD9093746",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.950Z",
+      "crawledAt": "2026-05-10T10:32:17.329Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2183,6 +2205,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.146Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2227,7 +2250,7 @@
       "url": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/B4D31364295A972DAB8B20B01D0163F4",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.949Z",
+      "crawledAt": "2026-05-10T10:32:17.328Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2293,6 +2316,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.145Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2337,7 +2361,7 @@
       "url": "https://careers.marriott.com/ski-room-attendant-winter-26-27-w-verbier/job/549148374F283653FCF0B172D648C565",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.948Z",
+      "crawledAt": "2026-05-10T10:32:17.327Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2396,6 +2420,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.144Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2440,7 +2465,7 @@
       "url": "https://careers.marriott.com/spa-attendant-50-winter-26-27-w-verbier/job/CC78473EFE33D2DD27329AA0E114C835",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.948Z",
+      "crawledAt": "2026-05-10T10:32:17.327Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2481,6 +2506,90 @@
         ]
       },
       "firstSeenAt": "2026-04-14T22:04:53.489Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "marriott-c86914a55f01",
+      "slug": "cucina-pasticceria-lungo-termine-w-verbier-marriott-international-verbier",
+      "slugByLocale": {
+        "it": "cucina-pasticceria-lungo-termine-w-verbier-marriott-international-verbier",
+        "en": "pastry-cook-long-term-w-verbier-marriott-verbier",
+        "de": "pastry-cook-long-term-w-verbier-marriott-verbier",
+        "fr": "patisserie-long-terme-w-verbier-marriott-international-verbier"
+      },
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Pastry cook (long term) - W VERBIER",
+      "titleByLocale": {
+        "it": "Cucina pasticceria (lungo termine) - W VERBIER",
+        "en": "Pastry cook (long term) - W VERBIER",
+        "de": "Pastry cook (long term) - W VERBIER",
+        "fr": "Pâtisserie (long terme) - W VERBIER"
+      },
+      "description": "JOB DESCRIPTION \n \n Become a W Talent and Embody the W Art of Living! \n \n As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. \n \n \n \n AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM! \n \n \n \n Your role as Pastry Cook \n \n Creator of Sweet Treats: You will participate in the development of pastries for all our sites: the Living Room, the Brasserie 1519, the In Room Dining and the Banqueting. \n \n Innovative and inspired: You're creative and inventive, and have the organizational skills needed to work efficiently. \n \n Excellence in Hygiene: You will rigorously apply HACCP hygiene rules and follow 5-star standards. \n \n \n \n PROFILE \n \n Experience and training: Previous experience in pastry-making in a 5-star hotel and a diploma in pastry-making. \n \n Knowledge: Mastery of hygiene and cleanliness standards. \n \n Language skills: Fluent in French and English/Spanish. \n \n Passion for Lifestyle: Strong interest in the worlds of taste, sound, the body, the stage and taking a stand. \n \n Attention to Detail: Strong attention to detail and passion for delivering a memorable customer experience. \n \n \n \n Position to be filled now, for long term contract\n \n \n \n Due to visa restrictions, only applications from Switzerland and the European Union will be considered. \n \n \n \n Ready to add a touch of sweetness to W Verbier with your talent and passion? Join us !\n \n \n \n\n \n At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. \n\n \n W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+      "descriptionByLocale": {
+        "it": "Descrizione Diventa un talente W e incarna l'arte W di vivere! Come ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione. ## UN'ESCEPTIONAL OPPORTUNITÀ A GIOVANNI IL TEAM VERBIER W! Il vostro ruolo di Pasticceria Cook - Creatore di Dolce Trattamenti: Parteciperete allo sviluppo di pasticcini per tutti i nostri siti: il Living Room, la Brasserie 1519, il In Room Dining e il Banqueting. - Innovativo e ispirato: Sei creativo e inventivo, e hai le competenze organizzative necessarie per lavorare in modo efficiente. - Eccellenza in Igiene: applicare rigorosamente le regole di igiene HACCP e seguire gli standard a 5 stelle. ## PROFILE - Esperienza e formazione: Esperienza precedente nella pasticceria in un hotel a 5 stelle e diploma in pasticceria. - Conoscenza: Masterizzazione degli standard di igiene e pulizia. - Capacità linguistiche: fluente in francese e inglese/spagnolo. - Passione per lo stile di vita: forte interesse nei mondi del gusto, del suono, del corpo, del palcoscenico e della presa di posizione. - Attenzione al dettaglio: forte attenzione al dettaglio e alla passione per la fornitura di una memorabile esperienza del cliente. ## Posizione da riempire ora, per contratto a lungo termine A causa delle restrizioni del visto, saranno prese in considerazione solo le domande dalla Svizzera e dall'Unione Europea. Pronto ad aggiungere un tocco di dolcezza a W Verbier con il tuo talento e la tua passione? Unisciti a noi! A Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile. La missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
+        "en": "JOB DESCRIPTION Become a W Talent and Embody the W Art of Living! As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM! Your role as Pastry Cook Creator of Sweet Treats: You will participate in the development of pastries for all our sites: the Living Room, the Brasserie 1519, the In Room Dining and the Banqueting. Innovative and inspired: You're creative and inventive, and have the organizational skills needed to work efficiently. Excellence in Hygiene: You will rigorously apply HACCP hygiene rules and follow 5-star standards. PROFILE Experience and training: Previous experience in pastry-making in a 5-star hotel and a diploma in pastry-making. Knowledge: Mastery of hygiene and cleanliness standards. Language skills: Fluent in French and English/Spanish. Passion for Lifestyle: Strong interest in the worlds of taste, sound, the body, the stage and taking a stand. Attention to Detail: Strong attention to detail and passion for delivering a memorable customer experience. Position to be filled now, for long term contract Due to visa restrictions, only applications from Switzerland and the European Union will be considered. Ready to add a touch of sweetness to W Verbier with your talent and passion? Join us ! At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+        "de": "Become a W Talent und Embody the W Art of Living! Als „Talent“ sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Sie sind einzigartig, leidenschaftlich und Ihre Persönlichkeit scheint in jeder Interaktion durch. Eine EXCEPTIONELLE OPPORTUNITY, um den W VERBIER TEAM zu befreien! Ihre Rolle als Gebäck Koch - Schöpfer der süßen Bäume: Sie werden an der Entwicklung von Gebäck für alle unsere Seiten teilnehmen: das Wohnzimmer, die Brasserie 1519, das In Room Dining und das Bankett. - Innovativ und inspiriert: Sie sind kreativ und erfinderisch und haben die organisatorischen Fähigkeiten, die notwendig sind, um effizient zu arbeiten. - Exzellenz in der Hygiene: Sie werden streng HACCP Hygieneregeln anwenden und 5-Sterne-Standards folgen. Â PROFILE - Erfahrung und Ausbildung: Vorherige Erfahrung in der Gebäckherstellung in einem 5-Sterne-Hotel und einem Diplom in der Gebäckherstellung. - Wissen: Hygiene- und Sauberkeitsstandards. - Sprachkenntnisse: fließend in Französisch und Englisch/Spanisch. - Leidenschaft für Lifestyle: Starkes Interesse an Geschmack, Klang, Körper, Bühne und Stand. - Achtung vor Detail: Starke Liebe zum Detail und Leidenschaft für die Bereitstellung eines unvergesslichen Kundenerlebnisses. Posizione Position jetzt zu füllen, für langfristigen Vertrag Aufgrund der Visumbeschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union berücksichtigt. Bereit, W Verbier mit Ihrem Talent und Ihrer Leidenschaft einen Hauch Süße hinzuzufügen? Begleiten Sie uns! Bei Marriott International widmen wir uns als Arbeitgeber der Chancengleichheit, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage. Die Mission von W Hotels ist es, Kuriosität zu erkennen, erweiterte Welten. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen zu öffnen und Gedanken zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, aufstrebender Geist ist in unserem Kern und hat uns bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / wann immer unsere Kultur- und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben bringt. Wenn Sie originell, innovativ und immer auf die Zukunft von dem, was möglich ist, willkommen bei W Hotels. Bei W Hotels stoßen Sie auf ein Markenportfolio mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.",
+        "fr": "Descrizione Devenez un W Talent et Embody le W Art de vivre! En tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction. ## UNE OPPORTUNITÉ EXCEPTIONNELLE DE S'INSCRIRE DANS L'ÉQUIPE W VERBIERE ! Votre rôle de pâtissier - Créateur de bonbons : Vous participerez au développement de pâtisseries pour tous nos sites : le salon, la brasserie 1519, le restaurant en chambre et le banquet. - Innovatrice et inspirée: Vous êtes créative et inventive, et avez les compétences organisationnelles nécessaires pour travailler efficacement. - Excellence en hygiène : vous appliquerez rigoureusement les règles d'hygiène HACCP et respecterez les normes 5 étoiles. ## PROFIL - Expérience et formation: Expérience antérieure en pâtisserie dans un hôtel 5 étoiles et un diplôme en pâtisserie. - Connaissances : maîtrise des normes d'hygiène et de propreté. - Compétences linguistiques : maîtrise du français et de l'anglais/espagnol. - Passion pour le style de vie : Intérêt pour les mondes du goût, du son, du corps, de la scène et de la prise de position. - Attention aux détails : Une attention particulière aux détails et à la passion pour une expérience client mémorable. ## Posizione Position à remplir maintenant, pour un contrat à long terme En raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront prises en considération. Prêt à ajouter une touche de douceur à W Verbier avec votre talent et votre passion? Rejoignez-nous ! Chez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable. W Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
+      },
+      "location": "Verbier",
+      "canton": "VS",
+      "url": "https://careers.marriott.com/pastry-cook-long-term-w-verbier/job/42E73B069F6FC6E3BC964362D13E04FC",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-10T10:32:17.325Z",
+      "addressLocality": "Verbier",
+      "streetAddress": "Rue de Medran 70",
+      "postalCode": "1936",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "hospitality-food-beverage",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26055931/apply/email",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_marriottMeta": {
+        "requisitionID": "26055931",
+        "uniqueID": "42E73B069F6FC6E3BC964362D13E04FC",
+        "brandName": "W Hotels",
+        "locationName": "W Verbier",
+        "jobField": "Culinary",
+        "accountName": "Non-Management",
+        "publishEndDate": "2026-06-21T08:05:00.000Z"
+      },
+      "previousSlugs": [
+        "pastry-cook-long-term-w-verbier-marriott-verbier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pastry-cook-long-term-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "pastry-cook-long-term-w-verbier-marriott-verbier"
+        ]
+      },
+      "firstSeenAt": "2026-05-07T22:13:51.894Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2525,7 +2634,7 @@
       "url": "https://careers.marriott.com/pastry-intern-6-months-w-verbier/job/22B975C7DD76A00AE8572F0665429E6E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.947Z",
+      "crawledAt": "2026-05-10T10:32:17.325Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2580,88 +2689,6 @@
       }
     },
     {
-      "id": "marriott-c86914a55f01",
-      "slug": "cucina-pasticceria-lungo-termine-w-verbier-marriott-international-verbier",
-      "slugByLocale": {
-        "it": "cucina-pasticceria-lungo-termine-w-verbier-marriott-international-verbier",
-        "en": "pastry-cook-long-term-w-verbier-marriott-verbier",
-        "de": "pastry-cook-long-term-w-verbier-marriott-verbier",
-        "fr": "patisserie-long-terme-w-verbier-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Pastry cook (long term) - W VERBIER",
-      "titleByLocale": {
-        "it": "Cucina pasticceria (lungo termine) - W VERBIER",
-        "en": "Pastry cook (long term) - W VERBIER",
-        "de": "Pastry cook (long term) - W VERBIER",
-        "fr": "Pâtisserie (long terme) - W VERBIER"
-      },
-      "description": "JOB DESCRIPTION \n \n Become a W Talent and Embody the W Art of Living! \n \n As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. \n \n \n \n AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM! \n \n \n \n Your role as Pastry Cook \n \n Creator of Sweet Treats: You will participate in the development of pastries for all our sites: the Living Room, the Brasserie 1519, the In Room Dining and the Banqueting. \n \n Innovative and inspired: You're creative and inventive, and have the organizational skills needed to work efficiently. \n \n Excellence in Hygiene: You will rigorously apply HACCP hygiene rules and follow 5-star standards. \n \n \n \n PROFILE \n \n Experience and training: Previous experience in pastry-making in a 5-star hotel and a diploma in pastry-making. \n \n Knowledge: Mastery of hygiene and cleanliness standards. \n \n Language skills: Fluent in French and English/Spanish. \n \n Passion for Lifestyle: Strong interest in the worlds of taste, sound, the body, the stage and taking a stand. \n \n Attention to Detail: Strong attention to detail and passion for delivering a memorable customer experience. \n \n \n \n Position to be filled now, for long term contract\n \n \n \n Due to visa restrictions, only applications from Switzerland and the European Union will be considered. \n \n \n \n Ready to add a touch of sweetness to W Verbier with your talent and passion? Join us !\n \n \n \n\n \n At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. \n\n \n W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "Descrizione Diventa un talente W e incarna l'arte W di vivere! Come ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione. ## UN'ESCEPTIONAL OPPORTUNITÀ A GIOVANNI IL TEAM VERBIER W! Il vostro ruolo di Pasticceria Cook - Creatore di Dolce Trattamenti: Parteciperete allo sviluppo di pasticcini per tutti i nostri siti: il Living Room, la Brasserie 1519, il In Room Dining e il Banqueting. - Innovativo e ispirato: Sei creativo e inventivo, e hai le competenze organizzative necessarie per lavorare in modo efficiente. - Eccellenza in Igiene: applicare rigorosamente le regole di igiene HACCP e seguire gli standard a 5 stelle. ## PROFILE - Esperienza e formazione: Esperienza precedente nella pasticceria in un hotel a 5 stelle e diploma in pasticceria. - Conoscenza: Masterizzazione degli standard di igiene e pulizia. - Capacità linguistiche: fluente in francese e inglese/spagnolo. - Passione per lo stile di vita: forte interesse nei mondi del gusto, del suono, del corpo, del palcoscenico e della presa di posizione. - Attenzione al dettaglio: forte attenzione al dettaglio e alla passione per la fornitura di una memorabile esperienza del cliente. ## Posizione da riempire ora, per contratto a lungo termine A causa delle restrizioni del visto, saranno prese in considerazione solo le domande dalla Svizzera e dall'Unione Europea. Pronto ad aggiungere un tocco di dolcezza a W Verbier con il tuo talento e la tua passione? Unisciti a noi! A Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile. La missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "JOB DESCRIPTION Become a W Talent and Embody the W Art of Living! As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM! Your role as Pastry Cook Creator of Sweet Treats: You will participate in the development of pastries for all our sites: the Living Room, the Brasserie 1519, the In Room Dining and the Banqueting. Innovative and inspired: You're creative and inventive, and have the organizational skills needed to work efficiently. Excellence in Hygiene: You will rigorously apply HACCP hygiene rules and follow 5-star standards. PROFILE Experience and training: Previous experience in pastry-making in a 5-star hotel and a diploma in pastry-making. Knowledge: Mastery of hygiene and cleanliness standards. Language skills: Fluent in French and English/Spanish. Passion for Lifestyle: Strong interest in the worlds of taste, sound, the body, the stage and taking a stand. Attention to Detail: Strong attention to detail and passion for delivering a memorable customer experience. Position to be filled now, for long term contract Due to visa restrictions, only applications from Switzerland and the European Union will be considered. Ready to add a touch of sweetness to W Verbier with your talent and passion? Join us ! At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "Become a W Talent und Embody the W Art of Living! Als „Talent“ sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Sie sind einzigartig, leidenschaftlich und Ihre Persönlichkeit scheint in jeder Interaktion durch. Eine EXCEPTIONELLE OPPORTUNITY, um den W VERBIER TEAM zu befreien! Ihre Rolle als Gebäck Koch - Schöpfer der süßen Bäume: Sie werden an der Entwicklung von Gebäck für alle unsere Seiten teilnehmen: das Wohnzimmer, die Brasserie 1519, das In Room Dining und das Bankett. - Innovativ und inspiriert: Sie sind kreativ und erfinderisch und haben die organisatorischen Fähigkeiten, die notwendig sind, um effizient zu arbeiten. - Exzellenz in der Hygiene: Sie werden streng HACCP Hygieneregeln anwenden und 5-Sterne-Standards folgen. Â PROFILE - Erfahrung und Ausbildung: Vorherige Erfahrung in der Gebäckherstellung in einem 5-Sterne-Hotel und einem Diplom in der Gebäckherstellung. - Wissen: Hygiene- und Sauberkeitsstandards. - Sprachkenntnisse: fließend in Französisch und Englisch/Spanisch. - Leidenschaft für Lifestyle: Starkes Interesse an Geschmack, Klang, Körper, Bühne und Stand. - Achtung vor Detail: Starke Liebe zum Detail und Leidenschaft für die Bereitstellung eines unvergesslichen Kundenerlebnisses. Posizione Position jetzt zu füllen, für langfristigen Vertrag Aufgrund der Visumbeschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union berücksichtigt. Bereit, W Verbier mit Ihrem Talent und Ihrer Leidenschaft einen Hauch Süße hinzuzufügen? Begleiten Sie uns! Bei Marriott International widmen wir uns als Arbeitgeber der Chancengleichheit, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage. Die Mission von W Hotels ist es, Kuriosität zu erkennen, erweiterte Welten. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen zu öffnen und Gedanken zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, aufstrebender Geist ist in unserem Kern und hat uns bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / wann immer unsere Kultur- und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben bringt. Wenn Sie originell, innovativ und immer auf die Zukunft von dem, was möglich ist, willkommen bei W Hotels. Bei W Hotels stoßen Sie auf ein Markenportfolio mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.",
-        "fr": "Descrizione Devenez un W Talent et Embody le W Art de vivre! En tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction. ## UNE OPPORTUNITÉ EXCEPTIONNELLE DE S'INSCRIRE DANS L'ÉQUIPE W VERBIERE ! Votre rôle de pâtissier - Créateur de bonbons : Vous participerez au développement de pâtisseries pour tous nos sites : le salon, la brasserie 1519, le restaurant en chambre et le banquet. - Innovatrice et inspirée: Vous êtes créative et inventive, et avez les compétences organisationnelles nécessaires pour travailler efficacement. - Excellence en hygiène : vous appliquerez rigoureusement les règles d'hygiène HACCP et respecterez les normes 5 étoiles. ## PROFIL - Expérience et formation: Expérience antérieure en pâtisserie dans un hôtel 5 étoiles et un diplôme en pâtisserie. - Connaissances : maîtrise des normes d'hygiène et de propreté. - Compétences linguistiques : maîtrise du français et de l'anglais/espagnol. - Passion pour le style de vie : Intérêt pour les mondes du goût, du son, du corps, de la scène et de la prise de position. - Attention aux détails : Une attention particulière aux détails et à la passion pour une expérience client mémorable. ## Posizione Position à remplir maintenant, pour un contrat à long terme En raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront prises en considération. Prêt à ajouter une touche de douceur à W Verbier avec votre talent et votre passion? Rejoignez-nous ! Chez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable. W Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "VS",
-      "url": "https://careers.marriott.com/pastry-cook-long-term-w-verbier/job/42E73B069F6FC6E3BC964362D13E04FC",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.946Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-food-beverage",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26055931/apply/email",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26055931",
-        "uniqueID": "42E73B069F6FC6E3BC964362D13E04FC",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "Culinary",
-        "accountName": "Non-Management",
-        "publishEndDate": "2026-06-21T08:05:00.000Z"
-      },
-      "previousSlugs": [
-        "pastry-cook-long-term-w-verbier-marriott-verbier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pastry-cook-long-term-w-verbier-marriott-verbier"
-        ],
-        "fr": [
-          "pastry-cook-long-term-w-verbier-marriott-verbier"
-        ]
-      },
-      "firstSeenAt": "2026-05-07T22:13:51.894Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "marriott-88712a24e938",
       "slug": "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
@@ -2692,7 +2719,7 @@
       "url": "https://careers.marriott.com/pastry-cook-winter-26-27-w-verbier/job/53F586A7E068180A2FB88B348CBBBCF2",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.945Z",
+      "crawledAt": "2026-05-10T10:32:17.324Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2763,7 +2790,7 @@
       "url": "https://careers.marriott.com/night-audit/job/DED8653CC771620107BF1615CDA1F0B5",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.945Z",
+      "crawledAt": "2026-05-10T10:32:17.323Z",
       "addressLocality": "Geneva",
       "streetAddress": "Chemin du Ruisseau 1, Cointrin",
       "postalCode": "1216",
@@ -2829,77 +2856,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.143Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "marriott-e1c6e3f70c85",
-      "slug": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
-      "slugByLocale": {
-        "it": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
-        "en": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
-        "de": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "nuit-ird-chef-de-rang-service-en-chambre-hiver-26-27-w-verbier-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Night IRD Chef de rang/ Room Service (Winter 26/27) - W VERBIER",
-      "titleByLocale": {
-        "it": "Night IRD Chef de rang/ Room Service (inverno 26/27) - W VERBIER",
-        "en": "Night IRD Chef de rang/ Room Service (Winter 26/27) - W VERBIER",
-        "de": "Night IRD Chef de rang/ Room Service (Winter 26/27) - W VERBIER",
-        "fr": "Nuit IRD Chef de rang/ Service en chambre (Hiver 26/27) - W VERBIER"
-      },
-      "description": "JOB DESCRIPTION \n \n Become a W Talent and Embody the W Art of Living! \n \n As a 'Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. \n \n \n \n A UNIQUE OPPORTUNITY TO JOIN THE W VERBIER TEAM \n \n \n \n As part of our team, you will take orders and serve guests in a cheerful, enthusiastic, professional and meticulous manner. \n \n As a Night In-Room-Dining (Room-Service) Chef de Rang , you will be responsible for taking orders to guests, preparing table settings, returning finished meals, as well as checking room mixbars. You will work nights to help ensure a quality service at all times of the day. \n \n You will ensure that orders are ready on time and respond to the various requests of your Talent Coach. \n \n \n \n PROFILE \n \n Outgoing, cheerful, good listener, passionate and available. \n \n Enjoys working at night \n \n Fluent in French and English \n \n Enjoy working in an international and adventurous team \n \n Excellent presentation and representative of the W brand image \n \n BAC PRO//CFC// BTS Restauration or 2 years in a similar position \n \n You are highly motivated \n \n Real interest in the worlds of taste, sound, body, scene and stance \n \n You have great attention to detail and are passionate about delivering a memorable customer experience \n \n \n \n Position to be filled for the Winter season : December 2026 to March 2027 \n \n \n \n Due to visa restrictions, only applications from Switzerland and the European Union will be considered. \n \n \n \n\n \n At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. \n\n \n W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "Descrizione Diventa un talente W e incarna l'arte W di vivere! Come 'Talent', sei l'essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione. ## A UNIQUE OPPORTUNITY to JOIN the W VERBIER TEAM Come parte del nostro team, prenderete ordini e servire gli ospiti in modo allegro, entusiasta, professionale e meticoloso. Come Chef de Rang, Night In-Room-Dining (Room-Service), sarete responsabili di prendere gli ordini agli ospiti, preparare le impostazioni del tavolo, restituire i pasti finiti, così come il check-in mixbar. Potrai lavorare notti per garantire un servizio di qualità in ogni momento della giornata. Si assicurerà che gli ordini sono pronti in tempo e rispondere alle varie richieste del tuo Talent Coach. ## PROFILE - Outgoing, allegro, buon ascoltatore, appassionato e disponibile - Gode di lavoro di notte - Fluente in francese e inglese - Goditi di lavorare in un team internazionale e avventuroso - Ottima presentazione e rappresentativa dell'immagine del marchio W - BAC PRO/CFC// BTS Restauration o 2 anni in una posizione simile - Sei altamente motivato - Real interesse nei mondi di esperienza, suono, corpo, scena, e scena ## Equal Opportunity Employer At Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile. ## Missione di W Hotels W La missione degli hotel è quella di accendere la curiosità, i mondi espandi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "JOB DESCRIPTION Become a W Talent and Embody the W Art of Living! As a 'Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. A UNIQUE OPPORTUNITY TO JOIN THE W VERBIER TEAM As part of our team, you will take orders and serve guests in a cheerful, enthusiastic, professional and meticulous manner. As a Night In-Room-Dining (Room-Service) Chef de Rang , you will be responsible for taking orders to guests, preparing table settings, returning finished meals, as well as checking room mixbars. You will work nights to help ensure a quality service at all times of the day. You will ensure that orders are ready on time and respond to the various requests of your Talent Coach. PROFILE Outgoing, cheerful, good listener, passionate and available. Enjoys working at night Fluent in French and English Enjoy working in an international and adventurous team Excellent presentation and representative of the W brand image BAC PRO//CFC// BTS Restauration or 2 years in a similar position You are highly motivated Real interest in the worlds of taste, sound, body, scene and stance You have great attention to detail and are passionate about delivering a memorable customer experience Position to be filled for the Winter season : December 2026 to March 2027 Due to visa restrictions, only applications from Switzerland and the European Union will be considered. At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "Become a W Talent und Embody the W Art of Living! Als 'Talent' sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Sie sind einzigartig, leidenschaftlich und Ihre Persönlichkeit scheint in jeder Interaktion durch. Eine UNIQUE-ÖFFENTLICHKEIT zu den W VERBIER TEAM Im Rahmen unseres Teams übernehmen Sie Aufträge und dienen den Gästen auf fröhliche, enthusiastische, professionelle und sorgfältige Weise. Als Night In-Room-Dining (Room-Service) Chef de Rang sind Sie für die Bestellungen an die Gäste, die Vorbereitung der Tischeinstellungen, die Rückkehr der fertigen Mahlzeiten sowie die Überprüfung der Zimmermixbars verantwortlich. Sie werden Nächte arbeiten, um einen Qualitätsservice zu allen Zeiten des Tages zu gewährleisten. Sie stellen sicher, dass Bestellungen rechtzeitig fertig sind und auf die verschiedenen Anfragen Ihres Talent Coach reagieren. Â PROFILE - Outgoing, cheerful, guter Zuhörer, leidenschaftlich und verfügbar - Genießen Sie die Arbeit in der Nacht - Flöte in Französisch und Englisch - Genießen Sie die Arbeit in einem internationalen und abenteuerlichen Team - Ausgezeichnete Präsentation und Vertreter der Marke Wmission-Bild - BAC PRO//CFC/ BTS Restauration oder 2 Jahre in einer ähnlichen Position - Sie sind sehr motiviert - Echtes Interesse in den Welten von Geschmack, Klang, Körper, Szene, Szene, Haltung und Haltung Chancengleichheit Arbeitgeber bei Marriott International, wir sind darauf spezialisiert, ein Arbeitgeber der Chancengleichheit zu sein, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage. Missione di W Hotels W Hotels Mission ist es, Kuriosität zu zünden, erweiterte Welten. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen zu öffnen und Gedanken zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, aufstrebender Geist ist in unserem Kern und hat uns bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / wann immer unsere Kultur- und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben bringt. Wenn Sie originell, innovativ und immer auf die Zukunft von dem, was möglich ist, willkommen bei W Hotels. Bei W Hotels stoßen Sie auf ein Markenportfolio mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.",
-        "fr": "Descrizione Devenez un W Talent et Embody le W Art de vivre! En tant que 'Talent', vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction. ## UNE OPPORTUNITÉ UNIQUE DE JOUER DANS L'ÉQUIPE VÉRIBIÈRE Dans le cadre de notre équipe, vous prendrez les commandes et servirez les invités d'une manière joyeuse, enthousiaste, professionnelle et méticuleuse. En tant que Chef de Rang, Chef de Rang, vous serez responsable de prendre des commandes aux clients, de préparer les réglages de la table, de retourner les repas finis, ainsi que de vérifier les barres de mix. Vous travaillerez des nuits pour vous assurer un service de qualité à tout moment de la journée. Vous vous assurerez que les commandes sont prêtes à temps et répondre aux diverses demandes de votre Talent Coach. ## PROFIL - Sortie, gaie, bonne écoute, passionnée et disponible - Profitez du travail de nuit - Fluent en français et en anglais - Profitez de travailler dans une équipe internationale et aventureuse - Excellente présentation et représentative de l'image de marque W - BAC PRO//CFC// BTS Restauration ou 2 ans dans une position similaire - Vous êtes très motivé - Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position - Vous avez une grande attention au détail et êtes passionné par une expérience client mémorable ## Posizione da ricoprire Position à remplir pour la saison d'hiver : décembre 2026 à mars 2027 ## Requisiti di ammissione En raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront prises en considération. ## Employeur à l'égalité des chances À Marriott International, nous nous engageons à être un employeur à l'égalité des chances, à accueillir tous les employés et à leur donner accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable. ## Missione di W Hotels W Hotels La mission est à Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "VS",
-      "url": "https://careers.marriott.com/night-ird-chef-de-rang-room-service-winter-26-27-w-verbier/job/D35B152A265088D69EB5C9D19A01911A",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.942Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-food-beverage",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-30",
-      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26044970/apply/email",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26044970",
-        "uniqueID": "D35B152A265088D69EB5C9D19A01911A",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "Food and Beverage Services",
-        "accountName": "Non-Management",
-        "publishEndDate": "2026-05-25T07:27:00.000Z"
-      },
-      "firstSeenAt": "2026-04-30T11:09:31.141Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2944,7 +2901,7 @@
       "url": "https://careers.marriott.com/mixologist-winter-2026-2027-w-verbier/job/F9F9356F7D88409C6860EBDBA6C79EA5",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.941Z",
+      "crawledAt": "2026-05-10T10:32:17.320Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2971,6 +2928,79 @@
         "publishEndDate": "2026-05-28T07:01:00.000Z"
       },
       "firstSeenAt": "2026-04-30T11:09:31.140Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "marriott-e1c6e3f70c85",
+      "slug": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
+      "slugByLocale": {
+        "it": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
+        "en": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
+        "de": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
+        "fr": "nuit-ird-chef-de-rang-service-en-chambre-hiver-26-27-w-verbier-marriott-international-verbier"
+      },
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Night IRD Chef de rang/ Room Service (Winter 26/27) - W VERBIER",
+      "titleByLocale": {
+        "it": "Night IRD Chef de rang/ Room Service (inverno 26/27) - W VERBIER",
+        "en": "Night IRD Chef de rang/ Room Service (Winter 26/27) - W VERBIER",
+        "de": "Night IRD Chef de rang/ Room Service (Winter 26/27) - W VERBIER",
+        "fr": "Nuit IRD Chef de rang/ Service en chambre (Hiver 26/27) - W VERBIER"
+      },
+      "description": "JOB DESCRIPTION \n \n Become a W Talent and Embody the W Art of Living! \n \n As a 'Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. \n \n \n \n A UNIQUE OPPORTUNITY TO JOIN THE W VERBIER TEAM \n \n \n \n As part of our team, you will take orders and serve guests in a cheerful, enthusiastic, professional and meticulous manner. \n \n As a Night In-Room-Dining (Room-Service) Chef de Rang , you will be responsible for taking orders to guests, preparing table settings, returning finished meals, as well as checking room mixbars. You will work nights to help ensure a quality service at all times of the day. \n \n You will ensure that orders are ready on time and respond to the various requests of your Talent Coach. \n \n \n \n PROFILE \n \n Outgoing, cheerful, good listener, passionate and available. \n \n Enjoys working at night \n \n Fluent in French and English \n \n Enjoy working in an international and adventurous team \n \n Excellent presentation and representative of the W brand image \n \n BAC PRO//CFC// BTS Restauration or 2 years in a similar position \n \n You are highly motivated \n \n Real interest in the worlds of taste, sound, body, scene and stance \n \n You have great attention to detail and are passionate about delivering a memorable customer experience \n \n \n \n Position to be filled for the Winter season : December 2026 to March 2027 \n \n \n \n Due to visa restrictions, only applications from Switzerland and the European Union will be considered. \n \n \n \n\n \n At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. \n\n \n W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+      "descriptionByLocale": {
+        "it": "Descrizione Diventa un talente W e incarna l'arte W di vivere! Come 'Talent', sei l'essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione. ## A UNIQUE OPPORTUNITY to JOIN the W VERBIER TEAM Come parte del nostro team, prenderete ordini e servire gli ospiti in modo allegro, entusiasta, professionale e meticoloso. Come Chef de Rang, Night In-Room-Dining (Room-Service), sarete responsabili di prendere gli ordini agli ospiti, preparare le impostazioni del tavolo, restituire i pasti finiti, così come il check-in mixbar. Potrai lavorare notti per garantire un servizio di qualità in ogni momento della giornata. Si assicurerà che gli ordini sono pronti in tempo e rispondere alle varie richieste del tuo Talent Coach. ## PROFILE - Outgoing, allegro, buon ascoltatore, appassionato e disponibile - Gode di lavoro di notte - Fluente in francese e inglese - Goditi di lavorare in un team internazionale e avventuroso - Ottima presentazione e rappresentativa dell'immagine del marchio W - BAC PRO/CFC// BTS Restauration o 2 anni in una posizione simile - Sei altamente motivato - Real interesse nei mondi di esperienza, suono, corpo, scena, e scena ## Equal Opportunity Employer At Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile. ## Missione di W Hotels W La missione degli hotel è quella di accendere la curiosità, i mondi espandi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
+        "en": "JOB DESCRIPTION Become a W Talent and Embody the W Art of Living! As a 'Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction. A UNIQUE OPPORTUNITY TO JOIN THE W VERBIER TEAM As part of our team, you will take orders and serve guests in a cheerful, enthusiastic, professional and meticulous manner. As a Night In-Room-Dining (Room-Service) Chef de Rang , you will be responsible for taking orders to guests, preparing table settings, returning finished meals, as well as checking room mixbars. You will work nights to help ensure a quality service at all times of the day. You will ensure that orders are ready on time and respond to the various requests of your Talent Coach. PROFILE Outgoing, cheerful, good listener, passionate and available. Enjoys working at night Fluent in French and English Enjoy working in an international and adventurous team Excellent presentation and representative of the W brand image BAC PRO//CFC// BTS Restauration or 2 years in a similar position You are highly motivated Real interest in the worlds of taste, sound, body, scene and stance You have great attention to detail and are passionate about delivering a memorable customer experience Position to be filled for the Winter season : December 2026 to March 2027 Due to visa restrictions, only applications from Switzerland and the European Union will be considered. At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law. W Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+        "de": "Become a W Talent und Embody the W Art of Living! Als 'Talent' sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Sie sind einzigartig, leidenschaftlich und Ihre Persönlichkeit scheint in jeder Interaktion durch. Eine UNIQUE-ÖFFENTLICHKEIT zu den W VERBIER TEAM Im Rahmen unseres Teams übernehmen Sie Aufträge und dienen den Gästen auf fröhliche, enthusiastische, professionelle und sorgfältige Weise. Als Night In-Room-Dining (Room-Service) Chef de Rang sind Sie für die Bestellungen an die Gäste, die Vorbereitung der Tischeinstellungen, die Rückkehr der fertigen Mahlzeiten sowie die Überprüfung der Zimmermixbars verantwortlich. Sie werden Nächte arbeiten, um einen Qualitätsservice zu allen Zeiten des Tages zu gewährleisten. Sie stellen sicher, dass Bestellungen rechtzeitig fertig sind und auf die verschiedenen Anfragen Ihres Talent Coach reagieren. Â PROFILE - Outgoing, cheerful, guter Zuhörer, leidenschaftlich und verfügbar - Genießen Sie die Arbeit in der Nacht - Flöte in Französisch und Englisch - Genießen Sie die Arbeit in einem internationalen und abenteuerlichen Team - Ausgezeichnete Präsentation und Vertreter der Marke Wmission-Bild - BAC PRO//CFC/ BTS Restauration oder 2 Jahre in einer ähnlichen Position - Sie sind sehr motiviert - Echtes Interesse in den Welten von Geschmack, Klang, Körper, Szene, Szene, Haltung und Haltung Chancengleichheit Arbeitgeber bei Marriott International, wir sind darauf spezialisiert, ein Arbeitgeber der Chancengleichheit zu sein, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage. Missione di W Hotels W Hotels Mission ist es, Kuriosität zu zünden, erweiterte Welten. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen zu öffnen und Gedanken zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, aufstrebender Geist ist in unserem Kern und hat uns bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / wann immer unsere Kultur- und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben bringt. Wenn Sie originell, innovativ und immer auf die Zukunft von dem, was möglich ist, willkommen bei W Hotels. Bei W Hotels stoßen Sie auf ein Markenportfolio mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.",
+        "fr": "Descrizione Devenez un W Talent et Embody le W Art de vivre! En tant que 'Talent', vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction. ## UNE OPPORTUNITÉ UNIQUE DE JOUER DANS L'ÉQUIPE VÉRIBIÈRE Dans le cadre de notre équipe, vous prendrez les commandes et servirez les invités d'une manière joyeuse, enthousiaste, professionnelle et méticuleuse. En tant que Chef de Rang, Chef de Rang, vous serez responsable de prendre des commandes aux clients, de préparer les réglages de la table, de retourner les repas finis, ainsi que de vérifier les barres de mix. Vous travaillerez des nuits pour vous assurer un service de qualité à tout moment de la journée. Vous vous assurerez que les commandes sont prêtes à temps et répondre aux diverses demandes de votre Talent Coach. ## PROFIL - Sortie, gaie, bonne écoute, passionnée et disponible - Profitez du travail de nuit - Fluent en français et en anglais - Profitez de travailler dans une équipe internationale et aventureuse - Excellente présentation et représentative de l'image de marque W - BAC PRO//CFC// BTS Restauration ou 2 ans dans une position similaire - Vous êtes très motivé - Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position - Vous avez une grande attention au détail et êtes passionné par une expérience client mémorable ## Posizione da ricoprire Position à remplir pour la saison d'hiver : décembre 2026 à mars 2027 ## Requisiti di ammissione En raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront prises en considération. ## Employeur à l'égalité des chances À Marriott International, nous nous engageons à être un employeur à l'égalité des chances, à accueillir tous les employés et à leur donner accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable. ## Missione di W Hotels W Hotels La mission est à Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
+      },
+      "location": "Verbier",
+      "canton": "VS",
+      "url": "https://careers.marriott.com/night-ird-chef-de-rang-room-service-winter-26-27-w-verbier/job/D35B152A265088D69EB5C9D19A01911A",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-10T10:32:17.320Z",
+      "addressLocality": "Verbier",
+      "streetAddress": "Rue de Medran 70",
+      "postalCode": "1936",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "hospitality-food-beverage",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26044970/apply/email",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_marriottMeta": {
+        "requisitionID": "26044970",
+        "uniqueID": "D35B152A265088D69EB5C9D19A01911A",
+        "brandName": "W Hotels",
+        "locationName": "W Verbier",
+        "jobField": "Food and Beverage Services",
+        "accountName": "Non-Management",
+        "publishEndDate": "2026-05-25T07:27:00.000Z"
+      },
+      "firstSeenAt": "2026-04-30T11:09:31.141Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3015,7 +3045,7 @@
       "url": "https://careers.marriott.com/manager-on-duty-quality-long-term-w-verbier/job/4EB784CBE61DCBA2A54198388A510E87",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.940Z",
+      "crawledAt": "2026-05-10T10:32:17.318Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -3050,6 +3080,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.139Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -3094,7 +3125,7 @@
       "url": "https://careers.marriott.com/maitre-d-venue-supervisor-long-term-w-verbier/job/28CD65A256BC26D83FB60E5C6D4698CB",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.939Z",
+      "crawledAt": "2026-05-10T10:32:17.317Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -3137,6 +3168,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:11:20.500Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3181,7 +3213,7 @@
       "url": "https://careers.marriott.com/maintenance-agent-winter-26-27-w-verbier/job/F7824B1AC9F5F949D1B68D5BF107C49D",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.937Z",
+      "crawledAt": "2026-05-10T10:32:17.316Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -3244,6 +3276,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.139Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3288,7 +3321,7 @@
       "url": "https://careers.marriott.com/m-club-lounge-supervisor/job/9BB0BEAEF0234567DF82CFD19843525C",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.936Z",
+      "crawledAt": "2026-05-10T10:32:17.315Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -3375,7 +3408,7 @@
       "url": "https://careers.marriott.com/lingère-80-cdd-4-mois/job/3FF7CF97D2E4A3E44265CC07F4C5DE33",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.935Z",
+      "crawledAt": "2026-05-10T10:32:17.314Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -3413,6 +3446,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T22:00:12.167Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3457,7 +3491,7 @@
       "url": "https://careers.marriott.com/kitchen-intern-6-months-w-verbier/job/36AB1DAF351159E8CCF8862B57D43EEF",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.934Z",
+      "crawledAt": "2026-05-10T10:32:17.313Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -3542,7 +3576,7 @@
       "url": "https://careers.marriott.com/guest-experience-expert/job/ACA1F196C6F2F654DF0984C3DF7827ED",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.931Z",
+      "crawledAt": "2026-05-10T10:32:17.310Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -3627,7 +3661,7 @@
       "url": "https://careers.marriott.com/femme-de-chambre-cdd-5-mois/job/BBB36FF53420DEBCFE1E91A71425BC09",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.930Z",
+      "crawledAt": "2026-05-10T10:32:17.308Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -3665,6 +3699,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T22:00:12.165Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3709,7 +3744,7 @@
       "url": "https://careers.marriott.com/f-b-support-expert-stewarding/job/44D9460958BE8ECCDF9C840361753BF5",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.929Z",
+      "crawledAt": "2026-05-10T10:32:17.307Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -3794,7 +3829,7 @@
       "url": "https://careers.marriott.com/event-service-expert/job/E392CE5C0692D45D0E706677911A2CA8",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.928Z",
+      "crawledAt": "2026-05-10T10:32:17.306Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -3860,6 +3895,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.136Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3904,7 +3940,7 @@
       "url": "https://careers.marriott.com/director-of-style-housekeeping-w-verbier/job/8729A2F4F6E16A9193EE5BFF979F46F2",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.927Z",
+      "crawledAt": "2026-05-10T10:32:17.305Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -3970,6 +4006,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4014,7 +4051,7 @@
       "url": "https://careers.marriott.com/commis-de-cuisine-winter-26-27-w-verbier/job/6522E3BE7A9E2E3D3F4F223AFC094303",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.924Z",
+      "crawledAt": "2026-05-10T10:32:17.302Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -4052,6 +4089,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.126Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4096,7 +4134,7 @@
       "url": "https://careers.marriott.com/commis-cuisine-long-term-w-verbier/job/7221257691AE284536F6994F96E5D881",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.923Z",
+      "crawledAt": "2026-05-10T10:32:17.301Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -4134,6 +4172,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:16:13.055Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4178,7 +4217,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier/job/592A8FF32EE0F0C52DB3001CB0BF55CC",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.922Z",
+      "crawledAt": "2026-05-10T10:32:17.300Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -4216,6 +4255,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.124Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4260,7 +4300,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-brasserie-1519-winter-26-27-w-verbier/job/CB864D6EC4EA909A8676BDA04A2E2DC3",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.921Z",
+      "crawledAt": "2026-05-10T10:32:17.299Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -4287,6 +4327,7 @@
         "publishEndDate": "2026-06-12T11:13:00.000Z"
       },
       "firstSeenAt": "2026-04-30T11:09:31.123Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4331,7 +4372,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-brasserie-1519-long-term-w-verbier/job/B4FE144CB18F5B82CBAD947C00588F92",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.921Z",
+      "crawledAt": "2026-05-10T10:32:17.299Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -4366,6 +4407,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.123Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4410,7 +4452,7 @@
       "url": "https://careers.marriott.com/chef-de-partie-living-room-la-plage-long-term-w-verbier/job/F6A69E21986D9F191DB097BAFECFE7F0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.918Z",
+      "crawledAt": "2026-05-10T10:32:17.296Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -4450,6 +4492,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.120Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4494,7 +4537,7 @@
       "url": "https://careers.marriott.com/b-f-intern-july-6-months-w-verbier/job/09045ABC29E691254849CDC974C20835",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.916Z",
+      "crawledAt": "2026-05-10T10:32:17.295Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -4579,7 +4622,7 @@
       "url": "https://careers.marriott.com/analyste-chaîne-d-approvisionnement-régénérative/job/A807EE7A99BBAED02EBC8A2A8FEE091A",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:53:11.914Z",
+      "crawledAt": "2026-05-10T10:32:17.293Z",
       "addressLocality": "Geneva",
       "streetAddress": "Chemin du Ruisseau 1, Cointrin",
       "postalCode": "1216",
@@ -4614,6 +4657,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.116Z",
+      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 67000,
       "baseSalary": {
