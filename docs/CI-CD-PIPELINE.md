@@ -4,6 +4,58 @@
 
 ---
 
+## Cathedral CH-wide expansion (2026-05-10)
+
+> Cross-references: [docs/CATHEDRAL-IMPLEMENTATION-PLAN.md](CATHEDRAL-IMPLEMENTATION-PLAN.md) · [docs/CATHEDRAL-ROLLBACK.md](CATHEDRAL-ROLLBACK.md)
+
+The CH-wide cathedral expansion (Phase 1 + Phase 2) widens the pipeline from a 3-canton (Ticino-centric) scope to all **26 Swiss cantons** plus Liechtenstein guard, and adds 11 marquee employer crawlers covering pharma, finance, retail, industrial, and hospital verticals.
+
+### Pre-merge safety tag
+
+| Artifact | Value |
+|---|---|
+| Safety tag (Phase 1 baseline) | `pre-cathedral-2026-05-10` |
+| Slug-registry snapshot | `data/slug-registry.pre-cathedral.snapshot.json` |
+
+Rollback is fully scripted — see [docs/CATHEDRAL-ROLLBACK.md](CATHEDRAL-ROLLBACK.md).
+
+### Phase 1 additions (P1.x)
+
+- **`TARGET_CANTONS` expanded from 3 → 26** (P1.6). All crawler classification, job-board canton filters, and SEO landing emitters now iterate the full 26-canton set. Liechtenstein remains a guarded exclusion (country-code gate, not a canton).
+- **`canton-quorum-gate`** (P1.4) — SEO data integrity guard. Blocks deploy if any canton has < N quorum jobs after a refresh, preventing thin-content landings on under-populated cantons. Runs as a deploy.yml validation gate.
+- **`crawler-health-monitor.yml`** (P1.19) — daily cron `30 6 * * *` (06:30 UTC). Reads each crawler's last-success timestamp + delta vs 7-day median count; if a crawler is silent > 48 h or jobs count drops > 50 % vs median, opens a GitHub issue (label `crawler-health`) with diagnostics. Auto-closes the issue on next healthy run.
+- **`jobs-by-canton` sharding** (E4) — monolithic `data/jobs.json` is **deprecated** for runtime reads. The SPA's JobBoard now lazy-fetches `data/jobs/by-canton/{canton}.json` based on referrer/geo. The assembled `data/jobs.json` is still emitted for build-plugin consumption, but client-side bundles must NOT import it.
+- **Sitemap shards** — `sitemap-index.xml` is the new entry point. Per-canton shards `sitemap-jobs-{italian-slug}.xml` (e.g. `sitemap-jobs-ticino.xml`, `sitemap-jobs-zurigo.xml`) replace the legacy monolithic `sitemap-jobs.xml`. The legacy URL is preserved as a 301 redirect for one quarter.
+
+### Phase 2 additions — 11 marquee crawler workflows
+
+Daily crawler workflows (cron staggered 07:00–09:00 UTC, classified `Medium` by orchestrator):
+
+| Workflow | Vertical | Canton focus |
+|---|---|---|
+| `update-jobs-roche.yml` | Pharma | BS |
+| `update-jobs-novartis.yml` | Pharma | BS |
+| `update-jobs-zurich-insurance.yml` | Finance | ZH |
+| `update-jobs-nestle.yml` | Food | VD |
+| `update-jobs-schindler.yml` | Industrial | LU |
+| `update-jobs-migros-hq.yml` | Retail | ZH |
+| `update-jobs-swiss-re.yml` | Insurance | ZH |
+| `update-jobs-eth-zurich.yml` | Academic | ZH |
+| `update-jobs-epfl.yml` | Academic | VD |
+| `update-jobs-chuv.yml` | Hospital | VD |
+| `update-jobs-inselspital.yml` | Hospital | BE |
+
+### Concurrency impact
+
+Phase 2 adds **~12 daily workflow runs** to the GitHub Actions concurrency budget:
+- 11 new marquee crawlers
+- 1 `crawler-health-monitor`
+- (`brand-monitor` already counted from Phase 1)
+
+Combined with the existing ~103 crawlers, orchestration delays (Large 120 s / Medium 60 s / Small 20 s) keep peak concurrency below the free-tier 20-runner cap. If GH Actions queue depth grows during the 08:00 / 20:00 UTC bursts, increase the orchestrator's Medium-tier delay to 90 s before paying for hosted runners (see CLAUDE.md zero-cost rule).
+
+---
+
 ### Stage 1 — Cleanup (`cleanup-stale-jobs.yml`)
 
 **Trigger**: Cron `0 6 * * *` (06:00 UTC daily, before orchestration)
@@ -40,7 +92,9 @@ After dispatching, **does not wait**. All crawlers run concurrently. `translate-
 
 ---
 
-### Stage 3 — Individual Crawlers (`update-jobs-{slug}.yml` ×103)
+### Stage 3 — Individual Crawlers (`update-jobs-{slug}.yml` ×114)
+
+> Was ×103 pre-cathedral; +11 marquee crawlers shipped 2026-05-10 (Phase 2). See the [Cathedral CH-wide expansion](#cathedral-ch-wide-expansion-2026-05-10) section above for the full list.
 
 **Trigger**: Dispatched by orchestrator (or manually)
 
@@ -70,7 +124,7 @@ After dispatching, **does not wait**. All crawlers run concurrently. `translate-
 - Manual dispatch with `max_jobs` (default: 100) and `dry_run` inputs
 
 **What it does**:
-1. **Assemble dataset** (`assemble-jobs-dataset.mjs`): reads all per-crawler slices → merges (last-write-wins by `assembledAt`) → outputs `data/jobs.json` + `public/data/jobs.json`
+1. **Assemble dataset** (`assemble-jobs-dataset.mjs`): reads all per-crawler slices → merges (last-write-wins by `assembledAt`) → outputs `data/jobs.json` + `public/data/jobs.json` + per-canton shards `data/jobs/by-canton/{canton}.json` (E4 — the SPA reads the per-canton shards; monolithic `data/jobs.json` is build-plugin-only after cathedral 2026-05-10)
 2. **Relocalize pending** (`relocalize-pending-jobs.mjs --max-jobs N`):
    - Finds all jobs with `needsRetranslation: true` or missing locale coverage
    - Runs shared crawler in `LOCALIZE_EXISTING_ONLY` mode (no crawling, translation only)
@@ -97,10 +151,11 @@ After dispatching, **does not wait**. All crawlers run concurrently. `translate-
 | Gate | Script | What it checks |
 |------|--------|----------------|
 | Translation completeness | `validate-translation-completeness.mjs` | Every job has 4 locales with min content |
+| Canton quorum (cathedral P1.4) | `validate-canton-quorum.mjs` | Every canton in `TARGET_CANTONS` (26) has ≥ N quorum jobs — blocks thin-content landings |
 | JobPosting rich results | `validate-jobs-rich-results-sample.mjs` | ALL mandatory JSON-LD fields present on sampled pages |
 | Third-party secrets | `validate:third-party-secrets` | No API keys/tokens in source |
 | Job data quality | `validate:jobs-quality` | Format + locale consistency |
-| Sitemap links | `validate:sitemap-links` | All sitemap URLs exist in `dist/` |
+| Sitemap links | `validate:sitemap-links` | All sitemap URLs exist in `dist/` (validates `sitemap-index.xml` + per-canton shards `sitemap-jobs-{italian-slug}.xml` post-cathedral 2026-05-10) |
 | Soft-404 indicators | `validate-soft404.mjs` | No pages marked soft-404 |
 | Canonical tags | `validate-canonical.mjs` | Correct canonical URLs |
 | Content quality | `validate-content-quality.mjs` | No thin pages (<50 words) |
