@@ -23267,4 +23267,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cassa-malati-spacchettamento-ticino',
+ category: 'pratico',
+ date: '2026-05-10T06:26:59.034Z',
+ image: '/images/blog/cassa-malati-spacchettamento-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7299,6 +7299,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.putin-ucraina-termine-frontalieri.title': 'Poutine: «Le conflit ukrainien touche à sa fin»',
     'blog.article.putin-ucraina-termine-frontalieri.excerpt': 'Le président russe annonce un tournant dans le conflit ukrainien et se dit prêt à négocier avec l\'UE.',
     'blog.article.putin-ucraina-termine-frontalieri.imageAlt': 'Vue aérienne de Bellinzone avec les châteaux et la rivière du Tessin',
+    'blog.article.cassa-malati-spacchettamento-ticino.title': 'Caisse maladie: séparer est nécessaire pour les frontaliers',
+    'blog.article.cassa-malati-spacchettamento-ticino.excerpt': 'Les deux initiatives populaires sur les primes de caisse maladie au Tessin sont séparées. Voici ce qui change pour les frontaliers',
+    'blog.article.cassa-malati-spacchettamento-ticino.imageAlt': 'Salle de concert LAC Lugano avec public suisse-italien',
 };
 
 export default blogMetaFr;

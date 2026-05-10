@@ -33731,6 +33731,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassa-malati-spacchettamento-ticino': {
+    title: 'Cassa malati: spacchettare è doveroso per i frontalieri',
+    description: 'Le due iniziative popolari sui premi di cassa malati in Ticino vengono separate. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, malati, spacchettare, doveroso',
+    ogTitle: 'Cassa malati: spacchettare è doveroso per i frontalieri',
+    ogDescription: 'Le due iniziative popolari sui premi di cassa malati in Ticino vengono separate. Ecco cosa cambia per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/cassa-malati-spacchettamento-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa malati: spacchettare è doveroso per i frontalieri",
+      "description": "Le due iniziative popolari sui premi di cassa malati in Ticino vengono separate. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassa-malati-spacchettamento-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "LAC Lugano sala concerti con pubblico italo-svizzero"
+      },
+      "datePublished": "2026-05-10T06:26:59+00:00",
+      "dateModified": "2026-05-10T06:26:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-malati-spacchettamento-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

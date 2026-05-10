@@ -7298,6 +7298,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.putin-ucraina-termine-frontalieri.title': 'Putin: «Der Ukraine-Konflikt neigt sich dem Ende zu»',
     'blog.article.putin-ucraina-termine-frontalieri.excerpt': 'Der russische Präsident kündigt eine Wende im Ukraine-Konflikt an und erklärt sich bereit, mit der EU zu verhandeln.',
     'blog.article.putin-ucraina-termine-frontalieri.imageAlt': 'Luftaufnahme von Bellinzona mit den Burgen und dem Fluss Ticino',
+    'blog.article.cassa-malati-spacchettamento-ticino.title': 'Krankenkasse: Aufteilung ist für Grenzgänger Pflicht',
+    'blog.article.cassa-malati-spacchettamento-ticino.excerpt': 'Die beiden Volksinitiativen zu den Krankenkassenprämien im Tessin werden getrennt. Dies sind die Änderungen für Grenzgänger',
+    'blog.article.cassa-malati-spacchettamento-ticino.imageAlt': 'LAC Lugano Konzertsaal mit schweizerisch-italienischem Publikum',
 };
 
 export default blogMetaDe;

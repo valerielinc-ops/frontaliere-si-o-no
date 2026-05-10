@@ -7299,6 +7299,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.putin-ucraina-termine-frontalieri.title': 'Putin: «Il conflitto ucraino sta volgendo al termine»',
     'blog.article.putin-ucraina-termine-frontalieri.excerpt': 'Il presidente russo annuncia una svolta nel conflitto ucraino e si dice pronto a negoziare con l\'UE.',
     'blog.article.putin-ucraina-termine-frontalieri.imageAlt': 'Veduta aerea di Bellinzona con i castelli e il fiume Ticino',
+    'blog.article.cassa-malati-spacchettamento-ticino.title': 'Cassa malati: spacchettare è doveroso per i frontalieri',
+    'blog.article.cassa-malati-spacchettamento-ticino.excerpt': 'Le due iniziative popolari sui premi di cassa malati in Ticino vengono separate. Ecco cosa cambia per i frontalieri',
+    'blog.article.cassa-malati-spacchettamento-ticino.imageAlt': 'LAC Lugano sala concerti con pubblico italo-svizzero',
 };
 
 export default blogMetaIt;

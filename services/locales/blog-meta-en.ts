@@ -7298,6 +7298,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.putin-ucraina-termine-frontalieri.title': 'Putin: \'Ukrainian conflict nearing end\'',
     'blog.article.putin-ucraina-termine-frontalieri.excerpt': 'The Russian president announces a turning point in the Ukrainian conflict and says he is ready to negotiate with the EU.',
     'blog.article.putin-ucraina-termine-frontalieri.imageAlt': 'Aerial view of Bellinzona with the castles and the Ticino river',
+    'blog.article.cassa-malati-spacchettamento-ticino.title': 'Health insurance: splitting is essential for cross-border workers',
+    'blog.article.cassa-malati-spacchettamento-ticino.excerpt': 'The two popular initiatives on health insurance premiums in Ticino are being separated. Here\'s what changes for cross-border workers',
+    'blog.article.cassa-malati-spacchettamento-ticino.imageAlt': 'LAC Lugano concert hall with Swiss-Italian audience',
 };
 
 export default blogMetaEn;
