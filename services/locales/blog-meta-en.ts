@@ -7361,6 +7361,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.whistleblower-zurigo-frontalieri-2026.title': 'USZ director thanks dismissed whistleblower',
     'blog.article.whistleblower-zurigo-frontalieri-2026.excerpt': 'The director of Zurich University Hospital expresses gratitude to the dismissed whistleblower who reported irregularities in the cardiothoracic clinic',
     'blog.article.whistleblower-zurigo-frontalieri-2026.imageAlt': 'A whistleblower holds documents in front of a Swiss hospital with a Swiss flag in the background',
+    'blog.article.abbonamento-newsletter-ticino-2026.title': 'Ticino Newsletter: stay updated on the latest news',
+    'blog.article.abbonamento-newsletter-ticino-2026.excerpt': 'Find out how to subscribe to TVS\'s free newsletter to receive updates on work, economy, and life in Ticino',
+    'blog.article.abbonamento-newsletter-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano with the cityscape in the background',
 };
 
 export default blogMetaEn;

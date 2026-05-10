@@ -7362,6 +7362,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.whistleblower-zurigo-frontalieri-2026.title': 'Directrice de l\'USZ remercie le lanceur d\'alerte licencié',
     'blog.article.whistleblower-zurigo-frontalieri-2026.excerpt': 'La directrice de l\'Hôpital universitaire de Zurich exprime sa gratitude au lanceur d\'alerte licencié qui a dénoncé des irrégularités dans la clinique de chirurgie cardiaque',
     'blog.article.whistleblower-zurigo-frontalieri-2026.imageAlt': 'Un lanceur d\'alerte tient des documents devant un hôpital suisse avec un drapeau suisse en arrière-plan',
+    'blog.article.abbonamento-newsletter-ticino-2026.title': 'Newsletter Tessin : restez informé des nouveautés',
+    'blog.article.abbonamento-newsletter-ticino-2026.excerpt': 'Découvrez comment vous abonner à la newsletter gratuite de TVS pour recevoir des mises à jour sur l\'emploi, l\'économie et la vie au Tessin',
+    'blog.article.abbonamento-newsletter-ticino-2026.imageAlt': 'Vue panoramique du lac de Lugano avec le paysage urbain en arrière-plan',
 };
 
 export default blogMetaFr;

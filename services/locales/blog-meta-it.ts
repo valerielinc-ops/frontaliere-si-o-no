@@ -7362,6 +7362,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.whistleblower-zurigo-frontalieri-2026.title': 'Direttrice USZ ringrazia whistleblower licenziato',
     'blog.article.whistleblower-zurigo-frontalieri-2026.excerpt': 'La direttrice dell\'Ospedale universitario di Zurigo esprime gratitudine al whistleblower licenziato che ha denunciato irregolarità nella clinica di cardiochirurgia',
     'blog.article.whistleblower-zurigo-frontalieri-2026.imageAlt': 'Un whistleblower tiene documenti davanti a un ospedale svizzero con bandiera svizzera sullo sfondo',
+    'blog.article.abbonamento-newsletter-ticino-2026.title': 'Newsletter Ticino: come restare aggiornati sulle novità',
+    'blog.article.abbonamento-newsletter-ticino-2026.excerpt': 'Scopri come iscriverti alla newsletter gratuita di TVS per ricevere aggiornamenti su lavoro, economia e vita in Ticino',
+    'blog.article.abbonamento-newsletter-ticino-2026.imageAlt': 'Vista panoramica del Lago di Lugano con il centro città sullo sfondo',
 };
 
 export default blogMetaIt;

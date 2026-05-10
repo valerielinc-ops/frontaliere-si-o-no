@@ -23456,4 +23456,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'abbonamento-newsletter-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-10T10:49:44.142Z',
+ image: '/images/blog/abbonamento-newsletter-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

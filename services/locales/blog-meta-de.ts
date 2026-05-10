@@ -7361,6 +7361,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.whistleblower-zurigo-frontalieri-2026.title': 'USZ-Chefin dankt entlassenem Whistleblower',
     'blog.article.whistleblower-zurigo-frontalieri-2026.excerpt': 'Die Direktorin des Universitätsspitals Zürich dankt dem entlassenen Whistleblower, der Unregelmäßigkeiten in der Herzchirurgie-Klinik aufgedeckt hat.',
     'blog.article.whistleblower-zurigo-frontalieri-2026.imageAlt': 'Ein Whistleblower hält Dokumente vor einem Schweizer Krankenhaus mit einer Schweizer Flagge im Hintergrund',
+    'blog.article.abbonamento-newsletter-ticino-2026.title': 'Ticino-Newsletter: Immer auf dem Laufenden bleiben',
+    'blog.article.abbonamento-newsletter-ticino-2026.excerpt': 'Erfahren Sie, wie Sie sich für den kostenlosen Newsletter von TVS anmelden können, um Updates zu Arbeit, Wirtschaft und Leben im Tessin zu erhalten',
+    'blog.article.abbonamento-newsletter-ticino-2026.imageAlt': 'Panoramablick auf den Luganersee mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;
