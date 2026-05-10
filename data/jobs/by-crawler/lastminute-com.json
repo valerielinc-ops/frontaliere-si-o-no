@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-05-10T10:27:54.802Z",
+  "assembledAt": "2026-05-10T21:57:39.788Z",
   "jobs": [
     {
       "id": "company-6y6dd3",
@@ -101,7 +101,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-wndocq",
@@ -191,7 +192,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-s60y08",
@@ -306,7 +308,8 @@
           "senior-frontend-software-ingenieur-chiasso"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:27:48.251Z"
+      "firstSeenAt": "2026-03-31T21:27:48.251Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-2oxpfe",
@@ -415,7 +418,8 @@
           "responsable-globale-paie-et-systemes-rh-chiasso"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:27:48.251Z"
+      "firstSeenAt": "2026-03-31T21:27:48.251Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-o2ikw3",
@@ -527,7 +531,8 @@
           "responsable-de-l-ingenierie-de-la-plateforme-de-donnees-chiasso"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:27:48.251Z"
+      "firstSeenAt": "2026-03-31T21:27:48.251Z",
+      "needsRetranslation": true
     }
   ]
 }
