@@ -2,13 +2,25 @@
 /**
  * Bobst job parser — Fetcher and job builder.
  *
- * Source: https://careers.bobst.com/en
+ * Source: https://careers.bobst.com/en (AEM landing) which embeds the public
+ * Umantis (Abacus-Umantis) job board at:
+ *   https://jobs.bobst.com/Jobs/All?DesignID=10008&lang=eng
+ *
+ * The Umantis listing is server-rendered HTML inside an `<iframe>` — selectors
+ * are stable and there is no Cloudflare/Akamai protection (verified
+ * 2026-05-10). We still drive it through `playwright-runtime.mjs` so we
+ * inherit the project-wide retry / timeout / proxy / image-block hooks and
+ * stay consistent with other Tier-3 marquee parsers.
+ *
+ * Pagination: `?tc1152481=p{n}` — 10 entries per page, walked until we hit
+ * the same first-job-id we saw on page 1 (Umantis wraps when n exceeds the
+ * total) or until the page returns no rows.
  *
  * Exports the 4 required functions for the crawler template:
- *   - fetchAllBobstJobs()  — Fetch and parse all jobs
- *   - isBobstJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - fetchAllBobstJobs()   — Fetch and parse all jobs
+ *   - isBobstJob()          — Match jobs belonging to this company
+ *   - isTrustedDomain()     — Validate URLs belong to this company
+ *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -22,6 +34,21 @@ export const BOBST_COMPANY_NAME = 'Bobst';
 export const BOBST_COMPANY_DOMAIN = 'bobst.com';
 
 const CAREER_URL = 'https://careers.bobst.com/en';
+// Umantis embed (the AEM page proxies this via iframe).
+const UMANTIS_BASE = 'https://jobs.bobst.com';
+const UMANTIS_LISTING_URL = `${UMANTIS_BASE}/Jobs/All?message=&DesignID=10008&lang=eng`;
+const UMANTIS_TABLE_PARAM = 'tc1152481';
+
+// Each <tr class="tableaslist_contentrow1|2"> is one vacancy. The single <td>
+// inside groups several <span class="tableaslist_subtitle"> chunks each
+// prefixed with a leading "|" — we tokenize on "|" to extract Type / Term /
+// Department / Location, etc.
+const ROW_SELECTOR = 'tr.tableaslist_contentrow1, tr.tableaslist_contentrow2';
+const TITLE_LINK_SELECTOR = 'a.HSTableLinkSubTitle';
+
+const PAGE_LIMIT = 30; // Hard cap on pagination loops (~300 jobs)
+const ROW_HARD_CAP = 300;
+const ACTION_DELAY_MS = 1_500;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -42,7 +69,7 @@ function normalizeSpace(s = '') {
 export function isBobstJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -102,32 +129,291 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Fetch + Parse ─────────────────────────────────────────── */
+/* ── Umantis URL helpers ───────────────────────────────────── */
 
-// TODO: Implement the actual fetching logic for Bobst's career page.
-// This is a placeholder. Replace with the actual API/scraping logic.
-//
-// Common patterns:
-//   - JSON API:     use --source api for a ready-made paginated API template
-//   - Workday API:  re-scaffold with --ats=workday for a ready-made template
-//   - Greenhouse:   --ats=greenhouse
-//   - Lever:        --ats=lever
-//   - SuccessFactors: --ats=successfactors
-//   - Generic HTML: fetch + parse with regex or cheerio
-
-async function fetchJobListings() {
-  // TODO: Replace with actual fetch logic
-  console.log(`   Fetching from: ${CAREER_URL}`);
-
-  // Example for a JSON API:
-  // const res = await fetch(CAREER_URL, {
-  //   headers: { 'User-Agent': 'FrontaliereTicino-JobCrawler/2.0' },
-  // });
-  // if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  // return await res.json();
-
-  return [];
+/**
+ * Build the Umantis pagination URL for page index `n` (1-based).
+ *
+ * @param {number} n 1-based page number.
+ * @returns {string}
+ */
+function buildPageUrl(n) {
+  const url = new URL(UMANTIS_LISTING_URL);
+  url.searchParams.set(UMANTIS_TABLE_PARAM, `p${n}`);
+  return url.toString();
 }
+
+/**
+ * Resolve a Umantis Description href to an absolute URL on jobs.bobst.com.
+ *
+ * @param {string} href
+ * @returns {string}
+ */
+function resolveApplyUrl(href = '') {
+  if (!href) return UMANTIS_LISTING_URL;
+  if (/^https?:\/\//i.test(href)) return href;
+  try {
+    return new URL(href, UMANTIS_BASE).toString();
+  } catch {
+    return UMANTIS_LISTING_URL;
+  }
+}
+
+/**
+ * Parse the Umantis row's "<td>" cell text (with `|`-separated subtitle spans)
+ * into a {location, employmentType, department} bag. Every field is optional.
+ *
+ * @param {string} cellText The full normalized text of the row's `<td>`.
+ * @param {string} title The already-extracted vacancy title (used to strip).
+ */
+function parseRowMetadata(cellText, title) {
+  const out = {
+    location: '',
+    employmentType: '',
+    department: '',
+    contractTerm: '',
+    postedDate: '',
+  };
+
+  if (!cellText) return out;
+
+  // Strip the title chunk to leave the metadata.
+  let rest = cellText;
+  if (title) {
+    const idx = rest.indexOf(title);
+    if (idx >= 0) rest = rest.slice(idx + title.length);
+  }
+
+  // Posted date — "Online since: dd.mm.yyyy" appears before the title.
+  const onlineSince = cellText.match(/Online since:\s*(\d{1,2}[./-]\d{1,2}[./-]\d{2,4})/i);
+  if (onlineSince) out.postedDate = onlineSince[1];
+
+  const segments = rest
+    .split('|')
+    .map((s) => normalizeSpace(s))
+    .filter(Boolean);
+
+  for (const seg of segments) {
+    const lower = seg.toLowerCase();
+    if (lower.startsWith('type:')) {
+      out.employmentType = normalizeSpace(seg.slice(5));
+    } else if (lower.startsWith('term of employment:')) {
+      out.contractTerm = normalizeSpace(seg.slice('term of employment:'.length));
+    } else if (lower.startsWith('department:')) {
+      out.department = normalizeSpace(seg.slice('department:'.length));
+    } else if (lower.startsWith('starting as:')) {
+      // ignored, but skip so it does not get classed as a location
+    } else if (
+      // Location is the only segment with no "key:" prefix and looks like a place.
+      !seg.includes(':') &&
+      seg.length >= 3 &&
+      seg.length <= 80 &&
+      !out.location
+    ) {
+      out.location = seg;
+    }
+  }
+  return out;
+}
+
+/**
+ * Default Playwright runtime factory — re-exposed so tests can swap it for
+ * a stubbed runtime via the `_runtime` option without touching the call site.
+ */
+async function defaultRuntimeFactory() {
+  return import('./ats-clients/playwright-runtime.mjs');
+}
+
+/** Pause helper — kept module-local so tests can shorten it via `_sleepMs`. */
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Read the Umantis listing rows out of the currently-loaded page.
+ *
+ * @param {import('playwright').Page} page
+ * @returns {Promise<Array<{title:string,href:string,cellText:string}>>}
+ */
+async function extractRows(page) {
+  return page.$$eval(
+    ROW_SELECTOR,
+    /* eslint-disable-next-line no-undef */
+    (rows, opts) => {
+      const titleSel = opts.titleLinkSelector;
+      return rows
+        .map((row) => {
+          const link = row.querySelector(titleSel);
+          if (!link) return null;
+          const title = (link.textContent || '').trim();
+          const href = link.getAttribute('href') || '';
+          const cellText = (row.textContent || '').replace(/\s+/g, ' ').trim();
+          return { title, href, cellText };
+        })
+        .filter((r) => r && r.title && r.href);
+    },
+    { titleLinkSelector: TITLE_LINK_SELECTOR },
+  );
+}
+
+/**
+ * Drive the Umantis paginated listing with Playwright and return raw rows.
+ *
+ * Errors are caught and degraded to `[]` so the larger crawler keeps moving.
+ *
+ * @param {object} [options]
+ * @param {() => Promise<unknown>} [options._runtime] Test seam — replace the
+ *   runtime module factory with a stub.
+ * @param {number} [options._sleepMs] Test seam — override the inter-action delay.
+ * @returns {Promise<Array<{
+ *   title: string,
+ *   location: string,
+ *   url: string,
+ *   postedDate: string,
+ *   employmentType: string,
+ *   department: string,
+ *   contractTerm: string,
+ * }>>}
+ */
+async function fetchJobListings(options = {}) {
+  const runtimeFactory = options._runtime || defaultRuntimeFactory;
+  const sleepMs =
+    typeof options._sleepMs === 'number' ? options._sleepMs : ACTION_DELAY_MS;
+
+  let runtime;
+  try {
+    runtime = await runtimeFactory();
+  } catch (err) {
+    console.warn(
+      `   ⚠️ Bobst: could not load Playwright runtime (${err?.message || err}). Returning [].`,
+    );
+    return [];
+  }
+
+  const {
+    createBrowser,
+    createPoliteContext,
+    fetchWithRateLimit,
+    closeAll,
+    AntiBotBlockError,
+    NavigationTimeout,
+    BrowserLaunchError,
+  } = runtime;
+
+  console.log(`   Fetching from: ${UMANTIS_LISTING_URL}`);
+
+  let browser = null;
+  try {
+    browser = await createBrowser();
+    const context = await createPoliteContext(browser);
+
+    const seenIds = new Set();
+    const out = [];
+    let firstPageFirstId = '';
+
+    for (let pageIdx = 1; pageIdx <= PAGE_LIMIT; pageIdx++) {
+      const url = buildPageUrl(pageIdx);
+      const page = await fetchWithRateLimit(context, url);
+
+      try {
+        await page.waitForSelector(ROW_SELECTOR, { timeout: 15_000 });
+      } catch {
+        if (pageIdx === 1) {
+          console.warn(
+            '   ⚠️ Bobst: Umantis rows never appeared — selectors may have changed. Returning [].',
+          );
+          await page.close().catch(() => undefined);
+          return [];
+        }
+        // Empty page mid-walk — natural end of pagination.
+        await page.close().catch(() => undefined);
+        break;
+      }
+
+      const rows = await extractRows(page);
+      await page.close().catch(() => undefined);
+
+      if (rows.length === 0) break;
+
+      // Detect Umantis wrap-around — page index past the end loops back to p1.
+      const pageFirstHref = rows[0]?.href || '';
+      const pageFirstIdMatch = pageFirstHref.match(/\/Vacancies\/(\d+)\//);
+      const pageFirstId = pageFirstIdMatch ? pageFirstIdMatch[1] : pageFirstHref;
+      if (pageIdx === 1) {
+        firstPageFirstId = pageFirstId;
+      } else if (pageFirstId === firstPageFirstId && firstPageFirstId) {
+        break;
+      }
+
+      let newRowsThisPage = 0;
+      for (const row of rows) {
+        const idMatch = row.href.match(/\/Vacancies\/(\d+)\//);
+        const vacancyId = idMatch ? idMatch[1] : row.href;
+        if (seenIds.has(vacancyId)) continue;
+        seenIds.add(vacancyId);
+        newRowsThisPage += 1;
+
+        const meta = parseRowMetadata(row.cellText, row.title);
+        out.push({
+          title: row.title,
+          location: meta.location,
+          url: resolveApplyUrl(row.href),
+          postedDate: meta.postedDate,
+          employmentType: meta.employmentType,
+          department: meta.department,
+          contractTerm: meta.contractTerm,
+        });
+
+        if (out.length >= ROW_HARD_CAP) break;
+      }
+
+      if (out.length >= ROW_HARD_CAP) break;
+      if (newRowsThisPage === 0) break;
+
+      if (sleepMs > 0) await sleep(sleepMs);
+    }
+
+    console.log(`   ✅ Bobst Umantis returned ${out.length} unique vacancies.`);
+    return out;
+  } catch (err) {
+    if (AntiBotBlockError && err instanceof AntiBotBlockError) {
+      console.warn(
+        `   ⚠️ Bobst: anti-bot block (status=${err.status}, title=${JSON.stringify(err.title || '')}). Returning [].`,
+      );
+      return [];
+    }
+    if (NavigationTimeout && err instanceof NavigationTimeout) {
+      console.warn(
+        `   ⚠️ Bobst: navigation timeout for ${err.url || UMANTIS_LISTING_URL}. Returning [].`,
+      );
+      return [];
+    }
+    if (BrowserLaunchError && err instanceof BrowserLaunchError) {
+      console.warn(
+        `   ⚠️ Bobst: browser launch failed (${err.message}). Returning [].`,
+      );
+      return [];
+    }
+    console.warn(
+      `   ⚠️ Bobst: unexpected scraper error (${err?.message || err}). Returning [].`,
+    );
+    return [];
+  } finally {
+    if (browser) {
+      await closeAll(browser);
+    }
+  }
+}
+
+// Internal export for test injection — not part of the public crawler contract.
+export const __testables = {
+  fetchJobListings,
+  resolveApplyUrl,
+  buildPageUrl,
+  parseRowMetadata,
+  UMANTIS_LISTING_URL,
+  UMANTIS_BASE,
+  ROW_SELECTOR,
+  TITLE_LINK_SELECTOR,
+};
 
 /**
  * Fetch all Bobst jobs.
@@ -135,12 +421,16 @@ async function fetchJobListings() {
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
+ *
+ * @param {object} [options]
+ * @param {() => Promise<unknown>} [options._runtime] Test seam — Playwright runtime factory.
+ * @param {number} [options._sleepMs] Test seam — inter-action delay.
  */
-export async function fetchAllBobstJobs() {
+export async function fetchAllBobstJobs(options = {}) {
   console.log(`🔍 Fetching Bobst jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`   Source: ${UMANTIS_LISTING_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings(options);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
@@ -150,8 +440,6 @@ export async function fetchAllBobstJobs() {
 
   const jobs = [];
   for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
@@ -159,7 +447,7 @@ export async function fetchAllBobstJobs() {
     const canton = inferSwissTargetCanton(location) || 'VD';
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = listing.url || CAREER_URL;
+    const publicUrl = listing.url || UMANTIS_LISTING_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} bobst ch`);
@@ -190,7 +478,7 @@ export async function fetchAllBobstJobs() {
       country: 'CH',
       category: detectCategory(title),
       contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      employmentType: detectEmploymentType(listing.employmentType || title),
       experienceLevel: detectExperienceLevel(title),
       sector: 'Industria', // Industrial packaging machinery / printing equipment
       currency: 'CHF',
@@ -199,12 +487,16 @@ export async function fetchAllBobstJobs() {
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
+      department: listing.department || undefined,
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
+    await new Promise((r) => setTimeout(r, 100)); // Rate limiting
   }
 
   console.log(`\n📋 Total Bobst jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+// Re-export CAREER_URL for the workflow runner banner.
+export { CAREER_URL };
