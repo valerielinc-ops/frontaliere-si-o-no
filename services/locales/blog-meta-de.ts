@@ -7322,6 +7322,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.precompilata-2026-frontalieri-ticino.title': 'Vorgefüllte Steuererklärung 2026: Zugang, Neuerungen, Prüfung und Einreichung',
     'blog.article.precompilata-2026-frontalieri-ticino.excerpt': 'Ein Leitfaden zur vorgefertigten Steuererklärung 2026 für Grenzgänger im Tessin: Fristen, Neuerungen und wie man das Modell 730 oder Redditi PF einreicht',
     'blog.article.precompilata-2026-frontalieri-ticino.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Gebäuden und Bergen im Hintergrund',
+    'blog.article.arlotti-franchigia-frontalieri-letta.title': 'Arlotti fordert Freigrenze für Grenzgänger',
+    'blog.article.arlotti-franchigia-frontalieri-letta.excerpt': 'Der Präsident von San Marino fordert die Wiederherstellung der Freigrenze für Grenzgänger im Tessin. Hier erfahren Sie, was sich ändert und was zu tun ist.',
+    'blog.article.arlotti-franchigia-frontalieri-letta.imageAlt': 'Luganersee mit Blick auf die Schweizer-Italienische Grenze',
 };
 
 export default blogMetaDe;

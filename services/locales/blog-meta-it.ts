@@ -7323,6 +7323,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.precompilata-2026-frontalieri-ticino.title': 'Precompilata 2026: guida su accesso, novità, controlli e invio',
     'blog.article.precompilata-2026-frontalieri-ticino.excerpt': 'La guida alla dichiarazione precompilata 2026 per frontalieri in Ticino: date, novità e come inviare il modello 730 o Redditi PF',
     'blog.article.precompilata-2026-frontalieri-ticino.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo',
+    'blog.article.arlotti-franchigia-frontalieri-letta.title': 'Arlotti chiede franchigia per frontalieri',
+    'blog.article.arlotti-franchigia-frontalieri-letta.excerpt': 'Il presidente di San Marino chiede il ripristino della franchigia per i frontalieri in Ticino. Ecco cosa cambia e cosa fare.',
+    'blog.article.arlotti-franchigia-frontalieri-letta.imageAlt': 'Lago di Lugano con vista sul confine svizzero-italiano',
 };
 
 export default blogMetaIt;

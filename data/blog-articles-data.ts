@@ -23339,4 +23339,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'arlotti-franchigia-frontalieri-letta',
+ category: 'fiscale',
+ date: '2026-05-10T08:33:17.118Z',
+ image: '/images/blog/arlotti-franchigia-frontalieri-letta.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

@@ -7323,6 +7323,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.precompilata-2026-frontalieri-ticino.title': 'Déclaration préremplie 2026 : guide d\'accès, nouveautés, contrôles et envoi',
     'blog.article.precompilata-2026-frontalieri-ticino.excerpt': 'Le guide pour la déclaration préremplie 2026 pour les travailleurs frontaliers au Tessin : dates, nouveautés et comment envoyer le modèle 730 ou Redditi PF',
     'blog.article.precompilata-2026-frontalieri-ticino.imageAlt': 'Vue aérienne du Lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
+    'blog.article.arlotti-franchigia-frontalieri-letta.title': 'Arlotti demande une franchise pour les frontaliers',
+    'blog.article.arlotti-franchigia-frontalieri-letta.excerpt': 'Le président de Saint-Marin demande le rétablissement de la franchise pour les frontaliers en Suisse. Voici ce qui change et ce qu\'il faut faire.',
+    'blog.article.arlotti-franchigia-frontalieri-letta.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

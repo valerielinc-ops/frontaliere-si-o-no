@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2493,
+ "numberOfItems": 2494,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7135,7 +7135,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2490, "name": "Blitz nei boschi della droga: tre arrestati a T...", "url": `${BASE_URL}/articoli-frontaliere/blitz-droga-turate-frontalieri` },
           { "@type": "ListItem", "position": 2491, "name": "Crans-Montana: tre nuove audizioni per l'incend...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-audizioni-frontalieri` },
           { "@type": "ListItem", "position": 2492, "name": "Sommer bocciato dall'Inter: cosa cambia per i f...", "url": `${BASE_URL}/articoli-frontaliere/sommer-bocciato-inter-frontalieri` },
-          { "@type": "ListItem", "position": 2493, "name": "Precompilata 2026: guida su accesso, novità, co...", "url": `${BASE_URL}/articoli-frontaliere/precompilata-2026-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 2493, "name": "Precompilata 2026: guida su accesso, novità, co...", "url": `${BASE_URL}/articoli-frontaliere/precompilata-2026-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 2494, "name": "Arlotti chiede franchigia per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/arlotti-franchigia-frontalieri-letta` }
  ]
  },
  {

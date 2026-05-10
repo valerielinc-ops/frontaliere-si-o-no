@@ -7322,6 +7322,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.precompilata-2026-frontalieri-ticino.title': '2026 Pre-filled Tax Return: Guide for Cross-border Workers',
     'blog.article.precompilata-2026-frontalieri-ticino.excerpt': 'Guide to the 2026 pre-filled tax return for cross-border workers in Ticino: dates, news and how to submit the 730 form or Redditi PF',
     'blog.article.precompilata-2026-frontalieri-ticino.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
+    'blog.article.arlotti-franchigia-frontalieri-letta.title': 'Arlotti requests tax-free allowance for cross-border workers',
+    'blog.article.arlotti-franchigia-frontalieri-letta.excerpt': 'San Marino\'s president asks for the restoration of the tax-free allowance for cross-border workers in Ticino. Here\'s what changes and what to do.',
+    'blog.article.arlotti-franchigia-frontalieri-letta.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
 };
 
 export default blogMetaEn;
