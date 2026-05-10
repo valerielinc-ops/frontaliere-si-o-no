@@ -413,6 +413,16 @@ interface JobBoardProps {
  enablePersonalization?: boolean;
  /** User profile data for personalization scoring */
  userProfile?: import('@/components/pages/UserProfile').UserProfileData | null;
+ /**
+  * P7 — URL-driven canton pre-filter. When the user lands on
+  * /cerca-lavoro-{canton}/, the router passes the 2-letter canton code
+  * (e.g. 'TI', 'ZH', 'GE') here. JobBoard fetches that canton's shard
+  * exclusively. Special value `'_AGGREGATE_'` (also exported as
+  * AGGREGATE_CANTON_CODE) means "aggregator" — fetch top-N cantons
+  * deduped. Undefined/null falls back to getDefaultCantonForVisit()
+  * (referrer-aware default).
+  */
+ initialFilterCanton?: string | null;
 }
 
 const CATEGORY_EMOJI: Record<JobCategory, string> = {
@@ -2444,6 +2454,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onRequireAuth,
  enablePersonalization = false,
  userProfile = null,
+ initialFilterCanton = null,
 }) => {
  const { t } = useTranslation();
  const [locale] = useLocale();
@@ -2759,11 +2770,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const run = async (): Promise<void> => {
  try {
- const defaultCanton = getDefaultCantonForVisit();
+ // P7.2 — URL-driven canton pre-filter takes precedence over
+ // referrer-based default. /cerca-lavoro-zurigo/ → ZH shard;
+ // /cerca-lavoro-svizzera/ → AGGREGATE; legacy /cerca-lavoro-ticino/
+ // → TI (router sets jobBoardCanton:'TI' explicitly per P7.1).
+ const targetCanton = initialFilterCanton || getDefaultCantonForVisit();
  const shardJobs: RawJob[] =
- defaultCanton === AGGREGATE_CANTON_CODE
+ targetCanton === AGGREGATE_CANTON_CODE
  ? await fetchAggregatedJobs(TOP_AGGREGATE_CANTONS, { deduplicate: true })
- : await fetchJobsForCanton(defaultCanton);
+ : await fetchJobsForCanton(targetCanton);
 
  // Shards not yet deployed (every shard 404'd / empty) → legacy loader.
  if (shardJobs.length === 0) {
@@ -2792,7 +2807,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return () => {
  cancelled = true;
  };
- }, [locale]);
+ }, [locale, initialFilterCanton]);
 
  const categories: { value: JobCategory | 'all'; labelKey: string }[] = [
  { value: 'all', labelKey: 'jobBoard.filter.all' },

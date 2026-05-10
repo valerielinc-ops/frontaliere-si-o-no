@@ -2466,6 +2466,13 @@ export function parsePath(pathname: string): ParseResult {
  if (topMatch.tab === 'job-board') {
  if (first === table.jobBoard) {
  const rawSecond = second ? second.trim() : undefined;
+ // P7.1 — legacy /cerca-lavoro-ticino/ MUST set jobBoardCanton='TI'
+ // so JobBoard pre-filters to TI jobs only. Without this, the user
+ // landed on the legacy URL and saw ALL jobs (the aggregator behavior
+ // belongs to /cerca-lavoro-svizzera/).
+ // The legacy table.jobBoard slug is TI-anchored across all 4 locales:
+ //   IT: cerca-lavoro-ticino    EN: find-jobs-ticino
+ //   DE: jobs-im-tessin         FR: trouver-emploi-tessin
  // Clean geo-hub URL: /cerca-lavoro-ticino/lugano/ (and locale variants).
  // Rewrite to the editorial location-landing slug so the client renders
  // the already-built location landing UI, while preserving the city
@@ -2483,6 +2490,7 @@ export function parsePath(pathname: string): ParseResult {
  return {
  route: {
  activeTab: 'job-board',
+ jobBoardCanton: 'TI',
  jobBoardSector: sectorHit as SectorHubKey,
  staticOverlay: true,
  },
@@ -2498,6 +2506,7 @@ export function parsePath(pathname: string): ParseResult {
  return {
  route: {
  activeTab: 'job-board',
+ jobBoardCanton: 'TI',
  jobBoardCity: cityHit as CityHubKey,
  jobSlug: editorialSlug,
  },
@@ -2526,10 +2535,11 @@ export function parsePath(pathname: string): ParseResult {
  // over them. staticOverlay tells App.tsx to skip the React main render
  // so the build-time SEO HTML stays visible (lite-shell mode).
  if (rawSecond && resolveEditorialJobLandingDescriptor(rawSecond)) {
- return { route: { activeTab: 'job-board', staticOverlay: true }, locale };
+ return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
  }
  const jobSlug = rawSecond;
- return { route: { activeTab: 'job-board', ...(jobSlug ? { jobSlug } : {}) }, locale };
+ // P7.1 — legacy /cerca-lavoro-ticino/{slug?} → always TI canton filter.
+ return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', ...(jobSlug ? { jobSlug } : {}) }, locale };
  }
  }
 

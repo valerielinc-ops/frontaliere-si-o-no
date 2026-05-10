@@ -106,7 +106,7 @@ import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarket
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
 import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from '@/build-plugins/jobSectorLanding';
-import { pushRoute, buildPath, getSeoSection, AppRoute } from '@/services/router';
+import { pushRoute, buildPath, getSeoSection, AppRoute, parsePath } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
 import { NavigationContext } from '@/services/NavigationContext';
 import type { NavigationContextType } from '@/services/NavigationContext';
@@ -2219,6 +2219,7 @@ const App: React.FC = () => {
  <JobBoard
  initialJobSlug={jobSlug || undefined}
  initialFilterParams={jobBoardFilterParams}
+ initialFilterCanton={typeof window !== 'undefined' ? (parsePath(window.location.pathname).route.jobBoardCanton ?? null) : null}
  onFilterParamsConsumed={() => setJobBoardFilterParams(null)}
  isLoggedIn={!!authUser}
  authUser={authUser}
