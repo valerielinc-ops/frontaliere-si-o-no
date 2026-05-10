@@ -1,21 +1,22 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-05-10T10:43:12.283Z",
+  "generatedAt": "2026-05-10T22:16:08.930Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13147,
-  "avgDurationMs": 13147,
+  "unchangedCount": 2,
+  "durationMs": 24785,
+  "avgDurationMs": 24785,
   "durationHistory": [
-    13147
+    24785
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-yifl2t",
-      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-cadempino",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente clientela privata individuale",
       "location": "Rivera, Ticino",
@@ -38,16 +39,25 @@
       "firstSeenAt": "2026-05-10T10:43:11.782Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 77,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 14
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-q14jnx",
       "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-cadempino",
@@ -78,6 +88,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -116,6 +128,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-03-31T21:37:34.717Z",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -124,7 +138,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
