@@ -609,9 +609,9 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
 
  <div className="p-4 sm:p-6 flex-grow overflow-y-auto custom-scrollbar bg-surface-alt/30">
  {/* Banner with Fun Animation */}
- <div className={`p-4 sm:p-6 rounded-3xl text-on-accent shadow-lg mb-8 relative overflow-hidden transition-colors duration-500 group ${
- isBetterFrontaliere 
- ? 'bg-gradient-to-r from-success-strong via-info-strong to-success-strong' 
+ <div data-testid="results-advantage-banner" className={`p-4 sm:p-6 rounded-3xl text-on-accent shadow-lg mb-8 relative overflow-hidden transition-colors duration-500 group ${
+ isBetterFrontaliere
+ ? 'bg-gradient-to-r from-success-strong via-info-strong to-success-strong'
  : 'bg-gradient-to-r from-accent-strong via-accent-strong to-accent-strong-hover'
  }`}>
 

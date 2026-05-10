@@ -63,7 +63,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  };
 
  return (
- <div className="flex items-center gap-2 h-[34px] bg-surface rounded-xl border border-edge px-3 text-xs overflow-hidden">
+ <div data-testid="news-ticker" className="flex items-center gap-2 h-[34px] bg-surface rounded-xl border border-edge px-3 text-xs overflow-hidden">
  {/* Icon + label */}
  <div className="flex items-center gap-1.5 flex-shrink-0">
  <Newspaper size={13} className="text-danger" />

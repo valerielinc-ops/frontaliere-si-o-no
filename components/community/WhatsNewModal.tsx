@@ -1803,6 +1803,7 @@ export function WhatsNewBell({ onClick }: BellButtonProps) {
 
  return (
  <button
+ data-testid="whats-new-badge"
  onClick={() => {
  onClick();
  setUnread(0);
