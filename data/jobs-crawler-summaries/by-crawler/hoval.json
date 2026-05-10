@@ -1,21 +1,138 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-09T21:39:59.246Z",
-  "total": 2,
-  "newCount": 0,
-  "updatedCount": 0,
+  "generatedAt": "2026-05-10T10:18:58.925Z",
+  "total": 6,
+  "newCount": 5,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 10786,
-  "avgDurationMs": 10786,
+  "unchangedCount": 0,
+  "durationMs": 12141,
+  "avgDurationMs": 12141,
   "durationHistory": [
-    10786
+    12141
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
+    {
+      "title": "Frontoffice Mitarbeiter/in (m/w/d)",
+      "slug": "frontoffice-mitarbeiter-in-m-w-d-hoval-harkingen",
+      "url": "https://www.hoval.it/it_IT/job/3925",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3925/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Härkingen",
+      "addressLocality": "Härkingen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Responsable Vente interne (m/f/d)",
+      "slug": "responsable-vente-interne-m-f-d-hoval-crissier",
+      "url": "https://www.hoval.it/it_IT/job/3923",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3923/Application/New/3?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Crissier",
+      "addressLocality": "Crissier",
+      "addressRegion": "CH",
+      "addressCountry": "CH",
+      "canton": "CH",
+      "country": "CH",
+      "category": "technician",
+      "sector": "IT & Digital",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-05-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Servicetechniker Wärmepumpen Region Zürich (m/w/d)",
+      "slug": "servicetechniker-warmepumpen-region-zurich-m-w-d-hoval-region-zurich",
+      "url": "https://www.hoval.it/it_IT/job/3928",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3928/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Region Zürich",
+      "addressLocality": "Region Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Servicetechniker Öl (Region Winterthur) (m/w/d)",
+      "slug": "servicetechniker-ol-region-winterthur-m-w-d-hoval-ostschweiz-wil",
+      "url": "https://www.hoval.it/it_IT/job/3912",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3912/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Ostschweiz Wil",
+      "addressLocality": "Ostschweiz Wil",
+      "addressRegion": "CH",
+      "addressCountry": "CH",
+      "canton": "CH",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -34,25 +151,20 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "hoval-fd8e3ab9018c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-04-22T10:08:57.455Z",
-      "_qualityScore": 95,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 25
+        "translation": 16,
+        "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento olio/gas (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino",
@@ -71,7 +183,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -90,5 +202,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
