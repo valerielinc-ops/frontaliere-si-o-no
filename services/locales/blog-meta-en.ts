@@ -7289,6 +7289,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chippis-ponte-demolito-sicurezza.title': 'Chippis demolishes historic bridge for safety',
     'blog.article.chippis-ponte-demolito-sicurezza.excerpt': 'The municipality of Chippis has demolished an 1880 bridge to prevent risks related to the Fios fault. Safety works cost 1.8 million francs.',
     'blog.article.chippis-ponte-demolito-sicurezza.imageAlt': 'Aerial view of Chippis village in Val d\'Anniviers, Switzerland, with the Navizence river and surrounding mountains. The scene captures the historical bridge and the ongoing construction work for safety measures.',
+    'blog.article.incidente-stradale-cittiglio-laveno.title': 'Road accident between Cittiglio and Laveno: car and motorcycle involved',
+    'blog.article.incidente-stradale-cittiglio-laveno.excerpt': 'Two people injured in an accident between a car and a motorcycle on the provincial road between Cittiglio and Laveno Mombello on the evening of May 8, 2026',
+    'blog.article.incidente-stradale-cittiglio-laveno.imageAlt': 'Road accident between a car and a motorcycle on the provincial road between Cittiglio and Laveno Mombello',
 };
 
 export default blogMetaEn;

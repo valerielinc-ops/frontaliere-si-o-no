@@ -7289,6 +7289,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chippis-ponte-demolito-sicurezza.title': 'Chippis reißt historischen Brücke für Sicherheit ab',
     'blog.article.chippis-ponte-demolito-sicurezza.excerpt': 'Die Gemeinde Chippis hat eine Brücke aus dem Jahr 1880 abgerissen, um Risiken im Zusammenhang mit der Fios-Verwerfung zu verhindern. Die Sicherheitsarbeiten kosten 1,8 Millionen Franken.',
     'blog.article.chippis-ponte-demolito-sicurezza.imageAlt': 'Luftaufnahme des Dorfes Chippis im Anniviers-Tal, Schweiz, mit dem Navizence-Fluss und den umliegenden Bergen. Die Szene zeigt die historische Brücke und die laufenden Bauarbeiten für Sicherheitsmaßnahmen.',
+    'blog.article.incidente-stradale-cittiglio-laveno.title': 'Unfall zwischen Cittiglio und Laveno: Auto und Motorrad beteiligt',
+    'blog.article.incidente-stradale-cittiglio-laveno.excerpt': 'Zwei Personen verletzt bei einem Unfall zwischen einem Auto und einem Motorrad auf der Landstraße zwischen Cittiglio und Laveno Mombello am Abend des 8. Mai 2026',
+    'blog.article.incidente-stradale-cittiglio-laveno.imageAlt': 'Verkehrsunfall zwischen einem Auto und einem Motorrad auf der Provinzialstraße zwischen Cittiglio und Laveno Mombello',
 };
 
 export default blogMetaDe;

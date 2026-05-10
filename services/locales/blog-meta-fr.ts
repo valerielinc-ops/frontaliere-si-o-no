@@ -7290,6 +7290,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chippis-ponte-demolito-sicurezza.title': 'Chippis démolit un pont historique pour des raisons de sécurité',
     'blog.article.chippis-ponte-demolito-sicurezza.excerpt': 'La commune de Chippis a démoli un pont de 1880 pour prévenir les risques liés à la faille des Fios. Les travaux de sécurité coûtent 1,8 million de francs.',
     'blog.article.chippis-ponte-demolito-sicurezza.imageAlt': 'Vue aérienne du village de Chippis dans la vallée d\'Anniviers, Suisse, avec la rivière Navizence et les montagnes environnantes. La scène capture le pont historique et les travaux en cours pour les mesures de sécurité.',
+    'blog.article.incidente-stradale-cittiglio-laveno.title': 'Accident entre Cittiglio et Laveno: voiture et moto impliquées',
+    'blog.article.incidente-stradale-cittiglio-laveno.excerpt': 'Deux personnes blessées dans un accident entre une voiture et une moto sur la route provinciale entre Cittiglio et Laveno Mombello le soir du 8 mai 2026',
+    'blog.article.incidente-stradale-cittiglio-laveno.imageAlt': 'Accident de la route entre une voiture et une moto sur la route provinciale entre Cittiglio et Laveno Mombello',
 };
 
 export default blogMetaFr;

@@ -23240,4 +23240,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-stradale-cittiglio-laveno',
+ category: 'novita',
+ date: '2026-05-10T06:06:03.956Z',
+ image: '/images/blog/incidente-stradale-cittiglio-laveno.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

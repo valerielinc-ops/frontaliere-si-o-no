@@ -33614,6 +33614,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-stradale-cittiglio-laveno': {
+    title: 'Incidente stradale tra Cittiglio e Laveno: auto e moto coinvolte',
+    description: 'Due persone ferite in un incidente tra un\'auto e una moto sulla provinciale tra Cittiglio e Laveno Mombello la sera dell\'8 maggio 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, stradale, cittiglio, laveno',
+    ogTitle: 'Incidente stradale tra Cittiglio e Laveno: auto e moto coinvolte',
+    ogDescription: 'Due persone ferite in un incidente tra un\'auto e una moto sulla provinciale tra Cittiglio e Laveno Mombello la sera dell\'8 maggio 2026',
+    canonicalPath: '/articoli-frontaliere/incidente-stradale-cittiglio-laveno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente stradale tra Cittiglio e Laveno: auto e moto coinvolte",
+      "description": "Due persone ferite in un incidente tra un'auto e una moto sulla provinciale tra Cittiglio e Laveno Mombello la sera dell'8 maggio 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-stradale-cittiglio-laveno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale tra un'auto e una moto sulla provinciale tra Cittiglio e Laveno Mombello"
+      },
+      "datePublished": "2026-05-10T06:06:04+00:00",
+      "dateModified": "2026-05-10T06:06:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-stradale-cittiglio-laveno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

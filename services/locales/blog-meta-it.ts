@@ -7290,6 +7290,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chippis-ponte-demolito-sicurezza.title': 'Chippis demolisce ponte storico per sicurezza',
     'blog.article.chippis-ponte-demolito-sicurezza.excerpt': 'Il Comune di Chippis ha demolito un ponte del 1880 per prevenire rischi legati alla faglia dei Fios. Lavori di sicurezza costano 1,8 milioni di franchi.',
     'blog.article.chippis-ponte-demolito-sicurezza.imageAlt': 'Vista aerea del villaggio di Chippis nella Val d\'Anniviers, Svizzera, con il fiume Navizence e le montagne circostanti. La scena cattura il ponte storico e i lavori in corso per le misure di sicurezza.',
+    'blog.article.incidente-stradale-cittiglio-laveno.title': 'Incidente stradale tra Cittiglio e Laveno: auto e moto coinvolte',
+    'blog.article.incidente-stradale-cittiglio-laveno.excerpt': 'Due persone ferite in un incidente tra un\'auto e una moto sulla provinciale tra Cittiglio e Laveno Mombello la sera dell\'8 maggio 2026',
+    'blog.article.incidente-stradale-cittiglio-laveno.imageAlt': 'Incidente stradale tra un\'auto e una moto sulla provinciale tra Cittiglio e Laveno Mombello',
 };
 
 export default blogMetaIt;
