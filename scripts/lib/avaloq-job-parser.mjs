@@ -1,5 +1,9 @@
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import {
+  fetchSmartRecruitersJobs,
+  SmartRecruitersApiError,
+} from './ats-clients/smartrecruiters-client.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -65,59 +69,72 @@ export function parseAvaloqListingLinks(html = '') {
   return [];
 }
 
-const SR_API = 'https://api.smartrecruiters.com/v1/companies/Avaloq1/postings';
-
-async function srFetch(url, timeoutMs) {
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, { signal: ctrl.signal, headers: { 'Accept': 'application/json' } });
-    if (!res.ok) throw new Error(`SmartRecruiters API HTTP ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
+const SR_TENANT = 'Avaloq1';
 
 /**
- * Fetch all Avaloq job postings from the SmartRecruiters public API.
- * Step 1: Fetch listing (lightweight, no descriptions).
- * Step 2: For target jobs, fetch individual postings for full descriptions.
- * @param {Function} locationFilter - Filter function for target locations.
+ * Fetch all Avaloq job postings from the SmartRecruiters public API via the
+ * shared `fetchSmartRecruitersJobs` client.
+ *
+ * Pipeline (mirrors the legacy in-tree implementation byte-for-byte):
+ *   1. Paginated walk of `/v1/companies/Avaloq1/postings` (listing only).
+ *   2. Filter postings whose `location.city` passes the supplied
+ *      `locationFilter` (kept as a city-only predicate to match legacy
+ *      semantics — the shared client's `locationContains` matches against
+ *      `fullLocation + city`, which is broader than what we want).
+ *   3. For each kept posting, fetch the full posting via `/v1/postings/{id}`
+ *      so `jobAd.sections` is populated (`fetchDetail: true`).
+ *   4. Build the local Avaloq detail shape via `buildDetailFromPosting`,
+ *      which owns Avaloq's description policy (markdown sections with
+ *      "## Qualifiche" / "## Informazioni aggiuntive" headers — different
+ *      from the shared client's plain HTML concatenation, hence done locally).
+ *
+ * @param {number} [timeoutMs=20000] Per-request timeout.
+ * @param {(city: string) => boolean} [locationFilter] Filter on `location.city`.
+ * @returns {Promise<Array<{
+ *   title: string,
+ *   description: string,
+ *   canonicalUrl: string,
+ *   applyUrl: string,
+ *   location: string,
+ *   postalCode: string,
+ *   workArrangement: string,
+ *   releasedDate: string,
+ * }>>}
  */
 export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter = () => true) {
-  // Step 1: Fetch all postings (listing only — no jobAd content)
-  const all = [];
-  let offset = 0;
-  while (true) {
-    const data = await srFetch(`${SR_API}?limit=100&offset=${offset}`, timeoutMs);
-    all.push(...(data.content || []));
-    if (all.length >= (data.totalFound || 0)) break;
-    offset += 100;
-  }
-
-  // Step 2: Filter to target locations before fetching descriptions
-  const targetPostings = all.filter((p) => {
-    const city = normalizeSpace((p.location || {}).city || '');
-    return locationFilter(city);
-  });
-
-  // Step 3: Fetch individual postings for full descriptions (concurrently, max 5)
   const details = [];
-  const queue = [...targetPostings];
-  const workers = Array.from({ length: Math.min(5, queue.length) }, async () => {
-    while (queue.length > 0) {
-      const posting = queue.shift();
-      try {
-        const full = await srFetch(`${SR_API}/${posting.id}`, timeoutMs);
-        details.push(buildDetailFromPosting(full));
-      } catch (err) {
-        // Fallback to listing data if individual fetch fails
-        details.push(buildDetailFromPosting(posting));
-      }
+  try {
+    const iter = fetchSmartRecruitersJobs(SR_TENANT, {
+      // Avaloq's filter is city-only (legacy semantic). Apply via custom
+      // predicate so postings with no city slip through the same way they
+      // did before extraction.
+      filter: (posting) => {
+        const city = normalizeSpace((posting?.location || {}).city || '');
+        return locationFilter(city);
+      },
+      // Detail fetch is required: the listing endpoint omits `jobAd.sections`.
+      fetchDetail: true,
+      detailConcurrency: 5,
+      // Page-walk timing: legacy implementation had no inter-page delay.
+      // Preserve byte-identical fetch behaviour for the listing walk.
+      minDelayMs: 0,
+      detailDelayMs: 0,
+      timeoutMs,
+    });
+
+    for await (const normalized of iter) {
+      const posting = normalized.rawPosting;
+      if (!posting || typeof posting !== 'object') continue;
+      details.push(buildDetailFromPosting(posting));
     }
-  });
-  await Promise.all(workers);
+  } catch (err) {
+    if (err instanceof SmartRecruitersApiError) {
+      // Preserve the legacy "throw on hard failure" contract — caller
+      // (update-avaloq-jobs.mjs) propagates and exits non-zero.
+      throw new Error(`SmartRecruiters API HTTP ${err.statusCode ?? 'n/a'}: ${err.message}`);
+    }
+    throw err;
+  }
   return details;
 }
 
