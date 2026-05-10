@@ -1,19 +1,21 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-05-10T10:10:22.196Z",
+  "generatedAt": "2026-05-10T21:37:36.459Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 19743,
-  "avgDurationMs": 19743,
+  "unchangedCount": 3,
+  "durationMs": 16012,
+  "avgDurationMs": 16012,
   "durationHistory": [
-    19743
+    16012
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-qbnh3b",
       "slug": "consulente-di-vendita-per-la-casa-elettrica-e-multimediale-fust-chur-graubunden-517de0",
@@ -44,6 +46,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -82,6 +86,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,6 +126,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -128,7 +136,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
