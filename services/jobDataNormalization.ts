@@ -119,6 +119,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'medacta-international': 'https://www.medacta.com/images/header/Logo_Medacta.svg',
  'migros-ticino': gFavicon('migros.ch'),
  'mtic-group': gFavicon('mtic-group.org'),
+ 'novartis': cLogo('novartis.ch'),
  'oscam': gFavicon('oscam.ch'),
  'otis': cLogo('otis.com'),
  'pkb-private-bank': cLogo('pkb.ch'),
@@ -127,6 +128,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'rapelli': cLogo('rapelli.ch'),
  'relewant': cLogo('relewant.com'),
  'rivopharm': cLogo('rivopharm.com'),
+ 'roche': cLogo('roche.com'),
  'ruag-ag': 'https://www.ruag.com/assets/img/icon/apple-icon-144x144.png',
  'schindler': gFavicon('schindler.com'),
  'sintetica': cLogo('sintetica.com'),
@@ -141,6 +143,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'wuerth-international': gFavicon('wurth.com'),
  'zambon': cLogo('zambon.com'),
  'zucchetti-switzerland': gFavicon('zucchetti.com'),
+ 'zurich-insurance': cLogo('zurichinsurance.ch'),
  'zurich-insurance-sede-ticino': gFavicon('zurich.ch'),
 };
 

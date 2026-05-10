@@ -213,6 +213,8 @@ export const COMPANY_HQ = {
   'localsearch':                  { city: 'Zurich',             canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   'tally-weijl':                  { city: 'Basel',              canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'transgourmet':                 { city: 'Basel',              canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  'novartis':                     { city: 'Basel',              canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  'roche':                        { city: 'Basel',              canton: 'BS', postalCode: '4070', addressRegion: 'BS' },
   'bcvs':                         { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'coopers':                      { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
   'kone':                         { city: 'Luzern',             canton: 'LU', postalCode: '6003', addressRegion: 'LU' },
@@ -252,6 +254,7 @@ export const COMPANY_HQ = {
   'kudelski-nagra':               { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'franklin-university':          { city: 'Sorengo',            canton: 'TI', postalCode: '6924', addressRegion: 'TI' },
   'elettra-1938':                 { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  'zurich-insurance':             { city: 'Zürich',             canton: 'ZH', postalCode: '8002', addressRegion: 'ZH' },
 };
 
 /**
