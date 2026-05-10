@@ -831,6 +831,15 @@ const translations: Record<string, string> = {
  'jobAlert.sector': 'Settore',
  'jobAlert.edit': 'Modifica',
  'jobAlert.updated': 'Alert aggiornata.',
+ 'jobAlert.canton': 'Cantoni di interesse',
+ 'jobAlert.cantonAll': 'Tutti i cantoni',
+ 'jobAlert.cantonChoose': 'Scegli cantoni',
+ 'jobAlert.cantonHide': 'Nascondi cantoni',
+ 'jobAlert.cantonClear': 'Reimposta',
+ 'jobAlert.cantonRemove': 'Rimuovi',
+ 'jobAlert.cantonSelectedCount': 'Selezionati',
+ 'jobAlert.cantonSelectedAria': 'Cantoni selezionati',
+ 'jobAlert.cantonHint': 'Lascia vuoto per ricevere alert da tutti i cantoni svizzeri.',
 
  // Search
  'search.placeholder': 'Cerca sezioni, strumenti, funzionalità...',
