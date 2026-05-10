@@ -1,0 +1,33 @@
+{
+  "_comment": "Source of truth: canton code -> URL-safe slug per locale. ASCII anglicized for non-IT locales; Italian-native for IT. Slugs are lowercase, hyphen-separated, ASCII-only (no umlauts/diacritics).",
+  "_lastUpdated": "2026-05-10",
+  "cantons": {
+    "AG": {"it": "argovia",             "en": "aargau",              "de": "aargau",              "fr": "argovie"},
+    "AI": {"it": "appenzello-interno",  "en": "appenzell-innerrhoden","de": "appenzell-innerrhoden","fr": "appenzell-rhodes-interieures"},
+    "AR": {"it": "appenzello-esterno",  "en": "appenzell-ausserrhoden","de": "appenzell-ausserrhoden","fr": "appenzell-rhodes-exterieures"},
+    "BE": {"it": "berna",               "en": "bern",                "de": "bern",                "fr": "berne"},
+    "BL": {"it": "basilea-campagna",    "en": "basel-country",       "de": "baselland",           "fr": "bale-campagne"},
+    "BS": {"it": "basilea-citta",       "en": "basel-city",          "de": "basel-stadt",         "fr": "bale-ville"},
+    "FR": {"it": "friburgo",            "en": "fribourg",            "de": "freiburg",            "fr": "fribourg"},
+    "GE": {"it": "ginevra",             "en": "geneva",              "de": "genf",                "fr": "geneve"},
+    "GL": {"it": "glarona",             "en": "glarus",              "de": "glarus",              "fr": "glaris"},
+    "GR": {"it": "grigioni",            "en": "graubunden",          "de": "graubunden",          "fr": "grisons"},
+    "JU": {"it": "giura",               "en": "jura",                "de": "jura",                "fr": "jura"},
+    "LU": {"it": "lucerna",             "en": "lucerne",             "de": "luzern",              "fr": "lucerne"},
+    "NE": {"it": "neuchatel",           "en": "neuchatel",           "de": "neuenburg",           "fr": "neuchatel"},
+    "NW": {"it": "nidvaldo",            "en": "nidwalden",           "de": "nidwalden",           "fr": "nidwald"},
+    "OW": {"it": "obvaldo",             "en": "obwalden",            "de": "obwalden",            "fr": "obwald"},
+    "SG": {"it": "san-gallo",           "en": "st-gallen",           "de": "st-gallen",           "fr": "saint-gall"},
+    "SH": {"it": "sciaffusa",           "en": "schaffhausen",        "de": "schaffhausen",        "fr": "schaffhouse"},
+    "SO": {"it": "soletta",             "en": "solothurn",           "de": "solothurn",           "fr": "soleure"},
+    "SZ": {"it": "svitto",              "en": "schwyz",              "de": "schwyz",              "fr": "schwytz"},
+    "TG": {"it": "turgovia",            "en": "thurgau",             "de": "thurgau",             "fr": "thurgovie"},
+    "TI": {"it": "ticino",              "en": "ticino",              "de": "tessin",              "fr": "tessin"},
+    "UR": {"it": "uri",                 "en": "uri",                 "de": "uri",                 "fr": "uri"},
+    "VD": {"it": "vaud",                "en": "vaud",                "de": "waadt",               "fr": "vaud"},
+    "VS": {"it": "vallese",             "en": "valais",              "de": "wallis",              "fr": "valais"},
+    "ZG": {"it": "zugo",                "en": "zug",                 "de": "zug",                 "fr": "zoug"},
+    "ZH": {"it": "zurigo",              "en": "zurich",              "de": "zurich",              "fr": "zurich"}
+  },
+  "aggregate": {"it": "svizzera", "en": "switzerland", "de": "schweiz", "fr": "suisse"}
+}
