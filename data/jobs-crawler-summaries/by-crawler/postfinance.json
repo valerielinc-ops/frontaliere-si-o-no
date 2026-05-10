@@ -1,18 +1,19 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-10T10:42:11.591Z",
+  "generatedAt": "2026-05-10T22:14:45.763Z",
   "total": 5,
-  "newCount": 5,
-  "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 10649,
-  "avgDurationMs": 10649,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
+  "unchangedCount": 3,
+  "durationMs": 10716,
+  "avgDurationMs": 10716,
   "durationHistory": [
-    10649
+    10716
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
@@ -22,7 +23,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "architecture-owner-telefonie-und-kop-w-m-d-postfinance",
+      "slug": "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-finanziari",
@@ -39,12 +40,100 @@
         "location": "Bern"
       },
       "crawledAt": "",
-      "_qualityScore": 58,
+      "id": "postfinance-b4a070864c05",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-10T10:42:11.590Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
-        "completeness": 9
+        "translation": 16,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
+      "title": "Mitarbeiter:in Chargebacks",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "collaboratore-trice-chargebacks-postfinance-bern",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-10",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-c5dd413c8462",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-10T10:42:11.590Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
+      "title": "Kundenberater:in Privatkunden, Herisau",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Herisau",
+      "canton": "AR",
+      "country": "CH",
+      "slug": "kundenberater-in-privatkunden-herisau-postfinance",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-10",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "AR",
+        "location": "Herisau"
+      },
+      "crawledAt": "",
+      "id": "postfinance-a353cf7a3cd3",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-10T10:42:11.590Z",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -73,12 +162,18 @@
         "location": "Bulle"
       },
       "crawledAt": "",
-      "_qualityScore": 60,
+      "id": "postfinance-97dc609ae987",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1630",
+      "firstSeenAt": "2026-05-10T10:42:11.590Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 6,
-        "completeness": 9
+        "translation": 16,
+        "completeness": 17
       }
     },
     {
@@ -107,124 +202,19 @@
         "location": "Carouge"
       },
       "crawledAt": "",
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
-      "title": "Mitarbeiter:in Chargebacks",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "mitarbeiter-in-chargebacks-postfinance",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-10",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
-      "title": "Kundenberater:in Privatkunden, Herisau",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Herisau",
-      "canton": "AR",
-      "country": "CH",
-      "slug": "kundenberater-in-privatkunden-herisau-postfinance",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-10",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Consulenza",
-      "workload": "",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "AR",
-        "location": "Herisau"
-      },
-      "crawledAt": "",
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bellinzona-Compliance-Officer-%28wmd%29/1378566933/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bellinzona-Compliance-Officer-%28wmd%29/1378566933/",
-      "title": "Compliance Officer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "compliance-officer-w-m-d-postfinance",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-04-06",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Bellinzona"
-      },
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "id": "postfinance-5c7d91934019",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
-      "postalCode": "6500",
-      "id": "postfinance-b561e2e6971a",
-      "firstSeenAt": "2026-04-14T22:14:40.300Z",
-      "_qualityScore": 83,
+      "postalCode": "1227",
+      "firstSeenAt": "2026-05-10T10:42:11.590Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 16,
         "completeness": 17
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
