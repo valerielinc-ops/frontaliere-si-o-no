@@ -95,7 +95,7 @@
     - `refline-client.mjs` — quando trovi un secondo Refline-using ospedale
     - `solique-client.mjs` — quando trovi un secondo Solique tenant
     - `pastahr-client.mjs` — quando trovi un secondo PastaHR tenant
-11. **10 SF detail-page parser migration** (giorgio-armani, rapelli, sbb, heineken-ch, oerlikon, benteler, interdiscount, jumbo, prada, plus eventually agroscope) — debt cleanup. Richiede prima estensione `successfactors-client.mjs` (multi-search seed URLs, jobs2web row parser export).
+11. **10 SF detail-page parser migration** — AUDIT-COMPLETE-DEFERRED 2026-05-10. Full classification in [docs/CATHEDRAL-SF-MIGRATION-AUDIT.md](CATHEDRAL-SF-MIGRATION-AUDIT.md): **0/13 parsers migratable today** under the speed-only-no-behavior-change rule. Of the 10 originally listed: 4 turn out to be Prospective.ch / non-SF crawlers (interdiscount, jumbo, agroscope are pure Prospective; aldi-suisse uses jobs.aldi.ch SSR); 5 are SF-format but emit far richer `ParsedJob` than the shared client's `SuccessFactorsJobIdentity` (giorgio-armani, rapelli, sbb, heineken-ch, prada); 2 have pre-existing corrupted `try`-block bugs that must be fixed separately first (oerlikon, benteler). Audit doc lists the 4 primitives the shared client needs to add (rich career-detail parser, jobs2web link-list parser, JSON-LD + h2-section fallback, pagination-total extractor) before any migration becomes byte-identical-safe. Real scope reduces from 10 → 6 parsers post-extension.
 12. **Job-alert geo subscription** — canton selector nel form `JobAlertForm`, ~3-5h CC.
 13. **Cathedral retrospective** — analisi metriche dopo 4-6 settimane post-deploy: revenue impact, GSC ranking shift, new traffic acquisition, brand dilution check.
 
