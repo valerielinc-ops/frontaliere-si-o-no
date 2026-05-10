@@ -200,7 +200,9 @@ export const COMPANY_HQ = {
   'marriott':                     { city: 'Zermatt',            canton: 'VS', postalCode: '3920', addressRegion: 'VS' },
   'reboot-monkey':                { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
   'arxada':                       { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
-  'ubs':                          { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  // Cathedral CH-wide expansion (2026-05-10): UBS HQ is Zürich. Per-job
+  // canton is set by the canton-quorum-gate on the parser output.
+  'ubs':                          { city: 'Zürich',             canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   'interdiscount':                { city: 'Naters',             canton: 'VS', postalCode: '3904', addressRegion: 'VS' },
   'matterhorn-gotthard-bahn':     { city: 'Brig',               canton: 'VS', postalCode: '3900', addressRegion: 'VS' },
   'swiss-life':                   { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
@@ -231,6 +233,9 @@ export const COMPANY_HQ = {
   'coopers':                      { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
   'kone':                         { city: 'Luzern',             canton: 'LU', postalCode: '6003', addressRegion: 'LU' },
   'mobiliar':                     { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
+  // Cathedral CH-wide marquee batch (2026-05-10) — Pictet + HUG.
+  'pictet':                       { city: 'Genève',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'hug':                          { city: 'Genève',             canton: 'GE', postalCode: '1205', addressRegion: 'GE' },
   'bms-building':                 { city: 'Naters',             canton: 'VS', postalCode: '3904', addressRegion: 'VS' },
   'bls':                          { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
   'berner-montage':               { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },

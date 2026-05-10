@@ -102,15 +102,15 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Valais keywords for URL/location filtering ──────────── */
-
-const VALAIS_KEYWORDS = [
-  'wallis', 'valais', 'oberwallis', 'unterwallis',
-  'brig', 'visp', 'sion', 'sierre', 'martigny', 'monthey',
-  'naters', 'glis', 'st-maurice', 'saxon', 'leuk',
-];
-
 /* ── HTTP helpers ─────────────────────────────────────────── */
+
+/*
+ * Cathedral CH-wide expansion (2026-05-10):
+ * The previous `VALAIS_KEYWORDS` list pre-filtered the Mobiliar sitemap to
+ * Valais-only URLs. This blocked all non-VS jobs (BE/ZH/GE/etc.). The
+ * canton-quorum-gate downstream now handles canton classification for the
+ * full Swiss tenant, so we surface every job URL from the sitemap.
+ */
 
 const SITEMAP_URL = 'https://jobs.mobiliar.ch/sitemap.xml';
 const JOB_BASE = 'https://jobs.mobiliar.ch';
@@ -143,42 +143,23 @@ async function fetchText(url) {
 }
 
 /**
- * Parse sitemap.xml and extract job URLs for Valais locations.
+ * Parse sitemap.xml and extract ALL Swiss Mobiliar job URLs.
  * URL pattern: /job/{Location}-{Title}/{ID}/
+ *
+ * Cathedral CH-wide (2026-05-10): no location pre-filter — the
+ * canton-quorum-gate handles per-canton classification downstream.
  */
-async function fetchValaisJobUrls() {
+async function fetchAllSwissJobUrls() {
   console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
   const xml = await fetchText(SITEMAP_URL);
 
-  // Extract all <loc> URLs
+  // Extract all <loc> URLs that point at job detail pages.
   const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)]
     .map((m) => m[1].trim())
     .filter((url) => url.includes('/job/'));
 
-  console.log(`  📦 Total job URLs in sitemap: ${allUrls.length}`);
-
-  // Filter for Valais locations using the location segment from the URL.
-  // URL pattern: /job/{Location}-{rest-of-title}/{ID}/
-  // We extract the location (first word before the first dash) and also
-  // check the full slug, using word-boundary matching to avoid false
-  // positives (e.g., "sion" matching inside "Pensionskasse").
-  const valaisUrls = allUrls.filter((url) => {
-    const decoded = decodeURIComponent(url).toLowerCase();
-    const slugMatch = decoded.match(/\/job\/([^/]+)\//);
-    if (!slugMatch) return false;
-    const slug = slugMatch[1];
-    // First segment (before first dash) is typically the city
-    const city = slug.split('-')[0];
-    if (VALAIS_KEYWORDS.includes(city)) return true;
-    // Also check with word boundaries in the full slug
-    return VALAIS_KEYWORDS.some((kw) => {
-      const re = new RegExp(`(?:^|-)${kw}(?:-|$)`);
-      return re.test(slug);
-    });
-  });
-
-  console.log(`  🏔️ Valais job URLs: ${valaisUrls.length}`);
-  return valaisUrls;
+  console.log(`  📦 Total Swiss job URLs in sitemap: ${allUrls.length}`);
+  return allUrls;
 }
 
 /**
@@ -278,11 +259,11 @@ function parseDetailPage(html = '') {
 }
 
 /**
- * Fetch all die Mobiliar jobs in Valais.
+ * Fetch all die Mobiliar jobs across Switzerland (CH-wide, all 26 cantons).
  * Strategy:
- *   1. Fetch sitemap.xml and filter for Valais job URLs
+ *   1. Fetch sitemap.xml and surface every job URL
  *   2. Fetch each detail page and parse HTML
- *   3. Build ParsedJob objects
+ *   3. Build ParsedJob objects (canton-quorum-gate tags canton downstream)
  *
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -290,13 +271,13 @@ function parseDetailPage(html = '') {
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllMobiliarJobs() {
-  console.log(`🔍 Fetching die Mobiliar jobs`);
+  console.log(`🔍 Fetching die Mobiliar jobs (CH-wide, all 26 cantons)`);
   console.log(`   Source: ${CAREER_URL}`);
-  console.log(`   Strategy: Sitemap → filter Valais → detail pages\n`);
+  console.log(`   Strategy: Sitemap → all Swiss URLs → detail pages\n`);
 
-  const jobUrls = await fetchValaisJobUrls();
+  const jobUrls = await fetchAllSwissJobUrls();
   if (!jobUrls || jobUrls.length === 0) {
-    console.warn('⚠️ No Valais job URLs found in sitemap.');
+    console.warn('⚠️ No job URLs found in sitemap.');
     return [];
   }
 
@@ -316,8 +297,10 @@ export async function fetchAllMobiliarJobs() {
         continue;
       }
 
-      const location = parsed.contactCity || urlLocation || 'Wallis';
-      const canton = inferAnyCanton(location) || 'VS';
+      // Cathedral CH-wide (2026-05-10): default to Mobiliar HQ (Bern) when
+      // no city is parseable; canton-quorum-gate downstream re-classifies.
+      const location = parsed.contactCity || urlLocation || 'Bern';
+      const canton = inferAnyCanton(location) || '';
       const descriptionText = parsed.description || `${parsed.title} — die Mobiliar`;
 
       const sourceLang = detectLang(descriptionText || parsed.title, 'de');

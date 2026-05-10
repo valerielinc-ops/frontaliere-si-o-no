@@ -44,15 +44,14 @@ const PARTNER_ID = '25008';
 const SITE_ID = '5012';
 
 /**
- * Valais-area cities to filter on (formtext2 facet).
- * This list covers all UBS branches in canton Valais (VS) and nearby
- * Bernese Oberland locations (Gstaad) that are operationally Valais-adjacent.
+ * Cathedral CH-wide expansion (2026-05-10):
+ * The parser no longer applies a Taleo `formtext2` city facet — instead we
+ * fetch ALL Swiss UBS jobs (the Taleo result set is naturally Swiss because
+ * jobs.ubs.com siteid 5012 IS UBS Switzerland) and let the downstream
+ * `canton-quorum-gate` (BFS-strict + 2-of-3) tag each job's canton. This
+ * unlocks per-canton URLs for ZH, GE, BS, BE, … without hard-coding a city
+ * list.
  */
-const VALAIS_CITIES = [
-  'Brig', 'Crans', 'Gstaad', 'Martigny', 'Naters',
-  'Sion', 'Sierre', 'Susten', 'Susten-Leuk', 'Visp', 'Zermatt',
-  'Monthey', 'Verbier', 'Saas-Fee', 'Leuk',
-];
 
 /** Taleo language code → ISO 639-1 */
 const TALEO_LANG_MAP = { 1: 'en', 23: 'de', 34: 'fr', 6: 'it' };
@@ -116,31 +115,65 @@ function buildJobUrl(reqId) {
 }
 
 /**
- * Infer postal code from city name.
+ * Infer postal code from city name. Returns '' when the city is not a
+ * Valais branch we know about; the crawler normalisation step uses
+ * COMPANY_HQ defaults (UBS HQ = Zürich 8001 post-Cathedral) instead.
  */
 function inferPostalCode(city = '') {
-  return VS_POSTAL_CODES[normalize(city)] || '1950';
+  return VS_POSTAL_CODES[normalize(city)] || '';
 }
 
 /**
  * Extract the first/primary city from a potentially multi-city string.
- * e.g. "Brig, Naters, Susten, Susten-Leuk, Visp, Zermatt" → "Brig"
+ * e.g. "Brig, Naters, Susten, Susten-Leuk, Visp, Zermatt" → "Brig".
+ * Returns '' when the source field is empty (canton-quorum-gate handles
+ * blank locations downstream).
  */
 function primaryCity(cityStr = '') {
-  return normalizeSpace(cityStr.split(',')[0]) || 'Sion';
+  return normalizeSpace(cityStr.split(',')[0]);
 }
 
 /**
  * Infer canton from the city + region string.
- * Taleo formtext23 uses patterns like "Schweiz - Valais", "Suisse - Valais".
+ * Taleo formtext23 uses patterns like "Schweiz - Zürich", "Suisse - Genève",
+ * "Schweiz - Valais". CH-wide post-Cathedral: detect all 26 cantons via
+ * canton names (DE/FR/IT/EN aliases) before falling back to the shared
+ * inference helper. Returns '' when undetermined — canton-quorum-gate
+ * downstream handles blank canton tags.
  */
 function inferCanton(city = '', region = '') {
   const lower = normalize(`${city} ${region}`);
-  if (lower.includes('valais') || lower.includes('wallis') || lower.includes('oberwallis')) return 'VS';
-  // Gstaad is in Berne (BE) but UBS classifies it under Mittelland
+  // Region-string canton heuristics — Taleo uses "Schweiz - {Canton}".
+  if (lower.includes('valais') || lower.includes('wallis')) return 'VS';
+  if (lower.includes('zurich') || lower.includes('zürich') || lower.includes('zuerich')) return 'ZH';
+  if (lower.includes('geneva') || lower.includes('geneve') || lower.includes('genève') || lower.includes('genf')) return 'GE';
+  if (lower.includes('basel-stadt') || lower.includes('bâle-ville')) return 'BS';
+  if (lower.includes('basel-land') || lower.includes('bâle-campagne')) return 'BL';
+  if (lower.includes('vaud') || lower.includes('waadt')) return 'VD';
+  if (lower.includes('ticino') || lower.includes('tessin')) return 'TI';
+  if (lower.includes('graub') || lower.includes('grigion') || lower.includes('grisons')) return 'GR';
+  if (lower.includes('bern') || lower.includes('berne')) return 'BE';
+  if (lower.includes('lucerne') || lower.includes('luzern')) return 'LU';
+  if (lower.includes('aargau') || lower.includes('argovi')) return 'AG';
+  if (lower.includes('st.gall') || lower.includes('saint-gall') || lower.includes('san gallo')) return 'SG';
+  if (lower.includes('fribourg') || lower.includes('freiburg') || lower.includes('friburgo')) return 'FR';
+  if (lower.includes('neuchât') || lower.includes('neuchat') || lower.includes('neuenburg')) return 'NE';
+  if (lower.includes('jura')) return 'JU';
+  if (lower.includes('schaffhaus')) return 'SH';
+  if (lower.includes('thurgau') || lower.includes('thurgovie')) return 'TG';
+  if (lower.includes('solothurn') || lower.includes('soleure')) return 'SO';
+  if (lower.includes('schwyz')) return 'SZ';
+  if (lower.includes('zug') || lower.includes('zoug')) return 'ZG';
+  if (lower.includes('uri')) return 'UR';
+  if (lower.includes('glarus') || lower.includes('glaris')) return 'GL';
+  if (lower.includes('appenzell-ausserrhoden') || lower.includes('appenzell ar')) return 'AR';
+  if (lower.includes('appenzell-innerrhoden') || lower.includes('appenzell ai')) return 'AI';
+  if (lower.includes('obwalden')) return 'OW';
+  if (lower.includes('nidwalden')) return 'NW';
+  // Gstaad is in Berne (BE).
   if (lower.includes('gstaad')) return 'BE';
-  // Try the shared inference function
-  return inferAnyCanton(city) || inferAnyCanton(region) || 'VS';
+  // Try the shared inference function (returns a canton code or null).
+  return inferAnyCanton(city) || inferAnyCanton(region) || '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -267,24 +300,23 @@ async function bootstrapSession() {
 /* ── API Client ────────────────────────────────────────────── */
 
 /**
- * Call the Taleo MatchedJobs endpoint with city facet filters.
+ * Call the Taleo MatchedJobs endpoint with optional pagination.
+ *
+ * Cathedral CH-wide expansion (2026-05-10): no city facet is applied —
+ * the unfiltered result on jobs.ubs.com siteid=5012 is the full Swiss
+ * UBS tenant across 26 cantons.
  *
  * @param {string} cookies - Session cookies from bootstrapSession
  * @param {string} rft - CSRF token from bootstrapSession
- * @param {string[]} cities - City names to filter on
+ * @param {object} [options]
+ * @param {number} [options.startRow=0] First (0-indexed) row to return
+ * @param {number} [options.endRow=25]  Last (exclusive) row to return
  * @returns {Promise<{jobs: object[], totalCount: number}>}
  */
-async function searchJobs(cookies, rft, cities) {
+async function searchJobs(cookies, rft, { startRow = 0, endRow = 25 } = {}) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  // Build city facet filter
-  const cityOptions = cities.map((city) => ({
-    OptionName: city,
-    OptionValue: city,
-    Selected: true,
-  }));
 
   const requestBody = {
     PartnerId: PARTNER_ID,
@@ -293,17 +325,15 @@ async function searchJobs(cookies, rft, cities) {
     Location: '',
     KeywordCustomSolrFields: '',
     LocationCustomSolrFields: '',
-    FacetFilterFields: {
-      Facet: [{
-        Name: 'formtext2',
-        Options: cityOptions,
-      }],
-    },
+    // No facet filter — fetch the full Swiss tenant result set.
+    FacetFilterFields: { Facet: [] },
     TurnOffHttps: false,
     Latitude: 0,
     Longitude: 0,
     PowerSearchOptions: { PowerSearchOption: [] },
     encryptedsessionvalue: '',
+    StartRow: startRow,
+    EndRow: endRow,
   };
 
   try {
@@ -423,41 +453,69 @@ function buildJobFromTaleo(taleoJob) {
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
- * Fetch all UBS jobs in the Valais region.
+ * Fetch all UBS jobs across Switzerland (26 cantons, no city facet).
  * Returns an array of ParsedJob objects (source-locale only).
+ *
+ * Cathedral CH-wide expansion (2026-05-10): the city facet was removed —
+ * we paginate the full tenant result set in 25-row windows. The
+ * canton-quorum-gate (BFS-strict + 2-of-3) downstream classifies each
+ * job's canton for per-canton URL routing.
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllUbsJobs() {
-  console.log(`🔍 Fetching UBS jobs from Taleo API`);
-  console.log(`   Portal: ${SEARCH_PAGE_URL}`);
-  console.log(`   Filtering by Valais cities: ${VALAIS_CITIES.join(', ')}\n`);
+  console.log(`🔍 Fetching UBS jobs from Taleo API (CH-wide, all 26 cantons)`);
+  console.log(`   Portal: ${SEARCH_PAGE_URL}\n`);
 
   // Step 1: Bootstrap session (cookies + CSRF token)
   console.log('  🔐 Bootstrapping Taleo session...');
   const { cookies, rft } = await bootstrapSession();
   console.log('  ✅ Session established\n');
 
-  // Step 2: Search for jobs in Valais cities
-  console.log('  📄 Searching for Valais jobs...');
-  const { jobs: taleoJobs, totalCount } = await searchJobs(cookies, rft, VALAIS_CITIES);
-  console.log(`  📋 Taleo returned ${taleoJobs.length} jobs (total: ${totalCount})\n`);
+  // Step 2: Paginated walk of the whole Swiss tenant.
+  console.log('  📄 Searching for all Swiss UBS jobs (paginated)...');
+  const PAGE_SIZE = 25;
+  const MAX_PAGES = 100; // Hard cap = 2,500 jobs (UBS Switzerland posts ~700-1,200 simultaneously).
+  const allTaleoJobs = [];
+  let total = 0;
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const startRow = page * PAGE_SIZE;
+    const endRow = startRow + PAGE_SIZE;
+    let res;
+    try {
+      // eslint-disable-next-line no-await-in-loop
+      res = await searchJobs(cookies, rft, { startRow, endRow });
+    } catch (err) {
+      console.warn(`  ⚠️ Page ${page} (rows ${startRow}-${endRow}) failed: ${err?.message || err}`);
+      break;
+    }
+    const { jobs: pageJobs, totalCount } = res;
+    if (page === 0) total = totalCount;
+    if (!pageJobs.length) break;
+    allTaleoJobs.push(...pageJobs);
+    console.log(`    page ${page + 1}: +${pageJobs.length} (running total ${allTaleoJobs.length}/${total || '?'})`);
+    if (allTaleoJobs.length >= total && total > 0) break;
+    // Polite delay between pages.
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => setTimeout(r, 250));
+  }
+  console.log(`  📋 Taleo returned ${allTaleoJobs.length} jobs (reported total: ${total})\n`);
 
-  if (!taleoJobs.length) {
+  if (!allTaleoJobs.length) {
     console.warn('⚠️ No job listings returned from Taleo.');
     return [];
   }
 
   // Step 3: Build ParsedJob objects
   const jobs = [];
-  for (const taleoJob of taleoJobs) {
+  for (const taleoJob of allTaleoJobs) {
     const job = buildJobFromTaleo(taleoJob);
     if (job) {
       jobs.push(job);
     }
   }
 
-  console.log(`\n📋 Total UBS Valais jobs: ${jobs.length}`);
+  console.log(`\n📋 Total UBS Swiss jobs: ${jobs.length}`);
   return jobs;
 }
