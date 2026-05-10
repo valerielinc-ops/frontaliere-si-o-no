@@ -2853,23 +2853,39 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  case 'press-kit':
  return finish(`${prefix}/${table.pressKit}${hashSuffix}`);
  case 'job-board': {
+ // P1.3 cathedral: per-canton + aggregator URL emission. Resolves jobBoard
+ // base segment from route.jobBoardCanton (2-letter ISO code or
+ // _AGGREGATE_ sentinel). Falls back to legacy table.jobBoard (TI default)
+ // when canton not set, preserving backward-compat for all existing
+ // /cerca-lavoro-ticino/{slug} URLs.
+ const jobBoardLocale = lang as 'it' | 'en' | 'de' | 'fr';
+ const jobBoardBase = route.jobBoardCanton
+ ? (route.jobBoardCanton === JOB_BOARD_CANTON_AGGREGATE
+ ? getAggregatorJobBoardSlug(jobBoardLocale)
+ : getJobBoardSlugForCanton(route.jobBoardCanton, jobBoardLocale))
+ : table.jobBoard;
  // When a sector hub is set, emit the clean canonical URL
  // (e.g. /cerca-lavoro-ticino/infermieri/). Precedes jobSlug so
  // Google indexes the clean sector hub URL as canonical.
  if (route.jobBoardSector && SECTOR_HUB_SLUG[lang as keyof typeof SECTOR_HUB_SLUG]) {
  const sectorSlug = SECTOR_HUB_SLUG[lang as keyof typeof SECTOR_HUB_SLUG][route.jobBoardSector];
- return finish(`${prefix}/${table.jobBoard}/${sectorSlug}${hashSuffix}`);
+ return finish(`${prefix}/${jobBoardBase}/${sectorSlug}${hashSuffix}`);
  }
  // When a geo-hub city is set, emit the clean canonical URL
  // (e.g. /cerca-lavoro-ticino/lugano/) — this takes precedence
  // over jobSlug so Google indexes the clean URL as canonical.
- if (route.jobBoardCity && CITY_HUB_SLUG[lang as keyof typeof CITY_HUB_SLUG]) {
- const citySlug = CITY_HUB_SLUG[lang as keyof typeof CITY_HUB_SLUG][route.jobBoardCity];
- return finish(`${prefix}/${table.jobBoard}/${citySlug}${hashSuffix}`);
+ // jobBoardCity is now string (P1.3 widening); legacy CITY_HUB_SLUG only
+ // holds TI cities, fallback to direct emission for new-canton cities.
+ if (route.jobBoardCity) {
+ const cityTable = CITY_HUB_SLUG[lang as keyof typeof CITY_HUB_SLUG];
+ const citySlug = cityTable
+ ? (cityTable as Record<string, string>)[route.jobBoardCity]
+ : undefined;
+ return finish(`${prefix}/${jobBoardBase}/${citySlug || route.jobBoardCity}${hashSuffix}`);
  }
  return finish(route.jobSlug
- ? `${prefix}/${table.jobBoard}/${localizeEditorialJobSlug(route.jobSlug) || route.jobSlug}${hashSuffix}`
- : `${prefix}/${table.jobBoard}${hashSuffix}`);
+ ? `${prefix}/${jobBoardBase}/${localizeEditorialJobSlug(route.jobSlug) || route.jobSlug}${hashSuffix}`
+ : `${prefix}/${jobBoardBase}${hashSuffix}`);
  }
  case 'profile':
  return finish(`${prefix}/${table.profile}${hashSuffix}`);
