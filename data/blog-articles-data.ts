@@ -23312,4 +23312,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'crans-montana-audizioni-frontalieri',
+ category: 'novita',
+ date: '2026-05-10T07:43:32.240Z',
+ image: '/images/blog/crans-montana-audizioni-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

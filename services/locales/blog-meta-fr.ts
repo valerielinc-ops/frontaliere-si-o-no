@@ -7314,6 +7314,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.blitz-droga-turate-frontalieri.title': 'Raid dans les bois de la drogue : trois arrestations à Turate',
     'blog.article.blitz-droga-turate-frontalieri.excerpt': 'La police de Côme a arrêté trois Marocains en situation irrégulière pour trafic de stupéfiants sur le territoire de Turate. De la drogue et un machete ont été saisis.',
     'blog.article.blitz-droga-turate-frontalieri.imageAlt': 'Opération de police dans une zone boisée près du lac de Lugano',
+    'blog.article.crans-montana-audizioni-frontalieri.title': 'Crans-Montana: trois nouvelles auditions pour l\'incendie du Nouvel An',
+    'blog.article.crans-montana-audizioni-frontalieri.excerpt': 'Trois nouvelles auditions prévues la semaine prochaine pour l\'incendie du Nouvel An à Crans-Montana, dont deux figures politiques.',
+    'blog.article.crans-montana-audizioni-frontalieri.imageAlt': 'Vue aérienne de Crans-Montana, Suisse, avec des montagnes enneigées et un centre-ville animé.',
 };
 
 export default blogMetaFr;

@@ -1,0 +1,40 @@
+{
+  "id": "crans-montana-audizioni-frontalieri",
+  "slug": "crans-montana-audizioni-frontalieri",
+  "publishedAt": "2026-05-10T07:43:33.850Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.40580803200083,
+    "confidence": 0.8,
+    "finalScore": 5.924646425600664,
+    "topK": [
+      {
+        "slug": "crans-montana-nuovo-solco-italia-svizzera-2026",
+        "cosine": 0.870771101434987
+      },
+      {
+        "slug": "crans-montana-meloni-parmelin-2026",
+        "cosine": 0.8573464566688074
+      },
+      {
+        "slug": "ultimo-svizzero-rientra-incendio-crans-montana",
+        "cosine": 0.855031596020033
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8539210454482032
+      },
+      {
+        "slug": "pagare-vittime-crans-montana-2026",
+        "cosine": 0.8527681807134772
+      }
+    ],
+    "score": 1.481161606400166,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

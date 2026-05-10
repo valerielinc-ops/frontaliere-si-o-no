@@ -3680,6 +3680,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-ispra-frontaliere-2026': { name: 'Incidente Ispra', path: '/articoli-frontaliere/incidente-ispra-frontaliere-2026', parent: 'blog' },
     'blog-basket-openjobmetis-bologna-2026': { name: 'Basket', path: '/articoli-frontaliere/basket-openjobmetis-bologna-2026', parent: 'blog' },
     'blog-blitz-droga-turate-frontalieri': { name: 'Blitz droga Turate', path: '/articoli-frontaliere/blitz-droga-turate-frontalieri', parent: 'blog' },
+    'blog-crans-montana-audizioni-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-audizioni-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
