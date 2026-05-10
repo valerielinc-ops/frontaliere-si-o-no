@@ -138,6 +138,9 @@ describe('subscribeJobAlertOneTap', () => {
       locations: [],
       contractTypes: [],
       sectors: [],
+      // 1-tap subscriptions default to no canton filter — alert covers
+      // all 26 cantons. `null` keeps the storage shape backward-compatible.
+      cantonFilter: null,
       frequency: 'weekly',
       locale: 'it',
       active: true,

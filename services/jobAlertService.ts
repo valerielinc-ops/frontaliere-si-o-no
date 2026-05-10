@@ -21,6 +21,13 @@ export interface JobAlertConfig {
   locations: string[];
   contractTypes: string[];
   sectors: string[];
+  /**
+   * Optional 2-letter Swiss canton ISO codes to scope the alert geographically
+   * (e.g. `['TI']`, `['TI', 'GE']`). `null` or empty array = no geo filter
+   * (default behaviour: alert across all 26 cantons). Cathedral CH-wide
+   * expansion follow-up — see docs/CATHEDRAL-STATUS.md #12.
+   */
+  cantonFilter?: string[] | null;
   frequency: 'daily' | 'weekly';
   locale: 'it' | 'en' | 'de' | 'fr';
 }
@@ -56,6 +63,28 @@ async function getDb(): Promise<Firestore> {
 
 function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
+}
+
+/**
+ * Normalise the canton filter for Firestore storage and matching:
+ *  - `null` / `undefined` / empty array → `null` (= "all cantons").
+ *  - Otherwise: uppercase, dedupe, drop blanks, sort for deterministic writes.
+ *
+ * Returning `null` keeps Firestore reads backwards-compatible with subscribers
+ * created before the field existed.
+ */
+export function normalizeCantonFilter(
+  input: string[] | null | undefined,
+): string[] | null {
+  if (!input || input.length === 0) return null;
+  const cleaned = Array.from(
+    new Set(
+      input
+        .map((c) => (typeof c === 'string' ? c.trim().toUpperCase() : ''))
+        .filter((c) => c.length > 0),
+    ),
+  ).sort();
+  return cleaned.length === 0 ? null : cleaned;
 }
 
 // ── CRUD ─────────────────────────────────────────────────────
@@ -116,6 +145,7 @@ export async function createAlert(
 
   // Write the alert as a subdocument.
   const alertsRef = collection(subscriberRef, ALERTS_SUBCOLLECTION);
+  const cantonFilter = normalizeCantonFilter(config.cantonFilter);
   const docData = {
     // Denormalized fields needed for collectionGroup queries + security rules.
     email: normalizedEmail,
@@ -125,6 +155,9 @@ export async function createAlert(
     locations: config.locations,
     contractTypes: config.contractTypes,
     sectors: config.sectors,
+    // Cathedral CH-wide geo scoping. `null` = no filter (covers all 26 cantons),
+    // preserving legacy subscriber semantics.
+    cantonFilter,
     frequency: config.frequency,
     locale: config.locale || 'it',
     // State.
@@ -140,6 +173,7 @@ export async function createAlert(
     userId,
     email: normalizedEmail,
     ...config,
+    cantonFilter,
     active: true,
     createdAt: new Date(),
     lastMatchedAt: null,
@@ -176,6 +210,10 @@ export async function getUserAlerts(userId: string): Promise<JobAlert[]> {
       locations: d.locations || [],
       contractTypes: d.contractTypes || [],
       sectors: d.sectors || [],
+      // Legacy subscribers (pre-cathedral) have no `cantonFilter` field;
+      // surface them as `null` = "all cantons" so downstream consumers can
+      // treat the field as a single optional gate.
+      cantonFilter: normalizeCantonFilter(d.cantonFilter),
       frequency: d.frequency || 'daily',
       locale: d.locale || 'it',
       active: d.active,
@@ -257,6 +295,7 @@ export async function subscribeJobAlertOneTap(
     locations: [],
     contractTypes: [],
     sectors: [],
+    cantonFilter: null,
     frequency: 'weekly',
     locale,
   };
@@ -279,6 +318,11 @@ export async function updateAlert(
   if (changes.locations) updateData.locations = changes.locations;
   if (changes.contractTypes) updateData.contractTypes = changes.contractTypes;
   if (changes.sectors) updateData.sectors = changes.sectors;
+  // Use `in` so callers can deliberately clear the filter by passing
+  // `cantonFilter: null` or `[]` (both normalise to `null`).
+  if ('cantonFilter' in changes) {
+    updateData.cantonFilter = normalizeCantonFilter(changes.cantonFilter);
+  }
   if (changes.frequency) updateData.frequency = changes.frequency;
   if (changes.locale) updateData.locale = changes.locale;
 
