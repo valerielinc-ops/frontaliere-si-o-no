@@ -3689,6 +3689,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-palacinema-locarno-urgenti-2026': { name: 'Palacinema Locarno', path: '/articoli-frontaliere/palacinema-locarno-urgenti-2026', parent: 'blog' },
     'blog-venezia-ildegarda-frontalieri': { name: 'Venezia, esperienza sonora', path: '/articoli-frontaliere/venezia-ildegarda-frontalieri', parent: 'blog' },
     'blog-tre-arresti-rissa-ambrosino-cavalla': { name: 'Novità', path: '/articoli-frontaliere/tre-arresti-rissa-ambrosino-cavalla', parent: 'blog' },
+    'blog-scioperi-aerei-italia-11-maggio-2026': { name: 'Scioperi aerei', path: '/articoli-frontaliere/scioperi-aerei-italia-11-maggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

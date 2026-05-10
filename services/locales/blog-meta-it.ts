@@ -7341,6 +7341,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tre-arresti-rissa-ambrosino-cavalla.title': 'Altri tre arresti per la rissa in cui morì Enzo Ambrosino',
     'blog.article.tre-arresti-rissa-ambrosino-cavalla.excerpt': 'Nuovi sviluppi nelle indagini sull\'omicidio di Enzo Ambrosino a Induno Olona. Tre persone arrestate e una cavalla abbattuta a Castelveccana.',
     'blog.article.tre-arresti-rissa-ambrosino-cavalla.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
+    'blog.article.scioperi-aerei-italia-11-maggio-2026.title': 'Scioperi aerei in Italia: lunedì 11 maggio voli a rischio',
+    'blog.article.scioperi-aerei-italia-11-maggio-2026.excerpt': 'Lunedì 11 maggio 2026 scioperi nel trasporto aereo italiano. Voli a rischio cancellazione o ritardo. Cosa fare?',
+    'blog.article.scioperi-aerei-italia-11-maggio-2026.imageAlt': 'Aeroporto di Malpensa con aerei sulla pista e passeggeri nel terminal',
 };
 
 export default blogMetaIt;

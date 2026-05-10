@@ -7341,6 +7341,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tre-arresti-rissa-ambrosino-cavalla.title': 'Trois nouvelles arrestations pour la rixe mortelle d\'Enzo Ambrosino',
     'blog.article.tre-arresti-rissa-ambrosino-cavalla.excerpt': 'Nouveaux développements dans l\'enquête sur le meurtre d\'Enzo Ambrosino à Induno Olona. Trois personnes arrêtées et un cheval abattu à Castelveccana.',
     'blog.article.tre-arresti-rissa-ambrosino-cavalla.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.scioperi-aerei-italia-11-maggio-2026.title': 'Grèves aériennes en Italie : vols à risque le 11 mai',
+    'blog.article.scioperi-aerei-italia-11-maggio-2026.excerpt': 'Lundi 11 mai 2026, grève dans le transport aérien italien. Risques d\'annulation ou de retard. Que faire ?',
+    'blog.article.scioperi-aerei-italia-11-maggio-2026.imageAlt': 'Aéroport de Malpensa avec des avions sur la piste et des passagers dans le terminal',
 };
 
 export default blogMetaFr;
