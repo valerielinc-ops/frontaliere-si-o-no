@@ -1882,10 +1882,10 @@
     },
     {
       "id": "mobiliar-15291c509aaf",
-      "slug": "devsecops-engineer-w-m-d-mobiliar-ch",
+      "slug": "devsecops-ingegnere-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "devsecops-engineer-w-m-d-mobiliar-ch",
-        "it": "devsecops-engineer-w-m-d-mobiliar-ch",
+        "it": "devsecops-ingegnere-w-m-d-die-mobiliar-bern",
         "en": "devsecops-engineer-w-m-d-die-mobiliar-bern",
         "fr": "devsecops-engineer-w-m-d-mobiliar-ch"
       },
@@ -1964,7 +1964,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T22:09:37.439Z"
+      "firstSeenAt": "2026-05-10T22:09:37.439Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devsecops-engineer-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "devsecops-engineer-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-6cc6d09050ca",
@@ -4777,12 +4785,12 @@
     },
     {
       "id": "mobiliar-96c841c43440",
-      "slug": "cobol-developer-w-m-d-mobiliar-ch",
+      "slug": "cobol-sviluppatore-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "cobol-developer-w-m-d-mobiliar-ch",
-        "it": "cobol-developer-w-m-d-mobiliar-ch",
+        "it": "cobol-sviluppatore-w-m-d-die-mobiliar-bern",
         "en": "cobol-developer-w-m-d-die-mobiliar-bern",
-        "fr": "cobol-developer-w-m-d-mobiliar-ch"
+        "fr": "cobol-developpeur-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -4855,7 +4863,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T22:09:07.944Z"
+      "firstSeenAt": "2026-05-10T22:09:07.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cobol-developer-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "cobol-developer-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cobol-developer-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-159181495f70",

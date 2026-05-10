@@ -8,8 +8,8 @@
       "slugByLocale": {
         "en": "phd-position-at-the-chair-of-policy-sustainability-pasu-epfl-lausanne",
         "it": "phd-position-at-the-chair-of-policy-sustainability-pasu-epfl-lausanne",
-        "de": "phd-position-at-the-chair-of-policy-sustainability-pasu-epfl-lausanne",
-        "fr": "phd-position-at-the-chair-of-policy-sustainability-pasu-epfl-lausanne"
+        "de": "phd-position-am-lehrstuhl-fur-politik-nachhaltigkeit-pasu-epfl-lausanne",
+        "fr": "doctorat-a-la-chaire-de-politique-et-de-durabilite-pasu-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -74,8 +74,8 @@
       "slugByLocale": {
         "en": "phd-in-additive-manufacturing-of-electrohydrodynamic-pumps-epfl-neuchatel",
         "it": "phd-in-additive-manufacturing-of-electrohydrodynamic-pumps-epfl-neuchatel",
-        "de": "phd-in-additive-manufacturing-of-electrohydrodynamic-pumps-epfl-neuchatel",
-        "fr": "phd-in-additive-manufacturing-of-electrohydrodynamic-pumps-epfl-neuchatel"
+        "de": "phd-in-der-additiven-fertigung-von-elektrohydrodynamischen-pumpen-epfl-neuchatel",
+        "fr": "doctorat-en-fabrication-additive-de-pompes-electrohydrodynamiques-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -204,10 +204,10 @@
       "id": "epfl-b0cd92a73585",
       "slug": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
       "slugByLocale": {
-        "fr": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
+        "fr": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
         "it": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
         "en": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
-        "de": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+        "de": "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -284,10 +284,10 @@
       "id": "epfl-ad8241ec0d43",
       "slug": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2",
       "slugByLocale": {
-        "fr": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
+        "fr": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-aab331",
         "it": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2",
         "en": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2",
-        "de": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2"
+        "de": "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne-aab331"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -344,7 +344,15 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-10T21:32:10.756Z"
+      "firstSeenAt": "2026-05-10T21:32:10.756Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-785c509f481d",
@@ -418,8 +426,8 @@
       "slugByLocale": {
         "fr": "specialiste-systeme-bi-epfl-lausanne",
         "it": "specialiste-systeme-bi-epfl-lausanne",
-        "en": "specialiste-systeme-bi-epfl-lausanne",
-        "de": "specialiste-systeme-bi-epfl-lausanne"
+        "en": "bi-system-specialist-epfl-lausanne",
+        "de": "bi-systemspezialist-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -484,7 +492,7 @@
       "slugByLocale": {
         "fr": "un-e-technicien-e-de-maintenance-en-couches-minces-pvd-cvd-epfl-lausanne",
         "it": "un-e-technicien-e-de-maintenance-en-couches-minces-pvd-cvd-epfl-lausanne",
-        "en": "un-e-technicien-e-de-maintenance-en-couches-minces-pvd-cvd-epfl-lausanne",
+        "en": "a-thin-layer-maintenance-technician-pvd-cvd-epfl-lausanne",
         "de": "un-e-technicien-e-de-maintenance-en-couches-minces-pvd-cvd-epfl-lausanne"
       },
       "company": "EPFL",
@@ -617,7 +625,7 @@
         "fr": "post-doc-on-topology-optimization-epfl-lausanne",
         "it": "post-doc-on-topology-optimization-epfl-lausanne",
         "en": "post-doc-on-topology-optimization-epfl-lausanne",
-        "de": "post-doc-on-topology-optimization-epfl-lausanne"
+        "de": "postdoc-zur-topologieoptimierung-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -683,7 +691,7 @@
         "fr": "postdoc-on-protein-evolution-epfl-lausanne",
         "it": "postdoc-on-protein-evolution-epfl-lausanne",
         "en": "postdoc-on-protein-evolution-epfl-lausanne",
-        "de": "postdoc-on-protein-evolution-epfl-lausanne"
+        "de": "postdoc-zur-proteinentwicklung-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -746,7 +754,7 @@
       "id": "epfl-8311da8ab412",
       "slug": "test-engineer-senior-projet-plexus1-epfl-lausanne",
       "slugByLocale": {
-        "fr": "test-engineer-senior-projet-plexus1-epfl-lausanne",
+        "fr": "ingenieur-d-essais-projet-principal-plexus1-epfl-lausanne",
         "it": "test-engineer-senior-projet-plexus1-epfl-lausanne",
         "en": "test-engineer-senior-projet-plexus1-epfl-lausanne",
         "de": "test-engineer-senior-projet-plexus1-epfl-lausanne"
@@ -814,7 +822,7 @@
       "slugByLocale": {
         "en": "head-of-library-services-and-archives-epfl-lausanne",
         "it": "head-of-library-services-and-archives-epfl-lausanne",
-        "de": "head-of-library-services-and-archives-epfl-lausanne",
+        "de": "leiter-bibliotheksdienste-und-archive-epfl-lausanne",
         "fr": "head-of-library-services-and-archives-epfl-lausanne"
       },
       "company": "EPFL",
@@ -878,10 +886,10 @@
       "id": "epfl-2f5e644659ac",
       "slug": "phd-student-in-multi-agent-reinforcement-learning-for-health-aware-control-epfl-lausanne",
       "slugByLocale": {
-        "de": "phd-student-in-multi-agent-reinforcement-learning-for-health-aware-control-epfl-lausanne",
+        "de": "phd-studierende-in-multi-agent-verstarkungslernen-fur-die-gesundheitsuberwachung-epfl-lausanne",
         "it": "phd-student-in-multi-agent-reinforcement-learning-for-health-aware-control-epfl-lausanne",
         "en": "phd-student-in-multi-agent-reinforcement-learning-for-health-aware-control-epfl-lausanne",
-        "fr": "phd-student-in-multi-agent-reinforcement-learning-for-health-aware-control-epfl-lausanne"
+        "fr": "doctorat-etudiant-en-renforcement-multi-agent-apprentissage-pour-le-controle-de-la-sante-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -946,7 +954,7 @@
       "slugByLocale": {
         "it": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
         "en": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
-        "de": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
+        "de": "postdoc-in-photoelektrochemie-und-korrosion-epfl-lausanne",
         "fr": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne"
       },
       "company": "EPFL",
@@ -1013,7 +1021,7 @@
         "en": "software-engineer-position-for-scientific-ai-epfl-geneve",
         "it": "software-engineer-position-for-scientific-ai-epfl-geneve",
         "de": "software-engineer-position-for-scientific-ai-epfl-geneve",
-        "fr": "software-engineer-position-for-scientific-ai-epfl-geneve"
+        "fr": "poste-d-ingenieur-logiciel-pour-l-ia-scientifique-epfl-geneve"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1142,7 +1150,7 @@
       "id": "epfl-ea3995963306",
       "slug": "postdoctoral-researcher-research-engineer-epfl-lausanne",
       "slugByLocale": {
-        "fr": "postdoctoral-researcher-research-engineer-epfl-lausanne",
+        "fr": "chercheur-postdoctoral-ingenieur-de-recherche-epfl-lausanne",
         "it": "postdoctoral-researcher-research-engineer-epfl-lausanne",
         "en": "postdoctoral-researcher-research-engineer-epfl-lausanne",
         "de": "postdoctoral-researcher-research-engineer-epfl-lausanne"
@@ -1211,7 +1219,7 @@
         "fr": "generaliste-experience-employe-es-epfl-lausanne",
         "it": "generaliste-experience-employe-es-epfl-lausanne",
         "en": "generaliste-experience-employe-es-epfl-lausanne",
-        "de": "generaliste-experience-employe-es-epfl-lausanne"
+        "de": "mitarbeiter-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1276,8 +1284,8 @@
       "slugByLocale": {
         "it": "research-collaborator-epfl-fribourg",
         "en": "research-collaborator-epfl-fribourg",
-        "de": "research-collaborator-epfl-fribourg",
-        "fr": "research-collaborator-epfl-fribourg"
+        "de": "forschungskooperation-epfl-fribourg",
+        "fr": "collaborateur-de-recherche-epfl-fribourg"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1408,8 +1416,8 @@
       "slugByLocale": {
         "it": "postdoctoral-researcher-in-building-technology-epfl-fribourg",
         "en": "postdoctoral-researcher-in-building-technology-epfl-fribourg",
-        "de": "postdoctoral-researcher-in-building-technology-epfl-fribourg",
-        "fr": "postdoctoral-researcher-in-building-technology-epfl-fribourg"
+        "de": "postdoktorandin-fur-bautechnik-epfl-fribourg",
+        "fr": "chercheur-postdoctoral-en-technologie-du-batiment-epfl-fribourg"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1474,8 +1482,8 @@
       "slugByLocale": {
         "en": "phd-student-in-physics-informed-graph-neural-networks-for-wind-turbine-health-monitoring-e",
         "it": "phd-student-in-physics-informed-graph-neural-networks-for-wind-turbine-health-monitoring-e",
-        "de": "phd-student-in-physics-informed-graph-neural-networks-for-wind-turbine-health-monitoring-e",
-        "fr": "phd-student-in-physics-informed-graph-neural-networks-for-wind-turbine-health-monitoring-e"
+        "de": "phd-studierende-in-physik-informiertem-graph-neural-networks-fur-windkraftanlagen-gesundheitsuberwachung-epfl-lausanne",
+        "fr": "doctorant-en-physique-informed-graph-reseaux-neuronaux-pour-la-surveillance-de-la-sante-des-turbines-eoliennes-epfl-laus"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1541,7 +1549,7 @@
         "fr": "programme-manager-epfl-lausanne",
         "it": "programme-manager-epfl-lausanne",
         "en": "programme-manager-epfl-lausanne",
-        "de": "programme-manager-epfl-lausanne"
+        "de": "programmleiter-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1606,8 +1614,8 @@
       "slugByLocale": {
         "it": "laboratory-technician-in-molecular-microbiology-epfl-lausanne",
         "en": "laboratory-technician-in-molecular-microbiology-epfl-lausanne",
-        "de": "laboratory-technician-in-molecular-microbiology-epfl-lausanne",
-        "fr": "laboratory-technician-in-molecular-microbiology-epfl-lausanne"
+        "de": "labortechniker-in-der-molekularen-mikrobiologie-epfl-lausanne",
+        "fr": "technicien-de-laboratoire-en-microbiologie-moleculaire-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1670,10 +1678,10 @@
       "id": "epfl-4e260bfdc672",
       "slug": "postdoctoral-researcher-in-novel-ferro-electric-photonic-integrated-circuits-epfl-lausanne",
       "slugByLocale": {
-        "de": "postdoctoral-researcher-in-novel-ferro-electric-photonic-integrated-circuits-epfl-lausanne",
+        "de": "postdoctoral-researcher-in-neuartigen-ferro-elektrischen-integrierten-schaltungen-epfl-lausanne",
         "it": "postdoctoral-researcher-in-novel-ferro-electric-photonic-integrated-circuits-epfl-lausanne",
         "en": "postdoctoral-researcher-in-novel-ferro-electric-photonic-integrated-circuits-epfl-lausanne",
-        "fr": "postdoctoral-researcher-in-novel-ferro-electric-photonic-integrated-circuits-epfl-lausanne"
+        "fr": "chercheur-postdoctoral-dans-les-nouveaux-circuits-photoniques-integres-ferro-electriques-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1738,8 +1746,8 @@
       "slugByLocale": {
         "en": "phd-position-in-novel-ferro-electric-photonic-integrated-circuits-epfl-lausanne",
         "it": "phd-position-in-novel-ferro-electric-photonic-integrated-circuits-epfl-lausanne",
-        "de": "phd-position-in-novel-ferro-electric-photonic-integrated-circuits-epfl-lausanne",
-        "fr": "phd-position-in-novel-ferro-electric-photonic-integrated-circuits-epfl-lausanne"
+        "de": "phd-position-in-neuartigen-ferro-elektrischen-integrierten-schaltungen-epfl-lausanne",
+        "fr": "doctorat-en-nouveaux-circuits-integres-photoniques-ferro-electriques-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1802,10 +1810,10 @@
       "id": "epfl-7a673486ee53",
       "slug": "technician-mouse-surgery-neuroscience-epfl-lausanne",
       "slugByLocale": {
-        "fr": "technician-mouse-surgery-neuroscience-epfl-lausanne",
+        "fr": "technicien-chirurgie-de-la-souris-et-neuroscience-epfl-lausanne",
         "it": "technician-mouse-surgery-neuroscience-epfl-lausanne",
         "en": "technician-mouse-surgery-neuroscience-epfl-lausanne",
-        "de": "technician-mouse-surgery-neuroscience-epfl-lausanne"
+        "de": "techniker-mauschirurgie-neurowissenschaften-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2000,10 +2008,10 @@
       "id": "epfl-296fccf3ab3f",
       "slug": "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
       "slugByLocale": {
-        "fr": "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
+        "fr": "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion",
         "it": "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
         "en": "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
-        "de": "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion"
+        "de": "forschungsingenieur-in-atmospharischen-messungen-in-extremen-umgebungen-epfl-sion"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2068,8 +2076,8 @@
       "slugByLocale": {
         "it": "phd-position-in-precision-metrology-of-millimeterwave-signals-using-integrated-photonics-e",
         "en": "phd-position-in-precision-metrology-of-millimeterwave-signals-using-integrated-photonics-e",
-        "de": "phd-position-in-precision-metrology-of-millimeterwave-signals-using-integrated-photonics-e",
-        "fr": "phd-position-in-precision-metrology-of-millimeterwave-signals-using-integrated-photonics-e"
+        "de": "phd-position-in-der-prazisionsmesstechnik-von-millimeterwellensignalen-mittels-integrierter-photonik-epfl-lausanne",
+        "fr": "doctorat-en-metrologie-de-precision-des-signaux-d-ondes-millimetriques-utilisant-la-photonique-integree-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2135,7 +2143,7 @@
         "en": "it-support-technician-epfl-lausanne",
         "it": "it-support-technician-epfl-lausanne",
         "de": "it-support-technician-epfl-lausanne",
-        "fr": "it-support-technician-epfl-lausanne"
+        "fr": "technicien-du-soutien-informatique-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2201,7 +2209,7 @@
         "en": "postdoc-in-neural-decoding-and-closed-loop-neuromodulation-for-neurodegenerative-disorders",
         "it": "postdoc-in-neural-decoding-and-closed-loop-neuromodulation-for-neurodegenerative-disorders",
         "de": "postdoc-in-neural-decoding-and-closed-loop-neuromodulation-for-neurodegenerative-disorders",
-        "fr": "postdoc-in-neural-decoding-and-closed-loop-neuromodulation-for-neurodegenerative-disorders"
+        "fr": "postdoc-dans-le-decodage-neuronal-et-la-neuromodulation-en-boucle-fermee-pour-les-troubles-neurodegeneratifs-epfl-geneve"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2266,8 +2274,8 @@
       "slugByLocale": {
         "fr": "chef-fe-du-service-de-comptabilite-epfl-lausanne",
         "it": "chef-fe-du-service-de-comptabilite-epfl-lausanne",
-        "en": "chef-fe-du-service-de-comptabilite-epfl-lausanne",
-        "de": "chef-fe-du-service-de-comptabilite-epfl-lausanne"
+        "en": "chief-accounting-officer-epfl-lausanne",
+        "de": "geschaftsfuhrer-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2396,10 +2404,10 @@
       "id": "epfl-c4257b0432ac",
       "slug": "phd-in-iontronic-materials-epfl-lausanne",
       "slugByLocale": {
-        "fr": "phd-in-iontronic-materials-epfl-lausanne",
+        "fr": "doctorat-en-materiaux-iontroniques-epfl-lausanne",
         "it": "phd-in-iontronic-materials-epfl-lausanne",
         "en": "phd-in-iontronic-materials-epfl-lausanne",
-        "de": "phd-in-iontronic-materials-epfl-lausanne"
+        "de": "promotion-in-iontronic-materialien-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2464,7 +2472,7 @@
       "slugByLocale": {
         "it": "field-strategist-future-food-factory-epfl-lausanne",
         "en": "field-strategist-future-food-factory-epfl-lausanne",
-        "de": "field-strategist-future-food-factory-epfl-lausanne",
+        "de": "feldstratege-zukunftige-lebensmittelfabrik-epfl-lausanne",
         "fr": "field-strategist-future-food-factory-epfl-lausanne"
       },
       "company": "EPFL",
@@ -2596,8 +2604,8 @@
       "slugByLocale": {
         "fr": "apprenti-e-automaticien-ne-epfl-lausanne",
         "it": "apprenti-e-automaticien-ne-epfl-lausanne",
-        "en": "apprenti-e-automaticien-ne-epfl-lausanne",
-        "de": "apprenti-e-automaticien-ne-epfl-lausanne"
+        "en": "automatic-learning-epfl-lausanne",
+        "de": "automatisches-lernen-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2860,8 +2868,8 @@
       "slugByLocale": {
         "en": "phd-student-position-in-operations-economics-and-strategy-epfl-lausanne",
         "it": "phd-student-position-in-operations-economics-and-strategy-epfl-lausanne",
-        "de": "phd-student-position-in-operations-economics-and-strategy-epfl-lausanne",
-        "fr": "phd-student-position-in-operations-economics-and-strategy-epfl-lausanne"
+        "de": "doktorandenposition-in-betrieb-wirtschaft-und-strategie-epfl-lausanne",
+        "fr": "poste-d-etudiant-au-doctorat-en-operations-economie-et-strategie-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2926,8 +2934,8 @@
       "slugByLocale": {
         "fr": "conseiller-ere-pedagogique-epfl-lausanne",
         "it": "conseiller-ere-pedagogique-epfl-lausanne",
-        "en": "conseiller-ere-pedagogique-epfl-lausanne",
-        "de": "conseiller-ere-pedagogique-epfl-lausanne"
+        "en": "educational-adviser-epfl-lausanne",
+        "de": "bildungsberater-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2992,7 +3000,7 @@
       "slugByLocale": {
         "it": "postdoctoral-researcher-epfl-lausanne",
         "en": "postdoctoral-researcher-epfl-lausanne",
-        "de": "postdoctoral-researcher-epfl-lausanne",
+        "de": "postdoktorand-epfl-lausanne",
         "fr": "postdoctoral-researcher-epfl-lausanne"
       },
       "company": "EPFL",
@@ -3122,7 +3130,7 @@
       "id": "epfl-8cfe9b1d2e87",
       "slug": "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
       "slugByLocale": {
-        "fr": "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
+        "fr": "poste-de-doctorat-gestion-forestiere-dans-les-alpes-suisses-epfl-sion",
         "it": "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
         "en": "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
         "de": "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion"
@@ -3190,8 +3198,8 @@
       "slugByLocale": {
         "en": "phd-in-reversible-assemblies-for-sustainable-construction-epfl-fribourg",
         "it": "phd-in-reversible-assemblies-for-sustainable-construction-epfl-fribourg",
-        "de": "phd-in-reversible-assemblies-for-sustainable-construction-epfl-fribourg",
-        "fr": "phd-in-reversible-assemblies-for-sustainable-construction-epfl-fribourg"
+        "de": "promotion-in-reversible-assemblies-fur-nachhaltige-bauweise-epfl-fribourg",
+        "fr": "doctorat-en-assemblees-reversibles-pour-la-construction-durable-epfl-fribourg"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3257,7 +3265,7 @@
         "en": "phd-engineering-a-microfluidic-platform-for-next-generation-live-seq-epfl-lausanne",
         "it": "phd-engineering-a-microfluidic-platform-for-next-generation-live-seq-epfl-lausanne",
         "de": "phd-engineering-a-microfluidic-platform-for-next-generation-live-seq-epfl-lausanne",
-        "fr": "phd-engineering-a-microfluidic-platform-for-next-generation-live-seq-epfl-lausanne"
+        "fr": "doctorat-ingenierie-a-la-plateforme-microfluidique-pour-la-prochaine-generation-live-seq-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3388,7 +3396,7 @@
       "slugByLocale": {
         "en": "operational-director-epfl-hydraulic-machinery-platform-epfl-epfl-lausanne",
         "it": "operational-director-epfl-hydraulic-machinery-platform-epfl-epfl-lausanne",
-        "de": "operational-director-epfl-hydraulic-machinery-platform-epfl-epfl-lausanne",
+        "de": "betriebsleiter-epfl-hydraulische-maschinenplattform-ep-epfl-lausanne",
         "fr": "operational-director-epfl-hydraulic-machinery-platform-epfl-epfl-lausanne"
       },
       "company": "EPFL",
@@ -3452,7 +3460,7 @@
       "id": "epfl-c5411fbc1885",
       "slug": "postdoctoral-researcher-in-human-stress-motivation-and-translational-biomarkers-epfl-lausa",
       "slugByLocale": {
-        "fr": "postdoctoral-researcher-in-human-stress-motivation-and-translational-biomarkers-epfl-lausa",
+        "fr": "chercheur-postdoctoral-sur-le-stress-humain-la-motivation-et-les-biomarqueurs-translationnels-epfl-lausanne",
         "it": "postdoctoral-researcher-in-human-stress-motivation-and-translational-biomarkers-epfl-lausa",
         "en": "postdoctoral-researcher-in-human-stress-motivation-and-translational-biomarkers-epfl-lausanne",
         "de": "postdoctoral-researcher-in-human-stress-motivation-and-translational-biomarkers-epfl-lausa"
@@ -3521,7 +3529,7 @@
         "en": "phd-multimodal-generative-ai-for-materials-design-epfl-lausanne",
         "it": "phd-multimodal-generative-ai-for-materials-design-epfl-lausanne",
         "de": "phd-multimodal-generative-ai-for-materials-design-epfl-lausanne",
-        "fr": "phd-multimodal-generative-ai-for-materials-design-epfl-lausanne"
+        "fr": "doctorat-ia-generique-multimodale-pour-la-conception-des-materiaux-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3587,7 +3595,7 @@
         "en": "phd-student-position-interfacial-imaging-of-membrane-water-epfl-lausanne",
         "it": "phd-student-position-interfacial-imaging-of-membrane-water-epfl-lausanne",
         "de": "phd-student-position-interfacial-imaging-of-membrane-water-epfl-lausanne",
-        "fr": "phd-student-position-interfacial-imaging-of-membrane-water-epfl-lausanne"
+        "fr": "poste-d-etudiant-au-doctorat-imagerie-interculturelle-de-l-eau-de-membrane-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3652,8 +3660,8 @@
       "slugByLocale": {
         "en": "phd-student-position-long-and-short-range-structure-in-electrolyte-solutions-epfl-lausanne",
         "it": "phd-student-position-long-and-short-range-structure-in-electrolyte-solutions-epfl-lausanne",
-        "de": "phd-student-position-long-and-short-range-structure-in-electrolyte-solutions-epfl-lausanne",
-        "fr": "phd-student-position-long-and-short-range-structure-in-electrolyte-solutions-epfl-lausanne"
+        "de": "doktorandenposition-lang-und-kurzstreckenstruktur-in-elektrolytlosungen-epfl-lausanne",
+        "fr": "position-d-etudiant-au-doctorat-structure-longue-et-courte-en-solutions-electrolytiques-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3719,7 +3727,7 @@
         "fr": "administrative-assistant-50-epfl-lausanne",
         "it": "administrative-assistant-50-epfl-lausanne",
         "en": "administrative-assistant-50-epfl-lausanne",
-        "de": "administrative-assistant-50-epfl-lausanne"
+        "de": "verwaltungsassistent-50-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3782,10 +3790,10 @@
       "id": "epfl-cfbb7668a908",
       "slug": "phd-position-in-technology-operations-management-epfl-lausanne",
       "slugByLocale": {
-        "fr": "phd-position-in-technology-operations-management-epfl-lausanne",
+        "fr": "poste-de-doctorat-en-gestion-de-la-technologie-et-des-operations-epfl-lausanne",
         "it": "phd-position-in-technology-operations-management-epfl-lausanne",
         "en": "phd-position-in-technology-operations-management-epfl-lausanne",
-        "de": "phd-position-in-technology-operations-management-epfl-lausanne"
+        "de": "phd-position-im-technologie-und-betriebsmanagement-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3850,7 +3858,7 @@
       "slugByLocale": {
         "en": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
         "it": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
-        "de": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
+        "de": "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne",
         "fr": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
       },
       "company": "EPFL",
@@ -3916,7 +3924,7 @@
       "slugByLocale": {
         "en": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
         "it": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-2",
-        "de": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-2",
+        "de": "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne-255f45",
         "fr": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-2"
       },
       "company": "EPFL",
@@ -3983,7 +3991,7 @@
         "en": "postdoctoral-position-in-computational-genomics-machine-learning-single-cell-biology-epfl-",
         "it": "postdoctoral-position-in-computational-genomics-machine-learning-single-cell-biology-epfl-",
         "de": "postdoctoral-position-in-computational-genomics-machine-learning-single-cell-biology-epfl-",
-        "fr": "postdoctoral-position-in-computational-genomics-machine-learning-single-cell-biology-epfl-"
+        "fr": "position-postdoctorale-en-genomique-computationnelle-apprentissage-automatique-et-biologie-monocellulaire-epfl-geneve"
       },
       "company": "EPFL",
       "companyKey": "epfl",

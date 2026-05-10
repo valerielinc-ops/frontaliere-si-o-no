@@ -2100,12 +2100,12 @@
     },
     {
       "id": "ubs-87a65b2bb9f8",
-      "slug": "equity-research-analyst-financials-ubs",
+      "slug": "equity-ricerca-analista-financials-ubs",
       "slugByLocale": {
         "en": "equity-research-analyst-financials-ubs",
-        "it": "equity-research-analyst-financials-ubs",
+        "it": "equity-ricerca-analista-financials-ubs",
         "de": "equity-research-analyst-financials-ubs",
-        "fr": "equity-research-analyst-financials-ubs"
+        "fr": "equity-recherche-analyste-financials-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2168,7 +2168,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:47.073Z"
+      "firstSeenAt": "2026-05-10T22:38:47.073Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "equity-research-analyst-financials-ubs"
+        ],
+        "fr": [
+          "equity-research-analyst-financials-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "equity-research-analyst-financials-ubs"
+      ]
     },
     {
       "id": "ubs-bd253baf2e1f",

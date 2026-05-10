@@ -6113,10 +6113,10 @@
     },
     {
       "id": "solothurner-spitaeler-4c45f38bb903",
-      "slug": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
+      "slug": "mpa-poliklinik-orthopala-m-w-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
-        "it": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
+        "it": "mpa-poliklinik-orthopala-m-w-d-solothurner-spitaler-soh-solothurn",
         "en": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
         "fr": "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
       },
@@ -6176,7 +6176,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-7e871058b203",

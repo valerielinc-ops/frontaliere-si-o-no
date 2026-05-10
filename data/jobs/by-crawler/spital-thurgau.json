@@ -1423,10 +1423,10 @@
     },
     {
       "id": "spital-thurgau-dc710d762096",
-      "slug": "oberarzt-arztin-orthopadie-stgag-ch",
+      "slug": "oberarzt-arztin-orthopala-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
         "de": "oberarzt-arztin-orthopadie-stgag-ch",
-        "it": "oberarzt-arztin-orthopadie-stgag-ch",
+        "it": "oberarzt-arztin-orthopala-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "oberarzt-arztin-orthopadie-stgag-ch",
         "fr": "oberarzt-arztin-orthopadie-stgag-ch"
       },
@@ -1486,7 +1486,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:26:54.982Z"
+      "firstSeenAt": "2026-05-10T22:26:54.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-arztin-orthopadie-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-arztin-orthopadie-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-92ba82c15b1e",
@@ -6131,12 +6139,12 @@
     },
     {
       "id": "spital-thurgau-fbdc4ffaa50e",
-      "slug": "fachperson-hr-systeme-support-stgag-ch",
+      "slug": "fachperson-risorse-umane-systeme-support-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
         "de": "fachperson-hr-systeme-support-stgag-ch",
-        "it": "fachperson-hr-systeme-support-stgag-ch",
+        "it": "fachperson-risorse-umane-systeme-support-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "en": "fachperson-hr-systeme-support-stgag-ch",
-        "fr": "fachperson-hr-systeme-support-stgag-ch"
+        "fr": "fachperson-ressources-humaines-systeme-support-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -6194,7 +6202,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:26:54.981Z"
+      "firstSeenAt": "2026-05-10T22:26:54.981Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-hr-systeme-support-stgag-ch"
+        ],
+        "fr": [
+          "fachperson-hr-systeme-support-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-hr-systeme-support-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-950f13798dd6",
@@ -8576,10 +8595,10 @@
     },
     {
       "id": "spital-thurgau-db315661a8c4",
-      "slug": "fachperson-gesundheit-efz-stgag-ch",
+      "slug": "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-stgag-ch",
-        "it": "fachperson-gesundheit-efz-stgag-ch",
+        "it": "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "en": "fachperson-gesundheit-efz-stgag-ch",
         "fr": "fachperson-gesundheit-efz-stgag-ch"
       },
@@ -8639,7 +8658,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:26:54.979Z"
+      "firstSeenAt": "2026-05-10T22:26:54.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-1923a02efd79",
