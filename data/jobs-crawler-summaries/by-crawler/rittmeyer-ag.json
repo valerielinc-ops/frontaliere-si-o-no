@@ -1,49 +1,18 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-05-10T10:45:26.434Z",
+  "generatedAt": "2026-05-10T22:18:30.957Z",
   "total": 2,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3362,
-  "avgDurationMs": 3362,
+  "unchangedCount": 1,
+  "durationMs": 3707,
+  "avgDurationMs": 3707,
   "durationHistory": [
-    3362
+    3707
   ],
-  "newJobs": [
-    {
-      "title": "ICT-Supporter (a) Romanshorn",
-      "slug": "ict-supporter-a-romanshorn-rittmeyer-ag-romanshorn",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-romanshorn/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Camorino",
-      "addressLocality": "Camorino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Sales Project Engineer (a) Ticino",
@@ -84,5 +53,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "ICT-Supporter (a) Romanshorn",
+      "slug": "ict-supporter-a-romanshorn-rittmeyer-ag-romanshorn",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-romanshorn/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Camorino",
+      "addressLocality": "Camorino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "rittmeyer-ag-9c45889d6936",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "postalCode": "6340",
+      "firstSeenAt": "2026-05-10T10:45:26.433Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
