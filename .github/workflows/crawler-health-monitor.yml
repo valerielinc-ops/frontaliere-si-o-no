@@ -1,0 +1,106 @@
+name: crawler-health-monitor
+
+# Daily check that every crawler in `data/jobs/by-crawler/` produced fresh,
+# non-empty output. Opens one GitHub issue per stale/broken crawler.
+# Runs after most crawlers complete (cron varies by source, ~05:00-06:00 UTC).
+
+on:
+  schedule:
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: crawler-health-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # No `npm ci` — the script uses only the Node stdlib.
+      # If a future version needs deps, switch to `npm ci --omit=dev`.
+
+      - name: Run health check
+        id: health
+        continue-on-error: true
+        run: node scripts/check-crawler-health.mjs
+
+      - name: Open issues for stale crawlers
+        if: steps.health.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ ! -f data/crawler-health-issues.json ]; then
+            echo "Health check failed but no issues file emitted; nothing to open."
+            exit 1
+          fi
+
+          # Build a deduplicated list of titles already open so we don't spam.
+          existing=$(gh issue list --state open --label crawler-health \
+            --limit 500 --json title --jq '.[].title' || true)
+
+          count=$(jq 'length' data/crawler-health-issues.json)
+          echo "Found $count stale crawler(s)."
+
+          for i in $(seq 0 $((count - 1))); do
+            slug=$(jq -r ".[$i].slug" data/crawler-health-issues.json)
+            reason=$(jq -r ".[$i].reason" data/crawler-health-issues.json)
+            status=$(jq -r ".[$i].status" data/crawler-health-issues.json)
+            lastSeen=$(jq -r ".[$i].lastSeenAt // \"never\"" data/crawler-health-issues.json)
+            empties=$(jq -r ".[$i].consecutiveEmptyRuns // 0" data/crawler-health-issues.json)
+
+            title="[crawler-health] ${slug}: ${status}"
+
+            if echo "$existing" | grep -Fxq "$title"; then
+              echo "Issue already open for ${slug}; skipping."
+              continue
+            fi
+
+            body=$(cat <<EOF
+          Automated health check flagged crawler **\`${slug}\`** as **${status}**.
+
+          - Reason: ${reason}
+          - Last successful run: ${lastSeen}
+          - Consecutive empty runs: ${empties}
+
+          Source state: \`data/crawler-health.json\` → \`crawlers["${slug}"]\`
+          Detection script: \`scripts/check-crawler-health.mjs\`
+          Workflow run: ${GITHUB_SERVER_URL:-https://github.com}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID:-}
+
+          Triage:
+          1. Open \`data/jobs/by-crawler/${slug}.json\` and inspect last entries.
+          2. Run the crawler locally to reproduce.
+          3. If the source HTML changed, patch the parser.
+          4. If the source is gone, retire the crawler and remove from the orchestrator.
+          EOF
+          )
+
+            gh issue create \
+              --title "$title" \
+              --body "$body" \
+              --label crawler-health \
+              --repo "$GH_REPO" || echo "Failed to create issue for ${slug} (continuing)."
+          done
+
+      - name: Fail if any crawler stale
+        if: steps.health.outcome == 'failure'
+        run: |
+          echo "One or more crawlers are stale/broken — see issues created above."
+          exit 1
