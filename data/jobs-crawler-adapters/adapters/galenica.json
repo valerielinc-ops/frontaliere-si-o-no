@@ -9,24 +9,20 @@
   ],
   "seedUrls": [
     "https://jobs.galenica.com/it/jobs/#job.id=12692350",
-    "https://jobs.galenica.com/it/jobs/#job.id=12692428",
     "https://jobs.galenica.com/it/jobs/#job.id=12692469",
-    "https://jobs.galenica.com/it/jobs/#job.id=12692367",
+    "https://jobs.galenica.com/it/jobs/#job.id=12692428",
     "https://jobs.galenica.com/it/jobs/#job.id=12692296",
-    "https://jobs.galenica.com/it/jobs/#job.id=12692275",
-    "https://jobs.galenica.com/it/jobs/#job.id=12692388",
     "https://jobs.galenica.com/it/jobs/#job.id=12692442",
     "https://jobs.galenica.com/it/jobs/#job.id=12692245",
-    "https://jobs.galenica.com/it/jobs/#job.id=12692328",
     "https://jobs.galenica.com/it/jobs/#job.id=12692530",
-    "https://jobs.galenica.com/it/jobs/#job.id=12692138"
+    "https://jobs.galenica.com/it/jobs/#job.id=12692328",
+    "https://jobs.galenica.com/it/jobs/#job.id=12692388",
+    "https://jobs.galenica.com/it/jobs/#job.id=12692275",
+    "https://jobs.galenica.com/it/jobs/#job.id=12692138",
+    "https://jobs.galenica.com/it/jobs/#job.id=12692367"
   ],
   "seedMetaByUrl": {
     "https://jobs.galenica.com/it/jobs/#job.id=12692350": {
-      "company": "Galenica AG",
-      "companyDomain": "galenica.com"
-    },
-    "https://jobs.galenica.com/it/jobs/#job.id=12692428": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
@@ -34,19 +30,11 @@
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
-    "https://jobs.galenica.com/it/jobs/#job.id=12692367": {
+    "https://jobs.galenica.com/it/jobs/#job.id=12692428": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
     "https://jobs.galenica.com/it/jobs/#job.id=12692296": {
-      "company": "Galenica AG",
-      "companyDomain": "galenica.com"
-    },
-    "https://jobs.galenica.com/it/jobs/#job.id=12692275": {
-      "company": "Galenica AG",
-      "companyDomain": "galenica.com"
-    },
-    "https://jobs.galenica.com/it/jobs/#job.id=12692388": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
@@ -58,19 +46,31 @@
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
+    "https://jobs.galenica.com/it/jobs/#job.id=12692530": {
+      "company": "Galenica AG",
+      "companyDomain": "galenica.com"
+    },
     "https://jobs.galenica.com/it/jobs/#job.id=12692328": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
-    "https://jobs.galenica.com/it/jobs/#job.id=12692530": {
+    "https://jobs.galenica.com/it/jobs/#job.id=12692388": {
+      "company": "Galenica AG",
+      "companyDomain": "galenica.com"
+    },
+    "https://jobs.galenica.com/it/jobs/#job.id=12692275": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
     },
     "https://jobs.galenica.com/it/jobs/#job.id=12692138": {
       "company": "Galenica AG",
       "companyDomain": "galenica.com"
+    },
+    "https://jobs.galenica.com/it/jobs/#job.id=12692367": {
+      "company": "Galenica AG",
+      "companyDomain": "galenica.com"
     }
   },
   "notes": "Solique data.json crawler — static JSON endpoint. Galenica AG healthcare group: Sun Store, Amavita, Coop Vitality, UFD subsidiaries in Ticino.",
-  "updatedAt": "2026-05-09T21:31:37.662Z"
+  "updatedAt": "2026-05-10T10:10:28.084Z"
 }
