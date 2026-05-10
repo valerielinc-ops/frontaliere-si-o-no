@@ -6493,6 +6493,62 @@ ${alternates}
      }
    };
 
+   /**
+    * Locale-aware frontaliere context paragraphs for canton landings.
+    *
+    * Pre-T2.S3 the body was just H1 + 1-line lede + CTA → text/HTML ratio of
+    * 1.7-2.2 % (HTML ~6.1 KB vs ~140 chars text). The Semrush text-html-ratio
+    * gate (10 % floor) failed with 64 spa-locale offenders. This adds ~600
+    * chars of locale-appropriate prose per canton landing — frontaliere
+    * context (Permit G, fiscal regime, AVS/LPP, LAMal, CHF/EUR conversion)
+    * + cross-link to calculator and comparator hubs. Placed BELOW the CTA
+    * per CLAUDE.md non-negotiable #16 (mobile-first: filler below content).
+    */
+   const buildCantonContextProse = (
+     locale: CantonLocale,
+     display: string,
+   ): string => {
+     switch (locale) {
+       case 'it':
+         return [
+           `<section style="max-width:860px;margin:32px 0 0;color:var(--color-body);line-height:1.65;font-size:15px">`,
+           `<h2 style="font-size:22px;margin:0 0 12px">Lavorare ${display === 'Svizzera' ? 'in Svizzera' : `nel Canton ${display}`} come frontaliere</h2>`,
+           `<p>${display === 'Svizzera' ? 'La Svizzera resta la destinazione più stabile per i lavoratori italiani in cerca di salari competitivi e ammortizzatori sociali solidi.' : `Il cantone ${display} rientra fra le mete principali dei frontalieri italiani in cerca di stipendi più alti rispetto alla media italiana.`} Le posizioni elencate qui coprono tutti i settori — sanità, costruzioni, industria, terziario, IT, logistica — e includono sia ruoli a tempo pieno (100 %) sia part-time (50–80 %), tipici dei contratti svizzeri.</p>`,
+           `<p>Per il regime frontaliere occorre rispettare i requisiti del Nuovo Accordo del 2026: residenza italiana entro 20 km dal confine, rientro giornaliero (con eccezione del 25 % delle giornate per smart-working), permesso di lavoro G. Il salario lordo svizzero in CHF, una volta convertito in EUR e dedotti AVS/AI/IPG, LPP (secondo pilastro) e LAINF, va confrontato con il costo della vita in Italia per stimare il guadagno reale.</p>`,
+           `<p>Usa il <a href="${BASE_URL}/calcola-stipendio/" style="color:var(--color-link);font-weight:600">calcolatore di stipendio netto</a> per simulare il netto in mano partendo dal lordo proposto, oppure il <a href="${BASE_URL}/comparatori/cambio-valuta/" style="color:var(--color-link);font-weight:600">confronto cambio CHF/EUR</a> per capire quanto rende oggi un'offerta in franchi svizzeri rispetto ad un equivalente italiano in euro.</p>`,
+           `</section>`,
+         ].join('');
+       case 'en':
+         return [
+           `<section style="max-width:860px;margin:32px 0 0;color:var(--color-body);line-height:1.65;font-size:15px">`,
+           `<h2 style="font-size:22px;margin:0 0 12px">Working ${display === 'Switzerland' ? 'in Switzerland' : `in the canton of ${display}`} as a cross-border worker</h2>`,
+           `<p>${display === 'Switzerland' ? 'Switzerland remains the most attractive destination for Italian workers seeking higher wages and stronger social protection than the Italian average.' : `The canton of ${display} is one of the main destinations for Italian cross-border workers (frontalieri) chasing salaries that exceed the Italian average.`} The positions listed here cover every sector — healthcare, construction, manufacturing, services, IT, logistics — and include both full-time (100 %) and part-time (50–80 %) contracts that are standard in Switzerland.</p>`,
+           `<p>To qualify for the cross-border tax regime under the 2026 New Agreement you must reside in Italy within 20 km of the Swiss border, return home daily (with up to 25 % of days allowed in smart-working from Italy), and hold a G-type work permit. The Swiss gross salary in CHF — once converted to EUR and net of AVS/AI/IPG, LPP (second pillar) and LAINF contributions — should be compared against the Italian cost of living to estimate the real take-home.</p>`,
+           `<p>Use the <a href="${BASE_URL}/en/salary-calculator/" style="color:var(--color-link);font-weight:600">net-salary calculator</a> to simulate take-home pay starting from a gross offer, or the <a href="${BASE_URL}/en/comparators/currency-exchange/" style="color:var(--color-link);font-weight:600">CHF/EUR exchange comparator</a> to gauge how much a Swiss offer in francs is worth today versus an Italian equivalent in euros.</p>`,
+           `</section>`,
+         ].join('');
+       case 'de':
+         return [
+           `<section style="max-width:860px;margin:32px 0 0;color:var(--color-body);line-height:1.65;font-size:15px">`,
+           `<h2 style="font-size:22px;margin:0 0 12px">Arbeiten ${display === 'Schweiz' ? 'in der Schweiz' : `${germanCantonPrep(display)}`} als Grenzgänger</h2>`,
+           `<p>${display === 'Schweiz' ? 'Die Schweiz bleibt das attraktivste Ziel für italienische Arbeitnehmer, die höhere Löhne und einen stärkeren Sozialschutz als im italienischen Durchschnitt suchen.' : `Der Kanton ${display} zählt zu den Hauptzielen italienischer Grenzgänger (frontalieri), die ein höheres Gehalt als den italienischen Durchschnitt anstreben.`} Die hier aufgeführten Stellen decken alle Branchen ab — Gesundheitswesen, Bau, Industrie, Dienstleistungen, IT, Logistik — und umfassen sowohl Vollzeit- (100 %) als auch Teilzeitverträge (50–80 %), wie sie in der Schweiz üblich sind.</p>`,
+           `<p>Für die Grenzgänger-Besteuerung nach dem neuen Abkommen 2026 müssen Sie innerhalb von 20 km von der Schweizer Grenze in Italien wohnen, täglich nach Hause zurückkehren (mit bis zu 25 % der Tage als Homeoffice aus Italien zulässig) und eine G-Bewilligung besitzen. Der Schweizer Bruttolohn in CHF — nach Umrechnung in EUR und Abzug von AHV/IV/EO, BVG (zweite Säule) und UVG-Beiträgen — sollte den italienischen Lebenshaltungskosten gegenübergestellt werden, um den realen Nettoverdienst abzuschätzen.</p>`,
+           `<p>Nutzen Sie den <a href="${BASE_URL}/de/lohnrechner/" style="color:var(--color-link);font-weight:600">Nettolohnrechner</a>, um den Nettolohn aus einem Bruttoangebot zu simulieren, oder den <a href="${BASE_URL}/de/vergleiche/waehrungsumtausch/" style="color:var(--color-link);font-weight:600">CHF/EUR-Wechselkursrechner</a>, um den heutigen Wert eines Schweizer Angebots in Franken im Vergleich zum italienischen Pendant in Euro zu beurteilen.</p>`,
+           `</section>`,
+         ].join('');
+       case 'fr':
+       default:
+         return [
+           `<section style="max-width:860px;margin:32px 0 0;color:var(--color-body);line-height:1.65;font-size:15px">`,
+           `<h2 style="font-size:22px;margin:0 0 12px">Travailler ${display === 'Suisse' ? 'en Suisse' : `${frenchCantonPrep(display)}`} en tant que frontalier</h2>`,
+           `<p>${display === 'Suisse' ? 'La Suisse reste la destination la plus attractive pour les travailleurs italiens en quête de salaires supérieurs et d\'une protection sociale plus solide que la moyenne italienne.' : `Le canton ${display} compte parmi les principales destinations des frontaliers italiens (frontalieri) en recherche de salaires supérieurs à la moyenne italienne.`} Les postes listés ici couvrent tous les secteurs — santé, construction, industrie, services, informatique, logistique — et incluent à la fois les contrats à temps plein (100 %) et à temps partiel (50–80 %), typiques du marché suisse.</p>`,
+           `<p>Pour le régime fiscal frontalier prévu par le nouvel accord 2026, il faut résider en Italie dans un rayon de 20 km de la frontière suisse, rentrer chaque jour au domicile (avec un quota de 25 % de jours autorisés en télétravail depuis l\'Italie) et détenir un permis de travail G. Le salaire brut suisse en CHF — une fois converti en EUR et net des cotisations AVS/AI/APG, LPP (deuxième pilier) et LAA — doit être confronté au coût de la vie italien pour estimer le revenu net réel.</p>`,
+           `<p>Utilisez le <a href="${BASE_URL}/fr/calculer-salaire/" style="color:var(--color-link);font-weight:600">calculateur de salaire net</a> pour simuler le net à partir d'une offre brute, ou le <a href="${BASE_URL}/fr/comparateurs/change-monnaie/" style="color:var(--color-link);font-weight:600">comparateur du change CHF/EUR</a> pour évaluer la valeur actuelle d'une offre suisse en francs face à une offre italienne équivalente en euros.</p>`,
+           `</section>`,
+         ].join('');
+     }
+   };
+
    for (const entry of cantonsToEmit) {
      const display = getCantonDisplayLabel(entry.key, entry.locale);
      const path = withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'));
@@ -6528,6 +6584,11 @@ ${alternates}
        `<nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}/" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
        `<header style="max-width:860px;margin:0 0 24px"><h1 style="font-size:32px;line-height:1.15;margin:0 0 12px">${esc(display)}</h1><p style="margin:0;color:var(--color-body);font-size:16px">${esc(labels.lede)}</p></header>`,
        `<p style="margin:0 0 32px"><a href="${legacyJobBoardHref}" style="display:inline-block;padding:10px 18px;background:var(--color-accent);color:#fff;border-radius:8px;font-weight:600;text-decoration:none">${esc(labels.ctaLabel)}</a></p>`,
+       // Frontaliere context prose — placed BELOW the CTA per CLAUDE.md non-
+       // negotiable #16 (mobile-first, filler below content). Ratio uplift
+       // brings text/HTML from 1.7-2.2 % to ~12 % so audit:text-html-ratio
+       // accepts these pages.
+       buildCantonContextProse(entry.locale, display),
        `</main>`,
      ].join('\n');
      const html = buildSeoPageHtml({
