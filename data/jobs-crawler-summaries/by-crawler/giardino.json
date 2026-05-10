@@ -1,18 +1,54 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-05-09T21:32:20.300Z",
+  "generatedAt": "2026-05-10T10:11:18.010Z",
   "total": 2,
-  "newCount": 0,
-  "updatedCount": 2,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5435,
-  "avgDurationMs": 5435,
+  "durationMs": 4868,
+  "avgDurationMs": 4868,
   "durationHistory": [
-    5435
+    4868
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "giardino-e7f4937bce90",
+      "slug": "assistant-accounting-50-giardino-group-champfer",
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Assistant Accounting 50%",
+      "location": "Champfèr",
+      "canton": "GR",
+      "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-10T10:11:16.186Z",
+      "addressLocality": "Champfèr",
+      "postalCode": "7512",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-14",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "giardino-c0a1ee2b00de",
@@ -26,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T21:32:18.084Z",
+      "crawledAt": "2026-05-10T10:11:16.185Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -46,42 +82,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "giardino-e7f4937bce90",
-      "slug": "assistant-accounting-50-giardino-group-champfer",
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Assistant Accounting 50%",
-      "location": "Champfèr",
-      "canton": "GR",
-      "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-09T21:32:18.085Z",
-      "addressLocality": "Champfèr",
-      "postalCode": "7512",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
-      "firstSeenAt": "2026-04-14T21:43:42.933Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
