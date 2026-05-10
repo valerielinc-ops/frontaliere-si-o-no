@@ -23159,4 +23159,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'black-list-morosi-cassa-malati-ticino',
+ category: 'pratico',
+ date: '2026-05-10T04:42:34.577Z',
+ image: '/images/blog/black-list-morosi-cassa-malati-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

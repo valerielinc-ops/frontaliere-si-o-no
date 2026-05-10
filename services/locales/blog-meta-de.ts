@@ -7262,6 +7262,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-luino-caserma-fornasette.title': 'Kein Migranten-Zentrum in Fornasette: Die Kaserne geht an die Feuerwehr',
     'blog.article.frontalieri-luino-caserma-fornasette.excerpt': 'Die ehemalige Kaserne der Carabinieri in Fornasette bei Luino wird der Feuerwehr übergeben, nicht den Migranten. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.frontalieri-luino-caserma-fornasette.imageAlt': 'Ehemalige Kaserne der Carabinieri in Fornasette, Luino',
+    'blog.article.black-list-morosi-cassa-malati-ticino.title': 'Schwarze Liste für säumige Krankenkassen: Was ändert sich für Grenzgänger?',
+    'blog.article.black-list-morosi-cassa-malati-ticino.excerpt': 'Neue Regeln für säumige Krankenkassen in Ticino. Hier erfahren Sie, was Sie wissen müssen und wie Sie vermeiden, auf der schwarzen Liste zu landen.',
+    'blog.article.black-list-morosi-cassa-malati-ticino.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
 };
 
 export default blogMetaDe;

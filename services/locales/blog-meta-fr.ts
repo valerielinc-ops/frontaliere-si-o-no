@@ -7263,6 +7263,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-luino-caserma-fornasette.title': 'Pas de centre pour migrants à Fornasette: la caserne aux pompiers',
     'blog.article.frontalieri-luino-caserma-fornasette.excerpt': 'L\'ex-caserne des carabiniers de Fornasette à Luino sera destinée aux pompiers, pas aux migrants. Voici ce qui change pour les frontaliers',
     'blog.article.frontalieri-luino-caserma-fornasette.imageAlt': 'Ancienne caserne des carabiniers à Fornasette, Luino',
+    'blog.article.black-list-morosi-cassa-malati-ticino.title': 'Liste noire des mauvais payeurs: changements pour les frontaliers',
+    'blog.article.black-list-morosi-cassa-malati-ticino.excerpt': 'Nouvelles règles pour les mauvais payeurs de l\'assurance maladie au Tessin. Voici ce qu\'il faut savoir et comment éviter de se retrouver sur la liste noire',
+    'blog.article.black-list-morosi-cassa-malati-ticino.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan',
 };
 
 export default blogMetaFr;

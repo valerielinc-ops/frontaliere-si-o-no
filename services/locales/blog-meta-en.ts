@@ -7262,6 +7262,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-luino-caserma-fornasette.title': 'No migrant center in Fornasette: fire station instead',
     'blog.article.frontalieri-luino-caserma-fornasette.excerpt': 'The former barracks of the carabinieri in Fornasette, Luino, will be assigned to the fire department, not to migrants. Here\'s what changes for cross-border workers',
     'blog.article.frontalieri-luino-caserma-fornasette.imageAlt': 'Former carabinieri barracks in Fornasette, Luino',
+    'blog.article.black-list-morosi-cassa-malati-ticino.title': 'Black list for unpaid health insurance: changes for cross-border workers',
+    'blog.article.black-list-morosi-cassa-malati-ticino.excerpt': 'New rules for unpaid health insurance in Ticino. Here\'s what you need to know and how to avoid ending up on the black list',
+    'blog.article.black-list-morosi-cassa-malati-ticino.imageAlt': 'Lake Lugano with a modern building in the background',
 };
 
 export default blogMetaEn;

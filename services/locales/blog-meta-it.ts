@@ -7263,6 +7263,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-luino-caserma-fornasette.title': 'Niente centro migranti a Fornasette: la caserma ai pompieri',
     'blog.article.frontalieri-luino-caserma-fornasette.excerpt': 'La ex caserma dei carabinieri di Fornasette a Luino sarà destinata ai vigili del fuoco, non ai migranti. Ecco cosa cambia per i frontalieri',
     'blog.article.frontalieri-luino-caserma-fornasette.imageAlt': 'Ex caserma dei carabinieri di Fornasette a Luino',
+    'blog.article.black-list-morosi-cassa-malati-ticino.title': 'Black list morosi cassa malati: cosa cambia per i frontalieri',
+    'blog.article.black-list-morosi-cassa-malati-ticino.excerpt': 'Nuove regole per i morosi della cassa malati in Ticino. Ecco cosa sapere e come evitare di finire nella black list',
+    'blog.article.black-list-morosi-cassa-malati-ticino.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
 };
 
 export default blogMetaIt;
