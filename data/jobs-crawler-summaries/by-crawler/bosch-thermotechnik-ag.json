@@ -1,19 +1,18 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-09T21:04:32.165Z",
+  "generatedAt": "2026-05-10T09:43:15.857Z",
   "total": 2,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8395,
-  "avgDurationMs": 8395,
+  "unchangedCount": 0,
+  "durationMs": 10318,
+  "avgDurationMs": 10318,
   "durationHistory": [
-    8395
+    10318
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "title": "Instandhaltung (w/m/div.) - REF285547A",
       "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
@@ -36,24 +35,14 @@
       "sourceLang": "de",
       "postedDate": "2026-05-07",
       "validThrough": "",
-      "id": "bosch-thermotechnik-ag-d1984318ab03",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-07T21:24:49.193Z",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Teamleader Production 100% (w/m/div.) - REF284854K",
       "slug": "teamleader-production-100-w-m-div-ref284854k-bosch-st-niklaus",
@@ -76,20 +65,16 @@
       "sourceLang": "de",
       "postedDate": "2026-05-06",
       "validThrough": "",
-      "id": "bosch-thermotechnik-ag-5b7190836571",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-06T10:30:56.746Z",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
