@@ -241,6 +241,8 @@ export const COMPANY_HQ = {
   'tether':                       { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'bitfinex':                     { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'sika':                         { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
+  'logitech':                     { city: 'Lausanne',           canton: 'VD', postalCode: '1015', addressRegion: 'VD' },
+  'holcim':                       { city: 'Zug',                canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
   'constellium':                  { city: 'Sierre',             canton: 'VS', postalCode: '3960', addressRegion: 'VS' },
   'canton-valais':                { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'zermatt-bergbahnen':           { city: 'Zermatt',            canton: 'VS', postalCode: '3920', addressRegion: 'VS' },
@@ -272,6 +274,14 @@ export const COMPANY_HQ = {
   'epfl':                         { city: 'Lausanne',           canton: 'VD', postalCode: '1015', addressRegion: 'VD' },
   // ── Cathedral Phase 2 Wave C Batch 3 Wave 2 ──
   'chuv':                         { city: 'Lausanne',           canton: 'VD', postalCode: '1011', addressRegion: 'VD' },
+  // ── Cathedral Phase 4 T4.1b — tier-2 marquee ──
+  'sulzer':                       { city: 'Winterthur',         canton: 'ZH', postalCode: '8401', addressRegion: 'ZH' },
+  'givaudan':                     { city: 'Vernier',            canton: 'GE', postalCode: '1214', addressRegion: 'GE' },
+  // ── Cathedral Phase 4 T4.2 wave 1 — hospitals ──
+  'ksa':                          { city: 'Aarau',              canton: 'AG', postalCode: '5001', addressRegion: 'AG' },
+  'ksw':                          { city: 'Winterthur',         canton: 'ZH', postalCode: '8400', addressRegion: 'ZH' },
+  'spital-thurgau':               { city: 'Münsterlingen',      canton: 'TG', postalCode: '8596', addressRegion: 'TG' },
+  'solothurner-spitaeler':        { city: 'Solothurn',          canton: 'SO', postalCode: '4500', addressRegion: 'SO' },
 };
 
 /**
