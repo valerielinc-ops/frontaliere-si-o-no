@@ -33458,6 +33458,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-minivan-chioggia-frontalieri-incidente': {
+    title: 'Minivan nel canale a Chioggia: tre vittime tra i frontalieri',
+    description: 'Un incidente mortale a Chioggia coinvolge frontalieri marocchini diretti al lavoro nei campi del radicchio. Tre vittime, tra cui il conducente. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, minivan, canale, chioggia, vittime',
+    ogTitle: 'Minivan nel canale a Chioggia: tre vittime tra i frontalieri',
+    ogDescription: 'Un incidente mortale a Chioggia coinvolge frontalieri marocchini diretti al lavoro nei campi del radicchio. Tre vittime, tra cui il conducente.',
+    canonicalPath: '/articoli-frontaliere/minivan-chioggia-frontalieri-incidente',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Minivan nel canale a Chioggia: tre vittime tra i frontalieri",
+      "description": "Un incidente mortale a Chioggia coinvolge frontalieri marocchini diretti al lavoro nei campi del radicchio. Tre vittime, tra cui il conducente. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/minivan-chioggia-frontalieri-incidente.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Minivan precipitato in un canale a Chioggia, con soccorritori e autorità locali sul posto"
+      },
+      "datePublished": "2026-05-10T05:26:46+00:00",
+      "dateModified": "2026-05-10T05:26:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/minivan-chioggia-frontalieri-incidente`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

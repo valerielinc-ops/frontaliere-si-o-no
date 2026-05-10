@@ -7278,6 +7278,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.potere-dacquisto-ticino-2024.title': 'Pouvoir d\'achat en baisse: ACSI alerte sur la pauvreté croissante au Ticino',
     'blog.article.potere-dacquisto-ticino-2024.excerpt': 'La confiance des consommateurs reste faible, les primes d\'assurance maladie et l\'inflation pèsent sur les familles ticinoises. Antonella Crüzer: \'Situation inquiétante\'',
     'blog.article.potere-dacquisto-ticino-2024.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, Tessin, Suisse',
+    'blog.article.minivan-chioggia-frontalieri-incidente.title': 'Minivan dans un canal à Chioggia: trois frontalier marocains décédés',
+    'blog.article.minivan-chioggia-frontalieri-incidente.excerpt': 'Un accident mortel à Chioggia impliquant des frontalier marocains se rendant au travail dans les champs de radicchio. Trois victimes, dont le conducteur.',
+    'blog.article.minivan-chioggia-frontalieri-incidente.imageAlt': 'Un minivan s\'est écrasé dans un canal à Chioggia, avec les services d\'urgence et les autorités locales sur les lieux',
 };
 
 export default blogMetaFr;

@@ -3668,6 +3668,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-malpensa-pista-riapre-frontalieri': { name: 'Malpensa pista 35L', path: '/articoli-frontaliere/malpensa-pista-riapre-frontalieri', parent: 'blog' },
     'blog-peter-magyar-ungheria-volta-pagina': { name: 'Novità', path: '/articoli-frontaliere/peter-magyar-ungheria-volta-pagina', parent: 'blog' },
     'blog-potere-dacquisto-ticino-2024': { name: 'Novità', path: '/articoli-frontaliere/potere-dacquisto-ticino-2024', parent: 'blog' },
+    'blog-minivan-chioggia-frontalieri-incidente': { name: 'Incidente frontalieri', path: '/articoli-frontaliere/minivan-chioggia-frontalieri-incidente', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -23204,4 +23204,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'minivan-chioggia-frontalieri-incidente',
+ category: 'novita',
+ date: '2026-05-10T05:26:46.201Z',
+ image: '/images/blog/minivan-chioggia-frontalieri-incidente.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

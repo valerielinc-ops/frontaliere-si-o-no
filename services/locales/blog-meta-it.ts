@@ -7278,6 +7278,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.potere-dacquisto-ticino-2024.title': 'Potere d\'acquisto in calo: ACSI allarma su povertà crescente in Ticino',
     'blog.article.potere-dacquisto-ticino-2024.excerpt': 'La fiducia dei consumatori resta bassa, premi cassa malati e inflazione pesano sulle famiglie ticinesi. Antonella Crüzer: \'Situazione preoccupante\'',
     'blog.article.potere-dacquisto-ticino-2024.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, Ticino, Svizzera',
+    'blog.article.minivan-chioggia-frontalieri-incidente.title': 'Minivan nel canale a Chioggia: tre vittime tra i frontalieri',
+    'blog.article.minivan-chioggia-frontalieri-incidente.excerpt': 'Un incidente mortale a Chioggia coinvolge frontalieri marocchini diretti al lavoro nei campi del radicchio. Tre vittime, tra cui il conducente.',
+    'blog.article.minivan-chioggia-frontalieri-incidente.imageAlt': 'Minivan precipitato in un canale a Chioggia, con soccorritori e autorità locali sul posto',
 };
 
 export default blogMetaIt;

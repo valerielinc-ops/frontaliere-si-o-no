@@ -7277,6 +7277,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.potere-dacquisto-ticino-2024.title': 'Purchasing power drops: ACSI warns of growing poverty in Ticino',
     'blog.article.potere-dacquisto-ticino-2024.excerpt': 'Consumer confidence remains low, health insurance premiums and inflation weigh on Ticino families. Antonella Crüzer: \'Concerning situation\'',
     'blog.article.potere-dacquisto-ticino-2024.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, Ticino, Switzerland',
+    'blog.article.minivan-chioggia-frontalieri-incidente.title': 'Minivan in Chioggia canal: three cross-border workers killed',
+    'blog.article.minivan-chioggia-frontalieri-incidente.excerpt': 'A fatal accident in Chioggia involving Moroccan cross-border workers heading to work in the radicchio fields. Three victims, including the driver.',
+    'blog.article.minivan-chioggia-frontalieri-incidente.imageAlt': 'Minivan crashed into a canal in Chioggia, with emergency services and local authorities present',
 };
 
 export default blogMetaEn;

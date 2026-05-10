@@ -7277,6 +7277,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.potere-dacquisto-ticino-2024.title': 'Kaufkraft sinkt: ACSI warnt vor wachsender Armut im Tessin',
     'blog.article.potere-dacquisto-ticino-2024.excerpt': 'Das Konsumentenvertrauen bleibt niedrig, Krankenkassenprämien und Inflation belasten die Tessiner Familien. Antonella Crüzer: \'Beunruhigende Situation\'',
     'blog.article.potere-dacquisto-ticino-2024.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund, Tessin, Schweiz',
+    'blog.article.minivan-chioggia-frontalieri-incidente.title': 'Minivan in Kanal in Chioggia: drei Opfer unter Grenzgängern',
+    'blog.article.minivan-chioggia-frontalieri-incidente.excerpt': 'Ein tödlicher Unfall in Chioggia betrifft marokkanische Grenzgänger auf dem Weg zur Arbeit in den Radicchio-Feldern. Drei Opfer, darunter der Fahrer.',
+    'blog.article.minivan-chioggia-frontalieri-incidente.imageAlt': 'Ein Minivan ist in einen Kanal in Chioggia gestürzt, mit Rettungskräften und lokalen Behörden vor Ort',
 };
 
 export default blogMetaDe;
