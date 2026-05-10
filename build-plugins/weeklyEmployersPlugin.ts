@@ -43,6 +43,7 @@ import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
+  SWISS_CANTON_CODES,
   WEEKLY_EMPLOYERS_ARCHIVE_PREFIX,
   WEEKLY_EMPLOYERS_CITIES,
   WEEKLY_EMPLOYERS_CITY_DISPLAY,
@@ -58,11 +59,15 @@ import {
   buildCompanyCityCurrentPath,
   buildCurrentWeekPath,
   canonicalCompanySlug,
+  cantonMeetsThreshold,
   companyCityMeetsThreshold,
   getIsoWeekAndYear,
   isoWeekKey,
   parseCompanyCityPath,
+  slugifyMunicipality,
+  type CantonMunicipalitiesFile,
   type CompanyCityPair,
+  type SwissCantonCode,
   type WeeklyEmployersCity,
   type WeeklyEmployersCompanyCity,
   type WeeklyEmployersLocale,
@@ -362,6 +367,249 @@ export function partitionWeeklyEmployerJobs(
   }
 
   return { byLocaleCity, byCityEmployerIt };
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Cathedral expansion (P1.13) — CH-wide canton aggregation pipeline.
+//
+// The legacy TI hubs flow through `partitionWeeklyEmployerJobs` above.
+// For the 25 non-TI cantons we layer a parallel canton-keyed index on
+// the side, so the renderer/copy layer (which is pinned to the TI
+// `WeeklyEmployersCity` literal type) does NOT have to be rewritten in
+// this PR. Per-canton page emission is deferred to a follow-up — this
+// scaffolding lands the data model + N+1 fixes only.
+//
+//     ┌───────────────────────────────┐
+//     │ data/canton-municipalities    │  (BFS AGV, 2110 cities × 26 cantons)
+//     │ .json                         │
+//     └──────────────┬────────────────┘
+//                    │ loadChCantonMunicipalities() (lazy, cached)
+//                    ▼
+//     ┌───────────────────────────────┐    ┌────────────────────────┐
+//     │ cantonMunicipalitySlugSet     │◀───│ slugifyMunicipality()  │
+//     │ Map<SwissCantonCode, Set<…>>  │    │ (shared with P1.12)    │
+//     └──────────────┬────────────────┘    └────────────────────────┘
+//                    │ buildCantonJobsIndex(jobs, sets)
+//                    ▼
+//     ┌────────────────────────────────────────────────────────────────┐
+//     │ ChCantonJobsIndex                                              │
+//     │   byCanton:           Map<canton, JobRecord[]>                 │
+//     │   byCantonEmployerIt: Map<canton, Map<empKey, JobRecord[]>>    │
+//     │                                                                │
+//     │ Built in O(M·log K) (M = active jobs, K = avg cities/canton)   │
+//     │ Replaces would-have-been O(M·N) per-canton .filter() scans.    │
+//     │                                                                │
+//     │ Gate: cantonMeetsThreshold(bucket) — drop cantons with <5 jobs │
+//     │       (CLAUDE.md non-negotiable #4).                           │
+//     └────────────────────────────────────────────────────────────────┘
+//
+// Backward compat: the legacy TI partition path is untouched; the new
+// helpers below are read-only utilities consumed by future canton page
+// emitters and by sibling plugins that need a stable canton lookup.
+// ─────────────────────────────────────────────────────────────────────
+
+/**
+ * Lazily-resolved CH-wide canton → municipality-slug-set map. The file is
+ * read once per plugin invocation; subsequent calls reuse the cached
+ * result so callers can pass the rootDir freely.
+ *
+ * Falls back to a TI-only map (empty for the other 25 cantons) if the
+ * BFS data file is missing or malformed — the build never fails, it
+ * simply emits no CH-wide canton pages until the data lands.
+ *
+ * @param rootDir Project root containing `data/canton-municipalities.json`.
+ * @returns Immutable `Map<SwissCantonCode, ReadonlySet<municipalitySlug>>`.
+ */
+export function loadChCantonMunicipalities(
+  rootDir: string,
+): ReadonlyMap<SwissCantonCode, ReadonlySet<string>> {
+  const path = np.resolve(rootDir, 'data', 'canton-municipalities.json');
+  let raw: string;
+  try {
+    raw = fs.readFileSync(path, 'utf-8');
+  } catch (err) {
+    console.warn(
+      '[weekly-employers] canton-municipalities.json missing — CH-wide canton pages disabled',
+      err,
+    );
+    return EMPTY_CANTON_MAP;
+  }
+  let parsed: CantonMunicipalitiesFile;
+  try {
+    parsed = JSON.parse(raw) as CantonMunicipalitiesFile;
+  } catch (err) {
+    console.warn('[weekly-employers] canton-municipalities.json invalid JSON', err);
+    return EMPTY_CANTON_MAP;
+  }
+  if (!parsed || typeof parsed !== 'object' || !parsed.cantons) {
+    return EMPTY_CANTON_MAP;
+  }
+  const out = new Map<SwissCantonCode, Set<string>>();
+  for (const code of SWISS_CANTON_CODES) {
+    const payload = parsed.cantons[code];
+    if (!payload || !Array.isArray(payload.municipalities)) {
+      out.set(code, new Set());
+      continue;
+    }
+    const slugs = new Set<string>();
+    for (const name of payload.municipalities) {
+      if (typeof name !== 'string' || name.length === 0) continue;
+      const slug = slugifyMunicipality(name);
+      if (slug) slugs.add(slug);
+    }
+    out.set(code, slugs);
+  }
+  return out;
+}
+
+/** Empty fallback map — every canton present, every set empty. */
+const EMPTY_CANTON_MAP: ReadonlyMap<SwissCantonCode, ReadonlySet<string>> = (() => {
+  const m = new Map<SwissCantonCode, ReadonlySet<string>>();
+  for (const code of SWISS_CANTON_CODES) m.set(code, new Set());
+  return m;
+})();
+
+/**
+ * Resolve a job to its canton, in order of preference:
+ *   1. an explicit `canton` field on the per-canton shard schema (E4),
+ *   2. an explicit `addressRegion` field (Schema.org JobPosting),
+ *   3. fallback to a city-slug lookup against `cantonMunicipalities`.
+ *
+ * Returns `null` when the job belongs to no recognised canton — these
+ * jobs surface in `_AGGREGATE_` shards / on `/cerca-lavoro-svizzera/`
+ * but contribute nothing to per-canton aggregates.
+ *
+ * @param job The active job record to classify.
+ * @param cantonMunicipalities Output of `loadChCantonMunicipalities`.
+ * @returns 2-letter canton code (uppercase) or `null`.
+ */
+export function resolveJobCanton(
+  job: WeeklyCountableJob,
+  cantonMunicipalities: ReadonlyMap<SwissCantonCode, ReadonlySet<string>>,
+): SwissCantonCode | null {
+  // 1. explicit shard `canton` field (loose access — the type doesn't declare it).
+  const direct = (job as WeeklyCountableJob & { canton?: unknown }).canton;
+  if (typeof direct === 'string' && direct.length === 2) {
+    const upper = direct.toUpperCase() as SwissCantonCode;
+    if (cantonMunicipalities.has(upper)) return upper;
+  }
+  // 2. Schema.org addressRegion (varies wildly: "TI", "Ticino", "CH-TI").
+  const region = (job as WeeklyCountableJob & { addressRegion?: unknown }).addressRegion;
+  if (typeof region === 'string' && region.length > 0) {
+    const m = /\b([A-Z]{2})\b/.exec(region.toUpperCase());
+    if (m && cantonMunicipalities.has(m[1] as SwissCantonCode)) {
+      return m[1] as SwissCantonCode;
+    }
+  }
+  // 3. fallback: city-slug lookup against the BFS map.
+  const loc = job.addressLocality || job.location || '';
+  if (typeof loc !== 'string' || loc.length === 0) return null;
+  const citySlug = slugifyMunicipality(loc);
+  if (!citySlug) return null;
+  for (const [code, set] of cantonMunicipalities.entries()) {
+    if (set.has(citySlug)) return code;
+  }
+  return null;
+}
+
+/**
+ * Per-canton bucket of active jobs + employer breakdown. Mirrors the
+ * shape of the legacy `WeeklyEmployersJobPartition.byCityEmployerIt` so
+ * downstream renderers can share aggregation utilities once the canton
+ * page emitter lands.
+ */
+export interface ChCantonJobsBucket {
+  readonly canton: SwissCantonCode;
+  readonly activeJobsCount: number;
+  /** Active jobs in this canton (IT-locale gate, mirrors legacy). */
+  readonly jobs: readonly WeeklyCountableJob[];
+  /** employerKey → jobs[] for this canton. Only non-empty companies keyed. */
+  readonly byEmployer: ReadonlyMap<string, readonly WeeklyCountableJob[]>;
+}
+
+/**
+ * Pre-built CH-wide canton index. Built ONCE per plugin invocation so the
+ * per-canton aggregation walks a Map instead of re-scanning the full job
+ * array per (canton × locale) pair (would-be O(M·N) → actual O(M·log K)).
+ */
+export interface ChCantonJobsIndex {
+  readonly byCanton: ReadonlyMap<SwissCantonCode, ChCantonJobsBucket>;
+}
+
+/**
+ * Build the CH-wide canton index from raw jobs + the BFS canton map.
+ *
+ * Pure function — no I/O, no env access. Tests can pass a synthetic job
+ * list and a hand-rolled `cantonMunicipalities` map.
+ *
+ * @param jobs The full job array (already loaded by `loadAllJobs`).
+ * @param cantonMunicipalities BFS-derived canton → municipality-slug map.
+ * @returns A read-only `ChCantonJobsIndex` keyed by canton code.
+ */
+export function buildCantonJobsIndex(
+  jobs: readonly WeeklyCountableJob[],
+  cantonMunicipalities: ReadonlyMap<SwissCantonCode, ReadonlySet<string>>,
+): ChCantonJobsIndex {
+  const buckets = new Map<
+    SwissCantonCode,
+    {
+      jobs: WeeklyCountableJob[];
+      byEmployer: Map<string, WeeklyCountableJob[]>;
+    }
+  >();
+  for (const code of SWISS_CANTON_CODES) {
+    buckets.set(code, { jobs: [], byEmployer: new Map() });
+  }
+  for (const job of jobs) {
+    if (!jobIsActive(job, 'it')) continue;
+    const canton = resolveJobCanton(job, cantonMunicipalities);
+    if (!canton) continue;
+    const bucket = buckets.get(canton);
+    if (!bucket) continue;
+    bucket.jobs.push(job);
+    const company = String(job.company || '').trim();
+    if (!company) continue;
+    const key = normEmployerKey(company, job.companyKey);
+    if (!key) continue;
+    const list = bucket.byEmployer.get(key);
+    if (list) list.push(job);
+    else bucket.byEmployer.set(key, [job]);
+  }
+  const out = new Map<SwissCantonCode, ChCantonJobsBucket>();
+  for (const [canton, bucket] of buckets.entries()) {
+    out.set(canton, {
+      canton,
+      activeJobsCount: bucket.jobs.length,
+      jobs: bucket.jobs,
+      byEmployer: bucket.byEmployer,
+    });
+  }
+  return { byCanton: out };
+}
+
+/**
+ * List the cantons that pass the {@link MIN_JOBS_FOR_CANTON_PAGE} gate.
+ *
+ * The legacy TI hubs are emitted unconditionally by the existing pipeline
+ * and are NOT filtered here — TI is excluded from the result set so a
+ * caller wiring CH-wide pages doesn't double-emit Ticino. (Use
+ * `index.byCanton.get('TI')` directly if you need the TI bucket.)
+ *
+ * @param index Output of `buildCantonJobsIndex`.
+ * @returns Array of canton codes (excluding TI) above the thin-content gate.
+ */
+export function listEligibleChCantons(
+  index: ChCantonJobsIndex,
+): readonly SwissCantonCode[] {
+  const out: SwissCantonCode[] = [];
+  for (const code of SWISS_CANTON_CODES) {
+    if (code === 'TI') continue;
+    const bucket = index.byCanton.get(code);
+    if (!bucket) continue;
+    if (!cantonMeetsThreshold(bucket)) continue;
+    out.push(code);
+  }
+  return out;
 }
 
 /** Build a per-city aggregation from current jobs + optional previous snapshot. */
