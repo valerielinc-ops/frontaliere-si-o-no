@@ -1,18 +1,104 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-10T10:35:06.828Z",
-  "total": 24,
-  "newCount": 0,
+  "generatedAt": "2026-05-10T22:06:36.179Z",
+  "total": 26,
+  "newCount": 2,
   "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 46882,
-  "avgDurationMs": 46882,
+  "durationMs": 46480,
+  "avgDurationMs": 46480,
   "durationHistory": [
-    46882
+    46480
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-oi85uq",
+      "slug": "privatkundenberater-alle-migros-bank-chur",
+      "company": "Migros Bank",
+      "title": "Privatkundenberater (alle)",
+      "location": "Chur",
+      "canton": "BE",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-bank/privatkundenberater-alle/a7ce362a-7ea3-486f-a59a-6bf15c1afb12",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Umfassende und professionelle Beratung unserer Kunden in den Kernbereichen Anlegen, Finanzieren und Vorsorge",
+        "Zusammen mit deinem Team kümmerst du dich um das finanzielle Wohlbefinden unserer Kundschaft",
+        "Mit deiner gewinnenden und aufgestellten Art gelingt es dir leicht Neukunden zu akquirieren und zu begeistern",
+        "Gemeinsam mit unseren Finanzplanungsexperten gehst du auf Kundenbedürfnisse ein"
+      ],
+      "_migrosBenefits": [
+        "Migros Bank: Konten, Hypotheken und Finanzdienstleistungen mit Vorzugskonditionen",
+        "Individuelle Weiterbildung: Attraktive Beiträge für externe Weiterbildungen",
+        "Verpflegung: Vielseitiges Verpflegungsangebot mit Mahlzeitenzulage",
+        "Flache Hierarchien: Durchlässige Hierarchien und stufenübergreifender Austausch",
+        "Gezielte Förderung: Kontinuierlicher, individueller Austausch zur beruflichen Förderung"
+      ],
+      "_migrosWorkPercentage": "12%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-10T22:06:33.892Z",
+      "firstSeenAt": "2026-05-10T22:06:33.892Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-gep1sj",
+      "slug": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Quereinsteiger*in Fachverantwortung",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-16",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/quereinsteigerin-fachverantwortung/78842ab7-cf90-4bba-842e-205a9759e4cb",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Je nach Vorkenntnissen gezielte Ausbildung hinzu Fachleiter/in",
+        "Fachliche Führung eines Bereiches (z.B. Früchte & Gemüse, Molkerei, Food, Non Food, Kassen etc.)",
+        "Verkaufsförderung sowie Kundenbedienung und -beratung",
+        "Umsatz-, Kosten-, Inventar- und Lagerbewirtschaftung",
+        "Bestellwesen, Wareneingangskontrollen, Warenpräsentation und -disposition"
+      ],
+      "_migrosBenefits": [
+        "L-GAV: Attraktiver Migros Landes-Gesamtarbeitsvertrag",
+        "Sozialleistungen: Sehr gute Sozialleistungen in den Bereichen Kinderzulagen, Krankentaggeld und Unfallversicherung",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Eigenverantwortung & Freiraum: Abwechslungsreiche Aufgaben und Förderung von Eigenverantwortung",
+        "Gezielte Förderung: Förderung unserer Mitarbeitenden mit gezielten Personalentwicklungsmassnahmen"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-10T22:06:33.892Z",
+      "firstSeenAt": "2026-05-10T22:06:33.892Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-di1gox",
