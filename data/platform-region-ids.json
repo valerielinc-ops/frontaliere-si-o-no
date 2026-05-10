@@ -200,7 +200,16 @@
         "endpoint": "https://api.smartrecruiters.com/v1/companies/Schindler/postings",
         "publicJobsUrl": "https://jobs.smartrecruiters.com/Schindler",
         "pageSize": 100,
-        "note": "First SmartRecruiters tenant onboarded (Cathedral Phase 2 Wave C Batch 2). When a 2nd tenant lands, extract pagination loop into scripts/lib/ats-clients/smartrecruiters-client.mjs."
+        "note": "First SmartRecruiters tenant onboarded (Cathedral Phase 2 Wave C Batch 2). Pagination loop now lives in scripts/lib/ats-clients/smartrecruiters-client.mjs (Cathedral Phase 3 T3.1)."
+      },
+      "migros-hq": {
+        "name": "Migros HQ Zürich",
+        "tenant": "Migros",
+        "filterMethod": "custom predicate (ZH cities) — locationCountryCodes ['ch']",
+        "endpoint": "https://api.smartrecruiters.com/v1/companies/Migros/postings",
+        "publicJobsUrl": "https://jobs.smartrecruiters.com/Migros",
+        "pageSize": 100,
+        "note": "Parent-group SR tenant aggregating Migros Industrie, MGB, Denner, Migros Bank, Galaxus etc. Scoped to ZH-only via options.filter; uses options.fetchDetail=true with concurrency=5 to enrich jobAd payloads."
       }
     },
     "discoveryMethod": "GET /v1/companies/{tenant}/postings?limit=1 → response.totalFound + first page facets"
