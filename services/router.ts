@@ -832,14 +832,48 @@ interface CantonSlugRecord {
  de: string;
  fr: string;
 }
+interface CantonGroupRecord {
+ members: readonly string[];
+}
 interface CantonUrlSlugsFile {
  cantons: Record<string, CantonSlugRecord>;
+ cantonGroups?: Record<string, CantonGroupRecord>;
  aggregate: CantonSlugRecord;
 }
 const CANTON_URL_SLUGS = CANTON_URL_SLUGS_RAW as unknown as CantonUrlSlugsFile;
 
 /** Reserved sentinel for the Switzerland-wide aggregator route. */
 export const JOB_BOARD_CANTON_AGGREGATE = '_AGGREGATE_';
+
+/**
+ * Member BFS canton code → URL group key (e.g. `'AI' → 'APPENZELLO'`,
+ * `'BS' → 'BASILEA'`). Built once from `CANTON_URL_SLUGS.cantonGroups`.
+ * Half-canton merge (2026-05-10): AI+AR collapse into a single URL group
+ * `APPENZELLO`; BL+BS into `BASILEA`. Internal BFS/quorum logic still
+ * tags jobs with the real BFS code; call {@link resolveCantonGroup} at
+ * the URL-emission boundary to collapse onto the group key.
+ */
+const CANTON_MEMBER_TO_GROUP: ReadonlyMap<string, string> = (() => {
+ const map = new Map<string, string>();
+ const groups = CANTON_URL_SLUGS.cantonGroups ?? {};
+ for (const [groupKey, def] of Object.entries(groups)) {
+  for (const member of def?.members ?? []) {
+   map.set(String(member).toUpperCase(), groupKey);
+  }
+ }
+ return map;
+})();
+
+/**
+ * Resolve a real BFS canton code to its URL canton group key. AI/AR collapse
+ * to `APPENZELLO`; BL/BS collapse to `BASILEA`; every other code (and the
+ * `_AGGREGATE_` sentinel) round-trips unchanged.
+ */
+export function resolveCantonGroup(cantonCode: string): string {
+ const code = String(cantonCode || '').toUpperCase().trim();
+ if (!code) return code;
+ return CANTON_MEMBER_TO_GROUP.get(code) ?? code;
+}
 
 /**
  * Job-board URL prefixes per locale. The DE prefix has TWO accepted
@@ -878,7 +912,10 @@ export function getJobBoardSlugForCanton(cantonCode: string, locale: Locale): st
  if (cantonCode === 'TI' && locale === 'de') {
    return `${JOB_BOARD_PREFIX_LEGACY_DE}tessin`;
  }
- const record = CANTON_URL_SLUGS.cantons[cantonCode];
+ // Half-canton merge: callers may pass a real BFS code (e.g. 'AI', 'BS')
+ // — collapse onto the URL group key before looking up the slug record.
+ const urlKey = resolveCantonGroup(cantonCode);
+ const record = CANTON_URL_SLUGS.cantons[urlKey];
  if (!record) {
    // Unknown canton: degrade gracefully to the legacy Ticino slug. Caller
    // can detect & log; we never throw out of a router helper.
