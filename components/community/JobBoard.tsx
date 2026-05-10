@@ -14,6 +14,14 @@ const JobAlertPostAuthPrompt = lazyRetry(() => import('@/components/community/Jo
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
+import {
+ fetchAggregatedJobs,
+ fetchAllJobs,
+ fetchJobsForCanton,
+ getDefaultCantonForVisit,
+ AGGREGATE_CANTON_CODE,
+ type Job as RawJob,
+} from '@/services/jobsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
 import {
  type BehaviorData,
@@ -2694,33 +2702,93 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setSearchQuery((prev) => (prev === next ? prev : next));
  }, [searchSlugFilter, initialJobSlug]);
 
+ /**
+ * Initial-mount data load (D9 + D11 + E4).
+ *
+ * Source of truth migrated from monolithic `/data/jobs.json` → per-canton
+ * shards via `services/jobsService.ts`. Shards carry raw Job objects without
+ * locale-translated fields, so when (a) the shard pipeline is not yet
+ * deployed for this build, or (b) the chosen shards return zero jobs, we
+ * fall back to the legacy locale-aware loader (`fetchAllJobs()` / the slim
+ * index files) which preserves existing UX during the rollout window.
+ *
+ * D11 — referrer-aware default canton:
+ *   - referrer contains "frontaliere" → start on TI shard (single fetch).
+ *   - otherwise → multi-canton aggregate across the top 8 Swiss cantons.
+ *
+ * Cancellation: the effect aborts state writes when `cancelled` flips to
+ * true, so a locale change mid-flight cannot stomp the next load.
+ */
  useEffect(() => {
  let cancelled = false;
- // FRO-386: Load slim index first (~150KB gzip) for fast listing LCP.
- // Falls back to full locale file if slim index not available yet.
+
+ /** Top-N cantons fetched when no canton intent is detected (req #4). */
+ const TOP_AGGREGATE_CANTONS: ReadonlyArray<string> = [
+ 'TI', 'GR', 'VS', 'ZH', 'BE', 'BS', 'GE', 'VD',
+ ];
+
+ /** Legacy slim-index → locale → monolithic fallback (FRO-386). */
+ const loadLegacyLocaleJobs = async (): Promise<JobListing[]> => {
  const slimIndexUrl = `/data/jobs-${locale}-index.json`;
  const localeUrl = `/data/jobs-${locale}.json`;
- const fallbackUrl = '/data/jobs.json';
- fetch(slimIndexUrl)
- .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
- .catch(() =>
- fetch(localeUrl)
- .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
- .catch(() => fetch(fallbackUrl).then((res) => res.json()))
- )
- .then((data: JobListing[]) => {
+ try {
+ const res = await fetch(slimIndexUrl);
+ if (res.ok) return (await res.json()) as JobListing[];
+ throw new Error(`slim index ${res.status}`);
+ } catch {
+ try {
+ const res = await fetch(localeUrl);
+ if (res.ok) return (await res.json()) as JobListing[];
+ throw new Error(`locale jobs ${res.status}`);
+ } catch {
+ // Final fallback — monolithic, deprecated path.
+ const all = (await fetchAllJobs()) as unknown as JobListing[];
+ return Array.isArray(all) ? all : [];
+ }
+ }
+ };
+
+ const finalize = (raw: ReadonlyArray<JobListing>): void => {
  if (cancelled) return;
- const normalized = Array.isArray(data) ? data.map((job) => normalizeIncomingJob(job)) : [];
+ const normalized = raw.map((job) => normalizeIncomingJob(job));
  const deduped = dedupeJobsForListing(normalized);
  setJobs(deduped);
  registerJobSlugMap(deduped);
  setJobsLoading(false);
- })
- .catch((err) => {
- console.warn('Failed to load jobs:', err);
- reportCaughtError(err, 'jobBoard.loadJobs');
+ };
+
+ const run = async (): Promise<void> => {
+ try {
+ const defaultCanton = getDefaultCantonForVisit();
+ const shardJobs: RawJob[] =
+ defaultCanton === AGGREGATE_CANTON_CODE
+ ? await fetchAggregatedJobs(TOP_AGGREGATE_CANTONS, { deduplicate: true })
+ : await fetchJobsForCanton(defaultCanton);
+
+ // Shards not yet deployed (every shard 404'd / empty) → legacy loader.
+ if (shardJobs.length === 0) {
+ const legacy = await loadLegacyLocaleJobs();
+ finalize(Array.isArray(legacy) ? legacy : []);
+ return;
+ }
+
+ finalize(shardJobs as unknown as JobListing[]);
+ } catch (err: unknown) {
+ // Service-level failure → try legacy path before giving up.
+ console.warn('Failed to load jobs from shards:', err);
+ reportCaughtError(err, 'jobBoard.loadJobs.shards');
+ try {
+ const legacy = await loadLegacyLocaleJobs();
+ finalize(Array.isArray(legacy) ? legacy : []);
+ } catch (legacyErr: unknown) {
+ console.warn('Legacy locale-jobs fallback also failed:', legacyErr);
+ reportCaughtError(legacyErr, 'jobBoard.loadJobs.legacy');
  if (!cancelled) setJobsLoading(false);
- });
+ }
+ }
+ };
+
+ void run();
  return () => {
  cancelled = true;
  };
