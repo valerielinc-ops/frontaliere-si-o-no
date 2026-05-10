@@ -3682,6 +3682,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-blitz-droga-turate-frontalieri': { name: 'Blitz droga Turate', path: '/articoli-frontaliere/blitz-droga-turate-frontalieri', parent: 'blog' },
     'blog-crans-montana-audizioni-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-audizioni-frontalieri', parent: 'blog' },
     'blog-sommer-bocciato-inter-frontalieri': { name: 'Calcio', path: '/articoli-frontaliere/sommer-bocciato-inter-frontalieri', parent: 'blog' },
+    'blog-precompilata-2026-frontalieri-ticino': { name: 'Precompilata 2026', path: '/articoli-frontaliere/precompilata-2026-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

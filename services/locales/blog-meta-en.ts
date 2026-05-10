@@ -7319,6 +7319,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sommer-bocciato-inter-frontalieri.title': 'Sommer flops at Inter: what it means for cross-border workers',
     'blog.article.sommer-bocciato-inter-frontalieri.excerpt': 'Emiliano Viviano criticizes the Swiss goalkeeper: \'This year he hasn\'t given almost anything to Inter.\' Analysis of the implications for cross-border workers',
     'blog.article.sommer-bocciato-inter-frontalieri.imageAlt': 'Soccer match in progress at LAC Lugano, with the goalkeeper in action',
+    'blog.article.precompilata-2026-frontalieri-ticino.title': '2026 Pre-filled Tax Return: Guide for Cross-border Workers',
+    'blog.article.precompilata-2026-frontalieri-ticino.excerpt': 'Guide to the 2026 pre-filled tax return for cross-border workers in Ticino: dates, news and how to submit the 730 form or Redditi PF',
+    'blog.article.precompilata-2026-frontalieri-ticino.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
 };
 
 export default blogMetaEn;

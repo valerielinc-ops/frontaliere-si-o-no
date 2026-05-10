@@ -7320,6 +7320,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sommer-bocciato-inter-frontalieri.title': 'Sommer recalé par l\'Inter : conséquences pour les frontaliers',
     'blog.article.sommer-bocciato-inter-frontalieri.excerpt': 'Emiliano Viviano critique le gardien suisse : « Cette année, il n\'a presque rien apporté à l\'Inter ». Analyse des implications pour les frontaliers',
     'blog.article.sommer-bocciato-inter-frontalieri.imageAlt': 'Match de football en cours au LAC de Lugano, avec le gardien en action',
+    'blog.article.precompilata-2026-frontalieri-ticino.title': 'Déclaration préremplie 2026 : guide d\'accès, nouveautés, contrôles et envoi',
+    'blog.article.precompilata-2026-frontalieri-ticino.excerpt': 'Le guide pour la déclaration préremplie 2026 pour les travailleurs frontaliers au Tessin : dates, nouveautés et comment envoyer le modèle 730 ou Redditi PF',
+    'blog.article.precompilata-2026-frontalieri-ticino.imageAlt': 'Vue aérienne du Lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

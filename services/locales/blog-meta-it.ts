@@ -7320,6 +7320,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sommer-bocciato-inter-frontalieri.title': 'Sommer bocciato dall\'Inter: cosa cambia per i frontalieri',
     'blog.article.sommer-bocciato-inter-frontalieri.excerpt': 'Emiliano Viviano critica il portiere svizzero: «Quest\'anno non ha dato quasi niente all\'Inter». Analisi delle implicazioni per i frontalieri',
     'blog.article.sommer-bocciato-inter-frontalieri.imageAlt': 'Partita di calcio in corso al LAC di Lugano, con il portiere in azione',
+    'blog.article.precompilata-2026-frontalieri-ticino.title': 'Precompilata 2026: guida su accesso, novità, controlli e invio',
+    'blog.article.precompilata-2026-frontalieri-ticino.excerpt': 'La guida alla dichiarazione precompilata 2026 per frontalieri in Ticino: date, novità e come inviare il modello 730 o Redditi PF',
+    'blog.article.precompilata-2026-frontalieri-ticino.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

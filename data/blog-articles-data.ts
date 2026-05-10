@@ -23330,4 +23330,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'precompilata-2026-frontalieri-ticino',
+ category: 'fiscale',
+ date: '2026-05-10T08:13:57.392Z',
+ image: '/images/blog/precompilata-2026-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

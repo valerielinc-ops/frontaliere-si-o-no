@@ -7319,6 +7319,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sommer-bocciato-inter-frontalieri.title': 'Sommer durchfällt bei Inter: Was ändert sich für Grenzgänger',
     'blog.article.sommer-bocciato-inter-frontalieri.excerpt': 'Emiliano Viviano kritisiert den Schweizer Torhüter: «Dieses Jahr hat er dem Inter fast nichts gegeben». Analyse der Auswirkungen für Grenzgänger',
     'blog.article.sommer-bocciato-inter-frontalieri.imageAlt': 'Fußballspiel im Gange im LAC Lugano, mit dem Torhüter in Aktion',
+    'blog.article.precompilata-2026-frontalieri-ticino.title': 'Vorgefüllte Steuererklärung 2026: Zugang, Neuerungen, Prüfung und Einreichung',
+    'blog.article.precompilata-2026-frontalieri-ticino.excerpt': 'Ein Leitfaden zur vorgefertigten Steuererklärung 2026 für Grenzgänger im Tessin: Fristen, Neuerungen und wie man das Modell 730 oder Redditi PF einreicht',
+    'blog.article.precompilata-2026-frontalieri-ticino.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
