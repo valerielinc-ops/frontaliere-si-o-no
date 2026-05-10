@@ -7355,6 +7355,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.secondo-pilastro-diviso-frontalieri-ticino.title': 'Second pillar: division even after long separation',
     'blog.article.secondo-pilastro-diviso-frontalieri-ticino.excerpt': 'Discover how the division of the second pillar AVS/LPP affects Ticino cross-border workers, even after a long separation.',
     'blog.article.secondo-pilastro-diviso-frontalieri-ticino.imageAlt': 'Lake Lugano with the cityscape in the background',
+    'blog.article.ospedale-como-frontalieri-15-maggio-2026.title': '15-year-old breaks hospital windows in Como, reported by police',
+    'blog.article.ospedale-como-frontalieri-15-maggio-2026.excerpt': 'A 15-year-old damaged the ticket office at Sant\'Anna Hospital in San Fermo della Battaglia, Como, after demanding an appointment without booking.',
+    'blog.article.ospedale-como-frontalieri-15-maggio-2026.imageAlt': 'Sant\'Anna Hospital in San Fermo della Battaglia, Como, Italy',
 };
 
 export default blogMetaEn;

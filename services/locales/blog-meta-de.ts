@@ -7355,6 +7355,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.secondo-pilastro-diviso-frontalieri-ticino.title': 'Zweite Säule: Aufteilung auch nach langer Trennung',
     'blog.article.secondo-pilastro-diviso-frontalieri-ticino.excerpt': 'Erfahren Sie, wie die Aufteilung der zweiten Säule AHV/BVG Grenzgänger aus dem Tessin beeinflusst, auch nach langer Trennung.',
     'blog.article.secondo-pilastro-diviso-frontalieri-ticino.imageAlt': 'Luganersee mit Stadtpanorama im Hintergrund',
+    'blog.article.ospedale-como-frontalieri-15-maggio-2026.title': '15-Jähriger zerstört Fensterscheiben im Krankenhaus Como',
+    'blog.article.ospedale-como-frontalieri-15-maggio-2026.excerpt': 'Ein 15-Jähriger hat die Kasse des Krankenhauses Sant\'Anna in San Fermo della Battaglia, Como, beschädigt, nachdem er eine Untersuchung ohne Termin verlangt hatte.',
+    'blog.article.ospedale-como-frontalieri-15-maggio-2026.imageAlt': 'Krankenhaus Sant\'Anna in San Fermo della Battaglia, Como, Italien',
 };
 
 export default blogMetaDe;

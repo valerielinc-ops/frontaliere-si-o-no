@@ -1,0 +1,40 @@
+{
+  "id": "ospedale-como-frontalieri-15-maggio-2026",
+  "slug": "ospedale-como-frontalieri-15-maggio-2026",
+  "publishedAt": "2026-05-10T10:34:47.864Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.229242709588492,
+    "confidence": 0.8,
+    "finalScore": 7.383394167670794,
+    "topK": [
+      {
+        "slug": "mariano-comense-assale-ferisce-barista-denunciato",
+        "cosine": 0.8390220645080447
+      },
+      {
+        "slug": "como-tunisino-denunciato-aggressione",
+        "cosine": 0.8380981891920477
+      },
+      {
+        "slug": "sosta-selvaggia-moltrasio-2026",
+        "cosine": 0.8314641939233473
+      },
+      {
+        "slug": "controlli-varese-esposto-espulsione",
+        "cosine": 0.831433515903791
+      },
+      {
+        "slug": "lite-notturna-brogeda-2026",
+        "cosine": 0.8298478153157359
+      }
+    ],
+    "score": 0.9229242709588492,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

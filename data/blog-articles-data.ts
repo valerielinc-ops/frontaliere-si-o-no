@@ -23438,4 +23438,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ospedale-como-frontalieri-15-maggio-2026',
+ category: 'pratico',
+ date: '2026-05-10T10:34:46.354Z',
+ image: '/images/blog/ospedale-como-frontalieri-15-maggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7356,6 +7356,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.secondo-pilastro-diviso-frontalieri-ticino.title': 'Secondo pilastro: divisione anche dopo lunga separazione',
     'blog.article.secondo-pilastro-diviso-frontalieri-ticino.excerpt': 'Scopri come la divisione del secondo pilastro AVS/LPP influisce sui frontalieri del Ticino, anche dopo una lunga separazione.',
     'blog.article.secondo-pilastro-diviso-frontalieri-ticino.imageAlt': 'Lago di Lugano con il panorama cittadino sullo sfondo',
+    'blog.article.ospedale-como-frontalieri-15-maggio-2026.title': '15enne rompe vetri ospedale Como: denunciato dalla polizia',
+    'blog.article.ospedale-como-frontalieri-15-maggio-2026.excerpt': 'Un 15enne ha danneggiato il box office dell\'Ospedale Sant\'Anna a San Fermo della Battaglia, Como, dopo aver preteso una visita senza prenotazione.',
+    'blog.article.ospedale-como-frontalieri-15-maggio-2026.imageAlt': 'Ospedale Sant\'Anna a San Fermo della Battaglia, Como, Italia',
 };
 
 export default blogMetaIt;
