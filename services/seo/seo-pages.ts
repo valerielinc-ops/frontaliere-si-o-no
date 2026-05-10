@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2500,
+ "numberOfItems": 2501,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7142,7 +7142,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2497, "name": "Palacinema di Locarno: servono risposte urgenti", "url": `${BASE_URL}/articoli-frontaliere/palacinema-locarno-urgenti-2026` },
           { "@type": "ListItem", "position": 2498, "name": "Venezia: esperienza sonora ispirata a Ildegarda...", "url": `${BASE_URL}/articoli-frontaliere/venezia-ildegarda-frontalieri` },
           { "@type": "ListItem", "position": 2499, "name": "Altri tre arresti per la rissa in cui morì Enzo...", "url": `${BASE_URL}/articoli-frontaliere/tre-arresti-rissa-ambrosino-cavalla` },
-          { "@type": "ListItem", "position": 2500, "name": "Scioperi aerei in Italia: lunedì 11 maggio voli...", "url": `${BASE_URL}/articoli-frontaliere/scioperi-aerei-italia-11-maggio-2026` }
+          { "@type": "ListItem", "position": 2500, "name": "Scioperi aerei in Italia: lunedì 11 maggio voli...", "url": `${BASE_URL}/articoli-frontaliere/scioperi-aerei-italia-11-maggio-2026` },
+          { "@type": "ListItem", "position": 2501, "name": "Acb in difficoltà: oltre 2 milioni di franchi d...", "url": `${BASE_URL}/articoli-frontaliere/acb-debito-futuro-2026` }
  ]
  },
  {

@@ -7343,6 +7343,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scioperi-aerei-italia-11-maggio-2026.title': 'Flugstreik in Italien: Flüge am 11. Mai gefährdet',
     'blog.article.scioperi-aerei-italia-11-maggio-2026.excerpt': 'Am Montag, den 11. Mai 2026, finden in der italienischen Luftfahrt Streiks statt. Flüge könnten gestrichen oder verspätet werden. Was tun?',
     'blog.article.scioperi-aerei-italia-11-maggio-2026.imageAlt': 'Flughafen Malpensa mit Flugzeugen auf der Startbahn und Passagieren im Terminal',
+    'blog.article.acb-debito-futuro-2026.title': 'Acb in Schwierigkeiten: über 2 Millionen Franken Schulden',
+    'blog.article.acb-debito-futuro-2026.excerpt': 'Die Gesellschaft Acb versucht, Schulden von über 2 Millionen Franken zu begleichen. Am Dienstag werden von der Gesellschaft Aufklärungen erwartet.',
+    'blog.article.acb-debito-futuro-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

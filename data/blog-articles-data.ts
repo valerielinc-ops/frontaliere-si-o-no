@@ -23402,4 +23402,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'acb-debito-futuro-2026',
+ category: 'pratico',
+ date: '2026-05-10T09:50:28.150Z',
+ image: '/images/blog/acb-debito-futuro-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7343,6 +7343,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scioperi-aerei-italia-11-maggio-2026.title': 'Air strikes in Italy: flights at risk on May 11',
     'blog.article.scioperi-aerei-italia-11-maggio-2026.excerpt': 'Air strikes in Italian air transport on Monday, May 11, 2026. Flights at risk of cancellation or delay. What to do?',
     'blog.article.scioperi-aerei-italia-11-maggio-2026.imageAlt': 'Malpensa Airport with planes on the tarmac and passengers in the terminal',
+    'blog.article.acb-debito-futuro-2026.title': 'Acb in trouble: over 2 million francs in debt',
+    'blog.article.acb-debito-futuro-2026.excerpt': 'Acb is trying to settle debts of over 2 million francs. Clarifications expected from the company on Tuesday.',
+    'blog.article.acb-debito-futuro-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano and surrounding mountains',
 };
 
 export default blogMetaEn;

@@ -7344,6 +7344,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scioperi-aerei-italia-11-maggio-2026.title': 'Grèves aériennes en Italie : vols à risque le 11 mai',
     'blog.article.scioperi-aerei-italia-11-maggio-2026.excerpt': 'Lundi 11 mai 2026, grève dans le transport aérien italien. Risques d\'annulation ou de retard. Que faire ?',
     'blog.article.scioperi-aerei-italia-11-maggio-2026.imageAlt': 'Aéroport de Malpensa avec des avions sur la piste et des passagers dans le terminal',
+    'blog.article.acb-debito-futuro-2026.title': 'Acb en difficulté : plus de 2 millions de francs de dettes',
+    'blog.article.acb-debito-futuro-2026.excerpt': 'La société Acb tente de régler des dettes de plus de 2 millions de francs. Des éclaircissements sont attendus mardi de la part de la société.',
+    'blog.article.acb-debito-futuro-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano et les montagnes environnantes',
 };
 
 export default blogMetaFr;

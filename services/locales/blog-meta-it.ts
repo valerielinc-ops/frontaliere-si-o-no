@@ -7344,6 +7344,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scioperi-aerei-italia-11-maggio-2026.title': 'Scioperi aerei in Italia: lunedì 11 maggio voli a rischio',
     'blog.article.scioperi-aerei-italia-11-maggio-2026.excerpt': 'Lunedì 11 maggio 2026 scioperi nel trasporto aereo italiano. Voli a rischio cancellazione o ritardo. Cosa fare?',
     'blog.article.scioperi-aerei-italia-11-maggio-2026.imageAlt': 'Aeroporto di Malpensa con aerei sulla pista e passeggeri nel terminal',
+    'blog.article.acb-debito-futuro-2026.title': 'Acb in difficoltà: oltre 2 milioni di franchi di debiti',
+    'blog.article.acb-debito-futuro-2026.excerpt': 'La società Acb cerca di saldare debiti per oltre 2 milioni di franchi. Martedì attesi chiarimenti dalla società.',
+    'blog.article.acb-debito-futuro-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano e le montagne circostanti',
 };
 
 export default blogMetaIt;
