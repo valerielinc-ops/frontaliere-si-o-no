@@ -5,10 +5,11 @@
  * Integrates with jobAlertService.ts for Firestore CRUD.
  */
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { Bell, BellRing, Trash2, ChevronDown, ChevronUp, Loader2, Pencil } from 'lucide-react';
 import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
+import { listCantonOptions, getCantonLabel, type CantonLocale } from '@/services/cantonList';
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -61,6 +62,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
  const [selectedContracts, setSelectedContracts] = useState<string[]>([]);
  const [selectedSectors, setSelectedSectors] = useState<string[]>([]);
+ const [selectedCantons, setSelectedCantons] = useState<string[]>([]);
+ const [cantonPickerOpen, setCantonPickerOpen] = useState(false);
  const [frequency, setFrequency] = useState<'daily' | 'weekly'>('daily');
  const [saving, setSaving] = useState(false);
  const [alerts, setAlerts] = useState<JobAlert[]>([]);
@@ -122,6 +125,9 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  .finally(() => setLoadingAlerts(false));
  }, [authUser]);
 
+ const typedLocale = (locale as CantonLocale) || 'it';
+ const cantonOptions = useMemo(() => listCantonOptions(typedLocale), [typedLocale]);
+
  const showToast = useCallback((msg: string) => {
  setToast(msg);
  setTimeout(() => setToast(null), 3000);
@@ -146,6 +152,9 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  locations: selectedLocations,
  contractTypes: selectedContracts,
  sectors: selectedSectors,
+ // Cathedral CH-wide geo scoping (CATHEDRAL-STATUS #12): empty selection
+ // = "all cantons" (legacy behaviour), explicit codes scope the alert.
+ cantonFilter: selectedCantons.length > 0 ? selectedCantons : null,
  frequency,
  locale: locale as 'it' | 'en' | 'de' | 'fr',
  };
@@ -165,6 +174,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  setSelectedLocations([]);
  setSelectedContracts([]);
  setSelectedSectors([]);
+ setSelectedCantons([]);
+ setCantonPickerOpen(false);
  setExpanded(false);
  } catch (err: any) {
  showToast(err?.message || 'Errore durante la creazione dell\'alert.');
@@ -228,6 +239,16 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  setSelectedSectors((prev) =>
  prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s],
  );
+ };
+
+ const toggleCanton = (code: string) => {
+ setSelectedCantons((prev) =>
+ prev.includes(code) ? prev.filter((c) => c !== code) : [...prev, code],
+ );
+ };
+
+ const clearCantons = () => {
+ setSelectedCantons([]);
  };
 
  return (
@@ -363,6 +384,99 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </div>
  </fieldset>
 
+ {/* Canton geo filter (CATHEDRAL-STATUS #12: Cathedral CH-wide expansion) */}
+ <fieldset>
+ <div className="flex items-baseline justify-between mb-1 gap-2 flex-wrap">
+ <legend className="block text-sm font-medium text-subtle">
+ {t('jobAlert.canton') || 'Cantoni di interesse'}
+ </legend>
+ <span className="text-xs text-muted">
+ {selectedCantons.length === 0
+ ? (t('jobAlert.cantonAll') || 'Tutti i cantoni')
+ : (t('jobAlert.cantonSelectedCount') || 'Selezionati') + `: ${selectedCantons.length}`}
+ </span>
+ </div>
+ {/* Mobile-first: collapse the 26-canton picker by default and surface a
+ compact "open"/"clear" row + chip summary so the dense data area
+ stays above the fold on ≤414px (CLAUDE.md #15 / #16). */}
+ <div className="flex flex-wrap items-center gap-2">
+ <button
+ type="button"
+ onClick={() => setCantonPickerOpen((v) => !v)}
+ aria-expanded={cantonPickerOpen}
+ aria-controls="job-alert-canton-list"
+ className="inline-flex items-center gap-1 px-3 py-1 text-xs rounded-full border border-edge bg-surface text-subtle hover:border-accent-border transition-colors"
+ >
+ {cantonPickerOpen
+ ? (t('jobAlert.cantonHide') || 'Nascondi cantoni')
+ : (t('jobAlert.cantonChoose') || 'Scegli cantoni')}
+ {cantonPickerOpen ? (
+ <ChevronUp className="w-3.5 h-3.5" aria-hidden="true" />
+ ) : (
+ <ChevronDown className="w-3.5 h-3.5" aria-hidden="true" />
+ )}
+ </button>
+ {selectedCantons.length > 0 && (
+ <button
+ type="button"
+ onClick={clearCantons}
+ className="inline-flex items-center px-3 py-1 text-xs rounded-full border border-edge bg-surface text-subtle hover:border-accent-border transition-colors"
+ >
+ {t('jobAlert.cantonClear') || 'Reimposta'}
+ </button>
+ )}
+ </div>
+ {/* Compact summary of selected canton chips when picker is collapsed. */}
+ {!cantonPickerOpen && selectedCantons.length > 0 && (
+ <div className="mt-2 flex flex-wrap gap-1.5" aria-label={t('jobAlert.cantonSelectedAria') || 'Cantoni selezionati'}>
+ {selectedCantons.map((code) => (
+ <span
+ key={code}
+ className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] rounded-full bg-accent-strong text-on-accent"
+ >
+ {getCantonLabel(code, typedLocale)}
+ <button
+ type="button"
+ onClick={() => toggleCanton(code)}
+ aria-label={`${t('jobAlert.cantonRemove') || 'Rimuovi'} ${getCantonLabel(code, typedLocale)}`}
+ className="ml-0.5 leading-none text-on-accent hover:opacity-80"
+ >
+ ×
+ </button>
+ </span>
+ ))}
+ </div>
+ )}
+ {cantonPickerOpen && (
+ <div
+ id="job-alert-canton-list"
+ className="mt-2 flex flex-wrap gap-2 max-h-44 overflow-y-auto pr-1"
+ role="group"
+ aria-label={t('jobAlert.canton') || 'Cantoni di interesse'}
+ >
+ {cantonOptions.map((opt) => (
+ <button
+ type="button"
+ key={opt.code}
+ onClick={() => toggleCanton(opt.code)}
+ aria-pressed={selectedCantons.includes(opt.code)}
+ className={`px-3 py-1 text-xs rounded-full border transition-colors ${
+ selectedCantons.includes(opt.code)
+ ? 'bg-accent-strong text-on-accent border-accent'
+ : 'bg-surface text-subtle border-edge hover:border-accent-border'
+ }`}
+ >
+ <span className="font-semibold mr-1">{opt.code}</span>
+ <span>{opt.label}</span>
+ </button>
+ ))}
+ </div>
+ )}
+ <p className="text-[11px] text-muted mt-1">
+ {t('jobAlert.cantonHint') || 'Lascia vuoto per ricevere alert da tutti i cantoni svizzeri.'}
+ </p>
+ </fieldset>
+
  {/* Frequency */}
  <div className="flex items-center gap-3">
  <label htmlFor="job-alert-frequency" className="text-xs font-medium text-subtle">
@@ -417,6 +531,9 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  )}
  {alert.sectors.length > 0 && (
  <span> · {alert.sectors.map(s => SECTORS.find(x => x.value === s)?.label || s).join(', ')}</span>
+ )}
+ {alert.cantonFilter && alert.cantonFilter.length > 0 && (
+ <span> · {alert.cantonFilter.map((c) => getCantonLabel(c, typedLocale)).join(', ')}</span>
  )}
  </div>
  <div className="flex items-center gap-1 flex-shrink-0 ml-2">
