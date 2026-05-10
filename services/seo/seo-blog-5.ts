@@ -33575,6 +33575,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chippis-ponte-demolito-sicurezza': {
+    title: 'Chippis demolisce ponte storico per sicurezza | Frontaliere Ticino',
+    description: 'Il Comune di Chippis ha demolito un ponte del 1880 per prevenire rischi legati alla faglia dei Fios. Lavori di sicurezza costano 1,8 milioni di franchi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chippis, demolisce, ponte, storico',
+    ogTitle: 'Chippis demolisce ponte storico per sicurezza | Frontaliere Ticino',
+    ogDescription: 'Il Comune di Chippis ha demolito un ponte del 1880 per prevenire rischi legati alla faglia dei Fios. Lavori di sicurezza costano 1,8 milioni di franchi.',
+    canonicalPath: '/articoli-frontaliere/chippis-ponte-demolito-sicurezza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chippis demolisce ponte storico per sicurezza",
+      "description": "Il Comune di Chippis ha demolito un ponte del 1880 per prevenire rischi legati alla faglia dei Fios. Lavori di sicurezza costano 1,8 milioni di franchi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chippis-ponte-demolito-sicurezza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del villaggio di Chippis nella Val d'Anniviers, Svizzera, con il fiume Navizence e le montagne circostanti. La scena cattura il ponte storico e i lavori in corso per le misure di sicurezza."
+      },
+      "datePublished": "2026-05-10T05:51:32+00:00",
+      "dateModified": "2026-05-10T05:51:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chippis-ponte-demolito-sicurezza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

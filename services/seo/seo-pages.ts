@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2481,
+ "numberOfItems": 2482,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7123,7 +7123,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2478, "name": "Potere d'acquisto in calo: ACSI allarma su pove...", "url": `${BASE_URL}/articoli-frontaliere/potere-dacquisto-ticino-2024` },
           { "@type": "ListItem", "position": 2479, "name": "Minivan nel canale a Chioggia: tre vittime tra ...", "url": `${BASE_URL}/articoli-frontaliere/minivan-chioggia-frontalieri-incidente` },
           { "@type": "ListItem", "position": 2480, "name": "Curiosità svizzere: tradizioni e usanze uniche ...", "url": `${BASE_URL}/articoli-frontaliere/curiosita-rossocrociate-ticino-2026` },
-          { "@type": "ListItem", "position": 2481, "name": "Malcontento tra i dipendenti dell'aeroporto di ...", "url": `${BASE_URL}/articoli-frontaliere/malcontento-aeroporto-lugano-2026` }
+          { "@type": "ListItem", "position": 2481, "name": "Malcontento tra i dipendenti dell'aeroporto di ...", "url": `${BASE_URL}/articoli-frontaliere/malcontento-aeroporto-lugano-2026` },
+          { "@type": "ListItem", "position": 2482, "name": "Chippis demolisce ponte storico per sicurezza", "url": `${BASE_URL}/articoli-frontaliere/chippis-ponte-demolito-sicurezza` }
  ]
  },
  {

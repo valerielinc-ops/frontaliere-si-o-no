@@ -7286,6 +7286,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malcontento-aeroporto-lugano-2026.title': 'Dissatisfaction among Lugano Airport employees',
     'blog.article.malcontento-aeroporto-lugano-2026.excerpt': 'Anonymous letter to Lugano Municipality highlights tensions between staff and director Christian Castelli',
     'blog.article.malcontento-aeroporto-lugano-2026.imageAlt': 'Aerial view of Lugano Airport with Ticino landscape',
+    'blog.article.chippis-ponte-demolito-sicurezza.title': 'Chippis demolishes historic bridge for safety',
+    'blog.article.chippis-ponte-demolito-sicurezza.excerpt': 'The municipality of Chippis has demolished an 1880 bridge to prevent risks related to the Fios fault. Safety works cost 1.8 million francs.',
+    'blog.article.chippis-ponte-demolito-sicurezza.imageAlt': 'Aerial view of Chippis village in Val d\'Anniviers, Switzerland, with the Navizence river and surrounding mountains. The scene captures the historical bridge and the ongoing construction work for safety measures.',
 };
 
 export default blogMetaEn;

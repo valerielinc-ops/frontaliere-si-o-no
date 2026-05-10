@@ -3671,6 +3671,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-minivan-chioggia-frontalieri-incidente': { name: 'Incidente frontalieri', path: '/articoli-frontaliere/minivan-chioggia-frontalieri-incidente', parent: 'blog' },
     'blog-curiosita-rossocrociate-ticino-2026': { name: 'Tradizioni svizzere', path: '/articoli-frontaliere/curiosita-rossocrociate-ticino-2026', parent: 'blog' },
     'blog-malcontento-aeroporto-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/malcontento-aeroporto-lugano-2026', parent: 'blog' },
+    'blog-chippis-ponte-demolito-sicurezza': { name: 'Chippis ponte sicurezza', path: '/articoli-frontaliere/chippis-ponte-demolito-sicurezza', parent: 'blog' },
  };
 
  const info = sectionNames[section];

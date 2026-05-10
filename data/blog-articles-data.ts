@@ -23231,4 +23231,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'chippis-ponte-demolito-sicurezza',
+ category: 'pratico',
+ date: '2026-05-10T05:51:32.255Z',
+ image: '/images/blog/chippis-ponte-demolito-sicurezza.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
