@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2510,
+ "numberOfItems": 2511,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7152,7 +7152,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2507, "name": "Newsletter Ticino: come restare aggiornati sull...", "url": `${BASE_URL}/articoli-frontaliere/abbonamento-newsletter-ticino-2026` },
           { "@type": "ListItem", "position": 2508, "name": "Balerna diventa zona di pianificazione: cosa ca...", "url": `${BASE_URL}/articoli-frontaliere/balerna-zona-pianificazione-2026` },
           { "@type": "ListItem", "position": 2509, "name": "Guillermo Silva vince la tappa e indossa la mag...", "url": `${BASE_URL}/articoli-frontaliere/giro-ditalia-silva-maglia-rosa` },
-          { "@type": "ListItem", "position": 2510, "name": "Rogo di Crans-Montana: convocati tre nuovi inda...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-audizioni-frontalieri-2026` }
+          { "@type": "ListItem", "position": 2510, "name": "Rogo di Crans-Montana: convocati tre nuovi inda...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-audizioni-frontalieri-2026` },
+          { "@type": "ListItem", "position": 2511, "name": "14 giugno: quel che c’è da sapere", "url": `${BASE_URL}/articoli-frontaliere/votazioni-federali-14-giugno-2026` }
  ]
  },
  {

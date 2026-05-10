@@ -7374,6 +7374,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crans-montana-audizioni-frontalieri-2026.title': 'Incendie à Crans-Montana : trois nouveaux suspects',
     'blog.article.crans-montana-audizioni-frontalieri-2026.excerpt': 'Trois nouveaux suspects, dont deux figures politiques, seront interrogés la semaine prochaine pour l\'incendie du bar Le Constellation.',
     'blog.article.crans-montana-audizioni-frontalieri-2026.imageAlt': 'Vue aérienne de Crans-Montana, Suisse, avec ses pistes de ski emblématiques et ses bâtiments de luxe, capturée par une journée d\'hiver claire.',
+    'blog.article.votazioni-federali-14-giugno-2026.title': '14 juin : ce qu\'il faut savoir',
+    'blog.article.votazioni-federali-14-giugno-2026.excerpt': 'Initiative pour la durabilité et modification de la loi sur le service civil : voici ce qui change pour les frontaliers',
+    'blog.article.votazioni-federali-14-giugno-2026.imageAlt': 'Bellinzone avec le Château de Castelgrande et la Rivière du Ticino',
 };
 
 export default blogMetaFr;

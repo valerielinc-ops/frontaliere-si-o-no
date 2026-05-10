@@ -23492,4 +23492,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'votazioni-federali-14-giugno-2026',
+ category: 'novita',
+ date: '2026-05-10T11:18:22.982Z',
+ image: '/images/blog/votazioni-federali-14-giugno-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

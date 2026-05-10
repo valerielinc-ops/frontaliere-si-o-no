@@ -7373,6 +7373,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-audizioni-frontalieri-2026.title': 'Crans-Montana fire: three new suspects called in',
     'blog.article.crans-montana-audizioni-frontalieri-2026.excerpt': 'Three new suspects, including two political figures, will be questioned next week about the fire at Le Constellation bar.',
     'blog.article.crans-montana-audizioni-frontalieri-2026.imageAlt': 'Aerial view of Crans-Montana, Switzerland, with its iconic ski slopes and luxury buildings, captured on a clear winter day.',
+    'blog.article.votazioni-federali-14-giugno-2026.title': 'June 14: what you need to know',
+    'blog.article.votazioni-federali-14-giugno-2026.excerpt': 'Sustainability initiative and amendment to the civil service law: here\'s what changes for cross-border workers',
+    'blog.article.votazioni-federali-14-giugno-2026.imageAlt': 'Bellinzona with Castelgrande Castle and the Ticino River',
 };
 
 export default blogMetaEn;

@@ -7374,6 +7374,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-audizioni-frontalieri-2026.title': 'Rogo di Crans-Montana: convocati tre nuovi indagati',
     'blog.article.crans-montana-audizioni-frontalieri-2026.excerpt': 'Tre nuovi indagati, tra cui due figure politiche, saranno interrogati la prossima settimana per l\'incendio al bar Le Constellation.',
     'blog.article.crans-montana-audizioni-frontalieri-2026.imageAlt': 'Vista aerea di Crans-Montana, Svizzera, con le sue iconiche piste da sci e edifici di lusso, catturata in una giornata invernale limpida.',
+    'blog.article.votazioni-federali-14-giugno-2026.title': '14 giugno: quel che c’è da sapere',
+    'blog.article.votazioni-federali-14-giugno-2026.excerpt': 'Iniziativa per la sostenibilità e modifica della legge sul servizio civile: ecco cosa cambia per i frontalieri',
+    'blog.article.votazioni-federali-14-giugno-2026.imageAlt': 'Bellinzona con il Castello di Castelgrande e il fiume Ticino',
 };
 
 export default blogMetaIt;
