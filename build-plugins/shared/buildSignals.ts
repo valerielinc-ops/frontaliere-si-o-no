@@ -52,6 +52,7 @@ function makeSignal(): { promise: Promise<void>; resolve: () => void } {
 const staticPagesSignal = makeSignal();
 const professionLandingsSignal = makeSignal();
 const salaryHubSignal = makeSignal();
+const jobsSeoPagesSignal = makeSignal();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -78,4 +79,18 @@ export function resolveProfessionLandingsFlushed(): void {
 export const salaryHubFlushed: Promise<void> = salaryHubSignal.promise;
 export function resolveSalaryHubFlushed(): void {
   salaryHubSignal.resolve();
+}
+
+/**
+ * Resolves when {@link jobsSeoPagesPlugin} has flushed all queued writes,
+ * including previousSlugs bridge HTML. Consumed by
+ * {@link relatedSearchClustersPlugin} so its sitemap canonical-mismatch
+ * filter reads the final on-disk content. Without this barrier, parallel
+ * `closeBundle` lets the cluster sitemap be written while bridge HTML is
+ * still buffered, and bridge URLs (canonical → active slug) leak into
+ * sitemap-search-clusters.xml — `audit:sitemap-canonicals` then fails.
+ */
+export const jobsSeoPagesFlushed: Promise<void> = jobsSeoPagesSignal.promise;
+export function resolveJobsSeoPagesFlushed(): void {
+  jobsSeoPagesSignal.resolve();
 }
