@@ -621,12 +621,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  /**
   * Resolve a canton code (or '_AGGREGATE_') to its locale-specific URL slug.
   * Returns the IT slug as a defensive fallback if the locale is missing.
+  *
+  * Half-canton merge: AI/AR/BL/BS callers are remapped via
+  * {@link resolveCantonGroup} before the lookup so callers passing a real
+  * BFS code still get the merged group slug.
   */
  function getCantonUrlSlugLocal(cantonCode: string, locale: CantonLocale): string {
-   const code = String(cantonCode || '').toUpperCase();
-   if (code === AGGREGATE_KEY) {
+   const raw = String(cantonCode || '').toUpperCase();
+   if (raw === AGGREGATE_KEY) {
      return cantonSlugFile.aggregate[locale] ?? cantonSlugFile.aggregate.it;
    }
+   const code = resolveCantonGroup(raw);
    const entry = cantonSlugFile.cantons[code];
    if (!entry) return cantonSlugFile.aggregate[locale] ?? cantonSlugFile.aggregate.it;
    return entry[locale] ?? entry.it;
@@ -769,11 +774,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi',
  };
  function buildCantonAwareSection(locale: CantonLocale, cantonCode: string): string {
-   const code = String(cantonCode || '').toUpperCase();
-   if (!code || code === 'TI') return sectionByLocale[locale];
-   if (code === AGGREGATE_KEY) {
+   const raw = String(cantonCode || '').toUpperCase();
+   if (!raw || raw === 'TI') return sectionByLocale[locale];
+   if (raw === AGGREGATE_KEY) {
      return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(AGGREGATE_KEY, locale)}`;
    }
+   const code = resolveCantonGroup(raw);
    return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(code, locale)}`;
  }
  const localePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
@@ -6350,7 +6356,11 @@ ${alternates}
          postalCode: job?.postalCode,
          canton: job?.canton,
        });
-       if (r.cantonConfidence === 'high' && r.canton) return r.canton.toUpperCase();
+       // Half-canton merge: BFS may return 'AI'/'AR'/'BL'/'BS' but the
+       // URL/shard layer treats them as 'APPENZELLO'/'BASILEA'.
+       if (r.cantonConfidence === 'high' && r.canton) {
+         return resolveCantonGroup(r.canton.toUpperCase());
+       }
        return AGGREGATE_KEY;
      } catch {
        return AGGREGATE_KEY;
