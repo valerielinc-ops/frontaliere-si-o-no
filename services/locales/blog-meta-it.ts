@@ -7371,6 +7371,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giro-ditalia-silva-maglia-rosa.title': 'Guillermo Silva vince la tappa e indossa la maglia rosa del Giro d\'Italia',
     'blog.article.giro-ditalia-silva-maglia-rosa.excerpt': 'L\'uruguaiano trionfa nella seconda tappa del Giro d\'Italia, diventando il primo uruguaiano a vincere una tappa di un grande giro.',
     'blog.article.giro-ditalia-silva-maglia-rosa.imageAlt': 'Ciclista con maglia rosa del Giro d\'Italia a Lugano',
+    'blog.article.crans-montana-audizioni-frontalieri-2026.title': 'Rogo di Crans-Montana: convocati tre nuovi indagati',
+    'blog.article.crans-montana-audizioni-frontalieri-2026.excerpt': 'Tre nuovi indagati, tra cui due figure politiche, saranno interrogati la prossima settimana per l\'incendio al bar Le Constellation.',
+    'blog.article.crans-montana-audizioni-frontalieri-2026.imageAlt': 'Vista aerea di Crans-Montana, Svizzera, con le sue iconiche piste da sci e edifici di lusso, catturata in una giornata invernale limpida.',
 };
 
 export default blogMetaIt;

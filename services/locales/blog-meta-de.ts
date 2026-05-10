@@ -7370,6 +7370,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giro-ditalia-silva-maglia-rosa.title': 'Guillermo Silva gewinnt die Etappe und trägt das Rosa Trikot beim Giro d\'Italia',
     'blog.article.giro-ditalia-silva-maglia-rosa.excerpt': 'Der Uruguayer triumphiert auf der zweiten Etappe des Giro d\'Italia und wird damit zum ersten Uruguayer, der eine Etappe eines großen Rundfahrtsieg erringt.',
     'blog.article.giro-ditalia-silva-maglia-rosa.imageAlt': 'Radsportler mit rosa Trikot des Giro d\'Italia in Lugano',
+    'blog.article.crans-montana-audizioni-frontalieri-2026.title': 'Brand in Crans-Montana: Drei neue Verdächtige',
+    'blog.article.crans-montana-audizioni-frontalieri-2026.excerpt': 'Drei neue Verdächtige, darunter zwei politische Figuren, werden nächste Woche zum Brand im Bar Le Constellation befragt.',
+    'blog.article.crans-montana-audizioni-frontalieri-2026.imageAlt': 'Luftaufnahme von Crans-Montana, Schweiz, mit ihren ikonischen Skipisten und Luxusgebäuden, aufgenommen an einem klaren Wintertag.',
 };
 
 export default blogMetaDe;

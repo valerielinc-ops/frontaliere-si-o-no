@@ -7370,6 +7370,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giro-ditalia-silva-maglia-rosa.title': 'Guillermo Silva wins Giro d\'Italia stage, wears pink jersey',
     'blog.article.giro-ditalia-silva-maglia-rosa.excerpt': 'The Uruguayan triumphs in the second stage of the Giro d\'Italia, becoming the first Uruguayan to win a stage of a grand tour.',
     'blog.article.giro-ditalia-silva-maglia-rosa.imageAlt': 'Cyclist in pink jersey of Giro d\'Italia in Lugano',
+    'blog.article.crans-montana-audizioni-frontalieri-2026.title': 'Crans-Montana fire: three new suspects called in',
+    'blog.article.crans-montana-audizioni-frontalieri-2026.excerpt': 'Three new suspects, including two political figures, will be questioned next week about the fire at Le Constellation bar.',
+    'blog.article.crans-montana-audizioni-frontalieri-2026.imageAlt': 'Aerial view of Crans-Montana, Switzerland, with its iconic ski slopes and luxury buildings, captured on a clear winter day.',
 };
 
 export default blogMetaEn;
