@@ -34784,6 +34784,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-autostrada-a9-chiusure-11-15-maggio-2026': {
+    title: 'Nuove chiusure notturne sull\'autostrada A9: ecco i tratti coinvolti',
+    description: 'Da lunedì 11 a venerdì 15 maggio 2026, chiusure notturne sull\'A9 tra Lainate, Como e Chiasso per manutenzione del verde. Ecco i tratti coinvolti e i percorsi',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, chiusure, notturne, sull',
+    ogTitle: 'Chiusure notturne A9: tratti coinvolti e percorsi alternativi',
+    ogDescription: 'Da lunedì 11 a venerdì 15 maggio 2026, chiusure notturne sull\'A9 tra Lainate, Como e Chiasso per manutenzione del verde. Ecco i tratti coinvolti e i percorsi',
+    canonicalPath: '/articoli-frontaliere/autostrada-a9-chiusure-11-15-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove chiusure notturne sull'autostrada A9: ecco i tratti coinvolti",
+      "description": "Da lunedì 11 a venerdì 15 maggio 2026, chiusure notturne sull'A9 tra Lainate, Como e Chiasso per manutenzione del verde. Ecco i tratti coinvolti e i percorsi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/autostrada-a9-chiusure-11-15-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'autostrada A9 vicino a Lugano con cantieri e traffico notturno"
+      },
+      "datePublished": "2026-05-10T11:48:39+00:00",
+      "dateModified": "2026-05-10T11:48:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autostrada-a9-chiusure-11-15-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7380,6 +7380,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.locarno-lugano-mendrisio-alleanza-2026.title': 'Locarno, Lugano et Mendrisio pour Capitale Culturelle 2030',
     'blog.article.locarno-lugano-mendrisio-alleanza-2026.excerpt': 'La gestion de Locarno dit oui à la candidature conjointe, mais demande des mesures pour éviter une position marginale',
     'blog.article.locarno-lugano-mendrisio-alleanza-2026.imageAlt': 'Panorama de Locarno avec lac et montagnes',
+    'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.title': 'Fermetures nocturnes sur l\'autoroute A9: voici les tronçons concernés',
+    'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.excerpt': 'Du lundi 11 au vendredi 15 mai 2026, fermetures nocturnes sur l\'A9 entre Lainate, Côme et Chiasso pour l\'entretien du vert. Voici ce qui change pour les frontaliers',
+    'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.imageAlt': 'Vue aérienne de l\'autoroute A9 près de Lugano avec des chantiers et du trafic nocturne',
 };
 
 export default blogMetaFr;
