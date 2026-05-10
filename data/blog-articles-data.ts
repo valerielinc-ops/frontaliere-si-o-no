@@ -23186,4 +23186,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'peter-magyar-ungheria-volta-pagina',
+ category: 'novita',
+ date: '2026-05-10T05:12:12.129Z',
+ image: '/images/blog/peter-magyar-ungheria-volta-pagina.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

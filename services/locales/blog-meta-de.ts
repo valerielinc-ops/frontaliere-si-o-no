@@ -7271,6 +7271,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malpensa-pista-riapre-frontalieri.title': 'Malpensa: Startbahn 35L wiedereröffnet – was sich für Grenzgänger ändert',
     'blog.article.malpensa-pista-riapre-frontalieri.excerpt': 'Die 20-jährigen Arbeiten an der Startbahn 35L des Flughafens Malpensa sind abgeschlossen. Die Wiedereröffnung ist für Sonntag, den 10. Mai vorgesehen. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.malpensa-pista-riapre-frontalieri.imageAlt': 'Luftaufnahme des Flughafens Malpensa mit der neu renovierten Startbahn 35L, umgeben von grünen Feldern und den Alpen im Hintergrund',
+    'blog.article.peter-magyar-ungheria-volta-pagina.title': 'Peter Magyar: Ungarn wählt neu',
+    'blog.article.peter-magyar-ungheria-volta-pagina.excerpt': 'Nach 16 Jahren endet die Ära von Viktor Orban. Peter Magyar ist der neue ungarische Ministerpräsident. Hier erfahren Sie, was sich ändert.',
+    'blog.article.peter-magyar-ungheria-volta-pagina.imageAlt': 'Bellinzona, Schweiz, mit der Burg und dem modernen Stadtleben',
 };
 
 export default blogMetaDe;

@@ -3666,6 +3666,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-black-list-morosi-cassa-malati-ticino': { name: 'Black list morosi', path: '/articoli-frontaliere/black-list-morosi-cassa-malati-ticino', parent: 'blog' },
     'blog-documentario-claire-ghiringhelli-lugano': { name: 'Documentario Claire Ghiringhelli', path: '/articoli-frontaliere/documentario-claire-ghiringhelli-lugano', parent: 'blog' },
     'blog-malpensa-pista-riapre-frontalieri': { name: 'Malpensa pista 35L', path: '/articoli-frontaliere/malpensa-pista-riapre-frontalieri', parent: 'blog' },
+    'blog-peter-magyar-ungheria-volta-pagina': { name: 'Novità', path: '/articoli-frontaliere/peter-magyar-ungheria-volta-pagina', parent: 'blog' },
  };
 
  const info = sectionNames[section];

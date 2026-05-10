@@ -7272,6 +7272,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malpensa-pista-riapre-frontalieri.title': 'Malpensa: pista 35L riapre, cosa cambia per i frontalieri',
     'blog.article.malpensa-pista-riapre-frontalieri.excerpt': 'I lavori ventennali alla pista 35L di Malpensa sono terminati. La riapertura è prevista per domenica 10 maggio. Ecco cosa cambia per i frontalieri',
     'blog.article.malpensa-pista-riapre-frontalieri.imageAlt': 'Vista aerea dell\'aeroporto di Malpensa con la pista 35L rinnovata visibile, circondata da campi verdi e le Alpi sullo sfondo',
+    'blog.article.peter-magyar-ungheria-volta-pagina.title': 'Peter Magyar giurato: l\'Ungheria cambia pagina',
+    'blog.article.peter-magyar-ungheria-volta-pagina.excerpt': 'Dopo 16 anni, finisce l\'era di Viktor Orban. Peter Magyar è il nuovo primo ministro ungherese. Ecco cosa cambia.',
+    'blog.article.peter-magyar-ungheria-volta-pagina.imageAlt': 'Bellinzona, Svizzera, con il castello e la vita cittadina moderna',
 };
 
 export default blogMetaIt;

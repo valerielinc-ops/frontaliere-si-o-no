@@ -7271,6 +7271,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malpensa-pista-riapre-frontalieri.title': 'Malpensa: runway 35L reopens, what changes for cross-border workers',
     'blog.article.malpensa-pista-riapre-frontalieri.excerpt': 'The twenty-year works on Malpensa\'s runway 35L have ended. Reopening is scheduled for Sunday, May 10th. Here\'s what changes for cross-border workers',
     'blog.article.malpensa-pista-riapre-frontalieri.imageAlt': 'Aerial view of Malpensa Airport with the newly renovated 35L runway visible, surrounded by green fields and the Alps in the background',
+    'blog.article.peter-magyar-ungheria-volta-pagina.title': 'Peter Magyar sworn in: Hungary turns the page',
+    'blog.article.peter-magyar-ungheria-volta-pagina.excerpt': 'After 16 years, Viktor Orban\'s era ends. Peter Magyar is Hungary\'s new prime minister. Here\'s what changes.',
+    'blog.article.peter-magyar-ungheria-volta-pagina.imageAlt': 'Bellinzona, Switzerland, with the castle and modern city life',
 };
 
 export default blogMetaEn;
