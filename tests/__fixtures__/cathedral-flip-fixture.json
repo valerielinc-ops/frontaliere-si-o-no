@@ -1,0 +1,365 @@
+{
+  "_comment": "Fixture for tests/e2e/cathedral-flip-simulation.spec.ts. Mix of legacy TI/GR/VS jobs (must NOT churn after CH-wide expansion) plus newly-eligible ZH/BE/GE jobs (must classify high-confidence) plus a Liechtenstein decoy (must reject) plus 2 ambiguous edge cases. Each entry is shaped like a real crawler job so applyCantonQuorumGate() exercises BFS-strict, 2-of-3 quorum, and reject paths.",
+  "jobs": [
+    {
+      "id": "ti-1",
+      "expectedCanton": "TI",
+      "expectedConfidence": "high",
+      "title": "Sviluppatore Backend",
+      "description": "Cerchiamo uno sviluppatore backend per la nostra sede di Lugano in Ticino.",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI"
+    },
+    {
+      "id": "ti-2",
+      "expectedCanton": "TI",
+      "expectedConfidence": "high",
+      "title": "Operatore Logistico",
+      "description": "Posizione presso il polo logistico di Mendrisio, Ticino.",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "canton": "TI"
+    },
+    {
+      "id": "ti-3",
+      "expectedCanton": "TI",
+      "expectedConfidence": "high",
+      "title": "Impiegato amministrativo",
+      "description": "Sede di Bellinzona.",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "canton": "TI"
+    },
+    {
+      "id": "ti-4",
+      "expectedCanton": "TI",
+      "expectedConfidence": "high",
+      "title": "Receptionist alberghiero",
+      "description": "Hotel a Locarno con vista lago.",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6600",
+      "canton": "TI"
+    },
+    {
+      "id": "ti-5",
+      "expectedCanton": "TI",
+      "expectedConfidence": "high",
+      "title": "Cassiere",
+      "description": "Negozio a Chiasso.",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6830",
+      "canton": "TI"
+    },
+    {
+      "id": "gr-1",
+      "expectedCanton": "GR",
+      "expectedConfidence": "high",
+      "title": "Personal alberghiero",
+      "description": "Hotel a Chur, capoluogo dei Grigioni.",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7000",
+      "canton": "GR"
+    },
+    {
+      "id": "gr-2",
+      "expectedCanton": "GR",
+      "expectedConfidence": "high",
+      "title": "Maestro di sci",
+      "description": "Stagione invernale a Davos.",
+      "addressLocality": "Davos",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7270",
+      "canton": "GR"
+    },
+    {
+      "id": "gr-3",
+      "expectedCanton": "GR",
+      "expectedConfidence": "high",
+      "title": "Concierge",
+      "description": "Resort di lusso a St. Moritz, canton Graubünden.",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7500",
+      "canton": "GR"
+    },
+    {
+      "id": "vs-1",
+      "expectedCanton": "VS",
+      "expectedConfidence": "high",
+      "title": "Impiegato comunale",
+      "description": "Posizione a Sion, capoluogo del Vallese.",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1950",
+      "canton": "VS"
+    },
+    {
+      "id": "vs-2",
+      "expectedCanton": "VS",
+      "expectedConfidence": "high",
+      "title": "Operaio edile",
+      "description": "Cantiere a Visp.",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "3930",
+      "canton": "VS"
+    },
+    {
+      "id": "vs-3",
+      "expectedCanton": "VS",
+      "expectedConfidence": "high",
+      "title": "Cameriere stagionale",
+      "description": "Hotel di alta quota a Zermatt.",
+      "addressLocality": "Zermatt",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "3920",
+      "canton": "VS"
+    },
+    {
+      "id": "zh-1",
+      "expectedCanton": "ZH",
+      "expectedConfidence": "high",
+      "title": "Software Engineer",
+      "description": "Position based in Zürich.",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8001",
+      "canton": ""
+    },
+    {
+      "id": "zh-2",
+      "expectedCanton": "ZH",
+      "expectedConfidence": "high",
+      "title": "Product Manager",
+      "description": "Office in Winterthur, canton Zürich.",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8400",
+      "canton": ""
+    },
+    {
+      "id": "zh-3",
+      "expectedCanton": "ZH",
+      "expectedConfidence": "high",
+      "title": "Ground Operations Agent",
+      "description": "Airside operations at Kloten airport.",
+      "addressLocality": "Kloten",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8302",
+      "canton": ""
+    },
+    {
+      "id": "zh-4",
+      "expectedCanton": "ZH",
+      "expectedConfidence": "high",
+      "title": "QA Engineer",
+      "description": "R&D site in Dübendorf, Zürich area.",
+      "addressLocality": "Dübendorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8600",
+      "canton": ""
+    },
+    {
+      "id": "be-1",
+      "expectedCanton": "BE",
+      "expectedConfidence": "high",
+      "title": "Verwaltungsmitarbeiter",
+      "description": "Stelle in Bern, Hauptstadt der Schweiz.",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3001",
+      "canton": ""
+    },
+    {
+      "id": "be-2",
+      "expectedCanton": "BE",
+      "expectedConfidence": "high",
+      "title": "Ingegnere meccanico",
+      "description": "Stabilimento a Biel/Bienne, canton Bern.",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "2502",
+      "canton": ""
+    },
+    {
+      "id": "be-3",
+      "expectedCanton": "BE",
+      "expectedConfidence": "high",
+      "title": "Hotellerie Mitarbeiter",
+      "description": "Hotel in Thun, Berner Oberland.",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3600",
+      "canton": ""
+    },
+    {
+      "id": "ge-1",
+      "expectedCanton": "GE",
+      "expectedConfidence": "high",
+      "title": "Conseiller bancaire",
+      "description": "Poste à Genève, secteur banque privée.",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "postalCode": "1200",
+      "canton": ""
+    },
+    {
+      "id": "ge-2",
+      "expectedCanton": "GE",
+      "expectedConfidence": "high",
+      "title": "Vendeur",
+      "description": "Boutique à Carouge, canton de Genève.",
+      "addressLocality": "Carouge",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "postalCode": "1227",
+      "canton": ""
+    },
+    {
+      "id": "fl-1",
+      "expectedCanton": "",
+      "expectedConfidence": "reject",
+      "title": "Sachbearbeiter",
+      "description": "Position in Schaan, Fürstentum Liechtenstein.",
+      "addressLocality": "Schaan",
+      "addressRegion": "",
+      "addressCountry": "LI",
+      "postalCode": "9494",
+      "canton": ""
+    },
+    {
+      "id": "ambig-1",
+      "expectedCanton": "VS",
+      "expectedConfidence": "high",
+      "title": "Employé hôtelier",
+      "description": "Hôtel à Saint-Maurice, canton du Valais.",
+      "addressLocality": "Saint-Maurice",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1890",
+      "canton": "VS"
+    },
+    {
+      "id": "ambig-2",
+      "expectedCanton": "",
+      "expectedConfidence": "low",
+      "_note": "Free-form locality with no BFS match and no clear canton tokens — gate returns low confidence, keeps existing canton empty.",
+      "title": "Remote Software Engineer",
+      "description": "Remote-first position, occasional in-person meetups.",
+      "addressLocality": "",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "canton": ""
+    }
+  ],
+  "preExistingTiSlugs": [
+    {
+      "registryKey": "url|https://example.com/jobs/ti-1",
+      "canonicalSlug": "sviluppatore-backend-lugano",
+      "slugByLocale": {
+        "it": "sviluppatore-backend-lugano",
+        "en": "backend-developer-lugano",
+        "de": "backend-entwickler-lugano",
+        "fr": "developpeur-backend-lugano"
+      },
+      "createdAt": "2026-03-01"
+    },
+    {
+      "registryKey": "url|https://example.com/jobs/ti-2",
+      "canonicalSlug": "operatore-logistico-mendrisio",
+      "slugByLocale": {
+        "it": "operatore-logistico-mendrisio",
+        "en": "logistics-operator-mendrisio",
+        "de": "logistik-mitarbeiter-mendrisio",
+        "fr": "operateur-logistique-mendrisio"
+      },
+      "createdAt": "2026-03-02"
+    },
+    {
+      "registryKey": "url|https://example.com/jobs/ti-3",
+      "canonicalSlug": "impiegato-amministrativo-bellinzona",
+      "slugByLocale": {
+        "it": "impiegato-amministrativo-bellinzona",
+        "en": "administrative-clerk-bellinzona",
+        "de": "verwaltungsangestellter-bellinzona",
+        "fr": "employe-administratif-bellinzona"
+      },
+      "createdAt": "2026-03-03"
+    },
+    {
+      "registryKey": "url|https://example.com/jobs/ti-4",
+      "canonicalSlug": "receptionist-alberghiero-locarno",
+      "slugByLocale": {
+        "it": "receptionist-alberghiero-locarno",
+        "en": "hotel-receptionist-locarno",
+        "de": "hotel-rezeptionist-locarno",
+        "fr": "receptionniste-hotel-locarno"
+      },
+      "createdAt": "2026-03-04"
+    },
+    {
+      "registryKey": "url|https://example.com/jobs/ti-5",
+      "canonicalSlug": "cassiere-chiasso",
+      "slugByLocale": {
+        "it": "cassiere-chiasso",
+        "en": "cashier-chiasso",
+        "de": "kassierer-chiasso",
+        "fr": "caissier-chiasso"
+      },
+      "createdAt": "2026-03-05"
+    }
+  ],
+  "frozenUrlScenario": {
+    "_note": "E9 frozen-URL strategy: a job already published under /cerca-lavoro-ticino/ keeps its slug-registry entry even if a future re-classification flips its canton tag. The registry MUST NOT update for an existing canonical slug.",
+    "registryKey": "url|https://example.com/jobs/ubs-zurigo",
+    "preFlipEntry": {
+      "canonicalSlug": "responsabile-vendite-ubs-zurigo",
+      "slugByLocale": {
+        "it": "responsabile-vendite-ubs-zurigo",
+        "en": "sales-lead-ubs-zurich",
+        "de": "verkaufsleiter-ubs-zuerich",
+        "fr": "responsable-ventes-ubs-zurich"
+      },
+      "createdAt": "2026-03-10",
+      "publishedUnderCanton": "TI"
+    },
+    "reclassifiedJob": {
+      "id": "ubs-zurigo",
+      "title": "Responsabile vendite UBS",
+      "description": "UBS sede di Zurigo. Posizione a Zürich, canton Zürich.",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8001",
+      "canton": ""
+    },
+    "expectedCantonAfterFlip": "ZH"
+  }
+}
