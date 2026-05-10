@@ -1,18 +1,19 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-05-10T10:51:53.940Z",
+  "generatedAt": "2026-05-10T22:25:31.161Z",
   "total": 5,
-  "newCount": 2,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8023,
-  "avgDurationMs": 8023,
+  "durationMs": 8201,
+  "avgDurationMs": 8201,
   "durationHistory": [
-    8023
+    8201
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "somedia-b1a7615c5298",
       "slug": "grafiker-in-80-100-somedia-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.somedia.ch/Grafikerin-80-100-de-j387.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:51:51.476Z",
+      "crawledAt": "2026-05-10T22:25:28.735Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -46,57 +47,16 @@
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:51:51.476Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 18,
         "completeness": 20
       }
     },
-    {
-      "id": "somedia-fdbb52cbd6d2",
-      "slug": "projektleiter-in-marketing-80-100-somedia-ch",
-      "company": "Somedia AG",
-      "companyKey": "somedia",
-      "companyDomain": "somedia.ch",
-      "title": "Projektleiter/in Marketing (80–100%)",
-      "location": "Ilanz",
-      "canton": "GR",
-      "url": "https://jobs.somedia.ch/Projektleiterin-Marketing-80100-de-j385.html",
-      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:51:48.580Z",
-      "addressLocality": "Ilanz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7130",
-      "streetAddress": "Glennerstrasse 17",
-      "category": "Tecnica",
-      "sector": "Media / Editoria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-28",
-      "validThrough": "2026-11-01",
-      "applyUrl": "https://jobs.somedia.ch/Projektleiterin-Marketing-80100-de-f385.html",
-      "_somediaMeta": {
-        "rexxId": "385",
-        "identifier": "",
-        "hiringOrganization": "communicaziun.ch ag"
-      },
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 4,
-        "completeness": 20
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "id": "somedia-bac9018286e2",
       "slug": "leiter-in-people-culture-leiter-in-hr-100-somedia-ch",
@@ -109,7 +69,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-People-Culture-Leiterin-HR-100-de-j371.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:51:50.571Z",
+      "crawledAt": "2026-05-10T22:25:27.847Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -140,6 +100,49 @@
       }
     },
     {
+      "id": "somedia-fdbb52cbd6d2",
+      "slug": "projektleiter-in-marketing-80-100-somedia-ch",
+      "company": "Somedia AG",
+      "companyKey": "somedia",
+      "companyDomain": "somedia.ch",
+      "title": "Projektleiter/in Marketing (80–100%)",
+      "location": "Ilanz",
+      "canton": "GR",
+      "url": "https://jobs.somedia.ch/Projektleiterin-Marketing-80100-de-j385.html",
+      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-10T22:25:25.908Z",
+      "addressLocality": "Ilanz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7130",
+      "streetAddress": "Glennerstrasse 17",
+      "category": "Tecnica",
+      "sector": "Media / Editoria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-28",
+      "validThrough": "2026-11-01",
+      "applyUrl": "https://jobs.somedia.ch/Projektleiterin-Marketing-80100-de-f385.html",
+      "_somediaMeta": {
+        "rexxId": "385",
+        "identifier": "",
+        "hiringOrganization": "communicaziun.ch ag"
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:51:48.580Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 23,
+        "completeness": 20
+      }
+    },
+    {
       "id": "somedia-a6dc226a6b53",
       "slug": "praktikant-in-multimediaproduktion-100-somedia-ch",
       "company": "Somedia AG",
@@ -151,7 +154,7 @@
       "url": "https://jobs.somedia.ch/Praktikantin-Multimediaproduktion-100-de-j374.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:51:49.577Z",
+      "crawledAt": "2026-05-10T22:25:26.881Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -193,7 +196,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-80-100-de-j380.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:51:47.557Z",
+      "crawledAt": "2026-05-10T22:25:24.915Z",
       "addressLocality": "Uznach",
       "addressCountry": "CH",
       "country": "CH",
