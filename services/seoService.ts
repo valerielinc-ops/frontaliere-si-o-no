@@ -3678,6 +3678,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cassa-malati-spacchettamento-ticino': { name: 'Cassa malati', path: '/articoli-frontaliere/cassa-malati-spacchettamento-ticino', parent: 'blog' },
     'blog-fedeli-chiedono-chiarezza-diocesi-2026': { name: 'Novità', path: '/articoli-frontaliere/fedeli-chiedono-chiarezza-diocesi-2026', parent: 'blog' },
     'blog-incidente-ispra-frontaliere-2026': { name: 'Incidente Ispra', path: '/articoli-frontaliere/incidente-ispra-frontaliere-2026', parent: 'blog' },
+    'blog-basket-openjobmetis-bologna-2026': { name: 'Basket', path: '/articoli-frontaliere/basket-openjobmetis-bologna-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -7308,6 +7308,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-ispra-frontaliere-2026.title': 'Incidente a Ispra: soccorso un giovane di 19 anni',
     'blog.article.incidente-ispra-frontaliere-2026.excerpt': 'Un incidente stradale a Ispra coinvolge un giovane frontaliero. Ecco cosa è successo e le implicazioni per i frontalieri.',
     'blog.article.incidente-ispra-frontaliere-2026.imageAlt': 'Lago di Lugano con montagne circostanti',
+    'blog.article.basket-openjobmetis-bologna-2026.title': 'Openjobmetis a Bologna: la partita decisiva per i playoff',
+    'blog.article.basket-openjobmetis-bologna-2026.excerpt': 'La Pallacanestro Varese gioca a Bologna il 10 maggio 2026 per i playoff. La Virtus non farà sconti.',
+    'blog.article.basket-openjobmetis-bologna-2026.imageAlt': 'Partita di basket al PalaDozza di Bologna, giocatori in azione, pubblico che tifa',
 };
 
 export default blogMetaIt;
