@@ -23195,4 +23195,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'potere-dacquisto-ticino-2024',
+ category: 'novita',
+ date: '2026-05-10T05:19:10.288Z',
+ image: '/images/blog/potere-dacquisto-ticino-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

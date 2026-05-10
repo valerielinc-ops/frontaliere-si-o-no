@@ -7274,6 +7274,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.peter-magyar-ungheria-volta-pagina.title': 'Peter Magyar: Ungarn wählt neu',
     'blog.article.peter-magyar-ungheria-volta-pagina.excerpt': 'Nach 16 Jahren endet die Ära von Viktor Orban. Peter Magyar ist der neue ungarische Ministerpräsident. Hier erfahren Sie, was sich ändert.',
     'blog.article.peter-magyar-ungheria-volta-pagina.imageAlt': 'Bellinzona, Schweiz, mit der Burg und dem modernen Stadtleben',
+    'blog.article.potere-dacquisto-ticino-2024.title': 'Kaufkraft sinkt: ACSI warnt vor wachsender Armut im Tessin',
+    'blog.article.potere-dacquisto-ticino-2024.excerpt': 'Das Konsumentenvertrauen bleibt niedrig, Krankenkassenprämien und Inflation belasten die Tessiner Familien. Antonella Crüzer: \'Beunruhigende Situation\'',
+    'blog.article.potere-dacquisto-ticino-2024.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

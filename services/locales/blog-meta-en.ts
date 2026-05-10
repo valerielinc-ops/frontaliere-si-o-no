@@ -7274,6 +7274,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.peter-magyar-ungheria-volta-pagina.title': 'Peter Magyar sworn in: Hungary turns the page',
     'blog.article.peter-magyar-ungheria-volta-pagina.excerpt': 'After 16 years, Viktor Orban\'s era ends. Peter Magyar is Hungary\'s new prime minister. Here\'s what changes.',
     'blog.article.peter-magyar-ungheria-volta-pagina.imageAlt': 'Bellinzona, Switzerland, with the castle and modern city life',
+    'blog.article.potere-dacquisto-ticino-2024.title': 'Purchasing power drops: ACSI warns of growing poverty in Ticino',
+    'blog.article.potere-dacquisto-ticino-2024.excerpt': 'Consumer confidence remains low, health insurance premiums and inflation weigh on Ticino families. Antonella Crüzer: \'Concerning situation\'',
+    'blog.article.potere-dacquisto-ticino-2024.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

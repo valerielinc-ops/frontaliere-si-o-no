@@ -3667,6 +3667,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-documentario-claire-ghiringhelli-lugano': { name: 'Documentario Claire Ghiringhelli', path: '/articoli-frontaliere/documentario-claire-ghiringhelli-lugano', parent: 'blog' },
     'blog-malpensa-pista-riapre-frontalieri': { name: 'Malpensa pista 35L', path: '/articoli-frontaliere/malpensa-pista-riapre-frontalieri', parent: 'blog' },
     'blog-peter-magyar-ungheria-volta-pagina': { name: 'Novità', path: '/articoli-frontaliere/peter-magyar-ungheria-volta-pagina', parent: 'blog' },
+    'blog-potere-dacquisto-ticino-2024': { name: 'Novità', path: '/articoli-frontaliere/potere-dacquisto-ticino-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

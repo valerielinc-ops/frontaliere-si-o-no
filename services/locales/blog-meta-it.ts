@@ -7275,6 +7275,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.peter-magyar-ungheria-volta-pagina.title': 'Peter Magyar giurato: l\'Ungheria cambia pagina',
     'blog.article.peter-magyar-ungheria-volta-pagina.excerpt': 'Dopo 16 anni, finisce l\'era di Viktor Orban. Peter Magyar è il nuovo primo ministro ungherese. Ecco cosa cambia.',
     'blog.article.peter-magyar-ungheria-volta-pagina.imageAlt': 'Bellinzona, Svizzera, con il castello e la vita cittadina moderna',
+    'blog.article.potere-dacquisto-ticino-2024.title': 'Potere d\'acquisto in calo: ACSI allarma su povertà crescente in Ticino',
+    'blog.article.potere-dacquisto-ticino-2024.excerpt': 'La fiducia dei consumatori resta bassa, premi cassa malati e inflazione pesano sulle famiglie ticinesi. Antonella Crüzer: \'Situazione preoccupante\'',
+    'blog.article.potere-dacquisto-ticino-2024.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, Ticino, Svizzera',
 };
 
 export default blogMetaIt;
