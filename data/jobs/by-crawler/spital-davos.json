@@ -423,10 +423,10 @@
       },
       "description": "Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
       "descriptionByLocale": {
-        "it": "Descrizione - Centro di insegnamento sull'argomento Cura EFZ, area di assistenza all'infanzia | Gestione delle applicazioni Spital Davos — Spital Davos, Davos",
-        "en": "Descrizione - Teaching centre on the subject Care EFZ, childcare area | Application management Spital Davos — Spital Davos, Davos",
-        "de": "Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
-        "fr": "Descrizione - Centre d'enseignement sur le sujet Care EFZ, zone de garde d'enfants"
+        "it": "Descrizione\n- Centro di insegnamento sull'argomento Cura EFZ, area di assistenza all'infanzia | Gestione delle applicazioni Spital Davos — Spital Davos, Davos",
+        "en": "Descrizione\n- Teaching centre on the subject Care EFZ, childcare area | Application management Spital Davos — Spital Davos, Davos",
+        "de": "## Descrizione\n- Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
+        "fr": "Descrizione\n- Centre d'enseignement sur le sujet Care EFZ, zone de garde d'enfants"
       },
       "location": "Davos",
       "canton": "GR",
@@ -482,7 +482,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-davos-e72119e3765f",
@@ -1294,7 +1295,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-davos-03f0cc362eb7",
