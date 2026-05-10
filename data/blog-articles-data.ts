@@ -23357,4 +23357,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'swiss-riduce-personale-amministrativo',
+ category: 'pratico',
+ date: '2026-05-10T08:51:44.050Z',
+ image: '/images/blog/swiss-riduce-personale-amministrativo.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

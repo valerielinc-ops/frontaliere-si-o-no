@@ -7328,6 +7328,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-varese-10-maggio-2026.title': 'Varese, 10 May 2026: news for cross-border workers',
     'blog.article.frontalieri-varese-10-maggio-2026.excerpt': 'Latest news from the Italian-Swiss border: incidents, sports events and more for cross-border workers.',
     'blog.article.frontalieri-varese-10-maggio-2026.imageAlt': 'A busy street in Varese, near the Swiss border, with people commuting to work in Switzerland.',
+    'blog.article.swiss-riduce-personale-amministrativo.title': 'Swiss to cut 10% of admin staff: what changes for cross-border workers',
+    'blog.article.swiss-riduce-personale-amministrativo.excerpt': 'The Swiss airline Swiss plans to reduce its administrative staff by 10% with voluntary departures and financial incentives.',
+    'blog.article.swiss-riduce-personale-amministrativo.imageAlt': 'Aerial view of Lugano and Lake Lugano, Switzerland, with clear blue sky and mountains in the background.',
 };
 
 export default blogMetaEn;

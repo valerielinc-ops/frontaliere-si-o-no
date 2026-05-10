@@ -7328,6 +7328,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-varese-10-maggio-2026.title': 'Varese, 10. Mai 2026: Nachrichten für Grenzgänger',
     'blog.article.frontalieri-varese-10-maggio-2026.excerpt': 'Die neuesten Nachrichten von der italienisch-schweizerischen Grenze: Unfälle, Sportereignisse und mehr für Grenzgänger.',
     'blog.article.frontalieri-varese-10-maggio-2026.imageAlt': 'Eine belebte Straße in Varese, in der Nähe der Schweizer Grenze, mit Menschen, die zur Arbeit in der Schweiz pendeln.',
+    'blog.article.swiss-riduce-personale-amministrativo.title': 'Swiss reduziert Verwaltungspersonal um 10%: Was ändert sich für Grenzgänger?',
+    'blog.article.swiss-riduce-personale-amministrativo.excerpt': 'Die Fluggesellschaft Swiss plant, das Verwaltungspersonal um 10% zu reduzieren, mit freiwilligen Abgängen und finanziellen Anreizen.',
+    'blog.article.swiss-riduce-personale-amministrativo.imageAlt': 'Luftaufnahme von Lugano und dem Luganersee, Schweiz, mit klarem blauen Himmel und Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

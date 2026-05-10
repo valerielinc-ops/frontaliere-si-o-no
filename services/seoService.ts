@@ -3685,6 +3685,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-precompilata-2026-frontalieri-ticino': { name: 'Precompilata 2026', path: '/articoli-frontaliere/precompilata-2026-frontalieri-ticino', parent: 'blog' },
     'blog-arlotti-franchigia-frontalieri-letta': { name: 'Franchigia frontalieri', path: '/articoli-frontaliere/arlotti-franchigia-frontalieri-letta', parent: 'blog' },
     'blog-frontalieri-varese-10-maggio-2026': { name: 'Notizie frontalieri', path: '/articoli-frontaliere/frontalieri-varese-10-maggio-2026', parent: 'blog' },
+    'blog-swiss-riduce-personale-amministrativo': { name: 'Swiss riduzione personale', path: '/articoli-frontaliere/swiss-riduce-personale-amministrativo', parent: 'blog' },
  };
 
  const info = sectionNames[section];
