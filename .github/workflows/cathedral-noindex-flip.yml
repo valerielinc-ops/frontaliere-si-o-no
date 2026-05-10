@@ -1,0 +1,127 @@
+name: cathedral-noindex-flip
+
+# Weekly: detect cathedral canton/F4/F5 pages that have crossed the
+# MIN_JOBS_FOR_CANTON_PAGE threshold (= 5 canonical jobs per shard) and
+# record the flip event in `data/cathedral-flip-log.json` (one-way ratchet).
+#
+# The flip-log update is committed + pushed to main. The push triggers
+# `deploy.yml`, which rebuilds with the now-eligible robots meta (the
+# build emitter already consults the live shard count for canton hubs).
+#
+# CLAUDE.md non-negotiables honored:
+#   #1  Never lower thresholds (MIN_JOBS=5 stays fixed).
+#   #4  Never accept thin content — only flip when ≥ 5 canonical jobs.
+#   #14 Every NEW workflow must be lanciato live after merge:
+#         gh workflow run cathedral-noindex-flip.yml -f dry_run=true --ref main
+#         gh run view <id>   # verify success + inspect summary
+#       Then flip dry_run=false for the production cron flow.
+
+on:
+  schedule:
+    # Mon 05:13 UTC — runs AFTER cathedral-seo-gates-check (04:47 UTC)
+    # and AFTER the morning crawler+deploy cycle.
+    - cron: '13 5 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry-run: detect + log to stdout, do NOT commit'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+      threshold:
+        description: 'Override MIN_JOBS_FOR_CANTON_PAGE (default 5)'
+        required: false
+        default: '5'
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cathedral-noindex-flip
+  cancel-in-progress: false
+
+jobs:
+  flip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # No npm ci — the helper uses only the Node stdlib + repo modules.
+
+      - name: Resolve dry-run mode
+        id: mode
+        run: |
+          set -euo pipefail
+          # Default: cron runs APPLY; workflow_dispatch honors the input.
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            dry_run="false"
+          else
+            dry_run="${{ github.event.inputs.dry_run || 'true' }}"
+          fi
+          threshold="${{ github.event.inputs.threshold || '5' }}"
+          echo "dry_run=$dry_run"     >> "$GITHUB_OUTPUT"
+          echo "threshold=$threshold" >> "$GITHUB_OUTPUT"
+          echo "Mode: dry_run=$dry_run threshold=$threshold"
+
+      - name: Run flip detector
+        id: detect
+        run: |
+          set -euo pipefail
+          if [ "${{ steps.mode.outputs.dry_run }}" = "true" ]; then
+            node scripts/cathedral-noindex-flip.mjs \
+              --dry-run \
+              --threshold=${{ steps.mode.outputs.threshold }} \
+              | tee "$GITHUB_STEP_SUMMARY"
+          else
+            node scripts/cathedral-noindex-flip.mjs \
+              --no-dry-run \
+              --threshold=${{ steps.mode.outputs.threshold }} \
+              | tee "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Commit and push flip-log
+        if: steps.mode.outputs.dry_run == 'false'
+        run: |
+          set -euo pipefail
+          git config user.email "actions-bot@github.com"
+          git config user.name  "github-actions"
+          git add data/cathedral-flip-log.json
+          if git diff --cached --quiet; then
+            echo "[flip-workflow] no flip-log changes to commit."
+            exit 0
+          fi
+          # Count NEW flip events emitted by the helper script run.
+          flips_added=$(git diff --cached data/cathedral-flip-log.json \
+            | grep -c '^+ *"url":' || true)
+          msg="chore(cathedral): flip ${flips_added} canton/F4/F5 pages noindex→index after data accumulation"
+          git commit -m "$msg"
+          # Survive concurrent pushes from other data-refresh workflows.
+          # The flip detection is deterministic given current shards, so on
+          # rebase conflict we re-run the detector and rebuild the staged diff.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/cathedral-noindex-flip.mjs --no-dry-run --threshold=${{ steps.mode.outputs.threshold }} && git add data/cathedral-flip-log.json"
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        env:
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "CI Failure: cathedral-noindex-flip — run ${{ github.run_number }}" \
+            --description "Cathedral noindex flip workflow failed. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

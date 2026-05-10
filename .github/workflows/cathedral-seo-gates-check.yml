@@ -1,0 +1,205 @@
+name: cathedral-seo-gates-check
+
+# Weekly read-only sweep of the 6 SEO content gates. Detects:
+#   - REGRESSIONS  → fail workflow + open issue (current > baseline)
+#   - IMPROVEMENTS → open issue suggesting rebaseline (current < baseline)
+#   - PASSES       → single-line job summary, no action
+#
+# This workflow NEVER mutates baselines. Per CLAUDE.md non-negotiables #1
+# and #5, baseline widening is a deliberate human action — the issue body
+# carries the exact `gh workflow run` / `npm run audit:*:rebaseline` command
+# for the operator to execute manually after review.
+#
+# CLAUDE.md non-negotiable #14 — live test after merge:
+#   gh workflow run cathedral-seo-gates-check.yml --ref main
+#   gh run view <id>          # verify success or expected failure
+#   gh run view <id> --log    # inspect gate verdict JSON in step summary
+#
+# Schedule: Mon 04:47 UTC — runs BEFORE cathedral-noindex-flip (05:13 UTC)
+# so any regression caught here gates the flip workflow on the same Monday
+# pipeline. Workflow_dispatch supported for ad-hoc operator runs.
+
+on:
+  schedule:
+    - cron: '47 4 * * 1'
+  workflow_dispatch:
+  push:
+    # Re-run when the gates checker itself changes — does NOT run on data /
+    # plugin / dist edits (those are validated by deploy.yml).
+    branches: [main]
+    paths:
+      - '.github/workflows/cathedral-seo-gates-check.yml'
+      - 'scripts/cathedral-seo-gates-check.mjs'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: cathedral-seo-gates-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    # Skip draft PR runs + closed-PR re-runs. The workflow does not subscribe
+    # to pull_request events; this `if` is belt-and-braces for any future
+    # operator who adds one without rereading the safety contract.
+    if: >-
+      github.event_name != 'pull_request' ||
+      (github.event.pull_request.state == 'open' && github.event.pull_request.draft == false)
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build dist (full SEO output)
+        env:
+          # Critical: this workflow MUST run with every SEO plugin enabled.
+          # Inheriting FAST_BUILD=1 from .claude/settings.json would silently
+          # skip half the SEO landings (see CLAUDE.md "FAST_BUILD trap").
+          FAST_BUILD: ''
+          NODE_OPTIONS: '--max-old-space-size=18432'
+        run: npm run build:ci
+
+      - name: Run gates check
+        id: gates
+        continue-on-error: true
+        run: node scripts/cathedral-seo-gates-check.mjs
+
+      - name: Emit job summary
+        if: always()
+        run: |
+          set -euo pipefail
+          if [ ! -f data/cathedral-seo-gates-verdict.json ]; then
+            echo "::warning::No verdict file produced — gates checker failed before evaluation."
+            exit 0
+          fi
+          {
+            echo "## SEO Content Gates Verdict"
+            echo ""
+            echo '| Gate | Status | Current | Baseline | Delta |'
+            echo '|------|--------|---------|----------|-------|'
+            jq -r '.gates[] | "| \(.name) | \(.status) | \(.current // "—") | \(.baseline // "—") | \(.delta // "—") |"' \
+              data/cathedral-seo-gates-verdict.json
+            echo ""
+            echo "_Checked at $(jq -r .checkedAt data/cathedral-seo-gates-verdict.json)_"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open issue for improvements (rebaseline opportunity)
+        if: steps.gates.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          improved=$(jq '.summary.improved' data/cathedral-seo-gates-verdict.json)
+          if [ "$improved" = "0" ]; then
+            echo "No gate improvements detected — nothing to file."
+            exit 0
+          fi
+
+          title="chore(seo-gates): possible rebaseline opportunity — ${improved} gate(s) improved"
+
+          # De-dupe — never spam if the same title is already open.
+          existing=$(gh issue list --state open --label seo-gates --limit 200 \
+            --json title --jq '.[].title' || true)
+          if echo "$existing" | grep -Fxq "$title"; then
+            echo "Issue already open: $title"
+            exit 0
+          fi
+
+          {
+            echo "Automated check detected **${improved}** SEO content gate(s) where the"
+            echo "current value is BELOW the committed baseline. Per CLAUDE.md non-negotiables"
+            echo "#1 + #5, baseline widening is a deliberate human action — review the data"
+            echo "before running the rebaseline command(s) below."
+            echo ""
+            echo "## Improved gates"
+            echo ""
+            jq -r '.gates[]
+              | select(.status == "improved")
+              | "### `\(.name)`\n\n- Current: **\(.current)** (was \(.baseline), delta \(.delta))\n- Rebaseline: `\(.rebaselineCmd)`\n- Notes: \(.notes)\n"' \
+              data/cathedral-seo-gates-verdict.json
+            echo ""
+            echo "## Workflow run"
+            echo ""
+            echo "${GITHUB_SERVER_URL:-https://github.com}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID:-}"
+          } > /tmp/issue-body.md
+
+          gh issue create \
+            --title "$title" \
+            --body-file /tmp/issue-body.md \
+            --label seo-gates \
+            --repo "$GH_REPO"
+
+      - name: Open issue + fail workflow on regression
+        if: steps.gates.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ ! -f data/cathedral-seo-gates-verdict.json ]; then
+            echo "::error::Gates checker failed to produce a verdict file."
+            exit 1
+          fi
+          regressed=$(jq '.summary.regressed' data/cathedral-seo-gates-verdict.json)
+          errors=$(jq '.summary.errors' data/cathedral-seo-gates-verdict.json)
+
+          if [ "$regressed" -gt 0 ]; then
+            # One issue per regressed gate (easier triage than a single mega-issue).
+            mapfile -t names < <(jq -r '.gates[] | select(.status == "regressed") | .name' \
+              data/cathedral-seo-gates-verdict.json)
+            existing=$(gh issue list --state open --label seo-gates --limit 200 \
+              --json title --jq '.[].title' || true)
+            for name in "${names[@]}"; do
+              title="SEO gates regression: ${name} above baseline"
+              if echo "$existing" | grep -Fxq "$title"; then
+                echo "Issue already open: $title"
+                continue
+              fi
+              current=$(jq -r --arg n "$name"   '.gates[] | select(.name == $n) | .current'        data/cathedral-seo-gates-verdict.json)
+              baseline=$(jq -r --arg n "$name"  '.gates[] | select(.name == $n) | .baseline'       data/cathedral-seo-gates-verdict.json)
+              delta=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .delta'          data/cathedral-seo-gates-verdict.json)
+              audit_cmd=$(jq -r --arg n "$name" '.gates[] | select(.name == $n) | .auditCmd'       data/cathedral-seo-gates-verdict.json)
+              notes=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .notes'          data/cathedral-seo-gates-verdict.json)
+              {
+                echo "Automated check detected a REGRESSION on the **${name}** gate."
+                echo ""
+                echo "- Current:  **${current}**"
+                echo "- Baseline: ${baseline}"
+                echo "- Delta:    +${delta}"
+                echo "- Reproduce locally: \`${audit_cmd}\`"
+                echo "- Notes: ${notes}"
+                echo ""
+                echo "Per CLAUDE.md non-negotiables #1 + #5, the fix is to ELIMINATE the new"
+                echo "offenders — do NOT widen the baseline as a workaround."
+                echo ""
+                echo "Workflow run: ${GITHUB_SERVER_URL:-https://github.com}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID:-}"
+              } > /tmp/issue-body.md
+              gh issue create \
+                --title "$title" \
+                --body-file /tmp/issue-body.md \
+                --label seo-gates,regression \
+                --repo "$GH_REPO" || echo "Failed to create issue for ${name} (continuing)."
+            done
+          fi
+
+          if [ "$errors" -gt 0 ]; then
+            echo "::warning::${errors} gate(s) errored during evaluation — see verdict JSON."
+          fi
+
+          echo "Gates check reported regressed=${regressed} errors=${errors} — failing the workflow."
+          exit 1
