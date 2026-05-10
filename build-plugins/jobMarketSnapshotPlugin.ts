@@ -247,14 +247,208 @@ interface JobRecord {
 
 // ── Constants ──────────────────────────────────────────────────
 
-/** Cities highlighted in the city-breakdown section. */
-const TICINO_CITIES: ReadonlyArray<{ key: string; name: string }> = [
-  { key: 'lugano', name: 'Lugano' },
-  { key: 'mendrisio', name: 'Mendrisio' },
-  { key: 'bellinzona', name: 'Bellinzona' },
-  { key: 'locarno', name: 'Locarno' },
-  { key: 'chiasso', name: 'Chiasso' },
+/**
+ * Pipeline (post-cathedral expansion):
+ *
+ *     ┌────────────────────────────┐
+ *     │ data/jobs-by-canton/*.json │  (per-canton shards, E4)
+ *     └────────────┬───────────────┘
+ *                  │ streamAllJobs / loadAllJobs
+ *                  ▼
+ *     ┌──────────────────────────────────┐
+ *     │ buildActiveJobsPool(jobs)        │  O(N) — drop expired/needsRetranslation ONCE
+ *     └────────────┬─────────────────────┘
+ *                  │
+ *                  ▼
+ *     ┌──────────────────────────────────┐
+ *     │ buildCityToJobsIndex(activeJobs) │  O(N) — pre-bucket by `${canton}/${cityKey}`
+ *     └────────────┬─────────────────────┘
+ *                  │
+ *      ┌───────────┴───────────────┐
+ *      ▼                           ▼
+ *  per-CITY loop                per-SECTOR loop
+ *  cityToJobs.get(key) → O(1)   filtered against activeJobs (no re-scan)
+ *
+ * Was (pre-cathedral): each per-city loop walked every job → O(M·N).
+ * Now: O(M + N) total — outside-voice finding [4.2] resolved.
+ */
+
+/** A city we surface in breakdowns / snapshot pages. */
+export interface SnapshotCity {
+  /** Slug-safe lowercase key. */
+  readonly key: string;
+  /** Human-readable display name. */
+  readonly name: string;
+  /** ISO 2-letter canton code. */
+  readonly canton: string;
+}
+
+/**
+ * Legacy TI-only city list — kept for backward compatibility with the existing
+ * per-week / per-month / per-sector aggregations that still emit Ticino-shaped
+ * pages. The cathedral CH-wide pages consume `CH_CITIES` instead.
+ *
+ * Each entry now also carries `canton: 'TI'` so that composite-key lookups
+ * `${canton}/${cityKey}` are stable across both legacy and CH-wide call sites.
+ */
+const TICINO_CITIES: ReadonlyArray<SnapshotCity> = [
+  { key: 'lugano', name: 'Lugano', canton: 'TI' },
+  { key: 'mendrisio', name: 'Mendrisio', canton: 'TI' },
+  { key: 'bellinzona', name: 'Bellinzona', canton: 'TI' },
+  { key: 'locarno', name: 'Locarno', canton: 'TI' },
+  { key: 'chiasso', name: 'Chiasso', canton: 'TI' },
 ];
+
+/**
+ * Schema of `data/canton-municipalities.json` (BFS AGV snapshot).
+ * Population data is intentionally absent — we keep the full BFS list and let
+ * downstream filters (e.g. demand-driven candidate miner) decide which
+ * subset deserves a dedicated landing page.
+ */
+interface CantonMunicipalitiesFile {
+  readonly cantons: Record<string, { readonly municipalities: readonly string[] }>;
+}
+
+/**
+ * Slugify a municipality name for use in URLs / map keys.
+ *
+ *   "Bern"           → "bern"
+ *   "Saint-Imier"    → "saint-imier"
+ *   "Arni (AG)"      → "arni-ag"
+ *   "Erlinsbach (AG)"→ "erlinsbach-ag"
+ *   "Saas-Fee"       → "saas-fee"
+ *
+ * Matches the slug shape produced by the job-crawler location normaliser
+ * (`services/jobDataNormalization` strips the same parenthetical canton hints).
+ *
+ * @param name — display municipality name (UTF-8, may contain umlauts).
+ * @returns lowercase ASCII slug.
+ */
+export function slugifyMunicipality(name: string): string {
+  return name
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '') // strip combining diacritics
+    .toLowerCase()
+    .replace(/\s*\(([a-z]{2})\)/gi, '-$1') // "(AG)" → "-ag"
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Lazily-loaded CH-wide city catalogue, derived from
+ * `data/canton-municipalities.json`. Returns one `SnapshotCity` entry per
+ * (canton, municipality) pair across all 26 cantons.
+ *
+ * No population filter is applied (the BFS file does not carry pop data).
+ * Callers that only want "the top N municipalities per canton" can slice
+ * the list themselves; the demand-driven candidate miner already does this
+ * and feeds back into the SEO funnel — see CLAUDE.md memory entry
+ * `project_demand_driven_selection_may7.md`.
+ *
+ * @param rootDir — project root (where `data/` lives).
+ * @returns immutable array of every BFS municipality, with `canton` + slug.
+ */
+export function loadChCities(rootDir: string): ReadonlyArray<SnapshotCity> {
+  const path = np.resolve(rootDir, 'data', 'canton-municipalities.json');
+  let raw: string;
+  try {
+    raw = fs.readFileSync(path, 'utf-8');
+  } catch (err) {
+    console.warn(
+      '[job-market-snapshot] canton-municipalities.json missing — falling back to TI-only city list',
+      err,
+    );
+    return TICINO_CITIES;
+  }
+  let parsed: CantonMunicipalitiesFile;
+  try {
+    parsed = JSON.parse(raw) as CantonMunicipalitiesFile;
+  } catch (err) {
+    console.warn('[job-market-snapshot] canton-municipalities.json invalid JSON', err);
+    return TICINO_CITIES;
+  }
+  if (!parsed || typeof parsed !== 'object' || !parsed.cantons) {
+    return TICINO_CITIES;
+  }
+  const out: SnapshotCity[] = [];
+  for (const [canton, payload] of Object.entries(parsed.cantons)) {
+    if (!payload || !Array.isArray(payload.municipalities)) continue;
+    for (const name of payload.municipalities) {
+      if (typeof name !== 'string' || name.length === 0) continue;
+      const key = slugifyMunicipality(name);
+      if (!key) continue;
+      out.push({ key, name, canton });
+    }
+  }
+  return out;
+}
+
+/**
+ * Drop jobs that should never appear in any snapshot aggregate. Returning a
+ * fresh array keeps the source array immutable (rules/common/coding-style.md).
+ *
+ * @param jobs — raw job records (as loaded from per-canton shards).
+ * @returns filtered immutable view containing only active, ready-to-publish jobs.
+ */
+export function buildActiveJobsPool(
+  jobs: ReadonlyArray<JobRecord>,
+): ReadonlyArray<JobRecord> {
+  const out: JobRecord[] = [];
+  for (const job of jobs) {
+    if (!job || typeof job !== 'object') continue;
+    if (job.expired) continue;
+    if (job.needsRetranslation === true) continue;
+    out.push(job);
+  }
+  return out;
+}
+
+/**
+ * Pre-compute a `Map<"<canton>/<cityKey>", JobRecord[]>` so per-city stat
+ * aggregation runs in O(M + N) instead of O(M·N).
+ *
+ * Composite keys (`canton + '/' + cityKey`) avoid name collisions across
+ * cantons — e.g. "Wil" exists in SG, ZH and AG; "Bürglen" in TG and UR.
+ *
+ * Jobs without a confirmed canton (or without a recognisable city) are
+ * silently skipped: they live in the `_AGGREGATE_` shard and surface on
+ * `/cerca-lavoro-svizzera/` instead of any per-canton page.
+ *
+ * @param activeJobs — output of `buildActiveJobsPool`.
+ * @param cityResolver — extracts `{canton, cityKey}` from a job (default:
+ *   read `(job as any).canton` + slugify `job.location || job.addressLocality`).
+ *   Tests pass a custom resolver to keep this helper pure.
+ * @returns map keyed by composite `"<canton>/<cityKey>"`.
+ */
+export function buildCityToJobsIndex(
+  activeJobs: ReadonlyArray<JobRecord>,
+  cityResolver: (job: JobRecord) => { canton: string | null; cityKey: string | null } = defaultCityResolver,
+): Map<string, JobRecord[]> {
+  const index = new Map<string, JobRecord[]>();
+  for (const job of activeJobs) {
+    const { canton, cityKey } = cityResolver(job);
+    if (!canton || !cityKey) continue;
+    const composite = `${canton}/${cityKey}`;
+    let bucket = index.get(composite);
+    if (!bucket) {
+      bucket = [];
+      index.set(composite, bucket);
+    }
+    bucket.push(job);
+  }
+  return index;
+}
+
+/** Default canton/city extractor — reads `job.canton` (string) + slugifies
+ *  the location-ish field. Loose typing because JobRecord doesn't yet
+ *  declare `canton` (it lives on the per-canton shard schema). */
+function defaultCityResolver(job: JobRecord): { canton: string | null; cityKey: string | null } {
+  const cantonRaw = (job as JobRecord & { canton?: unknown }).canton;
+  const canton = typeof cantonRaw === 'string' && cantonRaw.length === 2 ? cantonRaw.toUpperCase() : null;
+  const loc = job.addressLocality ?? job.location ?? null;
+  const cityKey = typeof loc === 'string' && loc.length > 0 ? slugifyMunicipality(loc) : null;
+  return { canton, cityKey };
+}
 
 /** Number of weekly archives kept index,follow — older ones get noindex. */
 const WEEKLY_INDEXABLE_LIMIT = 12;
@@ -1911,19 +2105,20 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
     heroStats = buildWeeklyAggregates(latest, trendSeries, medianSalary);
   } else if (opts.jobs.length > 0) {
     // No history — synthesise a very lightweight hero stat line from jobs.json.
+    // Filter active jobs ONCE (was: 3 separate scans of opts.jobs below).
+    const activePool = buildActiveJobsPool(opts.jobs);
     const activeEmployers = new Set<string>();
-    for (const job of opts.jobs) {
-      if (job.expired || job.needsRetranslation) continue;
+    for (const job of activePool) {
       if (job.company) activeEmployers.add(job.company);
     }
     heroStats = {
       periodLabel: todayIso,
       startDate: new Date(today.getTime() - 6 * 24 * 3600 * 1000),
       endDate: today,
-      newJobs: opts.jobs.filter((j) => !j.expired && !j.needsRetranslation).length,
+      newJobs: activePool.length,
       closedJobs: 0,
       updated: 0,
-      totalJobsEnd: opts.jobs.filter((j) => !j.expired && !j.needsRetranslation).length,
+      totalJobsEnd: activePool.length,
       totalJobsStart: 0,
       totalJobsDelta: 0,
       topRoles: [],
@@ -2117,6 +2312,9 @@ function aggregateSectorStats(
   completedWeeks: ReadonlyArray<WeekBucket>,
   completedMonths: ReadonlyArray<MonthBucket>,
 ): SectorStats {
+  // Defensive: callers SHOULD pass a pre-filtered pool (see
+  // `buildActiveJobsPool`), but we still guard each job to keep this helper
+  // safe to call from tests / future entry points that may pass raw shards.
   const matching: JobRecord[] = [];
   for (const job of jobs) {
     if (!jobIsActiveForSector(job)) continue;
@@ -2812,8 +3010,13 @@ export function generateSectorSnapshotPages(
   const pages: Record<string, string> = {};
   const sectorStats = {} as Record<JobMarketSectorKey, SectorStats>;
 
+  // Pre-filter active jobs ONCE before the sector loop. Was O(sectors × jobs)
+  // = ~14 × ~5_000 = 70k `jobIsActiveForSector` checks per build; now O(jobs)
+  // up-front then O(active × sectors) regex passes. Outside-voice [4.2].
+  const activeJobs = buildActiveJobsPool(opts.jobs);
+
   for (const sector of JOB_MARKET_SECTOR_KEYS) {
-    const stats = aggregateSectorStats(sector, opts.jobs, entries, completedWeeks, completedMonths);
+    const stats = aggregateSectorStats(sector, activeJobs, entries, completedWeeks, completedMonths);
     sectorStats[sector] = stats;
     for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
       const canonicalPath = buildSectorSnapshotPath(locale, sector);
