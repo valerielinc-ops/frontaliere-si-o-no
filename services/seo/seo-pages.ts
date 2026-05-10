@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2503,
+ "numberOfItems": 2504,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7145,7 +7145,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2500, "name": "Scioperi aerei in Italia: lunedì 11 maggio voli...", "url": `${BASE_URL}/articoli-frontaliere/scioperi-aerei-italia-11-maggio-2026` },
           { "@type": "ListItem", "position": 2501, "name": "Acb in difficoltà: oltre 2 milioni di franchi d...", "url": `${BASE_URL}/articoli-frontaliere/acb-debito-futuro-2026` },
           { "@type": "ListItem", "position": 2502, "name": "Frontaliere arrestato a Malpensa: ricercato neg...", "url": `${BASE_URL}/articoli-frontaliere/malpensa-arresto-frontaliere-omicidio-2026` },
-          { "@type": "ListItem", "position": 2503, "name": "Sciopero Easyjet a Malpensa: voli a rischio l'1...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-easyjet-malpensa-11-maggio-2026` }
+          { "@type": "ListItem", "position": 2503, "name": "Sciopero Easyjet a Malpensa: voli a rischio l'1...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-easyjet-malpensa-11-maggio-2026` },
+          { "@type": "ListItem", "position": 2504, "name": "Secondo pilastro: divisione anche dopo lunga se...", "url": `${BASE_URL}/articoli-frontaliere/secondo-pilastro-diviso-frontalieri-ticino` }
  ]
  },
  {

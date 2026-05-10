@@ -7353,6 +7353,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.title': 'Sciopero Easyjet a Malpensa: voli a rischio l\'11 maggio 2026',
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.excerpt': 'Sciopero nazionale Easyjet dal 10 alle 18 l\'11 maggio 2026, coinvolgendo anche Malpensa. Fasce orarie garantite e voli a rischio.',
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.imageAlt': 'Aeroporto di Malpensa con aerei parcheggiati e passeggeri in movimento',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.title': 'Secondo pilastro: divisione anche dopo lunga separazione',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.excerpt': 'Scopri come la divisione del secondo pilastro AVS/LPP influisce sui frontalieri del Ticino, anche dopo una lunga separazione.',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.imageAlt': 'Lago di Lugano con il panorama cittadino sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -7352,6 +7352,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.title': 'Easyjet strike at Malpensa: flights at risk on May 11, 2026',
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.excerpt': 'Easyjet national strike from 10am to 6pm on May 11, 2026, also affecting Malpensa. Guaranteed time slots and flights at risk.',
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.imageAlt': 'Malpensa airport with parked planes and passengers walking',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.title': 'Second pillar: division even after long separation',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.excerpt': 'Discover how the division of the second pillar AVS/LPP affects Ticino cross-border workers, even after a long separation.',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.imageAlt': 'Lake Lugano with the cityscape in the background',
 };
 
 export default blogMetaEn;

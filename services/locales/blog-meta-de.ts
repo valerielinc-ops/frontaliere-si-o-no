@@ -7352,6 +7352,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.title': 'Easyjet-Streik in Malpensa: Flüge am 11. Mai 2026 gefährdet',
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.excerpt': 'Nationeller Easyjet-Streik vom 10 bis 18 Uhr am 11. Mai 2026, der auch Malpensa betrifft. Garantierte Zeitfenster und gefährdete Flüge.',
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.imageAlt': 'Flughafen Malpensa mit geparkten Flugzeugen und Passagieren',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.title': 'Zweite Säule: Aufteilung auch nach langer Trennung',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.excerpt': 'Erfahren Sie, wie die Aufteilung der zweiten Säule AHV/BVG Grenzgänger aus dem Tessin beeinflusst, auch nach langer Trennung.',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.imageAlt': 'Luganersee mit Stadtpanorama im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -7353,6 +7353,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.title': 'Grève Easyjet à Malpensa: vols à risque le 11 mai 2026',
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.excerpt': 'Grève nationale Easyjet de 10h à 18h le 11 mai 2026, touchant aussi Malpensa. Horaires garantis et vols à risque.',
     'blog.article.sciopero-easyjet-malpensa-11-maggio-2026.imageAlt': 'Aéroport de Malpensa avec des avions garés et des passagers en mouvement',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.title': 'Deuxième pilier : division même après une longue séparation',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.excerpt': 'Découvrez comment la division du deuxième pilier AVS/LPP affecte les travailleurs frontaliers du Tessin, même après une longue séparation.',
+    'blog.article.secondo-pilastro-diviso-frontalieri-ticino.imageAlt': 'Lac de Lugano avec le paysage urbain en arrière-plan',
 };
 
 export default blogMetaFr;
