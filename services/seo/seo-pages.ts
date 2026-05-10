@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2489,
+ "numberOfItems": 2490,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7131,7 +7131,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2486, "name": "Cassa malati: spacchettare è doveroso per i fro...", "url": `${BASE_URL}/articoli-frontaliere/cassa-malati-spacchettamento-ticino` },
           { "@type": "ListItem", "position": 2487, "name": "Fedeli chiedono chiarezza alla Diocesi di Lugano", "url": `${BASE_URL}/articoli-frontaliere/fedeli-chiedono-chiarezza-diocesi-2026` },
           { "@type": "ListItem", "position": 2488, "name": "Incidente a Ispra: soccorso un giovane di 19 anni", "url": `${BASE_URL}/articoli-frontaliere/incidente-ispra-frontaliere-2026` },
-          { "@type": "ListItem", "position": 2489, "name": "Openjobmetis a Bologna: la partita decisiva per...", "url": `${BASE_URL}/articoli-frontaliere/basket-openjobmetis-bologna-2026` }
+          { "@type": "ListItem", "position": 2489, "name": "Openjobmetis a Bologna: la partita decisiva per...", "url": `${BASE_URL}/articoli-frontaliere/basket-openjobmetis-bologna-2026` },
+          { "@type": "ListItem", "position": 2490, "name": "Blitz nei boschi della droga: tre arrestati a T...", "url": `${BASE_URL}/articoli-frontaliere/blitz-droga-turate-frontalieri` }
  ]
  },
  {

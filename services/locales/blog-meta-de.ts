@@ -7310,6 +7310,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.basket-openjobmetis-bologna-2026.title': 'Openjobmetis in Bologna: das entscheidende Playoff-Spiel',
     'blog.article.basket-openjobmetis-bologna-2026.excerpt': 'Die Pallacanestro Varese spielt am 10. Mai 2026 in Bologna in den Playoffs. Die Virtus wird keine Nachlässe gewähren.',
     'blog.article.basket-openjobmetis-bologna-2026.imageAlt': 'Basketballspiel in PalaDozza in Bologna, Spieler in Aktion, jubelnde Menge',
+    'blog.article.blitz-droga-turate-frontalieri.title': 'Drogenrazzia im Wald: Drei Festnahmen in Turate',
+    'blog.article.blitz-droga-turate-frontalieri.excerpt': 'Die Polizei von Como hat drei irreguläre Marokkaner wegen Drogenhandels im Gebiet von Turate festgenommen. Drogen und ein Machete wurden beschlagnahmt.',
+    'blog.article.blitz-droga-turate-frontalieri.imageAlt': 'Polizeieinsatz in einem Waldgebiet in der Nähe des Luganer Sees',
 };
 
 export default blogMetaDe;

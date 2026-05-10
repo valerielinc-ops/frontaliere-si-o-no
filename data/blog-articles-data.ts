@@ -23303,4 +23303,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'blitz-droga-turate-frontalieri',
+ category: 'pratico',
+ date: '2026-05-10T07:02:01.886Z',
+ image: '/images/blog/blitz-droga-turate-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7311,6 +7311,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.basket-openjobmetis-bologna-2026.title': 'Openjobmetis a Bologna: la partita decisiva per i playoff',
     'blog.article.basket-openjobmetis-bologna-2026.excerpt': 'La Pallacanestro Varese gioca a Bologna il 10 maggio 2026 per i playoff. La Virtus non farà sconti.',
     'blog.article.basket-openjobmetis-bologna-2026.imageAlt': 'Partita di basket al PalaDozza di Bologna, giocatori in azione, pubblico che tifa',
+    'blog.article.blitz-droga-turate-frontalieri.title': 'Blitz nei boschi della droga: tre arrestati a Turate',
+    'blog.article.blitz-droga-turate-frontalieri.excerpt': 'La polizia di Como ha arrestato tre marocchini irregolari per spaccio di stupefacenti nel territorio di Turate. Sequestrati droga e un machete.',
+    'blog.article.blitz-droga-turate-frontalieri.imageAlt': 'Operazione di polizia in una zona boschiva vicino al Lago di Lugano',
 };
 
 export default blogMetaIt;

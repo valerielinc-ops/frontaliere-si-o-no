@@ -33887,6 +33887,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-blitz-droga-turate-frontalieri': {
+    title: 'Blitz nei boschi della droga: tre arrestati a Turate',
+    description: 'La polizia di Como ha arrestato tre marocchini irregolari per spaccio di stupefacenti nel territorio di Turate. Sequestrati droga e un machete. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, blitz, boschi, droga, arrestati',
+    ogTitle: 'Blitz nei boschi della droga: tre arrestati a Turate',
+    ogDescription: 'La polizia di Como ha arrestato tre marocchini irregolari per spaccio di stupefacenti nel territorio di Turate. Sequestrati droga e un machete.',
+    canonicalPath: '/articoli-frontaliere/blitz-droga-turate-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Blitz nei boschi della droga: tre arrestati a Turate",
+      "description": "La polizia di Como ha arrestato tre marocchini irregolari per spaccio di stupefacenti nel territorio di Turate. Sequestrati droga e un machete. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/blitz-droga-turate-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operazione di polizia in una zona boschiva vicino al Lago di Lugano"
+      },
+      "datePublished": "2026-05-10T07:02:01+00:00",
+      "dateModified": "2026-05-10T07:02:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/blitz-droga-turate-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

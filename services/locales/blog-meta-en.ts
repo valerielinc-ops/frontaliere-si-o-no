@@ -7310,6 +7310,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.basket-openjobmetis-bologna-2026.title': 'Openjobmetis in Bologna: crucial playoff game',
     'blog.article.basket-openjobmetis-bologna-2026.excerpt': 'Pallacanestro Varese plays in Bologna on May 10, 2026 for the playoffs. Virtus will not give any breaks.',
     'blog.article.basket-openjobmetis-bologna-2026.imageAlt': 'Basketball game at PalaDozza in Bologna, players in action, cheering crowd',
+    'blog.article.blitz-droga-turate-frontalieri.title': 'Drug raid in the woods: three arrested in Turate',
+    'blog.article.blitz-droga-turate-frontalieri.excerpt': 'Como police arrested three irregular Moroccans for drug dealing in the territory of Turate. Drugs and a machete were seized.',
+    'blog.article.blitz-droga-turate-frontalieri.imageAlt': 'Police operation in a forested area near Lake Lugano',
 };
 
 export default blogMetaEn;
