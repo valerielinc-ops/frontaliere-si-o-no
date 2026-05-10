@@ -79,6 +79,7 @@ import {
   type LocaleCopy,
   type RawJob,
 } from './relatedSearchClustersData';
+import { jobsSeoPagesFlushed } from './shared/buildSignals';
 
 // ── Constants ───────────────────────────────────────────────────────────
 
@@ -1253,7 +1254,15 @@ function dropOverwrittenLocs(distDir: string, locs: ReadonlyArray<string>): stri
   return out;
 }
 
-function writeSitemap(distDir: string, allLocs: ReadonlyArray<string>, dateStamp: string): void {
+async function writeSitemap(distDir: string, allLocs: ReadonlyArray<string>, dateStamp: string): Promise<void> {
+  // Wait for jobsSeoPagesPlugin to flush its buffered writes (notably the
+  // previousSlugs bridge HTML) before scanning dist/ HTML for canonical
+  // mismatches. Vite/Rollup runs closeBundle hooks in parallel by default
+  // (commit 15536b1d94 — `parallel closeBundle is now the default`), so
+  // without this barrier the cluster sitemap is written while bridge files
+  // are still buffered and bridge URLs whose canonical points elsewhere
+  // leak into sitemap-search-clusters.xml — audit:sitemap-canonicals fails.
+  await jobsSeoPagesFlushed;
   const locs = dropOverwrittenLocs(distDir, allLocs);
   if (locs.length === 0) return;
   const entries = locs.map((loc) =>
@@ -1501,7 +1510,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       }
 
       const written = await collector.flush();
-      writeSitemap(distDir, sitemapLocs, dateStamp);
+      await writeSitemap(distDir, sitemapLocs, dateStamp);
       emittedFiles.push('sitemap-search-clusters.xml');
 
       // Capture stats before releasing the maps that hold them.
