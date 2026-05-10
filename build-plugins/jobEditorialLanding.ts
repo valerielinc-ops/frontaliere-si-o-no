@@ -380,7 +380,10 @@ function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
  const cities = (EDITORIAL_LOCATIONS_BY_CANTON[cantonCode] || EDITORIAL_LOCATIONS_BY_CANTON['TI']).join(', ');
  return {
  it: {
- title: `Offerte di lavoro ${cd.it} oggi | Ultime 24 ore e ultimi 3 giorni`,
+ // Title kept ≤66 chars (audit:title-length cap). Shortened from
+ // "Ultime 24 ore e ultimi 3 giorni" (31 chars) to a compact
+ // "24 ore + 3 giorni" tail to absorb long canton names like Grigioni.
+ title: `Offerte di lavoro ${cd.it} oggi | 24 ore + 3 giorni`,
  heading: `Offerte di lavoro ${cd.it} oggi`,
  description: `Scopri le offerte di lavoro in ${cd.it} pubblicate oggi o negli ultimi 3 giorni, con blocchi dedicati a ultime 24 ore, part-time e citta come ${cities}.`,
  intro: `Questa landing editoriale raccoglie gli annunci piu freschi del nostro job board ${cd.it} e li organizza in blocchi utili per chi cerca lavoro in ${cd.it} e vuole capire subito dove si sta muovendo il mercato.`,
@@ -394,7 +397,7 @@ function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
  internalLinks: ['Ultime 24 ore', 'Ultimi 3 giorni', `Part-time in ${cd.it}`],
  },
  en: {
- title: `${cd.en} jobs today | Last 24 hours and last 3 days`,
+ title: `${cd.en} jobs today | last 24h + 3 days`,
  heading: `${cd.en} jobs today`,
  description: `Browse ${cd.en} jobs published today or in the last 3 days, with dedicated blocks for the last 24 hours, part-time roles and key cities such as ${cities}.`,
  intro: `This editorial landing page groups the freshest jobs from our ${cd.en} job board and makes it easier to scan where employers are actively hiring.`,
@@ -408,7 +411,7 @@ function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
  internalLinks: ['Last 24 hours', 'Last 3 days', `Part-time jobs in ${cd.en}`],
  },
  de: {
- title: `Jobs ${germanCantonPrep(cd.de)} heute | Letzte 24 Stunden und letzte 3 Tage`,
+ title: `Jobs ${germanCantonPrep(cd.de)} heute | letzte 24h + 3 Tage`,
  heading: `Jobs ${germanCantonPrep(cd.de)} heute`,
  description: `Entdecken Sie Jobs ${germanCantonPrep(cd.de)}, die heute oder in den letzten 3 Tagen veroffentlicht wurden, mit Bereichen fur 24h, Teilzeit und Stadte.`,
  intro: `Diese Landingpage bundelt die frischesten Stellen aus unserem Job Board ${cd.de} und ordnet sie in nutzliche Blocke fur eine schnelle Orientierung.`,
@@ -422,7 +425,7 @@ function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
  internalLinks: ['Neue Jobs in den letzten 24 Stunden', 'Jobs der letzten 3 Tage', `Teilzeitjobs ${germanCantonPrep(cd.de)}`],
  },
  fr: {
- title: `Offres d'emploi ${frenchCantonPrep(cd.fr)} aujourd'hui | Dernieres 24 heures et 3 derniers jours`,
+ title: `Offres d'emploi ${frenchCantonPrep(cd.fr)} aujourd'hui | 24h + 3 jours`,
  heading: `Offres d'emploi ${frenchCantonPrep(cd.fr)} aujourd'hui`,
  description: `Consultez les offres d'emploi ${frenchCantonPrep(cd.fr)} publiees aujourd'hui ou ces 3 derniers jours, avec blocs 24h, temps partiel et villes.`,
  intro: `Cette landing page regroupe les offres les plus recentes de notre job board ${frenchCantonPrep(cd.fr)} et les organise en blocs utiles pour lire rapidement le marche.`,
