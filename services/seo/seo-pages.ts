@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2486,
+ "numberOfItems": 2487,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7128,7 +7128,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2483, "name": "Incidente stradale tra Cittiglio e Laveno: auto...", "url": `${BASE_URL}/articoli-frontaliere/incidente-stradale-cittiglio-laveno` },
           { "@type": "ListItem", "position": 2484, "name": "Frontaliere ossolano morto a Visp: la procura e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliero-ossolano-morto-visp-autopsia` },
           { "@type": "ListItem", "position": 2485, "name": "Putin: «Il conflitto ucraino sta volgendo al te...", "url": `${BASE_URL}/articoli-frontaliere/putin-ucraina-termine-frontalieri` },
-          { "@type": "ListItem", "position": 2486, "name": "Cassa malati: spacchettare è doveroso per i fro...", "url": `${BASE_URL}/articoli-frontaliere/cassa-malati-spacchettamento-ticino` }
+          { "@type": "ListItem", "position": 2486, "name": "Cassa malati: spacchettare è doveroso per i fro...", "url": `${BASE_URL}/articoli-frontaliere/cassa-malati-spacchettamento-ticino` },
+          { "@type": "ListItem", "position": 2487, "name": "Fedeli chiedono chiarezza alla Diocesi di Lugano", "url": `${BASE_URL}/articoli-frontaliere/fedeli-chiedono-chiarezza-diocesi-2026` }
  ]
  },
  {

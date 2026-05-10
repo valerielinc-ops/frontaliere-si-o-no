@@ -7301,6 +7301,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassa-malati-spacchettamento-ticino.title': 'Krankenkasse: Aufteilung ist für Grenzgänger Pflicht',
     'blog.article.cassa-malati-spacchettamento-ticino.excerpt': 'Die beiden Volksinitiativen zu den Krankenkassenprämien im Tessin werden getrennt. Dies sind die Änderungen für Grenzgänger',
     'blog.article.cassa-malati-spacchettamento-ticino.imageAlt': 'LAC Lugano Konzertsaal mit schweizerisch-italienischem Publikum',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.title': 'Gläubige fordern Klarheit von der Diözese Lugano',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.excerpt': 'Die Initiatorengruppe der Petition 2025 bittet den Apostolischen Administrator, in die Katholische Aktion des Tessin einzugreifen.',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.imageAlt': 'LAC Lugano, modernes Gebäude am See',
 };
 
 export default blogMetaDe;

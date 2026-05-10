@@ -7302,6 +7302,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cassa-malati-spacchettamento-ticino.title': 'Caisse maladie: séparer est nécessaire pour les frontaliers',
     'blog.article.cassa-malati-spacchettamento-ticino.excerpt': 'Les deux initiatives populaires sur les primes de caisse maladie au Tessin sont séparées. Voici ce qui change pour les frontaliers',
     'blog.article.cassa-malati-spacchettamento-ticino.imageAlt': 'Salle de concert LAC Lugano avec public suisse-italien',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.title': 'Les fidèles demandent des éclaircissements au Diocèse de Lugano',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.excerpt': 'Le groupe à l\'origine de la pétition 2025 demande à l\'Administrateur Apostolique d\'intervenir sur l\'Action Catholique Tessinoise.',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.imageAlt': 'LAC Lugano, bâtiment moderne au bord du lac',
 };
 
 export default blogMetaFr;

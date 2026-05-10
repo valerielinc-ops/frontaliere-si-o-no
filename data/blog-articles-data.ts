@@ -23276,4 +23276,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fedeli-chiedono-chiarezza-diocesi-2026',
+ category: 'novita',
+ date: '2026-05-10T06:34:29.303Z',
+ image: '/images/blog/fedeli-chiedono-chiarezza-diocesi-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7302,6 +7302,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassa-malati-spacchettamento-ticino.title': 'Cassa malati: spacchettare è doveroso per i frontalieri',
     'blog.article.cassa-malati-spacchettamento-ticino.excerpt': 'Le due iniziative popolari sui premi di cassa malati in Ticino vengono separate. Ecco cosa cambia per i frontalieri',
     'blog.article.cassa-malati-spacchettamento-ticino.imageAlt': 'LAC Lugano sala concerti con pubblico italo-svizzero',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.title': 'Fedeli chiedono chiarezza alla Diocesi di Lugano',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.excerpt': 'Il gruppo promotore della petizione 2025 chiede all\'Amministratore Apostolico di intervenire sull\'Azione Cattolica Ticinese.',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.imageAlt': 'LAC Lugano, edificio moderno sul lago',
 };
 
 export default blogMetaIt;

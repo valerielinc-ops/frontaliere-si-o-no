@@ -7301,6 +7301,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cassa-malati-spacchettamento-ticino.title': 'Health insurance: splitting is essential for cross-border workers',
     'blog.article.cassa-malati-spacchettamento-ticino.excerpt': 'The two popular initiatives on health insurance premiums in Ticino are being separated. Here\'s what changes for cross-border workers',
     'blog.article.cassa-malati-spacchettamento-ticino.imageAlt': 'LAC Lugano concert hall with Swiss-Italian audience',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.title': 'Faithful ask Diocese of Lugano for clarity',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.excerpt': 'The group behind the 2025 petition asks the Apostolic Administrator to intervene on the Ticino Catholic Action.',
+    'blog.article.fedeli-chiedono-chiarezza-diocesi-2026.imageAlt': 'LAC Lugano, modern building by the lake',
 };
 
 export default blogMetaEn;
