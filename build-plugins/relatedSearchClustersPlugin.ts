@@ -54,7 +54,7 @@ import {
   BREADCRUMB_STYLE,
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
-import { buildTitleWithBrand } from './shared/titleSuffix';
+import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
   renderJobBoardCommuterContext,
   renderSearchQueryIntro,
@@ -608,6 +608,28 @@ function buildHeadline(keyword: string, city: string | null): string {
   return city ? `${kw} a ${city}` : kw;
 }
 
+/**
+ * Cap the headline at `max` chars on a whitespace boundary, no ellipsis.
+ *
+ * `audit:title-length` (deploy-blocking ratchet) caps titles at
+ * TITLE_MAX_CHARS=66. Long compound keywords (e.g.
+ * "Addetto al commercio al dettaglio efz creare esperienze di acquisto")
+ * push the headline past 80-100 chars, so `buildTitleWithBrand`'s
+ * verbatim-pass-through path (per its no-`…` policy in titleSuffix.ts)
+ * triggers the audit. We cut on the last whitespace boundary inside `max`
+ * and drop the trailing word — no `…`, since titleSuffix policy explicitly
+ * documents that mid-headline ellipsis collapses SERP CTR. Falls back to a
+ * hard cut only if no whitespace exists in the first `max` chars (defensive
+ * — every real keyword has spaces).
+ */
+function capForTitle(headline: string, max: number): string {
+  const safe = String(headline || '').trim();
+  if (safe.length <= max) return safe;
+  const sliced = safe.slice(0, max);
+  const lastSpace = sliced.lastIndexOf(' ');
+  return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
+}
+
 /** Build the meta description (120-160 chars). */
 function buildDescription(ctx: ClusterContext, locale: Locale): string {
   const tagline = COPY[locale].taglineSingular(ctx.matchingJobs.length, ctx.keyword, ctx.city);
@@ -946,7 +968,15 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
     ${seoContextBlock}
   </div>`;
 
-  const title = buildTitleWithBrand(headline);
+  // Cluster keywords can exceed 60+ chars when the candidate slug is a long
+  // compound query (e.g. "addetto al commercio al dettaglio efz creare
+  // esperienze di acquisto"). buildTitleWithBrand returns the headline
+  // verbatim past the 66-char cap (no `…` per titleSuffix policy), so we
+  // must shorten the headline at source before composing. Word-aware cut
+  // on a whitespace boundary, no ellipsis — preserves SERP CTR while
+  // keeping the title within the audit:title-length ratchet.
+  const titleHeadline = capForTitle(headline, TITLE_MAX_CHARS);
+  const title = buildTitleWithBrand(titleHeadline);
 
   const html = buildSeoPageHtml({
     locale,
