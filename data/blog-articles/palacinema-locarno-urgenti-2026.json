@@ -1,0 +1,40 @@
+{
+  "id": "palacinema-locarno-urgenti-2026",
+  "slug": "palacinema-locarno-urgenti-2026",
+  "publishedAt": "2026-05-10T08:59:43.396Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.157248078654753,
+    "confidence": 0.8,
+    "finalScore": 7.325798462923803,
+    "topK": [
+      {
+        "slug": "locarno-magadino-trasporto",
+        "cosine": 0.7958669771954895
+      },
+      {
+        "slug": "denuncia-soccorsi-crans-montana-2026",
+        "cosine": 0.7908413798341081
+      },
+      {
+        "slug": "locarno-abitanti-domiciliati-2026",
+        "cosine": 0.7902031599471063
+      },
+      {
+        "slug": "moon-stars-resident-discount-locarno-card",
+        "cosine": 0.789521916920964
+      },
+      {
+        "slug": "locarno-stop-case-vacanza",
+        "cosine": 0.7887173348390154
+      }
+    ],
+    "score": 0.7325798462923804,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

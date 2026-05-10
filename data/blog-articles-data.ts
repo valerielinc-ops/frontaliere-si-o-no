@@ -23366,4 +23366,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'palacinema-locarno-urgenti-2026',
+ category: 'pratico',
+ date: '2026-05-10T08:59:41.963Z',
+ image: '/images/blog/palacinema-locarno-urgenti-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

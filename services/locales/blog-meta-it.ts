@@ -7332,6 +7332,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-riduce-personale-amministrativo.title': 'Swiss riduce del 10% il personale amministrativo: cosa cambia per i frontalieri',
     'blog.article.swiss-riduce-personale-amministrativo.excerpt': 'La compagnia aerea Swiss intende ridurre il personale amministrativo del 10% con partenze volontarie e incentivi finanziari.',
     'blog.article.swiss-riduce-personale-amministrativo.imageAlt': 'Vista aerea di Lugano e del Lago di Lugano, Svizzera, con cielo blu limpido e montagne sullo sfondo.',
+    'blog.article.palacinema-locarno-urgenti-2026.title': 'Palacinema di Locarno: servono risposte urgenti',
+    'blog.article.palacinema-locarno-urgenti-2026.excerpt': 'Yvonne Ballestra Cotti e Barbara Angelini Piva trasformano la loro interrogazione in interpellanza per spingere il Municipio a esprimersi al più presto.',
+    'blog.article.palacinema-locarno-urgenti-2026.imageAlt': 'Vista aerea di Locarno, con il Palacinema in primo piano e il Lago Maggiore sullo sfondo.',
 };
 
 export default blogMetaIt;

@@ -34160,6 +34160,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-palacinema-locarno-urgenti-2026': {
+    title: 'Palacinema di Locarno: servono risposte urgenti',
+    description: 'Yvonne Ballestra Cotti e Barbara Angelini Piva presentano un\'interpellanza urgente per il Palacinema di Locarno. Scopri le implicazioni e come partecipare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, palacinema, locarno, servono, risposte',
+    ogTitle: 'Palacinema di Locarno: servono risposte urgenti',
+    ogDescription: 'Yvonne Ballestra Cotti e Barbara Angelini Piva presentano un\'interpellanza urgente per il Palacinema di Locarno. Scopri le implicazioni e come partecipare.',
+    canonicalPath: '/articoli-frontaliere/palacinema-locarno-urgenti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Palacinema di Locarno: servono risposte urgenti",
+      "description": "Yvonne Ballestra Cotti e Barbara Angelini Piva presentano un'interpellanza urgente per il Palacinema di Locarno. Scopri le implicazioni e come partecipare.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/palacinema-locarno-urgenti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Locarno, con il Palacinema in primo piano e il Lago Maggiore sullo sfondo."
+      },
+      "datePublished": "2026-05-10T08:59:42+00:00",
+      "dateModified": "2026-05-10T08:59:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/palacinema-locarno-urgenti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

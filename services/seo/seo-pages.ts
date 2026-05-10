@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2496,
+ "numberOfItems": 2497,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7138,7 +7138,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2493, "name": "Precompilata 2026: guida su accesso, novità, co...", "url": `${BASE_URL}/articoli-frontaliere/precompilata-2026-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2494, "name": "Arlotti chiede franchigia per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/arlotti-franchigia-frontalieri-letta` },
           { "@type": "ListItem", "position": 2495, "name": "Varese, 10 maggio 2026: notizie per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-varese-10-maggio-2026` },
-          { "@type": "ListItem", "position": 2496, "name": "Swiss riduce del 10% il personale amministrativ...", "url": `${BASE_URL}/articoli-frontaliere/swiss-riduce-personale-amministrativo` }
+          { "@type": "ListItem", "position": 2496, "name": "Swiss riduce del 10% il personale amministrativ...", "url": `${BASE_URL}/articoli-frontaliere/swiss-riduce-personale-amministrativo` },
+          { "@type": "ListItem", "position": 2497, "name": "Palacinema di Locarno: servono risposte urgenti", "url": `${BASE_URL}/articoli-frontaliere/palacinema-locarno-urgenti-2026` }
  ]
  },
  {

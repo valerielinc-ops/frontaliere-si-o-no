@@ -3686,6 +3686,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-arlotti-franchigia-frontalieri-letta': { name: 'Franchigia frontalieri', path: '/articoli-frontaliere/arlotti-franchigia-frontalieri-letta', parent: 'blog' },
     'blog-frontalieri-varese-10-maggio-2026': { name: 'Notizie frontalieri', path: '/articoli-frontaliere/frontalieri-varese-10-maggio-2026', parent: 'blog' },
     'blog-swiss-riduce-personale-amministrativo': { name: 'Swiss riduzione personale', path: '/articoli-frontaliere/swiss-riduce-personale-amministrativo', parent: 'blog' },
+    'blog-palacinema-locarno-urgenti-2026': { name: 'Palacinema Locarno', path: '/articoli-frontaliere/palacinema-locarno-urgenti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

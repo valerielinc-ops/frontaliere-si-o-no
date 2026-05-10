@@ -7331,6 +7331,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swiss-riduce-personale-amministrativo.title': 'Swiss reduziert Verwaltungspersonal um 10%: Was ändert sich für Grenzgänger?',
     'blog.article.swiss-riduce-personale-amministrativo.excerpt': 'Die Fluggesellschaft Swiss plant, das Verwaltungspersonal um 10% zu reduzieren, mit freiwilligen Abgängen und finanziellen Anreizen.',
     'blog.article.swiss-riduce-personale-amministrativo.imageAlt': 'Luftaufnahme von Lugano und dem Luganersee, Schweiz, mit klarem blauen Himmel und Bergen im Hintergrund.',
+    'blog.article.palacinema-locarno-urgenti-2026.title': 'Palacinema Locarno: Dringende Antworten nötig',
+    'blog.article.palacinema-locarno-urgenti-2026.excerpt': 'Yvonne Ballestra Cotti und Barbara Angelini Piva verwandeln ihre Anfrage in eine Interpellation, um den Stadtrat zu einer schnellen Stellungnahme zu drängen.',
+    'blog.article.palacinema-locarno-urgenti-2026.imageAlt': 'Luftaufnahme von Locarno mit dem Palacinema im Vordergrund und dem Lago Maggiore im Hintergrund.',
 };
 
 export default blogMetaDe;

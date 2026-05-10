@@ -7331,6 +7331,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-riduce-personale-amministrativo.title': 'Swiss to cut 10% of admin staff: what changes for cross-border workers',
     'blog.article.swiss-riduce-personale-amministrativo.excerpt': 'The Swiss airline Swiss plans to reduce its administrative staff by 10% with voluntary departures and financial incentives.',
     'blog.article.swiss-riduce-personale-amministrativo.imageAlt': 'Aerial view of Lugano and Lake Lugano, Switzerland, with clear blue sky and mountains in the background.',
+    'blog.article.palacinema-locarno-urgenti-2026.title': 'Locarno\'s Palacinema: urgent answers needed',
+    'blog.article.palacinema-locarno-urgenti-2026.excerpt': 'Yvonne Ballestra Cotti and Barbara Angelini Piva turn their question into an interpellation to push the Municipality to express itself as soon as possible.',
+    'blog.article.palacinema-locarno-urgenti-2026.imageAlt': 'Aerial view of Locarno, with the Palacinema in the foreground and Lake Maggiore in the background.',
 };
 
 export default blogMetaEn;
