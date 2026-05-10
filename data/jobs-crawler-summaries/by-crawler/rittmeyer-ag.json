@@ -1,18 +1,49 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-05-09T22:06:12.113Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-05-10T10:45:26.434Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2244,
-  "avgDurationMs": 2244,
+  "durationMs": 3362,
+  "avgDurationMs": 3362,
   "durationHistory": [
-    2244
+    3362
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "ICT-Supporter (a) Romanshorn",
+      "slug": "ict-supporter-a-romanshorn-rittmeyer-ag-romanshorn",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-romanshorn/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Camorino",
+      "addressLocality": "Camorino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sales Project Engineer (a) Ticino",
@@ -26,13 +57,13 @@
       "addressLocality": "Camorino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "TI",
+      "canton": "AG",
       "country": "CH",
       "category": "sales",
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
