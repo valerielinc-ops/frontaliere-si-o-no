@@ -3695,6 +3695,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sciopero-easyjet-malpensa-11-maggio-2026': { name: 'Sciopero Easyjet', path: '/articoli-frontaliere/sciopero-easyjet-malpensa-11-maggio-2026', parent: 'blog' },
     'blog-secondo-pilastro-diviso-frontalieri-ticino': { name: 'Pensioni', path: '/articoli-frontaliere/secondo-pilastro-diviso-frontalieri-ticino', parent: 'blog' },
     'blog-ospedale-como-frontalieri-15-maggio-2026': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/ospedale-como-frontalieri-15-maggio-2026', parent: 'blog' },
+    'blog-whistleblower-zurigo-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/whistleblower-zurigo-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

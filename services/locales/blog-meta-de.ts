@@ -7358,6 +7358,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.title': '15-Jähriger zerstört Fensterscheiben im Krankenhaus Como',
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.excerpt': 'Ein 15-Jähriger hat die Kasse des Krankenhauses Sant\'Anna in San Fermo della Battaglia, Como, beschädigt, nachdem er eine Untersuchung ohne Termin verlangt hatte.',
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.imageAlt': 'Krankenhaus Sant\'Anna in San Fermo della Battaglia, Como, Italien',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.title': 'USZ-Chefin dankt entlassenem Whistleblower',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.excerpt': 'Die Direktorin des Universitätsspitals Zürich dankt dem entlassenen Whistleblower, der Unregelmäßigkeiten in der Herzchirurgie-Klinik aufgedeckt hat.',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.imageAlt': 'Ein Whistleblower hält Dokumente vor einem Schweizer Krankenhaus mit einer Schweizer Flagge im Hintergrund',
 };
 
 export default blogMetaDe;

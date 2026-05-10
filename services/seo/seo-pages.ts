@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2505,
+ "numberOfItems": 2506,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7147,7 +7147,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2502, "name": "Frontaliere arrestato a Malpensa: ricercato neg...", "url": `${BASE_URL}/articoli-frontaliere/malpensa-arresto-frontaliere-omicidio-2026` },
           { "@type": "ListItem", "position": 2503, "name": "Sciopero Easyjet a Malpensa: voli a rischio l'1...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-easyjet-malpensa-11-maggio-2026` },
           { "@type": "ListItem", "position": 2504, "name": "Secondo pilastro: divisione anche dopo lunga se...", "url": `${BASE_URL}/articoli-frontaliere/secondo-pilastro-diviso-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 2505, "name": "15enne rompe vetri ospedale Como: denunciato da...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-como-frontalieri-15-maggio-2026` }
+          { "@type": "ListItem", "position": 2505, "name": "15enne rompe vetri ospedale Como: denunciato da...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-como-frontalieri-15-maggio-2026` },
+          { "@type": "ListItem", "position": 2506, "name": "Direttrice USZ ringrazia whistleblower licenziato", "url": `${BASE_URL}/articoli-frontaliere/whistleblower-zurigo-frontalieri-2026` }
  ]
  },
  {

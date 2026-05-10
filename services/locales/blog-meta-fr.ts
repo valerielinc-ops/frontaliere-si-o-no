@@ -7359,6 +7359,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.title': 'Un adolescent casse les vitres d\'un hôpital à Côme',
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.excerpt': 'Un adolescent de 15 ans a endommagé le guichet de l\'hôpital Sant\'Anna à San Fermo della Battaglia, Côme, après avoir exigé une visite sans rendez-vous.',
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.imageAlt': 'Hôpital Sant\'Anna à San Fermo della Battaglia, Côme, Italie',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.title': 'Directrice de l\'USZ remercie le lanceur d\'alerte licencié',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.excerpt': 'La directrice de l\'Hôpital universitaire de Zurich exprime sa gratitude au lanceur d\'alerte licencié qui a dénoncé des irrégularités dans la clinique de chirurgie cardiaque',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.imageAlt': 'Un lanceur d\'alerte tient des documents devant un hôpital suisse avec un drapeau suisse en arrière-plan',
 };
 
 export default blogMetaFr;

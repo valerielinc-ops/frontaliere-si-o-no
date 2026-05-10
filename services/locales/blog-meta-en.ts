@@ -7358,6 +7358,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.title': '15-year-old breaks hospital windows in Como, reported by police',
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.excerpt': 'A 15-year-old damaged the ticket office at Sant\'Anna Hospital in San Fermo della Battaglia, Como, after demanding an appointment without booking.',
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.imageAlt': 'Sant\'Anna Hospital in San Fermo della Battaglia, Como, Italy',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.title': 'USZ director thanks dismissed whistleblower',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.excerpt': 'The director of Zurich University Hospital expresses gratitude to the dismissed whistleblower who reported irregularities in the cardiothoracic clinic',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.imageAlt': 'A whistleblower holds documents in front of a Swiss hospital with a Swiss flag in the background',
 };
 
 export default blogMetaEn;

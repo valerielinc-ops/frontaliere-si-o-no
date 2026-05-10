@@ -7359,6 +7359,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.title': '15enne rompe vetri ospedale Como: denunciato dalla polizia',
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.excerpt': 'Un 15enne ha danneggiato il box office dell\'Ospedale Sant\'Anna a San Fermo della Battaglia, Como, dopo aver preteso una visita senza prenotazione.',
     'blog.article.ospedale-como-frontalieri-15-maggio-2026.imageAlt': 'Ospedale Sant\'Anna a San Fermo della Battaglia, Como, Italia',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.title': 'Direttrice USZ ringrazia whistleblower licenziato',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.excerpt': 'La direttrice dell\'Ospedale universitario di Zurigo esprime gratitudine al whistleblower licenziato che ha denunciato irregolarità nella clinica di cardiochirurgia',
+    'blog.article.whistleblower-zurigo-frontalieri-2026.imageAlt': 'Un whistleblower tiene documenti davanti a un ospedale svizzero con bandiera svizzera sullo sfondo',
 };
 
 export default blogMetaIt;
