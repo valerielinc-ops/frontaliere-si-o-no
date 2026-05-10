@@ -218,11 +218,10 @@ const COPY: Record<
 /** Localised display name for a canton. */
 const CANTON_DISPLAY: Record<string, Record<Locale, string>> = {
   AG: { it: 'Argovia', en: 'Aargau', de: 'Aargau', fr: 'Argovie' },
-  AI: { it: 'Appenzello Interno', en: 'Appenzell Innerrhoden', de: 'Appenzell Innerrhoden', fr: 'Appenzell Rhodes-Intérieures' },
-  AR: { it: 'Appenzello Esterno', en: 'Appenzell Ausserrhoden', de: 'Appenzell Ausserrhoden', fr: 'Appenzell Rhodes-Extérieures' },
+  // Half-canton URL groups (2026-05-10 merge): AI+AR -> APPENZELLO, BL+BS -> BASILEA.
+  APPENZELLO: { it: 'Appenzello', en: 'Appenzell', de: 'Appenzell', fr: 'Appenzell' },
   BE: { it: 'Berna', en: 'Bern', de: 'Bern', fr: 'Berne' },
-  BL: { it: 'Basilea Campagna', en: 'Basel-Country', de: 'Baselland', fr: 'Bâle-Campagne' },
-  BS: { it: 'Basilea Città', en: 'Basel-City', de: 'Basel-Stadt', fr: 'Bâle-Ville' },
+  BASILEA: { it: 'Basilea', en: 'Basel', de: 'Basel', fr: 'Bâle' },
   FR: { it: 'Friburgo', en: 'Fribourg', de: 'Freiburg', fr: 'Fribourg' },
   GE: { it: 'Ginevra', en: 'Geneva', de: 'Genf', fr: 'Genève' },
   GL: { it: 'Glarona', en: 'Glarus', de: 'Glarus', fr: 'Glaris' },
@@ -247,10 +246,12 @@ const CANTON_DISPLAY: Record<string, Record<Locale, string>> = {
 
 interface CantonSlugFile {
   cantons: Record<string, Record<Locale, string>>;
+  cantonGroups?: Record<string, { members: readonly string[] }>;
   aggregate: Record<Locale, string>;
 }
 
 let cantonSlugFileCache: CantonSlugFile | null = null;
+let memberToGroupCache: ReadonlyMap<string, string> | null = null;
 
 function loadCantonSlugFile(rootDir: string): CantonSlugFile | null {
   if (cantonSlugFileCache) return cantonSlugFileCache;
@@ -259,6 +260,13 @@ function loadCantonSlugFile(rootDir: string): CantonSlugFile | null {
     const parsed = JSON.parse(raw) as CantonSlugFile;
     if (!parsed?.cantons || !parsed?.aggregate) return null;
     cantonSlugFileCache = parsed;
+    const map = new Map<string, string>();
+    for (const [groupKey, def] of Object.entries(parsed.cantonGroups ?? {})) {
+      for (const m of def?.members ?? []) {
+        map.set(String(m).toUpperCase(), groupKey);
+      }
+    }
+    memberToGroupCache = map;
     return parsed;
   } catch (err) {
     console.warn('[job-market-snapshot] canton-url-slugs.json missing — CH-wide snapshot pages disabled', err);
@@ -266,9 +274,21 @@ function loadCantonSlugFile(rootDir: string): CantonSlugFile | null {
   }
 }
 
+/**
+ * Half-canton merge: collapse 'AI'/'AR' onto 'APPENZELLO', 'BL'/'BS' onto
+ * 'BASILEA'. Every other canton code (and the aggregate sentinel) round-trips
+ * unchanged. Requires {@link loadCantonSlugFile} to have been called first.
+ */
+function resolveCantonGroup(cantonCode: string): string {
+  const code = String(cantonCode || '').toUpperCase().trim();
+  if (!code) return code;
+  return memberToGroupCache?.get(code) ?? code;
+}
+
 /** Reset the canton-slug file cache (test-only). */
 export function clearChCantonPagesCache(): void {
   cantonSlugFileCache = null;
+  memberToGroupCache = null;
 }
 
 function getCantonUrlSlugLocal(file: CantonSlugFile, code: string, locale: Locale): string | null {
@@ -548,15 +568,18 @@ export async function emitChCantonSnapshotPages(
   const slugFile = loadCantonSlugFile(opts.rootDir);
   if (!slugFile) return result;
 
-  // Build the canton → BFS-municipalities lookup once.
+  // Build the canton → BFS-municipalities lookup once. Half-canton merge:
+  // AI+AR cities collapse under 'APPENZELLO'; BL+BS under 'BASILEA' so the
+  // emitted page lists every municipality from both members in one place.
   const allCities = loadChCities(opts.rootDir);
   const citiesByCanton = new Map<string, SnapshotCity[]>();
   for (const city of allCities) {
     if (city.canton === 'TI') continue; // exclude TI from CH-wide emission
-    let bucket = citiesByCanton.get(city.canton);
+    const urlKey = resolveCantonGroup(city.canton);
+    let bucket = citiesByCanton.get(urlKey);
     if (!bucket) {
       bucket = [];
-      citiesByCanton.set(city.canton, bucket);
+      citiesByCanton.set(urlKey, bucket);
     }
     bucket.push(city);
   }
@@ -573,6 +596,8 @@ export async function emitChCantonSnapshotPages(
   // For per-canton totals walk activePool once. resolveJobCanton-style logic
   // is duplicated minimally — explicit job.canton, addressRegion fallback,
   // city-slug fallback against the BFS map.
+  // jobsByCanton is keyed by URL group (post-resolveCantonGroup) so AI+AR
+  // and BL+BS jobs accumulate in the merged bucket directly.
   const jobsByCanton = new Map<string, JobLike[]>();
   for (const code of citiesByCanton.keys()) jobsByCanton.set(code, []);
   for (const job of activePool as readonly JobLike[]) {
@@ -580,7 +605,8 @@ export async function emitChCantonSnapshotPages(
     if (typeof directCanton === 'string' && directCanton.length === 2) {
       const upper = directCanton.toUpperCase();
       if (upper === 'TI') continue;
-      const bucket = jobsByCanton.get(upper);
+      const urlKey = resolveCantonGroup(upper);
+      const bucket = jobsByCanton.get(urlKey);
       if (bucket) {
         bucket.push(job);
         continue;
@@ -590,7 +616,8 @@ export async function emitChCantonSnapshotPages(
     if (typeof region === 'string') {
       const m = /\b([A-Z]{2})\b/.exec(region.toUpperCase());
       if (m && m[1] !== 'TI') {
-        const bucket = jobsByCanton.get(m[1]);
+        const urlKey = resolveCantonGroup(m[1]);
+        const bucket = jobsByCanton.get(urlKey);
         if (bucket) {
           bucket.push(job);
           continue;
