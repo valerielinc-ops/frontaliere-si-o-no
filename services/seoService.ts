@@ -3698,6 +3698,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-whistleblower-zurigo-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/whistleblower-zurigo-frontalieri-2026', parent: 'blog' },
     'blog-abbonamento-newsletter-ticino-2026': { name: 'Newsletter Ticino', path: '/articoli-frontaliere/abbonamento-newsletter-ticino-2026', parent: 'blog' },
     'blog-balerna-zona-pianificazione-2026': { name: 'Balerna zona di pianificazione', path: '/articoli-frontaliere/balerna-zona-pianificazione-2026', parent: 'blog' },
+    'blog-giro-ditalia-silva-maglia-rosa': { name: 'Giro d\'Italia', path: '/articoli-frontaliere/giro-ditalia-silva-maglia-rosa', parent: 'blog' },
  };
 
  const info = sectionNames[section];

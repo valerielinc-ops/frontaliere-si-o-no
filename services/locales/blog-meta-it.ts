@@ -7368,6 +7368,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.balerna-zona-pianificazione-2026.title': 'Balerna diventa zona di pianificazione: cosa cambia per i frontalieri',
     'blog.article.balerna-zona-pianificazione-2026.excerpt': 'Il Municipio di Balerna ha elaborato una scheda per rimediare al Pr sovradimensionato. Ecco cosa cambia per chi vive e lavora in Ticino.',
     'blog.article.balerna-zona-pianificazione-2026.imageAlt': 'Vista aerea di Balerna, Ticino, con focus sulle aree di pianificazione urbana',
+    'blog.article.giro-ditalia-silva-maglia-rosa.title': 'Guillermo Silva vince la tappa e indossa la maglia rosa del Giro d\'Italia',
+    'blog.article.giro-ditalia-silva-maglia-rosa.excerpt': 'L\'uruguaiano trionfa nella seconda tappa del Giro d\'Italia, diventando il primo uruguaiano a vincere una tappa di un grande giro.',
+    'blog.article.giro-ditalia-silva-maglia-rosa.imageAlt': 'Ciclista con maglia rosa del Giro d\'Italia a Lugano',
 };
 
 export default blogMetaIt;

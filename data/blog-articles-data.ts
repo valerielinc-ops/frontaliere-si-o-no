@@ -23474,4 +23474,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'giro-ditalia-silva-maglia-rosa',
+ category: 'novita',
+ date: '2026-05-10T11:03:54.289Z',
+ image: '/images/blog/giro-ditalia-silva-maglia-rosa.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

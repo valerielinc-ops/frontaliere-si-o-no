@@ -7367,6 +7367,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.balerna-zona-pianificazione-2026.title': 'Balerna becomes a planning zone: what changes for cross-border workers',
     'blog.article.balerna-zona-pianificazione-2026.excerpt': 'The Municipality of Balerna has developed a fact sheet to address the oversized Pr. Here\'s what changes for those who live and work in Ticino.',
     'blog.article.balerna-zona-pianificazione-2026.imageAlt': 'Aerial view of Balerna, Ticino, focusing on urban planning areas',
+    'blog.article.giro-ditalia-silva-maglia-rosa.title': 'Guillermo Silva wins Giro d\'Italia stage, wears pink jersey',
+    'blog.article.giro-ditalia-silva-maglia-rosa.excerpt': 'The Uruguayan triumphs in the second stage of the Giro d\'Italia, becoming the first Uruguayan to win a stage of a grand tour.',
+    'blog.article.giro-ditalia-silva-maglia-rosa.imageAlt': 'Cyclist in pink jersey of Giro d\'Italia in Lugano',
 };
 
 export default blogMetaEn;
