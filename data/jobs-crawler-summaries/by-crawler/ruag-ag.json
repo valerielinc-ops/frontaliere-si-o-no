@@ -1,21 +1,24 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-05-10T10:46:35.862Z",
+  "generatedAt": "2026-05-10T22:20:08.188Z",
   "total": 4,
-  "newCount": 4,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7396,
-  "avgDurationMs": 7396,
+  "unchangedCount": 4,
+  "durationMs": 8177,
+  "avgDurationMs": 8177,
   "durationHistory": [
-    7396
+    8177
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Facility Office Manager 80-100 (w/m/d)",
-      "slug": "facility-office-manager-80-100-w-m-d-ruag-ag-thun",
+      "slug": "responsabile-ufficio-80-100-w-m-d-ruag-ag-thun",
       "url": "https://jobs.ruag.ch/offene-stellen/facility-office-manager/49bf3704-581a-43a6-a61b-e6995907530a",
       "applyUrl": "https://jobs.ruag.ch/apply/ats/49bf3704-581a-43a6-a61b-e6995907530a",
       "company": "RUAG AG",
@@ -36,17 +39,17 @@
       "contractType": "part-time",
       "validThrough": "2053-07-24",
       "id": "ruag-ag-2e200f83f181",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "streetAddress": "Via Campagna",
       "postalCode": "6517",
-      "_qualityScore": 90,
+      "firstSeenAt": "2026-05-10T10:46:35.862Z",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -73,23 +76,23 @@
       "contractType": "part-time",
       "validThrough": "2053-09-21",
       "id": "ruag-ag-1ec2ea73633c",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Campagna",
       "postalCode": "6517",
-      "_qualityScore": 90,
+      "firstSeenAt": "2026-05-10T10:46:35.862Z",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "title": "Professional Cyber Security Consultant 60-100% (w/m/d)",
-      "slug": "professional-cyber-security-consultant-60-100-w-m-d-ruag-ag-bern",
+      "slug": "consulente-per-la-sicurezza-informatica-professionale-60-100-w-m-d-ruag-ag-bern",
       "url": "https://jobs.ruag.ch/offene-stellen/professional-cyber-security-consultant/9d6ea964-cb18-468b-813c-afdc4ec1de1d",
       "applyUrl": "https://jobs.ruag.ch/apply/ats/9d6ea964-cb18-468b-813c-afdc4ec1de1d",
       "company": "RUAG AG",
@@ -115,17 +118,18 @@
       "currency": "CHF",
       "streetAddress": "Via Campagna",
       "postalCode": "6517",
-      "_qualityScore": 95,
+      "firstSeenAt": "2026-05-10T10:46:35.862Z",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "title": "Executive Assistant für den Chief Real Estate Office 80-100% (w/m/d)",
-      "slug": "executive-assistant-per-den-chief-real-estate-office-80-100-m-w-d-ruag-ag-bern",
+      "slug": "assistente-esecutivo-per-l-ufficio-immobiliare-capo-80-100-w-m-d-ruag-ag-bern",
       "url": "https://jobs.ruag.ch/offene-stellen/executive-assistant-fuer-den-chief-real-estate-office/4f770aa6-c7b8-42e7-8a87-ee1f381ffa5d",
       "applyUrl": "https://jobs.ruag.ch/apply/ats/4f770aa6-c7b8-42e7-8a87-ee1f381ffa5d",
       "company": "RUAG AG",
@@ -151,16 +155,14 @@
       "currency": "CHF",
       "streetAddress": "Via Campagna",
       "postalCode": "6517",
-      "_qualityScore": 95,
+      "firstSeenAt": "2026-05-10T10:46:35.862Z",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
