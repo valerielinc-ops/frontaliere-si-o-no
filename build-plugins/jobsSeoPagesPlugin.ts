@@ -97,6 +97,7 @@ import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 import { startTimer, recordEmit, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -6363,6 +6364,16 @@ ${alternates}
        existing.canton = canton;
      }
    }
+
+   // T2.6 — Per-canton active-job counts for MIN_JOBS gate. One canonical
+   // entry per dedup group, so this is the deduped count Google would index
+   // per /cerca-lavoro-{canton}/ landing.
+   const cantonJobCounts = new Map<string, number>();
+   for (const entry of groups.values()) {
+     cantonJobCounts.set(entry.canton, (cantonJobCounts.get(entry.canton) ?? 0) + 1);
+   }
+   let cantonIndexIndexable = 0;
+   let cantonIndexNoindex = 0;
 
    // Build the URL list for the sharded sitemap. One entry per (group, locale)
    // = 4 × group-count entries. URL preserves the legacy frozen path
