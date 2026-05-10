@@ -23258,4 +23258,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'putin-ucraina-termine-frontalieri',
+ category: 'novita',
+ date: '2026-05-10T06:19:32.796Z',
+ image: '/images/blog/putin-ucraina-termine-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

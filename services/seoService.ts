@@ -3674,6 +3674,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chippis-ponte-demolito-sicurezza': { name: 'Chippis ponte sicurezza', path: '/articoli-frontaliere/chippis-ponte-demolito-sicurezza', parent: 'blog' },
     'blog-incidente-stradale-cittiglio-laveno': { name: 'Incidente stradale', path: '/articoli-frontaliere/incidente-stradale-cittiglio-laveno', parent: 'blog' },
     'blog-frontaliero-ossolano-morto-visp-autopsia': { name: 'Novità', path: '/articoli-frontaliere/frontaliero-ossolano-morto-visp-autopsia', parent: 'blog' },
+    'blog-putin-ucraina-termine-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/putin-ucraina-termine-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

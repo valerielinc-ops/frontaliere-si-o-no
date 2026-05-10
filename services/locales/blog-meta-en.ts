@@ -7295,6 +7295,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliero-ossolano-morto-visp-autopsia.title': 'Ossola cross-border worker dies in Visp: Swiss prosecution orders autopsy',
     'blog.article.frontaliero-ossolano-morto-visp-autopsia.excerpt': 'The Swiss prosecution has ordered an autopsy on the body of an Ossola cross-border worker found dead in Visp. Here\'s what we know so far.',
     'blog.article.frontaliero-ossolano-morto-visp-autopsia.imageAlt': 'View of Visp, Switzerland, with the prosecutor\'s office in the foreground',
+    'blog.article.putin-ucraina-termine-frontalieri.title': 'Putin: \'Ukrainian conflict nearing end\'',
+    'blog.article.putin-ucraina-termine-frontalieri.excerpt': 'The Russian president announces a turning point in the Ukrainian conflict and says he is ready to negotiate with the EU.',
+    'blog.article.putin-ucraina-termine-frontalieri.imageAlt': 'Aerial view of Bellinzona with the castles and the Ticino river',
 };
 
 export default blogMetaEn;

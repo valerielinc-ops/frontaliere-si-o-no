@@ -7296,6 +7296,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliero-ossolano-morto-visp-autopsia.title': 'Frontalier ossolano décédé à Visp: l\'autopsie ordonnée',
     'blog.article.frontaliero-ossolano-morto-visp-autopsia.excerpt': 'La procure helvétique a ordonné l\'autopsie du corps d\'un frontalier ossolano trouvé mort à Visp. Voici ce que nous savons jusqu\'à présent.',
     'blog.article.frontaliero-ossolano-morto-visp-autopsia.imageAlt': 'Vue de Visp, Suisse, avec le bureau du procureur au premier plan',
+    'blog.article.putin-ucraina-termine-frontalieri.title': 'Poutine: «Le conflit ukrainien touche à sa fin»',
+    'blog.article.putin-ucraina-termine-frontalieri.excerpt': 'Le président russe annonce un tournant dans le conflit ukrainien et se dit prêt à négocier avec l\'UE.',
+    'blog.article.putin-ucraina-termine-frontalieri.imageAlt': 'Vue aérienne de Bellinzone avec les châteaux et la rivière du Tessin',
 };
 
 export default blogMetaFr;

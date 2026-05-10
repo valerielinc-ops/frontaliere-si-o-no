@@ -7295,6 +7295,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliero-ossolano-morto-visp-autopsia.title': 'Toter Grenzgänger aus Ossola: Obduktion angeordnet',
     'blog.article.frontaliero-ossolano-morto-visp-autopsia.excerpt': 'Die Schweizer Staatsanwaltschaft hat die Obduktion der Leiche eines Grenzgängers aus dem Ossola angeordnet, der in Visp tot aufgefunden wurde. Hier ist, was wir bisher wissen.',
     'blog.article.frontaliero-ossolano-morto-visp-autopsia.imageAlt': 'Ansicht von Visp, Schweiz, mit dem Büro des Staatsanwalts im Vordergrund',
+    'blog.article.putin-ucraina-termine-frontalieri.title': 'Putin: «Der Ukraine-Konflikt neigt sich dem Ende zu»',
+    'blog.article.putin-ucraina-termine-frontalieri.excerpt': 'Der russische Präsident kündigt eine Wende im Ukraine-Konflikt an und erklärt sich bereit, mit der EU zu verhandeln.',
+    'blog.article.putin-ucraina-termine-frontalieri.imageAlt': 'Luftaufnahme von Bellinzona mit den Burgen und dem Fluss Ticino',
 };
 
 export default blogMetaDe;
