@@ -3703,6 +3703,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-votazioni-federali-14-giugno-2026': { name: 'Votazioni federali', path: '/articoli-frontaliere/votazioni-federali-14-giugno-2026', parent: 'blog' },
     'blog-locarno-lugano-mendrisio-alleanza-2026': { name: 'Novità', path: '/articoli-frontaliere/locarno-lugano-mendrisio-alleanza-2026', parent: 'blog' },
     'blog-autostrada-a9-chiusure-11-15-maggio-2026': { name: 'Chiusure A9', path: '/articoli-frontaliere/autostrada-a9-chiusure-11-15-maggio-2026', parent: 'blog' },
+    'blog-lpp-minimo-secondo-pilastro-2026': { name: 'LPP secondo pilastro', path: '/articoli-frontaliere/lpp-minimo-secondo-pilastro-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

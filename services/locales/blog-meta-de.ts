@@ -7382,6 +7382,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.title': 'Nachtschließungen auf der Autobahn A9: betroffene Abschnitte',
     'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.excerpt': 'Vom Montag, den 11. bis Freitag, den 15. Mai 2026, nächtliche Schließungen auf der A9 zwischen Lainate, Como und Chiasso für Grünflächenwartung. Was sich für Grenzgänger ändert',
     'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.imageAlt': 'Luftaufnahme der Autobahn A9 in der Nähe von Lugano mit Baustellen und Nachtverkehr',
+    'blog.article.lpp-minimo-secondo-pilastro-2026.title': 'LPP: Mindestanteil des zweiten Pfiliers bleibt bei 1,25%',
+    'blog.article.lpp-minimo-secondo-pilastro-2026.excerpt': 'Die LPP bestätigt den Mindestanteil des zweiten Pfiliers bei 1,25% für 2026, mit Auswirkungen für Grenzgänger',
+    'blog.article.lpp-minimo-secondo-pilastro-2026.imageAlt': 'Luftaufnahme von Lugano mit Sicht auf den Tessin-Grenzgebiet',
 };
 
 export default blogMetaDe;

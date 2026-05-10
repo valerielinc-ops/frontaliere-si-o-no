@@ -7382,6 +7382,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.title': 'Night closures on A9 highway: affected sections',
     'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.excerpt': 'From Monday 11 to Friday 15 May 2026, nighttime closures on the A9 between Lainate, Como, and Chiasso for green maintenance. Here\'s what changes for cross-border workers',
     'blog.article.autostrada-a9-chiusure-11-15-maggio-2026.imageAlt': 'Aerial view of A9 highway near Lugano with construction and night traffic',
+    'blog.article.lpp-minimo-secondo-pilastro-2026.title': 'LPP: Minimum of 2nd pillar remains at 1.25%',
+    'blog.article.lpp-minimo-secondo-pilastro-2026.excerpt': 'LPP confirms minimum of 2nd pillar at 1.25% for 2026, with implications for cross-border workers',
+    'blog.article.lpp-minimo-secondo-pilastro-2026.imageAlt': 'Aerial view of Lugano with Ticino border visible',
 };
 
 export default blogMetaEn;

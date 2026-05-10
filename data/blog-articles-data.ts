@@ -23519,4 +23519,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lpp-minimo-secondo-pilastro-2026',
+ category: 'fiscale',
+ date: '2026-05-10T23:50:06.330Z',
+ image: '/images/blog/lpp-minimo-secondo-pilastro-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
