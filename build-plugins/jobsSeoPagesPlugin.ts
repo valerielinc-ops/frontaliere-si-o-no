@@ -11,6 +11,7 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildSimplePage } from './htmlTemplate';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -95,6 +96,7 @@ import {
 import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 import { startTimer, recordEmit, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
+import { resolveJobsSeoPagesFlushed } from './shared/buildSignals';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -6395,8 +6397,17 @@ ${alternates}
        // sectionByLocale[locale] to preserve the URL graph.
        const section = sectionByLocale[locale];
        const path = withSlash(`${localePrefix[locale]}/${section}/${perLocaleSlugMap[locale]}`.replace(/\/+/g, '/'));
+       const localeUrl = `${BASE_URL}${path}`;
+       // Per-locale canonical-override gate. canonicalOverrides is keyed by
+       // per-locale slug (e.g. `expediter-casale-sa-lugano` for EN,
+       // `beschleuniger-…` for DE) — an entry can target a single locale
+       // even when the IT sibling self-canonicalizes. Without this guard the
+       // EN/DE locale URL gets advertised in sitemap-jobs-{canton}.xml while
+       // its rendered HTML carries `<link rel="canonical">` pointing at the
+       // brand hub — audit:sitemap-canonicals fails.
+       if (resolveCanonicalUrl(perLocaleSlugMap[locale], localeUrl) !== localeUrl) continue;
        shardUrls.push({
-         loc: `${BASE_URL}${path}`,
+         loc: localeUrl,
          lastmod,
          changefreq: 'weekly',
          priority: 0.6,
@@ -6405,16 +6416,18 @@ ${alternates}
      }
    }
 
-   // Per-canton + aggregator landing index pages. 27 cantons × 4 locales = 108
-   // pages. TI is skipped because staticPagesPlugin already emits the legacy
-   // /cerca-lavoro-ticino/ index (ditto en/de/fr) — re-emitting would race
-   // and overwrite that plugin's hand-tuned content.
+   // Per-canton + aggregator landing index pages. 26 cantons − TI + svizzera
+   // = 26 keys × 4 locales = 104 pages. TI is skipped because
+   // staticPagesPlugin already emits the legacy /cerca-lavoro-ticino/ index
+   // (ditto en/de/fr) — re-emitting would race and overwrite that plugin's
+   // hand-tuned content.
    //
-   // Each new index is a thin SPA-shell page with breadcrumb, h1, lead, and
-   // a CTA back to the legacy job board. The crawler-facing copy is
-   // intentionally conservative (no fake job listings) — real per-canton
-   // listings will land here in a follow-up when the URL graph migration
-   // ships end-to-end.
+   // P2.B1+B2+B3 — every locale-prefix path is emitted (IT no-prefix, EN/DE/FR
+   // under /en /de /fr) using `buildSeoPageHtml` so each page hydrates with
+   // the full SPA shell (CLAUDE.md NON-NEGOTIABLE #14: every static SSG page
+   // MUST use the SPA shell + hydration). The legacy `buildSimplePage` path
+   // omitted entryJs/entryCss and produced unstyled, non-hydrating pages —
+   // visitors arriving at /en/find-jobs-zurich/ saw a blank shell.
    let cantonIndexEmitted = 0;
    const cantonsToEmit: Array<{ key: string; locale: CantonLocale; slug: string; section: string }> = [];
    for (const code of [...ALL_CANTON_CODES, AGGREGATE_KEY]) {
@@ -6428,45 +6441,71 @@ ${alternates}
        });
      }
    }
+
+   /**
+    * Build the per-locale title/lede/CTA-label triple for a canton landing.
+    * Pure function — keeps {@link buildCantonLocaleLabels} cheap to call
+    * inside the emit loop and keeps the inline string-tables out of the
+    * critical path. `display` is the human-readable canton name already
+    * localized via `getCantonDisplayLabel`.
+    */
+   const buildCantonLocaleLabels = (
+     locale: CantonLocale,
+     display: string,
+   ): { title: string; lede: string; ctaLabel: string } => {
+     switch (locale) {
+       case 'it':
+         return {
+           title: `Lavoro in ${display} | Frontaliere Ticino`,
+           lede: `Pagina indice del job board per il cantone ${display}.`,
+           ctaLabel: `Vedi tutte le offerte`,
+         };
+       case 'en':
+         return {
+           title: `Jobs in ${display} | Frontaliere Ticino`,
+           lede: `Job board index page for canton ${display}.`,
+           ctaLabel: `View all listings`,
+         };
+       case 'de':
+         return {
+           title: `Jobs ${germanCantonPrep(display)} | Frontaliere Ticino`,
+           lede: `Job-Board-Übersicht für den Kanton ${display}.`,
+           ctaLabel: `Alle Stellen anzeigen`,
+         };
+       case 'fr':
+       default:
+         return {
+           title: `Emploi ${frenchCantonPrep(display)} | Frontaliere Ticino`,
+           lede: `Index du job board pour le canton ${display}.`,
+           ctaLabel: `Voir toutes les offres`,
+         };
+     }
+   };
+
    for (const entry of cantonsToEmit) {
      const display = getCantonDisplayLabel(entry.key, entry.locale);
      const path = withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'));
      const canonicalUrl = `${BASE_URL}${path}`;
-     const lt: Record<CantonLocale, { title: string; lede: string; ctaLabel: string }> = {
-       it: {
-         title: `Lavoro in ${display} | Frontaliere Ticino`,
-         lede: `Pagina indice del job board per il cantone ${display}.`,
-         ctaLabel: `Vedi tutte le offerte`,
-       },
-       en: {
-         title: `Jobs in ${display} | Frontaliere Ticino`,
-         lede: `Job board index page for canton ${display}.`,
-         ctaLabel: `View all listings`,
-       },
-       de: {
-         title: `Jobs ${germanCantonPrep(display)} | Frontaliere Ticino`,
-         lede: `Job-Board-Übersicht für den Kanton ${display}.`,
-         ctaLabel: `Alle Stellen anzeigen`,
-       },
-       fr: {
-         title: `Emploi ${frenchCantonPrep(display)} | Frontaliere Ticino`,
-         lede: `Index du job board pour le canton ${display}.`,
-         ctaLabel: `Voir toutes les offres`,
-       },
-     };
-     const labels = lt[entry.locale];
+     const labels = buildCantonLocaleLabels(entry.locale, display);
      const legacyJobBoardHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${sectionByLocale[entry.locale]}`.replace(/\/+/g, '/'))}`;
+     // bodyHtml is wrapped in <main> because buildSeoPageHtml runs in
+     // seoContentOutsideRoot=true mode by default — the caller-provided
+     // <main> is hosted as a sibling of <div id="root"> so React's hydration
+     // cannot replace the static SEO content. See SeoPageShellOpts docs.
      const bodyHtml = [
+       `<main class="seo-static-content" style="max-width:1080px;margin:0 auto;padding:24px 16px">`,
        `<nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}/" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
        `<header style="max-width:860px;margin:0 0 24px"><h1 style="font-size:32px;line-height:1.15;margin:0 0 12px">${esc(display)}</h1><p style="margin:0;color:var(--color-body);font-size:16px">${esc(labels.lede)}</p></header>`,
        `<p style="margin:0 0 32px"><a href="${legacyJobBoardHref}" style="display:inline-block;padding:10px 18px;background:var(--color-accent);color:#fff;border-radius:8px;font-weight:600;text-decoration:none">${esc(labels.ctaLabel)}</a></p>`,
+       `</main>`,
      ].join('\n');
-     const html = buildSimplePage({
+     const html = buildSeoPageHtml({
        canonicalUrl,
        title: labels.title,
        description: labels.lede,
        locale: entry.locale,
        bodyHtml,
+       distDir,
        // P1.11 — initial emit is noindex until real per-canton listings land.
        // Per CLAUDE.md #4 we never ship thin indexed pages; once we wire real
        // listing tables onto these landings (follow-up task), flip to
@@ -6479,20 +6518,27 @@ ${alternates}
      _qw(np.join(outDir, 'index.html'), html);
      cantonIndexEmitted++;
    }
-   console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P1.11 emitted ${cantonIndexEmitted} canton index pages (26 cantons − TI + svizzera × 4 locales)`);
 
-   // Emit sitemap shards keyed by canton + the sitemap-index.xml. Output
-   // file names: sitemap-jobs-ti.xml, sitemap-jobs-zh.xml, …,
-   // sitemap-jobs-svizzera.xml plus dist/sitemap-index.xml.
+   // P2.B3 — sitemap shard filenames use the Italian canton slug (e.g.
+   // 'zurigo', 'ginevra', 'svizzera') so they MATCH the IT page URLs
+   // (/cerca-lavoro-zurigo/) instead of the prior 2-letter ISO code
+   // (sitemap-jobs-zh.xml). Standardising on the IT slug keeps the
+   // sitemap-index entries human-readable and consistent with the canonical
+   // page graph.
    const shardKeyForUrl = (u: ShardUrl): string => {
      if (u._canton === AGGREGATE_KEY) return getCantonUrlSlugLocal(AGGREGATE_KEY, 'it'); // 'svizzera'
-     return u._canton.toLowerCase();
+     return getCantonUrlSlugLocal(u._canton, 'it'); // e.g. 'ZH' → 'zurigo'
    };
    const shards = splitToShards(shardUrls, { shardKey: shardKeyForUrl });
+   // writeShardsToDist writes each `sitemap-jobs-{italian-slug}.xml` to the
+   // top-level dist/ directory + emits dist/sitemap-index.xml referencing
+   // every shard. Confirmed top-level (not under any subpath) per
+   // sitemap-shard.mjs line 260 (`path.join(distDir, shard.filename)`).
    const { shardPaths, indexPath } = await writeShardsToDist(shards, distDir, BASE_URL);
    if (indexPath) {
      console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P1.11 wrote ${shardPaths.length} canton sitemap shards + ${np.relative(distDir, indexPath)}`);
    }
+   console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P2.B1+B2+B3 emitted ${cantonIndexEmitted} locale-variant pages + ${shardPaths.length} sitemap shards`);
  } catch (err) {
    // Defensive: P1.11 additions must not break the legacy emit. Log + continue.
    console.warn('[jobs-seo-pages] P1.11 canton-aware emit failed (legacy output unaffected):', err instanceof Error ? err.message : String(err));
@@ -8324,6 +8370,11 @@ ${hreflangLinks}
  const skipped = collector.skippedByHash;
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (skipped > 0 ? ` (${skipped} skipped by content hash)` : ''));
+ // Signal downstream consumers (relatedSearchClustersPlugin) that bridge
+ // HTML is on disk. Without this, parallel closeBundle lets the cluster
+ // sitemap be written before bridge writes flush, leaking non-self-
+ // canonical bridge URLs into sitemap-search-clusters.xml.
+ resolveJobsSeoPagesFlushed();
 
  // Print profiler summary if JOBS_SEO_PROFILE=1 is set; no-op otherwise.
  printJobsSeoProfile();
