@@ -12,7 +12,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it&f=region:1083334"
   ],
   "notes": "Confederazione Svizzera — federal jobs in Ticino (region 1083341) + Graubünden (filtered from Ostschweiz region 1083334). Uses Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch). Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-05-10T09:52:25.636Z",
+  "updatedAt": "2026-05-10T21:19:13.786Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/polizeiliche-r-fachspezialist-in/5bebf8c1-8200-4289-97c5-20516c5ebfa0": {
       "location": "Bern",
@@ -46,13 +46,13 @@
     },
     "https://jobs.admin.ch/posti-vacanti/raus-aus-der-routine-werde-berufsoffizier-in/11516aeb-07f4-40d5-8100-2fc3b0452a9c": {
       "location": "Schweiz und Ausland (abhängig von Funktion und Einsatzort)",
-      "canton": "VS",
+      "canton": "GE",
       "company": "Confederazione Svizzera",
       "postedDate": "2025-10-29"
     },
     "https://jobs.admin.ch/posti-vacanti/dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in/0dcc8a3a-b28d-430b-9824-d69013c2b60a": {
       "location": "Schweiz und Ausland (abhängig von Funktion und Einsatzort)",
-      "canton": "VS",
+      "canton": "GE",
       "company": "Confederazione Svizzera",
       "postedDate": "2025-10-29"
     },
@@ -64,7 +64,7 @@
     },
     "https://jobs.admin.ch/posti-vacanti/asyl-dolmetscher-in/0181eed7-a2b2-4b22-b148-139bd72659a4": {
       "location": "alle Standorte des SEM",
-      "canton": "VS",
+      "canton": "GE",
       "company": "Confederazione Svizzera",
       "postedDate": "2025-04-07"
     }
