@@ -1,21 +1,19 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-05-09T21:31:30.754Z",
+  "generatedAt": "2026-05-10T10:10:22.196Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 18753,
-  "avgDurationMs": 18753,
+  "unchangedCount": 0,
+  "durationMs": 19743,
+  "avgDurationMs": 19743,
   "durationHistory": [
-    18753
+    19743
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "company-qbnh3b",
       "slug": "consulente-di-vendita-per-la-casa-elettrica-e-multimediale-fust-chur-graubunden-517de0",
@@ -40,18 +38,16 @@
       "crawledAt": "2026-05-06T21:58:47.775Z",
       "firstSeenAt": "2026-05-06T21:58:47.775Z",
       "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
       "streetAddress": "Via Industria 1",
       "postalCode": "6593",
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -80,18 +76,16 @@
       "crawledAt": "2026-05-04T10:54:17.145Z",
       "firstSeenAt": "2026-05-04T10:54:17.145Z",
       "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
       "streetAddress": "Via Industria 1",
       "postalCode": "6593",
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -120,21 +114,21 @@
       "crawledAt": "2026-04-21T21:41:02.274Z",
       "firstSeenAt": "2026-04-21T21:41:02.274Z",
       "sourceLang": "it",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
       "streetAddress": "Via Industria 1",
       "postalCode": "6593",
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
