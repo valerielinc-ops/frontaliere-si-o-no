@@ -3,12 +3,12 @@
     {
       "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
       "clicks": 0,
-      "impressions": 14
+      "impressions": 16
     },
     {
       "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
-      "impressions": 12
+      "impressions": 13
     },
     {
       "query": "نعم ابحث",
@@ -20,7 +20,7 @@
     {
       "query": "case anziani ticino offerte di lavoro",
       "clicks": 0,
-      "impressions": 8
+      "impressions": 9
     },
     {
       "query": "case anziani lugano posti di lavoro",
@@ -90,23 +90,24 @@
       "impressions": 1
     }
   ],
-  "educators": [
-    {
-      "query": "teaching jobs in the canton of ticino",
-      "clicks": 0,
-      "impressions": 6
-    }
-  ],
-  "locarno": [
-    {
-      "query": "locarno",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "chiasso": [
     {
+      "query": "lavoro a chiasso",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
       "query": "chiasso lavoro",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "job contact chiasso",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "chiasso lavoro offerte",
       "clicks": 0,
       "impressions": 1
     },
@@ -116,33 +117,23 @@
       "impressions": 1
     },
     {
-      "query": "job contact chiasso",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "lavoro a chiasso",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
       "query": "offerte lavoro chiasso per italiani",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "lugano": [
+  "educators": [
     {
-      "query": "je vise un emploi à lugano",
+      "query": "teaching jobs in the canton of ticino",
       "clicks": 0,
-      "impressions": 3
+      "impressions": 9
     }
   ],
   "altenpflege": [
     {
       "query": "altenpfleger jobs lugano",
       "clicks": 0,
-      "impressions": 2
+      "impressions": 4
     },
     {
       "query": "altenpflegerin nach mailand",
@@ -153,11 +144,108 @@
       "query": "arbeitsstellen altenpflege",
       "clicks": 0,
       "impressions": 1
+    },
+    {
+      "query": "jobs altenpflege",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "lehrstellen": [
+    {
+      "query": "lehrstellen orsières",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "lehrstellen magadino",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "lehrstellen stabio",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
+  "lugano": [
+    {
+      "query": "je vise un emploi à lugano",
+      "clicks": 0,
+      "impressions": 4
+    }
+  ],
+  "locarno": [
+    {
+      "query": "locarno",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "bellinzona": [
     {
       "query": "bestbezahlte jobs bellinzona",
+      "clicks": 0,
+      "impressions": 3
+    }
+  ],
+  "educatori": [
+    {
+      "query": "lavoro insegnante canton ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro educatore ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro educatrice",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro: educatore svizzera italiana",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "sviluppatori": [
+    {
+      "query": "\"qvac\" -\"career\" -\"job\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "consulente software ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "posti vacanti ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "web developer ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "fahrer": [
+    {
+      "query": "fahrer locarno",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "datumstempel migros",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "fahrer jobs lugano",
       "clicks": 0,
       "impressions": 1
     }
@@ -179,43 +267,21 @@
       "impressions": 1
     }
   ],
-  "sviluppatori": [
+  "entwickler": [
     {
-      "query": "\"qvac\" -\"career\" -\"job\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "query": "softwareentwicklung jobs lugano",
       "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "consulente software ticino",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "posti vacanti ticino",
-      "clicks": 0,
-      "impressions": 1
+      "impressions": 3
     }
   ],
-  "fahrer": [
+  "erzieher": [
     {
-      "query": "fahrer locarno",
+      "query": "erzieher jobs lugano",
       "clicks": 0,
       "impressions": 2
     },
     {
-      "query": "datumstempel migros",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "educatori": [
-    {
-      "query": "offerte di lavoro educatore ticino",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "offerte di lavoro educatrice",
+      "query": "pädagoge jobs lugano",
       "clicks": 0,
       "impressions": 1
     }
@@ -223,6 +289,13 @@
   "ingegneri": [
     {
       "query": "disegnatore",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
+  "last-3-days": [
+    {
+      "query": "jobs near me in the last 3 days",
       "clicks": 0,
       "impressions": 2
     }
@@ -246,9 +319,9 @@
       "impressions": 1
     }
   ],
-  "entwickler": [
+  "ingenieure": [
     {
-      "query": "softwareentwicklung jobs lugano",
+      "query": "ingenieure stellenvermittlung",
       "clicks": 0,
       "impressions": 2
     }
@@ -260,9 +333,23 @@
       "impressions": 2
     }
   ],
+  "apprendistato": [
+    {
+      "query": "si",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "autisti": [
     {
       "query": "lavoro autista svizzera canton ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "lavoro-part-time-vallese": [
+    {
+      "query": "lavoro vallese svizzera",
       "clicks": 0,
       "impressions": 1
     }
@@ -288,9 +375,23 @@
       "impressions": 1
     }
   ],
-  "ingenieure": [
+  "assistent-event-manager-m-w-d-kulm-hotel-st-moritz-st": [
     {
-      "query": "ingenieure stellenvermittlung",
+      "query": "kulm hotel st moritz jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "inspektor-in-confederazione-svizzera-ticino": [
+    {
+      "query": "confederazione jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "logistik": [
+    {
+      "query": "logistiker jobs lugano",
       "clicks": 0,
       "impressions": 1
     }
