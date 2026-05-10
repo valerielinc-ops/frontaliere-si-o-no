@@ -1,6 +1,6 @@
 # Cathedral CH-Wide — Status Report
 
-**Last updated**: 2026-05-10 post-Phase 7 hotfix
+**Last updated**: 2026-05-10 post-half-canton merge
 **Live**: https://frontaliereticino.ch
 **Safety tag**: `pre-cathedral-2026-05-10` (HEAD `58eb418c49` baseline)
 
@@ -56,6 +56,21 @@
   - `/cerca-lavoro-zurigo/`, `/cerca-lavoro-ginevra/`, etc. fetch only that canton's shard
   - `/cerca-lavoro-svizzera/` is the aggregator (top-N cantons)
   - `/cerca-lavoro-{canton}/{slug}` per-job URL pattern works via SPA hydration
+
+### Phase 7.5 — Half-canton URL merge (2026-05-10) ✅
+**Status**: DONE on branch `feat/cathedral-half-canton-merge`, awaiting user review.
+
+- **AI + AR collapsed onto a single virtual URL group `APPENZELLO`** (slugs: it `appenzello`, en/de/fr `appenzell`)
+- **BL + BS collapsed onto a single virtual URL group `BASILEA`** (slugs: it `basilea`, en/de `basel`, fr `bale`)
+- Other 22 cantons untouched. Total = **22 single + 2 merged = 24 URL canton groups + svizzera aggregate**.
+- New `data/canton-url-slugs.json` `cantonGroups` registry: `APPENZELLO -> [AI, AR]`, `BASILEA -> [BL, BS]`.
+- New `resolveCantonGroup(code)` helper exported from `services/router.ts` and `scripts/lib/canton-url-slugs.mjs` (with TS twin inlined into `build-plugins/jobsSeoPagesPlugin.ts`, `build-plugins/jobMarketSnapshotChCantonPages.ts`, `build-plugins/weeklyEmployersChCantonPages.ts`). Internal BFS / canton-quorum logic unchanged: jobs are still tagged with the real BFS code; the URL/shard emission boundary applies the helper to collapse onto the group key.
+- `build-plugins/jobsSeoPagesPlugin.ts`: `classifyCantonForUrl` returns the resolved group key, so `data/jobs-by-canton/APPENZELLO.json` + `data/jobs-by-canton/BASILEA.json` shards replace the four AI/AR/BL/BS shards. Sitemap shards similarly: `sitemap-jobs-appenzello.xml` + `sitemap-jobs-basilea.xml`.
+- `build-plugins/weeklyEmployersChCantonPages.ts`: per-canton "aziende che assumono" hubs merge AI+AR and BL+BS buckets *before* the MIN_JOBS_FOR_CANTON_PAGE gate so combined totals can clear the threshold.
+- `build-plugins/jobMarketSnapshotChCantonPages.ts`: cities + jobs collapse onto the URL group key.
+- `services/router.ts`: `getJobBoardSlugForCanton` accepts either real BFS code or group key (idempotent). `parseJobBoardSlug` already iterates the JSON `cantons` keys, so /cerca-lavoro-appenzello/, /en/find-jobs-appenzell/, /de/jobs-in-appenzell/, /fr/trouver-emploi-appenzell/ all parse to `jobBoardCanton: 'APPENZELLO'`.
+- Regression coverage: `tests/half-canton-merge.test.ts` (61 assertions) — `npx tsc --noEmit` clean, all targeted tests green.
+- **No SEO regression risk**: AI/AR/BL/BS were brand-new in cathedral PRs #54-60; no live traffic depends on the per-half-canton URLs.
 
 ---
 
