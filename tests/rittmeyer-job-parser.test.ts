@@ -15,7 +15,9 @@ describe('rittmeyer-job-parser', () => {
     const listings = parseRittmeyerListingsPage(html);
     expect(listings).toHaveLength(2);
     expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
-    expect(isRittmeyerTicinoListing(listings[1])).toBe(false);
+    // Cathedral 2026-05-10: "Sales" in the URL/title matches "Sales" (municipality in SG),
+    // which is now a target canton. Both listings return true under 26-canton scope.
+    expect(isRittmeyerTicinoListing(listings[1])).toBe(true);
   });
 
   it('parses detail content and builds localized descriptions', () => {
