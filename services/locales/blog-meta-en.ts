@@ -7283,6 +7283,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.curiosita-rossocrociate-ticino-2026.title': 'Unique Swiss traditions in Ticino',
     'blog.article.curiosita-rossocrociate-ticino-2026.excerpt': 'Discover the quirkiest Swiss and Ticino traditions, from fighting cows to springtime egg rituals.',
     'blog.article.curiosita-rossocrociate-ticino-2026.imageAlt': 'View of Lake Lugano with the city of Lugano in the background',
+    'blog.article.malcontento-aeroporto-lugano-2026.title': 'Dissatisfaction among Lugano Airport employees',
+    'blog.article.malcontento-aeroporto-lugano-2026.excerpt': 'Anonymous letter to Lugano Municipality highlights tensions between staff and director Christian Castelli',
+    'blog.article.malcontento-aeroporto-lugano-2026.imageAlt': 'Aerial view of Lugano Airport with Ticino landscape',
 };
 
 export default blogMetaEn;

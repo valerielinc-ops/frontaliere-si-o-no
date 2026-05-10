@@ -7283,6 +7283,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.curiosita-rossocrociate-ticino-2026.title': 'Schweizer Kuriositäten: Traditionen im Tessin',
     'blog.article.curiosita-rossocrociate-ticino-2026.excerpt': 'Entdecken Sie die ungewöhnlichsten Traditionen der Schweiz und des Tessin, von kämpfenden Kühen bis zu Frühlingsritualen mit Eiern.',
     'blog.article.curiosita-rossocrociate-ticino-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano im Hintergrund',
+    'blog.article.malcontento-aeroporto-lugano-2026.title': 'Unzufriedenheit unter den Mitarbeitern des Flughafens Lugano',
+    'blog.article.malcontento-aeroporto-lugano-2026.excerpt': 'Ein anonymer Brief an den Stadtrat von Lugano zeigt Spannungen zwischen dem Personal und dem Direktor Christian Castelli',
+    'blog.article.malcontento-aeroporto-lugano-2026.imageAlt': 'Luftaufnahme des Flughafens Lugano mit der Landschaft des Tessin',
 };
 
 export default blogMetaDe;

@@ -23222,4 +23222,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'malcontento-aeroporto-lugano-2026',
+ category: 'novita',
+ date: '2026-05-10T05:44:56.082Z',
+ image: '/images/blog/malcontento-aeroporto-lugano-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7284,6 +7284,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.curiosita-rossocrociate-ticino-2026.title': 'Curiosità svizzere: tradizioni e usanze uniche in Ticino',
     'blog.article.curiosita-rossocrociate-ticino-2026.excerpt': 'Scopri le tradizioni più insolite della Svizzera e del Ticino, dalle mucche che combattono ai riti primaverili con le uova.',
     'blog.article.curiosita-rossocrociate-ticino-2026.imageAlt': 'Vista del Lago di Lugano con la città di Lugano sullo sfondo',
+    'blog.article.malcontento-aeroporto-lugano-2026.title': 'Malcontento tra i dipendenti dell\'aeroporto di Lugano',
+    'blog.article.malcontento-aeroporto-lugano-2026.excerpt': 'Lettera anonima al Municipio di Lugano segna tensioni tra il personale e il direttore Christian Castelli',
+    'blog.article.malcontento-aeroporto-lugano-2026.imageAlt': 'Vista aerea dell\'aeroporto di Lugano con il paesaggio del Ticino',
 };
 
 export default blogMetaIt;
