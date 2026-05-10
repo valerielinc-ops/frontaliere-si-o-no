@@ -1,48 +1,22 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-10T10:23:37.259Z",
+  "generatedAt": "2026-05-10T21:52:06.671Z",
   "total": 11,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 28167,
-  "avgDurationMs": 28167,
+  "unchangedCount": 4,
+  "durationMs": 26768,
+  "avgDurationMs": 26768,
   "durationHistory": [
-    28167
+    26768
   ],
-  "newJobs": [
-    {
-      "id": "company-o6pzz5",
-      "slug": "store-manager-apprendista-a-100-per-la-region-st-gallen-rheintal-jysk-st-gallen-o6pzz5",
-      "company": "JYSK",
-      "title": "Store Manager Trainee (a) 100% für die Region St. Gallen /Rheintal",
-      "location": "St. Gallen",
-      "canton": "JU",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-100-fuer-die-region-st-gallen-rheintal",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-10T10:23:36.404Z",
-      "firstSeenAt": "2026-05-10T10:23:36.404Z",
-      "sourceLang": "de",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 14
-      }
-    },
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-o7thrg",
-      "slug": "verkaufer-in-con-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg",
+      "slug": "venditore-con-responsabilita-del-magazzino-a-50-60-nel-ramo-hinwil-jysk-hinwil",
       "company": "JYSK",
       "title": "Verkäufer/in mit Lagerverantwortung (a) 50-60% in der Filiale Hinwil",
       "location": "Hinwil",
@@ -59,44 +33,18 @@
       "crawledAt": "2026-05-10T10:23:36.404Z",
       "firstSeenAt": "2026-05-10T10:23:36.404Z",
       "sourceLang": "de",
-      "_qualityScore": 80,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-q9agao",
-      "slug": "risorse-umane-assistant-40-jysk-zofingen-q9agao",
-      "company": "JYSK",
-      "title": "HR Assistant 40%",
-      "location": "Zofingen",
-      "canton": "AG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-29",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/hr-assistant-40",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-10T10:23:36.404Z",
-      "firstSeenAt": "2026-05-10T10:23:36.404Z",
-      "sourceLang": "de",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
       "id": "company-qrsmyr",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+      "slug": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -113,17 +61,18 @@
       "crawledAt": "2026-05-10T10:23:36.404Z",
       "firstSeenAt": "2026-05-10T10:23:36.404Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
       "id": "company-gvoozi",
-      "slug": "verkaufer-in-con-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi",
+      "slug": "venditore-con-responsabilita-del-magazzino-a-80-nella-filiale-schlieren-jysk-schlieren",
       "company": "JYSK",
       "title": "Verkäufer/in mit Lagerverantwortung (a) 80% in der Filiale Schlieren",
       "location": "Schlieren",
@@ -140,17 +89,18 @@
       "crawledAt": "2026-05-10T10:23:36.404Z",
       "firstSeenAt": "2026-05-10T10:23:36.404Z",
       "sourceLang": "de",
-      "_qualityScore": 80,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
       "id": "company-t2zzvq",
-      "slug": "store-manager-apprendista-a-100-per-la-region-luzern-jysk-emmen-t2zzvq",
+      "slug": "store-manager-trainee-a-100-per-la-regione-di-lucerna-jysk-emmen",
       "company": "JYSK",
       "title": "Store Manager Trainee (a) 100% für die Region Luzern",
       "location": "Emmen",
@@ -167,17 +117,20 @@
       "crawledAt": "2026-05-10T10:23:36.404Z",
       "firstSeenAt": "2026-05-10T10:23:36.404Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
       "id": "company-lp3vb0",
-      "slug": "store-manager-apprendista-a-80-100-per-la-region-netstal-jysk-glarus-lp3vb0",
+      "slug": "store-manager-trainee-a-80-100-per-la-regione-netstal-jysk-glarus",
       "company": "JYSK",
       "title": "Store Manager Trainee (a) 80-100% für die Region Netstal",
       "location": "Glarus",
@@ -194,12 +147,15 @@
       "crawledAt": "2026-05-10T10:23:36.404Z",
       "firstSeenAt": "2026-05-10T10:23:36.404Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -220,19 +176,19 @@
       "companyDomain": "jysk.ch",
       "crawledAt": "2026-05-10T10:23:36.404Z",
       "firstSeenAt": "2026-05-10T10:23:36.404Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 77,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
       "id": "company-v11lwi",
-      "slug": "verkaufer-in-con-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
+      "slug": "venditore-con-responsabilita-del-magazzino-80-nella-filiale-baden-dattwil-jysk-baden",
       "company": "JYSK",
       "title": "Verkäufer/in mit Lagerverantwortung 80% in der Filiale Baden Dättwil",
       "location": "Baden",
@@ -249,12 +205,79 @@
       "crawledAt": "2026-05-10T10:23:36.404Z",
       "firstSeenAt": "2026-05-10T10:23:36.404Z",
       "sourceLang": "de",
-      "_qualityScore": 80,
+      "employmentType": "FULL_TIME",
+      "postalCode": "5400",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-o6pzz5",
+      "slug": "store-manager-apprendista-a-100-per-la-region-st-gallen-rheintal-jysk-st-gallen-o6pzz5",
+      "company": "JYSK",
+      "title": "Store Manager Trainee (a) 100% für die Region St. Gallen /Rheintal",
+      "location": "St. Gallen",
+      "canton": "JU",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-100-fuer-die-region-st-gallen-rheintal",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-05-10T10:23:36.404Z",
+      "firstSeenAt": "2026-05-10T10:23:36.404Z",
+      "sourceLang": "de",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 23,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "company-q9agao",
+      "slug": "assistente-hr-40-jysk-zofingen",
+      "company": "JYSK",
+      "title": "HR Assistant 40%",
+      "location": "Zofingen",
+      "canton": "AG",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-29",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/hr-assistant-40",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-05-10T10:23:36.404Z",
+      "firstSeenAt": "2026-05-10T10:23:36.404Z",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "employmentType": "FULL_TIME",
+      "postalCode": "5000",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -276,18 +299,17 @@
       "crawledAt": "2026-05-10T10:23:36.404Z",
       "firstSeenAt": "2026-05-10T10:23:36.404Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 14
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-p6s7zm",
       "slug": "venditore-a-a-20-sabato-aushilfe-nel-negozio-davos-jysk-davos",
