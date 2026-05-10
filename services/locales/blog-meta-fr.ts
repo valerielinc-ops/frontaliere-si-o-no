@@ -7365,6 +7365,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.abbonamento-newsletter-ticino-2026.title': 'Newsletter Tessin : restez informé des nouveautés',
     'blog.article.abbonamento-newsletter-ticino-2026.excerpt': 'Découvrez comment vous abonner à la newsletter gratuite de TVS pour recevoir des mises à jour sur l\'emploi, l\'économie et la vie au Tessin',
     'blog.article.abbonamento-newsletter-ticino-2026.imageAlt': 'Vue panoramique du lac de Lugano avec le paysage urbain en arrière-plan',
+    'blog.article.balerna-zona-pianificazione-2026.title': 'Balerna devient une zone de planification: ce qui change pour les frontaliers',
+    'blog.article.balerna-zona-pianificazione-2026.excerpt': 'Le Conseil municipal de Balerna a élaboré une fiche pour remédier au Pr surdimensionné. Voici ce qui change pour ceux qui vivent et travaillent en Suisse.',
+    'blog.article.balerna-zona-pianificazione-2026.imageAlt': 'Vue aérienne de Balerna, Tessin, axée sur les zones d\'urbanisme',
 };
 
 export default blogMetaFr;

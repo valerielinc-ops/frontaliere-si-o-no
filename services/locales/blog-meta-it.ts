@@ -7365,6 +7365,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.abbonamento-newsletter-ticino-2026.title': 'Newsletter Ticino: come restare aggiornati sulle novità',
     'blog.article.abbonamento-newsletter-ticino-2026.excerpt': 'Scopri come iscriverti alla newsletter gratuita di TVS per ricevere aggiornamenti su lavoro, economia e vita in Ticino',
     'blog.article.abbonamento-newsletter-ticino-2026.imageAlt': 'Vista panoramica del Lago di Lugano con il centro città sullo sfondo',
+    'blog.article.balerna-zona-pianificazione-2026.title': 'Balerna diventa zona di pianificazione: cosa cambia per i frontalieri',
+    'blog.article.balerna-zona-pianificazione-2026.excerpt': 'Il Municipio di Balerna ha elaborato una scheda per rimediare al Pr sovradimensionato. Ecco cosa cambia per chi vive e lavora in Ticino.',
+    'blog.article.balerna-zona-pianificazione-2026.imageAlt': 'Vista aerea di Balerna, Ticino, con focus sulle aree di pianificazione urbana',
 };
 
 export default blogMetaIt;

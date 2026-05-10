@@ -3697,6 +3697,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ospedale-como-frontalieri-15-maggio-2026': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/ospedale-como-frontalieri-15-maggio-2026', parent: 'blog' },
     'blog-whistleblower-zurigo-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/whistleblower-zurigo-frontalieri-2026', parent: 'blog' },
     'blog-abbonamento-newsletter-ticino-2026': { name: 'Newsletter Ticino', path: '/articoli-frontaliere/abbonamento-newsletter-ticino-2026', parent: 'blog' },
+    'blog-balerna-zona-pianificazione-2026': { name: 'Balerna zona di pianificazione', path: '/articoli-frontaliere/balerna-zona-pianificazione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

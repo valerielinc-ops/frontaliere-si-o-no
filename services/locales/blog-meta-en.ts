@@ -7364,6 +7364,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.abbonamento-newsletter-ticino-2026.title': 'Ticino Newsletter: stay updated on the latest news',
     'blog.article.abbonamento-newsletter-ticino-2026.excerpt': 'Find out how to subscribe to TVS\'s free newsletter to receive updates on work, economy, and life in Ticino',
     'blog.article.abbonamento-newsletter-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano with the cityscape in the background',
+    'blog.article.balerna-zona-pianificazione-2026.title': 'Balerna becomes a planning zone: what changes for cross-border workers',
+    'blog.article.balerna-zona-pianificazione-2026.excerpt': 'The Municipality of Balerna has developed a fact sheet to address the oversized Pr. Here\'s what changes for those who live and work in Ticino.',
+    'blog.article.balerna-zona-pianificazione-2026.imageAlt': 'Aerial view of Balerna, Ticino, focusing on urban planning areas',
 };
 
 export default blogMetaEn;

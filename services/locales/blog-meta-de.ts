@@ -7364,6 +7364,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.abbonamento-newsletter-ticino-2026.title': 'Ticino-Newsletter: Immer auf dem Laufenden bleiben',
     'blog.article.abbonamento-newsletter-ticino-2026.excerpt': 'Erfahren Sie, wie Sie sich für den kostenlosen Newsletter von TVS anmelden können, um Updates zu Arbeit, Wirtschaft und Leben im Tessin zu erhalten',
     'blog.article.abbonamento-newsletter-ticino-2026.imageAlt': 'Panoramablick auf den Luganersee mit der Stadt im Hintergrund',
+    'blog.article.balerna-zona-pianificazione-2026.title': 'Balerna wird Planungszone: Was sich für Grenzgänger ändert',
+    'blog.article.balerna-zona-pianificazione-2026.excerpt': 'Der Gemeinderat von Balerna hat eine Broschüre erstellt, um die überdimensionierte Bau- und Zonenordnung zu korrigieren. Hier erfahren Sie, was sich für Grenzgänger in der Schweiz ändert.',
+    'blog.article.balerna-zona-pianificazione-2026.imageAlt': 'Luftaufnahme von Balerna, Tessin, mit Fokus auf städtische Planungsgebiete',
 };
 
 export default blogMetaDe;

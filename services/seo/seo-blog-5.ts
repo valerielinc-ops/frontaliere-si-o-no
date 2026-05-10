@@ -34589,6 +34589,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-balerna-zona-pianificazione-2026': {
+    title: 'Balerna diventa zona di pianificazione: cosa cambia per i frontalieri',
+    description: 'Il Municipio di Balerna ha elaborato una scheda che designa il comune come zona di pianificazione. Ecco cosa cambia per chi vive e lavora in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, balerna, diventa, zona, pianificazione',
+    ogTitle: 'Balerna zona di pianificazione: cosa cambia per i frontalieri',
+    ogDescription: 'Il Municipio di Balerna ha elaborato una scheda che designa il comune come zona di pianificazione. Ecco cosa cambia per chi vive e lavora in Ticino.',
+    canonicalPath: '/articoli-frontaliere/balerna-zona-pianificazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Balerna diventa zona di pianificazione: cosa cambia per i frontalieri",
+      "description": "Il Municipio di Balerna ha elaborato una scheda che designa il comune come zona di pianificazione. Ecco cosa cambia per chi vive e lavora in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/balerna-zona-pianificazione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Balerna, Ticino, con focus sulle aree di pianificazione urbana"
+      },
+      "datePublished": "2026-05-10T10:56:37+00:00",
+      "dateModified": "2026-05-10T10:56:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/balerna-zona-pianificazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
