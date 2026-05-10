@@ -1,170 +1,18 @@
 {
   "key": "convit-holding",
   "label": "Convit Holding",
-  "generatedAt": "2026-05-09T21:17:12.135Z",
+  "generatedAt": "2026-05-10T09:55:46.896Z",
   "total": 60,
-  "newCount": 0,
-  "updatedCount": 4,
+  "newCount": 60,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 56,
-  "durationMs": 69143,
-  "avgDurationMs": 69143,
+  "unchangedCount": 0,
+  "durationMs": 65190,
+  "avgDurationMs": 65190,
   "durationHistory": [
-    69143
+    65190
   ],
-  "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "convit-42c11c5604d9",
-      "title": "Financial Trainee – 3a/3b",
-      "slug": "financial-trainee-3a-3b-convit-via-al-mulino-22a-6814-cadempino",
-      "url": "https://www.careers-page.com/convit-holding-gmbh/job/W358RV3W",
-      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/W358RV3W/apply",
-      "company": "Convit Holding GmbH",
-      "companyKey": "convit-holding",
-      "companyDomain": "careers-page.com",
-      "location": "Via al Mulino 22a, 6814 Cadempino",
-      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Finanza & Previdenza",
-      "source": "convit-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "convit-bad5c01c3f57",
-      "title": "Consultant previdenza per la vecchiaia 3a/3b, Ibrido",
-      "slug": "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-      "url": "https://www.careers-page.com/convit-holding-gmbh/job/63V65YWW",
-      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/63V65YWW/apply",
-      "company": "Convit Holding GmbH",
-      "companyKey": "convit-holding",
-      "companyDomain": "careers-page.com",
-      "location": "Via al Mulino 22a, 6814 Cadempino",
-      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Finanza & Previdenza",
-      "source": "convit-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "convit-cf604e78e927",
-      "title": "Consultant previdenza e risparmio (entrata laterale) OTE fino a 7'500 CHF",
-      "slug": "consultant-previdenza-e-risparmio-entrata-laterale-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
-      "url": "https://www.careers-page.com/convit-holding-gmbh/job/X9Y8VW6R",
-      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/X9Y8VW6R/apply",
-      "company": "Convit Holding GmbH",
-      "companyKey": "convit-holding",
-      "companyDomain": "careers-page.com",
-      "location": "Via al Mulino 22a, 6814 Cadempino",
-      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Finanza & Previdenza",
-      "source": "convit-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "convit-a60c17e213cc",
-      "title": "Consultant Finance – Homeoffice",
-      "slug": "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-      "url": "https://www.careers-page.com/convit-holding-gmbh/job/5WR84455",
-      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/5WR84455/apply",
-      "company": "Convit Holding GmbH",
-      "companyKey": "convit-holding",
-      "companyDomain": "careers-page.com",
-      "location": "Via al Mulino 22a, 6814 Cadempino",
-      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Finanza & Previdenza",
-      "source": "convit-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
     {
       "id": "convit-4c8a4aa9db48",
       "title": "Tirocinante pianificazione finanziaria (entrata laterale) tempo indeterminato",
@@ -188,19 +36,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -226,19 +67,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -264,19 +98,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -302,18 +129,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "_qualityScore": 97,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -339,19 +160,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -377,19 +191,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -415,19 +222,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -453,19 +253,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -491,19 +284,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -529,19 +315,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -567,19 +346,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -605,19 +377,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -643,18 +408,74 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "_qualityScore": 97,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "convit-42c11c5604d9",
+      "title": "Financial Trainee – 3a/3b",
+      "slug": "financial-trainee-3a-3b-convit-via-al-mulino-22a-6814-cadempino",
+      "url": "https://www.careers-page.com/convit-holding-gmbh/job/W358RV3W",
+      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/W358RV3W/apply",
+      "company": "Convit Holding GmbH",
+      "companyKey": "convit-holding",
+      "companyDomain": "careers-page.com",
+      "location": "Via al Mulino 22a, 6814 Cadempino",
+      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "sector": "Finanza & Previdenza",
+      "source": "convit-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-06",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 20,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "convit-bad5c01c3f57",
+      "title": "Consultant previdenza per la vecchiaia 3a/3b, Ibrido",
+      "slug": "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
+      "url": "https://www.careers-page.com/convit-holding-gmbh/job/63V65YWW",
+      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/63V65YWW/apply",
+      "company": "Convit Holding GmbH",
+      "companyKey": "convit-holding",
+      "companyDomain": "careers-page.com",
+      "location": "Via al Mulino 22a, 6814 Cadempino",
+      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Finanza & Previdenza",
+      "source": "convit-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-06",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -680,18 +501,43 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 46500,
-      "salaryMax": 71500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "_qualityScore": 97,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "convit-cf604e78e927",
+      "title": "Consultant previdenza e risparmio (entrata laterale) OTE fino a 7'500 CHF",
+      "slug": "consultant-previdenza-e-risparmio-entrata-laterale-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
+      "url": "https://www.careers-page.com/convit-holding-gmbh/job/X9Y8VW6R",
+      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/X9Y8VW6R/apply",
+      "company": "Convit Holding GmbH",
+      "companyKey": "convit-holding",
+      "companyDomain": "careers-page.com",
+      "location": "Via al Mulino 22a, 6814 Cadempino",
+      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Finanza & Previdenza",
+      "source": "convit-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-06",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -717,18 +563,43 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 46500,
-      "salaryMax": 71500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "_qualityScore": 97,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "convit-a60c17e213cc",
+      "title": "Consultant Finance – Homeoffice",
+      "slug": "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
+      "url": "https://www.careers-page.com/convit-holding-gmbh/job/5WR84455",
+      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/5WR84455/apply",
+      "company": "Convit Holding GmbH",
+      "companyKey": "convit-holding",
+      "companyDomain": "careers-page.com",
+      "location": "Via al Mulino 22a, 6814 Cadempino",
+      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Finanza & Previdenza",
+      "source": "convit-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-06",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -754,19 +625,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -792,19 +656,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -826,23 +683,16 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -868,19 +718,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -906,19 +749,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -944,19 +780,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -982,19 +811,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -1020,19 +842,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -1058,19 +873,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -1096,19 +904,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -1134,172 +935,16 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 46500,
-      "salaryMax": 71500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "convit-f442c148c570",
-      "title": "Consulente previdenziale (senza formazione) Ibrido, fisso + bonus",
-      "slug": "consulente-previdenziale-senza-formazione-ibrido-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino",
-      "url": "https://www.careers-page.com/convit-holding-gmbh/job/3W68YV6W",
-      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/3W68YV6W/apply",
-      "company": "Convit Holding GmbH",
-      "companyKey": "convit-holding",
-      "companyDomain": "careers-page.com",
-      "location": "Via al Mulino 22a, 6814 Cadempino",
-      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Finanza & Previdenza",
-      "source": "convit-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "convit-7587b9c18242",
-      "title": "Consulente previdenziale (senza esperienza) formazione gratuita",
-      "slug": "consulente-previdenziale-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
-      "url": "https://www.careers-page.com/convit-holding-gmbh/job/4R8499Y5",
-      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/4R8499Y5/apply",
-      "company": "Convit Holding GmbH",
-      "companyKey": "convit-holding",
-      "companyDomain": "careers-page.com",
-      "location": "Via al Mulino 22a, 6814 Cadempino",
-      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Finanza & Previdenza",
-      "source": "convit-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "convit-2686a4fe2751",
-      "title": "Consulente previdenziale & pianificazione Ibrido",
-      "slug": "consulente-previdenziale-pianificazione-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-      "url": "https://www.careers-page.com/convit-holding-gmbh/job/7XW583YX",
-      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/7XW583YX/apply",
-      "company": "Convit Holding GmbH",
-      "companyKey": "convit-holding",
-      "companyDomain": "careers-page.com",
-      "location": "Via al Mulino 22a, 6814 Cadempino",
-      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Finanza & Previdenza",
-      "source": "convit-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "convit-0ba4fc14f88e",
-      "title": "Consulente previdenziale per la vecchiaia & 3a (entrata laterale) tempo indeterminato",
-      "slug": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
-      "url": "https://www.careers-page.com/convit-holding-gmbh/job/3W68YV8W",
-      "applyUrl": "https://www.careers-page.com/convit-holding-gmbh/job/3W68YV8W/apply",
-      "company": "Convit Holding GmbH",
-      "companyKey": "convit-holding",
-      "companyDomain": "careers-page.com",
-      "location": "Via al Mulino 22a, 6814 Cadempino",
-      "addressLocality": "Via al Mulino 22a, 6814 Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Finanza & Previdenza",
-      "source": "convit-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-06T10:43:25.315Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 25
+        "translation": 20,
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
