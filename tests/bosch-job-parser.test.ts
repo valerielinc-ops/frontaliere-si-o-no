@@ -30,7 +30,8 @@ describe('bosch-job-parser', () => {
     const listings = parseBoschListingsPage(html);
     expect(listings).toHaveLength(2);
     expect(isBoschTargetListing(listings[0])).toBe(true);
-    expect(isBoschTargetListing(listings[1])).toBe(false);
+    // Cathedral 2026-05-10: Frauenfeld (TG) is now a target canton — listings[1] passes.
+    expect(isBoschTargetListing(listings[1])).toBe(true);
   });
 
   it('parses detail content and builds localized payload', () => {
