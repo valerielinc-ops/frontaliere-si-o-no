@@ -1,19 +1,18 @@
 {
   "key": "mobiliar",
   "label": "die Mobiliar",
-  "generatedAt": "2026-05-09T21:58:12.287Z",
+  "generatedAt": "2026-05-10T10:37:24.891Z",
   "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4066,
-  "avgDurationMs": 4066,
+  "durationMs": 4282,
+  "avgDurationMs": 4282,
   "durationHistory": [
-    4066
+    4282
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "mobiliar-d8b124a7383e",
       "slug": "kv-lehrstelle-efz-2027-generalagentur-oberwallis-mobiliar-ch",
@@ -26,7 +25,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-09T21:58:09.761Z",
+      "crawledAt": "2026-05-10T10:37:22.362Z",
       "addressLocality": "Generalagentur Oberwallis",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,20 +37,20 @@
       "sector": "Assicurazioni",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "pensum": "100%",
       "sfJobId": "1164099655",
-      "firstSeenAt": "2026-04-13T11:02:41.546Z",
-      "_qualityScore": 88,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 25,
+        "translation": 4,
         "completeness": 17
       }
     }
   ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
