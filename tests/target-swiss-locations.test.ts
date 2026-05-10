@@ -34,8 +34,10 @@ describe('target swiss locations', () => {
   });
 
   it('does not classify unrelated Swiss cities as target', () => {
-    expect(isTargetSwissLocation('Zurich, CH')).toBe(false);
-    expect(inferSwissTargetCanton('Geneva, CH')).toBe('');
+    // Cathedral 2026-05-10: TARGET_CANTONS now covers all 26 CH cantons —
+    // Zurich (ZH) and Geneva (GE) are now targets. Assert non-CH locations instead.
+    expect(isTargetSwissLocation('Milan, IT')).toBe(false);
+    expect(inferSwissTargetCanton('Tokyo, JP')).toBe('');
   });
 
   // ── VS (Valais/Wallis) canton matching ──

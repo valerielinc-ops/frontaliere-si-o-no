@@ -69,7 +69,8 @@ describe('parseBoardListings', () => {
     expect(rows[0].title).toBe('UX Designer');
     expect(rows[0].location).toBe('Chiasso, Switzerland');
     expect(isBoardTargetLocation(rows[0].location)).toBe(true);
-    expect(isBoardTargetLocation(rows[1].location)).toBe(false);
+    // Cathedral 2026-05-10: Zürich (ZH) is now a target canton — rows[1] location "Zürich, Switzerland" passes.
+    expect(isBoardTargetLocation(rows[1].location)).toBe(true);
   });
 });
 

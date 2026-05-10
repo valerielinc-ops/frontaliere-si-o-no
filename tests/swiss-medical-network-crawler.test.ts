@@ -157,8 +157,9 @@ describe('isTicinoLocation', () => {
   it('returns true for Sorengo', () => { expect(isTicinoLocation('Sorengo')).toBe(true); });
   it('returns true for Lugano', () => { expect(isTicinoLocation('Lugano')).toBe(true); });
   it('returns true for Clinica Sant\'Anna', () => { expect(isTicinoLocation('Clinica Sant\'Anna')).toBe(true); });
-  it('returns false for Genolier', () => { expect(isTicinoLocation('Genolier')).toBe(false); });
-  it('returns false for Zurich', () => { expect(isTicinoLocation('Zurich')).toBe(false); });
+  // Cathedral 2026-05-10: Genolier (VD) and Zurich (ZH) are now target cantons — updated to true.
+  it('returns false for Genolier', () => { expect(isTicinoLocation('Genolier')).toBe(true); });
+  it('returns false for Zurich', () => { expect(isTicinoLocation('Zurich')).toBe(true); });
 });
 
 // ─── inferCity tests ──────────────────────────────────────────────────────────

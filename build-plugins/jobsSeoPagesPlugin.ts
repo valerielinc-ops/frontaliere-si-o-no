@@ -529,15 +529,77 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const DEFAULT_CANTON = 'TI';
  const DEFAULT_POSTAL_CODE = '6900';
  const DEFAULT_CANTON_DISPLAY = 'Ticino';
- const CANTON_DISPLAY: Record<string, string> = {
- 'TI': 'Ticino', 'GR': 'Graubünden', 'ZH': 'Zürich', 'BE': 'Bern',
- 'LU': 'Luzern', 'BS': 'Basel', 'GE': 'Genève', 'VD': 'Vaud',
- 'AG': 'Aargau', 'SG': 'St. Gallen', 'VS': 'Valais', 'FR': 'Fribourg',
- 'NE': 'Neuchâtel', 'ZG': 'Zug', 'SH': 'Schaffhausen', 'SO': 'Solothurn',
- 'BL': 'Basel-Landschaft', 'TG': 'Thurgau', 'SZ': 'Schwyz', 'GL': 'Glarus',
- 'JU': 'Jura', 'NW': 'Nidwalden', 'OW': 'Obwalden', 'AR': 'Appenzell AR',
- 'AI': 'Appenzell AI', 'UR': 'Uri',
+
+ /**
+  * Canton URL slugs sourced from data/canton-url-slugs.json (P1.1 cathedral).
+  * Mirrors the runtime helpers in scripts/lib/canton-url-slugs.mjs but inlined
+  * here as the build plugin runs in TS and cannot import the .mjs at compile
+  * time — single source of truth is the JSON file.
+  */
+ type CantonLocale = 'it' | 'en' | 'de' | 'fr';
+ type CantonSlugFile = {
+   cantons: Record<string, Record<CantonLocale, string>>;
+   aggregate: Record<CantonLocale, string>;
  };
+ const cantonSlugFile: CantonSlugFile = (() => {
+   const raw = fs.readFileSync(np.resolve(rootDir, 'data/canton-url-slugs.json'), 'utf-8');
+   const parsed = JSON.parse(raw);
+   if (!parsed || typeof parsed !== 'object' || !parsed.cantons || !parsed.aggregate) {
+     throw new Error('[jobs-seo-pages] data/canton-url-slugs.json: missing "cantons" or "aggregate" key');
+   }
+   return parsed as CantonSlugFile;
+ })();
+ const ALL_CANTON_CODES: readonly string[] = Object.freeze(Object.keys(cantonSlugFile.cantons).sort());
+ const AGGREGATE_KEY = '_AGGREGATE_';
+
+ /**
+  * Localised display name for a canton (e.g. 'TI' → 'Ticino' in IT/EN, 'Tessin' in DE/FR).
+  * Mirrors getCantonDisplayName in scripts/lib/crawler-location-config.mjs but kept
+  * inline so the build plugin has zero .mjs runtime dependency.
+  */
+ function getCantonDisplayLabel(cantonCode: string, locale: CantonLocale = 'it'): string {
+   const code = String(cantonCode || '').toUpperCase();
+   if (code === AGGREGATE_KEY) {
+     return locale === 'it' ? 'Svizzera' : locale === 'en' ? 'Switzerland' : locale === 'de' ? 'Schweiz' : 'Suisse';
+   }
+   const localised: Record<string, Record<CantonLocale, string>> = {
+     TI: { it: 'Ticino', en: 'Ticino', de: 'Tessin', fr: 'Tessin' },
+     GR: { it: 'Grigioni', en: 'Graubünden', de: 'Graubünden', fr: 'Grisons' },
+     VS: { it: 'Vallese', en: 'Valais', de: 'Wallis', fr: 'Valais' },
+     ZH: { it: 'Zurigo', en: 'Zürich', de: 'Zürich', fr: 'Zurich' },
+     BE: { it: 'Berna', en: 'Bern', de: 'Bern', fr: 'Berne' },
+     LU: { it: 'Lucerna', en: 'Lucerne', de: 'Luzern', fr: 'Lucerne' },
+     BS: { it: 'Basilea Città', en: 'Basel-City', de: 'Basel-Stadt', fr: 'Bâle-Ville' },
+     BL: { it: 'Basilea Campagna', en: 'Basel-Country', de: 'Baselland', fr: 'Bâle-Campagne' },
+     GE: { it: 'Ginevra', en: 'Geneva', de: 'Genf', fr: 'Genève' },
+     VD: { it: 'Vaud', en: 'Vaud', de: 'Waadt', fr: 'Vaud' },
+     AG: { it: 'Argovia', en: 'Aargau', de: 'Aargau', fr: 'Argovie' },
+     SG: { it: 'San Gallo', en: 'St. Gallen', de: 'St. Gallen', fr: 'Saint-Gall' },
+     FR: { it: 'Friburgo', en: 'Fribourg', de: 'Freiburg', fr: 'Fribourg' },
+     NE: { it: 'Neuchâtel', en: 'Neuchâtel', de: 'Neuenburg', fr: 'Neuchâtel' },
+     ZG: { it: 'Zugo', en: 'Zug', de: 'Zug', fr: 'Zoug' },
+     SH: { it: 'Sciaffusa', en: 'Schaffhausen', de: 'Schaffhausen', fr: 'Schaffhouse' },
+     SO: { it: 'Soletta', en: 'Solothurn', de: 'Solothurn', fr: 'Soleure' },
+     TG: { it: 'Turgovia', en: 'Thurgau', de: 'Thurgau', fr: 'Thurgovie' },
+     SZ: { it: 'Svitto', en: 'Schwyz', de: 'Schwyz', fr: 'Schwytz' },
+     GL: { it: 'Glarona', en: 'Glarus', de: 'Glarus', fr: 'Glaris' },
+     JU: { it: 'Giura', en: 'Jura', de: 'Jura', fr: 'Jura' },
+     NW: { it: 'Nidvaldo', en: 'Nidwalden', de: 'Nidwalden', fr: 'Nidwald' },
+     OW: { it: 'Obvaldo', en: 'Obwalden', de: 'Obwalden', fr: 'Obwald' },
+     AR: { it: 'Appenzello Esterno', en: 'Appenzell Ausserrhoden', de: 'Appenzell Ausserrhoden', fr: 'Appenzell Rhodes-Extérieures' },
+     AI: { it: 'Appenzello Interno', en: 'Appenzell Innerrhoden', de: 'Appenzell Innerrhoden', fr: 'Appenzell Rhodes-Intérieures' },
+     UR: { it: 'Uri', en: 'Uri', de: 'Uri', fr: 'Uri' },
+   };
+   return localised[code]?.[locale] ?? localised[code]?.it ?? code;
+ }
+
+ /**
+  * Legacy IT-only display map. Now derived from ALL_CANTON_CODES so it's
+  * complete by construction (was 26-entry hand-written list before P1.11).
+  */
+ const CANTON_DISPLAY: Record<string, string> = Object.fromEntries(
+   ALL_CANTON_CODES.map((code) => [code, getCantonDisplayLabel(code, 'it')]),
+ );
  const CANTON_FALLBACK_POSTAL: Record<string, string> = {
  'TI': '6900', 'GR': '7000', 'ZH': '8001', 'BE': '3001',
  'LU': '6003', 'BS': '4001', 'GE': '1201', 'VD': '1003',
@@ -547,6 +609,20 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  'JU': '2800', 'NW': '6370', 'OW': '6060', 'AR': '9100',
  'AI': '9050', 'UR': '6460',
  };
+
+ /**
+  * Resolve a canton code (or '_AGGREGATE_') to its locale-specific URL slug.
+  * Returns the IT slug as a defensive fallback if the locale is missing.
+  */
+ function getCantonUrlSlugLocal(cantonCode: string, locale: CantonLocale): string {
+   const code = String(cantonCode || '').toUpperCase();
+   if (code === AGGREGATE_KEY) {
+     return cantonSlugFile.aggregate[locale] ?? cantonSlugFile.aggregate.it;
+   }
+   const entry = cantonSlugFile.cantons[code];
+   if (!entry) return cantonSlugFile.aggregate[locale] ?? cantonSlugFile.aggregate.it;
+   return entry[locale] ?? entry.it;
+ }
 
  /* ── Buffered write system via shared WriteCollector ── */
  const collector = new WriteCollector({ distDir, pluginName: 'jobsSeoPagesPlugin' });
@@ -657,6 +733,31 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  de: 'jobs-im-tessin',
  fr: 'trouver-emploi-tessin',
  };
+
+ /**
+  * Section URL prefix per (locale, canton). For TI in any locale this returns
+  * the LEGACY section slug (e.g. 'cerca-lavoro-ticino', 'find-jobs-ticino')
+  * because the entire plugin's HTML graph (breadcrumbs / company-hub /
+  * city-hub markup) is wired against those frozen slugs. For every other
+  * canton this returns the canton-aware section ('cerca-lavoro-zurigo',
+  * 'find-jobs-zurich', ...) sourced from data/canton-url-slugs.json.
+  *
+  * E9 frozen-URL strategy: if a job already has a registered slug at a TI
+  * URL it stays there forever (slug-registry is enforced by crawlers, not
+  * by this plugin — `localizedSlug(job, locale)` returns the frozen slug
+  * verbatim).
+  */
+ const SECTION_PREFIX_BY_LOCALE: Record<CantonLocale, string> = {
+   it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-im', fr: 'trouver-emploi',
+ };
+ function buildCantonAwareSection(locale: CantonLocale, cantonCode: string): string {
+   const code = String(cantonCode || '').toUpperCase();
+   if (!code || code === 'TI') return sectionByLocale[locale];
+   if (code === AGGREGATE_KEY) {
+     return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(AGGREGATE_KEY, locale)}`;
+   }
+   return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(code, locale)}`;
+ }
  const localePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
  it: '',
  en: '/en',
@@ -838,13 +939,20 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return map[locale] || map.it;
  };
 
- // Multi-canton display string for search pages (not per-job)
- const TARGET_CANTONS_CODES = ['TI', 'GR', 'VS'];
+ // Multi-canton display string for search pages (not per-job).
+ //
+ // P1.11 — Cathedral migration: the canonical 26-canton list now comes from
+ // ALL_CANTON_CODES (data/canton-url-slugs.json). EDITORIAL_PRIMARY_CANTONS
+ // remains a curated commuter-focused subset because the prose ("offerte di
+ // lavoro in Ticino, Grigioni e Vallese …") would be unreadable if it
+ // enumerated all 26 cantons. The 26-canton list is consumed by the per-canton
+ // index emitter + sitemap-shard pipeline below, not by this editorial copy.
+ const EDITORIAL_PRIMARY_CANTONS = ['TI', 'GR', 'VS'] as const;
  const targetCantonsDisplay: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: TARGET_CANTONS_CODES.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' e $1'),
- en: TARGET_CANTONS_CODES.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' and $1'),
- de: TARGET_CANTONS_CODES.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' und $1'),
- fr: TARGET_CANTONS_CODES.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' et $1'),
+ it: EDITORIAL_PRIMARY_CANTONS.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' e $1'),
+ en: EDITORIAL_PRIMARY_CANTONS.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' and $1'),
+ de: EDITORIAL_PRIMARY_CANTONS.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' und $1'),
+ fr: EDITORIAL_PRIMARY_CANTONS.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' et $1'),
  };
 
  if (!fs.existsSync(jobsPath)) {
@@ -6148,6 +6256,247 @@ ${alternates}
  }
 
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries)`);
+
+ /* ───────────────────────────────────────────────────────────────────
+  * P1.11 — Canton-aware additive emission
+  * ───────────────────────────────────────────────────────────────────
+  *
+  *   sitemapEligibleJobs (already filtered: ≥50 IT words, no needsRetranslation)
+  *        │
+  *        ├─► applyCantonQuorumGate(job)  ──► { canton, cantonConfidence }
+  *        │       low / reject  →  AGGREGATE_KEY
+  *        │       high          →  job.canton
+  *        │
+  *        ├─► groupByDedupKey  ──► one canonical URL per (title|company|identity)
+  *        │       jobLocation[]  collects every locality across the group
+  *        │
+  *        ▼
+  *   urls = [{ loc, lastmod, ... }]   (one per group × 4 locales)
+  *        │
+  *        ├─► splitToShards(shardKey = canton) ──► sitemap-jobs-{slug}.xml
+  *        ├─► emitSitemapXml(per-shard)        ──► written to dist/
+  *        └─► emitSitemapIndex(all shards)     ──► dist/sitemap-index.xml
+  *
+  *   Plus: per-canton + aggregator landing pages
+  *   /cerca-lavoro-{cantonSlug}/index.html × 4 locales × 27 (= 108 pages)
+  *   The TI ones are NOT re-emitted — staticPagesPlugin already owns those.
+  *
+  * Sibling agents (jobMarketSnapshot, weeklyEmployers) are not touched.
+  * The legacy sitemap-jobs.xml above stays untouched for backward compat —
+  * the new shards are ADDITIVE; downstream (ci/audit:orphan-sitemap-pages)
+  * will read both via the patched sitemap.xml index.
+  */
+ try {
+   // Resolve absolute paths to the .mjs helpers — relative imports from a Vite
+   // plugin .ts can break depending on how Vite bundles the plugin chain. The
+   // helpers ship as plain ESM under scripts/lib/ and are loaded at build time.
+   const { pathToFileURL } = await import('node:url');
+   const cantonGateUrl = pathToFileURL(np.resolve(rootDir, 'scripts/lib/canton-quorum-gate.mjs')).href;
+   const sitemapShardUrl = pathToFileURL(np.resolve(rootDir, 'scripts/lib/sitemap-shard.mjs')).href;
+   const { applyCantonQuorumGate } = await import(cantonGateUrl) as {
+     applyCantonQuorumGate: (j: unknown) => { canton: string; confidence: 'high'|'low'|'reject'; cantonConfidence: 'high'|'low'|'reject' };
+   };
+   const { splitToShards, writeShardsToDist } = await import(sitemapShardUrl) as {
+     splitToShards: (urls: Array<{ loc: string; lastmod?: string; changefreq?: string; priority?: number; _shardKey?: string }>, opts?: { capPerShard?: number; shardKey?: (u: any) => string; filenamePrefix?: string }) => Array<{ filename: string; urls: any[] }>;
+     writeShardsToDist: (shards: any[], distDir: string, baseUrl: string) => Promise<{ shardPaths: string[]; indexPath: string | null }>;
+   };
+
+   /**
+    * Per-job canton classification: applies the quorum gate, returns either a
+    * concrete canton code or AGGREGATE_KEY for low-confidence / rejected jobs
+    * (E11 — uncertain jobs land on /cerca-lavoro-svizzera/, not on a per-canton
+    * landing). Pure function — never mutates the input job.
+    */
+   const classifyCantonForUrl = (job: any): string => {
+     try {
+       const r = applyCantonQuorumGate({
+         title: job?.title,
+         description: job?.description ?? job?.descriptionByLocale?.it,
+         addressLocality: job?.addressLocality ?? job?.location,
+         addressRegion: job?.addressRegion,
+         addressCountry: job?.addressCountry ?? 'CH',
+         postalCode: job?.postalCode,
+         canton: job?.canton,
+       });
+       if (r.cantonConfidence === 'high' && r.canton) return r.canton.toUpperCase();
+       return AGGREGATE_KEY;
+     } catch {
+       return AGGREGATE_KEY;
+     }
+   };
+
+   /**
+    * Dedup-key for E8 multi-canton same-job grouping. Mirrors the heuristic
+    * in scripts/lib/dedicated-crawler-common.mjs (dedupHeuristicKey) but
+    * scoped to fields we already have on validJobs. Two jobs with the same
+    * key are considered the same vacancy posted across multiple locations.
+    */
+   const dedupKey = (job: any): string => {
+     const id = String(job?.id || '').trim();
+     if (id) return `id|${id}`;
+     const title = String(job?.title || '').toLowerCase().replace(/\s+/g, ' ').trim();
+     const company = String(job?.company || '').toLowerCase().replace(/\s+/g, ' ').trim();
+     return `tc|${title}|${company}`;
+   };
+
+   // Build group → canonical-job + jobLocation[] (E8). The canonical job is
+   // the most recent (validJobs is already DESC-sorted by recency). All
+   // member localities are collected so the JobPosting schema can list them.
+   type GroupEntry = { canonical: any; canton: string; locations: string[] };
+   const groups = new Map<string, GroupEntry>();
+   for (const job of sitemapEligibleJobs) {
+     const k = dedupKey(job);
+     const canton = classifyCantonForUrl(job);
+     const loc = String(job.location || job.addressLocality || '').trim();
+     const existing = groups.get(k);
+     if (!existing) {
+       groups.set(k, { canonical: job, canton, locations: loc ? [loc] : [] });
+       continue;
+     }
+     // Already grouped — record the additional locality if distinct.
+     if (loc && !existing.locations.includes(loc)) existing.locations.push(loc);
+     // If existing canton was AGGREGATE but new entry has a concrete canton,
+     // upgrade — the canonical URL stays on the most recent entry though.
+     if (existing.canton === AGGREGATE_KEY && canton !== AGGREGATE_KEY) {
+       existing.canton = canton;
+     }
+   }
+
+   // Build the URL list for the sharded sitemap. One entry per (group, locale)
+   // = 4 × group-count entries. URL preserves the legacy frozen path
+   // (sectionByLocale[locale]) — slug-registry is honored verbatim. The
+   // shardKey is the canton, so high-confidence jobs cluster into per-canton
+   // shards while AGGREGATE jobs land in sitemap-jobs-svizzera.xml.
+   //
+   // NOTE: this mirrors `jobEntries` above. We build a fresh list so the
+   // legacy `<urlset>` and the new sharded index are byte-for-byte
+   // independent — no shared mutation, no surprise across plugins.
+   type ShardUrl = { loc: string; lastmod: string; changefreq: string; priority: number; _canton: string };
+   const shardUrls: ShardUrl[] = [];
+   for (const [, group] of groups) {
+     const job = group.canonical;
+     const perLocaleSlugMap: Record<CantonLocale, string> = {
+       it: localizedSlug(job, 'it'),
+       en: localizedSlug(job, 'en'),
+       de: localizedSlug(job, 'de'),
+       fr: localizedSlug(job, 'fr'),
+     };
+     // canonical-overrides: same gate as legacy sitemap. Skip if the job
+     // self-canonicalizes elsewhere (otherwise Semrush flags non-canonical).
+     const itPathLegacy = withSlash(`/${sectionByLocale.it}/${perLocaleSlugMap.it}`.replace(/\/+/g, '/'));
+     const itUrlLegacy = `${BASE_URL}${itPathLegacy}`;
+     if (resolveCanonicalUrl(perLocaleSlugMap.it, itUrlLegacy) !== itUrlLegacy) continue;
+     const lastmod = (safeIsoDate(job.crawledAt) || '').slice(0, 10) || dateStamp;
+     for (const locale of localeList) {
+       // E9: legacy section per locale. Future canton-aware emit (when slug
+       // registry has no entry) would call `buildCantonAwareSection(locale,
+       // group.canton)` instead — the helper exists and is wired so that a
+       // future migration can flip the default. Today everything stays at
+       // sectionByLocale[locale] to preserve the URL graph.
+       const section = sectionByLocale[locale];
+       const path = withSlash(`${localePrefix[locale]}/${section}/${perLocaleSlugMap[locale]}`.replace(/\/+/g, '/'));
+       shardUrls.push({
+         loc: `${BASE_URL}${path}`,
+         lastmod,
+         changefreq: 'weekly',
+         priority: 0.6,
+         _canton: group.canton,
+       });
+     }
+   }
+
+   // Per-canton + aggregator landing index pages. 27 cantons × 4 locales = 108
+   // pages. TI is skipped because staticPagesPlugin already emits the legacy
+   // /cerca-lavoro-ticino/ index (ditto en/de/fr) — re-emitting would race
+   // and overwrite that plugin's hand-tuned content.
+   //
+   // Each new index is a thin SPA-shell page with breadcrumb, h1, lead, and
+   // a CTA back to the legacy job board. The crawler-facing copy is
+   // intentionally conservative (no fake job listings) — real per-canton
+   // listings will land here in a follow-up when the URL graph migration
+   // ships end-to-end.
+   let cantonIndexEmitted = 0;
+   const cantonsToEmit: Array<{ key: string; locale: CantonLocale; slug: string; section: string }> = [];
+   for (const code of [...ALL_CANTON_CODES, AGGREGATE_KEY]) {
+     for (const locale of localeList) {
+       if (code === 'TI') continue; // owned by staticPagesPlugin
+       cantonsToEmit.push({
+         key: code,
+         locale,
+         slug: getCantonUrlSlugLocal(code, locale),
+         section: buildCantonAwareSection(locale, code),
+       });
+     }
+   }
+   for (const entry of cantonsToEmit) {
+     const display = getCantonDisplayLabel(entry.key, entry.locale);
+     const path = withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'));
+     const canonicalUrl = `${BASE_URL}${path}`;
+     const lt: Record<CantonLocale, { title: string; lede: string; ctaLabel: string }> = {
+       it: {
+         title: `Lavoro in ${display} | Frontaliere Ticino`,
+         lede: `Pagina indice del job board per il cantone ${display}.`,
+         ctaLabel: `Vedi tutte le offerte`,
+       },
+       en: {
+         title: `Jobs in ${display} | Frontaliere Ticino`,
+         lede: `Job board index page for canton ${display}.`,
+         ctaLabel: `View all listings`,
+       },
+       de: {
+         title: `Jobs ${germanCantonPrep(display)} | Frontaliere Ticino`,
+         lede: `Job-Board-Übersicht für den Kanton ${display}.`,
+         ctaLabel: `Alle Stellen anzeigen`,
+       },
+       fr: {
+         title: `Emploi ${frenchCantonPrep(display)} | Frontaliere Ticino`,
+         lede: `Index du job board pour le canton ${display}.`,
+         ctaLabel: `Voir toutes les offres`,
+       },
+     };
+     const labels = lt[entry.locale];
+     const legacyJobBoardHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${sectionByLocale[entry.locale]}`.replace(/\/+/g, '/'))}`;
+     const bodyHtml = [
+       `<nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}/" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
+       `<header style="max-width:860px;margin:0 0 24px"><h1 style="font-size:32px;line-height:1.15;margin:0 0 12px">${esc(display)}</h1><p style="margin:0;color:var(--color-body);font-size:16px">${esc(labels.lede)}</p></header>`,
+       `<p style="margin:0 0 32px"><a href="${legacyJobBoardHref}" style="display:inline-block;padding:10px 18px;background:var(--color-accent);color:#fff;border-radius:8px;font-weight:600;text-decoration:none">${esc(labels.ctaLabel)}</a></p>`,
+     ].join('\n');
+     const html = buildSimplePage({
+       canonicalUrl,
+       title: labels.title,
+       description: labels.lede,
+       locale: entry.locale,
+       bodyHtml,
+       // P1.11 — initial emit is noindex until real per-canton listings land.
+       // Per CLAUDE.md #4 we never ship thin indexed pages; once we wire real
+       // listing tables onto these landings (follow-up task), flip to
+       // 'index,follow'. The pages still hydrate via the SPA shell so the
+       // visitor lands on the real React JobBoard immediately.
+       robots: 'noindex,follow',
+     });
+     const outDir = np.join(distDir, path.slice(1).replace(/\/$/, ''));
+     _md(outDir);
+     _qw(np.join(outDir, 'index.html'), html);
+     cantonIndexEmitted++;
+   }
+   console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P1.11 emitted ${cantonIndexEmitted} canton index pages (26 cantons − TI + svizzera × 4 locales)`);
+
+   // Emit sitemap shards keyed by canton + the sitemap-index.xml. Output
+   // file names: sitemap-jobs-ti.xml, sitemap-jobs-zh.xml, …,
+   // sitemap-jobs-svizzera.xml plus dist/sitemap-index.xml.
+   const shardKeyForUrl = (u: ShardUrl): string => {
+     if (u._canton === AGGREGATE_KEY) return getCantonUrlSlugLocal(AGGREGATE_KEY, 'it'); // 'svizzera'
+     return u._canton.toLowerCase();
+   };
+   const shards = splitToShards(shardUrls, { shardKey: shardKeyForUrl });
+   const { shardPaths, indexPath } = await writeShardsToDist(shards, distDir, BASE_URL);
+   if (indexPath) {
+     console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P1.11 wrote ${shardPaths.length} canton sitemap shards + ${np.relative(distDir, indexPath)}`);
+   }
+ } catch (err) {
+   // Defensive: P1.11 additions must not break the legacy emit. Log + continue.
+   console.warn('[jobs-seo-pages] P1.11 canton-aware emit failed (legacy output unaffected):', err instanceof Error ? err.message : String(err));
+ }
 
  /* ── Expired-job soft-landing pages ────────────────────────── */
  // 1. Read tracking file + merge current jobs

@@ -75,14 +75,20 @@ const MOCK_DETAIL = {
 
 describe('parseWorkdayListings — Ticino filtering', () => {
   it('filters only Lugano/Ticino listings', () => {
+    // Cathedral 2026-05-10: TARGET_CANTONS expanded to all 26 CH cantons.
+    // Zurich (ZH) is now a target, so count goes from 3 (Lugano only) to 4
+    // (3 Lugano + 1 Zurich). Singapore (SGP) is still excluded.
     const results = parseWorkdayListings(MOCK_LISTINGS);
-    expect(results).toHaveLength(3); // 3 Lugano jobs
+    expect(results).toHaveLength(4); // 3 Lugano + 1 Zurich
   });
 
   it('excludes Zurich and Singapore listings', () => {
+    // Cathedral 2026-05-10: Zurich is now a target — it is included.
+    // Only non-CH locations (SGP - Singapore) are excluded.
     const results = parseWorkdayListings(MOCK_LISTINGS);
     const locations = results.map((r) => r.location);
-    expect(locations.every((l) => l.includes('Lugano'))).toBe(true);
+    expect(locations.some((l) => l.includes('Zurich'))).toBe(true);
+    expect(locations.some((l) => l.includes('Singapore'))).toBe(false);
   });
 
   it('extracts correct titles', () => {
@@ -105,8 +111,9 @@ describe('parseWorkdayListings — Ticino filtering', () => {
         MOCK_LISTINGS.jobPostings[0], // duplicate
       ],
     };
+    // Cathedral 2026-05-10: 4 unique (3 Lugano + 1 Zurich), dedup still works.
     const results = parseWorkdayListings(duped);
-    expect(results).toHaveLength(3);
+    expect(results).toHaveLength(4);
   });
 
   it('returns empty for null/undefined', () => {
@@ -155,7 +162,8 @@ describe('parseWorkdayJobDetail', () => {
 describe('isTicinoLocation', () => {
   it('returns true for Lugano', () => { expect(isTicinoLocation('CHE - Lugano')).toBe(true); });
   it('returns true for lugano lowercase', () => { expect(isTicinoLocation('lugano')).toBe(true); });
-  it('returns false for Zurich', () => { expect(isTicinoLocation('CHE - Zurich')).toBe(false); });
+  // Cathedral 2026-05-10: Zurich (ZH) is now a target canton — returns true.
+  it('returns false for Zurich', () => { expect(isTicinoLocation('CHE - Zurich')).toBe(true); });
   it('returns false for Singapore', () => { expect(isTicinoLocation('SGP - Singapore')).toBe(false); });
 });
 

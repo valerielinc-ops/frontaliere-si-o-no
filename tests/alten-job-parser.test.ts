@@ -9,7 +9,10 @@ describe('alten-job-parser', () => {
   it('recognizes ticino locations', () => {
     expect(isAltenTicinoLocation('Ticino')).toBe(true);
     expect(isAltenTicinoLocation('Switzerland Ticino')).toBe(true);
-    expect(isAltenTicinoLocation('Bern')).toBe(false);
+    // Cathedral 2026-05-10: TARGET_CANTONS expanded to all 26 CH cantons;
+    // Bern (BE) is now a target, only truly foreign locations are false.
+    expect(isAltenTicinoLocation('Bern')).toBe(true);
+    expect(isAltenTicinoLocation('Tokyo')).toBe(false); // foreign city, not CH
   });
 
   it('parses ticino listing cards', () => {
@@ -28,8 +31,9 @@ describe('alten-job-parser', () => {
           <div class="card-date"><span class="mx-2">04/03/2026</span></div>
         </div>
       </div>`;
+    // Cathedral 2026-05-10: Bern (BE) is now a target canton — both listings pass the filter.
     const parsed = parseAltenListingHtml(html);
-    expect(parsed).toHaveLength(1);
+    expect(parsed).toHaveLength(2);
     expect(parsed[0].title).toBe('Full Stack .Net Developer');
     expect(parsed[0].location).toBe('Ticino');
   });

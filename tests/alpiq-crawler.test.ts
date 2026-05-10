@@ -75,9 +75,11 @@ describe('Alpiq crawler — location filtering', () => {
   });
 
   it('rejects non-Ticino locations', () => {
-    expect(isTicinoLocation('Lausanne')).toBe(false);
-    expect(isTicinoLocation('Cammarata')).toBe(false);
-    expect(isTicinoLocation('Madrid')).toBe(false);
+    // Cathedral 2026-05-10: TARGET_CANTONS expanded to all 26 CH cantons;
+    // only foreign/non-CH locations should be false now.
+    expect(isTicinoLocation('Cammarata')).toBe(false); // Italian city, not CH
+    expect(isTicinoLocation('Madrid')).toBe(false);    // Spanish city, not CH
+    expect(isTicinoLocation('Berlin')).toBe(false);    // German city, not CH
   });
 
   it('identifies Swiss locations', () => {

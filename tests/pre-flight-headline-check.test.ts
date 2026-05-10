@@ -79,8 +79,11 @@ describe('preFlightHeadlineCheck', () => {
   });
 
   describe('passes through genuinely unrelated headlines', () => {
-    it('does not match "Auto ribaltata al valico di Fornasette"', () => {
-      const r = preFlightHeadlineCheck('Auto ribaltata al valico di Fornasette');
+    it('does not match an unrelated road-incident headline', () => {
+      // Cathedral 2026-05-10: A new article about the exact Fornasette incident was
+      // published (incidente-fornasette-2026-ribaltamento-auto), making the old headline
+      // a legitimate duplicate. Replaced with a genuinely unrelated headline.
+      const r = preFlightHeadlineCheck('Valichi di frontiera: code rallentate per lavori in corso');
       expect(r.duplicate).toBe(false);
     });
 

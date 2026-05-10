@@ -1,0 +1,1200 @@
+{
+  "_source": "hand-curated public-knowledge list (replaces LinkedIn for autonomous run)",
+  "_curatedAt": "2026-05-10",
+  "_count": 119,
+  "_alreadyCrawled": 50,
+  "_candidates": 69,
+  "_note": "Re-run this script anytime to refresh `alreadyCrawled` flags from COMPANY_HQ.",
+  "companies": [
+    {
+      "name": "UBS Switzerland",
+      "slug_suggestion": "ubs",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "banking",
+      "size_bucket": "XL",
+      "ats_hint": "Workday",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Credit Suisse (UBS Group AG)",
+      "slug_suggestion": "credit-suisse",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "banking",
+      "size_bucket": "XL",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Raiffeisen Schweiz",
+      "slug_suggestion": "raiffeisen-schweiz",
+      "hq_canton": "SG",
+      "hq_city": "St. Gallen",
+      "sector": "banking",
+      "size_bucket": "XL",
+      "ats_hint": "SAP SuccessFactors",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "PostFinance",
+      "slug_suggestion": "postfinance",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "banking",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Zürcher Kantonalbank",
+      "slug_suggestion": "zkb",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "banking",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Banque Cantonale Vaudoise",
+      "slug_suggestion": "bcv",
+      "hq_canton": "VD",
+      "hq_city": "Lausanne",
+      "sector": "banking",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Pictet Group",
+      "slug_suggestion": "pictet",
+      "hq_canton": "GE",
+      "hq_city": "Geneva",
+      "sector": "banking",
+      "size_bucket": "L",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Lombard Odier",
+      "slug_suggestion": "lombard-odier",
+      "hq_canton": "GE",
+      "hq_city": "Geneva",
+      "sector": "banking",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Julius Baer",
+      "slug_suggestion": "julius-baer",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "banking",
+      "size_bucket": "L",
+      "ats_hint": "Workday",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Vontobel",
+      "slug_suggestion": "vontobel",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "banking",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "EFG International",
+      "slug_suggestion": "efg-international",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "banking",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Banca Sempione",
+      "slug_suggestion": "banca-sempione",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "banking",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "BancaStato",
+      "slug_suggestion": "bancastato",
+      "hq_canton": "TI",
+      "hq_city": "Bellinzona",
+      "sector": "banking",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Cornèr Bank",
+      "slug_suggestion": "corner",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "banking",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "PKB Private Bank",
+      "slug_suggestion": "pkb-private-bank",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "banking",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Union Bancaire Privée",
+      "slug_suggestion": "ubp",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "banking",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Avaloq",
+      "slug_suggestion": "avaloq",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "fintech",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "SIX Group",
+      "slug_suggestion": "six-group",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "fintech",
+      "size_bucket": "L",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Zurich Insurance",
+      "slug_suggestion": "zurich-insurance",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "insurance",
+      "size_bucket": "XL",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Swiss Re",
+      "slug_suggestion": "swiss-re",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "insurance",
+      "size_bucket": "XL",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Swiss Life",
+      "slug_suggestion": "swiss-life",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "insurance",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Helvetia",
+      "slug_suggestion": "helvetia",
+      "hq_canton": "SG",
+      "hq_city": "St. Gallen",
+      "sector": "insurance",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Mobiliar",
+      "slug_suggestion": "mobiliar",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "insurance",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Vaudoise Assurances",
+      "slug_suggestion": "vaudoise",
+      "hq_canton": "VD",
+      "hq_city": "Lausanne",
+      "sector": "insurance",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Baloise",
+      "slug_suggestion": "baloise",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "insurance",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "AXA Switzerland",
+      "slug_suggestion": "axa",
+      "hq_canton": "ZH",
+      "hq_city": "Winterthur",
+      "sector": "insurance",
+      "size_bucket": "L",
+      "ats_hint": "Workday",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Allianz Suisse",
+      "slug_suggestion": "allianz",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "insurance",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Groupe Mutuel",
+      "slug_suggestion": "groupe-mutuel",
+      "hq_canton": "VS",
+      "hq_city": "Martigny",
+      "sector": "insurance",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Helsana",
+      "slug_suggestion": "helsana",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "health-insurance",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "CSS Versicherung",
+      "slug_suggestion": "css",
+      "hq_canton": "LU",
+      "hq_city": "Luzern",
+      "sector": "health-insurance",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "SWICA",
+      "slug_suggestion": "swica",
+      "hq_canton": "ZH",
+      "hq_city": "Winterthur",
+      "sector": "health-insurance",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Roche",
+      "slug_suggestion": "roche",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "pharma",
+      "size_bucket": "XL",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Novartis",
+      "slug_suggestion": "novartis",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "pharma",
+      "size_bucket": "XL",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Lonza",
+      "slug_suggestion": "lonza",
+      "hq_canton": "VS",
+      "hq_city": "Visp",
+      "sector": "pharma",
+      "size_bucket": "XL",
+      "ats_hint": "Workday",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Sandoz",
+      "slug_suggestion": "sandoz",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "pharma",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Galderma",
+      "slug_suggestion": "galderma",
+      "hq_canton": "ZG",
+      "hq_city": "Zug",
+      "sector": "pharma",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Alcon",
+      "slug_suggestion": "alcon",
+      "hq_canton": "GE",
+      "hq_city": "Geneva",
+      "sector": "medtech",
+      "size_bucket": "L",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Sonova",
+      "slug_suggestion": "sonova",
+      "hq_canton": "ZH",
+      "hq_city": "Stäfa",
+      "sector": "medtech",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Straumann Group",
+      "slug_suggestion": "straumann",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "medtech",
+      "size_bucket": "L",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Ypsomed",
+      "slug_suggestion": "ypsomed",
+      "hq_canton": "BE",
+      "hq_city": "Burgdorf",
+      "sector": "medtech",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Vifor Pharma",
+      "slug_suggestion": "vifor-pharma",
+      "hq_canton": "SG",
+      "hq_city": "St. Gallen",
+      "sector": "pharma",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Helsinn Group",
+      "slug_suggestion": "helsinn",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "pharma",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Cerbios-Pharma",
+      "slug_suggestion": "cerbios-pharma",
+      "hq_canton": "TI",
+      "hq_city": "Barbengo",
+      "sector": "pharma",
+      "size_bucket": "S",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Medacta",
+      "slug_suggestion": "medacta",
+      "hq_canton": "TI",
+      "hq_city": "Castel San Pietro",
+      "sector": "medtech",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Migros",
+      "slug_suggestion": "migros",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "retail",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Coop",
+      "slug_suggestion": "coop",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "retail",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Manor",
+      "slug_suggestion": "manor",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "retail",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Denner",
+      "slug_suggestion": "denner",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "retail",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Lidl Schweiz",
+      "slug_suggestion": "lidl-schweiz",
+      "hq_canton": "AG",
+      "hq_city": "Weinfelden",
+      "sector": "retail",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Aldi Suisse",
+      "slug_suggestion": "aldi-suisse",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "retail",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Volg",
+      "slug_suggestion": "volg",
+      "hq_canton": "ZH",
+      "hq_city": "Winterthur",
+      "sector": "retail",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Globus",
+      "slug_suggestion": "globus",
+      "hq_canton": "ZH",
+      "hq_city": "Spreitenbach",
+      "sector": "retail",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Nestlé",
+      "slug_suggestion": "nestle",
+      "hq_canton": "VD",
+      "hq_city": "Vevey",
+      "sector": "food",
+      "size_bucket": "XL",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Lindt & Sprüngli",
+      "slug_suggestion": "lindt",
+      "hq_canton": "ZH",
+      "hq_city": "Kilchberg",
+      "sector": "food",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Emmi",
+      "slug_suggestion": "emmi",
+      "hq_canton": "LU",
+      "hq_city": "Luzern",
+      "sector": "food",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Bell Food Group",
+      "slug_suggestion": "bell-food",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "food",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Hilcona",
+      "slug_suggestion": "hilcona",
+      "hq_canton": "SG",
+      "hq_city": "Schaan",
+      "sector": "food",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Rapelli",
+      "slug_suggestion": "rapelli",
+      "hq_canton": "TI",
+      "hq_city": "Stabio",
+      "sector": "food",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Caseificio del Gottardo",
+      "slug_suggestion": "caseificio-gottardo",
+      "hq_canton": "TI",
+      "hq_city": "Airolo",
+      "sector": "food",
+      "size_bucket": "S",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Chocolat Alprose",
+      "slug_suggestion": "alprose",
+      "hq_canton": "TI",
+      "hq_city": "Caslano",
+      "sector": "food",
+      "size_bucket": "S",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Chicco d'Oro",
+      "slug_suggestion": "chicco-doro",
+      "hq_canton": "TI",
+      "hq_city": "Balerna",
+      "sector": "food",
+      "size_bucket": "S",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "ABB",
+      "slug_suggestion": "abb",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "industrial",
+      "size_bucket": "XL",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Schindler",
+      "slug_suggestion": "schindler",
+      "hq_canton": "LU",
+      "hq_city": "Ebikon",
+      "sector": "industrial",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Sulzer",
+      "slug_suggestion": "sulzer",
+      "hq_canton": "ZH",
+      "hq_city": "Winterthur",
+      "sector": "industrial",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Bobst",
+      "slug_suggestion": "bobst",
+      "hq_canton": "VD",
+      "hq_city": "Mex",
+      "sector": "industrial",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Endress+Hauser",
+      "slug_suggestion": "endress-hauser",
+      "hq_canton": "BL",
+      "hq_city": "Reinach",
+      "sector": "industrial",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Rieter",
+      "slug_suggestion": "rieter",
+      "hq_canton": "ZH",
+      "hq_city": "Winterthur",
+      "sector": "industrial",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Stadler Rail",
+      "slug_suggestion": "stadler-rail",
+      "hq_canton": "TG",
+      "hq_city": "Bussnang",
+      "sector": "industrial",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Sika",
+      "slug_suggestion": "sika",
+      "hq_canton": "ZG",
+      "hq_city": "Baar",
+      "sector": "industrial",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Georg Fischer",
+      "slug_suggestion": "georg-fischer",
+      "hq_canton": "SH",
+      "hq_city": "Schaffhausen",
+      "sector": "industrial",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Bühler Group",
+      "slug_suggestion": "buehler",
+      "hq_canton": "SG",
+      "hq_city": "Uzwil",
+      "sector": "industrial",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Schweiter Technologies",
+      "slug_suggestion": "schweiter",
+      "hq_canton": "ZH",
+      "hq_city": "Horgen",
+      "sector": "industrial",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Logitech",
+      "slug_suggestion": "logitech",
+      "hq_canton": "VD",
+      "hq_city": "Lausanne",
+      "sector": "tech",
+      "size_bucket": "L",
+      "ats_hint": "Workday",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Tether",
+      "slug_suggestion": "tether",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "tech",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Bitfinex",
+      "slug_suggestion": "bitfinex",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "tech",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Temenos",
+      "slug_suggestion": "temenos",
+      "hq_canton": "GE",
+      "hq_city": "Geneva",
+      "sector": "tech",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Kudelski Group",
+      "slug_suggestion": "kudelski-nagra",
+      "hq_canton": "VD",
+      "hq_city": "Cheseaux",
+      "sector": "tech",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "u-blox",
+      "slug_suggestion": "u-blox",
+      "hq_canton": "ZH",
+      "hq_city": "Thalwil",
+      "sector": "tech",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Axpo",
+      "slug_suggestion": "axpo",
+      "hq_canton": "AG",
+      "hq_city": "Baden",
+      "sector": "utilities",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "BKW",
+      "slug_suggestion": "bkw",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "utilities",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Alpiq",
+      "slug_suggestion": "alpiq",
+      "hq_canton": "AG",
+      "hq_city": "Olten",
+      "sector": "utilities",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Repower",
+      "slug_suggestion": "repower",
+      "hq_canton": "GR",
+      "hq_city": "Poschiavo",
+      "sector": "utilities",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "AIL Lugano",
+      "slug_suggestion": "ail",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "utilities",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "SBB CFF FFS",
+      "slug_suggestion": "sbb",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "transport",
+      "size_bucket": "XL",
+      "ats_hint": "SAP SuccessFactors",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Die Post / La Poste",
+      "slug_suggestion": "die-post",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "transport",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Swiss International Air Lines",
+      "slug_suggestion": "swiss",
+      "hq_canton": "ZH",
+      "hq_city": "Kloten",
+      "sector": "transport",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Kuehne + Nagel",
+      "slug_suggestion": "kuehne-nagel",
+      "hq_canton": "SZ",
+      "hq_city": "Schindellegi",
+      "sector": "logistics",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "BLS",
+      "slug_suggestion": "bls",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "transport",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "TPL Lugano",
+      "slug_suggestion": "tpl-lugano",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "transport",
+      "size_bucket": "S",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Ferrovia Retica",
+      "slug_suggestion": "ferrovia-retica",
+      "hq_canton": "GR",
+      "hq_city": "Chur",
+      "sector": "transport",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "ETH Zürich",
+      "slug_suggestion": "eth-zurich",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "education",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "EPFL",
+      "slug_suggestion": "epfl",
+      "hq_canton": "VD",
+      "hq_city": "Lausanne",
+      "sector": "education",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "University of Zurich",
+      "slug_suggestion": "uzh",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "education",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "University of Bern",
+      "slug_suggestion": "unibe",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "education",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "University of Basel",
+      "slug_suggestion": "unibas",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "education",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "University of Geneva",
+      "slug_suggestion": "unige",
+      "hq_canton": "GE",
+      "hq_city": "Geneva",
+      "sector": "education",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "USI",
+      "slug_suggestion": "usi",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "education",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "SUPSI",
+      "slug_suggestion": "supsi",
+      "hq_canton": "TI",
+      "hq_city": "Manno",
+      "sector": "education",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Empa",
+      "slug_suggestion": "empa",
+      "hq_canton": "ZH",
+      "hq_city": "Dübendorf",
+      "sector": "research",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Paul Scherrer Institut",
+      "slug_suggestion": "psi",
+      "hq_canton": "AG",
+      "hq_city": "Villigen",
+      "sector": "research",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Agroscope",
+      "slug_suggestion": "agroscope",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "research",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "CHUV",
+      "slug_suggestion": "chuv",
+      "hq_canton": "VD",
+      "hq_city": "Lausanne",
+      "sector": "healthcare",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "USZ — UniversitätsSpital Zürich",
+      "slug_suggestion": "usz",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "healthcare",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Inselspital Bern",
+      "slug_suggestion": "inselspital",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "healthcare",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "HUG — Hôpitaux Universitaires de Genève",
+      "slug_suggestion": "hug",
+      "hq_canton": "GE",
+      "hq_city": "Geneva",
+      "sector": "healthcare",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Universitätsspital Basel",
+      "slug_suggestion": "unispital-basel",
+      "hq_canton": "BS",
+      "hq_city": "Basel",
+      "sector": "healthcare",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Kantonsspital Aarau",
+      "slug_suggestion": "ksa",
+      "hq_canton": "AG",
+      "hq_city": "Aarau",
+      "sector": "healthcare",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Kantonsspital Graubünden",
+      "slug_suggestion": "ksgr",
+      "hq_canton": "GR",
+      "hq_city": "Chur",
+      "sector": "healthcare",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Hôpital du Valais",
+      "slug_suggestion": "hopital-du-valais",
+      "hq_canton": "VS",
+      "hq_city": "Sion",
+      "sector": "healthcare",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "EOC — Ente Ospedaliero Cantonale",
+      "slug_suggestion": "eoc",
+      "hq_canton": "TI",
+      "hq_city": "Bellinzona",
+      "sector": "healthcare",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Clinica Moncucco",
+      "slug_suggestion": "moncucco",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "healthcare",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Confederation (Bund)",
+      "slug_suggestion": "admin-ch",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "government",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Canton Ticino",
+      "slug_suggestion": "canton-ticino",
+      "hq_canton": "TI",
+      "hq_city": "Bellinzona",
+      "sector": "government",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Canton Valais",
+      "slug_suggestion": "canton-valais",
+      "hq_canton": "VS",
+      "hq_city": "Sion",
+      "sector": "government",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "Canton Vaud",
+      "slug_suggestion": "canton-vaud",
+      "hq_canton": "VD",
+      "hq_city": "Lausanne",
+      "sector": "government",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Canton Geneva",
+      "slug_suggestion": "canton-geneve",
+      "hq_canton": "GE",
+      "hq_city": "Geneva",
+      "sector": "government",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Canton Zürich",
+      "slug_suggestion": "kanton-zuerich",
+      "hq_canton": "ZH",
+      "hq_city": "Zurich",
+      "sector": "government",
+      "size_bucket": "XL",
+      "ats_hint": "?",
+      "alreadyCrawled": false
+    },
+    {
+      "name": "Città di Lugano",
+      "slug_suggestion": "citta-di-lugano",
+      "hq_canton": "TI",
+      "hq_city": "Lugano",
+      "sector": "government",
+      "size_bucket": "M",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    },
+    {
+      "name": "SRG SSR",
+      "slug_suggestion": "srg-ssr",
+      "hq_canton": "BE",
+      "hq_city": "Bern",
+      "sector": "media",
+      "size_bucket": "L",
+      "ats_hint": "?",
+      "alreadyCrawled": true
+    }
+  ]
+}

@@ -345,5 +345,25 @@ export function findSwissCityInText(text = '') {
   return '';
 }
 
+// ─── Liechtenstein postal-code helper ──────────────────────────────────────
+// Liechtenstein (FL) shares CH-style 4-digit postcodes in the 9485-9498 range.
+// Crawlers must reject these because FL is not part of CH and is out of scope
+// for the canton inference / SEO landings. Used by `canton-quorum-gate.mjs`.
+
+/**
+ * True if the given postal code is in the Liechtenstein range (9485-9498).
+ * Accepts string or number; returns false for anything malformed.
+ *
+ * @param {string|number} code
+ * @returns {boolean}
+ */
+export function isLiechtensteinPostalCode(code) {
+  if (code === null || code === undefined) return false;
+  const digits = String(code).trim().match(/^\d{4}$/);
+  if (!digits) return false;
+  const n = Number(digits[0]);
+  return n >= 9485 && n <= 9498;
+}
+
 // Re-export for convenience
 export { TARGET_CANTONS, isTargetCanton } from './crawler-location-config.mjs';

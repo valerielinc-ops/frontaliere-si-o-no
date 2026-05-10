@@ -553,3 +553,98 @@ export function listCompanyCityCurrentPaths(
   }
   return out;
 }
+
+// ─────────────────────────────────────────────────────────────────────
+// Cathedral expansion (P1.13) — CH-wide canton metadata.
+//
+// The legacy `WeeklyEmployersCity` type is a TI-only string-literal union
+// baked into hundreds of call sites (page templates, i18n copy, slug
+// builders). To support all 26 cantons WITHOUT rewriting the renderer
+// layer, we layer a parallel canton-aware data model on the side. The
+// existing TI city emission keeps its own pipeline; the new helpers here
+// describe "the rest of Switzerland" so follow-up work (per-canton page
+// renderer) can opt into them incrementally.
+//
+// Backward-compat contract:
+//   - `WEEKLY_EMPLOYERS_CITIES` and the TI types are unchanged.
+//   - Each TI city now also has a `canton: 'TI'` mapping below so any
+//     consumer that needs `city → canton` lookups gets a stable answer
+//     for both the legacy hubs and any new CH-wide page.
+// ─────────────────────────────────────────────────────────────────────
+
+/** ISO 2-letter Swiss canton code. */
+export type SwissCantonCode =
+  | 'AG' | 'AI' | 'AR' | 'BE' | 'BL' | 'BS' | 'FR' | 'GE'
+  | 'GL' | 'GR' | 'JU' | 'LU' | 'NE' | 'NW' | 'OW' | 'SG'
+  | 'SH' | 'SO' | 'SZ' | 'TG' | 'TI' | 'UR' | 'VD' | 'VS'
+  | 'ZG' | 'ZH';
+
+/** Every Swiss canton in BFS-canonical order. Source of truth for CH-wide iteration. */
+export const SWISS_CANTON_CODES: readonly SwissCantonCode[] = [
+  'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE',
+  'GL', 'GR', 'JU', 'LU', 'NE', 'NW', 'OW', 'SG',
+  'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS',
+  'ZG', 'ZH',
+] as const;
+
+/**
+ * Static map of legacy TI city → canton. Pinned to 'TI' so any composite
+ * canton/city key remains stable across legacy and CH-wide call sites.
+ */
+export const WEEKLY_EMPLOYERS_TI_CITY_CANTON: Record<WeeklyEmployersCity, SwissCantonCode> = {
+  ticino: 'TI',
+  lugano: 'TI',
+  mendrisio: 'TI',
+  chiasso: 'TI',
+  stabio: 'TI',
+  bellinzona: 'TI',
+  locarno: 'TI',
+};
+
+/**
+ * Schema of `data/canton-municipalities.json` (BFS AGV snapshot).
+ * Mirrors the shape consumed by jobMarketSnapshotPlugin (P1.12) so both
+ * plugins stay aligned on the data contract.
+ */
+export interface CantonMunicipalitiesFile {
+  readonly cantons: Record<string, { readonly municipalities: readonly string[] }>;
+}
+
+/**
+ * URL-safe slug builder for any Swiss municipality. Mirrors the shape of
+ * jobMarketSnapshotPlugin's `slugifyMunicipality` so URL keys collide
+ * predictably across plugins.
+ *
+ *   "Bern"            → "bern"
+ *   "Saint-Imier"     → "saint-imier"
+ *   "Arni (AG)"       → "arni-ag"
+ *   "Erlinsbach (AG)" → "erlinsbach-ag"
+ *
+ * @param name Display name (UTF-8, may contain umlauts).
+ * @returns Lowercase ASCII slug, or the empty string if the input is empty.
+ */
+export function slugifyMunicipality(name: string): string {
+  return String(name || '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/\s*\(([a-z]{2})\)/gi, '-$1')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Hard gate (CLAUDE.md non-negotiable #4 — no thin pages):
+ * minimum number of active jobs in a (canton, ...) bucket required before
+ * we emit a CH-wide weekly-employers page for that canton. Below the
+ * threshold the build either skips the page entirely or emits a neutral
+ * "no openings this week" stub WITHOUT calling it a real listing.
+ */
+export const MIN_JOBS_FOR_CANTON_PAGE = 5;
+
+/** Boolean form of the canton-page gate; single source of truth for emitters. */
+export function cantonMeetsThreshold(
+  bucket: Readonly<{ activeJobsCount: number }>,
+): boolean {
+  return bucket.activeJobsCount >= MIN_JOBS_FOR_CANTON_PAGE;
+}

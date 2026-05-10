@@ -149,7 +149,8 @@ describe('isDecathlonTicinoJob', () => {
   });
 
   it('returns false for Zurich', () => {
-    expect(isDecathlonTicinoJob({ location: 'Zurich' })).toBe(false);
+    // Cathedral 2026-05-10: Zurich (ZH) is now a target canton — assertion updated to true.
+    expect(isDecathlonTicinoJob({ location: 'Zurich' })).toBe(true);
   });
 
   it('returns false for null', () => {

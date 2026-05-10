@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error - mjs module without type defs
 import { normalizeDescriptionBullets } from '../../scripts/lib/crawler-template.mjs';
 
 describe('normalizeDescriptionBullets', () => {

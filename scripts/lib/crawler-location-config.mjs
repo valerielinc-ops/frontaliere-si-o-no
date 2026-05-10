@@ -10,9 +10,11 @@
  */
 
 // ─── THE SWITCH ─────────────────────────────────────────────────────────────
-// Change this array to expand crawling scope.
-// Today: only TI + GR. Tomorrow: all 26 cantons.
-export const TARGET_CANTONS = ['TI', 'GR', 'VS'];
+// Cathedral CH-wide: expanded to all 26 Swiss cantons (2026-05-10, P1.6).
+// Brand "Frontaliere Ticino" intoccato (D1 SEO-first); per-canton URLs emit
+// via canton-quorum-gate (D7) + slug-registry frozen-URL strategy (E9).
+// Legacy three-canton scope was: ['TI', 'GR', 'VS'].
+export const TARGET_CANTONS = ['AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH'];
 
 // ─── ALL 26 SWISS CANTONS ──────────────────────────────────────────────────
 // Each canton has: code, names (all official languages + common aliases),

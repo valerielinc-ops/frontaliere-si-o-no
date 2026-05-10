@@ -185,7 +185,8 @@ describe('isDennerTicinoJob', () => {
   });
 
   it('returns false for Bern', () => {
-    expect(isDennerTicinoJob({ location: 'Bern' })).toBe(false);
+    // Cathedral 2026-05-10: Bern (BE) is now a target canton — assertion updated to true.
+    expect(isDennerTicinoJob({ location: 'Bern' })).toBe(true);
   });
 
   it('returns false for null', () => {
