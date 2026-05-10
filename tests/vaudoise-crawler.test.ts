@@ -1,11 +1,78 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   VAUDOISE_KEY,
   VAUDOISE_COMPANY_NAME,
   isVaudoiseJob,
   isTrustedDomain,
+  fetchAllVaudoiseJobs,
+  __testables,
 } from '../scripts/lib/vaudoise-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+/* ── Stubbed Playwright runtime ────────────────────────────── */
+
+class StubAntiBotBlockError extends Error {
+  status?: number;
+  title?: string;
+  constructor(msg: string, opts: { status?: number; title?: string } = {}) {
+    super(msg);
+    this.name = 'AntiBotBlockError';
+    this.status = opts.status;
+    this.title = opts.title;
+  }
+}
+
+class StubNavigationTimeout extends Error {
+  url?: string;
+  constructor(msg: string, opts: { url?: string } = {}) {
+    super(msg);
+    this.name = 'NavigationTimeout';
+    this.url = opts.url;
+  }
+}
+
+class StubBrowserLaunchError extends Error {
+  constructor(msg: string) {
+    super(msg);
+    this.name = 'BrowserLaunchError';
+  }
+}
+
+type RowShape = {
+  title: string;
+  url: string;
+  location: string;
+  postedDate: string;
+  audience: string;
+  jobCategory: string;
+  id: string;
+};
+
+function makeRuntime(rows: RowShape[], opts: { rowsAppear?: boolean } = {}) {
+  const page = {
+    waitForSelector: vi.fn(async () => {
+      if (opts.rowsAppear === false) {
+        throw new Error('selector timeout');
+      }
+      return null;
+    }),
+    $$eval: vi.fn(async () => rows),
+    close: vi.fn(async () => undefined),
+  };
+
+  return {
+    runtime: {
+      createBrowser: vi.fn(async () => ({})),
+      createPoliteContext: vi.fn(async () => ({})),
+      fetchWithRateLimit: vi.fn(async () => page),
+      closeAll: vi.fn(async () => undefined),
+      AntiBotBlockError: StubAntiBotBlockError,
+      NavigationTimeout: StubNavigationTimeout,
+      BrowserLaunchError: StubBrowserLaunchError,
+    },
+    page,
+  };
+}
 
 describe('Vaudoise Assurances crawler parser', () => {
   // ── Constants ──
@@ -124,6 +191,209 @@ describe('Vaudoise Assurances crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── Softgarden URL helper ──
+  describe('resolveApplyUrl', () => {
+    it('resolves a relative ../job/{id} href to softgarden host', () => {
+      expect(__testables.resolveApplyUrl('../job/64060113/Gestionnaire-contentieux-FR-DE')).toBe(
+        'https://vaudoise.softgarden.io/job/64060113/Gestionnaire-contentieux-FR-DE',
+      );
+    });
+
+    it('passes through an absolute URL untouched', () => {
+      expect(
+        __testables.resolveApplyUrl('https://vaudoise.softgarden.io/job/123/foo'),
+      ).toBe('https://vaudoise.softgarden.io/job/123/foo');
+    });
+
+    it('falls back to listing URL on empty input', () => {
+      expect(__testables.resolveApplyUrl('')).toBe(__testables.SOFTGARDEN_LISTING_URL);
+    });
+  });
+
+  // ── Swiss location regex ──
+  describe('SWISS_LOCATION_RX', () => {
+    it.each([
+      ['Lausanne', true],
+      ['Genève', true],
+      ['Zurich', true],
+      ['Basel', true],
+      ['Lugano', true],
+      ['Paris, France', false],
+      ['London', false],
+      ['', false],
+    ])('matches %s → %s', (input, expected) => {
+      expect(__testables.SWISS_LOCATION_RX.test(input)).toBe(expected);
+    });
+  });
+
+  // ── Softgarden scraper (Playwright path) ──
+  describe('fetchJobListings (Softgarden Playwright)', () => {
+    const lausanneRow: RowShape = {
+      title: 'Gestionnaire contentieux FR/DE (f/h/x) – 80-100%',
+      url: '../job/64060113/Gestionnaire-contentieux-FR-DE-f-h-x-80-100',
+      location: 'Lausanne',
+      postedDate: '5/10/26',
+      audience: 'Expérimenté',
+      jobCategory: 'Finances',
+      id: '64060113',
+    };
+    const genevaRow: RowShape = {
+      title: 'Conseiller / Conseillère en assurance (h/f/x) - 100%',
+      url: '../job/64060555/Conseiller-en-assurance',
+      location: 'Genève',
+      postedDate: '5/9/26',
+      audience: 'Expérimenté',
+      jobCategory: 'Vente',
+      id: '64060555',
+    };
+    const parisRow: RowShape = {
+      title: 'Foreign role',
+      url: '../job/99999/Foreign-Role',
+      location: 'Paris, France',
+      postedDate: '5/8/26',
+      audience: 'Expérimenté',
+      jobCategory: 'Other',
+      id: '99999',
+    };
+
+    it('returns Swiss-only rows and resolves urls to absolute', async () => {
+      const { runtime } = makeRuntime([lausanneRow, genevaRow, parisRow]);
+      const out = await __testables.fetchJobListings({
+        _runtime: async () => runtime,
+      });
+      expect(out).toHaveLength(2);
+      expect(out.map((r: { title: string }) => r.title).sort()).toEqual([
+        lausanneRow.title,
+        genevaRow.title,
+      ].sort());
+      const lausanneOut = out.find((r: { id: string }) => r.id === '64060113');
+      expect(lausanneOut.url).toBe(
+        'https://vaudoise.softgarden.io/job/64060113/Gestionnaire-contentieux-FR-DE-f-h-x-80-100',
+      );
+    });
+
+    it('dedupes rows by job id', async () => {
+      const { runtime } = makeRuntime([lausanneRow, lausanneRow, genevaRow]);
+      const out = await __testables.fetchJobListings({
+        _runtime: async () => runtime,
+      });
+      expect(out).toHaveLength(2);
+    });
+
+    it('returns [] when row selector never appears (selector drift)', async () => {
+      const { runtime } = makeRuntime([], { rowsAppear: false });
+      const out = await __testables.fetchJobListings({
+        _runtime: async () => runtime,
+      });
+      expect(out).toEqual([]);
+    });
+
+    it('returns [] gracefully on AntiBotBlockError', async () => {
+      const runtime = {
+        createBrowser: vi.fn(async () => ({})),
+        createPoliteContext: vi.fn(async () => ({})),
+        fetchWithRateLimit: vi.fn(async () => {
+          throw new StubAntiBotBlockError('blocked', { status: 403, title: 'Access denied' });
+        }),
+        closeAll: vi.fn(async () => undefined),
+        AntiBotBlockError: StubAntiBotBlockError,
+        NavigationTimeout: StubNavigationTimeout,
+        BrowserLaunchError: StubBrowserLaunchError,
+      };
+      const out = await __testables.fetchJobListings({ _runtime: async () => runtime });
+      expect(out).toEqual([]);
+      expect(runtime.closeAll).toHaveBeenCalled();
+    });
+
+    it('returns [] gracefully on NavigationTimeout', async () => {
+      const runtime = {
+        createBrowser: vi.fn(async () => ({})),
+        createPoliteContext: vi.fn(async () => ({})),
+        fetchWithRateLimit: vi.fn(async () => {
+          throw new StubNavigationTimeout('timeout', { url: 'https://vaudoise.softgarden.io/' });
+        }),
+        closeAll: vi.fn(async () => undefined),
+        AntiBotBlockError: StubAntiBotBlockError,
+        NavigationTimeout: StubNavigationTimeout,
+        BrowserLaunchError: StubBrowserLaunchError,
+      };
+      const out = await __testables.fetchJobListings({ _runtime: async () => runtime });
+      expect(out).toEqual([]);
+    });
+
+    it('returns [] gracefully on BrowserLaunchError', async () => {
+      const runtime = {
+        createBrowser: vi.fn(async () => {
+          throw new StubBrowserLaunchError('chromium not installed');
+        }),
+        createPoliteContext: vi.fn(async () => ({})),
+        fetchWithRateLimit: vi.fn(async () => ({})),
+        closeAll: vi.fn(async () => undefined),
+        AntiBotBlockError: StubAntiBotBlockError,
+        NavigationTimeout: StubNavigationTimeout,
+        BrowserLaunchError: StubBrowserLaunchError,
+      };
+      const out = await __testables.fetchJobListings({ _runtime: async () => runtime });
+      expect(out).toEqual([]);
+    });
+  });
+
+  // ── End-to-end through fetchAllVaudoiseJobs ──
+  describe('fetchAllVaudoiseJobs (with stubbed runtime)', () => {
+    it('builds NormalizedJob shape from a Softgarden row', async () => {
+      const row: RowShape = {
+        title: 'Product Manager/in Vorsorge (m/w/d) - 80-100%',
+        url: '../job/64653009/Product-Manager-in-Vorsorge',
+        location: 'Lausanne',
+        postedDate: '5/8/26',
+        audience: 'Expérimenté',
+        jobCategory: 'Prévoyance',
+        id: '64653009',
+      };
+      const { runtime } = makeRuntime([row]);
+
+      const jobs = await fetchAllVaudoiseJobs({
+        _runtime: async () => runtime,
+      });
+
+      expect(jobs).toHaveLength(1);
+      const job = jobs[0];
+      expect(job.id).toMatch(/^vaudoise-/);
+      expect(job.company).toBe(VAUDOISE_COMPANY_NAME);
+      expect(job.companyKey).toBe(VAUDOISE_KEY);
+      expect(job.title).toBe(row.title);
+      expect(job.location).toBe('Lausanne');
+      expect(job.canton).toBe('VD');
+      expect(job.country).toBe('CH');
+      expect(job.url).toBe('https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge');
+      expect(job.applyUrl).toBe(job.url);
+      expect(job.postedDate).toBe('5/8/26');
+      expect(job.experienceLevel).toBe('senior');
+      // Title has "80-100%" → part-time bracket
+      expect(job.employmentType).toBe('PART_TIME');
+      expect(job.slug).toMatch(/^product-manager/);
+      expect(job.slugByLocale).toHaveProperty(job.sourceLang);
+    });
+
+    it('returns [] when no Swiss listings are found', async () => {
+      const row: RowShape = {
+        title: 'Foreign role',
+        url: '../job/1/Foreign-role',
+        location: 'Paris, France',
+        postedDate: '5/8/26',
+        audience: '',
+        jobCategory: '',
+        id: '1',
+      };
+      const { runtime } = makeRuntime([row]);
+
+      const jobs = await fetchAllVaudoiseJobs({
+        _runtime: async () => runtime,
+      });
+      expect(jobs).toEqual([]);
     });
   });
 });
