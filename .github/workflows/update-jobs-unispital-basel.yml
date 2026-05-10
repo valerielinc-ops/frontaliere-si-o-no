@@ -1,0 +1,101 @@
+name: Update Universitätsspital Basel Jobs (Dedicated)
+
+on:
+  workflow_dispatch:
+    inputs:
+      strict_localization:
+        description: 'Fail if any locale is missing/untranslated (1=yes, 0=no)'
+        required: false
+        default: '1'
+        type: string
+      timeout_ms:
+        description: 'Optional request timeout in ms (4000-15000)'
+        required: false
+        type: string
+      skip_ai_translation:
+        description: "Skip AI translation (1=yes, cache only)"
+        required: false
+        default: "0"
+        type: string
+
+concurrency:
+  group: jobs-crawler-unispital-basel
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
+jobs:
+  update-unispital-basel-jobs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials (optional)
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+            exit 0
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run dedicated Universitätsspital Basel crawler
+        env:
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+          JOBS_UNISPITAL_BASEL_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: '1'
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
+        run: node scripts/update-unispital-basel-jobs.mjs
+
+      - name: Housekeeping — remove expired job listings (scoped)
+        env:
+          JOBS_HOUSEKEEPING_SCOPE: 'unispital-basel'
+          JOBS_SLICE_FILE: 'data/jobs/by-crawler/unispital-basel.json'
+        run: node scripts/cleanup-jobs.mjs
+        continue-on-error: true
+
+      - name: Commit and push
+        id: changes
+        env:
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
+        run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Universitätsspital Basel jobs (dedicated crawler)" data/jobs-crawler-adapters/
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "Crawler Failure: ${{ github.workflow }}" \
+            --description "## Crawler fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

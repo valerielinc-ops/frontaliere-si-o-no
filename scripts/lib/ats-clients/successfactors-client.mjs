@@ -188,6 +188,8 @@ export function detectSuccessFactorsKind(url) {
   }
   // Oerlikon CSB overlay
   if (host === 'careers.oerlikon.com') return 'html-jobreq';
+  // HOCH Health Ostschweiz (KSSG group) — SF Career Site Builder
+  if (host === 'jobs.h-och.ch') return 'html-jobreq';
 
   return null;
 }

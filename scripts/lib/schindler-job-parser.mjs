@@ -1,27 +1,19 @@
 #!/usr/bin/env node
 /**
- * Schindler job parser — SmartRecruiters public API client.
+ * Schindler job parser — SmartRecruiters API consumer.
  *
  * Source: https://api.smartrecruiters.com/v1/companies/Schindler/postings
  *
- * SmartRecruiters publishes a free, unauthenticated REST API exposing every
- * active posting for a company. The list endpoint returns a paginated index
- * with summary objects (id, name, location, releasedDate, applyUrl). Each
- * posting carries a structured `jobAd.sections` payload with rich-text body
- * fragments (qualifications, jobDescription, additionalInformation).
- *
- * This parser:
- *   1. Paginates the listing endpoint (limit=100, offset+=100) with a polite
- *      2 s delay between pages and a 5 s timeout per request.
- *   2. Filters down to Swiss postings via `location.country.code === 'ch'`,
- *      falling back to `isTargetSwissLocation` when the country code is
- *      missing.
- *   3. Normalizes each posting to the ParsedJob shape (id, title, location,
- *      applyUrl, postedAt=releasedDate, description=jobAd…jobDescription).
- *
- * No SmartRecruiters ATS client exists yet under `scripts/lib/ats-clients/`
- * — this is the first crawler on that platform. If a second crawler lands,
- * extract the fetch loop into `ats-clients/smartrecruiters-client.mjs`.
+ * Pagination + transport are delegated to the shared SmartRecruiters client
+ * (`scripts/lib/ats-clients/smartrecruiters-client.mjs`). This file only owns
+ * Schindler-specific concerns:
+ *   - Country/location filter (CH via `locationCountryCodes` + Swiss-region
+ *     fallback for postings where the country code is missing)
+ *   - Canton inference + ParsedJob assembly (id, slug, sector, employmentType,
+ *     experienceLevel, …)
+ *   - Description extraction policy: "first non-empty jobAd section among
+ *     [jobDescription, qualifications, additionalInformation]" (preserved from
+ *     pre-extraction behaviour for byte-identical output).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllSchindlerJobs()  — Fetch and parse all jobs
@@ -33,6 +25,10 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {
+  fetchSmartRecruitersJobs,
+  SmartRecruitersApiError,
+} from './ats-clients/smartrecruiters-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -40,12 +36,11 @@ export const SCHINDLER_KEY = 'schindler';
 export const SCHINDLER_COMPANY_NAME = 'Schindler';
 export const SCHINDLER_COMPANY_DOMAIN = 'schindler.com';
 
-const CAREER_URL = 'https://jobs.smartrecruiters.com/Schindler';
-const SR_API = 'https://api.smartrecruiters.com/v1/companies/Schindler/postings';
-const SR_PAGE_SIZE = 100;
+const SR_TENANT = 'Schindler';
+const CAREER_URL = `https://jobs.smartrecruiters.com/${SR_TENANT}`;
+const SR_API = `https://api.smartrecruiters.com/v1/companies/${SR_TENANT}/postings`;
 const SR_PAGE_DELAY_MS = 2000;
 const SR_REQUEST_TIMEOUT_MS = 5000;
-const SR_RETRY_5XX = 1;
 const SR_USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)';
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -67,7 +62,7 @@ function normalizeSpace(s = '') {
 export function isSchindlerJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -142,60 +137,14 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── SmartRecruiters API Client ────────────────────────────── */
+/* ── SmartRecruiters Posting Helpers ───────────────────────── */
 
 /**
- * Fetch a single page from the SmartRecruiters postings endpoint.
- *
- * Honours `JOBS_CRAWLER_TIMEOUT_MS` for an env override and retries once
- * on HTTP 5xx (network errors propagate to the caller — the runner's
- * pipeline already wraps the whole crawl in try/catch).
- *
- * @param {number} offset
- * @returns {Promise<{ content: object[], totalFound: number, offset: number, limit: number }>}
- */
-async function fetchSmartRecruitersPage(offset) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || SR_REQUEST_TIMEOUT_MS;
-  const userAgent = process.env.JOBS_CRAWLER_USER_AGENT || SR_USER_AGENT;
-  const url = `${SR_API}?limit=${SR_PAGE_SIZE}&offset=${offset}`;
-
-  let lastErr = null;
-  for (let attempt = 0; attempt <= SR_RETRY_5XX; attempt += 1) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        headers: {
-          Accept: 'application/json',
-          'User-Agent': userAgent,
-        },
-        signal: controller.signal,
-      });
-      clearTimeout(timer);
-      if (res.status >= 500 && res.status < 600 && attempt < SR_RETRY_5XX) {
-        console.warn(`  ⚠️ SmartRecruiters HTTP ${res.status} (offset=${offset}) — retrying once...`);
-        await new Promise((r) => setTimeout(r, 1000));
-        continue;
-      }
-      if (!res.ok) throw new Error(`HTTP ${res.status} from SmartRecruiters API`);
-      return await res.json();
-    } catch (err) {
-      clearTimeout(timer);
-      lastErr = err;
-      if (attempt < SR_RETRY_5XX && (err?.name === 'AbortError' || /5\d\d/.test(String(err?.message || '')))) {
-        continue;
-      }
-      throw err;
-    }
-  }
-  throw lastErr || new Error('SmartRecruiters fetch failed without specific error');
-}
-
-/**
- * Decide whether a SmartRecruiters posting is in Switzerland.
- * Prefers the structured `location.country.code` field (case-insensitive)
- * and falls back to `isTargetSwissLocation` against the human-readable
- * location string (`location.fullLocation` or city/country composition).
+ * Decide whether a SmartRecruiters posting is in Switzerland. Used as a
+ * custom filter passed to the shared client (the client's built-in
+ * `locationCountryCodes` filter accepts postings with no country code; we
+ * still want them only if the human-readable string resolves to a Swiss
+ * target region — hence this hybrid predicate).
  */
 function isSwissPosting(posting) {
   const country = String(posting?.location?.country?.code || posting?.location?.country || '').toLowerCase();
@@ -226,6 +175,12 @@ function composeLocationText(loc = {}) {
  * Extract a description string from `posting.jobAd.sections.jobDescription`
  * when the field is populated. SmartRecruiters returns either rich-text
  * HTML or plain text in `text`; both are accepted and stripped of HTML.
+ *
+ * Policy (preserved verbatim from the pre-extraction implementation): take
+ * the FIRST non-empty section among [jobDescription, qualifications,
+ * additionalInformation]. The shared client offers a concatenated
+ * `descriptionHtml`; Schindler intentionally does NOT use it to keep
+ * downstream localisation token budgets stable.
  */
 function extractPostingDescription(posting) {
   const sections = posting?.jobAd?.sections;
@@ -242,36 +197,7 @@ function extractPostingDescription(posting) {
   return '';
 }
 
-/**
- * Paginate the SmartRecruiters postings endpoint and return Switzerland-only
- * raw postings. Pagination stops on an empty page, when offset >= totalFound,
- * or after a hard cap of 50 pages (5000 postings) to avoid runaway loops on
- * a misbehaving API.
- */
-async function fetchJobListings() {
-  console.log(`   Fetching from: ${SR_API}`);
-  const all = [];
-  let offset = 0;
-  let totalFound = Infinity;
-  const HARD_CAP_PAGES = 50;
-
-  for (let page = 0; page < HARD_CAP_PAGES; page += 1) {
-    if (offset >= totalFound) break;
-    console.log(`  📄 SmartRecruiters page ${page + 1} (offset=${offset})`);
-    const data = await fetchSmartRecruitersPage(offset);
-    if (typeof data?.totalFound === 'number') totalFound = data.totalFound;
-    const items = Array.isArray(data?.content) ? data.content : [];
-    if (items.length === 0) break;
-    const swiss = items.filter(isSwissPosting);
-    all.push(...swiss);
-    if (items.length < SR_PAGE_SIZE) break;
-    offset += SR_PAGE_SIZE;
-    await new Promise((r) => setTimeout(r, SR_PAGE_DELAY_MS));
-  }
-
-  console.log(`  ✅ SmartRecruiters Swiss postings: ${all.length} (totalFound=${totalFound})`);
-  return all;
-}
+/* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
  * Fetch all Schindler jobs.
@@ -283,89 +209,115 @@ async function fetchJobListings() {
 export async function fetchAllSchindlerJobs() {
   console.log(`🔍 Fetching Schindler jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`   Fetching from: ${SR_API}`);
 
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
-  }
-
-  console.log(`  📋 Listings found: ${listings.length}`);
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || SR_REQUEST_TIMEOUT_MS;
+  const userAgent = process.env.JOBS_CRAWLER_USER_AGENT || SR_USER_AGENT;
 
   const jobs = [];
-  for (const posting of listings) {
-    const title = normalizeSpace(posting?.name || '');
-    if (!title || title.length < 3) continue;
-
-    const locationText = composeLocationText(posting?.location) || 'Switzerland';
-    const city = (posting?.location?.city && String(posting.location.city).trim()) || locationText.split(',')[0].trim();
-    const canton = inferSwissTargetCanton(locationText) || inferSwissTargetCanton(city) || 'LU';
-
-    const descriptionRaw = extractPostingDescription(posting);
-    const descriptionText = stripHtml(descriptionRaw);
-
-    // SmartRecruiters publishes both an authenticated apply URL and a
-    // public-facing job page. Prefer `applyUrl`; fall back to the
-    // canonical jobs.smartrecruiters.com URL composed from the posting id.
-    const postingId = String(posting?.id || '').trim();
-    const publicUrl =
-      (typeof posting?.applyUrl === 'string' && posting.applyUrl) ||
-      (postingId ? `https://jobs.smartrecruiters.com/Schindler/${postingId}` : CAREER_URL);
-
-    const sourceLang = detectLang(descriptionText || title, 'en');
-    const jobSlug = slugify(`${title} schindler ${city || 'ch'}`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-    // Date: prefer `releasedDate` (ISO); otherwise `createdOn`; default to today.
-    const releasedRaw = posting?.releasedDate || posting?.createdOn || '';
-    const postedDate = (() => {
-      if (!releasedRaw) return new Date().toISOString().slice(0, 10);
-      const d = new Date(releasedRaw);
-      if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-      return d.toISOString().slice(0, 10);
-    })();
-
-    const job = {
-      // ── Required fields ──
-      id: `schindler-${urlHash}`,
-      slug: jobSlug,
-      slugByLocale: { [sourceLang]: jobSlug },
+  let yielded = 0;
+  try {
+    const iter = fetchSmartRecruitersJobs(SR_TENANT, {
       company: SCHINDLER_COMPANY_NAME,
-      companyKey: SCHINDLER_KEY,
-      companyDomain: SCHINDLER_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Schindler`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Schindler` },
-      location: city || locationText,
-      canton,
-      url: publicUrl,
-      source: 'Schindler Dedicated Parser (SmartRecruiters API)',
-      sourceLang,
-      crawledAt: new Date().toISOString(),
+      // Country-code is the primary signal; the custom filter handles the
+      // "missing country code" fallback via `isTargetSwissLocation`.
+      locationCountryCodes: ['ch'],
+      filter: isSwissPosting,
+      // Schindler intentionally consumes the listing payload only — the
+      // jobDescription text is present on the listing posting object via
+      // `jobAd.sections` because the SR API includes it for the Schindler
+      // tenant. Leaving `fetchDetail: false` preserves the legacy fetch
+      // count (no extra detail call per posting).
+      fetchDetail: false,
+      maxPages: 50,
+      minDelayMs: SR_PAGE_DELAY_MS,
+      timeoutMs,
+      userAgent,
+    });
 
-      // ── Recommended fields ──
-      addressLocality: city || locationText,
-      addressRegion: canton,
-      addressCountry: 'CH',
-      country: 'CH',
-      category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(`${posting?.typeOfEmployment?.id || ''} ${title}`),
-      experienceLevel: detectExperienceLevel(title),
-      sector: 'Industrial',
-      currency: 'CHF',
-      featured: false,
-      postedDate,
-      applyUrl: publicUrl,
-      jobReqId: postingId || null,
-      requirements: [],
-      requirementsByLocale: { [sourceLang]: [] },
-    };
+    for await (const normalized of iter) {
+      yielded += 1;
+      const posting = normalized.rawPosting || {};
+      const title = normalizeSpace(posting?.name || '');
+      if (!title || title.length < 3) continue;
 
-    jobs.push(job);
+      const locationText = composeLocationText(posting?.location) || 'Switzerland';
+      const city = (posting?.location?.city && String(posting.location.city).trim())
+        || locationText.split(',')[0].trim();
+      const canton = inferSwissTargetCanton(locationText) || inferSwissTargetCanton(city) || 'LU';
+
+      const descriptionRaw = extractPostingDescription(posting);
+      const descriptionText = stripHtml(descriptionRaw);
+
+      // SmartRecruiters publishes both an authenticated apply URL and a
+      // public-facing job page. Prefer `applyUrl`; fall back to the
+      // canonical jobs.smartrecruiters.com URL composed from the posting id.
+      const postingId = String(posting?.id || '').trim();
+      const publicUrl =
+        (typeof posting?.applyUrl === 'string' && posting.applyUrl) ||
+        (postingId ? `https://jobs.smartrecruiters.com/Schindler/${postingId}` : CAREER_URL);
+
+      const sourceLang = detectLang(descriptionText || title, 'en');
+      const jobSlug = slugify(`${title} schindler ${city || 'ch'}`);
+      const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+
+      // Date: prefer `releasedDate` (ISO); otherwise `createdOn`; default to today.
+      const releasedRaw = posting?.releasedDate || posting?.createdOn || '';
+      const postedDate = (() => {
+        if (!releasedRaw) return new Date().toISOString().slice(0, 10);
+        const d = new Date(releasedRaw);
+        if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
+        return d.toISOString().slice(0, 10);
+      })();
+
+      const job = {
+        // ── Required fields ──
+        id: `schindler-${urlHash}`,
+        slug: jobSlug,
+        slugByLocale: { [sourceLang]: jobSlug },
+        company: SCHINDLER_COMPANY_NAME,
+        companyKey: SCHINDLER_KEY,
+        companyDomain: SCHINDLER_COMPANY_DOMAIN,
+        title,
+        titleByLocale: { [sourceLang]: title },
+        description: descriptionText || `${title} — Schindler`,
+        descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Schindler` },
+        location: city || locationText,
+        canton,
+        url: publicUrl,
+        source: 'Schindler Dedicated Parser (SmartRecruiters API)',
+        sourceLang,
+        crawledAt: new Date().toISOString(),
+
+        // ── Recommended fields ──
+        addressLocality: city || locationText,
+        addressRegion: canton,
+        addressCountry: 'CH',
+        country: 'CH',
+        category: detectCategory(title),
+        contract: 'full-time',
+        employmentType: detectEmploymentType(`${posting?.typeOfEmployment?.id || ''} ${title}`),
+        experienceLevel: detectExperienceLevel(title),
+        sector: 'Industrial',
+        currency: 'CHF',
+        featured: false,
+        postedDate,
+        applyUrl: publicUrl,
+        jobReqId: postingId || null,
+        requirements: [],
+        requirementsByLocale: { [sourceLang]: [] },
+      };
+
+      jobs.push(job);
+    }
+  } catch (err) {
+    if (err instanceof SmartRecruitersApiError) {
+      console.warn(`  ⚠️ SmartRecruiters API error: ${err.message} (status=${err.statusCode ?? 'n/a'})`);
+    }
+    throw err;
   }
 
+  console.log(`  ✅ SmartRecruiters Swiss postings yielded: ${yielded}`);
   console.log(`\n📋 Total Schindler jobs discovered: ${jobs.length}`);
   return jobs;
 }

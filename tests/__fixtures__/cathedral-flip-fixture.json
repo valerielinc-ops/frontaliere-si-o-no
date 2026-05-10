@@ -340,6 +340,7 @@
     "_note": "E9 frozen-URL strategy: a job already published under /cerca-lavoro-ticino/ keeps its slug-registry entry even if a future re-classification flips its canton tag. The registry MUST NOT update for an existing canonical slug.",
     "registryKey": "url|https://example.com/jobs/ubs-zurigo",
     "preFlipEntry": {
+      "registryKey": "url|https://example.com/jobs/ubs-zurigo",
       "canonicalSlug": "responsabile-vendite-ubs-zurigo",
       "slugByLocale": {
         "it": "responsabile-vendite-ubs-zurigo",
