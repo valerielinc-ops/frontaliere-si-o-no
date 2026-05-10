@@ -1,69 +1,5 @@
 [
   {
-    "timestamp": "2026-04-26T08:04:13.372Z",
-    "label": "before",
-    "total": 2609,
-    "needsRetranslation": 51,
-    "incomplete": 25,
-    "complete": 2584,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 23,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-26T08:25:39.164Z",
-    "label": "after",
-    "total": 2609,
-    "needsRetranslation": 43,
-    "incomplete": 25,
-    "complete": 2584,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 23,
-      "fr": 22
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-26T10:37:59.028Z",
     "label": "before",
     "total": 2676,
@@ -9904,6 +9840,118 @@
       {
         "company": "Regionalspital Surselva",
         "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-10T22:47:23.614Z",
+    "label": "before",
+    "total": 4000,
+    "needsRetranslation": 2637,
+    "incomplete": 1679,
+    "complete": 2321,
+    "missingByLocale": {
+      "it": 1366,
+      "en": 1266,
+      "de": 356,
+      "fr": 1433
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 192
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 153
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 124
+      },
+      {
+        "company": "ETH Zürich",
+        "pending": 110
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 96
+      },
+      {
+        "company": "die Mobiliar",
+        "pending": 82
+      },
+      {
+        "company": "Jumbo",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "EPFL",
+        "pending": 61
+      },
+      {
+        "company": "Kantonsspital Winterthur (KSW)",
+        "pending": 61
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-10T23:43:57.094Z",
+    "label": "after",
+    "total": 4000,
+    "needsRetranslation": 1695,
+    "incomplete": 1545,
+    "complete": 2455,
+    "missingByLocale": {
+      "it": 1293,
+      "en": 1132,
+      "de": 292,
+      "fr": 1302
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 192
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 153
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 124
+      },
+      {
+        "company": "ETH Zürich",
+        "pending": 110
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 96
+      },
+      {
+        "company": "die Mobiliar",
+        "pending": 82
+      },
+      {
+        "company": "Jumbo",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Kantonsspital Winterthur (KSW)",
+        "pending": 61
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
       }
     ]
   }
