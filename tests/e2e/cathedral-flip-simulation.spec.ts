@@ -1,7 +1,10 @@
 import { test, expect } from 'playwright/test';
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { applyCantonQuorumGate } from '../../scripts/lib/canton-quorum-gate.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
  * Cathedral Phase 2 — frozen-URL regression guard (E6 + E9).
