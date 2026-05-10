@@ -1,19 +1,18 @@
 {
   "key": "grand-hotel-des-bains-kempinski",
   "label": "kempinski",
-  "generatedAt": "2026-05-09T21:44:42.250Z",
+  "generatedAt": "2026-05-10T10:23:47.335Z",
   "total": 6,
-  "newCount": 0,
-  "updatedCount": 6,
+  "newCount": 5,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1994,
-  "avgDurationMs": 1994,
+  "durationMs": 2477,
+  "avgDurationMs": 2477,
   "durationHistory": [
-    1994
+    2477
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "title": "Pizza Chef (f/m/d)",
       "slug": "pizza-chef-f-m-d-456455",
@@ -33,24 +32,17 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-09T21:44:42.178Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Mezdi 27",
-      "postalCode": "7500",
-      "id": "grand-hotel-des-bains-kempinski-1e3d6c1b25df",
-      "firstSeenAt": "2026-04-13T10:49:01.894Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:23:47.266Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 0,
+        "completeness": 14
       }
     },
     {
@@ -72,24 +64,17 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-09T21:44:42.179Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Mezdi 27",
-      "postalCode": "7500",
-      "id": "grand-hotel-des-bains-kempinski-70c0bf5df99d",
-      "firstSeenAt": "2026-04-13T10:49:01.896Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:23:47.267Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 0,
+        "completeness": 14
       }
     },
     {
@@ -111,24 +96,17 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-09T21:44:42.180Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Mezdi 27",
-      "postalCode": "7500",
-      "id": "grand-hotel-des-bains-kempinski-6f74aa1f5a3e",
-      "firstSeenAt": "2026-04-13T10:49:01.897Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:23:47.268Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 0,
+        "completeness": 14
       }
     },
     {
@@ -150,24 +128,17 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-09T21:44:42.180Z",
-      "id": "grand-hotel-des-bains-kempinski-e7d6d391aa4f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Mezdi 27",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-29T22:07:37.560Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:23:47.269Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 0,
+        "completeness": 14
       }
     },
     {
@@ -189,26 +160,21 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-09",
+      "postedDate": "2026-05-10",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-09T21:44:42.181Z",
-      "id": "grand-hotel-des-bains-kempinski-a7cceff65a8c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Mezdi 27",
-      "postalCode": "7500",
-      "firstSeenAt": "2026-04-30T22:02:46.743Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-10T10:23:47.270Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "translation": 0,
+        "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Assistant Restaurant Manager",
       "slug": "assistant-restaurant-manager-501552",
@@ -232,7 +198,7 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
-      "crawledAt": "2026-05-09T21:44:42.182Z",
+      "crawledAt": "2026-05-10T10:23:47.272Z",
       "id": "grand-hotel-des-bains-kempinski-2d7bfa8f85d1",
       "salaryMin": 68000,
       "salaryMax": 103000,
