@@ -1,21 +1,56 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-05-09T22:04:19.545Z",
+  "generatedAt": "2026-05-10T10:43:12.283Z",
   "total": 3,
   "newCount": 1,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 26089,
-  "avgDurationMs": 26089,
+  "unchangedCount": 0,
+  "durationMs": 13147,
+  "avgDurationMs": 13147,
   "durationHistory": [
-    26089
+    13147
   ],
   "newJobs": [
     {
+      "id": "company-yifl2t",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
+      "company": "Banca Raiffeisen Vedeggio Cassarate",
+      "title": "Consulente clientela privata individuale",
+      "location": "Rivera, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-12",
+      "url": "https://jobs.raiffeisen.ch/posti-vacanti/consulente-clientela-privata-individuale/c2ac6252-022c-4309-9fe3-92d318e4fc3a",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Gravesano",
+        "canton": "TI"
+      },
+      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
+      "companyDomain": "raiffeisen.ch",
+      "crawledAt": "2026-05-10T10:43:11.782Z",
+      "firstSeenAt": "2026-05-10T10:43:11.782Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
       "id": "company-q14jnx",
-      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-cadempino",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente clientela privata individuale",
       "location": "Gravesano, Ticino",
@@ -36,56 +71,17 @@
       "companyDomain": "raiffeisen.ch",
       "crawledAt": "2026-05-09T22:04:18.985Z",
       "firstSeenAt": "2026-05-09T22:04:18.985Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-yifl2t",
-      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-cadempino",
-      "company": "Banca Raiffeisen Vedeggio Cassarate",
-      "title": "Consulente clientela privata individuale",
-      "location": "Rivera, Ticino",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-12",
-      "url": "https://jobs.raiffeisen.ch/posti-vacanti/consulente-clientela-privata-individuale/c2ac6252-022c-4309-9fe3-92d318e4fc3a",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Gravesano",
-        "canton": "TI"
-      },
-      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
-      "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-05-08T22:21:58.602Z",
-      "firstSeenAt": "2026-05-08T22:21:58.602Z",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
       "streetAddress": "Piazza Indipendenza",
       "postalCode": "6814",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -113,8 +109,6 @@
       "companyDomain": "raiffeisen.ch",
       "crawledAt": "2026-03-31T21:37:34.717Z",
       "sourceLang": "it",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
       "streetAddress": "Piazza Indipendenza",
       "postalCode": "6814",
       "addressLocality": "Cadempino",
@@ -122,13 +116,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-03-31T21:37:34.717Z",
-      "_qualityScore": 96,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
+        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
