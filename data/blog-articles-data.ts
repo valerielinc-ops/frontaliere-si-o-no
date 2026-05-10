@@ -23177,4 +23177,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'malpensa-pista-riapre-frontalieri',
+ category: 'pratico',
+ date: '2026-05-10T05:03:15.214Z',
+ image: '/images/blog/malpensa-pista-riapre-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

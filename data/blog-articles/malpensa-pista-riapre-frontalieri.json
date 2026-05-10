@@ -1,0 +1,40 @@
+{
+  "id": "malpensa-pista-riapre-frontalieri",
+  "slug": "malpensa-pista-riapre-frontalieri",
+  "publishedAt": "2026-05-10T05:03:16.602Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.267726430809331,
+    "confidence": 0.8,
+    "finalScore": 7.414181144647465,
+    "topK": [
+      {
+        "slug": "varese-riapre-via-mulini-grassi",
+        "cosine": 0.8460768129054611
+      },
+      {
+        "slug": "tilo-s50-lavori-mal-pensa-varese-2026",
+        "cosine": 0.8416919098139837
+      },
+      {
+        "slug": "incendio-malpensa-terminal-1-2-maggio-2026",
+        "cosine": 0.833029774334339
+      },
+      {
+        "slug": "lavori-autostradali-a8-chiusure",
+        "cosine": 0.832272841813156
+      },
+      {
+        "slug": "malpensa-carburante-rischio-frontalieri-2026",
+        "cosine": 0.8320188705540924
+      }
+    ],
+    "score": 7.414181144647465,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

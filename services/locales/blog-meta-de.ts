@@ -7268,6 +7268,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.documentario-claire-ghiringhelli-lugano.title': 'Claire Ghiringhelli: Neuanfang in Lugano',
     'blog.article.documentario-claire-ghiringhelli-lugano.excerpt': 'Die Geschichte von Claire Ghiringhelli, paralympische Ruderin, wird in einem Dokumentarfilm erzählt, der in Lugano gezeigt wird',
     'blog.article.documentario-claire-ghiringhelli-lugano.imageAlt': 'Claire Ghiringhelli paralympische Ruderin auf dem Luganersee',
+    'blog.article.malpensa-pista-riapre-frontalieri.title': 'Malpensa: Startbahn 35L wiedereröffnet – was sich für Grenzgänger ändert',
+    'blog.article.malpensa-pista-riapre-frontalieri.excerpt': 'Die 20-jährigen Arbeiten an der Startbahn 35L des Flughafens Malpensa sind abgeschlossen. Die Wiedereröffnung ist für Sonntag, den 10. Mai vorgesehen. Hier erfahren Sie, was sich für Grenzgänger ändert.',
+    'blog.article.malpensa-pista-riapre-frontalieri.imageAlt': 'Luftaufnahme des Flughafens Malpensa mit der neu renovierten Startbahn 35L, umgeben von grünen Feldern und den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

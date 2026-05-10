@@ -7268,6 +7268,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.documentario-claire-ghiringhelli-lugano.title': 'Claire Ghiringhelli documentary in Lugano: a story of rebirth',
     'blog.article.documentario-claire-ghiringhelli-lugano.excerpt': 'The story of Claire Ghiringhelli, a Paralympic rowing athlete, told in a documentary screened in Lugano',
     'blog.article.documentario-claire-ghiringhelli-lugano.imageAlt': 'Claire Ghiringhelli Paralympic rower on Lake Lugano',
+    'blog.article.malpensa-pista-riapre-frontalieri.title': 'Malpensa: runway 35L reopens, what changes for cross-border workers',
+    'blog.article.malpensa-pista-riapre-frontalieri.excerpt': 'The twenty-year works on Malpensa\'s runway 35L have ended. Reopening is scheduled for Sunday, May 10th. Here\'s what changes for cross-border workers',
+    'blog.article.malpensa-pista-riapre-frontalieri.imageAlt': 'Aerial view of Malpensa Airport with the newly renovated 35L runway visible, surrounded by green fields and the Alps in the background',
 };
 
 export default blogMetaEn;
