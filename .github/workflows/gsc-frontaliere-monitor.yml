@@ -1,0 +1,151 @@
+name: GSC Frontaliere Brand Monitor
+
+# Cathedral Phase 3 / T3.2 — Brand dilution monitor (Decision D11).
+# Pulls top-20 GSC queries containing "frontalier" over the last 14 days for
+# `sc-domain:frontaliereticino.ch`, compares ranks against the committed
+# baseline, and opens a GitHub issue if any tracked query slips ≥3 positions.
+
+on:
+  schedule:
+    # Weekly: Monday 07:00 UTC
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      update_baseline:
+        description: 'Overwrite data/gsc-frontaliere-baseline.json with current GSC snapshot (use after a deliberate brand pivot — never as a workaround for drift).'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: gsc-frontaliere-monitor
+  cancel-in-progress: true
+
+permissions:
+  contents: write       # commit baseline updates when triggered with update_baseline=true
+  issues: write         # open brand-drift issue on non-zero exit
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # No npm install — script is dependency-free (only node:fs/path/crypto + fetch).
+
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::No FIREBASE_SERVICE_ACCOUNT_JSON secret — monitor will gracefully skip and exit 0"
+          fi
+
+      - name: Run brand dilution monitor
+        id: monitor
+        continue-on-error: true
+        run: |
+          if [ "${{ inputs.update_baseline }}" = "true" ]; then
+            node scripts/check-gsc-frontaliere-baseline.mjs --update-baseline
+          else
+            node scripts/check-gsc-frontaliere-baseline.mjs
+          fi
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+        # Note: with set -e off (default for run blocks without explicit shell flags
+        # the way GitHub configures bash, this still captures the exit). We use
+        # continue-on-error: true so the issue-opening step always runs.
+
+      - name: Capture monitor exit code
+        id: status
+        run: |
+          # `monitor` step exit code is exposed via outcome (success|failure)
+          if [ "${{ steps.monitor.outcome }}" = "success" ]; then
+            echo "drift=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "drift=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload monitor report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gsc-frontaliere-monitor-report
+          path: data/gsc-frontaliere-monitor-report.json
+          if-no-files-found: ignore
+          retention-days: 90
+
+      - name: Commit updated baseline
+        if: ${{ inputs.update_baseline == true && steps.status.outputs.drift == 'false' }}
+        run: |
+          if git diff --quiet -- data/gsc-frontaliere-baseline.json; then
+            echo "Baseline unchanged — nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/gsc-frontaliere-baseline.json
+          git commit -m "chore(gsc): refresh frontaliere brand baseline ($(date -u +%Y-%m-%d))"
+          git push
+
+      - name: Open brand drift issue
+        if: ${{ steps.status.outputs.drift == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          TITLE="[GSC] Brand dilution alert ${DATE}"
+          BODY_FILE=$(mktemp)
+          {
+            echo "Weekly GSC frontaliere brand monitor detected at least one tracked query slipping ≥3 positions in average rank."
+            echo
+            echo "**Property:** \`sc-domain:frontaliereticino.ch\`"
+            echo "**Lookback:** 14 days"
+            echo "**Threshold:** ≥3 positions"
+            echo "**Workflow run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo
+            echo "## Monitor report"
+            echo
+            echo '```json'
+            if [ -f data/gsc-frontaliere-monitor-report.json ]; then
+              cat data/gsc-frontaliere-monitor-report.json
+            else
+              echo '{"_error":"report not generated"}'
+            fi
+            echo '```'
+            echo
+            echo "## Next steps"
+            echo
+            echo "1. Investigate whether the drift is a real brand-erosion signal (competitor outranking us, content removed, internal-link loss) or a benign GSC sampling artifact."
+            echo "2. If real, fix the root cause (NEVER set the page to noindex without explicit per-URL approval — see CLAUDE.md non-negotiable #5 + memory \`feedback_never_noindex_without_approval.md\`)."
+            echo "3. After remediation, re-run with \`update_baseline: true\` from the workflow_dispatch input to refresh the baseline. Do NOT widen the threshold."
+          } > "$BODY_FILE"
+
+          gh issue create \
+            --title "$TITLE" \
+            --body-file "$BODY_FILE" \
+            --label "seo,monitoring,brand-drift" || \
+          gh issue create \
+            --title "$TITLE" \
+            --body-file "$BODY_FILE"
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      - name: Fail if drift detected
+        if: ${{ steps.status.outputs.drift == 'true' }}
+        run: |
+          echo "::error::Brand drift detected — see opened issue and uploaded artifact."
+          exit 1
