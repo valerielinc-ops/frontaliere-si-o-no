@@ -1,19 +1,30 @@
 #!/usr/bin/env node
 /**
- * MSC Cargo job parser — Fetcher and job builder.
+ * MSC Cargo job parser — Adzuna free-tier metadata fallback.
  *
- * Source: https://www.msc.com/en/careers
+ * Source (anti-bot): https://www.msc.com/en/careers  → Akamai BMP 403
+ *                    (akamai-grn header)
+ * Fallback:          Adzuna Switzerland (`ch`) free-tier search API
+ *
+ * Why Adzuna?
+ *   - Direct careers URL is behind Akamai Bot Manager Premier and would
+ *     require ~$8/mo residential proxy + Playwright stack to bypass.
+ *   - Adzuna is itself a job aggregator: each listing's `redirect_url`
+ *     is an Adzuna landing that deep-links to MSC's official posting,
+ *     so applyUrl pointing at Adzuna is fully ToS-compliant.
+ *   - Free tier (1000 calls/mo per app_id) covers daily refreshes for
+ *     both Tier-3 anti-bot employers (~30-60 calls/mo combined).
+ *
+ * Required env: ADZUNA_APP_ID, ADZUNA_APP_KEY (set as GitHub Actions secrets).
  *
  * Exports the 4 required functions for the crawler template:
- *   - fetchAllMscCargoJobs()  — Fetch and parse all jobs
- *   - isMscCargoJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - fetchAllMscCargoJobs()   — Fetch via Adzuna and build ParsedJob[]
+ *   - isMscCargoJob()          — Match jobs belonging to this company
+ *   - isTrustedDomain()        — Validate URLs (Adzuna domain allowed as fallback)
+ *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
-import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { searchAdzunaAllPages, parseAdzunaJobs } from './adzuna-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -23,26 +34,34 @@ export const MSC_CARGO_COMPANY_DOMAIN = 'msc.com';
 
 const CAREER_URL = 'https://www.msc.com/en/careers';
 
+// MSC trades under several legal entities; match the family broadly but
+// reject MSC the cruise line (`MSC Cruises`) which is a separate employer.
+const MSC_BRAND_PATTERNS = [
+  /\bmsc\s+(mediterranean|cargo|shipping|ag|sa|ch|switzerland|logistics|terminals|technology|air)/i,
+  /\bmediterranean shipping company\b/i,
+  /\bmsc gva\b/i,
+  /^\s*msc\s*$/i, // bare "MSC" employer name
+];
+const MSC_REJECT_PATTERNS = [
+  /\bmsc cruises?\b/i,
+  /\bcruise\b/i,
+];
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
-
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
  * Check if a job belongs to MSC Cargo.
- * Used by the template to filter this company's jobs from the global dataset.
  */
 export function isMscCargoJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -57,154 +76,68 @@ export function isMscCargoJob(job) {
 }
 
 /**
- * Validate that a URL belongs to MSC Cargo's domain.
+ * Validate that a URL belongs to a trusted MSC surface OR Adzuna
+ * (since the Adzuna fallback emits applyUrl pointing at adzuna.com/...).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'msc.com' || host.endsWith('.msc.com');
+    return (
+      host === 'msc.com' ||
+      host.endsWith('.msc.com') ||
+      host === 'adzuna.com' ||
+      host.endsWith('.adzuna.com') ||
+      host === 'adzuna.ch' ||
+      host.endsWith('.adzuna.ch')
+    );
   } catch {
     return false;
   }
 }
 
-/* ── Category Detection ────────────────────────────────────── */
-
-function detectCategory(title = '') {
-  const t = normalize(title);
-  if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
-  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
-  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
-  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
-  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
-  if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
-  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
-  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
-  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
-  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
-  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
-  return 'Altro';
-}
-
-function detectExperienceLevel(title = '') {
-  const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
-  if (/\b(junior|jr)/.test(t)) return 'junior';
-  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
-  return 'mid';
-}
-
-function detectEmploymentType(text = '') {
-  const t = normalize(text);
-  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
-  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
-  return 'OTHER';
-}
-
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-// TODO: Implement the actual fetching logic for MSC Cargo's career page.
-// This is a placeholder. Replace with the actual API/scraping logic.
-//
-// Common patterns:
-//   - JSON API:     use --source api for a ready-made paginated API template
-//   - Workday API:  re-scaffold with --ats=workday for a ready-made template
-//   - Greenhouse:   --ats=greenhouse
-//   - Lever:        --ats=lever
-//   - SuccessFactors: --ats=successfactors
-//   - Generic HTML: fetch + parse with regex or cheerio
-
-async function fetchJobListings() {
-  // TODO: Replace with actual fetch logic
-  console.log(`   Fetching from: ${CAREER_URL}`);
-
-  // Example for a JSON API:
-  // const res = await fetch(CAREER_URL, {
-  //   headers: { 'User-Agent': 'FrontaliereTicino-JobCrawler/2.0' },
-  // });
-  // if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  // return await res.json();
-
-  return [];
+function mscMatcher(displayName = '') {
+  if (!displayName) return false;
+  if (MSC_REJECT_PATTERNS.some((rx) => rx.test(displayName))) return false;
+  return MSC_BRAND_PATTERNS.some((rx) => rx.test(displayName));
 }
 
 /**
- * Fetch all MSC Cargo jobs.
+ * Fetch all MSC Cargo jobs via the Adzuna free-tier API.
  * Returns an array of ParsedJob objects (source-locale only).
  *
- * IMPORTANT: Only set source-locale fields. Other locales are filled
- * by the AI localization step and translate-pending pipeline.
+ * Test/dev hook: `opts._fetchImpl` and `opts._cacheDate` are forwarded to
+ * `searchAdzunaAllPages` so suites never hit the live Adzuna API.
  */
-export async function fetchAllMscCargoJobs() {
-  console.log(`🔍 Fetching MSC Cargo jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+export async function fetchAllMscCargoJobs(opts = {}) {
+  console.log(`🔍 Fetching MSC Cargo jobs via Adzuna fallback`);
+  console.log(`   Direct careers URL (blocked by Akamai BMP): ${CAREER_URL}`);
+  console.log(`   Adzuna country: ch — MSC family brand match (excluding MSC Cruises)\n`);
 
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
-  }
+  const employer = {
+    key: MSC_CARGO_KEY,
+    name: MSC_CARGO_COMPANY_NAME,
+    domain: MSC_CARGO_COMPANY_DOMAIN,
+    match: mscMatcher,
+    sector: 'Logistica',
+    defaultLocation: 'Geneva',
+    defaultCanton: 'GE',
+    parserSourceLabel: 'MSC Cargo Adzuna Fallback',
+  };
 
-  console.log(`  📋 Listings found: ${listings.length}`);
+  const { results, liveCalls } = await searchAdzunaAllPages({
+    company: 'MSC',
+    country: 'ch',
+    ...opts,
+  });
 
-  const jobs = [];
-  for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
-    const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
+  console.log(`  📋 Adzuna listings raw: ${results.length} (live API calls: ${liveCalls})`);
 
-    const location = listing.location || 'Geneva'; // HQ: Geneva
-    const canton = inferSwissTargetCanton(location) || 'GE';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = listing.url || CAREER_URL;
-
-    const sourceLang = detectLang(descriptionText || title, 'en');
-    const jobSlug = slugify(`${title} msc-cargo ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-    const job = {
-      // ── Required fields ──
-      id: `msc-cargo-${urlHash}`,
-      slug: jobSlug,
-      slugByLocale: { [sourceLang]: jobSlug },
-      company: MSC_CARGO_COMPANY_NAME,
-      companyKey: MSC_CARGO_KEY,
-      companyDomain: MSC_CARGO_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — MSC Cargo`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — MSC Cargo` },
-      location,
-      canton,
-      url: publicUrl,
-      source: 'MSC Cargo Dedicated Parser',
-      sourceLang,
-      crawledAt: new Date().toISOString(),
-
-      // ── Recommended fields ──
-      addressLocality: location,
-      addressCountry: 'CH',
-      country: 'CH',
-      category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
-      experienceLevel: detectExperienceLevel(title),
-      sector: 'Logistica', // Container shipping / cargo logistics
-      currency: 'CHF',
-      featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
-      applyUrl: publicUrl,
-      requirements: [],
-      requirementsByLocale: { [sourceLang]: [] },
-    };
-
-    jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
-  }
-
-  console.log(`\n📋 Total MSC Cargo jobs discovered: ${jobs.length}`);
+  const jobs = parseAdzunaJobs({ results }, employer);
+  console.log(`\n📋 Total MSC Cargo jobs (post-filter): ${jobs.length}`);
   return jobs;
 }
+
+// Re-export shared utilities so callers can pull everything from one module.
+export { slugify, stripHtml };
