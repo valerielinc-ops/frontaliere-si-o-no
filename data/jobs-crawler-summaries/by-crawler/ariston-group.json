@@ -1,19 +1,18 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-05-09T20:54:01.256Z",
+  "generatedAt": "2026-05-10T09:32:42.834Z",
   "total": 4,
-  "newCount": 0,
-  "updatedCount": 2,
+  "newCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3739,
-  "avgDurationMs": 3739,
+  "unchangedCount": 0,
+  "durationMs": 3807,
+  "avgDurationMs": 3807,
   "durationHistory": [
-    3739
+    3807
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "title": "VERKAUFSBERATER/IN AUSSENDIENST (W/M) - REGION OBERWALLIS",
       "slug": "verkaufsberater-in-aussendienst-w-m-region-oberwallis-ariston-group-brig-ch-1070",
@@ -35,19 +34,43 @@
       "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-08",
-      "id": "ariston-group-8f87aad08aa9",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "3900",
-      "firstSeenAt": "2026-04-13T21:06:02.389Z",
-      "_qualityScore": 94,
+      "validThrough": "2026-06-09",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 22
+        "translation": 10,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "TECNICO DI SERVIZIO ENERGIE RINNOVABILI",
+      "slug": "tecnico-di-servizio-energie-rinnovabili-ariston-group-bedano-ch-6930",
+      "url": "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-ENERGIE-RINNOVABILI-Beda-6930/1389819233/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1389819233/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Bedano, CH, 6930",
+      "addressLocality": "Bedano, CH, 6930",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-06-09",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
       }
     },
     {
@@ -72,57 +95,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "2026-05-16",
-      "id": "ariston-group-ee0aa5576140",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "3900",
-      "firstSeenAt": "2026-04-23T21:03:10.021Z",
-      "_qualityScore": 94,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "TECNICO DI SERVIZIO ENERGIE RINNOVABILI",
-      "slug": "tecnico-di-servizio-energie-rinnovabili-ariston-group-bedano-ch-6930",
-      "url": "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-ENERGIE-RINNOVABILI-Beda-6930/1389819233/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1389819233/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Bedano, CH, 6930",
-      "addressLocality": "Bedano, CH, 6930",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-06-08",
-      "id": "ariston-group-8d1d8f7d1e6b",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "6930",
-      "firstSeenAt": "2026-05-04T10:16:36.833Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 22
+        "translation": 10,
+        "completeness": 14
       }
     },
     {
@@ -146,20 +124,17 @@
       "postedDate": "2026-04-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-08",
-      "id": "ariston-group-aa9bfd740eb8",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "6930",
-      "firstSeenAt": "2026-05-07T10:25:24.589Z",
-      "_qualityScore": 90,
+      "validThrough": "2026-06-09",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 22
+        "translation": 10,
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
