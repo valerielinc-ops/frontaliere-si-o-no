@@ -3673,6 +3673,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-malcontento-aeroporto-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/malcontento-aeroporto-lugano-2026', parent: 'blog' },
     'blog-chippis-ponte-demolito-sicurezza': { name: 'Chippis ponte sicurezza', path: '/articoli-frontaliere/chippis-ponte-demolito-sicurezza', parent: 'blog' },
     'blog-incidente-stradale-cittiglio-laveno': { name: 'Incidente stradale', path: '/articoli-frontaliere/incidente-stradale-cittiglio-laveno', parent: 'blog' },
+    'blog-frontaliero-ossolano-morto-visp-autopsia': { name: 'Novità', path: '/articoli-frontaliere/frontaliero-ossolano-morto-visp-autopsia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

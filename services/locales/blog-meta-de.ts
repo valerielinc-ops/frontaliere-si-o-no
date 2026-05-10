@@ -7292,6 +7292,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-stradale-cittiglio-laveno.title': 'Unfall zwischen Cittiglio und Laveno: Auto und Motorrad beteiligt',
     'blog.article.incidente-stradale-cittiglio-laveno.excerpt': 'Zwei Personen verletzt bei einem Unfall zwischen einem Auto und einem Motorrad auf der Landstraße zwischen Cittiglio und Laveno Mombello am Abend des 8. Mai 2026',
     'blog.article.incidente-stradale-cittiglio-laveno.imageAlt': 'Verkehrsunfall zwischen einem Auto und einem Motorrad auf der Provinzialstraße zwischen Cittiglio und Laveno Mombello',
+    'blog.article.frontaliero-ossolano-morto-visp-autopsia.title': 'Toter Grenzgänger aus Ossola: Obduktion angeordnet',
+    'blog.article.frontaliero-ossolano-morto-visp-autopsia.excerpt': 'Die Schweizer Staatsanwaltschaft hat die Obduktion der Leiche eines Grenzgängers aus dem Ossola angeordnet, der in Visp tot aufgefunden wurde. Hier ist, was wir bisher wissen.',
+    'blog.article.frontaliero-ossolano-morto-visp-autopsia.imageAlt': 'Ansicht von Visp, Schweiz, mit dem Büro des Staatsanwalts im Vordergrund',
 };
 
 export default blogMetaDe;

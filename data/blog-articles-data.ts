@@ -23249,4 +23249,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliero-ossolano-morto-visp-autopsia',
+ category: 'novita',
+ date: '2026-05-10T06:11:41.029Z',
+ image: '/images/blog/frontaliero-ossolano-morto-visp-autopsia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
