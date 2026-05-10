@@ -1,0 +1,40 @@
+{
+  "id": "venezia-ildegarda-frontalieri",
+  "slug": "venezia-ildegarda-frontalieri",
+  "publishedAt": "2026-05-10T09:07:09.572Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 39.7326564682089,
+    "confidence": 0.8,
+    "finalScore": 31.786125174567122,
+    "topK": [
+      {
+        "slug": "musica-antica-san-cassiano-2026",
+        "cosine": 0.8108705401675286
+      },
+      {
+        "slug": "conservatorio-bellinzona-valori-musicali",
+        "cosine": 0.8096525951285949
+      },
+      {
+        "slug": "concerto-luino-vivaldi-bach-2026",
+        "cosine": 0.8080575662752513
+      },
+      {
+        "slug": "festival-meraviglia-laveno-luino-2026",
+        "cosine": 0.8027599893937063
+      },
+      {
+        "slug": "lavena-brano-musicale-leone-xiv",
+        "cosine": 0.801089179843403
+      }
+    ],
+    "score": 3.1786125174567124,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

@@ -7334,6 +7334,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.palacinema-locarno-urgenti-2026.title': 'Palacinema Locarno: Dringende Antworten nötig',
     'blog.article.palacinema-locarno-urgenti-2026.excerpt': 'Yvonne Ballestra Cotti und Barbara Angelini Piva verwandeln ihre Anfrage in eine Interpellation, um den Stadtrat zu einer schnellen Stellungnahme zu drängen.',
     'blog.article.palacinema-locarno-urgenti-2026.imageAlt': 'Luftaufnahme von Locarno mit dem Palacinema im Vordergrund und dem Lago Maggiore im Hintergrund.',
+    'blog.article.venezia-ildegarda-frontalieri.title': 'Venedig: Klangliche Erfahrung inspiriert von Hildegard von Bingen',
+    'blog.article.venezia-ildegarda-frontalieri.excerpt': 'Einzigartiges Erlebnis in Venedig, inspiriert von der Heiligen Hildegard von Bingen, bietet den Besuchern ein Klanggebet.',
+    'blog.article.venezia-ildegarda-frontalieri.imageAlt': 'Ruhevolle Aussicht auf den Luganersee mit umliegenden Bergen',
 };
 
 export default blogMetaDe;

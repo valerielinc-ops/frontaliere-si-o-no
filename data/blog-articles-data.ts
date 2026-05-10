@@ -23375,4 +23375,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'venezia-ildegarda-frontalieri',
+ category: 'novita',
+ date: '2026-05-10T09:07:08.281Z',
+ image: '/images/blog/venezia-ildegarda-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

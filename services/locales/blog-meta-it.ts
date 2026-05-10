@@ -7335,6 +7335,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.palacinema-locarno-urgenti-2026.title': 'Palacinema di Locarno: servono risposte urgenti',
     'blog.article.palacinema-locarno-urgenti-2026.excerpt': 'Yvonne Ballestra Cotti e Barbara Angelini Piva trasformano la loro interrogazione in interpellanza per spingere il Municipio a esprimersi al più presto.',
     'blog.article.palacinema-locarno-urgenti-2026.imageAlt': 'Vista aerea di Locarno, con il Palacinema in primo piano e il Lago Maggiore sullo sfondo.',
+    'blog.article.venezia-ildegarda-frontalieri.title': 'Venezia: esperienza sonora ispirata a Ildegarda di Bingen',
+    'blog.article.venezia-ildegarda-frontalieri.excerpt': 'Un\'esperienza unica a Venezia, ispirata a Santa Ildegarda di Bingen, offre una preghiera sonora per i visitatori.',
+    'blog.article.venezia-ildegarda-frontalieri.imageAlt': 'Vista serena del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

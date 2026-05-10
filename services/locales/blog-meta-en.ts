@@ -7334,6 +7334,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.palacinema-locarno-urgenti-2026.title': 'Locarno\'s Palacinema: urgent answers needed',
     'blog.article.palacinema-locarno-urgenti-2026.excerpt': 'Yvonne Ballestra Cotti and Barbara Angelini Piva turn their question into an interpellation to push the Municipality to express itself as soon as possible.',
     'blog.article.palacinema-locarno-urgenti-2026.imageAlt': 'Aerial view of Locarno, with the Palacinema in the foreground and Lake Maggiore in the background.',
+    'blog.article.venezia-ildegarda-frontalieri.title': 'Venice: a sound experience inspired by Hildegard of Bingen',
+    'blog.article.venezia-ildegarda-frontalieri.excerpt': 'A unique experience in Venice, inspired by Saint Hildegard of Bingen, offers a sonic prayer for visitors.',
+    'blog.article.venezia-ildegarda-frontalieri.imageAlt': 'Serene view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;
