@@ -632,9 +632,9 @@
       },
       "descriptionByLocale": {
         "de": "## Descrizione\nStarte am 1. August 2027 mit der dreijährigen\n\n## Aufgaben\n- Du unterstützt die Ärzteschaft bei der Behandlung von Patientinnen und Patienten, führst Tests durch, nimmst Blut ab und kannst es in unserer internen Hausarztpraxis teilweise sogar selbst analysieren\n- Du vereinbarst Termine, empfängst Patientinnen und Patienten freundlich und erfasst alle wichtigen Daten im System\n- Du schreibst Berichte ab Diktat und führst die elektronischen Patientendossiers sorgfältig und strukturiert\n- Im internen Röntgeninstitut lernst du, wie man korrekte Röntgenbilder erstellt und diese fachgerecht beurteilt\n\n## Anforderungen\n- Du hast die obligatorische Schulzeit abgeschlossen, idealerweise mit einem Sekundarabschluss\n- Du hast Freude am Kontakt mit Menschen und bringst Einfühlungsvermögen für Patientinnen und Patienten mit\n- Du bist zuverlässig, flexibel und verantwortungsbewusst und arbeitest gerne exakt und sorgfältig\n- Du bist verschwiegen, denn die ärztliche Schweigepflicht ist für dich selbstverständlich\n\n## Du kannst etwas, was andere nicht können?\n- Du machst den Unterschied aus?\n- Dann gehörst du zu uns!",
-        "it": "Descrizione Avviare su 1. Agosto 2027 con i tre anni-vecchio ## Compiti - Supporti il dottorato nel trattamento dei pazienti, effettui test, prenda il sangue e può in parte anche analizzarlo te stesso nella nostra pratica medica interna - accetti le date, ricevi i pazienti amichevoli e raccogli tutti i dati importanti nel sistema - scrivi report off detta e effettui i dossier del paziente elettronico accuratamente e strutturati - Puoi fare qualcosa che gli altri non possono? - Allora appartieni a noi!",
-        "en": "Descrizione Start on the 1st August 2027 with the three-year ## tasks - You support the medical profession in the treatment of patients, carry out tests, take blood and can sometimes even analyze it yourself in our internal GP practice - You make appointments, receive patients in a friendly manner and record all important data in the system - You write down reports dictation and keep the electronic patient files carefully and structured - In the internal X-ray institute you learn how to create correct X-rays and assess them professionally ## Requirements - You have completed compulsory schooling, ideally with a secondary degree - You enjoy contact with people and have empathy for patients - You are reliable, flexible and responsible and like to work exactly and carefully - You are silent, because medical confidentiality is a matter of course for you ## You can do something that others cannot? - You make the difference? - Then you're with us!",
-        "fr": "Descrizione Commencez sur 1. Août 2027 avec le ## Tâches de trois ans - Vous soutenez le doctorat dans le traitement des patients, effectuez des tests, prenez du sang et pouvez même partiellement l'analyser vous-même dans notre pratique médicale interne - Vous acceptez les dates, recevez les patients amical et recueillez toutes les données importantes dans le système - Vous annulez les rapports dictez et exécutez les dossiers de patients électroniques soigneusement et structuré - Vous pouvez faire quelque chose que les autres ne peuvent pas? - Alors tu nous appartiens !"
+        "it": "Descrizione\nIniziare su 1. Agosto 2027 con tre anni\n\nCompiti\n- Lei sostiene il dottorato nel trattamento dei pazienti, effettua test, toglie il sangue e può anche analizzarlo nella nostra pratica medica interna\n- Accetti le date, ricevi pazienti cordiali e raccogli tutti i dati importanti nel sistema\n- Lei scrive rapporti da dettare e condurre i dossier del paziente elettronico con attenzione e strutturato\n- Nell'Istituto di raggi X interno imparerai come creare immagini corrette e giudicarle professionalmente\n\nRequisiti\n- Hai completato la scuola obbligatoria, idealmente con una scuola secondaria\n- Hai il piacere di contattare le persone e portare empatia per i pazienti con\n- Sei affidabile, flessibile e responsabile e piace lavorare con precisione e attenzione\n- Sei silenzioso, perché il dovere medico del silenzio è ovviamente per te\n\nPuoi fare qualcosa che gli altri non possono fare?\n- Fai la differenza?\n- Allora appartieni a noi!",
+        "en": "Descrizione\nStart on 1. August 2027 with three years\n\nTasks\n- You support the doctorate in the treatment of patients, carry out tests, take blood off and can even analyze it yourself in our internal medical practice\n- You agree dates, receive patients friendly and collect all important data in the system\n- You write reports from dictate and conduct the electronic patient dossiers carefully and structured\n- In the internal X-ray Institute you will learn how to create correct X-ray images and judge them professionally\n\nRequirements\n- You have completed compulsory schooling, ideally with a secondary school\n- You have the pleasure of contacting people and bringing empathy for patients with\n- You are reliable, flexible and responsible and like to work accurately and carefully\n- You are silent, because the medical duty to silence is of course for you\n\nYou can do something that others can't?\n- You make the difference?\n- Then you belong to us!",
+        "fr": "Descrizione\nCommencez par 1. Août 2027 avec trois ans\n\nTâche\n- Vous soutenez le doctorat dans le traitement des patients, effectuez des tests, retirez du sang et pouvez même l'analyser vous-même dans notre pratique médicale interne\n- Vous acceptez les dates, recevez les patients et collectez toutes les données importantes dans le système\n- Vous rédigez des rapports de dicter et de conduire les dossiers électroniques patients soigneusement et structurés\n- Dans l'institut de radiographie interne, vous apprendrez comment créer des images de radiographie correctes et les juger professionnellement\n\nExigences\n- Vous avez terminé la scolarité obligatoire, idéalement avec une école secondaire\n- Vous avez le plaisir de contacter les gens et d'apporter l'empathie pour les patients avec\n- Vous êtes fiable, flexible et responsable et aimez travailler avec précision et prudence\n- Vous êtes silencieux, car le devoir médical de silence est bien sûr pour vous\n\nTu peux faire quelque chose que les autres ne peuvent pas faire ?\n- Tu fais la différence ?\n- Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -659,9 +659,7 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-04T11:09:50.180Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-05-04T11:09:50.180Z"
     },
     {
       "id": "10019067",
@@ -722,7 +720,6 @@
           "praktikant-in-kauffrau-kaufmann-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 63000,
@@ -1562,9 +1559,9 @@
       },
       "descriptionByLocale": {
         "de": "## Stellenbeschreibung\n\nStarte am 1. Juli 2026 oder nach Vereinbarung als\n\n## Aufgaben\n- Eigenverantwortliche klinische Tätigkeit: Umfassende Betreuung unserer Patientinnen und Patienten über das gesamte Spektrum der modernen Radio-Onkologie\n- Interdisziplinäre Vernetzung: Aktive Vertretung der Klinik in Tumorboards sowie Durchführung von Konsiliardiensten an unseren Partnerstandorten\n- Innovation und Qualität: Mitwirkung an der strategischen Weiterentwicklung unserer Bestrahlungstechniken und klinischen Protokolle sowie Übernahme spezifischer Ressortverantwortlichkeiten\n- Nachwuchsförderung: Engagierte Weitergabe deines Fachwissens an die nächste Generation und aktiver Beitrag zur hohen Ausbildungsqualität\n\n## Anforderungen\n- Eidgenössischer oder MEBEKO‑anerkannter Facharzttitel für Radio-Onkologie:  Du verfügst über eine abgeschlossene oder anerkannte Facharztqualifikation im Bereich Radio-Onkologie\n- Fachliche Expertise: Fundierte Kenntnisse in modernen Bestrahlungstechniken sowie Interesse an der kontinuierlichen Weiterentwicklung und klinischen Innovation\n- Kommunikative Stärke: Stilsicheres Deutsch auf Niveau C2 und die Fähigkeit, komplexe Sachverhalte sowohl empathisch gegenüber Patientinnen und Patienten als auch präzise gegenüber Zuweisenden zu vermitteln. Italienischkenntnisse sind ein willkommenes Plus\n- Teamorientierte Persönlichkeit: Eine integrative, dialogorientierte Haltung, mit der du die Zusammenarbeit im Team wie auch interdisziplinär aktiv positiv mitgestaltest\n\n## Was wir bieten\n- (keine Angaben vorhanden)\n\n## Kontatto\n- (keine Kontaktdaten vorhanden)\n\nDann gehörst du zu uns!\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?",
-        "en": "Start on 1. Specialist knowledge on the whole spectrum of modern radio oncology - Interdisciplinary networking: Active representation of the clinic in tumor boards as well as carrying out consiliary services to our partner sites - Innovation and quality: participation in the strategic development of our radiation techniques and clinical protocols Italian knowledge is a welcome plus - team-oriented personality: an integrative, dialogue-oriented attitude with which you actively positively shape the team's cooperation as well as interdisciplinary ## What we offer - (no information available) ## Kontatto - (no contact details available) Then you belong to us! You can do something that others can't? You make the difference?",
-        "it": "Iniziare su 1. Conoscenze specialistiche sull'intero spettro dell'oncologia radio moderna - Rete interdisciplinare: Rappresentazione attiva della clinica nelle schede tumorali e realizzazione di servizi consiliari ai nostri siti partner - Innovazione e qualità: partecipazione allo sviluppo strategico delle nostre tecniche di radiazione e protocolli clinici La conoscenza italiana è un benvenuto plus - personalità orientata al team: un atteggiamento integrativo, orientato al dialogo con il quale si forma attivamente la cooperazione del team e le informazioni interdisciplinari Allora appartieni a noi! Puoi fare qualcosa che gli altri non possono fare? Fai la differenza?",
-        "fr": "Commencez par 1. Connaissances spécialisées sur l'ensemble du spectre de la radiooncologie moderne - Réseautage interdisciplinaire : Représentation active de la clinique dans les conseils tumoraux ainsi que prestation de services consiliaires à nos sites partenaires - Innovation et qualité : participation au développement stratégique de nos techniques de rayonnement et de nos protocoles cliniques La connaissance italienne est un bienvenu plus - personnalité axée sur l'équipe : une attitude intégrative, orientée vers le dialogue avec laquelle vous façonnez activement positivement la coopération de l'équipe ainsi que ## Ce que nous offrons - (aucune information disponible) ## Kontatto - (aucune information disponible) Alors tu nous appartiens ! Tu peux faire quelque chose que les autres ne peuvent pas faire ? Tu fais la différence ?"
+        "en": "Description\n\nStart on 1. July 2026 or by agreement as\n\nTasks\n- Responsible clinical activity: comprehensive care of our patients over the entire spectrum of modern radio oncology\n- Interdisciplinary Networking: Active Representation of the Clinic in Tumor Boards as well as Conducting Consiliar Services at our Partner Sites\n- Innovation and Quality: Participation in the strategic development of our irradiation techniques and clinical protocols as well as the acquisition of specific responsibility\n- Promoting young people: Engaged transfer of your expertise to the next generation and active contribution to the high quality of training\n\nRequirements\n- Federal or MEBEKO-announced specialist title for radio oncology: You have a completed or recognised specialist qualification in the field of radio oncology\n- Expertise: Knowledge of modern irradiation techniques and interest in continuous development and clinical innovation\n- Communicative Strength: Stylish-proof German at level C2 and the ability to convey complex facts both empathically to patients and precisely to assignees. Italian knowledge is a welcome plus\n- Team-oriented personality: an integrative, dialogue-oriented attitude, with which you actively positively shape cooperation in the team and interdisciplinary\n\nWhat we offer\n- (no data available)\n\nContatto\n- (no contact details available)\n\nThen you belong to us!\nYou can do something that others can't?\nYou make the difference?",
+        "it": "Designazione\n\nIniziare su 1. Luglio 2026 o d'accordo\n\nCompiti\n- Attività clinica responsabile: cura completa dei nostri pazienti sull'intero spettro dell'oncologia radio moderna\n- Reti interdisciplinari: Rappresentanza attiva della Clinica in Tumor Boards e Gestione dei Servizi Consiliari presso i nostri Siti Partner\n- Innovazione e Qualità: Partecipazione allo sviluppo strategico delle nostre tecniche di irradiazione e dei protocolli clinici, nonché all'acquisizione di una specifica responsabilità\n- Promuovere i giovani: Engaged trasferimento della vostra competenza alla prossima generazione e contributo attivo all'alta qualità della formazione\n\nRequisiti\n- Titolo specialistico federale o MEBEKO-annunciato per l'oncologia radio: Hai una qualifica specialistica completa o riconosciuta nel campo dell'oncologia radio\n- Competenza: Conoscenza delle moderne tecniche di irradiazione e interesse per lo sviluppo continuo e l'innovazione clinica\n- Forza comunicativa: tedesco antiscivolo al livello C2 e la capacità di trasmettere fatti complessi sia empaticamente ai pazienti che precisamente agli assegnanti. La conoscenza italiana è un benvenuto plus\n- Personalità orientata al team: un atteggiamento integrato, orientato al dialogo, con il quale si forma attivamente positivamente la cooperazione nel team e interdisciplinare\n\nCosa offriamo\n- (non sono disponibili dati)\n\nContatto\n- (senza recapiti disponibili)\n\nAllora appartieni a noi!\nPuoi fare qualcosa che gli altri non possono fare?\nFai la differenza?",
+        "fr": "Désignation des marchandises\n\nCommencez par 1. Juillet 2026 ou par accord\n\nTâche\n- Activité clinique responsable : soins complets de nos patients sur tout le spectre de la radiooncologie moderne\n- Réseautage interdisciplinaire : représentation active de la clinique dans les conseils de tumorat et prestation de services consiliaires dans nos sites partenaires\n- Innovation et qualité : participation au développement stratégique de nos techniques d'irradiation et de nos protocoles cliniques ainsi qu'à l'acquisition de responsabilités spécifiques\n- Promouvoir les jeunes : Transférer votre expertise à la prochaine génération et contribuer activement à la haute qualité de la formation\n\nExigences\n- Titre de spécialiste de radiooncologie annoncé par le fédéral ou le MEBEKO : Vous avez une qualification de spécialiste dans le domaine de la radiooncologie\n- Expertise : Connaissance des techniques modernes d'irradiation et intérêt pour le développement continu et l'innovation clinique\n- Force communicative: Allemand à l'épreuve de l'élégance au niveau C2 et la capacité de transmettre des faits complexes à la fois empathiquement aux patients et précisément aux cessionnaires. La connaissance italienne est un bienvenu plus\n- Personnalité axée sur l'équipe: une attitude intégrative, orientée vers le dialogue, avec laquelle vous façonnez activement positivement la coopération au sein de l'équipe et interdisciplinaire\n\nCe que nous offrons\n- (aucune donnée disponible)\n\nContatto\n- (pas de coordonnées disponibles)\n\nAlors tu nous appartiens !\nTu peux faire quelque chose que les autres ne peuvent pas faire ?\nTu fais la différence ?"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1589,9 +1586,7 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-20T21:51:49.023Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-20T21:51:49.023Z"
     },
     {
       "id": "10002111",
@@ -2043,7 +2038,6 @@
           "oberarztin-oberarzt-oder-oberarztin-mbf-oberarzt-mbf-neurologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3224,7 +3218,6 @@
           "fachfrau-fachmann-gesundheit-akutgeriatrie-kantonsspital-graubunden-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3290,7 +3283,6 @@
           "arztsekretar-in-pneumologie-schlafmedizin-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3621,7 +3613,6 @@
           "neuropsychologin-neuropsychologe-padiatrie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3687,7 +3678,6 @@
           "fachfrau-fachmann-gesundheit-kardiologie-nephrologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5287,7 +5277,6 @@
           "fellow-kardiale-thorakale-radiologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5748,7 +5737,6 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T21:59:17.590Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-oder-fachexpertin-fachexperte-onkologiepflege-ambulant-kantonsspital-graubunden-chur"
@@ -6012,7 +6000,6 @@
           "kaderarztin-kaderarzt-neuropadiatrie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6601,7 +6588,6 @@
           "leitende-r-arztin-arzt-padiatrische-intensivmedizin-oder-neonatologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -7387,7 +7373,6 @@
           "weiterbildung-dipl-biomedizinische-r-analytiker-in-hf-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
