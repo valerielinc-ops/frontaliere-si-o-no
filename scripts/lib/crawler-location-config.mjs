@@ -207,6 +207,7 @@ export const COMPANY_HQ = {
   'siegfried':                    { city: 'Evionnaz',            canton: 'VS', postalCode: '1902', addressRegion: 'VS' },
   'vaxcyte':                      { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'srg-ssr':                      { city: 'Bern',               canton: 'BE', postalCode: '3000', addressRegion: 'BE' },
+  'inselspital':                  { city: 'Bern',               canton: 'BE', postalCode: '3010', addressRegion: 'BE' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'fusalp':                       { city: 'Annecy',             canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
@@ -262,6 +263,9 @@ export const COMPANY_HQ = {
   // ── Cathedral Phase 2 Wave C Batch 3 ──
   'swiss-re':                     { city: 'Zürich',             canton: 'ZH', postalCode: '8022', addressRegion: 'ZH' },
   'eth-zurich':                   { city: 'Zürich',             canton: 'ZH', postalCode: '8092', addressRegion: 'ZH' },
+  'epfl':                         { city: 'Lausanne',           canton: 'VD', postalCode: '1015', addressRegion: 'VD' },
+  // ── Cathedral Phase 2 Wave C Batch 3 Wave 2 ──
+  'chuv':                         { city: 'Lausanne',           canton: 'VD', postalCode: '1011', addressRegion: 'VD' },
 };
 
 /**

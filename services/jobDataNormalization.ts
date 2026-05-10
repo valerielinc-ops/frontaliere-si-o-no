@@ -95,6 +95,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'dxt-commodities': 'https://dxt.com/wp-content/uploads/2025/04/logo-DXT.png',
  'efg-international': '/images/logos/efg-international.svg',
  'eoc-ente-ospedaliero-cantonale': gFavicon('eoc.ch'),
+ 'epfl': cLogo('epfl.ch'),
  'ermenegildo-zegna-logistica': '/images/logos/ermenegildo-zegna.svg',
  'ermenegildo-zegna': '/images/logos/ermenegildo-zegna.svg',
  'eth-zurich': cLogo('ethzurich.ch'),
