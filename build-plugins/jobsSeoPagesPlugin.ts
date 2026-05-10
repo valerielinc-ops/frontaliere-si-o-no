@@ -755,8 +755,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   * by this plugin — `localizedSlug(job, locale)` returns the frozen slug
   * verbatim).
   */
+ // P6 T6.1 — DE prefix is `jobs-in` for ALL non-TI cantons (e.g.
+ // `/de/jobs-in-zurich/`). The legacy `jobs-im-tessin` form is preserved
+ // *only* for TI by `buildCantonAwareSection` (early-return at code === 'TI'
+ // returns `sectionByLocale[locale]` which still hard-codes `jobs-im-tessin`).
+ // The router (`services/router.ts` `JOB_BOARD_PREFIX[de] = 'jobs-in-'`,
+ // `parseJobBoardSlug` legacy branch only matches `jobs-im-tessin`) only
+ // recognises the canton index pattern when the prefix is `jobs-in-`. Using
+ // `jobs-im` here for non-TI cantons emitted files at unroutable URLs
+ // (every `/de/jobs-im-{canton}/` returned 404 even though the static HTML
+ // existed). Aligns the build emit with the router's parsing contract.
  const SECTION_PREFIX_BY_LOCALE: Record<CantonLocale, string> = {
-   it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-im', fr: 'trouver-emploi',
+   it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi',
  };
  function buildCantonAwareSection(locale: CantonLocale, cantonCode: string): string {
    const code = String(cantonCode || '').toUpperCase();

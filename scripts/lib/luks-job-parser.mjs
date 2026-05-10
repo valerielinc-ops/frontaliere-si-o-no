@@ -1,28 +1,37 @@
 #!/usr/bin/env node
 /**
- * Luzerner Kantonsspital (LUKS) job parser — PLACEHOLDER.
+ * Luzerner Kantonsspital (LUKS) job parser — best-effort two-path.
  *
  * Source: https://www.luks.ch/stellen-und-karriere/offene-stellen
  *
- * ⚠️ Follow-up needed: at the time of scaffolding (2026-05-10) the LUKS
- * Gatsby site (`gatsby-source-silverback` build, Drupal 10 CMS at
- * `cms.luks.ch`) renders the open-positions page with an empty
- * `advertCollection` — i.e. the public site is currently NOT exposing
- * job adverts at all (corroborated by the May newsroom note
- * "Wiedereinführung des JobAbos am Luzerner Kantonsspital").
+ * ⚠️ Status note (2026-05-10): the LUKS Gatsby site
+ * (`gatsby-source-silverback` build, Drupal 10 CMS at `cms.luks.ch`) renders
+ * the open-positions page with an empty `advertCollection` — i.e. the
+ * public site is currently NOT exposing job adverts at all (corroborated
+ * by the May newsroom note "Wiedereinführung des JobAbos am Luzerner
+ * Kantonsspital"). Until the JobAbo is reinstated this parser will
+ * legitimately return [] every run; the crawler treats 0 jobs as
+ * non-failure.
  *
- * Once LUKS re-introduces public job listings, two likely shapes:
- *   1. Drupal-sourced adverts baked into Gatsby `page-data` JSONs under
- *      `/page-data/stellen-und-karriere/offene-stellen/.../page-data.json`.
- *      Walk the sitemap (`/sitemap-0.xml`) for advert URLs once they
- *      reappear and read each `page-data.json`.
- *   2. An external ATS link embedded in the page (Prospective / Umantis /
- *      SuccessFactors) — clone the matching adapter (USZ / Inselspital /
- *      KSSG) and swap the tenant ID.
+ * Strategy:
  *
- * Action item: re-probe `https://www.luks.ch/stellen-und-karriere/offene-stellen`
- * monthly. When the page returns a populated advert list, replace
- * `fetchJobListings()` below with the correct adapter.
+ *   Path A (preferred): Gatsby page-data walk
+ *     GET https://www.luks.ch/page-data/stellen-und-karriere/offene-stellen/page-data.json
+ *     and look for an `advertCollection` (or any `*Collection` containing
+ *     job-shaped nodes) anywhere in `result.data` / `result.pageContext`.
+ *     If found and non-empty, normalise into raw listings.
+ *
+ *   Path B (fallback): sitemap probe
+ *     GET https://www.luks.ch/sitemap-0.xml (or /sitemap.xml) and collect
+ *     `/stellen-und-karriere/...` URLs that look like advert detail pages.
+ *     Each detail URL has its own page-data.json which is fetched and
+ *     parsed for title / location.
+ *
+ *   Path C (LUKS still without JobAbo): empty array, single info log line.
+ *
+ * Once LUKS re-introduces public listings and the embedded ATS shape is
+ * confirmed (Drupal-baked vs. Prospective / Umantis / SuccessFactors),
+ * the matching dedicated adapter should replace this best-effort scraper.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllLuksJobs()  — Fetch and parse all jobs
@@ -42,6 +51,17 @@ export const LUKS_COMPANY_NAME = 'Luzerner Kantonsspital (LUKS)';
 export const LUKS_COMPANY_DOMAIN = 'luks.ch';
 
 const CAREER_URL = 'https://www.luks.ch/stellen-und-karriere/offene-stellen';
+const PAGE_DATA_URL =
+  'https://www.luks.ch/page-data/stellen-und-karriere/offene-stellen/page-data.json';
+const SITEMAP_CANDIDATES = [
+  'https://www.luks.ch/sitemap-0.xml',
+  'https://www.luks.ch/sitemap.xml',
+];
+const FETCH_HEADERS = {
+  'User-Agent': 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)',
+  Accept: 'application/json, text/xml, */*',
+};
+const FETCH_TIMEOUT_MS = 20_000;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -124,28 +144,166 @@ function detectEmploymentType(text = '') {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-// TODO: Implement the actual fetching logic for Luzerner Kantonsspital (LUKS)'s career page.
-// This is a placeholder. Replace with the actual API/scraping logic.
-//
-// Common patterns:
-//   - JSON API:     use --source api for a ready-made paginated API template
-//   - Workday API:  re-scaffold with --ats=workday for a ready-made template
-//   - Greenhouse:   --ats=greenhouse
-//   - Lever:        --ats=lever
-//   - SuccessFactors: --ats=successfactors
-//   - Generic HTML: fetch + parse with regex or cheerio
+async function safeFetch(url, { accept = 'json' } = {}) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetch(url, {
+      headers: FETCH_HEADERS,
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      console.warn(`   ⚠️ ${url} → HTTP ${res.status}`);
+      return null;
+    }
+    if (accept === 'json') return await res.json();
+    return await res.text();
+  } catch (err) {
+    console.warn(
+      `   ⚠️ fetch failed for ${url}: ${err && err.message ? err.message : err}`,
+    );
+    return null;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
+/**
+ * Walk a Gatsby page-data.json blob (arbitrary tree) for a non-empty
+ * `advertCollection` (or any collection of nodes with a `title` field).
+ * Returns the array if found, otherwise null.
+ */
+function findAdvertCollection(node, depth = 0) {
+  if (!node || depth > 8) return null;
+  if (Array.isArray(node)) {
+    if (node.length > 0 && typeof node[0] === 'object' && node[0] && 'title' in node[0]) {
+      return node;
+    }
+    for (const child of node) {
+      const found = findAdvertCollection(child, depth + 1);
+      if (found) return found;
+    }
+    return null;
+  }
+  if (typeof node === 'object') {
+    if (Array.isArray(node.advertCollection) && node.advertCollection.length > 0) {
+      return node.advertCollection;
+    }
+    if (Array.isArray(node.nodes) && node.nodes.length > 0 && node.nodes[0]?.title) {
+      return node.nodes;
+    }
+    for (const key of Object.keys(node)) {
+      const found = findAdvertCollection(node[key], depth + 1);
+      if (found) return found;
+    }
+  }
+  return null;
+}
+
+function normaliseAdvertNode(advert) {
+  const title = String(advert.title || advert.name || '').trim();
+  const location = String(
+    advert.location || advert.workLocation || advert.standort || 'Luzern',
+  ).trim() || 'Luzern';
+  const path = advert.path || advert.url || advert.slug || '';
+  const url = path.startsWith('http')
+    ? path
+    : path
+      ? `https://www.luks.ch${path.startsWith('/') ? '' : '/'}${path}`
+      : CAREER_URL;
+  const description = String(
+    advert.description || advert.body?.value || advert.summary || '',
+  );
+  return { title, location, url, description };
+}
+
+/**
+ * Path A — Gatsby page-data walk on /offene-stellen.
+ */
+async function fetchListingsViaPageData() {
+  const pageData = await safeFetch(PAGE_DATA_URL, { accept: 'json' });
+  if (!pageData) return null; // network/HTTP error → fall through to Path B
+
+  const collection = findAdvertCollection(pageData);
+  if (!collection || collection.length === 0) {
+    return []; // 200 but empty — JobAbo not yet reinstated
+  }
+  return collection.map(normaliseAdvertNode).filter((j) => j.title.length >= 3);
+}
+
+/**
+ * Path B — sitemap probe for /stellen-und-karriere/* detail URLs.
+ */
+async function fetchListingsViaSitemap() {
+  for (const sitemapUrl of SITEMAP_CANDIDATES) {
+    const xml = await safeFetch(sitemapUrl, { accept: 'text' });
+    if (!xml) continue;
+
+    const locs = Array.from(xml.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)).map(
+      (m) => m[1].trim(),
+    );
+    const advertUrls = locs.filter(
+      (u) =>
+        /\/stellen-und-karriere\/[^?#]+/.test(u) &&
+        !/\/offene-stellen\/?$/.test(u) &&
+        !/\/stellen-und-karriere\/?$/.test(u),
+    );
+
+    if (advertUrls.length === 0) continue;
+
+    const items = [];
+    for (const advertUrl of advertUrls.slice(0, 100)) {
+      const path = new URL(advertUrl).pathname.replace(/\/$/, '');
+      const pageDataUrl = `https://www.luks.ch/page-data${path}/page-data.json`;
+      const pageData = await safeFetch(pageDataUrl, { accept: 'json' });
+      if (!pageData) continue;
+
+      const node =
+        findAdvertCollection(pageData)?.[0] ||
+        pageData?.result?.pageContext?.node ||
+        pageData?.result?.data?.advert ||
+        pageData?.result?.data?.node;
+      if (!node || !node.title) continue;
+
+      items.push(
+        normaliseAdvertNode({
+          ...node,
+          path: node.path || advertUrl,
+        }),
+      );
+      await new Promise((r) => setTimeout(r, 250));
+    }
+    return items;
+  }
+  return null;
+}
 
 async function fetchJobListings() {
-  // TODO: Replace with actual fetch logic
   console.log(`   Fetching from: ${CAREER_URL}`);
 
-  // Example for a JSON API:
-  // const res = await fetch(CAREER_URL, {
-  //   headers: { 'User-Agent': 'FrontaliereTicino-JobCrawler/2.0' },
-  // });
-  // if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  // return await res.json();
+  // Path A: Gatsby page-data walk
+  const pathA = await fetchListingsViaPageData();
+  if (Array.isArray(pathA)) {
+    if (pathA.length === 0) {
+      console.log(
+        '[luks] no advertCollection — JobAbo not yet reinstated, return []',
+      );
+      return [];
+    }
+    console.log(`   ✓ Path A (page-data) → ${pathA.length} adverts`);
+    return pathA;
+  }
 
+  // Path B: sitemap fallback
+  const pathB = await fetchListingsViaSitemap();
+  if (Array.isArray(pathB) && pathB.length > 0) {
+    console.log(`   ✓ Path B (sitemap) → ${pathB.length} adverts`);
+    return pathB;
+  }
+
+  console.log(
+    '[luks] no advertCollection and sitemap probe yielded 0 — JobAbo not yet reinstated, return []',
+  );
   return [];
 }
 

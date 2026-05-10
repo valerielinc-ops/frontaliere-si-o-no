@@ -287,6 +287,18 @@ export const COMPANY_HQ = {
   'ksw':                          { city: 'Winterthur',         canton: 'ZH', postalCode: '8400', addressRegion: 'ZH' },
   'spital-thurgau':               { city: 'Münsterlingen',      canton: 'TG', postalCode: '8596', addressRegion: 'TG' },
   'solothurner-spitaeler':        { city: 'Solothurn',          canton: 'SO', postalCode: '4500', addressRegion: 'SO' },
+  // ── Cathedral Phase 6 T6.5 wave 1 — tier-3 marquee (banking/luxury/shipping/industrial/insurance) ──
+  'lombard-odier':                { city: 'Geneva',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'richemont':                    { city: 'Bellevue',           canton: 'GE', postalCode: '1293', addressRegion: 'GE' },
+  'msc-cargo':                    { city: 'Geneva',             canton: 'GE', postalCode: '1201', addressRegion: 'GE' },
+  'bobst':                        { city: 'Mex',                canton: 'VD', postalCode: '1031', addressRegion: 'VD' },
+  'vaudoise':                     { city: 'Lausanne',           canton: 'VD', postalCode: '1007', addressRegion: 'VD' },
+  // ── Cathedral Phase 6 T6.6 wave 1 — hospitals ──
+  'gzo-wetzikon':                 { city: 'Wetzikon',           canton: 'ZH', postalCode: '8620', addressRegion: 'ZH' },
+  'spital-maennedorf':            { city: 'Männedorf',          canton: 'ZH', postalCode: '8708', addressRegion: 'ZH' },
+  'spital-uster':                 { city: 'Uster',              canton: 'ZH', postalCode: '8610', addressRegion: 'ZH' },
+  'ksb':                          { city: 'Baden',              canton: 'AG', postalCode: '5404', addressRegion: 'AG' },
+  'see-spital':                   { city: 'Horgen',             canton: 'ZH', postalCode: '8810', addressRegion: 'ZH' },
 };
 
 /**

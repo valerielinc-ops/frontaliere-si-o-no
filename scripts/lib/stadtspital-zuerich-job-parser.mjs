@@ -1,24 +1,26 @@
 #!/usr/bin/env node
 /**
- * Stadtspital Zürich (Triemli + Waid) job parser — PLACEHOLDER.
+ * Stadtspital Zürich (Triemli + Waid) job parser — best-effort Playwright.
  *
  * Source: https://www.stadtspital.ch/karriere
  *
- * ⚠️ Follow-up needed: the public site geo-blocks non-CH egress at the
- * TCP level (connect timeouts from the dev tunnel + Anthropic egress IPs),
- * so the ATS could not be fingerprinted from this scaffold session.
- * Likely candidates for the city of Zürich's municipal portal:
- *   1. Umantis (`recruitingapp-XXXX.umantis.com`) — same flavour as
- *      Inselspital + Spital Davos. Clone `inselspital-job-parser.mjs` once
- *      tenant ID is known.
- *   2. Prospective (`ohws.prospective.ch/careercenter/{tenant}/`) — same
- *      flavour as USZ + Universitätsspital Basel. Clone the USZ Prospective
- *      adapter and swap the tenant ID.
- *   3. SAP SuccessFactors Career Site Builder. Clone the KSSG/HOCH adapter.
+ * ⚠️ Connectivity note: the public site geo-blocks non-CH egress at the
+ * TCP level (connect timeouts from non-CH IPs). GitHub Actions runners on
+ * Microsoft Azure may originate from a CH region and reach the site; this
+ * parser is wired through Playwright (workflow already provisioned via the
+ * `--playwright` tier) so the FIRST live workflow_dispatch run validates
+ * connectivity. If TCP times out / 451 / anti-bot blocks, the parser logs
+ * gracefully and returns [] — the crawler is non-failure on empty results.
  *
- * Action item: probe `https://www.stadtspital.ch/karriere` from a CH IP
- * (or via Playwright on a CH-hosted runner) to read the embedded ATS link,
- * then replace `fetchJobListings()` below with the correct adapter.
+ * Probe strategy when the page DOES load: the Stadt Zürich municipal CMS is
+ * Drupal/TYPO3-flavoured and listings tend to use `.job-list-item` /
+ * `[data-job-id]` / `article.job` selectors. We try a defensive cascade of
+ * known patterns and fall back to extracting any `<a href>` containing
+ * "/karriere/" or "/jobs/" / "/stellen/".
+ *
+ * Once the embedded ATS is identified (Umantis / Prospective / SuccessFactors)
+ * this scraper should be replaced with the matching dedicated client; until
+ * then the DOM scrape is the safest non-CH-IP best-effort.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllStadtspitalZuerichJobs()  — Fetch and parse all jobs
@@ -30,6 +32,15 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  createBrowser,
+  createPoliteContext,
+  fetchWithRateLimit,
+  closeAll,
+  BrowserLaunchError,
+  NavigationTimeout,
+  AntiBotBlockError,
+} from './ats-clients/playwright-runtime.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -120,29 +131,138 @@ function detectEmploymentType(text = '') {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-// TODO: Implement the actual fetching logic for Stadtspital Zürich's career page.
-// This is a placeholder. Replace with the actual API/scraping logic.
-//
-// Common patterns:
-//   - JSON API:     use --source api for a ready-made paginated API template
-//   - Workday API:  re-scaffold with --ats=workday for a ready-made template
-//   - Greenhouse:   --ats=greenhouse
-//   - Lever:        --ats=lever
-//   - SuccessFactors: --ats=successfactors
-//   - Generic HTML: fetch + parse with regex or cheerio
+/**
+ * Defensive selector cascade tried on the rendered DOM. First non-empty
+ * match wins. Built from common CH municipal-CMS patterns (Drupal/TYPO3 +
+ * embedded SuccessFactors / Umantis / Prospective widgets).
+ */
+const PROBE_SELECTORS = [
+  '[data-job-id]',
+  'article.job, article.job-list-item',
+  '.job-list-item, .joblist-item, .stellen-item',
+  '.career-list .career-item, .karriere-list .karriere-item',
+  'a[href*="/karriere/"], a[href*="/stellen/"], a[href*="/jobs/"]',
+];
 
+/**
+ * Run a defensive DOM scrape against the rendered Stadtspital Zürich
+ * `/karriere` page. Returns raw {title, location, url} listings; the caller
+ * normalises them into ParsedJob objects.
+ *
+ * Always non-throwing — geo-block / anti-bot / chromium-launch failures are
+ * logged and surfaced as an empty array.
+ */
 async function fetchJobListings() {
-  // TODO: Replace with actual fetch logic
   console.log(`   Fetching from: ${CAREER_URL}`);
 
-  // Example for a JSON API:
-  // const res = await fetch(CAREER_URL, {
-  //   headers: { 'User-Agent': 'FrontaliereTicino-JobCrawler/2.0' },
-  // });
-  // if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  // return await res.json();
+  let browser = null;
+  try {
+    browser = await createBrowser();
+  } catch (err) {
+    if (err instanceof BrowserLaunchError) {
+      console.warn(`   ⚠️ chromium launch failed (${err.message}); returning [].`);
+      return [];
+    }
+    throw err;
+  }
 
-  return [];
+  try {
+    const context = await createPoliteContext(browser);
+    let page;
+    try {
+      page = await fetchWithRateLimit(context, CAREER_URL);
+    } catch (err) {
+      if (err instanceof NavigationTimeout) {
+        console.warn(
+          `   ⚠️ Stadtspital Zürich navigation timed out — likely the TCP-level ` +
+            `geo-block (CH-only). This is expected from non-CH IPs; returning [].`,
+        );
+        return [];
+      }
+      if (err instanceof AntiBotBlockError) {
+        console.warn(
+          `   ⚠️ Stadtspital Zürich returned an anti-bot block ` +
+            `(status=${err.status ?? 'n/a'}, title=${JSON.stringify(err.title ?? '')}); ` +
+            `returning [].`,
+        );
+        return [];
+      }
+      throw err;
+    }
+
+    // Give the SPA / Drupal embed a beat to render any deferred listings.
+    try {
+      await page.waitForLoadState('networkidle', { timeout: 10_000 });
+    } catch {
+      /* networkidle is best-effort; carry on with whatever rendered */
+    }
+
+    const raw = await page.evaluate((selectorList) => {
+      const seen = new Set();
+      const items = [];
+
+      const pushItem = (titleText, href, locationText) => {
+        const t = (titleText || '').replace(/\s+/g, ' ').trim();
+        const u = href || '';
+        if (!t || t.length < 3) return;
+        const key = u || t;
+        if (seen.has(key)) return;
+        seen.add(key);
+        items.push({
+          title: t,
+          url: u,
+          location: (locationText || '').replace(/\s+/g, ' ').trim() || 'Zürich',
+        });
+      };
+
+      for (const sel of selectorList) {
+        const nodes = document.querySelectorAll(sel);
+        if (!nodes || nodes.length === 0) continue;
+        nodes.forEach((node) => {
+          // Anchor case
+          if (node.tagName === 'A') {
+            pushItem(
+              node.textContent || node.getAttribute('aria-label') || '',
+              node.href || '',
+              '',
+            );
+            return;
+          }
+          // Container case — look for nested anchor + location chip
+          const anchor = node.querySelector('a[href]');
+          const titleNode =
+            node.querySelector('[class*="title"], h2, h3, h4') || anchor;
+          const locNode = node.querySelector(
+            '[class*="location"], [class*="standort"], [class*="ort"]',
+          );
+          pushItem(
+            titleNode ? titleNode.textContent : '',
+            anchor ? anchor.href : '',
+            locNode ? locNode.textContent : '',
+          );
+        });
+        if (items.length > 0) break; // first matching selector wins
+      }
+      return items;
+    }, PROBE_SELECTORS);
+
+    if (!raw || raw.length === 0) {
+      console.warn(
+        `   ⚠️ Stadtspital Zürich page rendered but no known listing pattern matched. ` +
+          `The site likely embeds an external ATS — re-probe and clone the matching adapter.`,
+      );
+      return [];
+    }
+
+    return raw;
+  } catch (err) {
+    console.warn(
+      `   ⚠️ Stadtspital Zürich scrape failed unexpectedly: ${err && err.message ? err.message : err}; returning [].`,
+    );
+    return [];
+  } finally {
+    await closeAll(browser);
+  }
 }
 
 /**
