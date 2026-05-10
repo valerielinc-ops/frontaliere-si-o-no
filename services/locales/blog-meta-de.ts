@@ -7325,6 +7325,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arlotti-franchigia-frontalieri-letta.title': 'Arlotti fordert Freigrenze für Grenzgänger',
     'blog.article.arlotti-franchigia-frontalieri-letta.excerpt': 'Der Präsident von San Marino fordert die Wiederherstellung der Freigrenze für Grenzgänger im Tessin. Hier erfahren Sie, was sich ändert und was zu tun ist.',
     'blog.article.arlotti-franchigia-frontalieri-letta.imageAlt': 'Luganersee mit Blick auf die Schweizer-Italienische Grenze',
+    'blog.article.frontalieri-varese-10-maggio-2026.title': 'Varese, 10. Mai 2026: Nachrichten für Grenzgänger',
+    'blog.article.frontalieri-varese-10-maggio-2026.excerpt': 'Die neuesten Nachrichten von der italienisch-schweizerischen Grenze: Unfälle, Sportereignisse und mehr für Grenzgänger.',
+    'blog.article.frontalieri-varese-10-maggio-2026.imageAlt': 'Eine belebte Straße in Varese, in der Nähe der Schweizer Grenze, mit Menschen, die zur Arbeit in der Schweiz pendeln.',
 };
 
 export default blogMetaDe;

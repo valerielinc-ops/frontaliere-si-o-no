@@ -3684,6 +3684,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sommer-bocciato-inter-frontalieri': { name: 'Calcio', path: '/articoli-frontaliere/sommer-bocciato-inter-frontalieri', parent: 'blog' },
     'blog-precompilata-2026-frontalieri-ticino': { name: 'Precompilata 2026', path: '/articoli-frontaliere/precompilata-2026-frontalieri-ticino', parent: 'blog' },
     'blog-arlotti-franchigia-frontalieri-letta': { name: 'Franchigia frontalieri', path: '/articoli-frontaliere/arlotti-franchigia-frontalieri-letta', parent: 'blog' },
+    'blog-frontalieri-varese-10-maggio-2026': { name: 'Notizie frontalieri', path: '/articoli-frontaliere/frontalieri-varese-10-maggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

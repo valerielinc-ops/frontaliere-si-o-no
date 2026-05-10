@@ -7326,6 +7326,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arlotti-franchigia-frontalieri-letta.title': 'Arlotti chiede franchigia per frontalieri',
     'blog.article.arlotti-franchigia-frontalieri-letta.excerpt': 'Il presidente di San Marino chiede il ripristino della franchigia per i frontalieri in Ticino. Ecco cosa cambia e cosa fare.',
     'blog.article.arlotti-franchigia-frontalieri-letta.imageAlt': 'Lago di Lugano con vista sul confine svizzero-italiano',
+    'blog.article.frontalieri-varese-10-maggio-2026.title': 'Varese, 10 maggio 2026: notizie per i frontalieri',
+    'blog.article.frontalieri-varese-10-maggio-2026.excerpt': 'Le ultime notizie dal confine italo-svizzero: incidenti, eventi sportivi e altro per i frontalieri.',
+    'blog.article.frontalieri-varese-10-maggio-2026.imageAlt': 'Una strada affollata a Varese, vicino al confine svizzero, con persone in transito verso il lavoro in Svizzera.',
 };
 
 export default blogMetaIt;

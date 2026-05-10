@@ -7325,6 +7325,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arlotti-franchigia-frontalieri-letta.title': 'Arlotti requests tax-free allowance for cross-border workers',
     'blog.article.arlotti-franchigia-frontalieri-letta.excerpt': 'San Marino\'s president asks for the restoration of the tax-free allowance for cross-border workers in Ticino. Here\'s what changes and what to do.',
     'blog.article.arlotti-franchigia-frontalieri-letta.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
+    'blog.article.frontalieri-varese-10-maggio-2026.title': 'Varese, 10 May 2026: news for cross-border workers',
+    'blog.article.frontalieri-varese-10-maggio-2026.excerpt': 'Latest news from the Italian-Swiss border: incidents, sports events and more for cross-border workers.',
+    'blog.article.frontalieri-varese-10-maggio-2026.imageAlt': 'A busy street in Varese, near the Swiss border, with people commuting to work in Switzerland.',
 };
 
 export default blogMetaEn;

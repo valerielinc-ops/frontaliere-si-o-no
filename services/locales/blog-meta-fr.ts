@@ -7326,6 +7326,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arlotti-franchigia-frontalieri-letta.title': 'Arlotti demande une franchise pour les frontaliers',
     'blog.article.arlotti-franchigia-frontalieri-letta.excerpt': 'Le président de Saint-Marin demande le rétablissement de la franchise pour les frontaliers en Suisse. Voici ce qui change et ce qu\'il faut faire.',
     'blog.article.arlotti-franchigia-frontalieri-letta.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
+    'blog.article.frontalieri-varese-10-maggio-2026.title': 'Varèse, 10 mai 2026 : actualités pour les frontaliers',
+    'blog.article.frontalieri-varese-10-maggio-2026.excerpt': 'Dernières nouvelles de la frontière italo-suisse : incidents, événements sportifs et autres pour les frontaliers.',
+    'blog.article.frontalieri-varese-10-maggio-2026.imageAlt': 'Une rue animée à Varese, près de la frontière suisse, avec des personnes se rendant au travail en Suisse.',
 };
 
 export default blogMetaFr;

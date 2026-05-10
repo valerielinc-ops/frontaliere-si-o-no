@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-varese-10-maggio-2026",
+  "slug": "frontalieri-varese-10-maggio-2026",
+  "publishedAt": "2026-05-10T08:45:00.674Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 16.65635293275262,
+    "confidence": 0.8,
+    "finalScore": 13.325082346202095,
+    "topK": [
+      {
+        "slug": "frontalieri-ticino-8-maggio-2026",
+        "cosine": 0.876650154355401
+      },
+      {
+        "slug": "graudio-flash-2-maggio-2026",
+        "cosine": 0.8124119702605959
+      },
+      {
+        "slug": "svincolo-a2-sigirino-ritardo",
+        "cosine": 0.7769170999843727
+      },
+      {
+        "slug": "sconto-benzina-ticino",
+        "cosine": 0.7712252693368363
+      },
+      {
+        "slug": "guardia-medica-como-ponte-maggio-2026",
+        "cosine": 0.7708937885698846
+      }
+    ],
+    "score": 1.3325082346202095,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
