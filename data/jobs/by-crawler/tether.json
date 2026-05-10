@@ -286,11 +286,11 @@
     },
     {
       "id": "tether-3dddd8db6d3e",
-      "slug": "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan",
+      "slug": "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma-lazio",
       "slugByLocale": {
         "en": "research-engineer-intern-multimodal-llm-tether-ch",
-        "it": "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan",
-        "de": "forschungsingenieur-praktikant-multimodales-llm-tether-operations-milan",
+        "it": "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma-lazio",
+        "de": "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio",
         "fr": "stagiaire-ingenieur-recherche-llm-multimodal-tether-operations-milan"
       },
       "company": "Tether Operations",
@@ -350,7 +350,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T10:59:12.667Z"
+      "firstSeenAt": "2026-05-10T10:59:12.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan"
+        ],
+        "de": [
+          "forschungsingenieur-praktikant-multimodales-llm-tether-operations-milan"
+        ]
+      },
+      "previousSlugs": [
+        "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan",
+        "forschungsingenieur-praktikant-multimodales-llm-tether-operations-milan"
+      ]
     },
     {
       "id": "tether-d2f2c161fa60",
@@ -3850,7 +3862,7 @@
         "en": "machine-learning-engineer-intern-100-remote-tether-ch",
         "it": "tirocinante-ingegnere-machine-learning-100-da-remoto-tether-operations-london",
         "de": "praktikant-als-machine-learning-engineer-100-remote-tether-operations-london",
-        "fr": "stagiaire-ingenieur-en-apprentissage-automatique-100-a-distance-tether-operations-london"
+        "fr": "machine-learning-ingenieur-stagiaire-100-remote-tether-operations-london-greater-london"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -3909,7 +3921,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T10:59:11.896Z"
+      "firstSeenAt": "2026-05-10T10:59:11.896Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "stagiaire-ingenieur-en-apprentissage-automatique-100-a-distance-tether-operations-london"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-ingenieur-en-apprentissage-automatique-100-a-distance-tether-operations-london"
+      ]
     },
     {
       "id": "tether-e2dcdac2584d",
@@ -4277,12 +4297,12 @@
     },
     {
       "id": "tether-2d681a1df42b",
-      "slug": "stablecoin-research-analyst-100-remote-tether-ch",
+      "slug": "stablecoin-ricerca-analista-100-remote-tether-operations-roma-lazio",
       "slugByLocale": {
         "en": "stablecoin-research-analyst-100-remote-tether-ch",
-        "it": "stablecoin-research-analyst-100-remote-tether-ch",
+        "it": "stablecoin-ricerca-analista-100-remote-tether-operations-roma-lazio",
         "de": "stablecoin-research-analyst-100-remote-tether-ch",
-        "fr": "stablecoin-research-analyst-100-remote-tether-ch"
+        "fr": "stablecoin-recherche-analyste-100-remote-tether-operations-roma-lazio"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -4341,7 +4361,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T10:59:11.789Z"
+      "firstSeenAt": "2026-05-10T10:59:11.789Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stablecoin-research-analyst-100-remote-tether-ch"
+        ],
+        "fr": [
+          "stablecoin-research-analyst-100-remote-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stablecoin-research-analyst-100-remote-tether-ch"
+      ]
     },
     {
       "id": "tether-626b0d80c219",

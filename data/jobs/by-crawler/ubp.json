@@ -199,12 +199,12 @@
     },
     {
       "id": "ubp-66596982e1f3",
-      "slug": "it-business-analyst-credit-it-ubp-ch",
+      "slug": "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland",
-        "it": "it-business-analyst-credit-it-ubp-ch",
+        "it": "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland",
         "de": "it-business-analyst-credit-it-ubp-ch",
-        "fr": "it-business-analyst-credit-it-ubp-ch"
+        "fr": "it-business-analyste-credit-it-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -260,14 +260,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T11:03:00.281Z"
+      "firstSeenAt": "2026-05-10T11:03:00.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-business-analyst-credit-it-ubp-ch"
+        ],
+        "fr": [
+          "it-business-analyst-credit-it-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-business-analyst-credit-it-ubp-ch"
+      ]
     },
     {
       "id": "ubp-abf682cbf2d9",
-      "slug": "team-leader-it-compliance-ubp-ch",
+      "slug": "capo-squadra-it-compliance-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "team-leader-it-compliance-union-bancaire-privee-geneva-switzerland",
-        "it": "team-leader-it-compliance-ubp-ch",
+        "it": "capo-squadra-it-compliance-union-bancaire-privee-geneva-switzerland",
         "de": "team-leader-it-compliance-ubp-ch",
         "fr": "team-leader-it-compliance-ubp-ch"
       },
@@ -325,7 +336,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T11:02:59.740Z"
+      "firstSeenAt": "2026-05-10T11:02:59.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-it-compliance-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-it-compliance-ubp-ch"
+      ]
     },
     {
       "id": "ubp-69ca21fc1d2c",
@@ -394,12 +413,12 @@
     },
     {
       "id": "ubp-5433463079ec",
-      "slug": "investment-advisor-ubp-ch",
+      "slug": "investment-consulente-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "investment-advisor-union-bancaire-privee-geneva-switzerland",
-        "it": "investment-advisor-ubp-ch",
-        "de": "investment-advisor-ubp-ch",
-        "fr": "investment-advisor-ubp-ch"
+        "it": "investment-consulente-union-bancaire-privee-geneva-switzerland",
+        "de": "investment-berater-union-bancaire-privee-geneva-switzerland",
+        "fr": "investment-conseiller-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -455,7 +474,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T11:02:58.663Z"
+      "firstSeenAt": "2026-05-10T11:02:58.663Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-advisor-ubp-ch"
+        ],
+        "de": [
+          "investment-advisor-ubp-ch"
+        ],
+        "fr": [
+          "investment-advisor-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "investment-advisor-ubp-ch"
+      ]
     },
     {
       "id": "ubp-ae7c18e0fe8c",
@@ -589,11 +622,11 @@
     },
     {
       "id": "ubp-e60991c9c92c",
-      "slug": "structured-product-engineer-ubp-ch",
+      "slug": "structured-product-ingegnere-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "structured-product-engineer-union-bancaire-privee-geneva-switzerland",
-        "it": "structured-product-engineer-ubp-ch",
-        "de": "structured-product-engineer-ubp-ch",
+        "it": "structured-product-ingegnere-union-bancaire-privee-geneva-switzerland",
+        "de": "structured-product-ingenieur-union-bancaire-privee-geneva-switzerland",
         "fr": "structured-product-engineer-ubp-ch"
       },
       "company": "Union Bancaire Privée",
@@ -650,7 +683,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T11:02:57.033Z"
+      "firstSeenAt": "2026-05-10T11:02:57.033Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "structured-product-engineer-ubp-ch"
+        ],
+        "de": [
+          "structured-product-engineer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "structured-product-engineer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-b72376099c22",
@@ -784,12 +828,12 @@
     },
     {
       "id": "ubp-2fd20487f325",
-      "slug": "tax-specialist-ubp-ch-3",
+      "slug": "tax-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "tax-specialist-ubp-ch-3",
-        "de": "tax-specialist-ubp-ch-3",
-        "fr": "tax-specialist-ubp-ch-3"
+        "it": "tax-specialista-union-bancaire-privee-geneva-switzerland",
+        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -836,10 +880,20 @@
       "previousSlugsByLocale": {
         "en": [
           "tax-specialist-ubp-ch"
+        ],
+        "it": [
+          "tax-specialist-ubp-ch-3"
+        ],
+        "de": [
+          "tax-specialist-ubp-ch-3"
+        ],
+        "fr": [
+          "tax-specialist-ubp-ch-3"
         ]
       },
       "previousSlugs": [
-        "tax-specialist-ubp-ch"
+        "tax-specialist-ubp-ch",
+        "tax-specialist-ubp-ch-3"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -922,12 +976,12 @@
     },
     {
       "id": "ubp-55d118f292f3",
-      "slug": "head-of-internal-audit-ubp-ch",
+      "slug": "responsabile-internal-audit-union-bancaire-privee-london-united-kingdom",
       "slugByLocale": {
         "en": "head-of-internal-audit-union-bancaire-privee-london-united-kingdom",
-        "it": "head-of-internal-audit-ubp-ch",
-        "de": "head-of-internal-audit-ubp-ch",
-        "fr": "head-of-internal-audit-ubp-ch"
+        "it": "responsabile-internal-audit-union-bancaire-privee-london-united-kingdom",
+        "de": "leiter-internal-audit-union-bancaire-privee-london-united-kingdom",
+        "fr": "responsable-internal-audit-union-bancaire-privee-london-united-kingdom"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -983,7 +1037,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T11:02:54.326Z"
+      "firstSeenAt": "2026-05-10T11:02:54.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-internal-audit-ubp-ch"
+        ],
+        "de": [
+          "head-of-internal-audit-ubp-ch"
+        ],
+        "fr": [
+          "head-of-internal-audit-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-internal-audit-ubp-ch"
+      ]
     },
     {
       "id": "ubp-66e580c8f3ae",
@@ -1312,12 +1380,12 @@
     },
     {
       "id": "ubp-9edc4a537980",
-      "slug": "client-documentation-specialist-ubp-ch",
+      "slug": "client-documentation-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "client-documentation-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "client-documentation-specialist-ubp-ch",
-        "de": "client-documentation-specialist-ubp-ch",
-        "fr": "client-documentation-specialist-ubp-ch"
+        "it": "client-documentation-specialista-union-bancaire-privee-geneva-switzerland",
+        "de": "client-documentation-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "client-documentation-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -1373,7 +1441,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T11:02:51.054Z"
+      "firstSeenAt": "2026-05-10T11:02:51.054Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-documentation-specialist-ubp-ch"
+        ],
+        "de": [
+          "client-documentation-specialist-ubp-ch"
+        ],
+        "fr": [
+          "client-documentation-specialist-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "client-documentation-specialist-ubp-ch"
+      ]
     },
     {
       "id": "ubp-0f55b2dedd3e",
@@ -1642,7 +1724,7 @@
         "en": "phone-operator-ubp-ch",
         "it": "phone-operator-union-bancaire-privee-geneva-switzerland",
         "de": "phone-operator-ubp-ch",
-        "fr": "phone-operator-ubp-ch"
+        "fr": "phone-operateur-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -1698,7 +1780,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T11:02:48.327Z"
+      "firstSeenAt": "2026-05-10T11:02:48.327Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "phone-operator-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phone-operator-ubp-ch"
+      ]
     },
     {
       "id": "ubp-89a35dcb54c4",
@@ -1832,12 +1922,12 @@
     },
     {
       "id": "ubp-00af29d45ac0",
-      "slug": "hr-reporting-specialist-ubp-ch",
+      "slug": "risorse-umane-reporting-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "hr-reporting-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "hr-reporting-specialist-ubp-ch",
-        "de": "hr-reporting-specialist-ubp-ch",
-        "fr": "hr-reporting-specialist-ubp-ch"
+        "it": "risorse-umane-reporting-specialista-union-bancaire-privee-geneva-switzerland",
+        "de": "personalwesen-reporting-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "ressources-humaines-reporting-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -1893,7 +1983,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T11:02:46.698Z"
+      "firstSeenAt": "2026-05-10T11:02:46.698Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-reporting-specialist-ubp-ch"
+        ],
+        "de": [
+          "hr-reporting-specialist-ubp-ch"
+        ],
+        "fr": [
+          "hr-reporting-specialist-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-reporting-specialist-ubp-ch"
+      ]
     },
     {
       "id": "ubp-9039bd9f2bce",
@@ -2612,12 +2716,12 @@
     },
     {
       "id": "ubp-a79968b8b298",
-      "slug": "system-engineer-ubp-ch",
+      "slug": "system-ingegnere-messaging-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "system-engineer-messaging-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "system-engineer-ubp-ch",
-        "de": "system-engineer-ubp-ch",
-        "fr": "system-engineer-ubp-ch"
+        "it": "system-ingegnere-messaging-specialista-union-bancaire-privee-geneva-switzerland",
+        "de": "system-ingenieur-messaging-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "system-ingenieur-messaging-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -2664,10 +2768,20 @@
       "previousSlugsByLocale": {
         "en": [
           "system-engineer-messaging-specialist-ubp-ch"
+        ],
+        "it": [
+          "system-engineer-ubp-ch"
+        ],
+        "de": [
+          "system-engineer-ubp-ch"
+        ],
+        "fr": [
+          "system-engineer-ubp-ch"
         ]
       },
       "previousSlugs": [
-        "system-engineer-messaging-specialist-ubp-ch"
+        "system-engineer-messaging-specialist-ubp-ch",
+        "system-engineer-ubp-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2819,8 +2933,8 @@
       "slugByLocale": {
         "en": "quality-control-specialist-temporary-6-months-union-bancaire-privee-geneva-switzerland",
         "it": "quality-control-specialist-temporary-6-months-ubp-ch",
-        "de": "quality-control-specialist-temporary-6-months-ubp-ch",
-        "fr": "quality-control-specialist-temporary-6-months-ubp-ch"
+        "de": "qualitat-control-spezialist-temporary-6-months-union-bancaire-privee-geneva-switzerland",
+        "fr": "qualite-control-specialiste-temporary-6-months-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -2953,12 +3067,12 @@
     },
     {
       "id": "ubp-d70f874f7e9b",
-      "slug": "corporate-action-specialist-ubp-ch",
+      "slug": "corporate-action-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "corporate-action-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "corporate-action-specialist-ubp-ch",
-        "de": "corporate-action-specialist-ubp-ch",
-        "fr": "corporate-action-specialist-ubp-ch"
+        "it": "corporate-action-specialista-union-bancaire-privee-geneva-switzerland",
+        "de": "corporate-action-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "corporate-action-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3014,7 +3128,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T11:02:37.414Z"
+      "firstSeenAt": "2026-05-10T11:02:37.414Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "corporate-action-specialist-ubp-ch"
+        ],
+        "de": [
+          "corporate-action-specialist-ubp-ch"
+        ],
+        "fr": [
+          "corporate-action-specialist-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "corporate-action-specialist-ubp-ch"
+      ]
     },
     {
       "id": "ubp-3ce9a3123100",
@@ -3083,12 +3211,12 @@
     },
     {
       "id": "ubp-967b0831912c",
-      "slug": "tax-specialist-ubp-ch-2",
+      "slug": "tax-specialista-union-bancaire-privee-geneva-switzerland-53af7f",
       "slugByLocale": {
         "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "tax-specialist-ubp-ch-2",
-        "de": "tax-specialist-ubp-ch-2",
-        "fr": "tax-specialist-ubp-ch-2"
+        "it": "tax-specialista-union-bancaire-privee-geneva-switzerland-53af7f",
+        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland-53af7f",
+        "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland-53af7f"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3135,10 +3263,20 @@
       "previousSlugsByLocale": {
         "en": [
           "tax-specialist-ubp-ch"
+        ],
+        "it": [
+          "tax-specialist-ubp-ch-2"
+        ],
+        "de": [
+          "tax-specialist-ubp-ch-2"
+        ],
+        "fr": [
+          "tax-specialist-ubp-ch-2"
         ]
       },
       "previousSlugs": [
-        "tax-specialist-ubp-ch"
+        "tax-specialist-ubp-ch",
+        "tax-specialist-ubp-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
