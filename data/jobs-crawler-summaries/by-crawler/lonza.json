@@ -1,18 +1,19 @@
 {
   "key": "lonza",
   "label": "Lonza",
-  "generatedAt": "2026-05-10T10:30:41.273Z",
+  "generatedAt": "2026-05-10T22:01:16.182Z",
   "total": 40,
-  "newCount": 40,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 40,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 35081,
-  "avgDurationMs": 35081,
+  "durationMs": 36472,
+  "avgDurationMs": 36472,
   "durationHistory": [
-    35081
+    36472
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "lonza-01931be95920",
       "slug": "internship-global-master-data-analyst-80-100-m-f-d-lonza-ch",
@@ -37,13 +38,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Internship-Global-Master-Data-Analyst-80-100---m-f-d-_R75752-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:08.739Z",
+      "crawledAt": "2026-05-10T22:00:42.141Z",
       "jobReqId": "R75752",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:08.739Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -71,13 +74,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Bioprocess-Engineer_R76086",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:09.532Z",
+      "crawledAt": "2026-05-10T22:00:42.888Z",
       "jobReqId": "R76086",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:09.532Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -105,13 +110,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel-HR/HR-Engagement---Communication-Intern-80-100-_R75991",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:10.342Z",
+      "crawledAt": "2026-05-10T22:00:43.780Z",
       "jobReqId": "R75991",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:10.342Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -139,13 +146,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Manager-QA--Contamination-Prevention---Control--f-m-d-_R75875",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:11.957Z",
+      "crawledAt": "2026-05-10T22:00:44.523Z",
       "jobReqId": "R75875",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:11.957Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -173,13 +182,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/CQV-Engineer---Qualification---Validation-Engineer-80-100---m-f-d-_R76279-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:12.912Z",
+      "crawledAt": "2026-05-10T22:00:45.305Z",
       "jobReqId": "R76279",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:12.912Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -207,13 +218,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/BIO-Operator-P1P2-4-Schicht--m-w-d-_R76304-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:13.669Z",
+      "crawledAt": "2026-05-10T22:00:46.085Z",
       "jobReqId": "R76304",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:13.669Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -241,13 +254,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/QA-Specialist--Automation-EBR--m-f-d--80-100-_R75444",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:14.298Z",
+      "crawledAt": "2026-05-10T22:00:46.957Z",
       "jobReqId": "R75444",
-      "_qualityScore": 53,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:14.298Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -275,13 +290,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Stein/Operator-Visual-Inspection-80-100-_R76115-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:15.073Z",
+      "crawledAt": "2026-05-10T22:00:47.716Z",
       "jobReqId": "R76115",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:15.073Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -309,13 +326,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel/Quality-Assurance-Expert-Analytics--Drug-Product-Services---12-months-fix-term-contract-80-100-_R75100",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:15.830Z",
+      "crawledAt": "2026-05-10T22:00:48.440Z",
       "jobReqId": "R75100",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:15.830Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -343,13 +362,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Servicetechniker---Wgetechnik-80-100---m-w-d-_R76187",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:16.477Z",
+      "crawledAt": "2026-05-10T22:00:49.197Z",
       "jobReqId": "R76187",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:16.477Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -377,13 +398,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Servicetechniker-Reinraum-80-100---m-w-d-_R76186",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:17.109Z",
+      "crawledAt": "2026-05-10T22:00:50.106Z",
       "jobReqId": "R76186",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:17.109Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -411,13 +434,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Automatiker-EFZ-80-100---m-w-d-_R76185",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:17.785Z",
+      "crawledAt": "2026-05-10T22:00:50.953Z",
       "jobReqId": "R76185",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:17.785Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -445,13 +470,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76184-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:18.424Z",
+      "crawledAt": "2026-05-10T22:00:51.722Z",
       "jobReqId": "R76184",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:18.424Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -479,13 +506,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Elektroinstallateur-EFZ---Automatiker-EFZ---EMR-Schicht-80-100---m-w-d-_R76182",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:19.087Z",
+      "crawledAt": "2026-05-10T22:00:52.508Z",
       "jobReqId": "R76182",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:19.087Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -513,13 +542,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Trainee-Logistics--f-m-d-_R75843",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:19.778Z",
+      "crawledAt": "2026-05-10T22:00:53.426Z",
       "jobReqId": "R75843",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:19.778Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -547,13 +578,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Operator-Utilities----Mitarbeiter-technischer-Unterhalt-80-100----m-w-d-_R76180",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:20.439Z",
+      "crawledAt": "2026-05-10T22:00:54.181Z",
       "jobReqId": "R76180",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:20.439Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -581,13 +614,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/DeltaV-Automation-Engineer-80-100---m-f-d-_R76179-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:21.094Z",
+      "crawledAt": "2026-05-10T22:00:54.997Z",
       "jobReqId": "R76179",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:21.094Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -615,13 +650,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel/Proposal-Support-Specialist--m-f-d-_R75979",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:21.710Z",
+      "crawledAt": "2026-05-10T22:00:55.714Z",
       "jobReqId": "R75979",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:21.710Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -649,13 +686,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel/Paralegal-80-100---m-f-d-_R75651-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:22.478Z",
+      "crawledAt": "2026-05-10T22:00:56.330Z",
       "jobReqId": "R75651",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:22.478Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -683,13 +722,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Senior-QA-Specialist--Clean-Utilities-and-Environmental-Monitoring-80-100---f-m-d-_R75647",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:23.353Z",
+      "crawledAt": "2026-05-10T22:00:57.095Z",
       "jobReqId": "R75647",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:23.353Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -717,13 +758,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Projektleiter-in-Analytik--f-m-d-_R75754",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:24.140Z",
+      "crawledAt": "2026-05-10T22:00:57.860Z",
       "jobReqId": "R75754",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:24.140Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -751,13 +794,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist--m-f-d-_R72960",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:24.916Z",
+      "crawledAt": "2026-05-10T22:00:59.083Z",
       "jobReqId": "R72960",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:24.916Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -785,13 +830,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Project-Leader--Quality-Control-Bioconjugates--m-w-d----PhD-graduates-as-well-as-experienced-professionals-welcome_R74085",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:25.714Z",
+      "crawledAt": "2026-05-10T22:01:00.015Z",
       "jobReqId": "R74085",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:25.714Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -819,13 +866,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/XMLNAME--Senior---Program-Manager--Advanced-Synthesis-80-100-----Evergreen-_R76159",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:26.509Z",
+      "crawledAt": "2026-05-10T22:01:00.772Z",
       "jobReqId": "R76159",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:26.509Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -853,13 +902,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Anlagemeister-Support-Infra-80-100---m-w-d-_R75881-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:27.387Z",
+      "crawledAt": "2026-05-10T22:01:01.637Z",
       "jobReqId": "R75881",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:27.387Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -887,13 +938,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/QC-Associate-60---f-m-d-_R75649",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:28.124Z",
+      "crawledAt": "2026-05-10T22:01:02.464Z",
       "jobReqId": "R75649",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:28.124Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -921,13 +974,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel/Global-Head-of-GBSO_R76096",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:28.898Z",
+      "crawledAt": "2026-05-10T22:01:03.182Z",
       "jobReqId": "R76096",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:28.898Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -955,13 +1010,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/MES-Expert-Drug-Product-80-100---m-f-d-_R75817",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:29.673Z",
+      "crawledAt": "2026-05-10T22:01:04.064Z",
       "jobReqId": "R75817",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:29.673Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -989,13 +1046,15 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Operator---Pharmafacharbeiter--m-w-d----Chance-fr-Quereinsteiger-im-4-Schicht-Betrieb_R76077",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T10:30:30.479Z",
+      "crawledAt": "2026-05-10T22:01:04.787Z",
       "jobReqId": "R76077",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:30.479Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -1023,18 +1082,19 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Senior-Quality-Excellence-Manager-80-100---f-m-d-_R70475",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T10:30:31.118Z",
+      "crawledAt": "2026-05-10T22:01:05.538Z",
       "jobReqId": "R70475",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:30:31.118Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
