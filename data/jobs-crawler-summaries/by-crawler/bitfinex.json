@@ -1,19 +1,18 @@
 {
   "key": "bitfinex",
   "label": "Bitfinex",
-  "generatedAt": "2026-05-09T21:01:29.038Z",
+  "generatedAt": "2026-05-10T09:40:17.235Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
+  "newCount": 8,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3285,
-  "avgDurationMs": 3285,
+  "durationMs": 2893,
+  "avgDurationMs": 2893,
   "durationHistory": [
-    3285
+    2893
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "bitfinex-6f0df7365fbc",
       "slug": "payment-processing-specialist-taiwan-bitfinex-ch",
@@ -26,7 +25,7 @@
       "url": "https://bitfinex.recruitee.com/o/payment-processing-specialist-taiwan",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:01:26.330Z",
+      "crawledAt": "2026-05-10T09:40:14.834Z",
       "addressLocality": "Taipei",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -44,13 +43,11 @@
       "postedDate": "2026-05-05",
       "applyUrl": "https://careers.bitfinex.com/o/payment-processing-specialist-taiwan/c/new",
       "department": "Compliance",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-05T21:20:55.252Z",
-      "_qualityScore": 80,
+      "_qualityScore": 63,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -66,7 +63,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-worldwide-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:01:26.336Z",
+      "crawledAt": "2026-05-10T09:40:14.842Z",
       "addressLocality": "Barcelona",
       "addressRegion": "Catalunya [Cataluña]",
       "addressCountry": "",
@@ -84,12 +81,11 @@
       "postedDate": "2026-04-02",
       "applyUrl": "https://careers.bitfinex.com/o/junior-risk-monitoring-analyst-100-remote-worldwide-5/c/new",
       "department": "Risk Management",
-      "firstSeenAt": "2026-04-13T10:05:13.357Z",
-      "_qualityScore": 82,
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -105,7 +101,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-cet-timezone",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:01:26.472Z",
+      "crawledAt": "2026-05-10T09:40:14.964Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -123,13 +119,11 @@
       "postedDate": "2026-04-01",
       "applyUrl": "https://careers.bitfinex.com/o/junior-risk-monitoring-analyst-100-remote-cet-timezone/c/new",
       "department": "Risk Management",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-27T21:20:32.151Z",
-      "_qualityScore": 78,
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -145,7 +139,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:01:26.341Z",
+      "crawledAt": "2026-05-10T09:40:14.848Z",
       "addressLocality": "Budapest",
       "addressRegion": "Budapest",
       "addressCountry": "",
@@ -163,12 +157,11 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide-12/c/new",
       "department": "Engineering",
-      "firstSeenAt": "2026-04-13T10:05:13.359Z",
-      "_qualityScore": 82,
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -184,7 +177,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-nodejs-backend-developer-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:01:26.390Z",
+      "crawledAt": "2026-05-10T09:40:14.883Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -202,12 +195,11 @@
       "postedDate": "2026-03-16",
       "applyUrl": "https://careers.bitfinex.com/o/senior-nodejs-backend-developer-100-remote-worldwide/c/new",
       "department": "Engineering",
-      "firstSeenAt": "2026-04-13T10:05:13.377Z",
-      "_qualityScore": 82,
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -223,7 +215,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-8",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:01:26.394Z",
+      "crawledAt": "2026-05-10T09:40:14.887Z",
       "addressLocality": "Ha Noi",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -241,12 +233,11 @@
       "postedDate": "2026-03-11",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-8/c/new",
       "department": "Marketing",
-      "firstSeenAt": "2026-04-14T21:12:43.957Z",
-      "_qualityScore": 82,
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -262,7 +253,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-7",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:01:26.420Z",
+      "crawledAt": "2026-05-10T09:40:14.912Z",
       "addressLocality": "Sydney",
       "addressRegion": "New South Wales",
       "addressCountry": "",
@@ -280,12 +271,11 @@
       "postedDate": "2026-03-09",
       "applyUrl": "https://careers.bitfinex.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-7/c/new",
       "department": "Marketing",
-      "firstSeenAt": "2026-04-13T10:05:13.393Z",
-      "_qualityScore": 84,
+      "_qualityScore": 63,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -301,7 +291,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-backend-developer-nodejs-fully-remote-worldwide-31",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-09T21:01:26.444Z",
+      "crawledAt": "2026-05-10T09:40:14.936Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -319,16 +309,16 @@
       "postedDate": "2026-03-02",
       "applyUrl": "https://careers.bitfinex.com/o/senior-backend-developer-nodejs-fully-remote-worldwide-31/c/new",
       "department": "Engineering",
-      "firstSeenAt": "2026-04-13T10:05:13.413Z",
-      "_qualityScore": 82,
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 14
       }
     }
   ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
