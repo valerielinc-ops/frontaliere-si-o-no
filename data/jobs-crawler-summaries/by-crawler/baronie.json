@@ -1,16 +1,16 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-05-10T09:38:52.395Z",
+  "generatedAt": "2026-05-10T21:05:26.891Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11062,
-  "avgDurationMs": 11062,
+  "durationMs": 12491,
+  "avgDurationMs": 12491,
   "durationHistory": [
-    11062
+    12491
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "addressLocality": "Caslano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "TI",
+      "canton": "AG",
       "country": "CH",
       "category": "general",
       "sector": "Alimentare / Cioccolato",
@@ -44,7 +44,6 @@
       "postalCode": "6613",
       "firstSeenAt": "2026-04-17T09:25:26.001Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
