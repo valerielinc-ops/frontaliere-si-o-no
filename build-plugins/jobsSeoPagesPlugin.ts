@@ -343,11 +343,16 @@ export function composeJobPageTitle(
  // downstream brand-fitting word-trim.
  const maxCore = Math.max(1, JOB_TITLE_MAX - disamb.length - JOB_TITLE_BRAND_SUFFIX.length);
  const core = truncateJobCorePreservingCity(jobTitle, company, city, locale, maxCore);
- // Pass JOB_TITLE_MAX explicitly so the universal-default 66-char cap in
- // shared/titleSuffix.ts does not retroactively drop the brand on
- // job-board pages whose city+disambiguator+role inherently land at
- // 67-70 char. Job pages are tracked separately in the audit baseline.
- return buildTitleWithBrand(`${core}${disamb}`, JOB_TITLE_BRAND_SUFFIX, JOB_TITLE_MAX);
+ // Use TITLE_MAX_CHARS=66 (audit:title-length cap) so that when the
+ // headline + brand exceeds 66 the BRAND is dropped while the headline
+ // stays whole — preferring keyword content over brand suffix per user
+ // policy ("preferisci il titolo al brand"). The city-preserving core
+ // is still budgeted against JOB_TITLE_MAX=70 so the trailing city +
+ // disambiguator hash never get amputated; this only governs whether
+ // the brand suffix gets appended. Pages whose core+disamb already
+ // exceed 66 (rare — capped to ≤48 by maxCore math above) return the
+ // headline verbatim, no `…` truncation per titleSuffix policy.
+ return buildTitleWithBrand(`${core}${disamb}`, JOB_TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS);
 }
 
 /** Compose H1: job title + company only (no city, no brand). */
