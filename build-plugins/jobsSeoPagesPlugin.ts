@@ -550,8 +550,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   * collapse AI/AR/BL/BS onto APPENZELLO/BASILEA via {@link resolveCantonGroup}.
   */
  type CantonLocale = 'it' | 'en' | 'de' | 'fr';
+ type CantonSlugRecord = Record<CantonLocale, string> & { dePrefix?: string };
  type CantonSlugFile = {
-   cantons: Record<string, Record<CantonLocale, string>>;
+   cantons: Record<string, CantonSlugRecord>;
    cantonGroups?: Record<string, { members: readonly string[] }>;
    aggregate: Record<CantonLocale, string>;
  };
@@ -801,6 +802,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const SECTION_PREFIX_BY_LOCALE: Record<CantonLocale, string> = {
    it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi',
  };
+ /**
+  * Build the canton-aware top-level URL segment (e.g. `cerca-lavoro-zurigo`,
+  * `jobs-im-aargau`, `jobs-in-der-waadt`). For non-TI cantons we honour the
+  * optional `dePrefix` override on the canton record so cantons whose name
+  * takes a definite article in German (im Aargau, im Thurgau, im Jura,
+  * im Wallis, in der Waadt) emit grammatically correct URLs. Note `dePrefix`
+  * is the FULL prefix INCLUDING trailing hyphen (`jobs-im-`, `jobs-in-der-`),
+  * so we concatenate directly with the slug — no inserted hyphen.
+  */
  function buildCantonAwareSection(locale: CantonLocale, cantonCode: string): string {
    const raw = String(cantonCode || '').toUpperCase();
    if (!raw || raw === 'TI') return sectionByLocale[locale];
@@ -808,6 +818,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
      return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(AGGREGATE_KEY, locale)}`;
    }
    const code = resolveCantonGroup(raw);
+   if (locale === 'de') {
+     const entry = cantonSlugFile.cantons[code];
+     if (entry?.dePrefix) {
+       return `${entry.dePrefix}${entry.de}`;
+     }
+   }
    return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(code, locale)}`;
  }
  const localePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {

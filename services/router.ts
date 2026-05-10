@@ -831,6 +831,13 @@ interface CantonSlugRecord {
  en: string;
  de: string;
  fr: string;
+ /**
+  * Optional German prefix override for cantons whose name takes a
+  * definite article in German (e.g. `'jobs-im-'` for AG/TG/JU/VS,
+  * `'jobs-in-der-'` for VD). When set, replaces the default `JOB_BOARD_PREFIX.de`
+  * for that canton only. TI stays special-cased via {@link JOB_BOARD_PREFIX_LEGACY_DE}.
+  */
+ dePrefix?: string;
 }
 interface CantonGroupRecord {
  members: readonly string[];
@@ -921,6 +928,13 @@ export function getJobBoardSlugForCanton(cantonCode: string, locale: Locale): st
    // can detect & log; we never throw out of a router helper.
    return `${JOB_BOARD_PREFIX[locale]}ticino`;
  }
+ // German preposition override: cantons whose name takes a definite article
+ // in German (im Aargau, im Thurgau, im Jura, im Wallis, in der Waadt) get
+ // a per-canton dePrefix instead of the bare `jobs-in-`. Grammatically
+ // accurate URLs help Google rank cantonal queries in DE.
+ if (locale === 'de' && record.dePrefix) {
+   return `${record.dePrefix}${record[locale]}`;
+ }
  return `${JOB_BOARD_PREFIX[locale]}${record[locale]}`;
 }
 
@@ -970,6 +984,18 @@ export function parseJobBoardSlug(
  // Legacy DE Tessin form.
  if (locale === 'de' && pathSegment === `${JOB_BOARD_PREFIX_LEGACY_DE}tessin`) {
    return { cantonCode: 'TI', isAggregator: false };
+ }
+
+ // German per-canton dePrefix overrides (jobs-im-aargau, jobs-im-thurgau,
+ // jobs-im-jura, jobs-im-wallis, jobs-in-der-waadt). Check before the
+ // default JOB_BOARD_PREFIX walk so e.g. `jobs-in-der-waadt` doesn't get
+ // misparsed via the bare `jobs-in-` prefix.
+ if (locale === 'de') {
+   for (const [code, record] of Object.entries(CANTON_URL_SLUGS.cantons)) {
+     if (record.dePrefix && pathSegment === `${record.dePrefix}${record.de}`) {
+       return { cantonCode: code, isAggregator: false };
+     }
+   }
  }
 
  const prefix = JOB_BOARD_PREFIX[locale];
