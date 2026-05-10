@@ -7337,6 +7337,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.venezia-ildegarda-frontalieri.title': 'Venice: a sound experience inspired by Hildegard of Bingen',
     'blog.article.venezia-ildegarda-frontalieri.excerpt': 'A unique experience in Venice, inspired by Saint Hildegard of Bingen, offers a sonic prayer for visitors.',
     'blog.article.venezia-ildegarda-frontalieri.imageAlt': 'Serene view of Lake Lugano with surrounding mountains',
+    'blog.article.tre-arresti-rissa-ambrosino-cavalla.title': 'Three more arrests in Enzo Ambrosino\'s murder case',
+    'blog.article.tre-arresti-rissa-ambrosino-cavalla.excerpt': 'New developments in the investigation into Enzo Ambrosino\'s murder in Induno Olona. Three people arrested and a horse put down in Castelveccana.',
+    'blog.article.tre-arresti-rissa-ambrosino-cavalla.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

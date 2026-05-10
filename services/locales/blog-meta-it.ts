@@ -7338,6 +7338,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.venezia-ildegarda-frontalieri.title': 'Venezia: esperienza sonora ispirata a Ildegarda di Bingen',
     'blog.article.venezia-ildegarda-frontalieri.excerpt': 'Un\'esperienza unica a Venezia, ispirata a Santa Ildegarda di Bingen, offre una preghiera sonora per i visitatori.',
     'blog.article.venezia-ildegarda-frontalieri.imageAlt': 'Vista serena del Lago di Lugano con le montagne circostanti',
+    'blog.article.tre-arresti-rissa-ambrosino-cavalla.title': 'Altri tre arresti per la rissa in cui morì Enzo Ambrosino',
+    'blog.article.tre-arresti-rissa-ambrosino-cavalla.excerpt': 'Nuovi sviluppi nelle indagini sull\'omicidio di Enzo Ambrosino a Induno Olona. Tre persone arrestate e una cavalla abbattuta a Castelveccana.',
+    'blog.article.tre-arresti-rissa-ambrosino-cavalla.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

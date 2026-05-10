@@ -3688,6 +3688,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-swiss-riduce-personale-amministrativo': { name: 'Swiss riduzione personale', path: '/articoli-frontaliere/swiss-riduce-personale-amministrativo', parent: 'blog' },
     'blog-palacinema-locarno-urgenti-2026': { name: 'Palacinema Locarno', path: '/articoli-frontaliere/palacinema-locarno-urgenti-2026', parent: 'blog' },
     'blog-venezia-ildegarda-frontalieri': { name: 'Venezia, esperienza sonora', path: '/articoli-frontaliere/venezia-ildegarda-frontalieri', parent: 'blog' },
+    'blog-tre-arresti-rissa-ambrosino-cavalla': { name: 'Novità', path: '/articoli-frontaliere/tre-arresti-rissa-ambrosino-cavalla', parent: 'blog' },
  };
 
  const info = sectionNames[section];

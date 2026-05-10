@@ -7337,6 +7337,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.venezia-ildegarda-frontalieri.title': 'Venedig: Klangliche Erfahrung inspiriert von Hildegard von Bingen',
     'blog.article.venezia-ildegarda-frontalieri.excerpt': 'Einzigartiges Erlebnis in Venedig, inspiriert von der Heiligen Hildegard von Bingen, bietet den Besuchern ein Klanggebet.',
     'blog.article.venezia-ildegarda-frontalieri.imageAlt': 'Ruhevolle Aussicht auf den Luganersee mit umliegenden Bergen',
+    'blog.article.tre-arresti-rissa-ambrosino-cavalla.title': 'Drei weitere Festnahmen im Todesfall Enzo Ambrosino',
+    'blog.article.tre-arresti-rissa-ambrosino-cavalla.excerpt': 'Neue Entwicklungen in den Ermittlungen zum Mord an Enzo Ambrosino in Induno Olona. Drei Personen festgenommen und ein Pferd in Castelveccana erschossen.',
+    'blog.article.tre-arresti-rissa-ambrosino-cavalla.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -23384,4 +23384,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tre-arresti-rissa-ambrosino-cavalla',
+ category: 'novita',
+ date: '2026-05-10T09:27:26.034Z',
+ image: '/images/blog/tre-arresti-rissa-ambrosino-cavalla.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
