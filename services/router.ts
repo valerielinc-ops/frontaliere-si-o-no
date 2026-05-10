@@ -64,6 +64,7 @@ import {
   parseFaqHubPath,
 } from '../data/faq-hub/routes';
 import { isSeoHubPath, localeFromHubPath } from '../build-plugins/seoHubsData';
+import CANTON_URL_SLUGS_RAW from '../data/canton-url-slugs.json';
 
 // ── Workstream C SemRush landings ────────────────────────────
 // Five static-HTML-only long-tail SEO pages (Workstream C of the SemRush
@@ -605,8 +606,29 @@ export interface AppRoute {
   * localized editorial-landing slug (e.g. `ricerca-lugano`) so client-side
   * rendering shows the full location landing UI. `jobBoardCity` takes
   * precedence in {@link buildPath} so the emitted URL uses the clean slug.
+  *
+  * Widened from a TI-only literal union to `string` (P1.3, 2026-05-10) to
+  * accommodate cities outside Ticino under the new per-canton slugs
+  * (e.g. `/cerca-lavoro-zurigo/zurich/`). Existing TI city values
+  * (`'lugano' | 'mendrisio' | 'bellinzona' | 'locarno' | 'chiasso'`) keep
+  * their semantics — downstream code that did `CITY_HUB_SLUG[locale][city]`
+  * continues to work because `cityHit` is still typed via `CITY_HUB_KEYS`
+  * lookup before assignment. For non-TI cantons, the city string is
+  * passed through opaquely (no CITY_HUB_SLUG lookup; static-overlay HTML
+  * provides the rendering).
   */
- jobBoardCity?: 'lugano' | 'mendrisio' | 'bellinzona' | 'locarno' | 'chiasso';
+ jobBoardCity?: string;
+ /**
+  * Canton ISO code (`'ZH'`, `'GE'`, …) when the URL is the per-canton
+  * job-board variant introduced in P1.3, e.g. `/cerca-lavoro-zurigo/…`
+  * → `jobBoardCanton: 'ZH'`. The reserved sentinel `'_AGGREGATE_'`
+  * marks the Switzerland-wide aggregator (`/cerca-lavoro-svizzera/`,
+  * `/find-jobs-switzerland/`, `/jobs-in-schweiz/`,
+  * `/trouver-emploi-suisse/`). Absent (`undefined`) means the legacy
+  * Ticino-only slug `table.jobBoard` matched, preserving every pre-P1.3
+  * URL (`/cerca-lavoro-ticino/…` etc.) unchanged.
+  */
+ jobBoardCanton?: string;
  /**
   * Canonical sector-hub key when the URL matches a sector-hub path
   * (e.g. /cerca-lavoro-ticino/infermieri/ → `jobBoardSector: 'infermieri'`).
@@ -769,6 +791,161 @@ interface SlugTable {
  comparatori: string;
  strumenti: string;
  guide: string;
+}
+
+// ── Per-canton job-board slugs (P1.3 Cathedral CH-wide expansion) ─────
+//
+// Background. Pre-P1.3 the project had ONE Ticino-only job-board route
+// per locale (`SLUG_TABLES[locale].jobBoard` → `cerca-lavoro-ticino`,
+// `find-jobs-ticino`, `jobs-im-tessin`, `trouver-emploi-tessin`). The
+// Cathedral expansion adds 25 additional canton variants + a
+// Switzerland-wide aggregator while keeping every legacy URL alive.
+//
+// Routing dispatch tree:
+//
+//                                 /<first-segment>/...
+//                                          │
+//        ┌─────────────────────────────────┼──────────────────────────────┐
+//        ▼                                 ▼                              ▼
+//   first === table.jobBoard       parseJobBoardSlug(first)          (other slugs)
+//   (LEGACY Ticino path,           returns { cantonCode, isAggregator }
+//    untouched — every            │
+//    /cerca-lavoro-ticino/…       ▼
+//    URL keeps working)        cantonCode set      isAggregator
+//                                  │                   │
+//                                  ▼                   ▼
+//                       jobBoardCanton: 'ZH',   jobBoardCanton: '_AGGREGATE_'
+//                       jobBoardCity?: <slug>   (Switzerland-wide)
+//                       jobSlug?: <slug>
+//
+// City-vs-job disambiguation inside the per-canton branch matches the
+// legacy heuristic: a known `CITY_HUB_KEYS` entry → `jobBoardCity`;
+// anything else → `jobSlug`. For non-TI cantons there is no CITY_HUB
+// counterpart yet, so the city test only triggers for Ticino cities
+// reached via a non-TI prefix (which is itself an invalid combo and
+// caught by the build-time generator). Everything else falls through
+// to `jobSlug`.
+
+interface CantonSlugRecord {
+ it: string;
+ en: string;
+ de: string;
+ fr: string;
+}
+interface CantonUrlSlugsFile {
+ cantons: Record<string, CantonSlugRecord>;
+ aggregate: CantonSlugRecord;
+}
+const CANTON_URL_SLUGS = CANTON_URL_SLUGS_RAW as unknown as CantonUrlSlugsFile;
+
+/** Reserved sentinel for the Switzerland-wide aggregator route. */
+export const JOB_BOARD_CANTON_AGGREGATE = '_AGGREGATE_';
+
+/**
+ * Job-board URL prefixes per locale. The DE prefix has TWO accepted
+ * forms: the legacy `jobs-im-` (only for `tessin` — the article "im"
+ * grammatically attaches to Tessin), and the canonical new-canton form
+ * `jobs-in-` for everything else. Both parse to the same `jobBoardCanton`.
+ */
+const JOB_BOARD_PREFIX: Record<Locale, string> = {
+ it: 'cerca-lavoro-',
+ en: 'find-jobs-',
+ de: 'jobs-in-',
+ fr: 'trouver-emploi-',
+};
+const JOB_BOARD_PREFIX_LEGACY_DE = 'jobs-im-'; // legacy TI-only
+
+/**
+ * Build the canonical job-board URL slug for a given canton + locale.
+ *
+ * For Ticino, returns the same slug as `SLUG_TABLES[locale].jobBoard`,
+ * preserving backward compatibility (`cerca-lavoro-ticino`,
+ * `find-jobs-ticino`, `jobs-im-tessin`, `trouver-emploi-tessin`).
+ *
+ * For all other cantons, returns `${prefix}${cantonSlug}` using the
+ * locale-specific anglicized/native canton slug from
+ * `data/canton-url-slugs.json` (e.g. `ZH` + `it` → `cerca-lavoro-zurigo`,
+ * `GE` + `de` → `jobs-in-genf`).
+ *
+ * @param cantonCode - 2-letter canton ISO code (uppercase, e.g. `'ZH'`).
+ * @param locale - SPA locale (`'it' | 'en' | 'de' | 'fr'`).
+ * @returns The full top-level URL segment (no leading slash).
+ * @throws Never — falls back to the legacy TI slug on unknown input so
+ *         callers always get a routable string.
+ */
+export function getJobBoardSlugForCanton(cantonCode: string, locale: Locale): string {
+ // Legacy parity: TI in DE keeps the `jobs-im-tessin` form.
+ if (cantonCode === 'TI' && locale === 'de') {
+   return `${JOB_BOARD_PREFIX_LEGACY_DE}tessin`;
+ }
+ const record = CANTON_URL_SLUGS.cantons[cantonCode];
+ if (!record) {
+   // Unknown canton: degrade gracefully to the legacy Ticino slug. Caller
+   // can detect & log; we never throw out of a router helper.
+   return `${JOB_BOARD_PREFIX[locale]}ticino`;
+ }
+ return `${JOB_BOARD_PREFIX[locale]}${record[locale]}`;
+}
+
+/**
+ * Build the Switzerland-wide aggregator job-board URL slug.
+ *
+ * @example getAggregatorJobBoardSlug('it') → 'cerca-lavoro-svizzera'
+ * @example getAggregatorJobBoardSlug('en') → 'find-jobs-switzerland'
+ * @example getAggregatorJobBoardSlug('de') → 'jobs-in-schweiz'
+ * @example getAggregatorJobBoardSlug('fr') → 'trouver-emploi-suisse'
+ */
+export function getAggregatorJobBoardSlug(locale: Locale): string {
+ return `${JOB_BOARD_PREFIX[locale]}${CANTON_URL_SLUGS.aggregate[locale]}`;
+}
+
+/**
+ * Parse the first URL segment as a per-canton job-board slug.
+ *
+ * Recognised inputs (per locale):
+ *   - `cerca-lavoro-{cantonSlug}` / `find-jobs-…` / `jobs-in-…` / `trouver-emploi-…`
+ *   - The legacy DE form `jobs-im-tessin` (returns `cantonCode: 'TI'`).
+ *   - The aggregator slug (`cerca-lavoro-svizzera`, …) → `isAggregator: true`,
+ *     `cantonCode: '_AGGREGATE_'`.
+ *
+ * Does NOT match the legacy table-driven `table.jobBoard` slug for TI —
+ * callers must continue to check `first === table.jobBoard` first to
+ * preserve every pre-P1.3 URL (the legacy branch handles
+ * `cerca-lavoro-ticino` etc. with the existing city/sector/jobSlug logic).
+ *
+ * @param pathSegment - First non-empty path segment after the locale prefix.
+ * @param locale - SPA locale.
+ * @returns `{ cantonCode, isAggregator }` on match, or `null` if the
+ *          segment is not a recognised job-board slug.
+ */
+export function parseJobBoardSlug(
+ pathSegment: string,
+ locale: Locale,
+): { cantonCode: string; isAggregator: boolean } | null {
+ if (!pathSegment) return null;
+
+ // Aggregator (Switzerland-wide) — check first so the prefix walk below
+ // doesn't match the per-canton form by accident.
+ if (pathSegment === getAggregatorJobBoardSlug(locale)) {
+   return { cantonCode: JOB_BOARD_CANTON_AGGREGATE, isAggregator: true };
+ }
+
+ // Legacy DE Tessin form.
+ if (locale === 'de' && pathSegment === `${JOB_BOARD_PREFIX_LEGACY_DE}tessin`) {
+   return { cantonCode: 'TI', isAggregator: false };
+ }
+
+ const prefix = JOB_BOARD_PREFIX[locale];
+ if (!pathSegment.startsWith(prefix)) return null;
+ const tail = pathSegment.slice(prefix.length);
+ if (!tail) return null;
+
+ for (const [code, record] of Object.entries(CANTON_URL_SLUGS.cantons)) {
+   if (record[locale] === tail) {
+     return { cantonCode: code, isAggregator: false };
+   }
+ }
+ return null;
 }
 
 const SLUG_TABLES: Record<Locale, SlugTable> = {
@@ -2092,6 +2269,86 @@ export function parsePath(pathname: string): ParseResult {
  const first = parts[0];
  const second = parts[1];
  const third = parts[2];
+
+ // ── Per-canton job-board routes (P1.3, 2026-05-10) ────────────────
+ //
+ // Backward-compat preservation: the legacy `first === table.jobBoard`
+ // branch further down (~line 2390) still runs FIRST for the Ticino
+ // slug because `table.jobBoard` is registered in `revTop` and
+ // `topMatch.tab === 'job-board'` resolves it. We only intercept here
+ // when the URL is a NEW per-canton or aggregator slug that is NOT in
+ // `revTop` (so `topMatch` would otherwise be undefined and the route
+ // would fall through to a 404).
+ //
+ // Match precedence:
+ //   1. legacy `table.jobBoard` (handled by the standard topMatch flow)
+ //   2. parseJobBoardSlug() match (per-canton or aggregator) — THIS BLOCK
+ //   3. everything else (other tabs)
+ if (first && first !== table.jobBoard) {
+   const jobBoardCantonMatch = parseJobBoardSlug(first, locale);
+   if (jobBoardCantonMatch) {
+     const { cantonCode, isAggregator } = jobBoardCantonMatch;
+     const rawSecond = second ? second.trim() : undefined;
+     // City-vs-job disambiguation: known CITY_HUB key → jobBoardCity,
+     // anything else → jobSlug. Mirrors the legacy Ticino branch so
+     // `/cerca-lavoro-zurigo/zurich/` and similar resolve consistently.
+     // Sector hub matches are also honoured for parity with TI.
+     if (rawSecond) {
+       const sectorHit = SECTOR_HUB_KEYS.find(
+         (s) => SECTOR_HUB_SLUG[locale][s] === rawSecond,
+       );
+       if (sectorHit) {
+         return {
+           route: {
+             activeTab: 'job-board',
+             jobBoardCanton: cantonCode,
+             jobBoardSector: sectorHit as SectorHubKey,
+             staticOverlay: true,
+           },
+           locale,
+         };
+       }
+       const cityHit = CITY_HUB_KEYS.find(
+         (c) => CITY_HUB_SLUG[locale][c] === rawSecond,
+       );
+       if (cityHit) {
+         return {
+           route: {
+             activeTab: 'job-board',
+             jobBoardCanton: cantonCode,
+             jobBoardCity: cityHit as CityHubKey,
+           },
+           locale,
+         };
+       }
+       // Non-CITY_HUB second segment: treat as either an opaque city slug
+       // (for non-TI cantons whose cities aren't in CITY_HUB_KEYS) or a
+       // job detail slug. We pass it through as `jobSlug` so the
+       // existing job-detail rendering path handles it. Build-time SEO
+       // pages provide static-overlay disambiguation when needed.
+       return {
+         route: {
+           activeTab: 'job-board',
+           jobBoardCanton: cantonCode,
+           jobSlug: rawSecond,
+         },
+         locale,
+       };
+     }
+     // Bare canton (or aggregator) URL — index page for that canton.
+     // `isAggregator` is destructured to satisfy lint (no-unused) and
+     // signal to readers that the cantonCode === '_AGGREGATE_' case is
+     // intentionally handled by the same return shape.
+     void isAggregator;
+     return {
+       route: {
+         activeTab: 'job-board',
+         jobBoardCanton: cantonCode,
+       },
+       locale,
+     };
+   }
+ }
 
  // Check top-level slug
  const topMatch = revTop[first];
