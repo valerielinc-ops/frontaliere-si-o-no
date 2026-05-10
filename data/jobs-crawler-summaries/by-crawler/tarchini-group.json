@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-05-10T10:58:47.132Z",
+  "generatedAt": "2026-05-10T22:34:27.727Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6648,
-  "avgDurationMs": 6648,
+  "unchangedCount": 1,
+  "durationMs": 6677,
+  "avgDurationMs": 6677,
   "durationHistory": [
-    6648
+    6677
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -79,43 +79,6 @@
       "streetAddress": "Via Cantonale 12",
       "postalCode": "6533",
       "id": "tarchini-group-12e715eba42b",
-      "firstSeenAt": "2026-04-13T22:32:13.614Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Responsabile investimenti e partecipazioni",
-      "slug": "responsabile-investimenti-e-partecipazioni-tarchini-group-manno",
-      "url": "https://www.tarchinigroup.com/it/work/1537/responsabile-investimenti-e-partecipazioni",
-      "applyUrl": "mailto:info@tarchinigroup.com?subject=Responsabile%20investimenti%20e%20partecipazioni",
-      "company": "Tarchini Group",
-      "companyKey": "tarchini-group",
-      "companyDomain": "tarchinigroup.com",
-      "location": "Manno",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "management",
-      "sector": "Immobiliare",
-      "source": "tarchini-group-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale 12",
-      "postalCode": "6533",
-      "id": "tarchini-group-7009d4ce2f04",
       "firstSeenAt": "2026-04-13T22:32:13.614Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -201,5 +164,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Responsabile investimenti e partecipazioni",
+      "slug": "responsabile-investimenti-e-partecipazioni-tarchini-group-manno",
+      "url": "https://www.tarchinigroup.com/it/work/1537/responsabile-investimenti-e-partecipazioni",
+      "applyUrl": "mailto:info@tarchinigroup.com?subject=Responsabile%20investimenti%20e%20partecipazioni",
+      "company": "Tarchini Group",
+      "companyKey": "tarchini-group",
+      "companyDomain": "tarchinigroup.com",
+      "location": "Manno",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "management",
+      "sector": "Immobiliare",
+      "source": "tarchini-group-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale 12",
+      "postalCode": "6533",
+      "id": "tarchini-group-7009d4ce2f04",
+      "firstSeenAt": "2026-04-13T22:32:13.614Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
