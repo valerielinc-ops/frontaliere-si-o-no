@@ -198,7 +198,16 @@ const CACHE_KEY_INPUTS = [
 // 2 cluster URLs that another plugin (jobsSeoPagesPlugin's
 // search-stats-landing emit) overwrites with `noindex,follow`. Bumping
 // the version forces a fresh emit on next build so the filter runs.
-const CACHE_VERSION = 'v2';
+//
+// v3 (2026-05-10) extends dropNoindexLocs → dropOverwrittenLocs to also
+// drop URLs whose dist/ HTML carries a `<link rel="canonical">` pointing
+// elsewhere — typically jobsSeoPagesPlugin's previousSlugs bridge for an
+// active job whose old slug coincides with a cluster candidate
+// (e.g. `ricerca-{job-slug}` collides with the candidate harvested from
+// the GSC 404 cohort). The bridge HTML self-canonicalizes to the current
+// slug, so listing the bridge URL in sitemap-search-clusters.xml fails
+// audit:sitemap-canonicals + validate:sitemap-pages.
+const CACHE_VERSION = 'v3';
 
 interface CacheManifest {
   version: string;
@@ -1180,18 +1189,41 @@ function injectHubLinkIntoSectionLanding(
 // ── Sitemap ─────────────────────────────────────────────────────────────
 
 /**
- * Filter out cluster URLs whose dist/ HTML carries a noindex meta tag.
- * This catches cross-plugin write races where another emitter (typically
- * jobsSeoPagesPlugin's soft-landing for an expired job sharing the same
- * slug) overwrites our index,follow page with a noindex variant. Listing
- * those URLs in the cluster sitemap fails validate:sitemap-pages with a
- * BLOCKING error (noindex pages must NOT be in sitemaps — wastes Google
- * crawl budget). Cheap to run: O(locs) reads of small HTML files.
+ * Filter out cluster URLs whose dist/ HTML is owned by another plugin and
+ * therefore can't be advertised in the cluster sitemap. Two failure modes:
+ *
+ *   1. **noindex overwrite** — another emitter (e.g. jobsSeoPagesPlugin's
+ *      soft-landing for an expired job sharing the slug) overwrote our
+ *      index,follow page with a noindex variant. validate:sitemap-pages
+ *      hard-fails when a noindex page appears in any sitemap.
+ *   2. **non-self-canonical overwrite** — another emitter wrote a bridge /
+ *      alias page whose `<link rel="canonical">` points at a *different*
+ *      URL (e.g. jobsSeoPagesPlugin's previousSlugs bridge: when a job
+ *      previously lived at `/cerca-lavoro-ticino/ricerca-XXX/`, the bridge
+ *      reuses the active page's HTML so canonical points at the current
+ *      slug, not the bridge URL). audit:sitemap-canonicals hard-fails
+ *      ("non-canonical URL in sitemap") on any such mismatch.
+ *
+ * Both classes are detected by the same per-loc HTML read, so we fold
+ * them into a single pass. Cheap: O(locs) reads of small HTML files.
  */
 const NOINDEX_RE = /<meta[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i;
-function dropNoindexLocs(distDir: string, locs: ReadonlyArray<string>): string[] {
+const CANONICAL_HREF_RE = /<link\b[^>]*rel\s*=\s*["']?canonical["']?[^>]*href\s*=\s*["']([^"']+)["']/i;
+const CANONICAL_HREF_REVERSED_RE = /<link\b[^>]*href\s*=\s*["']([^"']+)["'][^>]*rel\s*=\s*["']?canonical["']?/i;
+function normalizeLocForCanonicalCmp(u: string): string {
+  try {
+    const parsed = new URL(u, BASE_URL);
+    let p = parsed.pathname;
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    return `${parsed.protocol}//${parsed.host.toLowerCase()}${p}${parsed.search}`;
+  } catch {
+    return u.trim();
+  }
+}
+function dropOverwrittenLocs(distDir: string, locs: ReadonlyArray<string>): string[] {
   const out: string[] = [];
-  let dropped = 0;
+  let droppedNoindex = 0;
+  let droppedNonCanonical = 0;
   for (const loc of locs) {
     const urlPath = new URL(loc).pathname.replace(/\/+$/, '');
     const indexPath = path.join(distDir, urlPath, 'index.html');
@@ -1200,19 +1232,29 @@ function dropNoindexLocs(distDir: string, locs: ReadonlyArray<string>): string[]
     if (!fs.existsSync(target)) continue; // missing HTML — skip silently
     const html = fs.readFileSync(target, 'utf-8');
     if (NOINDEX_RE.test(html)) {
-      dropped++;
+      droppedNoindex++;
       continue;
+    }
+    const canonMatch = html.match(CANONICAL_HREF_RE) || html.match(CANONICAL_HREF_REVERSED_RE);
+    if (canonMatch && canonMatch[1]) {
+      const canonHref = canonMatch[1].trim();
+      if (normalizeLocForCanonicalCmp(canonHref) !== normalizeLocForCanonicalCmp(loc)) {
+        droppedNonCanonical++;
+        continue;
+      }
     }
     out.push(loc);
   }
-  if (dropped > 0) {
-    console.log(`\x1b[33m[related-search-clusters]\x1b[0m dropped ${dropped} noindex URL(s) from sitemap (cross-plugin overwrite races)`);
+  if (droppedNoindex > 0 || droppedNonCanonical > 0) {
+    console.log(
+      `\x1b[33m[related-search-clusters]\x1b[0m dropped ${droppedNoindex} noindex + ${droppedNonCanonical} non-self-canonical URL(s) from sitemap (cross-plugin overwrite races)`,
+    );
   }
   return out;
 }
 
 function writeSitemap(distDir: string, allLocs: ReadonlyArray<string>, dateStamp: string): void {
-  const locs = dropNoindexLocs(distDir, allLocs);
+  const locs = dropOverwrittenLocs(distDir, allLocs);
   if (locs.length === 0) return;
   const entries = locs.map((loc) =>
     `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
