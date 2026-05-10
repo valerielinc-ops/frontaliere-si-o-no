@@ -12,6 +12,13 @@
 // continuously — rolling deploys back on those churn-pixel diffs is the
 // opposite of what visual regression should catch.
 //
+// Even on "stable" pages there are inline widgets whose content rotates
+// independently of code (article ticker, daily dialect phrase, weekly fact,
+// achievement toast, unread-news badge, calculator result banner whose
+// gradient pulses on hover). Those are masked below — masking forces those
+// regions to be drawn as a solid pink rectangle in both the baseline and
+// the actual screenshot, so dynamic content cannot trigger a regression.
+//
 // Regenerate baselines on demand via the
 // `regenerate-visual-baselines.yml` workflow_dispatch (runs on Linux,
 // commits *-linux.png to the repo).
@@ -21,6 +28,19 @@ const CASES = [
   { name: 'home', url: '/' },
   { name: 'salary-calculator', url: '/calcola-stipendio/' },
   { name: 'currency-comparator', url: '/comparatori/cambio-valuta/' },
+];
+
+// Selectors for non-deterministic widgets that auto-rotate or depend on
+// time/cron data. Each must exist in the rendered DOM before the test takes
+// the screenshot — keep these in sync with the data-testid attributes in
+// the component sources. Missing selectors are silently ignored by mask().
+const DYNAMIC_REGION_SELECTORS = [
+  '[data-testid="news-ticker"]',
+  '[data-testid="daily-dialect-phrase"]',
+  '[data-testid="weekly-fact"]',
+  '[data-testid="gamification-toast"]',
+  '[data-testid="whats-new-badge"]',
+  '[data-testid="results-advantage-banner"]',
 ];
 
 test.use({ viewport: { width: 1280, height: 800 } });
@@ -47,6 +67,7 @@ for (const c of CASES) {
       fullPage: false,
       maxDiffPixelRatio: 0.02,
       animations: 'disabled',
+      mask: DYNAMIC_REGION_SELECTORS.map((sel) => page.locator(sel)),
     });
   });
 }

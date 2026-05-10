@@ -26,6 +26,7 @@ const DailyDialectPhrase: React.FC = () => {
  nav.navigateTo('dialetto');
  }
  }}
+ data-testid="daily-dialect-phrase"
  className="flex items-center gap-2 min-h-[34px] bg-warning-subtle rounded-xl border border-warning-border px-3 text-xs hover:border-warning-border transition-colors"
  aria-label={t('dialect.openPage')}
  >

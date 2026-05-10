@@ -175,7 +175,7 @@ const GamificationWidget: React.FC = () => {
  {/* Achievement Toast — bottom-right (desktop), above bottom nav (mobile) */}
  {/* Portal to document.body so backdrop-blur on header doesn't break fixed positioning */}
  {toast && toastVisible && createPortal(
- <div className="fixed bottom-20 md:bottom-4 right-4 sm:right-6 z-[60] animate-toast-in pointer-events-auto">
+ <div data-testid="gamification-toast" className="fixed bottom-20 md:bottom-4 right-4 sm:right-6 z-[60] animate-toast-in pointer-events-auto">
  <div className="bg-warning-strong text-on-accent rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
  <span className="text-xl flex-shrink-0">{ACHIEVEMENTS.find(a => a.id === toast)?.icon || '🏆'}</span>
  <div className="min-w-0">

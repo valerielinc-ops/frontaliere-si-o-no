@@ -54,7 +54,7 @@ const WeeklyFact: React.FC = () => {
  };
 
  return (
- <div className="flex items-center gap-2 min-h-[34px] bg-warning-subtle rounded-xl border border-warning-border px-3 text-xs">
+ <div data-testid="weekly-fact" className="flex items-center gap-2 min-h-[34px] bg-warning-subtle rounded-xl border border-warning-border px-3 text-xs">
  <Lightbulb size={13} className="text-warning flex-shrink-0" />
  <span className="font-bold text-warning flex-shrink-0 hidden sm:inline">{t('weeklyFact.title')}:</span>
  <p className="flex-1 min-w-0 line-clamp-2 text-warning">{factText}</p>
