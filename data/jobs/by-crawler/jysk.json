@@ -67,7 +67,7 @@
     },
     {
       "id": "company-o7thrg",
-      "slug": "verkaufer-in-con-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg",
+      "slug": "venditore-con-responsabilita-del-magazzino-a-50-60-nel-ramo-hinwil-jysk-hinwil",
       "company": "JYSK",
       "title": "Verkäufer/in mit Lagerverantwortung (a) 50-60% in der Filiale Hinwil",
       "location": "Hinwil",
@@ -99,19 +99,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufer-in-con-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg",
-        "en": "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg",
+        "it": "venditore-con-responsabilita-del-magazzino-a-50-60-nel-ramo-hinwil-jysk-hinwil",
+        "en": "seller-with-warehouse-responsibility-a-50-60-in-the-hinwil-branch-jysk-hinwil",
         "de": "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg",
-        "fr": "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg"
+        "fr": "vendeur-responsable-de-l-entrepot-a-50-60-dans-la-branche-hinwil-jysk-hinwil"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil"
+          "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil",
+          "verkaufer-in-con-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg"
+        ],
+        "en": [
+          "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg"
+        ],
+        "fr": [
+          "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil"
+        "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil",
+        "verkaufer-in-con-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg",
+        "verkaufer-in-mit-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -129,7 +138,7 @@
     },
     {
       "id": "company-q9agao",
-      "slug": "risorse-umane-assistant-40-jysk-zofingen-q9agao",
+      "slug": "assistente-hr-40-jysk-zofingen",
       "company": "JYSK",
       "title": "HR Assistant 40%",
       "location": "Zofingen",
@@ -161,7 +170,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "risorse-umane-assistant-40-jysk-zofingen-q9agao",
+        "it": "assistente-hr-40-jysk-zofingen",
         "en": "hr-assistant-40-jysk-zofingen-q9agao",
         "de": "personalwesen-assistent-40-jysk-zofingen-q9agao",
         "fr": "hr-assistant-40-jysk-zofingen"
@@ -169,7 +178,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "hr-assistant-40-jysk-zofingen"
+          "hr-assistant-40-jysk-zofingen",
+          "risorse-umane-assistant-40-jysk-zofingen-q9agao"
         ],
         "fr": [
           "hr-assistant-40-jysk-zofingen-q9agao"
@@ -177,6 +187,7 @@
       },
       "previousSlugs": [
         "hr-assistant-40-jysk-zofingen",
+        "risorse-umane-assistant-40-jysk-zofingen-q9agao",
         "hr-assistant-40-jysk-zofingen-q9agao"
       ],
       "salaryMin": 49500,
@@ -196,7 +207,7 @@
     },
     {
       "id": "company-qrsmyr",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+      "slug": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -228,19 +239,29 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
-        "en": "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+        "it": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
+        "en": "learning-retailer-efz-a-in-the-schattdorf-branch-jysk-schattdorf",
         "de": "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
-        "fr": "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        "fr": "detaillant-d-apprentissage-efz-a-dans-la-succursale-de-schattdorf-jysk-schattdorf"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf"
+          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf",
+          "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        ],
+        "en": [
+          "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        ],
+        "fr": [
+          "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
         ]
       },
       "previousSlugs": [
-        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf"
+        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf",
+        "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+        "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+        "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -258,7 +279,7 @@
     },
     {
       "id": "company-gvoozi",
-      "slug": "verkaufer-in-con-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi",
+      "slug": "venditore-con-responsabilita-del-magazzino-a-80-nella-filiale-schlieren-jysk-schlieren",
       "company": "JYSK",
       "title": "Verkäufer/in mit Lagerverantwortung (a) 80% in der Filiale Schlieren",
       "location": "Schlieren",
@@ -290,19 +311,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufer-in-con-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi",
-        "en": "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi",
+        "it": "venditore-con-responsabilita-del-magazzino-a-80-nella-filiale-schlieren-jysk-schlieren",
+        "en": "seller-with-warehouse-responsibility-a-80-in-branch-schlieren-jysk-schlieren",
         "de": "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi",
-        "fr": "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi"
+        "fr": "vendeur-responsable-de-l-entrepot-a-80-dans-la-succursale-schlieren-jysk-schlieren"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren"
+          "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren",
+          "verkaufer-in-con-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi"
+        ],
+        "en": [
+          "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi"
+        ],
+        "fr": [
+          "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren"
+        "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren",
+        "verkaufer-in-con-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi",
+        "verkaufer-in-mit-lagerverantwortung-a-80-in-der-filiale-schlieren-jysk-schlieren-gvoozi"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -320,7 +350,7 @@
     },
     {
       "id": "company-t2zzvq",
-      "slug": "store-manager-apprendista-a-100-per-la-region-luzern-jysk-emmen-t2zzvq",
+      "slug": "store-manager-trainee-a-100-per-la-regione-di-lucerna-jysk-emmen",
       "company": "JYSK",
       "title": "Store Manager Trainee (a) 100% für die Region Luzern",
       "location": "Emmen",
@@ -352,19 +382,25 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "store-manager-apprendista-a-100-per-la-region-luzern-jysk-emmen-t2zzvq",
+        "it": "store-manager-trainee-a-100-per-la-regione-di-lucerna-jysk-emmen",
         "en": "store-manager-trainee-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq",
         "de": "store-manager-auszubildender-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq",
-        "fr": "store-manager-apprenti-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq"
+        "fr": "stagiaire-responsable-des-magasins-a-100-pour-la-region-de-lucerne-jysk-emmen"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "store-manager-trainee-a-100-fur-die-region-luzern-jysk-emmen"
+          "store-manager-trainee-a-100-fur-die-region-luzern-jysk-emmen",
+          "store-manager-apprendista-a-100-per-la-region-luzern-jysk-emmen-t2zzvq"
+        ],
+        "fr": [
+          "store-manager-apprenti-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq"
         ]
       },
       "previousSlugs": [
-        "store-manager-trainee-a-100-fur-die-region-luzern-jysk-emmen"
+        "store-manager-trainee-a-100-fur-die-region-luzern-jysk-emmen",
+        "store-manager-apprendista-a-100-per-la-region-luzern-jysk-emmen-t2zzvq",
+        "store-manager-apprenti-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -417,16 +453,20 @@
         "it": "store-manager-apprendista-a-80-100-per-la-region-netstal-jysk-glarus-lp3vb0",
         "en": "store-manager-trainee-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0",
         "de": "store-manager-auszubildender-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0",
-        "fr": "store-manager-apprenti-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0"
+        "fr": "stagiaire-responsable-des-magasins-a-80-100-pour-la-region-de-netstal-jysk-glarus"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "store-manager-trainee-a-80-100-fur-die-region-netstal-jysk-glarus"
+        ],
+        "fr": [
+          "store-manager-apprenti-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0"
         ]
       },
       "previousSlugs": [
-        "store-manager-trainee-a-80-100-fur-die-region-netstal-jysk-glarus"
+        "store-manager-trainee-a-80-100-fur-die-region-netstal-jysk-glarus",
+        "store-manager-apprenti-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -477,9 +517,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "lagerist-60-in-der-filiale-pratteln-jysk-pratteln-c7xfsm",
-        "en": "lagerist-60-in-der-filiale-pratteln-jysk-pratteln-c7xfsm",
+        "en": "warehouse-is-60-in-the-pratteln-branch-jysk-pratteln",
         "de": "lagerist-60-in-der-filiale-pratteln-jysk-pratteln-c7xfsm",
-        "fr": "lagerist-60-in-der-filiale-pratteln-jysk-pratteln-c7xfsm"
+        "fr": "l-entrepot-est-a-60-dans-la-branche-pratteln-jysk-pratteln"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -506,7 +546,7 @@
     },
     {
       "id": "company-v11lwi",
-      "slug": "verkaufer-in-con-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
+      "slug": "venditore-con-responsabilita-del-magazzino-80-nella-filiale-baden-dattwil-jysk-baden",
       "company": "JYSK",
       "title": "Verkäufer/in mit Lagerverantwortung 80% in der Filiale Baden Dättwil",
       "location": "Baden",
@@ -538,19 +578,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufer-in-con-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
-        "en": "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
+        "it": "venditore-con-responsabilita-del-magazzino-80-nella-filiale-baden-dattwil-jysk-baden",
+        "en": "seller-with-warehouse-responsibility-80-in-the-branch-baden-dattwil-jysk-baden",
         "de": "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
-        "fr": "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi"
+        "fr": "vendeur-responsable-de-l-entrepot-80-dans-la-succursale-baden-dattwil-jysk-baden"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden"
+          "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden",
+          "verkaufer-in-con-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi"
+        ],
+        "en": [
+          "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi"
+        ],
+        "fr": [
+          "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden"
+        "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden",
+        "verkaufer-in-con-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
+        "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
