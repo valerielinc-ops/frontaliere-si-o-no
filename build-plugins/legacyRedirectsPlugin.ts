@@ -8,6 +8,9 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
+import { resolveCantonSection, resolveJobCanton, type CantonLocale } from './shared/cantonSection';
+import cantonSlugFile from '../data/canton-url-slugs.json';
+import jobsFile from '../data/jobs.json';
 
 /** Hreflang entry extracted from sitemap XML. */
 interface HreflangEntry {
@@ -186,7 +189,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/calcolatore/': '/calcola-stipendio/',
  '/costo-della-vita/': '/compara-servizi/costo-della-vita/',
  '/fisco-frontalieri/': '/tasse-e-pensione/',
- '/job-board/': '/cerca-lavoro-ticino/',
+ // Locale-agnostic legacy → CH-wide aggregator section (cathedral).
+ '/job-board/': `/${resolveCantonSection('it', '_AGGREGATE_')}/`,
  '/statistiche/confronta-premi/': '/statistiche/premi-malattia-comuni/',
  '/tasse-svizzere-guida-frontaliere/': '/tasse-e-pensione/',
  '/tfr-calculator/': '/tfr-liquidazione-frontaliere/',
@@ -255,9 +259,46 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const distDir = path.resolve(rootDir, 'dist');
  let count = 0;
  let compatCount = 0;
+ let cathedralCount = 0;
 
  // Build hreflang lookup from sitemaps so legacy pages can point to locale variants
  const hreflangMap = buildHreflangMap(rootDir);
+
+ // ── Phase 8.4 (cathedral) — migration map ──
+ // Jobs whose canton !== 'TI' are now emitted at canton-aware URLs
+ // (e.g. /cerca-lavoro-zurigo/<slug>/). The pre-cathedral URLs at
+ // /cerca-lavoro-ticino/<slug>/ no longer have a backing page, so emit
+ // 301-style bridge pages pointing to the new canton section URL.
+ // TI jobs are unaffected (byte-identical).
+ try {
+ const jobs = jobsFile as Array<{ canton?: string; location?: string; slug?: string; slugByLocale?: Record<string, string> }>;
+ const locales: CantonLocale[] = ['it', 'en', 'de', 'fr'];
+ const localePrefix: Record<CantonLocale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
+ for (const job of jobs) {
+ const canton = resolveJobCanton(job);
+ if (canton === 'TI') continue;
+ const legacyTI: Record<CantonLocale, string> = {
+ it: 'cerca-lavoro-ticino',
+ en: 'find-jobs-ticino',
+ de: 'jobs-im-tessin',
+ fr: 'trouver-emploi-tessin',
+ };
+ for (const locale of locales) {
+ const slug = job.slugByLocale?.[locale] || job.slug;
+ if (!slug) continue;
+ const newSection = resolveCantonSection(locale, canton);
+ const from = `${localePrefix[locale]}/${legacyTI[locale]}/${slug}/`.replace(/\/+/g, '/');
+ const to = `${localePrefix[locale]}/${newSection}/${slug}/`.replace(/\/+/g, '/');
+ if (from === to) continue;
+ if (!redirects[from]) {
+ redirects[from] = to;
+ cathedralCount++;
+ }
+ }
+ }
+ } catch (err) {
+ console.warn('\x1b[33m[legacy-redirects]\x1b[0m cathedral migration map failed:', err);
+ }
 
  const getHreflangHtml = (targetPath: string): string => {
  const targetUrl = `${BASE_URL}${targetPath}`;
@@ -327,10 +368,25 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // Job URL patterns handled exclusively by jobsSeoPagesPlugin (active + bridge + soft-landing + self-healing).
  // Writing thin compat pages for job paths is harmful: if jobsSeoPagesPlugin's flush fails,
  // the thin compat page survives and Google indexes it instead of enriched content.
- const JOB_SECTION_PREFIXES = [
- '/cerca-lavoro-ticino/', '/en/find-jobs-ticino/', '/de/stellenangebote-tessin/', '/fr/trouver-emploi-tessin/',
- '/en/find-jobs-ticino/', '/de/jobs-im-tessin/', '/fr/emplois-tessin/',
- ];
+ // Canton-aware: every per-canton job-board section across all 4 locales,
+ // plus the TI-legacy/DE-stellenangebote/FR-emplois historical aliases.
+ // Anything starting with one of these prefixes is owned by jobsSeoPagesPlugin
+ // (active job, bridge, soft-landing) and must NOT be overwritten by compat HTML.
+ const JOB_SECTION_PREFIXES: string[] = (() => {
+ const locales: CantonLocale[] = ['it', 'en', 'de', 'fr'];
+ const prefixByLocale: Record<CantonLocale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
+ const codes = Object.keys((cantonSlugFile as { cantons: Record<string, unknown> }).cantons || {});
+ const out = new Set<string>();
+ for (const loc of locales) {
+ for (const code of [...codes, '_AGGREGATE_']) {
+ const section = resolveCantonSection(loc, code);
+ out.add(`${prefixByLocale[loc]}/${section}/`);
+ }
+ }
+ out.add('/de/stellenangebote-tessin/');
+ out.add('/fr/emplois-tessin/');
+ return Array.from(out);
+ })();
  const isJobPath = (p: string): boolean => JOB_SECTION_PREFIXES.some(prefix => p.startsWith(prefix));
  let skippedJobPaths = 0;
  if (fs.existsSync(compatPathsPath)) {
@@ -366,7 +422,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  }
 
  if (count > 0) {
- console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${count} legacy redirect pages`);
+ console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${count} legacy redirect pages${cathedralCount > 0 ? ` (incl. ${cathedralCount} cathedral migration entries: TI-legacy URL → canton URL for jobs whose canton !== 'TI')` : ''}`);
  }
  if (compatCount > 0) {
  console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${compatCount} Search Console compatibility pages${skippedJobPaths > 0 ? ` (skipped ${skippedJobPaths} job paths → handled by jobs plugin)` : ''}`);
