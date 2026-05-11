@@ -32,7 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -67,9 +67,6 @@ const CATEGORY_RESORT = {
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
 
 /**
  * Decode WordPress HTML entities in title.rendered.
@@ -173,7 +170,7 @@ export function parseContentSections(contentHtml = '') {
     const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
     let m;
     while ((m = liRe.exec(aboutYouMatch[1])) !== null) {
-      const text = normalizeSpace(stripHtml(m[1]));
+      const text = normalizeDescriptionSpace(stripHtml(m[1]));
       if (text.length > 2) sections.aboutYou.push(text);
     }
   }
@@ -186,7 +183,7 @@ export function parseContentSections(contentHtml = '') {
     const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
     let m;
     while ((m = liRe.exec(cultureMatch[1])) !== null) {
-      const text = normalizeSpace(stripHtml(m[1]));
+      const text = normalizeDescriptionSpace(stripHtml(m[1]));
       if (text.length > 2) sections.talentCulture.push(text);
     }
   }

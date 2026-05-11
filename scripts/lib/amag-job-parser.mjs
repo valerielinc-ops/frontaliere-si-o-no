@@ -16,12 +16,9 @@
 
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 
 const BASE_URL = 'https://jobs.amag-group.ch';
-
-function normalizeSpace(value = '') {
-  return String(value || '').replace(/\s+/g, ' ').trim();
-}
 
 function stripHtml(html = '') {
   return html
@@ -192,7 +189,7 @@ export function isAmagTicinoRelevant(location = '', region = '') {
  */
 export function buildAmagLocalizedContent(job) {
   const title = normalizeSpace(job.title);
-  const description = normalizeSpace(job.description);
+  const description = normalizeDescriptionSpace(job.description);
   const slug = slugify(title);
 
   // AMAG Italian jobs are in Italian; other locales filled by translator

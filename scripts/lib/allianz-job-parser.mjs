@@ -18,12 +18,9 @@
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
+import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 
 const BASE_URL = 'https://recruitingapp-2872.umantis.com';
-
-function normalizeSpace(value = '') {
-  return String(value || '').replace(/\s+/g, ' ').trim();
-}
 
 function stripHtml(html = '') {
   return html
@@ -278,7 +275,7 @@ export function isAllianzTicinoRelevant(agency = '', location = '') {
  */
 export function buildAllianzLocalizedContent(job) {
   const title = normalizeSpace(job.title);
-  let description = normalizeSpace(job.description);
+  let description = normalizeDescriptionSpace(job.description);
   const slug = slugify(title);
   const location = normalizeSpace(job.location) || 'Ticino';
 

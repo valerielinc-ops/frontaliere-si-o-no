@@ -18,6 +18,7 @@
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 
 const LISTING_URL = 'https://lombardi.group/eng/careers/open-positions';
 const DETAIL_URL = 'https://lombardi.group/eng/careers/job?id=';
@@ -25,9 +26,6 @@ const DETAIL_URL = 'https://lombardi.group/eng/careers/job?id=';
 // Ticino sedeIds (Giubiasco)
 const TICINO_SEDE_IDS = new Set([1]);
 
-function normalizeSpace(value = '') {
-  return String(value || '').replace(/\s+/g, ' ').trim();
-}
 
 function slugify(value = '') {
   return String(value || '')
@@ -157,7 +155,7 @@ export function parseLombardiDetailHtml(html) {
 
   // Extract intro text from <div class="intro__rich-text">
   const introMatch = decoded.match(/<div[^>]*class="[^"]*intro__rich-text[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-  const introText = introMatch ? normalizeSpace(stripHtml(introMatch[1])) : '';
+  const introText = introMatch ? normalizeDescriptionSpace(stripHtml(introMatch[1])) : '';
 
   // Extract main content area (between <!-- Title END--> and the contact/form section)
   const mainMatch = decoded.match(/<main[^>]*>([\s\S]*?)<\/main>/i);

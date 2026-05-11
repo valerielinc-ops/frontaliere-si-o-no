@@ -19,6 +19,7 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 
 const HQ = getCompanyDefaults('pkb-private-bank');
 
@@ -29,9 +30,6 @@ const CAREERS_BASE = 'https://careers.pkb.ch';
 const PKB_MAIN = 'https://www.pkb.ch';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
-function normalizeSpace(value = '') {
-  return String(value || '').replace(/\s+/g, ' ').trim();
-}
 
 export function stripHtml(html = '') {
   return String(html || '')
@@ -228,7 +226,7 @@ export function parsePkbDetailHtml(html) {
   const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
   let m;
   while ((m = liRe.exec(rawHtml)) !== null) {
-    const text = normalizeSpace(stripHtml(m[1]));
+    const text = normalizeDescriptionSpace(stripHtml(m[1]));
     if (text.length > 5) bullets.push(text);
   }
 

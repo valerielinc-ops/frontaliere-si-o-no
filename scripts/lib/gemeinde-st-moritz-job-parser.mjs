@@ -18,7 +18,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -37,9 +37,6 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
 
 /**
  * Parse a German date like "7. April 2026" or "31. Oktober 2025" to ISO.
@@ -261,7 +258,7 @@ export function parseDetailHtml(html) {
     const pRegex = /<p[^>]*>([\s\S]*?)<\/p>/gi;
     let pMatch;
     while ((pMatch = pRegex.exec(html)) !== null) {
-      const text = normalizeSpace(stripHtml(pMatch[1]));
+      const text = normalizeDescriptionSpace(stripHtml(pMatch[1]));
       // Skip navigation, headers, footers, short fragments
       if (text.length > 20 && !/^(Home|Kontakt|Impressum|Datenschutz|Navigation|Menü)/i.test(text)) {
         paragraphs.push(text);

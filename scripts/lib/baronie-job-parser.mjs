@@ -1,4 +1,5 @@
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 
 /**
  * Baronie (Chocolat Alprose SA) — detail page parser
@@ -26,9 +27,6 @@ import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 const CAREERS_URL = 'https://www.baronie.com/en/careers';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
-function normalizeSpace(value = '') {
-  return String(value || '').replace(/\s+/g, ' ').trim();
-}
 
 function stripHtml(html = '') {
   return String(html || '')
@@ -99,7 +97,7 @@ function extractListItems(html) {
   const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
   let m;
   while ((m = liRe.exec(html)) !== null) {
-    const text = normalizeSpace(stripHtml(m[1]));
+    const text = normalizeDescriptionSpace(stripHtml(m[1]));
     if (text.length > 2) items.push(text);
   }
   return items;
@@ -113,7 +111,7 @@ function extractParagraphs(html) {
   const pRe = /<p[^>]*>([\s\S]*?)<\/p>/gi;
   let m;
   while ((m = pRe.exec(html)) !== null) {
-    const text = normalizeSpace(stripHtml(m[1]));
+    const text = normalizeDescriptionSpace(stripHtml(m[1]));
     if (text.length > 10) paras.push(text);
   }
   return paras;
@@ -132,7 +130,7 @@ export function parseBaronieDetailHtml(html) {
 
   // Extract intro text from <p class="s-text-medium">
   const introMatch = html.match(/<p[^>]*class="[^"]*s-text-medium[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
-  const introText = introMatch ? normalizeSpace(stripHtml(introMatch[1])) : '';
+  const introText = introMatch ? normalizeDescriptionSpace(stripHtml(introMatch[1])) : '';
 
   // Extract the main body div: <div class="s-text-markup"> inside article
   // There are multiple s-text-markup divs; we want the one inside the article

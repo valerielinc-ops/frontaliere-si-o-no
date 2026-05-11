@@ -20,7 +20,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -41,9 +41,6 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -285,7 +282,7 @@ function extractSections(html = '') {
     const heading = normalizeSpace(stripHtml(match[1]));
     if (!heading || heading.length > 100 || skipHeadings.test(heading)) continue;
 
-    const content = normalizeSpace(stripHtml(match[2]));
+    const content = normalizeDescriptionSpace(stripHtml(match[2]));
     if (!content || content.length < 20) continue;
 
     sections.push(`${heading}: ${content}`);
@@ -304,7 +301,7 @@ function extractSections(html = '') {
   }
 
   // Fallback: extract all text from the HTML
-  const text = normalizeSpace(stripHtml(html));
+  const text = normalizeDescriptionSpace(stripHtml(html));
   return text.length > 50 ? text : '';
 }
 
