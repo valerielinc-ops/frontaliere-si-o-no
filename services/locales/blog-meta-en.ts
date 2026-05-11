@@ -7415,6 +7415,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.utilifatturatolppsa-gpw.title': 'LPP S.A. profits and revenue – GPW:LPP',
     'blog.article.utilifatturatolppsa-gpw.excerpt': 'Detailed analysis of LPP S.A.\'s profits and revenue and its impact on Ticino cross-border workers',
     'blog.article.utilifatturatolppsa-gpw.imageAlt': 'View of Lake Lugano with surrounding mountains and buildings',
+    'blog.article.questore-bimbo-pilastro-responsabilita.title': 'Prefect on child\'s fall from Pilastro: responsibilities to be assessed',
+    'blog.article.questore-bimbo-pilastro-responsabilita.excerpt': 'The prefect of Bologna comments on the Pilastro accident, reiterating that responsibilities will be assessed by the judicial authority.',
+    'blog.article.questore-bimbo-pilastro-responsabilita.imageAlt': 'Aerial view of Lake Lugano with clear skies and surrounding mountains',
 };
 
 export default blogMetaEn;

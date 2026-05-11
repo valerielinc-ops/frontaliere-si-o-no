@@ -23618,4 +23618,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'questore-bimbo-pilastro-responsabilita',
+ category: 'pratico',
+ date: '2026-05-11T02:12:22.534Z',
+ image: '/images/blog/questore-bimbo-pilastro-responsabilita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

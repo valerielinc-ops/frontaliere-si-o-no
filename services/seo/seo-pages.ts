@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2524,
+ "numberOfItems": 2525,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7166,7 +7166,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2521, "name": "Comprare casa? Uno svizzero su due svuota il se...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-secondo-pilastro-casa` },
           { "@type": "ListItem", "position": 2522, "name": "Disoccupazione: stesse regole per frontalieri e...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-residenti` },
           { "@type": "ListItem", "position": 2523, "name": "Opportunità di lavoro per insegnanti nel Canton...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-insegnanti-ticino-opportunita` },
-          { "@type": "ListItem", "position": 2524, "name": "Utili e fatturato LPP S.A. – GPW:LPP", "url": `${BASE_URL}/articoli-frontaliere/utilifatturatolppsa-gpw` }
+          { "@type": "ListItem", "position": 2524, "name": "Utili e fatturato LPP S.A. – GPW:LPP", "url": `${BASE_URL}/articoli-frontaliere/utilifatturatolppsa-gpw` },
+          { "@type": "ListItem", "position": 2525, "name": "Questore su bimbo caduto dal Pilastro: responsa...", "url": `${BASE_URL}/articoli-frontaliere/questore-bimbo-pilastro-responsabilita` }
  ]
  },
  {

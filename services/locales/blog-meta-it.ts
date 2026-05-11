@@ -7416,6 +7416,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.utilifatturatolppsa-gpw.title': 'Utili e fatturato LPP S.A. – GPW:LPP',
     'blog.article.utilifatturatolppsa-gpw.excerpt': 'Analisi dettagliata degli utili e del fatturato di LPP S.A. e il suo impatto sui frontalieri del Ticino',
     'blog.article.utilifatturatolppsa-gpw.imageAlt': 'Vista del Lago di Lugano con montagne e edifici circostanti',
+    'blog.article.questore-bimbo-pilastro-responsabilita.title': 'Questore su bimbo caduto dal Pilastro: responsabilità da valutare',
+    'blog.article.questore-bimbo-pilastro-responsabilita.excerpt': 'Il questore di Bologna commenta l\'incidente al Pilastro, ribadendo che le responsabilità saranno valutate dall\'autorità giudiziaria.',
+    'blog.article.questore-bimbo-pilastro-responsabilita.imageAlt': 'Vista aerea del Lago di Lugano con cieli sereni e montagne circostanti',
 };
 
 export default blogMetaIt;

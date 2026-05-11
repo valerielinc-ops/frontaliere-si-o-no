@@ -3714,6 +3714,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disoccupazione-frontalieri-residenti': { name: 'Disoccupazione Ticino', path: '/articoli-frontaliere/disoccupazione-frontalieri-residenti', parent: 'blog' },
     'blog-lavoro-insegnanti-ticino-opportunita': { name: 'Opportunità lavoro', path: '/articoli-frontaliere/lavoro-insegnanti-ticino-opportunita', parent: 'blog' },
     'blog-utilifatturatolppsa-gpw': { name: 'Fiscale', path: '/articoli-frontaliere/utilifatturatolppsa-gpw', parent: 'blog' },
+    'blog-questore-bimbo-pilastro-responsabilita': { name: 'Questore su bimbo caduto dal Pilastro', path: '/articoli-frontaliere/questore-bimbo-pilastro-responsabilita', parent: 'blog' },
  };
 
  const info = sectionNames[section];
