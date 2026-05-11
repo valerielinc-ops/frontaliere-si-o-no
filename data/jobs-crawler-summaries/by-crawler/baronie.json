@@ -1,58 +1,16 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-05-10T21:05:26.891Z",
-  "total": 1,
+  "generatedAt": "2026-05-11T11:10:46.853Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12491,
-  "avgDurationMs": 12491,
-  "durationHistory": [
-    12491
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "Junior Consolidation Expert",
-      "slug": "junior-consolidation-expert-baronie-caslano",
-      "url": "https://www.baronie.com/en/jobs/junior-consolidation-expert-bruges-caslano",
-      "applyUrl": "https://www.baronie.com/en/jobs/junior-consolidation-expert-bruges-caslano",
-      "company": "Chocolat Alprose SA / Baronie Switzerland SA",
-      "companyKey": "baronie",
-      "companyDomain": "baronie.com",
-      "location": "Caslano",
-      "addressLocality": "Caslano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "general",
-      "sector": "Alimentare / Cioccolato",
-      "source": "baronie-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-10",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "id": "baronie-c13a4de05509",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6613",
-      "firstSeenAt": "2026-04-17T09:25:26.001Z",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
