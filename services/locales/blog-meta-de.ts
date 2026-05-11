@@ -7445,6 +7445,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026.title': 'Grenzgänger-Rente AVS/INPS 2026: über 20 km',
     'blog.article.frontaliere-pensione-avs-inps-2026.excerpt': 'Praktischer Leitfaden für Grenzgänger im Tessin: Koordination der Renten AVS/INPS, Zeitfenster und Planung für Entfernungen über 20 km',
     'blog.article.frontaliere-pensione-avs-inps-2026.imageAlt': 'Luganersee mit Schweizer-Italienischer Grenze',
+    'blog.article.costo-vivere-lugano-frontalieri-2026.title': 'Kosten für Grenzgänger in Lugano',
+    'blog.article.costo-vivere-lugano-frontalieri-2026.excerpt': 'Detaillierte Analyse der tatsächlichen Kosten für einen Grenzgänger, der einen Umzug nach Lugano in Betracht zieht: Miete, Transport, Versicherung und Lebensmittel.',
+    'blog.article.costo-vivere-lugano-frontalieri-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und der Stadt',
 };
 
 export default blogMetaDe;

@@ -7445,6 +7445,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026.title': 'Cross-border worker AVS/INPS pension 2026: over 20 km',
     'blog.article.frontaliere-pensione-avs-inps-2026.excerpt': 'Practical guide for Ticino cross-border workers: AVS/INPS pension coordination, time windows, and planning for distances over 20 km',
     'blog.article.frontaliere-pensione-avs-inps-2026.imageAlt': 'Lake Lugano with Swiss-Italian border',
+    'blog.article.costo-vivere-lugano-frontalieri-2026.title': 'Cost of living in Lugano for cross-border workers',
+    'blog.article.costo-vivere-lugano-frontalieri-2026.excerpt': 'Detailed analysis of real costs for a cross-border worker considering moving to Lugano: rent, transport, insurance, and groceries.',
+    'blog.article.costo-vivere-lugano-frontalieri-2026.imageAlt': 'Aerial view of Lugano with the lake and the city',
 };
 
 export default blogMetaEn;

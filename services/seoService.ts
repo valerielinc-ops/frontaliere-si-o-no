@@ -3724,6 +3724,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-successione-svizzera-ocse': { name: 'Fiscale', path: '/articoli-frontaliere/tassa-successione-svizzera-ocse', parent: 'blog' },
     'blog-salario-domestico-ticino-aumento': { name: 'Novità', path: '/articoli-frontaliere/salario-domestico-ticino-aumento', parent: 'blog' },
     'blog-frontaliere-pensione-avs-inps-2026': { name: 'Pensione Frontalieri', path: '/articoli-frontaliere/frontaliere-pensione-avs-inps-2026', parent: 'blog' },
+    'blog-costo-vivere-lugano-frontalieri-2026': { name: 'Costo vita Lugano', path: '/articoli-frontaliere/costo-vivere-lugano-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

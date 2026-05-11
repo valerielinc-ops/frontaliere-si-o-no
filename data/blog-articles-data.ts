@@ -23708,4 +23708,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'costo-vivere-lugano-frontalieri-2026',
+ category: 'pratico',
+ date: '2026-05-11T10:24:56.654Z',
+ image: '/images/blog/costo-vivere-lugano-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
