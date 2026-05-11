@@ -7,6 +7,11 @@ export default defineConfig({
  resolve: {
  alias: {
  '@': path.resolve(__dirname, '.'),
+ // `@google-cloud/recaptcha-enterprise` is only installed under
+ // functions/node_modules, not at the repo root. Tests vi.mock it,
+ // but Vite import-analysis runs before mocks → alias to a stub so
+ // resolution succeeds and the mock can take over at module-load time.
+ '@google-cloud/recaptcha-enterprise': path.resolve(__dirname, 'tests/stubs/recaptcha-enterprise.ts'),
  },
  },
  test: {
