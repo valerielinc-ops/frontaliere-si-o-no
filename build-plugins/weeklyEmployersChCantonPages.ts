@@ -49,6 +49,7 @@ import {
   type WeeklyCountableJob,
 } from './weeklyEmployersPlugin';
 import {
+  MIN_JOBS_FOR_CANTON_PAGE,
   WEEKLY_EMPLOYERS_SECTION,
   type SwissCantonCode,
   type WeeklyEmployersLocale,
@@ -410,6 +411,13 @@ function renderEmployersPage(inp: RenderInputs): string {
   const title = `${c.titlePrefix} ${cantonName}`;
   const description = `${c.descriptionPrefix} ${cantonName}: ${inp.totalEmployers} ${c.activeEmployersLabel.toLowerCase()}, ${inp.totalJobs} ${c.activeJobsLabel.toLowerCase()}.`;
 
+  // Phase 6 (Cathedral, P2.S1): flip to `index,follow` once the (canton,
+  // week) bucket meets the MIN_JOBS_FOR_CANTON_PAGE gate. Below-threshold
+  // buckets stay `noindex,follow` so thin pages don't dilute authority.
+  const robotsValue = inp.totalJobs >= MIN_JOBS_FOR_CANTON_PAGE
+    ? 'index,follow'
+    : 'noindex,follow';
+
   return buildSeoPageHtml({
     locale: inp.locale,
     title,
@@ -418,7 +426,7 @@ function renderEmployersPage(inp: RenderInputs): string {
     bodyHtml: main,
     jsonLdScripts: [breadcrumbLd],
     ogLocale: OG_LOCALE[inp.locale],
-    robots: 'noindex,follow',
+    robots: robotsValue,
     distDir: inp.distDir,
   });
 }
@@ -470,7 +478,7 @@ export async function emitChCantonEmployersPages(
     activeJobsCount: number;
     byEmployer: Map<string, readonly WeeklyCountableJob[]>;
   };
-  const MERGE_THRESHOLD = 5; // mirrors MIN_JOBS_FOR_CANTON_PAGE in weeklyEmployersPlugin
+  const MERGE_THRESHOLD = MIN_JOBS_FOR_CANTON_PAGE; // imported from weeklyEmployersData (Phase 6: single source of truth)
   const mergedByCanton = new Map<string, MergedBucket>();
   for (const [bfsCode, bucket] of index.byCanton.entries()) {
     if (bfsCode === 'TI') continue; // legacy TI pipeline owns its hubs
