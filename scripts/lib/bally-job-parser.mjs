@@ -200,10 +200,9 @@ export async function fetchAllBallyJobs() {
   // Try each potential careers URL
   for (const url of CAREER_URLS) {
     try {
-      console.log(`   Trying: ${url}`);
-      let html = '';
+      console.log(`   Trying: ${url}`);      let html = '';
   try {
-  
+    html = await fetchHtml(url, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`  Failed to fetch: ${err.message}`);
     return [];

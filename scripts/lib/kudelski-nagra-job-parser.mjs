@@ -234,10 +234,9 @@ export async function fetchAllKudelskiNagraJobs() {
   // Strategy 2: HTML scraping
   if (!listings || listings.length === 0) {
     console.log('   Greenhouse API did not return jobs, trying HTML scraping...');
-    try {
-      let html = '';
+    try {      let html = '';
   try {
-  
+    html = await fetchHtml(CAREER_URL, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`  Failed to fetch: ${err.message}`);
     return [];

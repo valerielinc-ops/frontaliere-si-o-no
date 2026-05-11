@@ -260,10 +260,9 @@ function inferEmploymentType(title = '', description = '') {
  */
 export async function fetchAllFaulhaberJobs() {
   console.log(`  Fetching Faulhaber jobs from ${CAREERS_URL}`);
-
   let html = '';
   try {
-  
+    html = await fetchHtml(CAREERS_URL, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`  Failed to fetch: ${err.message}`);
     return [];

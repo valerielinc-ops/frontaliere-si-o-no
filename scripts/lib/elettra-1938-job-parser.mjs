@@ -251,10 +251,9 @@ export async function fetchAllElettra1938Jobs() {
   // Try each potential job page URL
   for (const url of JOB_URLS) {
     try {
-      console.log(`   Trying: ${url}`);
-      let html = '';
+      console.log(`   Trying: ${url}`);      let html = '';
   try {
-  
+    html = await fetchHtml(url, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`  Failed to fetch: ${err.message}`);
     return [];

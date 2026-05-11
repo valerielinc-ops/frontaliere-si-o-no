@@ -243,10 +243,9 @@ export async function fetchAllCantonValaisJobs() {
   // Strategy 2: Fall back to HTML scraping
   if (!listings || listings.length === 0) {
     console.log('   ServiceNow API did not return jobs, trying HTML scraping...');
-    try {
-      let html = '';
+    try {      let html = '';
   try {
-  
+    html = await fetchHtml(CAREER_URL, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`  Failed to fetch: ${err.message}`);
     return [];

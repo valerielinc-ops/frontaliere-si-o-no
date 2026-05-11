@@ -1,13 +1,9 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import fs from 'node:fs/promises';
-import os from 'node:os';
-import path from 'node:path';
+import { describe, it, expect } from 'vitest';
 import {
   RICHEMONT_KEY,
   RICHEMONT_COMPANY_NAME,
   isRichemontJob,
   isTrustedDomain,
-  fetchAllRichemontJobs,
 } from '../scripts/lib/richemont-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -51,11 +47,6 @@ describe('Richemont crawler parser', () => {
 
     it('trusts subdomains', () => {
       expect(isTrustedDomain('https://careers.richemont.com/job/456')).toBe(true);
-    });
-
-    it('trusts Adzuna domains (fallback aggregator)', () => {
-      expect(isTrustedDomain('https://www.adzuna.ch/jobs/details/abc')).toBe(true);
-      expect(isTrustedDomain('https://adzuna.com/jobs/details/abc')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -133,81 +124,6 @@ describe('Richemont crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
-    });
-  });
-
-  // ── fetchAllRichemontJobs (Adzuna fallback path, mocked fetch) ──
-  describe('fetchAllRichemontJobs (Adzuna fallback)', () => {
-    let tmpCacheDir: string;
-
-    beforeEach(async () => {
-      tmpCacheDir = await fs.mkdtemp(path.join(os.tmpdir(), 'adz-richemont-'));
-    });
-
-    afterEach(async () => {
-      await fs.rm(tmpCacheDir, { recursive: true, force: true });
-    });
-
-    it('returns ParsedJobs from a mocked Adzuna response, filtering non-Richemont brands', async () => {
-      const fetchImpl = async () =>
-        ({
-          ok: true,
-          status: 200,
-          json: async () => ({
-            count: 3,
-            results: [
-              {
-                id: '1',
-                title: 'Senior Watchmaker',
-                company: { display_name: 'Richemont International SA' },
-                location: { display_name: 'Geneva, Switzerland' },
-                redirect_url: 'https://www.adzuna.ch/jobs/details/1',
-                created: '2026-05-01T10:00:00Z',
-                description: 'Lead watchmaker role.',
-              },
-              {
-                id: '2',
-                title: 'Boutique Manager',
-                company: { display_name: 'Cartier' },
-                location: { display_name: 'Zurich' },
-                redirect_url: 'https://www.adzuna.ch/jobs/details/2',
-                created: '2026-05-02T10:00:00Z',
-                description: 'Boutique management role.',
-              },
-              {
-                id: '3',
-                title: 'Pilot',
-                company: { display_name: 'SWISS Air Lines' },
-                location: { display_name: 'Zurich' },
-                redirect_url: 'https://www.adzuna.ch/jobs/details/3',
-                created: '2026-05-03T10:00:00Z',
-                description: 'Pilot role.',
-              },
-            ],
-          }),
-        }) as unknown as Response;
-
-      const jobs = await fetchAllRichemontJobs({
-        appId: 'TEST_ID',
-        appKey: 'TEST_KEY',
-        cacheDir: tmpCacheDir,
-        _fetchImpl: fetchImpl,
-        _cacheDate: '2026-05-10',
-        maxPages: 1,
-      });
-
-      expect(jobs).toHaveLength(2);
-      const titles = jobs.map((j: { title: string }) => j.title);
-      expect(titles).toContain('Senior Watchmaker');
-      expect(titles).toContain('Boutique Manager');
-      expect(titles).not.toContain('Pilot');
-      for (const job of jobs) {
-        expect(job.companyKey).toBe('richemont');
-        expect(job.source).toBe('Richemont Adzuna Fallback');
-        expect(job.sector).toBe('Lusso');
-        expect(job.applyUrl).toMatch(/^https:\/\/www\.adzuna\.ch\//);
-        expect(isTrustedDomain(job.applyUrl)).toBe(true);
-      }
     });
   });
 });

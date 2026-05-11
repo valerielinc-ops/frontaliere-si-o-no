@@ -237,10 +237,9 @@ function inferCanton(city = '') {
  */
 export async function fetchAllStadlerRailJobs() {
   console.log(`  Fetching Stadler Rail jobs from ${CAREERS_URL}`);
-
   let html = '';
   try {
-  
+    html = await fetchHtml(CAREERS_URL, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`  Failed to fetch: ${err.message}`);
     return [];
