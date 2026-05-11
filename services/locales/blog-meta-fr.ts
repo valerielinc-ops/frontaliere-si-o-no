@@ -7401,6 +7401,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-bloccati-ticino-italia.title': 'Tessin: blocco ristorni in discussione per tensione con l\'Italia',
     'blog.article.ristorni-bloccati-ticino-italia.excerpt': 'Le président du Conseil d\'État Claudio Zali propose de bloquer les ristorni en réponse aux demandes italiennes sur la taxe santé pour les anciens frontaliers.',
     'blog.article.ristorni-bloccati-ticino-italia.imageAlt': 'Vue du lac de Lugano avec la frontière suisse-italienne',
+    'blog.article.giro-ditalia-magnier-froidevaux-2026.title': 'Paul Magnier triomphe encore au Giro d\'Italia: Froidevaux douzième',
+    'blog.article.giro-ditalia-magnier-froidevaux-2026.excerpt': 'Le Français Paul Magnier remporte la troisième étape du Giro d\'Italia à Sofia, tandis que le Vodois Robin Froidevaux se classe douzième.',
+    'blog.article.giro-ditalia-magnier-froidevaux-2026.imageAlt': 'Cyclistes participant au Giro d\'Italia le long des rives du lac de Lugano, avec les montagnes du Tessin en arrière-plan.',
 };
 
 export default blogMetaFr;

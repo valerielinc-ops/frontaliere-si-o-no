@@ -35057,6 +35057,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giro-ditalia-magnier-froidevaux-2026': {
+    title: 'Paul Magnier trionfa ancora al Giro d\'Italia: Froidevaux dodicesimo',
+    description: 'Il francese Paul Magnier vince la terza tappa del Giro d\'Italia a Sofia, mentre il vodese Robin Froidevaux si piazza dodicesimo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, paul, magnier, trionfa, ancora',
+    ogTitle: 'Paul Magnier trionfa ancora al Giro d\'Italia: Froidevaux dodicesimo',
+    ogDescription: 'Il francese Paul Magnier vince la terza tappa del Giro d\'Italia a Sofia, mentre il vodese Robin Froidevaux si piazza dodicesimo.',
+    canonicalPath: '/articoli-frontaliere/giro-ditalia-magnier-froidevaux-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Paul Magnier trionfa ancora al Giro d'Italia: Froidevaux dodicesimo",
+      "description": "Il francese Paul Magnier vince la terza tappa del Giro d'Italia a Sofia, mentre il vodese Robin Froidevaux si piazza dodicesimo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giro-ditalia-magnier-froidevaux-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ciclisti del Giro d'Italia in gara lungo le rive del Lago di Lugano, con le montagne del Ticino sullo sfondo."
+      },
+      "datePublished": "2026-05-11T01:36:53+00:00",
+      "dateModified": "2026-05-11T01:36:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giro-ditalia-magnier-froidevaux-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

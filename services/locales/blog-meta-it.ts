@@ -7401,6 +7401,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-bloccati-ticino-italia.title': 'Ticino: blocco ristorni in discussione per tensione con Italia',
     'blog.article.ristorni-bloccati-ticino-italia.excerpt': 'Il presidente del Consiglio di Stato Claudio Zali propone di bloccare i ristorni come risposta alle richieste italiane sulla tassa salute per i vecchi frontalieri.',
     'blog.article.ristorni-bloccati-ticino-italia.imageAlt': 'Vista del Lago di Lugano con il confine italo-svizzero',
+    'blog.article.giro-ditalia-magnier-froidevaux-2026.title': 'Paul Magnier trionfa ancora al Giro d\'Italia: Froidevaux dodicesimo',
+    'blog.article.giro-ditalia-magnier-froidevaux-2026.excerpt': 'Il francese Paul Magnier vince la terza tappa del Giro d\'Italia a Sofia, mentre il vodese Robin Froidevaux si piazza dodicesimo.',
+    'blog.article.giro-ditalia-magnier-froidevaux-2026.imageAlt': 'Ciclisti del Giro d\'Italia in gara lungo le rive del Lago di Lugano, con le montagne del Ticino sullo sfondo.',
 };
 
 export default blogMetaIt;

@@ -23573,4 +23573,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'giro-ditalia-magnier-froidevaux-2026',
+ category: 'novita',
+ date: '2026-05-11T01:36:53.534Z',
+ image: '/images/blog/giro-ditalia-magnier-froidevaux-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

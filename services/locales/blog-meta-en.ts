@@ -7400,6 +7400,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-bloccati-ticino-italia.title': 'Ticino: cross-border worker permit block under discussion due to Italy tensions',
     'blog.article.ristorni-bloccati-ticino-italia.excerpt': 'Council of State President Claudio Zali proposes blocking cross-border worker permits in response to Italian requests regarding the health tax for old cross-border workers.',
     'blog.article.ristorni-bloccati-ticino-italia.imageAlt': 'View of Lake Lugano with the Swiss-Italian border',
+    'blog.article.giro-ditalia-magnier-froidevaux-2026.title': 'Paul Magnier wins again at Giro d\'Italia: Froidevaux twelfth',
+    'blog.article.giro-ditalia-magnier-froidevaux-2026.excerpt': 'Frenchman Paul Magnier wins the third stage of the Giro d\'Italia in Sofia, while Vaud\'s Robin Froidevaux finishes twelfth.',
+    'blog.article.giro-ditalia-magnier-froidevaux-2026.imageAlt': 'Cyclists racing in the Giro d\'Italia along the shores of Lake Lugano, with the mountains of Ticino in the background.',
 };
 
 export default blogMetaEn;

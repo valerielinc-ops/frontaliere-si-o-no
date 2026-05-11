@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2519,
+ "numberOfItems": 2520,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7161,7 +7161,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2516, "name": "Referendum sui Castelli di Bellinzona: il popol...", "url": `${BASE_URL}/articoli-frontaliere/referendum-castelli-bellinzona-2026` },
           { "@type": "ListItem", "position": 2517, "name": "Fabienne Schlumpf seconda a Ginevra: ritorno in...", "url": `${BASE_URL}/articoli-frontaliere/maratona-schlumpf-ginevra-2026` },
           { "@type": "ListItem", "position": 2518, "name": "Siviero rieletto presidente Swiss Basketball", "url": `${BASE_URL}/articoli-frontaliere/siviero-rieletto-swiss-basketball` },
-          { "@type": "ListItem", "position": 2519, "name": "Ticino: blocco ristorni in discussione per tens...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-bloccati-ticino-italia` }
+          { "@type": "ListItem", "position": 2519, "name": "Ticino: blocco ristorni in discussione per tens...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-bloccati-ticino-italia` },
+          { "@type": "ListItem", "position": 2520, "name": "Paul Magnier trionfa ancora al Giro d'Italia: F...", "url": `${BASE_URL}/articoli-frontaliere/giro-ditalia-magnier-froidevaux-2026` }
  ]
  },
  {
