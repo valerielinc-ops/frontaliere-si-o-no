@@ -7718,7 +7718,12 @@ ${alternates}
      const robotsValue: 'index,follow' | 'noindex,follow' = meetsThreshold ? 'index,follow' : 'noindex,follow';
      if (meetsThreshold) cantonIndexIndexable++; else cantonIndexNoindex++;
      const labels = buildCantonLocaleLabels(entry.locale, display);
-     const legacyJobBoardHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${sectionByLocale[entry.locale]}`.replace(/\/+/g, '/'))}`;
+     // P4 — CTA points to the canton-filtered job board (entry.section is
+     // already the canton-aware locale URL segment, e.g. `cerca-lavoro-zurigo`
+     // or `find-jobs-zurich`). For the AGGREGATE_KEY this resolves to the
+     // /cerca-lavoro-svizzera/ aggregator. For TI it would be the legacy
+     // section, but TI is filtered out earlier (owned by staticPagesPlugin).
+     const legacyJobBoardHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'))}`;
      // BreadcrumbList JSON-LD: required by tests/seo/breadcrumb-coverage.test.ts
      // (D.2 — every non-exempt dist/ HTML page must include a BreadcrumbList).
      // Three-level chain: Home → Job Board (locale legacy section) → canton.
@@ -7731,19 +7736,135 @@ ${alternates}
          { '@type': 'ListItem', position: 3, name: display, item: canonicalUrl },
        ],
      })}</script>`;
+
+     // ── P4: rich canton-landing body ────────────────────────────────────
+     // Filter all canonical jobs that resolve to this canton via the shared
+     // resolver (job.canton + city → canton lookup with TI fallback). This
+     // matches the resolver used everywhere else in the plugin so the cards
+     // here link to URLs that actually exist.
+     const cantonJobsAll = validJobs.filter(
+       (j) => sharedResolveJobCanton(j as { canton?: string; location?: string }) === entry.key,
+     );
+     // Top 12 most recent, used in the listing grid.
+     const cantonJobs = [...cantonJobsAll]
+       .sort(
+         (a, b) =>
+           Number(new Date(((b as { datePosted?: string }).datePosted) || 0)) -
+           Number(new Date(((a as { datePosted?: string }).datePosted) || 0)),
+       )
+       .slice(0, 12);
+
+     // Aggregate stats for the tile grid.
+     const totalJobs = cantonJobsAll.length;
+     const sectorCounts = new Map<string, number>();
+     const cityCounts = new Map<string, number>();
+     for (const j of cantonJobsAll) {
+       const sec = String((j as { sector?: string }).sector || '').trim() || '—';
+       sectorCounts.set(sec, (sectorCounts.get(sec) ?? 0) + 1);
+       const city = String((j as { location?: string }).location || '').split(',')[0].trim();
+       if (city) cityCounts.set(city, (cityCounts.get(city) ?? 0) + 1);
+     }
+     const topSector = [...sectorCounts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? '—';
+     const topCity = [...cityCounts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? display;
+     const avgSalary: number | null = (() => {
+       const sals = cantonJobsAll
+         .map((j) => Number((j as { salaryMin?: number }).salaryMin))
+         .filter((n) => Number.isFinite(n) && n > 0);
+       if (sals.length === 0) return null;
+       return Math.round(sals.reduce((a, b) => a + b, 0) / sals.length);
+     })();
+
+     // Locale-aware tile labels (no new tokens, only `STAT_TILE_*` semantic
+     // colors per CLAUDE.md NON-NEGOTIABLE #17).
+     const tileLabels = (() => {
+       switch (entry.locale) {
+         case 'en':
+           return { open: 'Open positions', topSector: 'Top sector', topCity: 'Most active city', avgSalary: 'Avg. salary' };
+         case 'de':
+           return { open: 'Offene Stellen', topSector: 'Top-Branche', topCity: 'Aktivste Stadt', avgSalary: 'Durchschnittsgehalt' };
+         case 'fr':
+           return { open: 'Postes ouverts', topSector: 'Secteur principal', topCity: 'Ville la plus active', avgSalary: 'Salaire moyen' };
+         default:
+           return { open: 'Offerte attive', topSector: 'Settore principale', topCity: 'Città più attiva', avgSalary: 'Salario medio' };
+       }
+     })();
+     const tileGrid =
+       `<section data-stat-tile-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:0 0 16px;max-width:1080px">` +
+       `<div data-stat-tile="accent" style="background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);border-radius:12px;padding:16px">` +
+       `<div style="font-size:12px;color:var(--color-body);text-transform:uppercase;letter-spacing:0.04em">${esc(tileLabels.open)}</div>` +
+       `<div style="font-size:28px;font-weight:700;color:var(--color-heading);line-height:1.1;margin-top:6px">${totalJobs.toLocaleString('de-CH')}</div>` +
+       `</div>` +
+       `<div data-stat-tile="success" style="background:var(--color-success-subtle);border:1px solid var(--color-success-border);border-radius:12px;padding:16px">` +
+       `<div style="font-size:12px;color:var(--color-body);text-transform:uppercase;letter-spacing:0.04em">${esc(tileLabels.topSector)}</div>` +
+       `<div style="font-size:18px;font-weight:600;color:var(--color-heading);line-height:1.2;margin-top:6px">${esc(topSector)}</div>` +
+       `</div>` +
+       `<div data-stat-tile="warning" style="background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);border-radius:12px;padding:16px">` +
+       `<div style="font-size:12px;color:var(--color-body);text-transform:uppercase;letter-spacing:0.04em">${esc(tileLabels.topCity)}</div>` +
+       `<div style="font-size:18px;font-weight:600;color:var(--color-heading);line-height:1.2;margin-top:6px">${esc(topCity)}</div>` +
+       `</div>` +
+       (avgSalary
+         ? `<div data-stat-tile="base" style="background:var(--color-surface-alt);border:1px solid var(--color-edge);border-radius:12px;padding:16px">` +
+           `<div style="font-size:12px;color:var(--color-body);text-transform:uppercase;letter-spacing:0.04em">${esc(tileLabels.avgSalary)}</div>` +
+           `<div style="font-size:24px;font-weight:700;color:var(--color-heading);line-height:1.1;margin-top:6px">CHF ${avgSalary.toLocaleString('de-CH')}</div>` +
+           `</div>`
+         : '') +
+       `</section>`;
+
+     // Listing grid: 12 most recent canton jobs. Each card links to the
+     // canonical job-detail URL via the canton-aware section, which matches
+     // the job-detail emit loop in Phase 1.
+     const listingGrid = cantonJobs.length > 0
+       ? `<section data-listing-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:24px 0">` +
+         cantonJobs.map((j) => {
+           const jt = j as {
+             slugByLocale?: Record<string, string>;
+             slug?: string;
+             titleByLocale?: Record<string, string>;
+             title?: string;
+             company?: string;
+             location?: string;
+             canton?: string;
+           };
+           const jslug = jt.slugByLocale?.[entry.locale] || jt.slug || '';
+           const jCanton = sharedResolveJobCanton({ canton: jt.canton, location: jt.location });
+           const jSection = buildCantonAwareSection(entry.locale, jCanton);
+           const jHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${jSection}/${jslug}`.replace(/\/+/g, '/'))}`;
+           const jTitle = String(jt.titleByLocale?.[entry.locale] || jt.title || '');
+           const jCompany = String(jt.company || '');
+           const jLocation = String(jt.location || '').split(',')[0].trim();
+           return (
+             `<article data-job-id="${esc(jslug)}" style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:12px;padding:16px">` +
+             `<h3 style="font-size:16px;margin:0 0 8px;line-height:1.3">` +
+             `<a href="${jHref}" style="color:var(--color-heading);text-decoration:none">${esc(jTitle)}</a>` +
+             `</h3>` +
+             `<div style="font-size:14px;color:var(--color-body);margin-bottom:4px">${esc(jCompany)}</div>` +
+             `<div style="font-size:13px;color:var(--color-muted)">${esc(jLocation)}</div>` +
+             `</article>`
+           );
+         }).join('') +
+         `</section>`
+       : '';
+
      // bodyHtml is wrapped in <main> because buildSeoPageHtml runs in
      // seoContentOutsideRoot=true mode by default — the caller-provided
      // <main> is hosted as a sibling of <div id="root"> so React's hydration
      // cannot replace the static SEO content. See SeoPageShellOpts docs.
+     //
+     // Order per CLAUDE.md NON-NEGOTIABLE #17: breadcrumb → header (H1 +
+     // 1-line tagline) → stat tile grid → primary CTA → data area
+     // (listing grid) → long prose. Mobile-first: stat tiles + CTA fit
+     // above the fold on a ≤414 px viewport; filler prose stays below.
      const bodyHtml = [
        `<main class="seo-static-content" style="max-width:1080px;margin:0 auto;padding:24px 16px">`,
        `<nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}/" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
-       `<header style="max-width:860px;margin:0 0 24px"><h1 style="font-size:32px;line-height:1.15;margin:0 0 12px">${esc(display)}</h1><p style="margin:0;color:var(--color-body);font-size:16px">${esc(labels.lede)}</p></header>`,
-       `<p style="margin:0 0 32px"><a href="${legacyJobBoardHref}" style="display:inline-block;padding:10px 18px;background:var(--color-accent);color:#fff;border-radius:8px;font-weight:600;text-decoration:none">${esc(labels.ctaLabel)}</a></p>`,
-       // Frontaliere context prose — placed BELOW the CTA per CLAUDE.md non-
-       // negotiable #16 (mobile-first, filler below content). Ratio uplift
-       // brings text/HTML from 1.7-2.2 % to ~12 % so audit:text-html-ratio
-       // accepts these pages.
+       `<header style="max-width:860px;margin:0 0 16px"><h1 style="font-size:32px;line-height:1.15;margin:0 0 8px">${esc(display)}</h1><p style="margin:0;color:var(--color-body);font-size:16px">${esc(labels.lede)}</p></header>`,
+       tileGrid,
+       `<p style="margin:0 0 24px"><a href="${legacyJobBoardHref}" style="display:inline-block;padding:12px 22px;background:var(--color-accent);color:var(--color-on-accent);border-radius:8px;font-weight:600;text-decoration:none">${esc(labels.ctaLabel)}</a></p>`,
+       listingGrid,
+       // Frontaliere context prose — placed BELOW the data area per CLAUDE.md
+       // non-negotiable #16/#17 (mobile-first, filler below content). Ratio
+       // uplift brings text/HTML from 1.7-2.2 % to ~12 % so
+       // audit:text-html-ratio accepts these pages.
        buildCantonContextProse(entry.locale, display),
        `</main>`,
      ].join('\n');
