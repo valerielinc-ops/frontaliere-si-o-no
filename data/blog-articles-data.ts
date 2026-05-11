@@ -23591,4 +23591,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'disoccupazione-frontalieri-residenti',
+ category: 'novita',
+ date: '2026-05-11T01:48:50.512Z',
+ image: '/images/blog/disoccupazione-frontalieri-residenti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

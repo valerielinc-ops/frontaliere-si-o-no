@@ -7406,6 +7406,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzeri-secondo-pilastro-casa.title': 'Haus kaufen? Jeder zweite Schweizer nutzt die zweite Säule',
     'blog.article.svizzeri-secondo-pilastro-casa.excerpt': 'Erfahren Sie, wie die Schweizer die zweite Säule für den Hauskauf nutzen und die Auswirkungen auf Grenzgänger',
     'blog.article.svizzeri-secondo-pilastro-casa.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze',
+    'blog.article.disoccupazione-frontalieri-residenti.title': 'Arbeitslosigkeit: Gleiche Regeln für Grenzgänger und Einwohner',
+    'blog.article.disoccupazione-frontalieri-residenti.excerpt': 'Neue Vorschriften zur Arbeitslosigkeit im Tessin: Grenzgänger und Einwohner haben nun dieselben Rechte und Pflichten. Hier erfahren Sie, was sich ändert',
+    'blog.article.disoccupazione-frontalieri-residenti.imageAlt': 'Luganersee mit Blick auf die Uferpromenade und die umliegenden Gebäude',
 };
 
 export default blogMetaDe;

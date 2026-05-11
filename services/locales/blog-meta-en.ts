@@ -7406,6 +7406,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzeri-secondo-pilastro-casa.title': 'Buying a home? Half of Swiss use second pillar',
     'blog.article.svizzeri-secondo-pilastro-casa.excerpt': 'Learn how Swiss residents use the second pillar for home purchases and the implications for cross-border workers',
     'blog.article.svizzeri-secondo-pilastro-casa.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border',
+    'blog.article.disoccupazione-frontalieri-residenti.title': 'Unemployment: same rules for cross-border workers and residents in Ticino',
+    'blog.article.disoccupazione-frontalieri-residenti.excerpt': 'New rules for unemployment in Ticino: cross-border workers and residents now have the same rights and obligations. Here\'s what changes',
+    'blog.article.disoccupazione-frontalieri-residenti.imageAlt': 'Lake Lugano with a view of the lakeside and surrounding buildings',
 };
 
 export default blogMetaEn;

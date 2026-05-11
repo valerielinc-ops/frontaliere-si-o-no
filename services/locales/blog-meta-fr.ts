@@ -7407,6 +7407,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzeri-secondo-pilastro-casa.title': 'Acheter une maison ? Un Suisse sur deux utilise le 2e pilier',
     'blog.article.svizzeri-secondo-pilastro-casa.excerpt': 'Découvrez comment les Suisses utilisent le deuxième pilier pour l\'achat d\'une maison et les implications pour les frontaliers',
     'blog.article.svizzeri-secondo-pilastro-casa.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne',
+    'blog.article.disoccupazione-frontalieri-residenti.title': 'Chômage: mêmes règles pour les frontaliers et résidents au Tessin',
+    'blog.article.disoccupazione-frontalieri-residenti.excerpt': 'Nouvelles normes pour le chômage au Tessin: frontaliers et résidents ont désormais les mêmes droits et obligations. Voici ce qui change',
+    'blog.article.disoccupazione-frontalieri-residenti.imageAlt': 'Lac de Lugano avec vue sur la promenade du lac et les bâtiments environnants',
 };
 
 export default blogMetaFr;

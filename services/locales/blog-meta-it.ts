@@ -7407,6 +7407,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzeri-secondo-pilastro-casa.title': 'Comprare casa? Uno svizzero su due svuota il secondo pilastro',
     'blog.article.svizzeri-secondo-pilastro-casa.excerpt': 'Scopri come gli svizzeri utilizzano il secondo pilastro per l\'acquisto della casa e le implicazioni per i frontalieri',
     'blog.article.svizzeri-secondo-pilastro-casa.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano',
+    'blog.article.disoccupazione-frontalieri-residenti.title': 'Disoccupazione: stesse regole per frontalieri e residenti in Ticino',
+    'blog.article.disoccupazione-frontalieri-residenti.excerpt': 'Nuove norme per la disoccupazione in Ticino: frontalieri e residenti ora hanno gli stessi diritti e obblighi. Ecco cosa cambia',
+    'blog.article.disoccupazione-frontalieri-residenti.imageAlt': 'Lago di Lugano con vista sul lungolago e gli edifici circostanti',
 };
 
 export default blogMetaIt;
