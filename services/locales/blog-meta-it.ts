@@ -7451,6 +7451,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.title': 'Calcolo pensione frontaliere AVS italiana: come funziona',
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.excerpt': 'Guida pratica per frontalieri Ticino: contributi AVS svizzeri, INPS italiana, totalizzazione e tempistiche per la pensione.',
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.imageAlt': 'Vista serena del Lago di Lugano con il confine svizzero-italiano sullo sfondo, fotografata con una fotocamera DSLR.',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.title': 'Costo auto pendolare frontalieri Ticino: benzina, vignette, parcheggio e usura',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.excerpt': 'Analisi dettagliata dei costi per chi lavora in Ticino e usa l\'auto per pendolare: benzina, vignette, parcheggio, usura e confronto con treno e bus.',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.imageAlt': 'Un lavoratore frontaliero che si reca al lavoro in auto dal confine italiano al Canton Ticino, con il Lago di Lugano sullo sfondo.',
 };
 
 export default blogMetaIt;

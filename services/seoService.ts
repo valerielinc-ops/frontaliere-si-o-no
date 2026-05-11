@@ -3726,6 +3726,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-costo-vivere-lugano-frontalieri-2026': { name: 'Costo vita Lugano', path: '/articoli-frontaliere/costo-vivere-lugano-frontalieri-2026', parent: 'blog' },
     'blog-lamal-cmi-frontalieri-conviene-2026': { name: 'Assicurazione sanitaria', path: '/articoli-frontaliere/lamal-cmi-frontalieri-conviene-2026', parent: 'blog' },
     'blog-calcolo-pensione-frontaliere-avs-italiana': { name: 'Pensione', path: '/articoli-frontaliere/calcolo-pensione-frontaliere-avs-italiana', parent: 'blog' },
+    'blog-costo-auto-pendolare-frontalieri-ticino': { name: 'Costo auto pendolare', path: '/articoli-frontaliere/costo-auto-pendolare-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -7451,6 +7451,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.title': 'Italian AVS pension calculation: how it works',
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.excerpt': 'Practical guide for Ticino cross-border workers: Swiss AVS contributions, Italian INPS, totalization and pension deadlines.',
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.imageAlt': 'A serene view of Lake Lugano with the Swiss-Italian border in the background, captured with a DSLR camera.',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.title': 'Cross-border worker car costs in Ticino: fuel, vignette, parking and wear',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.excerpt': 'Detailed analysis of costs for those working in Ticino and using a car to commute: fuel, vignette, parking, wear and comparison with train and bus.',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.imageAlt': 'A cross-border worker driving to work from the Italian border to the Canton of Ticino, with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

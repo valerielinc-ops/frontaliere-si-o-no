@@ -35759,6 +35759,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costo-auto-pendolare-frontalieri-ticino': {
+    title: 'Costo auto pendolare frontalieri Ticino: benzina, vignette, parcheggio e usura',
+    description: 'Analisi dettagliata dei costi per chi lavora in Ticino e usa l\'auto per pendolare: benzina, vignette, parcheggio, usura e confronto con treno e bus.',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, auto, pendolare, benzina',
+    ogTitle: 'Costo auto pendolare frontalieri Ticino: benzina, vignette, parcheggio e usura',
+    ogDescription: 'Analisi dettagliata dei costi per chi lavora in Ticino e usa l\'auto per pendolare: benzina, vignette, parcheggio, usura e confronto con treno e bus.',
+    canonicalPath: '/articoli-frontaliere/costo-auto-pendolare-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costo auto pendolare frontalieri Ticino: benzina, vignette, parcheggio e usura",
+      "description": "Analisi dettagliata dei costi per chi lavora in Ticino e usa l'auto per pendolare: benzina, vignette, parcheggio, usura e confronto con treno e bus.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costo-auto-pendolare-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un lavoratore frontaliero che si reca al lavoro in auto dal confine italiano al Canton Ticino, con il Lago di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-05-11T12:44:44+00:00",
+      "dateModified": "2026-05-11T12:44:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-auto-pendolare-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7450,6 +7450,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.title': 'Rentenberechnung für italienische Grenzgänger: So funktioniert\'s',
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.excerpt': 'Praktischer Leitfaden für Grenzgänger im Tessin: Schweizerische AHV-Beiträge, italienische INPS, Gesamtrechnung und Fristen für die Rente.',
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.imageAlt': 'Eine ruhige Aussicht auf den Luganersee mit der Schweizer-Italienischen Grenze im Hintergrund, aufgenommen mit einer DSLR-Kamera.',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.title': 'Kosten Pendler Grenzgänger: Benzin, Vignette, Parken und Abnutzung',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.excerpt': 'Detaillierte Analyse der Kosten für Grenzgänger, die im Tessin arbeiten und mit dem Auto pendeln: Benzin, Vignette, Parken, Abnutzung und Vergleich mit Zug und Bus.',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.imageAlt': 'Ein Grenzgänger, der mit dem Auto von der italienischen Grenze zum Kanton Tessin zur Arbeit fährt, mit dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaDe;

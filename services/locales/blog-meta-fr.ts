@@ -7451,6 +7451,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.title': 'Calcul de la pension AVS italienne pour frontaliers',
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.excerpt': 'Guide pratique pour les frontaliers du Tessin : cotisations AVS suisses, INPS italienne, totalisation et délais pour la retraite.',
     'blog.article.calcolo-pensione-frontaliere-avs-italiana.imageAlt': 'Une vue sereine du lac de Lugano avec la frontière suisse-italienne en arrière-plan, capturée avec un appareil photo DSLR.',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.title': 'Coût auto frontalier Ticino : essence, vignettes, parking et usure',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.excerpt': 'Analyse détaillée des coûts pour ceux qui travaillent au Ticino et utilisent la voiture pour le trajet domicile-travail : essence, vignettes, parking, usure et comparaison avec le train et le bus.',
+    'blog.article.costo-auto-pendolare-frontalieri-ticino.imageAlt': 'Un travailleur frontalier se rendant au travail en voiture de la frontière italienne au canton du Tessin, avec le lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaFr;

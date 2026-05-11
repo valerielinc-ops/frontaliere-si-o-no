@@ -23735,4 +23735,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'costo-auto-pendolare-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-05-11T12:44:43.988Z',
+ image: '/images/blog/costo-auto-pendolare-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
