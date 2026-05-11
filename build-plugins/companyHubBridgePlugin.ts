@@ -32,6 +32,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import type { Locale } from '../services/i18n';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -147,28 +148,47 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
     <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.matchedLede(entry.displayName, entry.jobCount))}</p>
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(buildSectionCanonical(locale))}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
   </main>`;
+  const breadcrumbLd = buildBridgeBreadcrumbLd({
+    locale,
+    baseUrl: BASE_URL,
+    sectionLabel: JOBS_SECTION_LABEL[locale],
+    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    pageLabel: entry.displayName,
+    canonicalUrl,
+  });
   return buildSeoPageHtml({
     locale, title: copy.matchedTitle(entry.displayName, entry.jobCount),
     description: copy.matchedDescription(entry.displayName, entry.jobCount),
     canonicalUrl, robots: 'index,follow', ogType: 'website', ogLocale: OG_LOCALE[locale],
-    hreflangHtml: '', jsonLdScripts: [], bodyHtml, distDir, seoMainClass: 'cluster-seo-prose',
+    hreflangHtml: '', jsonLdScripts: [breadcrumbLd], bodyHtml, distDir, seoMainClass: 'cluster-seo-prose',
   });
 }
 
 function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
+  // Canonical points to the section landing for unmatched entries; the
+  // BreadcrumbList still describes the bridge URL the visitor landed on.
   const canonicalUrl = buildSectionCanonical(locale);
   const sectionPath = buildSectionCanonical(locale);
+  const hubAbsoluteUrl = `${BASE_URL}${buildHubPath(locale, entry.companySlug)}`;
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px"><h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${esc(copy.unmatchedH1(entry.displayName))}</h1></header>
     <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.unmatchedLede)}</p>
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(sectionPath)}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
   </main>`;
+  const breadcrumbLd = buildBridgeBreadcrumbLd({
+    locale,
+    baseUrl: BASE_URL,
+    sectionLabel: JOBS_SECTION_LABEL[locale],
+    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    pageLabel: entry.displayName,
+    canonicalUrl: hubAbsoluteUrl,
+  });
   return buildSeoPageHtml({
     locale, title: copy.unmatchedTitle, description: copy.unmatchedDescription,
     canonicalUrl, robots: 'index,follow', ogType: 'website', ogLocale: OG_LOCALE[locale],
-    hreflangHtml: '', jsonLdScripts: [], bodyHtml, distDir, seoMainClass: 'cluster-seo-prose',
+    hreflangHtml: '', jsonLdScripts: [breadcrumbLd], bodyHtml, distDir, seoMainClass: 'cluster-seo-prose',
   });
 }
 
