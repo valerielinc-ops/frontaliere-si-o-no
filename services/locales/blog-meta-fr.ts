@@ -7443,6 +7443,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salario-domestico-ticino-aumento.title': 'Augmentation salariale pour le personnel domestique au Ticino',
     'blog.article.salario-domestico-ticino-aumento.excerpt': 'Le salaire horaire pour le personnel domestique au Ticino augmentera. Voici ce qui change et comment cela impactera.',
     'blog.article.salario-domestico-ticino-aumento.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes et les bâtiments environnants',
+    'blog.article.frontaliere-pensione-avs-inps-2026.title': 'Retraite AVS/INPS 2026 frontalier: plus de 20 km',
+    'blog.article.frontaliere-pensione-avs-inps-2026.excerpt': 'Guide pratique pour les frontaliers du Tessin : coordination des retraites AVS/INPS, fenêtres temporelles et planification pour les distances de plus de 20 km',
+    'blog.article.frontaliere-pensione-avs-inps-2026.imageAlt': 'Lac de Lugano avec la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

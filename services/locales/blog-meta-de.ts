@@ -7442,6 +7442,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salario-domestico-ticino-aumento.title': 'Lohnanstieg für Hauspersonal im Tessin',
     'blog.article.salario-domestico-ticino-aumento.excerpt': 'Der Stundenlohn für Hauspersonal im Tessin wird steigen. Hier erfahren Sie, was sich ändert und wie es betroffen ist.',
     'blog.article.salario-domestico-ticino-aumento.imageAlt': 'Panoramablick auf den Luganersee mit umliegenden Bergen und Gebäuden',
+    'blog.article.frontaliere-pensione-avs-inps-2026.title': 'Grenzgänger-Rente AVS/INPS 2026: über 20 km',
+    'blog.article.frontaliere-pensione-avs-inps-2026.excerpt': 'Praktischer Leitfaden für Grenzgänger im Tessin: Koordination der Renten AVS/INPS, Zeitfenster und Planung für Entfernungen über 20 km',
+    'blog.article.frontaliere-pensione-avs-inps-2026.imageAlt': 'Luganersee mit Schweizer-Italienischer Grenze',
 };
 
 export default blogMetaDe;

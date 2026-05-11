@@ -7442,6 +7442,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salario-domestico-ticino-aumento.title': 'Pay raise for domestic staff in Ticino',
     'blog.article.salario-domestico-ticino-aumento.excerpt': 'The hourly wage for domestic staff in Ticino will increase. Here\'s what changes and how it will be impacted.',
     'blog.article.salario-domestico-ticino-aumento.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains and buildings',
+    'blog.article.frontaliere-pensione-avs-inps-2026.title': 'Cross-border worker AVS/INPS pension 2026: over 20 km',
+    'blog.article.frontaliere-pensione-avs-inps-2026.excerpt': 'Practical guide for Ticino cross-border workers: AVS/INPS pension coordination, time windows, and planning for distances over 20 km',
+    'blog.article.frontaliere-pensione-avs-inps-2026.imageAlt': 'Lake Lugano with Swiss-Italian border',
 };
 
 export default blogMetaEn;

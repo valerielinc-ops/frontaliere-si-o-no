@@ -23699,4 +23699,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-pensione-avs-inps-2026',
+ category: 'pensione',
+ date: '2026-05-11T09:49:33.578Z',
+ image: '/images/blog/frontaliere-pensione-avs-inps-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
