@@ -184,6 +184,25 @@ export function normalizeSpace(s = '') {
 }
 
 /**
+ * Bullet-preserving normalizer for descriptions.
+ *
+ * Collapses runs of spaces/tabs to a single space but PRESERVES newline
+ * structure, so `\n• item` lines extracted from `<li>` tags by `stripHtml`
+ * survive into the final output. Use this instead of `normalizeSpace` when
+ * normalizing multi-line content (descriptions, detail-page bodies).
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+export function normalizeDescriptionSpace(value = '') {
+  return String(value || '')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
  * Restore line-start bullet markers in job descriptions.
  *
  * The audit's `hasStructuredContent` requires bullets to be at line-start

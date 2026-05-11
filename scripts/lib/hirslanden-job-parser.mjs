@@ -22,7 +22,7 @@
  * Source: https://careers.mediclinic.com/Hirslanden/search
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -41,10 +41,6 @@ const PAGE_SIZE = 25; // SuccessFactors / j2w default
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
-}
-
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
 /* ── Date helper ──────────────────────────────────────────── */
@@ -206,7 +202,7 @@ export function parseDetailPage(html) {
     const blockRe = /<(?:p|ul|ol|li|div)[^>]*>([\s\S]*?)<\/(?:p|ul|ol|li|div)>/gi;
     let blockMatch;
     while ((blockMatch = blockRe.exec(html)) !== null) {
-      const text = normalizeSpace(stripHtml(blockMatch[1]));
+      const text = normalizeDescriptionSpace(stripHtml(blockMatch[1]));
       if (text.length > 40 && !/cookie|datenschutz|privacy|navigation|login/i.test(text)) {
         parts.push(text);
       }
@@ -214,7 +210,7 @@ export function parseDetailPage(html) {
     if (parts.length > 0) descriptionHtml = parts.join('\n\n');
   }
 
-  let description = normalizeSpace(stripHtml(descriptionHtml));
+  let description = normalizeDescriptionSpace(stripHtml(descriptionHtml));
 
   // Reject SF widget garbage that occasionally bleeds into the description
   const GARBAGE = [

@@ -14,23 +14,9 @@
  */
 
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 
 const PAGE_SIZE = 20;
-
-function normalizeSpace(value = '') {
-  return String(value || '').replace(/\s+/g, ' ').trim();
-}
-
-// Bullet-preserving normalizer for descriptions: collapses runs of spaces/tabs
-// to a single space, but preserves newline structure (so `\n• item` lines
-// extracted from <li> tags by stripHtml survive into the final output).
-function normalizeDescriptionSpace(value = '') {
-  return String(value || '')
-    .replace(/[ \t]+/g, ' ')
-    .replace(/[ \t]*\n[ \t]*/g, '\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-}
 
 function stripHtml(html = '') {
   return html

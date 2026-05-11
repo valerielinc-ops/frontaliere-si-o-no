@@ -17,6 +17,8 @@
  *   ALDI_SUCCESSFACTORS_BASE       -- SuccessFactors base URL
  */
 
+import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+
 /** SAP SuccessFactors base URL for ALDI Suisse */
 export const ALDI_SUCCESSFACTORS_BASE = 'https://career5.successfactors.eu/career?company=aldisuis';
 
@@ -31,9 +33,6 @@ const TICINO_LOCATIONS = [
   'ticino', 'tessin',
 ];
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
 
 function stripHtml(html = '') {
   return html
@@ -91,7 +90,7 @@ export function parseAldiListingPage(html = '') {
   const jobCardPattern = /href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
   while ((match = jobCardPattern.exec(html)) !== null) {
     const href = match[1];
-    const content = normalizeSpace(stripHtml(match[2]));
+    const content = normalizeDescriptionSpace(stripHtml(match[2]));
     if (!content || content.length < 5) continue;
     if (/^(home|menu|login|kontakt|contatti)/i.test(content)) continue;
 

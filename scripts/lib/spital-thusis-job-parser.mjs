@@ -22,7 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -43,9 +43,6 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -284,7 +281,7 @@ export function parseDetailPage(html = '') {
   let liMatch;
   const allListItems = [];
   while ((liMatch = listItemRegex.exec(cleaned)) !== null) {
-    const text = normalizeSpace(stripHtml(liMatch[1]));
+    const text = normalizeDescriptionSpace(stripHtml(liMatch[1]));
     if (text.length > 5) allListItems.push(text);
   }
 
@@ -293,7 +290,7 @@ export function parseDetailPage(html = '') {
   let paraMatch;
   const allParagraphs = [];
   while ((paraMatch = paraRegex.exec(cleaned)) !== null) {
-    const text = normalizeSpace(stripHtml(paraMatch[1]));
+    const text = normalizeDescriptionSpace(stripHtml(paraMatch[1]));
     if (text.length > 10) allParagraphs.push(text);
   }
 
@@ -306,7 +303,7 @@ export function parseDetailPage(html = '') {
     );
     const sectionMatch = cleaned.match(headingRegex);
     if (sectionMatch) {
-      const sectionText = normalizeSpace(stripHtml(sectionMatch[1]));
+      const sectionText = normalizeDescriptionSpace(stripHtml(sectionMatch[1]));
       if (sectionText.length > 10) {
         sections.push(`${heading}: ${sectionText}`);
       }
@@ -331,7 +328,7 @@ export function parseDetailPage(html = '') {
     const reqListRegex = /<li[^>]*>([\s\S]*?)<\/li>/gi;
     let reqMatch;
     while ((reqMatch = reqListRegex.exec(reqSectionMatch[1])) !== null) {
-      const text = normalizeSpace(stripHtml(reqMatch[1]));
+      const text = normalizeDescriptionSpace(stripHtml(reqMatch[1]));
       if (text.length > 5) result.requirements.push(text);
     }
   }

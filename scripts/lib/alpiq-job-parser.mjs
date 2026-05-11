@@ -22,14 +22,12 @@
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 
 const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
 const CAREERS_BASE = 'https://www.alpiq.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
-function normalizeSpace(value = '') {
-  return String(value || '').replace(/\s+/g, ' ').trim();
-}
 
 export function stripHtml(html = '') {
   return String(html || '')
@@ -105,7 +103,7 @@ export function parseAlpiqJobBlock(block) {
   const locationRaw = locationMatch ? normalizeSpace(locationMatch[1]) : '';
 
   // Extract description snippet
-  const descText = normalizeSpace(stripHtml(block));
+  const descText = normalizeDescriptionSpace(stripHtml(block));
   const description = descText.length > 50 ? descText.slice(0, 500) : descText;
 
   // Extract category
@@ -186,7 +184,7 @@ export function parseAlpiqDetailHtml(html) {
   const bullets = [];
   const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
   while ((m = liRe.exec(html)) !== null) {
-    const text = normalizeSpace(stripHtml(m[1]));
+    const text = normalizeDescriptionSpace(stripHtml(m[1]));
     if (text.length > 5) bullets.push(text);
   }
 

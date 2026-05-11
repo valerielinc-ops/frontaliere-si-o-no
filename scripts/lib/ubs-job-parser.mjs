@@ -23,7 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -81,9 +81,6 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
 
 /**
  * Extract a named field from the Taleo Questions array.
@@ -391,7 +388,7 @@ function buildJobFromTaleo(taleoJob) {
 
   const city = primaryCity(cityStr);
   const canton = inferCanton(city, region);
-  const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
+  const descriptionText = normalizeDescriptionSpace(stripHtml(descriptionHtml));
   const publicUrl = buildJobUrl(reqId);
 
   // Detect source language: use Taleo's language code, fallback to content detection

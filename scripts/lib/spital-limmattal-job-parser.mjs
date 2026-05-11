@@ -28,7 +28,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -50,9 +50,6 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -220,7 +217,7 @@ export function parseReflineDetail(html = '') {
   let bm;
   while ((bm = blockRe.exec(cleaned)) !== null) {
     const tag = bm[1].toLowerCase();
-    const text = normalizeSpace(stripHtml(bm[2]));
+    const text = normalizeDescriptionSpace(stripHtml(bm[2]));
     if (text.length > 30 && !/cookie|datenschutz|privacy|navigation|impressum|bewerbung absenden/i.test(text)) {
       parts.push(tag === 'li' ? `• ${text}` : text);
     }

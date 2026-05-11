@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -29,9 +29,6 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -280,7 +277,7 @@ function parseJobsFromHtml(html = '') {
 
     // Extract description text from the combo description div
     const descMatch = block.match(/<div[^>]*class="text-media-combo-description[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-    const descText = descMatch ? normalizeSpace(stripHtml(descMatch[1])) : '';
+    const descText = descMatch ? normalizeDescriptionSpace(stripHtml(descMatch[1])) : '';
 
     const key = `${title}|${fullUrl}`;
     if (!seen.has(key)) {
