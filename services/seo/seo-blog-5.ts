@@ -34901,6 +34901,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-referendum-castelli-bellinzona-2026': {
+    title: 'Referendum sui Castelli di Bellinzona: il popolo decide',
+    description: 'Oltre 4.600 firme raccolte contro il credito per il progetto Fortezza. Il referendum è riuscito, ora la parola passa ai cittadini. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, castelli, bellinzona, popolo',
+    ogTitle: 'Referendum sui Castelli di Bellinzona: il popolo decide',
+    ogDescription: 'Oltre 4.600 firme raccolte contro il credito per il progetto Fortezza. Il referendum è riuscito, ora la parola passa ai cittadini',
+    canonicalPath: '/articoli-frontaliere/referendum-castelli-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum sui Castelli di Bellinzona: il popolo decide",
+      "description": "Oltre 4.600 firme raccolte contro il credito per il progetto Fortezza. Il referendum è riuscito, ora la parola passa ai cittadini. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/referendum-castelli-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, patrimonio dell'umanità UNESCO, con il confine svizzero-italiano sullo sfondo"
+      },
+      "datePublished": "2026-05-11T00:23:45+00:00",
+      "dateModified": "2026-05-11T00:23:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-castelli-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

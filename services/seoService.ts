@@ -3705,6 +3705,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-autostrada-a9-chiusure-11-15-maggio-2026': { name: 'Chiusure A9', path: '/articoli-frontaliere/autostrada-a9-chiusure-11-15-maggio-2026', parent: 'blog' },
     'blog-lpp-minimo-secondo-pilastro-2026': { name: 'LPP secondo pilastro', path: '/articoli-frontaliere/lpp-minimo-secondo-pilastro-2026', parent: 'blog' },
     'blog-esplosione-miniera-colombia-4-morti': { name: 'Novità', path: '/articoli-frontaliere/esplosione-miniera-colombia-4-morti', parent: 'blog' },
+    'blog-referendum-castelli-bellinzona-2026': { name: 'Referendum Castelli', path: '/articoli-frontaliere/referendum-castelli-bellinzona-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

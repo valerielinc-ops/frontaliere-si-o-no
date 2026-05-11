@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2515,
+ "numberOfItems": 2516,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7157,7 +7157,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2512, "name": "Locarno, Lugano e Mendrisio per Capitale Cultur...", "url": `${BASE_URL}/articoli-frontaliere/locarno-lugano-mendrisio-alleanza-2026` },
           { "@type": "ListItem", "position": 2513, "name": "Nuove chiusure notturne sull'autostrada A9: ecc...", "url": `${BASE_URL}/articoli-frontaliere/autostrada-a9-chiusure-11-15-maggio-2026` },
           { "@type": "ListItem", "position": 2514, "name": "LPP: il minimo del secondo pilastro rimane al 1...", "url": `${BASE_URL}/articoli-frontaliere/lpp-minimo-secondo-pilastro-2026` },
-          { "@type": "ListItem", "position": 2515, "name": "Esplosione in miniera in Colombia: 4 morti", "url": `${BASE_URL}/articoli-frontaliere/esplosione-miniera-colombia-4-morti` }
+          { "@type": "ListItem", "position": 2515, "name": "Esplosione in miniera in Colombia: 4 morti", "url": `${BASE_URL}/articoli-frontaliere/esplosione-miniera-colombia-4-morti` },
+          { "@type": "ListItem", "position": 2516, "name": "Referendum sui Castelli di Bellinzona: il popol...", "url": `${BASE_URL}/articoli-frontaliere/referendum-castelli-bellinzona-2026` }
  ]
  },
  {

@@ -7388,6 +7388,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.esplosione-miniera-colombia-4-morti.title': 'Explosion in kolumbianischer Mine: 4 Tote',
     'blog.article.esplosione-miniera-colombia-4-morti.excerpt': 'Eine Explosion in einer Kohlemine in Kolumbien hat den Tod von vier Bergleuten verursacht. Die Behörden ermitteln zu den Ursachen der Katastrophe.',
     'blog.article.esplosione-miniera-colombia-4-morti.imageAlt': 'Luftaufnahme einer Bergbaustätte in Kolumbien mit Rettungskräften und Einsatzfahrzeugen',
+    'blog.article.referendum-castelli-bellinzona-2026.title': 'Volksabstimmung über die Burgen von Bellinzona: Das Volk entscheidet',
+    'blog.article.referendum-castelli-bellinzona-2026.excerpt': 'Über 4.600 Unterschriften gegen den Kredit für das Festung-Projekt gesammelt. Das Referendum ist gelungen, nun liegt das Wort beim Volk',
+    'blog.article.referendum-castelli-bellinzona-2026.imageAlt': 'Castelgrande in Bellinzona, UNESCO-Weltkulturerbe, mit der Schweizer-Italienischen Grenze im Hintergrund',
 };
 
 export default blogMetaDe;
