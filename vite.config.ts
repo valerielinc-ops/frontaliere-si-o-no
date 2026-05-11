@@ -26,6 +26,7 @@ import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
 import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
+import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
 // flatHtmlRedirectPlugin + hreflangPostprocessPlugin imports retained for
 // type re-exports / unit tests. Their plugin exports are now consumed
 // internally by `postWalkCoordinatorPlugin` (single-walk perf optimization).
@@ -202,6 +203,13 @@ export default defineConfig(({ mode }) => {
  // plugin is collision-safe — skips writing if another plugin already
  // produced real content at the target path (e.g. a re-activated job).
  jobOrphanBridgePlugin(__dirname),
+ // Location-hub bridge: recover the 60 GSC 404s for /{locale}/{section}/{loc-prefix}-{city}/
+ // city-filter URLs (Cohort 2). Reads classified entries from
+ // data/gsc-location-hubs.json (refreshed via scripts/ingest-gsc-location-hubs.mjs).
+ // Matched (38): canonical=self + SPA hydrates JobBoard with location filter
+ // applied (real listings + AdSense). Unmatched (22): canonical→section
+ // landing + "località non disponibile" body. Collision-safe.
+ locationHubBridgePlugin(__dirname),
  // AE-7 — after static pages are written, inject a contextual link into
  // a handful of parent pages so the comparisons hub has inbound links
  // from homepage + confronti hub + salary pillars. Idempotent.
