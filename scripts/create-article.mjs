@@ -4894,9 +4894,13 @@ function modifyRouterTs(data) {
 
   // 3. Regenerate ALL_BLOG_ARTICLE_IDS from BLOG_SLUGS keys (keeps them in sync)
   const allIds = [...blogSrc.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)].map(m => `'${m[1]}'`);
-  blogSrc = blogSrc.replace(
+  if (allIds.length === 0) {
+    throw new Error('modifyRouterTs step "ALL_BLOG_ARTICLE_IDS regen" failed: extracted 0 IDs from BLOG_SLUGS map (regex anchor changed?)');
+  }
+  blogSrc = checkedReplace(blogSrc,
     /export const ALL_BLOG_ARTICLE_IDS: BlogArticleId\[\] = \[[^\]]*\];/,
-    `export const ALL_BLOG_ARTICLE_IDS: BlogArticleId[] = [${allIds.join(', ')}];`
+    `export const ALL_BLOG_ARTICLE_IDS: BlogArticleId[] = [${allIds.join(', ')}];`,
+    'ALL_BLOG_ARTICLE_IDS regen'
   );
 
   write(blogDataFile, blogSrc);
