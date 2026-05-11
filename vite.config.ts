@@ -28,6 +28,7 @@ import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAli
 import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
 import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
 import { companyHubBridgePlugin } from './build-plugins/companyHubBridgePlugin';
+import { legacyAliasPlugin } from './build-plugins/legacyAliasPlugin';
 // flatHtmlRedirectPlugin + hreflangPostprocessPlugin imports retained for
 // type re-exports / unit tests. Their plugin exports are now consumed
 // internally by `postWalkCoordinatorPlugin` (single-walk perf optimization).
@@ -217,6 +218,14 @@ export default defineConfig(({ mode }) => {
  // Matched (4): canonical=self + SPA hydrates JobBoard with company filter.
  // Unmatched (11): canonical→section + "azienda non disponibile" body.
  companyHubBridgePlugin(__dirname),
+ // Legacy-alias bridge: recover the 35 GSC 404s spread across 9 small misc
+ // sub-cohorts (Cohort 5). Reads classified entries from data/legacy-aliases.json
+ // (refreshed via scripts/build-legacy-aliases.mjs). Each entry is `matched`
+ // (canonical+replaceState to live page) or `unmatched` (canonical→hub fallback).
+ // Covers: blogLocaleMismatch (17), blogITMissing (1), fuelStation (8),
+ // fuelLocaleAlias (1), jobLegacySection (2), legacySectionAlt (2),
+ // subSlugOnly (1), localePrefixed (2), weeklyEmployersDeep (1).
+ legacyAliasPlugin(__dirname),
  // AE-7 — after static pages are written, inject a contextual link into
  // a handful of parent pages so the comparisons hub has inbound links
  // from homepage + confronti hub + salary pillars. Idempotent.

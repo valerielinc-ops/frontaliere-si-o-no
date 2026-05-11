@@ -1,0 +1,263 @@
+{
+  "generatedAt": "2026-05-11T17:35:31.502Z",
+  "counts": {
+    "fuelStation": 8,
+    "blogLocaleMismatch": 17,
+    "fuelLocaleAlias": 1,
+    "jobLegacySection": 2,
+    "legacySectionAltIT": 1,
+    "legacySectionAltFR": 1,
+    "localePrefixedConsulting": 1,
+    "localePrefixedApiStatus": 1,
+    "blogITMissing": 1,
+    "weeklyEmployersDeep": 1,
+    "subSlugOnly": 1
+  },
+  "aliases": [
+    {
+      "orphanPath": "/prezzi-benzina/locarno/stazioni/locarno-migrol/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/prezzi-benzina/locarno/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/fr/articles-frontalier/visita-ticinese-coira-criminalita-organizzata/",
+      "locale": "fr",
+      "kind": "matched",
+      "canonicalPath": "/fr/articles-frontalier/delegation-tessinoise-coire-criminalite-organisee/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/dieselpreise/heute/",
+      "locale": "de",
+      "kind": "matched",
+      "canonicalPath": "/prezzi-diesel/",
+      "cohort": "fuelLocaleAlias"
+    },
+    {
+      "orphanPath": "/cerca-lavoro/barbecue-genossenschaft-migros-ostschweiz-bellinzona/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/cerca-lavoro-ticino/barbecue-genossenschaft-migros-ostschweiz-bellinzona/",
+      "cohort": "jobLegacySection"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/tessin-lombardei-fertigung/",
+      "locale": "de",
+      "kind": "unmatched",
+      "canonicalPath": "/de/grenzgaenger-artikel/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/carnevale-bambini-lugano-tinguely/",
+      "locale": "en",
+      "kind": "matched",
+      "canonicalPath": "/en/cross-border-articles/carnival-holidays-children-ticino-workshops-museo-erba-lugano/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/congedo-genitori-frontaliere-ticino/",
+      "locale": "de",
+      "kind": "matched",
+      "canonicalPath": "/de/grenzgaenger-artikel/elternurlaub-grenzgaenger-schweiz-italien-leitfaden-2026/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/tessiner-lohninitiative-anti-dumping-abstimmung/",
+      "locale": "de",
+      "kind": "unmatched",
+      "canonicalPath": "/de/grenzgaenger-artikel/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/scambio-dati-polizia-ticino/",
+      "locale": "en",
+      "kind": "matched",
+      "canonicalPath": "/en/cross-border-articles/swiss-police-data-sharing-impact-ticino/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/fr/articles-frontalier/suisse-ue-paquet-accord/",
+      "locale": "fr",
+      "kind": "unmatched",
+      "canonicalPath": "/fr/articles-frontalier/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/fr/prix-essence-suisse/bellinzona/stations/socar-via-san-gottardo/",
+      "locale": "fr",
+      "kind": "matched",
+      "canonicalPath": "/fr/prix-essence-suisse/bellinzona/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/fr/prix-essence-suisse/chiasso/stations/bp-via-san-gottardo/",
+      "locale": "fr",
+      "kind": "matched",
+      "canonicalPath": "/fr/prix-essence-suisse/chiasso/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/ricerca/posti-di-lavoro-ticino/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/cerca-lavoro-ticino/",
+      "cohort": "legacySectionAltIT"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/mappa-fiscale-comuni-frontiera/",
+      "locale": "de",
+      "kind": "matched",
+      "canonicalPath": "/de/grenzgaenger-artikel/irpef-zuschlag-grenzgemeinden-steuerkarte-grenzgaenger-2026/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/stop-ristorni-tassa-salute/",
+      "locale": "de",
+      "kind": "matched",
+      "canonicalPath": "/de/grenzgaenger-artikel/gesundheitssteuer-tessin-fordert-stopp-der-steuerrueckerstattungen-an-italien/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/fr/articles-frontalier/annunci-lavoro-dumping-ticino-governo/",
+      "locale": "fr",
+      "kind": "matched",
+      "canonicalPath": "/fr/articles-frontalier/offres-emploi-dumping-salarial-ticino-gouvernement/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/calo-frontalieri-non-tassa-salute/",
+      "locale": "de",
+      "kind": "matched",
+      "canonicalPath": "/de/grenzgaenger-artikel/rueckgang-grenzgaenger-tessin-wirtschaft-nicht-gesundheitsabgabe/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/banca-ditalia-varese-10-anni-dopo/",
+      "locale": "de",
+      "kind": "matched",
+      "canonicalPath": "/de/grenzgaenger-artikel/italienische-bank-varese-10-jahre-spater/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/fr/recherche-emploi-tessin/",
+      "locale": "fr",
+      "kind": "matched",
+      "canonicalPath": "/fr/trouver-emploi-tessin/",
+      "cohort": "legacySectionAltFR"
+    },
+    {
+      "orphanPath": "/en/gasoline-price-switzerland/lugano/stations/migrol-via-cantonale/",
+      "locale": "en",
+      "kind": "matched",
+      "canonicalPath": "/en/gasoline-price-switzerland/lugano/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/fr/prix-essence-suisse/lugano/stations/bp-via-a-riva/",
+      "locale": "fr",
+      "kind": "matched",
+      "canonicalPath": "/fr/prix-essence-suisse/lugano/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/en/consulting/",
+      "locale": "en",
+      "kind": "matched",
+      "canonicalPath": "/consulting/",
+      "cohort": "localePrefixedConsulting"
+    },
+    {
+      "orphanPath": "/de/api-status/",
+      "locale": "de",
+      "kind": "matched",
+      "canonicalPath": "/api-status/",
+      "cohort": "localePrefixedApiStatus"
+    },
+    {
+      "orphanPath": "/prezzi-diesel/locarno/stazioni/ecsa-via-cantonale/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/prezzi-diesel/locarno/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/g-bewilligung-vorteile-nachteile-grenzgaenger-tessin-2026/",
+      "locale": "de",
+      "kind": "unmatched",
+      "canonicalPath": "/de/grenzgaenger-artikel/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/cross-border-workers-health-tax-piemonte/",
+      "locale": "en",
+      "kind": "unmatched",
+      "canonicalPath": "/en/cross-border-articles/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/articoli-frontaliere/referendum-ue-svizzera-ticino/",
+      "locale": "it",
+      "kind": "unmatched",
+      "canonicalPath": "/articoli-frontaliere/",
+      "cohort": "blogITMissing"
+    },
+    {
+      "orphanPath": "/cerca-lavoro/miu-miu-instore-crm-manager-prada-group-mendrisio/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/cerca-lavoro-ticino/miu-miu-instore-crm-manager-prada-group-mendrisio/",
+      "cohort": "jobLegacySection"
+    },
+    {
+      "orphanPath": "/en/cross-border-articles/cu-2026-novita-frontalieri/",
+      "locale": "en",
+      "kind": "matched",
+      "canonicalPath": "/en/cross-border-articles/cu-2026-deadlines-telework-cross-border-workers/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/grenzgaenger-artikel/sepolti-con-animali-domestici-berna-2026/",
+      "locale": "de",
+      "kind": "matched",
+      "canonicalPath": "/de/grenzgaenger-artikel/bestattung-mit-haustieren-bern-2026/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/de/benzinpreis-schweiz/lugano/tankstellen/avia-via-cantonale/",
+      "locale": "de",
+      "kind": "matched",
+      "canonicalPath": "/de/benzinpreis-schweiz/lugano/",
+      "cohort": "fuelStation"
+    },
+    {
+      "orphanPath": "/aziende-che-assumono/bellinzona/migros-restaurant/settimana-corrente/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/aziende-che-assumono/bellinzona/",
+      "cohort": "weeklyEmployersDeep"
+    },
+    {
+      "orphanPath": "/confronta-casse-malati/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/compara-servizi/confronta-casse-malati/",
+      "cohort": "subSlugOnly"
+    },
+    {
+      "orphanPath": "/fr/articles-frontalier/lamal-cmi-scelta-frontaliere-2026/",
+      "locale": "fr",
+      "kind": "matched",
+      "canonicalPath": "/fr/articles-frontalier/lamal-ou-cmi-frontalier-lequel-choisir-2026/",
+      "cohort": "blogLocaleMismatch"
+    },
+    {
+      "orphanPath": "/prezzi-diesel/lugano/stazioni/ecsa-via-colombera-2/",
+      "locale": "it",
+      "kind": "matched",
+      "canonicalPath": "/prezzi-diesel/lugano/",
+      "cohort": "fuelStation"
+    }
+  ]
+}
