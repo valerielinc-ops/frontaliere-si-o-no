@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-11T11:52:53.536Z",
+  "generatedAt": "2026-05-11T22:15:43.521Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 11201,
-  "avgDurationMs": 11201,
+  "unchangedCount": 2,
+  "durationMs": 10720,
+  "avgDurationMs": 10720,
   "durationHistory": [
-    11201
+    10720
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -61,9 +61,9 @@
       "companyDomain": "hoval.it",
       "location": "Crissier",
       "addressLocality": "Crissier",
-      "addressRegion": "CH",
+      "addressRegion": "VD",
       "addressCountry": "CH",
-      "canton": "CH",
+      "canton": "VD",
       "country": "CH",
       "category": "technician",
       "sector": "IT & Digital",
@@ -111,7 +111,6 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "hoval-52337b034fbb",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -119,6 +118,7 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:18:58.925Z",
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -137,9 +137,9 @@
       "companyDomain": "hoval.it",
       "location": "Ostschweiz Wil",
       "addressLocality": "Ostschweiz Wil",
-      "addressRegion": "CH",
+      "addressRegion": "SG",
       "addressCountry": "CH",
-      "canton": "CH",
+      "canton": "SG",
       "country": "CH",
       "category": "technician",
       "sector": "Assistenza Tecnica",
@@ -150,7 +150,6 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "hoval-0dcbc94c2c7a",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -158,6 +157,7 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:18:58.925Z",
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -165,7 +165,10 @@
         "translation": 19,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -240,7 +243,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
