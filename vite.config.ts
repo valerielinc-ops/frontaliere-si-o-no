@@ -27,6 +27,7 @@ import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
 import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
 import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
+import { companyHubBridgePlugin } from './build-plugins/companyHubBridgePlugin';
 // flatHtmlRedirectPlugin + hreflangPostprocessPlugin imports retained for
 // type re-exports / unit tests. Their plugin exports are now consumed
 // internally by `postWalkCoordinatorPlugin` (single-walk perf optimization).
@@ -210,6 +211,12 @@ export default defineConfig(({ mode }) => {
  // applied (real listings + AdSense). Unmatched (22): canonical→section
  // landing + "località non disponibile" body. Collision-safe.
  locationHubBridgePlugin(__dirname),
+ // Company-hub bridge: recover the 15 GSC 404s for /{locale}/{section}/{comp-prefix}-{company}/
+ // employer-filter URLs (Cohort 4). Reads classified entries from
+ // data/gsc-company-hubs.json (refreshed via scripts/ingest-gsc-company-hubs.mjs).
+ // Matched (4): canonical=self + SPA hydrates JobBoard with company filter.
+ // Unmatched (11): canonical→section + "azienda non disponibile" body.
+ companyHubBridgePlugin(__dirname),
  // AE-7 — after static pages are written, inject a contextual link into
  // a handful of parent pages so the comparisons hub has inbound links
  // from homepage + confronti hub + salary pillars. Idempotent.
