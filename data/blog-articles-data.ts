@@ -23672,4 +23672,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'stipendi-frontalieri-inflazione-ticino',
+ category: 'fiscale',
+ date: '2026-05-11T04:33:12.643Z',
+ image: '/images/blog/stipendi-frontalieri-inflazione-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2530,
+ "numberOfItems": 2531,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7172,7 +7172,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2527, "name": "Mobilità a Palermo: come si spostano i frontali...", "url": `${BASE_URL}/articoli-frontaliere/mobilita-palermo-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2528, "name": "Professioni sanitarie e LaMal: le decisioni del...", "url": `${BASE_URL}/articoli-frontaliere/professioni-sanitarie-lamal-cantone-ticino` },
           { "@type": "ListItem", "position": 2529, "name": "LAMal: verso la rilevazione unica dei dati in T...", "url": `${BASE_URL}/articoli-frontaliere/lamal-rilevazione-dati-unica-ticino` },
-          { "@type": "ListItem", "position": 2530, "name": "LPP: Nigri diventa Country Manager per l'Italia", "url": `${BASE_URL}/articoli-frontaliere/lpp-nigri-country-manager-italia` }
+          { "@type": "ListItem", "position": 2530, "name": "LPP: Nigri diventa Country Manager per l'Italia", "url": `${BASE_URL}/articoli-frontaliere/lpp-nigri-country-manager-italia` },
+          { "@type": "ListItem", "position": 2531, "name": "Stipendi frontalieri in aumento, ma l'inflazion...", "url": `${BASE_URL}/articoli-frontaliere/stipendi-frontalieri-inflazione-ticino` }
  ]
  },
  {

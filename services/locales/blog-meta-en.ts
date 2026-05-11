@@ -7433,6 +7433,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lpp-nigri-country-manager-italia.title': 'LPP: Nigri named Italy Country Manager',
     'blog.article.lpp-nigri-country-manager-italia.excerpt': 'The LPP group appoints Nigri as Country Manager for Italy, focusing on the value-for-money of Sinsay retail&food',
     'blog.article.lpp-nigri-country-manager-italia.imageAlt': 'Lugano skyline with Lake Lugano and surrounding mountains',
+    'blog.article.stipendi-frontalieri-inflazione-ticino.title': 'Cross-border worker salaries rise, but inflation eats into gains',
+    'blog.article.stipendi-frontalieri-inflazione-ticino.excerpt': 'Cross-border worker salaries are increasing, but inflation could cancel out the benefits. Here\'s what\'s changing',
+    'blog.article.stipendi-frontalieri-inflazione-ticino.imageAlt': 'Lake Lugano view with financial documents and a calculator',
 };
 
 export default blogMetaEn;
