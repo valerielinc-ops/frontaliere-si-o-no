@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-05-10T21:24:17.813Z",
+  "assembledAt": "2026-05-11T11:29:40.393Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-10T21:24:15.705Z",
+      "crawledAt": "2026-05-11T11:29:38.512Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T09:57:27.167Z",
       "salaryMin": 59500,
@@ -137,7 +137,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.704Z",
+      "crawledAt": "2026-05-11T11:29:38.511Z",
       "previousSlugs": [
         "customer-advisor-40-corner-banca-wallisellen"
       ],
@@ -147,6 +147,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -156,6 +157,123 @@
           "@type": "QuantitativeValue",
           "minValue": 59000,
           "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-7a70bd719a1e",
+      "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
+        "en": "logistics-services-coordinator-technical-office-corner-banca-lugano",
+        "de": "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
+        "fr": "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Collaboratore Servizi Logistici - Ufficio Tecnico",
+      "titleByLocale": {
+        "it": "Collaboratore Servizi Logistici - Ufficio Tecnico",
+        "en": "Logistics Services Coordinator - Technical Office",
+        "de": "Logistikdienstleistungskoordinator - Technisches Büro",
+        "fr": "Coordinateur/Coordinateuse des services logistiques - Bureau technique"
+      },
+      "description": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\n• Organizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\n• Gestione delle richieste di intervento e comunicazione con i clienti interni\n\n• Gestione dei processi di acquisto materiale e ordini di lavoro\n\n• Attività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\n• Gestione e coordinamento del team di manutenzione\n\n• Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\n• Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\n• Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\n• Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\n• Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\n• Esperienza nella conduzione di un team e nella gestione di piccoli progetti\n\n• Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\n• Residente in Ticino\n\n• Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\n• Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni. • Organizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici • Gestione delle richieste di intervento e comunicazione con i clienti interni • Gestione dei processi di acquisto materiale e ordini di lavoro • Attività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto • Gestione e coordinamento del team di manutenzione • Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT) • Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto • Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili) • Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili) • Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.) • Esperienza nella conduzione di un team e nella gestione di piccoli progetti • Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra • Residente in Ticino • Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale • Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
+        "en": "We are looking for a Logistics Services Coordinator - Technical Office to strengthen our team. In this role, you will be responsible for coordinating and planning maintenance and repair activities for buildings and technical facilities, ensuring efficient operations and high-quality service for our internal clients. Responsibilities include: Organizing and planning maintenance and repair work for buildings and technical facilities Managing requests for intervention and communication with internal clients Managing material procurement processes and work orders Maintenance, repair, and other logistics activities, including night watch service Managing and coordinating the maintenance team Knowledge of building technology (electrical systems, heating, refrigeration systems, sanitary systems, ventilation, ICT networks) 10 years of experience in managing, maintaining, and repairing buildings and technical facilities, including night watch service Knowledge of ticket and asset management applications (EAM, SAP, etc.) Good knowledge of building management systems (Siemens, Honeywell, etc.) Excellent knowledge of Office applications and best practices in using technologies (PC, Apps, etc.) Experience in leading a team and managing small projects Client-oriented and strong team spirit Resident in Ticino Diploma in a technical field (construction and/or installations) with a preference for the electrical, electromechanical, or electrical engineering field. Advanced technical training is a preferred title Italian (mother tongue) and good knowledge of a second national language (preferably German). Good knowledge of English Requirements: * Knowledge of building technology (electrical systems, heating, refrigeration systems, sanitary systems, ventilation, ICT networks) * 10 years of experience in managing, maintaining, and repairing buildings and technical facilities, including night watch service * Knowledge of ticket and asset management applications (EAM, SAP, etc.) * Good knowledge of building management systems (Siemens, Honeywell, etc.) * Excellent knowledge of Office applications and best practices in using technologies (PC, Apps, etc.) * Experience in leading a team and managing small projects * Client-oriented and strong team spirit * Resident in Ticino",
+        "de": "Wir suchen einen Logistikdienstleistungskoordinator - Technisches Büro, um unser Team zu stärken. In dieser Rolle sind Sie für die Koordination und Planung von Wartungs- und Reparaturaktivitäten für Gebäude und technische Einrichtungen verantwortlich, um effiziente Betriebsabläufe und einen hohen Servicequalitätsstandard für unsere internen Kunden sicherzustellen. Zu Ihren Aufgaben gehören: Organisation und Planung von Wartungs- und Reparaturarbeiten für Gebäude und technische Einrichtungen Verwaltung von Eingabe- und Kommunikationsprozessen mit internen Kunden Verwaltung von Materialbeschaffungsprozessen und Arbeitsaufträgen Wartungs-, Reparatur- und andere Logistikaktivitäten, einschließlich Nachtwächterdienst Verwaltung und Koordination des Wartungsteams Kenntnisse der Gebäudetechnik (elektrische Systeme, Heizung, Kühlsysteme, Sanitärsysteme, Ventilation, ICT-Netzwerke) 10 Jahre Erfahrung in der Verwaltung, Wartung und Reparatur von Gebäuden und technischen Einrichtungen, einschließlich Nachtwächterdienst Kenntnisse von Ticket- und Asset-Management-Anwendungen (EAM, SAP, etc.) Gute Kenntnisse von Gebäude-Management-Systemen (Siemens, Honeywell, etc.) Ausgezeichnete Kenntnisse von Office-Anwendungen und Best Practices im Umgang mit Technologien (PC, Apps, etc.) Erfahrung in der Führung eines Teams und der Verwaltung von kleinen Projekten Kundenorientierung und starkes Teamgefühl Wohnhaft in Tessin Diplom in einem technischen Fach (Bauwesen und/oder Installationen) mit Vorliebe für das elektrische, elektromechanische oder elektrotechnische Fachgebiet. Fortgeschrittene technische Ausbildung ist ein bevorzugter Titel Italienisch (Muttersprache) und gute Kenntnisse einer zweiten nationalen Sprache (vorzugsweise Deutsch). Gute Kenntnisse des Englischen Anforderungen: * Kenntnisse der Gebäudetechnik (elektrische Systeme, Heizung, Kühlsysteme, Sanitärsysteme, Ventilation, ICT-Netzwerke) * 10 Jahre Erfahrung in der Verwaltung, Wartung und Reparatur von Gebäuden und technischen Einrichtungen, einschließlich Nachtwächterdienst * Kenntnisse von Ticket- und Asset-Management-Anwendungen (EAM, SAP, etc.) * Gute Kenntnisse von Gebäude-Management-Systemen (Siemens, Honeywell, etc.) * Ausgezeichnete Kenntnisse von Office-Anwendungen und Best Practices im Umgang mit Technologien (PC, Apps, etc.) * Erfahrung in der Führung eines Teams und der Verwaltung von kleinen Projekten * Kundenorientierung und starkes Teamgefühl * Wohnhaft in Tessin",
+        "fr": "Nous recherchons un Coordinateur/Coordinateuse des services logistiques - Bureau technique pour renforcer notre équipe. Dans ce rôle, vous serez responsable de la coordination et de la planification des activités de maintenance et de réparation des bâtiments et des installations techniques, en garantissant des opérations efficaces et un service de haute qualité pour nos clients internes. À vos responsabilités figurent : Organisation et planification des travaux de maintenance et de réparation des bâtiments et des installations techniques Gestion des demandes d'intervention et de la communication avec les clients internes Gestion des processus d'approvisionnement de matériel et des ordres de travail Activités de maintenance, de réparation et d'autres activités logistiques, y compris le service de garde Gestion et coordination de l'équipe de maintenance Connaissance de la technologie des bâtiments (systèmes électriques, chauffage, systèmes de réfrigération, systèmes sanitaires, ventilation, réseaux ICT) 10 ans d'expérience dans la gestion, la maintenance et la réparation des bâtiments et des installations techniques, y compris le service de garde Connaissance des applications de gestion de tickets et d'actifs (EAM, SAP, etc.) Bonnes connaissances des systèmes de gestion des bâtiments (Siemens, Honeywell, etc.) Connaissance excellente des applications Office et des meilleures pratiques dans l'utilisation des technologies (PC, Apps, etc.) Expérience dans la conduite d'une équipe et la gestion de petits projets Orienté vers le client (intérieur) et fort esprit d'équipe Résident en Tessin Diplôme en un domaine technique (bâtiment et/ou installations) avec une préférence pour le domaine électrique, électromécanique ou électrotechnique. Des formations supérieures en domaine technique sont un titre préféré Italien (langue maternelle) et bonne connaissance d'une deuxième langue nationale (préférablement allemand). Bonnes connaissances de l'anglais Exigences : * Connaissance de la technologie des bâtiments (systèmes électriques, chauffage, systèmes de réfrigération, systèmes sanitaires, ventilation, réseaux ICT) * 10 ans d'expérience dans la gestion, la maintenance et la réparation des bâtiments et des installations techniques, y compris le service de garde * Connaissance des applications de gestion de tickets et d'actifs (EAM, SAP, etc.) * Bonnes connaissances des systèmes de gestion des bâtiments (Siemens, Honeywell, etc.) * Connaissance excellente des applications Office et des meilleures pratiques dans l'utilisation des technologies (PC, Apps, etc.) * Expérience dans la conduite d'une équipe et la gestion de petits projets * Orienté vers le client (intérieur) et fort esprit d'équipe * Résident en Tessin"
+      },
+      "requirements": [
+        "Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)",
+        "Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto",
+        "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+        "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+        "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+        "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+        "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+        "Residente in Ticino",
+        "Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale",
+        "Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+          "Residente in Ticino"
+        ],
+        "en": [
+          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+          "Residente in Ticino"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-09",
+      "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-11T11:29:38.510Z",
+      "previousSlugs": [
+        "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
+        "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
+        "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
+        "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
+        "technicien-des-services-logistiques-bureau-technique-corner-banca-lugano",
+        "logistikdienstleister-technisches-buro-corner-banca-lugano",
+        "coordinateur-services-logistiques-bureau-technique-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
+          "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
+        ],
+        "en": [
+          "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
+          "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
+        ],
+        "de": [
+          "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
+          "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
+          "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
+        ],
+        "fr": [
+          "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
+          "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
+          "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -229,7 +347,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.703Z",
+      "crawledAt": "2026-05-11T11:29:38.510Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -245,6 +363,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -331,7 +450,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.702Z",
+      "crawledAt": "2026-05-11T11:29:38.509Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
@@ -365,6 +484,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -374,122 +494,6 @@
           "@type": "QuantitativeValue",
           "minValue": 142000,
           "maxValue": 249500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-7a70bd719a1e",
-      "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "en": "logistics-services-coordinator-technical-office-corner-banca-lugano",
-        "de": "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
-        "fr": "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Collaboratore Servizi Logistici - Ufficio Tecnico",
-      "titleByLocale": {
-        "it": "Collaboratore Servizi Logistici - Ufficio Tecnico",
-        "en": "Logistics Services Coordinator - Technical Office",
-        "de": "Logistikdienstleistungskoordinator - Technisches Büro",
-        "fr": "Coordinateur/Coordinateuse des services logistiques - Bureau technique"
-      },
-      "description": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\n• Organizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\n• Gestione delle richieste di intervento e comunicazione con i clienti interni\n\n• Gestione dei processi di acquisto materiale e ordini di lavoro\n\n• Attività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\n• Gestione e coordinamento del team di manutenzione\n\n• Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\n• Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\n• Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\n• Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\n• Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\n• Esperienza nella conduzione di un team e nella gestione di piccoli progetti\n\n• Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\n• Residente in Ticino\n\n• Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\n• Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni. • Organizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici • Gestione delle richieste di intervento e comunicazione con i clienti interni • Gestione dei processi di acquisto materiale e ordini di lavoro • Attività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto • Gestione e coordinamento del team di manutenzione • Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT) • Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto • Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili) • Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili) • Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.) • Esperienza nella conduzione di un team e nella gestione di piccoli progetti • Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra • Residente in Ticino • Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale • Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
-        "en": "We are looking for a Logistics Services Coordinator - Technical Office to strengthen our team. In this role, you will be responsible for coordinating and planning maintenance and repair activities for buildings and technical facilities, ensuring efficient operations and high-quality service for our internal clients. Responsibilities include: Organizing and planning maintenance and repair work for buildings and technical facilities Managing requests for intervention and communication with internal clients Managing material procurement processes and work orders Maintenance, repair, and other logistics activities, including night watch service Managing and coordinating the maintenance team Knowledge of building technology (electrical systems, heating, refrigeration systems, sanitary systems, ventilation, ICT networks) 10 years of experience in managing, maintaining, and repairing buildings and technical facilities, including night watch service Knowledge of ticket and asset management applications (EAM, SAP, etc.) Good knowledge of building management systems (Siemens, Honeywell, etc.) Excellent knowledge of Office applications and best practices in using technologies (PC, Apps, etc.) Experience in leading a team and managing small projects Client-oriented and strong team spirit Resident in Ticino Diploma in a technical field (construction and/or installations) with a preference for the electrical, electromechanical, or electrical engineering field. Advanced technical training is a preferred title Italian (mother tongue) and good knowledge of a second national language (preferably German). Good knowledge of English Requirements: * Knowledge of building technology (electrical systems, heating, refrigeration systems, sanitary systems, ventilation, ICT networks) * 10 years of experience in managing, maintaining, and repairing buildings and technical facilities, including night watch service * Knowledge of ticket and asset management applications (EAM, SAP, etc.) * Good knowledge of building management systems (Siemens, Honeywell, etc.) * Excellent knowledge of Office applications and best practices in using technologies (PC, Apps, etc.) * Experience in leading a team and managing small projects * Client-oriented and strong team spirit * Resident in Ticino",
-        "de": "Wir suchen einen Logistikdienstleistungskoordinator - Technisches Büro, um unser Team zu stärken. In dieser Rolle sind Sie für die Koordination und Planung von Wartungs- und Reparaturaktivitäten für Gebäude und technische Einrichtungen verantwortlich, um effiziente Betriebsabläufe und einen hohen Servicequalitätsstandard für unsere internen Kunden sicherzustellen. Zu Ihren Aufgaben gehören: Organisation und Planung von Wartungs- und Reparaturarbeiten für Gebäude und technische Einrichtungen Verwaltung von Eingabe- und Kommunikationsprozessen mit internen Kunden Verwaltung von Materialbeschaffungsprozessen und Arbeitsaufträgen Wartungs-, Reparatur- und andere Logistikaktivitäten, einschließlich Nachtwächterdienst Verwaltung und Koordination des Wartungsteams Kenntnisse der Gebäudetechnik (elektrische Systeme, Heizung, Kühlsysteme, Sanitärsysteme, Ventilation, ICT-Netzwerke) 10 Jahre Erfahrung in der Verwaltung, Wartung und Reparatur von Gebäuden und technischen Einrichtungen, einschließlich Nachtwächterdienst Kenntnisse von Ticket- und Asset-Management-Anwendungen (EAM, SAP, etc.) Gute Kenntnisse von Gebäude-Management-Systemen (Siemens, Honeywell, etc.) Ausgezeichnete Kenntnisse von Office-Anwendungen und Best Practices im Umgang mit Technologien (PC, Apps, etc.) Erfahrung in der Führung eines Teams und der Verwaltung von kleinen Projekten Kundenorientierung und starkes Teamgefühl Wohnhaft in Tessin Diplom in einem technischen Fach (Bauwesen und/oder Installationen) mit Vorliebe für das elektrische, elektromechanische oder elektrotechnische Fachgebiet. Fortgeschrittene technische Ausbildung ist ein bevorzugter Titel Italienisch (Muttersprache) und gute Kenntnisse einer zweiten nationalen Sprache (vorzugsweise Deutsch). Gute Kenntnisse des Englischen Anforderungen: * Kenntnisse der Gebäudetechnik (elektrische Systeme, Heizung, Kühlsysteme, Sanitärsysteme, Ventilation, ICT-Netzwerke) * 10 Jahre Erfahrung in der Verwaltung, Wartung und Reparatur von Gebäuden und technischen Einrichtungen, einschließlich Nachtwächterdienst * Kenntnisse von Ticket- und Asset-Management-Anwendungen (EAM, SAP, etc.) * Gute Kenntnisse von Gebäude-Management-Systemen (Siemens, Honeywell, etc.) * Ausgezeichnete Kenntnisse von Office-Anwendungen und Best Practices im Umgang mit Technologien (PC, Apps, etc.) * Erfahrung in der Führung eines Teams und der Verwaltung von kleinen Projekten * Kundenorientierung und starkes Teamgefühl * Wohnhaft in Tessin",
-        "fr": "Nous recherchons un Coordinateur/Coordinateuse des services logistiques - Bureau technique pour renforcer notre équipe. Dans ce rôle, vous serez responsable de la coordination et de la planification des activités de maintenance et de réparation des bâtiments et des installations techniques, en garantissant des opérations efficaces et un service de haute qualité pour nos clients internes. À vos responsabilités figurent : Organisation et planification des travaux de maintenance et de réparation des bâtiments et des installations techniques Gestion des demandes d'intervention et de la communication avec les clients internes Gestion des processus d'approvisionnement de matériel et des ordres de travail Activités de maintenance, de réparation et d'autres activités logistiques, y compris le service de garde Gestion et coordination de l'équipe de maintenance Connaissance de la technologie des bâtiments (systèmes électriques, chauffage, systèmes de réfrigération, systèmes sanitaires, ventilation, réseaux ICT) 10 ans d'expérience dans la gestion, la maintenance et la réparation des bâtiments et des installations techniques, y compris le service de garde Connaissance des applications de gestion de tickets et d'actifs (EAM, SAP, etc.) Bonnes connaissances des systèmes de gestion des bâtiments (Siemens, Honeywell, etc.) Connaissance excellente des applications Office et des meilleures pratiques dans l'utilisation des technologies (PC, Apps, etc.) Expérience dans la conduite d'une équipe et la gestion de petits projets Orienté vers le client (intérieur) et fort esprit d'équipe Résident en Tessin Diplôme en un domaine technique (bâtiment et/ou installations) avec une préférence pour le domaine électrique, électromécanique ou électrotechnique. Des formations supérieures en domaine technique sont un titre préféré Italien (langue maternelle) et bonne connaissance d'une deuxième langue nationale (préférablement allemand). Bonnes connaissances de l'anglais Exigences : * Connaissance de la technologie des bâtiments (systèmes électriques, chauffage, systèmes de réfrigération, systèmes sanitaires, ventilation, réseaux ICT) * 10 ans d'expérience dans la gestion, la maintenance et la réparation des bâtiments et des installations techniques, y compris le service de garde * Connaissance des applications de gestion de tickets et d'actifs (EAM, SAP, etc.) * Bonnes connaissances des systèmes de gestion des bâtiments (Siemens, Honeywell, etc.) * Connaissance excellente des applications Office et des meilleures pratiques dans l'utilisation des technologies (PC, Apps, etc.) * Expérience dans la conduite d'une équipe et la gestion de petits projets * Orienté vers le client (intérieur) et fort esprit d'équipe * Résident en Tessin"
-      },
-      "requirements": [
-        "Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)",
-        "Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto",
-        "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-        "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-        "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-        "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-        "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-        "Residente in Ticino",
-        "Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale",
-        "Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-          "Residente in Ticino"
-        ],
-        "en": [
-          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-          "Residente in Ticino"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-09",
-      "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-10T21:24:15.702Z",
-      "previousSlugs": [
-        "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
-        "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
-        "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
-        "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
-        "technicien-des-services-logistiques-bureau-technique-corner-banca-lugano",
-        "logistikdienstleister-technisches-buro-corner-banca-lugano",
-        "coordinateur-services-logistiques-bureau-technique-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
-          "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
-        ],
-        "en": [
-          "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
-          "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
-        ],
-        "de": [
-          "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
-          "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
-          "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
-        ],
-        "fr": [
-          "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
-          "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
-          "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -567,7 +571,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.700Z",
+      "crawledAt": "2026-05-11T11:29:38.508Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen"
       ],
@@ -580,6 +584,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -670,7 +675,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.699Z",
+      "crawledAt": "2026-05-11T11:29:38.507Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano",
         "conseiller-client-a-100-corner-banca-lugano",
@@ -700,180 +705,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-97d8d7e51ea2",
-      "slug": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-        "en": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-        "de": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-        "fr": "agent-d-autorisation-et-de-prevention-de-la-fraude-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "IT Authorizazion and Fraud Prevention Officer",
-      "titleByLocale": {
-        "it": "IT Authorizazion e Fraud Prevention Officer",
-        "en": "IT Authorizazion and Fraud Prevention Officer",
-        "de": "IT Autorizazion und Fraud Prevention Officer",
-        "fr": "Agent d'autorisation et de prévention de la fraude"
-      },
-      "description": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related \n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) \n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) \n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly \n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
-      "descriptionByLocale": {
-        "it": "Il candidato si unirà al Centro di Eccellenza per l’Autorizzazione e la Prevenzione delle Frode, con responsabilità interfunzionali per i sistemi di credito e di addebito “di elaborazione delle carte e prevenzione delle frodi”. I sistemi supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. Principali responsabilità Analisi funzionale e di processo • Analizzare e comprendere i processi di “trattamento dei pagamenti delle carte, tokenizzazione dei pagamenti e prevenzione delle frodi” e relativi (ad esempio, l'emissione di carte, la gestione del ciclo di vita, la compensazione e l'insediamento, la frode e i riscattamenti) • Raccogliere, analizzare e valutare le richieste regolari (cioè modifiche, conformità, ...) da schemi di carte (ad esempio VISA, MC, ...) tradurre in specifiche funzionali e tecniche • Raccogliere, analizzare e formalizzare i requisiti aziendali (dove necessario), traducerli in specifiche funzionali e tecniche • Sostenere l'azienda nella definizione di soluzioni IT conformi ai modelli operativi, normativi e di conformità della banca • Collaborare con la linea aziendale e altri stakeholder interni (Operazioni, Compliance, Rischio, Sicurezza) Analisi tecnica e IT • Progetto di documentazione funzionale e tecnica (specifiche di applicazione, flussi di integrazione, mappatura dei dati) • Collaborare con i team di sviluppo interni ed esterni durante le fasi di sviluppo, test e rilascio, eseguendo direttamente (dove necessario) controllo e gestione del rilascio • Sostenere l'analisi e la gestione di incidenti applicativi e problemi di produzione Devo • Residente in Ticino o disposto a trasferirsi • Esperienza in contesti bancari o finanziari • Esperienza nell'analisi funzionale e tecnica in IT • Conoscenza dei sistemi di pagamento della carta di credito e di debito, inclusa la tokenizzazione del pagamento. • Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard)",
-        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems. The systems support key payments processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis • Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) • Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) translating them into functional and technical specifications • Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications • Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models • Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security) Technical and IT Analysis • Draft functional and technical documentation (application specifications, integration flows, data mapping) • Collaborate with internal and external development teams during the development, testing and release phases, executing directly (where needed) testing and release management • Support the analysis and management of application incidents and production issues Must Have • Resident in Ticino or willing to relocate • Experience in banking or financial contexts • Experience in functional and technical analysis in IT • Knowledge of credit and debit card payment systems, including payment tokenization. • Knowledge of major payment circuits (e.g. Visa, Mastercard)",
-        "de": "Der Kandidat wird sich dem IT-Zentrum „Authorization & Fraud Prevention“ mit funktionsübergreifender Verantwortung für Kredit- und Debit-Systeme „Card Payments Processing & Betrug Prevention“ anschließen. Die Systeme unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analysetätigkeiten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. Hauptverantwortlichkeiten Funktions- und Prozessanalyse • Analyse und Verstehen von Prozessen und damit verbundenen Prozessen der Kartenzahlungen, der Zahlungsmarkierung und der Betrugsprävention (z.B. Kartenausgabe, Lifecycle Management, Clearing & Abwicklung, Betrug und Rückmeldungen) • Sammeln, Analysieren und Bewertung der regelmäßigen Anfragen (z.B. Änderungen, Compliance, ...) von Kartensystemen (z.B. VISA, MC, ...) Übersetzen in funktionale und technische Spezifikationen • Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen (sofern erforderlich), Übersetzen in funktionale und technische Spezifikationen • Unterstützung des Unternehmens bei der Definition von IT-Lösungen im Einklang mit den operativen, regulatorischen und Compliance-Modellen der Bank • Zusammenarbeit mit der Geschäftsleitung und anderen internen Akteuren (Operationen, Compliance, Risiko, Sicherheit) Technische und IT-Analyse • Entwurf funktionaler und technischer Dokumentation (Anwendungsspezifikationen, Integrationsflüsse, Datenmapping) • Zusammenarbeit mit internen und externen Entwicklungsteams während der Entwicklungs-, Test- und Release-Phasen, Durchführung direkt (sofern erforderlich) Prüf- und Freigabemanagement • Unterstützung der Analyse und Verwaltung von Anwendungsfällen und Produktionsfragen Muss • Wohnsitz in Tessin oder willigen Umzug • Erfahrungen im Bank- oder Finanzkontext • Erfahrung in der funktionalen und technischen Analyse in der IT • Kenntnis von Kredit- und Debitkarten-Zahlungssystemen, einschließlich Zahlungsmarkierung. • Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard)",
-        "fr": "Le candidat se joindra au Centre d'excellence sur l'autorisation et la prévention de la fraude des TI, avec des responsabilités interfonctionnelles pour le traitement des paiements et la prévention de la fraude des cartes de crédit et de débit. Les systèmes soutiennent des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Principales responsabilités Analyse fonctionnelle et processus • Analyser et comprendre le traitement des paiements par carte, le tokenisation des paiements et la prévention de la fraude (par exemple, émission de cartes, gestion du cycle de vie, compensation et règlement, fraude et remise des charges) • Recueillir, analyser et évaluer les demandes régulières (c'est-à-dire les changements, la conformité, ...) provenant de systèmes de cartes (par exemple VISA, MC, ...) les traduire en spécifications fonctionnelles et techniques • Recueillir, analyser et formaliser les exigences opérationnelles (au besoin), les traduire en spécifications fonctionnelles et techniques • Aider l'entreprise à définir des solutions informatiques conformes aux modèles opérationnels, réglementaires et de conformité de la banque • Collaborer avec le secteur d'activité et d'autres acteurs internes (Opérations, Conformité, Risque, Sécurité) Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données) • Collaborer avec des équipes de développement internes et externes pendant les phases de développement, de test et de libération, en exécutant directement (au besoin) gestion des essais et des rejets • Soutenir l'analyse et la gestion des incidents d'application et des problèmes de production Il faut avoir • Résident au Tessin ou prêt à déménager • Expérience dans le domaine bancaire ou financier • Expérience en analyse fonctionnelle et technique en informatique • Connaissance des systèmes de paiement par carte de crédit et de débit, y compris le jeton de paiement. • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard)"
-      },
-      "requirements": [
-        "Resident in Ticino or willing to relocate",
-        "Experience in banking or financial contexts",
-        "Experience in functional and technical analysis in IT",
-        "Knowledge of credit and debit card payment systems, including payment tokenization.",
-        "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Resident in Ticino or willing to relocate",
-          "Experience in banking or financial contexts",
-          "Experience in functional and technical analysis in IT",
-          "Knowledge of credit and debit card payment systems, including payment tokenization.",
-          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-        ],
-        "en": [
-          "Resident in Ticino or willing to relocate",
-          "Experience in banking or financial contexts",
-          "Experience in functional and technical analysis in IT",
-          "Knowledge of credit and debit card payment systems, including payment tokenization.",
-          "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.698Z",
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-dcb0710ebad2",
-      "slug": "sottoscrizione-dei-dipendenti-e-cash-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "sottoscrizione-dei-dipendenti-e-cash-corner-banca-lugano",
-        "en": "employee-underwriting-e-cash-corner-banca-lugano",
-        "de": "mitarbeiter-unterschreiben-e-cash-corner-banca-lugano",
-        "fr": "employee-underwriting-e-cash-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Employee Underwriting è-Cash",
-      "titleByLocale": {
-        "it": "Sottoscrizione dei dipendenti è-Cash",
-        "en": "Employee Underwriting è-Cash",
-        "de": "Mitarbeiter unterschreiben è-Cash",
-        "fr": "Employee Underwriting è-Cash"
-      },
-      "description": "We are looking for a candidate to join our team. The main responsibilities of this role include:\n\nKey responsibilities: \n\n• Analysis of small credit requests using dedicated tools and received documentation\n\n• Administration of returned contracts\n\n• Office checks on execution and bankruptcies, addresses, employers, additional documentation\n\n• Credit disbursement\n\n• Customer care for existing clients without delay\n\n• Handling emails and calls from clients and external partners\n\n• Sending payment policies, extinguishing extracts, detailed calculations\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in analyzing salary certificates\n\n• Precision and autonomy, proactive spirit\n\n• Great sense of responsibility and decision-making skills\n\n• Enjoy working in a team and direct contact with clients and external partners\n\n• Knowledge of spoken and written German, French, and Italian to be able to read documents received from client\n\n• Resident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un candidato per unirsi alla nostra squadra. Le principali responsabilità di questo ruolo includono: responsabilità chiave: • Analisi di piccole richieste di credito utilizzando strumenti dedicati e documentazione ricevuta • Amministrazione di contratti restituiti • Controlli di ufficio su esecuzione e fallimenti, indirizzi, datori di lavoro, documentazione aggiuntiva • Erogazione di credito • Assistenza clienti per i clienti esistenti senza indugio • Gestione e-mail e chiamate da clienti e partner esterni • Inviare politiche di pagamento, estinguere estratti, calcoli dettagliati Cosa offriamo? • Flessibilità nel lavorare da casa e nella gestione delle ore di lavoro per garantire un sano equilibrio di vita lavorativa • Numerosi vantaggi e incentivi • Benessere, attività motivazionali e di team building • Esperienza nell'analisi dei certificati salari • Precisione e autonomia, spirito proattivo • Grande senso di responsabilità e capacità decisionali • Lavorare in un team e contattare direttamente con clienti e partner esterni • Conoscenza del tedesco, francese e italiano parlato",
-        "en": "We are looking for a candidate to join our team. The main responsibilities of this role include: Key responsibilities: • Analysis of small credit requests using dedicated tools and received documentation • Administration of returned contracts • Office checks on execution and bankruptcies, addresses, employers, additional documentation • Credit disbursement • Customer care for existing clients without delay • Handling emails and calls from clients and external partners • Sending payment policies, extinguishing extracts, detailed calculations What do we offer? • Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance • Numerous benefits and incentives • Well-being, motivational and team-building activities • Experience in analyzing salary certificates • Precision and autonomy, proactive spirit • Great sense of responsibility and decision-making skills • Enjoy working in a team and direct contact with clients and external partners • Knowledge of spoken and written German, French, and Italian to be able to read documents received from client • Resident in Ticino or willing to relocate",
-        "de": "Wir suchen einen Kandidaten, der unserem Team beitritt. Die Hauptaufgaben dieser Rolle sind: Hauptverantwortlichkeiten: • Analyse von kleinen Kreditanfragen mit dedizierten Werkzeugen und empfangener Dokumentation • Verwaltung von zurückgegebenen Verträgen • Büroüberprüfungen bei Ausführung und Konkurs, Adressen, Arbeitgebern, Zusatzdokumentation • Kreditvergabe • Kundenbetreuung für bestehende Kunden ohne Verzögerung • Umgang mit E-Mails und Anrufen von Kunden und externen Partnern • Zahlungsrichtlinien, Löschauszüge, detaillierte Berechnungen Was bieten wir an? • Flexibilität bei der Arbeit von zu Hause und bei der Verwaltung von Arbeitszeiten, um eine gesunde Work-Life-Balance zu gewährleisten • Zahlreiche Vorteile und Anreize • Wohlbefinden, Motivation und Teambildung • Erfahrungen bei der Analyse von Gehaltszertifikaten • Präzision und Autonomie, proaktiver Geist • Große Verantwortung und Entscheidungsfähigkeit • Genießen Sie die Arbeit in einem Team und direkten Kontakt mit Kunden und externen Partnern • Kenntnisse von gesprochenen und schriftlichen deutschen, französischen und italienischen Leserdokumenten",
-        "fr": "Nous cherchons un candidat pour rejoindre notre équipe. Les principales responsabilités de ce rôle sont les suivantes: • Analyse des petites demandes de crédit à l'aide d'outils spécifiques et de documentation reçue • Administration des contrats retournés • Contrôles de l'exécution et des faillites, adresses, employeurs, documentation supplémentaire • Déboursement de crédit • Soins aux clients existants sans délai • Traitement des e-mails et des appels de clients et de partenaires externes • Envoi des politiques de paiement, extinction des extraits, calculs détaillés Qu'est-ce qu'on offre ? • Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle • De nombreux avantages et incitations • Activités de bien-être, de motivation et de team-building • Expérience dans l'analyse des certificats de salaire • Précision et autonomie, esprit proactif • Grand sens des responsabilités et des compétences décisionnelles • Profitez du travail en équipe et du contact direct avec les clients et les partenaires externes • Connaissance de l'allemand, du français et de l'italien parlé et écrit pour pouvoir lire les documents reçus du client • Résident au Tessin ou désireux de déménager"
-      },
-      "requirements": [
-        "Experience in analyzing salary certificates",
-        "Precision and autonomy, proactive spirit",
-        "Great sense of responsibility and decision-making skills",
-        "Enjoy working in a team and direct contact with clients and external partners",
-        "Knowledge of spoken and written German, French, and Italian to be able to read documents received from client",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Experience in analyzing salary certificates",
-          "Precision and autonomy, proactive spirit",
-          "Great sense of responsibility and decision-making skills",
-          "Enjoy working in a team and direct contact with clients and external partners",
-          "Knowledge of spoken and written German, French, and Italian to be able to read documents received from client",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Experience in analyzing salary certificates",
-          "Precision and autonomy, proactive spirit",
-          "Great sense of responsibility and decision-making skills",
-          "Enjoy working in a team and direct contact with clients and external partners",
-          "Knowledge of spoken and written German, French, and Italian to be able to read documents received from client",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-1",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.696Z",
-      "previousSlugs": [
-        "employee-underwriting-e-cash-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employee-underwriting-e-cash-corner-banca-lugano"
-        ],
-        "de": [
-          "employee-underwriting-e-cash-corner-banca-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-04-15T21:25:24.685Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -963,7 +795,7 @@
       "url": "https://jobs.corner.ch/o/aml-monitoring",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.695Z",
+      "crawledAt": "2026-05-11T11:29:38.505Z",
       "previousSlugs": [
         "aml-monitoring-corner-banca-lugano"
       ],
@@ -979,6 +811,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T10:42:06.718Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -988,6 +821,101 @@
           "@type": "QuantitativeValue",
           "minValue": 85500,
           "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-dcb0710ebad2",
+      "slug": "sottoscrizione-dei-dipendenti-e-cash-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "sottoscrizione-dei-dipendenti-e-cash-corner-banca-lugano",
+        "en": "employee-underwriting-e-cash-corner-banca-lugano",
+        "de": "mitarbeiter-unterschreiben-e-cash-corner-banca-lugano",
+        "fr": "employee-underwriting-e-cash-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Underwriting è-Cash",
+      "titleByLocale": {
+        "it": "Sottoscrizione dei dipendenti è-Cash",
+        "en": "Employee Underwriting è-Cash",
+        "de": "Mitarbeiter unterschreiben è-Cash",
+        "fr": "Employee Underwriting è-Cash"
+      },
+      "description": "We are looking for a candidate to join our team. The main responsibilities of this role include:\n\nKey responsibilities: \n\n• Analysis of small credit requests using dedicated tools and received documentation\n\n• Administration of returned contracts\n\n• Office checks on execution and bankruptcies, addresses, employers, additional documentation\n\n• Credit disbursement\n\n• Customer care for existing clients without delay\n\n• Handling emails and calls from clients and external partners\n\n• Sending payment policies, extinguishing extracts, detailed calculations\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in analyzing salary certificates\n\n• Precision and autonomy, proactive spirit\n\n• Great sense of responsibility and decision-making skills\n\n• Enjoy working in a team and direct contact with clients and external partners\n\n• Knowledge of spoken and written German, French, and Italian to be able to read documents received from client\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un candidato per unirsi alla nostra squadra. Le principali responsabilità di questo ruolo includono: responsabilità chiave: • Analisi di piccole richieste di credito utilizzando strumenti dedicati e documentazione ricevuta • Amministrazione di contratti restituiti • Controlli di ufficio su esecuzione e fallimenti, indirizzi, datori di lavoro, documentazione aggiuntiva • Erogazione di credito • Assistenza clienti per i clienti esistenti senza indugio • Gestione e-mail e chiamate da clienti e partner esterni • Inviare politiche di pagamento, estinguere estratti, calcoli dettagliati Cosa offriamo? • Flessibilità nel lavorare da casa e nella gestione delle ore di lavoro per garantire un sano equilibrio di vita lavorativa • Numerosi vantaggi e incentivi • Benessere, attività motivazionali e di team building • Esperienza nell'analisi dei certificati salari • Precisione e autonomia, spirito proattivo • Grande senso di responsabilità e capacità decisionali • Lavorare in un team e contattare direttamente con clienti e partner esterni • Conoscenza del tedesco, francese e italiano parlato",
+        "en": "We are looking for a candidate to join our team. The main responsibilities of this role include: Key responsibilities: • Analysis of small credit requests using dedicated tools and received documentation • Administration of returned contracts • Office checks on execution and bankruptcies, addresses, employers, additional documentation • Credit disbursement • Customer care for existing clients without delay • Handling emails and calls from clients and external partners • Sending payment policies, extinguishing extracts, detailed calculations What do we offer? • Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance • Numerous benefits and incentives • Well-being, motivational and team-building activities • Experience in analyzing salary certificates • Precision and autonomy, proactive spirit • Great sense of responsibility and decision-making skills • Enjoy working in a team and direct contact with clients and external partners • Knowledge of spoken and written German, French, and Italian to be able to read documents received from client • Resident in Ticino or willing to relocate",
+        "de": "Wir suchen einen Kandidaten, der unserem Team beitritt. Die Hauptaufgaben dieser Rolle sind: Hauptverantwortlichkeiten: • Analyse von kleinen Kreditanfragen mit dedizierten Werkzeugen und empfangener Dokumentation • Verwaltung von zurückgegebenen Verträgen • Büroüberprüfungen bei Ausführung und Konkurs, Adressen, Arbeitgebern, Zusatzdokumentation • Kreditvergabe • Kundenbetreuung für bestehende Kunden ohne Verzögerung • Umgang mit E-Mails und Anrufen von Kunden und externen Partnern • Zahlungsrichtlinien, Löschauszüge, detaillierte Berechnungen Was bieten wir an? • Flexibilität bei der Arbeit von zu Hause und bei der Verwaltung von Arbeitszeiten, um eine gesunde Work-Life-Balance zu gewährleisten • Zahlreiche Vorteile und Anreize • Wohlbefinden, Motivation und Teambildung • Erfahrungen bei der Analyse von Gehaltszertifikaten • Präzision und Autonomie, proaktiver Geist • Große Verantwortung und Entscheidungsfähigkeit • Genießen Sie die Arbeit in einem Team und direkten Kontakt mit Kunden und externen Partnern • Kenntnisse von gesprochenen und schriftlichen deutschen, französischen und italienischen Leserdokumenten",
+        "fr": "Nous cherchons un candidat pour rejoindre notre équipe. Les principales responsabilités de ce rôle sont les suivantes: • Analyse des petites demandes de crédit à l'aide d'outils spécifiques et de documentation reçue • Administration des contrats retournés • Contrôles de l'exécution et des faillites, adresses, employeurs, documentation supplémentaire • Déboursement de crédit • Soins aux clients existants sans délai • Traitement des e-mails et des appels de clients et de partenaires externes • Envoi des politiques de paiement, extinction des extraits, calculs détaillés Qu'est-ce qu'on offre ? • Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle • De nombreux avantages et incitations • Activités de bien-être, de motivation et de team-building • Expérience dans l'analyse des certificats de salaire • Précision et autonomie, esprit proactif • Grand sens des responsabilités et des compétences décisionnelles • Profitez du travail en équipe et du contact direct avec les clients et les partenaires externes • Connaissance de l'allemand, du français et de l'italien parlé et écrit pour pouvoir lire les documents reçus du client • Résident au Tessin ou désireux de déménager"
+      },
+      "requirements": [
+        "Experience in analyzing salary certificates",
+        "Precision and autonomy, proactive spirit",
+        "Great sense of responsibility and decision-making skills",
+        "Enjoy working in a team and direct contact with clients and external partners",
+        "Knowledge of spoken and written German, French, and Italian to be able to read documents received from client",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Experience in analyzing salary certificates",
+          "Precision and autonomy, proactive spirit",
+          "Great sense of responsibility and decision-making skills",
+          "Enjoy working in a team and direct contact with clients and external partners",
+          "Knowledge of spoken and written German, French, and Italian to be able to read documents received from client",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Experience in analyzing salary certificates",
+          "Precision and autonomy, proactive spirit",
+          "Great sense of responsibility and decision-making skills",
+          "Enjoy working in a team and direct contact with clients and external partners",
+          "Knowledge of spoken and written German, French, and Italian to be able to read documents received from client",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-1",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-11T11:29:38.505Z",
+      "previousSlugs": [
+        "employee-underwriting-e-cash-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-underwriting-e-cash-corner-banca-lugano"
+        ],
+        "de": [
+          "employee-underwriting-e-cash-corner-banca-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-04-15T21:25:24.685Z",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
           "unitText": "YEAR"
         }
       },
@@ -1058,7 +986,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.694Z",
+      "crawledAt": "2026-05-11T11:29:38.504Z",
       "previousSlugs": [
         "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "customer-consulente-60-team-zurich-corner-banca-wallisellen"
@@ -1072,6 +1000,7 @@
         ]
       },
       "firstSeenAt": "2026-05-08T21:36:01.978Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {

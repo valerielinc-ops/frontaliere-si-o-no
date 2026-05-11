@@ -1,16 +1,16 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-05-10T21:24:17.814Z",
-  "total": 11,
+  "generatedAt": "2026-05-11T11:29:40.394Z",
+  "total": 10,
   "newCount": 0,
-  "updatedCount": 11,
-  "removedCount": 0,
+  "updatedCount": 10,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2456,
-  "avgDurationMs": 2456,
+  "durationMs": 2102,
+  "avgDurationMs": 2102,
   "durationHistory": [
-    2456
+    2102
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.694Z",
+      "crawledAt": "2026-05-11T11:29:38.504Z",
       "firstSeenAt": "2026-05-08T21:36:01.978Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -62,7 +62,7 @@
       "url": "https://jobs.corner.ch/o/aml-monitoring",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.695Z",
+      "crawledAt": "2026-05-11T11:29:38.505Z",
       "firstSeenAt": "2026-04-28T10:42:06.718Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -91,37 +91,8 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.696Z",
+      "crawledAt": "2026-05-11T11:29:38.505Z",
       "firstSeenAt": "2026-04-15T21:25:24.685Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "corner-banca-97d8d7e51ea2",
-      "slug": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "IT Authorizazion and Fraud Prevention Officer",
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.698Z",
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -149,7 +120,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.699Z",
+      "crawledAt": "2026-05-11T11:29:38.507Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -178,7 +149,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.700Z",
+      "crawledAt": "2026-05-11T11:29:38.508Z",
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -207,7 +178,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.702Z",
+      "crawledAt": "2026-05-11T11:29:38.509Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -236,7 +207,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-10T21:24:15.702Z",
+      "crawledAt": "2026-05-11T11:29:38.510Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -265,7 +236,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.703Z",
+      "crawledAt": "2026-05-11T11:29:38.510Z",
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -294,7 +265,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:24:15.704Z",
+      "crawledAt": "2026-05-11T11:29:38.511Z",
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -323,7 +294,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-10T21:24:15.705Z",
+      "crawledAt": "2026-05-11T11:29:38.512Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T09:57:27.167Z",
       "_qualityScore": 81,
@@ -335,6 +306,42 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "corner-banca-97d8d7e51ea2",
+      "slug": "it-authorizazion-and-fraud-prevention-officer-corner-banca-lugano",
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "IT Authorizazion and Fraud Prevention Officer",
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-10T21:24:15.698Z",
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
