@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-05-11T12:03:17.441Z",
+  "assembledAt": "2026-05-11T22:26:08.144Z",
   "jobs": [
     {
       "id": "company-6y6dd3",
@@ -101,7 +101,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-wndocq",
@@ -191,14 +192,15 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-2oxpfe",
-      "slug": "global-payroll-risorse-umane-systems-manager-chiasso",
+      "slug": "global-payroll-risorse-umane-systems-manager-switzerlandteam",
       "company": "lastminute.com",
       "title": "Global Payroll & HR Systems Manager",
-      "location": "Chiasso",
+      "location": "SwitzerlandTeam",
       "canton": "AG",
       "category": "tech",
       "contract": "full-time",
@@ -222,10 +224,10 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-31T21:27:48.251Z",
       "slugByLocale": {
-        "it": "global-payroll-risorse-umane-systems-manager-chiasso",
-        "en": "global-payroll-hr-systems-manager-chiasso",
-        "de": "global-payroll-personalwesen-systems-manager-chiasso",
-        "fr": "global-payroll-ressources-humaines-systems-manager-chiasso"
+        "it": "global-payroll-risorse-umane-systems-manager-switzerlandteam",
+        "en": "global-payroll-hr-systems-manager-switzerlandteam",
+        "de": "global-payroll-personalwesen-systems-manager-switzerlandteam",
+        "fr": "global-payroll-ressources-humaines-systems-manager-switzerlandteam"
       },
       "titleByLocale": {
         "en": "Global Payroll & HR Systems Manager",
@@ -249,12 +251,13 @@
         "de": [],
         "fr": []
       },
-      "addressLocality": "Chiasso",
+      "addressLocality": "SwitzerlandTeam",
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
         "global-payroll-hr-systems-manager-chiasso",
         "responsabile-globale-payroll-e-sistemi-hr-chiasso",
+        "global-payroll-hr-systems-manager-switzerlandteam",
         "global-payroll-personalwesen-systems-manager-lastminute-com-chiasso",
         "global-payroll-risorse-umane-systems-manager-lastminute-com-chiasso",
         "global-payroll-hr-systemmanager-chiasso",
@@ -286,7 +289,8 @@
       "previousSlugsByLocale": {
         "it": [
           "global-payroll-hr-systems-manager-chiasso",
-          "responsabile-globale-payroll-e-sistemi-hr-chiasso"
+          "responsabile-globale-payroll-e-sistemi-hr-chiasso",
+          "global-payroll-hr-systems-manager-switzerlandteam"
         ],
         "en": [
           "global-payroll-personalwesen-systems-manager-lastminute-com-chiasso",
@@ -300,14 +304,15 @@
           "responsable-globale-paie-et-systemes-rh-chiasso"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:27:48.251Z"
+      "firstSeenAt": "2026-03-31T21:27:48.251Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-o2ikw3",
-      "slug": "responsabile-data-platform-engineering-chiasso",
+      "slug": "responsabile-data-platform-engineering-switzerlandteam",
       "company": "lastminute.com",
       "title": "Head of Data Platform Engineering",
-      "location": "Chiasso",
+      "location": "SwitzerlandTeam",
       "canton": "AG",
       "category": "tech",
       "contract": "full-time",
@@ -331,10 +336,10 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-31T21:27:48.251Z",
       "slugByLocale": {
-        "it": "responsabile-data-platform-engineering-chiasso",
-        "en": "head-of-data-platform-engineering-chiasso",
-        "de": "leiter-data-platform-engineering-chiasso",
-        "fr": "responsable-data-platform-engineering-chiasso"
+        "it": "responsabile-data-platform-engineering-switzerlandteam",
+        "en": "head-of-data-platform-engineering-switzerlandteam",
+        "de": "leiter-data-platform-engineering-switzerlandteam",
+        "fr": "responsable-data-platform-engineering-switzerlandteam"
       },
       "titleByLocale": {
         "en": "Head of Data Platform Engineering",
@@ -358,7 +363,7 @@
         "de": [],
         "fr": []
       },
-      "addressLocality": "Chiasso",
+      "addressLocality": "SwitzerlandTeam",
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
@@ -366,6 +371,7 @@
         "responsabile-data-platform-engineering-lastminute-com-chiasso",
         "head-of-data-platform-engineering-chiasso",
         "responsabile-infrastruttura-data-chiasso",
+        "head-of-data-platform-engineering-switzerlandteam",
         "responsable-de-l-ingenierie-de-la-plateforme-de-donnees-chiasso",
         "data-engineer-lastminute-com-chiasso",
         "data-ingegnere-lastminute-com-chiasso",
@@ -399,7 +405,8 @@
           "head-of-data-platform-engineering-lastminute-com-switzerland",
           "responsabile-data-platform-engineering-lastminute-com-chiasso",
           "head-of-data-platform-engineering-chiasso",
-          "responsabile-infrastruttura-data-chiasso"
+          "responsabile-infrastruttura-data-chiasso",
+          "head-of-data-platform-engineering-switzerlandteam"
         ],
         "en": [
           "head-of-data-platform-engineering-lastminute-com-switzerland"
@@ -412,7 +419,8 @@
           "responsable-de-l-ingenierie-de-la-plateforme-de-donnees-chiasso"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:27:48.251Z"
+      "firstSeenAt": "2026-03-31T21:27:48.251Z",
+      "needsRetranslation": true
     }
   ]
 }
