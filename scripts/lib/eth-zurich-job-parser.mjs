@@ -236,25 +236,39 @@ function parseListings(html) {
  * Optionally enrich a listing with description text from its detail page.
  * Best-effort — failures fall back to the aria-label as description.
  */
+/**
+ * Pure HTML→text extraction for ETH Zürich detail pages. Exported so
+ * fixture-based tests can exercise selector changes without hitting the
+ * network. ETH refreshed their jobs site (2026-05) to use a single
+ * `<section class="description">` wrapping the whole posting body, with
+ * named child blocks like `<div class="paragraph description__paragraph">`.
+ * The legacy `<div class="job-ad-text">` selector still works on some
+ * older pages, so we keep it as a fallback.
+ */
+export function extractEthZurichDetailDescription(html = '') {
+  if (!html) return '';
+  const blockMatch =
+    html.match(/<section[^>]*\bclass="[^"]*\bdescription\b[^"]*"[^>]*>([\s\S]*?)<\/section>/i) ||
+    html.match(/<div[^>]*class="[^"]*\bjob-ad-text\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+    html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
+    html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  if (!blockMatch) return '';
+  const text = stripHtml(decodeHtmlEntities(blockMatch[1]));
+  // crawler-template.stripHtml converts <li> → "\n• " so list structure
+  // survives; preserve newlines (only collapse intra-line whitespace), then
+  // restore bullet markers for any inline `•` that slipped through.
+  const compact = text
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  return normalizeDescriptionBullets(compact).slice(0, 4000);
+}
+
 async function fetchDetailDescription(url) {
   try {
     const html = await fetchText(url);
-    // Look for the main job-ad text container; fall back to <main> or <article>.
-    const blockMatch =
-      html.match(/<div[^>]*class="[^"]*\bjob-ad-text\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
-      html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
-      html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-    if (!blockMatch) return '';
-    const text = stripHtml(decodeHtmlEntities(blockMatch[1]));
-    // crawler-template.stripHtml converts <li> → "\n• " so list structure
-    // survives; preserve newlines (only collapse intra-line whitespace), then
-    // restore bullet markers for any inline `•` that slipped through.
-    const compact = text
-      .replace(/[ \t]+/g, ' ')
-      .replace(/[ \t]*\n[ \t]*/g, '\n')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
-    return normalizeDescriptionBullets(compact).slice(0, 4000);
+    return extractEthZurichDetailDescription(html);
   } catch {
     return '';
   }

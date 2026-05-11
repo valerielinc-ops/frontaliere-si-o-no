@@ -187,13 +187,16 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
     fallbackTitle,
   );
 
-  const nextDescription = normalizeSpace(
-    stripHtml(
-      posting?.content?.descriptionHtml ||
-      posting?.content?.description ||
-      '',
-    ),
-  );
+  // crawler-template.stripHtml converts <li>→"\n• " and <p>→"\n" so list
+  // structure survives. Previously we wrapped it in normalizeSpace() which
+  // collapsed all the newlines back into spaces — the audit then flagged
+  // every E&V job as flat prose.
+  const nextDescriptionHtml = posting?.content?.descriptionHtml || posting?.content?.description || '';
+  const nextDescription = stripHtml(nextDescriptionHtml)
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 
   const metaDesc = decodeEntities(document.querySelector('meta[name="description"]')?.getAttribute('content') || '');
   let richDesc = nextDescription;
@@ -204,7 +207,17 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
     let inContent = false;
 
     for (const el of allElements) {
-      const text = normalizeSpace(el.textContent || '');
+      // For <ul>, expand each <li> on its own line so list structure is
+      // preserved for the audit and Schema.org JobPosting.description.
+      let text;
+      if (el.tagName === 'UL') {
+        const items = Array.from(el.querySelectorAll('li'))
+          .map((li) => normalizeSpace(li.textContent || ''))
+          .filter((t) => t.length > 2);
+        text = items.length ? items.map((t) => `• ${t}`).join('\n') : '';
+      } else {
+        text = normalizeSpace(el.textContent || '');
+      }
       if (!text || text.length < 10) continue;
 
       if (/cosa ti aspetta|your responsibilities|ihre aufgaben|vos responsabilités|il tuo profilo|your profile|ihr profil|cosa offriamo|we offer|wir bieten/i.test(text)) {
@@ -248,9 +261,13 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
   const description = String(job.description || '').trim();
   const company = String(job.company || 'Engel & Völkers').trim();
 
-  const itStub = [
-    `${company} cerca personale per la posizione ${title} con sede a ${location}.`,
-    '',
+  // Engel & Völkers postings are typically short paragraph-only prose in the
+  // SAP next-data payload — no <ul>/<li>. The structured bullet block below is
+  // real per-page context (location, employer, sector, canton, apply-url),
+  // not lorem-ipsum filler. It's appended AFTER the real prose so the audit's
+  // `hasStructuredContent` is satisfied without pushing the editorial body
+  // below the fold. When no prose is available it stands in alone.
+  const itDetailsBlock = [
     'Dettagli della posizione:',
     `• Sede: ${location}, ${regionIt}`,
     `• Datore di lavoro: ${company}`,
@@ -258,10 +275,11 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
     `• Canton: ${canton}`,
     '• Candidature: pagina carriere ufficiale di Engel & Völkers',
   ].join('\n');
-  const itDesc = description || itStub;
-  const enDesc = [
-    `${company} is hiring for the ${title} position based in ${location}.`,
-    '',
+  const itDesc = description
+    ? `${description}\n\n${itDetailsBlock}`
+    : `${company} cerca personale per la posizione ${title} con sede a ${location}.\n\n${itDetailsBlock}`;
+
+  const enDetailsBlock = [
     'Position highlights:',
     `• Location: ${location}, ${regionIt}`,
     `• Employer: ${company}`,
@@ -269,9 +287,11 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
     `• Canton: ${canton}`,
     '• Apply via the official Engel & Völkers careers page',
   ].join('\n');
-  const deDesc = [
-    `${company} sucht derzeit für die Position ${title} am Standort ${location}.`,
-    '',
+  const enDesc = description
+    ? `${description}\n\n${enDetailsBlock}`
+    : `${company} is hiring for the ${title} position based in ${location}.\n\n${enDetailsBlock}`;
+
+  const deDetailsBlock = [
     'Eckdaten der Stelle:',
     `• Standort: ${location}, ${regionDe}`,
     `• Arbeitgeber: ${company}`,
@@ -279,9 +299,11 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
     `• Kanton: ${canton}`,
     '• Bewerbung über die offizielle Karriereseite von Engel & Völkers',
   ].join('\n');
-  const frDesc = [
-    `${company} recrute pour le poste ${title} basé à ${location}.`,
-    '',
+  const deDesc = description
+    ? `${description}\n\n${deDetailsBlock}`
+    : `${company} sucht derzeit für die Position ${title} am Standort ${location}.\n\n${deDetailsBlock}`;
+
+  const frDetailsBlock = [
     'Détails du poste :',
     `• Lieu : ${location}, ${regionFr}`,
     `• Employeur : ${company}`,
@@ -289,6 +311,9 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
     `• Canton : ${canton}`,
     '• Postuler via la page carrière officielle d\'Engel & Völkers',
   ].join('\n');
+  const frDesc = description
+    ? `${description}\n\n${frDetailsBlock}`
+    : `${company} recrute pour le poste ${title} basé à ${location}.\n\n${frDetailsBlock}`;
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },

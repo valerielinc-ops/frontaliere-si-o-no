@@ -217,10 +217,39 @@ const DETAIL_TIMEOUT_MS = 15_000;
 const DETAIL_RATE_LIMIT_MS = 400;
 
 /**
+ * Pure HTML→text extraction for EPFL SuccessFactors detail pages. Exported so
+ * it can be exercised by fixture-based tests without hitting the network.
+ *
+ * SAP SuccessFactors emits the description body in any of:
+ *   <span class="jobdescription">…</span>   (current EPFL markup, 2026-05)
+ *   <div  id="jobdescription">…</div>       (legacy variant)
+ *   <div  class="jobdescription">…</div>    (legacy variant)
+ * The body is full of nested <div>/<span> with inline-style attributes, so
+ * we cannot rely on a tight closing tag — instead we capture everything up
+ * to the next sibling section (apply box) or fall back to <main>/<article>.
+ */
+export function extractEpflDetailDescription(html = '') {
+  if (!html) return '';
+  const match =
+    html.match(/<span[^>]*\bclass="[^"]*\bjobdescription\b[^"]*"[^>]*>([\s\S]*?)<\/span>\s*(?:<\/div>|<\/td>|<button|<a [^>]*class="[^"]*apply)/i) ||
+    html.match(/<div[^>]*\bid="jobdescription"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+    html.match(/<div[^>]*class="[^"]*\bjobdescription\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+    html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
+    html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  if (!match) return '';
+  const text = stripHtml(decodeEntities(match[1]));
+  return text
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+    .slice(0, 4000);
+}
+
+/**
  * Fetch the SuccessFactors detail page for an EPFL job and extract the body.
- * EPFL uses standard CSB markup: `<div id="jobdescription">` or class variants.
- * Falls back to <main>/<article>. Returns plain text with `\n• ` bullets
- * (preserved by crawler-template.stripHtml). Empty string on failure.
+ * Returns plain text with `\n• ` bullets (preserved by crawler-template.stripHtml).
+ * Empty string on failure.
  */
 async function fetchEpflDetailDescription(jobUrl) {
   if (!jobUrl) return '';
@@ -230,19 +259,7 @@ async function fetchEpflDetailDescription(jobUrl) {
     const res = await fetch(jobUrl, { headers: FETCH_HEADERS, signal: ctrl.signal, redirect: 'follow' });
     if (!res.ok) return '';
     const html = await res.text();
-    const match =
-      html.match(/<div[^>]*\bid="jobdescription"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
-      html.match(/<div[^>]*class="[^"]*\bjobdescription\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
-      html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
-      html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-    if (!match) return '';
-    const text = stripHtml(decodeEntities(match[1]));
-    return text
-      .replace(/[ \t]+/g, ' ')
-      .replace(/[ \t]*\n[ \t]*/g, '\n')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim()
-      .slice(0, 4000);
+    return extractEpflDetailDescription(html);
   } catch {
     return '';
   } finally {

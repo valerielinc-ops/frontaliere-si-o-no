@@ -145,6 +145,35 @@ const DETAIL_RATE_LIMIT_MS = 400;
  * Returns plain text with `<li>` items preserved as `\n• ` bullets via
  * the shared stripHtml; empty string on any failure.
  */
+/**
+ * Pure HTML→text extraction for KSSG/HOCH SuccessFactors detail pages.
+ * Exported so fixture-based tests can exercise selector changes without
+ * hitting the network. The body is rendered inside:
+ *   <span class="jobdescription">…</span>   (current HOCH markup, 2026-05)
+ *   <div  id="jobdescription">…</div>       (legacy variant)
+ *   <div  class="jobdescription">…</div>    (legacy variant)
+ * Falls back to <main>/<article>.
+ */
+export function extractKssgDetailDescription(html = '') {
+  if (!html) return '';
+  const match =
+    html.match(/<span[^>]*\bclass="[^"]*\bjobdescription\b[^"]*"[^>]*>([\s\S]*?)<\/span>\s*(?:<\/div>|<\/td>|<button|<a [^>]*class="[^"]*apply)/i) ||
+    html.match(/<div[^>]*\bid="jobdescription"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+    html.match(/<div[^>]*class="[^"]*\bjobdescription\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+    html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
+    html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  if (!match) return '';
+  const text = stripHtml(match[1]);
+  // Preserve newlines (and `\n• ` markers from <li> stripping); only collapse
+  // intra-line whitespace runs.
+  return text
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+    .slice(0, 4000);
+}
+
 async function fetchKssgDetailDescription(detailUrl) {
   if (!detailUrl) return '';
   const ctrl = new AbortController();
@@ -161,23 +190,7 @@ async function fetchKssgDetailDescription(detailUrl) {
     });
     if (!res.ok) return '';
     const html = await res.text();
-    // SuccessFactors CSB detail pages render the body inside #jobdescription
-    // or a div with class "jobdescription". Fall back to <main>/<article>.
-    const match =
-      html.match(/<div[^>]*\bid="jobdescription"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
-      html.match(/<div[^>]*class="[^"]*\bjobdescription\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
-      html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
-      html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-    if (!match) return '';
-    const text = stripHtml(match[1]);
-    // Preserve newlines (and `\n• ` markers from <li> stripping); only collapse
-    // intra-line whitespace runs.
-    return text
-      .replace(/[ \t]+/g, ' ')
-      .replace(/[ \t]*\n[ \t]*/g, '\n')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim()
-      .slice(0, 4000);
+    return extractKssgDetailDescription(html);
   } catch {
     return '';
   } finally {
