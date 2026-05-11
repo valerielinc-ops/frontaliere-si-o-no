@@ -42,7 +42,7 @@ import {
   buildAllianzLocalizedContent,
   inferAllianzCanton,
 } from './lib/allianz-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -51,6 +51,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'allianz-suisse.json');
 
 const COMPANY_KEY = 'allianz-suisse';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Allianz Suisse';
 const COMPANY_HOST = 'recruitingapp-2872.umantis.com';
 const COMPANY_DOMAIN = 'umantis.com';
@@ -259,7 +260,7 @@ async function enrichWithDetails(listings) {
 function buildAllianzJob(row) {
   const localized = buildAllianzLocalizedContent(row);
   const location = row.location || '';
-  const canton = row._canton || TARGET_CANTONS[0];
+  const canton = row._canton || DEFAULT_CANTON;
   return {
     title: localized.titleByLocale.it,
     slug: localized.slugByLocale.it,
@@ -345,7 +346,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || TARGET_CANTONS[0],
+      canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

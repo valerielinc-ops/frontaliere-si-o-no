@@ -48,7 +48,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData } from './lib/migros-job-parser.mjs';
 import { inferEmploymentType } from './lib/denner-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -57,6 +57,7 @@ const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 
 const DENNER_KEY = 'denner';
+const DEFAULT_CANTON = getCompanyDefaults(DENNER_KEY)?.canton || 'TI';
 const DENNER_COMPANY_NAME = 'Denner';
 const DENNER_HOST = 'jobs.migros.ch';
 const DENNER_LISTING_BASE = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti';
@@ -270,9 +271,9 @@ async function fetchAndParseDetailPages(urls) {
         requirementsByLocale: { it: migrosData?.requirements || [] },
         location,
         postalCode: postalCode || TICINO_PLZ[location.toLowerCase()] || '6500',
-        canton: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : TARGET_CANTONS[0]),
+        canton: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : DEFAULT_CANTON),
         addressLocality: location || 'Bellinzona',
-        addressRegion: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : TARGET_CANTONS[0]),
+        addressRegion: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : DEFAULT_CANTON),
         addressCountry: 'CH',
         streetAddress: location ? `Denner ${location}` : 'Denner Ticino',
         employmentType: inferEmploymentType(rawTitle, description, workPct || ''),

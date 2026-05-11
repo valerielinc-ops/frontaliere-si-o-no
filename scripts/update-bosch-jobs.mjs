@@ -33,7 +33,7 @@ import {
   buildBoschLocalizedContent,
   inferBoschCategory,
 } from './lib/bosch-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -42,6 +42,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'bosch-thermotechnik-ag.json');
 
 const COMPANY_KEY = 'bosch-thermotechnik-ag';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Bosch Thermotechnik AG';
 const COMPANY_HOST = 'jobs.bosch.com';
 const COMPANY_DOMAIN = 'bosch.ch';
@@ -169,9 +170,9 @@ async function buildBoschJob(listing) {
     companyDomain: COMPANY_DOMAIN,
     location: detail.location || listing.location || 'Rivera',
     addressLocality: detail.location || listing.location || 'Rivera',
-    addressRegion: detail.canton || TARGET_CANTONS[0],
+    addressRegion: detail.canton || DEFAULT_CANTON,
     addressCountry: 'CH',
-    canton: detail.canton || TARGET_CANTONS[0],
+    canton: detail.canton || DEFAULT_CANTON,
     country: 'CH',
     employmentType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
     contractType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',

@@ -43,7 +43,7 @@ import {
   inferEmploymentType,
   buildPublicUrl,
 } from './lib/otis-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -51,6 +51,7 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'otis';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Otis SA';
 
 function isCompanyJob(job) {
@@ -110,7 +111,7 @@ async function main() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     // Prefer detail city (from full location text) over listing city
     const city = detail.city || raw.city || 'Ticino';
-    const canton = inferAnyCanton(`${city} ${raw.location}`) || detail.canton || TARGET_CANTONS[0];
+    const canton = inferAnyCanton(`${city} ${raw.location}`) || detail.canton || DEFAULT_CANTON;
     const jobSlug = slugify(`${raw.title}-otis-${city}`);
     parsedJobs.push({
       id: `otis-${urlHash}`,

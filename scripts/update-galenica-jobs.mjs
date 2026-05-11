@@ -46,8 +46,7 @@ import {
 mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
-
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -57,6 +56,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const GALENICA_KEY = 'galenica';
+const DEFAULT_CANTON = getCompanyDefaults(GALENICA_KEY)?.canton || 'TI';
 const GALENICA_COMPANY_NAME = 'Galenica AG';
 const GALENICA_HOST = 'jobs.galenica.com';
 const GALENICA_DATA_URL =
@@ -258,7 +258,7 @@ async function fetchGalenicaJobs() {
 
     const firm = contact.firm || GALENICA_COMPANY_NAME;
     const city = contact.city || '';
-    const canton = contact.state || TARGET_CANTONS[0];
+    const canton = contact.state || DEFAULT_CANTON;
     const jobUrl = buildJobUrl(preferred);
 
     const category = detectCategory(title);

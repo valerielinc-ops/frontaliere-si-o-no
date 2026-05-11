@@ -13,7 +13,7 @@
  * electrical, HVAC, and industrial trades. HQ in Geneva, branch in Ticino.
  */
 
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 const LISTING_URL = 'https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/?_canton=125';
 
@@ -231,12 +231,7 @@ export function isPemsaTicinoRelevant(job = {}) {
 
   const city = normalizeSpace(job.city || '').toLowerCase();
   if (!city) return true; // Pre-filtered by canton=125
-  return (
-    isTicinoRelevant(city) ||
-    isGrigioniRelevant(city) ||
-    isTargetSwissLocation(city) ||
-    /lugano|bellinzona|locarno|mendrisio|chiasso|agno|lamone|cadempino|riazzino|bioggio|manno|massagno/i.test(city)
-  );
+  return isTargetSwissLocation(city);
 }
 
 /**

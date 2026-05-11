@@ -42,7 +42,7 @@ import {
   buildMticLocalizedContent,
   isMticTicinoRelevant,
 } from './lib/mtic-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -51,6 +51,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'mtic-group.json');
 
 const COMPANY_KEY = 'mtic-group';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'MTIC Group';
 const COMPANY_HOST = 'www.mtic-group.org';
 const COMPANY_DOMAIN = 'mtic-group.org';
@@ -260,7 +261,7 @@ function buildMticJob(row) {
     addressLocality: location,
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: TARGET_CANTONS[0],
+    canton: DEFAULT_CANTON,
     country: 'CH',
     category: inferCategory(row.title, row.description),
     sector: 'Certificazione e Ispezioni',
@@ -324,7 +325,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

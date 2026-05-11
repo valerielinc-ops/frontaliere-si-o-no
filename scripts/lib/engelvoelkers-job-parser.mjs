@@ -13,7 +13,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import {  isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('engelvoelkers');
@@ -303,23 +303,17 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a location string is relevant to Ticino/Grigioni.
+ * Check whether a location string is relevant to any target canton.
  */
 export function isEngelvoelkersTicinoRelevant(location = '', company = '') {
-  const loc = normalizeSpace(location).toLowerCase();
+  const loc = normalizeSpace(location);
   const comp = normalizeSpace(company).toLowerCase();
 
   // Known Ticino subsidiary
   if (comp.includes('ticino premium properties')) return true;
 
   if (!loc) return false;
-
-  return (
-    isTicinoRelevant(loc) ||
-    isGrigioniRelevant(loc) ||
-    isTargetSwissLocation(loc) ||
-    /lugano|ascona|locarno|bellinzona|mendrisio|chiasso|bioggio|manno|massagno|paradiso|viganello|rivera|airolo/i.test(loc)
-  );
+  return isTargetSwissLocation(loc);
 }
 
 /** Infer canton (TI or GR) from location text. Falls back to HQ canton. */

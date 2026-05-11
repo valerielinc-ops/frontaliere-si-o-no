@@ -65,14 +65,6 @@ function slugify(value = '') {
     .slice(0, 180);
 }
 
-const TICINO_CITIES = [
-  'bellinzona', 'lugano', 'locarno', 'mendrisio', 'chiasso', 'muralto',
-  'giubiasco', 'biasca', 'airolo', 'faido', 'paradiso', 'massagno',
-  'viganello', 'manno', 'mezzovico', 'agno', 'magliaso', 'stabio',
-  'balerna', 'riva san vitale', 'cadenazzo', 'gordola', 'ascona',
-  'minusio', 'tenero', 'capolago', 'vacallo', 'grono',
-];
-
 const TICINO_AGENCIES = [
   'agenzia generale bellinzona',
   'agenzia generale lugano',

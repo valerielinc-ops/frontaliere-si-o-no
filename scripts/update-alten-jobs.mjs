@@ -31,8 +31,8 @@ import {
   parseAltenDetailHtml,
   inferAltenCategory,
 } from './lib/alten-job-parser.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -41,6 +41,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'alten-switzerland.json');
 
 const COMPANY_KEY = 'alten-switzerland';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'ALTEN Switzerland';
 const COMPANY_DOMAIN = 'alten.ch';
 const COMPANY_HOST = 'www.alten.ch';
@@ -197,7 +198,7 @@ async function buildJobs(listings) {
           continue;
         }
         const parsed = parseAltenDetailHtml(await page.content(), listing.href);
-        const canton = inferAnyCanton(parsed.location) || TARGET_CANTONS[0];
+        const canton = inferAnyCanton(parsed.location) || DEFAULT_CANTON;
         jobs.push({
           title: parsed.title,
           slug: parsed.slug,
@@ -288,7 +289,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || TARGET_CANTONS[0],
+      canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

@@ -35,7 +35,7 @@ import {
   htmlToMarkdown,
   validateClerDescription,
 } from './lib/cler-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -44,6 +44,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'banca-cler';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Banca Cler';
 const API_BASE = 'https://www.cler.ch';
 // German API returns results; Italian returns 0 (locale mismatch on server side)
@@ -258,7 +259,7 @@ async function fetchClerJobs() {
       addressLocality: 'Bellinzona',
       addressRegion: 'Ticino',
       addressCountry: 'CH',
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       country: 'CH',
       category,
       sector: 'Banca / Servizi finanziari',

@@ -10,7 +10,7 @@
  *   - Apply URL in <a> with href to recruitingapp-2710.umantis.com
  */
 
-import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://www.hoval.it';
 
@@ -140,29 +140,17 @@ export function buildHovalLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a location string is relevant to Ticino/Grigioni.
+ * Check whether a location string is relevant to any target canton.
  */
 export function isHovalTicinoRelevant(location = '') {
-  const loc = normalizeSpace(location).toLowerCase();
+  const loc = normalizeSpace(location);
   if (!loc) return false;
-  return (
-    isTicinoRelevant(loc) ||
-    isGrigioniRelevant(loc) ||
-    isTargetSwissLocation(loc) ||
-    /mezzovico|ticino/i.test(loc)
-  );
+  return isTargetSwissLocation(loc);
 }
 
 /**
- * Infer canton code from a location string.
+ * Infer canton code from a location string via the BFS municipality dataset.
  */
 export function inferHovalCanton(location = '') {
-  const loc = normalizeSpace(location).toLowerCase();
-  if (/mezzovico|ticino/i.test(loc)) return 'TI';
-  if (/grigioni|chur|graubünden|coira/i.test(loc)) return 'GR';
-  if (/härkingen|solothurn/i.test(loc)) return 'SO';
-  if (/feldmeilen|meilen|zürich|zurich/i.test(loc)) return 'ZH';
-  if (/winterthur|frauenfeld|schaffhausen/i.test(loc)) return 'ZH';
-  if (/romande|lausanne|genève/i.test(loc)) return 'VD';
-  return 'CH';
+  return inferAnyCanton(normalizeSpace(location)) || 'CH';
 }

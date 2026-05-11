@@ -42,7 +42,7 @@ import {
   buildRelewantLocalizedContent,
   isRelewantTicinoRelevant,
 } from './lib/relewant-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -51,6 +51,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'relewant.json');
 
 const COMPANY_KEY = 'relewant';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'ReleWant';
 const COMPANY_HOST = 'relewant.zohorecruit.com';
 const COMPANY_DOMAIN = 'zohorecruit.com';
@@ -129,7 +130,7 @@ function buildRelewantJob(parsed) {
     addressLocality: parsed.city || 'Chiasso',
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: TARGET_CANTONS[0],
+    canton: DEFAULT_CANTON,
     country: 'CH',
     category: inferCategory(parsed.title),
     sector: 'Consulenza IT',
@@ -206,7 +207,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

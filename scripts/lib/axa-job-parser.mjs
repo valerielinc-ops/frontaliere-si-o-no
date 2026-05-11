@@ -23,7 +23,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://jobs.axa.ch';
 
@@ -253,24 +253,12 @@ export function isAxaTicinoRelevant(location = '', address = '', title = '') {
 
 /**
  * Infer canton from job location/address text.
+ *
+ * Uses inferAnyCanton, which matches against all 26 Swiss cantons via the BFS
+ * municipality dataset (2,110 cities + aliases) plus canton names and codes.
  */
 export function inferAxaCanton(location = '', address = '') {
-  const combined = `${location} ${address}`.toLowerCase();
-  if (isTicinoRelevant(combined)) return 'TI';
-  if (isGrigioniRelevant(combined)) return 'GR';
-
-  // AXA-specific patterns
-  const tiKeywords = [
-    'lugano', 'bellinzona', 'locarno', 'mendrisio', 'chiasso',
-    'sopraceneri', 'sottoceneri', 'mendrisiotto', 'agenzia generale',
-    'biasca', 'faido', 'gordola', 'magadino', 'ascona', 'tessin',
-    'roveredo',
-  ];
-  const grKeywords = ['chur', 'coira', 'davos', 'graubünden', 'grigioni'];
-
-  if (tiKeywords.some(k => combined.includes(k))) return 'TI';
-  if (grKeywords.some(k => combined.includes(k))) return 'GR';
-  return ''; // No confident canton match
+  return inferAnyCanton(`${location} ${address}`);
 }
 
 /**

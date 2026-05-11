@@ -38,8 +38,8 @@ import {
   mergeLocaleTextMap,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
-import { TARGET_CANTONS, getCantonDisplayName } from './lib/crawler-location-config.mjs';
+import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { getCantonDisplayName, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -48,6 +48,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const IST_KEY = 'international-school-of-ticino';
+const DEFAULT_CANTON = getCompanyDefaults(IST_KEY)?.canton || 'TI';
 const IST_COMPANY_NAME = 'International School of Ticino';
 const IST_COMPANY_HOST = 'jobs.inspirededu.com';
 const IST_SEARCH_URL = 'https://jobs.inspirededu.com/search/';
@@ -314,14 +315,14 @@ function istFallbackCity(canton, locale = 'it') {
   return IST_DEFAULT_CITY_BY_CANTON[canton] || getCantonDisplayName(canton, locale);
 }
 
-function buildDescription(title, descriptionText, location, canton = TARGET_CANTONS[0]) {
+function buildDescription(title, descriptionText, location, canton = DEFAULT_CANTON) {
   const region = getCantonDisplayName(canton, 'en');
   const defaultCity = istFallbackCity(canton, 'en');
   const base = descriptionText || `${title} position at the International School of Ticino in ${location}, Switzerland.`;
   return `${base}\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in ${defaultCity}, IST offers a stimulating international learning environment in ${region}.`.trim();
 }
 
-function buildDescriptionIt(title, location, canton = TARGET_CANTONS[0]) {
+function buildDescriptionIt(title, location, canton = DEFAULT_CANTON) {
   const region = getCantonDisplayName(canton, 'it');
   const defaultCity = istFallbackCity(canton, 'it');
   return `Posizione aperta presso la International School of Ticino a ${location}.\nRuolo: ${title}.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group, uno dei principali gruppi scolastici premium al mondo. Situata a ${defaultCity}, IST offre un ambiente di apprendimento internazionale stimolante in ${region}.`.trim();
@@ -556,7 +557,7 @@ function postProcessIstJobs() {
     }
     job.country = 'CH';
     if (!job.canton) {
-      job.canton = TARGET_CANTONS[0];
+      job.canton = DEFAULT_CANTON;
       fixed++;
     }
     if (!job.location) {

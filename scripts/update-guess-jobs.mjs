@@ -48,7 +48,7 @@ import {
   buildGuessApplyUrl,
   parseGuessJobDetailPayload,
 } from './lib/guess-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -58,6 +58,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'guess-europe.json');
 
 const COMPANY_KEY = 'guess-europe';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Guess Europe Sagl';
 const COMPANY_HOST = 'apply.workable.com';
 const COMPANY_DOMAIN = 'guess.eu';
@@ -225,9 +226,9 @@ function buildGuessJob(listing, detail) {
     companyDomain: COMPANY_DOMAIN,
     location: city,
     addressLocality: city,
-    addressRegion: inferAnyCanton(city) || TARGET_CANTONS[0],
+    addressRegion: inferAnyCanton(city) || DEFAULT_CANTON,
     addressCountry: 'CH',
-    canton: inferAnyCanton(city) || TARGET_CANTONS[0],
+    canton: inferAnyCanton(city) || DEFAULT_CANTON,
     country: 'CH',
     employmentType: parsed.employmentType,
     contractType: parsed.employmentType,
@@ -318,7 +319,7 @@ function updateAdapterConfig(discoveredJobs) {
       job.url,
       {
         location: job.location,
-        canton: inferAnyCanton(job.location) || TARGET_CANTONS[0],
+        canton: inferAnyCanton(job.location) || DEFAULT_CANTON,
         company: COMPANY_NAME,
         postedDate: job.postedDate || '',
       },
@@ -348,7 +349,7 @@ function postProcessJobs() {
       job.companyDomain = COMPANY_DOMAIN;
       fixed += 1;
     }
-    job.canton = inferAnyCanton(job.location || job.addressLocality || '') || TARGET_CANTONS[0];
+    job.canton = inferAnyCanton(job.location || job.addressLocality || '') || DEFAULT_CANTON;
     job.country = 'CH';
     job.addressCountry = 'CH';
     job.addressRegion = job.canton;

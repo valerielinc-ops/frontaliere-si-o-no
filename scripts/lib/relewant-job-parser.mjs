@@ -12,7 +12,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 const API_URL = 'https://relewant.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Careers';
 
@@ -378,12 +378,7 @@ export function buildRelewantLocalizedContent(job = {}) {
  * Check whether a job location is Ticino/Grigioni-relevant.
  */
 export function isRelewantTicinoRelevant(city = '') {
-  const loc = normalizeSpace(city).toLowerCase();
+  const loc = normalizeSpace(city);
   if (!loc) return true; // ReleWant is known TI company
-  return (
-    isTicinoRelevant(loc) ||
-    isGrigioniRelevant(loc) ||
-    isTargetSwissLocation(loc) ||
-    /chiasso|lugano|mendrisio|bellinzona|locarno|bioggio|manno|massagno/i.test(loc)
-  );
+  return isTargetSwissLocation(loc);
 }

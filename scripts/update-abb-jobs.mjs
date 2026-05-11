@@ -40,8 +40,8 @@ import {
   deriveLocalizedSlug,
   normalize,
 } from './lib/dedicated-crawler-common.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
-import { isTargetCanton, TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -50,6 +50,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const ABB_KEY = 'abb-svizzera-sede-ticino';
+const DEFAULT_CANTON = getCompanyDefaults(ABB_KEY)?.canton || 'TI';
 const ABB_COMPANY_NAME = 'ABB Svizzera (sede Ticino)';
 const ABB_HOST = 'careers.abb';
 const ABB_COMPANY_DOMAIN = 'abb.ch';
@@ -224,7 +225,7 @@ function buildSeedMetaFromJob(job, canton) {
   const contract = normalizeAbbContract(job?.jobType || job?.type || job?.contractType || '');
   return {
     location,
-    canton: canton || TARGET_CANTONS[0],
+    canton: canton || DEFAULT_CANTON,
     country: 'CH',
     company: ABB_COMPANY_NAME,
     companyDomain: ABB_COMPANY_DOMAIN,

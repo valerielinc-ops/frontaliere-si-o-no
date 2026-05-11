@@ -4539,28 +4539,17 @@ export async function verifyLocationIsSwiss(locationString) {
 export function isExplicitlyOutsideTargetCantons(text) {
   const lower = String(text || '').toLowerCase();
   if (!lower) return false;
-  // Safeguard: if text mentions any target canton, not outside
+  // Any target-canton signal in the text means it's not "outside target".
   if (isTargetSwissLocation(lower)) return false;
-  // Check if text contains a PLZ + canton code pattern for a non-target canton
+  // PLZ + 2-letter canton code pattern (e.g. "8001 Zürich ZH"): "outside" only
+  // if the canton code is not in TARGET_CANTONS. With the cathedral CH-wide
+  // expansion this branch never fires, but it stays correct if the scope is
+  // ever narrowed again.
   if (/\b(?:ch-?)?\d{4}\s+[a-zà-öø-ÿ'().\-\s]{2,80}\s+(ag|ai|ar|be|bl|bs|fr|ge|gl|gr|ju|lu|ne|nw|ow|sg|sh|so|sz|tg|ur|vd|vs|zg|zh)\b/i.test(lower)) {
     const match = lower.match(/\b(ag|ai|ar|be|bl|bs|fr|ge|gl|gr|ju|lu|ne|nw|ow|sg|sh|so|sz|tg|ur|vd|vs|zg|zh)\b/i);
     if (match && !isTargetCanton(match[1].toUpperCase())) return true;
   }
-  // Check well-known non-target Swiss cities
-  const nonTargetCities = [
-    'bern', 'berne', 'zuerich', 'zürich', 'basel', 'lausanne', 'geneva', 'genève',
-    'fribourg', 'neuchatel', 'luzern', 'lucerne', 'winterthur', 'aarau', 'zug',
-    'st. gallen', 'sankt gallen', 'thun', 'biel', 'bienne',
-    'gossau', 'dietlikon', 'jegensdorf', 'lenzburg', 'oberbüren', 'oberbueren',
-    'pratteln', 'muttenz', 'olten', 'langenthal', 'burgdorf', 'emmen', 'kriens',
-    'köniz', 'ostermundigen', 'schaffhausen', 'frauenfeld', 'wil sg', 'rapperswil',
-    'uster', 'dübendorf', 'kloten', 'wetzikon', 'volketswil', 'spreitenbach',
-  ].filter((city) => {
-    // Only consider it "outside" if the city is NOT in a target canton
-    // For now we keep the static list but it will be empty when TARGET_CANTONS = all 26
-    return true; // Will be replaced with DB lookup in Phase 5
-  });
-  return nonTargetCities.some((k) => lower.includes(k));
+  return false;
 }
 
 export function recencyTs(job) {

@@ -39,7 +39,7 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -48,6 +48,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const IBSA_KEY = 'ibsa-institut-biochimique';
+const DEFAULT_CANTON = getCompanyDefaults(IBSA_KEY)?.canton || 'TI';
 const IBSA_COMPANY_NAME = 'IBSA Institut Biochimique';
 const IBSA_COMPANY_DOMAIN = 'ibsa.ch';
 const IBSA_HOST = 'career.ibsagroup.com';
@@ -256,7 +257,7 @@ async function fetchIbsaJobDetailUrls() {
   for (const detailUrl of seedUrls) {
     seedMetaByUrl[detailUrl] = {
       location: 'Ticino',
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       country: 'CH',
       company: IBSA_COMPANY_NAME,
       companyDomain: IBSA_COMPANY_DOMAIN,
@@ -407,7 +408,7 @@ function normalizeIbsaRow(job) {
     source: 'Company Careers Crawler',
     sourceLang: detectLang((job?.description || job?.title || ''), 'it'),
     location: String(job?.location || '').trim() || 'Ticino',
-    canton: String(job?.canton || '').trim() || TARGET_CANTONS[0],
+    canton: String(job?.canton || '').trim() || DEFAULT_CANTON,
     country: String(job?.country || '').trim() || 'CH',
     ...localeFields,
   };

@@ -42,7 +42,7 @@ import {
   isMksPampTicinoRelevant,
   buildMksPampLocalizedContent,
 } from './lib/mkspamp-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -51,6 +51,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'mks-pamp.json');
 
 const COMPANY_KEY = 'mks-pamp';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'MKS PAMP';
 const COMPANY_HOST = 'careers.mkspamp.com';
 const COMPANY_DOMAIN = 'mkspamp.com';
@@ -168,7 +169,7 @@ function buildMksPampJob(rssItem, location) {
     addressLocality: city,
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: TARGET_CANTONS[0],
+    canton: DEFAULT_CANTON,
     country: 'CH',
     category: inferCategory(rssItem.title),
     sector: 'Metalli preziosi',
@@ -232,7 +233,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };
