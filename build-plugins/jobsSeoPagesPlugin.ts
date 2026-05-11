@@ -5977,6 +5977,201 @@ ${alternates}
  }
  }
 
+ /* ── Per-canton sector hubs (Phase 3.2) ──────────────────────
+  * Additive: for every non-TI canton with ≥ MIN_JOBS_FOR_CANTON_PAGE active
+  * jobs and ≥ 3 jobs matching a given sector (infermieri, case-anziani,
+  * educatori, ingegneri, autisti, sviluppatori, ristorazione, oss,
+  * logistica, apprendistato), emit /cerca-lavoro-{cantonSlug}/{sectorSlug}/.
+  *
+  * TI sector hubs are owned by jobSectorPagesPlugin.ts (legacy URL
+  * /cerca-lavoro-ticino/{sectorSlug}/) and are NOT touched here — this loop
+  * skips canton === 'TI' so the legacy emit stays byte-identical.
+  *
+  * Each per-canton sector page is a thin landing: H1, intro, top-30 jobs
+  * filtered by (canton, sector), self-canonical, plus a brief market section.
+  * Curated TI prose (sectorProseData) is not reused — non-TI hubs ship the
+  * minimal SEO-funnel shell with the live job count baked in.
+  */
+ {
+ const MIN_JOBS_PER_CANTON_SECTOR = 3;
+ const SECTOR_JOB_LIST_CAP = 30;
+ // Group validJobs by (canton, sector).
+ const cantonSectorBuckets: Map<string, Map<SectorHubKey, typeof validJobs>> = new Map();
+ const cantonTotalSec: Map<string, number> = new Map();
+ for (const job of validJobs) {
+ const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ if (c === 'TI') continue;
+ cantonTotalSec.set(c, (cantonTotalSec.get(c) ?? 0) + 1);
+ for (const sector of SECTOR_HUB_KEYS) {
+ if (!jobMatchesSector(job as never, sector)) continue;
+ if (!cantonSectorBuckets.has(c)) cantonSectorBuckets.set(c, new Map());
+ const bySector = cantonSectorBuckets.get(c)!;
+ if (!bySector.has(sector)) bySector.set(sector, []);
+ bySector.get(sector)!.push(job);
+ }
+ }
+ const cantonDisplayLocalSec = (canton: string, locale: typeof localeList[number]): string => {
+ const dn = CANTON_DISPLAY?.[canton];
+ if (dn) return dn;
+ const section = sharedResolveCantonSection(locale, canton);
+ return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ };
+ const sectorHubSitemapEntries: string[] = [];
+ let sectorHubPagesCount = 0;
+ for (const canton of SHARED_ALL_CANTON_CODES) {
+ if (canton === 'TI') continue;
+ const cantonTotal = cantonTotalSec.get(canton) ?? 0;
+ if (cantonTotal < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ const bySector = cantonSectorBuckets.get(canton);
+ if (!bySector) continue;
+ for (const sector of SECTOR_HUB_KEYS) {
+ const sJobs = bySector.get(sector) ?? [];
+ if (sJobs.length < MIN_JOBS_PER_CANTON_SECTOR) continue;
+ const sSorted = [...sJobs].sort((a: any, b: any) => {
+ const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
+ const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ if (da !== db) return da - db;
+ return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
+ });
+ const cappedJobs = sSorted.slice(0, SECTOR_JOB_LIST_CAP);
+ for (const locale of localeList) {
+ const __tSectorCanton = startTimer();
+ const sectionSlug = sharedResolveCantonSection(locale, canton);
+ const sectorSlug = SECTOR_HUB_SLUG[locale][sector];
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${sectorSlug}`.replace(/\/+/g, '/'));
+ const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+ const cDisplay = cantonDisplayLocalSec(canton, locale);
+ const sectorDisplay = SECTOR_HUB_DISPLAY[locale][sector];
+ const year = new Date().getFullYear();
+ const seo = buildSectorHubSeo(locale, sector, sJobs.length, year);
+ // Compose title: prepend canton to disambiguate from the TI sector hub
+ const pageTitle = locale === 'it' ? `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
+ : locale === 'en' ? `${sectorDisplay} jobs ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
+ : locale === 'de' ? `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
+ : `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`;
+ const pageDesc = locale === 'it' ? `${sJobs.length} offerte di lavoro ${sectorDisplay.toLowerCase()} in ${cDisplay}. Annunci aggiornati quotidianamente. Cerca il tuo prossimo lavoro come frontaliere.`
+ : locale === 'en' ? `${sJobs.length} ${sectorDisplay.toLowerCase()} job openings in ${cDisplay}. Listings updated daily. Find your next cross-border job in Switzerland.`
+ : locale === 'de' ? `${sJobs.length} ${sectorDisplay} Stellenangebote in ${cDisplay}. Täglich aktualisiert. Finden Sie Ihren nächsten Grenzgänger-Job.`
+ : `${sJobs.length} offres d'emploi ${sectorDisplay.toLowerCase()} à ${cDisplay}. Annonces mises à jour quotidiennement. Trouvez votre prochain emploi frontalier.`;
+ const pageHeading = locale === 'it' ? `Offerte ${sectorDisplay.toLowerCase()} in ${cDisplay}`
+ : locale === 'en' ? `${sectorDisplay} jobs in ${cDisplay}`
+ : locale === 'de' ? `${sectorDisplay} Stellen ${cDisplay}`
+ : `Offres ${sectorDisplay.toLowerCase()} à ${cDisplay}`;
+ const altPairs = localeList.map((al) => {
+ const alSection = sharedResolveCantonSection(al, canton);
+ const alSlug = SECTOR_HUB_SLUG[al][sector];
+ const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
+ return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
+ });
+ const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? '';
+ const alternates = [
+ ...altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
+ ...(xDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`] : []),
+ ].join('\n');
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
+ const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
+ const breadcrumbLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { '@type': 'ListItem', position: 2, name: sectionLabel, item: sectionRootUrl },
+ { '@type': 'ListItem', position: 3, name: pageHeading, item: canonicalUrl },
+ ],
+ });
+ const collectionLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'CollectionPage',
+ name: pageTitle,
+ url: canonicalUrl,
+ description: pageDesc,
+ inLanguage: locale,
+ isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
+ });
+ const itemListLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'ItemList',
+ name: pageTitle,
+ numberOfItems: cappedJobs.length,
+ itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => ({
+ '@type': 'ListItem',
+ position: i + 1,
+ name: String(job?.titleByLocale?.[locale] || job.title || ''),
+ url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`,
+ })),
+ });
+ const sUniqueCompanies = [...new Set(cappedJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
+ const sUniqueLocations = [...new Set(cappedJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
+ const sTopCompanies = sUniqueCompanies.slice(0, 5).map((c) => esc(c)).join(', ');
+ const intro = (() => {
+ if (locale === 'it') return `<p>Sono attualmente disponibili <strong>${sJobs.length} offerte di lavoro</strong> per ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}, pubblicate da ${sUniqueCompanies.length} aziende in ${sUniqueLocations.length} località. Tra le aziende che assumono: ${sTopCompanies || '—'}. Gli annunci vengono aggiornati quotidianamente dal nostro crawler.</p>`;
+ if (locale === 'en') return `<p>There are currently <strong>${sJobs.length} job openings</strong> for ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}, published by ${sUniqueCompanies.length} companies across ${sUniqueLocations.length} locations. Hiring companies include: ${sTopCompanies || '—'}. Listings are refreshed daily.</p>`;
+ if (locale === 'de') return `<p>Derzeit sind <strong>${sJobs.length} Stellenangebote</strong> für ${sectorDisplay} in ${esc(cDisplay)} verfügbar, veröffentlicht von ${sUniqueCompanies.length} Unternehmen an ${sUniqueLocations.length} Standorten. Einstellende Unternehmen: ${sTopCompanies || '—'}. Täglich aktualisiert.</p>`;
+ return `<p>${sJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles dans le secteur ${sectorDisplay.toLowerCase()} à ${esc(cDisplay)}, publiées par ${sUniqueCompanies.length} entreprises dans ${sUniqueLocations.length} localités. Entreprises qui recrutent : ${sTopCompanies || '—'}. Annonces mises à jour quotidiennement.</p>`;
+ })();
+ const marketSection = (() => {
+ if (locale === 'it') return `<section style="margin-top:20px"><h2>Lavorare come ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}</h2><p>Il Canton ${esc(cDisplay)} è parte del mercato svizzero del lavoro. Per i lavoratori frontalieri con Permesso G, la Svizzera applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto.</p></section>`;
+ if (locale === 'en') return `<section style="margin-top:20px"><h2>Working as ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}</h2><p>The Canton of ${esc(cDisplay)} is part of the Swiss labour market. For cross-border workers with a G Permit, Switzerland applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p></section>`;
+ if (locale === 'de') return `<section style="margin-top:20px"><h2>Arbeiten als ${sectorDisplay} in ${esc(cDisplay)}</h2><p>Der Kanton ${esc(cDisplay)} ist Teil des schweizerischen Arbeitsmarkts. Für Grenzgänger mit G-Bewilligung erhebt die Schweiz eine Quellensteuer. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p></section>`;
+ return `<section style="margin-top:20px"><h2>Travailler comme ${sectorDisplay.toLowerCase()} à ${esc(cDisplay)}</h2><p>Le Canton de ${esc(cDisplay)} fait partie du marché du travail suisse. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p></section>`;
+ })();
+ const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
+ const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: sectorDisplay }))}`;
+ const html = buildSimplePage({
+ locale,
+ title: pageTitle,
+ description: pageDesc,
+ canonicalUrl,
+ ogLocale: localeOg[locale],
+ hreflangHtml: alternates,
+ jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd],
+ entryJs: hasSpaBundle ? entryJs : undefined,
+ entryCss: hasSpaBundle ? entryCss : undefined,
+ bodyHtml,
+ });
+ // Hard budget guard (mirror per-canton city hub 195 KB cap).
+ const SECTOR_CANTON_HARD_BUDGET = 195 * 1024;
+ const htmlBytes = Buffer.byteLength(html, 'utf-8');
+ if (htmlBytes > SECTOR_CANTON_HARD_BUDGET) {
+ throw new Error(
+ `[jobs-seo-pages] Per-canton sector hub ${canonicalPath} renders to ` +
+ `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
+ `${SECTOR_CANTON_HARD_BUDGET / 1024} KB.`
+ );
+ }
+ const outDir = np.join(distDir, canonicalPath.slice(1));
+ activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
+ _md(outDir);
+ _qw(np.join(outDir, 'index.html'), html);
+ const flatPath = canonicalPath.replace(/\/+$/, '');
+ if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
+ sectorHubPagesCount++;
+ recordEmit('sector-canton-hub', __tSectorCanton);
+ void seo; // buildSectorHubSeo currently unused in thin variant; kept for future enrichment
+ }
+ // Sitemap entry (priority 0.8 mirroring TI sector hubs).
+ const itSection = sharedResolveCantonSection('it', canton);
+ const itSectorSlug = SECTOR_HUB_SLUG.it[sector];
+ const itPath = `/${itSection}/${itSectorSlug}/`.replace(/\/+/g, '/');
+ const smAlternates = localeList.map((l) => {
+ const lSection = sharedResolveCantonSection(l, canton);
+ const lSectorSlug = SECTOR_HUB_SLUG[l][sector];
+ const lp = `${localePrefix[l]}/${lSection}/${lSectorSlug}/`.replace(/\/+/g, '/');
+ return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${lp}" />`;
+ }).join('\n');
+ sectorHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.8</priority>\n </url>`);
+ }
+ }
+ if (sectorHubPagesCount > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${sectorHubPagesCount} per-canton sector hub pages`);
+ const sectorHubEntriesJoined = sectorHubSitemapEntries.join('\n');
+ editorialEntries = editorialEntries
+ ? `${editorialEntries}\n${sectorHubEntriesJoined}`
+ : sectorHubEntriesJoined;
+ }
+ }
+
  /* ── GSC-driven keyword landing pages ──────────────────────── */
  let keywordPageCount = 0;
  const keywordSitemapEntries: string[] = [];
