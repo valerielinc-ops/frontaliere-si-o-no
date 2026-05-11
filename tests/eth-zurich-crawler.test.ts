@@ -25,7 +25,7 @@ describe('ETH Zürich crawler parser', () => {
     });
 
     it('matches by URL domain', () => {
-      expect(isEthZurichJob({ url: 'https://ethzurich.ch/jobs/123' })).toBe(true);
+      expect(isEthZurichJob({ url: 'https://jobs.ethz.ch/job/123' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -42,11 +42,11 @@ describe('ETH Zürich crawler parser', () => {
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
     it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://ethzurich.ch/careers/job-123')).toBe(true);
+      expect(isTrustedDomain('https://ethz.ch/careers/job-123')).toBe(true);
     });
 
     it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.ethzurich.ch/job/456')).toBe(true);
+      expect(isTrustedDomain('https://jobs.ethz.ch/job/456')).toBe(true);
     });
 
     it('rejects other domains', () => {

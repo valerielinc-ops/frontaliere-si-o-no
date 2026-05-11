@@ -38,8 +38,8 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
-import { isTargetCanton } from './lib/crawler-location-config.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -47,6 +47,9 @@ const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const ZEGNA_KEY = 'ermenegildo-zegna-logistica';
+const ZEGNA_HQ = getCompanyDefaults(ZEGNA_KEY);
+const DEFAULT_CANTON = ZEGNA_HQ?.canton || 'TI';
+const DEFAULT_CITY = ZEGNA_HQ?.city || 'Stabio';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 /**
@@ -263,23 +266,19 @@ function parseJobDetail(html = '', url = '') {
 
 /**
  * Detect city from the location string.
- * Zegna has positions in Stabio (Ticino) and Zurich.
+ * Returns the parsed location verbatim when present, else the Zegna HQ city.
  */
 function detectCity(location = '') {
-  const loc = location.toLowerCase();
-  if (loc.includes('stabio')) return 'Stabio';
-  if (loc.includes('zurich') || loc.includes('zürich')) return 'Zürich';
-  if (loc.includes('mendrisio')) return 'Mendrisio';
-  if (loc.includes('lugano')) return 'Lugano';
-  if (loc.includes('ticino')) return 'Stabio'; // Default Ticino location
-  return 'Stabio'; // Zegna's main Swiss hub
+  const loc = String(location || '').trim();
+  if (!loc) return DEFAULT_CITY;
+  return loc;
 }
 
 function detectCanton(city = '') {
-  return inferAnyCanton(city) || 'TI';
+  return inferAnyCanton(city) || DEFAULT_CANTON;
 }
 
-function isZegnaTicinoLocation(detail) {
+function isZegnaSwissLocation(detail) {
   const signal = [detail?.city, detail?.location, detail?.region].filter(Boolean).join(' ');
   return isTargetSwissLocation(signal);
 }
@@ -342,7 +341,7 @@ async function fetchZegnaJobs() {
     const title = detail.title || link.rawText || '';
     const city = detail.city || detectCity(detail.location);
     const canton = detectCanton(city);
-    if (!isZegnaTicinoLocation(detail) || !isTargetCanton(canton)) {
+    if (!isZegnaSwissLocation(detail) || !isTargetCanton(canton)) {
       console.log(`     ↳ Skipping (not target region): ${title} — ${detail.location || city || 'unknown location'}`);
       continue;
     }
@@ -573,7 +572,7 @@ function postProcessZegnaJobs() {
       continue;
     }
 
-    if (String(job.location || '').match(/zurich|zürich|geneva|gen[eè]ve|lausanne|basel|bern|berne/i) || !isTargetCanton(String(job.canton || '').toUpperCase())) {
+    if (!isTargetCanton(String(job.canton || '').toUpperCase())) {
       removed++;
       continue;
     }
@@ -588,7 +587,7 @@ function postProcessZegnaJobs() {
     }
     job.country = 'CH';
     if (!job.location) {
-      job.location = 'Stabio';
+      job.location = DEFAULT_CITY;
       fixed++;
     }
     if (!job.canton) {

@@ -23,13 +23,18 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const SWISS_LIFE_KEY = 'swiss-life';
 export const SWISS_LIFE_COMPANY_NAME = 'Swiss Life';
 export const SWISS_LIFE_COMPANY_DOMAIN = 'swisslife.ch';
+
+const SWISS_LIFE_HQ = getCompanyDefaults(SWISS_LIFE_KEY);
+const DEFAULT_SWISS_LIFE_CITY = SWISS_LIFE_HQ?.city || 'Sion';
+const DEFAULT_SWISS_LIFE_CANTON = SWISS_LIFE_HQ?.canton || 'VS';
 
 const WORKDAY_API_BASE =
   'https://swisslife.wd3.myworkdayjobs.com/wday/cxs/swisslife/Swiss_Life_Career_Site';
@@ -237,41 +242,28 @@ function parseWorkdayLocation(locText = '') {
 }
 
 /**
- * Resolve the best Valais city for a job from detail data.
- * Checks primary location and additionalLocations for VS cities.
+ * Resolve the best Swiss city for a job from detail data.
+ * Picks the first parseable Swiss location across primary, additionalLocations,
+ * and the requisition descriptor — anywhere across the 26 cantons.
  */
-function resolveValaisCity(info = {}, listingLocText = '') {
-  const VS_CITIES = ['sion', 'visp', 'martigny', 'sierre', 'monthey', 'brig'];
-
-  // Check primary location
+function resolveSwissCity(info = {}, listingLocText = '') {
   const primary = parseWorkdayLocation(info.location || listingLocText);
-  if (primary && VS_CITIES.some((c) => primary.toLowerCase().includes(c))) {
-    return primary;
-  }
+  if (primary && inferAnyCanton(primary)) return primary;
 
-  // Check additionalLocations
   const additionalLocations = info.additionalLocations || [];
   for (const addLoc of additionalLocations) {
-    const loc = String(addLoc || '').toLowerCase();
-    if (VS_CITIES.some((c) => loc.includes(c))) {
-      return normalizeSpace(addLoc);
-    }
+    const cleaned = normalizeSpace(String(addLoc || ''));
+    if (cleaned && inferAnyCanton(cleaned)) return cleaned;
   }
 
-  // Check requisition location descriptor
   const reqLocDesc = info.jobRequisitionLocation?.descriptor || '';
   if (reqLocDesc) {
-    for (const city of VS_CITIES) {
-      if (reqLocDesc.toLowerCase().includes(city)) {
-        return city.charAt(0).toUpperCase() + city.slice(1);
-      }
-    }
+    const cleaned = parseWorkdayLocation(reqLocDesc);
+    if (cleaned && inferAnyCanton(cleaned)) return cleaned;
   }
 
-  // Fallback to primary if it has a parseable value
   if (primary) return primary;
-
-  return 'Sion';
+  return DEFAULT_SWISS_LIFE_CITY;
 }
 
 /* ── Main fetch function ──────────────────────────────────── */
@@ -311,8 +303,8 @@ export async function fetchAllSwissLifeJobs() {
       continue;
     }
 
-    const city = resolveValaisCity(info, listing.locationsText);
-    const canton = inferAnyCanton(city) || 'VS';
+    const city = resolveSwissCity(info, listing.locationsText);
+    const canton = inferAnyCanton(city) || DEFAULT_SWISS_LIFE_CANTON;
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;

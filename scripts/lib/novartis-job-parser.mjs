@@ -68,7 +68,8 @@ export function isNovartisJob(job) {
     key.startsWith('novartis') ||
     company.includes('novartis') ||
     url.includes('novartis.wd3.myworkdayjobs.com') ||
-    url.includes('novartis.com')
+    url.includes('novartis.com') ||
+    url.includes('novartis.ch')
   );
 }
 
@@ -82,6 +83,8 @@ export function isTrustedDomain(rawUrl = '') {
       host === NOVARTIS_HOST ||
       host.endsWith('.novartis.com') ||
       host === 'novartis.com' ||
+      host.endsWith('.novartis.ch') ||
+      host === 'novartis.ch' ||
       host.endsWith('.myworkdayjobs.com')
     );
   } catch {

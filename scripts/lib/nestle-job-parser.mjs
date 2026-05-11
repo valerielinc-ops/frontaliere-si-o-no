@@ -25,7 +25,7 @@ import {
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const NESTLE_KEY = 'nestle';
-export const NESTLE_COMPANY_NAME = 'Nestlé Switzerland';
+export const NESTLE_COMPANY_NAME = 'Nestlé';
 export const NESTLE_COMPANY_DOMAIN = 'nestle.com';
 
 const WORKDAY_TENANT_HOST = 'nestle.wd3.myworkdayjobs.com';
@@ -64,6 +64,7 @@ export function isNestleJob(job) {
     company.includes('nestlé') ||
     company.includes('nestle') ||
     url.includes('nestle.com') ||
+    url.includes('nestle.ch') ||
     url.includes(WORKDAY_TENANT_HOST)
   );
 }

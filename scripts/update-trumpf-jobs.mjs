@@ -38,6 +38,8 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { isTargetCanton, getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -48,6 +50,8 @@ const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const COMPANY_KEY = 'trumpf-schweiz';
 const COMPANY_NAME = 'TRUMPF Schweiz AG';
 const COMPANY_DOMAIN = 'trumpf.com';
+const TRUMPF_HQ = getCompanyDefaults(COMPANY_KEY);
+const DEFAULT_CANTON = TRUMPF_HQ?.canton || 'GR';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
@@ -62,11 +66,8 @@ const PORTALS = [
   'TRUMPF_Apprenticeships',
 ];
 
-// GR-canton cities where TRUMPF has operations
-const GR_CITIES = new Set([
-  'grüsch', 'grusch', 'gruesch', 'chur', 'davos', 'klosters',
-  'landquart', 'maienfeld', 'schiers', 'jenaz', 'fideris',
-]);
+// TRUMPF spans Switzerland; canton scope is governed by TARGET_CANTONS in
+// scripts/lib/crawler-location-config.mjs.
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -121,10 +122,8 @@ function jobMatchKey(job) {
   return job.url || job.slug || '';
 }
 
-function isGrLocation(locationText = '') {
-  const lower = normalize(locationText)
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  return GR_CITIES.has(lower) || lower.includes('grusch') || lower.includes('gruesch');
+function isSwissLocation(locationText = '') {
+  return isTargetSwissLocation(String(locationText || ''));
 }
 
 function todayIso() {
@@ -225,6 +224,7 @@ function buildJobFromListing(listing) {
   const reqId = (listing.bulletFields || [])[0] || '';
   const slug = slugify(`${title}-trumpf-${reqId}`);
   const externalUrl = `${WORKDAY_BASE}/${listing.portal}${listing.externalPath}`;
+  const canton = inferAnyCanton(city) || DEFAULT_CANTON;
 
   return {
     title,
@@ -236,9 +236,9 @@ function buildJobFromListing(listing) {
     companyDomain: COMPANY_DOMAIN,
     location: city,
     addressLocality: city,
-    addressRegion: 'Graubünden',
+    addressRegion: getCantonDisplayName(canton, 'de') || canton,
     addressCountry: 'CH',
-    canton: 'GR',
+    canton,
     country: 'CH',
     category: inferCategory(title),
     sector: 'Tecnologia Industriale & Laser',
@@ -372,27 +372,27 @@ async function main() {
   }
   console.log(`\n📋 Total listings across portals: ${allListings.length}`);
 
-  // Phase 2 — Filter for GR
+  // Phase 2 — Filter for target Swiss cantons
   console.log('\n═══════════════════════════════════════');
-  console.log('Phase 2: Filter GR-canton jobs');
+  console.log('Phase 2: Filter target-canton jobs');
   console.log('═══════════════════════════════════════');
-  const grListings = allListings.filter((l) => isGrLocation(l.locationsText || ''));
+  const swissListings = allListings.filter((l) => isSwissLocation(l.locationsText || ''));
 
   // Deduplicate by externalPath (same job may appear in multiple search results)
   const seen = new Set();
-  const uniqueGrListings = grListings.filter((l) => {
+  const uniqueListings = swissListings.filter((l) => {
     if (seen.has(l.externalPath)) return false;
     seen.add(l.externalPath);
     return true;
   });
 
-  console.log(`📋 GR jobs found: ${uniqueGrListings.length}`);
-  for (const listing of uniqueGrListings) {
+  console.log(`📋 Target-canton jobs found: ${uniqueListings.length}`);
+  for (const listing of uniqueListings) {
     console.log(`  📄 ${listing.title} | ${listing.locationsText} | ${listing.portal}`);
   }
 
-  if (uniqueGrListings.length === 0) {
-    console.log('ℹ️ No GR jobs found — nothing to update.');
+  if (uniqueListings.length === 0) {
+    console.log('ℹ️ No target-canton jobs found — nothing to update.');
     process.exit(0);
   }
 
@@ -401,7 +401,7 @@ async function main() {
   console.log('Phase 3: Build jobs + fetch details');
   console.log('═══════════════════════════════════════');
   const jobs = [];
-  for (const listing of uniqueGrListings) {
+  for (const listing of uniqueListings) {
     const baseJob = buildJobFromListing(listing);
     console.log(`  🔗 Fetching detail: ${listing.title} ...`);
     const detail = await fetchJobDetail(listing.portal, listing.externalPath);

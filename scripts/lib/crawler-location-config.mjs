@@ -342,6 +342,10 @@ export const COMPANY_HQ = {
   'bosch-thermotechnik-ag':       { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'confederazione-ticino':        { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
   'capri-holdings':                { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  // ── Second-wave per-crawler HQ registry (retire script-local filters) ──
+  'burkhalter-group':              { city: 'Zürich',              canton: 'ZH', postalCode: '8050', addressRegion: 'ZH' },
+  'trumpf-schweiz':                { city: 'Grüsch',              canton: 'GR', postalCode: '7214', addressRegion: 'GR' },
+  'ermenegildo-zegna-logistica':   { city: 'Stabio',              canton: 'TI', postalCode: '6855', addressRegion: 'TI' },
 };
 
 /**
