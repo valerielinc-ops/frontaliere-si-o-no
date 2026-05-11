@@ -1,21 +1,19 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-05-11T10:59:35.073Z",
+  "generatedAt": "2026-05-11T21:22:31.209Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3555,
-  "avgDurationMs": 3555,
+  "unchangedCount": 0,
+  "durationMs": 4939,
+  "avgDurationMs": 4939,
   "durationHistory": [
-    3555
+    4939
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "aldi-suisse-2b7849368ea3",
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -40,7 +38,7 @@
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T10:59:32.975Z",
+      "crawledAt": "2026-05-11T21:22:29.443Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T09:27:44.858Z",
       "salaryMin": 59000,
@@ -53,5 +51,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
