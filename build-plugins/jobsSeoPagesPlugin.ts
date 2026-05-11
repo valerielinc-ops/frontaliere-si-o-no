@@ -75,6 +75,7 @@ import {
  SECTOR_HUB_DISPLAY,
  SECTOR_HUB_SLUG,
  buildSectorHubPath,
+ buildSectorHubSeo,
  jobMatchesSector,
  type SectorHubKey,
 } from './jobSectorLanding';
@@ -5688,8 +5689,9 @@ ${alternates}
  paginationPageCount++;
  recordEmit('paginated-listing', __tPaginated);
  }
+ const pgItSectionCanton = sharedResolveCantonSection('it', canton);
  const pgItSlugCanton = `${paginationSlugs.it}-${pageNum}`;
- const pgItPathCanton = withSlash(`/${itSection}/${pgItSlugCanton}`.replace(/\/+/g, '/'));
+ const pgItPathCanton = withSlash(`/${pgItSectionCanton}/${pgItSlugCanton}`.replace(/\/+/g, '/'));
  const pgSmAlternates = localeList.map((l) => {
  const lSection = sharedResolveCantonSection(l, canton);
  const ls = `${paginationSlugs[l]}-${pageNum}`;
