@@ -1,16 +1,16 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-05-10T21:18:21.522Z",
+  "generatedAt": "2026-05-11T11:23:37.956Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6477,
-  "avgDurationMs": 6477,
+  "durationMs": 6666,
+  "avgDurationMs": 6666,
   "durationHistory": [
-    6477
+    6666
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -227,8 +227,8 @@
       "currency": "CHF",
       "streetAddress": "Via Nassa 15",
       "postalCode": "6900",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T09:51:21.665Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
