@@ -1,70 +1,7 @@
 {
   "crawlerKey": "kssg",
-  "assembledAt": "2026-05-10T21:55:23.181Z",
+  "assembledAt": "2026-05-11T12:01:00.888Z",
   "jobs": [
-    {
-      "id": "kssg-1ce45aa7a61f",
-      "slug": "dipl-experte-expertin-intensivpflege-60-100-kssg-ch",
-      "slugByLocale": {
-        "en": "dipl-experte-expertin-intensivpflege-60-100-kssg-ch",
-        "it": "dipl-experte-expertin-intensivpflege-60-100-kssg-ch",
-        "de": "dipl-experte-expertin-intensivpflege-60-100-kssg-ch",
-        "fr": "dipl-experte-expertin-intensivpflege-60-100-kssg-ch"
-      },
-      "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-      "companyKey": "kssg",
-      "companyDomain": "kssg.ch",
-      "title": "Dipl. Experte/Expertin Intensivpflege 60-100%",
-      "titleByLocale": {
-        "en": "Experte/Expertin Intensivpflege 60-100%",
-        "it": "Dipl. Experte/Expertin Intensivpflege 60-100%",
-        "de": "Dipl. Experte/Expertin Intensivpflege 60-100%",
-        "fr": "Dipl. Experte/Expertin Intensivpflege 60-100%"
-      },
-      "description": "Dipl. Experte/Expertin Intensivpflege 60-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
-      "descriptionByLocale": {
-        "en": "Dipl. Experte/Expertin Intensivpflege 60-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
-        "it": "Dipl. Experte/Expertin Intensivpflege 60-100% — Kantonsspital St. Gallen (KSSG / HOCH)"
-      },
-      "location": "Festanstellung",
-      "canton": "SG",
-      "url": "https://jobs.h-och.ch/job/Grabs-Dipl_-ExperteExpertin-Intensivpflege-60-100/1371154033/",
-      "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-10T21:55:18.962Z",
-      "addressLocality": "Festanstellung",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "addressRegion": "SG",
-      "postalCode": "9000",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://jobs.h-och.ch/job/Grabs-Dipl_-ExperteExpertin-Intensivpflege-60-100/1371154033/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:18.962Z"
-    },
     {
       "id": "kssg-b04fe750efaf",
       "slug": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
@@ -79,10 +16,10 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Diploma Pflegefachfrau/-mann 80-100%",
-        "fr": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
         "en": "Dipl. Pflegefachfrau/-mann 80-100%",
-        "de": "Dipl. Pflegefachfrau/-mann 80-100%"
+        "de": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "fr": "Dipl. Pflegefachfrau/-mann 80-100%"
       },
       "description": "Dipl. Pflegefachfrau/-mann 80-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
       "descriptionByLocale": {
@@ -93,7 +30,7 @@
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Dipl_-Pflegefachfrau-mann-80-100/1389848833/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:18.659Z",
+      "crawledAt": "2026-05-11T12:00:55.877Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -109,81 +46,17 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Dipl_-Pflegefachfrau-mann-80-100/1389848833/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-80-100-kssg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-80-100-kssg-ch"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-80-100-kssg-ch"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:18.659Z"
-    },
-    {
-      "id": "kssg-c7af7887c4d4",
-      "slug": "tirocinio-professionale-presso-una-scuola-tecnica-superiore-infermieristica-hf-kantonsspital-st-gallen-kssg-hoch-praktik",
-      "slugByLocale": {
-        "de": "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch",
-        "it": "tirocinio-professionale-presso-una-scuola-tecnica-superiore-infermieristica-hf-kantonsspital-st-gallen-kssg-hoch-praktik",
-        "en": "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch",
-        "fr": "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch"
-      },
-      "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-      "companyKey": "kssg",
-      "companyDomain": "kssg.ch",
-      "title": "Berufspraktikum Fachmittelschule - Pflege HF",
-      "titleByLocale": {
-        "de": "Berufspraktikum Fachmittelschule - Pflege HF",
-        "fr": "Berufspraktikum Fachmittelschule - Pflege HF",
-        "it": "Tirocinio professionale presso una scuola tecnica superiore - Infermieristica HF",
-        "en": "Berufspraktikum Fachmittelschule - Pflege HF"
-      },
-      "description": "Berufspraktikum Fachmittelschule - Pflege HF — Kantonsspital St. Gallen (KSSG / HOCH)",
-      "descriptionByLocale": {
-        "de": "Berufspraktikum Fachmittelschule - Pflege HF — Kantonsspital St. Gallen (KSSG / HOCH)",
-        "fr": "Berufspraktikum Fachmittelschule - Pflege HF — Kantonsspital St. Gallen (KSSG / HOCH)"
-      },
-      "location": "Praktikum",
-      "canton": "SG",
-      "url": "https://jobs.h-och.ch/job/St_-Gallen-Berufspraktikum-Fachmittelschule-Pflege-HF/1291374601/",
-      "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:18.358Z",
-      "addressLocality": "Praktikum",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "addressRegion": "SG",
-      "postalCode": "9000",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Berufspraktikum-Fachmittelschule-Pflege-HF/1291374601/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:18.659Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -195,23 +68,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:18.358Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch"
-      ]
+      }
     },
     {
       "id": "kssg-66d6d6c196b7",
       "slug": "ausbildungsplatz-dipl-experte-expertin-anasthesiepflege-nds-80-100-kssg-ch",
       "slugByLocale": {
-        "en": "ausbildungsplatz-dipl-experte-expertin-anasthesiepflege-nds-80-100-kssg-ch",
         "it": "ausbildungsplatz-dipl-experte-expertin-anasthesiepflege-nds-80-100-kssg-ch",
+        "en": "ausbildungsplatz-dipl-experte-expertin-anasthesiepflege-nds-80-100-kssg-ch",
         "de": "ausbildungsplatz-dipl-experte-expertin-anasthesiepflege-nds-80-100-kssg-ch",
         "fr": "ausbildungsplatz-dipl-experte-expertin-anasthesiepflege-nds-80-100-kssg-ch"
       },
@@ -220,9 +84,9 @@
       "companyDomain": "kssg.ch",
       "title": "Ausbildungsplatz Dipl. Experte/Expertin Anästhesiepflege NDS 80-100%",
       "titleByLocale": {
+        "it": "Ausbildungsplatz Dipl. Experte/Expertin Anasthesiepflege NDS 80-100%",
         "en": "Ausbildungsplatz Dipl. Experte/Expertin Anästhesiepflege NDS 80-100%",
         "de": "Ausbildungsplatz Dipl. Experte/Expertin Anästhesiepflege NDS 80-100%",
-        "it": "Ausbildungsplatz Dipl. Experte/Expertin Anasthesiepflege NDS 80-100%",
         "fr": "Ausbildungsplatz Dipl. Experte/Expertin Anästhesiepflege NDS 80-100%"
       },
       "description": "Ausbildungsplatz Dipl. Experte/Expertin Anästhesiepflege NDS 80-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -234,7 +98,7 @@
       "url": "https://jobs.h-och.ch/job/Uznach-Ausbildungsplatz-Dipl_-ExperteExpertin-An%C3%A4sthesiepflege-NDS-80-100/1291343701/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:55:18.055Z",
+      "crawledAt": "2026-05-11T12:00:55.575Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -250,10 +114,9 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/Uznach-Ausbildungsplatz-Dipl_-ExperteExpertin-An%C3%A4sthesiepflege-NDS-80-100/1291343701/",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:18.055Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -265,16 +128,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:18.055Z"
+      }
     },
     {
       "id": "kssg-9c3e98af47e1",
       "slug": "specialista-certificato-in-tecnologia-chirurgica-30-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "de": "dipl-fachfrau-mann-operationstechnik-30-40-kssg-ch",
         "it": "specialista-certificato-in-tecnologia-chirurgica-30-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "dipl-fachfrau-mann-operationstechnik-30-40-kssg-ch",
+        "de": "dipl-fachfrau-mann-operationstechnik-30-40-kssg-ch",
         "fr": "dipl-fachfrau-mann-operationstechnik-30-40-kssg-ch"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -282,10 +144,10 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Fachfrau/-mann Operationstechnik 30-40%",
       "titleByLocale": {
-        "de": "Dipl. Fachfrau/-mann Operationstechnik 30-40%",
-        "fr": "Dipl. Fachfrau/-mann Operationstechnik 30-40%",
         "it": "Specialista certificato in tecnologia chirurgica 30-40%",
-        "en": "Dipl. Fachfrau/-mann Operationstechnik 30-40%"
+        "en": "Dipl. Fachfrau/-mann Operationstechnik 30-40%",
+        "de": "Dipl. Fachfrau/-mann Operationstechnik 30-40%",
+        "fr": "Dipl. Fachfrau/-mann Operationstechnik 30-40%"
       },
       "description": "Dipl. Fachfrau/-mann Operationstechnik 30-40% — Kantonsspital St. Gallen (KSSG / HOCH)",
       "descriptionByLocale": {
@@ -297,7 +159,7 @@
       "url": "https://jobs.h-och.ch/job/Uznach-Dipl_-Fachfrau-mann-Operationstechnik-30-40/1291342901/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:17.752Z",
+      "crawledAt": "2026-05-11T12:00:55.272Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -313,20 +175,19 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/Uznach-Dipl_-Fachfrau-mann-Operationstechnik-30-40/1291342901/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-fachfrau-mann-operationstechnik-30-40-kssg-ch",
+        "dipl-fachfrau-mann-operationstechnik-30-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachfrau-mann-operationstechnik-30-40-kssg-ch",
           "dipl-fachfrau-mann-operationstechnik-30-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
-      "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-30-40-kssg-ch",
-        "dipl-fachfrau-mann-operationstechnik-30-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:17.752Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -338,16 +199,84 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "kssg-c7af7887c4d4",
+      "slug": "tirocinio-professionale-presso-una-scuola-tecnica-superiore-infermieristica-hf-kantonsspital-st-gallen-kssg-hoch-praktik",
+      "slugByLocale": {
+        "it": "tirocinio-professionale-presso-una-scuola-tecnica-superiore-infermieristica-hf-kantonsspital-st-gallen-kssg-hoch-praktik",
+        "en": "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch",
+        "de": "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch",
+        "fr": "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch"
       },
-      "firstSeenAt": "2026-05-10T21:55:17.752Z"
+      "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+      "companyKey": "kssg",
+      "companyDomain": "kssg.ch",
+      "title": "Berufspraktikum Fachmittelschule - Pflege HF",
+      "titleByLocale": {
+        "it": "Tirocinio professionale presso una scuola tecnica superiore - Infermieristica HF",
+        "en": "Berufspraktikum Fachmittelschule - Pflege HF",
+        "de": "Berufspraktikum Fachmittelschule - Pflege HF",
+        "fr": "Berufspraktikum Fachmittelschule - Pflege HF"
+      },
+      "description": "Berufspraktikum Fachmittelschule - Pflege HF — Kantonsspital St. Gallen (KSSG / HOCH)",
+      "descriptionByLocale": {
+        "de": "Berufspraktikum Fachmittelschule - Pflege HF — Kantonsspital St. Gallen (KSSG / HOCH)",
+        "fr": "Berufspraktikum Fachmittelschule - Pflege HF — Kantonsspital St. Gallen (KSSG / HOCH)"
+      },
+      "location": "Praktikum",
+      "canton": "SG",
+      "url": "https://jobs.h-och.ch/job/St_-Gallen-Berufspraktikum-Fachmittelschule-Pflege-HF/1291374601/",
+      "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-11T12:00:54.970Z",
+      "addressLocality": "Praktikum",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "addressRegion": "SG",
+      "postalCode": "9000",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-10",
+      "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Berufspraktikum-Fachmittelschule-Pflege-HF/1291374601/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:18.358Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "kssg-6ea06065c05d",
       "slug": "gastgeber-in-chef-de-service-100-kssg-ch",
       "slugByLocale": {
-        "de": "gastgeber-in-chef-de-service-100-kssg-ch",
         "it": "gastgeber-in-chef-de-service-100-kssg-ch",
         "en": "gastgeber-in-chef-de-service-100-kssg-ch",
+        "de": "gastgeber-in-chef-de-service-100-kssg-ch",
         "fr": "gastgeber-in-chef-de-service-100-kssg-ch"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -355,9 +284,9 @@
       "companyDomain": "kssg.ch",
       "title": "Gastgeber/in / Chef de Service 100%",
       "titleByLocale": {
-        "de": "Gastgeber/in / Chef de Service 100%",
         "it": "Gastgeber/in / Chef de Service 100%",
         "en": "Gastgeber / in / Chef de Service 100%",
+        "de": "Gastgeber/in / Chef de Service 100%",
         "fr": "Gastgeber/in / Chef de Service 100%"
       },
       "description": "Gastgeber/in / Chef de Service 100% — Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -369,7 +298,7 @@
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Gastgeberin-Chef-de-Service-100/1390495833/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-10T21:55:17.450Z",
+      "crawledAt": "2026-05-11T12:00:54.668Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -385,10 +314,9 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Gastgeberin-Chef-de-Service-100/1390495833/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:17.450Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -400,27 +328,26 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:17.450Z"
+      }
     },
     {
       "id": "kssg-eceeac1731e6",
       "slug": "case-manager-in-risorse-umane-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "de": "case-manager-in-personalwesen-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "it": "case-manager-in-risorse-umane-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "case-manager-in-hr-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "fr": "case-manager-in-hr-50-kssg-ch"
+        "de": "case-manager-in-hr-50-kssg-ch",
+        "fr": "case-manager-in-ressources-humaines-50-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
       "companyDomain": "kssg.ch",
       "title": "Case Manager/in HR 50%",
       "titleByLocale": {
-        "de": "Case Manager/in Personalwesen 50%",
+        "it": "Case Manager/in Risorse Umane 50%",
         "en": "Case Manager/in HR 50%",
-        "fr": "Case Manager/in Ressources Humaines 50%",
-        "it": "Case Manager/in Risorse Umane 50%"
+        "de": "Case Manager/in Personalwesen 50%",
+        "fr": "Case Manager/in Ressources Humaines 50%"
       },
       "description": "Case Manager/in HR 50% — Kantonsspital St. Gallen (KSSG / HOCH)",
       "descriptionByLocale": {
@@ -431,7 +358,7 @@
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Case-Managerin-HR-50/1390193733/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:17.148Z",
+      "crawledAt": "2026-05-11T12:00:54.365Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -447,10 +374,24 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Case-Managerin-HR-50/1390193733/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "case-manager-in-personalwesen-50-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "it": [
+          "case-manager-in-hr-50-kssg-ch"
+        ],
+        "fr": [
+          "case-manager-in-hr-50-kssg-ch"
+        ]
       },
+      "previousSlugs": [
+        "case-manager-in-hr-50-kssg-ch",
+        "case-manager-in-personalwesen-50-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:17.148Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -462,27 +403,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:17.148Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "case-manager-in-hr-50-kssg-ch"
-        ],
-        "de": [
-          "case-manager-in-hr-50-kssg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "case-manager-in-hr-50-kssg-ch"
-      ]
+      }
     },
     {
       "id": "kssg-0bfdf046dda1",
       "slug": "stv-stationsleiter-in-80-100-kssg-ch",
       "slugByLocale": {
-        "de": "stv-stationsleiter-in-80-100-kssg-ch",
         "it": "stv-stationsleiter-in-80-100-kssg-ch",
         "en": "stv-stationsleiter-in-80-100-kssg-ch",
+        "de": "stv-stationsleiter-in-80-100-kssg-ch",
         "fr": "stv-stationsleiter-in-80-100-kssg-ch"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -490,10 +419,10 @@
       "companyDomain": "kssg.ch",
       "title": "Stv. Stationsleiter/in 80-100%",
       "titleByLocale": {
-        "de": "Stv. Stationsleiter/in 80-100%",
-        "fr": "Stv. Stationsleiter/in 80-100%",
         "it": "STV. Stationsleiter / in 80-100%",
-        "en": "Stv. Stationsleiter/in 80-100%"
+        "en": "Stv. Stationsleiter/in 80-100%",
+        "de": "Stv. Stationsleiter/in 80-100%",
+        "fr": "Stv. Stationsleiter/in 80-100%"
       },
       "description": "Stv. Stationsleiter/in 80-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
       "descriptionByLocale": {
@@ -504,7 +433,7 @@
       "url": "https://jobs.h-och.ch/job/Grabs-Stv_-Stationsleiterin-80-100/1381167333/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:16.845Z",
+      "crawledAt": "2026-05-11T12:00:54.062Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -520,10 +449,9 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/Grabs-Stv_-Stationsleiterin-80-100/1381167333/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:16.845Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -535,16 +463,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:16.845Z"
+      }
     },
     {
       "id": "kssg-26f123b5cac6",
       "slug": "studio-infermiera-50-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
       "slugByLocale": {
-        "de": "study-nurse-50-kssg-ch",
         "it": "studio-infermiera-50-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
         "en": "study-nurse-50-kssg-ch",
+        "de": "study-nurse-50-kssg-ch",
         "fr": "study-nurse-50-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -552,10 +479,10 @@
       "companyDomain": "kssg.ch",
       "title": "Study Nurse 50%",
       "titleByLocale": {
-        "de": "Study Nurse 50%",
-        "fr": "Study Nurse 50%",
         "it": "Studio infermiera 50%",
-        "en": "Study Nurse 50%"
+        "en": "Study Nurse 50%",
+        "de": "Study Nurse 50%",
+        "fr": "Study Nurse 50%"
       },
       "description": "Study Nurse 50% — Kantonsspital St. Gallen (KSSG / HOCH)",
       "descriptionByLocale": {
@@ -566,7 +493,7 @@
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Study-Nurse-50/1391310933/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:16.542Z",
+      "crawledAt": "2026-05-11T12:00:53.760Z",
       "addressLocality": "Befristete Anstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -582,10 +509,17 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Study-Nurse-50/1391310933/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "study-nurse-50-kssg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-50-kssg-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:16.542Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -597,24 +531,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:16.542Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "study-nurse-50-kssg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "study-nurse-50-kssg-ch"
-      ]
+      }
     },
     {
       "id": "kssg-f1dd1aa29bc7",
-      "slug": "fachfrau-mann-gesundheit-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "salute-professionale-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "de": "fachfrau-mann-gesundheit-40-100-kssg-ch",
-        "it": "fachfrau-mann-gesundheit-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "salute-professionale-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "fachfrau-mann-gesundheit-40-100-kssg-ch",
+        "de": "fachfrau-mann-gesundheit-40-100-kssg-ch",
         "fr": "fachfrau-mann-gesundheit-40-100-kssg-ch"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -622,9 +547,9 @@
       "companyDomain": "kssg.ch",
       "title": "Fachfrau/-mann Gesundheit 40-100%",
       "titleByLocale": {
-        "de": "Fachfrau/-mann Gesundheit 40-100%",
         "it": "Salute professionale 40-100 %",
         "en": "Fachfrau/-mann Gesundheit 40-100%",
+        "de": "Fachfrau/-mann Gesundheit 40-100%",
         "fr": "Fachfrau/-mann Gesundheit 40-100%"
       },
       "description": "Fachfrau/-mann Gesundheit 40-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -636,7 +561,7 @@
       "url": "https://jobs.h-och.ch/job/Uznach-Fachfrau-mann-Gesundheit-40-100/1371877033/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:16.239Z",
+      "crawledAt": "2026-05-11T12:00:53.456Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -652,18 +577,19 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/Uznach-Fachfrau-mann-Gesundheit-40-100/1371877033/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-40-100-kssg-ch",
+        "fachfrau-mann-gesundheit-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-40-100-kssg-ch"
+          "fachfrau-mann-gesundheit-40-100-kssg-ch",
+          "fachfrau-mann-gesundheit-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-40-100-kssg-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:16.239Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -675,16 +601,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:16.239Z"
+      }
     },
     {
       "id": "kssg-8ce3de51e27f",
       "slug": "stage-nell-area-commerciale-da-estate-2026-kantonsspital-st-gallen-kssg-hoch-praktikum",
       "slugByLocale": {
-        "de": "praktikum-im-kaufmannischen-bereich-ab-sommer-2026-kssg-ch",
         "it": "stage-nell-area-commerciale-da-estate-2026-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "en": "praktikum-im-kaufmannischen-bereich-ab-sommer-2026-kssg-ch",
+        "de": "praktikum-im-kaufmannischen-bereich-ab-sommer-2026-kssg-ch",
         "fr": "praktikum-im-kaufmannischen-bereich-ab-sommer-2026-kssg-ch"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -692,9 +617,9 @@
       "companyDomain": "kssg.ch",
       "title": "Praktikum im kaufmännischen Bereich (ab Sommer 2026)",
       "titleByLocale": {
-        "de": "Praktikum im kaufmännischen Bereich (ab Sommer 2026)",
         "it": "Stage nell'area commerciale (da estate 2026)",
         "en": "Praktikum im kaufmännischen Bereich (ab Sommer 2026)",
+        "de": "Praktikum im kaufmännischen Bereich (ab Sommer 2026)",
         "fr": "Praktikum im kaufmännischen Bereich (ab Sommer 2026)"
       },
       "description": "Praktikum im kaufmännischen Bereich (ab Sommer 2026) — Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -706,7 +631,7 @@
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Praktikum-im-kaufm%C3%A4nnischen-Bereich-%28ab-Sommer-2026%29/1284781501/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:15.332Z",
+      "crawledAt": "2026-05-11T12:00:52.245Z",
       "addressLocality": "Praktikum",
       "addressCountry": "CH",
       "country": "CH",
@@ -722,38 +647,36 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Praktikum-im-kaufm%C3%A4nnischen-Bereich-%28ab-Sommer-2026%29/1284781501/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:15.332Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikum-im-kaufmannischen-bereich-ab-sommer-2026-kssg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-kaufmannischen-bereich-ab-sommer-2026-kssg-ch"
         ]
       },
-      "previousSlugs": [
-        "praktikum-im-kaufmannischen-bereich-ab-sommer-2026-kssg-ch"
-      ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:15.332Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "kssg-a1d411329049",
       "slug": "esperto-certificato-in-anestesia-nds-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-50-100-kssg-ch",
         "it": "esperto-certificato-in-anestesia-nds-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "dipl-expertin-experte-anasthesiepflege-nds-50-100-kssg-ch",
         "de": "dipl-expertin-experte-anasthesiepflege-nds-50-100-kssg-ch",
         "fr": "dipl-expertin-experte-anasthesiepflege-nds-50-100-kssg-ch"
       },
@@ -762,9 +685,9 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Expertin/Experte Anästhesiepflege NDS 50-100%",
       "titleByLocale": {
+        "it": "Esperto certificato in anestesia NDS 50-100%",
         "en": "Dipl. Expertin/Experte Anästhesiepflege NDS 50-100%",
         "de": "Dipl. Expertin/Experte Anästhesiepflege NDS 50-100%",
-        "it": "Esperto certificato in anestesia NDS 50-100%",
         "fr": "Dipl. Expertin/Experte Anästhesiepflege NDS 50-100%"
       },
       "description": "Dipl. Expertin/Experte Anästhesiepflege NDS 50-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -776,7 +699,7 @@
       "url": "https://jobs.h-och.ch/job/Uznach-Dipl_-ExpertinExperte-An%C3%A4sthesiepflege-NDS-50-100/1391697633/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:55:14.727Z",
+      "crawledAt": "2026-05-11T12:00:51.943Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -792,10 +715,17 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/Uznach-Dipl_-ExpertinExperte-An%C3%A4sthesiepflege-NDS-50-100/1391697633/",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-50-100-kssg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-50-100-kssg-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:14.727Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -807,24 +737,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:14.727Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-50-100-kssg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-50-100-kssg-ch"
-      ]
+      }
     },
     {
       "id": "kssg-6b6fa428aa08",
       "slug": "assistenzpsychologin-assistenzpsychologe-kantonsspital-st-gallen-kssg-hoch-praktikum",
       "slugByLocale": {
-        "de": "assistenzpsychologin-assistenzpsychologe-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "it": "assistenzpsychologin-assistenzpsychologe-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "en": "assistenzpsychologin-assistenzpsychologe-kantonsspital-st-gallen-kssg-hoch-praktikum",
+        "de": "assistenzpsychologin-assistenzpsychologe-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "fr": "assistenzpsychologin-assistenzpsychologe-kantonsspital-st-gallen-kssg-hoch-praktikum"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -832,22 +753,22 @@
       "companyDomain": "kssg.ch",
       "title": "Assistenzpsychologin/Assistenzpsychologe",
       "titleByLocale": {
-        "de": "Assistenzpsychologin/Assistenzpsychologe",
         "it": "Assistenzpsychologin/Assistenzpsychologe",
         "en": "Assistenzpsychologin/Asstenzpsychologe",
+        "de": "Assistenzpsychologin/Assistenzpsychologe",
         "fr": "Assistenzpsychologin/Assistenzpsychologe"
       },
       "description": "Assistenzpsychologin/Assistenzpsychologe — Kantonsspital St. Gallen (KSSG / HOCH)",
       "descriptionByLocale": {
-        "de": "Assistenzpsychologin/Assistenzpsychologe — Kantonsspital St. Gallen (KSSG / HOCH)",
-        "it": "Assistenzpsychologin/Assistenzpsychologe — Kantonsspital St. Gallen (KSSG / HOCH)"
+        "it": "Assistenzpsychologin/Assistenzpsychologe — Kantonsspital St. Gallen (KSSG / HOCH)",
+        "de": "Assistenzpsychologin/Assistenzpsychologe — Kantonsspital St. Gallen (KSSG / HOCH)"
       },
       "location": "Praktikum",
       "canton": "SG",
       "url": "https://jobs.h-och.ch/job/St_-Gallen-AssistenzpsychologinAssistenzpsychologe/1391664533/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-10T21:55:14.424Z",
+      "crawledAt": "2026-05-11T12:00:51.641Z",
       "addressLocality": "Praktikum",
       "addressCountry": "CH",
       "country": "CH",
@@ -863,21 +784,20 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-AssistenzpsychologinAssistenzpsychologe/1391664533/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "assistenzpsychologin-assistenzpsychologe-kssg-ch"
         ],
-        "de": [
+        "it": [
           "assistenzpsychologin-assistenzpsychologe-kssg-ch"
         ]
       },
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-kssg-ch"
       ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:14.424Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -889,16 +809,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:14.424Z"
+      }
     },
     {
       "id": "kssg-573960af553d",
       "slug": "specialista-in-case-management-ambulant-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kssg-ch",
         "it": "specialista-in-case-management-ambulant-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kssg-ch",
+        "de": "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kssg-ch",
         "fr": "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kssg-ch"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -906,9 +825,9 @@
       "companyDomain": "kssg.ch",
       "title": "Sachbearbeiter/in Fallbewirtschaftung ambulant 100%",
       "titleByLocale": {
-        "de": "Sachbearbeiter/in Fallbewirtschaftung ambulant 100%",
         "it": "Specialista/in case management ambulant 100%",
         "en": "Sachbearbeiter/in Fallbewirtschaftung ambulant 100%",
+        "de": "Sachbearbeiter/in Fallbewirtschaftung ambulant 100%",
         "fr": "Sachbearbeiter/in Fallbewirtschaftung ambulant 100%"
       },
       "description": "Sachbearbeiter/in Fallbewirtschaftung ambulant 100% — Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -920,7 +839,7 @@
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Sachbearbeiterin-Fallbewirtschaftung-ambulant-100/1391611233/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:14.121Z",
+      "crawledAt": "2026-05-11T12:00:51.338Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -936,88 +855,17 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Sachbearbeiterin-Fallbewirtschaftung-ambulant-100/1391611233/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:14.121Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kssg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kssg-ch"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-kssg-ch"
-      ]
-    },
-    {
-      "id": "kssg-018e8b6c7ef6",
-      "slug": "logistiker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-      "slugByLocale": {
-        "it": "logistiker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "logistiker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "de": "logistiker-in-100-kssg-ch",
-        "fr": "logistiker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
-      },
-      "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-      "companyKey": "kssg",
-      "companyDomain": "kssg.ch",
-      "title": "Logistiker/in 100%",
-      "titleByLocale": {
-        "it": "Logista/in 100%",
-        "fr": "Logistiker/in 100%",
-        "en": "Logistiker/in 100%",
-        "de": "Logistiker/in 100%"
-      },
-      "description": "Logistiker/in 100% — Kantonsspital St. Gallen (KSSG / HOCH)",
-      "descriptionByLocale": {
-        "it": "Logistiker/in 100% — Kantonsspital St. Gallen (KSSG / HOCH)"
-      },
-      "location": "Festanstellung",
-      "canton": "SG",
-      "url": "https://jobs.h-och.ch/job/St_-Gallen-Logistikerin-100/1371869633/",
-      "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:13.818Z",
-      "addressLocality": "Festanstellung",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "addressRegion": "SG",
-      "postalCode": "9000",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Logistikerin-100/1371869633/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-100-kssg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "logistiker-in-100-kssg-ch"
-      ],
+      "firstSeenAt": "2026-05-10T21:55:14.121Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1029,97 +877,26 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:13.818Z"
-    },
-    {
-      "id": "kssg-6cc03f4b17c9",
-      "slug": "ausbildung-dipl-tipologia-hf-kantonsspital-st-gallen-kssg-hoch-hohere-fachschule",
-      "slugByLocale": {
-        "de": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch",
-        "it": "ausbildung-dipl-tipologia-hf-kantonsspital-st-gallen-kssg-hoch-hohere-fachschule",
-        "en": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch",
-        "fr": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch"
-      },
-      "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-      "companyKey": "kssg",
-      "companyDomain": "kssg.ch",
-      "title": "Ausbildung dipl. Kindheitspädagogik HF",
-      "titleByLocale": {
-        "de": "Ausbildung dipl. Kindheitspädagogik HF",
-        "fr": "Ausbildung dipl. Kindheitspädagogik HF",
-        "it": "Ausbildung dipl. Tipologia HF",
-        "en": "Ausbildung dipl. Kindheitspädagogik HF"
-      },
-      "description": "Ausbildung dipl. Kindheitspädagogik HF — Kantonsspital St. Gallen (KSSG / HOCH)",
-      "descriptionByLocale": {
-        "de": "Ausbildung dipl. Kindheitspädagogik HF — Kantonsspital St. Gallen (KSSG / HOCH)"
-      },
-      "location": "Höhere Fachschule",
-      "canton": "SG",
-      "url": "https://jobs.h-och.ch/job/St_-Gallen-Ausbildung-dipl_-Kindheitsp%C3%A4dagogik-HF/1292409501/",
-      "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:13.212Z",
-      "addressLocality": "Höhere Fachschule",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "addressRegion": "SG",
-      "postalCode": "9000",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Ausbildung-dipl_-Kindheitsp%C3%A4dagogik-HF/1292409501/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:13.212Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch"
-      ]
+      }
     },
     {
       "id": "kssg-d3f4394b3067",
       "slug": "senior-responsabile-di-progetto-risorse-umane-it-projekte-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "de": "senior-projektleiter-in-hr-it-projekte-80-100-kssg-ch",
         "it": "senior-responsabile-di-progetto-risorse-umane-it-projekte-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "senior-project-manager-hr-it-projekte-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "fr": "senior-projektleiter-in-hr-it-projekte-80-100-kssg-ch"
+        "de": "senior-projektleiter-in-hr-it-projekte-80-100-kssg-ch",
+        "fr": "senior-chef-de-projet-ressources-humaines-it-projekte-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
       "companyDomain": "kssg.ch",
       "title": "Senior Projektleiter/in HR IT-Projekte 80-100%",
       "titleByLocale": {
-        "de": "Senior Projektleiter/in HR IT-Projekte 80-100%",
-        "fr": "Senior Chef de projet Ressources Humaines IT-Projekte 80-100%",
         "it": "Senior Responsabile di progetto Risorse Umane IT-Projekte 80-100%",
-        "en": "Senior Project Manager HR IT-Projekte 80-100%"
+        "en": "Senior Project Manager HR IT-Projekte 80-100%",
+        "de": "Senior Projektleiter/in HR IT-Projekte 80-100%",
+        "fr": "Senior Chef de projet Ressources Humaines IT-Projekte 80-100%"
       },
       "description": "Senior Projektleiter/in HR IT-Projekte 80-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
       "descriptionByLocale": {
@@ -1131,7 +908,7 @@
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Senior-Projektleiterin-HR-IT-Projekte-80-100/1382014933/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:12.909Z",
+      "crawledAt": "2026-05-11T12:00:51.036Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -1147,21 +924,23 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Senior-Projektleiterin-HR-IT-Projekte-80-100/1382014933/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-projektleiter-in-hr-it-projekte-80-100-kssg-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-projektleiter-in-hr-it-projekte-80-100-kssg-ch"
         ],
         "en": [
           "senior-projektleiter-in-hr-it-projekte-80-100-kssg-ch"
+        ],
+        "fr": [
+          "senior-projektleiter-in-hr-it-projekte-80-100-kssg-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-projektleiter-in-hr-it-projekte-80-100-kssg-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:12.909Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -1173,16 +952,151 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "kssg-6cc03f4b17c9",
+      "slug": "ausbildung-dipl-tipologia-hf-kantonsspital-st-gallen-kssg-hoch-hohere-fachschule",
+      "slugByLocale": {
+        "it": "ausbildung-dipl-tipologia-hf-kantonsspital-st-gallen-kssg-hoch-hohere-fachschule",
+        "en": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch",
+        "de": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch",
+        "fr": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch"
       },
-      "firstSeenAt": "2026-05-10T21:55:12.909Z"
+      "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+      "companyKey": "kssg",
+      "companyDomain": "kssg.ch",
+      "title": "Ausbildung dipl. Kindheitspädagogik HF",
+      "titleByLocale": {
+        "it": "Ausbildung dipl. Tipologia HF",
+        "en": "Ausbildung dipl. Kindheitspädagogik HF",
+        "de": "Ausbildung dipl. Kindheitspädagogik HF",
+        "fr": "Ausbildung dipl. Kindheitspädagogik HF"
+      },
+      "description": "Ausbildung dipl. Kindheitspädagogik HF — Kantonsspital St. Gallen (KSSG / HOCH)",
+      "descriptionByLocale": {
+        "de": "Ausbildung dipl. Kindheitspädagogik HF — Kantonsspital St. Gallen (KSSG / HOCH)"
+      },
+      "location": "Höhere Fachschule",
+      "canton": "SG",
+      "url": "https://jobs.h-och.ch/job/St_-Gallen-Ausbildung-dipl_-Kindheitsp%C3%A4dagogik-HF/1292409501/",
+      "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-11T12:00:50.430Z",
+      "addressLocality": "Höhere Fachschule",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "addressRegion": "SG",
+      "postalCode": "9000",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-10",
+      "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Ausbildung-dipl_-Kindheitsp%C3%A4dagogik-HF/1292409501/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:13.212Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kssg-018e8b6c7ef6",
+      "slug": "logistiker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slugByLocale": {
+        "it": "logistiker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "logistiker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "de": "logistiker-in-100-kssg-ch",
+        "fr": "logistiker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+      },
+      "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+      "companyKey": "kssg",
+      "companyDomain": "kssg.ch",
+      "title": "Logistiker/in 100%",
+      "titleByLocale": {
+        "it": "Logistiker/in 100%",
+        "en": "Logistiker/in 100%",
+        "de": "Logistiker/in 100%",
+        "fr": "Logistiker/in 100%"
+      },
+      "description": "Logistiker/in 100% — Kantonsspital St. Gallen (KSSG / HOCH)",
+      "descriptionByLocale": {
+        "it": "Logistiker/in 100% — Kantonsspital St. Gallen (KSSG / HOCH)"
+      },
+      "location": "Festanstellung",
+      "canton": "SG",
+      "url": "https://jobs.h-och.ch/job/St_-Gallen-Logistikerin-100/1371869633/",
+      "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-11T12:00:50.126Z",
+      "addressLocality": "Festanstellung",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "addressRegion": "SG",
+      "postalCode": "9000",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-10",
+      "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Logistikerin-100/1371869633/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "logistiker-in-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logistiker-in-100-kssg-ch"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:13.818Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "kssg-9696e9c2b85f",
       "slug": "oberarztin-arzt-mbf-100-kssg-ch",
       "slugByLocale": {
-        "de": "oberarztin-arzt-mbf-100-kssg-ch",
         "it": "oberarztin-arzt-mbf-100-kssg-ch",
         "en": "oberarztin-arzt-mbf-100-kssg-ch",
+        "de": "oberarztin-arzt-mbf-100-kssg-ch",
         "fr": "oberarztin-arzt-mbf-100-kssg-ch"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -1190,10 +1104,10 @@
       "companyDomain": "kssg.ch",
       "title": "Oberärztin/-arzt mbF 100%",
       "titleByLocale": {
-        "de": "Oberärztin/-arzt mbF 100%",
-        "fr": "Oberärztin/-arzt mbF 100%",
         "it": "Oberärztin/arzt mbF 100%",
-        "en": "Oberärztin/-arzt mbF 100%"
+        "en": "Oberärztin/-arzt mbF 100%",
+        "de": "Oberärztin/-arzt mbF 100%",
+        "fr": "Oberärztin/-arzt mbF 100%"
       },
       "description": "Oberärztin/-arzt mbF 100% — Kantonsspital St. Gallen (KSSG / HOCH)",
       "descriptionByLocale": {
@@ -1204,7 +1118,7 @@
       "url": "https://jobs.h-och.ch/job/Uznach-Ober%C3%A4rztin-arzt-mbF-100/1292919901/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:12.607Z",
+      "crawledAt": "2026-05-11T12:00:49.824Z",
       "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
@@ -1220,10 +1134,9 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/Uznach-Ober%C3%A4rztin-arzt-mbF-100/1292919901/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:12.607Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1235,86 +1148,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:12.607Z"
-    },
-    {
-      "id": "kssg-b34e63ea61d8",
-      "slug": "operation-ingegnere-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-      "slugByLocale": {
-        "en": "operation-engineer-100-kssg-ch",
-        "it": "operation-ingegnere-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "de": "operation-engineer-100-kssg-ch",
-        "fr": "operation-engineer-100-kssg-ch"
-      },
-      "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-      "companyKey": "kssg",
-      "companyDomain": "kssg.ch",
-      "title": "Operation Engineer 100%",
-      "titleByLocale": {
-        "en": "Operation Engineer 100%",
-        "fr": "Operation Ingénieur 100%",
-        "it": "Operation Ingegnere 100%",
-        "de": "Operation Ingenieur 100%"
-      },
-      "description": "Operation Engineer 100% — Kantonsspital St. Gallen (KSSG / HOCH)",
-      "descriptionByLocale": {
-        "en": "Operation Engineer 100% — Kantonsspital St. Gallen (KSSG / HOCH)"
-      },
-      "location": "Festanstellung",
-      "canton": "SG",
-      "url": "https://jobs.h-och.ch/job/St_-Gallen-Operation-Engineer-100/1373130733/",
-      "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:12.304Z",
-      "addressLocality": "Festanstellung",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "addressRegion": "SG",
-      "postalCode": "9000",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Operation-Engineer-100/1373130733/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:12.304Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "operation-engineer-100-kssg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "operation-engineer-100-kssg-ch"
-      ]
+      }
     },
     {
       "id": "kssg-8ba4a2e26644",
       "slug": "scuola-di-stage-educazione-all-infanzia-hf-kantonsspital-st-gallen-kssg-hoch-praktikum",
       "slugByLocale": {
-        "de": "berufspraktikum-fachmittelschule-kindheitspadagogik-hf-kssg-ch",
         "it": "scuola-di-stage-educazione-all-infanzia-hf-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "en": "berufspraktikum-fachmittelschule-kindheitspadagogik-hf-kssg-ch",
+        "de": "berufspraktikum-fachmittelschule-kindheitspadagogik-hf-kssg-ch",
         "fr": "berufspraktikum-fachmittelschule-kindheitspadagogik-hf-kssg-ch"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -1322,9 +1164,9 @@
       "companyDomain": "kssg.ch",
       "title": "Berufspraktikum Fachmittelschule - Kindheitspädagogik HF",
       "titleByLocale": {
-        "de": "Berufspraktikum Fachmittelschule - Kindheitspädagogik HF",
         "it": "Scuola di stage - Educazione all'infanzia HF",
         "en": "Berufspraktikum Fachmittelschule - Kindheitspädagogik HF",
+        "de": "Berufspraktikum Fachmittelschule - Kindheitspädagogik HF",
         "fr": "Berufspraktikum Fachmittelschule - Kindheitspädagogik HF"
       },
       "description": "Berufspraktikum Fachmittelschule - Kindheitspädagogik HF — Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -1336,7 +1178,7 @@
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Berufspraktikum-Fachmittelschule-Kindheitsp%C3%A4dagogik-HF/1292718801/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:11.978Z",
+      "crawledAt": "2026-05-11T12:00:49.219Z",
       "addressLocality": "Praktikum",
       "addressCountry": "CH",
       "country": "CH",
@@ -1352,10 +1194,91 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Berufspraktikum-Fachmittelschule-Kindheitsp%C3%A4dagogik-HF/1292718801/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufspraktikum-fachmittelschule-kindheitspadagogik-hf-kssg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufspraktikum-fachmittelschule-kindheitspadagogik-hf-kssg-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:11.978Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kssg-b34e63ea61d8",
+      "slug": "operation-ingegnere-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slugByLocale": {
+        "it": "operation-ingegnere-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "operation-engineer-100-kssg-ch",
+        "de": "operation-ingenieur-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "operation-ingenieur-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+      },
+      "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+      "companyKey": "kssg",
+      "companyDomain": "kssg.ch",
+      "title": "Operation Engineer 100%",
+      "titleByLocale": {
+        "it": "Operation Ingegnere 100%",
+        "en": "Operation Engineer 100%",
+        "de": "Operation Ingenieur 100%",
+        "fr": "Operation Ingénieur 100%"
+      },
+      "description": "Operation Engineer 100% — Kantonsspital St. Gallen (KSSG / HOCH)",
+      "descriptionByLocale": {
+        "en": "Operation Engineer 100% — Kantonsspital St. Gallen (KSSG / HOCH)"
+      },
+      "location": "Festanstellung",
+      "canton": "SG",
+      "url": "https://jobs.h-och.ch/job/St_-Gallen-Operation-Engineer-100/1373130733/",
+      "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-11T12:00:48.895Z",
+      "addressLocality": "Festanstellung",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "addressRegion": "SG",
+      "postalCode": "9000",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-10",
+      "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Operation-Engineer-100/1373130733/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "operation-engineer-100-kssg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operation-engineer-100-kssg-ch"
+        ],
+        "de": [
+          "operation-engineer-100-kssg-ch"
+        ],
+        "fr": [
+          "operation-engineer-100-kssg-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:55:12.304Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1367,48 +1290,41 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-10T21:55:11.978Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufspraktikum-fachmittelschule-kindheitspadagogik-hf-kssg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "berufspraktikum-fachmittelschule-kindheitspadagogik-hf-kssg-ch"
-      ]
+      }
     },
     {
-      "id": "kssg-a95bb53cbb12",
-      "slug": "tirocinio-professionale-presso-una-scuola-tecnica-superiore-infermieristica-hf-kantonsspital-st-gallen-kssg-hoch-eceb59",
+      "id": "kssg-f3a6a3abc79e",
+      "slug": "dipl-pflegefachfrau-mann-per-den-nachdiplomstudiengang-anasthesiepflege-2027-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "de": "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch",
-        "it": "tirocinio-professionale-presso-una-scuola-tecnica-superiore-infermieristica-hf-kantonsspital-st-gallen-kssg-hoch-eceb59",
-        "en": "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch-2",
-        "fr": "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch-2"
+        "de": "dipl-pflegefachfrau-mann-fur-den-nachdiplomstudiengang-anasthesiepflege-2027-80-100-kssg-c",
+        "it": "dipl-pflegefachfrau-mann-per-den-nachdiplomstudiengang-anasthesiepflege-2027-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "dipl-pflegefachfrau-mann-fur-den-nachdiplomstudiengang-anasthesiepflege-2027-80-100-kssg-c",
+        "fr": "dipl-pflegefachfrau-mann-fur-den-nachdiplomstudiengang-anasthesiepflege-2027-80-100-kssg-c"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
       "companyDomain": "kssg.ch",
-      "title": "Berufspraktikum Fachmittelschule - Pflege HF",
+      "title": "Dipl. Pflegefachfrau/-mann für den Nachdiplomstudiengang Anästhesiepflege 2027 80-100%",
       "titleByLocale": {
-        "de": "Berufspraktikum Fachmittelschule - Pflege HF",
-        "fr": "Berufspraktikum Fachmittelschule - Pflege HF",
-        "it": "Tirocinio professionale presso una scuola tecnica superiore - Infermieristica HF",
-        "en": "Berufspraktikum Fachmittelschule - Pflege HF"
+        "de": "Dipl. Pflegefachfrau/-mann für den Nachdiplomstudiengang Anästhesiepflege 2027 80-100%",
+        "fr": "Dipl. Pflegefachfrau/-mann für den Nachdiplomstudiengang Anästhesiepflege 2027 80-100%",
+        "it": "Dipl. Pflegefachfrau/-mann per den Nachdiplomstudiengang Anästhesiepflege 2027 80-100%",
+        "en": "Dipl. Pflegefachfrau/-mann für den Nachdiplomstudiengang Anästhesiepflege 2027 80-100%"
       },
-      "description": "Berufspraktikum Fachmittelschule - Pflege HF — Kantonsspital St. Gallen (KSSG / HOCH)",
+      "description": "Dipl. Pflegefachfrau/-mann für den Nachdiplomstudiengang Anästhesiepflege 2027 80-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
       "descriptionByLocale": {
-        "de": "Berufspraktikum Fachmittelschule - Pflege HF — Kantonsspital St. Gallen (KSSG / HOCH)",
-        "fr": "Berufspraktikum Fachmittelschule - Pflege HF — Kantonsspital St. Gallen (KSSG / HOCH)"
+        "de": "Dipl. Pflegefachfrau/-mann für den Nachdiplomstudiengang Anästhesiepflege 2027 80-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
+        "fr": "Dipl. Pflegefachfrau/-mann für den Nachdiplomstudiengang Anästhesiepflege 2027 80-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
+        "it": "Dipl. Pflegefachfrau/-mann für den Nachdiplomstudiengang Anästhesiepflege 2027 80-100% — Kantonsspital St. Gallen (KSSG / HOCH)",
+        "en": "Dipl. Pflegefachfrau/-mann für den Nachdiplomstudiengang Anästhesiepflege 2027 80-100% — Kantonsspital St. Gallen (KSSG / HOCH)"
       },
-      "location": "Praktikum",
+      "location": "Festanstellung",
       "canton": "SG",
-      "url": "https://jobs.h-och.ch/job/Uznach-Berufspraktikum-Fachmittelschule-Pflege-HF/1292739801/",
+      "url": "https://jobs.h-och.ch/job/St_-Gallen-Dipl_-Pflegefachfrau-mann-f%C3%BCr-den-Nachdiplomstudiengang-An%C3%A4sthesiepflege-2027-80-100/1293720201/",
       "source": "Kantonsspital St. Gallen (KSSG / HOCH) Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:11.652Z",
-      "addressLocality": "Praktikum",
+      "crawledAt": "2026-05-11T12:00:48.571Z",
+      "addressLocality": "Festanstellung",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -1420,13 +1336,21 @@
       "postalCode": "9000",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://jobs.h-och.ch/job/Uznach-Berufspraktikum-Fachmittelschule-Pflege-HF/1292739801/",
+      "postedDate": "2026-05-11",
+      "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Dipl_-Pflegefachfrau-mann-f%C3%BCr-den-Nachdiplomstudiengang-An%C3%A4sthesiepflege-2027-80-100/1293720201/",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-fur-den-nachdiplomstudiengang-anasthesiepflege-2027-80-100-kssg-c"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-fur-den-nachdiplomstudiengang-anasthesiepflege-2027-80-100-kssg-c"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1439,15 +1363,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:55:11.652Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch-2"
-        ]
-      },
-      "previousSlugs": [
-        "berufspraktikum-fachmittelschule-pflege-hf-kssg-ch-2"
-      ]
+      "firstSeenAt": "2026-05-11T12:00:48.571Z"
     }
   ]
 }
