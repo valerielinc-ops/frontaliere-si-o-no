@@ -7419,6 +7419,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.questore-bimbo-pilastro-responsabilita.title': 'Questore su bimbo caduto dal Pilastro: responsabilità da valutare',
     'blog.article.questore-bimbo-pilastro-responsabilita.excerpt': 'Il questore di Bologna commenta l\'incidente al Pilastro, ribadendo che le responsabilità saranno valutate dall\'autorità giudiziaria.',
     'blog.article.questore-bimbo-pilastro-responsabilita.imageAlt': 'Vista aerea del Lago di Lugano con cieli sereni e montagne circostanti',
+    'blog.article.tasse-frontalieri-ticino-2026.title': 'Tasse frontalieri Ticino: confermato il regime attuale',
+    'blog.article.tasse-frontalieri-ticino-2026.excerpt': 'Nessun cambiamento per i frontalieri \'vecchi\' in Ticino. Ecco cosa sapere sulle tasse e i ristorni',
+    'blog.article.tasse-frontalieri-ticino-2026.imageAlt': 'Lago di Lugano con un edificio moderno in secondo piano, giornata di sole',
 };
 
 export default blogMetaIt;

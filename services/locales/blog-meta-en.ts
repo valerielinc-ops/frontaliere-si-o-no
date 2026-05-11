@@ -7418,6 +7418,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.questore-bimbo-pilastro-responsabilita.title': 'Prefect on child\'s fall from Pilastro: responsibilities to be assessed',
     'blog.article.questore-bimbo-pilastro-responsabilita.excerpt': 'The prefect of Bologna comments on the Pilastro accident, reiterating that responsibilities will be assessed by the judicial authority.',
     'blog.article.questore-bimbo-pilastro-responsabilita.imageAlt': 'Aerial view of Lake Lugano with clear skies and surrounding mountains',
+    'blog.article.tasse-frontalieri-ticino-2026.title': 'Ticino cross-border taxes: current regime confirmed',
+    'blog.article.tasse-frontalieri-ticino-2026.excerpt': 'No changes for \'old\' cross-border workers in Ticino. Here\'s what to know about taxes and returns',
+    'blog.article.tasse-frontalieri-ticino-2026.imageAlt': 'Lake Lugano with a modern building in the background, sunny day',
 };
 
 export default blogMetaEn;

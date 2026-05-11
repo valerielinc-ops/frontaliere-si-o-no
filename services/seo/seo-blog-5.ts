@@ -35291,6 +35291,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tasse-frontalieri-ticino-2026': {
+    title: 'Tasse frontalieri Ticino: confermato il regime attuale',
+    description: 'Nessun cambiamento per i frontalieri \'vecchi\' in Ticino. Ecco cosa sapere sulle tasse e i ristorni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasse, confermato, regime, attuale',
+    ogTitle: 'Tasse frontalieri Ticino: confermato il regime attuale',
+    ogDescription: 'Nessun cambiamento per i frontalieri \'vecchi\' in Ticino. Ecco cosa sapere sulle tasse e i ristorni',
+    canonicalPath: '/articoli-frontaliere/tasse-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasse frontalieri Ticino: confermato il regime attuale",
+      "description": "Nessun cambiamento per i frontalieri 'vecchi' in Ticino. Ecco cosa sapere sulle tasse e i ristorni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tasse-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un edificio moderno in secondo piano, giornata di sole"
+      },
+      "datePublished": "2026-05-11T03:26:12+00:00",
+      "dateModified": "2026-05-11T03:26:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tasse-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

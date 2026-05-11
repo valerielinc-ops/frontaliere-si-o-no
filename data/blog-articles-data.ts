@@ -23627,4 +23627,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tasse-frontalieri-ticino-2026',
+ category: 'fiscale',
+ date: '2026-05-11T03:26:12.534Z',
+ image: '/images/blog/tasse-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

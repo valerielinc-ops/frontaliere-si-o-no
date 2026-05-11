@@ -7418,6 +7418,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.questore-bimbo-pilastro-responsabilita.title': 'Questore zum Sturz eines Kindes am Pilastro: Verantwortung zu prüfen',
     'blog.article.questore-bimbo-pilastro-responsabilita.excerpt': 'Der Questore von Bologna kommentiert den Unfall am Pilastro und betont, dass die Verantwortung von der Justizbehörde geprüft wird.',
     'blog.article.questore-bimbo-pilastro-responsabilita.imageAlt': 'Luftaufnahme des Luganersees mit klarem Himmel und umliegenden Bergen',
+    'blog.article.tasse-frontalieri-ticino-2026.title': 'Steuern für Grenzgänger im Tessin: Aktuelles System bleibt',
+    'blog.article.tasse-frontalieri-ticino-2026.excerpt': 'Keine Änderungen für \'alte\' Grenzgänger im Tessin. Hier erfahren Sie alles über Steuern und Rückerstattungen',
+    'blog.article.tasse-frontalieri-ticino-2026.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund, sonniger Tag',
 };
 
 export default blogMetaDe;
