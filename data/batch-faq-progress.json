@@ -745,7 +745,9 @@
     "traduzione-documenti-finanziari-visto",
     "adeguati-assetti-imprese-ticino-2026",
     "emigrazione-cassa-pensione-risparmio-imposte",
-    "incentivi-assunzioni-2026-sgravi-contributivi"
+    "incentivi-assunzioni-2026-sgravi-contributivi",
+    "hendsichen-arresto-francese-autodiebstahl",
+    "lpp-nigri-country-manager-italia"
   ],
   "failed": [
     {
@@ -6612,8 +6614,23 @@
       "id": "hendsichen-arresto-francese-autodiebstahl",
       "error": "Unterminated string in JSON at position 1034 (line 11 column 67)",
       "at": "2026-05-09T04:06:15.426Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 1009 (line 8 column 229)",
+      "at": "2026-05-11T04:43:58.987Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 205 (line 4 column 114)",
+      "at": "2026-05-11T04:44:18.592Z"
+    },
+    {
+      "id": "frontalieri-ticino-calo-2026",
+      "error": "Unterminated string in JSON at position 1032 (line 12 column 164)",
+      "at": "2026-05-11T04:44:37.604Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-09T04:06:32.731Z"
+  "updatedAt": "2026-05-11T04:45:06.551Z"
 }
