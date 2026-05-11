@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-05-10T22:02:59.658Z",
+  "assembledAt": "2026-05-11T12:08:59.232Z",
   "jobs": [
     {
       "title": "Apprendista Polydesigner 3D AFC 100%",
@@ -36,6 +36,7 @@
       },
       "sourceLang": "it",
       "crawledAt": "",
+      "needsRetranslation": true,
       "id": "manor-1a20dc2ea93d",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -87,7 +88,7 @@
       "titleByLocale": {
         "it": "Polydesigner 3D AFC 100%",
         "fr": "Polydesigner 3D AFC 100%",
-        "en": "Pol AF Designer 3D AFC 100%",
+        "en": "Polydesigner 3D AFC 100%",
         "de": "Polydesigner 3D AFC 100%"
       },
       "sourceLang": "it",
@@ -137,13 +138,13 @@
       "slug": "manor-collaboratore-trice-cassa-supermercato-40-ascona",
       "slugByLocale": {
         "it": "manor-collaboratore-trice-cassa-supermercato-40-ascona",
-        "en": "contributor-coupler-supermarket-40-manor-ag-ascona",
+        "en": "manor-collaboratore-trice-cassa-supermercato-40-ascona",
         "de": "manor-collaboratore-trice-cassa-supermercato-40-ascona",
         "fr": "manor-collaboratore-trice-cassa-supermercato-40-ascona"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice cassa (Supermercato) 40%",
-        "en": "Contributor/coupler (Supermarket) 40%",
+        "en": "Collaboratore/trice cassa (Supermercato) 40%",
         "de": "Collaboratore/trice cassa (Supermercato) 40%",
         "fr": "Collaboratore/trice cassa (Supermercato) 40%"
       },
