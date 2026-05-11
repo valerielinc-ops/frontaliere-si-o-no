@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-05-10T22:13:27.514Z",
+  "assembledAt": "2026-05-11T12:19:32.542Z",
   "jobs": [
     {
       "id": "pdgr-f5bd59e961b0",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:25.410Z",
+      "crawledAt": "2026-05-11T12:19:30.466Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:24.370Z",
+      "crawledAt": "2026-05-11T12:19:29.385Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:23.353Z",
+      "crawledAt": "2026-05-11T12:19:28.296Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -247,6 +247,7 @@
         "fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -291,7 +292,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:22.295Z",
+      "crawledAt": "2026-05-11T12:19:27.209Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -340,6 +341,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -384,7 +386,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:21.216Z",
+      "crawledAt": "2026-05-11T12:19:26.126Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -430,9 +432,9 @@
     },
     {
       "id": "pdgr-3e30d3c7f59d",
-      "slug": "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur",
+      "slug": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
-        "it": "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur",
+        "it": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "dipl-pflegefachperson-hf-pdgr-ch",
         "fr": "dipl-auxiliaire-de-sante-hf-psychiatrische-dienste-graubunden-cazis-chur"
@@ -459,7 +461,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:20.163Z",
+      "crawledAt": "2026-05-11T12:19:25.063Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -480,6 +482,14 @@
       "pensumMin": 20,
       "pensumMax": 100,
       "pensum": "20 - 100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:41:01.816Z",
       "salaryMin": 49500,
@@ -526,7 +536,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:19.095Z",
+      "crawledAt": "2026-05-11T12:19:23.996Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -587,6 +597,7 @@
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -631,7 +642,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:18.019Z",
+      "crawledAt": "2026-05-11T12:19:22.920Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -695,6 +706,7 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -739,7 +751,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:16.969Z",
+      "crawledAt": "2026-05-11T12:19:21.819Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -792,6 +804,7 @@
         "oberarztin-oberarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -836,7 +849,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:15.949Z",
+      "crawledAt": "2026-05-11T12:19:20.726Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -890,6 +903,7 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -934,7 +948,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:14.908Z",
+      "crawledAt": "2026-05-11T12:19:19.559Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -989,6 +1003,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1033,7 +1048,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:13.882Z",
+      "crawledAt": "2026-05-11T12:19:18.468Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1084,6 +1099,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1128,7 +1144,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:10.711Z",
+      "crawledAt": "2026-05-11T12:19:15.231Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1203,7 +1219,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:09.665Z",
+      "crawledAt": "2026-05-11T12:19:14.062Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1257,6 +1273,7 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1301,7 +1318,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-4-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:08.629Z",
+      "crawledAt": "2026-05-11T12:19:12.933Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1366,6 +1383,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1410,7 +1428,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:07.585Z",
+      "crawledAt": "2026-05-11T12:19:11.866Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1468,6 +1486,7 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1512,7 +1531,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:06.515Z",
+      "crawledAt": "2026-05-11T12:19:10.760Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1568,6 +1587,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1612,7 +1632,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:04.399Z",
+      "crawledAt": "2026-05-11T12:19:08.586Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1664,6 +1684,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1708,7 +1729,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:03.374Z",
+      "crawledAt": "2026-05-11T12:19:07.525Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1761,6 +1782,7 @@
         "fachperson-gesundheit-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1805,7 +1827,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:02.208Z",
+      "crawledAt": "2026-05-11T12:19:06.473Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1856,6 +1878,7 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1900,7 +1923,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-4-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:13:00.034Z",
+      "crawledAt": "2026-05-11T12:19:04.330Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1955,6 +1978,7 @@
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1970,9 +1994,9 @@
     },
     {
       "id": "pdgr-d2d0c50f1811",
-      "slug": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
+      "slug": "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
-        "it": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
+        "it": "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "resident-psychiatrist-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-cazis-chur",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur"
@@ -1999,7 +2023,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:57.907Z",
+      "crawledAt": "2026-05-11T12:19:02.099Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2023,10 +2047,14 @@
       "previousSlugsByLocale": {
         "de": [
           "assistenzarztin-assistenzarzt-pdgr-ch"
+        ],
+        "it": [
+          "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-pdgr-ch"
+        "assistenzarztin-assistenzarzt-pdgr-ch",
+        "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:40:38.016Z",
@@ -2045,9 +2073,9 @@
     },
     {
       "id": "pdgr-d7f7612b1400",
-      "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
+      "slug": "medico-senior-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
+        "it": "medico-senior-psychiatrische-dienste-graubunden-chur",
         "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
         "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
@@ -2074,7 +2102,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:56.846Z",
+      "crawledAt": "2026-05-11T12:19:00.975Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2098,22 +2126,26 @@
       "previousSlugsByLocale": {
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
+        ],
+        "it": [
+          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-pdgr-ch"
+        "oberarztin-oberarzt-pdgr-ch",
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:40:36.884Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -2149,7 +2181,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:55.803Z",
+      "crawledAt": "2026-05-11T12:18:59.872Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2201,6 +2233,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2245,7 +2278,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-controlling/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:54.697Z",
+      "crawledAt": "2026-05-11T12:18:58.830Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2308,6 +2341,7 @@
         "leiter-in-controlling-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2352,7 +2386,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-21/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:53.666Z",
+      "crawledAt": "2026-05-11T12:18:57.727Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2418,6 +2452,7 @@
         "personale-hotel-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2462,7 +2497,7 @@
       "url": "https://www.pdgr.ch/jobs/stationsleiter-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:52.554Z",
+      "crawledAt": "2026-05-11T12:18:56.657Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2523,6 +2558,7 @@
         "stationsleiter-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2538,9 +2574,9 @@
     },
     {
       "id": "pdgr-b0f7cf5e1f53",
-      "slug": "assistente-sanitaria-psychiatrische-dienste-graubunden-chur",
+      "slug": "dipartimento-di-salute-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "assistente-sanitaria-psychiatrische-dienste-graubunden-chur",
+        "it": "dipartimento-di-salute-psychiatrische-dienste-graubunden-chur",
         "en": "healthcare-assistant-psychiatrische-dienste-graubunden-chur",
         "de": "fachperson-gesundheit-psychiatrische-dienste-graubunden-chur",
         "fr": "assistant-de-sante-psychiatrische-dienste-graubunden-chur"
@@ -2567,7 +2603,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:51.516Z",
+      "crawledAt": "2026-05-11T12:18:55.564Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2591,10 +2627,14 @@
       "previousSlugsByLocale": {
         "de": [
           "fachperson-gesundheit-pdgr-ch"
+        ],
+        "it": [
+          "assistente-sanitaria-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-pdgr-ch"
+        "fachperson-gesundheit-pdgr-ch",
+        "assistente-sanitaria-psychiatrische-dienste-graubunden-chur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:40:31.282Z",
@@ -2642,7 +2682,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:50.477Z",
+      "crawledAt": "2026-05-11T12:18:54.461Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2704,6 +2744,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2748,7 +2789,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:47.334Z",
+      "crawledAt": "2026-05-11T12:18:51.263Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2790,6 +2831,7 @@
         "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2834,7 +2876,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-textil/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:46.244Z",
+      "crawledAt": "2026-05-11T12:18:50.181Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2882,6 +2924,7 @@
         "responsabile-textil-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2926,7 +2969,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:45.197Z",
+      "crawledAt": "2026-05-11T12:18:49.118Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -3018,7 +3061,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:44.165Z",
+      "crawledAt": "2026-05-11T12:18:48.020Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3059,6 +3102,7 @@
         "assistenzpsychologe-in-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-21T22:10:58.899Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3103,7 +3147,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-7-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:43.130Z",
+      "crawledAt": "2026-05-11T12:18:46.960Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3181,7 +3225,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:41.072Z",
+      "crawledAt": "2026-05-11T12:18:44.776Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3202,28 +3246,31 @@
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:40:19.768Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
       "previousSlugsByLocale": {
+        "de": [
+          "oberarztin-oberarzt-pdgr-ch"
+        ],
         "it": [
           "oberarztin-oberarzt-pdgr-ch"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch"
-      ]
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:40:19.768Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "pdgr-832c5dda1296",
@@ -3256,7 +3303,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-2-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:40.013Z",
+      "crawledAt": "2026-05-11T12:18:43.656Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3294,6 +3341,7 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-05-06T22:28:54.378Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3338,7 +3386,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-3-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:12:38.986Z",
+      "crawledAt": "2026-05-11T12:18:42.480Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3373,6 +3421,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:33:07.021Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3385,6 +3434,86 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "pdgr-adaa0bd12412",
+      "slug": "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-cazis",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-cazis",
+        "en": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
+        "fr": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Dipl. Pflegefachperson HF für die Nachtwache",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF für die Nachtwache",
+        "it": "Dipl. Pflegefachperson HF per la Nachtwache",
+        "en": "Dipl. Pflegefachperson HF für die Nachtwache",
+        "fr": "Dipl. Pflegefachperson HF für die Nachtwache"
+      },
+      "description": "Ihre Umgebung:\nDie Stationen Cresta und Bernina befinden sich am Standort Klinik Beverin in Cazis im selben Haus. Die Station Cresta ist eine offen geführte Psychotherapiestation mit 16 Betten, auf welcher Frauen und Männer in der zweiten Lebenshälfte (ab 55 Jahren) mit altersspezifischen Lebenskrisen, depressiven Störungen und weiteren psychischen Erkrankungen behandelt werden.\n\nAuf der offen geführten alterspsychiatrischen Akutstation Bernina mit 16 Betten, werden Patientinnen und Patienten im Rahmen eines strukturierten und geschützten therapeutischen Umfelds psychiatrisch und psychotherapeutisch behandelt.\n\nIhre Aufgaben:\n- Sie übernehmen im Nachtdienst die umfassende pflegerische Behandlung und Betreuung von Patientinnen und Patienten im stationären Bereich\n\n- Sie gestalten die Betreuung und Behandlung in der Nacht, entsprechend den Entwicklungen und Trends in der Psychiatrie\n\n- Sie führen therapeutische Interventionen aus und bieten eine individuelle nachhaltige Pflegequalität\n\n- Sie pflegen eine konstruktive Zusammenarbeit mit den Mitarbeitern des Tag- und Nachtdienst sowie mit dem Nachtarzt und kommunizieren offen, individuell und personenbezogen\n\n- Sie arbeiten eigenverantwortlich für beide Stationen und koordinieren Ihre Tätigkeiten stationsübergreifend\n\n- Bei Bedarf übernehmen Sie Intensiv- oder Sitzwachen sowie die Begleitung schwerkranker und sterbender Patientinnen und Patienten im Rahmen unserer internen Regelungen\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF, von Vorteil mit Erfahrung in der psychiatrischen Pflege und Betreuung\n\n- Ihnen ist es genauso wichtig wie uns, unsere Patienten sowohl medizinisch und pflegerisch bestens zu behandeln als auch individuell persönlich zu betreuen\n\n- Sie bringen ein hohes Mass an Verantwortungsbewusstsein, Belastbarkeit und Flexibilität mit\n\n- Sie verfügen über eine ausgeprägte Sozial- und Selbstkompetenz, arbeiten selbständig und bringen Eigeninitiative mit\n\nWir bieten Ihnen:\n- Sie arbeiten in einem zukunftsorientierten und innovativen Unternehmen\n\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fort- und Weiterbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nDie Stationen Cresta und Bernina befinden sich am Standort Klinik Beverin in Cazis im selben Haus. Die Station Cresta ist eine offen geführte Psychotherapiestation mit 16 Betten, auf welcher Frauen und Männer in der zweiten Lebenshälfte (ab 55 Jahren) mit altersspezifischen Lebenskrisen, depressiven Störungen und weiteren psychischen Erkrankungen behandelt werden.\n\nAuf der offen geführten alterspsychiatrischen Akutstation Bernina mit 16 Betten, werden Patientinnen und Patienten im Rahmen eines strukturierten und geschützten therapeutischen Umfelds psychiatrisch und psychotherapeutisch behandelt.\n\nIhre Aufgaben:\n- Sie übernehmen im Nachtdienst die umfassende pflegerische Behandlung und Betreuung von Patientinnen und Patienten im stationären Bereich\n\n- Sie gestalten die Betreuung und Behandlung in der Nacht, entsprechend den Entwicklungen und Trends in der Psychiatrie\n\n- Sie führen therapeutische Interventionen aus und bieten eine individuelle nachhaltige Pflegequalität\n\n- Sie pflegen eine konstruktive Zusammenarbeit mit den Mitarbeitern des Tag- und Nachtdienst sowie mit dem Nachtarzt und kommunizieren offen, individuell und personenbezogen\n\n- Sie arbeiten eigenverantwortlich für beide Stationen und koordinieren Ihre Tätigkeiten stationsübergreifend\n\n- Bei Bedarf übernehmen Sie Intensiv- oder Sitzwachen sowie die Begleitung schwerkranker und sterbender Patientinnen und Patienten im Rahmen unserer internen Regelungen\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF, von Vorteil mit Erfahrung in der psychiatrischen Pflege und Betreuung\n\n- Ihnen ist es genauso wichtig wie uns, unsere Patienten sowohl medizinisch und pflegerisch bestens zu behandeln als auch individuell persönlich zu betreuen\n\n- Sie bringen ein hohes Mass an Verantwortungsbewusstsein, Belastbarkeit und Flexibilität mit\n\n- Sie verfügen über eine ausgeprägte Sozial- und Selbstkompetenz, arbeiten selbständig und bringen Eigeninitiative mit\n\nWir bieten Ihnen:\n- Sie arbeiten in einem zukunftsorientierten und innovativen Unternehmen\n\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fort- und Weiterbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "it": "Ihre Umgebung:\nDie Stationen Cresta und Bernina befinden sich am Standort Klinik Beverin in Cazis im selben Haus. Die Station Cresta ist eine offen geführte Psychotherapiestation mit 16 Betten, auf welcher Frauen und Männer in der zweiten Lebenshälfte (ab 55 Jahren) mit altersspezifischen Lebenskrisen, depressiven Störungen und weiteren psychischen Erkrankungen behandelt werden.\n\nAuf der offen geführten alterspsychiatrischen Akutstation Bernina mit 16 Betten, werden Patientinnen und Patienten im Rahmen eines strukturierten und geschützten therapeutischen Umfelds psychiatrisch und psychotherapeutisch behandelt.\n\nIhre Aufgaben:\n- Sie übernehmen im Nachtdienst die umfassende pflegerische Behandlung und Betreuung von Patientinnen und Patienten im stationären Bereich\n\n- Sie gestalten die Betreuung und Behandlung in der Nacht, entsprechend den Entwicklungen und Trends in der Psychiatrie\n\n- Sie führen therapeutische Interventionen aus und bieten eine individuelle nachhaltige Pflegequalität\n\n- Sie pflegen eine konstruktive Zusammenarbeit mit den Mitarbeitern des Tag- und Nachtdienst sowie mit dem Nachtarzt und kommunizieren offen, individuell und personenbezogen\n\n- Sie arbeiten eigenverantwortlich für beide Stationen und koordinieren Ihre Tätigkeiten stationsübergreifend\n\n- Bei Bedarf übernehmen Sie Intensiv- oder Sitzwachen sowie die Begleitung schwerkranker und sterbender Patientinnen und Patienten im Rahmen unserer internen Regelungen\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF, von Vorteil mit Erfahrung in der psychiatrischen Pflege und Betreuung\n\n- Ihnen ist es genauso wichtig wie uns, unsere Patienten sowohl medizinisch und pflegerisch bestens zu behandeln als auch individuell persönlich zu betreuen\n\n- Sie bringen ein hohes Mass an Verantwortungsbewusstsein, Belastbarkeit und Flexibilität mit\n\n- Sie verfügen über eine ausgeprägte Sozial- und Selbstkompetenz, arbeiten selbständig und bringen Eigeninitiative mit\n\nWir bieten Ihnen:\n- Sie arbeiten in einem zukunftsorientierten und innovativen Unternehmen\n\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fort- und Weiterbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "en": "Ihre Umgebung:\nDie Stationen Cresta und Bernina befinden sich am Standort Klinik Beverin in Cazis im selben Haus. Die Station Cresta ist eine offen geführte Psychotherapiestation mit 16 Betten, auf welcher Frauen und Männer in der zweiten Lebenshälfte (ab 55 Jahren) mit altersspezifischen Lebenskrisen, depressiven Störungen und weiteren psychischen Erkrankungen behandelt werden.\n\nAuf der offen geführten alterspsychiatrischen Akutstation Bernina mit 16 Betten, werden Patientinnen und Patienten im Rahmen eines strukturierten und geschützten therapeutischen Umfelds psychiatrisch und psychotherapeutisch behandelt.\n\nIhre Aufgaben:\n- Sie übernehmen im Nachtdienst die umfassende pflegerische Behandlung und Betreuung von Patientinnen und Patienten im stationären Bereich\n\n- Sie gestalten die Betreuung und Behandlung in der Nacht, entsprechend den Entwicklungen und Trends in der Psychiatrie\n\n- Sie führen therapeutische Interventionen aus und bieten eine individuelle nachhaltige Pflegequalität\n\n- Sie pflegen eine konstruktive Zusammenarbeit mit den Mitarbeitern des Tag- und Nachtdienst sowie mit dem Nachtarzt und kommunizieren offen, individuell und personenbezogen\n\n- Sie arbeiten eigenverantwortlich für beide Stationen und koordinieren Ihre Tätigkeiten stationsübergreifend\n\n- Bei Bedarf übernehmen Sie Intensiv- oder Sitzwachen sowie die Begleitung schwerkranker und sterbender Patientinnen und Patienten im Rahmen unserer internen Regelungen\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF, von Vorteil mit Erfahrung in der psychiatrischen Pflege und Betreuung\n\n- Ihnen ist es genauso wichtig wie uns, unsere Patienten sowohl medizinisch und pflegerisch bestens zu behandeln als auch individuell persönlich zu betreuen\n\n- Sie bringen ein hohes Mass an Verantwortungsbewusstsein, Belastbarkeit und Flexibilität mit\n\n- Sie verfügen über eine ausgeprägte Sozial- und Selbstkompetenz, arbeiten selbständig und bringen Eigeninitiative mit\n\nWir bieten Ihnen:\n- Sie arbeiten in einem zukunftsorientierten und innovativen Unternehmen\n\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fort- und Weiterbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "fr": "Ihre Umgebung:\nDie Stationen Cresta und Bernina befinden sich am Standort Klinik Beverin in Cazis im selben Haus. Die Station Cresta ist eine offen geführte Psychotherapiestation mit 16 Betten, auf welcher Frauen und Männer in der zweiten Lebenshälfte (ab 55 Jahren) mit altersspezifischen Lebenskrisen, depressiven Störungen und weiteren psychischen Erkrankungen behandelt werden.\n\nAuf der offen geführten alterspsychiatrischen Akutstation Bernina mit 16 Betten, werden Patientinnen und Patienten im Rahmen eines strukturierten und geschützten therapeutischen Umfelds psychiatrisch und psychotherapeutisch behandelt.\n\nIhre Aufgaben:\n- Sie übernehmen im Nachtdienst die umfassende pflegerische Behandlung und Betreuung von Patientinnen und Patienten im stationären Bereich\n\n- Sie gestalten die Betreuung und Behandlung in der Nacht, entsprechend den Entwicklungen und Trends in der Psychiatrie\n\n- Sie führen therapeutische Interventionen aus und bieten eine individuelle nachhaltige Pflegequalität\n\n- Sie pflegen eine konstruktive Zusammenarbeit mit den Mitarbeitern des Tag- und Nachtdienst sowie mit dem Nachtarzt und kommunizieren offen, individuell und personenbezogen\n\n- Sie arbeiten eigenverantwortlich für beide Stationen und koordinieren Ihre Tätigkeiten stationsübergreifend\n\n- Bei Bedarf übernehmen Sie Intensiv- oder Sitzwachen sowie die Begleitung schwerkranker und sterbender Patientinnen und Patienten im Rahmen unserer internen Regelungen\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF, von Vorteil mit Erfahrung in der psychiatrischen Pflege und Betreuung\n\n- Ihnen ist es genauso wichtig wie uns, unsere Patienten sowohl medizinisch und pflegerisch bestens zu behandeln als auch individuell persönlich zu betreuen\n\n- Sie bringen ein hohes Mass an Verantwortungsbewusstsein, Belastbarkeit und Flexibilität mit\n\n- Sie verfügen über eine ausgeprägte Sozial- und Selbstkompetenz, arbeiten selbständig und bringen Eigeninitiative mit\n\nWir bieten Ihnen:\n- Sie arbeiten in einem zukunftsorientierten und innovativen Unternehmen\n\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fort- und Weiterbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance"
+      },
+      "location": "Cazis",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-2-11/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-11T12:18:40.276Z",
+      "addressLocality": "Cazis",
+      "postalCode": "7408",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "part-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-2-11/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Erwachsenenpsychiatrie",
+      "facility": "Zentrum für Alterspsychiatrie",
+      "pensumMin": 40,
+      "pensumMax": 60,
+      "pensum": "40 - 60%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-11T12:18:40.276Z"
     }
   ]
 }
