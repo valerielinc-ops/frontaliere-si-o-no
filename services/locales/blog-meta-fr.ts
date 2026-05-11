@@ -7452,6 +7452,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lamal-cmi-frontalieri-conviene-2026.title': 'LAMal ou CMI: comparaison 2026',
     'blog.article.lamal-cmi-frontalieri-conviene-2026.excerpt': 'Analyse détaillée des coûts et des couvertures entre LAMal et CMI pour les travailleurs frontaliers du Tessin. Découvrez quelle assurance maladie est la plus avantageuse en 2026.',
     'blog.article.lamal-cmi-frontalieri-conviene-2026.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
+    'blog.article.calcolo-pensione-frontaliere-avs-italiana.title': 'Calcul de la pension AVS italienne pour frontaliers',
+    'blog.article.calcolo-pensione-frontaliere-avs-italiana.excerpt': 'Guide pratique pour les frontaliers du Tessin : cotisations AVS suisses, INPS italienne, totalisation et délais pour la retraite.',
+    'blog.article.calcolo-pensione-frontaliere-avs-italiana.imageAlt': 'Une vue sereine du lac de Lugano avec la frontière suisse-italienne en arrière-plan, capturée avec un appareil photo DSLR.',
 };
 
 export default blogMetaFr;

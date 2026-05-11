@@ -35720,6 +35720,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calcolo-pensione-frontaliere-avs-italiana': {
+    title: 'Calcolo pensione frontaliere AVS italiana: come funziona',
+    description: 'Guida pratica per frontalieri Ticino: contributi AVS svizzeri, INPS italiana, totalizzazione e tempistiche per la pensione. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolo, pensione, italiana, funziona',
+    ogTitle: 'Calcolo pensione frontaliere AVS italiana: come funziona',
+    ogDescription: 'Guida pratica per frontalieri Ticino: contributi AVS svizzeri, INPS italiana, totalizzazione e tempistiche per la pensione.',
+    canonicalPath: '/articoli-frontaliere/calcolo-pensione-frontaliere-avs-italiana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcolo pensione frontaliere AVS italiana: come funziona",
+      "description": "Guida pratica per frontalieri Ticino: contributi AVS svizzeri, INPS italiana, totalizzazione e tempistiche per la pensione. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcolo-pensione-frontaliere-avs-italiana.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena del Lago di Lugano con il confine svizzero-italiano sullo sfondo, fotografata con una fotocamera DSLR."
+      },
+      "datePublished": "2026-05-11T11:55:46+00:00",
+      "dateModified": "2026-05-11T11:55:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcolo-pensione-frontaliere-avs-italiana`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
