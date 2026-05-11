@@ -1,0 +1,790 @@
+{
+  "generatedAt": "2026-05-11T17:03:41.762Z",
+  "sources": [
+    "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+  ],
+  "counts": {
+    "expired": 71,
+    "matched": 21
+  },
+  "orphans": [
+    {
+      "locale": "de",
+      "slug": "specialista-content-campagna-e-commerce-guess-europe-sagl-bioggio",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/specialista-content-campagna-e-commerce-guess-europe-sagl-bioggio/",
+      "kind": "expired",
+      "company": "guess-europe-sagl-bioggio",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "gestionnaire-gtm-marketplace-strategy-altra-running-emea-vf-international-the-north-face-timberland-stabio",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/gestionnaire-gtm-marketplace-strategy-altra-running-emea-vf-international-the-north-face-timberland-stabio/",
+      "kind": "matched",
+      "jobId": "company-kqop8j",
+      "currentSlug": "gestionnaire-gtm-marketplace-strategy-altra-running-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-kqop8j",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrass",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrass/",
+      "kind": "matched",
+      "jobId": "otis-38c4a4ee7c00",
+      "currentSlug": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "coordinateur-des-services-generaux-et-de-la-securite-des-installations-ibsa-institut-bioch",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/coordinateur-des-services-generaux-et-de-la-securite-des-installations-ibsa-institut-bioch/",
+      "kind": "expired",
+      "company": "installations-ibsa-institut-bioch",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "infirmier-e-specialise-e-en-soins-urgents-et-soins-intensifs-eoc-ente-ospedaliero-cantonal",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/infirmier-e-specialise-e-en-soins-urgents-et-soins-intensifs-eoc-ente-ospedaliero-cantonal/",
+      "kind": "expired",
+      "company": "eoc-ente-ospedaliero-cantonal",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carceraria-lugano-cadro-amministrazione-",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/capo-arte-a-tempo-parziale-90-presso-le-strutture-carceraria-lugano-cadro-amministrazione-/",
+      "kind": "expired",
+      "company": "carceraria-lugano-cadro-amministrazione",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "automatico-80-100-m-w-d-lonza-visp",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/automatico-80-100-m-w-d-lonza-visp/",
+      "kind": "expired",
+      "company": "w-d-lonza-visp",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0/",
+      "kind": "matched",
+      "jobId": "company-ncbhm0",
+      "currentSlug": "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-9yar0z",
+      "matchType": "current-flat",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "maintenance-planner-reliability-ingegnere-80-100-m-w-d-lonza-visp",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/maintenance-planner-reliability-ingegnere-80-100-m-w-d-lonza-visp/",
+      "kind": "expired",
+      "company": "w-d-lonza-visp",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "tecnico-a-hvac-scuola-tecnica-ingegnere-a-hvac-universita-di-scienze-applicate-60-100-imwi",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/tecnico-a-hvac-scuola-tecnica-ingegnere-a-hvac-universita-di-scienze-applicate-60-100-imwi/",
+      "kind": "matched",
+      "jobId": "burkhalter-group-0d7bd984375d",
+      "currentSlug": "tecnico-a-hvac-scuola-tecnica-ingegnere-a-hvac-universita-di-scienze-applicate-60-100-imwinkelried-luftung-und-klima-ag-visp",
+      "matchType": "prefix",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "concours-pour-embaucher-un-ingenieur-en-systemes-informatiques-a-temps-plein-oscam-ospedal",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/concours-pour-embaucher-un-ingenieur-en-systemes-informatiques-a-temps-plein-oscam-ospedal/",
+      "kind": "expired",
+      "company": "temps-plein-oscam-ospedal",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "operateur-utilities-ibex-mitarbeiter-technischer-unterhalt-m-w-d-lonza-visp",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/operateur-utilities-ibex-mitarbeiter-technischer-unterhalt-m-w-d-lonza-visp/",
+      "kind": "expired",
+      "company": "w-d-lonza-visp",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "kaltetechniker-im-technical-support-mit-internationaler-reisetatigkeit-80-100-w-m-d-hamilt",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/kaltetechniker-im-technical-support-mit-internationaler-reisetatigkeit-80-100-w-m-d-hamilt/",
+      "kind": "matched",
+      "jobId": "hamilton-bonaduz-ag-87c22fca377e",
+      "currentSlug": "kaltetechniker-im-technischen-support-mit-internationaler-reisetatigkeit-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
+      "matchType": "prefix",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "rif-508-perito-meccanico-jobcourier-mendrisio-ticino-switzerland",
+      "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/rif-508-perito-meccanico-jobcourier-mendrisio-ticino-switzerland/",
+      "kind": "expired",
+      "company": "jobcourier-mendrisio-ticino-switzerland",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "privati-consultant-3a-3b-ibrido-convit-holding-gmbh-sementina",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/privati-consultant-3a-3b-ibrido-convit-holding-gmbh-sementina/",
+      "kind": "expired",
+      "company": "convit-holding-gmbh-sementina",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "assistant-avec-diplome-de-bachelor-ou-master-pour-le-programme-de-diplome-en-architecture-supsi-dti-mendrisio",
+      "url": "https://www.frontaliereticino.ch/fr/trouver-emploi-tessin/assistant-avec-diplome-de-bachelor-ou-master-pour-le-programme-de-diplome-en-architecture-supsi-dti-mendrisio/",
+      "kind": "expired",
+      "company": "architecture-supsi-dti-mendrisio",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "culinary-advisor-im-foodservice-deutschland-m-w-d-hilcona-undefined",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/culinary-advisor-im-foodservice-deutschland-m-w-d-hilcona-undefined/",
+      "kind": "expired",
+      "company": "w-d-hilcona-undefined",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "apprenti-e-en-assistance-commerciale-eba-alimentaire-volg-untervaz",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/apprenti-e-en-assistance-commerciale-eba-alimentaire-volg-untervaz/",
+      "kind": "expired",
+      "company": "eba-alimentaire-volg-untervaz",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "infermieri",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/infermieri/",
+      "kind": "matched",
+      "jobId": "lis-lugano-istituti-sociali-f650fe01210f",
+      "currentSlug": "pflegefachkrafte-lis-lugano-istituti-sociali-pregassona-isfspc",
+      "matchType": "previous",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-collombey-",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-collombey-/",
+      "kind": "matched",
+      "jobId": "volg-fenaco-77eaeb225a2b",
+      "currentSlug": "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-veysonnaz",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "apprendista-impiegato-di-commercio-afc-sintetica-sa-mendrisio",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/apprendista-impiegato-di-commercio-afc-sintetica-sa-mendrisio/",
+      "kind": "matched",
+      "jobId": "company-mawo6w",
+      "currentSlug": "lernende-r-kauffrau-kaufmann-efz-sintetica-sa-mendrisio-mawo6w",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "bioprocess-ingegnere-lonza-ch",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/bioprocess-ingegnere-lonza-ch/",
+      "kind": "expired",
+      "company": "lonza-ch",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electr",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/installateurs-electriciens-installatrices-electriciennes-cfc-100-grichting-valterio-electr/",
+      "kind": "matched",
+      "jobId": "burkhalter-group-a1d6475181ae",
+      "currentSlug": "elektroinstallateure-elektroinstallateurinnen-cfc-100-grichting-valterio-electro-sa-collombey",
+      "matchType": "prefix",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "employe-e-de-gastronomie-standardisee-afc-coop-ristorante-ticino",
+      "url": "https://www.frontaliereticino.ch/fr/trouver-emploi-tessin/employe-e-de-gastronomie-standardisee-afc-coop-ristorante-ticino/",
+      "kind": "matched",
+      "jobId": "company-z0zxuf",
+      "currentSlug": "employe-e-de-gastronomie-standardisee-assistant-e-de-gastronomie-standardisee-marche-dietlikon",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-v",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/installateurs-electriciens-installatrices-electriciennes-oriente-industrie-100-grichting-v/",
+      "kind": "matched",
+      "jobId": "burkhalter-group-6f32ac7a6326",
+      "currentSlug": "elektroinstallateure-in-industrieorientiert-100-grichting-valterio-electro-sa-collombey",
+      "matchType": "prefix",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "application-manager-managerin-hilcona-undefined",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/application-manager-managerin-hilcona-undefined/",
+      "kind": "expired",
+      "company": "hilcona-undefined",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "master-in-energy-environment-intern-microbiology-institute-supsi-dti-mendrisio",
+      "url": "https://www.frontaliereticino.ch/en/find-jobs-ticino/master-in-energy-environment-intern-microbiology-institute-supsi-dti-mendrisio/",
+      "kind": "expired",
+      "company": "institute-supsi-dti-mendrisio",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "social-and-health-care-workers-lis-lugano-istituti-sociali-pregassona",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/social-and-health-care-workers-lis-lugano-istituti-sociali-pregassona/",
+      "kind": "expired",
+      "company": "lugano-istituti-sociali-pregassona",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "tirocinio-in-architettura-e-tecnologia-usi-mendrisio",
+      "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tirocinio-in-architettura-e-tecnologia-usi-mendrisio/",
+      "kind": "expired",
+      "company": "tecnologia-usi-mendrisio",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-dietl",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-dietl/",
+      "kind": "matched",
+      "jobId": "company-oal0zl",
+      "currentSlug": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "specialista-di-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/specialista-di-supporto-pb-medio-oriente-ch-efg-international-ag-geneve/",
+      "kind": "expired",
+      "company": "efg-international-ag-geneve",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "personnel-en-planification-disposition-80-100-ferrovia-retica-rhb-chur",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/personnel-en-planification-disposition-80-100-ferrovia-retica-rhb-chur/",
+      "kind": "expired",
+      "company": "ferrovia-retica-rhb-chur",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "deputy-store-manager-m-f-d-volg-laax-signina",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/deputy-store-manager-m-f-d-volg-laax-signina/",
+      "kind": "expired",
+      "company": "d-volg-laax-signina",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "bauleitende-r-installatore-trice-elettrico-a-in-100-triulzi-ag-st-moritz",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/bauleitende-r-installatore-trice-elettrico-a-in-100-triulzi-ag-st-moritz/",
+      "kind": "expired",
+      "company": "triulzi-ag-st-moritz",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "collaboratore-trice-logistica-tecnico-impiantista-usi-lugano",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/collaboratore-trice-logistica-tecnico-impiantista-usi-lugano/",
+      "kind": "matched",
+      "jobId": "usi-universita-della-svizzera-italiana-5786c4fb1ec9",
+      "currentSlug": "collaboratore-trice-logistique-technicien-impiantista-usi-universita-della-svizzera-italiana-lugano",
+      "matchType": "current-flat",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "venditore-30-38-5h-settimana-chocolaterie-kitzbuhel-u-m-d-laderach-schweiz-ag-kitzbuhel",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/venditore-30-38-5h-settimana-chocolaterie-kitzbuhel-u-m-d-laderach-schweiz-ag-kitzbuhel/",
+      "kind": "expired",
+      "company": "laderach-schweiz-ag-kitzbuhel",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell/",
+      "kind": "expired",
+      "company": "hugli-nahrungsmittel-gmbh-radolfzell",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "risikomanager-alm-und-liquiditatsrisiko-corner-banca-lugano",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/risikomanager-alm-und-liquiditatsrisiko-corner-banca-lugano/",
+      "kind": "expired",
+      "company": "corner-banca-lugano",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali",
+      "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/levatrice-ostetrica-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedali/",
+      "kind": "expired",
+      "company": "popolazione-un-offerta-ospedali",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/sap-sd-inhouse-consultant-m-w-d-hilcona-undefined/",
+      "kind": "expired",
+      "company": "w-d-hilcona-undefined",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano/",
+      "kind": "matched",
+      "jobId": "bps-suisse-ec1de76eae01",
+      "currentSlug": "collaboratore-trice-gestion-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0/",
+      "kind": "matched",
+      "jobId": "company-ncbhm0",
+      "currentSlug": "entry-level-meat-and-fish-team-member-coop-genossenschaft-muttenz",
+      "matchType": "current-flat",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "in-room-dining-supervisor-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/in-room-dining-supervisor-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st/",
+      "kind": "expired",
+      "company": "kempinski-st-moritz-st",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "group-insurance-expert-efg-zurich",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/group-insurance-expert-efg-zurich/",
+      "kind": "expired",
+      "company": "efg-zurich",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "sage-femme-obstetricien-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospe",
+      "url": "https://www.frontaliereticino.ch/fr/trouver-emploi-tessin/sage-femme-obstetricien-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospe/",
+      "kind": "expired",
+      "company": "popolazione-un-offerta-ospe",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-bell-schweiz-ag-zell",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-bell-schweiz-ag-zell/",
+      "kind": "expired",
+      "company": "bell-schweiz-ag-zell",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "initiativbewerbung-lehre-corner-banca-switzerland",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/initiativbewerbung-lehre-corner-banca-switzerland/",
+      "kind": "expired",
+      "company": "banca-switzerland",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "vendeur-denner-wilderswil",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/vendeur-denner-wilderswil/",
+      "kind": "expired",
+      "company": null,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "mechatroniker-m-w-d-hilcona-pfaffstatt",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/mechatroniker-m-w-d-hilcona-pfaffstatt/",
+      "kind": "expired",
+      "company": "d-hilcona-pfaffstatt",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "vorarbeiter-standort-edewecht-m-w-d-hilcona-undefined",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/vorarbeiter-standort-edewecht-m-w-d-hilcona-undefined/",
+      "kind": "expired",
+      "company": "w-d-hilcona-undefined",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d-l4rl4l",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d-l4rl4l/",
+      "kind": "matched",
+      "jobId": "company-l4rl4l",
+      "currentSlug": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-manno",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "coordinatore-trice-scientifico-a-con-incarichi-di-docenza-per-la-casa-della-sostenibilita-usi-universita-della-svizzera-italiana-lugano",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/coordinatore-trice-scientifico-a-con-incarichi-di-docenza-per-la-casa-della-sostenibilita-usi-universita-della-svizzera-italiana-lugano/",
+      "kind": "expired",
+      "company": "della-svizzera-italiana-lugano",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "sme-insurance-consultant-for-ash-surfaces-axa-svizzera-ticino",
+      "url": "https://www.frontaliereticino.ch/en/find-jobs-ticino/sme-insurance-consultant-for-ash-surfaces-axa-svizzera-ticino/",
+      "kind": "expired",
+      "company": "surfaces-axa-svizzera-ticino",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "amministratore-trice-di-reti-network-engineer-usi-lugano",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/amministratore-trice-di-reti-network-engineer-usi-lugano/",
+      "kind": "expired",
+      "company": "network-engineer-usi-lugano",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "ki-produktingenieur-80-100-localsearch-zurich",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/ki-produktingenieur-80-100-localsearch-zurich/",
+      "kind": "expired",
+      "company": "100-localsearch-zurich",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "company-mabetex-group",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/company-mabetex-group/",
+      "kind": "expired",
+      "company": null,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-bellinzona",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-bellinzona/",
+      "kind": "matched",
+      "jobId": "swisscom-sede-ticino-6ec9c0a4427c",
+      "currentSlug": "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-balerna",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "technischer-allrounder-technische-allrounderin-facility-management-hilcona-undefined",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/technischer-allrounder-technische-allrounderin-facility-management-hilcona-undefined/",
+      "kind": "expired",
+      "company": "facility-management-hilcona-undefined",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "unterstutzung-des-leiters-der-gold-und-silberraffinerie-mks-pamp-castel-san-pietro",
+      "url": "https://www.frontaliereticino.ch/de/jobs-im-tessin/unterstutzung-des-leiters-der-gold-und-silberraffinerie-mks-pamp-castel-san-pietro/",
+      "kind": "expired",
+      "company": "pamp-castel-san-pietro",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "assistant-in-the-center-line-alc-monteceneri-swiss-armed-forces-vtg-bellinzona",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/assistant-in-the-center-line-alc-monteceneri-swiss-armed-forces-vtg-bellinzona/",
+      "kind": "expired",
+      "company": "armed-forces-vtg-bellinzona",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "general-competition-2026-administrative-assistants-reception-staff-insurance-advisors-telephone-consultants-collectors-bankruptcy-managers-s",
+      "url": "https://www.frontaliereticino.ch/en/find-jobs-ticino/general-competition-2026-administrative-assistants-reception-staff-insurance-advisors-telephone-consultants-collectors-bankruptcy-managers-s/",
+      "kind": "expired",
+      "company": "collectors-bankruptcy-managers-s",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "consulente-vendita-giardino-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/consulente-vendita-giardino-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra/",
+      "kind": "matched",
+      "jobId": "company-98b1xm",
+      "currentSlug": "consulente-vendita-giardino-jumbo-tenero-contra-ticino-98b1xm",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "mechanical-assembler-of-industrial-machinery-pemsa-lamone",
+      "url": "https://www.frontaliereticino.ch/en/find-jobs-ticino/mechanical-assembler-of-industrial-machinery-pemsa-lamone/",
+      "kind": "expired",
+      "company": "machinery-pemsa-lamone",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "monteur-mecanique-de-machines-industrielles-pemsa-lamone",
+      "url": "https://www.frontaliereticino.ch/fr/trouver-emploi-tessin/monteur-mecanique-de-machines-industrielles-pemsa-lamone/",
+      "kind": "expired",
+      "company": "industrielles-pemsa-lamone",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "plumber-installer-3-pemsa-lugano",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/plumber-installer-3-pemsa-lugano/",
+      "kind": "expired",
+      "company": "pemsa-lugano",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "responsabile-servizio-trasporti-underwriting-e-sinistri",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/responsabile-servizio-trasporti-underwriting-e-sinistri/",
+      "kind": "expired",
+      "company": "underwriting-e-sinistri",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "un-e-comptable-50-70-fondazione-la-fonte-lugano",
+      "url": "https://www.frontaliereticino.ch/fr/trouver-emploi-tessin/un-e-comptable-50-70-fondazione-la-fonte-lugano/",
+      "kind": "expired",
+      "company": "fondazione-la-fonte-lugano",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "logistico-a-eba-coop-grigioni",
+      "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/logistico-a-eba-coop-grigioni/",
+      "kind": "expired",
+      "company": "coop-grigioni",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "coordinatore-trice-scientifico-a-con-incarichi-di-docenza-per-la-casa-della-sostenibilita-",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/coordinatore-trice-scientifico-a-con-incarichi-di-docenza-per-la-casa-della-sostenibilita-/",
+      "kind": "expired",
+      "company": "la-casa-della-sostenibilita",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "manager-of-railway-signal-safety-systems-m-f-d-ffs-officine-ferrovie-federali-biasca",
+      "url": "https://www.frontaliereticino.ch/en/find-jobs-ticino/manager-of-railway-signal-safety-systems-m-f-d-ffs-officine-ferrovie-federali-biasca/",
+      "kind": "expired",
+      "company": "officine-ferrovie-federali-biasca",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "associate-operazioni-marketplace-digitale-copertura-maternita-a-termine-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+      "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/associate-operazioni-marketplace-digitale-copertura-maternita-a-termine-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+      "kind": "expired",
+      "company": "stabio-vf-campus-vf1",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "wettbewerbsausschreibung-fur-eine-vertragslehre-in-der-offentlichen-verwaltung-usi-univers",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/wettbewerbsausschreibung-fur-eine-vertragslehre-in-der-offentlichen-verwaltung-usi-univers/",
+      "kind": "matched",
+      "jobId": "usi-universita-della-svizzera-italiana-729fc508e5f2",
+      "currentSlug": "wettbewerbsausschreibung-fur-eine-vertragslehre-in-der-offentlichen-verwaltung-usi-lugano",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "assistant-ventes-marketing-service-clientele-mercato-francese-cambiavalute-ch-lugano",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/assistant-ventes-marketing-service-clientele-mercato-francese-cambiavalute-ch-lugano/",
+      "kind": "matched",
+      "jobId": "company-a24znt",
+      "currentSlug": "assistant-ventes-marketing-service-clientele-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remot-a24znt",
+      "matchType": "reslug",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "senior-firmware-entwickler-r-d-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "url": "https://www.frontaliereticino.ch/de/jobs-im-tessin/senior-firmware-entwickler-r-d-80-100-abb-svizzera-sede-ticino-quartino-ticino/",
+      "kind": "expired",
+      "company": "sede-ticino-quartino-ticino",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "autista-di-camion-heineken-switzerland-ierung",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/autista-di-camion-heineken-switzerland-ierung/",
+      "kind": "expired",
+      "company": "heineken-switzerland-ierung",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "gaststattenmitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/gaststattenmitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio/",
+      "kind": "expired",
+      "company": "ospedaliero-cantonale-novaggio",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "junior-process-engineer-anlagemeister-anlagespezialist-biotechnology-pharma-80-100-m-w-d-l",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/junior-process-engineer-anlagemeister-anlagespezialist-biotechnology-pharma-80-100-m-w-d-l/",
+      "kind": "expired",
+      "company": "m-w-d-l",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "assistente-event-manager-m-w-d-kulm-hotel-st-moritz-st",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/assistente-event-manager-m-w-d-kulm-hotel-st-moritz-st/",
+      "kind": "expired",
+      "company": "hotel-st-moritz-st",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "network-engineer-usi-universita-della-svizzera-italiana-lugano",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/network-engineer-usi-universita-della-svizzera-italiana-lugano/",
+      "kind": "expired",
+      "company": "della-svizzera-italiana-lugano",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "stagiaire-en-gastronomie-systemique-eba-marche-dietlikon",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/stagiaire-en-gastronomie-systemique-eba-marche-dietlikon/",
+      "kind": "expired",
+      "company": "eba-marche-dietlikon",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "employe-e-saisonnier-ere-coop-grigioni",
+      "url": "https://www.frontaliereticino.ch/fr/trouver-emploi-tessin/employe-e-saisonnier-ere-coop-grigioni/",
+      "kind": "expired",
+      "company": "ere-coop-grigioni",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "allgemeiner-wettbewerb-2026-verwaltungsassistenten-empfangspersonal-versicherungsberater-telefonberater-inkassobeauftragte-insolvenzverwalte",
+      "url": "https://www.frontaliereticino.ch/de/jobs-im-tessin/allgemeiner-wettbewerb-2026-verwaltungsassistenten-empfangspersonal-versicherungsberater-telefonberater-inkassobeauftragte-insolvenzverwalte/",
+      "kind": "expired",
+      "company": "versicherungsberater-telefonberater-inkassobeauftragte-insolvenzverwalte",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "quality-engineer-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
+      "url": "https://www.frontaliereticino.ch/en/find-jobs-ticino/quality-engineer-m-f-d-ffs-officine-ferrovie-federali-bellinzona/",
+      "kind": "expired",
+      "company": "officine-ferrovie-federali-bellinzona",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "sales-assistant-damiani-group-serravalle-scrivia",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/sales-assistant-damiani-group-serravalle-scrivia/",
+      "kind": "expired",
+      "company": "group-serravalle-scrivia",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-tenero-contra",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/consulente-previdenziale-senza-esperienza-formazione-pagata-convit-tenero-contra/",
+      "kind": "matched",
+      "jobId": "convit-61a23c9ee42f",
+      "currentSlug": "consultant-en-securite-sociale-sans-experience-convit-holding-gmbh-tenero-contra",
+      "matchType": "current-flat",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "assistent-mit-bachelor-oder-masterabschluss-fur-das-architekturstudium-supsi-dti-mendrisio",
+      "url": "https://www.frontaliereticino.ch/de/jobs-im-tessin/assistent-mit-bachelor-oder-masterabschluss-fur-das-architekturstudium-supsi-dti-mendrisio/",
+      "kind": "expired",
+      "company": "architekturstudium-supsi-dti-mendrisio",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "slug": "mechanischer-monteur-von-industriemaschinen-pemsa-lamone",
+      "url": "https://www.frontaliereticino.ch/de/jobs-im-tessin/mechanischer-monteur-von-industriemaschinen-pemsa-lamone/",
+      "kind": "expired",
+      "company": "industriemaschinen-pemsa-lamone",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "responsabile-del-centro-di-competenza-danni-personali-responsabilita-civile-axa-svizzera-8",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/responsabile-del-centro-di-competenza-danni-personali-responsabilita-civile-axa-svizzera-8/",
+      "kind": "expired",
+      "company": "civile-axa-svizzera-8",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "linea-di-ricarica-w-m-d-landi-oberwallis-ag-visp",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/linea-di-ricarica-w-m-d-landi-oberwallis-ag-visp/",
+      "kind": "expired",
+      "company": "landi-oberwallis-ag-visp",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "slug": "senior-ai-ingegnere-business-automation-information-management-all-genders-axa-svizzera-winterthur-smart-working",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/senior-ai-ingegnere-business-automation-information-management-all-genders-axa-svizzera-winterthur-smart-working/",
+      "kind": "expired",
+      "company": "svizzera-winterthur-smart-working",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "slug": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz/",
+      "kind": "expired",
+      "company": "lidl-svizzera-st-moritz",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "slug": "concierge-a-temps-partiel-50-au-centre-professionnel-technique-cpt-lugano-trevano-amminist",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/concierge-a-temps-partiel-50-au-centre-professionnel-technique-cpt-lugano-trevano-amminist/",
+      "kind": "expired",
+      "company": "cpt-lugano-trevano-amminist",
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    }
+  ]
+}
