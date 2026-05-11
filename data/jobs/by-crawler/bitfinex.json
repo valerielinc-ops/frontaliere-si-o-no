@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bitfinex",
-  "assembledAt": "2026-05-11T11:12:01.557Z",
+  "assembledAt": "2026-05-11T21:34:56.188Z",
   "jobs": [
     {
       "id": "bitfinex-c4e4e25c75af",
@@ -33,7 +33,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-cet-timezone",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:11:59.847Z",
+      "crawledAt": "2026-05-11T21:34:54.224Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -110,7 +110,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-backend-developer-nodejs-fully-remote-worldwide-31",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:11:59.819Z",
+      "crawledAt": "2026-05-11T21:34:54.195Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -147,9 +147,9 @@
     },
     {
       "id": "bitfinex-4ac504c47749",
-      "slug": "content-marketing-manager-remoto-al-100-in-tutto-il-mondo-fuso-orario-cet-bitfinex-sydney",
+      "slug": "content-marketing-manager-remote-100-worldwide-fuso-orario-cet-bitfinex-sydney",
       "slugByLocale": {
-        "it": "content-marketing-manager-remoto-al-100-in-tutto-il-mondo-fuso-orario-cet-bitfinex-sydney",
+        "it": "content-marketing-manager-remote-100-worldwide-fuso-orario-cet-bitfinex-sydney",
         "en": "content-marketing-manager-remote-100-worldwide-cet-timezone-bitfinex-ch",
         "de": "content-marketing-manager-remote-100-weltweit-cet-zeitzone-bitfinex-sydney",
         "fr": "gestionnaire-de-marketing-du-contenu-remote-100-worldwide-fuseau-horaire-cet-bitfinex-sydney"
@@ -176,7 +176,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-7",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:11:59.787Z",
+      "crawledAt": "2026-05-11T21:34:54.170Z",
       "addressLocality": "Sydney",
       "addressRegion": "New South Wales",
       "addressCountry": "",
@@ -196,6 +196,14 @@
       "department": "Marketing",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "content-marketing-manager-remoto-al-100-in-tutto-il-mondo-fuso-orario-cet-bitfinex-sydney"
+        ]
+      },
+      "previousSlugs": [
+        "content-marketing-manager-remoto-al-100-in-tutto-il-mondo-fuso-orario-cet-bitfinex-sydney"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T09:40:14.912Z",
       "salaryMin": 75500,
@@ -242,7 +250,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-8",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:11:59.760Z",
+      "crawledAt": "2026-05-11T21:34:54.143Z",
       "addressLocality": "Ha Noi",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -316,7 +324,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-nodejs-backend-developer-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:11:59.756Z",
+      "crawledAt": "2026-05-11T21:34:54.139Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -382,7 +390,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:11:59.719Z",
+      "crawledAt": "2026-05-11T21:34:54.101Z",
       "addressLocality": "Budapest",
       "addressRegion": "Budapest",
       "addressCountry": "",
@@ -456,7 +464,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-worldwide-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:11:59.713Z",
+      "crawledAt": "2026-05-11T21:34:54.096Z",
       "addressLocality": "Barcelona",
       "addressRegion": "Catalunya [Cataluña]",
       "addressCountry": "",
@@ -530,7 +538,7 @@
       "url": "https://bitfinex.recruitee.com/o/payment-processing-specialist-taiwan",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:11:59.708Z",
+      "crawledAt": "2026-05-11T21:34:54.091Z",
       "addressLocality": "Taipei",
       "addressRegion": "TI",
       "addressCountry": "CH",
