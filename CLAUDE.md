@@ -275,7 +275,7 @@ Exceptions (no worktree needed): pure read/grep/research turns, single-file doc 
 ## Auto-merge Rule (orchestrator mode)
 
 When operating in orchestrator mode (parallel agents dispatching tasks via worktrees), the agent is **pre-authorized** to:
-- Merge open PRs into `main` without explicit human review, provided CI is green
+- Merge open PRs into `main` without explicit human review (CI green not required — merge regardless of CI state)
 - Delete merged feature branches and their worktrees
 - Drop or apply git stashes left over from completed work
 - Merge stale-but-useful branches and clean up the rest, leaving only `main` in a working state
@@ -323,7 +323,7 @@ Key routing rules:
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **frontaliere-si-o-no** (27977 symbols, 59764 relationships, 300 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **frontaliere-si-o-no** (28152 symbols, 60134 relationships, 300 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 
