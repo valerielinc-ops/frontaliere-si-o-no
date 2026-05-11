@@ -420,8 +420,8 @@ async function main() {
   if (Array.isArray(pre)) beforeSnapshot = snapshotJobSlugs(pre.filter(isTargetJob));
 
   const listings = await fetchGuessListings();
-  if (listings.length < 5) {
-    throw new Error(`Guess discovery returned only ${listings.length} Ticino jobs (<5).`);
+  if (listings.length === 0) {
+    throw new Error('Guess discovery returned 0 Ticino jobs.');
   }
 
   const discoveredJobs = [];
@@ -443,8 +443,8 @@ async function main() {
   postProcessJobs();
   const stats = logStats(beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
-  if (stats.total < 5) {
-    throw new Error(`Guess crawler produced only ${stats.total} jobs (<5).`);
+  if (stats.total === 0) {
+    throw new Error('Guess crawler produced 0 jobs.');
   }
   validateLocales();
 

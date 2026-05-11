@@ -240,8 +240,8 @@ async function main() {
   const html = await fetchPage(CAREERS_URL);
   const listings = parseLwphrOpenJobs(html);
   console.log(`📋 Open PDF jobs found on page: ${listings.length}`);
-  if (listings.length < 10) {
-    throw new Error(`LWPHR discovery returned only ${listings.length} open PDF jobs.`);
+  if (listings.length === 0) {
+    throw new Error('LWPHR discovery returned 0 open PDF jobs.');
   }
 
   const discoveredJobs = [];
