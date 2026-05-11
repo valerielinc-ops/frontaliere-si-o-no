@@ -27,11 +27,14 @@ import {
   HUB_SECTORS,
   HUB_SLUGS,
   JOBS_PAGE_SIZE,
+  hubSlugFor,
   paginatedPath,
   type HubLocale,
 } from './seoHubsData';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { resolveBrandLogoUrl, renderEntityCard, ICON_BUILDING_SVG } from './shared/seoContentTokens';
+import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
+import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_IT',
@@ -139,21 +142,42 @@ function slugifyEmployer(value: string): string {
  * map lets us resolve logos from `company-logos-manifest.json` (keyed by short
  * `employerKey`) when given the long URL slug from `known-company-slugs.json`.
  */
+interface CantonJobEntry {
+  readonly slug: string;
+  readonly role: string;
+  readonly employer: string;
+  readonly employerKey: string;
+  readonly city: string;
+}
+
 function readJobsData(
   fs: typeof fsT,
   np: typeof npT,
   rootDir: string,
-): { counts: Map<string, number>; urlToKey: Map<string, string> } {
+): {
+  counts: Map<string, number>;
+  urlToKey: Map<string, string>;
+  cantonJobCounts: Map<string, number>;
+  cantonJobs: Map<string, CantonJobEntry[]>;
+  cantonEmployerCounts: Map<string, Map<string, number>>;
+} {
   const counts = new Map<string, number>();
   const urlToKey = new Map<string, string>();
+  const cantonJobCounts = new Map<string, number>();
+  const cantonJobs = new Map<string, CantonJobEntry[]>();
+  const cantonEmployerCounts = new Map<string, Map<string, number>>();
   const historyDir = np.resolve(rootDir, 'data', 'jobs-snapshots-history');
   try {
-    if (!fs.existsSync(historyDir)) return { counts, urlToKey };
+    if (!fs.existsSync(historyDir)) {
+      return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
+    }
     const files = fs.readdirSync(historyDir)
       .filter((f) => f.endsWith('.json'))
       .sort()
       .reverse();
-    if (files.length === 0) return { counts, urlToKey };
+    if (files.length === 0) {
+      return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
+    }
     const raw = JSON.parse(fs.readFileSync(np.join(historyDir, files[0]), 'utf-8'));
     for (const job of Array.isArray(raw?.jobs) ? raw.jobs : []) {
       if (typeof job?.employerKey === 'string' && job.employerKey) {
@@ -163,11 +187,37 @@ function readJobsData(
           if (urlSlug && !urlToKey.has(urlSlug)) urlToKey.set(urlSlug, job.employerKey);
         }
       }
+      // Canton resolution: use explicit `job.canton` when present, else fall
+      // back to the city → canton mapping in `resolveJobCanton`.
+      const cantonInput = {
+        canton: typeof job?.canton === 'string' ? job.canton : undefined,
+        location: typeof job?.city === 'string' ? job.city : undefined,
+      };
+      const canton = resolveJobCanton(cantonInput);
+      cantonJobCounts.set(canton, (cantonJobCounts.get(canton) ?? 0) + 1);
+      if (typeof job?.slug === 'string' && job.slug) {
+        const arr = cantonJobs.get(canton) ?? [];
+        if (arr.length < 200) {
+          arr.push({
+            slug: job.slug,
+            role: typeof job?.role === 'string' ? job.role : job.slug,
+            employer: typeof job?.employer === 'string' ? job.employer : '',
+            employerKey: typeof job?.employerKey === 'string' ? job.employerKey : '',
+            city: typeof job?.city === 'string' ? job.city : '',
+          });
+          cantonJobs.set(canton, arr);
+        }
+      }
+      if (typeof job?.employerKey === 'string' && job.employerKey) {
+        const empMap = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
+        empMap.set(job.employerKey, (empMap.get(job.employerKey) ?? 0) + 1);
+        cantonEmployerCounts.set(canton, empMap);
+      }
     }
   } catch (err) {
     console.warn('[seo-hubs] failed to read job snapshot', err);
   }
-  return { counts, urlToKey };
+  return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
 }
 
 function jobsActiveLabel(locale: HubLocale, n: number): string {
@@ -799,6 +849,274 @@ interface EmitArgs {
   qw: (filePath: string, content: string) => void;
 }
 
+// ── Phase 7.2: thin per-canton hub helpers ─────────────────────────────
+
+type CantonHubKind = 'tutti' | 'settori' | 'aziende';
+
+const CANTON_HUB_LABELS: Record<HubLocale, Record<CantonHubKind, string>> = {
+  it: { tutti: 'Tutte le offerte', settori: 'Settori', aziende: 'Aziende che assumono' },
+  en: { tutti: 'All openings',     settori: 'Sectors', aziende: 'Hiring companies' },
+  de: { tutti: 'Alle Stellen',     settori: 'Branchen', aziende: 'Einstellende Firmen' },
+  fr: { tutti: 'Toutes les offres', settori: 'Secteurs', aziende: 'Entreprises qui recrutent' },
+};
+
+function cantonHubH1(locale: HubLocale, hub: CantonHubKind, cantonLabel: string, n: number): string {
+  // Per-canton headline, e.g. "127 offerte di lavoro a Zurigo" / "Settori con offerte a Zurigo"
+  if (hub === 'tutti') {
+    return {
+      it: `${n.toLocaleString('it-IT')} offerte di lavoro · ${cantonLabel}`,
+      en: `${n.toLocaleString('en-US')} job openings · ${cantonLabel}`,
+      de: `${n.toLocaleString('de-DE')} Stellenangebote · ${cantonLabel}`,
+      fr: `${n.toLocaleString('fr-FR')} offres d’emploi · ${cantonLabel}`,
+    }[locale];
+  }
+  if (hub === 'settori') {
+    return {
+      it: `Settori con offerte attive · ${cantonLabel}`,
+      en: `Active sectors · ${cantonLabel}`,
+      de: `Aktive Branchen · ${cantonLabel}`,
+      fr: `Secteurs actifs · ${cantonLabel}`,
+    }[locale];
+  }
+  return {
+    it: `Aziende che assumono · ${cantonLabel}`,
+    en: `Hiring companies · ${cantonLabel}`,
+    de: `Einstellende Firmen · ${cantonLabel}`,
+    fr: `Entreprises qui recrutent · ${cantonLabel}`,
+  }[locale];
+}
+
+function cantonHubIntro(locale: HubLocale, hub: CantonHubKind, cantonLabel: string, n: number): string {
+  if (hub === 'tutti') {
+    return {
+      it: `Indice completo delle offerte di lavoro attive nel cantone ${cantonLabel}. ${n.toLocaleString('it-IT')} posizioni aperte aggiornate quotidianamente.`,
+      en: `Complete index of active job openings in ${cantonLabel}. ${n.toLocaleString('en-US')} positions updated daily.`,
+      de: `Vollständiger Index der aktiven Stellenangebote im Kanton ${cantonLabel}. ${n.toLocaleString('de-DE')} Stellen täglich aktualisiert.`,
+      fr: `Index complet des offres d’emploi actives dans le canton ${cantonLabel}. ${n.toLocaleString('fr-FR')} postes mis à jour quotidiennement.`,
+    }[locale];
+  }
+  if (hub === 'settori') {
+    return {
+      it: `Settori professionali con offerte attive nel cantone ${cantonLabel}.`,
+      en: `Professional sectors with active openings in ${cantonLabel}.`,
+      de: `Berufsgruppen mit aktiven Stellenangeboten im Kanton ${cantonLabel}.`,
+      fr: `Secteurs professionnels avec offres actives dans le canton ${cantonLabel}.`,
+    }[locale];
+  }
+  return {
+    it: `Aziende che pubblicano offerte di lavoro nel cantone ${cantonLabel}.`,
+    en: `Companies posting openings in ${cantonLabel}.`,
+    de: `Unternehmen mit Stellenangeboten im Kanton ${cantonLabel}.`,
+    fr: `Entreprises publiant des offres dans le canton ${cantonLabel}.`,
+  }[locale];
+}
+
+interface ThinCantonHubArgs {
+  fs: typeof fsT;
+  np: typeof npT;
+  distDir: string;
+  qw: (filePath: string, content: string) => void;
+  sitemapEntries: string[];
+  dateStamp: string;
+  cantonJobCounts: Map<string, number>;
+  cantonJobs: Map<string, CantonJobEntry[]>;
+  cantonEmployerCounts: Map<string, Map<string, number>>;
+  entryJs: string;
+  entryCss: string;
+  hasSpaBundle: boolean;
+  onPageEmitted: () => void;
+}
+
+function buildThinCantonHubHtml(args: {
+  locale: HubLocale;
+  hub: CantonHubKind;
+  canton: string;
+  cantonLabel: string;
+  basePath: string;
+  totalItems: number;
+  items: ReadonlyArray<{ href: string; label: string; sub?: string }>;
+  hasSpaBundle: boolean;
+  entryJs: string;
+  entryCss: string;
+  dateStamp: string;
+}): string {
+  const { locale, hub, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp } = args;
+  const h1 = cantonHubH1(locale, hub, cantonLabel, totalItems);
+  const intro = cantonHubIntro(locale, hub, cantonLabel, totalItems);
+  const pageTitle = `${CANTON_HUB_LABELS[locale][hub]} ${cantonLabel} | Frontaliere`;
+  const canonicalUrl = `${BASE_URL}${basePath}`;
+
+  const itemsHtml = items.length === 0
+    ? `<p style="color:var(--color-subtle);padding:16px 0">${esc(emptyLabel(locale))}</p>`
+    : `<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${items
+        .map((it) => `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}${it.sub ? `<span style="display:block;font-size:12px;color:var(--color-subtle);margin-top:2px">${esc(it.sub)}</span>` : ''}</a></li>`)
+        .join('')}</ul>`;
+
+  const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];
+
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: homeLabel, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: cantonLabel, item: canonicalUrl },
+    ],
+  });
+
+  return `<!doctype html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>${esc(pageTitle)}</title>
+    <meta name="description" content="${esc(intro)}">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta property="og:locale" content="${LOCALE_OG[locale]}">
+    <meta property="og:title" content="${esc(pageTitle)}">
+    <meta property="og:description" content="${esc(intro)}">
+    <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="${canonicalUrl}">
+    <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    ${ADSENSE_SNIPPET}
+  </head>
+  <body class="bg-surface-alt text-heading overflow-x-hidden">
+    <div id="root"></div>
+    <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+      <nav style="font-size:13px;color:var(--color-subtle);margin-bottom:16px" aria-label="Breadcrumb">
+        <a href="${BASE_URL}/" style="color:var(--color-accent);text-decoration:none">${esc(homeLabel)}</a>
+        <span> / </span>
+        <span>${esc(cantonLabel)} · ${esc(CANTON_HUB_LABELS[locale][hub])}</span>
+      </nav>
+      <header style="margin-bottom:24px">
+        <h1 style="font-size:32px;font-weight:800;line-height:1.2;color:var(--color-heading);margin:0 0 12px">${esc(h1)}</h1>
+        <p style="font-size:16px;color:var(--color-body);max-width:780px;line-height:1.55;margin:0">${esc(intro)}</p>
+        <p style="margin-top:8px;color:var(--color-subtle);font-size:13px">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
+      </header>
+      <section>
+        ${itemsHtml}
+      </section>
+    </main>
+    <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+  </body>
+</html>`;
+}
+
+function cantonDisplayLabel(canton: string, locale: HubLocale): string {
+  // Canton section slug strips the locale prefix and the leading 'cerca-lavoro-' /
+  // 'find-jobs-' / 'jobs-in(-der)?-' / 'trouver-emploi-'. Take the slug, strip
+  // hyphens, capitalize each word.
+  const section = resolveCantonSection(locale, canton);
+  const stripPrefix = section
+    .replace(/^cerca-lavoro-/, '')
+    .replace(/^find-jobs-/, '')
+    .replace(/^jobs-in-der-/, '')
+    .replace(/^jobs-in-/, '')
+    .replace(/^jobs-im-/, '')
+    .replace(/^trouver-emploi-/, '');
+  return stripPrefix
+    .split('-')
+    .filter((w) => w.length > 0)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+function emitThinCantonHubs(args: ThinCantonHubArgs): void {
+  const { np, distDir, qw, sitemapEntries, dateStamp, cantonJobCounts, cantonJobs, cantonEmployerCounts,
+          entryJs, entryCss, hasSpaBundle, onPageEmitted } = args;
+
+  for (const canton of ALL_CANTON_CODES) {
+    if (canton === 'TI') continue; // TI already emitted with full body above
+    const total = cantonJobCounts.get(canton) ?? 0;
+    if (total < MIN_JOBS_FOR_CANTON_PAGE) continue;
+
+    const jobs = cantonJobs.get(canton) ?? [];
+    const empCounts = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
+
+    for (const locale of HUB_LOCALES) {
+      const cantonLabel = cantonDisplayLabel(canton, locale);
+      const section = resolveCantonSection(locale, canton);
+      const localePrefix = locale === 'it' ? '' : `/${locale}`;
+      const sectionRoot = `${localePrefix}/${section}`;
+
+      // ── tutti (all jobs) ──
+      {
+        const basePath = hubSlugFor(canton, locale, 'tutti');
+        const items = jobs.slice(0, 100).map((j) => ({
+          href: `${sectionRoot}/${j.slug}/`,
+          label: j.role || humanizeSlug(j.slug),
+          sub: j.city || undefined,
+        }));
+        const html = buildThinCantonHubHtml({
+          locale, hub: 'tutti', canton, cantonLabel, basePath,
+          totalItems: total, items, hasSpaBundle, entryJs, entryCss, dateStamp,
+        });
+        qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
+        onPageEmitted();
+        if (locale === 'it') {
+          const url = `${BASE_URL}${basePath}`;
+          sitemapEntries.push(
+            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+          );
+        }
+      }
+
+      // ── settori (sectors) — reuse curated HUB_SECTORS list, link to TI hub ──
+      // For non-TI cantons we don't yet have per-canton sector landings, so the
+      // sector hub lists the curated sectors with anchors that route to the
+      // canton's job-board home filtered by `?q=<sector>`. Crawl-equivalent to
+      // the TI sectors hub minus per-sector landing depth.
+      {
+        const basePath = hubSlugFor(canton, locale, 'settori');
+        const items = HUB_SECTORS.map((s) => ({
+          href: `${sectionRoot}/?q=${encodeURIComponent(s[locale])}`,
+          label: s[locale],
+        }));
+        const html = buildThinCantonHubHtml({
+          locale, hub: 'settori', canton, cantonLabel, basePath,
+          totalItems: items.length, items, hasSpaBundle, entryJs, entryCss, dateStamp,
+        });
+        qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
+        onPageEmitted();
+        if (locale === 'it') {
+          const url = `${BASE_URL}${basePath}`;
+          sitemapEntries.push(
+            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
+          );
+        }
+      }
+
+      // ── aziende (companies) — list employers with ≥1 active opening in this canton ──
+      {
+        const basePath = hubSlugFor(canton, locale, 'aziende');
+        const empArray = Array.from(empCounts.entries())
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 100);
+        const items = empArray.map(([empKey, n]) => ({
+          href: `${sectionRoot}/azienda-${empKey}/`,
+          label: humanizeSlug(empKey),
+          sub: jobsActiveLabel(locale, n),
+        }));
+        const html = buildThinCantonHubHtml({
+          locale, hub: 'aziende', canton, cantonLabel, basePath,
+          totalItems: empCounts.size, items, hasSpaBundle, entryJs, entryCss, dateStamp,
+        });
+        qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
+        onPageEmitted();
+        if (locale === 'it') {
+          const url = `${BASE_URL}${basePath}`;
+          sitemapEntries.push(
+            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
+          );
+        }
+      }
+    }
+  }
+}
+
 /**
  * Emits all 4 hub families × 4 locales × all paginated pages to dist/.
  * Returns the number of pages written and the sitemap entries to append.
@@ -811,7 +1129,13 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
 
   const { slugs: jobSlugs, perLocale: jobPerLocale } = readJobSlugsMap(fs, np, rootDir);
   const companySlugs = readCompanySlugs(fs, np, rootDir);
-  const { counts: jobCountBySlug, urlToKey: companyUrlToKey } = readJobsData(fs, np, rootDir);
+  const {
+    counts: jobCountBySlug,
+    urlToKey: companyUrlToKey,
+    cantonJobCounts,
+    cantonJobs,
+    cantonEmployerCounts,
+  } = readJobsData(fs, np, rootDir);
   const crawledLogos = readCrawledCompanyLogos(fs, np, rootDir);
 
   const ensuredDirs = new Set<string>();
@@ -966,6 +1290,33 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     emitHub('companies', locale);
     emitHub('articles', locale);
   }
+
+  // ── Phase 7.2 — Canton-aware THIN hub pages ──
+  // For every non-TI canton with ≥ MIN_JOBS_FOR_CANTON_PAGE jobs, emit a
+  // thin per-canton landing for `tutti` (all jobs), `settori` (sectors) and
+  // `aziende` (companies) across all 4 locales. These pages close the
+  // canton URL graph (Semrush orphan-pages gate) without rebuilding the
+  // full TI body. Articles are NOT canton-scoped — they remain TI-only.
+  //
+  // Conservative gate: skip cantons under the job-count threshold so we
+  // never emit thin-content placeholders. The TI hubs are already emitted
+  // above with the full paginated body — we explicitly skip TI here to
+  // preserve byte-identical TI invariance.
+  emitThinCantonHubs({
+    fs,
+    np,
+    distDir,
+    qw,
+    sitemapEntries,
+    dateStamp,
+    cantonJobCounts,
+    cantonJobs,
+    cantonEmployerCounts,
+    entryJs,
+    entryCss,
+    hasSpaBundle,
+    onPageEmitted: () => { pagesEmitted++; },
+  });
 
   // Patch sitemap.xml index to include sitemap-seo-hubs.xml
   if (sitemapEntries.length > 0) {
