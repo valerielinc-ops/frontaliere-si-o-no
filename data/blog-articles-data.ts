@@ -23637,15 +23637,6 @@ export const ARTICLES = [
  authorName: 'Marco Ferrari',
  },
  {
- id: 'mobilita-palermo-frontalieri-ticino',
- category: 'pratico',
- date: '2026-05-11T03:41:17.088Z',
- image: '/images/blog/mobilita-palermo-frontalieri-ticino.jpg',
- hasCalculator: true,
- authorSlug: 'redazione',
- authorName: 'Redazione Frontaliere Ticino',
- },
- {
  id: 'professioni-sanitarie-lamal-cantone-ticino',
  category: 'fiscale',
  date: '2026-05-11T03:50:00.607Z',
