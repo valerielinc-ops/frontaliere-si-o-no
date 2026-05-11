@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "solothurner-spitaeler-8b00592688ff",
-      "slug": "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-angiologie-m-w-d-solothurner-spitaler-soh-olten",
+      "slug": "senior-medico-senior-medico-angiologie-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-angiologie-m-w-d-solothurner-spitaler-soh-olten",
-        "en": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch"
+        "it": "senior-medico-senior-medico-angiologie-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "senior-physician-senior-physician-senior-physician-angiologie-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "medecin-superieur-medecin-superieur-medecin-superieur-angiologie-p-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -56,11 +56,19 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch",
+          "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-angiologie-m-w-d-solothurner-spitaler-soh-olten"
+        ],
+        "en": [
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch"
+        "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch",
+        "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-angiologie-m-w-d-solothurner-spitaler-soh-olten"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -78,11 +86,11 @@
     },
     {
       "id": "solothurner-spitaeler-6326155e4064",
-      "slug": "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch",
+      "slug": "psicologo-centro-metabolico-psicologo-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch",
-        "it": "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch",
-        "en": "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch",
+        "it": "psicologo-centro-metabolico-psicologo-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "psychologist-psychologist-metabolic-center-w-m-d-solothurner-spitaler-soh-solothurn",
         "fr": "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch"
       },
       "company": "Solothurner Spitäler (soH)",
@@ -140,16 +148,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch"
+        ],
+        "en": [
+          "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-stoffwechselzentrum-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-d040f0ef90e5",
-      "slug": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch",
+      "slug": "consulente-professionale-consulente-professionale-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch",
-        "it": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch",
-        "en": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch",
-        "fr": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+        "it": "consulente-professionale-consulente-professionale-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "profession-consultant-profession-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "consultant-professionnel-consultant-professionnel-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -206,13 +225,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+        ],
+        "en": [
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-cafdadc5c8c5",
       "slug": "expertin-experte-intensivpflege-w-m-d-soh-ch",
       "slugByLocale": {
-        "de": "expertin-experte-intensivpflege-w-m-d-soh-ch",
+        "de": "praktikant-praktikantin-intensivpflege-w-m-d-solothurner-spitaler-soh-olten",
         "it": "expertin-experte-intensivpflege-w-m-d-soh-ch",
         "en": "expertin-experte-intensivpflege-w-m-d-soh-ch",
         "fr": "expertin-experte-intensivpflege-w-m-d-soh-ch"
@@ -276,12 +309,12 @@
     },
     {
       "id": "solothurner-spitaeler-f0aa68977a4b",
-      "slug": "oberarztin-oberarzt-interdisziplinare-notfallstation-w-m-d-soh-ch",
+      "slug": "stazione-di-emergenza-interdisciplinare-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-interdisziplinare-notfallstation-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-interdisziplinare-notfallstation-w-m-d-soh-ch",
-        "en": "oberarztin-oberarzt-interdisziplinare-notfallstation-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-interdisziplinare-notfallstation-w-m-d-soh-ch"
+        "it": "stazione-di-emergenza-interdisciplinare-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-physician-interdisciplinary-emergency-station-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "medecin-principal-station-interdisciplinaire-d-urgence-p-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -338,16 +371,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-interdisziplinare-notfallstation-w-m-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-interdisziplinare-notfallstation-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-interdisziplinare-notfallstation-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-interdisziplinare-notfallstation-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-5fcc4539ab87",
-      "slug": "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch",
-        "it": "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch",
-        "fr": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -394,11 +441,19 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugsByLocale": {
         "it": [
+          "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch",
+          "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch"
+        ],
+        "fr": [
           "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch"
+        "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d-soh-ch",
+        "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -416,12 +471,12 @@
     },
     {
       "id": "solothurner-spitaeler-2f1a277946f6",
-      "slug": "expertin-experte-anasthesiepflege-w-m-d-soh-ch",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-dornach",
       "slugByLocale": {
         "de": "expertin-experte-anasthesiepflege-w-m-d-soh-ch",
-        "it": "expertin-experte-anasthesiepflege-w-m-d-soh-ch",
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-dornach",
         "en": "expertin-experte-anasthesiepflege-w-m-d-soh-ch",
-        "fr": "expertin-experte-anasthesiepflege-w-m-d-soh-ch"
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -478,16 +533,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-experte-anasthesiepflege-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "expertin-experte-anasthesiepflege-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-anasthesiepflege-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-cd5716903504",
-      "slug": "berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d-soh-ch",
+      "slug": "consulente-professionale-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d-soh-ch",
-        "it": "berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d-soh-ch",
-        "en": "berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d-soh-ch",
-        "fr": "berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d-soh-ch"
+        "it": "consulente-professionale-m-d-solothurner-spitaler-soh-olten",
+        "en": "profession-consultant-m-d-solothurner-spitaler-soh-olten",
+        "fr": "consultant-professionnel-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -544,16 +610,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d-soh-ch"
+        ],
+        "en": [
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-1f7197236d22",
-      "slug": "fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-m-w-d-soh-ch",
+      "slug": "consulente-senior-m-w-d-solothurner-spitaler-soh-dornach",
       "slugByLocale": {
         "de": "fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-m-w-d-soh-ch",
-        "it": "fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-m-w-d-soh-ch",
-        "en": "fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-m-w-d-soh-ch",
-        "fr": "fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-m-w-d-soh-ch"
+        "it": "consulente-senior-m-w-d-solothurner-spitaler-soh-dornach",
+        "en": "senior-consultant-m-w-d-solothurner-spitaler-soh-dornach",
+        "fr": "consultant-principal-m-m-j-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -610,7 +690,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-m-w-d-soh-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-m-w-d-soh-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-m-w-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-m-w-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-f4e6a5ec5ce0",
@@ -680,12 +774,12 @@
     },
     {
       "id": "solothurner-spitaeler-29da061ab422",
-      "slug": "oberarztin-oberarzt-medizinbereich-ipr-innere-medizin-w-m-d-soh-ch",
+      "slug": "centro-medico-senior-ipr-innere-medizin-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-medizinbereich-ipr-innere-medizin-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-medizinbereich-ipr-innere-medizin-w-m-d-soh-ch",
-        "en": "oberarztin-oberarzt-medizinbereich-ipr-innere-medizin-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-medizinbereich-ipr-innere-medizin-w-m-d-soh-ch"
+        "it": "centro-medico-senior-ipr-innere-medizin-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-physician-medical-center-ipr-innere-medizin-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "centre-medical-principal-ipr-innere-medizin-p-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -742,7 +836,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-medizinbereich-ipr-innere-medizin-w-m-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-medizinbereich-ipr-innere-medizin-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-medizinbereich-ipr-innere-medizin-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-medizinbereich-ipr-innere-medizin-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-364eb23081a4",
@@ -823,12 +931,12 @@
     },
     {
       "id": "solothurner-spitaeler-d9a3069036ec",
-      "slug": "teamleitung-lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch",
+      "slug": "teamleiter-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "teamleitung-lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch",
-        "it": "teamleitung-lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch",
+        "it": "teamleiter-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "teamleitung-lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch",
-        "fr": "teamleitung-lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch"
+        "fr": "teamleiter-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -885,16 +993,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "teamleitung-lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-3d0a9f2b96b8",
-      "slug": "fachfrau-fachmann-operationstechnik-im-pool-w-m-d-soh-ch",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-dornach",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-im-pool-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-operationstechnik-im-pool-w-m-d-soh-ch",
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-dornach",
         "en": "fachfrau-fachmann-operationstechnik-im-pool-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-operationstechnik-im-pool-w-m-d-soh-ch"
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-dornach-b9c588"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -951,16 +1070,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-im-pool-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-im-pool-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-im-pool-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-e38a0148154a",
-      "slug": "oberarztin-oberarzt-urologie-w-m-d-soh-ch",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-602cd1",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-urologie-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-urologie-w-m-d-soh-ch",
-        "en": "oberarztin-oberarzt-urologie-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-urologie-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-602cd1",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-602cd1",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-602cd1"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1017,16 +1147,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-urologie-w-m-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-urologie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-urologie-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-urologie-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-125bf5c5364f",
-      "slug": "zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d-soh-ch",
+      "slug": "assistente-penale-servizio-civile-spitalgehilfe-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d-soh-ch",
-        "it": "zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d-soh-ch",
-        "en": "zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d-soh-ch",
-        "fr": "zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d-soh-ch"
+        "it": "assistente-penale-servizio-civile-spitalgehilfe-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "criminal-assistant-civil-service-provider-spitalgehilfe-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "assistant-criminel-fournisseur-de-la-fonction-publique-spitalgehilfe-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1083,7 +1227,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d-soh-ch"
+        ],
+        "en": [
+          "zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-4a1972b30162",
@@ -1161,12 +1319,12 @@
     },
     {
       "id": "solothurner-spitaeler-0935ba255087",
-      "slug": "oberarztin-oberarzt-innere-medizin-e-endokrinologie-m-w-d-solothurner-spitaler-soh-dornach",
+      "slug": "medicina-interna-e-endocrinologia-w-m-d-solothurner-spitaler-soh-dornach",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-innere-medizin-e-endokrinologie-m-w-d-solothurner-spitaler-soh-dornach",
-        "en": "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch"
+        "it": "medicina-interna-e-endocrinologia-w-m-d-solothurner-spitaler-soh-dornach",
+        "en": "senior-physician-internal-medicine-and-endocrinology-w-m-d-solothurner-spitaler-soh-dornach",
+        "fr": "medecin-principal-en-medecine-interne-et-endocrinologie-p-m-j-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1213,11 +1371,19 @@
       "workplace": "Spital Dornach",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch",
+          "oberarztin-oberarzt-innere-medizin-e-endokrinologie-m-w-d-solothurner-spitaler-soh-dornach"
+        ],
+        "en": [
+          "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch"
+        "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch",
+        "oberarztin-oberarzt-innere-medizin-e-endokrinologie-m-w-d-solothurner-spitaler-soh-dornach"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1235,12 +1401,12 @@
     },
     {
       "id": "solothurner-spitaeler-99a6a98acda8",
-      "slug": "kochin-koch-cfc-o-kuchenangestellter-kuchenangestellte-afp-in-ausbildung-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "chef-cuoco-efz-o-cucina-lavoratore-cucina-dipendente-eba-in-formazione-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "kochin-koch-efz-oder-kuchenangestellter-kuchenangestellte-eba-in-ausbildung-w-m-d-soh-ch",
-        "it": "kochin-koch-cfc-o-kuchenangestellter-kuchenangestellte-afp-in-ausbildung-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "kochin-koch-efz-oder-kuchenangestellter-kuchenangestellte-eba-in-ausbildung-w-m-d-soh-ch",
-        "fr": "kochin-koch-efz-oder-kuchenangestellter-kuchenangestellte-eba-in-ausbildung-w-m-d-soh-ch"
+        "it": "chef-cuoco-efz-o-cucina-lavoratore-cucina-dipendente-eba-in-formazione-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "chef-cook-efz-or-kitchen-worker-kitchen-employee-eba-in-training-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "chef-cuisinier-efz-ou-travailleur-de-cuisine-employe-de-cuisine-eba-en-formation-w-m-d-solothurner-spitaler-soh-solothur"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1287,11 +1453,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "kochin-koch-efz-oder-kuchenangestellter-kuchenangestellte-eba-in-ausbildung-w-m-d-soh-ch",
+          "kochin-koch-cfc-o-kuchenangestellter-kuchenangestellte-afp-in-ausbildung-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "kochin-koch-efz-oder-kuchenangestellter-kuchenangestellte-eba-in-ausbildung-w-m-d-soh-ch"
+        ],
+        "fr": [
           "kochin-koch-efz-oder-kuchenangestellter-kuchenangestellte-eba-in-ausbildung-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "kochin-koch-efz-oder-kuchenangestellter-kuchenangestellte-eba-in-ausbildung-w-m-d-soh-ch"
+        "kochin-koch-efz-oder-kuchenangestellter-kuchenangestellte-eba-in-ausbildung-w-m-d-soh-ch",
+        "kochin-koch-cfc-o-kuchenangestellter-kuchenangestellte-afp-in-ausbildung-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1309,12 +1483,12 @@
     },
     {
       "id": "solothurner-spitaeler-dc579ea21450",
-      "slug": "assistenzarztin-assistenzarzt-urologie-w-m-d-soh-ch",
+      "slug": "assistente-medico-urologie-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-urologie-w-m-d-soh-ch",
-        "it": "assistenzarztin-assistenzarzt-urologie-w-m-d-soh-ch",
-        "en": "assistenzarztin-assistenzarzt-urologie-w-m-d-soh-ch",
-        "fr": "assistenzarztin-assistenzarzt-urologie-w-m-d-soh-ch"
+        "it": "assistente-medico-urologie-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "assistant-physician-urologie-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "medecin-adjoint-urologie-p-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1371,16 +1545,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-urologie-w-m-d-soh-ch"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-urologie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-urologie-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-urologie-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-2293437be398",
-      "slug": "rettungssanitaterin-rettungssanitater-con-o-ohne-wb-expertin-experte-anasthesiepflege-m-w-d-solothurner-spitaler-soh-olten",
+      "slug": "analista-di-salvataggio-analista-di-salvataggio-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "rettungssanitaterin-rettungssanitater-mit-oder-ohne-wb-expertin-experte-anasthesiepflege-w",
-        "it": "rettungssanitaterin-rettungssanitater-con-o-ohne-wb-expertin-experte-anasthesiepflege-m-w-d-solothurner-spitaler-soh-olten",
-        "en": "rettungssanitaterin-rettungssanitater-mit-oder-ohne-wb-expertin-experte-anasthesiepflege-w",
-        "fr": "rettungssanitaterin-rettungssanitater-mit-oder-ohne-wb-expertin-experte-anasthesiepflege-w"
+        "it": "analista-di-salvataggio-analista-di-salvataggio-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "rescue-analyst-rescue-analyst-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "analyste-de-sauvetage-analyste-de-sauvetage-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1427,11 +1615,19 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugsByLocale": {
         "it": [
+          "rettungssanitaterin-rettungssanitater-mit-oder-ohne-wb-expertin-experte-anasthesiepflege-w",
+          "rettungssanitaterin-rettungssanitater-con-o-ohne-wb-expertin-experte-anasthesiepflege-m-w-d-solothurner-spitaler-soh-olten"
+        ],
+        "en": [
+          "rettungssanitaterin-rettungssanitater-mit-oder-ohne-wb-expertin-experte-anasthesiepflege-w"
+        ],
+        "fr": [
           "rettungssanitaterin-rettungssanitater-mit-oder-ohne-wb-expertin-experte-anasthesiepflege-w"
         ]
       },
       "previousSlugs": [
-        "rettungssanitaterin-rettungssanitater-mit-oder-ohne-wb-expertin-experte-anasthesiepflege-w"
+        "rettungssanitaterin-rettungssanitater-mit-oder-ohne-wb-expertin-experte-anasthesiepflege-w",
+        "rettungssanitaterin-rettungssanitater-con-o-ohne-wb-expertin-experte-anasthesiepflege-m-w-d-solothurner-spitaler-soh-olten"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1526,12 +1722,12 @@
     },
     {
       "id": "solothurner-spitaeler-f8bd5a6dd334",
-      "slug": "oberarztin-oberarzt-allgemeine-innere-medizin-w-m-d-soh-ch",
+      "slug": "medicina-interna-generale-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-allgemeine-innere-medizin-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-allgemeine-innere-medizin-w-m-d-soh-ch",
-        "en": "oberarztin-oberarzt-allgemeine-innere-medizin-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-allgemeine-innere-medizin-w-m-d-soh-ch"
+        "it": "medicina-interna-generale-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-physician-general-internal-medicine-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "medecin-general-principal-en-medecine-interne-p-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1588,16 +1784,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-w-m-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-e66af36c1a5b",
-      "slug": "pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-d-soh",
+      "slug": "infermieristica-ufficiale-infermieristica-medicina-operativa-focus-on-chirurgia-ortopedia-w-m-d-solothurner-spitaler-soh",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-d-soh",
-        "it": "pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-d-soh",
-        "en": "pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-d-soh",
-        "fr": "pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-d-soh"
+        "it": "infermieristica-ufficiale-infermieristica-medicina-operativa-focus-on-chirurgia-ortopedia-w-m-d-solothurner-spitaler-soh",
+        "en": "nursing-officer-nursing-officer-operational-medicine-focus-on-surgery-orthopaedics-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "agente-des-soins-infirmiers-agente-des-soins-infirmiers-medecine-operationnelle-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1654,16 +1864,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-d-soh"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-d-soh"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-d-soh"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-d-soh"
+      ]
     },
     {
       "id": "solothurner-spitaeler-34eddb27070b",
-      "slug": "mitarbeiterin-collaboratore-trice-verlegerdienst-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-10bb48",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verlegerdienst-w-m-d-soh-ch",
-        "it": "mitarbeiterin-collaboratore-trice-verlegerdienst-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "mitarbeiterin-mitarbeiter-verlegerdienst-w-m-d-soh-ch",
-        "fr": "mitarbeiterin-mitarbeiter-verlegerdienst-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-10bb48",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-10bb48",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-10bb48"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1710,11 +1934,19 @@
       "workplace": "Solothurner Spitäler AG",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-verlegerdienst-w-m-d-soh-ch",
+          "mitarbeiterin-collaboratore-trice-verlegerdienst-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-verlegerdienst-w-m-d-soh-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-verlegerdienst-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verlegerdienst-w-m-d-soh-ch"
+        "mitarbeiterin-mitarbeiter-verlegerdienst-w-m-d-soh-ch",
+        "mitarbeiterin-collaboratore-trice-verlegerdienst-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1732,12 +1964,12 @@
     },
     {
       "id": "solothurner-spitaeler-706eabe7c427",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-e-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "dipl-carriera-carriera-e-specialista-professional-health-care-pool-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c",
-        "it": "dipl-pflegefachfrau-pflegefachmann-e-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c"
+        "it": "dipl-carriera-carriera-e-specialista-professional-health-care-pool-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "dipl-career-career-and-specialist-professional-health-care-pool-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "dipl-carriere-carriere-et-specialiste-pool-professionnel-de-soins-de-sante-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1784,11 +2016,19 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c",
+          "dipl-pflegefachfrau-pflegefachmann-e-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c"
+        "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c",
+        "dipl-pflegefachfrau-pflegefachmann-e-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1885,12 +2125,12 @@
     },
     {
       "id": "solothurner-spitaeler-310149243943",
-      "slug": "hausarztin-hausarzt-w-m-d-soh-ch",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-w-m-d-solothurner-spitaler-soh-solothurn",
-        "it": "hausarztin-hausarzt-w-m-d-soh-ch",
-        "en": "hausarztin-hausarzt-w-m-d-soh-ch",
-        "fr": "hausarztin-hausarzt-w-m-d-soh-ch"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-1cedfd"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -1946,7 +2186,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-w-m-d-soh-ch"
+        ],
+        "en": [
+          "hausarztin-hausarzt-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-995061b50544",
@@ -2027,12 +2281,12 @@
     },
     {
       "id": "solothurner-spitaeler-ebdc62139e1f",
-      "slug": "oberarztin-oberarzt-intensivstation-w-m-d-soh-ch",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-4158d4",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-intensivstation-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-intensivstation-w-m-d-soh-ch",
-        "en": "oberarztin-oberarzt-intensivstation-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-intensivstation-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-4158d4",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-4158d4",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-4158d4"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2089,16 +2343,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-intensivstation-w-m-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-intensivstation-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-intensivstation-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-intensivstation-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-ed3c71ca3f53",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-o-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-dornach",
+      "slug": "dipl-carriera-career-career-o-professional-health-care-pool-w-m-d-solothurner-spitaler-soh-dornach",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-",
-        "it": "dipl-pflegefachfrau-pflegefachmann-o-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-dornach",
-        "en": "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-"
+        "it": "dipl-carriera-career-career-o-professional-health-care-pool-w-m-d-solothurner-spitaler-soh-dornach",
+        "en": "dipl-career-career-career-or-professional-health-care-pool-w-m-d-solothurner-spitaler-soh-dornach",
+        "fr": "dipl-carriere-carriere-ou-bassin-professionnel-de-soins-de-sante-p-m-d-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2145,11 +2413,19 @@
       "workplace": "Spital Dornach",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-",
+          "dipl-pflegefachfrau-pflegefachmann-o-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-dornach"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-"
+        "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-",
+        "dipl-pflegefachfrau-pflegefachmann-o-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-dornach"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2167,12 +2443,12 @@
     },
     {
       "id": "solothurner-spitaeler-1a4961e85035",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d-soh-ch",
+      "slug": "dipl-assistenza-agli-anziani-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d-soh-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d-soh-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d-soh-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d-soh-ch"
+        "it": "dipl-assistenza-agli-anziani-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "dipl-senior-caregiver-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "dipl-soins-aux-aines-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2229,16 +2505,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d-soh-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-4fb0d49c3539",
-      "slug": "praktikantin-praktikant-zusatzmodul-b-abschlusspraktikum-bachelor-of-science-pflege-w-m-d-",
+      "slug": "praktikant-praktikant-b-graduate-internship-bachelor-of-science-care-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "praktikantin-praktikant-zusatzmodul-b-abschlusspraktikum-bachelor-of-science-pflege-w-m-d-",
-        "it": "praktikantin-praktikant-zusatzmodul-b-abschlusspraktikum-bachelor-of-science-pflege-w-m-d-",
+        "it": "praktikant-praktikant-b-graduate-internship-bachelor-of-science-care-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "praktikantin-praktikant-zusatzmodul-b-abschlusspraktikum-bachelor-of-science-pflege-w-m-d-",
-        "fr": "praktikantin-praktikant-zusatzmodul-b-abschlusspraktikum-bachelor-of-science-pflege-w-m-d-"
+        "fr": "praktikant-praktikant-b-baccalaureat-en-sciences-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2295,16 +2585,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-zusatzmodul-b-abschlusspraktikum-bachelor-of-science-pflege-w-m-d-"
+        ],
+        "fr": [
+          "praktikantin-praktikant-zusatzmodul-b-abschlusspraktikum-bachelor-of-science-pflege-w-m-d-"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-zusatzmodul-b-abschlusspraktikum-bachelor-of-science-pflege-w-m-d-"
+      ]
     },
     {
       "id": "solothurner-spitaeler-ce109dd29cc5",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-chirurgie-sowie-frauenklinik-wochnerinnenabteilung-w-m-",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-cfc383",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-chirurgie-sowie-frauenklinik-wochnerinnenabteilung-w-m-",
-        "it": "dipl-pflegefachfrau-pflegefachmann-chirurgie-sowie-frauenklinik-wochnerinnenabteilung-w-m-",
-        "en": "dipl-pflegefachfrau-pflegefachmann-chirurgie-sowie-frauenklinik-wochnerinnenabteilung-w-m-",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-chirurgie-sowie-frauenklinik-wochnerinnenabteilung-w-m-"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-cfc383",
+        "en": "dipl-senior-consultant-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "conseiller-principal-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2361,7 +2662,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-chirurgie-sowie-frauenklinik-wochnerinnenabteilung-w-m-"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-chirurgie-sowie-frauenklinik-wochnerinnenabteilung-w-m-"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-chirurgie-sowie-frauenklinik-wochnerinnenabteilung-w-m-"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-chirurgie-sowie-frauenklinik-wochnerinnenabteilung-w-m-"
+      ]
     },
     {
       "id": "solothurner-spitaeler-9fdb2ad5479b",
@@ -2435,8 +2750,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch",
         "it": "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch"
+        "en": "dipl-senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "dipl-consultant-principal-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2497,12 +2812,12 @@
     },
     {
       "id": "solothurner-spitaeler-02ec51696726",
-      "slug": "fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-19853e",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch",
-        "en": "fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-19853e",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn-19853e",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-19853e"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2559,16 +2874,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-stationare-dienste-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-d0d2cecbf84c",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d-soh-ch",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-f65cfa",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d-soh-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d-soh-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d-soh-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-f65cfa",
+        "en": "dipl-senior-consultant-m-d-solothurner-spitaler-soh-solothurn-f65cfa",
+        "fr": "conseiller-principal-m-d-solothurner-spitaler-soh-solothurn-f65cfa"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2625,13 +2954,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d-soh-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-e9e5170d32bf",
       "slug": "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch",
       "slugByLocale": {
-        "de": "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch",
+        "de": "pflegfachfrau-pflegefachmann-w-m-d-solothurner-spitaler-soh-solothurn",
         "it": "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch",
         "en": "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch",
         "fr": "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch"
@@ -2695,12 +3038,12 @@
     },
     {
       "id": "solothurner-spitaeler-2d0e3ac9a0da",
-      "slug": "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-pflege-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-681bad",
       "slugByLocale": {
         "de": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-pflege-w-m-d-soh-ch",
-        "it": "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-pflege-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-pflege-w-m-d-soh-ch",
-        "fr": "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-pflege-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-681bad",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-681bad",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-681bad"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2747,11 +3090,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-pflege-w-m-d-soh-ch",
+          "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-pflege-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-pflege-w-m-d-soh-ch"
+        ],
+        "fr": [
           "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-pflege-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-pflege-w-m-d-soh-ch"
+        "freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-pflege-w-m-d-soh-ch",
+        "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-pflege-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2773,8 +3124,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch",
         "it": "oberarztin-oberarzt-kinder-e-jugendpsychiatrie-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch"
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-bf7b5a",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-bf7b5a"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2822,6 +3173,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
@@ -2844,12 +3201,12 @@
     },
     {
       "id": "solothurner-spitaeler-c76c7f70b91c",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d-soh-",
+      "slug": "dipl-specialista-di-cura-unita-di-stroke-con-monitoraggio-incl-medicina-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d-soh-",
-        "it": "dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d-soh-",
-        "en": "dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d-soh-",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d-soh-"
+        "it": "dipl-specialista-di-cura-unita-di-stroke-con-monitoraggio-incl-medicina-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "dipl-care-specialist-stroke-unit-with-monitoring-incl-medicine-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "dipl-service-de-soins-specialises-pour-les-accidents-cerebrovasculaires-avec-surveillance-y-compris-la-medecine-m-d-solo"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2906,7 +3263,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.396Z"
+      "firstSeenAt": "2026-05-10T22:25:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d-soh-"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d-soh-"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d-soh-"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d-soh-"
+      ]
     },
     {
       "id": "solothurner-spitaeler-92a572ad34b1",
@@ -2915,7 +3286,7 @@
         "de": "expertin-experte-anasthesiepflege-pool-w-m-d-soh-ch",
         "it": "expertin-experte-anasthesiepflege-pool-w-m-d-soh-ch",
         "en": "expertin-experte-anasthesiepflege-pool-w-m-d-soh-ch",
-        "fr": "expertin-experte-anasthesiepflege-pool-w-m-d-soh-ch"
+        "fr": "piscine-d-anesthesie-experte-m-j-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -2976,12 +3347,12 @@
     },
     {
       "id": "solothurner-spitaeler-e1ece7919ba8",
-      "slug": "berufsvorbereitungsjahr-bvj-hauswirtschaft-reinigung-m-w-d-soh-ch",
+      "slug": "gestione-del-prodotto-m-w-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "berufsvorbereitungsjahr-bvj-hauswirtschaft-reinigung-m-w-d-soh-ch",
-        "it": "berufsvorbereitungsjahr-bvj-hauswirtschaft-reinigung-m-w-d-soh-ch",
-        "en": "berufsvorbereitungsjahr-bvj-hauswirtschaft-reinigung-m-w-d-soh-ch",
-        "fr": "berufsvorbereitungsjahr-bvj-hauswirtschaft-reinigung-m-w-d-soh-ch"
+        "it": "gestione-del-prodotto-m-w-d-solothurner-spitaler-soh-solothurn",
+        "en": "projektmanagement-m-w-d-solothurner-spitaler-soh-solothurn",
+        "fr": "gestion-du-projet-m-w-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3038,16 +3409,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsvorbereitungsjahr-bvj-hauswirtschaft-reinigung-m-w-d-soh-ch"
+        ],
+        "en": [
+          "berufsvorbereitungsjahr-bvj-hauswirtschaft-reinigung-m-w-d-soh-ch"
+        ],
+        "fr": [
+          "berufsvorbereitungsjahr-bvj-hauswirtschaft-reinigung-m-w-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsvorbereitungsjahr-bvj-hauswirtschaft-reinigung-m-w-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-83c29e264978",
-      "slug": "fachfrau-fachmann-gesundheit-ips-w-m-d-soh-ch",
+      "slug": "ips-di-salute-professionale-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-ips-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-gesundheit-ips-w-m-d-soh-ch",
-        "en": "fachfrau-fachmann-gesundheit-ips-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-gesundheit-ips-w-m-d-soh-ch"
+        "it": "ips-di-salute-professionale-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "professional-health-ips-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "sante-professionnelle-ips-p-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3104,16 +3489,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-ips-w-m-d-soh-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-ips-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-ips-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-ips-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-29a94a892da9",
-      "slug": "mitarbeiterin-collaboratore-trice-hauswirtschaft-con-schwerpunkt-reinigung-spezialbereiche-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-66b7d4",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s",
-        "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-con-schwerpunkt-reinigung-spezialbereiche-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-66b7d4",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn-66b7d4",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-66b7d4"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3160,11 +3559,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s",
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-con-schwerpunkt-reinigung-spezialbereiche-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s"
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-con-schwerpunkt-reinigung-spezialbereiche-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3182,12 +3589,12 @@
     },
     {
       "id": "solothurner-spitaeler-731d5440c2d6",
-      "slug": "betriebselektrikerin-betriebselektriker-o-systemspezialistin-systemspezialist-elektro-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "elettricista-operatore-elettricista-o-sistemi-specialista-sistemi-specialist-elektro-w-m-d-solothurner-spitaler-soh-solo",
       "slugByLocale": {
         "de": "betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w",
-        "it": "betriebselektrikerin-betriebselektriker-o-systemspezialistin-systemspezialist-elektro-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w",
-        "fr": "betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w"
+        "it": "elettricista-operatore-elettricista-o-sistemi-specialista-sistemi-specialist-elektro-w-m-d-solothurner-spitaler-soh-solo",
+        "en": "operating-electrician-operating-electrician-or-systems-specialist-systems-specialist-elektro-w-m-d-solothurner-spitaler-",
+        "fr": "electricien-en-exploitation-electricien-en-exploitation-ou-specialiste-des-systemes-specialiste-des-systemes-elektro-w-m"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3234,11 +3641,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w",
+          "betriebselektrikerin-betriebselektriker-o-systemspezialistin-systemspezialist-elektro-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w"
+        ],
+        "fr": [
           "betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w"
         ]
       },
       "previousSlugs": [
-        "betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w"
+        "betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w",
+        "betriebselektrikerin-betriebselektriker-o-systemspezialistin-systemspezialist-elektro-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3256,12 +3671,12 @@
     },
     {
       "id": "solothurner-spitaeler-4a83661af441",
-      "slug": "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "expertin-experte-anasthesiepflege-w-m-d-soh-ch",
-        "it": "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2",
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-olten",
         "en": "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2",
-        "fr": "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2"
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3318,7 +3733,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2"
+        ],
+        "fr": [
+          "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2"
+      ]
     },
     {
       "id": "solothurner-spitaeler-bf6b87021311",
@@ -3326,8 +3752,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch"
+        "en": "dipl-senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "dipl-consultant-principal-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3390,7 +3816,7 @@
       "id": "solothurner-spitaeler-c84e0038b5c8",
       "slug": "expertin-experte-notfallpflege-w-m-d-soh-ch",
       "slugByLocale": {
-        "de": "expertin-experte-notfallpflege-w-m-d-soh-ch",
+        "de": "praktikant-praktikantin-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn",
         "it": "expertin-experte-notfallpflege-w-m-d-soh-ch",
         "en": "expertin-experte-notfallpflege-w-m-d-soh-ch",
         "fr": "expertin-experte-notfallpflege-w-m-d-soh-ch"
@@ -3458,7 +3884,7 @@
         "de": "pflegefachfrau-pflegefachmann-operative-bettenstation-schwerpunkt-chirurgie-orthopadie-w-m",
         "it": "pflegefachfrau-pflegefachmann-operative-bettenstation-schwerpunkt-chirurgie-orthopadie-w-m",
         "en": "pflegefachfrau-pflegefachmann-operative-bettenstation-schwerpunkt-chirurgie-orthopadie-w-m",
-        "fr": "pflegefachfrau-pflegefachmann-operative-bettenstation-schwerpunkt-chirurgie-orthopadie-w-m"
+        "fr": "soins-aux-aines-bettenstation-operationnelle-chirurgie-orthopedie-p-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3519,12 +3945,12 @@
     },
     {
       "id": "solothurner-spitaeler-4f66ec5870fa",
-      "slug": "oberarztin-oberarzt-medizin-w-m-d-soh-ch",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-olten-acb83f",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-medizin-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-medizin-w-m-d-soh-ch",
-        "en": "oberarztin-oberarzt-medizin-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-medizin-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-olten-acb83f",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-olten",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-olten-acb83f"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3584,27 +4010,31 @@
       "firstSeenAt": "2026-05-10T22:25:06.395Z",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2"
+          "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2",
+          "oberarztin-oberarzt-medizin-w-m-d-soh-ch"
         ],
         "en": [
-          "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2"
+          "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2",
+          "oberarztin-oberarzt-medizin-w-m-d-soh-ch"
         ],
         "fr": [
-          "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2"
+          "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2",
+          "oberarztin-oberarzt-medizin-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2"
+        "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2",
+        "oberarztin-oberarzt-medizin-w-m-d-soh-ch"
       ]
     },
     {
       "id": "solothurner-spitaeler-390ac3089f19",
-      "slug": "leitende-arztin-leitender-arzt-hamatologie-w-m-d-soh-ch",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-dornach-d8b2cc",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-hamatologie-w-m-d-soh-ch",
-        "it": "leitende-arztin-leitender-arzt-hamatologie-w-m-d-soh-ch",
-        "en": "leitende-arztin-leitender-arzt-hamatologie-w-m-d-soh-ch",
-        "fr": "leitende-arztin-leitender-arzt-hamatologie-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-dornach-d8b2cc",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-dornach",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-dornach-d8b2cc"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3661,16 +4091,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-hamatologie-w-m-d-soh-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-hamatologie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-hamatologie-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-hamatologie-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-be462a3310cf",
-      "slug": "assistenzarztin-assistenzarzt-kinder-e-jugendpsychiatrie-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-a1b11b",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch",
-        "it": "assistenzarztin-assistenzarzt-kinder-e-jugendpsychiatrie-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch",
-        "fr": "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-a1b11b",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-a1b11b",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-a1b11b"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3717,11 +4161,19 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch",
+          "assistenzarztin-assistenzarzt-kinder-e-jugendpsychiatrie-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch"
+        "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch",
+        "assistenzarztin-assistenzarzt-kinder-e-jugendpsychiatrie-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3743,8 +4195,8 @@
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
         "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
-        "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
-        "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch"
+        "en": "radiology-specialist-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3881,12 +4333,12 @@
     },
     {
       "id": "solothurner-spitaeler-1a0a82238f14",
-      "slug": "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-ch",
+      "slug": "cuocere-dietetico-cuoco-di-dieta-in-educazione-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-ch",
-        "it": "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-ch",
-        "en": "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-ch",
-        "fr": "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-ch"
+        "it": "cuocere-dietetico-cuoco-di-dieta-in-educazione-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "diet-cook-diet-cook-in-education-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "cuisiniere-dietetique-cuisiniere-dietetique-en-education-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -3943,16 +4395,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-ch"
+        ],
+        "en": [
+          "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-d601d1fdc9fa",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-orthopadie-hno-plastische-chirurgie-w-m-d-soh-ch",
+      "slug": "dipl-infermieristica-specialista-ortopedia-hno-chirurgia-plastica-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-orthopadie-hno-plastische-chirurgie-w-m-d-soh-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-orthopadie-hno-plastische-chirurgie-w-m-d-soh-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-orthopadie-hno-plastische-chirurgie-w-m-d-soh-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-orthopadie-hno-plastische-chirurgie-w-m-d-soh-ch"
+        "it": "dipl-infermieristica-specialista-ortopedia-hno-chirurgia-plastica-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "dipl-nursing-specialist-orthopaedics-hno-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "dipl-specialiste-en-orthopedie-hno-chirurgie-plastique-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4009,7 +4475,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-orthopadie-hno-plastische-chirurgie-w-m-d-soh-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-orthopadie-hno-plastische-chirurgie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-orthopadie-hno-plastische-chirurgie-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-orthopadie-hno-plastische-chirurgie-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-262b4bbd19bc",
@@ -4232,12 +4712,12 @@
     },
     {
       "id": "solothurner-spitaeler-a29d748c51f5",
-      "slug": "mitarbeiterin-collaboratore-trice-psychiatrische-1-betreuung-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-34a905",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-psychiatrische-1-1-betreuung-w-m-d-soh-ch",
-        "it": "mitarbeiterin-collaboratore-trice-psychiatrische-1-betreuung-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "mitarbeiterin-mitarbeiter-psychiatrische-1-1-betreuung-w-m-d-soh-ch",
-        "fr": "mitarbeiterin-mitarbeiter-psychiatrische-1-1-betreuung-w-m-d-soh-ch"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-34a905",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn-34a905",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-34a905"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4284,11 +4764,19 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-psychiatrische-1-1-betreuung-w-m-d-soh-ch",
+          "mitarbeiterin-collaboratore-trice-psychiatrische-1-betreuung-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-psychiatrische-1-1-betreuung-w-m-d-soh-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-psychiatrische-1-1-betreuung-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-psychiatrische-1-1-betreuung-w-m-d-soh-ch"
+        "mitarbeiterin-mitarbeiter-psychiatrische-1-1-betreuung-w-m-d-soh-ch",
+        "mitarbeiterin-collaboratore-trice-psychiatrische-1-betreuung-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4306,12 +4794,12 @@
     },
     {
       "id": "solothurner-spitaeler-51391633e554",
-      "slug": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch",
+      "slug": "infermieristica-hf-in-formazione-somatik-accorcia-2-3-4-anni-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch",
-        "it": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch",
-        "en": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch",
-        "fr": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch"
+        "it": "infermieristica-hf-in-formazione-somatik-accorcia-2-3-4-anni-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "nursing-specialist-hf-in-training-somatik-shortens-2-3-4-years-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "specialiste-des-soins-infirmiers-hf-en-formation-somatik-raccourcit-2-3-4-ans-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4368,16 +4856,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-331dfd8ea12e",
-      "slug": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch-2",
+      "slug": "infermieristica-hf-in-formazione-somatik-accorcia-2-3-4-anni-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch",
-        "it": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch-2",
-        "en": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch-2",
-        "fr": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch-2"
+        "it": "infermieristica-hf-in-formazione-somatik-accorcia-2-3-4-anni-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "nursing-specialist-hf-in-training-somatik-shortens-2-3-4-years-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "specialiste-des-soins-infirmiers-hf-en-formation-somatik-raccourcit-2-3-4-ans-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4434,16 +4936,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch-2"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch-2"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch-2"
+      ]
     },
     {
       "id": "solothurner-spitaeler-b0eb76a1793e",
-      "slug": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-",
+      "slug": "specialista-in-allattamento-hf-in-psichiatria-di-formazione-accorcia-2-3-4-anni-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-",
-        "it": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-",
-        "en": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-",
-        "fr": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-"
+        "it": "specialista-in-allattamento-hf-in-psichiatria-di-formazione-accorcia-2-3-4-anni-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "nursing-specialist-hf-in-training-psychiatry-shortens-2-3-4-years-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "specialiste-des-soins-infirmiers-hf-en-psychiatrie-de-formation-raccourcit-2-3-4-ans-m-j-solothurner-spitaler-soh-soloth"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4500,16 +5016,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-"
+      ]
     },
     {
       "id": "solothurner-spitaeler-c4dcb14d5154",
-      "slug": "fachfrau-fachmann-gesundheit-station-a2-w-m-d-soh-ch",
+      "slug": "stazione-sanitaria-professionale-a2-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-station-a2-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-gesundheit-station-a2-w-m-d-soh-ch",
-        "en": "fachfrau-fachmann-gesundheit-station-a2-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-gesundheit-station-a2-w-m-d-soh-ch"
+        "it": "stazione-sanitaria-professionale-a2-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "professional-health-station-a2-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "centre-de-sante-professionnel-a2-p-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4566,7 +5096,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-station-a2-w-m-d-soh-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-station-a2-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-station-a2-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-station-a2-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-9951bb341338",
@@ -4574,7 +5118,7 @@
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-bauherrenvertretung-w-m-d-soh-ch",
         "it": "projektleiterin-projektleiter-bauherrenvertretung-m-w-d-solothurner-spitaler-soh-olten",
-        "en": "projektleiterin-projektleiter-bauherrenvertretung-w-m-d-soh-ch",
+        "en": "projektleiter-m-d-solothurner-spitaler-soh-olten",
         "fr": "projektleiterin-projektleiter-bauherrenvertretung-w-m-d-soh-ch"
       },
       "company": "Solothurner Spitäler (soH)",
@@ -4623,6 +5167,9 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiterin-projektleiter-bauherrenvertretung-w-m-d-soh-ch"
+        ],
+        "en": [
+          "projektleiterin-projektleiter-bauherrenvertretung-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
@@ -4644,12 +5191,12 @@
     },
     {
       "id": "solothurner-spitaeler-4a6a56b6a379",
-      "slug": "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch",
+      "slug": "praktikant-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch",
-        "it": "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch",
+        "it": "praktikant-w-m-d-solothurner-spitaler-soh-olten",
         "en": "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch",
-        "fr": "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch"
+        "fr": "praktikan-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4706,16 +5253,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-0fc694c50182",
-      "slug": "fachfrau-fachmann-gesundheit-e-stationsassistenz-stationare-dienste-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-47d042",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-und-stationsassistenz-stationare-dienste-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-gesundheit-e-stationsassistenz-stationare-dienste-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "fachfrau-fachmann-gesundheit-und-stationsassistenz-stationare-dienste-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-gesundheit-und-stationsassistenz-stationare-dienste-w-m-d-soh-ch"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-47d042",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn-47d042",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-47d042"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4762,11 +5320,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-und-stationsassistenz-stationare-dienste-w-m-d-soh-ch",
+          "fachfrau-fachmann-gesundheit-e-stationsassistenz-stationare-dienste-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-und-stationsassistenz-stationare-dienste-w-m-d-soh-ch"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-und-stationsassistenz-stationare-dienste-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-und-stationsassistenz-stationare-dienste-w-m-d-soh-ch"
+        "fachfrau-fachmann-gesundheit-und-stationsassistenz-stationare-dienste-w-m-d-soh-ch",
+        "fachfrau-fachmann-gesundheit-e-stationsassistenz-stationare-dienste-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4784,12 +5350,12 @@
     },
     {
       "id": "solothurner-spitaeler-96e6529d74c4",
-      "slug": "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-soh-olten",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-olten-a8ed0b",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-ch",
-        "it": "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-soh-olten",
-        "en": "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-ch",
-        "fr": "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-olten-a8ed0b",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-olten-a8ed0b",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-olten-a8ed0b"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4836,11 +5402,19 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-ch",
+          "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-soh-olten"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-ch"
+        "mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d-soh-ch",
+        "mitarbeiterin-collaboratore-trice-aemp-zsva-m-w-d-solothurner-spitaler-soh-olten"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4858,12 +5432,12 @@
     },
     {
       "id": "solothurner-spitaeler-d91f512d824c",
-      "slug": "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-dornach-b1ed46",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-medizin-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2",
-        "en": "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2",
-        "fr": "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-dornach-b1ed46",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-dornach-b1ed46",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-dornach-b1ed46"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4920,14 +5494,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2"
+        ],
+        "en": [
+          "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2"
+      ]
     },
     {
       "id": "solothurner-spitaeler-5e8a03c4b6c2",
-      "slug": "fachfrau-fachmann-operationstechnik-toa-w-m-d-soh-ch",
+      "slug": "specialista-esperto-operationstechnik-toa-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-toa-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-operationstechnik-toa-w-m-d-soh-ch",
+        "it": "specialista-esperto-operationstechnik-toa-w-m-d-solothurner-spitaler-soh-olten",
         "en": "fachfrau-fachmann-operationstechnik-toa-w-m-d-soh-ch",
         "fr": "fachfrau-fachmann-operationstechnik-toa-w-m-d-soh-ch"
       },
@@ -4986,7 +5574,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-toa-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-toa-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-fb6b1c0e8c6f",
@@ -5056,12 +5652,12 @@
     },
     {
       "id": "solothurner-spitaeler-661610e688dc",
-      "slug": "oberarztin-oberarzt-kppp-w-m-d-soh-ch",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-865531",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-kppp-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-kppp-w-m-d-soh-ch",
-        "en": "oberarztin-oberarzt-kppp-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-kppp-w-m-d-soh-ch"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-865531",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn-865531",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-865531"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5118,16 +5714,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-kppp-w-m-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-kppp-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-kppp-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-kppp-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-cb95b090dfaa",
-      "slug": "fachgruppenleiterin-fachgruppenleiter-medizintechnik-w-m-d-soh-ch",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-olten-041eef",
       "slugByLocale": {
         "de": "fachgruppenleiterin-fachgruppenleiter-medizintechnik-w-m-d-soh-ch",
-        "it": "fachgruppenleiterin-fachgruppenleiter-medizintechnik-w-m-d-soh-ch",
-        "en": "fachgruppenleiterin-fachgruppenleiter-medizintechnik-w-m-d-soh-ch",
-        "fr": "fachgruppenleiterin-fachgruppenleiter-medizintechnik-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-olten-041eef",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-olten-041eef",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-olten-041eef"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5184,16 +5794,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachgruppenleiterin-fachgruppenleiter-medizintechnik-w-m-d-soh-ch"
+        ],
+        "en": [
+          "fachgruppenleiterin-fachgruppenleiter-medizintechnik-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "fachgruppenleiterin-fachgruppenleiter-medizintechnik-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachgruppenleiterin-fachgruppenleiter-medizintechnik-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-939b77aa0dfc",
-      "slug": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-b1-w-m-d-soh-ch",
+      "slug": "professionista-professionista-specialista-professional-health-station-b1-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-b1-w-m-d-soh-ch",
-        "it": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-b1-w-m-d-soh-ch",
-        "en": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-b1-w-m-d-soh-ch",
-        "fr": "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-b1-w-m-d-soh-ch"
+        "it": "professionista-professionista-specialista-professional-health-station-b1-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "profession-maker-profession-maker-specialist-professional-health-station-b1-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "metiers-metiers-specialistes-centre-de-sante-professionnel-b1-p-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5250,16 +5874,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-b1-w-m-d-soh-ch"
+        ],
+        "en": [
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-b1-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-b1-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-b1-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-3260bda8c1ec",
-      "slug": "oberarztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d-soh-ch",
+      "slug": "medicina-interna-medica-senior-con-focus-sulla-cura-palliative-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d-soh-ch",
-        "en": "oberarztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d-soh-ch"
+        "it": "medicina-interna-medica-senior-con-focus-sulla-cura-palliative-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-physician-internal-medicine-with-focus-on-palliative-care-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "medecin-principal-en-medecine-interne-axee-sur-les-soins-palliatifs-p-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5316,7 +5954,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-eb0e7cbeb4be",
@@ -5386,12 +6038,12 @@
     },
     {
       "id": "solothurner-spitaeler-14e99a781459",
-      "slug": "ex-in-genesungsbegleiterin-genesungsbegleiter-station-c1-w-m-d-soh-ch",
+      "slug": "ex-in-genesis-accompanyer-genesis-accompanyer-station-c1-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "ex-in-genesungsbegleiterin-genesungsbegleiter-station-c1-w-m-d-soh-ch",
-        "it": "ex-in-genesungsbegleiterin-genesungsbegleiter-station-c1-w-m-d-soh-ch",
+        "it": "ex-in-genesis-accompanyer-genesis-accompanyer-station-c1-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "ex-in-genesungsbegleiterin-genesungsbegleiter-station-c1-w-m-d-soh-ch",
-        "fr": "ex-in-genesungsbegleiterin-genesungsbegleiter-station-c1-w-m-d-soh-ch"
+        "fr": "ex-in-genesis-accompagneur-genesis-accompagneur-station-c1-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5447,13 +6099,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ex-in-genesungsbegleiterin-genesungsbegleiter-station-c1-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "ex-in-genesungsbegleiterin-genesungsbegleiter-station-c1-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ex-in-genesungsbegleiterin-genesungsbegleiter-station-c1-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-7e66dd3dfa19",
       "slug": "expertin-experte-notfallpflege-w-m-d-soh-ch-2",
       "slugByLocale": {
-        "de": "expertin-experte-notfallpflege-w-m-d-soh-ch",
+        "de": "praktikant-praktikantin-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn-74cf5e",
         "it": "expertin-experte-notfallpflege-w-m-d-soh-ch-2",
         "en": "expertin-experte-notfallpflege-w-m-d-soh-ch-2",
         "fr": "expertin-experte-notfallpflege-w-m-d-soh-ch-2"
@@ -5513,16 +6176,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "expertin-experte-notfallpflege-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-notfallpflege-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-6486bdcaa8f6",
-      "slug": "sap-hcm-modulbetreuerin-inhouse-beraterin-modulbetreuer-inhouse-berater-w-m-d-soh-ch",
+      "slug": "sap-hcm-module-manager-inhouse-consultant-inhouse-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "sap-hcm-modulbetreuerin-inhouse-beraterin-modulbetreuer-inhouse-berater-w-m-d-soh-ch",
-        "it": "sap-hcm-modulbetreuerin-inhouse-beraterin-modulbetreuer-inhouse-berater-w-m-d-soh-ch",
+        "it": "sap-hcm-module-manager-inhouse-consultant-inhouse-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "sap-hcm-modulbetreuerin-inhouse-beraterin-modulbetreuer-inhouse-berater-w-m-d-soh-ch",
-        "fr": "sap-hcm-modulbetreuerin-inhouse-beraterin-modulbetreuer-inhouse-berater-w-m-d-soh-ch"
+        "fr": "gestionnaire-du-module-sap-hcm-consultant-interne-consultant-interne-p-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5579,16 +6250,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-hcm-modulbetreuerin-inhouse-beraterin-modulbetreuer-inhouse-berater-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "sap-hcm-modulbetreuerin-inhouse-beraterin-modulbetreuer-inhouse-berater-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sap-hcm-modulbetreuerin-inhouse-beraterin-modulbetreuer-inhouse-berater-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-dded48a9796c",
-      "slug": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkurzt-2-jahre-w-m-d-",
+      "slug": "specialista-in-allattamento-hf-in-psichiatria-di-formazione-3-anni-abbreviato-2-anni-w-m-d-solothurner-spitaler-soh-solo",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkurzt-2-jahre-w-m-d-",
-        "it": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkurzt-2-jahre-w-m-d-",
-        "en": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkurzt-2-jahre-w-m-d-",
-        "fr": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkurzt-2-jahre-w-m-d-"
+        "it": "specialista-in-allattamento-hf-in-psichiatria-di-formazione-3-anni-abbreviato-2-anni-w-m-d-solothurner-spitaler-soh-solo",
+        "en": "nursing-specialist-hf-in-training-psychiatry-3-years-shortened-2-years-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "specialiste-des-soins-infirmiers-hf-en-psychiatrie-de-formation-3-ans-raccourci-2-ans-p-m-d-solothurner-spitaler-soh-sol"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5645,16 +6327,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkurzt-2-jahre-w-m-d-"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkurzt-2-jahre-w-m-d-"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkurzt-2-jahre-w-m-d-"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkurzt-2-jahre-w-m-d-"
+      ]
     },
     {
       "id": "solothurner-spitaeler-f5d073cb2b32",
-      "slug": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch",
+      "slug": "infermieristica-hf-in-formazione-somatik-4-anni-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch",
-        "it": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch",
-        "en": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch",
-        "fr": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch"
+        "it": "infermieristica-hf-in-formazione-somatik-4-anni-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "nursing-specialist-hf-in-training-somatik-4-years-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "specialiste-des-soins-infirmiers-hf-en-formation-somatik-4-ans-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5714,27 +6410,31 @@
       "firstSeenAt": "2026-05-10T22:25:06.395Z",
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2"
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2",
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch"
         ],
         "en": [
-          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2"
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2",
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch"
         ],
         "fr": [
-          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2"
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2",
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2"
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2",
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch"
       ]
     },
     {
       "id": "solothurner-spitaeler-91e1a9599575",
-      "slug": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2",
+      "slug": "infermieristica-hf-in-formazione-somatik-4-anni-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch",
-        "it": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2",
-        "en": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2",
-        "fr": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2"
+        "it": "infermieristica-hf-in-formazione-somatik-4-anni-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "nursing-specialist-hf-in-training-somatik-4-years-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "specialiste-des-soins-infirmiers-hf-en-formation-somatik-4-ans-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5791,16 +6491,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2"
+      ]
     },
     {
       "id": "solothurner-spitaeler-da83eca8c8f9",
-      "slug": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-5-jahre-w-m-d-soh-ch",
+      "slug": "specialista-in-allattamento-hf-in-psichiatria-di-formazione-abbrevia-2-5-anni-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-5-jahre-w-m-d-soh-ch",
-        "it": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-5-jahre-w-m-d-soh-ch",
-        "en": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-5-jahre-w-m-d-soh-ch",
-        "fr": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-5-jahre-w-m-d-soh-ch"
+        "it": "specialista-in-allattamento-hf-in-psichiatria-di-formazione-abbrevia-2-5-anni-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "nursing-specialist-hf-in-training-psychiatry-shortens-2-5-years-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "specialiste-des-soins-infirmiers-en-psychiatrie-de-la-formation-raccourcit-de-2-5-ans-m-j-solothurner-spitaler-soh-solot"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5857,16 +6571,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-5-jahre-w-m-d-soh-ch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-5-jahre-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-5-jahre-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-5-jahre-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-f31681f19bc6",
-      "slug": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-4-jahre-w-m-d-soh-ch",
+      "slug": "assistenza-agli-anziani-hf-in-psichiatria-dell-educazione-4-anni-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-4-jahre-w-m-d-soh-ch",
-        "it": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-4-jahre-w-m-d-soh-ch",
-        "en": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-4-jahre-w-m-d-soh-ch",
-        "fr": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-4-jahre-w-m-d-soh-ch"
+        "it": "assistenza-agli-anziani-hf-in-psichiatria-dell-educazione-4-anni-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-caregiver-hf-in-education-psychiatry-4-years-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "soins-aux-aines-hf-en-psychiatrie-de-l-education-4-ans-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5923,16 +6651,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-4-jahre-w-m-d-soh-ch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-4-jahre-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-4-jahre-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-4-jahre-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-ad19af4afb45",
-      "slug": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkurzt-2-jahre-m-w-d-soh-",
+      "slug": "assistenza-agli-anziani-hf-in-formazione-somatik-3-anni-abbreviato-2-anni-m-w-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkurzt-2-jahre-m-w-d-soh-",
-        "it": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkurzt-2-jahre-m-w-d-soh-",
-        "en": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkurzt-2-jahre-m-w-d-soh-",
-        "fr": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkurzt-2-jahre-m-w-d-soh-"
+        "it": "assistenza-agli-anziani-hf-in-formazione-somatik-3-anni-abbreviato-2-anni-m-w-d-solothurner-spitaler-soh-olten",
+        "en": "senior-caregiver-hf-in-training-somatik-3-years-shortened-2-years-m-w-d-solothurner-spitaler-soh-olten",
+        "fr": "soins-aux-aines-hf-en-formation-somatik-3-ans-raccourci-2-ans-m-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5989,7 +6731,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z"
+      "firstSeenAt": "2026-05-10T22:25:06.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkurzt-2-jahre-m-w-d-soh-"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkurzt-2-jahre-m-w-d-soh-"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkurzt-2-jahre-m-w-d-soh-"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkurzt-2-jahre-m-w-d-soh-"
+      ]
     },
     {
       "id": "solothurner-spitaeler-67882314d195",
@@ -5998,7 +6754,7 @@
         "de": "dipl-pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-",
         "it": "dipl-pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-",
         "en": "dipl-pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopadie-w-m-"
+        "fr": "dipl-soins-aux-aines-m-j-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6063,8 +6819,8 @@
       "slugByLocale": {
         "de": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
         "it": "mpa-poliklinik-orthopala-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
-        "fr": "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
+        "en": "projektleiter-m-w-d-solothurner-spitaler-soh-solothurn",
+        "fr": "projektleiter-m-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6125,6 +6881,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
+        ],
+        "en": [
+          "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
+        ],
+        "fr": [
+          "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
         ]
       },
       "previousSlugs": [
@@ -6133,12 +6895,12 @@
     },
     {
       "id": "solothurner-spitaeler-7e871058b203",
-      "slug": "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "capo-dipartimento-formazione-formazione-trasferimento-psichiatria-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-w-m-d-solothurner-spitaler-",
-        "it": "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-w-m-d-solothurner-spitaler-",
-        "fr": "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-w-m-d-solothurner-spitaler-"
+        "it": "capo-dipartimento-formazione-formazione-trasferimento-psichiatria-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "head-of-department-professorship-training-transfer-psychiatry-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "chef-de-departement-professeur-formation-transfert-psychiatrie-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6185,14 +6947,23 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugsByLocale": {
         "it": [
-          "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatr"
+          "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatr",
+          "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-m-w-d-solothurner-spitaler-soh-solothurn"
         ],
         "de": [
           "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatr"
+        ],
+        "en": [
+          "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-w-m-d-solothurner-spitaler-"
+        ],
+        "fr": [
+          "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-w-m-d-solothurner-spitaler-"
         ]
       },
       "previousSlugs": [
-        "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatr"
+        "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatr",
+        "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-m-w-d-solothurner-spitaler-soh-solothurn",
+        "fachbereichsverantwortliche-fachbereichsverantwortlicher-lehre-training-transfer-psychiatrie-w-m-d-solothurner-spitaler-"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -6281,7 +7052,7 @@
         "de": "dipl-pflegefachfrau-pflegefachmann-palliative-care-medizin-w-m-d-soh-ch",
         "it": "dipl-pflegefachfrau-pflegefachmann-palliative-care-medizin-w-m-d-soh-ch",
         "en": "dipl-pflegefachfrau-pflegefachmann-palliative-care-medizin-w-m-d-soh-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-palliative-care-medizin-w-m-d-soh-ch"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-soins-palliatifs-medizin-p-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6346,8 +7117,8 @@
       "slugByLocale": {
         "de": "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch",
         "it": "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch",
-        "en": "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch",
-        "fr": "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch"
+        "en": "clinical-coordinator-clinical-coordinator-neurology-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "coordonnateur-clinique-coordonnateur-clinique-neurologie-p-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6412,7 +7183,7 @@
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-ll-medizin-w-m-d-soh-ch",
         "it": "fachexpertin-fachexperte-ll-medizin-w-m-d-soh-ch",
-        "en": "fachexpertin-fachexperte-ll-medizin-w-m-d-soh-ch",
+        "en": "specialist-in-ll-medicine-f-m-d-solothurner-spitaler-soh-solothurn",
         "fr": "fachexpertin-fachexperte-ll-medizin-w-m-d-soh-ch"
       },
       "company": "Solothurner Spitäler (soH)",
@@ -6474,12 +7245,12 @@
     },
     {
       "id": "solothurner-spitaeler-f7b0b1b1a7b4",
-      "slug": "oberarztin-oberarzt-endokrinologie-w-m-d-soh-ch",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-0b5bf0",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-endokrinologie-w-m-d-soh-ch",
-        "it": "oberarztin-oberarzt-endokrinologie-w-m-d-soh-ch",
-        "en": "oberarztin-oberarzt-endokrinologie-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-endokrinologie-w-m-d-soh-ch"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-0b5bf0",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn-0b5bf0",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-0b5bf0"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6536,16 +7307,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-endokrinologie-w-m-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-endokrinologie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-endokrinologie-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-endokrinologie-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-dbac3ef0a25e",
-      "slug": "assistenzarztin-assistenzarzt-hno-w-m-d-soh-ch",
+      "slug": "assistente-medico-hno-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-hno-w-m-d-soh-ch",
-        "it": "assistenzarztin-assistenzarzt-hno-w-m-d-soh-ch",
-        "en": "assistenzarztin-assistenzarzt-hno-w-m-d-soh-ch",
-        "fr": "assistenzarztin-assistenzarzt-hno-w-m-d-soh-ch"
+        "it": "assistente-medico-hno-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "assistant-physician-hno-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "medecin-adjoint-hno-p-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6602,16 +7387,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-hno-w-m-d-soh-ch"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-hno-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-hno-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-hno-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-20e09ca7bd62",
-      "slug": "psychologin-psychologe-ass-w-m-d-soh-ch",
+      "slug": "psicologo-psicologo-ass-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "psychologin-psychologe-ass-w-m-d-soh-ch",
-        "it": "psychologin-psychologe-ass-w-m-d-soh-ch",
-        "en": "psychologin-psychologe-ass-w-m-d-soh-ch",
-        "fr": "psychologin-psychologe-ass-w-m-d-soh-ch"
+        "it": "psicologo-psicologo-ass-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "psychologist-psychologist-ass-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "psychologue-psychologue-ass-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6668,16 +7467,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-ass-w-m-d-soh-ch"
+        ],
+        "en": [
+          "psychologin-psychologe-ass-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "psychologin-psychologe-ass-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-ass-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-3ba5c6fb2f4d",
-      "slug": "berufsvorbereitungsjahr-bvj-pflege-m-w-d-soh-ch",
+      "slug": "gestione-del-prodotto-m-w-d-solothurner-spitaler-soh-solothurn-0a5249",
       "slugByLocale": {
         "de": "berufsvorbereitungsjahr-bvj-pflege-m-w-d-soh-ch",
-        "it": "berufsvorbereitungsjahr-bvj-pflege-m-w-d-soh-ch",
-        "en": "berufsvorbereitungsjahr-bvj-pflege-m-w-d-soh-ch",
-        "fr": "berufsvorbereitungsjahr-bvj-pflege-m-w-d-soh-ch"
+        "it": "gestione-del-prodotto-m-w-d-solothurner-spitaler-soh-solothurn-0a5249",
+        "en": "projektmanagement-m-w-d-solothurner-spitaler-soh-solothurn-0a5249",
+        "fr": "gestion-du-projet-m-w-d-solothurner-spitaler-soh-solothurn-0a5249"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6734,7 +7547,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsvorbereitungsjahr-bvj-pflege-m-w-d-soh-ch"
+        ],
+        "en": [
+          "berufsvorbereitungsjahr-bvj-pflege-m-w-d-soh-ch"
+        ],
+        "fr": [
+          "berufsvorbereitungsjahr-bvj-pflege-m-w-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsvorbereitungsjahr-bvj-pflege-m-w-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-df51fdcbd20d",
@@ -6808,8 +7635,8 @@
       "slugByLocale": {
         "de": "kochin-koch-w-m-d-solothurner-spitaler-soh-solothurn",
         "it": "kochin-koch-w-m-d-soh-ch",
-        "en": "kochin-koch-w-m-d-soh-ch",
-        "fr": "kochin-koch-w-m-d-soh-ch"
+        "en": "chef-cook-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "chef-cuisinier-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6870,12 +7697,12 @@
     },
     {
       "id": "solothurner-spitaeler-9e480417bcba",
-      "slug": "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-7034b1",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch",
-        "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-7034b1",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-7034b1",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-7034b1"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -6922,11 +7749,19 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch",
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch"
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -6944,12 +7779,12 @@
     },
     {
       "id": "solothurner-spitaeler-e7936d767e49",
-      "slug": "fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d-soh-ch",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-fd41df",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d-soh-ch",
-        "en": "fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d-soh-ch"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-fd41df",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn-fd41df",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-fd41df"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7006,7 +7841,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d-soh-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-cec35b631bd4",
@@ -7084,12 +7933,12 @@
     },
     {
       "id": "solothurner-spitaeler-96b2d9ff74fe",
-      "slug": "sekretarin-sekretar-chefarzt-e-teamleiter-teamleiterin-ambi-chirurgie-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "assistente-medico-e-capo-team-ambi-chirurgia-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch",
-        "it": "sekretarin-sekretar-chefarzt-e-teamleiter-teamleiterin-ambi-chirurgie-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch",
-        "fr": "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch"
+        "it": "assistente-medico-e-capo-team-ambi-chirurgia-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "assistant-chief-physician-and-team-leader-ambi-surgery-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "medecin-chef-adjoint-et-chef-d-equipe-chirurgie-ambi-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7136,11 +7985,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch",
+          "sekretarin-sekretar-chefarzt-e-teamleiter-teamleiterin-ambi-chirurgie-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch"
+        ],
+        "fr": [
           "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch"
+        "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch",
+        "sekretarin-sekretar-chefarzt-e-teamleiter-teamleiterin-ambi-chirurgie-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -7158,12 +8015,12 @@
     },
     {
       "id": "solothurner-spitaeler-8f9c77434bf0",
-      "slug": "spitalapothekerin-spitalapotheker-mutterschaftsvertretung-w-m-d-soh-ch",
+      "slug": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-e0a9cc",
       "slugByLocale": {
         "de": "spitalapothekerin-spitalapotheker-mutterschaftsvertretung-w-m-d-soh-ch",
-        "it": "spitalapothekerin-spitalapotheker-mutterschaftsvertretung-w-m-d-soh-ch",
-        "en": "spitalapothekerin-spitalapotheker-mutterschaftsvertretung-w-m-d-soh-ch",
-        "fr": "spitalapothekerin-spitalapotheker-mutterschaftsvertretung-w-m-d-soh-ch"
+        "it": "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-e0a9cc",
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-e0a9cc",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-e0a9cc"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7220,7 +8077,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spitalapothekerin-spitalapotheker-mutterschaftsvertretung-w-m-d-soh-ch"
+        ],
+        "en": [
+          "spitalapothekerin-spitalapotheker-mutterschaftsvertretung-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "spitalapothekerin-spitalapotheker-mutterschaftsvertretung-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spitalapothekerin-spitalapotheker-mutterschaftsvertretung-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-f3896c8634b7",
@@ -7438,12 +8309,12 @@
     },
     {
       "id": "solothurner-spitaeler-c15ec1ec0b7e",
-      "slug": "fachfrau-fachmann-gesundheit-gebarsaal-w-m-d-soh-ch",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-24bee6",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-gebarsaal-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-gesundheit-gebarsaal-w-m-d-soh-ch",
-        "en": "fachfrau-fachmann-gesundheit-gebarsaal-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-gesundheit-gebarsaal-w-m-d-soh-ch"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-24bee6",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn-24bee6",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-24bee6"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7500,16 +8371,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-gebarsaal-w-m-d-soh-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-gebarsaal-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-gebarsaal-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-gebarsaal-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-9d2e32a3335b",
-      "slug": "stv-leiterin-leiter-restaurant-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "ristorante-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "stv-leiterin-leiter-restaurant-w-m-d-soh-ch",
-        "it": "stv-leiterin-leiter-restaurant-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "stv-leiterin-leiter-restaurant-w-m-d-soh-ch",
-        "fr": "stv-leiterin-leiter-restaurant-w-m-d-soh-ch"
+        "it": "ristorante-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "head-of-restaurant-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "chef-du-restaurant-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7556,11 +8441,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiterin-leiter-restaurant-w-m-d-soh-ch",
+          "stv-leiterin-leiter-restaurant-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "stv-leiterin-leiter-restaurant-w-m-d-soh-ch"
+        ],
+        "fr": [
           "stv-leiterin-leiter-restaurant-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "stv-leiterin-leiter-restaurant-w-m-d-soh-ch"
+        "stv-leiterin-leiter-restaurant-w-m-d-soh-ch",
+        "stv-leiterin-leiter-restaurant-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -7582,8 +8475,8 @@
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-oder-mpa-urologie-gastroenterologie-w-m-d-soh-ch",
         "it": "arztsekretarin-arztsekretar-o-mpa-urologie-gastroenterologie-m-w-d-solothurner-spitaler-soh-dornach",
-        "en": "arztsekretarin-arztsekretar-oder-mpa-urologie-gastroenterologie-w-m-d-soh-ch",
-        "fr": "arztsekretarin-arztsekretar-oder-mpa-urologie-gastroenterologie-w-m-d-soh-ch"
+        "en": "doctor-s-secretary-or-mpa-urology-gastroenterology-w-m-d-solothurner-spitaler-soh-dornach",
+        "fr": "secretaire-du-docteur-ou-mpa-urologie-gastroenterologie-p-m-d-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7631,6 +8524,12 @@
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-oder-mpa-urologie-gastroenterologie-w-m-d-soh-ch"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-oder-mpa-urologie-gastroenterologie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-oder-mpa-urologie-gastroenterologie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
@@ -7652,12 +8551,12 @@
     },
     {
       "id": "solothurner-spitaeler-6275457ef9d6",
-      "slug": "oberarztin-oberarzt-handchirurgie-m-w-d-soh-ch",
+      "slug": "consulente-senior-m-w-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-handchirurgie-m-w-d-soh-ch",
-        "it": "oberarztin-oberarzt-handchirurgie-m-w-d-soh-ch",
-        "en": "oberarztin-oberarzt-handchirurgie-m-w-d-soh-ch",
-        "fr": "oberarztin-oberarzt-handchirurgie-m-w-d-soh-ch"
+        "it": "consulente-senior-m-w-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-consultant-m-w-d-solothurner-spitaler-soh-solothurn",
+        "fr": "consultant-principal-m-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7714,14 +8613,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-handchirurgie-m-w-d-soh-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-handchirurgie-m-w-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-handchirurgie-m-w-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-handchirurgie-m-w-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-85a00840008f",
-      "slug": "stationsleiterin-stationsleiter-intensivstation-w-m-d-soh-ch",
+      "slug": "stationsleiterin-stationsleiter-intensivstation-lavorazione-giorno-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "de": "stationsleiterin-stationsleiter-intensivstation-w-m-d-soh-ch",
-        "it": "stationsleiterin-stationsleiter-intensivstation-w-m-d-soh-ch",
+        "de": "vertriebsmitarbeiter-w-m-d-solothurner-spitaler-soh-solothurn",
+        "it": "stationsleiterin-stationsleiter-intensivstation-lavorazione-giorno-solothurner-spitaler-soh-solothurn",
         "en": "stationsleiterin-stationsleiter-intensivstation-w-m-d-soh-ch",
         "fr": "stationsleiterin-stationsleiter-intensivstation-w-m-d-soh-ch"
       },
@@ -7780,7 +8693,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiterin-stationsleiter-intensivstation-w-m-d-soh-ch"
+        ],
+        "de": [
+          "stationsleiterin-stationsleiter-intensivstation-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiterin-stationsleiter-intensivstation-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-323c2bc0334b",
@@ -7850,12 +8774,12 @@
     },
     {
       "id": "solothurner-spitaeler-719b831b137d",
-      "slug": "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch",
+      "slug": "anno-di-preparazione-professionale-bvj-cucina-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch",
-        "it": "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch",
-        "en": "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch",
-        "fr": "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch"
+        "it": "anno-di-preparazione-professionale-bvj-cucina-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "professional-preparation-year-bvj-kitchen-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "annee-de-preparation-professionnelle-bvj-cuisine-w-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7912,16 +8836,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.394Z"
+      "firstSeenAt": "2026-05-10T22:25:06.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch"
+        ],
+        "en": [
+          "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-25d1639f81dd",
-      "slug": "leiterin-leiter-berufsbildung-pflege-soh-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "responsabile-della-formazione-professionale-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch",
-        "it": "leiterin-leiter-berufsbildung-pflege-soh-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch",
-        "fr": "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch"
+        "it": "responsabile-della-formazione-professionale-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "head-of-vocational-training-care-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "chef-de-la-formation-professionnelle-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7968,11 +8906,19 @@
       "workplace": "Solothurner Spitäler AG",
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch",
+          "leiterin-leiter-berufsbildung-pflege-soh-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch"
+        ],
+        "fr": [
           "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch"
+        "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch",
+        "leiterin-leiter-berufsbildung-pflege-soh-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -7990,12 +8936,12 @@
     },
     {
       "id": "solothurner-spitaeler-524f4ef98039",
-      "slug": "mpa-plastische-chirurgie-w-m-d-soh-ch",
+      "slug": "chirurgia-di-plastica-mpa-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "mpa-plastische-chirurgie-w-m-d-soh-ch",
-        "it": "mpa-plastische-chirurgie-w-m-d-soh-ch",
-        "en": "mpa-plastische-chirurgie-w-m-d-soh-ch",
-        "fr": "mpa-plastische-chirurgie-w-m-d-soh-ch"
+        "it": "chirurgia-di-plastica-mpa-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "mpa-chirurgie-plastique-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -8052,7 +8998,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.393Z"
+      "firstSeenAt": "2026-05-10T22:25:06.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-plastische-chirurgie-w-m-d-soh-ch"
+        ],
+        "en": [
+          "mpa-plastische-chirurgie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "mpa-plastische-chirurgie-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-plastische-chirurgie-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-f9a8707011d7",
@@ -8060,8 +9020,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-drg-support-w-m-d-soh-ch",
         "it": "mitarbeiterin-collaboratore-trice-drg-support-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "mitarbeiterin-mitarbeiter-drg-support-w-m-d-soh-ch",
-        "fr": "mitarbeiterin-mitarbeiter-drg-support-w-m-d-soh-ch"
+        "en": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-7cbfb7",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-7cbfb7"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -8108,6 +9068,12 @@
       "workplace": "Solothurner Spitäler AG",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-drg-support-w-m-d-soh-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-drg-support-w-m-d-soh-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-drg-support-w-m-d-soh-ch"
         ]
       },
@@ -8195,12 +9161,12 @@
     },
     {
       "id": "solothurner-spitaeler-100edbf1532f",
-      "slug": "fachfrau-fachmann-gesundheit-o-mpa-radiologie-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "salute-professionale-o-radiologia-mpa-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-gesundheit-o-mpa-radiologie-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch"
+        "it": "salute-professionale-o-radiologia-mpa-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "professional-health-or-mpa-radiology-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "sante-professionnelle-ou-amp-radiologie-p-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -8247,11 +9213,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch",
+          "fachfrau-fachmann-gesundheit-o-mpa-radiologie-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch"
+        "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch",
+        "fachfrau-fachmann-gesundheit-o-mpa-radiologie-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -8269,12 +9243,12 @@
     },
     {
       "id": "solothurner-spitaeler-1430573714e3",
-      "slug": "mpa-o-fachfrau-fachmann-gesundheit-gefasszentrum-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "mpa-o-specialista-centro-di-navi-sanitarie-esperto-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch",
-        "it": "mpa-o-fachfrau-fachmann-gesundheit-gefasszentrum-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch",
-        "fr": "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch"
+        "it": "mpa-o-specialista-centro-di-navi-sanitarie-esperto-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "mpa-or-specialist-expert-health-vessel-center-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "mpa-ou-specialiste-centre-d-expertise-pour-bateaux-de-sante-p-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -8321,11 +9295,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch",
+          "mpa-o-fachfrau-fachmann-gesundheit-gefasszentrum-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch"
+        ],
+        "fr": [
           "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch"
+        "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch",
+        "mpa-o-fachfrau-fachmann-gesundheit-gefasszentrum-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -8343,10 +9325,10 @@
     },
     {
       "id": "solothurner-spitaeler-d761d7dfb673",
-      "slug": "arztsekretarin-arztsekretar-urologie-w-m-d-soh-ch",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-1d3537",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-urologie-w-m-d-soh-ch",
-        "it": "arztsekretarin-arztsekretar-urologie-w-m-d-soh-ch",
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn-1d3537",
         "en": "arztsekretarin-arztsekretar-urologie-w-m-d-soh-ch",
         "fr": "arztsekretarin-arztsekretar-urologie-w-m-d-soh-ch"
       },
@@ -8405,16 +9387,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.393Z"
+      "firstSeenAt": "2026-05-10T22:25:06.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-urologie-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-urologie-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-9f0c3a17546e",
-      "slug": "medizinische-projektleiterin-medizinischer-projektleiter-e-datenmanagerin-datenmanager-m-w-d-solothurner-spitaler-soh-solothurn",
+      "slug": "responsabile-del-progetto-medico-responsabile-del-progetto-medico-e-responsabile-dei-dati-w-m-d-solothurner-spitaler-soh",
       "slugByLocale": {
         "de": "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w",
-        "it": "medizinische-projektleiterin-medizinischer-projektleiter-e-datenmanagerin-datenmanager-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w",
-        "fr": "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w"
+        "it": "responsabile-del-progetto-medico-responsabile-del-progetto-medico-e-responsabile-dei-dati-w-m-d-solothurner-spitaler-soh",
+        "en": "medical-project-manager-medical-project-manager-and-data-manager-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "gestionnaire-de-projet-medical-gestionnaire-de-projet-medical-et-gestionnaire-de-donnees-p-m-j-solothurner-spitaler-soh-"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -8461,11 +9451,19 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w",
+          "medizinische-projektleiterin-medizinischer-projektleiter-e-datenmanagerin-datenmanager-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w"
+        ],
+        "fr": [
           "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w"
         ]
       },
       "previousSlugs": [
-        "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w"
+        "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w",
+        "medizinische-projektleiterin-medizinischer-projektleiter-e-datenmanagerin-datenmanager-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -8483,12 +9481,12 @@
     },
     {
       "id": "solothurner-spitaeler-17a5b44732dc",
-      "slug": "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
-        "en": "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -8545,7 +9543,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:25:06.392Z"
+      "firstSeenAt": "2026-05-10T22:25:06.392Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+      ]
     }
   ]
 }
