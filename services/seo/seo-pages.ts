@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2539,
+ "numberOfItems": 2540,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7179,7 +7179,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2535, "name": "LAMal o CMI: confronto 2026", "url": `${BASE_URL}/articoli-frontaliere/lamal-cmi-frontalieri-conviene-2026` },
           { "@type": "ListItem", "position": 2536, "name": "Calcolo pensione frontaliere AVS italiana: come...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-pensione-frontaliere-avs-italiana` },
           { "@type": "ListItem", "position": 2537, "name": "Costo auto pendolare frontalieri Ticino: benzin...", "url": `${BASE_URL}/articoli-frontaliere/costo-auto-pendolare-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 2539, "name": "Dichiarazione Andreoli San Marino RTV", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-andreoli-san-marino-rtv` }
+          { "@type": "ListItem", "position": 2539, "name": "Dichiarazione Andreoli San Marino RTV", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-andreoli-san-marino-rtv` },
+          { "@type": "ListItem", "position": 2540, "name": "Calo potere d'acquisto e LAMal: la Regione invo...", "url": `${BASE_URL}/articoli-frontaliere/calo-potere-acquisto-lamal-contromisure-ticino` }
  ]
  },
  {

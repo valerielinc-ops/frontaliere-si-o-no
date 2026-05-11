@@ -23735,4 +23735,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'calo-potere-acquisto-lamal-contromisure-ticino',
+ category: 'fiscale',
+ date: '2026-05-11T20:18:46.762Z',
+ image: '/images/blog/calo-potere-acquisto-lamal-contromisure-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

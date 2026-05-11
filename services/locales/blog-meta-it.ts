@@ -7454,6 +7454,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dichiarazione-andreoli-san-marino-rtv.title': 'Dichiarazione Andreoli San Marino RTV',
     'blog.article.dichiarazione-andreoli-san-marino-rtv.excerpt': 'La dichiarazione di Andreoli su San Marino RTV ha suscitato interesse tra i frontalieri. Scopri le implicazioni pratiche.',
     'blog.article.dichiarazione-andreoli-san-marino-rtv.imageAlt': 'Piazza di Locarno con persone che camminano e parlano, mostrando la vita vivace di un comune di confine ticinese',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.title': 'Calo potere d\'acquisto e LAMal: la Regione invoca contromisure',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.excerpt': 'La Regione Ticino annuncia contromisure per contrastare il calo del potere d\'acquisto e supportare LAMal, l\'iniziativa per la rilevazione dati unica.',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.imageAlt': 'Vista panoramica di Lugano, con l\'accento sulla zona finanziaria, che mostra l\'attività economica della città e il confine italo-svizzero.',
 };
 
 export default blogMetaIt;

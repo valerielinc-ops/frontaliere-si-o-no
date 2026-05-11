@@ -7454,6 +7454,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dichiarazione-andreoli-san-marino-rtv.title': 'Déclaration Andreoli San Marino RTV suscite intérêt',
     'blog.article.dichiarazione-andreoli-san-marino-rtv.excerpt': 'La déclaration de Andreoli sur San Marino RTV a suscité intérêt parmi les frontaliers. Découvrez les implications pratiques.',
     'blog.article.dichiarazione-andreoli-san-marino-rtv.imageAlt': 'Place de Locarno avec des gens qui marchent et parlent, montrant la vie animée d\'une ville frontalière du Tessin',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.title': 'Chute du pouvoir d\'achat et LAMal: le Canton appelle à des contre-mesures',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.excerpt': 'Le Canton du Tessin annonce des contre-mesures pour contrer la baisse du pouvoir d\'achat et soutenir LAMal, l\'initiative pour la collecte de données unique.',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.imageAlt': 'Vue panoramique de Lugano, mettant l\'accent sur le quartier financier, mettant en évidence l\'activité économique de la ville et la frontière suisse-italienne.',
 };
 
 export default blogMetaFr;

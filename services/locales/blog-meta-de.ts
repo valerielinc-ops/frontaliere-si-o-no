@@ -7452,6 +7452,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dichiarazione-andreoli-san-marino-rtv.title': 'Andreoli\'s Erklärung über San Marino RTV weckt Grenzgänger-Interesse',
     'blog.article.dichiarazione-andreoli-san-marino-rtv.excerpt': 'Andreolis Erklärung über San Marino RTV hat die Grenzgänger aufmerksam gemacht. Entdecken Sie die praktischen Implikationen.',
     'blog.article.dichiarazione-andreoli-san-marino-rtv.imageAlt': 'Locarno Platz mit Menschen, die gehen und sprechen, zeigt das lebendige Leben eines Ticino-Grenzortes',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.title': 'Einkaufskraftverlust und LAMal: Kanton Tessin fordert Gegenmassnahmen',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.excerpt': 'Der Kanton Tessin kündigt Gegenmassnahmen an, um den Einkaufskraftverlust zu bekämpfen und LAMal, das Initiative zur einheitlichen Datenerfassung, zu unterstützen.',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.imageAlt': 'Panoramablick auf Lugano mit Fokus auf den Finanzbezirk, der die wirtschaftliche Aktivität der Stadt und die schweizerisch-italienische Grenze zeigt.',
 };
 
 export default blogMetaDe;

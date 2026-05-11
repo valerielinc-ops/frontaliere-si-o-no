@@ -7453,6 +7453,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dichiarazione-andreoli-san-marino-rtv.title': 'Andreoli\'s San Marino RTV statement sparks interest among cross-border workers',
     'blog.article.dichiarazione-andreoli-san-marino-rtv.excerpt': 'Andreoli\'s declaration about San Marino RTV has caught the attention of cross-border workers. Discover the practical implications.',
     'blog.article.dichiarazione-andreoli-san-marino-rtv.imageAlt': 'Locarno town square with people walking and talking, showcasing the vibrant life of a Ticino border town',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.title': 'Falling purchasing power and LAMal: Ticino calls for countermeasures',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.excerpt': 'Ticino Region announces countermeasures to combat falling purchasing power and support LAMal, the unique data collection initiative.',
+    'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.imageAlt': 'Panoramic view of Lugano, focusing on the financial district, highlighting the city\'s economic activity and the Swiss-Italian border.',
 };
 
 export default blogMetaEn;
