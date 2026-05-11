@@ -1,0 +1,40 @@
+{
+  "id": "lamal-rilevazione-dati-unica-ticino",
+  "slug": "lamal-rilevazione-dati-unica-ticino",
+  "publishedAt": "2026-05-11T03:56:56.853Z",
+  "cluster": "pensioni",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.64370901217675,
+    "confidence": 0.8,
+    "finalScore": 6.1149672097414,
+    "topK": [
+      {
+        "slug": "votazione-popolare-lamal-frontalieri",
+        "cosine": 0.7643709012176749
+      },
+      {
+        "slug": "lamal-cmi-scelta-frontaliere-2026",
+        "cosine": 0.7500324705820953
+      },
+      {
+        "slug": "abbonamento-newsletter-ticino",
+        "cosine": 0.7414745493465916
+      },
+      {
+        "slug": "casse-malati-ticino-divise-2026",
+        "cosine": 0.7303062102825671
+      },
+      {
+        "slug": "lista-morosi-cassa-malati-ticino",
+        "cosine": 0.7296012774233364
+      }
+    ],
+    "score": 3.0574836048707,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2528,
+ "numberOfItems": 2529,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7170,7 +7170,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2525, "name": "Questore su bimbo caduto dal Pilastro: responsa...", "url": `${BASE_URL}/articoli-frontaliere/questore-bimbo-pilastro-responsabilita` },
           { "@type": "ListItem", "position": 2526, "name": "Tasse frontalieri Ticino: confermato il regime ...", "url": `${BASE_URL}/articoli-frontaliere/tasse-frontalieri-ticino-2026` },
           { "@type": "ListItem", "position": 2527, "name": "Mobilità a Palermo: come si spostano i frontali...", "url": `${BASE_URL}/articoli-frontaliere/mobilita-palermo-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 2528, "name": "Professioni sanitarie e LaMal: le decisioni del...", "url": `${BASE_URL}/articoli-frontaliere/professioni-sanitarie-lamal-cantone-ticino` }
+          { "@type": "ListItem", "position": 2528, "name": "Professioni sanitarie e LaMal: le decisioni del...", "url": `${BASE_URL}/articoli-frontaliere/professioni-sanitarie-lamal-cantone-ticino` },
+          { "@type": "ListItem", "position": 2529, "name": "LAMal: verso la rilevazione unica dei dati in T...", "url": `${BASE_URL}/articoli-frontaliere/lamal-rilevazione-dati-unica-ticino` }
  ]
  },
  {

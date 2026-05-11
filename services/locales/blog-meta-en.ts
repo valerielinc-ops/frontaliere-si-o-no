@@ -7427,6 +7427,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.professioni-sanitarie-lamal-cantone-ticino.title': 'Healthcare professionals and LaMal: Canton Ticino\'s decisions',
     'blog.article.professioni-sanitarie-lamal-cantone-ticino.excerpt': 'Canton Ticino has made important decisions regarding access to LaMal for cross-border healthcare professionals.',
     'blog.article.professioni-sanitarie-lamal-cantone-ticino.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.lamal-rilevazione-dati-unica-ticino.title': 'LAMal: single data collection in Ticino',
+    'blog.article.lamal-rilevazione-dati-unica-ticino.excerpt': 'New procedure for collecting insurance data in Ticino. Here\'s what changes for cross-border workers',
+    'blog.article.lamal-rilevazione-dati-unica-ticino.imageAlt': 'Panoramic view of Lake Lugano with Lugano and Monte Brè',
 };
 
 export default blogMetaEn;

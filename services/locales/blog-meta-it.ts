@@ -7428,6 +7428,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.professioni-sanitarie-lamal-cantone-ticino.title': 'Professioni sanitarie e LaMal: le decisioni del Canton Ticino',
     'blog.article.professioni-sanitarie-lamal-cantone-ticino.excerpt': 'Il Canton Ticino ha preso decisioni importanti riguardo l\'accesso alla LaMal per i professionisti sanitari frontalieri.',
     'blog.article.professioni-sanitarie-lamal-cantone-ticino.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
+    'blog.article.lamal-rilevazione-dati-unica-ticino.title': 'LAMal: verso la rilevazione unica dei dati in Ticino',
+    'blog.article.lamal-rilevazione-dati-unica-ticino.excerpt': 'Nuova procedura per la raccolta dei dati assicurativi in Ticino. Ecco cosa cambia per i frontalieri',
+    'blog.article.lamal-rilevazione-dati-unica-ticino.imageAlt': 'Vista panoramica del Lago di Lugano con Lugano e Monte Brè',
 };
 
 export default blogMetaIt;

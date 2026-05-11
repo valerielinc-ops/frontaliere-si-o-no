@@ -7428,6 +7428,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.professioni-sanitarie-lamal-cantone-ticino.title': 'Professions médicales et LaMal: décisions du canton du Tessin',
     'blog.article.professioni-sanitarie-lamal-cantone-ticino.excerpt': 'Le canton du Tessin a pris des décisions importantes concernant l\'accès à la LaMal pour les professionnels de la santé frontaliers.',
     'blog.article.professioni-sanitarie-lamal-cantone-ticino.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.lamal-rilevazione-dati-unica-ticino.title': 'LAMal: vers une collecte unique des données en Ticino',
+    'blog.article.lamal-rilevazione-dati-unica-ticino.excerpt': 'Nouvelle procédure pour la collecte des données d\'assurance dans le canton du Ticino. Voici ce qui change pour les travailleurs frontaliers',
+    'blog.article.lamal-rilevazione-dati-unica-ticino.imageAlt': 'Vue panoramique du lac de Lugano avec Lugano et Monte Brè',
 };
 
 export default blogMetaFr;

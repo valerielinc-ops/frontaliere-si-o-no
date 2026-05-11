@@ -23654,4 +23654,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'lamal-rilevazione-dati-unica-ticino',
+ category: 'pratico',
+ date: '2026-05-11T03:56:55.124Z',
+ image: '/images/blog/lamal-rilevazione-dati-unica-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
