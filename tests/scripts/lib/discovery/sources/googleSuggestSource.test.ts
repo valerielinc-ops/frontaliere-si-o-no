@@ -13,7 +13,7 @@ describe('pickClusterSeeds', () => {
     expect(pickClusterSeeds({})).toEqual([]);
   });
 
-  it('skips generic and sorts by p50 descending', () => {
+  it('skips generic, sorts by p50 desc, anchors each seed with " frontalieri"', () => {
     const stats = {
       fiscale: { p50: 200, p10: 50, p90: 800, n: 30 },
       salute: { p50: 120, p10: 30, p90: 500, n: 20 },
@@ -21,7 +21,13 @@ describe('pickClusterSeeds', () => {
       lavoro: { p50: 80, p10: 20, p90: 300, n: 10 },
     };
     const seeds = pickClusterSeeds(stats);
-    expect(seeds).toEqual(['fiscale', 'salute', 'lavoro']);
+    // Anchored to prevent generic-Italian completions like "mobilita
+    // palermo" — see scripts/lib/discovery/domainAnchor.mjs.
+    expect(seeds).toEqual([
+      'fiscale frontalieri',
+      'salute frontalieri',
+      'lavoro frontalieri',
+    ]);
   });
 
   it('drops clusters without a numeric p50', () => {
@@ -29,7 +35,7 @@ describe('pickClusterSeeds', () => {
       fiscale: { p50: 200 },
       broken: { p10: 10 },
     };
-    expect(pickClusterSeeds(stats)).toEqual(['fiscale']);
+    expect(pickClusterSeeds(stats)).toEqual(['fiscale frontalieri']);
   });
 });
 
@@ -92,7 +98,7 @@ describe('fetchSuggestDiscoveryCandidates', () => {
     expect(out).toHaveLength(1);
   });
 
-  it('passes cluster-derived seeds to the underlying fetcher', async () => {
+  it('passes anchored cluster-derived seeds to the underlying fetcher', async () => {
     let captured: any = null;
     const captureFn = async (opts: any) => {
       captured = opts;
@@ -106,7 +112,22 @@ describe('fetchSuggestDiscoveryCandidates', () => {
       },
     };
     await fetchSuggestDiscoveryCandidates(evidence, { suggestFn: captureFn });
-    expect(captured.seeds).toEqual(['fiscale', 'salute']);
+    expect(captured.seeds).toEqual(['fiscale frontalieri', 'salute frontalieri']);
+  });
+
+  // Regression — 2026-05-11 `mobilita-palermo-frontalieri-ticino`.
+  // Even when Google Suggest returns generic-Italian completions for
+  // an anchored seed, the source MUST drop them via hasDomainAnchor.
+  it('drops candidates whose headline lacks any Ticino/frontalieri anchor', async () => {
+    const candidates = [
+      { keyword: 'mobilita palermo', normalizedKeyword: 'mobilita palermo' },
+      { keyword: 'salute roma', normalizedKeyword: 'salute roma' },
+      { keyword: 'pensioni napoli centro', normalizedKeyword: 'pensioni napoli centro' },
+      { keyword: 'mobilita lugano', normalizedKeyword: 'mobilita lugano' },
+      { keyword: 'fiscale ticino', normalizedKeyword: 'fiscale ticino' },
+    ];
+    const out = await fetchSuggestDiscoveryCandidates({}, { suggestFn: stubSuggestFn(candidates) });
+    expect(out.map((c) => c.headline)).toEqual(['mobilita lugano', 'fiscale ticino']);
   });
 
   it('returns [] when fetcher throws', async () => {

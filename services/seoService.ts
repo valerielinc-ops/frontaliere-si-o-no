@@ -3716,7 +3716,6 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-utilifatturatolppsa-gpw': { name: 'Fiscale', path: '/articoli-frontaliere/utilifatturatolppsa-gpw', parent: 'blog' },
     'blog-questore-bimbo-pilastro-responsabilita': { name: 'Questore su bimbo caduto dal Pilastro', path: '/articoli-frontaliere/questore-bimbo-pilastro-responsabilita', parent: 'blog' },
     'blog-tasse-frontalieri-ticino-2026': { name: 'Fiscale', path: '/articoli-frontaliere/tasse-frontalieri-ticino-2026', parent: 'blog' },
-    'blog-mobilita-palermo-frontalieri-ticino': { name: 'Mobilità Palermo', path: '/articoli-frontaliere/mobilita-palermo-frontalieri-ticino', parent: 'blog' },
     'blog-professioni-sanitarie-lamal-cantone-ticino': { name: 'Professioni sanitarie', path: '/articoli-frontaliere/professioni-sanitarie-lamal-cantone-ticino', parent: 'blog' },
     'blog-lamal-rilevazione-dati-unica-ticino': { name: 'LAMal Ticino', path: '/articoli-frontaliere/lamal-rilevazione-dati-unica-ticino', parent: 'blog' },
     'blog-lpp-nigri-country-manager-italia': { name: 'LPP Nigri Italia', path: '/articoli-frontaliere/lpp-nigri-country-manager-italia', parent: 'blog' },

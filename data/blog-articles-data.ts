@@ -23726,4 +23726,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'calcolo-pensione-frontaliere-avs-italiana',
+ category: 'pensione',
+ date: '2026-05-11T11:55:45.952Z',
+ image: '/images/blog/calcolo-pensione-frontaliere-avs-italiana.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

@@ -120,7 +120,9 @@ describe('dedupAgainstProven', () => {
 describe('scoreCandidates', () => {
   it('attaches a score breakdown and sorts desc by finalScore', () => {
     const candidates = [
-      { headline: 'topic A', source: 'suggest' as const, url: null, meta: {} },
+      // Suggest needs a domain anchor (post-Palermo regression hardening) —
+      // see scripts/lib/discovery/domainAnchor.mjs.
+      { headline: 'topic A frontalieri', source: 'suggest' as const, url: null, meta: {} },
       { headline: 'tassazione frontalieri ticino', source: 'orphan' as const, url: null, meta: { imp: 9000, pos: 14, ctr: 0.005 } },
     ];
     const scored = scoreCandidates(candidates, evidence);

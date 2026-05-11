@@ -14,6 +14,7 @@
 // Spec: docs/superpowers/specs/2026-05-07-traffic-quality-algorithm-design.md § 6.3.2
 
 import { fetchSuggestCandidates } from '../../topic-sources/googleSuggest.mjs';
+import { anchorSeed, hasDomainAnchor } from '../domainAnchor.mjs';
 
 const SOURCE_TAG = 'suggest';
 const MAX_SEEDS = 8;
@@ -41,7 +42,10 @@ export function pickClusterSeeds(clusterStats) {
     .filter(([name, stats]) => name !== 'generic' && stats && Number.isFinite(Number(stats.p50)))
     .map(([name, stats]) => ({ name, p50: Number(stats.p50) }));
   entries.sort((a, b) => b.p50 - a.p50);
-  return entries.slice(0, MAX_SEEDS).map((e) => e.name);
+  // Compose each cluster with a domain anchor so Google Suggest can't
+  // bridge bare cluster words ("mobilita") into off-topic Italian
+  // searches ("mobilita palermo"). See domainAnchor.mjs for rationale.
+  return entries.slice(0, MAX_SEEDS).map((e) => anchorSeed(e.name));
 }
 
 function buildProvenSet(gscBlock) {
@@ -90,6 +94,11 @@ export async function fetchSuggestDiscoveryCandidates(evidence, opts = {}) {
     const lower = headline.toLowerCase();
     if (provenSet.has(lower)) continue;
     if (seenHeadlines.has(lower)) continue;
+    // Domain anchor gate — discovery is only meaningful when the
+    // candidate is plausibly about Ticino frontalieri. Suggest
+    // routinely returns generic-Italian completions even from
+    // anchored seeds (Google falls back to seed-prefix matches).
+    if (!hasDomainAnchor(headline)) continue;
     seenHeadlines.add(lower);
     out.push({
       headline,
