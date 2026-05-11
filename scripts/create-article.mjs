@@ -67,6 +67,12 @@ import path from 'node:path';
 import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores } from './lib/ai-models.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
+import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
+import {
+  factCheckFingerprint,
+  totalMajorWeight,
+  MAJOR_BLOCK_WEIGHT_THRESHOLD,
+} from './lib/fact-check-consensus.mjs';
 import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
@@ -1601,17 +1607,37 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
   }
 
   // ── Consensus logic ──
-  // Merge all critical/major issues found by ANY model (union of issues)
+  // Merge all critical/major issues across models, with two fixes:
+  //
+  // (Fix #2) Dedup by (category + normalized fact fingerprint), not by
+  // claim-text first 60 chars. Different phrasings of the same fact must
+  // collapse to one issue. Example:
+  //   gpt-4.1: "Il prezzo medio del carburante in Ticino è di circa 1.80 CHF"
+  //   gpt-4o:  "1.80 CHF/litro carburante medio Ticino non verificabile"
+  //   → both `statistiche:num:1.80` → one issue, not two.
+  //
+  // (Fix #3) Weighted majors instead of raw count. Categories that LLM
+  // cannot verify without web search (statistiche = specific numbers,
+  // coerenza = generic phrasing concerns) weight 0.5; categories that
+  // detect real falsehoods (leggi, persone, istituzioni, fatti_inventati,
+  // date, aliquote, eu_svizzera, rilevanza_topica, geografia, …) weight
+  // 1.0. Block at weighted sum ≥ 3.0. Critical issues still hard-block
+  // ANY single occurrence — quality bar preserved.
+  //
+  // Measured impact on 2026-05-11 runs (25690785422, 25688066828): of 26
+  // articles blocked at `≥3 major`, 16 were borderline 3-5 with the bulk
+  // of majors in statistiche/coerenza. Under the weighted scheme those
+  // pass with warning (numbers are noise, not falsehoods). Genuine
+  // 3+ majors in high-trust categories still block.
   const allCritical = [];
   const allMajor = [];
-  const seenClaims = new Set();
+  const seenFingerprints = new Set();
 
   for (const r of modelResults) {
     for (const issue of r.issues) {
-      // Deduplicate by claim text similarity (first 60 chars)
-      const key = (issue.claim || '').slice(0, 60).toLowerCase().replace(/\s+/g, ' ');
-      if (seenClaims.has(key)) continue;
-      seenClaims.add(key);
+      const fp = factCheckFingerprint(issue);
+      if (seenFingerprints.has(fp)) continue;
+      seenFingerprints.add(fp);
 
       if (issue.severity === 'critical') allCritical.push(issue);
       else if (issue.severity === 'major') allMajor.push(issue);
@@ -1626,15 +1652,16 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
     }
   }
 
-  // BLOCKING: ANY model found critical issues → block
+  // BLOCKING: ANY model found critical issues → block (unchanged — quality bar)
   if (allCritical.length > 0) {
     console.error(`  🚨 Consensus: ${allCritical.length} critical issues trovati — BLOCCATO`);
     return { passed: false, issues: allCritical };
   }
 
-  // BLOCKING: 3+ major issues
-  if (allMajor.length >= 3) {
-    console.error(`  🚨 Consensus: ${allMajor.length} major issues — BLOCCATO`);
+  // BLOCKING: weighted major score >= MAJOR_BLOCK_WEIGHT_THRESHOLD
+  const majorScore = totalMajorWeight(allMajor);
+  if (majorScore >= MAJOR_BLOCK_WEIGHT_THRESHOLD) {
+    console.error(`  🚨 Consensus: ${allMajor.length} major issues (peso=${majorScore.toFixed(1)} ≥ ${MAJOR_BLOCK_WEIGHT_THRESHOLD.toFixed(1)}) — BLOCCATO`);
     return { passed: false, issues: allMajor };
   }
 
@@ -1649,7 +1676,7 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
 
   // Warn if there are major issues but not enough to block
   if (allMajor.length > 0) {
-    console.error(`  ⚠️  Consensus: ${allMajor.length} major issue(s) — accettato con warning`);
+    console.error(`  ⚠️  Consensus: ${allMajor.length} major issue(s) (peso=${majorScore.toFixed(1)}) — accettato con warning`);
   }
 
   return { passed: true, issues: [...allCritical, ...allMajor] };
@@ -3980,43 +4007,63 @@ function preFlightEvergreenCheck(keyword) {
 // (e.g. follow-up commentary on cdt.ch the day after the breaking news on
 // tio.ch) slips through.
 //
-// Primary signal is **containment against the article-ID slug** (e.g.
-// `salario-minimo-ticino-2029-4000-franchi`). Article IDs are deliberately
-// distilled to ~4-7 distinguishing tokens, so if a headline contains 75 %+
-// of an existing ID's stemmed tokens, it's almost certainly the same topic.
-// Pure Jaccard against the long, noisy title text is too weak (real
-// duplicates score 0.42-0.67, well below the 0.58 evergreen threshold).
+// Primary signal is **containment against the article-ID slug** computed on
+// DISTINCTIVE tokens only — i.e. after stripping the structural-domain
+// vocabulary every frontaliere article shares (frontaliere, svizzera, ticino,
+// permesso, lavoro, …).
+//
+// Why distinctive-only:
+//   2026-05-11 measurement on the live run (25690785422): 92 of 224 headlines
+//   were dropped by this gate (41 % of the pool). Of those 92 drops, 81 hit
+//   the threshold at exactly 0.75 — the bare minimum. Inspection showed many
+//   were fresh news stories with different angles ("UE reform impact on
+//   unemployment" vs an existing "Swiss unemployment statistics for Jan")
+//   that collided only because they share the 4 structural tokens
+//   `frontaliere, svizzera, disoccup, ticino`.
+//   At ~2.4k articles in the corpus, virtually every domain ID already has
+//   these tokens; the gate had saturated and was now blocking fresh content.
+//
+// Fix:
+//   1. DOMAIN_DUP_STOPLIST (defined near module top, ~line 543) removes
+//      tokens that recur in ≥40 % of IDs (canonical synonym-map forms).
+//   2. Containment computed on filtered token sets only.
+//   3. ID needs ≥3 distinctive tokens after filtering to use the ID signal;
+//      otherwise fall through to title Jaccard.
+//   4. Thresholds unchanged because we're measuring on a meaningful denominator.
 function preFlightHeadlineCheck(headline) {
   const blogItSrc = read('services/locales/blog-meta-it.ts');
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
 
   const headlineWords = tokenizeIt(headline);
   if (headlineWords.length < 3) return { duplicate: false }; // too short to compare reliably
+  const headlineDistinctive = filterDistinctive(headlineWords);
 
-  // Thresholds tuned on the May 2026 "salario minimo 4000 dal 2029" recurrence.
-  // ID containment is the primary signal: identical headlines score 1.00,
-  // rephrasings 0.75-1.00, while unrelated headlines stay at 0. Requiring a
-  // 4-token minimum on the ID skips truncated/generic IDs like
-  // `processo-mendrisio-19-capit` (3 tokens after stemming) where short
-  // stem collisions ("capit" vs "capitale") produce false positives.
+  // Thresholds operate on DISTINCTIVE tokens after stoplist removal.
+  // ID_MIN_DISTINCTIVE skips IDs that have lost too much signal to compare
+  // reliably (e.g. `frontalieri-svizzera-italia-ticino` → 0 distinctive tokens).
   const ID_CONTAINMENT_THRESHOLD = 0.75;
-  const ID_MIN_TOKENS = 4;
+  const ID_MIN_DISTINCTIVE = 3;
   const TITLE_JACCARD_THRESHOLD = 0.55;
+  const TITLE_MIN_DISTINCTIVE = 4;
 
   for (const m of titleMatches) {
     const existingId = m[1];
     const existingTitle = m[2];
-    const idWords = tokenizeIt(existingId);
-    if (idWords.length < ID_MIN_TOKENS) continue;
 
-    const idContainment = containmentSim(idWords, headlineWords);
-    if (idContainment >= ID_CONTAINMENT_THRESHOLD) {
-      return { duplicate: true, signal: 'id_containment', sim: idContainment, existingId, existingTitle };
+    const idDistinctive = filterDistinctive(tokenizeIt(existingId));
+    if (idDistinctive.length >= ID_MIN_DISTINCTIVE) {
+      const idContainment = containmentSim(idDistinctive, headlineDistinctive);
+      if (idContainment >= ID_CONTAINMENT_THRESHOLD) {
+        return { duplicate: true, signal: 'id_containment', sim: idContainment, existingId, existingTitle };
+      }
     }
 
-    const titleSim = jaccardSim(headlineWords, tokenizeIt(existingTitle));
-    if (titleSim >= TITLE_JACCARD_THRESHOLD) {
-      return { duplicate: true, signal: 'title_jaccard', sim: titleSim, existingId, existingTitle };
+    const titleDistinctive = filterDistinctive(tokenizeIt(existingTitle));
+    if (titleDistinctive.length >= TITLE_MIN_DISTINCTIVE) {
+      const titleSim = jaccardSim(headlineDistinctive, titleDistinctive);
+      if (titleSim >= TITLE_JACCARD_THRESHOLD) {
+        return { duplicate: true, signal: 'title_jaccard', sim: titleSim, existingId, existingTitle };
+      }
     }
   }
   return { duplicate: false };
