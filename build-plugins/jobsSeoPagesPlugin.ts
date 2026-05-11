@@ -2102,7 +2102,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  })();
  const relatedHtml = related
  .map((r: any) => {
- const rp = `${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(r, locale)}`.replace(/\/+/g, '/');
+ const rp = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${localizedSlug(r, locale)}`.replace(/\/+/g, '/');
  const href = `${BASE_URL}${withSlash(rp)}`;
  const relatedTitle = String(r?.titleByLocale?.[locale] || r.title || '');
  const rLogo = companyLogo(r);
@@ -2192,7 +2192,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const postalCode = deriveJobPostalCode(job);
  const streetAddress = deriveStreetAddress(job);
  const alternates = localeList.map((l) => {
- const p = `${localePrefix[l]}/${sectionByLocale[l]}/${perLocaleSlug[l]}`.replace(/\/+/g, '/');
+ const p = `${localePrefix[l]}/${buildCantonAwareSection(l, jobCanton)}/${perLocaleSlug[l]}`.replace(/\/+/g, '/');
  return { lang: l, href: `${BASE_URL}${withSlash(p)}` };
  });
  const xDefaultHref = (alternates.find((h) => h.lang === 'it') || alternates[0])?.href || '';
@@ -2290,7 +2290,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  '@type': 'BreadcrumbList',
  itemListElement: [
  { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, dc), item: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}` },
+ { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, dc), item: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}` },
  { '@type': 'ListItem', position: 3, name: localizedTitle, item: canonicalUrl },
  ],
  });
@@ -2473,7 +2473,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 ${hreflangHtml}
  <script type="application/ld+json">${jobLd}</script>
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
+ <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
  <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true"><noscript><link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true"></noscript>` : ''}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
@@ -2482,7 +2482,7 @@ ${hreflangHtml}
  <body>
  <div id="root">
  <main class="static-job-page">
- <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-accent);text-decoration:none;font-weight:600">&larr; ${esc(localeCopy[locale].allJobsLink)}</a></nav>
+ <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" style="color:var(--color-accent);text-decoration:none;font-weight:600">&larr; ${esc(localeCopy[locale].allJobsLink)}</a></nav>
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
@@ -2504,7 +2504,7 @@ ${hreflangHtml}
  </article>
  ${(() => {
  const cSlugBanner = canonicalCompanySlugBuild(job.company, job.companyKey);
- const cHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${companyRoutePrefix[locale]}-${cSlugBanner}`.replace(/\/+/g, '/'))}`;
+ const cHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${companyRoutePrefix[locale]}-${cSlugBanner}`.replace(/\/+/g, '/'))}`;
  const cLogo = companyLogo(job);
  const companyHeading: Record<string, string> = { it: 'Azienda', en: 'Company', de: 'Unternehmen', fr: 'Entreprise' };
  const companyMonitoring: Record<string, string> = { it: 'Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.', en: 'Frontaliere Ticino discovered this opportunity through company monitoring.', de: 'Frontaliere Ticino hat diese Möglichkeit im Unternehmensmonitoring entdeckt.', fr: 'Frontaliere Ticino a repéré cette opportunité dans le suivi des entreprises.' };
@@ -2732,12 +2732,12 @@ ${hreflangHtml}
  return (frontalierInfo[locale] || '') + (faqSection[locale] || '') + hubLinks;
  })()}
  <nav style="margin:24px 0 0;padding:16px 0;border-top:1px solid var(--color-edge);font-size:14px">
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
+ <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
  const cSlug = canonicalCompanySlugBuild(job.company, job.companyKey);
  if (!cSlug) return '';
  const cPrefix = companyRoutePrefix[locale];
  const cFullSlug = `${cPrefix}-${cSlug}`;
- const cPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${cFullSlug}`.replace(/\/+/g, '/'));
+ const cPath = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${cFullSlug}`.replace(/\/+/g, '/'));
  return ` · <a href="${BASE_URL}${cPath}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(job.company)} &rarr;</a>`;
  })()}
  </nav>
@@ -2787,7 +2787,7 @@ ${hreflangHtml}
  // rare, but possible for short generic slugs), leave it alone.
  if (locale !== 'it' && perLocaleSlug[locale] !== job.slug) {
  const __tLegacyBridge = startTimer();
- const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
+ const legacyRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  if (!activeJobDirs.has(legacyRel.replace(/\/+$/, ''))) {
  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(perLocaleSlug[locale])};</script>`;
  const legacyIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
