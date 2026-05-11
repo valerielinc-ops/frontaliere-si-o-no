@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-05-10T21:46:03.660Z",
+  "assembledAt": "2026-05-11T11:51:48.166Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.746Z",
+      "crawledAt": "2026-05-11T11:51:46.156Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -100,6 +100,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -109,6 +110,102 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-0fc938090f02",
+      "slug": "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos",
+        "en": "research-internship-in-cardiology-100-w-m-d-hochgebirgsklinik-davos-davos",
+        "de": "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch",
+        "fr": "stage-de-recherche-en-cardiologie-100-h-f-x-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Forschungspraktikum Kardiologie 100 % (w/m/d)",
+      "titleByLocale": {
+        "it": "Stage di ricerca in Cardiologia 100% (m/f/d)",
+        "en": "Research Internship in Cardiology 100% (w/m/d)",
+        "de": "Forschungspraktikum Kardiologie 100 % (w/m/d)",
+        "fr": "Stage de recherche en Cardiologie 100% (h/f/x)"
+      },
+      "description": "Einsteigen, mitforschen, Wirkung sehen. An der Hochgebirgsklinik Davos (HGK) arbeitest du an der Schnittstelle von klinischer Praxis, Sportkardiologie und Forschung. Du unterstützt unser Team in laufenden Studien und erhältst einen realistischen Einblick in eine klinische Forschungsabteilung – eng begleitet, hands-on und mit klarem Lernfokus. | Aufgaben: • Klinische Forschung erleben: Von der Rekrutierung bis zur Datenauswertung lernst du den kompletten Studienzyklus kennen. • Sportkardiologie & Prävention: Du gewinnst Einblicke in Diagnostik, Leistungsdiagnostik und kardiovaskuläre Prävention. • Daten & Dokumentation: Erhebung, Qualitätssicherung und strukturierte Aufbereitung von Studiendaten (inkl. Dokumentation nach Vorgabe). • Teamwork: Mitarbeit in interdisziplinären Projekten der kardiologischen Forschung. | Anforderungen: • Neugier für klinische Forschung & Kardiologie , sorgfältige Arbeitsweise und Freude an Teamarbeit. • Kommunikation: Gute Deutsch- und Englischkenntnisse (mind. B2). • Nice to have: Erste Erfahrung mit Datenarbeit (z. B. Excel/SPSS/R) – kein Muss. | Wir bieten: • Starker Lernrahmen: Strukturierte Einarbeitung, Mentoring durch erfahrene Forschende, regelmässiges Feedback. • Klarer Praxisbezug: Echter Einblick in Studienabläufe, Qualitätsstandards und interdisziplinäre Zusammenarbeit. • Mehrwert für dein Studium: Optionaler Bezug zu Seminar-/Masterarbeit nach Absprache; Teilnahme an Team-Jour-fixe/Journal Clubs, wenn passend.",
+      "descriptionByLocale": {
+        "it": "Descrizione Entra a far parte, esplora e vedi i risultati. Alla Hochgebirgsklinik Davos (HGK) lavorerai all'interfaccia tra pratica clinica, sport cardiologia e ricerca. Supporti il nostro team in studi in corso e otterrai una visione realistica di un dipartimento di ricerca clinica - con un accompagnamento, un approccio pratico e un focus chiaro sull'apprendimento. ## Compiti - Esperienza la ricerca clinica: Dalla reclutazione all'analisi dei dati, imparerai l'intero ciclo di studio - Sport cardiologia & Prevenzione: Otterrai informazioni sulla diagnostica, sulla valutazione delle prestazioni e sulla prevenzione cardiovascolare - Dati & Documentazione: Raccolta, controllo della qualità e preparazione strutturata dei dati di studio (inclusa la documentazione secondo le specifiche) - Lavoro di squadra: Partecipazione a progetti interdisciplinari della ricerca cardiologica ## Requisiti - Curiosità per la ricerca clinica e la cardiologia - Lavoro accurato e piacere nel lavorare in squadra - Comunicazione: Buone conoscenze di tedesco e inglese (almeno B2) - Opzionale: Prima esperienza con l'elaborazione dei dati (es. Excel/SPSS/R) - non obbligatorio ## Offriamo - Forza di apprendimento: Inserimento strutturato, mentoring da parte di ricercatori esperti, feedback regolari - Riferimento pratico: Visione reale sui processi di studio, standard di qualità e collaborazione interdisciplinare - Valore per il tuo studio: Possibilità di riferimento a seminari/tesi di laurea magistrale dopo accordo; partecipazione a team jour fixe/journal club, se appropriato",
+        "en": "Description Join in, explore, see the impact. At the Hochgebirgsklinik Davos (HGK), you work at the interface of clinical practice, sports cardiology, and research. You support our team in ongoing studies and gain a realistic insight into a clinical research department - with clear guidance, hands-on experience, and a strong focus on learning. ## Tasks - Experience clinical research: From recruitment to data analysis, you learn the complete study cycle - Sports cardiology & Prevention: Gain insights into diagnostics, performance diagnostics, and cardiovascular prevention - Data & Documentation: Collection, quality assurance, and structured preparation of study data (including documentation according to specifications) - Teamwork: Participation in interdisciplinary projects of cardiological research ## Requirements - Curiosity for clinical research and cardiology - Meticulous work ethic and enjoyment of teamwork - Communication: Good German and English skills (at least B2) - Nice to have: First experience with data processing (e.g., Excel/SPSS/R) – not mandatory ## We offer - Strong learning framework: Structured onboarding, mentoring by experienced researchers, regular feedback - Clear practical relevance: Real insight into study processes, quality standards, and interdisciplinary collaboration - Added value for your studies: Optional reference to seminar/master thesis after agreement; participation in team jour fixe/journal clubs, if applicable",
+        "de": "Einsteigen, mitforschen, Wirkung sehen. An der Hochgebirgsklinik Davos (HGK) arbeitest du an der Schnittstelle von klinischer Praxis, Sportkardiologie und Forschung. Du unterstützt unser Team in laufenden Studien und erhältst einen realistischen Einblick in eine klinische Forschungsabteilung – eng begleitet, hands-on und mit klarem Lernfokus. | Aufgaben: • Klinische Forschung erleben: Von der Rekrutierung bis zur Datenauswertung lernst du den kompletten Studienzyklus kennen. • Sportkardiologie & Prävention: Du gewinnst Einblicke in Diagnostik, Leistungsdiagnostik und kardiovaskuläre Prävention. • Daten & Dokumentation: Erhebung, Qualitätssicherung und strukturierte Aufbereitung von Studiendaten (inkl. Dokumentation nach Vorgabe). • Teamwork: Mitarbeit in interdisziplinären Projekten der kardiologischen Forschung. | Anforderungen: • Neugier für klinische Forschung & Kardiologie , sorgfältige Arbeitsweise und Freude an Teamarbeit. • Kommunikation: Gute Deutsch- und Englischkenntnisse (mind. B2). • Nice to have: Erste Erfahrung mit Datenarbeit (z. B. Excel/SPSS/R) – kein Muss. | Wir bieten: • Starker Lernrahmen: Strukturierte Einarbeitung, Mentoring durch erfahrene Forschende, regelmässiges Feedback. • Klarer Praxisbezug: Echter Einblick in Studienabläufe, Qualitätsstandards und interdisziplinäre Zusammenarbeit. • Mehrwert für dein Studium: Optionaler Bezug zu Seminar-/Masterarbeit nach Absprache; Teilnahme an Team-Jour-fixe/Journal Clubs, wenn passend.",
+        "fr": "Description Rejoignez-nous, explorez et voyez les résultats. À la Hochgebirgsklinik Davos (HGK), vous travaillez à l'interface de la pratique clinique, de la cardiologie sportive et de la recherche. Vous soutenez notre équipe dans les études en cours et obtenez une vision réaliste d'un département de recherche clinique - avec un accompagnement clair, une approche pratique et un focus marqué sur l'apprentissage. ## Tâches - Découvrir la recherche clinique : De la recrutement à l'analyse des données, vous apprenez l'ensemble du cycle d'étude - Cardiologie sportive & Prévention : Obtenez des informations sur la diagnostic, la diagnostic des performances et la prévention cardiovasculaire - Données & Documentation : Collecte, assurance de la qualité et préparation structurée des données d'étude (y compris la documentation selon les spécifications) - Travail d'équipe : Participation à des projets interdisciplinaires de recherche cardiologique ## Exigences - Curiosité pour la recherche clinique et la cardiologie - Rigueur dans le travail et plaisir du travail d'équipe - Communication : Bonnes connaissances en allemand et en anglais (au moins B2) - À souhait : Première expérience avec le traitement des données (ex. Excel/SPSS/R) – non obligatoire ## Nous offrons - Cadre d'apprentissage solide : Intégration structurée, mentorat par des chercheurs expérimentés, feedback régulier - Référence pratique claire : Vision réelle sur les processus d'étude, les normes de qualité et la collaboration interdisciplinaire - Valeur ajoutée pour vos études : Référence optionnelle à un séminaire/mémoire de maîtrise après accord ; participation aux team jour fixe/journal club, si applicable"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-11T11:51:46.155Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-14",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/608/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Curiosità per la ricerca clinica e la cardiologia",
+          "Lavoro accurato e piacere nel lavorare in squadra",
+          "Buone conoscenze di tedesco e inglese (almeno B2)",
+          "Opzionale: Prima esperienza con l'elaborazione dei dati (es. Excel/SPSS/R) - non obbligatorio"
+        ],
+        "en": [
+          "Curiosity for clinical research and cardiology",
+          "Meticulous work ethic and enjoyment of teamwork",
+          "Good German and English skills (at least B2)",
+          "Nice to have: First experience with data processing (e.g., Excel/SPSS/R) – not mandatory"
+        ],
+        "fr": [
+          "Curiosité pour la recherche clinique et la cardiologie",
+          "Rigueur dans le travail et plaisir du travail d'équipe",
+          "Bonnes connaissances en allemand et en anglais (au moins B2)",
+          "À souhait : Première expérience avec le traitement des données (ex. Excel/SPSS/R) – non obligatoire"
+        ]
+      },
+      "department": "Ausbildung",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:43:15.482Z",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -144,7 +241,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.745Z",
+      "crawledAt": "2026-05-11T11:51:46.154Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -209,6 +306,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -218,101 +316,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hochgebirgsklinik-davos-0fc938090f02",
-      "slug": "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos",
-        "en": "research-internship-in-cardiology-100-w-m-d-hochgebirgsklinik-davos-davos",
-        "de": "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch",
-        "fr": "stage-de-recherche-en-cardiologie-100-h-f-x-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Forschungspraktikum Kardiologie 100 % (w/m/d)",
-      "titleByLocale": {
-        "it": "Stage di ricerca in Cardiologia 100% (m/f/d)",
-        "en": "Research Internship in Cardiology 100% (w/m/d)",
-        "de": "Forschungspraktikum Kardiologie 100 % (w/m/d)",
-        "fr": "Stage de recherche en Cardiologie 100% (h/f/x)"
-      },
-      "description": "Einsteigen, mitforschen, Wirkung sehen. An der Hochgebirgsklinik Davos (HGK) arbeitest du an der Schnittstelle von klinischer Praxis, Sportkardiologie und Forschung. Du unterstützt unser Team in laufenden Studien und erhältst einen realistischen Einblick in eine klinische Forschungsabteilung – eng begleitet, hands-on und mit klarem Lernfokus. | Aufgaben: • Klinische Forschung erleben: Von der Rekrutierung bis zur Datenauswertung lernst du den kompletten Studienzyklus kennen. • Sportkardiologie & Prävention: Du gewinnst Einblicke in Diagnostik, Leistungsdiagnostik und kardiovaskuläre Prävention. • Daten & Dokumentation: Erhebung, Qualitätssicherung und strukturierte Aufbereitung von Studiendaten (inkl. Dokumentation nach Vorgabe). • Teamwork: Mitarbeit in interdisziplinären Projekten der kardiologischen Forschung. | Anforderungen: • Neugier für klinische Forschung & Kardiologie , sorgfältige Arbeitsweise und Freude an Teamarbeit. • Kommunikation: Gute Deutsch- und Englischkenntnisse (mind. B2). • Nice to have: Erste Erfahrung mit Datenarbeit (z. B. Excel/SPSS/R) – kein Muss. | Wir bieten: • Starker Lernrahmen: Strukturierte Einarbeitung, Mentoring durch erfahrene Forschende, regelmässiges Feedback. • Klarer Praxisbezug: Echter Einblick in Studienabläufe, Qualitätsstandards und interdisziplinäre Zusammenarbeit. • Mehrwert für dein Studium: Optionaler Bezug zu Seminar-/Masterarbeit nach Absprache; Teilnahme an Team-Jour-fixe/Journal Clubs, wenn passend.",
-      "descriptionByLocale": {
-        "it": "Descrizione Entra a far parte, esplora e vedi i risultati. Alla Hochgebirgsklinik Davos (HGK) lavorerai all'interfaccia tra pratica clinica, sport cardiologia e ricerca. Supporti il nostro team in studi in corso e otterrai una visione realistica di un dipartimento di ricerca clinica - con un accompagnamento, un approccio pratico e un focus chiaro sull'apprendimento. ## Compiti - Esperienza la ricerca clinica: Dalla reclutazione all'analisi dei dati, imparerai l'intero ciclo di studio - Sport cardiologia & Prevenzione: Otterrai informazioni sulla diagnostica, sulla valutazione delle prestazioni e sulla prevenzione cardiovascolare - Dati & Documentazione: Raccolta, controllo della qualità e preparazione strutturata dei dati di studio (inclusa la documentazione secondo le specifiche) - Lavoro di squadra: Partecipazione a progetti interdisciplinari della ricerca cardiologica ## Requisiti - Curiosità per la ricerca clinica e la cardiologia - Lavoro accurato e piacere nel lavorare in squadra - Comunicazione: Buone conoscenze di tedesco e inglese (almeno B2) - Opzionale: Prima esperienza con l'elaborazione dei dati (es. Excel/SPSS/R) - non obbligatorio ## Offriamo - Forza di apprendimento: Inserimento strutturato, mentoring da parte di ricercatori esperti, feedback regolari - Riferimento pratico: Visione reale sui processi di studio, standard di qualità e collaborazione interdisciplinare - Valore per il tuo studio: Possibilità di riferimento a seminari/tesi di laurea magistrale dopo accordo; partecipazione a team jour fixe/journal club, se appropriato",
-        "en": "Description Join in, explore, see the impact. At the Hochgebirgsklinik Davos (HGK), you work at the interface of clinical practice, sports cardiology, and research. You support our team in ongoing studies and gain a realistic insight into a clinical research department - with clear guidance, hands-on experience, and a strong focus on learning. ## Tasks - Experience clinical research: From recruitment to data analysis, you learn the complete study cycle - Sports cardiology & Prevention: Gain insights into diagnostics, performance diagnostics, and cardiovascular prevention - Data & Documentation: Collection, quality assurance, and structured preparation of study data (including documentation according to specifications) - Teamwork: Participation in interdisciplinary projects of cardiological research ## Requirements - Curiosity for clinical research and cardiology - Meticulous work ethic and enjoyment of teamwork - Communication: Good German and English skills (at least B2) - Nice to have: First experience with data processing (e.g., Excel/SPSS/R) – not mandatory ## We offer - Strong learning framework: Structured onboarding, mentoring by experienced researchers, regular feedback - Clear practical relevance: Real insight into study processes, quality standards, and interdisciplinary collaboration - Added value for your studies: Optional reference to seminar/master thesis after agreement; participation in team jour fixe/journal clubs, if applicable",
-        "de": "Einsteigen, mitforschen, Wirkung sehen. An der Hochgebirgsklinik Davos (HGK) arbeitest du an der Schnittstelle von klinischer Praxis, Sportkardiologie und Forschung. Du unterstützt unser Team in laufenden Studien und erhältst einen realistischen Einblick in eine klinische Forschungsabteilung – eng begleitet, hands-on und mit klarem Lernfokus. | Aufgaben: • Klinische Forschung erleben: Von der Rekrutierung bis zur Datenauswertung lernst du den kompletten Studienzyklus kennen. • Sportkardiologie & Prävention: Du gewinnst Einblicke in Diagnostik, Leistungsdiagnostik und kardiovaskuläre Prävention. • Daten & Dokumentation: Erhebung, Qualitätssicherung und strukturierte Aufbereitung von Studiendaten (inkl. Dokumentation nach Vorgabe). • Teamwork: Mitarbeit in interdisziplinären Projekten der kardiologischen Forschung. | Anforderungen: • Neugier für klinische Forschung & Kardiologie , sorgfältige Arbeitsweise und Freude an Teamarbeit. • Kommunikation: Gute Deutsch- und Englischkenntnisse (mind. B2). • Nice to have: Erste Erfahrung mit Datenarbeit (z. B. Excel/SPSS/R) – kein Muss. | Wir bieten: • Starker Lernrahmen: Strukturierte Einarbeitung, Mentoring durch erfahrene Forschende, regelmässiges Feedback. • Klarer Praxisbezug: Echter Einblick in Studienabläufe, Qualitätsstandards und interdisziplinäre Zusammenarbeit. • Mehrwert für dein Studium: Optionaler Bezug zu Seminar-/Masterarbeit nach Absprache; Teilnahme an Team-Jour-fixe/Journal Clubs, wenn passend.",
-        "fr": "Description Rejoignez-nous, explorez et voyez les résultats. À la Hochgebirgsklinik Davos (HGK), vous travaillez à l'interface de la pratique clinique, de la cardiologie sportive et de la recherche. Vous soutenez notre équipe dans les études en cours et obtenez une vision réaliste d'un département de recherche clinique - avec un accompagnement clair, une approche pratique et un focus marqué sur l'apprentissage. ## Tâches - Découvrir la recherche clinique : De la recrutement à l'analyse des données, vous apprenez l'ensemble du cycle d'étude - Cardiologie sportive & Prévention : Obtenez des informations sur la diagnostic, la diagnostic des performances et la prévention cardiovasculaire - Données & Documentation : Collecte, assurance de la qualité et préparation structurée des données d'étude (y compris la documentation selon les spécifications) - Travail d'équipe : Participation à des projets interdisciplinaires de recherche cardiologique ## Exigences - Curiosité pour la recherche clinique et la cardiologie - Rigueur dans le travail et plaisir du travail d'équipe - Communication : Bonnes connaissances en allemand et en anglais (au moins B2) - À souhait : Première expérience avec le traitement des données (ex. Excel/SPSS/R) – non obligatoire ## Nous offrons - Cadre d'apprentissage solide : Intégration structurée, mentorat par des chercheurs expérimentés, feedback régulier - Référence pratique claire : Vision réelle sur les processus d'étude, les normes de qualité et la collaboration interdisciplinaire - Valeur ajoutée pour vos études : Référence optionnelle à un séminaire/mémoire de maîtrise après accord ; participation aux team jour fixe/journal club, si applicable"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.745Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-14",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/608/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Curiosità per la ricerca clinica e la cardiologia",
-          "Lavoro accurato e piacere nel lavorare in squadra",
-          "Buone conoscenze di tedesco e inglese (almeno B2)",
-          "Opzionale: Prima esperienza con l'elaborazione dei dati (es. Excel/SPSS/R) - non obbligatorio"
-        ],
-        "en": [
-          "Curiosity for clinical research and cardiology",
-          "Meticulous work ethic and enjoyment of teamwork",
-          "Good German and English skills (at least B2)",
-          "Nice to have: First experience with data processing (e.g., Excel/SPSS/R) – not mandatory"
-        ],
-        "fr": [
-          "Curiosité pour la recherche clinique et la cardiologie",
-          "Rigueur dans le travail et plaisir du travail d'équipe",
-          "Bonnes connaissances en allemand et en anglais (au moins B2)",
-          "À souhait : Première expérience avec le traitement des données (ex. Excel/SPSS/R) – non obligatoire"
-        ]
-      },
-      "department": "Ausbildung",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
-      "previousSlugs": [
-        "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:43:15.482Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -348,7 +351,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.744Z",
+      "crawledAt": "2026-05-11T11:51:46.153Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -402,6 +405,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -446,7 +450,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.743Z",
+      "crawledAt": "2026-05-11T11:51:46.152Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -500,6 +504,7 @@
         "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini"
       ],
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -544,7 +549,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.742Z",
+      "crawledAt": "2026-05-11T11:51:46.151Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -598,6 +603,103 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.480Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-5ff7d3c95a56",
+      "slug": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
+        "en": "healthcare-specialist-w-m-d-hochgebirgsklinik-davos-davos",
+        "de": "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
+        "fr": "specialiste-en-sante-h-f-x-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Fachperson Gesundheit (w/m/d)",
+      "titleByLocale": {
+        "it": "Specialista in Salute (m/f/d)",
+        "en": "Healthcare Specialist (w/m/d)",
+        "de": "Fachperson Gesundheit (w/m/d)",
+        "fr": "Spécialiste en Santé (h/f/x)"
+      },
+      "description": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben: • Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen. • Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell. • Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg. • Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen: • Ausbildung als Fachperson Gesundheit EFZ • Freude an verantwortungsvoller Pflegearbeit • Empathie, Kommunikationsstärke und Teamgeist • Interesse an interdisziplinärem Austausch | Wir bieten: • Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste • Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung • Beziehungsorientiert: Zeit für Gespräche und Fortschritt • Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung • Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
+      "descriptionByLocale": {
+        "it": "Descrizione Cerchi un lavoro in cui assumi responsabilità e accompagni attivamente i tuoi pazienti nel loro percorso di guarigione? Nella nostra clinica di riabilitazione, lavori in modo interdisciplinare, con un alto livello di competenza medica e con risultati tangibili. ## Compiti - Cura e sostegno: Assumi la cura, la consulenza e il sostegno dei tuoi pazienti. - Agire in modo integrale: Lavorare in modo medico, sociale, emotivo e funzionale. - Collaborare in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento. - Rafforzare l'autonomia: Accompagni i pazienti nel ritorno alla vita quotidiana. ## Requisiti - Formazione come Specialista in Salute EFZ - Passione per il lavoro di cura responsabile - Empatia, capacità di comunicazione e spirito di squadra - Interesse per lo scambio interdisciplinare ## Cosa offriamo - Equilibrio lavoro-vita: Turni pianificati, poche ore straordinarie, pochi o nessun turno di notte - Cultura di squadra: Percorsi brevi, comunicazione aperta, cura nella direzione aziendale - Orientamento relazionale: Tempo per le conversazioni e i progressi - Goditi la salute: Pasti mediterranei e pasto economico - Tempo libero: Abbonamento annuale gratuito per la funivia e offerte di sport e benessere",
+        "en": "Description Are you looking for a job where you take responsibility and actively accompany your patients on their recovery journey? In our rehabilitation clinic, you work interdisciplinarily, with high medical demands and tangible success. ## Tasks - Care & Support: You take care of, advise, and support your patients. - Act Holistically: You work medically, socially, emotionally, and functionally. - Interdisciplinary Collaboration: Physio, Ergo, Sport, Psychology, Doctors, Social Service, and others - all together for treatment success. - Strengthen Independence: You accompany patients back into everyday life. ## Requirements - Education as a Healthcare Specialist EFZ - Enjoyment of responsible care work - Empathy, communication skills, and team spirit - Interest in interdisciplinary exchange ## What We Offer - Work-Life Balance: Scheduled shifts, few overtime hours, few or no night shifts - Team Culture: Short distances, open communication, care in the management - Relationship-Oriented: Time for conversations and progress - Enjoy Health: Mediterranean meals & affordable food - Leisure: Free ski pass annual subscription and sport/wellness offers",
+        "de": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben: • Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen. • Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell. • Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg. • Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen: • Ausbildung als Fachperson Gesundheit EFZ • Freude an verantwortungsvoller Pflegearbeit • Empathie, Kommunikationsstärke und Teamgeist • Interesse an interdisziplinärem Austausch | Wir bieten: • Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste • Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung • Beziehungsorientiert: Zeit für Gespräche und Fortschritt • Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung • Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
+        "fr": "Description Vous cherchez un emploi où vous prenez des responsabilités et accompagnez activement vos patients dans leur parcours de guérison? Dans notre clinique de réadaptation, vous travaillez de manière interdisciplinaire, avec des exigences médicales élevées et des résultats tangibles. ## Tâches - Soins et Soutien: Vous prenez soin, conseillez et soutenez vos patients. - Agir de manière Holistique: Vous travaillez de manière médicale, sociale, émotionnelle et fonctionnelle. - Collaboration Interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres - tous ensemble pour le succès du traitement. - Renforcer l'Autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne. ## Exigences - Formation de Spécialiste en Santé EFZ - Plaisir du travail de soins responsable - Empathie, compétences en communication et esprit d'équipe - Intérêt pour l'échange interdisciplinaire ## Ce que nous offrons - Équilibre travail-vie: Services planifiés, peu d'heures supplémentaires, peu ou aucun service de nuit - Culture d'équipe: Chemins courts, communication ouverte, soins dans la direction - Orientation relationnelle: Temps pour les conversations et les progrès - Profitez de la santé: Repas méditerranéens et nourriture abordable - Loisirs: Abonnement annuel gratuit pour le téléphérique et offres de sport et bien-être"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-11T11:51:46.150Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-17",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/609/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione come Specialista in Salute EFZ",
+          "Passione per il lavoro di cura responsabile",
+          "Empatia, capacità di comunicazione e spirito di squadra",
+          "Interesse per lo scambio interdisciplinare"
+        ],
+        "en": [
+          "Education as a Healthcare Specialist EFZ",
+          "Enjoyment of responsible care work",
+          "Empathy, communication skills, and team spirit",
+          "Interest in interdisciplinary exchange"
+        ],
+        "fr": [
+          "Formation de Spécialiste en Santé EFZ",
+          "Plaisir du travail de soins responsable",
+          "Empathie, compétences en communication et esprit d'équipe",
+          "Intérêt pour l'échange interdisciplinaire"
+        ]
+      },
+      "department": "Pflege",
+      "streetAddress": "Promenade 117",
+      "contactPerson": "Anic Gloor",
+      "contactPhone": "081 417 30 39",
+      "previousSlugs": [
+        "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
+        "healthcare-specialist-m-f-d-in-the-psychosomatic-department-hochgebirgsklinik-davos-davos",
+        "specialista-in-salute-m-f-d-nel-reparto-di-psicosomatica-hochgebirgsklinik-davos-davos",
+        "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -642,7 +744,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.741Z",
+      "crawledAt": "2026-05-11T11:51:46.149Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -694,101 +796,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hochgebirgsklinik-davos-5ff7d3c95a56",
-      "slug": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
-        "en": "healthcare-specialist-w-m-d-hochgebirgsklinik-davos-davos",
-        "de": "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
-        "fr": "specialiste-en-sante-h-f-x-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Fachperson Gesundheit (w/m/d)",
-      "titleByLocale": {
-        "it": "Specialista in Salute (m/f/d)",
-        "en": "Healthcare Specialist (w/m/d)",
-        "de": "Fachperson Gesundheit (w/m/d)",
-        "fr": "Spécialiste en Santé (h/f/x)"
-      },
-      "description": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben: • Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen. • Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell. • Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg. • Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen: • Ausbildung als Fachperson Gesundheit EFZ • Freude an verantwortungsvoller Pflegearbeit • Empathie, Kommunikationsstärke und Teamgeist • Interesse an interdisziplinärem Austausch | Wir bieten: • Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste • Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung • Beziehungsorientiert: Zeit für Gespräche und Fortschritt • Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung • Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
-      "descriptionByLocale": {
-        "it": "Descrizione Cerchi un lavoro in cui assumi responsabilità e accompagni attivamente i tuoi pazienti nel loro percorso di guarigione? Nella nostra clinica di riabilitazione, lavori in modo interdisciplinare, con un alto livello di competenza medica e con risultati tangibili. ## Compiti - Cura e sostegno: Assumi la cura, la consulenza e il sostegno dei tuoi pazienti. - Agire in modo integrale: Lavorare in modo medico, sociale, emotivo e funzionale. - Collaborare in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento. - Rafforzare l'autonomia: Accompagni i pazienti nel ritorno alla vita quotidiana. ## Requisiti - Formazione come Specialista in Salute EFZ - Passione per il lavoro di cura responsabile - Empatia, capacità di comunicazione e spirito di squadra - Interesse per lo scambio interdisciplinare ## Cosa offriamo - Equilibrio lavoro-vita: Turni pianificati, poche ore straordinarie, pochi o nessun turno di notte - Cultura di squadra: Percorsi brevi, comunicazione aperta, cura nella direzione aziendale - Orientamento relazionale: Tempo per le conversazioni e i progressi - Goditi la salute: Pasti mediterranei e pasto economico - Tempo libero: Abbonamento annuale gratuito per la funivia e offerte di sport e benessere",
-        "en": "Description Are you looking for a job where you take responsibility and actively accompany your patients on their recovery journey? In our rehabilitation clinic, you work interdisciplinarily, with high medical demands and tangible success. ## Tasks - Care & Support: You take care of, advise, and support your patients. - Act Holistically: You work medically, socially, emotionally, and functionally. - Interdisciplinary Collaboration: Physio, Ergo, Sport, Psychology, Doctors, Social Service, and others - all together for treatment success. - Strengthen Independence: You accompany patients back into everyday life. ## Requirements - Education as a Healthcare Specialist EFZ - Enjoyment of responsible care work - Empathy, communication skills, and team spirit - Interest in interdisciplinary exchange ## What We Offer - Work-Life Balance: Scheduled shifts, few overtime hours, few or no night shifts - Team Culture: Short distances, open communication, care in the management - Relationship-Oriented: Time for conversations and progress - Enjoy Health: Mediterranean meals & affordable food - Leisure: Free ski pass annual subscription and sport/wellness offers",
-        "de": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben: • Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen. • Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell. • Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg. • Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen: • Ausbildung als Fachperson Gesundheit EFZ • Freude an verantwortungsvoller Pflegearbeit • Empathie, Kommunikationsstärke und Teamgeist • Interesse an interdisziplinärem Austausch | Wir bieten: • Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste • Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung • Beziehungsorientiert: Zeit für Gespräche und Fortschritt • Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung • Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
-        "fr": "Description Vous cherchez un emploi où vous prenez des responsabilités et accompagnez activement vos patients dans leur parcours de guérison? Dans notre clinique de réadaptation, vous travaillez de manière interdisciplinaire, avec des exigences médicales élevées et des résultats tangibles. ## Tâches - Soins et Soutien: Vous prenez soin, conseillez et soutenez vos patients. - Agir de manière Holistique: Vous travaillez de manière médicale, sociale, émotionnelle et fonctionnelle. - Collaboration Interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres - tous ensemble pour le succès du traitement. - Renforcer l'Autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne. ## Exigences - Formation de Spécialiste en Santé EFZ - Plaisir du travail de soins responsable - Empathie, compétences en communication et esprit d'équipe - Intérêt pour l'échange interdisciplinaire ## Ce que nous offrons - Équilibre travail-vie: Services planifiés, peu d'heures supplémentaires, peu ou aucun service de nuit - Culture d'équipe: Chemins courts, communication ouverte, soins dans la direction - Orientation relationnelle: Temps pour les conversations et les progrès - Profitez de la santé: Repas méditerranéens et nourriture abordable - Loisirs: Abonnement annuel gratuit pour le téléphérique et offres de sport et bien-être"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.741Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-17",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/609/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione come Specialista in Salute EFZ",
-          "Passione per il lavoro di cura responsabile",
-          "Empatia, capacità di comunicazione e spirito di squadra",
-          "Interesse per lo scambio interdisciplinare"
-        ],
-        "en": [
-          "Education as a Healthcare Specialist EFZ",
-          "Enjoyment of responsible care work",
-          "Empathy, communication skills, and team spirit",
-          "Interest in interdisciplinary exchange"
-        ],
-        "fr": [
-          "Formation de Spécialiste en Santé EFZ",
-          "Plaisir du travail de soins responsable",
-          "Empathie, compétences en communication et esprit d'équipe",
-          "Intérêt pour l'échange interdisciplinaire"
-        ]
-      },
-      "department": "Pflege",
-      "streetAddress": "Promenade 117",
-      "contactPerson": "Anic Gloor",
-      "contactPhone": "081 417 30 39",
-      "previousSlugs": [
-        "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
-        "healthcare-specialist-m-f-d-in-the-psychosomatic-department-hochgebirgsklinik-davos-davos",
-        "specialista-in-salute-m-f-d-nel-reparto-di-psicosomatica-hochgebirgsklinik-davos-davos",
-        "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -833,7 +841,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.739Z",
+      "crawledAt": "2026-05-11T11:51:46.148Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -887,6 +895,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -931,7 +940,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.738Z",
+      "crawledAt": "2026-05-11T11:51:46.147Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -969,6 +978,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:45:59.207Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -978,6 +988,91 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-fb1b8d16332f",
+      "slug": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
+        "en": "service-staff-m-w-d-80-100-temporary-june-september-hochgebirgsklinik-davos-davos",
+        "de": "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
+        "fr": "employe-de-service-m-w-d-80-100-a-temps-partiel-juin-septembre-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Mitarbeiter Service (m/w/d) 80 - 100% befristet Juni - September",
+      "titleByLocale": {
+        "it": "Collaboratore Servizio (m/w/d) 80-100% a tempo determinato giugno-settembre",
+        "en": "Service Staff (m/w/d) 80-100% temporary June-September",
+        "de": "Mitarbeiter Service (m/w/d) 80 - 100% befristet Juni - September",
+        "fr": "Employé de service (m/w/d) 80-100% à temps partiel juin-septembre"
+      },
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Paula Vetter, Leiterin Service, +41 81 417 31 62 gerne zur Verfügung. | Aufgaben: • Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion • Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden • Selbstständige, zuverlässige und exakte Arbeitsweise • Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement • Fundierte Deutschkenntnisse in Wort und Schrift | Anforderungen: • Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer • Anlässe (interne und externe Events)",
+      "descriptionByLocale": {
+        "it": "Descrizione Dietro la nostra storia di successo è il team Hochgebirgsklinik con oltre 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik offre condizioni di lavoro contemporanee e una posizione ideale per attività ricreative versatili nella regione turistica Grigioni. Per informazioni si prega di contattare la signora Paula Vetter, responsabile del servizio, +41 81 417 31 62. ## Compiti - insegnamento professionale completo come esperto di restauro EFZ o esperienza professionale pluriennale in una funzione simile - piacere nella cura e nella consulenza dei nostri pazienti, ospiti e clienti - Auto-lavoratori, metodi di lavoro affidabili ed esatti - resilienza, flessibilità, capacità del team e impegno - Finanziate conoscenze tedesche in parola e scrittura",
+        "en": "Descrizione Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers contemporary employment conditions and an ideal location for versatile leisure activities in the holiday region Graubünden. For information please contact Mrs. Paula Vetter, Head of Service, +41 81 417 31 62. ## Tasks - Complete professional teaching as a restoration expert EFZ or multiannual professional experience in a similar function - pleasure in the care and advice of our patients, guests and customers - Self-employed, reliable and exact working methods - resilience, flexibility, team capacity and commitment - Funded German knowledge in word and writing ## Requirements - Beverage and food service in all restorations (menu and buffet service) and delivery services in the patient rooms",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Paula Vetter, Leiterin Service, +41 81 417 31 62 gerne zur Verfügung. | Aufgaben: • Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion • Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden • Selbstständige, zuverlässige und exakte Arbeitsweise • Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement • Fundierte Deutschkenntnisse in Wort und Schrift | Anforderungen: • Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer • Anlässe (interne und externe Events)",
+        "fr": "Descrizione Derrière notre success story est l'équipe de Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik offre des conditions d'emploi contemporaines et un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Pour plus d'informations, veuillez contacter Mme Paula Vetter, Chef de service, +41 81 417 31 62. ## Tâches - Enseignement professionnel complet en tant qu'expert en restauration EFZ ou expérience professionnelle pluriannuelle dans une fonction similaire - plaisir dans les soins et les conseils de nos patients, invités et clients - Indépendants, méthodes de travail fiables et exactes - résilience, flexibilité, capacité d'équipe et engagement - Financement des connaissances allemandes en paroles et en écriture ## Exigences - Service de boissons et d'aliments dans toutes les restaurations (service de menu et buffet) et services de livraison dans les salles pour patients"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQy&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-11T11:51:46.145Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/642/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Küche/Service",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
+        "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
+          "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
+        ],
+        "en": [
+          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-04T11:02:00.149Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -1013,7 +1108,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.737Z",
+      "crawledAt": "2026-05-11T11:51:46.145Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1074,90 +1169,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.478Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hochgebirgsklinik-davos-fb1b8d16332f",
-      "slug": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
-        "en": "service-staff-m-w-d-80-100-temporary-june-september-hochgebirgsklinik-davos-davos",
-        "de": "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
-        "fr": "employe-de-service-m-w-d-80-100-a-temps-partiel-juin-septembre-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Mitarbeiter Service (m/w/d) 80 - 100% befristet Juni - September",
-      "titleByLocale": {
-        "it": "Collaboratore Servizio (m/w/d) 80-100% a tempo determinato giugno-settembre",
-        "en": "Service Staff (m/w/d) 80-100% temporary June-September",
-        "de": "Mitarbeiter Service (m/w/d) 80 - 100% befristet Juni - September",
-        "fr": "Employé de service (m/w/d) 80-100% à temps partiel juin-septembre"
-      },
-      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Paula Vetter, Leiterin Service, +41 81 417 31 62 gerne zur Verfügung. | Aufgaben: • Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion • Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden • Selbstständige, zuverlässige und exakte Arbeitsweise • Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement • Fundierte Deutschkenntnisse in Wort und Schrift | Anforderungen: • Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer • Anlässe (interne und externe Events)",
-      "descriptionByLocale": {
-        "it": "Descrizione Dietro la nostra storia di successo è il team Hochgebirgsklinik con oltre 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik offre condizioni di lavoro contemporanee e una posizione ideale per attività ricreative versatili nella regione turistica Grigioni. Per informazioni si prega di contattare la signora Paula Vetter, responsabile del servizio, +41 81 417 31 62. ## Compiti - insegnamento professionale completo come esperto di restauro EFZ o esperienza professionale pluriennale in una funzione simile - piacere nella cura e nella consulenza dei nostri pazienti, ospiti e clienti - Auto-lavoratori, metodi di lavoro affidabili ed esatti - resilienza, flessibilità, capacità del team e impegno - Finanziate conoscenze tedesche in parola e scrittura",
-        "en": "Descrizione Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers contemporary employment conditions and an ideal location for versatile leisure activities in the holiday region Graubünden. For information please contact Mrs. Paula Vetter, Head of Service, +41 81 417 31 62. ## Tasks - Complete professional teaching as a restoration expert EFZ or multiannual professional experience in a similar function - pleasure in the care and advice of our patients, guests and customers - Self-employed, reliable and exact working methods - resilience, flexibility, team capacity and commitment - Funded German knowledge in word and writing ## Requirements - Beverage and food service in all restorations (menu and buffet service) and delivery services in the patient rooms",
-        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Paula Vetter, Leiterin Service, +41 81 417 31 62 gerne zur Verfügung. | Aufgaben: • Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion • Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden • Selbstständige, zuverlässige und exakte Arbeitsweise • Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement • Fundierte Deutschkenntnisse in Wort und Schrift | Anforderungen: • Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer • Anlässe (interne und externe Events)",
-        "fr": "Descrizione Derrière notre success story est l'équipe de Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik offre des conditions d'emploi contemporaines et un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Pour plus d'informations, veuillez contacter Mme Paula Vetter, Chef de service, +41 81 417 31 62. ## Tâches - Enseignement professionnel complet en tant qu'expert en restauration EFZ ou expérience professionnelle pluriannuelle dans une fonction similaire - plaisir dans les soins et les conseils de nos patients, invités et clients - Indépendants, méthodes de travail fiables et exactes - résilience, flexibilité, capacité d'équipe et engagement - Financement des connaissances allemandes en paroles et en écriture ## Exigences - Service de boissons et d'aliments dans toutes les restaurations (service de menu et buffet) et services de livraison dans les salles pour patients"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQy&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.735Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/642/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Küche/Service",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
-      "previousSlugs": [
-        "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
-        "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
-          "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
-        ],
-        "en": [
-          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-04T11:02:00.149Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1202,7 +1214,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.734Z",
+      "crawledAt": "2026-05-11T11:51:46.143Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1265,6 +1277,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.476Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1309,7 +1322,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:46:01.725Z",
+      "crawledAt": "2026-05-11T11:51:46.142Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1361,6 +1374,148 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-b7eca138fc06",
+      "slug": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+      "slugByLocale": {
+        "de": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "it": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "en": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "fr": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Assistenzarzt Pneumologie (m/w/d) 100% - ab 01. Januar 2027",
+      "titleByLocale": {
+        "de": "Assistenzarzt Pneumologie (m/w/d) 100% - ab 01. Januar 2027",
+        "it": "Assistenzarzt Pneumologie (m/w/d) 100% - ab 01. Januar 2027",
+        "en": "Assistenzarzt Pneumologie (m/w/d) 100% - ab 01. Januar 2027",
+        "fr": "Assistenzarzt Pneumologie (m/w/d) 100% - ab 01. Januar 2027"
+      },
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit • Erwünscht ist abgeschlossener Facharzttitel Allgemeine Innere Medizin | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil",
+      "descriptionByLocale": {
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit • Erwünscht ist abgeschlossener Facharzttitel Allgemeine Innere Medizin | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil",
+        "it": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit • Erwünscht ist abgeschlossener Facharzttitel Allgemeine Innere Medizin | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil",
+        "en": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit • Erwünscht ist abgeschlossener Facharzttitel Allgemeine Innere Medizin | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil",
+        "fr": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit • Erwünscht ist abgeschlossener Facharzttitel Allgemeine Innere Medizin | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA3&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-11T11:51:46.141Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/607/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Ärztlicher/medizinischer Dienst",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-11T11:51:46.141Z"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-5b3ecc202b7f",
+      "slug": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+      "slugByLocale": {
+        "de": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "it": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "en": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "fr": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Assistenzarzt Pneumologie (m/w/d) 100% - 01. Januar 2027",
+      "titleByLocale": {
+        "de": "Assistenzarzt Pneumologie (m/w/d) 100% - 01. Januar 2027",
+        "it": "Assistenzarzt Pneumologie (m/w/d) 100% - 01. Januar 2027",
+        "en": "Assistenzarzt Pneumologie (m/w/d) 100% - 01. Januar 2027",
+        "fr": "Assistenzarzt Pneumologie (m/w/d) 100% - 01. Januar 2027"
+      },
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil",
+      "descriptionByLocale": {
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil",
+        "it": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil",
+        "en": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil",
+        "fr": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Die Pneumologie/Schlafmedizin bietet pneumologische ein umfassendes Angebot an ambulanten Abklärungen, Therapien und Spezialsprechstunden an und unterhält einen intensiven Konsiliardienst mit verschiedenen Institutionen im Einzugsgebiet. Das Schlaflabor, das ambulante pulmonale Rehabilitationsprogramm sowie die Rauchstopp-Beratung sind zudem erfolgreich zertifiziert worden Der Bereich Bronchoskopie und die Interventionelle Pneumologie entwickeln sich dynamisch weiter. Aufgrund des starken Wachstums der Pneumologie / Schlafmedizin suchen wir eine/n weitere/n Kaderärztin/-arzt. Für Auskünfte steht Ihnen Frau Dr. med. Tsogyal Latshang Chefärztin Pneumologie, unter der Telefonnummer +41 81 417 38 17, gerne zur Verfügung. | Aufgaben: • Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO) • Sie sind motiviert, belastbar, flexibel und arbeiten gerne in einem Team • Sie sind offen für Neues, innovativ und haben Freude, die Pneumologie/Schlafmedizin aktiv mitzuentwickeln • Sehr gute Deutschkenntnisse in Wort und Schrift • Selbständige und zuverlässige Arbeitsweise • Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit | Anforderungen: • Betreuung von pneumologischen PatientInnen und Patienten • Unter kaderärztlicher Aufsicht Führen der pneumologischen Bettenstation • ambulante Sprechstunde unter Supervision • Du führst selbständig Visiten durch und hilfst bei der Erstellung von Therapieplänen mit • Du führst beziehungsweise befundest verschiedenste Untersuchungen (je nach Ausbildungsstand selbstständig oder unter Supervision), im Besonderen Belastungstests, Punktionen, EKG's, Lungenfunktionsuntersuchungen, nächtliche Screeningsuntersuchungen, konventionellen Thoraxröntgenbilder, einfache sonographische Befunderhebungen, Point of Care Labortests, u.a.m. • Du führst die Unterassistenten in fachlichen Themen • In den interdisziplinären Teams sowie in der medizinischen Diagnostik arbeitest du aktiv mit • Du nimmst am ärztlichen, internistischen Bereitschaftsdienst der Klinik teil"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ0&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-11T11:51:46.132Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/644/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Ärztlicher/medizinischer Dienst",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-11T11:51:46.132Z"
     }
   ]
 }
