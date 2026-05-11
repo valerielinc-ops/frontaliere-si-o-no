@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zambon",
-  "assembledAt": "2026-05-11T12:49:57.228Z",
+  "assembledAt": "2026-05-11T23:12:09.816Z",
   "jobs": [
     {
       "id": "zambon-786111",
@@ -10,7 +10,7 @@
       "company": "Zambon Svizzera SA",
       "companyKey": "zambon",
       "location": "Cadempino",
-      "canton": "AG",
+      "canton": "TI",
       "country": "CH",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
@@ -63,7 +63,8 @@
       "firstSeenAt": "2026-04-14T10:54:06.797Z",
       "previousSlugs": [
         "tirocinante-laboratorio-chimico-controllo-qualita-zambon-svizzera-sa-cadempino"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
