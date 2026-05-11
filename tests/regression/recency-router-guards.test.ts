@@ -14,6 +14,7 @@ import { describe, it, expect } from 'vitest';
 import { parsePath } from '@/services/router';
 import {
   EDITORIAL_CANTONS,
+  EDITORIAL_PRIMARY_CANTONS,
   JOB_TODAY_LANDING_SLUGS,
   isJobTodayLandingSlug,
 } from '../../build-plugins/jobEditorialLanding';
@@ -110,8 +111,17 @@ describe('recency/oggi router guards — parsePath oggi slugs', () => {
     });
   }
 
-  it('EDITORIAL_CANTONS contains exactly TI, GR, VS', () => {
-    expect([...EDITORIAL_CANTONS].sort()).toEqual(['GR', 'TI', 'VS']);
+  // Phase 5 (Cathedral P1-A): EDITORIAL_CANTONS expanded from 3 cantons
+  // (TI/GR/VS) to all 24 canton URL keys; the legacy 3-canton invariant
+  // moved to EDITORIAL_PRIMARY_CANTONS (display-only for prose like
+  // "Ticino, Grigioni e Vallese"). The emit loops are now gated on
+  // MIN_JOBS_FOR_CANTON_PAGE so thin pages never ship.
+  it('EDITORIAL_PRIMARY_CANTONS contains exactly TI, GR, VS', () => {
+    expect([...EDITORIAL_PRIMARY_CANTONS].sort()).toEqual(['GR', 'TI', 'VS']);
+  });
+  it('EDITORIAL_CANTONS spans ≥ 24 canton URL keys (full Cathedral coverage)', () => {
+    expect(EDITORIAL_CANTONS.length).toBeGreaterThanOrEqual(24);
+    expect([...EDITORIAL_CANTONS]).toEqual(expect.arrayContaining(['TI', 'GR', 'VS', 'ZH', 'APPENZELLO', 'BASILEA']));
   });
 });
 

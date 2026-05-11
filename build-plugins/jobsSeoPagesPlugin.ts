@@ -3909,7 +3909,20 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>${priority}</priority>\n </url>`);
  };
 
+ // Phase 5 (Cathedral P1-A): EDITORIAL_CANTONS now spans all 24 canton URL
+ // keys. Gate every editorial emit on MIN_JOBS_FOR_CANTON_PAGE so we never
+ // ship thin pages for cantons with insufficient supply (CLAUDE.md NON-NEG
+ // #4 — never accept <50-word/empty pages). Compute once, reuse in all 4
+ // editorial loops below (today / nurses / part-time / care-variant).
+ const editorialCantonJobCounts = new Map<string, number>();
+ for (const job of validJobs) {
+ const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ if (!c) continue;
+ editorialCantonJobCounts.set(c, (editorialCantonJobCounts.get(c) ?? 0) + 1);
+ }
+
  for (const editorialCanton of EDITORIAL_CANTONS) {
+ if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
  for (const locale of localeList) {
  const __tEdJobsToday = startTimer();
  const model = buildJobTodayLandingModel({
@@ -4212,6 +4225,7 @@ ${alternates}
  }), '0.78');
 
  for (const editorialCanton of EDITORIAL_CANTONS) {
+ if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
  for (const locale of localeList) {
  const __tEdNurses = startTimer();
  const model = buildJobNursesHubLandingModel({
@@ -4386,6 +4400,7 @@ ${alternates}
 
  /* ── Editorial landing: global part-time ───────────────────── */
  for (const editorialCanton of EDITORIAL_CANTONS) {
+ if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
  for (const locale of localeList) {
  const __tEdPartTimeCanton = startTimer();
  const model = buildJobPartTimeLandingModel({
@@ -4547,6 +4562,7 @@ ${alternates}
 
  for (const clusterKey of editorialCareKeys) {
  for (const editorialCanton of EDITORIAL_CANTONS) {
+ if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
  const italianCareModel = buildJobCareVariantLandingModel({
  jobs: validJobs,
  locale: 'it',
