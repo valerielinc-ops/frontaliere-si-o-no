@@ -85,28 +85,33 @@ import { jobsSeoPagesFlushed } from './shared/buildSignals';
 
 // MIN_JOB_COUNT — candidate-level frequency floor (audit time).
 //
-// Set to 1 (no filtering) to emit a static page for every audit-captured
-// candidate slug. This recovers the ~32k GSC 404 cohort from JobBoard's
-// SPA `<a href>` tags that point at `/{section}/{prefix}-{slug}/` URLs
-// for keywords that were previously below the cut.
+// Set to 1 (no filtering) so every audit-captured candidate slug — i.e.
+// every slug JobBoard's SPA `<a href>` widget can produce on a page-visit —
+// becomes eligible for emission. This is the upstream coverage contract:
+// any link the SPA generates MUST resolve to a real page.
 //
-// Why this is now safe (was a hard NO until 2026-05-07):
-//   - SEQUENTIAL_PROFILE=1 is now the always-on default in deploy.yml
-//     (commit 022c6e1808). Plugins no longer run concurrently in
-//     closeBundle, so peak heap is bounded by the largest single
-//     plugin instead of the sum of overlapping working sets. The
-//     previous floor=1 attempts (a7f28ce129 → 18.7k clusters → OOM
-//     exit 143; 1e41209124 → 40-min hang → cancel) were all caused
-//     by parallel-mode contention, NOT by this plugin's own emit.
-//   - In sequential mode, this plugin emitted 1581 pages in 19.1s on
-//     the GH free-tier runner. Linear scaling to ~52k candidates
-//     puts the cluster phase at ~10 min — well within the build
-//     budget, and plugin-isolated so it can't poison other plugins.
-//   - Per-page MIN_MATCHING_JOBS=3 quality gate (combined AND-tier +
-//     OR-fill) is still enforced below — clusters that genuinely have
-//     <3 listing matches are skipped, no thin content emitted.
+// MIN_MATCHING_JOBS — per-page emission floor (post job-matching).
+//
+// Set to 0 (2026-05-11): emit a static page for every candidate that has
+// a non-empty keyword, even when AND-tier + OR-fill find 0 matching jobs
+// in the current jobs.json. Two cohorts depended on relaxing this:
+//   1. GSC-synthetic candidates from `ingest-gsc-orphans-into-candidates.mjs`
+//      (slugs Google indexed in the past, whose source jobs have since
+//      rotated out of jobs.json). With the previous floor of 3 these
+//      slugs stayed 404, fueling the "Indicizzata Non trovata" cohort in
+//      Search Console. Removing the floor makes the page emit; the SPA's
+//      JobBoard hydration handles the empty result-set UX, while the
+//      static crawler body keeps the AI intro + commuter-context prose
+//      (~5-7 KB) so text-html-ratio stays above the 10% gate.
+//   2. Audit-derived candidates with single-token slugs that don't AND-
+//      match any job in jobs.json (rare — most are recovered via OR-fill,
+//      but a few hundred slipped through).
+//
+// n=0 copy: `buildDescription` + `buildHeadline*` shift to a forward-
+// framed phrasing ("Crea alert", "subscribe to alerts") instead of
+// "0 offerte aperte" so SERP CTR doesn't tank on the empty pages.
 const MIN_JOB_COUNT = 1;
-const MIN_MATCHING_JOBS = 3;
+const MIN_MATCHING_JOBS = 0;
 const MAX_JOBS_PER_PAGE = 30;
 const HUB_PAGE_SIZE = 200;
 
@@ -208,7 +213,12 @@ const CACHE_KEY_INPUTS = [
 // the GSC 404 cohort). The bridge HTML self-canonicalizes to the current
 // slug, so listing the bridge URL in sitemap-search-clusters.xml fails
 // audit:sitemap-canonicals + validate:sitemap-pages.
-const CACHE_VERSION = 'v3';
+//
+// v4 (2026-05-11) lowers MIN_MATCHING_JOBS from 3 → 0. Previously skipped
+// clusters (GSC orphans with expired source jobs; audit-derived slugs
+// whose tokens don't AND-match any current job) now emit. Bumping the
+// version invalidates v3 caches so the new pages render on next build.
+const CACHE_VERSION = 'v4';
 
 interface CacheManifest {
   version: string;
@@ -545,6 +555,10 @@ function buildClusterContext(
   }
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
+  // Note: with MIN_MATCHING_JOBS=0 the line above is a no-op (length is
+  // never negative). Kept as a literal expression of the floor so the
+  // constant stays the single source of truth — flip it back to ≥1 here
+  // by raising MIN_MATCHING_JOBS, not by editing the predicate.
 
   const counts = new Map<string, number>();
   for (const j of matching) {
@@ -630,9 +644,28 @@ function capForTitle(headline: string, max: number): string {
   return lastSpace > 0 ? sliced.slice(0, lastSpace).trimEnd() : sliced.trimEnd();
 }
 
+/** Forward-framed copy when matching jobs is empty — avoids "0 jobs found"
+ *  CTR-killer in SERP snippets. Used by both meta description and H1 build. */
+const EMPTY_TAGLINE: Record<Locale, (kw: string, city: string | null) => string> = {
+  it: (kw, city) => city
+    ? `Alert quotidiano per "${kw}" a ${city} — nuove offerte appena pubblicate.`
+    : `Alert quotidiano per "${kw}" in Ticino — nuove offerte appena pubblicate.`,
+  en: (kw, city) => city
+    ? `Daily alert for "${kw}" in ${city} — get notified when new openings are posted.`
+    : `Daily alert for "${kw}" in Ticino — get notified when new openings are posted.`,
+  de: (kw, city) => city
+    ? `Täglicher Alert für "${kw}" in ${city} — neue Inserate sofort sehen.`
+    : `Täglicher Alert für "${kw}" im Tessin — neue Inserate sofort sehen.`,
+  fr: (kw, city) => city
+    ? `Alerte quotidienne pour "${kw}" à ${city} — soyez prévenu·e dès qu'une offre est publiée.`
+    : `Alerte quotidienne pour "${kw}" au Tessin — soyez prévenu·e dès qu'une offre est publiée.`,
+};
+
 /** Build the meta description (120-160 chars). */
 function buildDescription(ctx: ClusterContext, locale: Locale): string {
-  const tagline = COPY[locale].taglineSingular(ctx.matchingJobs.length, ctx.keyword, ctx.city);
+  const tagline = ctx.matchingJobs.length === 0
+    ? EMPTY_TAGLINE[locale](ctx.keyword, ctx.city)
+    : COPY[locale].taglineSingular(ctx.matchingJobs.length, ctx.keyword, ctx.city);
   const head = ctx.topCompanies.length > 0 ? ` ${ctx.topCompanies.slice(0, 2).join(', ')}.` : '';
   const out = `${tagline}${head}`.trim();
   return out.length > 158 ? `${out.slice(0, 157)}…` : out;
@@ -880,8 +913,14 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
   // Technician — 12 offerte aperte in Ticino") never matches the title
   // (which is just the headline + brand) under the audit's case+whitespace-
   // insensitive comparison.
+  //
+  // n=0 path: drop the count, append a forward-framed cue ("alert
+  // quotidiano") instead of "0 offerte" — same goal (differ from title)
+  // without the negative-signal in serp/static-body H1.
   const regionPart = ctx.city ? '' : ` ${chrome.regionH1Suffix}`;
-  const headlineH1 = `${headline} — ${ctx.matchingJobs.length} ${copy.jobsHeading.toLowerCase()}${regionPart}`;
+  const headlineH1 = ctx.matchingJobs.length === 0
+    ? `${headline}${regionPart} — ${copy.alertCta}`
+    : `${headline} — ${ctx.matchingJobs.length} ${copy.jobsHeading.toLowerCase()}${regionPart}`;
 
   // Top companies / cities for the search-query intro paragraph (used by
   // `renderSearchQueryIntro` to vary opening framing per page).
