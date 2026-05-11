@@ -291,7 +291,7 @@ export function buildAxaRegeneratedSlug(job, location) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (!baseSlug) return '';
-  if (!suffix) return baseSlug.slice(0, 90);
+  if (!suffix) return baseSlug.slice(0, 200);
   const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
   const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
   return trimmedBase ? `${trimmedBase}-${suffix}` : suffix;

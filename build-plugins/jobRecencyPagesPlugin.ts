@@ -96,7 +96,7 @@ function slugify(input: unknown): string {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
-    .slice(0, 90);
+    .slice(0, 200);
 }
 
 function localizedJobSlug(job: Record<string, unknown>, locale: JobLandingLocale): string {

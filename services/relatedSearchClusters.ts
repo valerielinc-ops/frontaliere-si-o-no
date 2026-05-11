@@ -49,7 +49,7 @@ export function slugifyJobPart(value: string): string {
  .replace(/[̀-ͯ]/g, '')
  .replace(/[^a-z0-9]+/g, '-')
  .replace(/^-+|-+$/g, '')
- .slice(0, 90);
+ .slice(0, 200);
 }
 
 export function getSearchSlugPrefix(locale: Locale): string {

@@ -421,7 +421,7 @@ async function injectMedactaJobs(alliboJobs) {
       .replace(/[\u0300-\u036f]/g, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '')
-      .slice(0, 90);
+      .slice(0, 200);
 
     // Fetch meta description from detail page (with rate limiting).
     // Full detail body is CAPTCHA-protected on Allibo; enrich deterministically.
@@ -987,7 +987,7 @@ function postProcessMedactaJobs() {
         .replace(/[\u0300-\u036f]/g, '')
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '')
-        .slice(0, 90);
+        .slice(0, 200);
       job.slug = slugBase;
       fixed++;
     }

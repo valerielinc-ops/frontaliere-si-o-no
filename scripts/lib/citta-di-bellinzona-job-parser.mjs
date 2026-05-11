@@ -75,7 +75,7 @@ export function slugify(value = '', suffix = '') {
   if (suffix) {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 90);
+  return s.slice(0, 200);
 }
 
 /**

@@ -94,7 +94,7 @@ function slugify(text = '', suffix = '') {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (suffix) s = `${s}-${suffix}`.replace(/--+/g, '-');
-  return s.slice(0, 90);
+  return s.slice(0, 200);
 }
 
 function isMcdoJob(job) {

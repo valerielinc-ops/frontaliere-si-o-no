@@ -1139,6 +1139,130 @@ function assembleExpiredJobs() {
   return assembled;
 }
 
+/* ── Auto slug-history tracking ────────────────────────────────────── */
+
+/**
+ * Compare the just-assembled active jobs against the PRIOR snapshot of
+ * `data/jobs.json` (captured before assembly began). For each job whose
+ * stable identity matches a prior entry but whose slug or per-locale slug
+ * differs from before, append the OLD slug(s) into the active job's
+ * `previousSlugs` / `previousSlugsByLocale`. This closes the upstream
+ * gap that previously fed the GSC 404 cohort:
+ *   - Translation drift (re-translated title produces a new locale slug)
+ *   - Tail-hash mutation (`-ncbhm0` → `-9yar0z` between crawls)
+ *   - Source-side rename (employer edits the title on the source ATS)
+ *
+ * Without this step, downstream consumers (jobsSeoPagesPlugin's
+ * previousSlugs bridge, sitemap entries, GSC orphan ingestion) never
+ * learn about the old slug → cold visits 404 until the next manual
+ * GSC CSV import + bridge plugin run.
+ *
+ * Side-effect: mutates active job entries in place.
+ * Returns: { driftCount, mergedSlugs }.
+ */
+function trackSlugHistoryDrift(priorJobs, activeJobs) {
+  if (!Array.isArray(priorJobs) || priorJobs.length === 0) {
+    return { driftCount: 0, mergedSlugs: 0 };
+  }
+
+  // Index prior jobs by stable identity (URL-first, with buildStableJobIdentity fallback).
+  const priorByIdentity = new Map();
+  for (const pj of priorJobs) {
+    const id = assemblerIdentity(pj);
+    if (!id) continue;
+    // Last-write-wins on duplicates (shouldn't happen in a well-formed jobs.json).
+    priorByIdentity.set(id, pj);
+  }
+
+  let driftCount = 0;
+  let mergedSlugs = 0;
+
+  for (const job of activeJobs) {
+    const id = assemblerIdentity(job);
+    if (!id) continue;
+    const prior = priorByIdentity.get(id);
+    if (!prior) continue;
+
+    // Capture every old slug variant that exists on the prior entry but
+    // is missing on the current one (including prior previousSlugs that
+    // might have been dropped during a baseline filter — defensive).
+    const knownNew = new Set();
+    if (job.slug) knownNew.add(String(job.slug));
+    for (const s of Object.values(job.slugByLocale || {})) if (s) knownNew.add(String(s));
+    for (const s of (job.previousSlugs || [])) if (s) knownNew.add(String(s));
+    if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+      for (const arr of Object.values(job.previousSlugsByLocale)) {
+        for (const s of (arr || [])) if (s) knownNew.add(String(s));
+      }
+    }
+
+    let driftedThisJob = false;
+
+    // Flat slug drift → push old `slug` into previousSlugs (legacy flat list).
+    if (prior.slug && !knownNew.has(String(prior.slug))) {
+      if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+      job.previousSlugs.push(String(prior.slug));
+      knownNew.add(String(prior.slug));
+      mergedSlugs++;
+      driftedThisJob = true;
+    }
+
+    // Per-locale slug drift → push old `slugByLocale[locale]` into
+    // `previousSlugsByLocale[locale]` (per-locale tracking). Preserves the
+    // 4-locale bridge so any locale entry-point keeps resolving.
+    if (prior.slugByLocale && typeof prior.slugByLocale === 'object') {
+      for (const [locale, oldSlug] of Object.entries(prior.slugByLocale)) {
+        if (!oldSlug) continue;
+        const oldStr = String(oldSlug);
+        if (knownNew.has(oldStr)) continue;
+        if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
+          job.previousSlugsByLocale = {};
+        }
+        if (!Array.isArray(job.previousSlugsByLocale[locale])) {
+          job.previousSlugsByLocale[locale] = [];
+        }
+        job.previousSlugsByLocale[locale].push(oldStr);
+        knownNew.add(oldStr);
+        mergedSlugs++;
+        driftedThisJob = true;
+      }
+    }
+
+    // Also carry forward any previousSlugs from the prior entry that aren't
+    // already on the current entry (defensive: keeps the history monotonically
+    // growing even if a crawler slice rewrites the record from scratch).
+    for (const s of (prior.previousSlugs || [])) {
+      const sStr = String(s || '');
+      if (!sStr || knownNew.has(sStr)) continue;
+      if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+      job.previousSlugs.push(sStr);
+      knownNew.add(sStr);
+      mergedSlugs++;
+    }
+    if (prior.previousSlugsByLocale && typeof prior.previousSlugsByLocale === 'object') {
+      for (const [locale, arr] of Object.entries(prior.previousSlugsByLocale)) {
+        for (const s of (arr || [])) {
+          const sStr = String(s || '');
+          if (!sStr || knownNew.has(sStr)) continue;
+          if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
+            job.previousSlugsByLocale = {};
+          }
+          if (!Array.isArray(job.previousSlugsByLocale[locale])) {
+            job.previousSlugsByLocale[locale] = [];
+          }
+          job.previousSlugsByLocale[locale].push(sStr);
+          knownNew.add(sStr);
+          mergedSlugs++;
+        }
+      }
+    }
+
+    if (driftedThisJob) driftCount++;
+  }
+
+  return { driftCount, mergedSlugs };
+}
+
 /* ── Ghost expired reconciliation ──────────────────────────────────── */
 
 /**
@@ -1372,9 +1496,21 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
 
   console.log('🔧 Assembling jobs dataset from per-crawler slices...');
 
+  // Snapshot the prior data/jobs.json BEFORE assembly overwrites it. Used
+  // by trackSlugHistoryDrift() to detect translation/hash drift on
+  // re-crawl and auto-populate previousSlugs[ByLocale] so the slug-bridge
+  // pipeline keeps every historical URL resolving on next deploy.
+  const priorJobsSnapshot = readJson(DATA_JOBS, []);
+
   // --- Jobs ---
   const assembled = await assembleJobs();
   if (assembled !== null) {
+    // --- Auto slug-history tracking (translation/hash drift) ---
+    const drift = trackSlugHistoryDrift(priorJobsSnapshot, assembled);
+    if (drift.driftCount > 0) {
+      console.log(`  🧭 Slug-history drift tracked: ${drift.driftCount} jobs with changed slug, ${drift.mergedSlugs} historical slugs preserved in previousSlugs[ByLocale]`);
+    }
+
     writeJson(DATA_JOBS, assembled);
     fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
     writeJson(PUBLIC_JOBS, assembled);

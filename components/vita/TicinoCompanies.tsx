@@ -258,7 +258,7 @@ const normalizeTextKey = (value: string) =>
  .trim();
 
 const slugify = (value: string) =>
- normalizeTextKey(value).replace(/\s+/g, '-').slice(0, 90);
+ normalizeTextKey(value).replace(/\s+/g, '-').slice(0, 200);
 
 const canonicalCompanyRouteSlug = (companyName: string, votedSlug = '') => {
  const key = normalizeTextKey(companyName);

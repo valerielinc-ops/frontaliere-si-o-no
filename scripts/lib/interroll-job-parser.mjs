@@ -52,7 +52,7 @@ export function slugify(value = '', suffix = '') {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');
   if (suffix) s = `${s}-${suffix}`.replace(/--+/g, '-');
-  return s.slice(0, 90);
+  return s.slice(0, 200);
 }
 
 /** Minimum description length to accept. */

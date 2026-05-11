@@ -511,7 +511,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       .replace(/[\u0300-\u036f]/g, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '')
-      .slice(0, 90);
+      .slice(0, 200);
 
     const jobEntry = {
       id: `efg-${req.Id}`,
@@ -934,7 +934,7 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
         .replace(/[\u0300-\u036f]/g, '')
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '')
-        .slice(0, 90);
+        .slice(0, 200);
       job.slug = slugBase;
     }
 
