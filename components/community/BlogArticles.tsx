@@ -60,7 +60,7 @@ async function trackArticleView(articleId: string): Promise<void> {
 
 export { trackArticleView };
 
-/* ─── Trending articles (Firestore → localStorage cache) ─── */
+/* ─── Trending articles (static JSON snapshot → localStorage cache) ─── */
 
 interface TrendingEntry { id: string; views: number; lastViewed: number }
 
@@ -79,39 +79,22 @@ async function fetchTrendingArticles(validIds: Set<string>): Promise<TrendingEnt
  }
  } catch { /* corrupt cache — refetch */ }
 
+ // Source: public/article-trending.json — refreshed daily by
+ // .github/workflows/refresh-article-trending.yml. The cron job already
+ // applied recency weighting (7d full, 30d half) and sorted by views, so
+ // here we just slice the top 12 and intersect with currently-valid IDs.
+ // Previously this function did a client-side full scan of `article_views`
+ // (~1377 docs/cache-miss with `allow read: if true` rules) — dominant
+ // Firestore read cost post-May-8 fix.
  try {
- if (!_viewDbInit) {
- const { getFirestore } = await import('firebase/firestore');
- const { app } = await import('@/services/firebase');
- _viewDb = getFirestore(app);
- _viewDbInit = true;
- }
- if (!_viewDb) return [];
-
- const { collection, getDocs } = await import('firebase/firestore');
- const snap = await getDocs(collection(_viewDb, 'article_views'));
- const now = Date.now();
- const sevenDays = 7 * 24 * 60 * 60 * 1000;
- const entries: TrendingEntry[] = [];
-
- snap.forEach((d: any) => {
- const data = d.data();
- const lastViewed = data.lastViewed?.toMillis?.() ?? data.lastViewed?.getTime?.() ?? 0;
- const views = data.views ?? 0;
- // Boost articles viewed recently: full weight within 7 days, half weight within 30 days
- const age = now - lastViewed;
- if (age < sevenDays) {
- entries.push({ id: d.id, views, lastViewed });
- } else if (age < 30 * 24 * 60 * 60 * 1000 && views > 5) {
- entries.push({ id: d.id, views: Math.round(views * 0.5), lastViewed });
- }
- });
-
- entries.sort((a, b) => b.views - a.views);
- const top = entries.slice(0, 12); // cache top 12
+ const res = await fetch('/article-trending.json', { cache: 'no-cache' });
+ if (!res.ok) return [];
+ const payload = await res.json();
+ const rawEntries: TrendingEntry[] = Array.isArray(payload?.entries) ? payload.entries : [];
+ const top = rawEntries.slice(0, 12);
 
  try {
- localStorage.setItem(TRENDING_CACHE_KEY, JSON.stringify({ ts: now, data: top }));
+ localStorage.setItem(TRENDING_CACHE_KEY, JSON.stringify({ ts: Date.now(), data: top }));
  } catch { /* quota — ignore */ }
 
  return top.filter(e => validIds.has(e.id));

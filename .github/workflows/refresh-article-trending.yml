@@ -1,0 +1,80 @@
+name: Refresh Article Trending
+
+# Reads the `article_views` Firestore collection ONCE per day and commits the
+# resulting `public/article-trending.json` snapshot to main. The SPA's
+# components/community/BlogArticles.tsx reads the committed file instead of
+# scanning ~1377 docs from the browser on every cache-miss visit.
+#
+# Cost rationale: before this workflow, fetchTrendingArticles() in
+# BlogArticles.tsx executed `getDocs(collection('article_views'))` from each
+# unique browser session whenever the 1h localStorage cache missed. With
+# `allow read: if true` rules and ~1377 docs growing, this was estimated at
+# ~500k–5M Firestore reads/wk (correlated with blog SEO traffic).
+# Daily cron drops that to ~7 server-side scans/wk, ~10k reads/wk total.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 5 * * *'  # 06:15 CET / 07:15 CEST — 15 min after job-popularity to avoid push race
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-article-trending
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Fetch article trending from Firestore
+        run: node scripts/fetch-article-trending.mjs
+
+      - name: Commit and push trending snapshot
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git add public/article-trending.json
+          git diff --cached --quiet && echo "No trending changes to commit" && exit 0
+          git commit -m "chore(data): refresh article trending snapshot"
+          # Concurrent data-refresh workflows can push to main at the same
+          # time (memory project_workflow_push_race_pattern). Use the shared
+          # rebase-retry helper. The fetch is deterministic given the
+          # current article_views state, so on conflict we re-run it after
+          # rebasing.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/fetch-article-trending.mjs && git add public/article-trending.json"
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        env:
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "CI Failure: Refresh Article Trending — run ${{ github.run_number }}" \
+            --description "Article trending refresh failed. Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

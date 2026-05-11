@@ -455,13 +455,16 @@ export default function AdminPanel() {
  (async () => {
  setNlLoading(true);
  try {
- const { getFirestore, collection, query, where, getDocs, doc: firestoreDoc, getDoc } = await import('firebase/firestore');
+ const { getFirestore, collection, query, where, getDocs, getCountFromServer, limit, doc: firestoreDoc, getDoc } = await import('firebase/firestore');
  const { app } = await import('@/services/firebase');
  const db = getFirestore(app);
 
- // Subscriber count
- const subSnap = await getDocs(query(collection(db, 'newsletter_subscribers'), where('isActive', '==', true)));
- if (!cancelled) setNlSubscriberCount(subSnap.size);
+ const activeSubsQ = query(collection(db, 'newsletter_subscribers'), where('isActive', '==', true));
+
+ // Subscriber count (count() aggregation = 1 Firestore read regardless
+ // of collection size; previously this fetched every active doc).
+ const countSnap = await getCountFromServer(activeSubsQ);
+ if (!cancelled) setNlSubscriberCount(countSnap.data().count);
 
  // Last send (stored under newsletter_subscribers/_meta_)
  const metaSnap = await getDoc(firestoreDoc(db, 'newsletter_subscribers', '_meta_'));
@@ -471,9 +474,11 @@ export default function AdminPanel() {
  setNlLastSend(date.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }));
  }
 
- // Recipient emails (first 10, masked)
+ // Recipient emails (first 10, masked) — bounded query so we never pull
+ // the whole collection just to render the preview list.
+ const sampleSnap = await getDocs(query(activeSubsQ, limit(10)));
  const recipDocs: string[] = [];
- subSnap.forEach(d => {
+ sampleSnap.forEach(d => {
  const email = d.data().email;
  if (email && recipDocs.length < 10) {
  const [user, domain] = email.split('@');
