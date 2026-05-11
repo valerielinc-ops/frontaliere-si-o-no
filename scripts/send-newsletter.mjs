@@ -866,26 +866,51 @@ function localizeArticle(articleId, locale) {
  * Returns a function (locale) => article object, so each subscriber gets localized content.
  * Uses Firestore article_views (most viewed this week), falls back to hardcoded default.
  */
+// ─── _meta_ doc memoization ─────────────
+// newsletter_subscribers/_meta_ is read by 5 functions per send-newsletter
+// run. Only this process mutates it during a run, so an in-process cache
+// with write-through stays consistent.
+let _metaCache = null;
+let _metaPromise = null;
+
+function metaDocRef() {
+  return db.collection('newsletter_subscribers').doc('_meta_');
+}
+
+async function readMetaDoc() {
+  if (_metaCache !== null) return _metaCache;
+  if (_metaPromise) return _metaPromise;
+  _metaPromise = (async () => {
+    try {
+      const doc = await metaDocRef().get();
+      _metaCache = doc.exists ? (doc.data() || {}) : {};
+    } catch {
+      _metaCache = {};
+    }
+    return _metaCache;
+  })();
+  return _metaPromise;
+}
+
+async function writeMetaDoc(updates) {
+  await metaDocRef().set(updates, { merge: true });
+  if (_metaCache === null) await readMetaDoc();
+  Object.assign(_metaCache, updates);
+}
+
 async function fetchRecentlyFeaturedArticles() {
   if (!db) return [];
-  try {
-    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
-    const doc = await metaRef.get();
-    return doc.exists ? (doc.data().recently_featured_articles || []) : [];
-  } catch {
-    return [];
-  }
+  const data = await readMetaDoc();
+  return data.recently_featured_articles || [];
 }
 
 async function saveRecentlyFeaturedArticle(articleId) {
   if (!db) return;
   const MAX_HISTORY = 12; // exclude last 12 articles → ~3 months of variety with weekly sends
   try {
-    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
-    const doc = await metaRef.get();
-    const history = doc.exists ? (doc.data().recently_featured_articles || []) : [];
+    const history = await fetchRecentlyFeaturedArticles();
     const updated = [articleId, ...history.filter(id => id !== articleId)].slice(0, MAX_HISTORY);
-    await metaRef.set({ recently_featured_articles: updated }, { merge: true });
+    await writeMetaDoc({ recently_featured_articles: updated });
   } catch (e) {
     console.warn('\u26a0\ufe0f Save featured article history failed:', e.message);
   }
@@ -897,23 +922,16 @@ const MAX_FEATURED_JOBS_HISTORY = 8; // 2 weeks \u00d7 4 cards = 8 slots
 
 async function fetchRecentlyFeaturedJobs() {
   if (!db) return [];
-  try {
-    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
-    const doc = await metaRef.get();
-    return doc.exists ? (doc.data()[RECENTLY_FEATURED_JOBS_KEY] || []) : [];
-  } catch {
-    return [];
-  }
+  const data = await readMetaDoc();
+  return data[RECENTLY_FEATURED_JOBS_KEY] || [];
 }
 
 async function saveRecentlyFeaturedJobs(slugs) {
   if (!db || !slugs.length) return;
   try {
-    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
-    const doc = await metaRef.get();
-    const existing = doc.exists ? (doc.data()[RECENTLY_FEATURED_JOBS_KEY] || []) : [];
+    const existing = await fetchRecentlyFeaturedJobs();
     const updated = [...new Set([...slugs, ...existing])].slice(0, MAX_FEATURED_JOBS_HISTORY);
-    await metaRef.set({ [RECENTLY_FEATURED_JOBS_KEY]: updated }, { merge: true });
+    await writeMetaDoc({ [RECENTLY_FEATURED_JOBS_KEY]: updated });
     console.log(`\u2705 Job rotation: saved ${updated.length} recently featured slugs`);
   } catch (e) {
     console.warn('\u26a0\ufe0f Save recently featured jobs failed:', e.message);
@@ -1379,11 +1397,10 @@ async function sendEmailBatch(emails, apiKey) {
 async function getNextIssueNumber() {
   if (!db) return null;
   try {
-    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
-    const doc = await metaRef.get();
-    const current = doc.exists ? (doc.data().issue_number || 0) : 0;
+    const data = await readMetaDoc();
+    const current = data.issue_number || 0;
     const next = current + 1;
-    await metaRef.set({ issue_number: next }, { merge: true });
+    await writeMetaDoc({ issue_number: next });
     return next;
   } catch (e) {
     console.warn('\u26a0\ufe0f Issue number fetch failed:', e.message);
