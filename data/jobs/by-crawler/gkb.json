@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-05-10T21:40:24.227Z",
+  "assembledAt": "2026-05-11T11:45:56.639Z",
   "jobs": [
     {
       "id": "gkb-07f584833c9a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:21.865Z",
+      "crawledAt": "2026-05-11T11:45:54.341Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -70,6 +70,7 @@
         "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-graubundner-kantonalbank-scuol"
       ],
       "firstSeenAt": "2026-04-30T21:51:32.203Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -85,9 +86,9 @@
     },
     {
       "id": "gkb-a99555bd09c8",
-      "slug": "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-graubundner-kantonalbank-st-moritz",
+      "slug": "kaufmann-bank-a-st-moritz-inizio-del-2027-graubundner-kantonalbank-st-moritz",
       "slugByLocale": {
-        "it": "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-graubundner-kantonalbank-st-moritz",
+        "it": "kaufmann-bank-a-st-moritz-inizio-del-2027-graubundner-kantonalbank-st-moritz",
         "en": "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-graubundner-kantonalbank-st-moritz",
         "de": "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-graubundner-kantonalbank-st-moritz",
         "fr": "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-graubundner-kantonalbank-st-moritz"
@@ -114,7 +115,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1922/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:21.004Z",
+      "crawledAt": "2026-05-11T11:45:53.326Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -134,10 +135,14 @@
       "previousSlugsByLocale": {
         "de": [
           "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-ch"
+        ],
+        "it": [
+          "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-graubundner-kantonalbank-st-moritz"
         ]
       },
       "previousSlugs": [
-        "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-ch"
+        "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-ch",
+        "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-graubundner-kantonalbank-st-moritz"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:12:40.728Z",
@@ -156,9 +161,9 @@
     },
     {
       "id": "gkb-c27fc944391a",
-      "slug": "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-graubundner-kantonalbank-davos-klosters",
+      "slug": "banca-kaufmann-a-davos-inizio-del-2027-graubundner-kantonalbank-davos-klosters",
       "slugByLocale": {
-        "it": "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-graubundner-kantonalbank-davos-klosters",
+        "it": "banca-kaufmann-a-davos-inizio-del-2027-graubundner-kantonalbank-davos-klosters",
         "en": "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-graubundner-kantonalbank-davos-klosters",
         "de": "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-graubundner-kantonalbank-davos-klosters",
         "fr": "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-graubundner-kantonalbank-davos-klosters"
@@ -185,7 +190,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1923/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:20.115Z",
+      "crawledAt": "2026-05-11T11:45:52.318Z",
       "addressLocality": "Davos, Klosters",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -205,10 +210,14 @@
       "previousSlugsByLocale": {
         "de": [
           "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-gkb-ch"
+        ],
+        "it": [
+          "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-graubundner-kantonalbank-davos-klosters"
         ]
       },
       "previousSlugs": [
-        "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-gkb-ch"
+        "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-gkb-ch",
+        "kauffrau-kaufmann-bank-in-davos-lehrbeginn-2027-graubundner-kantonalbank-davos-klosters"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:12:39.833Z",
@@ -256,7 +265,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1909/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:19.258Z",
+      "crawledAt": "2026-05-11T11:45:51.302Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -291,6 +300,7 @@
         "mediamatiker-in-in-chur-lehrbeginn-2027-gkb-ch"
       ],
       "firstSeenAt": "2026-04-30T21:51:29.844Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -335,7 +345,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1890/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:18.396Z",
+      "crawledAt": "2026-05-11T11:45:50.292Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -408,7 +418,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1891/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:17.529Z",
+      "crawledAt": "2026-05-11T11:45:49.273Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -445,6 +455,7 @@
         "kauffrau-kaufmann-bank-in-chur-lehrbeginn-2027-graubundner-kantonalbank-chur"
       ],
       "firstSeenAt": "2026-04-30T21:51:28.272Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -489,7 +500,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:16.655Z",
+      "crawledAt": "2026-05-11T11:45:48.254Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -521,6 +532,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T10:56:25.703Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -565,7 +577,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1926/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:15.788Z",
+      "crawledAt": "2026-05-11T11:45:47.239Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -602,6 +614,7 @@
         "kreditspezialist-in-credit-services-80-100-graubundner-kantonalbank-chur"
       ],
       "firstSeenAt": "2026-05-04T21:58:18.974Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -646,7 +659,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1929/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:14.908Z",
+      "crawledAt": "2026-05-11T11:45:46.222Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -678,6 +691,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:05:11.480Z",
+      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -722,7 +736,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:40:14.016Z",
+      "crawledAt": "2026-05-11T11:45:45.191Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -760,6 +774,7 @@
         "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
       ],
       "firstSeenAt": "2026-05-07T21:54:03.719Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
