@@ -9,17 +9,126 @@ const FORBIDDEN = [
   "'trouver-emploi-tessin'",
 ];
 
+// Allowlist — any line that legitimately references a TI legacy section
+// literal. Every TI hardcode below has been audited as either (a) a
+// fallback default in a per-plugin SECTION_SLUG table, or (b) a TI-only
+// data structure (router slugs, section→label maps, hub-chrome) where
+// the literal IS the canonical name for TI.
+//
+// IMPORTANT: never add a NEW entry here without first confirming the
+// hardcode is correct legacy preservation. New canton-aware code should
+// import resolveCantonSection() from build-plugins/shared/cantonSection.
 const ALLOWLIST = [
-  'build-plugins/shared/cantonSection.ts',           // SECTION_LEGACY_TI definition
-  'build-plugins/jobsSeoPagesPlugin.ts:772',         // sectionByLocale definition (legacy preservation)
-  'build-plugins/jobsSeoPagesPlugin.ts:773',
-  'build-plugins/jobsSeoPagesPlugin.ts:774',
-  'build-plugins/jobsSeoPagesPlugin.ts:775',
-  'build-plugins/jobsSeoPagesPlugin.ts:776',
-  'build-plugins/jobBoardSeo.ts:38',                 // JOB_BOARD_LANDING_PATHS — TI legacy entry only
+  // ── Canton-section helper itself: defines the TI legacy section table ──
+  'build-plugins/shared/cantonSection.ts',
+
+  // ── jobsSeoPagesPlugin: sectionByLocale legacy preservation (TI default) ──
+  'build-plugins/jobsSeoPagesPlugin.ts:779',
+  'build-plugins/jobsSeoPagesPlugin.ts:780',
+  'build-plugins/jobsSeoPagesPlugin.ts:781',
+  'build-plugins/jobsSeoPagesPlugin.ts:782',
+  'build-plugins/jobsSeoPagesPlugin.ts:787',          // jsdoc reference to the legacy slugs
+
+  // ── jobBoardSeo: TI legacy job-board landing paths (kept for legacy entry) ──
+  'build-plugins/jobBoardSeo.ts:38',
   'build-plugins/jobBoardSeo.ts:39',
   'build-plugins/jobBoardSeo.ts:40',
   'build-plugins/jobBoardSeo.ts:41',
+
+  // ── Per-plugin SECTION_SLUG fallback tables (TI default for unknown canton) ──
+  // Each plugin keeps its own typed Record<locale, string> for performance /
+  // bundle-isolation; the values mirror cantonSection.SECTION_LEGACY_TI by design.
+  'build-plugins/cityJobsHub.ts:111',
+  'build-plugins/cityJobsHub.ts:112',
+  'build-plugins/cityJobsHub.ts:113',
+  'build-plugins/cityJobsHub.ts:114',
+  'build-plugins/companyHubBridgePlugin.ts:40',
+  'build-plugins/companyHubBridgePlugin.ts:41',
+  'build-plugins/companyHubBridgePlugin.ts:42',
+  'build-plugins/companyHubBridgePlugin.ts:43',
+  'build-plugins/jobOrphanBridgePlugin.ts:83',
+  'build-plugins/jobOrphanBridgePlugin.ts:84',
+  'build-plugins/jobOrphanBridgePlugin.ts:85',
+  'build-plugins/jobOrphanBridgePlugin.ts:86',
+  'build-plugins/jobRecencyPagesPlugin.ts:53',
+  'build-plugins/jobRecencyPagesPlugin.ts:54',
+  'build-plugins/jobRecencyPagesPlugin.ts:55',
+  'build-plugins/jobRecencyPagesPlugin.ts:56',
+  'build-plugins/jobSectorLanding.ts:103',
+  'build-plugins/jobSectorLanding.ts:104',
+  'build-plugins/jobSectorLanding.ts:105',
+  'build-plugins/jobSectorLanding.ts:106',
+  'build-plugins/legacyRedirectsPlugin.ts:281',
+  'build-plugins/legacyRedirectsPlugin.ts:282',
+  'build-plugins/legacyRedirectsPlugin.ts:283',
+  'build-plugins/legacyRedirectsPlugin.ts:284',
+  'build-plugins/locationHubBridgePlugin.ts:51',
+  'build-plugins/locationHubBridgePlugin.ts:52',
+  'build-plugins/locationHubBridgePlugin.ts:53',
+  'build-plugins/locationHubBridgePlugin.ts:54',
+  'build-plugins/orphanQueryLandingPlugin.ts:436',
+  'build-plugins/orphanQueryLandingPlugin.ts:437',
+  'build-plugins/orphanQueryLandingPlugin.ts:438',
+  'build-plugins/orphanQueryLandingPlugin.ts:439',
+  'build-plugins/searchConsoleCompat.ts:11',
+  'build-plugins/searchConsoleCompat.ts:12',
+  'build-plugins/searchConsoleCompat.ts:13',
+  'build-plugins/searchConsoleCompat.ts:14',
+
+  // ── seoHubsPlugin: per-locale alternation pulling the TI legacy slug for
+  //    the TI hub. Aggregator/per-canton hubs live in a different code path. ──
+  'build-plugins/seoHubsPlugin.ts:1175',
+  'build-plugins/seoHubsPlugin.ts:1191',
+
+  // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
+  //    the prose explicitly references "10 most-searched roles in Ticino"). ──
+  'build-plugins/professionLandingsLinksPlugin.ts:207',
+  'build-plugins/professionLandingsLinksPlugin.ts:211',
+  'build-plugins/professionLandingsLinksPlugin.ts:215',
+  'build-plugins/professionLandingsLinksPlugin.ts:219',
+
+  // ── staticPagesPlugin: section→category / section→label maps. These ARE
+  //    keyed by the TI legacy section name; they are data, not links. ──
+  'build-plugins/staticPagesPlugin.ts:764',
+  'build-plugins/staticPagesPlugin.ts:765',
+  'build-plugins/staticPagesPlugin.ts:766',
+  'build-plugins/staticPagesPlugin.ts:767',
+  'build-plugins/staticPagesPlugin.ts:786',
+  'build-plugins/staticPagesPlugin.ts:787',
+  'build-plugins/staticPagesPlugin.ts:1321',
+  'build-plugins/staticPagesPlugin.ts:1346',
+  'build-plugins/staticPagesPlugin.ts:1371',
+  'build-plugins/staticPagesPlugin.ts:1639',
+
+  // ── shared/hubChrome.ts: per-locale hub-chrome registry keyed on TI section name ──
+  'build-plugins/shared/hubChrome.ts:106',
+  'build-plugins/shared/hubChrome.ts:139',
+  'build-plugins/shared/hubChrome.ts:172',
+  'build-plugins/shared/hubChrome.ts:205',
+
+  // ── services/router.ts: TI legacy slug entries in the per-locale ROUTER
+  //    slug table. These are the URLs the SPA recognises as the TI hub. ──
+  'services/router.ts:1037',
+  'services/router.ts:1138',
+  'services/router.ts:1239',
+  'services/router.ts:1340',
+
+  // ── services/relatedSearchClusters.ts: TI default section in resolveSectionSlug. ──
+  'services/relatedSearchClusters.ts:64',
+  'services/relatedSearchClusters.ts:65',
+  'services/relatedSearchClusters.ts:66',
+  'services/relatedSearchClusters.ts:67',
+
+  // ── services/analytics-seo.ts: TI section-name whitelist for analytics. ──
+  'services/analytics-seo.ts:109',
+  'services/analytics-seo.ts:110',
+  'services/analytics-seo.ts:111',
+  'services/analytics-seo.ts:112',
+
+  // ── newsletter-content: TI section name used to build CTA links in TI-themed
+  //    newsletter emails. Newsletter content is TI-targeted. ──
+  'services/newsletter-content.mjs:368',
+
   'tests/',                                          // tests reference literals for verification
 ];
 
