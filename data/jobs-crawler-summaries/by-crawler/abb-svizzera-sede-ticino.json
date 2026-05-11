@@ -1,18 +1,87 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-05-10T20:52:07.426Z",
-  "total": 13,
-  "newCount": 0,
+  "generatedAt": "2026-05-11T10:57:26.932Z",
+  "total": 15,
+  "newCount": 2,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 34750,
-  "avgDurationMs": 34750,
+  "durationMs": 50057,
+  "avgDurationMs": 50057,
   "durationHistory": [
-    34750
+    50057
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-w5vlie",
+      "slug": "senior-power-systems-computer-aided-engineer-abb-svizzera-sede-ticino-quartino-ticino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Senior Power Systems Computer-Aided Engineer",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00018668EXTERNALENGLOBAL/Senior-Power-Systems-Computer-Aided-Engineer",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-05-11T10:57:25.663Z",
+      "firstSeenAt": "2026-05-11T10:57:25.663Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 21,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-1dk7xe",
+      "slug": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Product Trainer",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00025482EXTERNALENGLOBAL/Product-Trainer",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-05-11T10:57:25.663Z",
+      "firstSeenAt": "2026-05-11T10:57:25.663Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 53,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-ouqirv",
