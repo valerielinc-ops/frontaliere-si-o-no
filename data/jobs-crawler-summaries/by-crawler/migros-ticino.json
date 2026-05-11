@@ -1,22 +1,80 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-11T12:12:14.977Z",
-  "total": 26,
-  "newCount": 0,
+  "generatedAt": "2026-05-11T22:35:12.287Z",
+  "total": 27,
+  "newCount": 1,
   "updatedCount": 24,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 38841,
-  "avgDurationMs": 38841,
+  "durationMs": 41833,
+  "avgDurationMs": 41833,
   "durationHistory": [
-    38841
+    41833
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-70fjie",
+      "slug": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny",
+      "company": "Genossenschaft Migros Wallis",
+      "title": "Verantwortliche*r Administration & Immobilienmanagement",
+      "location": "Martigny",
+      "canton": "VS",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-10",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-wallis/verantwortlicher-administration-immobilienmanagement/ab30167b-b2ab-4f7c-8101-375d7c767dcb",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Funktionale und hierarchische Leitung des Verwaltungsbereichs (Planung, Koordination, Begleitung und Kompetenzentwicklung)",
+        "Gewährleistung einer effizienten und einheitlichen Verwaltung für : Bau- und Technikprojekte: Verwaltung der Projektdokumentation, Verträge, Organisation und Nachbereitung der Sitzungen, Unterstützung des Controllings, Archivierung",
+        "Gewährleistung einer effizienten und einheitlichen Verwaltung für : Immobilienmanagement: Verwaltung von Vertrags- und Objektdaten, Überwachung des Portfolios, Berichterstattung und KPI-Indikatoren",
+        "Gewährleistung einer effizienten und einheitlichen Verwaltung für : Facility Management : Vertragsmanagement, CMMS/Ticketing System, Planung von Wartungsarbeiten und vorgeschriebenen Kontrollen, Analysen und Berichte",
+        "Harmonisierung, Optimierung und Digitalisierung von Verwaltungsprozessen, Dokumentationen, Vorlagen und Tools",
+        "Einführung, Überwachung und Weiterentwicklung von Dashboards, Berichten und Leistungsindikatoren für die Geschäftsleitung",
+        "Enge Zusammenarbeit mit den Projektleitenden, den Verantwortlichen für Immobilien und Facility Management sowie mit den internen Schnittstellen (Finanzen, HR, IT, Einkauf)",
+        "Aktive Mitwirkung und Mitverantwortung bei der Leitung des Departements Immobilien"
+      ],
+      "_migrosBenefits": [
+        "Flexibler Arbeitsort / Home Office: Je nach Funktion Möglichkeit für Homeoffice",
+        "Mutterschaftsurlaub / Vaterschaftsurlaub: Mutterschafts u. Vaterschaftsurlaub über dem gesetzlichen Minumum / Urlaubsanspruch bei Adoption",
+        "Faire Löhne: Label We pay fair",
+        "Handy-Abo: Handy-Abonnement zum Vorzugspreis",
+        "Berufliche Vorsorge: Möglichkeit des Vorruhestands mit 58 Jahren / Leistungen, die über das Berufliche Vorsorgegesetz hinausgehen",
+        "Sozialleistungen: Überdurchschnittliche Sozialleistungen",
+        "Verpflegung: Rabatte auf Mahlzeiten in den Restaurants und Take-Aways Migros Wallis",
+        "Cumulus-Punkte: Zusätzliche Cumulus-Punkte für eine Vielzahl von Produkten",
+        "Migros Bank: Vorzugskonditionen bei der Migros Bank",
+        "Mitarbeiterangebote: Gutscheinhefte für Einkäufe in den Verkaufspunkten der Migros Wallis",
+        "Ferien: Jugendliche unter 21 und ab 50 Jahren: 6 Wochen / ab 60 Jahren und ab dem 31. Dienstjahr: 7 Wochen",
+        "Klubschule Migros: Kostenerstattung für Kurse bei den Klubschulen Migros",
+        "Freizeit- und Kulturangebote: Rabatte auf zahlreiche Angebote in den Bereichen Kultur, Freizeit und Sport",
+        "Gezielte Förderung: Interessante Entwicklungsmöglichkeiten, entsprechend Ihren Talenten",
+        "Individuelle Weiterbildung: Schulungen, um Kompetenzen zu erwerben und zu entwickeln",
+        "Sozial- und Personalberatung: Beratung der Abteilung für soziale Orientierung in Fragen beruflicher oder persönlicher Art"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-11T22:35:10.343Z",
+      "firstSeenAt": "2026-05-11T22:35:10.343Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-oi85uq",
-      "slug": "consulente-clienti-privato-tutti-migros-bank-chur",
+      "slug": "consulente-clienti-privato-tutti-migros-bank-bellinzona",
       "company": "Migros Bank",
       "title": "Privatkundenberater (alle)",
       "location": "Chur",
@@ -56,17 +114,17 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 84,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 9,
+        "translation": 15,
         "completeness": 25
       }
     },
     {
       "id": "company-gep1sj",
-      "slug": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
+      "slug": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Quereinsteiger*in Fachverantwortung",
       "location": "Chur",
@@ -107,11 +165,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 84,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 9,
+        "translation": 15,
         "completeness": 25
       }
     },
