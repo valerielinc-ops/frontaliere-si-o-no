@@ -1,81 +1,5 @@
 [
   {
-    "timestamp": "2026-04-27T02:51:11.634Z",
-    "label": "before",
-    "total": 2675,
-    "needsRetranslation": 71,
-    "incomplete": 27,
-    "complete": 2648,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 25,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-27T03:27:44.278Z",
-    "label": "after",
-    "total": 2675,
-    "needsRetranslation": 53,
-    "incomplete": 26,
-    "complete": 2649,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 24,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-27T04:04:35.855Z",
     "label": "before",
     "total": 2675,
@@ -9992,6 +9916,118 @@
       {
         "company": "Lindenhofgruppe",
         "pending": 35
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-11T10:17:29.764Z",
+    "label": "before",
+    "total": 3918,
+    "needsRetranslation": 1384,
+    "incomplete": 1242,
+    "complete": 2676,
+    "missingByLocale": {
+      "it": 999,
+      "en": 894,
+      "de": 197,
+      "fr": 1008
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 183
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 153
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 96
+      },
+      {
+        "company": "Jumbo",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Kantonsspital Winterthur (KSW)",
+        "pending": 60
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Axpo Group",
+        "pending": 48
+      },
+      {
+        "company": "Lindenhofgruppe",
+        "pending": 35
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-11T11:09:50.145Z",
+    "label": "after",
+    "total": 3918,
+    "needsRetranslation": 1301,
+    "incomplete": 1153,
+    "complete": 2765,
+    "missingByLocale": {
+      "it": 910,
+      "en": 809,
+      "de": 194,
+      "fr": 924
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 183
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 153
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 96
+      },
+      {
+        "company": "Jumbo",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Axpo Group",
+        "pending": 48
+      },
+      {
+        "company": "Lindenhofgruppe",
+        "pending": 35
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 28
       }
     ]
   }
