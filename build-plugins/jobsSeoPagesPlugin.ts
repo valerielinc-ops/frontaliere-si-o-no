@@ -98,6 +98,11 @@ import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema'
 import { startTimer, recordEmit, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { resolveJobsSeoPagesFlushed } from './shared/buildSignals';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
+import {
+  resolveCantonSection as sharedResolveCantonSection,
+  resolveJobCanton as sharedResolveJobCanton,
+  ALL_CANTON_CODES as SHARED_ALL_CANTON_CODES,
+} from './shared/cantonSection';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -812,19 +817,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   * so we concatenate directly with the slug — no inserted hyphen.
   */
  function buildCantonAwareSection(locale: CantonLocale, cantonCode: string): string {
-   const raw = String(cantonCode || '').toUpperCase();
-   if (!raw || raw === 'TI') return sectionByLocale[locale];
-   if (raw === AGGREGATE_KEY) {
-     return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(AGGREGATE_KEY, locale)}`;
-   }
-   const code = resolveCantonGroup(raw);
-   if (locale === 'de') {
-     const entry = cantonSlugFile.cantons[code];
-     if (entry?.dePrefix) {
-       return `${entry.dePrefix}${entry.de}`;
-     }
-   }
-   return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlugLocal(code, locale)}`;
+   return sharedResolveCantonSection(locale, cantonCode);
  }
  const localePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
  it: '',
