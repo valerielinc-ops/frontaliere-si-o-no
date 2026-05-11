@@ -337,7 +337,6 @@ function updateMeta(totalJobs) {
       tutti: 0,
       remotive: 0,
       findwork: 0,
-      adzuna: 0,
       curatedTicino: totalJobs,
     },
   };

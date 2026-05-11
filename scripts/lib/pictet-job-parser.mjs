@@ -4,27 +4,14 @@
  *
  * Source: https://career012.successfactors.eu/career?company=banquepict
  *
- * STATUS (2026-05-10 — Cathedral CH-wide marquee batch):
- *   The career5 listing index is a JavaScript SPA. Detail pages are
- *   server-rendered HTML, but full discovery requires Playwright. The
- *   shared SuccessFactors client (`scripts/lib/ats-clients/successfactors-client.mjs`)
- *   logs an explicit warning when the listing URL has no `career_job_req_id`
- *   and yields zero jobs — same behaviour as Giorgio Armani / ALDI Suisse
- *   pre-Playwright. This first-pass parser is therefore a scaffold that
- *   exits gracefully (returns []), and the workflow ships with the
- *   `--playwright` runtime so the next iteration can wire DOM selectors
- *   without re-scaffolding.
- *
- *   Concrete next steps to enable harvesting:
- *     1. Use `scripts/lib/ats-clients/playwright-runtime.mjs` to render
- *        `https://career012.successfactors.eu/career?company=banquepict
- *        &career_ns=job_listing_summary&navBarLevel=JOB_SEARCH`
- *        with `cookies + JS enabled`.
- *     2. Extract `<a href*="career_job_req_id=">` per row.
- *     3. Fetch each detail URL via the SF client (kind='html-career' with
- *        career_job_req_id present yields server-rendered HTML).
- *     4. Pipe the resulting NormalizedJob iterable into the existing
- *        `buildJob()` body below.
+ * STATUS (2026-05-11):
+ *   The career5 listing index is a JavaScript SPA, so plain HTTP returns
+ *   no job rows. We render the listing with Playwright via the shared
+ *   `playwright-runtime.mjs` helper, harvest every `<a href*="career_job_req_id=">`
+ *   visible after hydration, and then re-enter the SuccessFactors client
+ *   per detail URL — each detail page is server-rendered HTML and the
+ *   shared client extracts `{title, reqId, area, country}` via
+ *   `parseHtmlCareerDetail`.
  *
  * Pictet HQ: Geneva (GE) — default canton when SuccessFactors location
  * extraction fails. The downstream canton-quorum-gate re-classifies based
@@ -45,6 +32,14 @@ import {
   fetchSuccessFactorsJobs,
   SuccessFactorsAuthError,
 } from './ats-clients/successfactors-client.mjs';
+import {
+  createBrowser,
+  createPoliteContext,
+  fetchWithRateLimit,
+  closeAll,
+  AntiBotBlockError,
+  NavigationTimeout,
+} from './ats-clients/playwright-runtime.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -219,14 +214,82 @@ function buildParsedJobFromSf(normalized) {
 }
 
 /**
- * Fetch all Pictet Group jobs via the SuccessFactors client.
+ * Render the career5 listing index with Playwright and extract every unique
+ * detail URL exposed via `<a href*="career_job_req_id=">`.
  *
- * For the html-career flavor, the listing index requires Playwright (handled
- * inside `successfactors-client.mjs`). When discovery is not possible the
- * iterator yields zero items and we return an empty array — the workflow
- * still completes successfully and the canton-quorum-gate sees no jobs.
+ * The SPA is hydrated after `domcontentloaded`, so we additionally wait for
+ * at least one matching anchor to appear before reading the DOM.
  *
- * Returns an array of ParsedJob objects (source-locale only).
+ * @param {string} listingUrl
+ * @returns {Promise<string[]>}
+ */
+async function discoverPictetDetailUrls(listingUrl) {
+  let browser;
+  try {
+    browser = await createBrowser();
+    const context = await createPoliteContext(browser);
+    // Listing discovery is a single page-load; no per-context rate-limit
+    // history yet, so we don't need an artificial delay before the request.
+    const page = await fetchWithRateLimit(context, listingUrl, { minDelayMs: 0 });
+
+    try {
+      await page.waitForSelector('a[href*="career_job_req_id="]', {
+        timeout: 30_000,
+        state: 'attached',
+      });
+    } catch {
+      // SPA never populated job rows — origin may have shipped no openings.
+      console.warn(`   No "career_job_req_id" anchors appeared within 30s`);
+    }
+
+    const hrefs = await page.$$eval(
+      'a[href*="career_job_req_id="]',
+      (links) => links.map((a) => a.href),
+    );
+
+    // Deduplicate by reqId — career5 often renders the same row in multiple
+    // places (table + sidebar) and pagination links can repeat IDs.
+    const seen = new Set();
+    const unique = [];
+    for (const href of hrefs) {
+      try {
+        const u = new URL(href);
+        const reqId = u.searchParams.get('career_job_req_id');
+        if (!reqId || seen.has(reqId)) continue;
+        seen.add(reqId);
+        unique.push(href);
+      } catch {
+        /* malformed href — skip */
+      }
+    }
+    return unique;
+  } catch (err) {
+    if (err instanceof AntiBotBlockError) {
+      console.warn(`⚠️ Anti-bot block during Pictet listing discovery: ${err.message}`);
+      return [];
+    }
+    if (err instanceof NavigationTimeout) {
+      console.warn(`⚠️ Pictet listing navigation timeout: ${err.message}`);
+      return [];
+    }
+    throw err;
+  } finally {
+    await closeAll(browser);
+  }
+}
+
+/**
+ * Fetch all Pictet Group jobs.
+ *
+ * Pipeline:
+ *   1. Render `${CAREER_URL}&career_ns=job_listing_summary&navBarLevel=JOB_SEARCH`
+ *      with Playwright and collect every `career_job_req_id` detail URL.
+ *   2. Re-enter the SuccessFactors client per detail URL — each detail is
+ *      a server-rendered HTML page that `parseHtmlCareerDetail` can handle.
+ *   3. Build a ParsedJob via `buildParsedJobFromSf` for each item.
+ *
+ * Returns an array of ParsedJob objects (source-locale only). The downstream
+ * canton-quorum-gate is responsible for filtering to relevant cantons.
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
@@ -241,32 +304,35 @@ export async function fetchAllPictetJobs() {
     return [];
   }
 
-  const jobs = [];
-  try {
-    for await (const normalized of fetchSuccessFactorsJobs(CAREER_URL, {
-      // No location filter — let the canton-quorum-gate decide downstream.
-      locationFilters: [],
-      company: PICTET_COMPANY_NAME,
-    })) {
-      const job = buildParsedJobFromSf(normalized);
-      if (job) jobs.push(job);
-    }
-  } catch (err) {
-    if (err instanceof SuccessFactorsAuthError) {
-      console.error(`❌ SuccessFactors anti-bot block: ${err?.message || err}`);
-      return [];
-    }
-    throw err;
+  const listingUrl = `${CAREER_URL}&career_ns=job_listing_summary&navBarLevel=JOB_SEARCH`;
+  console.log(`   Discovering jobReqIds via Playwright at ${listingUrl}`);
+  const detailUrls = await discoverPictetDetailUrls(listingUrl);
+  console.log(`   Discovered ${detailUrls.length} unique career_job_req_id detail URLs`);
+
+  if (detailUrls.length === 0) {
+    console.warn(`⚠️ Pictet career5 listing yielded 0 detail URLs.`);
+    return [];
   }
 
-  if (jobs.length === 0) {
-    console.warn(
-      `⚠️ Pictet career5 listing yielded 0 jobs. The career5 SPA index requires ` +
-      `Playwright. Defer wiring per scripts/lib/ats-clients/playwright-runtime.mjs ` +
-      `(see header comment in this file).`
-    );
-  } else {
-    console.log(`\n📋 Total Pictet jobs discovered: ${jobs.length}`);
+  const jobs = [];
+  for (const detailUrl of detailUrls) {
+    try {
+      for await (const normalized of fetchSuccessFactorsJobs(detailUrl, {
+        locationFilters: [],
+        company: PICTET_COMPANY_NAME,
+      })) {
+        const job = buildParsedJobFromSf(normalized);
+        if (job) jobs.push(job);
+      }
+    } catch (err) {
+      if (err instanceof SuccessFactorsAuthError) {
+        console.warn(`⚠️ Anti-bot on Pictet detail page ${detailUrl}: ${err?.message || err}`);
+        continue;
+      }
+      console.warn(`⚠️ Skipping Pictet detail ${detailUrl}: ${err?.message || err}`);
+    }
   }
+
+  console.log(`\n📋 Total Pictet jobs discovered: ${jobs.length}`);
   return jobs;
 }

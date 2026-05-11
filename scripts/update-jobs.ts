@@ -349,61 +349,6 @@ async function fetchFindWorkJobs(): Promise<JobListing[]> {
   return jobs;
 }
 
-// ─── Adzuna API (Free tier available) ─────────────────────────
-
-async function fetchAdzunaJobs(): Promise<JobListing[]> {
-  // Adzuna has a free API tier for job aggregation
-  // Sign up at https://developer.adzuna.com/
-  const appId = process.env.ADZUNA_APP_ID;
-  const appKey = process.env.ADZUNA_APP_KEY;
-  
-  if (!appId || !appKey) {
-    console.log('ℹ️  Adzuna API not configured (set ADZUNA_APP_ID and ADZUNA_APP_KEY)');
-    return [];
-  }
-  
-  const jobs: JobListing[] = [];
-  
-  try {
-    const url = `https://api.adzuna.com/v1/api/jobs/ch/search/1?app_id=${appId}&app_key=${appKey}&what=frontaliere&where=Ticino&results_per_page=50`;
-    
-    console.log('📡 Fetching Adzuna jobs...');
-    
-    const response = await fetch(url);
-    if (!response.ok) {
-      console.warn(`  ⚠️ Adzuna fetch failed: ${response.status}`);
-      return [];
-    }
-    
-    const data = await response.json();
-    
-    for (const result of data.results || []) {
-      jobs.push({
-        id: `adzuna-${result.id}`,
-        company: result.company?.display_name || 'Azienda',
-        title: result.title,
-        location: result.location?.display_name || 'Ticino',
-        canton: 'TI',
-        category: categorizeJob(result.title),
-        contract: detectContractType(result.title + ' ' + result.description),
-        salaryMin: result.salary_min,
-        salaryMax: result.salary_max,
-        currency: 'CHF',
-        description: cleanHtml(result.description).substring(0, 500),
-        requirements: [],
-        featured: false,
-        postedDate: formatDate(result.created),
-        url: appendReferral(result.redirect_url),
-        source: 'Adzuna',
-      });
-    }
-  } catch (error) {
-    console.warn('  ⚠️ Adzuna error:', error);
-  }
-  
-  return jobs;
-}
-
 // ─── UBS Jobs Ticino Scraper ─────────────────────────────────────
 
 async function fetchUBSJobs(): Promise<JobListing[]> {
@@ -1133,12 +1078,6 @@ async function main() {
   const findworkJobs = await fetchFindWorkJobs();
   allJobs.push(...findworkJobs);
   
-  await sleep(1000);
-  
-  // 7. Adzuna API as supplementary source (if keys are set)
-  const adzunaJobs = await fetchAdzunaJobs();
-  allJobs.push(...adzunaJobs);
-  
   console.log(`\n📊 Results:`);
   console.log(`   Job-Room.ch: ${arbeitSwissJobs.length} jobs`);
   console.log(`   UBS Ticino: ${ubsJobs.length} jobs`);
@@ -1146,7 +1085,6 @@ async function main() {
   console.log(`   Tutti.ch: ${tuttiJobs.length} jobs`);
   console.log(`   Remotive.io: ${remotiveJobs.length} jobs`);
   console.log(`   FindWork.dev: ${findworkJobs.length} jobs`);
-  console.log(`   Adzuna (API): ${adzunaJobs.length} jobs`);
   
   // Always include curated Ticino-specific jobs to ensure good local coverage
   // These supplement any jobs found from APIs
@@ -1187,7 +1125,6 @@ async function main() {
       tutti: tuttiJobs.length,
       remotive: remotiveJobs.length,
       findwork: findworkJobs.length,
-      adzuna: adzunaJobs.length,
       curatedTicino: ticinoJobs.length,
     },
   }, null, 2), 'utf-8');

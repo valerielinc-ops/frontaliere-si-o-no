@@ -237,13 +237,7 @@ export async function fetchAllOerlikonJobs() {
   if (!listings || listings.length === 0) {
     console.log('   SuccessFactors API did not return jobs, trying HTML scraping...');
     try {
-      let html = '';
-  try {
-  
-  } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
-  }
+      const html = await fetchHtml(CAREER_URL, { timeoutMs: 20000 });
       listings = parseSearchPageHtml(html);
       console.log(`   HTML scraping found ${listings?.length || 0} job links`);
     } catch (err) {

@@ -143,10 +143,9 @@ async function trySmartRecruitersApi() {
 async function trySmartRecruitersHtml() {
   const srUrl = `${SR_API_BASE}?search=&location=Switzerland`;
   try {
-    console.log(`   Trying SmartRecruiters HTML: ${srUrl}`);
-    let html = '';
+    console.log(`   Trying SmartRecruiters HTML: ${srUrl}`);    let html = '';
   try {
-  
+    html = await fetchHtml(srUrl, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`  Failed to fetch: ${err.message}`);
     return [];

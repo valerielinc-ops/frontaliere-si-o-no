@@ -1,29 +1,19 @@
 #!/usr/bin/env node
 /**
- * Richemont job parser — Adzuna free-tier metadata fallback.
+ * Richemont job parser — Fetcher and job builder.
  *
- * Source (anti-bot): https://careers.richemont.com/en/jobs/  → Cloudflare 403
- * Fallback:          Adzuna Switzerland (`ch`) free-tier search API
- *
- * Why Adzuna?
- *   - Direct careers URL is behind Cloudflare (`cf-ray` header) and would
- *     require ~$8/mo residential proxy + Playwright stack to bypass.
- *   - Adzuna is itself a job aggregator: each listing's `redirect_url`
- *     is an Adzuna landing that deep-links to Richemont's official posting,
- *     so applyUrl pointing at Adzuna is fully ToS-compliant.
- *   - Free tier (1000 calls/mo per app_id) covers daily refreshes for
- *     both Tier-3 anti-bot employers (~30-60 calls/mo combined).
- *
- * Required env: ADZUNA_APP_ID, ADZUNA_APP_KEY (set as GitHub Actions secrets).
+ * Source: https://careers.richemont.com/en/jobs/
  *
  * Exports the 4 required functions for the crawler template:
- *   - fetchAllRichemontJobs()  — Fetch via Adzuna and build ParsedJob[]
+ *   - fetchAllRichemontJobs()  — Fetch and parse all jobs
  *   - isRichemontJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()        — Validate URLs (Adzuna domain allowed as fallback)
- *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
+ *   - isTrustedDomain()           — Validate URLs belong to this company
+ *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { createHash } from 'node:crypto';
+import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { searchAdzunaAllPages, parseAdzunaJobs } from './adzuna-client.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -33,45 +23,26 @@ export const RICHEMONT_COMPANY_DOMAIN = 'richemont.com';
 
 const CAREER_URL = 'https://careers.richemont.com/en/jobs/';
 
-// Brands inside Richemont group — Adzuna free-text search returns listings
-// where the company display_name is the maison, not the holding. Match all
-// known maisons so the fallback captures the full Richemont footprint.
-const RICHEMONT_BRAND_PATTERNS = [
-  /richemont/i,
-  /cartier/i,
-  /\bvan cleef\b/i,
-  /\biwc\b/i,
-  /jaeger.?lecoultre/i,
-  /piaget/i,
-  /vacheron constantin/i,
-  /panerai/i,
-  /\bmontblanc\b/i,
-  /baume.?\&?.?mercier/i,
-  /\ba\.?\s*lange\s*&?\s*söhne\b/i,
-  /\bdunhill\b/i,
-  /\bchloé\b|\bchloe\b/i,
-  /\balaïa\b|\balaia\b/i,
-  /\bnet.?a.?porter\b/i,
-  /\bmr\s*porter\b/i,
-  /\byoox\b/i,
-  /watchfinder/i,
-];
-
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
+function normalizeSpace(s = '') {
+  return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
- * Check if a job belongs to Richemont (incl. its maisons).
+ * Check if a job belongs to Richemont.
+ * Used by the template to filter this company's jobs from the global dataset.
  */
 export function isRichemontJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
+    .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -86,66 +57,157 @@ export function isRichemontJob(job) {
 }
 
 /**
- * Validate that a URL belongs to a trusted Richemont surface OR Adzuna
- * (since the Adzuna fallback emits applyUrl pointing at adzuna.com/...).
+ * Validate that a URL belongs to Richemont's domain.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
     return (
       host === 'richemont.com' ||
-      host.endsWith('.richemont.com') ||
-      host === 'adzuna.com' ||
-      host.endsWith('.adzuna.com') ||
-      host === 'adzuna.ch' ||
-      host.endsWith('.adzuna.ch')
+      host.endsWith('.richemont.com')
     );
   } catch {
     return false;
   }
 }
 
+/* ── Category Detection ────────────────────────────────────── */
+
+function detectCategory(title = '') {
+  const t = normalize(title);
+  if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
+  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
+  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
+  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
+  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
+  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
+  if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
+  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
+  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
+  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
+  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
+  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
+  return 'Altro';
+}
+
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(junior|jr)/.test(t)) return 'junior';
+  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  return 'mid';
+}
+
+function detectEmploymentType(text = '') {
+  const t = normalize(text);
+  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
+  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
+  return 'OTHER';
+}
+
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-function richemontMatcher(displayName = '') {
-  return RICHEMONT_BRAND_PATTERNS.some((rx) => rx.test(displayName));
+// TODO: Implement the actual fetching logic for Richemont's career page.
+// This is a placeholder. Replace with the actual API/scraping logic.
+//
+// Common patterns:
+//   - JSON API:     use --source api for a ready-made paginated API template
+//   - Workday API:  re-scaffold with --ats=workday for a ready-made template
+//   - Greenhouse:   --ats=greenhouse
+//   - Lever:        --ats=lever
+//   - SuccessFactors: --ats=successfactors
+//   - Generic HTML: fetch + parse with regex or cheerio
+
+async function fetchJobListings() {
+  // TODO: Replace with actual fetch logic
+  console.log(`   Fetching from: ${CAREER_URL}`);
+
+  // Example for a JSON API:
+  // const res = await fetch(CAREER_URL, {
+  //   headers: { 'User-Agent': 'FrontaliereTicino-JobCrawler/2.0' },
+  // });
+  // if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  // return await res.json();
+
+  return [];
 }
 
 /**
- * Fetch all Richemont jobs via the Adzuna free-tier API.
+ * Fetch all Richemont jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
- * Test/dev hook: `opts._fetchImpl` and `opts._cacheDate` are forwarded to
- * `searchAdzunaAllPages` so suites never hit the live Adzuna API.
+ * IMPORTANT: Only set source-locale fields. Other locales are filled
+ * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllRichemontJobs(opts = {}) {
-  console.log(`🔍 Fetching Richemont jobs via Adzuna fallback`);
-  console.log(`   Direct careers URL (blocked by Cloudflare): ${CAREER_URL}`);
-  console.log(`   Adzuna country: ch — brand match across ${RICHEMONT_BRAND_PATTERNS.length} maisons\n`);
+export async function fetchAllRichemontJobs() {
+  console.log(`🔍 Fetching Richemont jobs`);
+  console.log(`   Source: ${CAREER_URL}\n`);
 
-  const employer = {
-    key: RICHEMONT_KEY,
-    name: RICHEMONT_COMPANY_NAME,
-    domain: RICHEMONT_COMPANY_DOMAIN,
-    match: richemontMatcher,
-    sector: 'Lusso',
-    defaultLocation: 'Bellevue',
-    defaultCanton: 'GE',
-    parserSourceLabel: 'Richemont Adzuna Fallback',
-  };
+  const listings = await fetchJobListings();
+  if (!listings || listings.length === 0) {
+    console.warn('⚠️ No job listings returned.');
+    return [];
+  }
 
-  const { results, liveCalls } = await searchAdzunaAllPages({
-    company: 'Richemont',
-    country: 'ch',
-    ...opts,
-  });
+  console.log(`  📋 Listings found: ${listings.length}`);
 
-  console.log(`  📋 Adzuna listings raw: ${results.length} (live API calls: ${liveCalls})`);
+  const jobs = [];
+  for (const listing of listings) {
+    // TODO: Extract fields from each listing.
+    // Adapt these field names to match the actual API response.
+    const title = normalizeSpace(listing.title || '');
+    if (!title || title.length < 3) continue;
 
-  const jobs = parseAdzunaJobs({ results }, employer);
-  console.log(`\n📋 Total Richemont jobs (post-filter): ${jobs.length}`);
+    const location = listing.location || 'Bellevue'; // HQ: Bellevue (GE)
+    const canton = inferSwissTargetCanton(location) || 'GE';
+    const descriptionHtml = listing.description || '';
+    const descriptionText = stripHtml(descriptionHtml);
+    const publicUrl = listing.url || CAREER_URL;
+
+    const sourceLang = detectLang(descriptionText || title, 'en');
+    const jobSlug = slugify(`${title} richemont ch`);
+    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+
+    const job = {
+      // ── Required fields ──
+      id: `richemont-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: RICHEMONT_COMPANY_NAME,
+      companyKey: RICHEMONT_KEY,
+      companyDomain: RICHEMONT_COMPANY_DOMAIN,
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description: descriptionText || `${title} — Richemont`,
+      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Richemont` },
+      location,
+      canton,
+      url: publicUrl,
+      source: 'Richemont Dedicated Parser',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+
+      // ── Recommended fields ──
+      addressLocality: location,
+      addressCountry: 'CH',
+      country: 'CH',
+      category: detectCategory(title),
+      contract: 'full-time',
+      employmentType: detectEmploymentType(listing.timeType || title),
+      experienceLevel: detectExperienceLevel(title),
+      sector: 'Lusso', // Luxury goods (Cartier, IWC, Van Cleef & Arpels, ...)
+      currency: 'CHF',
+      featured: false,
+      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      applyUrl: publicUrl,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+    };
+
+    jobs.push(job);
+    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
+  }
+
+  console.log(`\n📋 Total Richemont jobs discovered: ${jobs.length}`);
   return jobs;
 }
-
-// Re-export shared utilities so callers can pull everything from one module.
-export { slugify, stripHtml };

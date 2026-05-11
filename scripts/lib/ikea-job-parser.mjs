@@ -191,10 +191,9 @@ function parseListingPage(html = '') {
  * Fetch detail page for a single IKEA job listing.
  */
 async function fetchDetailDescription(url) {
+  try {    let html = '';
   try {
-    let html = '';
-  try {
-  
+    html = await fetchHtml(url, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`  Failed to fetch: ${err.message}`);
     return [];

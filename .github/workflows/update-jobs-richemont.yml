@@ -74,9 +74,6 @@ jobs:
           JOBS_RICHEMONT_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: '1'
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-          # Adzuna free-tier metadata fallback (anti-bot WAF on direct site)
-          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
-          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
         run: node scripts/update-richemont-jobs.mjs
 
       - name: Housekeeping — remove expired job listings (scoped)
