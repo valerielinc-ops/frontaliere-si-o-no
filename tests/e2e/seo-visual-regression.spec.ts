@@ -24,9 +24,25 @@
 // commits *-linux.png to the repo).
 import { test, expect } from 'playwright/test';
 
-const CASES = [
+interface VisualCase {
+  name: string;
+  url: string;
+  // Optional readiness selector. Must be visible before we screenshot —
+  // ensures lazy/async-hydrated regions are mounted, not white. On
+  // salary-calculator the right-side ResultsView is React-hydrated after
+  // the page becomes interactive and its 'results-advantage-banner' is the
+  // last element to mount; waiting for `domcontentloaded` + fonts is not
+  // enough on the live env (CDN + analytics scripts slow first paint).
+  readySelector?: string;
+}
+
+const CASES: VisualCase[] = [
   { name: 'home', url: '/' },
-  { name: 'salary-calculator', url: '/calcola-stipendio/' },
+  {
+    name: 'salary-calculator',
+    url: '/calcola-stipendio/',
+    readySelector: '[data-testid="results-advantage-banner"]',
+  },
   { name: 'currency-comparator', url: '/comparatori/cambio-valuta/' },
 ];
 
@@ -53,6 +69,9 @@ for (const c of CASES) {
     // visual stability actually requires.
     await page.goto(c.url, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     await page.locator('main').first().waitFor({ state: 'attached', timeout: 30_000 });
+    if (c.readySelector) {
+      await page.locator(c.readySelector).first().waitFor({ state: 'visible', timeout: 20_000 });
+    }
     await page.evaluate(() => document.fonts.ready);
     await page.evaluate(() => window.scrollTo(0, 0));
     // Brief settle: wait for layout shift to stabilize after font load.
