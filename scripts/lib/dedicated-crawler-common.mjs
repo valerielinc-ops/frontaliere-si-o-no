@@ -3222,7 +3222,20 @@ export function applyCompanyDefaults(job, companySlug) {
   if (defaults) {
     if (!job.streetAddress)    job.streetAddress    = defaults.streetAddress;
     if (!job.postalCode)       job.postalCode       = defaults.postalCode;
-    if (!job.addressLocality)  job.addressLocality  = defaults.addressLocality;
+    // Prefer the per-job location over the company HQ city. The HQ city is
+    // the fallback when neither addressLocality nor location is set.
+    if (!job.addressLocality) {
+      const realLoc = String(job.location || '').trim();
+      job.addressLocality = realLoc || defaults.addressLocality;
+    } else if (
+      job.addressLocality === defaults.addressLocality &&
+      job.location &&
+      String(job.location).trim() !== defaults.addressLocality
+    ) {
+      // Heal contamination: previous runs filled addressLocality with HQ.
+      // If location is now populated with a real city, restore it.
+      job.addressLocality = String(job.location).trim();
+    }
     if (!job.addressRegion)    job.addressRegion     = defaults.addressRegion;
     if (!job.addressCountry)   job.addressCountry   = defaults.addressCountry;
   }
@@ -3246,11 +3259,27 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
 
   // ── Company HQ defaults: fill missing streetAddress / postalCode / employmentType ──
   let companyDefaultsFilled = 0;
+  let localityHealed = 0;
   for (const job of hardened) {
-    const before = `${job.streetAddress || ''}|${job.postalCode || ''}|${job.addressLocality || ''}|${job.employmentType || ''}`;
+    const aLBefore = String(job.addressLocality || '');
+    const before = `${job.streetAddress || ''}|${job.postalCode || ''}|${aLBefore}|${job.employmentType || ''}`;
     applyCompanyDefaults(job);
-    const after = `${job.streetAddress || ''}|${job.postalCode || ''}|${job.addressLocality || ''}|${job.employmentType || ''}`;
+    const aLAfter = String(job.addressLocality || '');
+    const after = `${job.streetAddress || ''}|${job.postalCode || ''}|${aLAfter}|${job.employmentType || ''}`;
     if (before !== after) companyDefaultsFilled++;
+    // If applyCompanyDefaults healed the locality away from the HQ default,
+    // re-infer canton from the now-correct locality so it matches reality.
+    if (aLBefore !== aLAfter && aLAfter) {
+      const inferred = inferAnyCanton(aLAfter);
+      if (inferred && inferred !== job.canton) {
+        job.canton = inferred;
+        job.addressRegion = inferred;
+        localityHealed++;
+      }
+    }
+  }
+  if (localityHealed > 0) {
+    console.log(`  🩺 Locality heal: re-inferred canton for ${localityHealed} jobs after HQ-contamination cleanup`);
   }
   if (companyDefaultsFilled > 0) {
     console.log(`  🏢 Company defaults: enriched ${companyDefaultsFilled}/${total} jobs with HQ address/employmentType.`);

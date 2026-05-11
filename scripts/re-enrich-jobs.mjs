@@ -983,11 +983,18 @@ async function enrichJob(job, aiState) {
   // --- Update address from company lookup ---
   const knownAddr = COMPANY_ADDRESSES[companyKey];
   if (knownAddr) {
+    // Preserve the per-job locality (location/addressLocality) instead of
+    // overwriting it with the company HQ. Only fall back to HQ when the job
+    // has no real city. When the job has a real city, prefer a matching
+    // postal code from TICINO_CITY_POSTAL over the HQ default.
+    const realLocality = String(job.location || job.addressLocality || '').trim();
+    const realLocalityKey = realLocality.toLowerCase();
+    const postalFromRealCity = realLocality && TICINO_CITY_POSTAL[realLocalityKey];
     job = {
       ...job,
-      streetAddress: knownAddr.streetAddress,
-      postalCode: knownAddr.postalCode,
-      addressLocality: knownAddr.addressLocality,
+      streetAddress: job.streetAddress || knownAddr.streetAddress,
+      postalCode: job.postalCode || postalFromRealCity || knownAddr.postalCode,
+      addressLocality: realLocality || knownAddr.addressLocality,
       addressCountry: 'CH',
     };
   } else {
