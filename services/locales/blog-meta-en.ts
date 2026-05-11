@@ -7439,6 +7439,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-successione-svizzera-ocse.title': 'Switzerland inheritance tax: OECD comparison',
     'blog.article.tassa-successione-svizzera-ocse.excerpt': 'Switzerland\'s inheritance tax isn\'t as light as the rest of the OECD. Learn more.',
     'blog.article.tassa-successione-svizzera-ocse.imageAlt': 'Lake Lugano with a view of the mountains and city skyline',
+    'blog.article.salario-domestico-ticino-aumento.title': 'Pay raise for domestic staff in Ticino',
+    'blog.article.salario-domestico-ticino-aumento.excerpt': 'The hourly wage for domestic staff in Ticino will increase. Here\'s what changes and how it will be impacted.',
+    'blog.article.salario-domestico-ticino-aumento.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;

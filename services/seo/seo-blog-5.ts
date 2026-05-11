@@ -35564,6 +35564,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-domestico-ticino-aumento': {
+    title: 'Aumento salariale per il personale domestico in Ticino',
+    description: 'Scopri come l\'aumento del salario orario per il personale domestico in Ticino influenzerà i frontalieri e cosa fare per prepararsi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, salariale, personale, domestico',
+    ogTitle: 'Aumento salariale per il personale domestico in Ticino',
+    ogDescription: 'Scopri come l\'aumento del salario orario per il personale domestico in Ticino influenzerà i frontalieri e cosa fare per prepararsi.',
+    canonicalPath: '/articoli-frontaliere/salario-domestico-ticino-aumento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento salariale per il personale domestico in Ticino",
+      "description": "Scopri come l'aumento del salario orario per il personale domestico in Ticino influenzerà i frontalieri e cosa fare per prepararsi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-domestico-ticino-aumento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con montagne e edifici circostanti"
+      },
+      "datePublished": "2026-05-11T06:55:02+00:00",
+      "dateModified": "2026-05-11T06:55:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-domestico-ticino-aumento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

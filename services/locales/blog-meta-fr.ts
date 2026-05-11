@@ -7440,6 +7440,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-successione-svizzera-ocse.title': 'Impôt sur les successions en Suisse : comparaison OCDE',
     'blog.article.tassa-successione-svizzera-ocse.excerpt': 'L\'impôt sur les successions en Suisse n\'est pas si léger par rapport au reste de l\'OCDE. En savoir plus.',
     'blog.article.tassa-successione-svizzera-ocse.imageAlt': 'Lac de Lugano avec vue sur les montagnes et la skyline de la ville',
+    'blog.article.salario-domestico-ticino-aumento.title': 'Augmentation salariale pour le personnel domestique au Ticino',
+    'blog.article.salario-domestico-ticino-aumento.excerpt': 'Le salaire horaire pour le personnel domestique au Ticino augmentera. Voici ce qui change et comment cela impactera.',
+    'blog.article.salario-domestico-ticino-aumento.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes et les bâtiments environnants',
 };
 
 export default blogMetaFr;

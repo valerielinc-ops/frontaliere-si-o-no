@@ -23690,4 +23690,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'salario-domestico-ticino-aumento',
+ category: 'novita',
+ date: '2026-05-11T06:55:02.524Z',
+ image: '/images/blog/salario-domestico-ticino-aumento.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

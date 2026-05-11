@@ -7439,6 +7439,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-successione-svizzera-ocse.title': 'Erbschaftssteuer Schweiz: OCSE-Vergleich',
     'blog.article.tassa-successione-svizzera-ocse.excerpt': 'Die Erbschaftssteuer in der Schweiz ist im Vergleich zum Rest der OCSE nicht so niedrig. Erfahren Sie mehr.',
     'blog.article.tassa-successione-svizzera-ocse.imageAlt': 'Luganersee mit Blick auf die Berge und die Skyline der Stadt',
+    'blog.article.salario-domestico-ticino-aumento.title': 'Lohnanstieg für Hauspersonal im Tessin',
+    'blog.article.salario-domestico-ticino-aumento.excerpt': 'Der Stundenlohn für Hauspersonal im Tessin wird steigen. Hier erfahren Sie, was sich ändert und wie es betroffen ist.',
+    'blog.article.salario-domestico-ticino-aumento.imageAlt': 'Panoramablick auf den Luganersee mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;
