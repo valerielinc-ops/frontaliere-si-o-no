@@ -8,12 +8,22 @@
     "api"
   ],
   "seedUrls": [
-    "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/"
+    "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
+    "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
+    "https://www.bancasempione.ch/job/private-banking-assistant/"
   ],
   "notes": "WordPress REST API crawler — /wp-json/wp/v2/job. Swiss private bank HQ in Lugano (TI) with offices in Bellinzona, Locarno, Chiasso, and Zurich.",
-  "updatedAt": "2026-05-11T11:09:04.275Z",
+  "updatedAt": "2026-05-11T21:32:15.300Z",
   "seedMetaByUrl": {
+    "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/": {
+      "company": "Banca del Sempione",
+      "companyDomain": "bancasempione.ch"
+    },
     "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/": {
+      "company": "Banca del Sempione",
+      "companyDomain": "bancasempione.ch"
+    },
+    "https://www.bancasempione.ch/job/private-banking-assistant/": {
       "company": "Banca del Sempione",
       "companyDomain": "bancasempione.ch"
     }

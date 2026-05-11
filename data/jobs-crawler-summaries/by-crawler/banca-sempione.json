@@ -1,18 +1,67 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-05-11T11:09:06.038Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-05-11T21:32:17.504Z",
+  "total": 3,
+  "newCount": 2,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3686,
-  "avgDurationMs": 3686,
+  "durationMs": 4310,
+  "avgDurationMs": 4310,
   "durationHistory": [
-    3686
+    4310
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Global Wealth Management – Private Banker (Zurigo)",
+      "company": "Banca del Sempione",
+      "companyKey": "banca-sempione",
+      "url": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "finance",
+      "descriptionIt": "Global Wealth Management – Private Banker (Zurigo) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Come parte del nostro team di Global Wealth Management del nostro ufficio di rappresentanza di Zurigo, siamo alla ricerca di un/a Private Banker con una visione internazionale, in grado di gestire clienti con esigenze globali e di offrire soluzioni finanziarie personalizzate. La persona…",
+      "postedDate": "2026-04-24",
+      "source": "company-website",
+      "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 54,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 4,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Global Wealth Management – Private Banking Assistant (Zurich)",
+      "company": "Banca del Sempione",
+      "companyKey": "banca-sempione",
+      "url": "https://www.bancasempione.ch/job/private-banking-assistant/",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "finance",
+      "descriptionIt": "Global Wealth Management – Private Banking Assistant (Zurich) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). The role: As part of the Global Wealth Management Division, you will be working in our recently opened Office in Zurich as support for our Private Bankers in all the investment and wealth management processes for our clients, helping to promptly grasp their needs and provide them with the most…",
+      "postedDate": "2026-04-23",
+      "source": "company-website",
+      "slug": "banca-del-sempione-private-banking-assistant",
+      "sourceLang": "en",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 54,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 4,
+        "completeness": 11
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
