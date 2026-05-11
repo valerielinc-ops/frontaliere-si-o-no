@@ -6383,6 +6383,213 @@ ${alternates}
  }
  }
 
+ /* ── Per-canton company × city hubs (Phase 3.4) ──────────────
+  * Additive: for every non-TI canton, for every (company, city) pair
+  * with ≥ 2 jobs from that company in that city, emit
+  * /cerca-lavoro-{cantonSlug}/azienda-{companySlug}-{citySlug}/.
+  *
+  * No legacy TI company×city emit exists — Phase 3.4 is purely NEW
+  * surface area, gated on non-TI cantons. TI is explicitly skipped here
+  * to avoid clobbering the TI section namespace where any URL of the
+  * shape `/cerca-lavoro-ticino/azienda-…` is already a TI company hub
+  * (whether canonical or BRAND_CANONICAL_MAP alias bridge). Adding TI
+  * company×city pages would require a deeper bridge contract — out of
+  * scope for the additive expansion.
+  */
+ {
+ const MIN_JOBS_PER_CANTON_COMPANY_CITY = 2;
+ const COMPANY_CITY_JOB_CAP = 20;
+ // Bucket: canton → company canonical → city slug → { jobs, display, name }
+ type CompCityEntry = { name: string; cityDisplay: string; jobs: typeof validJobs };
+ const buckets: Map<string, Map<string, Map<string, CompCityEntry>>> = new Map();
+ for (const job of validJobs) {
+ const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ if (c === 'TI') continue;
+ const canonical = canonicalCompanySlugBuild(job.company, job.companyKey);
+ if (!canonical) continue;
+ const rawLocation = String((job as any).location || '').split(/[,(]/)[0].trim();
+ if (!rawLocation) continue;
+ const citySlug = normalizeCitySlug(rawLocation);
+ if (!citySlug) continue;
+ if (!buckets.has(c)) buckets.set(c, new Map());
+ const byCompany = buckets.get(c)!;
+ if (!byCompany.has(canonical)) byCompany.set(canonical, new Map());
+ const byCity = byCompany.get(canonical)!;
+ if (!byCity.has(citySlug)) byCity.set(citySlug, { name: job.company, cityDisplay: rawLocation, jobs: [] });
+ byCity.get(citySlug)!.jobs.push(job);
+ }
+ const cantonDisplayLocalCC = (canton: string, locale: typeof localeList[number]): string => {
+ const dn = CANTON_DISPLAY?.[canton];
+ if (dn) return dn;
+ const section = sharedResolveCantonSection(locale, canton);
+ return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ };
+ const companyCitySitemapEntries: string[] = [];
+ let companyCityPagesCount = 0;
+ for (const canton of SHARED_ALL_CANTON_CODES) {
+ if (canton === 'TI') continue;
+ const byCompany = buckets.get(canton);
+ if (!byCompany) continue;
+ for (const [cSlug, byCity] of byCompany) {
+ for (const [citySlug, { name: companyName, cityDisplay, jobs: ccJobs }] of byCity) {
+ if (ccJobs.length < MIN_JOBS_PER_CANTON_COMPANY_CITY) continue;
+ const sortedJobs = [...ccJobs].sort((a: any, b: any) => {
+ const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
+ const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ if (da !== db) return da - db;
+ return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
+ });
+ const cappedJobs = sortedJobs.slice(0, COMPANY_CITY_JOB_CAP);
+ for (const locale of localeList) {
+ const __tCompanyCity = startTimer();
+ const sectionSlug = sharedResolveCantonSection(locale, canton);
+ const prefix = companyRoutePrefix[locale];
+ const fullSlug = `${prefix}-${cSlug}-${citySlug}`;
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${fullSlug}`.replace(/\/+/g, '/'));
+ const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+ const cDisplay = cantonDisplayLocalCC(canton, locale);
+ const year = new Date().getFullYear();
+ const pageTitle = buildEmployerHubTitle({
+ locale,
+ companyDisplay: `${companyName} (${cityDisplay})`,
+ count: ccJobs.length,
+ year,
+ });
+ const pageDesc = locale === 'it' ? `${ccJobs.length} offerte di lavoro presso ${companyName} a ${cityDisplay} (${cDisplay}). Annunci aggiornati quotidianamente.`
+ : locale === 'en' ? `${ccJobs.length} job openings at ${companyName} in ${cityDisplay} (${cDisplay}). Updated daily.`
+ : locale === 'de' ? `${ccJobs.length} Stellenangebote bei ${companyName} in ${cityDisplay} (${cDisplay}). Täglich aktualisiert.`
+ : `${ccJobs.length} offres d'emploi chez ${companyName} à ${cityDisplay} (${cDisplay}). Mises à jour quotidiennement.`;
+ const pageHeading = locale === 'it' ? `Offerte ${companyName} a ${cityDisplay}`
+ : locale === 'en' ? `${companyName} jobs in ${cityDisplay}`
+ : locale === 'de' ? `${companyName} Stellen in ${cityDisplay}`
+ : `Offres ${companyName} à ${cityDisplay}`;
+ const altPairs = localeList.map((al) => {
+ const alSection = sharedResolveCantonSection(al, canton);
+ const alPrefix = companyRoutePrefix[al];
+ const alSlug = `${alPrefix}-${cSlug}-${citySlug}`;
+ const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
+ return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
+ });
+ const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? '';
+ const alternates = [
+ ...altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
+ ...(xDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`] : []),
+ ].join('\n');
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
+ // Pointer back to the per-canton company hub (Phase 3.3) for navigation
+ const companyHubPath = `${localePrefix[locale]}/${sectionSlug}/${prefix}-${cSlug}`.replace(/\/+/g, '/');
+ const companyHubUrl = `${BASE_URL}${withSlash(companyHubPath)}`;
+ const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
+ const breadcrumbLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { '@type': 'ListItem', position: 2, name: sectionLabel, item: sectionRootUrl },
+ { '@type': 'ListItem', position: 3, name: companyName, item: companyHubUrl },
+ { '@type': 'ListItem', position: 4, name: cityDisplay, item: canonicalUrl },
+ ],
+ });
+ const collectionLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'CollectionPage',
+ name: pageTitle,
+ url: canonicalUrl,
+ description: pageDesc,
+ inLanguage: locale,
+ isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
+ });
+ const itemListLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'ItemList',
+ name: pageTitle,
+ numberOfItems: cappedJobs.length,
+ itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => ({
+ '@type': 'ListItem',
+ position: i + 1,
+ name: String(job?.titleByLocale?.[locale] || job.title || ''),
+ url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`,
+ })),
+ });
+ const orgLdObj: Record<string, unknown> = {
+ '@context': 'https://schema.org',
+ '@type': 'Organization',
+ name: companyName,
+ address: {
+ '@type': 'PostalAddress',
+ addressLocality: cityDisplay,
+ addressRegion: cDisplay,
+ addressCountry: 'CH',
+ },
+ numberOfEmployees: {
+ '@type': 'QuantitativeValue',
+ value: ccJobs.length,
+ unitText: openPositionsUnit[locale],
+ },
+ };
+ const organizationLd = JSON.stringify(orgLdObj);
+ const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const intro = (() => {
+ if (locale === 'it') return `<p>Sono attualmente disponibili <strong>${ccJobs.length} offerte di lavoro</strong> presso ${esc(companyName)} a ${esc(cityDisplay)} (Canton ${esc(cDisplay)}). Le offerte sono aggiornate quotidianamente dal nostro crawler automatico.</p>`;
+ if (locale === 'en') return `<p>There are currently <strong>${ccJobs.length} job openings</strong> at ${esc(companyName)} in ${esc(cityDisplay)} (Canton of ${esc(cDisplay)}). Listings are refreshed daily by our automated crawler.</p>`;
+ if (locale === 'de') return `<p>Derzeit sind <strong>${ccJobs.length} Stellenangebote</strong> bei ${esc(companyName)} in ${esc(cityDisplay)} (Kanton ${esc(cDisplay)}) verfügbar. Täglich aktualisiert.</p>`;
+ return `<p>${ccJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles chez ${esc(companyName)} à ${esc(cityDisplay)} (Canton de ${esc(cDisplay)}). Mises à jour quotidiennement.</p>`;
+ })();
+ const openAllLabel = locale === 'it' ? `Vedi tutte le offerte presso ${companyName}` : locale === 'en' ? `View all jobs at ${companyName}` : locale === 'de' ? `Alle Stellen bei ${companyName}` : `Voir toutes les offres chez ${companyName}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${companyHubUrl}">${esc(openAllLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay }))}`;
+ const html = buildSimplePage({
+ locale,
+ title: pageTitle,
+ description: pageDesc,
+ canonicalUrl,
+ ogLocale: localeOg[locale],
+ hreflangHtml: alternates,
+ jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd, organizationLd],
+ entryJs: hasSpaBundle ? entryJs : undefined,
+ entryCss: hasSpaBundle ? entryCss : undefined,
+ bodyHtml,
+ });
+ const COMPANY_CITY_HARD_BUDGET = 195 * 1024;
+ const htmlBytes = Buffer.byteLength(html, 'utf-8');
+ if (htmlBytes > COMPANY_CITY_HARD_BUDGET) {
+ throw new Error(
+ `[jobs-seo-pages] Per-canton company×city hub ${canonicalPath} renders to ` +
+ `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
+ `${COMPANY_CITY_HARD_BUDGET / 1024} KB.`
+ );
+ }
+ const outDir = np.join(distDir, canonicalPath.slice(1));
+ activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
+ _md(outDir);
+ _qw(np.join(outDir, 'index.html'), html);
+ const flatPath = canonicalPath.replace(/\/+$/, '');
+ if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
+ companyCityPagesCount++;
+ recordEmit('company-city-canton-hub', __tCompanyCity);
+ }
+ // Sitemap entry (priority 0.65 — deeper in the funnel than company hub).
+ const itSection = sharedResolveCantonSection('it', canton);
+ const itFullSlug = `${companyRoutePrefix.it}-${cSlug}-${citySlug}`;
+ const itPath = `/${itSection}/${itFullSlug}/`.replace(/\/+/g, '/');
+ const smAlternates = localeList.map((l) => {
+ const lSection = sharedResolveCantonSection(l, canton);
+ const lFullSlug = `${companyRoutePrefix[l]}-${cSlug}-${citySlug}`;
+ const lp = `${localePrefix[l]}/${lSection}/${lFullSlug}/`.replace(/\/+/g, '/');
+ return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${lp}" />`;
+ }).join('\n');
+ companyCitySitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.65</priority>\n </url>`);
+ }
+ }
+ }
+ if (companyCityPagesCount > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCityPagesCount} per-canton company×city hub pages`);
+ const companyCityEntriesJoined = companyCitySitemapEntries.join('\n');
+ editorialEntries = editorialEntries
+ ? `${editorialEntries}\n${companyCityEntriesJoined}`
+ : companyCityEntriesJoined;
+ }
+ }
+
  /* ── GSC-driven keyword landing pages ──────────────────────── */
  let keywordPageCount = 0;
  const keywordSitemapEntries: string[] = [];
