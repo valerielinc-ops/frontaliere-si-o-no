@@ -6472,19 +6472,26 @@ ${alternates}
        de: localizedSlug(job, 'de'),
        fr: localizedSlug(job, 'fr'),
      };
+     // P1-C: shard partition must match the URL actually emitted by the
+     // per-job loop above (Task 1.2). That loop routes via
+     // `sharedResolveJobCanton(job)` which uses job.canton + city → canton
+     // lookup with TI fallback. `group.canton` (from BFS classification) can
+     // diverge (e.g. AGGREGATE) and would mis-shard a URL that lives at
+     // /cerca-lavoro-zurigo/ into sitemap-jobs-svizzera.xml. Use the same
+     // resolver here so the sitemap shard mirrors the URL path 1:1.
+     const groupJobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
      // canonical-overrides: same gate as legacy sitemap. Skip if the job
      // self-canonicalizes elsewhere (otherwise Semrush flags non-canonical).
-     const itPathLegacy = withSlash(`/${sectionByLocale.it}/${perLocaleSlugMap.it}`.replace(/\/+/g, '/'));
+     const itSectionForGroup = buildCantonAwareSection('it', groupJobCanton);
+     const itPathLegacy = withSlash(`/${itSectionForGroup}/${perLocaleSlugMap.it}`.replace(/\/+/g, '/'));
      const itUrlLegacy = `${BASE_URL}${itPathLegacy}`;
      if (resolveCanonicalUrl(perLocaleSlugMap.it, itUrlLegacy) !== itUrlLegacy) continue;
      const lastmod = (safeIsoDate(job.crawledAt) || '').slice(0, 10) || dateStamp;
      for (const locale of localeList) {
-       // E9: legacy section per locale. Future canton-aware emit (when slug
-       // registry has no entry) would call `buildCantonAwareSection(locale,
-       // group.canton)` instead — the helper exists and is wired so that a
-       // future migration can flip the default. Today everything stays at
-       // sectionByLocale[locale] to preserve the URL graph.
-       const section = sectionByLocale[locale];
+       // Canton-aware section matches the actual job-detail URL emitted by
+       // the per-job loop. For TI jobs this returns the legacy frozen slug
+       // (sectionByLocale[locale]) via resolveCantonSection's early-return.
+       const section = buildCantonAwareSection(locale, groupJobCanton);
        const path = withSlash(`${localePrefix[locale]}/${section}/${perLocaleSlugMap[locale]}`.replace(/\/+/g, '/'));
        const localeUrl = `${BASE_URL}${path}`;
        // Per-locale canonical-override gate. canonicalOverrides is keyed by
@@ -6500,7 +6507,7 @@ ${alternates}
          lastmod,
          changefreq: 'weekly',
          priority: 0.6,
-         _canton: group.canton,
+         _canton: groupJobCanton,
        });
      }
    }
