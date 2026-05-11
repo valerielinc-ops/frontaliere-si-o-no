@@ -15,7 +15,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://www.mtic-group.org';
 
@@ -232,10 +232,5 @@ export function isMticTicinoRelevant(job = {}) {
   const loc = normalizeSpace(job.location || job.subsidiaryLocation || '').toLowerCase();
   if (!loc) return false;
 
-  return (
-    isTicinoRelevant(loc) ||
-    isGrigioniRelevant(loc) ||
-    isTargetSwissLocation(loc) ||
-    /lugano|paradiso|massagno|bellinzona|locarno|mendrisio|chiasso|manno|bioggio/i.test(loc)
-  );
+  return isTargetSwissLocation(loc);
 }

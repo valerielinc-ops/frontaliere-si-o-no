@@ -43,7 +43,7 @@ import {
   buildAmagLocalizedContent,
   inferAmagCanton,
 } from './lib/amag-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,6 +52,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'amag-group.json');
 
 const COMPANY_KEY = 'amag-group';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'AMAG Group';
 const COMPANY_HOST = 'jobs.amag-group.ch';
 const COMPANY_DOMAIN = 'amag-group.ch';
@@ -279,7 +280,7 @@ async function enrichWithDetails(listings) {
 
 function buildAmagJob(row) {
   const localized = buildAmagLocalizedContent(row);
-  const canton = row._canton || inferAmagCanton(row.location, row.region) || TARGET_CANTONS[0];
+  const canton = row._canton || inferAmagCanton(row.location, row.region) || DEFAULT_CANTON;
   const location = row.location || (canton === 'GR' ? 'Graubünden' : 'Ticino');
   const empType = mapEmploymentType(row.employmentType);
 
@@ -370,7 +371,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || TARGET_CANTONS[0],
+      canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

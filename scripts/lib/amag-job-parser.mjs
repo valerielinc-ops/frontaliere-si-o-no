@@ -63,15 +63,6 @@ function slugify(value = '') {
     .slice(0, 180);
 }
 
-const TICINO_CITIES = [
-  'bioggio', 'lugano', 'gordola', 'bellinzona', 'locarno', 'mendrisio',
-  'chiasso', 'muralto', 'giubiasco', 'biasca', 'airolo', 'faido',
-  'paradiso', 'massagno', 'viganello', 'manno', 'mezzovico', 'agno',
-  'magliaso', 'stabio', 'balerna', 'cadenazzo', 'ascona', 'minusio',
-  'tenero', 'capolago', 'riviera', 'lamone', 'noranco', 'vezia',
-  'cadempino', 'taverne', 'rivera',
-];
-
 /**
  * Parse a listing page (Italian or German) and return job entries.
  */

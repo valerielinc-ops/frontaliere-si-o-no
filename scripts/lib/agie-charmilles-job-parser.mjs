@@ -18,7 +18,7 @@
  * We filter for Ticino-relevant positions (Losone = canton TI).
  */
 
-import { isTicinoRelevant, isGrigioniRelevant, TARGET_CANTONS, inferAnyCanton } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 
 const BASE_URL = 'https://www.find-your-future.ch';
@@ -137,33 +137,26 @@ export function parseAgieCharmillesProfilePage(html = '') {
 }
 
 /**
- * Check if a parsed job is Ticino-relevant based on canton and city.
+ * Check if a parsed job is target-CH-relevant based on canton and city.
  */
 export function isAgieCharmillesTicinoRelevant(job = {}) {
   if (isTargetCanton(job.canton)) return true;
   const city = (job.city || '').toLowerCase();
   const locationText = (job.locationText || '').toLowerCase();
-  if (isTicinoRelevant(city) || isTicinoRelevant(locationText)) return true;
-  if (/losone|locarno|bellinzona|lugano|mendrisio|chiasso|ascona|muralto/i.test(city)) return true;
-  if (/losone|locarno|bellinzona|lugano|mendrisio|chiasso|ascona|muralto/i.test(locationText)) return true;
-  return false;
+  return isTargetSwissLocation(`${city} ${locationText}`);
 }
 
 /**
  * Infer canton from job data.
- * Derives from city name first (authoritative), then falls back to dataLayer value.
- * This prevents source sites that embed headquarters canton for all jobs from
- * mislabelling remote-office jobs (e.g. GF Machining tagging Biel jobs as TI).
+ * Derives from city name first (authoritative — via BFS municipality dataset),
+ * then falls back to the dataLayer value. This prevents source sites that
+ * embed headquarters canton for all jobs from mislabelling remote-office jobs
+ * (e.g. GF Machining tagging Biel jobs as TI).
  */
 export function inferAgieCharmillesCanton(job = {}) {
   const city = (job.city || '').trim();
-  // City-based inference is authoritative — ignore potentially wrong dataLayer value
   const cantonFromCity = city ? inferAnyCanton(city) : '';
   if (cantonFromCity) return cantonFromCity;
-  // Known TI cities not yet in inferAnyCanton
-  if (/losone|locarno|ascona|muralto|minusio|bellinzona|lugano|mendrisio|chiasso/i.test(city.toLowerCase())) return 'TI';
-  if (isGrigioniRelevant(city.toLowerCase())) return 'GR';
-  // Fall back to dataLayer only when city gives nothing
   return job.canton || '';
 }
 

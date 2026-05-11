@@ -12,7 +12,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import {  isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('convit');
@@ -205,17 +205,12 @@ export function buildConvitLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a location string is relevant to Ticino/Grigioni.
+ * Check whether a location string is relevant to any target canton.
  */
 export function isConvitTicinoRelevant(location = '') {
-  const loc = normalizeSpace(location).toLowerCase();
+  const loc = normalizeSpace(location);
   if (!loc) return true; // Convit is known TI company — include if no location
-  return (
-    isTicinoRelevant(loc) ||
-    isGrigioniRelevant(loc) ||
-    isTargetSwissLocation(loc) ||
-    /massagno|lugano|mendrisio|bellinzona|locarno|chiasso|bioggio|manno/i.test(loc)
-  );
+  return isTargetSwissLocation(loc);
 }
 
 /**

@@ -45,7 +45,7 @@ import {
   isConvitTicinoRelevant,
   inferConvitCanton,
 } from './lib/convit-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -54,6 +54,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'convit-holding.json');
 
 const COMPANY_KEY = 'convit-holding';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Convit Holding GmbH';
 const COMPANY_HOST = 'www.careers-page.com';
 const COMPANY_DOMAIN = 'careers-page.com';
@@ -216,7 +217,7 @@ async function enrichWithDetails(listings) {
 }
 
 function buildConvitJob(row) {
-  const canton = row.canton || inferConvitCanton(row.location) || TARGET_CANTONS[0];
+  const canton = row.canton || inferConvitCanton(row.location) || DEFAULT_CANTON;
   const localized = buildConvitLocalizedContent({ ...row, canton });
   const defaultCity = canton === 'GR' ? 'Graubünden' : 'Massagno';
   const urlHash = createHash('sha1').update(row.detailUrl || row.title || '').digest('hex').slice(0, 12);
@@ -297,7 +298,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || TARGET_CANTONS[0],
+      canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

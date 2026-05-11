@@ -19,7 +19,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSwissMedicalJobs, parseSmartRecruiterDetail, getClinicAddress, slugify, normalizeSpace, TICINO_REGION_UUID } from './lib/swiss-medical-network-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -28,6 +28,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'swiss-medical-network';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Swiss Medical Network';
 const COMPANY_HOST = 'www.swissmedical.net';
 const CAREERS_URL = `https://www.swissmedical.net/en/career/job-offers?region=${TICINO_REGION_UUID}`;
@@ -117,7 +118,7 @@ function buildJobFromParsed(parsed, detailDescription = '') {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     location: city,
-    canton: TARGET_CANTONS[0],
+    canton: DEFAULT_CANTON,
     country: 'CH',
     postalCode: address.postalCode,
     streetAddress: address.streetAddress,
@@ -131,7 +132,7 @@ function buildJobFromParsed(parsed, detailDescription = '') {
     employmentType: parsed.employmentRate?.includes('100') ? 'FULL_TIME' : 'PART_TIME',
     experienceLevel: detectExperienceLevel(parsed.title),
     sector: 'Sanità / Healthcare',
-    _targetScope: { canton: TARGET_CANTONS[0], location: city },
+    _targetScope: { canton: DEFAULT_CANTON, location: city },
     sourceLang: detectLang(descEn || parsed.title, 'en'),
   };
 }
@@ -228,7 +229,7 @@ async function main() {
   if (fs.existsSync(DATA_JOBS)) {
     const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     let fixed = 0;
-    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isSwissMedicalJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = TARGET_CANTONS[0]; fixed++; } }
+    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isSwissMedicalJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = DEFAULT_CANTON; fixed++; } }
     if (fixed > 0) { fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n'); fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n'); }
   }
 

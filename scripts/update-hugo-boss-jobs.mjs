@@ -25,7 +25,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -34,6 +34,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'hugo-boss';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Hugo Boss';
 const COMPANY_HOST = 'careers.hugoboss.com';
 const CAREERS_URL = 'https://careers.hugoboss.com/global/en/search-results?keywords=&location=Coldrerio';
@@ -96,7 +97,7 @@ async function fetchJobs() {
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       location: raw.city || 'Coldrerio',
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       country: 'CH',
       addressLocality: raw.city || 'Coldrerio',
       addressRegion: 'TI',

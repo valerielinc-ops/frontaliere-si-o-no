@@ -9,7 +9,7 @@
  * No detail page fetching needed — all data in one API response.
  */
 
-import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -108,28 +108,17 @@ export function buildKnowledgeLabLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a job is relevant to Ticino/target Swiss locations.
+ * Check whether a job is relevant to any target Swiss canton.
  */
 export function isKnowledgeLabTicinoRelevant(job = {}) {
-  const loc = normalizeSpace(`${job.location} ${job.state}`).toLowerCase();
+  const loc = normalizeSpace(`${job.location} ${job.state}`);
   if (!loc) return false;
-  return (
-    isTicinoRelevant(loc) ||
-    isGrigioniRelevant(loc) ||
-    isTargetSwissLocation(loc) ||
-    /mendrisio|ticino|lugano|bellinzona|locarno|chiasso/i.test(loc)
-  );
+  return isTargetSwissLocation(loc);
 }
 
 /**
- * Infer canton code from a job's branch info.
+ * Infer canton code from a job's branch info via the BFS municipality dataset.
  */
 export function inferKnowledgeLabCanton(job = {}) {
-  const loc = normalizeSpace(`${job.location} ${job.state}`).toLowerCase();
-  if (/mendrisio|ticino|lugano|bellinzona|locarno|chiasso/i.test(loc)) return 'TI';
-  if (/grigioni|chur|graubünden|coira/i.test(loc)) return 'GR';
-  if (/zürich|zurich/i.test(loc)) return 'ZH';
-  if (/bern/i.test(loc)) return 'BE';
-  if (/basel/i.test(loc)) return 'BS';
-  return 'CH';
+  return inferAnyCanton(normalizeSpace(`${job.location} ${job.state}`)) || 'CH';
 }

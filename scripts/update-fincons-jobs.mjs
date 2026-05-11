@@ -30,7 +30,7 @@ import {
   parseFinconsJobDetail,
   buildFinconsLocalizedContent,
 } from './lib/fincons-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -39,6 +39,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'fincons-group.json');
 
 const COMPANY_KEY = 'fincons-group';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Fincons Group';
 const COMPANY_HOST = 'fincons.applytojob.com';
 const COMPANY_DOMAIN = 'finconsgroup.com';
@@ -164,7 +165,7 @@ async function buildFinconsJob(listing) {
     addressRegion: 'TI',
     addressCountry: 'CH',
     postalCode: detail.postalCode || '6900',
-    canton: TARGET_CANTONS[0],
+    canton: DEFAULT_CANTON,
     country: 'CH',
     category: inferCategory(detail),
     sector: 'Tecnologia & IT',
@@ -229,7 +230,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

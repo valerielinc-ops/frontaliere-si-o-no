@@ -10,7 +10,7 @@
  *   - Apply via email: risorseumane@tarchinigroup.com?subject={title}
  */
 
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://www.tarchinigroup.com';
 
@@ -166,10 +166,8 @@ export function isTarchiniTicinoRelevant() {
 }
 
 /**
- * Infer canton — always TI for Tarchini Group.
+ * Infer canton via the BFS municipality dataset; defaults to TI (Tarchini HQ).
  */
 export function inferTarchiniCanton(location = '') {
-  const loc = normalizeSpace(location).toLowerCase();
-  if (/grigioni|chur|graubünden|coira/i.test(loc)) return 'GR';
-  return 'TI';
+  return inferAnyCanton(normalizeSpace(location)) || 'TI';
 }

@@ -14,7 +14,7 @@
  * Apply links: career74.sapsf.eu/career?company=bundesamtf&...
  */
 
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 
 function normalizeSpace(value = '') {
@@ -113,41 +113,22 @@ export function parseAgroscopeApiResponse(data = {}) {
 }
 
 /**
- * Check if a job is Ticino/Grigioni relevant based on location and region.
+ * Check if a job is in any target canton based on location and region.
  */
 export function isAgroscopeTicinoRelevant(job = {}) {
-  const city = String(job.city || '').toLowerCase();
-  const location = String(job.location || '').toLowerCase();
-  const region = String(job.region || '').toLowerCase();
   const canton = String(job.canton || '').toUpperCase();
-  const combined = `${city} ${location} ${region}`;
-
   if (isTargetCanton(canton)) return true;
-  if (isTicinoRelevant(city) || isGrigioniRelevant(city)) return true;
-  if (isTargetSwissLocation(city)) return true;
-
-  const ticinoKeywords = [
-    'ticino', 'tessin', 'lugano', 'bellinzona', 'locarno', 'mendrisio',
-    'chiasso', 'cadenazzo', 'giubiasco', 'manno', 'stabio', 'rivera',
-    'mezzovico', 'gordola', 'muralto', 'biasca', 'airolo',
-    'gottardo', 'san gottardo', 'gotthard',
-    'chur', 'coira', 'grigioni', 'graubünden', 'graubunden',
-    'poschiavo', 'bregaglia', 'mesolcina', 'calanca',
-  ];
-
-  return ticinoKeywords.some((kw) => combined.includes(kw));
+  const combined = `${job.city || ''} ${job.location || ''} ${job.region || ''}`;
+  return isTargetSwissLocation(combined);
 }
 
 /**
- * Infer canton from job data.
+ * Infer canton from job data via the BFS municipality dataset.
  */
 export function inferAgroscopeCanton(job = {}) {
   const canton = String(job.canton || '').toUpperCase();
   if (isTargetCanton(canton)) return canton;
-
-  const combined = `${job.city || ''} ${job.location || ''} ${job.region || ''}`.toLowerCase();
-  if (/chur|coira|grigioni|graubünden|graubunden|poschiavo|bregaglia|mesolcina|calanca/i.test(combined)) return 'GR';
-  return '';
+  return inferAnyCanton(`${job.city || ''} ${job.location || ''} ${job.region || ''}`);
 }
 
 /**

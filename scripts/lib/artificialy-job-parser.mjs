@@ -12,7 +12,7 @@
  *   3. Link-based extraction (LinkedIn apply URLs with surrounding context)
  */
 
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://www.artificialy.com';
 
@@ -210,34 +210,17 @@ export function parseArtificialyCareerPage(html = '') {
 }
 
 /**
- * Check if a job is Ticino/Grigioni relevant.
+ * Check if a job is in any target canton.
  */
 export function isArtificialyTicinoRelevant(job = {}) {
-  const location = String(job.location || '').toLowerCase();
-  const title = String(job.title || '').toLowerCase();
-  const combined = `${location} ${title}`;
-
-  // Direct location match
-  if (isTicinoRelevant(location) || isGrigioniRelevant(location)) return true;
-  if (isTargetSwissLocation(location)) return true;
-
-  const ticinoKeywords = [
-    'ticino', 'tessin', 'lugano', 'bellinzona', 'locarno', 'mendrisio',
-    'chiasso', 'manno', 'stabio', 'cadenazzo', 'giubiasco',
-    'chur', 'coira', 'grigioni', 'graubünden',
-    'poschiavo', 'bregaglia', 'mesolcina',
-  ];
-
-  return ticinoKeywords.some((kw) => combined.includes(kw));
+  return isTargetSwissLocation(`${job.location || ''} ${job.title || ''}`);
 }
 
 /**
- * Infer canton from job data.
+ * Infer canton from job data via the BFS municipality dataset.
  */
 export function inferArtificialyCanton(job = {}) {
-  const combined = `${job.location || ''} ${job.region || ''}`.toLowerCase();
-  if (/chur|coira|grigioni|graubünden|graubunden|poschiavo|bregaglia|mesolcina|calanca/i.test(combined)) return 'GR';
-  return '';
+  return inferAnyCanton(`${job.location || ''} ${job.region || ''}`);
 }
 
 /**

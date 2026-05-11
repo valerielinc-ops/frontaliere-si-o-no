@@ -47,7 +47,7 @@ import {
   validateLastminuteDescription,
   buildLastminuteLocaleFallback,
 } from './lib/lastminute-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -56,12 +56,13 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const LASTMINUTE_KEY = 'lastminute-com';
+const DEFAULT_CANTON = getCompanyDefaults(LASTMINUTE_KEY)?.canton || 'TI';
 const LASTMINUTE_COMPANY_NAME = 'lastminute.com';
 const LASTMINUTE_COMPANY_DOMAIN = 'lastminute.com';
 const LASTMINUTE_CORP_HOST = 'corporate.lastminute.com';
 const LASTMINUTE_SOURCE = {
   name: 'Chiasso',
-  canton: TARGET_CANTONS[0],
+  canton: DEFAULT_CANTON,
   listingUrl:
     'https://corporate.lastminute.com/careers/jobs/?search=&department=&location=chiasso&contract=',
 };
@@ -510,7 +511,7 @@ export function normalizeLastminuteRow(job) {
     source: 'Company Careers Crawler',
     location,
     addressLocality: location,
-    canton: String(job?.canton || '').trim() || TARGET_CANTONS[0],
+    canton: String(job?.canton || '').trim() || DEFAULT_CANTON,
     country: String(job?.country || '').trim() || 'CH',
     contract,
     slug: refreshedSlugs.slug,
@@ -656,7 +657,7 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         existing.title = detail.title || existing.title;
         if (detail.applyUrl) existing.applyUrl = detail.applyUrl;
         existing.location = detail.location || existing.location || 'Chiasso';
-        existing.canton = detail.canton || existing.canton || TARGET_CANTONS[0];
+        existing.canton = detail.canton || existing.canton || DEFAULT_CANTON;
         enriched++;
         console.log(`  ✅ Enriched "${detail.title}" (${detail.description.length} chars, ${detail.sectionCount} sections)`);
       }
@@ -675,7 +676,7 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         companyDomain: LASTMINUTE_COMPANY_DOMAIN,
         location,
         addressLocality: location,
-        canton: detail.canton || TARGET_CANTONS[0],
+        canton: detail.canton || DEFAULT_CANTON,
         country: detail.country || 'CH',
         source: 'Company Careers Crawler',
         description: buildLastminuteLocaleFallback(fallbackOpts, 'it') || detail.description,

@@ -16,7 +16,7 @@
  *   sedeId=458683  → Lausanne
  */
 
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 
 const LISTING_URL = 'https://lombardi.group/eng/careers/open-positions';
@@ -241,19 +241,13 @@ export async function parseLombardiDetailPage(annuncioId, timeoutMs = 15000) {
 }
 
 /**
- * Check if a Lombardi job is Ticino-relevant.
+ * Check if a Lombardi job is in any target canton.
  */
 export function isLombardiTicinoRelevant(job = {}) {
   if (TICINO_SEDE_IDS.has(job.sedeId)) return true;
-
-  const loc = normalizeSpace(job.city || '').toLowerCase();
+  const loc = normalizeSpace(job.city || '');
   if (!loc) return false;
-  return (
-    isTicinoRelevant(loc) ||
-    isGrigioniRelevant(loc) ||
-    isTargetSwissLocation(loc) ||
-    /giubiasco|minusio|locarno|bellinzona|lugano|mendrisio|chiasso|bioggio|manno|massagno/i.test(loc)
-  );
+  return isTargetSwissLocation(loc);
 }
 
 /**

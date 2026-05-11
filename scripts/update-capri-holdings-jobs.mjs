@@ -44,7 +44,7 @@ import {
   normalizeKey,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -54,6 +54,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const CAPRI_KEY = 'capri-holdings';
+const DEFAULT_CANTON = getCompanyDefaults(CAPRI_KEY)?.canton || 'TI';
 const CAPRI_COMPANY_NAME = 'Capri Holdings (Michael Kors / Versace)';
 const CAPRI_HOST = 'capri.wd1.myworkdayjobs.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
@@ -344,7 +345,7 @@ async function fetchCapriHoldingsJobs() {
       canton: canton || '',
       country: 'CH',
       addressLocality: city || 'Mendrisio',
-      addressRegion: canton || TARGET_CANTONS[0],
+      addressRegion: canton || DEFAULT_CANTON,
       addressCountry: 'CH',
       postalCode: city?.toLowerCase() === 'mendrisio' || !city ? '6850' : city?.toLowerCase() === 'stabio' ? '6855' : city?.toLowerCase() === 'coldrerio' ? '6877' : '6850',
       streetAddress: 'Via Penate',

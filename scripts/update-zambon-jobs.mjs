@@ -20,7 +20,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/zambon-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -29,6 +29,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'zambon';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Zambon Svizzera SA';
 const COMPANY_HOST = 'www.zambon.com';
 const CAREERS_URL = 'https://www.zambon.com/en/open-positions';
@@ -122,7 +123,7 @@ async function fetchJobs() {
         id: `zambon-${raw.id}`,
         url: detailUrl, applyUrl: detailUrl, title,
         company: COMPANY_NAME, companyKey: COMPANY_KEY,
-        location: 'Cadempino', canton: TARGET_CANTONS[0], country: 'CH',
+        location: 'Cadempino', canton: DEFAULT_CANTON, country: 'CH',
         addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
         postalCode: '6814', streetAddress: 'Via Industria 13',
         description: buildZambonDescription(title, raw),
@@ -155,7 +156,7 @@ async function fetchJobs() {
     return {
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: raw.location || 'Cadempino', canton: TARGET_CANTONS[0], country: 'CH',
+      location: raw.location || 'Cadempino', canton: DEFAULT_CANTON, country: 'CH',
       addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
       postalCode: '6814', streetAddress: 'Via Industria 13',
       description: `${raw.title} — posizione presso ${COMPANY_NAME} a Cadempino (TI).`,

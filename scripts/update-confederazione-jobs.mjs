@@ -54,14 +54,9 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { 
-  isTicinoRelevant,
-  isGrigioniRelevant,
-  isTargetSwissLocation,
-  inferSwissTargetCanton, inferAnyCanton,
- } from './lib/target-swiss-locations.mjs';
+import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -70,6 +65,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'confederazione-ticino.json');
 
 const COMPANY_KEY = 'confederazione-ticino';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Confederazione Svizzera';
 const COMPANY_HOST = 'jobs.admin.ch';
 const COMPANY_DOMAIN = 'admin.ch';
@@ -210,7 +206,7 @@ function parseApiJob(j = {}) {
   const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)$/);
   const cantonFromRegion = cantonMatch ? cantonMatch[1] : '';
   // For composite regions (Ostschweiz), infer canton from location text
-  const canton = normalizedLocation.canton || cantonFromRegion || inferAnyCanton(`${locationRaw} ${regionRaw}`) || TARGET_CANTONS[0];
+  const canton = normalizedLocation.canton || cantonFromRegion || inferAnyCanton(`${locationRaw} ${regionRaw}`) || DEFAULT_CANTON;
 
   // Department info
   const department = (attrs.verwaltungseinheit || [])[0] || '';
@@ -290,7 +286,7 @@ const GERMAN_SLUG_WORDS = /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehr
  */
 function buildLocalizedContent(job = {}, sourceLang = 'it') {
   const title = String(job.title || '').trim();
-  const canton = job.canton || TARGET_CANTONS[0];
+  const canton = job.canton || DEFAULT_CANTON;
   const regionLabel = canton === 'GR' ? 'Grigioni' : 'Ticino';
   const city = String(job.city || regionLabel).trim();
   const dept = String(job.subDepartment || job.department || 'Confederazione Svizzera').trim();
@@ -403,7 +399,7 @@ async function fetchAllListings() {
 function buildJob(row) {
   const sourceLang = detectLang(`${row.title} ${row.description}`, row.language || 'it');
   const localized = buildLocalizedContent(row, sourceLang);
-  const canton = row.canton || TARGET_CANTONS[0];
+  const canton = row.canton || DEFAULT_CANTON;
   const regionLabel = canton === 'GR' ? 'Graubünden' : 'Ticino';
   const detailUrl = row.directLink || `https://jobs.admin.ch/?lang=it&f=region:${canton === 'GR' ? REGION_OSTSCHWEIZ : REGION_TICINO}`;
   const empType = inferEmploymentType(row);
@@ -599,7 +595,7 @@ async function main() {
   // Log canton breakdown
   const byCanton = {};
   for (const l of listings) {
-    const c = l.canton || TARGET_CANTONS[0];
+    const c = l.canton || DEFAULT_CANTON;
     byCanton[c] = (byCanton[c] || 0) + 1;
   }
   console.log('\nCanton breakdown:');

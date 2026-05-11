@@ -9,7 +9,7 @@
  *   Description in HTML, apply link via SmartRecruiters
  */
 
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://afry.com';
 
@@ -205,43 +205,22 @@ export function parseSmartRecruitersPage(html = '') {
 }
 
 /**
- * Check if an AFRY Swiss job is Ticino/Grigioni relevant.
+ * Check if an AFRY Swiss job is in any target canton.
  */
 export function isAfryTicinoRelevant(job = {}) {
   const cities = job.cities || [];
   const title = String(job.title || '').toLowerCase();
   const location = String(job.location || '').toLowerCase();
-  const combined = `${title} ${location} ${cities.join(' ')}`.toLowerCase();
-
-  // Direct city match for Ticino cities
-  for (const city of cities) {
-    if (isTicinoRelevant(city) || isGrigioniRelevant(city)) return true;
-    if (isTargetSwissLocation(city)) return true;
-  }
-
-  // Keywords in title or location
-  const ticinoKeywords = [
-    'ticino', 'tessin', 'lugano', 'bellinzona', 'locarno', 'mendrisio',
-    'chiasso', 'airolo', 'biasca', 'manno', 'stabio', 'rivera',
-    'mezzovico', 'cadenazzo', 'giubiasco', 'gordola', 'muralto',
-    'gottardo', 'san gottardo', 'gotthard',
-    'chur', 'coira', 'grigioni', 'graubünden', 'graubunden',
-    'poschiavo', 'bregaglia', 'mesolcina', 'calanca',
-  ];
-
-  return ticinoKeywords.some((kw) => combined.includes(kw));
+  return isTargetSwissLocation(`${title} ${location} ${cities.join(' ')}`);
 }
 
 /**
- * Infer canton from city name.
+ * Infer canton from city name via the BFS municipality dataset.
  */
 export function inferAfryCanton(job = {}) {
   const cities = job.cities || [];
   const location = String(job.location || '').toLowerCase();
-  const combined = `${location} ${cities.join(' ')}`.toLowerCase();
-
-  if (/chur|coira|grigioni|graubünden|graubunden|poschiavo|bregaglia|mesolcina|calanca/i.test(combined)) return 'GR';
-  return inferAnyCanton(combined) || 'TI';
+  return inferAnyCanton(`${location} ${cities.join(' ')}`);
 }
 
 /**

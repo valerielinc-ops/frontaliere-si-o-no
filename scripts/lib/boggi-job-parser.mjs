@@ -16,7 +16,7 @@
 
 import { JSDOM } from 'jsdom';
 import { detectLanguage } from './detect-language.mjs';
-import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 const DETAIL_URL_BASE = 'https://boggimilano1.recruitee.com/l/it/o';
 
@@ -153,34 +153,22 @@ export function parseBoggiApiResponse(apiResponse = {}) {
 }
 
 /**
- * Check whether an offer is relevant to Ticino/Swiss region.
+ * Check whether an offer is relevant to any target Swiss canton.
  * Checks both the top-level country_code and each location entry.
  */
 export function isBoggiTicinoRelevant(offer = {}) {
-  // Check top-level country_code
   if (offer.country_code === 'CH') return true;
 
-  // Check each location entry
   const locations = offer.locations || [];
   for (const loc of locations) {
     if (loc.country_code === 'CH') return true;
-    const combined = [loc.city, loc.state, loc.country].filter(Boolean).join(' ').toLowerCase();
-    if (
-      isTicinoRelevant(combined) ||
-      isGrigioniRelevant(combined) ||
-      isTargetSwissLocation(combined) ||
-      /mendrisio|lugano|bellinzona|locarno|chiasso|bioggio|manno|massagno/i.test(combined)
-    ) {
-      return true;
-    }
+    const combined = [loc.city, loc.state, loc.country].filter(Boolean).join(' ');
+    if (isTargetSwissLocation(combined)) return true;
   }
 
-  // Check the combined location string
-  const locStr = (offer.location || '').toLowerCase();
-  if (/svizzera|switzerland|schweiz|suisse|ticino|tessin/i.test(locStr)) return true;
-  if (isTicinoRelevant(locStr) || isGrigioniRelevant(locStr)) return true;
-
-  return false;
+  const locStr = String(offer.location || '');
+  if (/svizzera|switzerland|schweiz|suisse/i.test(locStr)) return true;
+  return isTargetSwissLocation(locStr);
 }
 
 /**

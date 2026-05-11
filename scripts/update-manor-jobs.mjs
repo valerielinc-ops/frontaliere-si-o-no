@@ -44,8 +44,7 @@ mergeLocaleTextMap,
 detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { TICINO_CITIES, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
-
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -55,6 +54,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const MANOR_KEY = 'manor';
+const DEFAULT_CANTON = getCompanyDefaults(MANOR_KEY)?.canton || 'TI';
 const MANOR_COMPANY_NAME = 'Manor AG';
 const MANOR_HOST = 'positions.manor.ch';
 const MANOR_SITEMAP_URL = 'https://positions.manor.ch/sitemap.xml';
@@ -307,7 +307,7 @@ async function fetchManorJobs() {
       companyKey: MANOR_KEY,
       url,
       location: city,
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       country: 'CH',
       category,
       description: descIt,

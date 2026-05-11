@@ -31,7 +31,7 @@ import {
   isRittmeyerTicinoListing,
   buildRittmeyerLocalizedContent,
 } from './lib/rittmeyer-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -40,6 +40,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'rittmeyer-ag.json');
 
 const COMPANY_KEY = 'rittmeyer-ag';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Rittmeyer AG';
 const COMPANY_HOST = 'karriere.rittmeyer.com';
 const COMPANY_DOMAIN = 'rittmeyer.com';
@@ -151,7 +152,7 @@ async function buildRittmeyerJob(listing) {
     addressLocality: 'Camorino',
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: TARGET_CANTONS[0],
+    canton: DEFAULT_CANTON,
     country: 'CH',
     category: inferCategory(detail),
     sector: 'Energia',
@@ -215,7 +216,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

@@ -41,7 +41,7 @@ import {
   fetchPradaDetailPage,
   slugify, inferEmploymentType,
 } from './lib/prada-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
@@ -50,6 +50,7 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'prada';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Prada Group';
 
 function isCompanyJob(job) {
@@ -143,7 +144,7 @@ async function main() {
     }
 
     // Infer canton from actual city, fall back to TI for Mendrisio/unknown
-    const canton = inferAnyCanton(loc) || TARGET_CANTONS[0];
+    const canton = inferAnyCanton(loc) || DEFAULT_CANTON;
 
     // Build rich locale-specific descriptions (200+ chars each)
     const descByLocale = hasRealDescription

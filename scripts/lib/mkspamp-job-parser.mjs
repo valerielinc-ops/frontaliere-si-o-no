@@ -13,7 +13,7 @@
  * We filter for Ticino-relevant positions (Castel San Pietro).
  */
 
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 const RSS_URL = 'https://careers.mkspamp.com/jobs.rss';
 
@@ -165,12 +165,7 @@ export function isMksPampTicinoRelevant(location = {}) {
   // If no city info, assume Castel San Pietro (HQ)
   if (!city) return true;
 
-  return (
-    isTicinoRelevant(city) ||
-    isGrigioniRelevant(city) ||
-    isTargetSwissLocation(city) ||
-    /castel san pietro|giubiasco|minusio|locarno|bellinzona|lugano|mendrisio|chiasso|bioggio|manno|massagno/i.test(city)
-  );
+  return isTargetSwissLocation(city);
 }
 
 /**

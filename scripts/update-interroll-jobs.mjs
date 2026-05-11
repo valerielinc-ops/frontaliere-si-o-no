@@ -16,7 +16,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/interroll-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -25,6 +25,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'interroll';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Interroll Group';
 const COMPANY_HOST = 'www.interroll.com';
 const CAREERS_URL = 'https://www.interroll.com/company/careers/jobs/';
@@ -59,7 +60,7 @@ async function fetchJobs() {
     return {
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: "Sant'Antonino", canton: TARGET_CANTONS[0], country: 'CH',
+      location: "Sant'Antonino", canton: DEFAULT_CANTON, country: 'CH',
       addressLocality: "Sant'Antonino", addressRegion: 'TI', addressCountry: 'CH',
       postalCode: '6592', streetAddress: 'Via Gorelle 3',
       description: `${raw.title} position at Interroll Group in Sant'Antonino, Ticino. Interroll is a global technology company providing material handling solutions.`,

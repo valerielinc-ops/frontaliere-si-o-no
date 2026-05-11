@@ -41,7 +41,7 @@ import {
   normalize,
 } from './lib/dedicated-crawler-common.mjs';
 import { hasListContent, MIN_LIDL_FULL_DESC } from './lib/lidl-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -50,6 +50,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const LIDL_KEY = 'lidl-svizzera';
+const DEFAULT_CANTON = getCompanyDefaults(LIDL_KEY)?.canton || 'TI';
 const LIDL_COMPANY_NAME = 'Lidl Svizzera';
 const LIDL_TEAM_HOST = 'team.lidl.ch';
 const LIDL_COMPANY_DOMAIN = 'lidl.ch';
@@ -58,7 +59,7 @@ const LIDL_SEARCH_API_BASE = 'https://team.lidl.ch/it/search_api/jobsearch';
 const LIDL_SEARCH_SOURCES = [
   {
     name: 'Ticino',
-    canton: TARGET_CANTONS[0],
+    canton: DEFAULT_CANTON,
     listingUrl:
       'https://team.lidl.ch/it/cerca-opportunita?page=1&midpoint_name=Canton%20Ticino,%20Canton%20Ticino&midpoint_lat=null&midpoint_lon=null&radius=null&filter=%7B%22contract_type%22:%5B%5D,%22employment_area%22:%5B%5D,%22entry_level%22:%5B%5D,%22language%22:%5B%5D%7D&min_lat=46.632568359375&min_lon=8.382412910461426&max_lat=45.81787872314453&max_lon=9.160479545593262&with_event=true&hash=',
   },

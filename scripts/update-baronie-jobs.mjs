@@ -51,7 +51,7 @@ import {
   titleOverlap,
   isSwissJob,
 } from './lib/baronie-job-parser.mjs';
-import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -61,6 +61,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'baronie.json');
 
 const COMPANY_KEY = 'baronie';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Baronie';
 const COMPANY_HOST = 'www.baronie.com';
 const COMPANY_DOMAIN = 'baronie.com';
@@ -149,7 +150,7 @@ function buildBaronieJob(url, detail) {
     addressLocality: city,
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: TARGET_CANTONS[0],
+    canton: DEFAULT_CANTON,
     country: 'CH',
     category: inferCategory(title),
     sector: 'Alimentare / Cioccolato',
@@ -228,7 +229,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: TARGET_CANTONS[0],
+      canton: DEFAULT_CANTON,
       company: job.company,
       postedDate: job.postedDate,
     };
