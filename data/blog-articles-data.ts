@@ -23645,4 +23645,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'professioni-sanitarie-lamal-cantone-ticino',
+ category: 'fiscale',
+ date: '2026-05-11T03:50:00.607Z',
+ image: '/images/blog/professioni-sanitarie-lamal-cantone-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

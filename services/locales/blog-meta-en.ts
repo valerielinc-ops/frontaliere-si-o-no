@@ -7424,6 +7424,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mobilita-palermo-frontalieri-ticino.title': 'Mobility in Palermo: Ticino cross-border commuters\' options',
     'blog.article.mobilita-palermo-frontalieri-ticino.excerpt': 'Discover the transport options available in Palermo for cross-border workers who live in Sicily and work in Ticino',
     'blog.article.mobilita-palermo-frontalieri-ticino.imageAlt': 'A busy street in Palermo with people commuting using various modes of transport',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.title': 'Healthcare professionals and LaMal: Canton Ticino\'s decisions',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.excerpt': 'Canton Ticino has made important decisions regarding access to LaMal for cross-border healthcare professionals.',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

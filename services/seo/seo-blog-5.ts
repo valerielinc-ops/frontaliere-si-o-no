@@ -35369,6 +35369,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-professioni-sanitarie-lamal-cantone-ticino': {
+    title: 'Professioni sanitarie e LaMal: le decisioni del Canton Ticino',
+    description: 'Il Canton Ticino ha preso decisioni importanti riguardo l\'accesso alla LaMal per i professionisti sanitari frontalieri. Scopri le implicazioni e le nuove',
+    keywords: 'frontalieri, ticino, svizzera, italia, professioni, sanitarie, lamal, decisioni',
+    ogTitle: 'Professioni sanitarie e LaMal: decisioni del Canton Ticino',
+    ogDescription: 'Il Canton Ticino ha preso decisioni importanti riguardo l\'accesso alla LaMal per i professionisti sanitari frontalieri. Scopri le implicazioni e le nuove',
+    canonicalPath: '/articoli-frontaliere/professioni-sanitarie-lamal-cantone-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Professioni sanitarie e LaMal: le decisioni del Canton Ticino",
+      "description": "Il Canton Ticino ha preso decisioni importanti riguardo l'accesso alla LaMal per i professionisti sanitari frontalieri. Scopri le implicazioni e le nuove",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/professioni-sanitarie-lamal-cantone-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-11T03:50:00+00:00",
+      "dateModified": "2026-05-11T03:50:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/professioni-sanitarie-lamal-cantone-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7424,6 +7424,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilita-palermo-frontalieri-ticino.title': 'Mobilität in Palermo: Wie sich Grenzgänger aus dem Tessin fortbewegen',
     'blog.article.mobilita-palermo-frontalieri-ticino.excerpt': 'Entdecken Sie die verfügbaren Verkehrsoptionen in Palermo für Grenzgänger, die im Tessin arbeiten und in Sizilien leben',
     'blog.article.mobilita-palermo-frontalieri-ticino.imageAlt': 'Eine belebte Straße in Palermo mit Menschen, die mit verschiedenen Verkehrsmitteln unterwegs sind',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.title': 'Gesundheitsberufe und LaMal: Entscheidungen des Kantons Ticino',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.excerpt': 'Der Kanton Ticino hat wichtige Entscheidungen bezüglich des Zugangs zur LaMal für Grenzgänger im Gesundheitswesen getroffen.',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

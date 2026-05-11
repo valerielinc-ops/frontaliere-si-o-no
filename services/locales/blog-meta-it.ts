@@ -7425,6 +7425,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mobilita-palermo-frontalieri-ticino.title': 'Mobilità a Palermo: come si spostano i frontalieri del Ticino',
     'blog.article.mobilita-palermo-frontalieri-ticino.excerpt': 'Scopri le opzioni di trasporto disponibili a Palermo per i frontalieri che lavorano in Ticino e vivono in Sicilia',
     'blog.article.mobilita-palermo-frontalieri-ticino.imageAlt': 'Una strada affollata di Palermo con persone che si spostano con diversi mezzi di trasporto',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.title': 'Professioni sanitarie e LaMal: le decisioni del Canton Ticino',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.excerpt': 'Il Canton Ticino ha preso decisioni importanti riguardo l\'accesso alla LaMal per i professionisti sanitari frontalieri.',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

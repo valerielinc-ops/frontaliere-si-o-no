@@ -7425,6 +7425,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mobilita-palermo-frontalieri-ticino.title': 'Mobilité à Palerme: comment se déplacer',
     'blog.article.mobilita-palermo-frontalieri-ticino.excerpt': 'Découvrez les options de transport disponibles à Palerme pour les frontaliers travaillant au Tessin et vivant en Sicile',
     'blog.article.mobilita-palermo-frontalieri-ticino.imageAlt': 'Une rue animée de Palerme avec des personnes se déplaçant avec différents moyens de transport',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.title': 'Professions médicales et LaMal: décisions du canton du Tessin',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.excerpt': 'Le canton du Tessin a pris des décisions importantes concernant l\'accès à la LaMal pour les professionnels de la santé frontaliers.',
+    'blog.article.professioni-sanitarie-lamal-cantone-ticino.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
