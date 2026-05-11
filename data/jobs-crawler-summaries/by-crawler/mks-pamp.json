@@ -1,59 +1,19 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-05-11T12:14:29.482Z",
+  "generatedAt": "2026-05-11T22:37:10.269Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 12366,
-  "avgDurationMs": 12366,
+  "unchangedCount": 0,
+  "durationMs": 8740,
+  "avgDurationMs": 8740,
   "durationHistory": [
-    12366
+    8740
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Metal &amp; Inventory Controller",
-      "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-02-04",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828",
-      "id": "mks-pamp-3b2040222bc6",
-      "firstSeenAt": "2026-04-13T22:10:50.570Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "title": "Operatore Trattamenti Reflui",
       "slug": "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro",
@@ -66,7 +26,7 @@
       "addressLocality": "Castel San Pietro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "AG",
+      "canton": "TI",
       "country": "CH",
       "category": "production",
       "sector": "Metalli preziosi",
@@ -103,7 +63,7 @@
       "addressLocality": "Genève",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "AG",
+      "canton": "TI",
       "country": "CH",
       "category": "technology",
       "sector": "Metalli preziosi",
@@ -129,6 +89,43 @@
       }
     },
     {
+      "title": "Metal &amp; Inventory Controller",
+      "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-02-04",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "streetAddress": "Via delle Fornaci",
+      "postalCode": "6828",
+      "id": "mks-pamp-3b2040222bc6",
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
       "title": "Operatore reparto Raffineria",
       "slug": "operatore-reparto-raffineria-mks-pamp-castel-san-pietro",
       "url": "https://careers.mkspamp.com/jobs/7130612-operatore-reparto-raffineria",
@@ -140,7 +137,7 @@
       "addressLocality": "Castel San Pietro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "AG",
+      "canton": "TI",
       "country": "CH",
       "category": "production",
       "sector": "Metalli preziosi",
@@ -177,7 +174,7 @@
       "addressLocality": "Castel San Pietro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "AG",
+      "canton": "TI",
       "country": "CH",
       "category": "production",
       "sector": "Metalli preziosi",
@@ -202,5 +199,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
