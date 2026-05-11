@@ -1,18 +1,81 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-05-10T22:39:45.647Z",
-  "total": 18,
-  "newCount": 0,
+  "generatedAt": "2026-05-11T12:46:05.645Z",
+  "total": 20,
+  "newCount": 2,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 17,
-  "durationMs": 28126,
-  "avgDurationMs": 28126,
+  "durationMs": 34595,
+  "avgDurationMs": 34595,
   "durationHistory": [
-    28126
+    34595
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-carriere-alumni-collaboratrice-tore-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-carriere-alumni-collaboratrice-tore-2026.pdf",
+      "title": "Collaboratrice/tore",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "collaboratrice-tore-usi-lugano",
+      "department": "Servizio carriere e alumni",
+      "category": "staff",
+      "datePosted": "2026-05-11",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-aa97fead2a1c",
+      "sourceLang": "it",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-eco-assistente-amm.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-eco-assistente-amm.pdf",
+      "title": "Assistente amministrativa/o",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "assistente-amministrativa-o-usi-lugano",
+      "department": "Facoltà di scienze economiche",
+      "category": "staff",
+      "datePosted": "2026-05-11",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-04f477cb661b",
+      "sourceLang": "it",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
