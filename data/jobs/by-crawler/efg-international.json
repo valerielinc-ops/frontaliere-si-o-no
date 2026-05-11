@@ -1,10 +1,10 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-05-10T21:30:03.426Z",
+  "assembledAt": "2026-05-11T11:35:16.902Z",
   "jobs": [
     {
       "id": "efg-6242",
-      "slug": "corporate-tax-intern-finance-department-geneva-efg-geneve",
+      "slug": "corporate-tax-tirocinante-finanza-department-geneva-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Corporate Tax Intern – Finance Department (Geneva)",
       "location": "Geneve",
@@ -51,11 +51,11 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.911Z",
+      "crawledAt": "2026-05-11T11:35:14.740Z",
       "slugByLocale": {
-        "it": "corporate-tax-intern-finance-department-geneva-efg-geneve",
+        "it": "corporate-tax-tirocinante-finanza-department-geneva-efg-international-ag-geneve",
         "en": "corporate-tax-intern-finance-department-geneva-efg-geneve",
-        "de": "corporate-tax-intern-finance-department-geneva-efg-geneve",
+        "de": "corporate-tax-praktikant-finanzen-department-geneva-efg-international-ag-geneve",
         "fr": "corporate-tax-intern-finance-department-geneva-efg-geneve"
       },
       "addressLocality": "Geneve",
@@ -78,11 +78,22 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.911Z"
+      "firstSeenAt": "2026-05-10T21:30:00.911Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "corporate-tax-intern-finance-department-geneva-efg-geneve"
+        ],
+        "de": [
+          "corporate-tax-intern-finance-department-geneva-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "corporate-tax-intern-finance-department-geneva-efg-geneve"
+      ]
     },
     {
       "id": "efg-6212",
-      "slug": "finance-data-analytics-power-bi-internship-efg-geneve",
+      "slug": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Finance Data Analytics & Power BI Internship",
       "location": "Geneve",
@@ -228,11 +239,11 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.910Z",
+      "crawledAt": "2026-05-11T11:35:14.740Z",
       "slugByLocale": {
-        "it": "finance-data-analytics-power-bi-internship-efg-geneve",
+        "it": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
         "en": "finance-data-analytics-power-bi-internship-efg-geneve",
-        "de": "finance-data-analytics-power-bi-internship-efg-geneve",
+        "de": "finanzen-data-analytics-power-bi-internship-efg-international-ag-geneve",
         "fr": "finance-data-analytics-power-bi-internship-efg-geneve"
       },
       "addressLocality": "Geneve",
@@ -255,143 +266,18 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.910Z"
-    },
-    {
-      "id": "efg-6237",
-      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
-      "company": "EFG International AG",
-      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
-      "source": "Oracle HCM API",
-      "sourceLang": "it",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Apprendistato Employee di commercio AFC Banca",
-        "it": "Apprendistato Impiegato/a di commercio AFC Banca",
-        "de": "Apprendistato Angestellte/r di commercio AFC Banca",
-        "fr": "Apprendistato Employé/e di commercio AFC Banca"
-      },
-      "descriptionByLocale": {
-        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
-        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
-        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut.\n\nSie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nNeben der Ausbildung in der Firma, in der Sie von einem Tutor für Sie in jedem Team, Sie werden die kommerzielle professionelle Schule (CPC) Ihres Interesses und die Kurse im Bank-Kompetenzzentrum (CYP) zusammen mit allen Business-Auszubildenden Zweigbank des Kantons folgen.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Lehrlingsausbildung zu gewährleisten.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, darunter:\n- Analyse des Finanz- und Kreditmarktes\n- Kenntnis der Bankprodukte\n- Verarbeitung und Überprüfung von Dokumenten\n- Terminplanung und Prioritätsmanagement\n- Einsatz von IT-Systemen\n\nAnforderungen\n- Leidenschaft für die Wirtschaft und Bankwelt\n- Highschool-Lizenz mit hervorragenden Ergebnissen\n- Erklären Sie relationale Fähigkeiten und einfache Anpassung an verschiedene Arbeitsszenarien\n- Gute Computerkenntnisse\n- Englischkenntnisse\n\nWenn Sie motiviert sind, dank der Anbindung an die Online-Anwendung: ein Schreiben der Motivation, CV, die drei neuesten Schulberichte und die Mittelschule Lizenz.",
-        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque?\n\nSi c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous.\n\nVous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur qui vous sera dédié dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétence bancaire (CYP) avec tous les apprentis d'affaires de la succursale du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée pour assurer une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des échéances et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n- Passion pour l'économie et le monde bancaire\n- Licence d'études secondaires avec d'excellents résultats\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n- Bonne connaissance informatique\n- Connaissance de l'anglais\n\nSi vous êtes motivé, merci de joindre à l'application en ligne: une lettre de motivation, CV, les trois derniers rapports scolaires et la licence du collège."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-05-10T21:30:00.910Z",
-      "slugByLocale": {
-        "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
-        "en": "apprenticeship-commercial-employee-efg-bank-efg-international-ag-lugano",
-        "de": "commercial-apprentice-bei-efg-bank-efg-international-ag-lugano",
-        "fr": "apprenti-e-commercial-e-chez-efg-bank-efg-international-ag-lugano"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-10",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.910Z",
       "previousSlugsByLocale": {
+        "it": [
+          "finance-data-analytics-power-bi-internship-efg-geneve"
+        ],
         "de": [
-          "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
-          "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
-          "afc-bank-kaufmannslehrling-efg-international-ag-lugano",
-          "lehre-kaufmann-frau-efz-bank-efg-international-ag-lugano",
-          "lehre-kaufmann-frau-efz-bankwesen-efg-international-ag-lugano",
-          "bankkaufmann-frau-efq-lehre-efg-international-ag-lugano",
-          "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano",
-          "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
-          "bankkaufmann-frau-efq-lehrling-efg-international-ag-lugano",
-          "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano"
-        ],
-        "fr": [
-          "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
-          "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
-          "stagiaire-commercial-afc-banque-efg-international-ag-lugano",
-          "apprentissage-employe-e-de-commerce-cfc-banque-efg-international-ag-lugano",
-          "apprenti-commercial-chez-afc-bank-efg-international-ag-lugano",
-          "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano",
-          "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano",
-          "apprenti-banquier-efg-international-ag-efg-international-ag-lugano",
-          "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano",
-          "apprenti-commercial-afc-banque-efg-international-ag-lugano",
-          "apprenti-en-commerce-bancaire-efq-efg-international-ag-lugano",
-          "apprenti-apprentie-en-commerce-bancaire-cfc-efg-international-ag-lugano",
-          "apprentissage-employe-e-de-commerce-efg-bank-efg-international-ag-lugano"
-        ],
-        "en": [
-          "commercial-apprentice-afc-bank-efg-international-ag-lugano",
-          "banking-commercial-apprenticeship-efz-at-efg-international-ag-efg-international-ag-lugano",
-          "afc-bank-commercial-trainee-efg-international-ag-lugano",
-          "commercial-apprenticeship-at-afc-bank-efg-international-ag-lugano",
-          "banking-commercial-apprentice-efq-efg-international-ag-lugano"
+          "finance-data-analytics-power-bi-internship-efg-geneve"
         ]
       },
       "previousSlugs": [
-        "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
-        "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
-        "afc-bank-kaufmannslehrling-efg-international-ag-lugano",
-        "lehre-kaufmann-frau-efz-bank-efg-international-ag-lugano",
-        "lehre-kaufmann-frau-efz-bankwesen-efg-international-ag-lugano",
-        "bankkaufmann-frau-efq-lehre-efg-international-ag-lugano",
-        "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano",
-        "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
-        "bankkaufmann-frau-efq-lehrling-efg-international-ag-lugano",
-        "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano",
-        "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
-        "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
-        "stagiaire-commercial-afc-banque-efg-international-ag-lugano",
-        "apprentissage-employe-e-de-commerce-cfc-banque-efg-international-ag-lugano",
-        "apprenti-commercial-chez-afc-bank-efg-international-ag-lugano",
-        "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano",
-        "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano",
-        "apprenti-banquier-efg-international-ag-efg-international-ag-lugano",
-        "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano",
-        "apprenti-commercial-afc-banque-efg-international-ag-lugano"
-      ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "needsRetranslation": true
+        "finance-data-analytics-power-bi-internship-efg-geneve"
+      ]
     },
     {
       "id": "efg-6209",
@@ -525,7 +411,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.908Z",
+      "crawledAt": "2026-05-11T11:35:14.739Z",
       "slugByLocale": {
         "it": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
         "en": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
@@ -553,6 +439,116 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.908Z"
+    },
+    {
+      "id": "efg-6203",
+      "slug": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-03-27",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6203",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+        "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
+        "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
+      },
+      "descriptionByLocale": {
+        "en": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
+        "it": "Siamo alla ricerca di un giovane talento per unirsi al nostro Programma di Laurea EFG – Funzioni Corporate percorso in Lugano, con un focus sulle Risorse Umane. In questo ruolo, acquisirai esperienza pratica e una comprensione valutabile delle aree chiave che supportano e guidano il successo di EFG. Avrai l'opportunità di lavorare in stretta collaborazione con il nostro team HR, partecipare all'acquisizione di talenti, allo sviluppo degli impiegati e alla gestione delle prestazioni, e contribuire a progetti che definiscono la strategia delle persone di EFG. Questa esperienza ti fornirà una comprensione completa di come le Risorse Umane consentono a EFG di offrire un servizio eccellente e mantenere la leadership nel private banking. Come funziona il Programma di Laurea EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Laurea EFG offre un'opportunità stimolante e affascinante per i recenti laureati. Personalizzato sulle abilità, gli interessi e le competenze individuali, il programma offre un'opportunità ideale per ottenere un'esperienza vasta e variegata in un gruppo di private banking internazionale e in rapida crescita:\n- Inizierai con un'iscrizione di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale.\n- Durante l'iscrizione avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione.\n- Opportunità di apprendimento continuo per assicurarti di sviluppare sia personalmente che professionalmente per raggiungere il tuo pieno potenziale.\n- Buddy e Mentore per accompagnarti durante il programma.\n- Veramente globale, abbiamo posizioni basate a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. Potresti essere uno dei nostri futuri laureati? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienze nel settore, ma cerchiamo una diversa miscela di background, esperienze e competenze. I nostri laureati sono talenti brillanti e entusiasti, quindi ci aspettiamo:\n- Laurea o Master (completato nel 2025 o in corso di completamento) con risultati accademici eccezionali in un campo affine al percorso professionale selezionato.\n- Inglese eccellente (qualsiasi altra lingua sarà un vantaggio)\n- Mindset internazionale\n- Abilità analitiche, di risoluzione dei problemi e organizzative forti\n- Pensiero proattivo e in grado di suggerire nuove modalità di lavoro per migliorare l'efficienza e la competitività\n- Auto-disciplinato, impegnato e con un forte senso del dovere\n- Adattabile e in grado di lavorare in un ambiente di lavoro collaborativo con persone di diversi background\n- Orientato al cliente\n- Autonomo e proattivo con curiosità intellettuale. Che cosa otterrai?\n- Esperienza lavorativa dinamica facendo rotazione attraverso diverse squadre e unità di business\n- Esperienza di rete internazionale arricchente\n- Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura di EFG\n- Opportunità di sviluppo e apprendimento continuo sia sulle competenze tecniche che sulle competenze soft. Il processo di selezione per questa posizione inizierà a aprile 2026 e includerà diverse interviste.",
+        "de": "Wir suchen einen jungen Talent für unser EFG-Graduiertenprogramm – Unternehmensfunktionen-Weg in Lugano, mit Schwerpunkt auf Personalwesen. In dieser Rolle wirst du praktische Erfahrung und wertvolle Einblicke in die Schlüsselfunktionen gewinnen, die den Erfolg von EFG unterstützen und antreiben. Du wirst die Möglichkeit haben, eng mit unserem Personalteam zusammenzuarbeiten, an der Talentakquisition, der Mitarbeiterentwicklung und der Leistungsbeurteilung teilzunehmen und an Projekten mitzuarbeiten, die die Strategie der Menschen von EFG definieren. Diese Erfahrung wird dir einen umfassenden Einblick in die Rolle des Personalwesens bei der Bereitstellung eines herausragenden Dienstleistungsangebots und der Führung in der Privatbankwirtschaft geben. Wie funktioniert das EFG-Graduiertenprogramm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG-Graduiertenprogramm eine herausfordernde und spannende Gelegenheit für jüngere Absolventen. An individuellen Fähigkeiten, Interessen und Kompetenzen angepasst, bietet das Programm eine ideale Gelegenheit, um eine breite Palette an Erfahrungen in einem internationalen und wachsenden Privatbankengruppen zu sammeln:\n- Du beginnst mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG kennenzulernen und deine berufliche Netzwerke aufzubauen.\n- Während der Einarbeitung hast du die Möglichkeit, spezifische Schulungen zu besuchen, um Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern.\n- Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass du sowohl persönlich als auch beruflich voll entwickelt bist, um dein volles Potenzial zu erreichen.\n- Buddy und Mentor, die dich während des Programms begleiten.\n- Tatsächlich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. Könntest du einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen akademischen Abschlüsse oder Branchenerfahrungen, sondern suchen eine Vielfalt an Hintergründen, Erfahrungen und Fähigkeiten. Unsere Absolventen sind brillante und begeisterte Talente, also erwarten wir:\n- Bachelor- oder Master-Abschluss (abgeschlossen 2025 oder in der Pipeline) mit hervorragenden akademischen Leistungen in einem Bereich, der mit dem ausgewählten Berufsweg zusammenhängt.\n- Ausgezeichnete Englischkenntnisse (jede andere Sprache ist ein Vorteil)\n- Internationale Denkweise\n- Starke analytische, Problemlösungs- und Organisationsfähigkeiten\n- Proaktives Denken und in der Lage, neue Arten der Arbeit zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern\n- Selbstdiszipliniert, engagiert und mit starkem Sorgfaltspflichtgefühl\n- Anpassungsfähigkeit und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten\n- Kundeorientiert\n- Proaktiver Selbststarter mit intellektueller Neugier. Was wirst du erhalten?\n- Dynamische Arbeitserfahrung durch Rotation durch verschiedene Teams und Geschäftseinheiten\n- Erfahrung eines erweiterten internationalen Netzwerks\n- Gelegenheit, Expertise in deinem ausgewählten Bereich zu entwickeln und zum EFG-Kulturbezug beizutragen\n- Kontinuierliche Entwicklung und Lernmöglichkeiten auf technischen und weichen Fähigkeiten. Der Auswahlprozess für diese Position beginnt im April 2026 und umfasst mehrere Interviews.",
+        "fr": "Nous recherchons un jeune talent pour rejoindre notre Programme de recrutement EFG – Fonctions d'entreprise en voie de Lugano, avec un focus sur les Ressources humaines. Dans ce rôle, vous acquérez une expérience pratique et une compréhension précieuse des domaines clés qui soutiennent et impulsent le succès d'EFG. Vous aurez l'opportunité de travailler en étroite collaboration avec notre équipe RH, de participer à l'acquisition de talents, au développement des employés et à la gestion des performances, et de contribuer à des projets qui définissent la stratégie des personnes d'EFG. Cette expérience vous fournira une compréhension complète de la manière dont les Ressources humaines permettent à EFG de fournir un service exceptionnel et de maintenir sa leadership dans la banque privée. Comment fonctionne le Programme de recrutement EFG ? À partir de septembre 2026 et sur une période de 18 mois, le Programme de recrutement EFG offre une opportunité stimulante et passionnante pour les jeunes diplômés. Adapté aux compétences, aux intérêts et aux compétences individuels, le programme offre une opportunité idéale pour acquérir une expérience large et variée dans un groupe de banque privée internationale et en croissance rapide :\n- Vous commencez par une formation de 2 semaines en Suisse pour découvrir la mission, la vision et la culture d'EFG et pour commencer à construire votre réseau professionnel.\n- Pendant la formation, vous avez la possibilité de suivre des formations spécifiques pour améliorer vos compétences clés et vos compétences de communication.\n- Opportunités de formation continue pour vous assurer de développer à la fois personnellement et professionnellement pour atteindre votre plein potentiel.\n- Buddy et Mentor pour vous accompagner tout au long du programme.\n- Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Pourriez-vous être l'un de nos futurs diplômés ? Nous valorisons la diversité et ne demandons pas de spécialisations académiques ou d'expérience professionnelle spécifiques, mais nous recherchons une diversité de profils, d'expériences et de compétences. Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons :\n- Diplôme de licence ou de master (obtenu en 2025 ou en cours de validation) avec des résultats académiques exceptionnels dans un domaine lié au chemin professionnel sélectionné.\n- Excellentes compétences en anglais (toute autre langue est un atout)\n- Mentalité internationale\n- Compétences analytiques, de résolution de problèmes et organisationnelles solides\n- Pensée proactive et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité\n- Auto-discipliné, engagé et avec un fort sens du devoir\n- Adaptable et capable de travailler dans un environnement de travail collaboratif avec des personnes de divers horizons\n- Orienté client\n- Proactif et autonome avec une curiosité intellectuelle. Qu'est-ce que vous obtiendrez ?\n- Expérience de travail dynamique en faisant la rotation dans différentes équipes et unités de business\n- Expérience d'un réseau international enrichissant\n- Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la culture d'EFG\n- Opportunités de développement et d'apprentissage continu sur les compétences techniques et les compétences douces. Le processus de recrutement pour cette position commencera en avril 2026 et comportera plusieurs entretiens."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span>We are looking for a young talent to join our <strong>EFG Graduate Programme – Corporate Functions path in Lugano</strong>, with a focus on <strong>Human Resources</strong>. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>In this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>You will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.</span></p><p style=\"line-height:normal;margin-bottom:0cm;\"> </p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p style=\"margin-left:36.0pt;\"> </p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p><p><span>The recruitment process for this position will begin in April 2026 and will include several interviews.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-11T11:35:14.738Z",
+      "slugByLocale": {
+        "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
+        "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
+        "de": "efg-graduate-programme-2026-corporate-functions-personalwesen-lugano-efg-international-ag-lugano-n932dq",
+        "fr": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano"
+      },
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "previousSlugs": [
+        "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+        "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+      ],
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-03-27",
+      "previousSlugsByLocale": {
+        "it": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "en": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "de": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "fr": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6197",
@@ -644,7 +640,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.907Z",
+      "crawledAt": "2026-05-11T11:35:14.737Z",
       "slugByLocale": {
         "it": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
         "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
@@ -674,117 +670,8 @@
       "firstSeenAt": "2026-05-10T21:30:00.907Z"
     },
     {
-      "id": "efg-6203",
-      "slug": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-03-27",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6203",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
-        "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
-      },
-      "descriptionByLocale": {
-        "en": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
-        "it": "Siamo alla ricerca di un giovane talento per unirsi al nostro Programma di Laurea EFG – Funzioni Corporate percorso in Lugano, con un focus sulle Risorse Umane. In questo ruolo, acquisirai esperienza pratica e una comprensione valutabile delle aree chiave che supportano e guidano il successo di EFG. Avrai l'opportunità di lavorare in stretta collaborazione con il nostro team HR, partecipare all'acquisizione di talenti, allo sviluppo degli impiegati e alla gestione delle prestazioni, e contribuire a progetti che definiscono la strategia delle persone di EFG. Questa esperienza ti fornirà una comprensione completa di come le Risorse Umane consentono a EFG di offrire un servizio eccellente e mantenere la leadership nel private banking. Come funziona il Programma di Laurea EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Laurea EFG offre un'opportunità stimolante e affascinante per i recenti laureati. Personalizzato sulle abilità, gli interessi e le competenze individuali, il programma offre un'opportunità ideale per ottenere un'esperienza vasta e variegata in un gruppo di private banking internazionale e in rapida crescita:\n- Inizierai con un'iscrizione di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale.\n- Durante l'iscrizione avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione.\n- Opportunità di apprendimento continuo per assicurarti di sviluppare sia personalmente che professionalmente per raggiungere il tuo pieno potenziale.\n- Buddy e Mentore per accompagnarti durante il programma.\n- Veramente globale, abbiamo posizioni basate a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. Potresti essere uno dei nostri futuri laureati? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienze nel settore, ma cerchiamo una diversa miscela di background, esperienze e competenze. I nostri laureati sono talenti brillanti e entusiasti, quindi ci aspettiamo:\n- Laurea o Master (completato nel 2025 o in corso di completamento) con risultati accademici eccezionali in un campo affine al percorso professionale selezionato.\n- Inglese eccellente (qualsiasi altra lingua sarà un vantaggio)\n- Mindset internazionale\n- Abilità analitiche, di risoluzione dei problemi e organizzative forti\n- Pensiero proattivo e in grado di suggerire nuove modalità di lavoro per migliorare l'efficienza e la competitività\n- Auto-disciplinato, impegnato e con un forte senso del dovere\n- Adattabile e in grado di lavorare in un ambiente di lavoro collaborativo con persone di diversi background\n- Orientato al cliente\n- Autonomo e proattivo con curiosità intellettuale. Che cosa otterrai?\n- Esperienza lavorativa dinamica facendo rotazione attraverso diverse squadre e unità di business\n- Esperienza di rete internazionale arricchente\n- Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura di EFG\n- Opportunità di sviluppo e apprendimento continuo sia sulle competenze tecniche che sulle competenze soft. Il processo di selezione per questa posizione inizierà a aprile 2026 e includerà diverse interviste.",
-        "de": "Wir suchen einen jungen Talent für unser EFG-Graduiertenprogramm – Unternehmensfunktionen-Weg in Lugano, mit Schwerpunkt auf Personalwesen. In dieser Rolle wirst du praktische Erfahrung und wertvolle Einblicke in die Schlüsselfunktionen gewinnen, die den Erfolg von EFG unterstützen und antreiben. Du wirst die Möglichkeit haben, eng mit unserem Personalteam zusammenzuarbeiten, an der Talentakquisition, der Mitarbeiterentwicklung und der Leistungsbeurteilung teilzunehmen und an Projekten mitzuarbeiten, die die Strategie der Menschen von EFG definieren. Diese Erfahrung wird dir einen umfassenden Einblick in die Rolle des Personalwesens bei der Bereitstellung eines herausragenden Dienstleistungsangebots und der Führung in der Privatbankwirtschaft geben. Wie funktioniert das EFG-Graduiertenprogramm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG-Graduiertenprogramm eine herausfordernde und spannende Gelegenheit für jüngere Absolventen. An individuellen Fähigkeiten, Interessen und Kompetenzen angepasst, bietet das Programm eine ideale Gelegenheit, um eine breite Palette an Erfahrungen in einem internationalen und wachsenden Privatbankengruppen zu sammeln:\n- Du beginnst mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG kennenzulernen und deine berufliche Netzwerke aufzubauen.\n- Während der Einarbeitung hast du die Möglichkeit, spezifische Schulungen zu besuchen, um Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern.\n- Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass du sowohl persönlich als auch beruflich voll entwickelt bist, um dein volles Potenzial zu erreichen.\n- Buddy und Mentor, die dich während des Programms begleiten.\n- Tatsächlich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. Könntest du einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen akademischen Abschlüsse oder Branchenerfahrungen, sondern suchen eine Vielfalt an Hintergründen, Erfahrungen und Fähigkeiten. Unsere Absolventen sind brillante und begeisterte Talente, also erwarten wir:\n- Bachelor- oder Master-Abschluss (abgeschlossen 2025 oder in der Pipeline) mit hervorragenden akademischen Leistungen in einem Bereich, der mit dem ausgewählten Berufsweg zusammenhängt.\n- Ausgezeichnete Englischkenntnisse (jede andere Sprache ist ein Vorteil)\n- Internationale Denkweise\n- Starke analytische, Problemlösungs- und Organisationsfähigkeiten\n- Proaktives Denken und in der Lage, neue Arten der Arbeit zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern\n- Selbstdiszipliniert, engagiert und mit starkem Sorgfaltspflichtgefühl\n- Anpassungsfähigkeit und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten\n- Kundeorientiert\n- Proaktiver Selbststarter mit intellektueller Neugier. Was wirst du erhalten?\n- Dynamische Arbeitserfahrung durch Rotation durch verschiedene Teams und Geschäftseinheiten\n- Erfahrung eines erweiterten internationalen Netzwerks\n- Gelegenheit, Expertise in deinem ausgewählten Bereich zu entwickeln und zum EFG-Kulturbezug beizutragen\n- Kontinuierliche Entwicklung und Lernmöglichkeiten auf technischen und weichen Fähigkeiten. Der Auswahlprozess für diese Position beginnt im April 2026 und umfasst mehrere Interviews.",
-        "fr": "Nous recherchons un jeune talent pour rejoindre notre Programme de recrutement EFG – Fonctions d'entreprise en voie de Lugano, avec un focus sur les Ressources humaines. Dans ce rôle, vous acquérez une expérience pratique et une compréhension précieuse des domaines clés qui soutiennent et impulsent le succès d'EFG. Vous aurez l'opportunité de travailler en étroite collaboration avec notre équipe RH, de participer à l'acquisition de talents, au développement des employés et à la gestion des performances, et de contribuer à des projets qui définissent la stratégie des personnes d'EFG. Cette expérience vous fournira une compréhension complète de la manière dont les Ressources humaines permettent à EFG de fournir un service exceptionnel et de maintenir sa leadership dans la banque privée. Comment fonctionne le Programme de recrutement EFG ? À partir de septembre 2026 et sur une période de 18 mois, le Programme de recrutement EFG offre une opportunité stimulante et passionnante pour les jeunes diplômés. Adapté aux compétences, aux intérêts et aux compétences individuels, le programme offre une opportunité idéale pour acquérir une expérience large et variée dans un groupe de banque privée internationale et en croissance rapide :\n- Vous commencez par une formation de 2 semaines en Suisse pour découvrir la mission, la vision et la culture d'EFG et pour commencer à construire votre réseau professionnel.\n- Pendant la formation, vous avez la possibilité de suivre des formations spécifiques pour améliorer vos compétences clés et vos compétences de communication.\n- Opportunités de formation continue pour vous assurer de développer à la fois personnellement et professionnellement pour atteindre votre plein potentiel.\n- Buddy et Mentor pour vous accompagner tout au long du programme.\n- Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Pourriez-vous être l'un de nos futurs diplômés ? Nous valorisons la diversité et ne demandons pas de spécialisations académiques ou d'expérience professionnelle spécifiques, mais nous recherchons une diversité de profils, d'expériences et de compétences. Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons :\n- Diplôme de licence ou de master (obtenu en 2025 ou en cours de validation) avec des résultats académiques exceptionnels dans un domaine lié au chemin professionnel sélectionné.\n- Excellentes compétences en anglais (toute autre langue est un atout)\n- Mentalité internationale\n- Compétences analytiques, de résolution de problèmes et organisationnelles solides\n- Pensée proactive et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité\n- Auto-discipliné, engagé et avec un fort sens du devoir\n- Adaptable et capable de travailler dans un environnement de travail collaboratif avec des personnes de divers horizons\n- Orienté client\n- Proactif et autonome avec une curiosité intellectuelle. Qu'est-ce que vous obtiendrez ?\n- Expérience de travail dynamique en faisant la rotation dans différentes équipes et unités de business\n- Expérience d'un réseau international enrichissant\n- Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la culture d'EFG\n- Opportunités de développement et d'apprentissage continu sur les compétences techniques et les compétences douces. Le processus de recrutement pour cette position commencera en avril 2026 et comportera plusieurs entretiens."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span>We are looking for a young talent to join our <strong>EFG Graduate Programme – Corporate Functions path in Lugano</strong>, with a focus on <strong>Human Resources</strong>. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>In this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>You will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.</span></p><p style=\"line-height:normal;margin-bottom:0cm;\"> </p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p style=\"margin-left:36.0pt;\"> </p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p><p><span>The recruitment process for this position will begin in April 2026 and will include several interviews.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-10T21:30:00.907Z",
-      "slugByLocale": {
-        "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
-        "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
-        "de": "efg-graduate-programme-2026-corporate-functions-personalwesen-lugano-efg-international-ag-lugano-n932dq",
-        "fr": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "previousSlugs": [
-        "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-        "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-      ],
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-27",
-      "previousSlugsByLocale": {
-        "it": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "en": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "de": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "fr": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
-    },
-    {
       "id": "efg-6190",
-      "slug": "pb-support-specialist-americas-geneva-efg-geneve",
+      "slug": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "PB Support Specialist Americas Geneva",
       "location": "Geneve",
@@ -908,12 +795,12 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.905Z",
+      "crawledAt": "2026-05-11T11:35:14.736Z",
       "slugByLocale": {
-        "it": "pb-support-specialist-americas-geneva-efg-geneve",
+        "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
-        "de": "pb-support-specialist-americas-geneva-efg-geneve",
-        "fr": "pb-support-specialist-americas-geneva-efg-geneve"
+        "de": "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
+        "fr": "pb-support-specialiste-americas-geneva-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -935,7 +822,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.905Z"
+      "firstSeenAt": "2026-05-10T21:30:00.905Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pb-support-specialist-americas-geneva-efg-geneve"
+        ],
+        "de": [
+          "pb-support-specialist-americas-geneva-efg-geneve"
+        ],
+        "fr": [
+          "pb-support-specialist-americas-geneva-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "pb-support-specialist-americas-geneva-efg-geneve"
+      ]
     },
     {
       "id": "efg-6177",
@@ -986,7 +887,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.904Z",
+      "crawledAt": "2026-05-11T11:35:14.735Z",
       "slugByLocale": {
         "it": "client-support-officer-efg-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -1018,7 +919,7 @@
     },
     {
       "id": "efg-6175",
-      "slug": "pb-support-specialist-middle-east-ch-efg-geneve",
+      "slug": "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "PB Support Specialist - Middle East CH",
       "location": "Geneve",
@@ -1140,12 +1041,12 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.902Z",
+      "crawledAt": "2026-05-11T11:35:14.733Z",
       "slugByLocale": {
-        "it": "pb-support-specialist-middle-east-ch-efg-geneve",
+        "it": "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
-        "de": "pb-support-specialist-middle-east-ch-efg-geneve",
-        "fr": "pb-support-specialist-middle-east-ch-efg-geneve"
+        "de": "pb-support-spezialist-middle-east-ch-efg-international-ag-geneve",
+        "fr": "pb-support-specialiste-middle-east-ch-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -1167,7 +1068,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.902Z"
+      "firstSeenAt": "2026-05-10T21:30:00.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pb-support-specialist-middle-east-ch-efg-geneve"
+        ],
+        "de": [
+          "pb-support-specialist-middle-east-ch-efg-geneve"
+        ],
+        "fr": [
+          "pb-support-specialist-middle-east-ch-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "pb-support-specialist-middle-east-ch-efg-geneve"
+      ]
     },
     {
       "id": "efg-6168",
@@ -1328,7 +1243,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.901Z",
+      "crawledAt": "2026-05-11T11:35:14.732Z",
       "slugByLocale": {
         "it": "stage-in-talent-acquisition-efg-international-ag-lugano",
         "en": "talent-acquisition-internship-efg-lugano",
@@ -1368,7 +1283,8 @@
       "previousSlugs": [
         "talent-acquisition-internship-efg-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1521,7 +1437,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.900Z",
+      "crawledAt": "2026-05-11T11:35:14.730Z",
       "slugByLocale": {
         "it": "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
         "en": "learning-development-specialist-efg-international-ag-lugano",
@@ -1596,7 +1512,7 @@
     },
     {
       "id": "efg-6150",
-      "slug": "bi-solution-specialist-efg-geneve",
+      "slug": "bi-solution-specialista-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "BI Solution Specialist",
       "location": "Geneve",
@@ -1686,12 +1602,12 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.898Z",
+      "crawledAt": "2026-05-11T11:35:14.729Z",
       "slugByLocale": {
-        "it": "bi-solution-specialist-efg-geneve",
+        "it": "bi-solution-specialista-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
-        "de": "bi-solution-specialist-efg-geneve",
-        "fr": "bi-solution-specialist-efg-geneve"
+        "de": "bi-solution-spezialist-efg-international-ag-geneve",
+        "fr": "bi-solution-specialiste-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -1713,7 +1629,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.898Z"
+      "firstSeenAt": "2026-05-10T21:30:00.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bi-solution-specialist-efg-geneve"
+        ],
+        "de": [
+          "bi-solution-specialist-efg-geneve"
+        ],
+        "fr": [
+          "bi-solution-specialist-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "bi-solution-specialist-efg-geneve"
+      ]
     },
     {
       "id": "efg-6137",
@@ -1867,7 +1797,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.897Z",
+      "crawledAt": "2026-05-11T11:35:14.728Z",
       "slugByLocale": {
         "it": "specialista-internazionale-della-retribuzione-efg-international-ag-lugano",
         "en": "international-payroll-specialist-efg-international-ag-lugano",
@@ -1937,7 +1867,7 @@
     },
     {
       "id": "efg-6101",
-      "slug": "senior-cloud-engineer-efg-geneve",
+      "slug": "senior-cloud-ingegnere-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Senior Cloud Engineer",
       "location": "Geneve",
@@ -2044,12 +1974,12 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.896Z",
+      "crawledAt": "2026-05-11T11:35:14.727Z",
       "slugByLocale": {
-        "it": "senior-cloud-engineer-efg-geneve",
+        "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
         "en": "senior-cloud-engineer-efg-international-ag-geneve",
-        "de": "senior-cloud-engineer-efg-geneve",
-        "fr": "senior-cloud-engineer-efg-geneve"
+        "de": "senior-cloud-ingenieur-efg-international-ag-geneve",
+        "fr": "senior-cloud-ingenieur-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -2071,7 +2001,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.896Z"
+      "firstSeenAt": "2026-05-10T21:30:00.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-cloud-engineer-efg-geneve"
+        ],
+        "de": [
+          "senior-cloud-engineer-efg-geneve"
+        ],
+        "fr": [
+          "senior-cloud-engineer-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "senior-cloud-engineer-efg-geneve"
+      ]
     },
     {
       "id": "efg-6066",
@@ -2212,7 +2156,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.895Z",
+      "crawledAt": "2026-05-11T11:35:14.726Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -2290,7 +2234,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.894Z",
+      "crawledAt": "2026-05-11T11:35:14.725Z",
       "slugByLocale": {
         "it": "cybersecurity-internal-penetration-tester-efg-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -2392,7 +2336,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.893Z",
+      "crawledAt": "2026-05-11T11:35:14.724Z",
       "slugByLocale": {
         "it": "analista-del-rischio-efg-international-ag-lugano",
         "en": "operational-risk-analyst-efg-international-ag-lugano",
@@ -2457,7 +2401,7 @@
     },
     {
       "id": "efg-6046",
-      "slug": "senior-private-markets-product-specialist-efg-zurich",
+      "slug": "senior-private-markets-product-specialista-efg-international-ag-zurich",
       "company": "EFG International AG",
       "title": "Senior Private Markets Product Specialist",
       "location": "Zurich",
@@ -2482,9 +2426,9 @@
       },
       "descriptionByLocale": {
         "en": "General Info\n- Department: Private Markets\n- Work time Percentage: 100%\n- Location: Zurich (or Lugano)\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nTo strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist.\n\nWe are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.\n\nTasks and Responsibilities\n- Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds\n- Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class\n- Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base\n- Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering\n- Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG\n\nRequirements and Qualifications\n\n- 5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients\n- For senior-level role: 10+ years of relevant working experience required\n- Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude\n- Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach\n- Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)\n- Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)\n- Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-        "it": "General Info\n\n- Department: Private Markets\n\n- Work time Percentage: 100%\n\n- Location: Zurich (or Lugano)\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nTo strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist.\n\nWe are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.\n\nTasks and Responsibilities\n\n- Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds\n\n- Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class\n\n- Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base\n\n- Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering\n\n- Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG\n\nRequirements and Qualifications\n\n- 5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients\n\n- For senior-level role: 10+ years of relevant working experience required\n\n- Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude\n\n- Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach\n\n- Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)\n\n- Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)\n\n- Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-        "de": "General Info\n\n- Department: Private Markets\n\n- Work time Percentage: 100%\n\n- Location: Zurich (or Lugano)\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nTo strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist.\n\nWe are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.\n\nTasks and Responsibilities\n\n- Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds\n\n- Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class\n\n- Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base\n\n- Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering\n\n- Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG\n\nRequirements and Qualifications\n\n- 5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients\n\n- For senior-level role: 10+ years of relevant working experience required\n\n- Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude\n\n- Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach\n\n- Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)\n\n- Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)\n\n- Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-        "fr": "General Info\n\n- Department: Private Markets\n\n- Work time Percentage: 100%\n\n- Location: Zurich (or Lugano)\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nTo strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist.\n\nWe are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.\n\nTasks and Responsibilities\n\n- Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds\n\n- Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class\n\n- Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base\n\n- Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering\n\n- Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG\n\nRequirements and Qualifications\n\n- 5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients\n\n- For senior-level role: 10+ years of relevant working experience required\n\n- Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude\n\n- Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach\n\n- Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)\n\n- Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)\n\n- Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply."
+        "it": "General Info\n- Department: Private Markets\n- Work time Percentage: 100%\n- Location: Zurich (or Lugano)\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nTo strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist.\n\nWe are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.\n\nTasks and Responsibilities\n- Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds\n- Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class\n- Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base\n- Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering\n- Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG\n\nRequirements and Qualifications\n\n- 5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients\n- For senior-level role: 10+ years of relevant working experience required\n- Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude\n- Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach\n- Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)\n- Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)\n- Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+        "de": "General Info\n- Department: Private Markets\n- Work time Percentage: 100%\n- Location: Zurich (or Lugano)\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nTo strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist.\n\nWe are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.\n\nTasks and Responsibilities\n- Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds\n- Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class\n- Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base\n- Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering\n- Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG\n\nRequirements and Qualifications\n\n- 5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients\n- For senior-level role: 10+ years of relevant working experience required\n- Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude\n- Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach\n- Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)\n- Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)\n- Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+        "fr": "General Info\n- Department: Private Markets\n- Work time Percentage: 100%\n- Location: Zurich (or Lugano)\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nTo strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist.\n\nWe are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.\n\nTasks and Responsibilities\n- Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds\n- Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class\n- Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base\n- Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering\n- Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG\n\nRequirements and Qualifications\n\n- 5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients\n- For senior-level role: 10+ years of relevant working experience required\n- Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude\n- Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach\n- Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)\n- Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)\n- Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply."
       },
       "requirementsByLocale": {},
       "canonicalContent": {
@@ -2504,12 +2448,12 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.892Z",
+      "crawledAt": "2026-05-11T11:35:14.723Z",
       "slugByLocale": {
-        "it": "senior-private-markets-product-specialist-efg-zurich",
+        "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
-        "de": "senior-private-markets-product-specialist-efg-zurich",
-        "fr": "senior-private-markets-product-specialist-efg-zurich"
+        "de": "senior-private-markets-product-spezialist-efg-international-ag-zurich",
+        "fr": "senior-private-markets-product-specialiste-efg-international-ag-zurich"
       },
       "addressLocality": "Zurich",
       "addressCountry": "CH",
@@ -2531,7 +2475,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.892Z"
+      "firstSeenAt": "2026-05-10T21:30:00.892Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-private-markets-product-specialist-efg-zurich"
+        ],
+        "de": [
+          "senior-private-markets-product-specialist-efg-zurich"
+        ],
+        "fr": [
+          "senior-private-markets-product-specialist-efg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-private-markets-product-specialist-efg-zurich"
+      ]
     },
     {
       "id": "efg-6039",
@@ -2582,7 +2540,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.891Z",
+      "crawledAt": "2026-05-11T11:35:14.722Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -2623,7 +2581,7 @@
     },
     {
       "id": "efg-6040",
-      "slug": "network-proxy-support-team-lead-efg-geneve",
+      "slug": "network-proxy-support-capo-team-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Network & Proxy Support Team Lead",
       "location": "Geneve",
@@ -2648,9 +2606,9 @@
       },
       "descriptionByLocale": {
         "en": "General Information\n- Department: Information Technology – Infrastructure\n- Work Time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n- Provide 2nd and 3rd level technical support for network and related services.\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n- Strong knowledge of enterprise networking architecture and network security.\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n- Solid understanding of network and cloud connectivity design.\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n- Experience managing third-party providers and internal support teams.\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n- Fluent in French and English, written and spoken.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n- Passionate: Being committed and striving for excellence.\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n- Please ensure you attach a cover letter to your CV when submitting your application.\n- Should you wish to apply for this position, please use the designated application link.",
-        "it": "General Information\n\n- Department: Information Technology – Infrastructure\n\n- Work Time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n\n- Provide 2nd and 3rd level technical support for network and related services.\n\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n\n- Strong knowledge of enterprise networking architecture and network security.\n\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n\n- Solid understanding of network and cloud connectivity design.\n\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n\n- Experience managing third-party providers and internal support teams.\n\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n\n- Fluent in French and English, written and spoken.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n\n- Passionate: Being committed and striving for excellence.\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n\n- Please ensure you attach a cover letter to your CV when submitting your application.\n\n- Should you wish to apply for this position, please use the designated application link.",
-        "de": "General Information\n\n- Department: Information Technology – Infrastructure\n\n- Work Time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n\n- Provide 2nd and 3rd level technical support for network and related services.\n\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n\n- Strong knowledge of enterprise networking architecture and network security.\n\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n\n- Solid understanding of network and cloud connectivity design.\n\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n\n- Experience managing third-party providers and internal support teams.\n\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n\n- Fluent in French and English, written and spoken.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n\n- Passionate: Being committed and striving for excellence.\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n\n- Please ensure you attach a cover letter to your CV when submitting your application.\n\n- Should you wish to apply for this position, please use the designated application link.",
-        "fr": "General Information\n\n- Department: Information Technology – Infrastructure\n\n- Work Time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n\n- Provide 2nd and 3rd level technical support for network and related services.\n\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n\n- Strong knowledge of enterprise networking architecture and network security.\n\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n\n- Solid understanding of network and cloud connectivity design.\n\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n\n- Experience managing third-party providers and internal support teams.\n\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n\n- Fluent in French and English, written and spoken.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n\n- Passionate: Being committed and striving for excellence.\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n\n- Please ensure you attach a cover letter to your CV when submitting your application.\n\n- Should you wish to apply for this position, please use the designated application link."
+        "it": "General Information\n- Department: Information Technology – Infrastructure\n- Work Time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n- Provide 2nd and 3rd level technical support for network and related services.\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n- Strong knowledge of enterprise networking architecture and network security.\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n- Solid understanding of network and cloud connectivity design.\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n- Experience managing third-party providers and internal support teams.\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n- Fluent in French and English, written and spoken.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n- Passionate: Being committed and striving for excellence.\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n- Please ensure you attach a cover letter to your CV when submitting your application.\n- Should you wish to apply for this position, please use the designated application link.",
+        "de": "General Information\n- Department: Information Technology – Infrastructure\n- Work Time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n- Provide 2nd and 3rd level technical support for network and related services.\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n- Strong knowledge of enterprise networking architecture and network security.\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n- Solid understanding of network and cloud connectivity design.\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n- Experience managing third-party providers and internal support teams.\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n- Fluent in French and English, written and spoken.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n- Passionate: Being committed and striving for excellence.\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n- Please ensure you attach a cover letter to your CV when submitting your application.\n- Should you wish to apply for this position, please use the designated application link.",
+        "fr": "General Information\n- Department: Information Technology – Infrastructure\n- Work Time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nRole and Team\n\nWithin the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.\n\nYou will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.\n\nMain Responsibilities\n\n1. Leadership & Management\n- Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.\n- Combine team leadership with hands-on technical work on complex incidents and projects.\n- Oversee day-to-day network and proxy operations, including incident, problem and change management.\n- Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.\n- Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.\n- Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.\n- Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.\n\n2. Proxy / Secure Web Gateway (Zscaler)\n- Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.\n- Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...\n- Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.\n- Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.\n- Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.\n- Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.\n\n3. Network Engineering & Operations\n- Provide 2nd and 3rd level technical support for network and related services.\n- Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).\n- Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.\n- Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.\n- Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.\n- Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.\n- Monitor network and proxy performance, ensuring system availability, reliability and security.\n- Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.\n\nSkills and Experience\n\nBackground\n\n- 6–10 years of experience in networking in complex, international environments.\n- Strong knowledge of enterprise networking architecture and network security.\n- Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.\n\nTechnical Skills\n- Expert in LAN/WAN/MAN implementation and troubleshooting.\n- Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.\n- Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.\n- Solid understanding of network and cloud connectivity design.\n- Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.\n- Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.\n\nSoft Skills & Languages\n- Strong communication skills; able to work effectively with technical and non-technical stakeholders.\n- Experience managing third-party providers and internal support teams.\n- Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.\n- Fluent in French and English, written and spoken.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n- Passionate: Being committed and striving for excellence.\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n- Partnership-oriented: Promoting collaboration and teamwork; working together with an entrepreneurial spirit.\n\nApplication\n- Please ensure you attach a cover letter to your CV when submitting your application.\n- Should you wish to apply for this position, please use the designated application link."
       },
       "requirementsByLocale": {},
       "canonicalContent": {
@@ -2670,12 +2628,12 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.890Z",
+      "crawledAt": "2026-05-11T11:35:14.722Z",
       "slugByLocale": {
-        "it": "network-proxy-support-team-lead-efg-geneve",
+        "it": "network-proxy-support-capo-team-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
-        "de": "network-proxy-support-team-lead-efg-geneve",
-        "fr": "network-proxy-support-team-lead-efg-geneve"
+        "de": "network-proxy-support-teamleiter-efg-international-ag-geneve",
+        "fr": "network-proxy-support-chef-d-equipe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -2697,7 +2655,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.890Z"
+      "firstSeenAt": "2026-05-10T21:30:00.890Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "network-proxy-support-team-lead-efg-geneve"
+        ],
+        "de": [
+          "network-proxy-support-team-lead-efg-geneve"
+        ],
+        "fr": [
+          "network-proxy-support-team-lead-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "network-proxy-support-team-lead-efg-geneve"
+      ]
     },
     {
       "id": "efg-5969",
@@ -2860,7 +2832,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.889Z",
+      "crawledAt": "2026-05-11T11:35:14.720Z",
       "slugByLocale": {
         "it": "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2927,7 +2899,8 @@
           "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -3074,7 +3047,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.888Z",
+      "crawledAt": "2026-05-11T11:35:14.719Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-lugano",
         "en": "foundation-manager-efg-international-ag-lugano",
@@ -3128,11 +3101,12 @@
           "foundation-manager-efg-international-ag-lugano-n93k14"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
-      "slug": "back-office-cash-reconciliation-specialist-efg-geneve",
+      "slug": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Back-Office Cash reconciliation specialist",
       "location": "Geneve",
@@ -3157,9 +3131,9 @@
       },
       "descriptionByLocale": {
         "en": "General Info\n- Department : Back Office Cash Reconciliation Specialist\n- Work time Percentage : 100%\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n- Manually input statements from correspondents not automatically reconciled\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n- Manage treatment and follow-up of current files\n- Claim and recover missing statements from counterparties\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n- Understand the roles of each counterparty involved in wire payments\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n- Take responsibility for managing investigations from start to finish\n- Apply familiarity with compliance requirements throughout investigations\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n- General understanding of Back-Office operations within banking\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n- Proficient in MS Office suite\n- Solution-oriented, pragmatic, and precise\n- Strong team player, comfortable working in open space environments\n- Resilient under pressure, flexible, and adaptable\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply.",
-        "it": "General Info\n\n- Department : Back Office Cash Reconciliation Specialist\n\n- Work time Percentage : 100%\n\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n\n- Manually input statements from correspondents not automatically reconciled\n\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n\n- Manage treatment and follow-up of current files\n\n- Claim and recover missing statements from counterparties\n\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n\n- Understand the roles of each counterparty involved in wire payments\n\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n\n- Take responsibility for managing investigations from start to finish\n\n- Apply familiarity with compliance requirements throughout investigations\n\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n\n- General understanding of Back-Office operations within banking\n\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n\n- Proficient in MS Office suite\n\n- Solution-oriented, pragmatic, and precise\n\n- Strong team player, comfortable working in open space environments\n\n- Resilient under pressure, flexible, and adaptable\n\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on : Being proactive to rapidly deliver high-quality results\n\n- Passionate : Being committed and striving for excellence\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply.",
-        "de": "General Info\n\n- Department : Back Office Cash Reconciliation Specialist\n\n- Work time Percentage : 100%\n\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n\n- Manually input statements from correspondents not automatically reconciled\n\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n\n- Manage treatment and follow-up of current files\n\n- Claim and recover missing statements from counterparties\n\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n\n- Understand the roles of each counterparty involved in wire payments\n\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n\n- Take responsibility for managing investigations from start to finish\n\n- Apply familiarity with compliance requirements throughout investigations\n\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n\n- General understanding of Back-Office operations within banking\n\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n\n- Proficient in MS Office suite\n\n- Solution-oriented, pragmatic, and precise\n\n- Strong team player, comfortable working in open space environments\n\n- Resilient under pressure, flexible, and adaptable\n\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on : Being proactive to rapidly deliver high-quality results\n\n- Passionate : Being committed and striving for excellence\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply.",
-        "fr": "General Info\n\n- Department : Back Office Cash Reconciliation Specialist\n\n- Work time Percentage : 100%\n\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n\n- Manually input statements from correspondents not automatically reconciled\n\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n\n- Manage treatment and follow-up of current files\n\n- Claim and recover missing statements from counterparties\n\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n\n- Understand the roles of each counterparty involved in wire payments\n\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n\n- Take responsibility for managing investigations from start to finish\n\n- Apply familiarity with compliance requirements throughout investigations\n\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n\n- General understanding of Back-Office operations within banking\n\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n\n- Proficient in MS Office suite\n\n- Solution-oriented, pragmatic, and precise\n\n- Strong team player, comfortable working in open space environments\n\n- Resilient under pressure, flexible, and adaptable\n\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on : Being proactive to rapidly deliver high-quality results\n\n- Passionate : Being committed and striving for excellence\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply."
+        "it": "General Info\n- Department : Back Office Cash Reconciliation Specialist\n- Work time Percentage : 100%\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n- Manually input statements from correspondents not automatically reconciled\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n- Manage treatment and follow-up of current files\n- Claim and recover missing statements from counterparties\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n- Understand the roles of each counterparty involved in wire payments\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n- Take responsibility for managing investigations from start to finish\n- Apply familiarity with compliance requirements throughout investigations\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n- General understanding of Back-Office operations within banking\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n- Proficient in MS Office suite\n- Solution-oriented, pragmatic, and precise\n- Strong team player, comfortable working in open space environments\n- Resilient under pressure, flexible, and adaptable\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply.",
+        "de": "General Info\n- Department : Back Office Cash Reconciliation Specialist\n- Work time Percentage : 100%\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n- Manually input statements from correspondents not automatically reconciled\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n- Manage treatment and follow-up of current files\n- Claim and recover missing statements from counterparties\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n- Understand the roles of each counterparty involved in wire payments\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n- Take responsibility for managing investigations from start to finish\n- Apply familiarity with compliance requirements throughout investigations\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n- General understanding of Back-Office operations within banking\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n- Proficient in MS Office suite\n- Solution-oriented, pragmatic, and precise\n- Strong team player, comfortable working in open space environments\n- Resilient under pressure, flexible, and adaptable\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply.",
+        "fr": "General Info\n- Department : Back Office Cash Reconciliation Specialist\n- Work time Percentage : 100%\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n- Manually input statements from correspondents not automatically reconciled\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n- Manage treatment and follow-up of current files\n- Claim and recover missing statements from counterparties\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n- Understand the roles of each counterparty involved in wire payments\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n- Take responsibility for managing investigations from start to finish\n- Apply familiarity with compliance requirements throughout investigations\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n- General understanding of Back-Office operations within banking\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n- Proficient in MS Office suite\n- Solution-oriented, pragmatic, and precise\n- Strong team player, comfortable working in open space environments\n- Resilient under pressure, flexible, and adaptable\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply."
       },
       "requirementsByLocale": {},
       "canonicalContent": {
@@ -3179,12 +3153,12 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.887Z",
+      "crawledAt": "2026-05-11T11:35:14.718Z",
       "slugByLocale": {
-        "it": "back-office-cash-reconciliation-specialist-efg-geneve",
+        "it": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "back-office-cash-reconciliation-specialist-efg-geneve",
-        "de": "back-office-cash-reconciliation-specialist-efg-geneve",
-        "fr": "back-office-cash-reconciliation-specialist-efg-geneve"
+        "de": "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
+        "fr": "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -3206,7 +3180,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.887Z"
+      "firstSeenAt": "2026-05-10T21:30:00.887Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "back-office-cash-reconciliation-specialist-efg-geneve"
+        ],
+        "de": [
+          "back-office-cash-reconciliation-specialist-efg-geneve"
+        ],
+        "fr": [
+          "back-office-cash-reconciliation-specialist-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "back-office-cash-reconciliation-specialist-efg-geneve"
+      ]
     },
     {
       "id": "efg-5869",
@@ -3257,7 +3245,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.886Z",
+      "crawledAt": "2026-05-11T11:35:14.717Z",
       "slugByLocale": {
         "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
@@ -3408,7 +3396,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.885Z",
+      "crawledAt": "2026-05-11T11:35:14.716Z",
       "slugByLocale": {
         "it": "risk-compliance-technical-application-owner-efg-geneve",
         "en": "risk-compliance-technical-application-owner-efg-geneve",
@@ -3439,7 +3427,7 @@
     },
     {
       "id": "efg-5799",
-      "slug": "business-analyst-legal-compliance-efg-geneve",
+      "slug": "business-analista-legal-compliance-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Business Analyst Legal & Compliance",
       "location": "Geneve",
@@ -3577,12 +3565,12 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.883Z",
+      "crawledAt": "2026-05-11T11:35:14.714Z",
       "slugByLocale": {
-        "it": "business-analyst-legal-compliance-efg-geneve",
+        "it": "business-analista-legal-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
         "de": "business-analyst-legal-compliance-efg-geneve",
-        "fr": "business-analyst-legal-compliance-efg-geneve"
+        "fr": "business-analyste-legal-compliance-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -3604,7 +3592,18 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.883Z"
+      "firstSeenAt": "2026-05-10T21:30:00.883Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-legal-compliance-efg-geneve"
+        ],
+        "fr": [
+          "business-analyst-legal-compliance-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-legal-compliance-efg-geneve"
+      ]
     },
     {
       "id": "efg-4543",
@@ -3771,7 +3770,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.881Z",
+      "crawledAt": "2026-05-11T11:35:14.712Z",
       "slugByLocale": {
         "it": "group-financial-controller-efg-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -3887,7 +3886,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-10T21:30:00.879Z",
+      "crawledAt": "2026-05-11T11:35:14.709Z",
       "slugByLocale": {
         "it": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -3915,6 +3914,142 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.879Z"
+    },
+    {
+      "id": "efg-6237",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Apprendistato Impiegato/a di commercio AFC Banca",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6237",
+      "source": "Oracle HCM API",
+      "sourceLang": "it",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Apprendistato Employee di commercio AFC Banca",
+        "it": "Apprendistato Impiegato/a di commercio AFC Banca",
+        "de": "Apprendistato Angestellte/r di commercio AFC Banca",
+        "fr": "Apprendistato Employé/e di commercio AFC Banca"
+      },
+      "descriptionByLocale": {
+        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut.\n\nSie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nNeben der Ausbildung in der Firma, in der Sie von einem Tutor für Sie in jedem Team, Sie werden die kommerzielle professionelle Schule (CPC) Ihres Interesses und die Kurse im Bank-Kompetenzzentrum (CYP) zusammen mit allen Business-Auszubildenden Zweigbank des Kantons folgen.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Lehrlingsausbildung zu gewährleisten.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, darunter:\n- Analyse des Finanz- und Kreditmarktes\n- Kenntnis der Bankprodukte\n- Verarbeitung und Überprüfung von Dokumenten\n- Terminplanung und Prioritätsmanagement\n- Einsatz von IT-Systemen\n\nAnforderungen\n- Leidenschaft für die Wirtschaft und Bankwelt\n- Highschool-Lizenz mit hervorragenden Ergebnissen\n- Erklären Sie relationale Fähigkeiten und einfache Anpassung an verschiedene Arbeitsszenarien\n- Gute Computerkenntnisse\n- Englischkenntnisse\n\nWenn Sie motiviert sind, dank der Anbindung an die Online-Anwendung: ein Schreiben der Motivation, CV, die drei neuesten Schulberichte und die Mittelschule Lizenz.",
+        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque?\n\nSi c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous.\n\nVous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur qui vous sera dédié dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétence bancaire (CYP) avec tous les apprentis d'affaires de la succursale du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée pour assurer une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des échéances et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n- Passion pour l'économie et le monde bancaire\n- Licence d'études secondaires avec d'excellents résultats\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n- Bonne connaissance informatique\n- Connaissance de l'anglais\n\nSi vous êtes motivé, merci de joindre à l'application en ligne: une lettre de motivation, CV, les trois derniers rapports scolaires et la licence du collège."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p>Stai finendo la scuole media e sei interessato a diventare un professionista in banca?</p><p>Se questo è il tuo desiderio <strong>l'Apprendistato di Commercio AFC ramo Banca</strong> di EFG Bank è quello che fa per te.</p><p>Lavorerai in delle sedi principali svizzere di EFG Bank in centro a <strong>Lugano</strong> <strong>da agosto 2026 fino a agosto 2029</strong> quando avrai ottenuto <strong>l'Attestato Federale di Capacità.</strong></p><p>Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.</p><p>Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la <strong>scuola professionale commerciale (CPC)</strong> di tuo interesse e i corsi presso il <strong>centro competenze bancarie (CYP) </strong>assieme a tutti gli apprendisti di commercio ramo banca del Cantone.</p><p>EFG Bank supporta e incoraggia lo svolgimento della <strong>maturità professionale integrata</strong> per garantire una formazione il più possible completa al termine dell'apprendistato.</p><p>Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali:</p><ul><li>analisi del mercato finanziario e del credito</li><li>conoscenza dei prodotti bancari</li><li>elaborazione e verifica di documenti</li><li>pianificazione delle scadenze e gestione delle priorità</li><li>utilizzo dei sistemi informatici finanziari</li></ul><p>Requisiti:</p><ul><li>Passione per l’economia e il mondo bancario</li><li>Licenza di scuola media con ottimi risultati</li><li>Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi</li><li>Buone conoscenze informatiche</li><li>Conoscenza della lingua inglese</li></ul><p>Se sei motivato, grazie per allegare alla candidatura online: una<strong> lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.</strong></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-05-10T21:30:00.910Z",
+      "slugByLocale": {
+        "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
+        "en": "apprenticeship-commercial-employee-efg-bank-efg-international-ag-lugano",
+        "de": "commercial-apprentice-bei-efg-bank-efg-international-ag-lugano",
+        "fr": "apprenti-e-commercial-e-chez-efg-bank-efg-international-ag-lugano"
+      },
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-10",
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
+          "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
+          "afc-bank-kaufmannslehrling-efg-international-ag-lugano",
+          "lehre-kaufmann-frau-efz-bank-efg-international-ag-lugano",
+          "lehre-kaufmann-frau-efz-bankwesen-efg-international-ag-lugano",
+          "bankkaufmann-frau-efq-lehre-efg-international-ag-lugano",
+          "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano",
+          "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
+          "bankkaufmann-frau-efq-lehrling-efg-international-ag-lugano",
+          "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano"
+        ],
+        "fr": [
+          "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
+          "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
+          "stagiaire-commercial-afc-banque-efg-international-ag-lugano",
+          "apprentissage-employe-e-de-commerce-cfc-banque-efg-international-ag-lugano",
+          "apprenti-commercial-chez-afc-bank-efg-international-ag-lugano",
+          "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano",
+          "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano",
+          "apprenti-banquier-efg-international-ag-efg-international-ag-lugano",
+          "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano",
+          "apprenti-commercial-afc-banque-efg-international-ag-lugano",
+          "apprenti-en-commerce-bancaire-efq-efg-international-ag-lugano",
+          "apprenti-apprentie-en-commerce-bancaire-cfc-efg-international-ag-lugano",
+          "apprentissage-employe-e-de-commerce-efg-bank-efg-international-ag-lugano"
+        ],
+        "en": [
+          "commercial-apprentice-afc-bank-efg-international-ag-lugano",
+          "banking-commercial-apprenticeship-efz-at-efg-international-ag-efg-international-ag-lugano",
+          "afc-bank-commercial-trainee-efg-international-ag-lugano",
+          "commercial-apprenticeship-at-afc-bank-efg-international-ag-lugano",
+          "banking-commercial-apprentice-efq-efg-international-ag-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
+        "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
+        "afc-bank-kaufmannslehrling-efg-international-ag-lugano",
+        "lehre-kaufmann-frau-efz-bank-efg-international-ag-lugano",
+        "lehre-kaufmann-frau-efz-bankwesen-efg-international-ag-lugano",
+        "bankkaufmann-frau-efq-lehre-efg-international-ag-lugano",
+        "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano",
+        "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
+        "bankkaufmann-frau-efq-lehrling-efg-international-ag-lugano",
+        "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano",
+        "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
+        "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
+        "stagiaire-commercial-afc-banque-efg-international-ag-lugano",
+        "apprentissage-employe-e-de-commerce-cfc-banque-efg-international-ag-lugano",
+        "apprenti-commercial-chez-afc-bank-efg-international-ag-lugano",
+        "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano",
+        "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano",
+        "apprenti-banquier-efg-international-ag-efg-international-ag-lugano",
+        "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano",
+        "apprenti-commercial-afc-banque-efg-international-ag-lugano"
+      ],
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6103",
