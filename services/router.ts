@@ -19,6 +19,7 @@ import {
  CITY_HUB_KEYS,
  CITY_HUB_DISPLAY_NAME,
  CITY_HUB_SLUG,
+ isKnownCityHub,
  type CityHubKey,
 } from '../build-plugins/cityJobsHub';
 import {
@@ -2370,24 +2371,29 @@ export function parsePath(pathname: string): ParseResult {
            locale,
          };
        }
-       const cityHit = CITY_HUB_KEYS.find(
-         (c) => CITY_HUB_SLUG[locale][c] === rawSecond,
-       );
-       if (cityHit) {
+       // P1.3 Phase 2 — data-driven city match. `isKnownCityHub` consults
+       // `data/canton-municipalities.json` so any of the 26 cantons can
+       // route `/<section>/<city>/` to `jobBoardCity`. For TI the legacy
+       // 5-city set continues to match (BFS municipalities include
+       // Lugano/Mendrisio/Bellinzona/Locarno/Chiasso). Non-aggregator
+       // cantons only — aggregator pages (`_AGGREGATE_`) don't have a
+       // single canton scope, so a known city slug must be unambiguous
+       // across cantons (handled inside `isKnownCityHub`).
+       const cantonForCityLookup = cantonCode !== '_AGGREGATE_' ? cantonCode : undefined;
+       if (isKnownCityHub(rawSecond, cantonForCityLookup)) {
          return {
            route: {
              activeTab: 'job-board',
              jobBoardCanton: cantonCode,
-             jobBoardCity: cityHit as CityHubKey,
+             jobBoardCity: rawSecond,
            },
            locale,
          };
        }
-       // Non-CITY_HUB second segment: treat as either an opaque city slug
-       // (for non-TI cantons whose cities aren't in CITY_HUB_KEYS) or a
-       // job detail slug. We pass it through as `jobSlug` so the
-       // existing job-detail rendering path handles it. Build-time SEO
-       // pages provide static-overlay disambiguation when needed.
+       // Non-city second segment: treat as a job detail slug. We pass it
+       // through as `jobSlug` so the existing job-detail rendering path
+       // handles it. Build-time SEO pages provide static-overlay
+       // disambiguation when needed.
        return {
          route: {
            activeTab: 'job-board',

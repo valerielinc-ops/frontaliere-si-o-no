@@ -3,56 +3,150 @@ export type JobLandingTypeKey = 'apprenticeship' | 'internship' | 'partTime';
 export type JobLandingSectorKey = 'health' | 'finance' | 'tech' | 'engineering' | 'admin' | 'hospitality' | 'sales';
 export type JobCareClusterKey = 'clinics' | 'careHomes' | 'oss' | 'educators';
 
-// Canton display names by locale for editorial landings
-const CANTON_DISPLAY_LOCALE: Record<string, Record<JobLandingLocale, string>> = {
- TI: { it: 'Ticino', en: 'Ticino', de: 'Tessin', fr: 'Tessin' },
- GR: { it: 'Grigioni', en: 'Graubünden', de: 'Graubünden', fr: 'Grisons' },
- VS: { it: 'Vallese', en: 'Valais', de: 'Wallis', fr: 'Valais' },
+import cantonSlugFile from '../data/canton-url-slugs.json';
+import municipalitiesFile from '../data/canton-municipalities.json';
+
+type CantonSlugEntry = { it: string; en: string; de: string; fr: string; dePrefix?: string };
+type CantonMunicipalitiesFile = {
+ cantons: Record<string, { municipalities: string[] }>;
 };
 
-// Canton slug by locale (URL-safe)
-const CANTON_SLUG_LOCALE: Record<string, Record<JobLandingLocale, string>> = {
- TI: { it: 'ticino', en: 'ticino', de: 'tessin', fr: 'tessin' },
- GR: { it: 'grigioni', en: 'graubunden', de: 'graubunden', fr: 'grisons' },
- VS: { it: 'vallese', en: 'valais', de: 'wallis', fr: 'valais' },
-};
+// ── Canton display names by locale ────────────────────────────────────
+//
+// TI/GR/VS rows preserved BYTE-IDENTICALLY from the legacy implementation
+// (Phase 5 P1-A — must keep TI editorial URLs invariant). The remaining
+// 21 cantons are auto-generated from data/canton-url-slugs.json using a
+// title-case helper applied to the locale slug.
+const CANTON_DISPLAY_LOCALE: Record<string, Record<JobLandingLocale, string>> = (() => {
+ const out: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'Ticino', en: 'Ticino', de: 'Tessin', fr: 'Tessin' },
+  GR: { it: 'Grigioni', en: 'Graubünden', de: 'Graubünden', fr: 'Grisons' },
+  VS: { it: 'Vallese', en: 'Valais', de: 'Wallis', fr: 'Valais' },
+ };
+ const cap = (s: string): string => s
+  .split('-')
+  .map((word) => word.split(' ')
+   .map((w) => (w.length === 0 ? w : w.charAt(0).toUpperCase() + w.slice(1)))
+   .join(' '))
+  .join('-');
+ const cantonsTable = (cantonSlugFile as { cantons: Record<string, CantonSlugEntry> }).cantons;
+ for (const [code, raw] of Object.entries(cantonsTable)) {
+  if (out[code]) continue;
+  out[code] = { it: cap(raw.it), en: cap(raw.en), de: cap(raw.de), fr: cap(raw.fr) };
+ }
+ return out;
+})();
 
-// French preposition for canton names
+// ── Canton slug by locale (URL-safe) ──────────────────────────────────
+//
+// TI/GR/VS rows preserved BYTE-IDENTICALLY from the legacy implementation.
+// Remaining 21 cantons auto-generated from canton-url-slugs.json.
+const CANTON_SLUG_LOCALE: Record<string, Record<JobLandingLocale, string>> = (() => {
+ const out: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'ticino', en: 'ticino', de: 'tessin', fr: 'tessin' },
+  GR: { it: 'grigioni', en: 'graubunden', de: 'graubunden', fr: 'grisons' },
+  VS: { it: 'vallese', en: 'valais', de: 'wallis', fr: 'valais' },
+ };
+ const cantonsTable = (cantonSlugFile as { cantons: Record<string, CantonSlugEntry> }).cantons;
+ for (const [code, raw] of Object.entries(cantonsTable)) {
+  if (out[code]) continue;
+  out[code] = { it: raw.it, en: raw.en, de: raw.de, fr: raw.fr };
+ }
+ return out;
+})();
+
+// French preposition for canton names — keep legacy special cases for
+// TI/GR/VS exactly; add Jura/Vaud/Argovie special cases for the wider
+// rollout. Default fallback "dans le canton de X" stays grammatically safe.
 const frenchCantonPrep = (display: string): string => {
  if (['Tessin', 'Jura'].includes(display)) return `au ${display}`;
  if (display === 'Grisons') return `aux ${display}`;
- if (display === 'Valais') return `en ${display}`;
+ if (['Valais', 'Vaud', 'Argovie'].includes(display)) return `en ${display}`;
  return `dans le canton de ${display}`;
 };
 
-// German preposition for canton names
+// German preposition for canton names — legacy cases (Tessin/Wallis/Jura)
+// preserved; Aargau + Thurgau added based on `dePrefix: jobs-im-` in
+// canton-url-slugs.json. Vaud (Waadt) takes "in der Waadt".
 const germanCantonPrep = (display: string): string => {
- if (['Tessin', 'Wallis', 'Jura'].includes(display)) return `im ${display}`;
+ if (['Tessin', 'Wallis', 'Jura', 'Aargau', 'Thurgau'].includes(display)) return `im ${display}`;
+ if (display === 'Waadt') return `in der ${display}`;
  return `in ${display}`;
 };
 
-// The target cantons for editorial pages
-export const EDITORIAL_CANTONS = ['TI', 'GR', 'VS'] as const;
+// ── Editorial canton constants ────────────────────────────────────────
+//
+// EDITORIAL_PRIMARY_CANTONS is the legacy 3-canton list used purely for
+// human-readable prose ("Ticino, Grigioni e Vallese"). It is NOT used to
+// gate page emission. EDITORIAL_CANTONS is the full 24-canton set sourced
+// from canton-url-slugs.json (22 single cantons + APPENZELLO + BASILEA URL
+// groups). Emit loops MUST gate per-canton on MIN_JOBS_FOR_CANTON_PAGE so
+// thin pages are never emitted (CLAUDE.md non-negotiable #4).
+export const EDITORIAL_PRIMARY_CANTONS = ['TI', 'GR', 'VS'] as const;
+
+export const EDITORIAL_CANTONS: readonly string[] = Object.freeze(
+ Object.keys((cantonSlugFile as { cantons: Record<string, CantonSlugEntry> }).cantons).sort()
+);
 
 // ── Per-canton slug tables ────────────────────────────────────────────
+//
+// TI/GR/VS rows preserved BYTE-IDENTICALLY from the legacy implementation
+// (Phase 5 P1-A — TI editorial URLs must stay invariant). Remaining cantons
+// auto-generated from CANTON_SLUG_LOCALE with locale-specific templates.
 
-const JOB_TODAY_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = {
- TI: { it: 'offerte-di-lavoro-ticino-oggi', en: 'ticino-jobs-today', de: 'jobs-tessin-heute', fr: 'offres-emploi-tessin-aujourdhui' },
- GR: { it: 'offerte-di-lavoro-grigioni-oggi', en: 'graubunden-jobs-today', de: 'jobs-graubunden-heute', fr: 'offres-emploi-grisons-aujourdhui' },
- VS: { it: 'offerte-di-lavoro-vallese-oggi', en: 'valais-jobs-today', de: 'jobs-wallis-heute', fr: 'offres-emploi-valais-aujourdhui' },
-};
+const JOB_TODAY_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = (() => {
+ const out: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'offerte-di-lavoro-ticino-oggi', en: 'ticino-jobs-today', de: 'jobs-tessin-heute', fr: 'offres-emploi-tessin-aujourdhui' },
+  GR: { it: 'offerte-di-lavoro-grigioni-oggi', en: 'graubunden-jobs-today', de: 'jobs-graubunden-heute', fr: 'offres-emploi-grisons-aujourdhui' },
+  VS: { it: 'offerte-di-lavoro-vallese-oggi', en: 'valais-jobs-today', de: 'jobs-wallis-heute', fr: 'offres-emploi-valais-aujourdhui' },
+ };
+ for (const [code, slugs] of Object.entries(CANTON_SLUG_LOCALE)) {
+  if (out[code]) continue;
+  out[code] = {
+   it: `offerte-di-lavoro-${slugs.it}-oggi`,
+   en: `${slugs.en}-jobs-today`,
+   de: `jobs-${slugs.de}-heute`,
+   fr: `offres-emploi-${slugs.fr}-aujourdhui`,
+  };
+ }
+ return out;
+})();
 
-const JOB_NURSES_HUB_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = {
- TI: { it: 'infermieri-in-ticino', en: 'nurses-in-ticino', de: 'pflege-jobs-im-tessin', fr: 'infirmiers-au-tessin' },
- GR: { it: 'infermieri-in-grigioni', en: 'nurses-in-graubunden', de: 'pflege-jobs-in-graubunden', fr: 'infirmiers-aux-grisons' },
- VS: { it: 'infermieri-in-vallese', en: 'nurses-in-valais', de: 'pflege-jobs-im-wallis', fr: 'infirmiers-en-valais' },
-};
+const JOB_NURSES_HUB_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = (() => {
+ const out: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'infermieri-in-ticino', en: 'nurses-in-ticino', de: 'pflege-jobs-im-tessin', fr: 'infirmiers-au-tessin' },
+  GR: { it: 'infermieri-in-grigioni', en: 'nurses-in-graubunden', de: 'pflege-jobs-in-graubunden', fr: 'infirmiers-aux-grisons' },
+  VS: { it: 'infermieri-in-vallese', en: 'nurses-in-valais', de: 'pflege-jobs-im-wallis', fr: 'infirmiers-en-valais' },
+ };
+ for (const [code, slugs] of Object.entries(CANTON_SLUG_LOCALE)) {
+  if (out[code]) continue;
+  out[code] = {
+   it: `infermieri-in-${slugs.it}`,
+   en: `nurses-in-${slugs.en}`,
+   de: `pflege-jobs-in-${slugs.de}`,
+   fr: `infirmiers-dans-le-canton-de-${slugs.fr}`,
+  };
+ }
+ return out;
+})();
 
-const JOB_PART_TIME_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = {
- TI: { it: 'lavoro-part-time-ticino', en: 'part-time-jobs-ticino', de: 'teilzeit-jobs-tessin', fr: 'emploi-temps-partiel-tessin' },
- GR: { it: 'lavoro-part-time-grigioni', en: 'part-time-jobs-graubunden', de: 'teilzeit-jobs-graubunden', fr: 'emploi-temps-partiel-grisons' },
- VS: { it: 'lavoro-part-time-vallese', en: 'part-time-jobs-valais', de: 'teilzeit-jobs-wallis', fr: 'emploi-temps-partiel-valais' },
-};
+const JOB_PART_TIME_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = (() => {
+ const out: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'lavoro-part-time-ticino', en: 'part-time-jobs-ticino', de: 'teilzeit-jobs-tessin', fr: 'emploi-temps-partiel-tessin' },
+  GR: { it: 'lavoro-part-time-grigioni', en: 'part-time-jobs-graubunden', de: 'teilzeit-jobs-graubunden', fr: 'emploi-temps-partiel-grisons' },
+  VS: { it: 'lavoro-part-time-vallese', en: 'part-time-jobs-valais', de: 'teilzeit-jobs-wallis', fr: 'emploi-temps-partiel-valais' },
+ };
+ for (const [code, slugs] of Object.entries(CANTON_SLUG_LOCALE)) {
+  if (out[code]) continue;
+  out[code] = {
+   it: `lavoro-part-time-${slugs.it}`,
+   en: `part-time-jobs-${slugs.en}`,
+   de: `teilzeit-jobs-${slugs.de}`,
+   fr: `emploi-temps-partiel-${slugs.fr}`,
+  };
+ }
+ return out;
+})();
 
 // Backward-compatible exports: TI defaults
 export const JOB_PART_TIME_LANDING_SLUGS: Record<JobLandingLocale, string> = {
@@ -85,11 +179,41 @@ const SEARCH_ROUTE_PREFIX: Record<JobLandingLocale, string> = {
  fr: 'recherche',
 };
 
-const EDITORIAL_LOCATIONS_BY_CANTON: Record<string, readonly string[]> = {
- TI: ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'],
- GR: ['Chur', 'Davos', 'St. Moritz'],
- VS: ['Sion', 'Brig', 'Visp', 'Martigny', 'Monthey', 'Sierre'],
-};
+// ── Editorial locations per canton ────────────────────────────────────
+//
+// TI/GR/VS rows preserved verbatim. For the remaining 21 cantons we take
+// the first 5 BFS municipalities from data/canton-municipalities.json
+// (alphabetical fallback — acceptable per the Phase 5 plan). Half-cantons
+// AI/AR collapse into the APPENZELLO URL group, BL/BS into BASILEA.
+const EDITORIAL_LOCATIONS_BY_CANTON: Record<string, readonly string[]> = (() => {
+ const out: Record<string, readonly string[]> = {
+  TI: ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'],
+  GR: ['Chur', 'Davos', 'St. Moritz'],
+  VS: ['Sion', 'Brig', 'Visp', 'Martigny', 'Monthey', 'Sierre'],
+ };
+ const municipalitiesByCanton = (municipalitiesFile as CantonMunicipalitiesFile).cantons;
+ // Aggregate half-canton members onto their URL group.
+ const groupBuckets: Record<string, string[]> = {};
+ for (const [code, info] of Object.entries(municipalitiesByCanton)) {
+  let key = code;
+  if (code === 'AI' || code === 'AR') key = 'APPENZELLO';
+  if (code === 'BL' || code === 'BS') key = 'BASILEA';
+  if (out[key]) continue;
+  if (key !== code) {
+   if (!groupBuckets[key]) groupBuckets[key] = [];
+   groupBuckets[key].push(...info.municipalities);
+  } else {
+   out[key] = info.municipalities.slice(0, 5);
+  }
+ }
+ for (const [groupKey, merged] of Object.entries(groupBuckets)) {
+  if (out[groupKey]) continue;
+  // Dedupe + alphabetical, take first 5.
+  const unique = Array.from(new Set(merged)).sort();
+  out[groupKey] = unique.slice(0, 5);
+ }
+ return out;
+})();
 
 // Backward compatibility: all supported locations across all cantons
 const SUPPORTED_EDITORIAL_LOCATIONS = Object.values(EDITORIAL_LOCATIONS_BY_CANTON).flat() as string[];

@@ -34,6 +34,8 @@ export interface JobBoardSeoEntry {
 
 export const FIRE_EMOJI_THRESHOLD = 500
 
+// Per-locale legacy TI landing paths — kept as exports for callers that need
+// the explicit TI URL string (e.g. canonical builders, redirect maps).
 export const JOB_BOARD_LANDING_PATHS: Record<JobBoardLocale, string> = {
   it: '/cerca-lavoro-ticino/',
   en: '/en/find-jobs-ticino/',
@@ -41,16 +43,37 @@ export const JOB_BOARD_LANDING_PATHS: Record<JobBoardLocale, string> = {
   fr: '/fr/trouver-emploi-tessin/',
 }
 
-const LANDING_PATH_SET = new Set<string>(Object.values(JOB_BOARD_LANDING_PATHS))
+/**
+ * Predicate: does this URL path match a job-board landing for any canton
+ * (TI legacy + 25 cathedral cantons + Switzerland aggregator)?
+ *
+ * Matches (with or without trailing slash):
+ *   /cerca-lavoro-ticino/, /cerca-lavoro-zurigo/, /cerca-lavoro-svizzera/
+ *   /en/find-jobs-ticino/, /en/find-jobs-zurich/, /en/find-jobs-switzerland/
+ *   /de/jobs-im-tessin/, /de/jobs-in-zurich/, /de/jobs-in-der-waadt/, /de/jobs-in-schweiz/
+ *   /fr/trouver-emploi-tessin/, /fr/trouver-emploi-zurich/, /fr/trouver-emploi-suisse/
+ *
+ * Does NOT match sub-pages like /cerca-lavoro-ticino/lugano/ or
+ * /cerca-lavoro-ticino/azienda-foo/.
+ *
+ * Regex ordering note (P2-C): JS regex left-to-right alternation matches
+ * greedily on the first hit, so the LONGEST prefix MUST come first.
+ *   jobs-in-der > jobs-in > jobs-im
+ * This ensures `/de/jobs-in-der-waadt/` matches the `jobs-in-der` branch
+ * (not `jobs-in`), and `/de/jobs-in-zurich/` matches `jobs-in` (not
+ * partially matching `jobs-im`).
+ */
+const CANTON_LANDING_RE =
+  /^\/(?:(?:it|en|de|fr)\/)?(?:cerca-lavoro|find-jobs|jobs-in-der|jobs-in|jobs-im|trouver-emploi)-[a-z-]+\/?$/
 
 /**
  * Returns true when `urlPath` matches one of the main job-board landings
- * across all 4 locales (with or without trailing slash).
+ * across all 4 locales and every canton + aggregator URL (with or without
+ * trailing slash). See `CANTON_LANDING_RE` for the canonical regex.
  */
 export function isJobBoardLandingPath(urlPath: string): boolean {
   if (!urlPath) return false
-  const withSlash = urlPath.endsWith('/') ? urlPath : `${urlPath}/`
-  return LANDING_PATH_SET.has(withSlash)
+  return CANTON_LANDING_RE.test(urlPath)
 }
 
 interface RawJob {

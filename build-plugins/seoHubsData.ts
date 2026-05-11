@@ -11,7 +11,44 @@
  * replace the static body once it hydrates over `#root`.
  */
 
+import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
+
 export type HubLocale = 'it' | 'en' | 'de' | 'fr';
+
+/**
+ * Hub kinds emitted per canton: `tutti` (all jobs), `settori` (sectors),
+ * `aziende` (companies). Articles are NOT canton-scoped — they remain TI-only.
+ */
+export type HubKind = 'tutti' | 'settori' | 'aziende';
+
+/**
+ * Per-locale hub-name slug (the trailing path component after the canton section).
+ * Mirrors the locale slugs already used in the legacy TI `HUB_SLUGS` table.
+ */
+const HUB_SLUG_BY_LOCALE: Record<CantonLocale, Record<HubKind, string>> = {
+  it: { tutti: 'tutti',  settori: 'settori',  aziende: 'aziende' },
+  en: { tutti: 'all',    settori: 'sectors',  aziende: 'companies' },
+  de: { tutti: 'alle',   settori: 'branchen', aziende: 'unternehmen' },
+  fr: { tutti: 'tous',   settori: 'secteurs', aziende: 'entreprises' },
+};
+
+/**
+ * Build the hub-page URL path for a canton + locale + hub kind.
+ * Returns the path component INCLUDING the leading slash and the trailing
+ * slash, matching the existing `HUB_SLUGS` shape:
+ *
+ *   hubSlugFor('TI', 'it', 'tutti')  → '/cerca-lavoro-ticino/tutti/'
+ *   hubSlugFor('ZH', 'it', 'aziende') → '/cerca-lavoro-zurigo/aziende/'
+ *   hubSlugFor('_AGGREGATE_', 'fr', 'settori') → '/fr/trouver-emploi-suisse/secteurs/'
+ *
+ * `resolveCantonSection` already prepends the `/{locale}/` prefix for non-IT
+ * locales (e.g. `find-jobs-zurich` for EN — the call below adds `/en/`).
+ */
+export function hubSlugFor(canton: string, locale: CantonLocale, hub: HubKind): string {
+  const section = resolveCantonSection(locale, canton);
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  return `${prefix}/${section}/${HUB_SLUG_BY_LOCALE[locale][hub]}/`;
+}
 
 export const HUB_LOCALES: readonly HubLocale[] = ['it', 'en', 'de', 'fr'] as const;
 

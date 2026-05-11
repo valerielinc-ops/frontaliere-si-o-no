@@ -47,6 +47,7 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import {
   STAT_TILE_BASE,
@@ -706,26 +707,35 @@ function renderReport(opts: {
   // Related links — point at existing, stable targets.
   // Internal related-link targets. Slugs match the static pages emitted by
   // other plugins (see dist/ for the canonical slugs).
+  // Phase 9.1 (cathedral) — "jobs hub" link routes to the CH-wide aggregator
+  // section now that the cathedral expansion covers all 26 cantons; the report
+  // itself is TI-focused, but the "see all jobs" CTA should surface the full
+  // canton-aware index, not the TI-only section.
+  const aggregatorJobsPathFor = (loc: Locale): string => {
+    const section = resolveCantonSection(loc as CantonLocale, '_AGGREGATE_');
+    const prefix = loc === 'it' ? '' : `/${loc}`;
+    return `${prefix}/${section}/`.replace(/\/+/g, '/');
+  };
   const relatedTargets: Record<Locale, { report: string; fiscal: string; jobs: string }> = {
     it: {
       report: '/reports/mercato-lavoro-frontalieri-ticino-2026/',
       fiscal: '/guida-tassazione-frontalieri-2026/',
-      jobs: '/cerca-lavoro-ticino/',
+      jobs: aggregatorJobsPathFor('it'),
     },
     en: {
       report: '/en/reports/ticino-cross-border-job-market-2026/',
       fiscal: '/en/cross-border-taxation-guide-2026/',
-      jobs: '/en/find-jobs-ticino/',
+      jobs: aggregatorJobsPathFor('en'),
     },
     de: {
       report: '/de/reports/tessiner-grenzgaenger-arbeitsmarkt-2026/',
       fiscal: '/de/grenzgaenger-besteuerung-leitfaden-2026/',
-      jobs: '/de/jobs-im-tessin/',
+      jobs: aggregatorJobsPathFor('de'),
     },
     fr: {
       report: '/fr/reports/marche-emploi-frontaliers-tessin-2026/',
       fiscal: '/fr/guide-imposition-frontaliers-2026/',
-      jobs: '/fr/trouver-emploi-tessin/',
+      jobs: aggregatorJobsPathFor('fr'),
     },
   };
   const related = relatedTargets[locale];

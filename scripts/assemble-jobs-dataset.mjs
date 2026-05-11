@@ -1511,6 +1511,32 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       console.log(`  🧭 Slug-history drift tracked: ${drift.driftCount} jobs with changed slug, ${drift.mergedSlugs} historical slugs preserved in previousSlugs[ByLocale]`);
     }
 
+    // --- slugByLocale completeness backfill ---
+    // Fixed-translation jobs (needsRetranslation:false) MUST expose a slug for
+    // every locale. Some legacy crawlers populate only the source-language slug
+    // even after the i18n pipeline has run. Backfill missing entries from any
+    // available slug so router lookups + sitemap-jobs entries never 404.
+    let slugBackfilled = 0;
+    for (const job of assembled) {
+      if (job.needsRetranslation) continue;
+      const sbl = job.slugByLocale && typeof job.slugByLocale === 'object'
+        ? job.slugByLocale
+        : (job.slugByLocale = {});
+      // Pick the best fallback: existing slug, else any populated locale.
+      const fallback = String(job.slug || '').trim()
+        || String(sbl.it || sbl.de || sbl.en || sbl.fr || '').trim();
+      if (!fallback) continue;
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        if (!String(sbl[locale] || '').trim()) {
+          sbl[locale] = fallback;
+          slugBackfilled++;
+        }
+      }
+    }
+    if (slugBackfilled > 0) {
+      console.log(`  🧷 slugByLocale backfill: filled ${slugBackfilled} missing locale entries from canonical slug`);
+    }
+
     writeJson(DATA_JOBS, assembled);
     fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
     writeJson(PUBLIC_JOBS, assembled);

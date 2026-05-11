@@ -37,6 +37,14 @@ if (HAS_DOM) Object.defineProperty(window, 'scrollTo', {
  value: vi.fn(),
 });
 
+// JSDOM does not implement Element.scrollIntoView. Components that call it
+// inside requestAnimationFrame after mount (TrafficAlerts initial-crossing
+// scroll, etc.) throw an unhandled TypeError that with `isolate: false` can
+// leak into the worker context and trip later tests in the same thread.
+if (HAS_DOM && typeof Element !== 'undefined' && !Element.prototype.scrollIntoView) {
+ Element.prototype.scrollIntoView = function () { /* noop in JSDOM */ };
+}
+
 // Mock localStorage
 const store: Record<string, string> = {};
 if (HAS_DOM) Object.defineProperty(globalThis, 'localStorage', {

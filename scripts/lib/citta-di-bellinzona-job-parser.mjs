@@ -66,6 +66,7 @@ export function decodeHtmlEntities(value = '') {
 }
 
 export function slugify(value = '', suffix = '') {
+  const MAX_LEN = 90;
   let s = String(value || '')
     .toLowerCase()
     .normalize('NFD')
@@ -73,9 +74,12 @@ export function slugify(value = '', suffix = '') {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (suffix) {
-    s = `${s}-${suffix}`.replace(/--+/g, '-');
+    // Reserve room for the suffix so the combined slug fits MAX_LEN.
+    const reserved = suffix.length + 1; // +1 for joining '-'
+    const headroom = Math.max(1, MAX_LEN - reserved);
+    s = `${s.slice(0, headroom).replace(/-+$/, '')}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 200);
+  return s.slice(0, MAX_LEN);
 }
 
 /**

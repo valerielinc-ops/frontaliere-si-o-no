@@ -56,6 +56,7 @@ import {
   slugifyMunicipality,
   type SnapshotCity,
 } from './jobMarketSnapshotPlugin';
+import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 
 // ── Local types — kept loose; the TI-side JobRecord is already compatible. ──
 interface JobLike {
@@ -519,6 +520,13 @@ function renderSnapshotPage(inp: RenderInputs): string {
   const title = `${c.titlePrefix} ${cantonName}: ${c.eyebrow.toLowerCase()}`;
   const description = `${c.descriptionPrefix} ${cantonName}: ${inp.totalJobs} ${c.totalJobsLabel.toLowerCase()}.`;
 
+  // Phase 6 (Cathedral, P2.S1): flip to `index,follow` once the canton
+  // bucket meets the MIN_JOBS_FOR_CANTON_PAGE gate. Below-threshold pages
+  // stay `noindex,follow` so thin pages don't dilute authority.
+  const robotsValue = inp.totalJobs >= MIN_JOBS_FOR_CANTON_PAGE
+    ? 'index,follow'
+    : 'noindex,follow';
+
   return buildSeoPageHtml({
     locale: inp.locale,
     title,
@@ -527,7 +535,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     bodyHtml: main,
     jsonLdScripts: [breadcrumbLd],
     ogLocale: OG_LOCALE[inp.locale],
-    robots: 'noindex,follow',
+    robots: robotsValue,
     distDir: inp.distDir,
   });
 }
@@ -557,7 +565,7 @@ export interface ChCantonSnapshotEmitResult {
 export async function emitChCantonSnapshotPages(
   opts: ChCantonSnapshotEmitOptions,
 ): Promise<ChCantonSnapshotEmitResult> {
-  const minJobs = opts.minJobsForCantonPage ?? 5;
+  const minJobs = opts.minJobsForCantonPage ?? MIN_JOBS_FOR_CANTON_PAGE;
   const result: ChCantonSnapshotEmitResult = {
     pagesWritten: 0,
     cantonsEmitted: [],

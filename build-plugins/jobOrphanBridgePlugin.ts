@@ -70,17 +70,31 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
+import { getCantonForSlug } from './shared/slugCantonIndex';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import type { Locale } from '../services/i18n';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
+// Legacy TI section table — used only as a fallback for section-canonical paths
+// when no slug context is available. Per-slug paths use `sectionForSlug()` below
+// so non-TI jobs land on their canton URL.
 const SECTION_SLUG: Record<Locale, string> = {
   it: 'cerca-lavoro-ticino',
   en: 'find-jobs-ticino',
   de: 'jobs-im-tessin',
   fr: 'trouver-emploi-tessin',
 };
+
+/**
+ * Resolve the job-board section for (locale, slug) using the slug→canton
+ * reverse index. Falls back to TI legacy section when slug is unknown.
+ */
+function sectionForSlug(locale: Locale, slug: string): string {
+  const canton = getCantonForSlug(slug);
+  return resolveCantonSection(locale as CantonLocale, canton);
+}
 
 const LOCALE_PREFIX: Record<Locale, string> = {
   it: '',
@@ -197,15 +211,27 @@ function humanizeCompanyHint(hint: string | null | undefined): string | null {
 }
 
 function buildOrphanPath(locale: Locale, slug: string): string {
+  // Path the orphan FILE is emitted at — must match the URL Google currently
+  // sees, which is the LEGACY TI section for pre-cathedral orphans. Keeping
+  // this on TI is byte-identical to the pre-cathedral behavior; the
+  // canonical/CTA links below use canton-aware section resolution so users
+  // land on the live canton URL after click.
   return `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/${slug}/`.replace(/\/+/g, '/');
 }
 
 function buildCanonicalForMatched(locale: Locale, currentSlug: string): string {
-  return `${BASE_URL}${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/${currentSlug}/`.replace(/(?<!:)\/+/g, '/');
+  const section = sectionForSlug(locale, currentSlug);
+  return `${BASE_URL}${LOCALE_PREFIX[locale]}/${section}/${currentSlug}/`.replace(/(?<!:)\/+/g, '/');
 }
 
-function buildSectionCanonical(locale: Locale): string {
-  return `${BASE_URL}${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/(?<!:)\/+/g, '/');
+/**
+ * Section landing canonical. `slugHint` (when present) lets us pick the
+ * canton-aware section for the orphan's known job. When absent, fall back
+ * to TI legacy (byte-identical pre-cathedral behavior).
+ */
+function buildSectionCanonical(locale: Locale, slugHint?: string): string {
+  const section = slugHint ? sectionForSlug(locale, slugHint) : SECTION_SLUG[locale];
+  return `${BASE_URL}${LOCALE_PREFIX[locale]}/${section}/`.replace(/(?<!:)\/+/g, '/');
 }
 
 /** Inline pre-hydration rewrite for matched orphans. */
@@ -228,7 +254,7 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
       <h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${esc(copy.matchedH1)}</h1>
     </header>
     <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.matchedLede)}</p>
-    <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(buildSectionCanonical(locale))}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
+    <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(buildSectionCanonical(locale, entry.currentSlug || entry.slug))}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
   </main>`;
 
   // Breadcrumb describes the orphan URL the visitor actually landed on
@@ -263,10 +289,11 @@ function renderExpiredPage(entry: OrphanEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
   const companyHint = humanizeCompanyHint(entry.company);
-  // Canonical points to the section landing for expired entries; the
-  // BreadcrumbList still describes the bridge URL the visitor landed on.
-  const canonicalUrl = buildSectionCanonical(locale);
-  const sectionPath = buildSectionCanonical(locale);
+  // Canonical points to the canton-aware section landing for expired entries
+  // (Phase 8.3 cathedral: uses slug→canton inference). BreadcrumbList still
+  // describes the bridge URL the visitor landed on (orphanAbsoluteUrl).
+  const canonicalUrl = buildSectionCanonical(locale, entry.slug);
+  const sectionPath = buildSectionCanonical(locale, entry.slug);
   const orphanAbsoluteUrl = `${BASE_URL}${buildOrphanPath(locale, entry.slug)}`;
 
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
