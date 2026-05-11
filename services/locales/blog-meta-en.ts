@@ -7385,6 +7385,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lpp-minimo-secondo-pilastro-2026.title': 'LPP: Minimum of 2nd pillar remains at 1.25%',
     'blog.article.lpp-minimo-secondo-pilastro-2026.excerpt': 'LPP confirms minimum of 2nd pillar at 1.25% for 2026, with implications for cross-border workers',
     'blog.article.lpp-minimo-secondo-pilastro-2026.imageAlt': 'Aerial view of Lugano with Ticino border visible',
+    'blog.article.esplosione-miniera-colombia-4-morti.title': 'Explosion in Colombian mine: 4 dead',
+    'blog.article.esplosione-miniera-colombia-4-morti.excerpt': 'An explosion in a coal mine in Colombia has caused the death of four miners. Authorities are investigating the causes of the disaster.',
+    'blog.article.esplosione-miniera-colombia-4-morti.imageAlt': 'Aerial view of a mining site in Colombia with emergency vehicles and rescue teams at work',
 };
 
 export default blogMetaEn;

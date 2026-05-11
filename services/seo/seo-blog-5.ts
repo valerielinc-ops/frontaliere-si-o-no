@@ -34862,6 +34862,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esplosione-miniera-colombia-4-morti': {
+    title: 'Esplosione in miniera in Colombia: 4 morti | Frontaliere Ticino',
+    description: 'Un\'esplosione in una miniera di carbone in Colombia ha causato la morte di quattro minatori. Le autorità indagano sulle cause del disastro. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, esplosione, miniera, colombia, morti',
+    ogTitle: 'Esplosione in miniera in Colombia: 4 morti',
+    ogDescription: 'Un\'esplosione in una miniera di carbone in Colombia ha causato la morte di quattro minatori. Le autorità indagano sulle cause del disastro.',
+    canonicalPath: '/articoli-frontaliere/esplosione-miniera-colombia-4-morti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esplosione in miniera in Colombia: 4 morti",
+      "description": "Un'esplosione in una miniera di carbone in Colombia ha causato la morte di quattro minatori. Le autorità indagano sulle cause del disastro. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esplosione-miniera-colombia-4-morti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di un sito minerario in Colombia con veicoli di emergenza e squadre di soccorso al lavoro"
+      },
+      "datePublished": "2026-05-11T00:17:05+00:00",
+      "dateModified": "2026-05-11T00:17:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/esplosione-miniera-colombia-4-morti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -23528,4 +23528,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'esplosione-miniera-colombia-4-morti',
+ category: 'novita',
+ date: '2026-05-11T00:17:05.232Z',
+ image: '/images/blog/esplosione-miniera-colombia-4-morti.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

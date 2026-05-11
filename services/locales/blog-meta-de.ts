@@ -7385,6 +7385,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lpp-minimo-secondo-pilastro-2026.title': 'LPP: Mindestanteil des zweiten Pfiliers bleibt bei 1,25%',
     'blog.article.lpp-minimo-secondo-pilastro-2026.excerpt': 'Die LPP bestätigt den Mindestanteil des zweiten Pfiliers bei 1,25% für 2026, mit Auswirkungen für Grenzgänger',
     'blog.article.lpp-minimo-secondo-pilastro-2026.imageAlt': 'Luftaufnahme von Lugano mit Sicht auf den Tessin-Grenzgebiet',
+    'blog.article.esplosione-miniera-colombia-4-morti.title': 'Explosion in kolumbianischer Mine: 4 Tote',
+    'blog.article.esplosione-miniera-colombia-4-morti.excerpt': 'Eine Explosion in einer Kohlemine in Kolumbien hat den Tod von vier Bergleuten verursacht. Die Behörden ermitteln zu den Ursachen der Katastrophe.',
+    'blog.article.esplosione-miniera-colombia-4-morti.imageAlt': 'Luftaufnahme einer Bergbaustätte in Kolumbien mit Rettungskräften und Einsatzfahrzeugen',
 };
 
 export default blogMetaDe;
