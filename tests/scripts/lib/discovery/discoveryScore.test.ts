@@ -86,6 +86,50 @@ describe('discoveryScore — suggest', () => {
     expect(out.rawScore).toBeCloseTo(100, 5); // 200 * 0.5
     expect(out.finalScore).toBeCloseTo(60, 5); // 100 * 0.6
   });
+
+  // Regression — 2026-05-11 `mobilita-palermo-frontalieri-ticino`.
+  // Suggest candidates that lack any Ticino/frontalieri anchor token
+  // MUST be rejected at the score gate as a backstop, even if an
+  // upstream filter ever lets them through.
+  it('throws on suggest candidate with no domain anchor (Palermo regression)', () => {
+    expect(() =>
+      discoveryScore(
+        {
+          headline: 'mobilita palermo',
+          source: 'suggest',
+          meta: { seed: 'mobilita', rank: 0 },
+        },
+        evidence,
+      ),
+    ).toThrow(/lacks a Ticino\/frontalieri anchor/);
+  });
+
+  it('throws on other off-topic Italian-city suggest candidates', () => {
+    for (const headline of ['salute roma', 'pensioni napoli', 'fiscale milano centro']) {
+      expect(() =>
+        discoveryScore(
+          { headline, source: 'suggest', meta: { seed: 'x', rank: 0 } },
+          evidence,
+        ),
+      ).toThrow(/lacks a Ticino\/frontalieri anchor/);
+    }
+  });
+
+  it('accepts anchored suggest candidates (e.g. with toponym or AVS/LPP)', () => {
+    for (const headline of [
+      'mobilita lugano frontalieri',
+      'salute mendrisio',
+      'lpp ginevra',
+      'busta paga svizzera',
+    ]) {
+      expect(() =>
+        discoveryScore(
+          { headline, source: 'suggest', meta: { seed: 'x', rank: 0 } },
+          evidence,
+        ),
+      ).not.toThrow();
+    }
+  });
 });
 
 describe('discoveryScore — news', () => {

@@ -9,6 +9,7 @@
 // Spec: docs/superpowers/specs/2026-05-07-traffic-quality-algorithm-design.md § 6.4
 
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
+import { hasDomainAnchor } from './domainAnchor.mjs';
 
 const ORPHAN_CONFIDENCE = 1.0;
 const SUGGEST_CONFIDENCE = 0.6;
@@ -85,6 +86,16 @@ export function discoveryScore(candidate, evidence) {
       };
     }
     case 'suggest': {
+      // Backstop domain-anchor gate — googleSuggestSource.mjs already
+      // filters here, but if any other path ever feeds an anchorless
+      // suggest candidate (e.g. a future source-aggregator bug) we
+      // refuse to score it. Throw so the pool's try/catch logs the
+      // sanity-check failure instead of silently scoring garbage.
+      if (!hasDomainAnchor(headline)) {
+        throw new Error(
+          `discoveryScore: suggest candidate "${headline.slice(0, 80)}" lacks a Ticino/frontalieri anchor token`,
+        );
+      }
       const p50 = clusterP50(safeEvidence, cluster);
       const rawScore = p50 * SUGGEST_CLUSTER_FACTOR;
       return {
