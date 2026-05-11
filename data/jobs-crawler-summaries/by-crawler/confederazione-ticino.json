@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-05-10T21:19:13.843Z",
-  "total": 9,
+  "generatedAt": "2026-05-11T11:24:37.059Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 9,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 1823,
-  "avgDurationMs": 1823,
+  "unchangedCount": 1,
+  "durationMs": 2263,
+  "avgDurationMs": 2263,
   "durationHistory": [
-    1823
+    2263
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -80,8 +80,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-07T10:45:16.573Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -226,7 +226,6 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "confederazione-ticino-4659fa29ce1c",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -265,7 +264,6 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "confederazione-ticino-33ce87da08d2",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -280,44 +278,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
-    {
-      "title": "Lernende/-r Automobil-Mechatroniker/-in EFZ, Fachrichtung Personenwagen",
-      "slug": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-confederazione-rivera",
-      "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/bc15c8a6-d6a3-47d3-9845-848a7da7c7cb",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16473",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Rivera",
-      "addressLocality": "Rivera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-10-14",
-      "validThrough": "2026-07-31",
-      "employmentType": "apprenticeship",
-      "contractType": "apprenticeship",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "id": "confederazione-ticino-3f231045d232",
-      "firstSeenAt": "2026-04-13T21:25:51.212Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Asyl-Dolmetscher/-in",
       "slug": "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem",
@@ -357,7 +321,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
