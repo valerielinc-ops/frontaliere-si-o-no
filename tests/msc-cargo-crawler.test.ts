@@ -7,25 +7,35 @@ import {
 } from '../scripts/lib/msc-cargo-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
-describe('MSC Cargo crawler parser', () => {
+describe('MSC Group crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(MSC_CARGO_KEY).toBe('msc-cargo');
-    expect(MSC_CARGO_COMPANY_NAME).toBe('MSC Cargo');
+    expect(MSC_CARGO_COMPANY_NAME).toBe('MSC Group');
   });
 
   // ── isCompanyJob ──
   describe('isMscCargoJob', () => {
-    it('matches by companyKey', () => {
+    it('matches by companyKey (cargo)', () => {
       expect(isMscCargoJob({ companyKey: 'msc-cargo' })).toBe(true);
     });
 
-    it('matches by company name', () => {
-      expect(isMscCargoJob({ company: 'MSC Cargo' })).toBe(true);
+    it('matches by companyKey (cruises) — scope widened to MSC Group', () => {
+      expect(isMscCargoJob({ companyKey: 'msc-cruises' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
+    it('matches by company name', () => {
+      expect(isMscCargoJob({ company: 'MSC Group' })).toBe(true);
+      expect(isMscCargoJob({ company: 'MSC Cargo' })).toBe(true);
+      expect(isMscCargoJob({ company: 'MSC Cruises' })).toBe(true);
+    });
+
+    it('matches by URL domain (cargo)', () => {
       expect(isMscCargoJob({ url: 'https://msc.com/jobs/123' })).toBe(true);
+    });
+
+    it('matches by URL domain (cruises)', () => {
+      expect(isMscCargoJob({ url: 'https://careers.msccruises.com/gb/en/job/16339' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -47,6 +57,11 @@ describe('MSC Cargo crawler parser', () => {
 
     it('trusts subdomains', () => {
       expect(isTrustedDomain('https://careers.msc.com/job/456')).toBe(true);
+    });
+
+    it('trusts msccruises.com (Phenom portal)', () => {
+      expect(isTrustedDomain('https://careers.msccruises.com/gb/en/job/16339')).toBe(true);
+      expect(isTrustedDomain('https://msccruises.com')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -87,7 +102,7 @@ describe('MSC Cargo crawler parser', () => {
       id: 'msc-cargo-abc123',
       slug: 'test-position-msc-cargo-ch',
       slugByLocale: { en: 'test-position-msc-cargo-ch' },
-      company: 'MSC Cargo',
+      company: 'MSC Group',
       companyKey: 'msc-cargo',
       title: 'Test Position',
       titleByLocale: { en: 'Test Position' },
@@ -96,7 +111,7 @@ describe('MSC Cargo crawler parser', () => {
       location: 'Lugano',
       canton: 'TI',
       url: 'https://msc.com/jobs/test',
-      source: 'MSC Cargo Dedicated Parser',
+      source: 'MSC Group Dedicated Parser (Phenom careers portal)',
       sourceLang: 'en',
       crawledAt: new Date().toISOString(),
     };

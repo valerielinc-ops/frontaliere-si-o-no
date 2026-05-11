@@ -417,6 +417,13 @@ export function extractSuccessFactorsJobIdentity(rawJob = {}, options = {}) {
   const company = options.company || r.company || options.tenant || '';
   const slug = slugify(`${title} ${company} ${location}`);
 
+  // Description body — currently only populated for html-career detail
+  // pages (via parseHtmlCareerDetail). OData / html-jobreq flavors leave
+  // it empty and downstream parsers fall back to title + brand blurb.
+  const descriptionHtml = String(
+    r.descriptionHtml || r.jobDescription || r.description || ''
+  );
+
   return {
     jobReqId,
     slug,
@@ -425,6 +432,7 @@ export function extractSuccessFactorsJobIdentity(rawJob = {}, options = {}) {
     company,
     postedAt,
     applyUrl: String(applyUrl || ''),
+    descriptionHtml,
   };
 }
 
@@ -649,8 +657,12 @@ function extractTenantFromHost(url) {
  * server-rendered detail page. Mirrors the field set used by Giorgio Armani
  * and Prada parsers (the canonical html-career consumers).
  *
+ * Description body lives under `<div class="joqReqDescription">` (note the
+ * SAP-side typo `joqReq` — keep verbatim). The block is several KB of
+ * HTML and is the field downstream parsers expose via `descriptionHtml`.
+ *
  * @param {string} html
- * @returns {{title: string, reqId: string, area: string, country: string} | null}
+ * @returns {{title: string, reqId: string, area: string, country: string, descriptionHtml: string} | null}
  */
 function parseHtmlCareerDetail(html = '') {
   if (!html) return null;
@@ -665,7 +677,21 @@ function parseHtmlCareerDetail(html = '') {
   const area = meta ? normalizeSpace(meta[1]) : '';
   const country = meta ? normalizeSpace(meta[2]) : '';
   if (!title && !reqId) return null;
-  return { title, reqId, area, country, location: country || area };
+
+  // Job description body — SAP uses class="joqReqDescription" (sic). We
+  // pull from its opening tag until the next closing </td> or </tr>
+  // because the div is unbalanced w.r.t. surrounding table cells in some
+  // tenants (Pictet ships nested <div>s inside the description that throw
+  // a naive .*?</div> non-greedy match off by ~10KB).
+  let descriptionHtml = '';
+  const descAnchor = html.search(/<div[^>]*class="[^"]*joqReqDescription[^"]*"/i);
+  if (descAnchor !== -1) {
+    const slice = html.slice(descAnchor);
+    const endMarker = slice.search(/<\/td>|<\/tr>|<div[^>]*class="[^"]*(?:apply|jobApply|formButtonBar)/i);
+    descriptionHtml = endMarker !== -1 ? slice.slice(0, endMarker) : slice.slice(0, 20000);
+  }
+
+  return { title, reqId, area, country, location: country || area, descriptionHtml };
 }
 
 /**

@@ -1,27 +1,46 @@
 #!/usr/bin/env node
 /**
- * MSC Cargo job parser — Fetcher and job builder.
+ * MSC Group job parser — Phenom ATS direct crawler.
  *
- * Source: https://www.msc.com/en/careers
+ * Source: https://careers.msccruises.com/gb/en/search-results
+ *   The MSC Cruises careers portal is a Phenom-hosted React app that
+ *   server-renders an `eagerLoadRefineSearch.data.jobs[]` array into the
+ *   HTML body. Pagination is `?from=N` (10 jobs/page, totalHits exposed).
+ *   Plain HTTP returns 200; no anti-bot, no Playwright needed.
+ *
+ *   The historical direct URL `https://www.msc.com/en/careers` (MSC Cargo
+ *   arm) is protected by Akamai BMP (403) and is intentionally NOT used
+ *   here. The brand scope is widened to **MSC Group** so that MSC Cruises
+ *   jobs surface alongside any cargo openings exposed via the cruises
+ *   portal (some shoreside cargo/logistics positions live there too).
+ *
+ * The crawler key remains `msc-cargo` for compatibility with existing
+ * workflow filename, output paths, and Firestore registry — only the
+ * display COMPANY_NAME pivots to "MSC Group".
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllMscCargoJobs()  — Fetch and parse all jobs
- *   - isMscCargoJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - isMscCargoJob()         — Match jobs belonging to MSC Group
+ *   - isTrustedDomain()       — Validate URLs (msc.com + msccruises.com)
+ *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const MSC_CARGO_KEY = 'msc-cargo';
-export const MSC_CARGO_COMPANY_NAME = 'MSC Cargo';
+export const MSC_CARGO_COMPANY_NAME = 'MSC Group';
 export const MSC_CARGO_COMPANY_DOMAIN = 'msc.com';
 
-const CAREER_URL = 'https://www.msc.com/en/careers';
+const PHENOM_BASE_URL = 'https://careers.msccruises.com/gb/en/search-results';
+const PHENOM_DETAIL_BASE = 'https://careers.msccruises.com/gb/en/job';
+const PAGE_SIZE = 10;
+// Hard cap to keep CI bounded; covers the 401 listings seen on 2026-05-11.
+const MAX_PAGES = 60;
+const FETCH_DELAY_MS = 3000;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -33,16 +52,20 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
- * Check if a job belongs to MSC Cargo.
- * Used by the template to filter this company's jobs from the global dataset.
+ * Check if a job belongs to MSC Group. Covers MSC Cruises, MSC Cargo,
+ * MSC Mediterranean Shipping Company, MSC Technology, MSC Logistics, etc.
  */
 export function isMscCargoJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -51,122 +74,252 @@ export function isMscCargoJob(job) {
   return (
     key === MSC_CARGO_KEY ||
     key.startsWith('msc-cargo') ||
-    company.includes('msc cargo') ||
-    url.includes('msc.com')
+    key.startsWith('msc-cruises') ||
+    key.startsWith('msc-group') ||
+    /\bmsc\b/.test(company) ||
+    url.includes('msc.com') ||
+    url.includes('msccruises.com')
   );
 }
 
 /**
- * Validate that a URL belongs to MSC Cargo's domain.
+ * Validate that a URL belongs to MSC Group's surfaces.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'msc.com' || host.endsWith('.msc.com');
+    return (
+      host === 'msc.com' ||
+      host.endsWith('.msc.com') ||
+      host === 'msccruises.com' ||
+      host.endsWith('.msccruises.com')
+    );
   } catch {
     return false;
   }
 }
 
-/* ── Category Detection ────────────────────────────────────── */
+/* ── Category / Experience / Employment detection ──────────── */
 
-function detectCategory(title = '') {
-  const t = normalize(title);
+function detectCategory(title = '', subCategory = '') {
+  const t = `${normalize(title)} ${normalize(subCategory)}`;
   if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
   if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
-  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
-  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
-  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
+  if (/\b(admin|segret|contab|buchhalt|account|finance|financ|tax)/.test(t)) return /\b(account|finance|financ|tax)/.test(t) ? 'Finanza' : 'Amministrazione';
+  if (/\b(vendita|sales|verkauf|commerce|commercial)/.test(t)) return 'Commerciale';
+  if (/\b(logist|magazz|lager|warehouse|supply|procurement)/.test(t)) return 'Logistica';
+  if (/\b(produz|operat|operator|manufactur|production)/.test(t)) return 'Produzione';
   if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
-  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
-  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
-  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
-  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
-  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
+  if (/\b(it|software|develop|programm|data|cyber|cloud|devops|infrastructure)/.test(t)) return 'IT';
+  if (/\b(hr|human|risorse|personal|talent|recruit)/.test(t)) return 'Risorse Umane';
+  if (/\b(market|kommunik|comunicaz|communication|brand|pr)/.test(t)) return 'Marketing';
+  if (/\b(legal|giurid|recht|juridique|compliance|regulatory)/.test(t)) return 'Legale';
+  if (/\b(crew|onboard|hotel|hospitality|guest|entertain|chef|kitchen|housekeeping|bartender|waiter|sommelier)/.test(t)) return 'Hospitality';
   return 'Altro';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
-  if (/\b(junior|jr)/.test(t)) return 'junior';
-  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti|graduate|trainee)/.test(t)) return 'intern';
+  if (/\b(junior|jr)\b/.test(t)) return 'junior';
+  if (/\b(senior|sr|lead|head|director|directrice|chef|verantwort|responsab|manager|principal|chief)\b/.test(t)) return 'senior';
   return 'mid';
 }
 
 function detectEmploymentType(text = '') {
   const t = normalize(text);
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
+  if (/\b(intern|stage|stagiair|praktik|trainee)/.test(t)) return 'INTERN';
+  if (/\b(temporary|tempor|befristet|fixed.?term|cdd|contract)/.test(t)) return 'CONTRACTOR';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
   return 'OTHER';
 }
 
-/* ── Fetch + Parse ─────────────────────────────────────────── */
+/* ── Phenom embedded-JSON extraction ───────────────────────── */
 
-// TODO: Implement the actual fetching logic for MSC Cargo's career page.
-// This is a placeholder. Replace with the actual API/scraping logic.
-//
-// Common patterns:
-//   - JSON API:     use --source api for a ready-made paginated API template
-//   - Workday API:  re-scaffold with --ats=workday for a ready-made template
-//   - Greenhouse:   --ats=greenhouse
-//   - Lever:        --ats=lever
-//   - SuccessFactors: --ats=successfactors
-//   - Generic HTML: fetch + parse with regex or cheerio
+/**
+ * Locate the `eagerLoadRefineSearch.data` object inside the HTML and return
+ * its parsed JSON. The Phenom React app renders this state directly into
+ * the HTML for the initial paint.
+ *
+ * Returns null if the data block can't be found or doesn't parse.
+ *
+ * @param {string} html
+ * @returns {{ totalHits: number, jobs: Array<object> } | null}
+ */
+function extractPhenomEagerLoad(html) {
+  if (!html) return null;
+  const anchor = html.indexOf('"eagerLoadRefineSearch":');
+  if (anchor === -1) return null;
+  const dataStart = html.indexOf('"data":{', anchor);
+  if (dataStart === -1) return null;
 
-async function fetchJobListings() {
-  // TODO: Replace with actual fetch logic
-  console.log(`   Fetching from: ${CAREER_URL}`);
-
-  // Example for a JSON API:
-  // const res = await fetch(CAREER_URL, {
-  //   headers: { 'User-Agent': 'FrontaliereTicino-JobCrawler/2.0' },
-  // });
-  // if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  // return await res.json();
-
-  return [];
+  // Walk balanced braces to find the closing `}` of the data object.
+  let depth = 0;
+  let inStr = false;
+  let escape = false;
+  let end = -1;
+  for (let i = dataStart + 7; i < html.length; i++) {
+    const c = html[i];
+    if (escape) { escape = false; continue; }
+    if (c === '\\') { escape = true; continue; }
+    if (c === '"') { inStr = !inStr; continue; }
+    if (inStr) continue;
+    if (c === '{') depth++;
+    else if (c === '}') {
+      depth--;
+      if (depth === 0) { end = i; break; }
+    }
+  }
+  if (end === -1) return null;
+  try {
+    const data = JSON.parse(html.slice(dataStart + 7, end + 1));
+    // Total hits live one level up — climb back to read it.
+    const totalMatch = html.slice(anchor, dataStart).match(/"totalHits":(\d+)/);
+    return {
+      totalHits: totalMatch ? Number(totalMatch[1]) : data?.jobs?.length || 0,
+      jobs: Array.isArray(data?.jobs) ? data.jobs : [],
+    };
+  } catch {
+    return null;
+  }
 }
 
 /**
- * Fetch all MSC Cargo jobs.
+ * Build the canonical apply URL for a Phenom job from its jobSeqNo. Phenom's
+ * URL pattern is `/<lang>/job/<seqNo>/<slug>` — we omit the slug; Phenom
+ * server-side canonicalises it anyway.
+ */
+function buildApplyUrl(rawJob) {
+  if (rawJob?.applyUrl && /^https?:\/\//.test(rawJob.applyUrl)) return rawJob.applyUrl;
+  const seq = rawJob?.jobSeqNo || rawJob?.jobId;
+  return seq ? `${PHENOM_DETAIL_BASE}/${seq}` : PHENOM_BASE_URL;
+}
+
+/**
+ * Some Phenom payloads ship locations as either a flat string or a
+ * comma-separated multi-location array. Pick the first Swiss-looking entry
+ * if any, else the first non-empty one.
+ */
+function pickSwissLocation(rawJob) {
+  const candidates = [
+    rawJob?.location,
+    ...(Array.isArray(rawJob?.multi_location_array)
+      ? rawJob.multi_location_array.map((e) => e?.location || e)
+      : []),
+    rawJob?.cityState,
+    rawJob?.cityStateCountry,
+  ].filter(Boolean).map((s) => String(s));
+
+  for (const c of candidates) {
+    if (/(switzerland|suisse|svizzera|schweiz|\bch\b)/i.test(c)) return c;
+  }
+  return candidates[0] || '';
+}
+
+function isSwissJob(rawJob) {
+  const country = normalize(rawJob?.country || '');
+  if (/(switzerland|suisse|svizzera|schweiz)/.test(country)) return true;
+  const multi = Array.isArray(rawJob?.multi_location_array)
+    ? rawJob.multi_location_array
+    : [];
+  if (multi.some((m) => /(switzerland|suisse|svizzera|schweiz)/i.test(JSON.stringify(m || '')))) return true;
+  return false;
+}
+
+/* ── Fetch + Parse ─────────────────────────────────────────── */
+
+/**
+ * Paginate the Phenom search-results page until we've covered the reported
+ * totalHits (or hit MAX_PAGES as a safety cap). Returns the union of raw
+ * job records across all pages.
+ *
+ * @returns {Promise<object[]>}
+ */
+async function fetchAllRawJobs() {
+  const collected = [];
+  let totalHits = null;
+  let page = 0;
+
+  while (page < MAX_PAGES) {
+    const url = page === 0
+      ? PHENOM_BASE_URL
+      : `${PHENOM_BASE_URL}?from=${page * PAGE_SIZE}`;
+    let html;
+    try {
+      html = await fetchHtml(url, { timeoutMs: 25000 });
+    } catch (err) {
+      console.warn(`  Page ${page} fetch failed: ${err?.message || err}`);
+      break;
+    }
+
+    const block = extractPhenomEagerLoad(html);
+    if (!block || block.jobs.length === 0) {
+      if (page === 0) {
+        console.warn('  No Phenom eagerLoadRefineSearch block on first page');
+      }
+      break;
+    }
+
+    if (totalHits === null) {
+      totalHits = block.totalHits;
+      console.log(`   Phenom totalHits: ${totalHits}`);
+    }
+    collected.push(...block.jobs);
+    page++;
+    if (collected.length >= totalHits) break;
+    await sleep(FETCH_DELAY_MS);
+  }
+
+  return collected;
+}
+
+/**
+ * Fetch all MSC Group jobs and filter to Swiss locations.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllMscCargoJobs() {
-  console.log(`🔍 Fetching MSC Cargo jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`🔍 Fetching MSC Group jobs via Phenom careers portal`);
+  console.log(`   Source: ${PHENOM_BASE_URL}\n`);
 
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
+  const rawJobs = await fetchAllRawJobs();
+  console.log(`  📋 Raw listings across all pages: ${rawJobs.length}`);
+
+  const swissJobs = rawJobs.filter(isSwissJob);
+  console.log(`  🇨🇭 Swiss-located listings: ${swissJobs.length}`);
+
+  if (swissJobs.length === 0) {
+    console.warn('⚠️ No MSC Group Swiss listings found.');
     return [];
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
-
   const jobs = [];
-  for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
-    const title = normalizeSpace(listing.title || '');
+  for (const raw of swissJobs) {
+    const title = normalizeSpace(raw?.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Geneva'; // HQ: Geneva
-    const canton = inferSwissTargetCanton(location) || 'GE';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = listing.url || CAREER_URL;
+    const locationText = pickSwissLocation(raw) || raw?.city || 'Geneva';
+    const city = normalizeSpace(String(locationText).split(',')[0] || 'Geneva');
+    const canton = inferSwissTargetCanton(locationText) || inferAnyCanton(locationText) || 'GE';
 
-    const sourceLang = detectLang(descriptionText || title, 'en');
-    const jobSlug = slugify(`${title} msc-cargo ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const description = normalizeSpace(raw?.descriptionTeaser || '');
+    const applyUrl = buildApplyUrl(raw);
+    const sourceLang = detectLang(description || title, 'en');
+    const jobSlug = slugify(`${title} msc ${city || 'geneva'}`);
+    const urlHash = createHash('sha1').update(applyUrl).digest('hex').slice(0, 12);
+
+    const postedDate = (() => {
+      const raw0 = raw?.postedDate || raw?.dateCreated || '';
+      if (!raw0) return new Date().toISOString().slice(0, 10);
+      const d = new Date(raw0);
+      if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
+      return d.toISOString().slice(0, 10);
+    })();
 
     const job = {
-      // ── Required fields ──
       id: `msc-cargo-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
@@ -175,36 +328,36 @@ export async function fetchAllMscCargoJobs() {
       companyDomain: MSC_CARGO_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — MSC Cargo`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — MSC Cargo` },
-      location,
+      description: description || `${title} — MSC Group`,
+      descriptionByLocale: { [sourceLang]: description || `${title} — MSC Group` },
+      location: city,
       canton,
-      url: publicUrl,
-      source: 'MSC Cargo Dedicated Parser',
+      url: applyUrl,
+      source: 'MSC Group Dedicated Parser (Phenom careers portal)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
-      // ── Recommended fields ──
-      addressLocality: location,
+      addressLocality: city,
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
-      category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      category: detectCategory(title, raw?.subCategory || ''),
+      contract: detectEmploymentType(raw?.employeeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType: detectEmploymentType(raw?.employeeType || raw?.type || title),
       experienceLevel: detectExperienceLevel(title),
-      sector: 'Logistica', // Container shipping / cargo logistics
+      sector: 'Logistica e crocieristica',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
-      applyUrl: publicUrl,
+      postedDate,
+      applyUrl,
+      jobReqId: raw?.reqId || raw?.jobId || null,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
-  console.log(`\n📋 Total MSC Cargo jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total MSC Group jobs discovered: ${jobs.length}`);
   return jobs;
 }

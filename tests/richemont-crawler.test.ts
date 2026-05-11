@@ -24,6 +24,18 @@ describe('Richemont crawler parser', () => {
       expect(isRichemontJob({ company: 'Richemont' })).toBe(true);
     });
 
+    it('matches by Maison name (Jaeger-LeCoultre)', () => {
+      expect(isRichemontJob({ company: 'Jaeger-LeCoultre' })).toBe(true);
+    });
+
+    it('matches by Maison name (Cartier)', () => {
+      expect(isRichemontJob({ company: 'Cartier Manufacture' })).toBe(true);
+    });
+
+    it('matches by Maison name (IWC)', () => {
+      expect(isRichemontJob({ company: 'IWC Schaffhausen' })).toBe(true);
+    });
+
     it('matches by URL domain', () => {
       expect(isRichemontJob({ url: 'https://richemont.com/jobs/123' })).toBe(true);
     });
@@ -47,6 +59,10 @@ describe('Richemont crawler parser', () => {
 
     it('trusts subdomains', () => {
       expect(isTrustedDomain('https://careers.richemont.com/job/456')).toBe(true);
+    });
+
+    it('trusts the Workday tenant backing some Maisons', () => {
+      expect(isTrustedDomain('https://richemont.wd3.myworkdayjobs.com/job/X')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -96,7 +112,7 @@ describe('Richemont crawler parser', () => {
       location: 'Lugano',
       canton: 'TI',
       url: 'https://richemont.com/jobs/test',
-      source: 'Richemont Dedicated Parser',
+      source: 'Richemont Dedicated Parser (Playwright)',
       sourceLang: 'en',
       crawledAt: new Date().toISOString(),
     };
