@@ -142,28 +142,30 @@ function weeklyJobBoardSection(locale: WeeklyEmployersLocale, canton: string): s
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F5 weekly-employers feature.
 //
-// Phase 6 (Cathedral): the "ultimi-3-giorni" CTA broadens from the legacy
-// TI-only recency hub to the CH-wide aggregator (`/cerca-lavoro-svizzera/…`)
-// so the link continues to surface jobs across all 26 cantons, not just TI.
+// Phase 6 (Cathedral) follow-up: aggregator recency landings
+// (`/cerca-lavoro-svizzera/ultimi-3-giorni/` etc.) don't exist yet —
+// jobRecencyPagesPlugin only emits under the TI section. Revert these
+// CTAs to the TI section to avoid 404s. Once aggregator/per-canton
+// recency landings ship, change `'TI'` to `'_AGGREGATE_'` to broaden.
 
 const WEEKLY_EMPLOYERS_DISCOVER_MORE_CTAS: Record<WeeklyEmployersLocale, ReadonlyArray<{ title: string; href: string }>> = {
   it: [
-    { title: 'Offerte lavoro ultimi 3 giorni',        href: `/${sharedResolveCantonSection('it', '_AGGREGATE_')}/ultimi-3-giorni/` },
+    { title: 'Offerte lavoro ultimi 3 giorni',        href: `/${sharedResolveCantonSection('it', 'TI')}/ultimi-3-giorni/` },
     { title: 'Costo della vita in Ticino',            href: '/costo-vita-ticino/' },
     { title: 'Calcolatore stipendio frontaliere',     href: '/' },
   ],
   en: [
-    { title: 'Jobs posted in the last 3 days',        href: `/en/${sharedResolveCantonSection('en', '_AGGREGATE_')}/last-3-days/` },
+    { title: 'Jobs posted in the last 3 days',        href: `/en/${sharedResolveCantonSection('en', 'TI')}/last-3-days/` },
     { title: 'Cost of living in Ticino',              href: '/en/cost-of-living-ticino/' },
     { title: 'Cross-border salary calculator',        href: '/en/' },
   ],
   de: [
-    { title: 'Stellen der letzten 3 Tage',            href: `/de/${sharedResolveCantonSection('de', '_AGGREGATE_')}/letzte-3-tage/` },
+    { title: 'Stellen der letzten 3 Tage',            href: `/de/${sharedResolveCantonSection('de', 'TI')}/letzte-3-tage/` },
     { title: 'Lebenshaltungskosten Tessin',           href: '/de/lebenshaltungskosten-tessin/' },
     { title: 'Gehaltsrechner Grenzgänger',            href: '/de/' },
   ],
   fr: [
-    { title: 'Offres des 3 derniers jours',           href: `/fr/${sharedResolveCantonSection('fr', '_AGGREGATE_')}/derniers-3-jours/` },
+    { title: 'Offres des 3 derniers jours',           href: `/fr/${sharedResolveCantonSection('fr', 'TI')}/derniers-3-jours/` },
     { title: 'Coût de la vie au Tessin',              href: '/fr/cout-vie-tessin/' },
     { title: 'Calculateur salaire frontalier',        href: '/fr/' },
   ],
