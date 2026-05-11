@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-05-10T22:34:23.691Z",
+  "assembledAt": "2026-05-11T12:40:51.913Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Head-Business-Analysis-Avaloq_R-0004999",
@@ -1017,7 +1017,8 @@
       },
       "previousSlugs": [
         "field-service-technician-swisscom-chur-b1qkn8"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Cyber-Security-Analyst_R-0004250-1",
@@ -3031,9 +3032,9 @@
         "de": "Apprentissage: Développeur*se de business numérique CFC",
         "fr": "Apprentissage: Développeur*se de business numérique CFC"
       },
-      "slug": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne",
+      "slug": "imparare-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
       "slugByLocale": {
-        "it": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne",
+        "it": "imparare-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
         "en": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
         "de": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
         "fr": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne"
@@ -3055,11 +3056,13 @@
       "id": "swisscom-sede-ticino-1dd4718c05b2",
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf"
+          "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
+          "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf"
+        "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
+        "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3306,7 +3309,8 @@
           "apprentissage-specialiste-du-commerce-de-detail-cfc-swisscom-sede-ticino-chur"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:31:40.193Z"
+      "firstSeenAt": "2026-04-13T22:31:40.193Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Lausanne/PiBs--Bachelor-of-Science--BSc--en-informatique_R-0001912",
@@ -3411,9 +3415,9 @@
         "de": "OT Cyber Security Sales Spezialist*in",
         "fr": "OT Cyber Security Sales Spezialist*in"
       },
-      "slug": "ot-cyber-security-sales-spezialist-in-swisscom-zurich-rypod9",
+      "slug": "ot-cyber-security-sales-specialist-swisscom-sede-ticino-zurich",
       "slugByLocale": {
-        "it": "ot-cyber-security-sales-spezialist-in-swisscom-zurich-rypod9",
+        "it": "ot-cyber-security-sales-specialist-swisscom-sede-ticino-zurich",
         "en": "ot-cyber-security-sales-spezialist-in-swisscom-sede-ticino-zurich",
         "de": "ot-cyber-security-sales-spezialist-in-swisscom-zurich-rypod9",
         "fr": "ot-cyber-security-sales-spezialist-in-swisscom-zurich-rypod9"
@@ -3450,7 +3454,15 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-10T10:58:32.802Z"
+      "firstSeenAt": "2026-05-10T10:58:32.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ot-cyber-security-sales-spezialist-in-swisscom-zurich-rypod9"
+        ]
+      },
+      "previousSlugs": [
+        "ot-cyber-security-sales-spezialist-in-swisscom-zurich-rypod9"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/SAP-Senior-Business-Consultant-Manufacturing_R-0000213",
@@ -4108,7 +4120,8 @@
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:31:40.193Z"
+      "firstSeenAt": "2026-04-13T22:31:40.193Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Balerna/Apprendistato--Impiegato-a-del-commercio-al-dettaglio-AFC_R-0002527",
@@ -4213,7 +4226,8 @@
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-balerna-56yj6u"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:31:40.193Z"
+      "firstSeenAt": "2026-04-13T22:31:40.193Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bellinzona/Mediamatico-a-AFC_R-0001731",
