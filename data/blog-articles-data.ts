@@ -23717,4 +23717,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lamal-cmi-frontalieri-conviene-2026',
+ category: 'fiscale',
+ date: '2026-05-11T11:10:04.533Z',
+ image: '/images/blog/lamal-cmi-frontalieri-conviene-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

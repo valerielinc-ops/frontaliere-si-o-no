@@ -7448,6 +7448,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costo-vivere-lugano-frontalieri-2026.title': 'Cost of living in Lugano for cross-border workers',
     'blog.article.costo-vivere-lugano-frontalieri-2026.excerpt': 'Detailed analysis of real costs for a cross-border worker considering moving to Lugano: rent, transport, insurance, and groceries.',
     'blog.article.costo-vivere-lugano-frontalieri-2026.imageAlt': 'Aerial view of Lugano with the lake and the city',
+    'blog.article.lamal-cmi-frontalieri-conviene-2026.title': 'LAMal or CMI: 2026 comparison',
+    'blog.article.lamal-cmi-frontalieri-conviene-2026.excerpt': 'Detailed analysis of costs and coverage between LAMal and CMI for Ticino cross-border workers. Find out which health insurance is best in 2026.',
+    'blog.article.lamal-cmi-frontalieri-conviene-2026.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
 };
 
 export default blogMetaEn;

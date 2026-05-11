@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2535,
+ "numberOfItems": 2536,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7177,7 +7177,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2532, "name": "Tassa successione Svizzera: confronto OCSE", "url": `${BASE_URL}/articoli-frontaliere/tassa-successione-svizzera-ocse` },
           { "@type": "ListItem", "position": 2533, "name": "Aumento salariale per il personale domestico in...", "url": `${BASE_URL}/articoli-frontaliere/salario-domestico-ticino-aumento` },
           { "@type": "ListItem", "position": 2534, "name": "Frontaliere pensione AVS/INPS 2026: oltre 20 km", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-avs-inps-2026` },
-          { "@type": "ListItem", "position": 2535, "name": "Quanto costa vivere a Lugano da frontaliere", "url": `${BASE_URL}/articoli-frontaliere/costo-vivere-lugano-frontalieri-2026` }
+          { "@type": "ListItem", "position": 2535, "name": "Quanto costa vivere a Lugano da frontaliere", "url": `${BASE_URL}/articoli-frontaliere/costo-vivere-lugano-frontalieri-2026` },
+          { "@type": "ListItem", "position": 2536, "name": "LAMal o CMI: confronto 2026", "url": `${BASE_URL}/articoli-frontaliere/lamal-cmi-frontalieri-conviene-2026` }
  ]
  },
  {

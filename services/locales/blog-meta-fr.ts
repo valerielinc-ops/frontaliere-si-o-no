@@ -7449,6 +7449,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costo-vivere-lugano-frontalieri-2026.title': 'Coût de la vie à Lugano pour un frontalier',
     'blog.article.costo-vivere-lugano-frontalieri-2026.excerpt': 'Analyse détaillée des coûts réels pour un frontalier envisageant un déménagement à Lugano : loyer, transports, assurance et courses alimentaires.',
     'blog.article.costo-vivere-lugano-frontalieri-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et la ville',
+    'blog.article.lamal-cmi-frontalieri-conviene-2026.title': 'LAMal ou CMI: comparaison 2026',
+    'blog.article.lamal-cmi-frontalieri-conviene-2026.excerpt': 'Analyse détaillée des coûts et des couvertures entre LAMal et CMI pour les travailleurs frontaliers du Tessin. Découvrez quelle assurance maladie est la plus avantageuse en 2026.',
+    'blog.article.lamal-cmi-frontalieri-conviene-2026.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

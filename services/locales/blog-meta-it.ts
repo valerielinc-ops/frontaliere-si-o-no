@@ -7449,6 +7449,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costo-vivere-lugano-frontalieri-2026.title': 'Quanto costa vivere a Lugano da frontaliere',
     'blog.article.costo-vivere-lugano-frontalieri-2026.excerpt': 'Analisi dettagliata dei costi reali per un frontaliere che valuta il trasferimento a Lugano: affitto, trasporti, assicurazione e spesa alimentare.',
     'blog.article.costo-vivere-lugano-frontalieri-2026.imageAlt': 'Vista aerea di Lugano con il lago e la città',
+    'blog.article.lamal-cmi-frontalieri-conviene-2026.title': 'LAMal o CMI: confronto 2026',
+    'blog.article.lamal-cmi-frontalieri-conviene-2026.excerpt': 'Analisi dettagliata dei costi e delle coperture tra LAMal e CMI per i frontalieri del Ticino. Scopri quale assicurazione sanitaria conviene nel 2026.',
+    'blog.article.lamal-cmi-frontalieri-conviene-2026.imageAlt': 'Lago di Lugano con vista sul confine svizzero-italiano',
 };
 
 export default blogMetaIt;
