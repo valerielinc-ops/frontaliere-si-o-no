@@ -7448,6 +7448,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lamal-cmi-frontalieri-conviene-2026.title': 'LAMal or CMI: 2026 comparison',
     'blog.article.lamal-cmi-frontalieri-conviene-2026.excerpt': 'Detailed analysis of costs and coverage between LAMal and CMI for Ticino cross-border workers. Find out which health insurance is best in 2026.',
     'blog.article.lamal-cmi-frontalieri-conviene-2026.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
+    'blog.article.calcolo-pensione-frontaliere-avs-italiana.title': 'Italian AVS pension calculation: how it works',
+    'blog.article.calcolo-pensione-frontaliere-avs-italiana.excerpt': 'Practical guide for Ticino cross-border workers: Swiss AVS contributions, Italian INPS, totalization and pension deadlines.',
+    'blog.article.calcolo-pensione-frontaliere-avs-italiana.imageAlt': 'A serene view of Lake Lugano with the Swiss-Italian border in the background, captured with a DSLR camera.',
 };
 
 export default blogMetaEn;

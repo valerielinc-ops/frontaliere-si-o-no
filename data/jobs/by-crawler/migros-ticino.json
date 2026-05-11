@@ -1,10 +1,10 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-05-10T22:06:36.177Z",
+  "assembledAt": "2026-05-11T12:12:14.974Z",
   "jobs": [
     {
       "id": "company-oi85uq",
-      "slug": "consulente-clienti-privato-tutti-migros-bank-chur",
+      "slug": "consulente-clienti-privato-tutti-migros-bank-bellinzona",
       "company": "Migros Bank",
       "title": "Privatkundenberater (alle)",
       "location": "Chur",
@@ -71,21 +71,32 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "consulente-clienti-privato-tutti-migros-bank-chur",
-        "en": "privatkundenberater-alle-migros-bank-chur-oi85uq",
-        "de": "privatkundenberater-alle-migros-bank-chur-oi85uq",
-        "fr": "privatkundenberater-alle-migros-bank-chur-oi85uq"
+        "it": "consulente-clienti-privato-tutti-migros-bank-bellinzona",
+        "en": "privatkundenberater-alle-migros-bank-bellinzona",
+        "de": "privatkundenberater-alle-migros-bank-bellinzona",
+        "fr": "privatkundenberater-alle-migros-bank-bellinzona"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "privatkundenberater-alle-migros-bank-chur",
+          "privatkundenberater-alle-migros-bank-chur-oi85uq",
+          "consulente-clienti-privato-tutti-migros-bank-chur"
+        ],
+        "en": [
+          "privatkundenberater-alle-migros-bank-chur-oi85uq"
+        ],
+        "de": [
+          "privatkundenberater-alle-migros-bank-chur-oi85uq"
+        ],
+        "fr": [
           "privatkundenberater-alle-migros-bank-chur-oi85uq"
         ]
       },
       "previousSlugs": [
         "privatkundenberater-alle-migros-bank-chur",
-        "privatkundenberater-alle-migros-bank-chur-oi85uq"
+        "privatkundenberater-alle-migros-bank-chur-oi85uq",
+        "consulente-clienti-privato-tutti-migros-bank-chur"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -108,7 +119,7 @@
     },
     {
       "id": "company-gep1sj",
-      "slug": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
+      "slug": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Quereinsteiger*in Fachverantwortung",
       "location": "Chur",
@@ -177,19 +188,31 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
-        "en": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
-        "de": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
-        "fr": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
+        "it": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
+        "en": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
+        "fr": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur"
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
+          "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
+        ],
+        "en": [
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
+        ],
+        "de": [
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
+        ],
+        "fr": [
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
         ]
       },
       "previousSlugs": [
-        "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur"
+        "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
+        "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
+        "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -323,7 +346,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-qw8bsd",
@@ -425,7 +449,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cesv8v",
@@ -535,7 +560,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-djv9rd",
@@ -658,7 +684,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-ktq15t",
@@ -769,7 +796,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-ymqwfr",
@@ -876,7 +904,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-kfqohq",
@@ -977,7 +1006,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-nlvbom",
@@ -1094,7 +1124,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-j8cfo6",
@@ -1205,7 +1236,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-773mr0",
@@ -1312,7 +1344,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-gqels1",
@@ -1426,7 +1459,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-x38a0r",
@@ -1525,7 +1559,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fkakbw",
@@ -1640,7 +1675,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fbibo4",
@@ -1760,7 +1796,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jlrzns",
@@ -1870,7 +1907,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-sj7qf5",
@@ -1986,7 +2024,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cy61c",
@@ -2101,7 +2140,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-xmuu57",
@@ -2206,7 +2246,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-r4ocfw",
@@ -2321,7 +2362,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-u2uuy",
@@ -2434,7 +2476,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7s6gs1",
@@ -2552,7 +2595,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-nlbz63",
@@ -2658,7 +2702,8 @@
           "pilates-reformer-und-cadillac-lehrer-f-m-d-scuola-club-bellinzona-scuola-club-migros-belli"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-cewp3w",
@@ -2774,7 +2819,8 @@
           "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-2ai39p",
@@ -2909,7 +2955,8 @@
           "enseignant-cardio-h-f-d-scuola-club-lugano-scuola-club-migros-lugano"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     }
   ]
 }

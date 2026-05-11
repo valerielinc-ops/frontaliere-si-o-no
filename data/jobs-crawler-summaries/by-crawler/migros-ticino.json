@@ -1,21 +1,22 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-10T22:06:36.179Z",
+  "generatedAt": "2026-05-11T12:12:14.977Z",
   "total": 26,
-  "newCount": 2,
-  "updatedCount": 22,
+  "newCount": 0,
+  "updatedCount": 24,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 46480,
-  "avgDurationMs": 46480,
+  "durationMs": 38841,
+  "avgDurationMs": 38841,
   "durationHistory": [
-    46480
+    38841
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-oi85uq",
-      "slug": "privatkundenberater-alle-migros-bank-chur",
+      "slug": "consulente-clienti-privato-tutti-migros-bank-chur",
       "company": "Migros Bank",
       "title": "Privatkundenberater (alle)",
       "location": "Chur",
@@ -47,17 +48,25 @@
       "firstSeenAt": "2026-05-10T22:06:33.892Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 9,
+        "completeness": 25
       }
     },
     {
       "id": "company-gep1sj",
-      "slug": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
+      "slug": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Quereinsteiger*in Fachverantwortung",
       "location": "Chur",
@@ -90,16 +99,22 @@
       "firstSeenAt": "2026-05-10T22:06:33.892Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 73,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 9,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-di1gox",
       "slug": "nachwuchstalent-per-karriere-im-vendita-genossenschaft-migros-ostschweiz-samedan-di1gox",

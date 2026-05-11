@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-05-10T21:52:36.452Z",
+  "assembledAt": "2026-05-11T11:58:42.913Z",
   "jobs": [
     {
       "id": "kanton-gr-cb30f2200bf1",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2677/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:34.303Z",
+      "crawledAt": "2026-05-11T11:58:40.769Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://apply.refline.ch/514915/2620/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:33.665Z",
+      "crawledAt": "2026-05-11T11:58:40.123Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -178,6 +178,7 @@
         "stagiaire-comme-dessinateur-ice-efz-batiment-civil-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:49:03.502Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -222,7 +223,7 @@
       "url": "https://apply.refline.ch/514915/2595/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:33.048Z",
+      "crawledAt": "2026-05-11T11:58:39.483Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -298,7 +299,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:32.427Z",
+      "crawledAt": "2026-05-11T11:58:38.257Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -368,6 +369,7 @@
         "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-13T10:49:01.647Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -412,7 +414,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:31.808Z",
+      "crawledAt": "2026-05-11T11:58:28.518Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -455,6 +457,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:49:00.412Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -499,7 +502,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:31.191Z",
+      "crawledAt": "2026-05-11T11:58:27.877Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -542,6 +545,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:59.793Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -586,7 +590,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:30.568Z",
+      "crawledAt": "2026-05-11T11:58:26.897Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -626,6 +630,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:58.993Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -670,7 +675,7 @@
       "url": "https://apply.refline.ch/514915/2683/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:29.946Z",
+      "crawledAt": "2026-05-11T11:58:26.254Z",
       "addressLocality": "Davos Frauenkirch",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -691,6 +696,17 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
+      "previousSlugsByLocale": {
+        "de": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch"
+        ],
+        "it": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strassenwart-vorarbeiter-in-kanton-gr-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:23:50.682Z",
       "salaryMin": 49500,
@@ -704,15 +720,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "strassenwart-vorarbeiter-in-kanton-gr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "strassenwart-vorarbeiter-in-kanton-gr-ch"
-      ]
+      }
     },
     {
       "id": "kanton-gr-f23b47ad0049",
@@ -745,7 +753,7 @@
       "url": "https://apply.refline.ch/514915/2690/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:29.321Z",
+      "crawledAt": "2026-05-11T11:58:25.272Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -786,6 +794,7 @@
         "sekretar-in-sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-07T11:16:42.931Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -830,7 +839,7 @@
       "url": "https://apply.refline.ch/514915/2692/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:28.684Z",
+      "crawledAt": "2026-05-11T11:58:24.631Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -914,7 +923,7 @@
       "url": "https://apply.refline.ch/514915/2691/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:28.046Z",
+      "crawledAt": "2026-05-11T11:58:23.647Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -956,6 +965,7 @@
         "collaboratore-trice-in-administration-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-07T11:16:41.686Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1000,7 +1010,7 @@
       "url": "https://apply.refline.ch/514915/2689/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:27.425Z",
+      "crawledAt": "2026-05-11T11:58:22.665Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1039,6 +1049,7 @@
         "bereichsleiter-in-sicherheit-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-05-07T11:16:41.063Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1083,7 +1094,7 @@
       "url": "https://apply.refline.ch/514915/2693/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:26.807Z",
+      "crawledAt": "2026-05-11T11:58:21.681Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1122,6 +1133,7 @@
         "teamleiter-in-administration-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-05-07T11:16:40.439Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1166,7 +1178,7 @@
       "url": "https://apply.refline.ch/514915/2694/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:26.189Z",
+      "crawledAt": "2026-05-11T11:58:21.039Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1249,7 +1261,7 @@
       "url": "https://apply.refline.ch/514915/2673/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:25.566Z",
+      "crawledAt": "2026-05-11T11:58:20.047Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1285,6 +1297,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:02:52.921Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1329,7 +1342,7 @@
       "url": "https://apply.refline.ch/514915/2670/pub/6/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:24.942Z",
+      "crawledAt": "2026-05-11T11:58:19.062Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -1414,7 +1427,7 @@
       "url": "https://apply.refline.ch/514915/2671/pub/6/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:24.322Z",
+      "crawledAt": "2026-05-11T11:58:17.748Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1499,7 +1512,7 @@
       "url": "https://apply.refline.ch/514915/2669/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:23.696Z",
+      "crawledAt": "2026-05-11T11:58:17.111Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1578,7 +1591,7 @@
       "url": "https://apply.refline.ch/514915/2685/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:23.073Z",
+      "crawledAt": "2026-05-11T11:58:16.129Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1664,7 +1677,7 @@
       "url": "https://apply.refline.ch/514915/2686/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:22.447Z",
+      "crawledAt": "2026-05-11T11:58:15.488Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1747,7 +1760,7 @@
       "url": "https://apply.refline.ch/514915/2684/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:21.816Z",
+      "crawledAt": "2026-05-11T11:58:14.848Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1789,6 +1802,7 @@
         "responsabile-administration-e-sachbearbeitung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-30T11:01:17.492Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1833,7 +1847,7 @@
       "url": "https://apply.refline.ch/514915/2682/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:21.192Z",
+      "crawledAt": "2026-05-11T11:58:11.489Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1916,7 +1930,7 @@
       "url": "https://apply.refline.ch/514915/2681/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:20.570Z",
+      "crawledAt": "2026-05-11T11:58:10.184Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1957,6 +1971,7 @@
         "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-30T11:01:16.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2001,7 +2016,7 @@
       "url": "https://apply.refline.ch/514915/2675/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:19.942Z",
+      "crawledAt": "2026-05-11T11:58:09.544Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2043,6 +2058,7 @@
         "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-30T11:01:15.456Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2087,7 +2103,7 @@
       "url": "https://apply.refline.ch/514915/2664/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:19.314Z",
+      "crawledAt": "2026-05-11T11:58:08.565Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2126,6 +2142,7 @@
         "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-30T11:01:14.777Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2170,7 +2187,7 @@
       "url": "https://apply.refline.ch/514915/2679/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:18.694Z",
+      "crawledAt": "2026-05-11T11:58:07.925Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2205,6 +2222,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:48.704Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2214,254 +2232,6 @@
           "@type": "QuantitativeValue",
           "minValue": 51500,
           "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-gr-4b3ca4c03f44",
-      "slug": "administrator-in-im-staatsarchiv-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "administrator-in-im-staatsarchiv-kantonale-verwaltung-graubunden-chur",
-        "en": "administrator-in-the-state-archive-kantonale-verwaltung-graubunden-chur",
-        "de": "administrator-in-im-staatsarchiv-kanton-gr-ch",
-        "fr": "administrateur-in-im-staatsarchiv-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Administrator/-in im Staatsarchiv",
-      "titleByLocale": {
-        "it": "Administrator/-in im Staatsarchiv",
-        "en": "Administrator in the State Archive",
-        "de": "Administrator/-in im Staatsarchiv",
-        "fr": "Administrateur/in im Staatsarchiv"
-      },
-      "description": "Das Staatsarchiv Graubünden ist als Abteilung des Amts für Kultur zuständig für die Sicherung und Weiterführung der historischen Überlieferung des Kantons. Es unterstützt und fördert die Nutzung des vorhandenen, reichhaltigen Archivguts aus rund 800 Jahren durch die historisch ausgerichtete Forschung und die interessierte &Ouml;ffentlichkeit. Zudem steht das Staatsarchiv im Dienst der Rechtssicherheit und berät die kantonale Verwaltung bei der Aktenführung und dem Informationsmanagement.\n\nWir suchen für das Staatsarchiv Graubünden per 1. Oktober 2026 oder nach Vereinbarung eine engagierte, vielseitige und verantwortungsbewusste Persönlichkeit für unsere Administration.\n\nAufgaben\n• Erarbeiten des Jahresbudgets in Zusammenarbeit mit dem Staatsarchivar\n\n• Überwachung der Budgetvorgaben, Führen des Kreditorenworkflow (KWF) und Fakturierung\n\n• Administrative Unterstützung im Personalwesen\n\n• Administrative Unterstützung der Archivaufsicht und der dem Staatsarchiv zugeordneten Kommissionen und Stiftungen\n\n• Allgemeine Unterstützung der Leitung und des Teams des Staatsarchivs\n\n• Organisieren und Betreuen von Anlässen, Mithilfe bei der &Ouml;ffentlichkeitsarbeit\n\n• Unterstützung des Teams bei der Beschaffung von Material, Geräten und Mobiliar\n\nAnforderungen\n• Kaufmännische Ausbildung (KV, Handelsschule oder Berufsmaturität) mit guten Kenntnissen im Finanz- und Personalwesen sowie mehrjähriger Berufserfahrung\n\n• Ausgeprägte organisatorische Fähigkeiten, eine zuverlässige und selbständige Arbeitsweise, Durchsetzungsvermögen und Teamfähigkeit\n\n• Routinierter Umgang mit MS-Office und verschiedenen Fachanwendungen (Geschäftsverwaltung CMI GEVER, MS-Dynamics Finanzsoftware, CMI-AIS Archivinformationssystem)\n\n• Interesse für die Geschichte und Kultur Graubündens, stilsicheres Deutsch und gute Kenntnisse von mehreren Kantonssprachen sind von Vorteil.",
-      "descriptionByLocale": {
-        "it": "Descrizione L'Archivio di Stato dei Grigioni, in qualità di dipartimento dell'Ufficio della cultura, è responsabile della salvaguardia e della continuazione della tradizione storica del Cantone. Supporta e promuove l'uso del ricco patrimonio archivistico esistente di circa 800 anni attraverso la ricerca storica e il pubblico interessato. Inoltre, l'Archivio di Stato è al servizio della certezza del diritto e consiglia l'amministrazione cantonale nella tenuta degli atti e nella gestione delle informazioni. ## Mansioni - Elaborazione del budget annuale in collaborazione con l'Archivio di Stato - Monitoraggio dei requisiti di budget, gestione del workflow creditori (kWf) e fatturazione - Supporto amministrativo nelle Risorse Umane - Supporto amministrativo alla Soprintendenza archivistica e alle Commissioni e Fondazioni assegnate all'Archivio di Stato - Supporto generale alla Direzione e al Team dell'Archivio di Stato - Organizzazione e gestione di eventi, Collaborazione nelle pubbliche relazioni - Supporto al Team nell'approvvigionamento di materiali, attrezzature e mobili # ## Requisiti - Formazione commerciale (KV, scuola commerciale o maturità professionale) con buona conoscenza della finanza e delle risorse umane e pluriennale esperienza professionale - Capacità organizzative distinte, un modo di lavorare affidabile e indipendente, assertività e capacità di lavoro di squadra - Gestione ordinaria di MS Office e varie applicazioni specialistiche (gestione aziendale CMI GEVER,",
-        "en": "Descrizione The Graubünden State Archives, as a department of the Office of Culture, are responsible for safeguarding and continuing the historical tradition of the canton. It supports and promotes the use of the existing, rich archive material from around 800 years by historically oriented research and the interested public. In addition, the State Archives is at the service of legal certainty and advises the cantonal administration on file management and information management. ## Mansioni - Preparing the annual budget in cooperation with the State Archivist - Monitoring the budget specifications, managing the vendor workflow (KWF) and invoicing - Administrative support in human resources - Administrative support of the archive supervision and the commissions and foundations assigned to the State Archives - General support of the management and the team of the State Archives - Organising and supervising events, assistance in public relations - Supporting the team in the procurement of materials, equipment and furniture ## Propsiti - Commercial training (KV, commercial school or vocational baccalaureate) with good knowledge in finance and human resources as well as several years of professional experience - Strong organisational skills, reliable and independent working methods, assertiveness and teamwork skills - Routine handling of MS office and various specialist applications (CMI GEVER business administration,",
-        "de": "Das Staatsarchiv Graubünden ist als Abteilung des Amts für Kultur zuständig für die Sicherung und Weiterführung der historischen Überlieferung des Kantons. Es unterstützt und fördert die Nutzung des vorhandenen, reichhaltigen Archivguts aus rund 800 Jahren durch die historisch ausgerichtete Forschung und die interessierte &Ouml;ffentlichkeit. Zudem steht das Staatsarchiv im Dienst der Rechtssicherheit und berät die kantonale Verwaltung bei der Aktenführung und dem Informationsmanagement. Wir suchen für das Staatsarchiv Graubünden per 1. Oktober 2026 oder nach Vereinbarung eine engagierte, vielseitige und verantwortungsbewusste Persönlichkeit für unsere Administration. Aufgaben • Erarbeiten des Jahresbudgets in Zusammenarbeit mit dem Staatsarchivar • Überwachung der Budgetvorgaben, Führen des Kreditorenworkflow (KWF) und Fakturierung • Administrative Unterstützung im Personalwesen • Administrative Unterstützung der Archivaufsicht und der dem Staatsarchiv zugeordneten Kommissionen und Stiftungen • Allgemeine Unterstützung der Leitung und des Teams des Staatsarchivs • Organisieren und Betreuen von Anlässen, Mithilfe bei der &Ouml;ffentlichkeitsarbeit • Unterstützung des Teams bei der Beschaffung von Material, Geräten und Mobiliar Anforderungen • Kaufmännische Ausbildung (KV, Handelsschule oder Berufsmaturität) mit guten Kenntnissen im Finanz- und Personalwesen sowie mehrjähriger Berufserfahrung • Ausgeprägte organisatorische Fähigkeiten, eine zuverlässige und selbständige Arbeitsweise, Durchsetzungsvermögen und Teamfähigkeit • Routinierter Umgang mit MS-Office und verschiedenen Fachanwendungen (Geschäftsverwaltung CMI GEVER, MS-Dynamics Finanzsoftware, CMI-AIS Archivinformationssystem) • Interesse für die Geschichte und Kultur Graubündens, stilsicheres Deutsch und gute Kenntnisse von mehreren Kantonssprachen sind von Vorteil.",
-        "fr": "Descrizione Les Archives de l'État des Grisons, en tant que département de l'Office de la culture, sont responsables de la sauvegarde et de la poursuite de la tradition historique du canton. Il soutient et encourage l'utilisation des archives existantes et riches d'environ 800 ans par la recherche historique et le public intéressé. En outre, les Archives de l'État sont au service de la sécurité juridique et conseillent l'administration cantonale dans la gestion des dossiers et de l'information. ## Mansioni - Élaboration du budget annuel en collaboration avec les Archives de l'État - Supervision des objectifs budgétaires, gestion du flux de travail des créanciers (KWF) et facturation - Soutien administratif dans le domaine des ressources humaines - Soutien administratif à la supervision des archives et aux commissions et fondations associées aux Archives de l'État - Soutien général à la direction et à l'équipe des Archives de l'État - Organisation et encadrement des événements, aide au travail de relations publiques - Aide à l'équipe pour l'achat de matériel, d'équipement et de mobilier ## Requisiti - Formation commerciale (commerce, école de commerce ou maturité professionnelle) avec de bonnes connaissances en finance et en ressources humaines ainsi que plusieurs années d'expérience professionnelle - Excellentes compétences organisationnelles, un mode de travail fiable et indépendant, une capacité d'application et une capacité d'équipe - Manipulation routinière avec MS-Office et diverses applications professionnelles (gestion des affaires CMI GEVER,"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2662/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:18.076Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2662/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Kultur, Staatsarchiv",
-      "applicationDeadline": "2026-05-10",
-      "pensumMin": 50,
-      "pensumMax": 50,
-      "pensum": "50%",
-      "previousSlugs": [
-        "administrator-in-im-staatsarchiv-kanton-gr-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "administrator-in-im-staatsarchiv-kanton-gr-ch"
-        ],
-        "en": [
-          "administrator-in-im-staatsarchiv-kanton-gr-ch"
-        ],
-        "fr": [
-          "administrator-in-im-staatsarchiv-kanton-gr-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-23T10:20:48.023Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-gr-331219432932",
-      "slug": "collaboratore-trice-in-aufbewahrung-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-aufbewahrung-kantonale-verwaltung-graubunden-chur",
-        "en": "staff-in-storage-kantonale-verwaltung-graubunden-chur",
-        "de": "mitarbeiter-in-aufbewahrung-kantonale-verwaltung-graubunden-chur",
-        "fr": "personnel-stockage-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Mitarbeiter/-in Aufbewahrung",
-      "titleByLocale": {
-        "it": "Collaboratore/trice/-in Aufbewahrung",
-        "en": "Staff/in storage",
-        "de": "Mitarbeiter/-in Aufbewahrung",
-        "fr": "Personnel/stockage"
-      },
-      "description": "Die Kantonsbibliothek Graubünden gehört zum Amt für Kultur und ist die grösste Bibliothek im Kanton. Sie ist die zentrale Sammelstelle für Raetica. Das sind alle Medien, die in Graubünden entstehen oder Graubünden betreffen. Die Kantonsbibliothek unterstützt Bildung, Wissenschaft und Kultur und vermittelt dazu Medien in den drei Kantonssprachen. Neben Medien aus vielen Fachgebieten bietet sie auch Klassiker aus Literatur, Film und Musik an. Als Beratungsstelle für öffentlich zugängliche Bibliotheken im Kanton fördert die Kantonsbibliothek die Entwicklung und Koordination des bündnerischen Bibliothekswesens.\n\nWir suchen für die Abteilung Aufbewahrung in der Kantonsbibliothek (Amt für Kultur) per 1. Juli 2026 oder nach Vereinbarung eine/-n Mitarbeiter/-in\n\nAufgaben\n• Verantwortung für die Medienaufbereitung (Ausrüstung verschiedener Medientypen mit RFID-Sicherung, Signaturschild etc.)\n\n• Übernahme von Ausleihdiensten unter der Woche und an einigen Samstagen zur Unterstützung der Abteilung Benutzung\n\n• Unterstützung des Magazindienstes (Medien holen & zurückstellen)\n\nAnforderungen\n• Abgeschlossene Ausbildung zur Fachfrau/zum Fachmann Information und Dokumentation (EFZ) oder gleichwertiger Abschluss\n\n• Erfahrung mit dem Bibliothekssystem Alma\n\n• Praktische Erfahrung im Ausleihdienst\n\n• Handwerkliches Geschick, Freude im Umgang mit Kundinnen und Kunden, sichere Anwendung von MS Office Programmen\n\n• Gute Sprachkenntnisse in Deutsch, Kenntnisse einer weiteren Kantonssprache von Vorteil\n\n• Engagement und Teamorientierung",
-      "descriptionByLocale": {
-        "it": "Descrizione La Biblioteca cantonale dei Grigioni fa parte dell'Ufficio della cultura ed è la più grande biblioteca del cantone. È il punto di raccolta centrale per Raetica. Questi sono tutti i media che nascono nei Grigioni o che riguardano i Grigioni. La Biblioteca cantonale sostiene l'istruzione, la scienza e la cultura e trasmette i media nelle tre lingue cantonali. Oltre ai media di molte discipline, offre anche classici della letteratura, del cinema e della musica. In qualità di ufficio di consulenza per le biblioteche accessibili al pubblico nel Cantone, la Biblioteca cantonale promuove lo sviluppo e il coordinamento del sistema bibliotecario grigionese. ## Mansioni - Responsabilità per la preparazione dei supporti (equipaggiamento di diversi tipi di supporti con fusibile RFID, targhetta di firma, ecc.) - Assunzione di servizi di prestito durante la settimana e in alcuni sabati a supporto del dipartimento di utilizzo - Supporto del servizio di rivista (ritiro e ripristino dei media) ## Requisiti - Formazione completata come specialista in informazione e documentazione (AFC) o equivalente - Esperienza con il sistema bibliotecario Alma - Esperienza pratica nel servizio di prestito - Abilità manuale, piacere nel trattare con i clienti, uso sicuro dei programmi MS Office - Buona conoscenza della lingua tedesca, conoscenza di un'altra lingua cantonale vantaggiosa - Impegno e orientamento al team ## Contatto Cerchiamo per il dipartimento di conservazione nella biblioteca cantonale (ufficio",
-        "en": "Descrizione The cantonal library Graubünden belongs to the Office for Culture and is the largest library in the canton. It is the central collection point for Raetica. These are all the media that are created in Grisons or affect Grisons. The cantonal library supports education, science and culture and media in the three cantonal languages. In addition to media from many disciplines, it also offers classics from literature, film and music. As a consultancy for publicly accessible libraries in the canton, the cantonal library promotes the development and coordination of the federal library. > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > & July 2026 or by agreement an employee",
-        "de": "Die Kantonsbibliothek Graubünden gehört zum Amt für Kultur und ist die grösste Bibliothek im Kanton. Sie ist die zentrale Sammelstelle für Raetica. Das sind alle Medien, die in Graubünden entstehen oder Graubünden betreffen. Die Kantonsbibliothek unterstützt Bildung, Wissenschaft und Kultur und vermittelt dazu Medien in den drei Kantonssprachen. Neben Medien aus vielen Fachgebieten bietet sie auch Klassiker aus Literatur, Film und Musik an. Als Beratungsstelle für öffentlich zugängliche Bibliotheken im Kanton fördert die Kantonsbibliothek die Entwicklung und Koordination des bündnerischen Bibliothekswesens. Wir suchen für die Abteilung Aufbewahrung in der Kantonsbibliothek (Amt für Kultur) per 1. Juli 2026 oder nach Vereinbarung eine/-n Mitarbeiter/-in Aufgaben • Verantwortung für die Medienaufbereitung (Ausrüstung verschiedener Medientypen mit RFID-Sicherung, Signaturschild etc.) • Übernahme von Ausleihdiensten unter der Woche und an einigen Samstagen zur Unterstützung der Abteilung Benutzung • Unterstützung des Magazindienstes (Medien holen & zurückstellen) Anforderungen • Abgeschlossene Ausbildung zur Fachfrau/zum Fachmann Information und Dokumentation (EFZ) oder gleichwertiger Abschluss • Erfahrung mit dem Bibliothekssystem Alma • Praktische Erfahrung im Ausleihdienst • Handwerkliches Geschick, Freude im Umgang mit Kundinnen und Kunden, sichere Anwendung von MS Office Programmen • Gute Sprachkenntnisse in Deutsch, Kenntnisse einer weiteren Kantonssprache von Vorteil • Engagement und Teamorientierung",
-        "fr": "Descrizione La bibliothèque cantonale Graubünden appartient à l'Office de la culture et est la plus grande bibliothèque du canton. C'est le point de collecte central pour Raetica. Ce sont tous les médias créés dans Grisons ou qui touchent Grisons. La bibliothèque cantonale soutient l'éducation, la science, la culture et les médias dans les trois langues cantonales. En plus des médias de nombreuses disciplines, il propose également des classiques de la littérature, du cinéma et de la musique. En tant que consultante pour les bibliothèques publiques du canton, la bibliothèque cantonale favorise le développement et la coordination de la bibliothèque fédérale. > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2666/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:17.450Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2666/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Kultur, Kantonsbibliothek",
-      "applicationDeadline": "2026-05-10",
-      "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
-      "previousSlugsByLocale": {
-        "de": [
-          "mitarbeiter-in-aufbewahrung-kanton-gr-ch"
-        ],
-        "it": [
-          "mitarbeiter-in-aufbewahrung-kanton-gr-ch"
-        ],
-        "en": [
-          "mitarbeiter-in-aufbewahrung-kantonale-verwaltung-graubunden-chur"
-        ],
-        "fr": [
-          "mitarbeiter-in-aufbewahrung-kantonale-verwaltung-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-aufbewahrung-kanton-gr-ch",
-        "mitarbeiter-in-aufbewahrung-kantonale-verwaltung-graubunden-chur"
-      ],
-      "firstSeenAt": "2026-04-23T10:20:47.341Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-gr-692f98906d89",
-      "slug": "collaboratore-trice-in-katalog-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-katalog-kantonale-verwaltung-graubunden-chur",
-        "en": "staff-in-catalogue-kantonale-verwaltung-graubunden-chur",
-        "de": "mitarbeiter-in-katalog-kantonale-verwaltung-graubunden-chur",
-        "fr": "personnel-en-catalogue-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Mitarbeiter/-in Katalog",
-      "titleByLocale": {
-        "it": "Collaboratore/trice/-in Katalog",
-        "en": "Staff/in catalogue",
-        "de": "Mitarbeiter/-in Katalog",
-        "fr": "Personnel/en catalogue"
-      },
-      "description": "Die Kantonsbibliothek Graubünden gehört zum Amt für Kultur und ist die grösste Bibliothek im Kanton. Sie ist die zentrale Sammelstelle für Raetica. Das sind alle Medien, die in Graubünden entstehen oder Graubünden betreffen. Die Kantonsbibliothek unterstützt Bildung, Wissenschaft und Kultur und vermittelt dazu Medien in den drei Kantonssprachen. Neben Medien aus vielen Fachgebieten bietet sie auch Klassiker aus Literatur, Film und Musik an. Als Beratungsstelle für öffentlich zugängliche Bibliotheken im Kanton fördert die Kantonsbibliothek die Entwicklung und Koordination des bündnerischen Bibliothekswesens.\n\nWir suchen für die Abteilung Katalog in der Kantonsbibliothek (Amt für Kultur) per 1. Juli 2026 oder nach Vereinbarung eine/-n Mitarbeiter/-in.\n\nAufgaben\n• Formal- und Sach-Erschliessung von neu erworbenen Medien\n\n• Bearbeitung von Altbeständen\n\n• Erfassung von Bestellkatalogisaten\n\nAnforderungen\n• Abgeschlossene Ausbildung zur Fachfrau/zum Fachmann Information und Dokumentation (EFZ) oder gleichwertiger Abschluss\n\n• Erfahrung in der Erschliessung nach dem Regelwerk RDA\n\n• Erfahrung mit dem Bibliothekssystem Alma\n\n• Gute Ausdrucksfähigkeit in Deutsch, Grundkenntnisse in Italienisch und/oder Rätoromanisch von Vorteil\n\n• Selbstständige und organisierte Arbeitsweise, Engagement und Konzentration, Teamfähigkeit",
-      "descriptionByLocale": {
-        "it": "Descrizione La biblioteca cantonale Graubünden appartiene all'Ufficio della Cultura ed è la più grande biblioteca del Cantone. È il punto centrale di raccolta per Raetica. Questi sono tutti i media che vengono creati in Grisons o influenzare Grisons. La biblioteca cantonale supporta l'istruzione, la scienza e la cultura e i media nelle tre lingue cantonali. Oltre ai media di molte discipline, offre anche classici della letteratura, del cinema e della musica. La biblioteca cantonale promuove lo sviluppo e il coordinamento della biblioteca federale. ## Mansioni - Formal and Sach-Sviluppo dei nuovi media acquisiti - Elaborazione di vecchi titoli - Raccolta di cataloghi d'ordine ## Requisiti - Formazione completa all'esperto Informazioni e documentazione (EFZ) o completamento equivalente - Esperienza nello sviluppo del RDA - Esperienza con il sistema di biblioteca Alma - Buona espressibilitÃ in tedesco, Conoscenza di base in italiano e/o Rätoro luglio 2026 o accordo one/-n dipendente.",
-        "en": "Descrizione The cantonal library Graubünden belongs to the Office for Culture and is the largest library in the canton. It is the central collection point for Raetica. These are all the media that are created in Grisons or affect Grisons. The cantonal library supports education, science and culture and media in the three cantonal languages. In addition to media from many disciplines, it also offers classics from literature, film and music. As a consultancy for publicly accessible libraries in the canton, the cantonal library promotes the development and coordination of the federal library. ## Mansioni - Formal and Sach-Development of newly acquired media - Processing of old stocks - Collection of order catalogues ## Requisiti - Completed training to the expert Information and documentation (EFZ) or equivalent completion - Experience in the development of the RDA - Experience with the library system Alma - Good expressability in German, Basic knowledge in Italian and/or Rätoro July 2026 or by agreement one/-n employee.",
-        "de": "Die Kantonsbibliothek Graubünden gehört zum Amt für Kultur und ist die grösste Bibliothek im Kanton. Sie ist die zentrale Sammelstelle für Raetica. Das sind alle Medien, die in Graubünden entstehen oder Graubünden betreffen. Die Kantonsbibliothek unterstützt Bildung, Wissenschaft und Kultur und vermittelt dazu Medien in den drei Kantonssprachen. Neben Medien aus vielen Fachgebieten bietet sie auch Klassiker aus Literatur, Film und Musik an. Als Beratungsstelle für öffentlich zugängliche Bibliotheken im Kanton fördert die Kantonsbibliothek die Entwicklung und Koordination des bündnerischen Bibliothekswesens. Wir suchen für die Abteilung Katalog in der Kantonsbibliothek (Amt für Kultur) per 1. Juli 2026 oder nach Vereinbarung eine/-n Mitarbeiter/-in. Aufgaben • Formal- und Sach-Erschliessung von neu erworbenen Medien • Bearbeitung von Altbeständen • Erfassung von Bestellkatalogisaten Anforderungen • Abgeschlossene Ausbildung zur Fachfrau/zum Fachmann Information und Dokumentation (EFZ) oder gleichwertiger Abschluss • Erfahrung in der Erschliessung nach dem Regelwerk RDA • Erfahrung mit dem Bibliothekssystem Alma • Gute Ausdrucksfähigkeit in Deutsch, Grundkenntnisse in Italienisch und/oder Rätoromanisch von Vorteil • Selbstständige und organisierte Arbeitsweise, Engagement und Konzentration, Teamfähigkeit",
-        "fr": "Descrizione La bibliothèque cantonale Graubünden appartient à l'Office de la culture et est la plus grande bibliothèque du canton. C'est le point de collecte central pour Raetica. Ce sont tous les médias créés dans Grisons ou qui touchent Grisons. La bibliothèque cantonale soutient l'éducation, la science, la culture et les médias dans les trois langues cantonales. En plus des médias de nombreuses disciplines, il propose également des classiques de la littérature, du cinéma et de la musique. En tant que consultante pour les bibliothèques publiques du canton, la bibliothèque cantonale favorise le développement et la coordination de la bibliothèque fédérale. ## Mansioni - Formal and Sach-Développement des médias nouvellement acquis - Traitement des anciens stocks - Collection de catalogues de commandes ## Requisiti - Formation complète à l'expert Information et documentation (EFZ) ou achèvement équivalent - Expérience dans le développement du RDA - Expérience avec le système de bibliothèque Alma - Bonne expressibilité en allemand, Connaissance de base en italien et/ou Rätoro Juillet 2026 ou par accord un/-n employé."
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2667/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:16.826Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2667/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Kultur, Kantonsbibliothek",
-      "applicationDeadline": "2026-05-10",
-      "pensumMin": 30,
-      "pensumMax": 30,
-      "pensum": "30%",
-      "previousSlugsByLocale": {
-        "de": [
-          "mitarbeiter-in-katalog-kanton-gr-ch"
-        ],
-        "it": [
-          "mitarbeiter-in-katalog-kanton-gr-ch"
-        ],
-        "en": [
-          "mitarbeiter-in-katalog-kantonale-verwaltung-graubunden-chur"
-        ],
-        "fr": [
-          "mitarbeiter-in-katalog-kantonale-verwaltung-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-katalog-kanton-gr-ch",
-        "mitarbeiter-in-katalog-kantonale-verwaltung-graubunden-chur"
-      ],
-      "firstSeenAt": "2026-04-23T10:20:46.656Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2497,7 +2267,7 @@
       "url": "https://apply.refline.ch/514915/2680/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:16.204Z",
+      "crawledAt": "2026-05-11T11:58:07.283Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2530,91 +2300,7 @@
         "assistent-in-der-amtsleitung-mit-personalverantwortung-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:45.967Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-gr-7444d0a02513",
-      "slug": "project-manager-project-manager-location-development-innovation-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "project-manager-project-manager-location-development-innovation-kantonale-verwaltung-graubunden-chur",
-        "en": "project-manager-project-manager-location-development-innovation-kantonale-verwaltung-graubunden-chur",
-        "de": "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur",
-        "fr": "gestionnaire-de-projet-gestionnaire-de-projet-lieu-developpement-innovation-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Projektleiterin / Projektleiter Standortentwicklung Innovation",
-      "titleByLocale": {
-        "it": "Project Manager / Project Manager Location Development Innovation",
-        "en": "Project Manager / Project Manager Location Development Innovation",
-        "de": "Projektleiterin / Projektleiter Standortentwicklung Innovation",
-        "fr": "Gestionnaire de projet / Gestionnaire de projet Lieu Développement Innovation"
-      },
-      "description": "Der Kanton Graubünden, Wirtschafts- und Innovationsthemen liegen Ihnen am Herzen? Sind Sie motiviert, die wirtschaftlichen Rahmenbedingungen und die Innovationskraft im Kanton aktiv weiterzuentwickeln? Dann passen Sie perfekt zu uns! Verstärken Sie unser engagiertes Team als Projektleiterin / Projektleiter Standortentwicklung Innovation (80-100 % - befristet bis Ende 2028 mit Option auf Verlängerung/Festanstellung) per sofort oder nach Vereinbarung.\n\nAufgaben\n• Übernahme einer zentralen Funktion in der Weiterentwicklung der strategischen Grundlagen zur Förderung der Innovationskraft und der Wettbewerbsfähigkeit des Wirtschaftsstandorts Graubünden\n\n• Projektleitung in der Umsetzung konkreter Massnahmen zur Steigerung der Innovationskraft und Wettbewerbsfähigkeit in Zusammenarbeit mit internen und externen Partnern\n\n• Weiterentwicklung thematischer Kompetenznetzwerke (z.B. Photonics, LifeScience etc.) gemäss der kantonalen Innovationsstrategie und Pflege entsprechender Kontakte\n\n• Weiterentwicklung der kantonalen Förderstrategie und Bearbeitung von Anfragen und Fördergesuchen\n\nAnforderungen\n• Universitäts- bzw. Fachhochschulabschluss, vorzugsweise in Volks- oder Betriebswirtschaftslehre oder in einer technisch-naturwissenschaftlichen Fachrichtung\n\n• Berufserfahrung in der Wirtschaft, Wissenschaft und/oder öffentlichen Verwaltung mit Bezug zu Innovationsthemen, nach Möglichkeit mit hoher Affinität zum Startup-Bereich\n\n• Fundierte betriebswirtschaftliche Kenntnisse sowie grosses Interesse an Wirtschaftspolitik und an volkswirtschaftlichen Fragestellungen\n\n• Motivierte Persönlichkeit mit ausgeprägtem Verantwortungsbewusstsein und Engagement\n\n• Strukturierte, gestaltende und zuverlässige Arbeitsweise\n\n• Freundliches und professionelles Auftreten\n\n• Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch und Englisch sowie vorzugsweise Kenntnisse einer weiteren Kantonssprache",
-      "descriptionByLocale": {
-        "it": "Descrizione I temi del Cantone dei Grigioni, dell'Economia e dell'Innovazione sono al vostro cuore? Sei motivato a sviluppare attivamente il quadro economico e il potere innovativo nel Cantone? Allora adattaci perfettamente! Migliorare il nostro team dedicato come project manager / project manager Location Development Innovation (80-10% - terminato alla fine del 2028 con opzione per estensione/fissione) immediatamente o con accordo. ## Mansioni - Acquisizione di una funzione centrale nell'ulteriore sviluppo delle basi strategiche per promuovere il potere innovativo e la competitività della sede aziendale dei Grigioni - Gestione del progetto nell'attuazione di misure concrete per aumentare la forza innovativa e la competitività in collaborazione con partner interni ed esterni - ulteriore sviluppo delle reti di competenza tematica (ad es. Photonics, LifeScience ecc.) secondo la strategia cantonale di innovazione e manutenzione dei contatti corrispondenti",
-        "en": "Descrizione The Canton of Graubünden, Economic and Innovation themes are at your heart? Are you motivated to actively develop the economic framework and innovative power in the canton? Then fit us perfectly! Improve our dedicated team as project manager / project manager Location Development Innovation (80-10% - terminated by the end of 2028 with option for extension/fixation) by immediately or by agreement. ## Mansioni - Acquisition of a central function in the further development of the strategic foundations for promoting the innovative power and the competitiveness of the Graubünden business location - Project management in the implementation of concrete measures to increase the innovative strength and competitiveness in cooperation with internal and external partners - further development of thematic competence networks (e.g. Photonics, LifeScience etc.) according to the cantonal innovation strategy and maintenance of corresponding contacts Higher education degree, preferably in folk or business administration, or in a technical-nature-scientific field - Professional experience in the economy, science and/or public administration with reference to innovation topics, if possible with high affinity to the start-up area - Funded economic knowledge as well as great interest in economic policy and in economic issues - Motivated personality with strong sense of responsibility and commitment - Structured, design and reliable working",
-        "de": "Der Kanton Graubünden, Wirtschafts- und Innovationsthemen liegen Ihnen am Herzen? Sind Sie motiviert, die wirtschaftlichen Rahmenbedingungen und die Innovationskraft im Kanton aktiv weiterzuentwickeln? Dann passen Sie perfekt zu uns! Verstärken Sie unser engagiertes Team als Projektleiterin / Projektleiter Standortentwicklung Innovation (80-100 % - befristet bis Ende 2028 mit Option auf Verlängerung/Festanstellung) per sofort oder nach Vereinbarung. Aufgaben • Übernahme einer zentralen Funktion in der Weiterentwicklung der strategischen Grundlagen zur Förderung der Innovationskraft und der Wettbewerbsfähigkeit des Wirtschaftsstandorts Graubünden • Projektleitung in der Umsetzung konkreter Massnahmen zur Steigerung der Innovationskraft und Wettbewerbsfähigkeit in Zusammenarbeit mit internen und externen Partnern • Weiterentwicklung thematischer Kompetenznetzwerke (z.B. Photonics, LifeScience etc.) gemäss der kantonalen Innovationsstrategie und Pflege entsprechender Kontakte • Weiterentwicklung der kantonalen Förderstrategie und Bearbeitung von Anfragen und Fördergesuchen Anforderungen • Universitäts- bzw. Fachhochschulabschluss, vorzugsweise in Volks- oder Betriebswirtschaftslehre oder in einer technisch-naturwissenschaftlichen Fachrichtung • Berufserfahrung in der Wirtschaft, Wissenschaft und/oder öffentlichen Verwaltung mit Bezug zu Innovationsthemen, nach Möglichkeit mit hoher Affinität zum Startup-Bereich • Fundierte betriebswirtschaftliche Kenntnisse sowie grosses Interesse an Wirtschaftspolitik und an volkswirtschaftlichen Fragestellungen • Motivierte Persönlichkeit mit ausgeprägtem Verantwortungsbewusstsein und Engagement • Strukturierte, gestaltende und zuverlässige Arbeitsweise • Freundliches und professionelles Auftreten • Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch und Englisch sowie vorzugsweise Kenntnisse einer weiteren Kantonssprache",
-        "fr": "Descrizione Les thèmes du canton des Grisons, de l'économie et de l'innovation sont à votre cœur ? Êtes-vous motivé à développer activement le cadre économique et le pouvoir innovant dans le canton ? Alors, il nous va parfaitement ! Améliorer notre équipe dédiée en tant que gestionnaire de projet / gestionnaire de projet Localisation Développement Innovation (80-10% - terminé à la fin de 2028 avec option d'extension/fixation) immédiatement ou par accord. ## Mansioni - Acquisition d'une fonction centrale dans la poursuite du développement des bases stratégiques pour la promotion de la puissance innovante et de la compétitivité de l'entreprise Graubünden - Gestion de projet dans la mise en œuvre de mesures concrètes pour accroître la force innovante et la compétitivité en coopération avec les partenaires internes et externes - poursuite du développement des réseaux de compétences thématiques (par exemple Photonics, LifeScience, etc.) selon la stratégie cantonale d'innovation et maintien des contacts correspondants Diplôme d'enseignement supérieur, de préférence dans l'administration populaire ou commerciale, ou dans un domaine technique-nature-scientifique - Expérience professionnelle dans l'économie, la science et/ou l'administration publique en matière d'innovation, si possible avec une grande affinité avec la zone de démarrage - Connaissances économiques financées ainsi qu'un grand intérêt pour la politique économique et les questions économiques - Personnalité motivée avec un fort sens des responsabilités et un engagement - Structured, design et travail fiable"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2658/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:15.573Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2658/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Wirtschaft und Tourismus",
-      "applicationDeadline": "2026-05-10",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "projektleiterin-projektleiter-standortentwicklung-innovation-kanton-gr-ch"
-        ],
-        "it": [
-          "projektleiterin-projektleiter-standortentwicklung-innovation-kanton-gr-ch",
-          "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
-        ],
-        "en": [
-          "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
-        ],
-        "fr": [
-          "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "projektleiterin-projektleiter-standortentwicklung-innovation-kanton-gr-ch",
-        "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
-      ],
-      "firstSeenAt": "2026-04-23T10:20:45.283Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2659,7 +2345,7 @@
       "url": "https://apply.refline.ch/514915/2663/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:14.926Z",
+      "crawledAt": "2026-05-11T11:58:06.203Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2698,6 +2384,7 @@
         "ict-system-spezialist-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:44.599Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2742,7 +2429,7 @@
       "url": "https://apply.refline.ch/514915/2678/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:14.307Z",
+      "crawledAt": "2026-05-11T11:58:05.524Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2826,7 +2513,7 @@
       "url": "https://apply.refline.ch/514915/2668/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:13.689Z",
+      "crawledAt": "2026-05-11T11:58:04.048Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2910,7 +2597,7 @@
       "url": "https://apply.refline.ch/514915/2665/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:13.072Z",
+      "crawledAt": "2026-05-11T11:58:01.805Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2951,6 +2638,7 @@
         "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:42.549Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2995,7 +2683,7 @@
       "url": "https://apply.refline.ch/514915/2672/pub/4/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:12.453Z",
+      "crawledAt": "2026-05-11T11:58:01.163Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3083,7 +2771,7 @@
       "url": "https://apply.refline.ch/514915/2674/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:11.831Z",
+      "crawledAt": "2026-05-11T11:58:00.519Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3119,170 +2807,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:41.182Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-gr-783a4a0b2ca1",
-      "slug": "akademische-r-collaboratore-trice-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "akademische-r-collaboratore-trice-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur",
-        "en": "academic-staff-in-special-education-integration-kantonale-verwaltung-graubunden-chur",
-        "de": "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur",
-        "fr": "personnel-universitaire-en-education-specialisee-integration-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Akademische/r Mitarbeiter/in im Bereich Sonderpädagogik / Integration",
-      "titleByLocale": {
-        "it": "Akademische/r Collaboratore/trice im Bereich Sonderpädagogik / Integration",
-        "en": "Academic staff in special education / integration",
-        "de": "Akademische/r Mitarbeiter/in im Bereich Sonderpädagogik / Integration",
-        "fr": "Personnel universitaire en éducation spécialisée / intégration"
-      },
-      "description": "Das Amt für Volksschule und Sport (AVS) gehört zum Erziehungs-, Kultur- und Umweltschutzdepartement des Kantons Graubünden.\n\nFür den Bereich Sonderpädagogik / Integration suchen wir auf den 1. August 2026 oder nach Vereinbarung eine/n Akademische/n Mitarbeiter/in . Dieser Bereich plant schulische Angebote für Kinder und Jugendliche mit besonderen Bedürfnissen und beaufsichtigt die Sonderschulen.\n\nAufgaben\n• Bearbeitung von Anträgen auf Sonderschulung für Schülerinnen und Schülern mit geistigen, körperlichen und wahrnehmungsbedingten Behinderungen oder Mehrfachbehinderungen\n\n• Bearbeitung von Anträgen auf Massnahmen bei hohem Förderbedarf\n\n• Kontaktperson für Fachstellen, Institutionen der Sonderschulung, Vormundschaftsbehörden und Erziehungsberechtigte innerhalb des Zuständigkeitsbereichs\n\n• Leitung oder Mitwirkung in internen und externen Sitzungen und Arbeitsgruppen im Aufgabenbereich\n\n• Erarbeitung von Antworten auf parlamentarische Vorstösse\n\n• Mitarbeit bei der Erarbeitung von Botschaften, Weisungen, Richtlinien und Empfehlungen\n\n• Erledigung komplexer Pendenzen aus dem Tagesgeschäft\n\n• Erarbeitung und Durchsetzung klarer Kriterien und Vorgaben für die Berichterstattung und Antragstellung\n\n• Entwicklung angemessener Strategien und Konzepte im Aufgabenbereich (Analyse der Entwicklung auf kantonaler und gesamtschweizerischer Ebene)\n\n• Unterstützung der Finanzabteilung bei der Budgetierung und Abrechnung der Institutionen der Sonderschulung\n\nAnforderungen\n• Hochschulabschluss im sonderpädagogischen Bereich oder vergleichbare Ausbildung\n\n• gute Kenntnisse des kantonalen Schulwesens und/oder Affinität zu Bildungsfragen\n\n• sehr gute Deutschkenntnisse sowie Gewandtheit im schriftlichen Ausdruck\n\n• nach Möglichkeit Beherrschung einer weiteren Kantonssprache\n\n• Fähigkeit zu konzeptioneller Arbeit\n\n• Fähigkeit, innerhalb der zugewiesenen Kompetenzen, auch komplexe Aufträge effizient und lösungsorientiert zu erledigen\n\n• ausgeprägte Kommunikations- und Sozialkompetenzen\n\n• Belastbarkeit",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro L'Ufficio per la scuola elementare e lo sport (AVS) fa parte del Dipartimento dell'educazione, della cultura e della protezione dell'ambiente del Cantone dei Grigioni. Per il settore dell'educazione speciale / integrazione, cerchiamo il 1° Agosto 2026 o, previo accordo, un/una dipendente accademico/a . Quest' area pianifica offerte scolastiche per bambini e ragazzi con bisogni speciali e sovrintende alle scuole speciali. ## Mansioni - Elaborazione di richieste di formazione speciale per alunni con disabilità mentali, fisiche e percettive o con disabilità multiple - Elaborazione di richieste di misure per esigenze di finanziamento elevate - Persona di contatto per servizi specializzati, istituzioni di formazione speciale, autorità tutorie e tutori legali nell'area di competenza - Direzione o partecipazione a riunioni interne ed esterne e gruppi di lavoro nell'area di competenza - Elaborazione di risposte a interventi parlamentari - Collaborazione all'elaborazione di messaggi, istruzioni, linee guida e raccomandazioni - Elaborazione di pendenze complesse derivanti dall'attività quotidiana - Elaborazione e applicazione di criteri e linee guida chiari per la rendicontazione e la presentazione delle domande - Sviluppo di strategie e concetti adeguati nell'area di competenza (analisi dello sviluppo a livello cantonale e nazionale) - Supporto al dipartimento finanziario nella stesura del budget e nella contabilità delle istituzioni della formazione speciale",
-        "en": "Job description The Office for Primary Education and Sport (AVS) is part of the Department of Education, Culture and Environmental Protection of the Canton of Graubünden. For the area of special education / integration, we are looking for the 1st August 2026 or by appointment with an academic staff member . This area plans school services for children and adolescents with special needs and supervises special schools. ## Mansioni - Processing of applications for special training for pupils with mental, physical and perception-related disabilities or multiple disabilities - Processing of applications for measures in case of high funding needs - Contact person for specialist departments, institutions of special training, guardianship authorities and guardians within the area of responsibility - Management or participation in internal and external meetings and working groups in the area of responsibility - Development of answers to parliamentary initiatives - Cooperation in the development of messages, instructions, guidelines and recommendations - Handling of complex issues from day-to-day business - Development and enforcement of clear criteria and requirements for reporting and application - Development of appropriate strategies and concepts in the area of responsibility (analysis of development at the cantonal and Swiss-wide level) - Support of the finance department in the budgeting and billing of the institutions of special training",
-        "de": "Das Amt für Volksschule und Sport (AVS) gehört zum Erziehungs-, Kultur- und Umweltschutzdepartement des Kantons Graubünden. Für den Bereich Sonderpädagogik / Integration suchen wir auf den 1. August 2026 oder nach Vereinbarung eine/n Akademische/n Mitarbeiter/in . Dieser Bereich plant schulische Angebote für Kinder und Jugendliche mit besonderen Bedürfnissen und beaufsichtigt die Sonderschulen. Aufgaben • Bearbeitung von Anträgen auf Sonderschulung für Schülerinnen und Schülern mit geistigen, körperlichen und wahrnehmungsbedingten Behinderungen oder Mehrfachbehinderungen • Bearbeitung von Anträgen auf Massnahmen bei hohem Förderbedarf • Kontaktperson für Fachstellen, Institutionen der Sonderschulung, Vormundschaftsbehörden und Erziehungsberechtigte innerhalb des Zuständigkeitsbereichs • Leitung oder Mitwirkung in internen und externen Sitzungen und Arbeitsgruppen im Aufgabenbereich • Erarbeitung von Antworten auf parlamentarische Vorstösse • Mitarbeit bei der Erarbeitung von Botschaften, Weisungen, Richtlinien und Empfehlungen • Erledigung komplexer Pendenzen aus dem Tagesgeschäft • Erarbeitung und Durchsetzung klarer Kriterien und Vorgaben für die Berichterstattung und Antragstellung • Entwicklung angemessener Strategien und Konzepte im Aufgabenbereich (Analyse der Entwicklung auf kantonaler und gesamtschweizerischer Ebene) • Unterstützung der Finanzabteilung bei der Budgetierung und Abrechnung der Institutionen der Sonderschulung Anforderungen • Hochschulabschluss im sonderpädagogischen Bereich oder vergleichbare Ausbildung • gute Kenntnisse des kantonalen Schulwesens und/oder Affinität zu Bildungsfragen • sehr gute Deutschkenntnisse sowie Gewandtheit im schriftlichen Ausdruck • nach Möglichkeit Beherrschung einer weiteren Kantonssprache • Fähigkeit zu konzeptioneller Arbeit • Fähigkeit, innerhalb der zugewiesenen Kompetenzen, auch komplexe Aufträge effizient und lösungsorientiert zu erledigen • ausgeprägte Kommunikations- und Sozialkompetenzen • Belastbarkeit",
-        "fr": "Description du poste L'Office de l'école primaire et du sport (OES) fait partie du département de l'éducation, de la culture et de la protection de l'environnement du canton des Grisons. Pour le domaine de la pédagogie spécialisée / intégration, nous recherchons au 1er Août 2026 ou, sur rendez-vous, un (e) collaborateur (trice) académique. Cette zone planifie des offres scolaires pour les enfants et les adolescents ayant des besoins spéciaux et supervise les écoles spéciales. ## Mansioni - Traitement des demandes de formation spéciale pour les élèves souffrant de handicaps mentaux, physiques et cognitifs ou de handicaps multiples - Traitement des demandes de mesures en cas de besoins de financement élevés - Personne de contact pour les services spécialisés, les institutions de formation spéciale, les autorités de tutelle et les tuteurs dans le domaine de compétence - Direction ou participation à des réunions internes et externes et à des groupes de travail dans le domaine de compétence - Élaboration de réponses aux interventions parlementaires - Participation à l'élaboration de messages, d'instructions, de directives et de recommandations - Traitement des questions en suspens complexes des activités quotidiennes - Élaboration et mise en œuvre de critères et d'exigences clairs pour l'établissement de rapports et la soumission de demandes - Développement de stratégies et de concepts appropriés dans le domaine de compétence (analyse du développement au niveau cantonal et national) - Assistance au service financier dans la budgétisation et la facturation des institutions de formation spéciale"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2659/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:11.212Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2659/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Volksschule und Sport",
-      "applicationDeadline": "2026-05-10",
-      "pensumMin": 80,
-      "pensumMax": 90,
-      "pensum": "80-90%",
-      "previousSlugsByLocale": {
-        "de": [
-          "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch"
-        ],
-        "it": [
-          "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch"
-        ],
-        "en": [
-          "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
-        ],
-        "fr": [
-          "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch",
-        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
-      ],
-      "firstSeenAt": "2026-04-16T10:12:48.296Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-gr-83052415fa28",
-      "slug": "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
-      "slugByLocale": {
-        "it": "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
-        "en": "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
-        "de": "strassenwart-in-kanton-gr-ch",
-        "fr": "tranche-en-kantonale-verwaltung-graubunden-thusis"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Strassenwart/-in",
-      "titleByLocale": {
-        "it": "Strassenwart/-in",
-        "en": "Road maintenance/in",
-        "de": "Strassenwart/-in",
-        "fr": "Tranche/en"
-      },
-      "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 7 Thusis per 1. August 2026 oder nach Vereinbarung eine/-n Strassenwart/-in.\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben",
-      "descriptionByLocale": {
-        "it": "Descrizione L'Ufficio di Ingegneria Civile è responsabile della pianificazione, costruzione, manutenzione e funzionamento delle strade cantonali, nonché della costruzione dell'acqua e del traffico lento a Grigioni. Ci occupiamo anche della manutenzione operativa delle strade nazionali nell'area cantonale. L'infrastruttura stradale del cantone comprende oltre 1'450 edifici d'arte, tra cui ponti in altezze ariose fino a 90 metri e gallerie con una lunghezza fino a 3 chilometri. Le sfide che la natura del nostro cantone di montagna porta con sé in estate e in inverno rendono il nostro lavoro impegnativo e versatile. Come ufficio certificato Friendly Work Space, siamo particolarmente interessati alla salute e alla soddisfazione dei nostri circa 480 dipendenti. Per questo motivo, ci impegniamo ad una gestione sistematica della salute professionale (BGM). Stiamo cercando il reparto di manutenzione stradale nel 7 distretto di Sois per 1. Agosto 2026 o d'intesa una/-n street wait/in. ## Mansioni - Esecuzione del lavoro di manutenzione stradale in un piccolo team di manutenzione - Servizio estivo e invernale - Lavori di pulizia e riparazione dopo incidenti o eventi naturali - Controllo delle condizioni stradali e delle installazioni stradali - Bar di Pikettdienst (estate e inverno) ## Requisiti - L'insegnamento professionale completato nel settore delle costruzioni - Artigianato - Certificato di usura fisica",
-        "en": "Descrizione The Civil Engineering Office is responsible for the planning, construction, maintenance and operation of the cantonal roads as well as the water construction and the slow traffic in Graubünden. We also take care of the operational maintenance of national roads in the cantonal area. The canton's road infrastructure comprises over 1'450 art buildings, including bridges in airy heights up to 90 meters and tunnels with a length of up to 3 kilometres. The challenges that the nature of our mountain canton brings with it in summer and winter make our work challenging and versatile. As a Friendly Work Space certified office, we are particularly interested in the health and satisfaction of our around 480 employees. For this reason, we are committed to a systematic occupational health management (BGM). We are looking for the road maintenance department in the 7 Thusis district per 1. August 2026 or by agreement one/-n street wait/in. ## Mansioni - Execution of road maintenance work in a small maintenance team - Summer and winter service - Clearing and repair work after accidents or natural events - Control of road conditions and road installations - Bars of Pikettdienst (summer and winter) ## Requisiti - Completed professional teaching in the construction industry - Craftsmanship - Physic wear certificate",
-        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 7 Thusis per 1. August 2026 oder nach Vereinbarung eine/-n Strassenwart/-in. Aufgaben • Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam • Sommer- und Winterdienst • Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen • Kontrolle des Strassenzustandes und der Strassenanlagen • Leisten von Pikettdienst (Sommer und Winter) Anforderungen • Abgeschlossene Berufslehre im Baugewerbe • Handwerkliches Geschick • Physische Belastbarkeit • Freude an Teamarbeit • Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben",
-        "fr": "Descrizione Le Bureau du génie civil est responsable de la planification, de la construction, de l'entretien et de l'exploitation des routes cantonales ainsi que de la construction de l'eau et de la lenteur du trafic à Graubünden. Nous nous occupons également de l'entretien opérationnel des routes nationales dans la région cantonale. L'infrastructure routière du canton comprend plus de 1'450 bâtiments d'art, y compris des ponts en hauteurs aérées jusqu'à 90 mètres et des tunnels d'une longueur pouvant atteindre 3 kilomètres. Les défis que la nature de notre canton de montagne apporte avec elle en été et en hiver rendent notre travail difficile et polyvalent. En tant que bureau certifié Friendly Work Space, nous sommes particulièrement intéressés par la santé et la satisfaction de nos quelque 480 employés. C'est pour cette raison que nous nous engageons à une gestion systématique de la santé au travail. Nous sommes à la recherche du service d'entretien de la route dans le district 7 This pour 1. Août 2026 ou par accord un/-n rue attente/in. ## Mansioni - Exécution des travaux d'entretien des routes dans une petite équipe d'entretien - Service d'été et d'hiver - Travaux d'enlèvement et de réparation après des accidents ou des événements naturels - Contrôle de l'état des routes et des installations routières - Barres de Pikettdienst (été et hiver) ## Requisiti - Enseignement professionnel complété dans l'industrie de la construction - Artisanat - Certificat d'usure physique"
-      },
-      "location": "Thusis",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2657/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:10.587Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2657/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Tiefbauamt Graubünden, Bezirk 7 Thusis",
-      "applicationDeadline": "2026-05-10",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "strassenwart-in-kanton-gr-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "strassenwart-in-kanton-gr-ch"
-        ],
-        "en": [
-          "strassenwart-in-kanton-gr-ch"
-        ],
-        "fr": [
-          "strassenwart-in-kanton-gr-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-16T10:12:46.446Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3327,7 +2852,7 @@
       "url": "https://apply.refline.ch/514915/2655/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:09.966Z",
+      "crawledAt": "2026-05-11T11:57:59.877Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3368,6 +2893,7 @@
         "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:44.581Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3412,7 +2938,7 @@
       "url": "https://apply.refline.ch/514915/2640/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:09.344Z",
+      "crawledAt": "2026-05-11T11:57:59.235Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3467,114 +2993,6 @@
       }
     },
     {
-      "id": "kanton-gr-99a05bbd34b0",
-      "slug": "tecnico-di-misura-emissioni-aria-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "tecnico-di-misura-emissioni-aria-kantonale-verwaltung-graubunden-chur",
-        "en": "measurement-technician-air-emissions-kantonale-verwaltung-graubunden-chur",
-        "de": "messtechniker-in-emissionen-luft-kantonale-verwaltung-graubunden-chur",
-        "fr": "technicien-de-mesure-emissions-air-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Messtechniker/-in Emissionen Luft",
-      "titleByLocale": {
-        "it": "Tecnico di Misura Emissioni Aria",
-        "en": "Measurement Technician Air Emissions",
-        "de": "Messtechniker/-in Emissionen Luft",
-        "fr": "Technicien de Mesure Émissions Air"
-      },
-      "description": "Wir suchen für das Amt für Natur und Umwelt per 1. Oktober 2026 oder nach Vereinbarung einen Messtechniker oder eine Messtechnikerin für den Bereich Luftemissionen. Du gehörst zu einem Messtechnikteam, das aus drei Fachspezialisten/-innen besteht. Das Team ist für Messungen in den Bereichen Luft, Wasser und Bodenfeuchte zuständig.\n\nAufgaben\n• Deine Hauptaufgabe sind Luftemissionsmessungen von Betriebsanlagen. Dazu gehören die Planung, Durchführung und Auswertung der Messungen sowie deren Qualitätssicherung.\n\n• Du betreust einen Teil der Messstationen für Luftimmissionen.\n\n• Du leistest Unterstützung bei Abflussmessungen an Fliessgewässern.\n\nAnforderungen\n• Du verfügst über eine abgeschlossene Lehre als Chemie-Laborant/-in oder eine vergleichbare Ausbildung in Messtechnik und kannst mehrjährige Berufserfahrung vorweisen.\n\n• Der Umgang mit Messinstrumenten sowie die Auswertung und Darstellung von Messergebnissen sind dir vertraut und du bist bereit, dich fachspezifisch weiterzubilden.\n\n• Du bist gerne im Kanton Graubünden unterwegs, schätzt die Arbeit im Freien und bewegst dich trittsicher im Gelände.\n\n• Selbstständiges Arbeiten wie auch die Zusammenarbeit im Team zeichnen dich aus. Zudem verfügst du über gute organisatorische und kommunikative Fähigkeiten.\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil.\n\n• Führerschein der Kategorie B.",
-      "descriptionByLocale": {
-        "it": "Descrizione Cerchiamo per l'Ufficio per la Natura e l'Ambiente un Tecnico di Misura per il settore delle emissioni aria a partire dal 1° ottobre 2026 o su accordo. Farai parte di un team di tre specialisti di misurazione responsabile delle misurazioni nei settori aria, acqua e umidità del suolo. ## Compiti - La tua attività principale è la misurazione delle emissioni aria delle impianti industriali - Questo include la pianificazione, l'esecuzione e la valutazione delle misurazioni, nonché il controllo della qualità - Sei responsabile di parte delle stazioni di misurazione per l'inquinamento dell'aria - Fornisci supporto nelle misurazioni di portata nei corsi d'acqua ## Requisiti - Hai completato un apprendistato come Chimico Laboratorio o una formazione equivalente in misurazione e puoi dimostrare esperienza professionale pluriennale - Sei abituato all'uso di strumenti di misurazione, alla valutazione e alla rappresentazione dei risultati delle misurazioni e sei disposto a formarti ulteriormente nel settore - Ti piace lavorare nel Canton Grigioni, apprezzi il lavoro all'aperto e ti muovi con sicurezza nel terreno - Lavorare in modo autonomo e collaborare in squadra sono le tue caratteristiche - Inoltre, disponi di buone capacità organizzative e comunicative - Conoscenze di diverse lingue cantonali sono un vantaggio - Patente di guida categoria B",
-        "en": "Description We are looking for a Measurement Technician for the Air Emissions sector at the Office for Nature and Environment, starting on 1st October 2026 or upon agreement. You will be part of a measurement team of three specialists responsible for measurements in the areas of air, water, and soil moisture. ## Tasks - Your main task is to measure air emissions from industrial facilities - This includes planning, conducting, and evaluating measurements, as well as quality assurance - You are responsible for part of the air pollution measurement stations - You provide support in flow measurements in rivers ## Requirements - You have completed an apprenticeship as a Chemistry Laboratory Technician or equivalent training in measurement and can demonstrate several years of professional experience - You are familiar with the use of measuring instruments, the evaluation, and presentation of measurement results, and are willing to further train in the field - You enjoy working in the Canton of Grisons, appreciate working outdoors, and move safely in the terrain - Independent working and teamwork are your strengths - Additionally, you have good organizational and communication skills - Knowledge of several cantonal languages is an advantage - Driving license category B",
-        "de": "Wir suchen für das Amt für Natur und Umwelt per 1. Oktober 2026 oder nach Vereinbarung einen Messtechniker oder eine Messtechnikerin für den Bereich Luftemissionen. Du gehörst zu einem Messtechnikteam, das aus drei Fachspezialisten/-innen besteht. Das Team ist für Messungen in den Bereichen Luft, Wasser und Bodenfeuchte zuständig. Aufgaben • Deine Hauptaufgabe sind Luftemissionsmessungen von Betriebsanlagen. Dazu gehören die Planung, Durchführung und Auswertung der Messungen sowie deren Qualitätssicherung. • Du betreust einen Teil der Messstationen für Luftimmissionen. • Du leistest Unterstützung bei Abflussmessungen an Fliessgewässern. Anforderungen • Du verfügst über eine abgeschlossene Lehre als Chemie-Laborant/-in oder eine vergleichbare Ausbildung in Messtechnik und kannst mehrjährige Berufserfahrung vorweisen. • Der Umgang mit Messinstrumenten sowie die Auswertung und Darstellung von Messergebnissen sind dir vertraut und du bist bereit, dich fachspezifisch weiterzubilden. • Du bist gerne im Kanton Graubünden unterwegs, schätzt die Arbeit im Freien und bewegst dich trittsicher im Gelände. • Selbstständiges Arbeiten wie auch die Zusammenarbeit im Team zeichnen dich aus. Zudem verfügst du über gute organisatorische und kommunikative Fähigkeiten. • Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil. • Führerschein der Kategorie B.",
-        "fr": "Description Nous recherchons pour l'Office de la Nature et de l'Environnement un Technicien de Mesure pour le secteur des émissions air à partir du 1er octobre 2026 ou selon accord. Vous ferez partie d'une équipe de mesure de trois spécialistes responsable des mesures dans les domaines de l'air, de l'eau et de l'humidité du sol. ## Tâches - Votre tâche principale est de mesurer les émissions air des installations industrielles - Cela inclut la planification, la réalisation et l'évaluation des mesures, ainsi que l'assurance de la qualité - Vous êtes responsable d'une partie des stations de mesure de la pollution de l'air - Vous apportez un soutien dans les mesures de débit dans les cours d'eau ## Exigences - Vous avez terminé une formation d'apprentissage comme Technicien de Laboratoire de Chimie ou une formation équivalente en mesure et pouvez démontrer plusieurs années d'expérience professionnelle - Vous êtes familiarisé avec l'utilisation d'instruments de mesure, l'évaluation et la présentation des résultats de mesure, et êtes prêt à vous former davantage dans le domaine - Vous aimez travailler dans le Canton des Grisons, appréciez le travail en extérieur et vous déplacez en toute sécurité dans le terrain - Travailler de manière autonome et en équipe sont vos forces - De plus, vous disposez de bonnes compétences organisationnelles et de communication - Connaissances de plusieurs langues cantonales sont un avantage - Permis de conduire catégorie B"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2651/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:08.721Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2651/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione come Chimico Laboratorio o equivalente in misurazione",
-          "Esperienza professionale pluriennale",
-          "Competenza nell'uso di strumenti di misurazione",
-          "Valutazione e rappresentazione dei risultati delle misurazioni",
-          "Disponibilità a formarsi ulteriormente",
-          "Lavoro all'aperto e sicurezza nel terreno",
-          "Capacità organizzative e comunicative",
-          "Conoscenze di lingue cantonali"
-        ],
-        "en": [
-          "Training as a Chemistry Laboratory Technician or equivalent in measurement",
-          "Several years of professional experience",
-          "Proficiency in using measuring instruments",
-          "Evaluation and presentation of measurement results",
-          "Willingness to further train",
-          "Working outdoors and safe terrain movement",
-          "Good organizational and communication skills",
-          "Knowledge of cantonal languages"
-        ],
-        "fr": [
-          "Formation comme Technicien de Laboratoire de Chimie ou équivalent en mesure",
-          "Plusieurs années d'expérience professionnelle",
-          "Maîtrise de l'utilisation d'instruments de mesure",
-          "Évaluation et présentation des résultats de mesure",
-          "Prêt à se former davantage",
-          "Travail en extérieur et déplacement sûr dans le terrain",
-          "Bonnes compétences organisationnelles et de communication",
-          "Connaissances de langues cantonales"
-        ]
-      },
-      "department": "Amt für Natur und Umwelt",
-      "applicationDeadline": "2026-05-10",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "messtechniker-in-emissionen-luft-kanton-gr-ch"
-        ],
-        "it": [
-          "messtechniker-in-emissionen-luft-kanton-gr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "messtechniker-in-emissionen-luft-kanton-gr-ch"
-      ],
-      "firstSeenAt": "2026-04-13T10:48:58.185Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kanton-gr-285d75cf6043",
       "slug": "responsabile-it-o-giuridico-per-la-vice-direzione-dell-ufficio-per-la-protezione-dei-dati-kantonale-verwaltung-graubunde",
       "slugByLocale": {
@@ -3605,7 +3023,7 @@
       "url": "https://apply.refline.ch/514915/2647/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:08.098Z",
+      "crawledAt": "2026-05-11T11:57:58.582Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3658,6 +3076,7 @@
         "it-oder-juristische-fachperson-als-stv-leiter-in-datenschutzaufsichtsstelle-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.673Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -3702,7 +3121,7 @@
       "url": "https://apply.refline.ch/514915/2642/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:07.476Z",
+      "crawledAt": "2026-05-11T11:57:52.892Z",
       "addressLocality": "Haldenstein",
       "postalCode": "7023",
       "addressCountry": "CH",
@@ -3766,6 +3185,7 @@
         "leiter-in-amt-fur-militar-und-zivilschutz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.050Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3810,7 +3230,7 @@
       "url": "https://apply.refline.ch/514915/2638/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:06.828Z",
+      "crawledAt": "2026-05-11T11:57:51.910Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3873,6 +3293,7 @@
         "sachbearbeiter-in-rechtsdienst-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:47.335Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3917,7 +3338,7 @@
       "url": "https://apply.refline.ch/514915/2639/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:06.202Z",
+      "crawledAt": "2026-05-11T11:57:50.597Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3972,114 +3393,7 @@
         "chemiker-in-fh-umweltingenieur-in-fh-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:44.857Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-gr-764107900fbe",
-      "slug": "comandante-di-polizia-cantonale-grigioni-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "comandante-di-polizia-cantonale-grigioni-kantonale-verwaltung-graubunden-chur",
-        "en": "cantonal-police-commander-graubunden-kantonale-verwaltung-graubunden-chur",
-        "de": "polizeikommandant-in-kantonspolizei-graubunden-kantonale-verwaltung-graubunden-chur",
-        "fr": "commandant-de-police-cantonale-grisons-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Polizeikommandant/-in Kantonspolizei Graubünden",
-      "titleByLocale": {
-        "it": "Comandante di Polizia Cantonale Grigioni",
-        "en": "Cantonal Police Commander Graubünden",
-        "de": "Polizeikommandant/-in Kantonspolizei Graubünden",
-        "fr": "Commandant de Police Cantonale Grisons"
-      },
-      "description": "Sicherheit in Graubünden, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Dafür sorgen die Kantonspolizistinnen und Kantonspolizisten. Tag und Nacht, jahraus jahrein, bei jedem Wetter, auf Passstrassen wie auf Autobahnen, in Stadt und Land, in Berg und Tal. Jederzeit und überall sind sie bereit für Hilfestellungen, Rettungsaktionen, Ermittlungen, Kriminalitätsbekämpfung und Präventionsmassnahmen. Immer steht der Mensch im Zentrum. Im Rahmen der Strategie «Kapo GR 2025+» steht die Förderung und Entwicklung der Mitarbeitenden, eine zukunftsorientierte Organisation sowie die kontinuierliche Optimierung der Kernprozesse im Vordergrund.\n\nAls neue/-r Polizeikommandant/-in, welcher aufgrund der bevorstehenden Pensionierung des jetzigen Stelleninhabers per 1. April 2027 oder nach Vereinbarung gesucht wird, übernehmen die Gesamtverantwortung für die Kantonspolizei. Dabei gilt es, zukunftsweisende Wege für aktuelle polizeirelevante Herausforderungen, in der Führung, Prävention sowie in der Digitalisierung anzupacken. In dieser Funktion sind Sie direkt dem Departementsvorsteher unterstellt.\n\nAufgaben\n• Personelle, strategische und organisatorische Leitung des Amts\n\n• Erarbeitung und Umsetzung von strategischen und operativen Zielen des Polizeidienstes\n\n• Vertretung des Amts gegen aussen (im Zuständigkeitsbereich des Amts umfassende Verfügungs- und Unterschriftsbefugnisse)\n\n• Enge operative Zusammenarbeit mit Partnern auf internationaler, eidgenössischer, kantonaler und kommunaler Ebene\n\n• Verantwortung für den Vollzug der Bundesgesetzgebung und der kantonalen Gesetzgebung im Zuständigkeitsbereich\n\nAnforderungen\n• Ausgeprägte kommunikative Fähigkeiten, hohe Sozialkompetenz, Vertrautheit mit modernen Führungs- und Managementmethoden, gute betriebswirtschaftliche Kenntnisse sowie sicheres Auftreten.\n\n• Hochschulabschluss (Master) oder eine andere höhere Ausbildung sowie eine Weiterbildung im Bereich Leadership\n\n• Umfangreiche berufliche Erfahrung in leitenden Positionen im Polizeiwesen oder in der öffentlichen Verwaltung\n\n• Erfahrung in der Leitung von komplexen Projekten\n\n• Digitale Affinität sowie zukunftsorientiertes Denken\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
-      "descriptionByLocale": {
-        "it": "Sicurezza nel Grigioni, per residenti, turisti, partecipanti a convegni e transiti, pace e ordine per tutti. Le poliziotte e i poliziotti cantonali si occupano di questo. Giorno e notte, ogni anno, in ogni condizione meteorologica, su strade di montagna come su autostrade, in città e campagna, in montagna e valle. Sono sempre pronti per supportare, soccorrere, indagare, combattere la criminalità e prevenire. L'uomo è sempre al centro. Nel quadro della strategia «Kapo GR 2025+», la promozione e lo sviluppo dei dipendenti, un'organizzazione orientata al futuro e l'ottimizzazione continua dei processi principali sono al centro. Come nuovo comandante di polizia, che sostituirà il titolare attuale in pensione dal 1° aprile 2027 o su accordo, assumerà la responsabilità completa della polizia cantonale. Dovrà affrontare le sfide poliziesche future, nella leadership, nella prevenzione e nella digitalizzazione. In questa funzione, è direttamente sottoposto al capo del dipartimento. | Compiti: Direzione personale, strategica e organizzativa dell'ufficio Elaborazione e attuazione degli obiettivi strategici e operativi del servizio di polizia Rappresentanza dell'ufficio all'esterno (in ambito di competenza dell'ufficio, competenze di disponibilità e di firma) Collaborazione operativa con partner a livello internazionale, federale, cantonale e comunale Direzione dello staff di comando della polizia in caso di eventi speciali in situazioni straordinarie Responsabilità per l'attuazione della legislazione federale e cantonale nell'ambito di competenza | Requisiti: Eccellenti capacità comunicative, alta competenza sociale, familiarità con moderne metodologie di leadership e management, buone conoscenze di economia aziendale e sicurezza nel comportarsi. Laurea universitaria (Master) o altra formazione superiore e formazione in leadership. Esperienza professionale ampia in posizioni di direzione nel settore della polizia o nell'amministrazione pubblica. Esperienza nella direzione di progetti complessi. Affinità digitale e pensiero orientato al futuro. Buone conoscenze in più lingue cantonali sono un vantaggio.",
-        "en": "Safety in Graubünden, for residents, tourists, conference participants and transients, peace and order for all. The cantonal policewomen and police officers take care of this. Day and night, year after year, in every weather condition, on mountain roads as well as on motorways, in town and countryside, in mountain and valley. They are always ready to assist, rescue, investigate, combat crime and prevent. The human being is always at the center. Within the framework of the strategy «Kapo GR 2025+», the promotion and development of employees, a future-oriented organization and the continuous optimization of core processes are at the center. As a new police commander, who will replace the current incumbent due to retirement on 1st April 2027 or by agreement, you will assume the overall responsibility for the cantonal police. It is your task to tackle future police-relevant challenges, in leadership, prevention and digitization. In this function, you are directly subordinate to the head of the department. | Tasks: Personnel, strategic and organizational leadership of the office Development and implementation of strategic and operational goals of the police service Representation of the office to the outside (in the competence area of the office comprehensive availability and signature powers) Close operational cooperation with partners at international, federal, cantonal and municipal level Leadership of the police command staff in case of special events in extraordinary situations Responsibility for the implementation of federal and cantonal legislation in the area of competence | Requirements: Excellent communication skills, high social competence, familiarity with modern leadership and management methods, good business knowledge and confident demeanor. University degree (Master) or another higher education and further training in the field of leadership Extensive professional experience in leading positions in the police or public administration Experience in leading complex projects Digital affinity and future-oriented thinking Good knowledge of several cantonal languages is an advantage.",
-        "de": "Sicherheit in Graubünden, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Dafür sorgen die Kantonspolizistinnen und Kantonspolizisten. Tag und Nacht, jahraus jahrein, bei jedem Wetter, auf Passstrassen wie auf Autobahnen, in Stadt und Land, in Berg und Tal. Jederzeit und überall sind sie bereit für Hilfestellungen, Rettungsaktionen, Ermittlungen, Kriminalitätsbekämpfung und Präventionsmassnahmen. Immer steht der Mensch im Zentrum. Im Rahmen der Strategie «Kapo GR 2025+» steht die Förderung und Entwicklung der Mitarbeitenden, eine zukunftsorientierte Organisation sowie die kontinuierliche Optimierung der Kernprozesse im Vordergrund. Als neue/-r Polizeikommandant/-in, welcher aufgrund der bevorstehenden Pensionierung des jetzigen Stelleninhabers per 1. April 2027 oder nach Vereinbarung gesucht wird, übernehmen die Gesamtverantwortung für die Kantonspolizei. Dabei gilt es, zukunftsweisende Wege für aktuelle polizeirelevante Herausforderungen, in der Führung, Prävention sowie in der Digitalisierung anzupacken. In dieser Funktion sind Sie direkt dem Departementsvorsteher unterstellt. Aufgaben • Personelle, strategische und organisatorische Leitung des Amts • Erarbeitung und Umsetzung von strategischen und operativen Zielen des Polizeidienstes • Vertretung des Amts gegen aussen (im Zuständigkeitsbereich des Amts umfassende Verfügungs- und Unterschriftsbefugnisse) • Enge operative Zusammenarbeit mit Partnern auf internationaler, eidgenössischer, kantonaler und kommunaler Ebene • Verantwortung für den Vollzug der Bundesgesetzgebung und der kantonalen Gesetzgebung im Zuständigkeitsbereich Anforderungen • Ausgeprägte kommunikative Fähigkeiten, hohe Sozialkompetenz, Vertrautheit mit modernen Führungs- und Managementmethoden, gute betriebswirtschaftliche Kenntnisse sowie sicheres Auftreten. • Hochschulabschluss (Master) oder eine andere höhere Ausbildung sowie eine Weiterbildung im Bereich Leadership • Umfangreiche berufliche Erfahrung in leitenden Positionen im Polizeiwesen oder in der öffentlichen Verwaltung • Erfahrung in der Leitung von komplexen Projekten • Digitale Affinität sowie zukunftsorientiertes Denken • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
-        "fr": "Sécurité dans les Grisons, pour les résidents, les touristes, les participants aux conférences et les transitants, paix et ordre pour tous. Les policières et policiers cantonaux s'en occupent. Jour et nuit, année après année, dans toutes les conditions météorologiques, sur les routes de montagne comme sur les autoroutes, en ville et en campagne, en montagne et en vallée. Ils sont toujours prêts à assister, secourir, enquêter, combattre la criminalité et prévenir. L'être humain est toujours au centre. Dans le cadre de la stratégie «Kapo GR 2025+», la promotion et le développement des employés, une organisation orientée vers l'avenir et l'optimisation continue des processus clés sont au centre. En tant que nouveau commandant de police, qui remplacera le titulaire actuel à la retraite le 1er avril 2027 ou par accord, vous assumerez la responsabilité globale de la police cantonale. Il vous incombe de relever les défis policiers futurs, en matière de leadership, de prévention et de digitalisation. Dans cette fonction, vous êtes directement subordonné au chef du département. | Tâches: Direction personnelle, stratégique et organisationnelle du bureau Élaboration et mise en œuvre des objectifs stratégiques et opérationnels du service de police Représentation du bureau à l'extérieur (dans le domaine de compétence du bureau, pouvoirs de disponibilité et de signature étendus) Collaboration opérationnelle avec des partenaires à l'échelle internationale, fédérale, cantonale et communale Direction du personnel de commandement de la police en cas d'événements spéciaux dans des situations extraordinaires Responsabilité pour la mise en œuvre de la législation fédérale et cantonale dans le domaine de compétence | Exigences: Excellentes compétences en communication, haute compétence sociale, familiarité avec les méthodes modernes de leadership et de management, bonnes connaissances en économie d'entreprise et assurance de soi. Diplôme universitaire (Master) ou autre formation supérieure et formation continue dans le domaine du leadership Expérience professionnelle étendue dans des postes de direction dans la police ou l'administration publique. Expérience dans la direction de projets complexes. Affinité numérique et pensée orientée vers l'avenir. Bonne connaissance de plusieurs langues cantonales est un avantage."
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2516/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:05.581Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2516/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Eccellenti capacità comunicative",
-          "Alta competenza sociale",
-          "Familiarità con moderne metodologie di leadership e management",
-          "Buone conoscenze di economia aziendale",
-          "Sicurezza nel comportarsi",
-          "Laurea universitaria (Master) o altra formazione superiore",
-          "Formazione in leadership",
-          "Esperienza professionale ampia in posizioni di direzione nel settore della polizia o nell'amministrazione pubblica"
-        ],
-        "en": [
-          "Excellent communication skills",
-          "High social competence",
-          "Familiarity with modern leadership and management methods",
-          "Good business knowledge",
-          "Confident demeanor",
-          "University degree (Master) or another higher education",
-          "Further training in the field of leadership",
-          "Extensive professional experience in leading positions in the police or public administration"
-        ],
-        "fr": [
-          "Excellentes compétences en communication",
-          "Haute compétence sociale",
-          "Familiarité avec les méthodes modernes de leadership et de management",
-          "Bonnes connaissances en économie d'entreprise",
-          "Assurance de soi",
-          "Diplôme universitaire (Master) ou autre formation supérieure",
-          "Formation continue dans le domaine du leadership",
-          "Expérience professionnelle étendue dans des postes de direction dans la police ou l'administration publique"
-        ]
-      },
-      "department": "Kantonspolizei",
-      "applicationDeadline": "2026-05-10",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "polizeikommandant-in-kantonspolizei-graubunden-kanton-gr-ch"
-        ],
-        "it": [
-          "polizeikommandant-in-kantonspolizei-graubunden-kanton-gr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "polizeikommandant-in-kantonspolizei-graubunden-kanton-gr-ch"
-      ],
-      "firstSeenAt": "2026-04-13T10:48:43.616Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4124,7 +3438,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:52:04.950Z",
+      "crawledAt": "2026-05-11T11:57:49.947Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4188,6 +3502,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

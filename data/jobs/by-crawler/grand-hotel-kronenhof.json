@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grand-hotel-kronenhof",
-  "assembledAt": "2026-05-10T21:54:22.931Z",
+  "assembledAt": "2026-05-11T12:00:09.885Z",
   "jobs": [
     {
       "title": "Assistant Front Office Manager (m/w/d)",
@@ -44,7 +44,7 @@
         "de": "assistent-front-office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-675"
       },
-      "crawledAt": "2026-05-10T21:54:22.657Z",
+      "crawledAt": "2026-05-11T12:00:09.611Z",
       "id": "grand-hotel-kronenhof-e09f607d4c3a",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -106,7 +106,7 @@
         "de": "assistenz-reservierungsmanager-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "assistant-responsable-des-reservations-h-w-j-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.659Z",
+      "crawledAt": "2026-05-11T12:00:09.612Z",
       "previousSlugs": [
         "assistant-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina-665",
         "assistant-reservations-manager-m-p-g-grand-hotel-kronenhof-pontresina",
@@ -205,7 +205,7 @@
         "de": "chef-de-rang-m-w-grand-hotel-kronenhof-pontresina",
         "fr": "chef-de-rang-h-w-j-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.659Z",
+      "crawledAt": "2026-05-11T12:00:09.612Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -290,7 +290,7 @@
         "de": "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.659Z",
+      "crawledAt": "2026-05-11T12:00:09.612Z",
       "previousSlugs": [
         "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-658",
         "breakfast-cook-commis-de-cuisine-breakfast-m-w-d-grand-hotel-kronenhof-pontresina",
@@ -377,7 +377,7 @@
         "de": "commis-de-rang-assistent-waiter-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.660Z",
+      "crawledAt": "2026-05-11T12:00:09.613Z",
       "previousSlugs": [
         "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-651",
         "commissaire-de-rang-assistant-serveur-m-m-j-grand-hotel-kronenhof-pontresina",
@@ -469,7 +469,7 @@
         "de": "koch-mitarbeiterrestaurant-unbefristeter-vertrag-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "cook-chef-de-partie-staff-restaurant-capricorn-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.660Z",
+      "crawledAt": "2026-05-11T12:00:09.613Z",
       "id": "grand-hotel-kronenhof-e2bd3d23bc4f",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -554,7 +554,7 @@
         "de": "driver-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "driver-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.660Z",
+      "crawledAt": "2026-05-11T12:00:09.613Z",
       "previousSlugs": [
         "driver-m-w-d-grand-hotel-kronenhof-pontresina-638",
         "chauffeur-m-w-j-grand-hotel-kronenhof-pontresina-ymxh6n",
@@ -611,7 +611,8 @@
           "driver-m-w-d-grand-hotel-kronenhof-pontresina-ymxh6n"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:59:37.536Z"
+      "firstSeenAt": "2026-04-13T21:59:37.536Z",
+      "needsRetranslation": true
     },
     {
       "title": "Food and Beverage Assistant (m/w/d)",
@@ -655,7 +656,7 @@
         "de": "food-and-beverage-assistent-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "food-and-beverage-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz-668"
       },
-      "crawledAt": "2026-05-10T21:54:22.660Z",
+      "crawledAt": "2026-05-11T12:00:09.613Z",
       "id": "grand-hotel-kronenhof-8c59a0cdf296",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -717,9 +718,8 @@
         "de": "laundry-employee-m-w-d-kulm-hotel-st-moritz-st-moritz-670",
         "fr": "laundry-employee-m-w-d-kulm-hotel-st-moritz-st-moritz-670"
       },
-      "crawledAt": "2026-05-10T21:54:22.660Z",
+      "crawledAt": "2026-05-11T12:00:09.613Z",
       "id": "grand-hotel-kronenhof-d639dc203a29",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -743,7 +743,8 @@
       },
       "previousSlugs": [
         "laundry-employee-m-w-d-kulm-hotel-st-moritz-st-moritz-670"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Luxury Spa Supervisor (m/w/d)",
@@ -787,7 +788,7 @@
         "de": "luxury-spa-vorgesetzter-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "luxury-spa-superviseur-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.660Z",
+      "crawledAt": "2026-05-11T12:00:09.614Z",
       "id": "grand-hotel-kronenhof-dd93b678772b",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -862,7 +863,7 @@
         "de": "rangmeister-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.661Z",
+      "crawledAt": "2026-05-11T12:00:09.614Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -953,7 +954,7 @@
         "de": "buroangestellte-steward-personal-restaurant-capricorn-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "office-employee-steward-staff-restaurant-capricorn-m-w-d-grand-hotel-kronenhof-pontresina-664"
       },
-      "crawledAt": "2026-05-10T21:54:22.661Z",
+      "crawledAt": "2026-05-11T12:00:09.614Z",
       "id": "grand-hotel-kronenhof-517f2506113d",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -981,7 +982,8 @@
         "de": [
           "office-employee-steward-staff-restaurant-capricorn-m-w-d-grand-hotel-kronenhof-pontresina-664"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Pool Attendant/ Life Guard (m/w/d)",
@@ -1025,7 +1027,7 @@
         "de": "schwimmbadmitarbeiter-rettungsschwimmer-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "pool-attendant-life-guard-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.661Z",
+      "crawledAt": "2026-05-11T12:00:09.614Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1119,7 +1121,7 @@
         "de": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-602",
         "fr": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-602"
       },
-      "crawledAt": "2026-05-10T21:54:22.661Z",
+      "crawledAt": "2026-05-11T12:00:09.615Z",
       "id": "grand-hotel-kronenhof-fb2c3f04bd69",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1181,7 +1183,7 @@
         "de": "spa-therapeut-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "therapeute-spa-h-w-j-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-05-10T21:54:22.661Z",
+      "crawledAt": "2026-05-11T12:00:09.615Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",

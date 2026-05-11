@@ -252,13 +252,13 @@ export async function fetchAllKswJobs() {
     const canton = 'ZH';
 
     const descBits = [];
-    if (listing.occupation) descBits.push(`Berufsfeld: ${listing.occupation}`);
-    if (listing.department) descBits.push(`Bereich: ${listing.department}`);
+    if (listing.occupation) descBits.push(`• Berufsfeld: ${listing.occupation}`);
+    if (listing.department) descBits.push(`• Bereich: ${listing.department}`);
     if (listing.workloadMin || listing.workloadMax) {
       const pct = listing.workloadMin === listing.workloadMax
         ? `${listing.workloadMax}%`
         : `${listing.workloadMin}-${listing.workloadMax}%`;
-      descBits.push(`Pensum: ${pct}`);
+      descBits.push(`• Pensum: ${pct}`);
     }
     const fallbackDesc = `${title} — ${KSW_COMPANY_NAME}, Winterthur`;
     const descriptionText = descBits.length ? `${fallbackDesc}\n\n${descBits.join('\n')}` : fallbackDesc;

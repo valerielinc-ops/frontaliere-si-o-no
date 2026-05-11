@@ -1,13 +1,13 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-05-10T21:59:49.197Z",
+  "assembledAt": "2026-05-11T12:05:40.588Z",
   "jobs": [
     {
       "id": "logitech-171aac38ec54",
       "slug": "progettista-senior-dell-esperienza-utente-prodotto-hardware-logitech-lausanne-switzerland",
       "slugByLocale": {
-        "en": "senior-hardware-product-user-experience-designer-logitech-ch",
         "it": "progettista-senior-dell-esperienza-utente-prodotto-hardware-logitech-lausanne-switzerland",
+        "en": "senior-hardware-product-user-experience-designer-logitech-ch",
         "de": "senior-hardware-product-user-experience-designer-logitech-ch",
         "fr": "senior-hardware-product-user-experience-designer-logitech-ch"
       },
@@ -16,10 +16,10 @@
       "companyDomain": "logitech.com",
       "title": "Senior Hardware Product User Experience Designer",
       "titleByLocale": {
-        "en": "Senior Hardware Product User Experience Designer",
-        "fr": "Senior Hardware Product User Experience Designer",
         "it": "Progettista Senior dell'Esperienza Utente Prodotto Hardware",
-        "de": "Senior Hardware Product User Experience Designer"
+        "en": "Senior Hardware Product User Experience Designer",
+        "de": "Senior Hardware Product User Experience Designer",
+        "fr": "Senior Hardware Product User Experience Designer"
       },
       "description": "Senior Hardware Product User Experience Designer — Logitech",
       "descriptionByLocale": {
@@ -30,7 +30,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:59:46.865Z",
+      "crawledAt": "2026-05-11T12:05:38.517Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,10 +44,17 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-hardware-product-user-experience-designer-logitech-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-hardware-product-user-experience-designer-logitech-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:59:46.865Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -60,34 +67,25 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003",
-      "firstSeenAt": "2026-05-10T21:59:46.865Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-hardware-product-user-experience-designer-logitech-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-hardware-product-user-experience-designer-logitech-ch"
-      ]
+      "postalCode": "1003"
     },
     {
       "id": "logitech-8e794f28e2bf",
-      "slug": "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch",
+      "slug": "senior-artificial-intelligence-ai-machine-learning-ml-ingegnere-video-r-d-logitech-lausanne-switzerland",
       "slugByLocale": {
-        "de": "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch",
-        "it": "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch",
+        "it": "senior-artificial-intelligence-ai-machine-learning-ml-ingegnere-video-r-d-logitech-lausanne-switzerland",
         "en": "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch",
-        "fr": "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch"
+        "de": "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch",
+        "fr": "senior-artificial-intelligence-ai-machine-learning-ml-ingenieur-video-r-d-logitech-lausanne-switzerland"
       },
       "company": "Logitech",
       "companyKey": "logitech",
       "companyDomain": "logitech.com",
       "title": "Senior Artificial Intelligence (AI)/Machine Learning (ML) Engineer, Video (R&D)",
       "titleByLocale": {
-        "de": "Senior Artificial Intelligence (AI)/Machine Learning (ML) Ingenieur, Video (R&D)",
-        "en": "Senior Artificial Intelligence (AI)/Machine Learning (ML) Engineer, Video (R&D)",
         "it": "Senior Artificial Intelligence (AI)/Machine Learning (ML) Ingegnere, Video (R&D)",
+        "en": "Senior Artificial Intelligence (AI)/Machine Learning (ML) Engineer, Video (R&D)",
+        "de": "Senior Artificial Intelligence (AI)/Machine Learning (ML) Ingenieur, Video (R&D)",
         "fr": "Senior Artificial Intelligence (AI)/Machine Learning (ML) Ingénieur, Video (R&D)"
       },
       "description": "Senior Artificial Intelligence (AI)/Machine Learning (ML) Engineer, Video (R&D) — Logitech",
@@ -99,7 +97,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Sr-AI-ML-Engineer--Video--R-D-_144373",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:59:46.546Z",
+      "crawledAt": "2026-05-11T12:05:38.196Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,10 +111,20 @@
       "postedDate": "2026-05-10",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Sr-AI-ML-Engineer--Video--R-D-_144373",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:59:46.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch"
+        ],
+        "fr": [
+          "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch"
+      ],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -129,8 +137,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003",
-      "firstSeenAt": "2026-05-10T21:59:46.546Z"
+      "postalCode": "1003"
     }
   ]
 }

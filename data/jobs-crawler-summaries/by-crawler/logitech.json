@@ -1,18 +1,19 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-05-10T21:59:49.197Z",
+  "generatedAt": "2026-05-11T12:05:40.589Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5752,
-  "avgDurationMs": 5752,
+  "durationMs": 6015,
+  "avgDurationMs": 6015,
   "durationHistory": [
-    5752
+    6015
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "logitech-8e794f28e2bf",
       "slug": "senior-artificial-intelligence-ai-machine-learning-ml-engineer-video-r-d-logitech-ch",
@@ -25,7 +26,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Sr-AI-ML-Engineer--Video--R-D-_144373",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:59:46.546Z",
+      "crawledAt": "2026-05-11T12:05:38.196Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,11 +39,13 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Sr-AI-ML-Engineer--Video--R-D-_144373",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:59:46.546Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -58,7 +61,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T21:59:46.865Z",
+      "crawledAt": "2026-05-11T12:05:38.517Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -71,16 +74,17 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:59:46.865Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

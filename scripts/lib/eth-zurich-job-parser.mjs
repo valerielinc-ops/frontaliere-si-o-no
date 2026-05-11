@@ -23,7 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -37,7 +37,7 @@ const JOB_DETAIL_BASE = 'https://jobs.ethz.ch';
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicino-JobCrawler/2.0; +https://frontaliereticino.ch)';
 const REQUEST_TIMEOUT_MS = 20_000;
 const DETAIL_RATE_LIMIT_MS = 350;
-const MAX_DETAIL_FETCHES = 60; // hard cap to avoid abusing the host on first run
+const MAX_DETAIL_FETCHES = 200; // cover the full ~110-listing index; rate-limited via DETAIL_RATE_LIMIT_MS
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -246,7 +246,15 @@ async function fetchDetailDescription(url) {
       html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
     if (!blockMatch) return '';
     const text = stripHtml(decodeHtmlEntities(blockMatch[1]));
-    return normalizeSpace(text).slice(0, 4000);
+    // crawler-template.stripHtml converts <li> → "\n• " so list structure
+    // survives; preserve newlines (only collapse intra-line whitespace), then
+    // restore bullet markers for any inline `•` that slipped through.
+    const compact = text
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    return normalizeDescriptionBullets(compact).slice(0, 4000);
   } catch {
     return '';
   }
@@ -302,7 +310,16 @@ export async function fetchAllEthZurichJobs() {
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }
     if (!descriptionText) {
-      descriptionText = `${title} — ${location}. ${listing.ariaLabel}`;
+      const fallbackBits = [
+        `${title} — ETH Zürich (${location}).`,
+        '',
+        'Eckdaten der Stelle:',
+        `• Standort: ${location}${canton ? `, Kanton ${canton}` : ''}`,
+        `• Pensum/Vertrag: ${listing.ariaLabel || 'siehe Stellenbeschrieb'}`,
+        '• Arbeitgeber: ETH Zürich — Eidgenössische Technische Hochschule',
+        '• Bewerbungsplattform: jobs.ethz.ch',
+      ];
+      descriptionText = fallbackBits.join('\n');
     }
 
     const sourceLang = detectLang(descriptionText || title, 'de');

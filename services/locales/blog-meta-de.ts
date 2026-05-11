@@ -7447,6 +7447,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lamal-cmi-frontalieri-conviene-2026.title': 'LAMal oder CMI: Vergleich 2026',
     'blog.article.lamal-cmi-frontalieri-conviene-2026.excerpt': 'Detaillierte Analyse der Kosten und Leistungen zwischen LAMal und CMI für Grenzgänger im Tessin. Entdecken Sie, welche Krankenversicherung sich 2026 lohnt.',
     'blog.article.lamal-cmi-frontalieri-conviene-2026.imageAlt': 'Luganersee mit Blick auf die Schweizer-Italienische Grenze',
+    'blog.article.calcolo-pensione-frontaliere-avs-italiana.title': 'Rentenberechnung für italienische Grenzgänger: So funktioniert\'s',
+    'blog.article.calcolo-pensione-frontaliere-avs-italiana.excerpt': 'Praktischer Leitfaden für Grenzgänger im Tessin: Schweizerische AHV-Beiträge, italienische INPS, Gesamtrechnung und Fristen für die Rente.',
+    'blog.article.calcolo-pensione-frontaliere-avs-italiana.imageAlt': 'Eine ruhige Aussicht auf den Luganersee mit der Schweizer-Italienischen Grenze im Hintergrund, aufgenommen mit einer DSLR-Kamera.',
 };
 
 export default blogMetaDe;

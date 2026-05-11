@@ -135,6 +135,56 @@ function detectEmploymentType(text = '') {
 // every HOCH job is in canton SG, so canton inference happens per-listing.
 const SF_LOCATION_FILTERS = [];
 
+const FETCH_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicino-JobCrawler/2.0; +https://frontaliereticino.ch)';
+const DETAIL_TIMEOUT_MS = 15_000;
+const DETAIL_RATE_LIMIT_MS = 400;
+
+/**
+ * Fetch the public SuccessFactors detail page for a job and extract the
+ * full job description (Aufgaben / Anforderungen / Wir bieten sections).
+ * Returns plain text with `<li>` items preserved as `\n• ` bullets via
+ * the shared stripHtml; empty string on any failure.
+ */
+async function fetchKssgDetailDescription(detailUrl) {
+  if (!detailUrl) return '';
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), DETAIL_TIMEOUT_MS);
+  try {
+    const res = await fetch(detailUrl, {
+      headers: {
+        'User-Agent': FETCH_USER_AGENT,
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'de-CH,de;q=0.9,en;q=0.6',
+      },
+      signal: ctrl.signal,
+      redirect: 'follow',
+    });
+    if (!res.ok) return '';
+    const html = await res.text();
+    // SuccessFactors CSB detail pages render the body inside #jobdescription
+    // or a div with class "jobdescription". Fall back to <main>/<article>.
+    const match =
+      html.match(/<div[^>]*\bid="jobdescription"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+      html.match(/<div[^>]*class="[^"]*\bjobdescription\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+      html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
+      html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+    if (!match) return '';
+    const text = stripHtml(match[1]);
+    // Preserve newlines (and `\n• ` markers from <li> stripping); only collapse
+    // intra-line whitespace runs.
+    return text
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim()
+      .slice(0, 4000);
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function fetchJobListings() {
   const kind = detectSuccessFactorsKind(CAREER_URL);
   if (!kind) {
@@ -193,9 +243,30 @@ export async function fetchAllKssgJobs() {
 
     const location = listing.location || 'St. Gallen';
     const canton = inferSwissTargetCanton(location) || 'SG';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+
+    // Always prefer the real description from the SuccessFactors detail page.
+    // Rate-limited so we don't hammer jobs.h-och.ch.
+    const detailDescription = await fetchKssgDetailDescription(publicUrl);
+    if (publicUrl && publicUrl !== CAREER_URL) {
+      await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
+    }
+
+    // TEMPORARY fallback: when the detail page is unreachable or doesn't
+    // expose the body (e.g. anti-bot / login wall), keep a structured stub so
+    // the page still renders. The long-term fix is upstream — make sure the
+    // detail page is always reachable. <1% of crawls are expected here.
+    const fallbackDescription = [
+      `${title} — Kantonsspital St. Gallen (KSSG / HOCH), ${location}.`,
+      '',
+      'Eckdaten der Stelle:',
+      `• Standort: ${location}, Kanton ${canton}`,
+      `• Arbeitgeber: Kantonsspital St. Gallen (KSSG) — Teil von HOCH Health Ostschweiz`,
+      `• Branche: ${listing.department || 'Spital / Gesundheitswesen'}`,
+      `• Vertragsart: ${listing.contractType || 'siehe Stellenausschreibung'}`,
+      '• Bewerbungsportal: jobs.h-och.ch (SAP SuccessFactors)',
+    ].join('\n');
+    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} kssg ch`);
@@ -211,8 +282,8 @@ export async function fetchAllKssgJobs() {
       companyDomain: KSSG_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Kantonsspital St. Gallen (KSSG / HOCH)`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Kantonsspital St. Gallen (KSSG / HOCH)` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,

@@ -3725,6 +3725,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-pensione-avs-inps-2026': { name: 'Pensione Frontalieri', path: '/articoli-frontaliere/frontaliere-pensione-avs-inps-2026', parent: 'blog' },
     'blog-costo-vivere-lugano-frontalieri-2026': { name: 'Costo vita Lugano', path: '/articoli-frontaliere/costo-vivere-lugano-frontalieri-2026', parent: 'blog' },
     'blog-lamal-cmi-frontalieri-conviene-2026': { name: 'Assicurazione sanitaria', path: '/articoli-frontaliere/lamal-cmi-frontalieri-conviene-2026', parent: 'blog' },
+    'blog-calcolo-pensione-frontaliere-avs-italiana': { name: 'Pensione', path: '/articoli-frontaliere/calcolo-pensione-frontaliere-avs-italiana', parent: 'blog' },
  };
 
  const info = sectionNames[section];

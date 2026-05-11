@@ -150,6 +150,46 @@ const WORKDAY_TENANT_HOST = _WORKDAY_URL.hostname;
 const WORKDAY_SITE_PATH = (_WORKDAY_URL.pathname.replace(/^\/+|\/+$/g, '').split('/').pop()) || 'External';
 const WORKDAY_LOCATION_FILTERS = []; // TODO: e.g. ['187134fccb084a0ea9b4b95f23890dbe'] for CH on most tenants
 
+const DETAIL_RATE_LIMIT_MS = 400;
+const DETAIL_TIMEOUT_MS = 15_000;
+
+/**
+ * Fetch a Workday job's detail JSON (jobPostingInfo.jobDescription is the
+ * HTML body) and return the description as bullet-preserving plain text.
+ * Returns '' on any failure so we can fall back to the structured stub.
+ */
+async function fetchWorkdayJobDetailDescription(apiBase, externalPath) {
+  if (!apiBase || !externalPath) return '';
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), DETAIL_TIMEOUT_MS);
+  try {
+    const url = `${apiBase.replace(/\/+$/, '')}${externalPath}`;
+    const res = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': 'FrontaliereTicino-JobCrawler/2.0 (+https://frontaliereticino.ch)',
+      },
+      signal: ctrl.signal,
+      redirect: 'follow',
+    });
+    if (!res.ok) return '';
+    const json = await res.json();
+    const html = String(json?.jobPostingInfo?.jobDescription || '').trim();
+    if (!html) return '';
+    const text = stripHtml(html);
+    return text
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim()
+      .slice(0, 4000);
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function fetchJobListings() {
   const apiBase = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
   const out = [];
@@ -221,9 +261,31 @@ export async function fetchAllLogitechJobs() {
     const rawLocation = listing.location || '';
     const location = parseWorkdayLocation(rawLocation) || 'Lausanne';
     const canton = inferSwissTargetCanton(location) || 'VD';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+
+    // Always prefer the real description from the Workday detail endpoint
+    // (jobPostingInfo.jobDescription). The listing API only carries title +
+    // location + posted date, not the body.
+    const apiBase = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
+    const detailDescription = await fetchWorkdayJobDetailDescription(apiBase, listing.externalPath);
+    if (listing.externalPath) {
+      await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
+    }
+
+    // TEMPORARY fallback: only used when the Workday detail endpoint refuses
+    // the request (anti-bot or 4xx). Long-term we expect the detail fetch to
+    // succeed in >99% of cases — the stub is here so a single failure doesn't
+    // ship an empty description.
+    const fallbackDescription = [
+      `${title} — Logitech, ${location}.`,
+      '',
+      'Key details:',
+      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
+      '• Employer: Logitech — global designer and manufacturer of consumer electronics',
+      `• Schedule: ${listing.timeType || 'see job posting'}`,
+      '• Apply on: Logitech Workday careers portal',
+    ].join('\n');
+    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} logitech ch`);
@@ -239,8 +301,8 @@ export async function fetchAllLogitechJobs() {
       companyDomain: LOGITECH_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Logitech`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Logitech` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
