@@ -3716,6 +3716,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-utilifatturatolppsa-gpw': { name: 'Fiscale', path: '/articoli-frontaliere/utilifatturatolppsa-gpw', parent: 'blog' },
     'blog-questore-bimbo-pilastro-responsabilita': { name: 'Questore su bimbo caduto dal Pilastro', path: '/articoli-frontaliere/questore-bimbo-pilastro-responsabilita', parent: 'blog' },
     'blog-tasse-frontalieri-ticino-2026': { name: 'Fiscale', path: '/articoli-frontaliere/tasse-frontalieri-ticino-2026', parent: 'blog' },
+    'blog-mobilita-palermo-frontalieri-ticino': { name: 'Mobilità Palermo', path: '/articoli-frontaliere/mobilita-palermo-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

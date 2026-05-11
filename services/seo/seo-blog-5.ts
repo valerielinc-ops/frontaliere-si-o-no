@@ -35330,6 +35330,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mobilita-palermo-frontalieri-ticino': {
+    title: 'Mobilità a Palermo: come si spostano i frontalieri del Ticino',
+    description: 'Scopri le opzioni di trasporto disponibili a Palermo per i frontalieri che lavorano in Ticino e vivono in Sicilia. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, mobilità, palermo, spostano, scopri',
+    ogTitle: 'Mobilità a Palermo: opzioni per i frontalieri del Ticino',
+    ogDescription: 'Scopri le opzioni di trasporto disponibili a Palermo per i frontalieri che lavorano in Ticino e vivono in Sicilia',
+    canonicalPath: '/articoli-frontaliere/mobilita-palermo-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mobilità a Palermo: come si spostano i frontalieri del Ticino",
+      "description": "Scopri le opzioni di trasporto disponibili a Palermo per i frontalieri che lavorano in Ticino e vivono in Sicilia. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobilita-palermo-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una strada affollata di Palermo con persone che si spostano con diversi mezzi di trasporto"
+      },
+      "datePublished": "2026-05-11T03:41:17+00:00",
+      "dateModified": "2026-05-11T03:41:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mobilita-palermo-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

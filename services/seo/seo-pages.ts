@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2526,
+ "numberOfItems": 2527,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7168,7 +7168,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2523, "name": "Opportunità di lavoro per insegnanti nel Canton...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-insegnanti-ticino-opportunita` },
           { "@type": "ListItem", "position": 2524, "name": "Utili e fatturato LPP S.A. – GPW:LPP", "url": `${BASE_URL}/articoli-frontaliere/utilifatturatolppsa-gpw` },
           { "@type": "ListItem", "position": 2525, "name": "Questore su bimbo caduto dal Pilastro: responsa...", "url": `${BASE_URL}/articoli-frontaliere/questore-bimbo-pilastro-responsabilita` },
-          { "@type": "ListItem", "position": 2526, "name": "Tasse frontalieri Ticino: confermato il regime ...", "url": `${BASE_URL}/articoli-frontaliere/tasse-frontalieri-ticino-2026` }
+          { "@type": "ListItem", "position": 2526, "name": "Tasse frontalieri Ticino: confermato il regime ...", "url": `${BASE_URL}/articoli-frontaliere/tasse-frontalieri-ticino-2026` },
+          { "@type": "ListItem", "position": 2527, "name": "Mobilità a Palermo: come si spostano i frontali...", "url": `${BASE_URL}/articoli-frontaliere/mobilita-palermo-frontalieri-ticino` }
  ]
  },
  {

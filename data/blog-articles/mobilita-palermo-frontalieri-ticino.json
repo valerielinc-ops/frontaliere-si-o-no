@@ -1,0 +1,40 @@
+{
+  "id": "mobilita-palermo-frontalieri-ticino",
+  "slug": "mobilita-palermo-frontalieri-ticino",
+  "publishedAt": "2026-05-11T03:41:18.595Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "suggest",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.924833875951768,
+    "confidence": 0.8,
+    "finalScore": 7.939867100761415,
+    "topK": [
+      {
+        "slug": "palma-muralto-ristrutturazione-strategia-2024",
+        "cosine": 0.6843928665945183
+      },
+      {
+        "slug": "palazzo-civico-collegiata-accessibilita-bellinzona-2026",
+        "cosine": 0.6697509562374871
+      },
+      {
+        "slug": "mobilita-sostenibile-citta-vivibili-2026",
+        "cosine": 0.6696299900356127
+      },
+      {
+        "slug": "pista-ciclopedonale-bodio-giornico-2026",
+        "cosine": 0.6694891300846086
+      },
+      {
+        "slug": "momoride-carpooling-benefico-ticino-2024",
+        "cosine": 0.6593142602642476
+      }
+    ],
+    "score": 3.9699335503807074,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

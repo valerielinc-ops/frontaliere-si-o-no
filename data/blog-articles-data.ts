@@ -23636,4 +23636,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'mobilita-palermo-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-05-11T03:41:17.088Z',
+ image: '/images/blog/mobilita-palermo-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

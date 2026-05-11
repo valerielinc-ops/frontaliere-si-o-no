@@ -7422,6 +7422,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tasse-frontalieri-ticino-2026.title': 'Impôts frontalier Ticino: régime actuel confirmé',
     'blog.article.tasse-frontalieri-ticino-2026.excerpt': 'Aucun changement pour les \'anciens\' frontaliers au Ticino. Voici ce qu\'il faut savoir sur les impôts et les remboursements',
     'blog.article.tasse-frontalieri-ticino-2026.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan, journée ensoleillée',
+    'blog.article.mobilita-palermo-frontalieri-ticino.title': 'Mobilité à Palerme: comment se déplacer',
+    'blog.article.mobilita-palermo-frontalieri-ticino.excerpt': 'Découvrez les options de transport disponibles à Palerme pour les frontaliers travaillant au Tessin et vivant en Sicile',
+    'blog.article.mobilita-palermo-frontalieri-ticino.imageAlt': 'Une rue animée de Palerme avec des personnes se déplaçant avec différents moyens de transport',
 };
 
 export default blogMetaFr;

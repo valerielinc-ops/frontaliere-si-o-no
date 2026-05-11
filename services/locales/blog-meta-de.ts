@@ -7421,6 +7421,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tasse-frontalieri-ticino-2026.title': 'Steuern für Grenzgänger im Tessin: Aktuelles System bleibt',
     'blog.article.tasse-frontalieri-ticino-2026.excerpt': 'Keine Änderungen für \'alte\' Grenzgänger im Tessin. Hier erfahren Sie alles über Steuern und Rückerstattungen',
     'blog.article.tasse-frontalieri-ticino-2026.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund, sonniger Tag',
+    'blog.article.mobilita-palermo-frontalieri-ticino.title': 'Mobilität in Palermo: Wie sich Grenzgänger aus dem Tessin fortbewegen',
+    'blog.article.mobilita-palermo-frontalieri-ticino.excerpt': 'Entdecken Sie die verfügbaren Verkehrsoptionen in Palermo für Grenzgänger, die im Tessin arbeiten und in Sizilien leben',
+    'blog.article.mobilita-palermo-frontalieri-ticino.imageAlt': 'Eine belebte Straße in Palermo mit Menschen, die mit verschiedenen Verkehrsmitteln unterwegs sind',
 };
 
 export default blogMetaDe;

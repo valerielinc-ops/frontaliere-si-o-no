@@ -7421,6 +7421,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tasse-frontalieri-ticino-2026.title': 'Ticino cross-border taxes: current regime confirmed',
     'blog.article.tasse-frontalieri-ticino-2026.excerpt': 'No changes for \'old\' cross-border workers in Ticino. Here\'s what to know about taxes and returns',
     'blog.article.tasse-frontalieri-ticino-2026.imageAlt': 'Lake Lugano with a modern building in the background, sunny day',
+    'blog.article.mobilita-palermo-frontalieri-ticino.title': 'Mobility in Palermo: Ticino cross-border commuters\' options',
+    'blog.article.mobilita-palermo-frontalieri-ticino.excerpt': 'Discover the transport options available in Palermo for cross-border workers who live in Sicily and work in Ticino',
+    'blog.article.mobilita-palermo-frontalieri-ticino.imageAlt': 'A busy street in Palermo with people commuting using various modes of transport',
 };
 
 export default blogMetaEn;
