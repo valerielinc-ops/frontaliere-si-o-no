@@ -1941,9 +1941,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  de: localizedSlug(job, 'de'),
  fr: localizedSlug(job, 'fr'),
  };
+ const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
  for (const locale of localeList) {
  const __tActiveJob = startTimer();
- const relPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${perLocaleSlug[locale]}`.replace(/\/+/g, '/');
+ const sectionForJob = buildCantonAwareSection(locale, jobCanton);
+ const relPath = `${localePrefix[locale]}/${sectionForJob}/${perLocaleSlug[locale]}`.replace(/\/+/g, '/');
  // Suppress duplicate per-locale emit. Most-recent (sorted earlier)
  // already won this path; emitting again would only register a
  // collision in dist/.write-collisions.json without changing the
