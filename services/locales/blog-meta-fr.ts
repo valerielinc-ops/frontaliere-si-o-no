@@ -7410,6 +7410,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-residenti.title': 'Chômage: mêmes règles pour les frontaliers et résidents au Tessin',
     'blog.article.disoccupazione-frontalieri-residenti.excerpt': 'Nouvelles normes pour le chômage au Tessin: frontaliers et résidents ont désormais les mêmes droits et obligations. Voici ce qui change',
     'blog.article.disoccupazione-frontalieri-residenti.imageAlt': 'Lac de Lugano avec vue sur la promenade du lac et les bâtiments environnants',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.title': 'Opportunités d\'emploi pour enseignants dans le canton du Tessin',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.excerpt': 'Découvrez les nouvelles opportunités d\'emploi pour enseignants dans le canton du Tessin et comment les travailleurs frontaliers peuvent en profiter',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.imageAlt': 'Salon de l\'emploi à Lugano, Tessin, avec des personnes discutant des opportunités de travail dans l\'éducation',
 };
 
 export default blogMetaFr;

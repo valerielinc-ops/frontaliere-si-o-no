@@ -23600,4 +23600,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavoro-insegnanti-ticino-opportunita',
+ category: 'novita',
+ date: '2026-05-11T01:57:35.626Z',
+ image: '/images/blog/lavoro-insegnanti-ticino-opportunita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

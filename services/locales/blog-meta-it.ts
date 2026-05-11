@@ -7410,6 +7410,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-residenti.title': 'Disoccupazione: stesse regole per frontalieri e residenti in Ticino',
     'blog.article.disoccupazione-frontalieri-residenti.excerpt': 'Nuove norme per la disoccupazione in Ticino: frontalieri e residenti ora hanno gli stessi diritti e obblighi. Ecco cosa cambia',
     'blog.article.disoccupazione-frontalieri-residenti.imageAlt': 'Lago di Lugano con vista sul lungolago e gli edifici circostanti',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.title': 'Opportunità di lavoro per insegnanti nel Canton Ticino',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.excerpt': 'Scopri le nuove opportunità di lavoro per insegnanti nel Canton Ticino e come i frontalieri possono approfittarne',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.imageAlt': 'Fiera del lavoro a Lugano, Ticino, con persone che discutono opportunità di lavoro nell\'istruzione',
 };
 
 export default blogMetaIt;

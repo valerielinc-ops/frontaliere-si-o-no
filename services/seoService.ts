@@ -3712,6 +3712,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giro-ditalia-magnier-froidevaux-2026': { name: 'Novità', path: '/articoli-frontaliere/giro-ditalia-magnier-froidevaux-2026', parent: 'blog' },
     'blog-svizzeri-secondo-pilastro-casa': { name: 'Fiscale', path: '/articoli-frontaliere/svizzeri-secondo-pilastro-casa', parent: 'blog' },
     'blog-disoccupazione-frontalieri-residenti': { name: 'Disoccupazione Ticino', path: '/articoli-frontaliere/disoccupazione-frontalieri-residenti', parent: 'blog' },
+    'blog-lavoro-insegnanti-ticino-opportunita': { name: 'Opportunità lavoro', path: '/articoli-frontaliere/lavoro-insegnanti-ticino-opportunita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

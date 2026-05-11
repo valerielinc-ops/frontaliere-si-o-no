@@ -7409,6 +7409,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-residenti.title': 'Arbeitslosigkeit: Gleiche Regeln für Grenzgänger und Einwohner',
     'blog.article.disoccupazione-frontalieri-residenti.excerpt': 'Neue Vorschriften zur Arbeitslosigkeit im Tessin: Grenzgänger und Einwohner haben nun dieselben Rechte und Pflichten. Hier erfahren Sie, was sich ändert',
     'blog.article.disoccupazione-frontalieri-residenti.imageAlt': 'Luganersee mit Blick auf die Uferpromenade und die umliegenden Gebäude',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.title': 'Lehrstellen im Kanton Tessin',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.excerpt': 'Entdecken Sie neue Lehrstellen im Kanton Tessin und wie Grenzgänger davon profitieren können',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.imageAlt': 'Jobmesse in Lugano, Tessin, mit Menschen, die über Arbeitsmöglichkeiten im Bildungsbereich sprechen',
 };
 
 export default blogMetaDe;

@@ -7409,6 +7409,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-residenti.title': 'Unemployment: same rules for cross-border workers and residents in Ticino',
     'blog.article.disoccupazione-frontalieri-residenti.excerpt': 'New rules for unemployment in Ticino: cross-border workers and residents now have the same rights and obligations. Here\'s what changes',
     'blog.article.disoccupazione-frontalieri-residenti.imageAlt': 'Lake Lugano with a view of the lakeside and surrounding buildings',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.title': 'Teaching jobs in Ticino Canton',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.excerpt': 'Discover new teaching job opportunities in Ticino Canton and how cross-border workers can benefit',
+    'blog.article.lavoro-insegnanti-ticino-opportunita.imageAlt': 'Job fair in Lugano, Ticino, with people discussing job opportunities in education',
 };
 
 export default blogMetaEn;
