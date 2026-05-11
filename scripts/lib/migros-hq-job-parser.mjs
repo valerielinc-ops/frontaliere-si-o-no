@@ -76,6 +76,8 @@ export function isMigrosHqJob(job) {
     key === MIGROS_HQ_KEY ||
     key.startsWith('migros-hq') ||
     company.includes('migros hq') ||
+    url.includes('migros.ch') ||
+    url.includes('migros.com') ||
     url.includes('jobs.smartrecruiters.com/migros') ||
     url.includes('api.smartrecruiters.com/v1/companies/migros')
   );

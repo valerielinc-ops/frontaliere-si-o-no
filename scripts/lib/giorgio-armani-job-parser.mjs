@@ -93,21 +93,10 @@ export function isGiorgioArmaniSwissJob(title = '', country = '') {
 }
 
 /**
- * Infer canton from job title or location text.
- * Falls back to target-swiss-locations module.
+ * Infer canton from job title or location text via the BFS municipality dataset.
  */
 export function inferGiorgioArmaniCanton(title = '', location = '') {
-  const text = `${title} ${location}`.toLowerCase();
-  if (/zurigo|zurich|zürich/.test(text)) return 'ZH';
-  if (/landquart|graubünden|grischun/.test(text)) return 'GR';
-  if (/ginevra|genève|genf|geneva/.test(text)) return 'GE';
-  if (/berna|bern\b/.test(text)) return 'BE';
-  if (/basilea|basel|bâle/.test(text)) return 'BS';
-  if (/losanna|lausanne/.test(text)) return 'VD';
-  if (/lucerna|luzern|lucerne/.test(text)) return 'LU';
-  if (/lugano|mendrisio|chiasso|bellinzona|locarno|stabio/.test(text)) return 'TI';
-  if (/davos|st\.?\s*moritz|saint-moritz|engadin/.test(text)) return 'GR';
-  return inferAnyCanton(text) || '';
+  return inferAnyCanton(`${title} ${location}`);
 }
 
 /**

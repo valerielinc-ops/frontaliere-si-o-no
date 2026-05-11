@@ -45,6 +45,7 @@ import {
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -120,21 +121,8 @@ function isSwissLocation(locationText = '') {
   return SWISS_LOCATION_KEYWORDS.some((kw) => loc.includes(kw));
 }
 
-function isTicinoLocation(locationText = '') {
-  const loc = String(locationText || '').toLowerCase();
-  return ['mendrisio', 'lugano', 'chiasso', 'stabio', 'coldrerio', 'balerna', 'novazzano', 'ticino', 'tessin'].some((kw) => loc.includes(kw));
-}
-
 function inferCanton(location = '') {
-  const loc = normalize(location);
-  if (/mendrisio|lugano|chiasso|stabio|coldrerio|balerna|novazzano|ticino|tessin|manno|cadempino|bellinzona|locarno|agno|sorengo/.test(loc)) return 'TI';
-  if (/graubünd|graubund|landquart|chur|davos/.test(loc)) return 'GR';
-  if (/zurich|zürich/.test(loc)) return 'ZH';
-  if (/geneva|genève|genf|plan.les.ouates/.test(loc)) return 'GE';
-  if (/bern|berne/.test(loc)) return 'BE';
-  if (/basel|bâle/.test(loc)) return 'BS';
-  if (/lausanne|vaud/.test(loc)) return 'VD';
-  return '';
+  return inferAnyCanton(String(location || ''));
 }
 
 function detectCategory(title = '') {

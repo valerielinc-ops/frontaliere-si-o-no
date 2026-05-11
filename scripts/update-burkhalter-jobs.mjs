@@ -45,6 +45,8 @@ import {
   deriveLocalizedSlug,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -55,6 +57,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'burkhalter-group';
 const COMPANY_NAME = 'Burkhalter Group';
 const COMPANY_DOMAIN = 'burkhalter.ch';
+const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'ZH';
 
 const VACANCIES_URL = 'https://www.burkhalter.ch/en/jobs-and-careers/vacancies';
 const BASE_URL = 'https://www.burkhalter.ch';
@@ -65,12 +68,8 @@ const UA =
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 const CONCURRENCY = Number(process.env.JOBS_CRAWLER_CONCURRENCY) || 4;
 
-// Target cantons — Burkhalter has jobs across Switzerland but we focus on border cantons
-const TARGET_CANTONS = new Set([
-  'grisons', 'graubünden', 'grigioni',
-  'ticino', 'tessin',
-  'valais', 'wallis', 'vallese',
-]);
+// Burkhalter spans all 26 Swiss cantons — accept any target canton. Canton scope
+// is governed by TARGET_CANTONS in scripts/lib/crawler-location-config.mjs.
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function readJson(filePath, fallback = []) {
@@ -94,16 +93,17 @@ function isTargetJob(job = {}) {
   );
 }
 
-function mapCanton(rawCanton = '') {
-  const c = normalize(rawCanton);
-  if (c === 'grisons' || c === 'graubünden' || c === 'grigioni') return 'GR';
-  if (c === 'ticino' || c === 'tessin') return 'TI';
-  if (c === 'valais' || c === 'wallis' || c === 'vallese') return 'VS';
-  return c.toUpperCase().slice(0, 2);
+function mapCanton(rawCanton = '', cityHint = '') {
+  const direct = inferAnyCanton(rawCanton);
+  if (direct) return direct;
+  const fromCity = cityHint ? inferAnyCanton(cityHint) : '';
+  if (fromCity) return fromCity;
+  const c = normalize(rawCanton).toUpperCase().slice(0, 2);
+  return isTargetCanton(c) ? c : '';
 }
 
-function isRelevantCanton(rawCanton = '') {
-  return TARGET_CANTONS.has(normalize(rawCanton));
+function isRelevantCanton(rawCanton = '', cityHint = '') {
+  return isTargetCanton(mapCanton(rawCanton, cityHint));
 }
 
 function jobMatchKey(job) {
@@ -205,7 +205,7 @@ function buildJob(raw, description = '') {
   const title = String(raw.job || '').trim();
   const company = String(raw.company || COMPANY_NAME).trim();
   const city = String(raw.city || '').trim();
-  const canton = mapCanton(raw.canton);
+  const canton = mapCanton(raw.canton, city) || DEFAULT_CANTON;
   const slug = slugify(`${title}-${company}-${city}`);
   const detailUrl = raw.url
     ? (raw.url.startsWith('http') ? raw.url : `${BASE_URL}${raw.url}`)
@@ -373,9 +373,9 @@ async function main() {
   const allJobs = extractJobsJson(html);
   console.log(`📋 Found ${allJobs.length} total Burkhalter Group jobs`);
 
-  // Step 3: Filter for relevant cantons
-  const relevantJobs = allJobs.filter((j) => isRelevantCanton(j.canton));
-  console.log(`🎯 Filtered to ${relevantJobs.length} jobs in target cantons (GR/TI/VS)`);
+  // Step 3: Filter for target cantons (all 26 by default — see crawler-location-config.mjs).
+  const relevantJobs = allJobs.filter((j) => isRelevantCanton(j.canton, j.city));
+  console.log(`🎯 Filtered to ${relevantJobs.length} jobs in target cantons`);
 
   if (relevantJobs.length === 0) {
     console.log('ℹ️ No relevant Burkhalter Group jobs found. Exiting OK.');

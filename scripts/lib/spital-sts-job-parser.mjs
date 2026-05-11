@@ -26,7 +26,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const SPITAL_STS_KEY = 'spital-sts';
-export const SPITAL_STS_COMPANY_NAME = 'Spital STS AG';
+export const SPITAL_STS_COMPANY_NAME = 'Spital STS';
 export const SPITAL_STS_COMPANY_DOMAIN = 'spitalstsag.ch';
 
 const PROSPECTIVE_TENANT = '1000717';

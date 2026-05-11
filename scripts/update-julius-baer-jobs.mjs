@@ -21,7 +21,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
-import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isTicinoLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl } from './lib/julius-baer-job-parser.mjs';
+import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isSwissLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl } from './lib/julius-baer-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -121,7 +121,7 @@ async function listAllJobs() {
       const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, { method: 'POST', body });
       if (!data || !Array.isArray(data.jobPostings)) break;
       for (const p of data.jobPostings) {
-        if (!seenPaths.has(p.externalPath) && isTicinoLocation(p.locationsText || p.title || '')) {
+        if (!seenPaths.has(p.externalPath) && isSwissLocation(p.locationsText || p.title || '')) {
           seenPaths.add(p.externalPath);
           allPostings.push(p);
           found++;
@@ -147,14 +147,14 @@ async function fetchJuliusBaerJobs() {
   const allListings = await listAllJobs();
   console.log(`  📋 Total listings: ${allListings.length}`);
 
-  // Filter for Ticino/Lugano
-  const ticinoListings = allListings.filter((p) => isTicinoLocation(p.locationsText || ''));
-  console.log(`  📋 Ticino/Lugano listings: ${ticinoListings.length}`);
+  // Filter for any target Swiss canton
+  const swissListings = allListings.filter((p) => isSwissLocation(p.locationsText || ''));
+  console.log(`  📋 Swiss target-canton listings: ${swissListings.length}`);
 
-  if (ticinoListings.length === 0) return [];
+  if (swissListings.length === 0) return [];
 
   const jobs = [];
-  for (const listing of ticinoListings) {
+  for (const listing of swissListings) {
     const externalPath = listing.externalPath;
     if (!externalPath) continue;
     console.log(`  📄 Fetching detail: ${listing.title}`);

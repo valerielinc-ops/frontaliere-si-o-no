@@ -80,11 +80,14 @@ export function slugify(value = '', suffix = '') {
 }
 
 /**
- * Check if a Workday location string refers to Lugano/Ticino.
+ * Check if a Workday location string refers to any target Swiss canton.
  */
-export function isTicinoLocation(locationText = '') {
+export function isSwissLocation(locationText = '') {
   return isTargetSwissLocation(locationText);
 }
+
+/** @deprecated Misleading legacy name; alias of isSwissLocation. Keep until callers are migrated. */
+export const isTicinoLocation = isSwissLocation;
 
 /**
  * Parse city name from Workday location text.
@@ -165,7 +168,7 @@ export function parseWorkdayListings(apiResponse) {
     seen.add(externalPath);
 
     // Filter for Ticino/Lugano
-    if (!isTicinoLocation(locationsText)) continue;
+    if (!isSwissLocation(locationsText)) continue;
 
     results.push({
       title,
