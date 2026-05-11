@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2518,
+ "numberOfItems": 2519,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7160,7 +7160,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2515, "name": "Esplosione in miniera in Colombia: 4 morti", "url": `${BASE_URL}/articoli-frontaliere/esplosione-miniera-colombia-4-morti` },
           { "@type": "ListItem", "position": 2516, "name": "Referendum sui Castelli di Bellinzona: il popol...", "url": `${BASE_URL}/articoli-frontaliere/referendum-castelli-bellinzona-2026` },
           { "@type": "ListItem", "position": 2517, "name": "Fabienne Schlumpf seconda a Ginevra: ritorno in...", "url": `${BASE_URL}/articoli-frontaliere/maratona-schlumpf-ginevra-2026` },
-          { "@type": "ListItem", "position": 2518, "name": "Siviero rieletto presidente Swiss Basketball", "url": `${BASE_URL}/articoli-frontaliere/siviero-rieletto-swiss-basketball` }
+          { "@type": "ListItem", "position": 2518, "name": "Siviero rieletto presidente Swiss Basketball", "url": `${BASE_URL}/articoli-frontaliere/siviero-rieletto-swiss-basketball` },
+          { "@type": "ListItem", "position": 2519, "name": "Ticino: blocco ristorni in discussione per tens...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-bloccati-ticino-italia` }
  ]
  },
  {

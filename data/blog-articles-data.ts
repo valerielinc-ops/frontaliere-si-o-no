@@ -23564,4 +23564,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ristorni-bloccati-ticino-italia',
+ category: 'fiscale',
+ date: '2026-05-11T01:15:17.021Z',
+ image: '/images/blog/ristorni-bloccati-ticino-italia.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

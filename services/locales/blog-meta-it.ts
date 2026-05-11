@@ -7398,6 +7398,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.siviero-rieletto-swiss-basketball.title': 'Siviero rieletto presidente Swiss Basketball',
     'blog.article.siviero-rieletto-swiss-basketball.excerpt': 'Andrea Siviero confermato alla guida della federazione svizzera di basket con 31 voti contro 24 del rivale Sergi',
     'blog.article.siviero-rieletto-swiss-basketball.imageAlt': 'Campo da basket a Lugano con giocatori svizzeri e italiani',
+    'blog.article.ristorni-bloccati-ticino-italia.title': 'Ticino: blocco ristorni in discussione per tensione con Italia',
+    'blog.article.ristorni-bloccati-ticino-italia.excerpt': 'Il presidente del Consiglio di Stato Claudio Zali propone di bloccare i ristorni come risposta alle richieste italiane sulla tassa salute per i vecchi frontalieri.',
+    'blog.article.ristorni-bloccati-ticino-italia.imageAlt': 'Vista del Lago di Lugano con il confine italo-svizzero',
 };
 
 export default blogMetaIt;
