@@ -106,6 +106,46 @@ import {
   renderEntityCard,
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
+import { resolveCantonSection as sharedResolveCantonSection } from './shared/cantonSection';
+import { getCantonCities } from './shared/cantonCities';
+
+// ── Canton-aware section helpers (P2.S1) ──────────────────────────
+//
+// Phase 6 (Cathedral): replace TI-literal section slugs with canton-aware
+// `resolveCantonSection(locale, canton)`. The plugin still emits a legacy
+// TI-only snapshot block (per V2 plan P2-A "SnapshotCity adapter") plus the
+// per-canton snapshot pages emitted by `jobMarketSnapshotChCantonPages.ts`.
+// For the legacy block we always pass canton = 'TI', so the helper early-
+// returns `cerca-lavoro-ticino` / `find-jobs-ticino` / `jobs-im-tessin` /
+// `trouver-emploi-tessin` → TI URLs stay byte-identical.
+
+// Precomputed legacy-TI section slug per locale — used by the static COPY
+// arrays below (relatedLinks, etc.) which are evaluated at module init.
+const LEGACY_TI_SECTION: Record<JobMarketSnapshotLocale, string> = {
+  it: sharedResolveCantonSection('it', 'TI'),
+  en: sharedResolveCantonSection('en', 'TI'),
+  de: sharedResolveCantonSection('de', 'TI'),
+  fr: sharedResolveCantonSection('fr', 'TI'),
+};
+
+// P2-A adapter: build a SnapshotCity[] from the cathedral canton-cities
+// registry so canton-parameterised aggregations can reuse the same shape
+// as the legacy `TICINO_CITIES` constant. The returned shape mirrors the
+// `SnapshotCity` interface declared further down in this file (TS hoists
+// interface declarations so the forward reference is safe).
+export function cantonCitiesAsSnapshot(canton: string): SnapshotCity[] {
+  return getCantonCities(canton).map((name) => ({
+    key: name
+      .toLowerCase()
+      .split(' (')[0]
+      .trim()
+      .replace(/\./g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, ''),
+    name,
+    canton,
+  }));
+}
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F4 job-market-snapshot feature.
@@ -117,12 +157,10 @@ import {
 
 type JobMarketDiscoverMoreCta = { title: string; href: string };
 
-const JOB_BOARD_SLUG: Record<JobMarketSnapshotLocale, string> = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
+// Discover-more CTAs are emitted for the legacy TI snapshot block, so the
+// job-board slug stays anchored to the TI section (helper early-returns the
+// legacy slug — byte-identical to the previous literals).
+const JOB_BOARD_SLUG: Record<JobMarketSnapshotLocale, string> = LEGACY_TI_SECTION;
 
 const SALARY_STATS_PATH: Record<JobMarketSnapshotLocale, string> = {
   it: '/statistiche/confronta-stipendi/',
@@ -842,11 +880,11 @@ const COPY: Record<JobMarketSnapshotLocale, LocalisedCopy> = {
       'Stiamo iniziando a raccogliere lo storico settimanale del mercato ticinese. Questo primo report è basato sullo snapshot corrente delle offerte: i confronti week-over-week compariranno non appena avremo almeno due settimane complete di dati.',
     relatedLinksHeading: 'Approfondimenti',
     relatedLinks: [
-      { href: '/cerca-lavoro-ticino/lugano/', label: 'Lavoro a Lugano' },
-      { href: '/cerca-lavoro-ticino/mendrisio/', label: 'Lavoro a Mendrisio' },
-      { href: '/cerca-lavoro-ticino/bellinzona/', label: 'Lavoro a Bellinzona' },
-      { href: '/cerca-lavoro-ticino/ultimi-3-giorni/', label: 'Offerte degli ultimi 3 giorni' },
-      { href: '/cerca-lavoro-ticino/', label: 'Tutte le offerte di lavoro in Ticino' },
+      { href: `/${LEGACY_TI_SECTION.it}/lugano/`, label: 'Lavoro a Lugano' },
+      { href: `/${LEGACY_TI_SECTION.it}/mendrisio/`, label: 'Lavoro a Mendrisio' },
+      { href: `/${LEGACY_TI_SECTION.it}/bellinzona/`, label: 'Lavoro a Bellinzona' },
+      { href: `/${LEGACY_TI_SECTION.it}/ultimi-3-giorni/`, label: 'Offerte degli ultimi 3 giorni' },
+      { href: `/${LEGACY_TI_SECTION.it}/`, label: 'Tutte le offerte di lavoro in Ticino' },
     ],
     breadcrumbHome: 'Home',
     weekDateRange: (start, end) => weekRangeLabel(start, end, 'it'),
@@ -904,11 +942,11 @@ const COPY: Record<JobMarketSnapshotLocale, LocalisedCopy> = {
       'We are just starting to collect the weekly history of the Ticino market. This first report is based on the current postings snapshot: week-over-week comparisons will appear as soon as we have at least two complete weeks of data.',
     relatedLinksHeading: 'Related reading',
     relatedLinks: [
-      { href: '/en/find-jobs-ticino/lugano/', label: 'Jobs in Lugano' },
-      { href: '/en/find-jobs-ticino/mendrisio/', label: 'Jobs in Mendrisio' },
-      { href: '/en/find-jobs-ticino/bellinzona/', label: 'Jobs in Bellinzona' },
-      { href: '/en/find-jobs-ticino/last-3-days/', label: 'Last 3 days postings' },
-      { href: '/en/find-jobs-ticino/', label: 'All Ticino jobs' },
+      { href: `/en/${LEGACY_TI_SECTION.en}/lugano/`, label: 'Jobs in Lugano' },
+      { href: `/en/${LEGACY_TI_SECTION.en}/mendrisio/`, label: 'Jobs in Mendrisio' },
+      { href: `/en/${LEGACY_TI_SECTION.en}/bellinzona/`, label: 'Jobs in Bellinzona' },
+      { href: `/en/${LEGACY_TI_SECTION.en}/last-3-days/`, label: 'Last 3 days postings' },
+      { href: `/en/${LEGACY_TI_SECTION.en}/`, label: 'All Ticino jobs' },
     ],
     breadcrumbHome: 'Home',
     weekDateRange: (start, end) => weekRangeLabel(start, end, 'en'),
@@ -966,11 +1004,11 @@ const COPY: Record<JobMarketSnapshotLocale, LocalisedCopy> = {
       'Wir beginnen gerade, die Wochenhistorie des Tessiner Marktes zu erfassen. Dieser erste Bericht basiert auf dem aktuellen Snapshot der Anzeigen: Wochenvergleiche erscheinen, sobald mindestens zwei vollständige Wochen vorliegen.',
     relatedLinksHeading: 'Weiterführende Seiten',
     relatedLinks: [
-      { href: '/de/jobs-im-tessin/lugano/', label: 'Jobs in Lugano' },
-      { href: '/de/jobs-im-tessin/mendrisio/', label: 'Jobs in Mendrisio' },
-      { href: '/de/jobs-im-tessin/bellinzona/', label: 'Jobs in Bellinzona' },
-      { href: '/de/jobs-im-tessin/letzte-3-tage/', label: 'Anzeigen der letzten 3 Tage' },
-      { href: '/de/jobs-im-tessin/', label: 'Alle Tessiner Jobs' },
+      { href: `/de/${LEGACY_TI_SECTION.de}/lugano/`, label: 'Jobs in Lugano' },
+      { href: `/de/${LEGACY_TI_SECTION.de}/mendrisio/`, label: 'Jobs in Mendrisio' },
+      { href: `/de/${LEGACY_TI_SECTION.de}/bellinzona/`, label: 'Jobs in Bellinzona' },
+      { href: `/de/${LEGACY_TI_SECTION.de}/letzte-3-tage/`, label: 'Anzeigen der letzten 3 Tage' },
+      { href: `/de/${LEGACY_TI_SECTION.de}/`, label: 'Alle Tessiner Jobs' },
     ],
     breadcrumbHome: 'Startseite',
     weekDateRange: (start, end) => weekRangeLabel(start, end, 'de'),
@@ -1028,11 +1066,11 @@ const COPY: Record<JobMarketSnapshotLocale, LocalisedCopy> = {
       'Nous commençons à peine à collecter l\'historique hebdomadaire du marché tessinois. Ce premier rapport est basé sur le snapshot actuel des offres : les comparaisons d\'une semaine sur l\'autre apparaîtront dès que nous aurons au moins deux semaines complètes de données.',
     relatedLinksHeading: 'Pour aller plus loin',
     relatedLinks: [
-      { href: '/fr/trouver-emploi-tessin/lugano/', label: 'Emploi à Lugano' },
-      { href: '/fr/trouver-emploi-tessin/mendrisio/', label: 'Emploi à Mendrisio' },
-      { href: '/fr/trouver-emploi-tessin/bellinzona/', label: 'Emploi à Bellinzona' },
-      { href: '/fr/trouver-emploi-tessin/3-derniers-jours/', label: 'Offres des 3 derniers jours' },
-      { href: '/fr/trouver-emploi-tessin/', label: 'Toutes les offres au Tessin' },
+      { href: `/fr/${LEGACY_TI_SECTION.fr}/lugano/`, label: 'Emploi à Lugano' },
+      { href: `/fr/${LEGACY_TI_SECTION.fr}/mendrisio/`, label: 'Emploi à Mendrisio' },
+      { href: `/fr/${LEGACY_TI_SECTION.fr}/bellinzona/`, label: 'Emploi à Bellinzona' },
+      { href: `/fr/${LEGACY_TI_SECTION.fr}/3-derniers-jours/`, label: 'Offres des 3 derniers jours' },
+      { href: `/fr/${LEGACY_TI_SECTION.fr}/`, label: 'Toutes les offres au Tessin' },
     ],
     breadcrumbHome: 'Accueil',
     weekDateRange: (start, end) => weekRangeLabel(start, end, 'fr'),
@@ -1283,11 +1321,15 @@ function renderCityBreakdown(
   locale: JobMarketSnapshotLocale,
 ): string {
   if (items.length === 0) return '';
+  // Phase 6 (Cathedral): legacy TI city-breakdown — route through the helper
+  // with canton='TI' so the slug stays byte-identical while migrating off
+  // hard-coded literals.
+  const tiSection = sharedResolveCantonSection(locale, 'TI');
   const cityLinkBase: Record<JobMarketSnapshotLocale, string> = {
-    it: '/cerca-lavoro-ticino',
-    en: '/en/find-jobs-ticino',
-    de: '/de/jobs-im-tessin',
-    fr: '/fr/trouver-emploi-tessin',
+    it: `/${tiSection}`,
+    en: `/en/${tiSection}`,
+    de: `/de/${tiSection}`,
+    fr: `/fr/${tiSection}`,
   };
   const hubKeys = new Set<string>(CITY_HUB_KEYS as readonly string[]);
   const rows = items
@@ -1434,11 +1476,15 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${stats.medianSalary !== null ? renderStatTile(copy.statMedianSalary, `${stats.medianSalary.toLocaleString('en-US').replace(/,/g, '\u202f')} CHF`, 'neutral') : ''}
   </section>`;
 
+  // Phase 6 (Cathedral): legacy TI snapshot — route the role-search base
+  // through the helper with canton='TI' (byte-identical to the prior
+  // literal slugs).
+  const snapTiSection = sharedResolveCantonSection(locale, 'TI');
   const jobBoardSearchBaseSnapshot: Record<JobMarketSnapshotLocale, string> = {
-    it: '/cerca-lavoro-ticino/',
-    en: '/en/find-jobs-ticino/',
-    de: '/de/jobs-im-tessin/',
-    fr: '/fr/trouver-emploi-tessin/',
+    it: `/${snapTiSection}/`,
+    en: `/en/${snapTiSection}/`,
+    de: `/de/${snapTiSection}/`,
+    fr: `/fr/${snapTiSection}/`,
   };
   // Common role-slug → sector hub mapping (mirror of the table in
   // weeklyEmployersPlugin.ts:rolesHtml). Roles that map to a curated hub
@@ -2421,11 +2467,14 @@ interface SectorCopy {
   faq: (sectorLabel: string, stats: SectorStats) => Array<{ q: string; a: string }>;
 }
 
+// Phase 6 (Cathedral): the legacy TI sector hub prefix — pre-computed via
+// `LEGACY_TI_SECTION` so the literal section slugs flow through the shared
+// canton helper. TI URLs stay byte-identical.
 const CITY_SECTOR_HUB_PREFIX: Record<JobMarketSnapshotLocale, string> = {
-  it: '/cerca-lavoro-ticino',
-  en: '/en/find-jobs-ticino',
-  de: '/de/jobs-im-tessin',
-  fr: '/fr/trouver-emploi-tessin',
+  it: `/${LEGACY_TI_SECTION.it}`,
+  en: `/en/${LEGACY_TI_SECTION.en}`,
+  de: `/de/${LEGACY_TI_SECTION.de}`,
+  fr: `/fr/${LEGACY_TI_SECTION.fr}`,
 };
 
 const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
@@ -2452,7 +2501,7 @@ const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
     trendEmpty:
       'Lo storico a 12 settimane per questo settore è ancora in costruzione: il grafico si popola man mano che raccogliamo nuovi snapshot.',
     sectorHubCta: (label) => `Vedi tutte le offerte ${label} in Ticino`,
-    sectorHubLink: (sectorSlug, _locale) => `/cerca-lavoro-ticino/${sectorSlug}/`,
+    sectorHubLink: (sectorSlug, _locale) => `/${LEGACY_TI_SECTION.it}/${sectorSlug}/`,
     snapshotRootCta: 'Report mercato del lavoro Ticino',
     methodologyHeading: 'Metodologia',
     methodologyBody: (label) =>
@@ -2502,7 +2551,7 @@ const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
     trendEmpty:
       'The 12-week history for this sector is still being collected: the chart fills in as we gather snapshots.',
     sectorHubCta: (label) => `See all ${label} openings in Ticino`,
-    sectorHubLink: (sectorSlug, _locale) => `/en/find-jobs-ticino/${sectorSlug}/`,
+    sectorHubLink: (sectorSlug, _locale) => `/en/${LEGACY_TI_SECTION.en}/${sectorSlug}/`,
     snapshotRootCta: 'Ticino job market report',
     methodologyHeading: 'Methodology',
     methodologyBody: (label) =>
@@ -2552,7 +2601,7 @@ const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
     trendEmpty:
       'Die 12-Wochen-Historie für diese Branche wird noch erfasst: Die Grafik füllt sich mit jedem neuen Snapshot.',
     sectorHubCta: (label) => `Alle ${label}-Stellen im Tessin ansehen`,
-    sectorHubLink: (sectorSlug, _locale) => `/de/jobs-im-tessin/${sectorSlug}/`,
+    sectorHubLink: (sectorSlug, _locale) => `/de/${LEGACY_TI_SECTION.de}/${sectorSlug}/`,
     snapshotRootCta: 'Tessiner Arbeitsmarkt-Bericht',
     methodologyHeading: 'Methodik',
     methodologyBody: (label) =>
@@ -2602,7 +2651,7 @@ const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
     trendEmpty:
       "L'historique sur 12 semaines pour ce secteur est encore en construction : le graphique se remplira au fil des snapshots.",
     sectorHubCta: (label) => `Voir toutes les offres ${label} au Tessin`,
-    sectorHubLink: (sectorSlug, _locale) => `/fr/trouver-emploi-tessin/${sectorSlug}/`,
+    sectorHubLink: (sectorSlug, _locale) => `/fr/${LEGACY_TI_SECTION.fr}/${sectorSlug}/`,
     snapshotRootCta: 'Rapport marché du travail Tessin',
     methodologyHeading: 'Méthodologie',
     methodologyBody: (label) =>
