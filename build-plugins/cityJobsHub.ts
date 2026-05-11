@@ -15,13 +15,78 @@
 import type { JobBoardLocale } from './jobBoardSeo';
 import { buildCityHubTitle } from '../services/seo/job-board-titles';
 import { buildCityHubMeta } from '../services/seo/meta-descriptions';
+import { getCantonCities, normalizeCitySlug, getCityCanton } from './shared/cantonCities';
 
-export type CityHubKey = 'lugano' | 'mendrisio' | 'bellinzona' | 'locarno' | 'chiasso';
+/**
+ * P1.3 (Phase 2, 2026-05-11) — `CityHubKey` lifted from a 5-TI-city literal
+ * union to `string`. The allowlist is now data-driven from
+ * `data/canton-municipalities.json` via `getCantonCities(canton)` and
+ * `normalizeCitySlug()`. Existing TI URLs
+ * (`/cerca-lavoro-ticino/{lugano|mendrisio|bellinzona|locarno|chiasso}/`)
+ * remain byte-identical: the 5 legacy TI city slugs are still emitted by
+ * the legacy data exports below, which are now thin aliases over the
+ * data-driven helpers.
+ */
+export type CityHubKey = string;
 
-export const CITY_HUB_KEYS: readonly CityHubKey[] = ['lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso'] as const;
+/**
+ * Returns true when `citySlug` is a valid hub slug for the given canton
+ * (or, when `canton` is omitted, an unambiguous bare city slug). Used by
+ * the router to disambiguate `<section>/<second>/` between a city hub
+ * and a job detail slug.
+ */
+export function isKnownCityHub(citySlug: string, canton?: string): boolean {
+  const normalized = String(citySlug || '').toLowerCase().trim();
+  if (!normalized) return false;
+  const inferredCanton = canton ? canton.toUpperCase() : getCityCanton(normalized);
+  if (!inferredCanton) return false;
+  const cities = getCantonCities(inferredCanton);
+  return cities.some((c) => normalizeCitySlug(c) === normalized);
+}
 
-/** Display name for each city (used in breadcrumbs and headings). */
-export const CITY_HUB_DISPLAY_NAME: Record<CityHubKey, string> = {
+/** Display label for a city slug. Lookup is canton-scoped when canton is provided. */
+export function cityHubDisplayName(citySlug: string, canton?: string): string {
+  const normalized = String(citySlug || '').toLowerCase().trim();
+  const inferredCanton = canton ? canton.toUpperCase() : (getCityCanton(normalized) ?? 'TI');
+  const cities = getCantonCities(inferredCanton);
+  const match = cities.find((c) => normalizeCitySlug(c) === normalized);
+  return match ?? (normalized.charAt(0).toUpperCase() + normalized.slice(1));
+}
+
+/** URL slug for a city. Locale-independent — same slug across IT/EN/DE/FR. */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function cityHubSlug(city: string, _locale: JobBoardLocale): string {
+  return normalizeCitySlug(city);
+}
+
+/**
+ * The 5 TI cities that previously formed the literal `CityHubKey` union.
+ * Code paths that intentionally target only the legacy TI hub set should
+ * iterate this constant; everything else should iterate
+ * `getCantonCities(canton).map(normalizeCitySlug)`.
+ */
+export const TI_LEGACY_CITY_HUB_KEYS: readonly string[] = [
+  'lugano',
+  'mendrisio',
+  'bellinzona',
+  'locarno',
+  'chiasso',
+] as const;
+
+/**
+ * @deprecated Use {@link TI_LEGACY_CITY_HUB_KEYS} when targeting the 5 TI
+ * legacy cities, or `getCantonCities(canton).map(normalizeCitySlug)` for
+ * generic per-canton iteration. Kept as a thin alias so unmigrated
+ * consumers (jobsSeoPagesPlugin's TI emission paths, jobMarketSnapshot,
+ * marketReport) keep emitting byte-identical TI HTML.
+ */
+export const CITY_HUB_KEYS: readonly string[] = TI_LEGACY_CITY_HUB_KEYS;
+
+/**
+ * @deprecated Use {@link cityHubDisplayName}(slug, canton). Kept for the
+ * TI-legacy emitters that hard-code the 5 city slugs.
+ */
+export const CITY_HUB_DISPLAY_NAME: Record<string, string> = {
   lugano: 'Lugano',
   mendrisio: 'Mendrisio',
   bellinzona: 'Bellinzona',
@@ -29,8 +94,12 @@ export const CITY_HUB_DISPLAY_NAME: Record<CityHubKey, string> = {
   chiasso: 'Chiasso',
 };
 
-/** Per-locale URL slug for each city. Italian-friendly proper nouns — same across locales. */
-export const CITY_HUB_SLUG: Record<JobBoardLocale, Record<CityHubKey, string>> = {
+/**
+ * @deprecated Use {@link cityHubSlug}(cityName, locale). Per-locale slugs
+ * are identical to the lowercase city name for all 5 TI cities, so this
+ * map is just a thin alias.
+ */
+export const CITY_HUB_SLUG: Record<JobBoardLocale, Record<string, string>> = {
   it: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona', locarno: 'locarno', chiasso: 'chiasso' },
   en: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona', locarno: 'locarno', chiasso: 'chiasso' },
   de: { lugano: 'lugano', mendrisio: 'mendrisio', bellinzona: 'bellinzona', locarno: 'locarno', chiasso: 'chiasso' },
@@ -60,13 +129,16 @@ export interface CityHubPath {
 }
 
 /**
- * Return the canonical path for a given locale+city.
- * Always ends with a trailing slash.
+ * Return the canonical TI city hub path for a given locale+city.
+ * Always ends with a trailing slash. For non-TI cities, falls back to
+ * `normalizeCitySlug(city)` so the helper never emits "undefined" in
+ * the URL (Phase 3.1 will provide per-canton path emitters that use
+ * the proper canton section slug).
  */
 export function buildCityHubPath(locale: JobBoardLocale, city: CityHubKey): string {
   const prefix = CITY_HUB_LOCALE_PREFIX[locale];
   const section = CITY_HUB_SECTION[locale];
-  const slug = CITY_HUB_SLUG[locale][city];
+  const slug = CITY_HUB_SLUG[locale][city] ?? normalizeCitySlug(city);
   return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
 }
 
@@ -127,7 +199,7 @@ export function buildCityHubSeo(
   const safeCount = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
   const useFire = safeCount >= CITY_HUB_FIRE_THRESHOLD;
   const prefix = safeCount > 0 ? (useFire ? `🔥 ${safeCount} ` : `${safeCount} `) : '';
-  const name = CITY_HUB_DISPLAY_NAME[city];
+  const name = CITY_HUB_DISPLAY_NAME[city] ?? cityHubDisplayName(city);
   // F3a — short <title> comes from the shared module (50-60 visible chars).
   // OG title + H1 keep the verbose legacy copy (unconstrained length).
   const title = buildCityHubTitle({
@@ -201,7 +273,9 @@ function jobIsActive(job: CityCountableJob, locale: JobBoardLocale): boolean {
  * "Paradiso (Lugano)", etc.
  */
 export function jobMatchesCity(job: CityCountableJob, city: CityHubKey): boolean {
-  const needle = CITY_HUB_DISPLAY_NAME[city].toLowerCase();
+  const display = CITY_HUB_DISPLAY_NAME[city] ?? cityHubDisplayName(city);
+  const needle = display.toLowerCase();
+  if (!needle) return false;
   const candidates = [job.addressLocality, job.location]
     .map((v) => (typeof v === 'string' ? v.toLowerCase() : ''))
     .filter(Boolean);
