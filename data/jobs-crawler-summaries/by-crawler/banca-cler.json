@@ -1,16 +1,16 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-05-10T21:17:24.845Z",
+  "generatedAt": "2026-05-11T11:23:02.960Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21180,
-  "avgDurationMs": 21180,
+  "durationMs": 25147,
+  "avgDurationMs": 25147,
   "durationHistory": [
-    21180
+    25147
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-10T21:17:05.584Z",
+      "crawledAt": "2026-05-11T11:22:40.572Z",
       "id": "banca-cler-5783fc239363",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -45,11 +45,13 @@
       "streetAddress": "Via Pretorio 13",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-24T21:18:12.463Z",
-      "_qualityScore": 97,
+      "contract": "internship",
+      "featured": false,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -76,7 +78,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-10T21:17:06.155Z",
+      "crawledAt": "2026-05-11T11:22:41.233Z",
       "id": "company-ts9gho",
       "contract": "full-time",
       "currency": "CHF",
@@ -86,11 +88,11 @@
       "salaryMax": 150000,
       "streetAddress": "Via Pretorio 13",
       "postalCode": "6900",
-      "_qualityScore": 97,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -117,7 +119,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-10T21:17:06.713Z",
+      "crawledAt": "2026-05-11T11:22:41.900Z",
       "id": "company-a7q9i9",
       "contract": "full-time",
       "currency": "CHF",
@@ -127,11 +129,11 @@
       "salaryMax": 150000,
       "streetAddress": "Via Pretorio 13",
       "postalCode": "6900",
-      "_qualityScore": 97,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -158,7 +160,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-10T21:17:07.248Z",
+      "crawledAt": "2026-05-11T11:22:42.550Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -168,11 +170,11 @@
       "streetAddress": "Via Pretorio 13",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-13T10:15:24.383Z",
-      "_qualityScore": 97,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -199,7 +201,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-10T21:17:07.760Z",
+      "crawledAt": "2026-05-11T11:22:43.204Z",
       "id": "company-phytkj",
       "contract": "full-time",
       "currency": "CHF",
@@ -209,11 +211,11 @@
       "salaryMax": 150000,
       "streetAddress": "Via Pretorio 13",
       "postalCode": "6900",
-      "_qualityScore": 97,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 15,
         "completeness": 25
       }
     }
