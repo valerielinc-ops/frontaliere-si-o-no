@@ -113,6 +113,7 @@ function buildRewriteScript(legacyPath: string, canonicalPath: string): string {
 function renderAliasPage(entry: LegacyAliasEntry, distDir: string): string {
   const legacyPath = `/${entry.locale}/calcola-stipendio/`;
   const canonicalUrl = `${BASE_URL}${entry.canonicalPath}`;
+  const legacyAbsoluteUrl = `${BASE_URL}${legacyPath}`;
 
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px">
@@ -120,6 +121,22 @@ function renderAliasPage(entry: LegacyAliasEntry, distDir: string): string {
     </header>
     <p style="margin:0;font-size:15.5px">${entry.prose}</p>
   </main>`;
+
+  // Minimal 2-level BreadcrumbList (Home → page) — required by the D.2 SEO
+  // gate (`tests/seo/breadcrumb-coverage.test.ts`). Describes the legacy URL
+  // visitors actually land on; canonical points to the live calculator.
+  // entry.locale is 'en' | 'de' | 'fr' (the alias is only emitted for non-IT
+  // locales; IT lives at the canonical `/calcola-stipendio/`).
+  const homeLabel = entry.locale === 'de' ? 'Startseite' : entry.locale === 'fr' ? 'Accueil' : 'Home';
+  const homeUrl = `${BASE_URL}/${entry.locale}/`;
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: homeLabel, item: homeUrl },
+      { '@type': 'ListItem', position: 2, name: entry.h1, item: legacyAbsoluteUrl },
+    ],
+  });
 
   return buildSeoPageHtml({
     locale: entry.locale,
@@ -130,7 +147,7 @@ function renderAliasPage(entry: LegacyAliasEntry, distDir: string): string {
     ogType: 'website',
     ogLocale: entry.ogLocale,
     hreflangHtml: '',
-    jsonLdScripts: [],
+    jsonLdScripts: [breadcrumbLd],
     extraHeadHtml: buildRewriteScript(legacyPath, entry.canonicalPath),
     bodyHtml,
     distDir,

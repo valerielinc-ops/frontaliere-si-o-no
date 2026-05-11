@@ -60,6 +60,37 @@ const OG_LOCALE: Record<Locale, string> = {
   fr: 'fr_FR',
 };
 
+const HOME_LABEL: Record<Locale, string> = {
+  it: 'Home',
+  en: 'Home',
+  de: 'Startseite',
+  fr: 'Accueil',
+};
+
+const HOME_PREFIX: Record<Locale, string> = {
+  it: '',
+  en: '/en',
+  de: '/de',
+  fr: '/fr',
+};
+
+/**
+ * 2-level BreadcrumbList JSON-LD (Home → page) — broad enough to cover
+ * all 9 sub-cohorts handled by this plugin without per-cohort routing.
+ * Required by `tests/seo/breadcrumb-coverage.test.ts` (D.2 SEO gate).
+ */
+function buildAliasBreadcrumbLd(locale: Locale, pageLabel: string, pageUrl: string): string {
+  const homeUrl = `${BASE_URL}${HOME_PREFIX[locale]}/`.replace(/(?<!:)\/+/g, '/');
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: HOME_LABEL[locale], item: homeUrl },
+      { '@type': 'ListItem', position: 2, name: pageLabel, item: pageUrl },
+    ],
+  });
+}
+
 interface AliasEntry {
   readonly orphanPath: string;
   readonly locale: Locale;
@@ -174,6 +205,7 @@ function renderPage(entry: AliasEntry, distDir: string): string {
   const copy = COPY[locale];
   const block = entry.kind === 'matched' ? copy.matched : copy.unmatched;
   const canonicalUrl = `${BASE_URL}${entry.canonicalPath}`;
+  const orphanAbsoluteUrl = `${BASE_URL}${entry.orphanPath}`;
 
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px">
@@ -182,6 +214,11 @@ function renderPage(entry: AliasEntry, distDir: string): string {
     <p style="margin:0 0 12px;font-size:15.5px">${esc(block.lede)}</p>
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(canonicalUrl)}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
   </main>`;
+
+  // Breadcrumb describes the orphan URL the visitor actually landed on
+  // (canonical points to the live target — but the bridge HTML is what's
+  // served from this path). Required by D.2 SEO gate.
+  const breadcrumbLd = buildAliasBreadcrumbLd(locale, block.h1, orphanAbsoluteUrl);
 
   return buildSeoPageHtml({
     locale,
@@ -192,7 +229,7 @@ function renderPage(entry: AliasEntry, distDir: string): string {
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: '',
-    jsonLdScripts: [],
+    jsonLdScripts: [breadcrumbLd],
     extraHeadHtml: entry.kind === 'matched' ? buildRewriteScript(entry.orphanPath, entry.canonicalPath) : '',
     bodyHtml,
     distDir,

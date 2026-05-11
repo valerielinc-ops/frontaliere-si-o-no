@@ -43,6 +43,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import type { Locale } from '../services/i18n';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -182,6 +183,15 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(buildSectionCanonical(locale))}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
   </main>`;
 
+  const breadcrumbLd = buildBridgeBreadcrumbLd({
+    locale,
+    baseUrl: BASE_URL,
+    sectionLabel: JOBS_SECTION_LABEL[locale],
+    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    pageLabel: city,
+    canonicalUrl,
+  });
+
   return buildSeoPageHtml({
     locale,
     title: copy.matchedTitle(city, n),
@@ -191,7 +201,7 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: '',
-    jsonLdScripts: [],
+    jsonLdScripts: [breadcrumbLd],
     bodyHtml,
     distDir,
     seoMainClass: 'cluster-seo-prose',
@@ -201,9 +211,14 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
 function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
+  // Canonical points to the section landing for unmatched entries
+  // (they consolidate into the section), but the BreadcrumbList still
+  // describes the bridge URL the visitor actually landed on.
   const canonicalUrl = buildSectionCanonical(locale);
   const sectionPath = buildSectionCanonical(locale);
   const city = entry.displayName;
+  const hubPath = buildHubPath(locale, entry.citySlug);
+  const hubAbsoluteUrl = `${BASE_URL}${hubPath}`;
 
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px">
@@ -212,6 +227,15 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
     <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.unmatchedLede)}</p>
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(sectionPath)}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
   </main>`;
+
+  const breadcrumbLd = buildBridgeBreadcrumbLd({
+    locale,
+    baseUrl: BASE_URL,
+    sectionLabel: JOBS_SECTION_LABEL[locale],
+    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    pageLabel: city,
+    canonicalUrl: hubAbsoluteUrl,
+  });
 
   return buildSeoPageHtml({
     locale,
@@ -222,7 +246,7 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: '',
-    jsonLdScripts: [],
+    jsonLdScripts: [breadcrumbLd],
     bodyHtml,
     distDir,
     seoMainClass: 'cluster-seo-prose',
