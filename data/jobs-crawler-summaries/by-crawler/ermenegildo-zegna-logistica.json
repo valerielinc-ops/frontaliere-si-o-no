@@ -1,18 +1,53 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-05-11T12:50:22.396Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-05-11T23:12:38.935Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10054,
-  "avgDurationMs": 10054,
+  "durationMs": 8719,
+  "avgDurationMs": 8719,
   "durationHistory": [
-    10054
+    8719
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=261008736&Team=231361273",
+      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=261008736&Team=231361273",
+      "title": "Store Style Advisor - Zurich Airport",
+      "company": "Ermenegildo Zegna Group",
+      "companyKey": "ermenegildo-zegna-logistica",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "slug": "store-style-advisor-zurich-airport-zegna",
+      "department": "Sales Channels & Retail Excellence/Sales",
+      "category": "Sales Channels & Retail Excellence/Sales",
+      "datePosted": "2026-05-11",
+      "source": "zegna-careers-crawler",
+      "employmentType": "TEMPORARY",
+      "experienceLevel": "",
+      "sector": "Retail",
+      "brand": "Zegna",
+      "contractType": "Temporary Job",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "sourceLang": "en",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=267752702&Team=231361275",
