@@ -23,11 +23,11 @@ const ALLOWLIST = [
   'build-plugins/shared/cantonSection.ts',
 
   // ── jobsSeoPagesPlugin: sectionByLocale legacy preservation (TI default) ──
-  'build-plugins/jobsSeoPagesPlugin.ts:779',
   'build-plugins/jobsSeoPagesPlugin.ts:780',
   'build-plugins/jobsSeoPagesPlugin.ts:781',
   'build-plugins/jobsSeoPagesPlugin.ts:782',
-  'build-plugins/jobsSeoPagesPlugin.ts:787',          // jsdoc reference to the legacy slugs
+  'build-plugins/jobsSeoPagesPlugin.ts:783',
+  'build-plugins/jobsSeoPagesPlugin.ts:788',          // jsdoc reference to the legacy slugs
 
   // ── jobBoardSeo: TI legacy job-board landing paths (kept for legacy entry) ──
   'build-plugins/jobBoardSeo.ts:38',
