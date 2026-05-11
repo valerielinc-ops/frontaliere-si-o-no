@@ -7394,6 +7394,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.maratona-schlumpf-ginevra-2026.title': 'Fabienne Schlumpf Zweite in Genf: Rückkehr in den Marathon ohne Enttäuschung',
     'blog.article.maratona-schlumpf-ginevra-2026.excerpt': 'Die Schweizer Rekordhalterin belegt in Genf den zweiten Platz im Marathon mit einer Zeit von 2 Stunden 31 Minuten 15 Sekunden',
     'blog.article.maratona-schlumpf-ginevra-2026.imageAlt': 'Fabienne Schlumpf läuft den Marathon in Genf, mit der Skyline der Stadt und dem Genfersee im Hintergrund',
+    'blog.article.siviero-rieletto-swiss-basketball.title': 'Siviero erneut zum Präsidenten von Swiss Basketball gewählt',
+    'blog.article.siviero-rieletto-swiss-basketball.excerpt': 'Andrea Siviero wurde mit 31 zu 24 Stimmen gegen seinen Rivalen Sergi erneut zum Präsidenten des Schweizer Basketballverbands gewählt.',
+    'blog.article.siviero-rieletto-swiss-basketball.imageAlt': 'Basketballplatz in Lugano mit Schweizer und italienischen Spielern',
 };
 
 export default blogMetaDe;

@@ -1,0 +1,40 @@
+{
+  "id": "siviero-rieletto-swiss-basketball",
+  "slug": "siviero-rieletto-swiss-basketball",
+  "publishedAt": "2026-05-11T01:06:39.548Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.254694172485634,
+    "confidence": 0.8,
+    "finalScore": 5.003755337988508,
+    "topK": [
+      {
+        "slug": "nomine-meloni-consob-antitrust-2026",
+        "cosine": 0.8161011981159166
+      },
+      {
+        "slug": "votazioni-ticino-14-giugno-2024",
+        "cosine": 0.8156950372990027
+      },
+      {
+        "slug": "crans-montana-nuovo-solco-italia-svizzera-2026",
+        "cosine": 0.8136499895751721
+      },
+      {
+        "slug": "svincolo-a2-sigirino-ritardo",
+        "cosine": 0.8098172616359506
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8072573476653419
+      }
+    ],
+    "score": 5.003755337988508,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

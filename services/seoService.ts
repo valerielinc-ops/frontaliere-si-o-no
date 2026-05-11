@@ -3707,6 +3707,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-esplosione-miniera-colombia-4-morti': { name: 'Novità', path: '/articoli-frontaliere/esplosione-miniera-colombia-4-morti', parent: 'blog' },
     'blog-referendum-castelli-bellinzona-2026': { name: 'Referendum Castelli', path: '/articoli-frontaliere/referendum-castelli-bellinzona-2026', parent: 'blog' },
     'blog-maratona-schlumpf-ginevra-2026': { name: 'Sport', path: '/articoli-frontaliere/maratona-schlumpf-ginevra-2026', parent: 'blog' },
+    'blog-siviero-rieletto-swiss-basketball': { name: 'Novità', path: '/articoli-frontaliere/siviero-rieletto-swiss-basketball', parent: 'blog' },
  };
 
  const info = sectionNames[section];

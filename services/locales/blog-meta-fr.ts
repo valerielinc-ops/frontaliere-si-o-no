@@ -7395,6 +7395,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.maratona-schlumpf-ginevra-2026.title': 'Fabienne Schlumpf deuxième à Genève: retour en marathon sans décevoir',
     'blog.article.maratona-schlumpf-ginevra-2026.excerpt': 'La primatiste nationale suisse se classe deuxième au marathon de Genève avec un temps de 2 heures 31\'15\'\'',
     'blog.article.maratona-schlumpf-ginevra-2026.imageAlt': 'Fabienne Schlumpf court le marathon à Genève, avec la skyline de la ville et le lac Léman en arrière-plan',
+    'blog.article.siviero-rieletto-swiss-basketball.title': 'Siviero réélu président de Swiss Basketball',
+    'blog.article.siviero-rieletto-swiss-basketball.excerpt': 'Andrea Siviero confirmé à la tête de la fédération suisse de basket avec 31 voix contre 24 de son rival Sergi',
+    'blog.article.siviero-rieletto-swiss-basketball.imageAlt': 'Terrain de basket à Lugano avec des joueurs suisses et italiens',
 };
 
 export default blogMetaFr;

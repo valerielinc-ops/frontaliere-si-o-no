@@ -7394,6 +7394,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.maratona-schlumpf-ginevra-2026.title': 'Fabienne Schlumpf second in Geneva: marathon return without disappointing',
     'blog.article.maratona-schlumpf-ginevra-2026.excerpt': 'The Swiss national record holder finishes second in the Geneva marathon with a time of 2 hours 31\'15\'\'',
     'blog.article.maratona-schlumpf-ginevra-2026.imageAlt': 'Fabienne Schlumpf running the marathon in Geneva, with the city skyline and Lake Geneva in the background',
+    'blog.article.siviero-rieletto-swiss-basketball.title': 'Siviero re-elected Swiss Basketball president',
+    'blog.article.siviero-rieletto-swiss-basketball.excerpt': 'Andrea Siviero confirmed as head of Swiss basketball federation with 31 votes against 24 from rival Sergi',
+    'blog.article.siviero-rieletto-swiss-basketball.imageAlt': 'Basketball court in Lugano with Swiss and Italian players',
 };
 
 export default blogMetaEn;
