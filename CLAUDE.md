@@ -256,6 +256,22 @@ Each audit has a matching `:rebaseline` script (e.g. `npm run audit:title-length
 
 **Every time a task is completed successfully** (tests pass + build succeeds), **automatically commit and push to the remote repository** (`git push`). Do not wait for explicit user confirmation. If the push fails for a non-network reason, report the error.
 
+## Worktree-First Rule (parallel-agent safety)
+
+This repo is regularly worked on by **multiple parallel agents** sharing the same primary working tree, plus a local cron that touches 600+ files (see `scripts/dev/local-ignore-cron.sh`). Stashing the working tree to unblock `git pull --rebase` is unsafe: it silently captures other agents' WIP into a stash that may never be popped → lost work + orphan stashes.
+
+**Always isolate non-trivial work in its own git worktree before starting**, in either of these cases:
+1. You're about to make changes that will require `git commit && git push` (i.e. anything beyond pure reading/analysis), AND
+2. Either (a) the working tree already has unstaged changes that aren't yours, OR (b) you may be running alongside other agents, OR (c) the local cron is active.
+
+In practice this means: at the start of any code-modification task, call `EnterWorktree` to spawn a fresh worktree on a new branch. Do all edits, commits, and pushes there. When done, open a PR (or merge via orchestrator mode) and `ExitWorktree`.
+
+**Never use `git stash -u` blanket** to unblock a rebase on the shared tree — it captures foreign WIP. If you must rebase on the shared tree, enable `git config rebase.autoStash true` (atomic stash+rebase+pop, surfaces conflicts explicitly) and stage only your own files before rebasing.
+
+When dispatching parallel subagents via the `Agent` tool, **always pass `isolation: "worktree"`** so each agent runs in its own isolated copy of the repo. The harness auto-cleans empty worktrees and returns path+branch for ones with commits.
+
+Exceptions (no worktree needed): pure read/grep/research turns, single-file doc tweaks the user explicitly scopes to "in place", and the orchestrator session itself (which spawns the worktrees for its children).
+
 ## Auto-merge Rule (orchestrator mode)
 
 When operating in orchestrator mode (parallel agents dispatching tasks via worktrees), the agent is **pre-authorized** to:
