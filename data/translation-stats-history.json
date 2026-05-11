@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-26T10:37:59.028Z",
-    "label": "before",
-    "total": 2676,
-    "needsRetranslation": 1171,
-    "incomplete": 112,
-    "complete": 2564,
-    "missingByLocale": {
-      "it": 52,
-      "en": 84,
-      "de": 83,
-      "fr": 100
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 48
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Société coopérative Migros Valais",
-        "pending": 16
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 2
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 2
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-26T11:50:07.346Z",
-    "label": "after",
-    "total": 2676,
-    "needsRetranslation": 93,
-    "incomplete": 43,
-    "complete": 2633,
-    "missingByLocale": {
-      "it": 32,
-      "en": 16,
-      "de": 30,
-      "fr": 34
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 2
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 2
-      },
-      {
-        "company": "Aziende Industriali di Lugano (AIL) SA",
-        "pending": 1
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-26T13:26:23.366Z",
     "label": "before",
     "total": 2676,
@@ -9952,6 +9840,118 @@
       {
         "company": "Convit Holding GmbH",
         "pending": 52
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-11T03:36:56.970Z",
+    "label": "before",
+    "total": 4000,
+    "needsRetranslation": 1695,
+    "incomplete": 1545,
+    "complete": 2455,
+    "missingByLocale": {
+      "it": 1293,
+      "en": 1132,
+      "de": 292,
+      "fr": 1302
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 192
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 153
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 124
+      },
+      {
+        "company": "ETH Zürich",
+        "pending": 110
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 96
+      },
+      {
+        "company": "die Mobiliar",
+        "pending": 82
+      },
+      {
+        "company": "Jumbo",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Kantonsspital Winterthur (KSW)",
+        "pending": 61
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-11T04:39:03.328Z",
+    "label": "after",
+    "total": 4000,
+    "needsRetranslation": 1600,
+    "incomplete": 1445,
+    "complete": 2555,
+    "missingByLocale": {
+      "it": 1191,
+      "en": 1088,
+      "de": 228,
+      "fr": 1205
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 192
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 153
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 124
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 96
+      },
+      {
+        "company": "die Mobiliar",
+        "pending": 82
+      },
+      {
+        "company": "Jumbo",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Kantonsspital Winterthur (KSW)",
+        "pending": 61
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 50
       }
     ]
   }
