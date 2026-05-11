@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-05-10T22:14:49.742Z",
+  "assembledAt": "2026-05-11T12:21:12.120Z",
   "jobs": [
     {
       "title": "PIASTRELLISTA",
@@ -1844,7 +1844,8 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-04-27T11:27:21.629Z"
+      "firstSeenAt": "2026-04-27T11:27:21.629Z",
+      "needsRetranslation": true
     },
     {
       "title": "Capo squadra asfaltatore",
@@ -2350,12 +2351,11 @@
       },
       "slugByLocale": {
         "it": "macchinista-pemsa-bellinzona",
-        "en": "macchinista-pemsa-bellinzona",
+        "en": "earrings-pemsa-bellinzona",
         "de": "macchinista-pemsa-bellinzona",
         "fr": "macchinista-pemsa-bellinzona"
       },
       "id": "pemsa-7aebb676628d",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2371,7 +2371,8 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-05-10T10:42:15.850Z"
+      "firstSeenAt": "2026-05-10T10:42:15.850Z",
+      "needsRetranslation": true
     },
     {
       "title": "Rullista",
@@ -2639,7 +2640,8 @@
           "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lattoniere",
@@ -2867,7 +2869,8 @@
           "garten-pemsa-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Ferraiolo",
