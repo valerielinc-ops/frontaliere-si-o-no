@@ -1,16 +1,54 @@
 {
   "key": "mabetex",
   "label": "Mabetex Group",
-  "generatedAt": "2026-05-11T12:08:16.515Z",
-  "total": 0,
-  "newCount": 0,
+  "generatedAt": "2026-05-11T22:31:07.984Z",
+  "total": 1,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "newJobs": [],
+  "durationMs": 2553,
+  "avgDurationMs": 2553,
+  "durationHistory": [
+    2553
+  ],
+  "newJobs": [
+    {
+      "id": "mabetex-d49cdecce749",
+      "slug": "project-manager-lugano-mabetex",
+      "company": "Mabetex Group",
+      "companyKey": "mabetex",
+      "companyDomain": "mabetex.com",
+      "title": "Project Manager",
+      "location": "Southwest Africa",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "project-management",
+      "sector": "Edilizia / Costruzioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "url": "https://www.mabetex.com/career/",
+      "applyUrl": "https://www.mabetex.com/career/",
+      "source": "Mabetex Group Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-11T22:31:06.468Z",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
