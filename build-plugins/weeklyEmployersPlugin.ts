@@ -98,6 +98,8 @@ import {
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
+import { resolveCantonSection as sharedResolveCantonSection } from './shared/cantonSection';
+import { getCityCanton } from './shared/cantonCities';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
 import { renderJobCardHtml, type JobCardJob } from './shared/jobCardHtml';
@@ -113,27 +115,55 @@ import {
   printSummary as __weProfPrint,
 } from './shared/weeklyEmployersProfiler';
 
+// ── Canton-aware section helpers (P2.S1) ────────────────────────
+//
+// Phase 6 (Cathedral): replace TI-literal section slugs with canton-aware
+// `resolveCantonSection(locale, canton)`. For TI cities the helper returns
+// the legacy `cerca-lavoro-ticino` slug (early-return) so TI URLs stay
+// byte-identical. Out-of-TI cities (none today — WEEKLY_EMPLOYERS_CITIES
+// is TI-only) and the per-job detail link (which depends on `job.location`)
+// route via `getCityCanton(cityDisplay)` → fallback to 'TI'.
+function cityWeeklyEmployerCanton(city: WeeklyEmployersCity): string {
+  if (city === 'ticino') return 'TI';
+  const display = WEEKLY_EMPLOYERS_CITY_DISPLAY[city];
+  return getCityCanton(display) ?? 'TI';
+}
+
+function jobDetailSection(locale: WeeklyEmployersLocale, jobLocation: string | undefined): string {
+  const city = String(jobLocation || '').split(/[,(]/)[0].trim();
+  const canton = (city && getCityCanton(city)) || 'TI';
+  return sharedResolveCantonSection(locale, canton);
+}
+
+function weeklyJobBoardSection(locale: WeeklyEmployersLocale, canton: string): string {
+  return sharedResolveCantonSection(locale, canton);
+}
+
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F5 weekly-employers feature.
+//
+// Phase 6 (Cathedral): the "ultimi-3-giorni" CTA broadens from the legacy
+// TI-only recency hub to the CH-wide aggregator (`/cerca-lavoro-svizzera/…`)
+// so the link continues to surface jobs across all 26 cantons, not just TI.
 
 const WEEKLY_EMPLOYERS_DISCOVER_MORE_CTAS: Record<WeeklyEmployersLocale, ReadonlyArray<{ title: string; href: string }>> = {
   it: [
-    { title: 'Offerte lavoro ultimi 3 giorni',        href: '/cerca-lavoro-ticino/ultimi-3-giorni/' },
+    { title: 'Offerte lavoro ultimi 3 giorni',        href: `/${sharedResolveCantonSection('it', '_AGGREGATE_')}/ultimi-3-giorni/` },
     { title: 'Costo della vita in Ticino',            href: '/costo-vita-ticino/' },
     { title: 'Calcolatore stipendio frontaliere',     href: '/' },
   ],
   en: [
-    { title: 'Jobs posted in the last 3 days',        href: '/en/find-jobs-ticino/last-3-days/' },
+    { title: 'Jobs posted in the last 3 days',        href: `/en/${sharedResolveCantonSection('en', '_AGGREGATE_')}/last-3-days/` },
     { title: 'Cost of living in Ticino',              href: '/en/cost-of-living-ticino/' },
     { title: 'Cross-border salary calculator',        href: '/en/' },
   ],
   de: [
-    { title: 'Stellen der letzten 3 Tage',            href: '/de/jobs-im-tessin/letzte-3-tage/' },
+    { title: 'Stellen der letzten 3 Tage',            href: `/de/${sharedResolveCantonSection('de', '_AGGREGATE_')}/letzte-3-tage/` },
     { title: 'Lebenshaltungskosten Tessin',           href: '/de/lebenshaltungskosten-tessin/' },
     { title: 'Gehaltsrechner Grenzgänger',            href: '/de/' },
   ],
   fr: [
-    { title: 'Offres des 3 derniers jours',           href: '/fr/trouver-emploi-tessin/derniers-3-jours/' },
+    { title: 'Offres des 3 derniers jours',           href: `/fr/${sharedResolveCantonSection('fr', '_AGGREGATE_')}/derniers-3-jours/` },
     { title: 'Coût de la vie au Tessin',              href: '/fr/cout-vie-tessin/' },
     { title: 'Calculateur salaire frontalier',        href: '/fr/' },
   ],
@@ -823,16 +853,14 @@ export interface CompanyCityStats {
 }
 
 /**
- * Job-detail section slug per locale — mirrors jobsSeoPagesPlugin.ts so
- * the company-city page links to the actual static job HTML.
+ * Job-detail path builder — mirrors jobsSeoPagesPlugin.ts so the company-city
+ * page links to the actual static job HTML.
+ *
+ * Phase 6 (Cathedral): section slug is canton-aware via `jobDetailSection`,
+ * which inspects `job.location` and resolves the canton (TI for TI cities,
+ * other canton for the remaining 25; unknown → TI). TI URLs stay
+ * byte-identical because the helper early-returns the legacy slug for TI.
  */
-const JOB_DETAIL_SECTION_BY_LOCALE: Record<WeeklyEmployersLocale, string> = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
-
 function localizedJobSlug(
   job: WeeklyCountableJob,
   locale: WeeklyEmployersLocale,
@@ -849,7 +877,7 @@ function buildJobDetailPath(
   const slug = localizedJobSlug(job, locale);
   if (!slug) return '';
   const prefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
-  const section = JOB_DETAIL_SECTION_BY_LOCALE[locale];
+  const section = jobDetailSection(locale, job.location);
   return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
 }
 
@@ -2016,13 +2044,19 @@ const WEEKLY_EMPLOYERS_TILE_LABELS: Record<
   },
 };
 
-/** Localised job-board section path (used by the CTA in the stats area). */
-const WEEKLY_EMPLOYERS_JOB_BOARD_PATH: Record<WeeklyEmployersLocale, string> = {
-  it: '/cerca-lavoro-ticino/',
-  en: '/en/find-jobs-ticino/',
-  de: '/de/jobs-im-tessin/',
-  fr: '/fr/trouver-emploi-tessin/',
-};
+/**
+ * Localised job-board section path (used by the CTA in the stats area).
+ *
+ * Phase 6 (Cathedral): canton-aware via `weeklyJobBoardSection`. Callers pass
+ * the resolved canton (TI for the top hub, the city's canton for per-city
+ * pages). For TI cities the helper returns the legacy `cerca-lavoro-ticino`
+ * slug → TI URLs stay byte-identical.
+ */
+function weeklyEmployersJobBoardPath(locale: WeeklyEmployersLocale, canton: string): string {
+  const prefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
+  const section = weeklyJobBoardSection(locale, canton);
+  return `${prefix}/${section}/`.replace(/\/+/g, '/');
+}
 
 /** Format an integer with locale-appropriate digit grouping. */
 function formatLocalisedInteger(n: number, locale: WeeklyEmployersLocale): string {
@@ -2368,7 +2402,9 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     </div>
   </section>`;
 
-  const topJobBoardCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(WEEKLY_EMPLOYERS_JOB_BOARD_PATH[locale])}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobBoardCta)} →</a></p>`;
+  // Top hub is the TI aggregate — pass 'TI' so the legacy slug is preserved
+  // (helper early-returns `cerca-lavoro-ticino`).
+  const topJobBoardCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(weeklyEmployersJobBoardPath(locale, 'TI'))}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobBoardCta)} →</a></p>`;
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
@@ -2432,17 +2468,15 @@ function cityJobsHubPath(locale: WeeklyEmployersLocale, city: WeeklyEmployersCit
   // Link back to existing city-jobs-hub (if there is one).
   // Only lugano/mendrisio/bellinzona are covered by cityJobsHub; others
   // fall back to the main job-board root for the locale.
-  const section: Record<WeeklyEmployersLocale, string> = {
-    it: 'cerca-lavoro-ticino',
-    en: 'find-jobs-ticino',
-    de: 'jobs-im-tessin',
-    fr: 'trouver-emploi-tessin',
-  };
+  //
+  // Phase 6 (Cathedral): section slug is canton-aware via the shared helper
+  // (TI cities → legacy `cerca-lavoro-ticino`, byte-identical).
+  const section = weeklyJobBoardSection(locale, cityWeeklyEmployerCanton(city));
   const prefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
-  if (city === 'ticino') return `${prefix}/${section[locale]}/`.replace(/\/+/g, '/');
+  if (city === 'ticino') return `${prefix}/${section}/`.replace(/\/+/g, '/');
   const covered = new Set<WeeklyEmployersCity>(['lugano', 'mendrisio', 'bellinzona']);
-  if (!covered.has(city)) return `${prefix}/${section[locale]}/`.replace(/\/+/g, '/');
-  return `${prefix}/${section[locale]}/${city}/`.replace(/\/+/g, '/');
+  if (!covered.has(city)) return `${prefix}/${section}/`.replace(/\/+/g, '/');
+  return `${prefix}/${section}/${city}/`.replace(/\/+/g, '/');
 }
 
 function employerBrandPath(
@@ -2604,13 +2638,11 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     ? `<aside style="margin:0 0 16px;padding:14px 16px;border-radius:12px;background:var(--color-surface-alt);border:1px solid var(--color-edge);color:var(--color-subtle);font-size:14px;line-height:1.6" role="note">${esc(copy.coldStartBanner)}</aside>`
     : '';
 
-  // Top companies rendering
-  const jobBoardSectionByLocale: Record<WeeklyEmployersLocale, string> = {
-    it: 'cerca-lavoro-ticino',
-    en: 'find-jobs-ticino',
-    de: 'jobs-im-tessin',
-    fr: 'trouver-emploi-tessin',
-  };
+  // Phase 6 (Cathedral): resolve the city's canton once and reuse for every
+  // section-slug / job-board path on this page. For TI cities the helper
+  // early-returns the legacy slug → TI URLs stay byte-identical.
+  const cityCanton = cityWeeklyEmployerCanton(city);
+  const jobBoardSection = weeklyJobBoardSection(locale, cityCanton);
   const topCompaniesHtml =
     stats.topCompanies.length > 0
       ? `${coldStartBannerHtml}<ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;counter-reset:seo-rank">${stats.topCompanies
@@ -2627,7 +2659,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
             const needsReview =
               enableAutoStubs && !brandHref && c.active >= 3 && idx < 3;
             const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
-            const companyFallbackHref = (`${localePrefix}/${jobBoardSectionByLocale[locale]}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
+            const companyFallbackHref = (`${localePrefix}/${jobBoardSection}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
             const href = brandHref ?? companyFallbackHref;
             const subtitle = deltaLabel
               ? `${cityDisplay} · ${deltaLabel}`
@@ -2720,13 +2752,17 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     </aside>`
     : '';
 
-  const cityCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(WEEKLY_EMPLOYERS_JOB_BOARD_PATH[locale])}?city=${esc(city)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(tileLabels.cityCta(cityDisplay))} →</a></p>`;
+  // Phase 6 (Cathedral): use the city's resolved canton (computed above)
+  // so the CTA + role-search URLs point at the correct per-canton job
+  // board (still TI for TI cities → byte-identical).
+  const cityJobBoardPath = weeklyEmployersJobBoardPath(locale, cityCanton);
+  const cityCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(cityJobBoardPath)}?city=${esc(city)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(tileLabels.cityCta(cityDisplay))} →</a></p>`;
 
   const jobBoardSearchBase: Record<WeeklyEmployersLocale, string> = {
-    it: '/cerca-lavoro-ticino/',
-    en: '/en/find-jobs-ticino/',
-    de: '/de/jobs-im-tessin/',
-    fr: '/fr/trouver-emploi-tessin/',
+    it: cityJobBoardPath,
+    en: cityJobBoardPath,
+    de: cityJobBoardPath,
+    fr: cityJobBoardPath,
   };
   // Map common role slugs to a SECTOR_HUB_KEY. Promotes the role link to
   // the canonical sector hub when available (closes the link-equity leak
@@ -3404,7 +3440,10 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     <p style="margin:6px 0 0;font-size:15px;line-height:1.55;color:var(--color-heading);font-weight:500">${esc(ccAdviceText)}</p>
   </aside>`;
 
-  const ccCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(WEEKLY_EMPLOYERS_JOB_BOARD_PATH[locale])}?city=${esc(city)}&q=${encodeURIComponent(employer)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
+  // Phase 6 (Cathedral): per-company×city CTA points at the city's canton-
+  // resolved job board (TI cities → legacy slug, byte-identical).
+  const ccJobBoardPath = weeklyEmployersJobBoardPath(locale, cityWeeklyEmployerCanton(city));
+  const ccCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(ccJobBoardPath)}?city=${esc(city)}&q=${encodeURIComponent(employer)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
