@@ -1364,12 +1364,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-b7eca138fc06",
-      "slug": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+      "slug": "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
-        "it": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
-        "en": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
-        "fr": "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+        "it": "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos",
+        "en": "senior-physician-pneumology-m-f-d-100-from-1-january-2027-hochgebirgsklinik-davos-davos",
+        "fr": "medecin-adjoint-pneumologie-m-f-d-100-a-partir-du-1er-janvier-2027-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1430,15 +1430,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T11:51:46.141Z"
+      "firstSeenAt": "2026-05-11T11:51:46.141Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-5b3ecc202b7f",
-      "slug": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+      "slug": "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
-        "it": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
-        "en": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "it": "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos",
+        "en": "senior-physician-pneumology-m-f-d-100-01-january-2027-hochgebirgsklinik-davos-davos",
         "fr": "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
       },
       "company": "Hochgebirgsklinik Davos",
@@ -1500,7 +1514,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T11:51:46.132Z"
+      "firstSeenAt": "2026-05-11T11:51:46.132Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+      ]
     }
   ]
 }

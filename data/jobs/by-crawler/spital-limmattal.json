@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-43d9e6b2c61a",
-      "slug": "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch",
+      "slug": "assistente-per-la-cura-a-lungo-termine-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch",
-        "it": "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch",
-        "en": "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch",
-        "fr": "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch"
+        "it": "assistente-per-la-cura-a-lungo-termine-spital-limmattal-schlieren",
+        "en": "care-helpers-in-long-term-care-for-the-pool-spital-limmattal-schlieren",
+        "fr": "assistant-de-soins-de-longue-duree-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T12:32:39.205Z"
+      "firstSeenAt": "2026-05-11T12:32:39.205Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch"
+        ],
+        "en": [
+          "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch"
+        ],
+        "fr": [
+          "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-23ce8ea00d4d",
@@ -3694,9 +3708,9 @@
     },
     {
       "id": "spital-limmattal-99dc82dcb950",
-      "slug": "apprendistato-persona-specializzata-moglie-hotel-industria-efz-spital-limmattal-schlieren",
+      "slug": "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "apprendistato-persona-specializzata-moglie-hotel-industria-efz-spital-limmattal-schlieren",
+        "it": "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren",
         "en": "apprenticeship-person-skilled-wife-hotel-industry-efz-spital-limmattal-schlieren",
         "de": "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
         "fr": "apprentissage-personne-qualifiee-femme-hotellerie-efz-spital-limmattal-schlieren"
@@ -3742,12 +3756,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
-        "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren"
+        "apprendistato-persona-specializzata-moglie-hotel-industria-efz-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
-          "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren"
+          "apprendistato-persona-specializzata-moglie-hotel-industria-efz-spital-limmattal-schlieren"
         ],
         "en": [
           "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch"

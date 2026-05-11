@@ -1433,10 +1433,10 @@
     },
     {
       "id": "richemont-aea0f73d90ba",
-      "slug": "interno-di-apprendimento-hris-richemont-meyrin",
+      "slug": "hris-learning-tirocinante-richemont-meyrin",
       "slugByLocale": {
         "en": "hris-learning-intern-richemont-meyrin",
-        "it": "interno-di-apprendimento-hris-richemont-meyrin",
+        "it": "hris-learning-tirocinante-richemont-meyrin",
         "de": "hris-lernpraktikant-richemont-meyrin",
         "fr": "stagiaire-d-apprentissage-sirh-richemont-meyrin"
       },
@@ -1483,11 +1483,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "hris-learning-intern-richemont-meyrin"
+          "hris-learning-intern-richemont-meyrin",
+          "interno-di-apprendimento-hris-richemont-meyrin"
         ]
       },
       "previousSlugs": [
-        "hris-learning-intern-richemont-meyrin"
+        "hris-learning-intern-richemont-meyrin",
+        "interno-di-apprendimento-hris-richemont-meyrin"
       ],
       "salaryMin": 46000,
       "salaryMax": 78500,
@@ -2889,7 +2891,7 @@
         "fr": "stagiaire-en-gestion-de-projet-richemont-meyrin",
         "it": "data-project-management-intern-richemont-meyrin",
         "en": "data-project-management-intern-richemont-meyrin",
-        "de": "praktikum-im-datenprojektmanagement-richemont-meyrin"
+        "de": "data-project-management-praktikant-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -2974,7 +2976,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T13:58:02.544Z"
+      "firstSeenAt": "2026-05-11T13:58:02.544Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "praktikum-im-datenprojektmanagement-richemont-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-im-datenprojektmanagement-richemont-meyrin"
+      ]
     },
     {
       "id": "richemont-2ed6358a0227",
@@ -3982,7 +3992,7 @@
       "slugByLocale": {
         "en": "stage-assistant-e-supply-chain-demand-planning-van-cleef-arpels-geneva",
         "it": "stage-assistente-assistente-supply-chain-demand-planning-van-cleef-arpels-geneva",
-        "de": "praktikum-assistenz-supply-chain-demand-planning-van-cleef-arpels-geneva",
+        "de": "stage-assistent-e-lieferkette-demand-planning-van-cleef-arpels-geneva",
         "fr": "etape-assistant-e-planification-de-la-chaine-d-approvisionnement-et-de-la-demande-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
@@ -4032,10 +4042,14 @@
         ],
         "en": [
           "stage-assistant-e-supply-chain-demand-planning-richemont-geneva"
+        ],
+        "de": [
+          "praktikum-assistenz-supply-chain-demand-planning-van-cleef-arpels-geneva"
         ]
       },
       "previousSlugs": [
-        "stage-assistant-e-supply-chain-demand-planning-richemont-geneva"
+        "stage-assistant-e-supply-chain-demand-planning-richemont-geneva",
+        "praktikum-assistenz-supply-chain-demand-planning-van-cleef-arpels-geneva"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -4556,7 +4570,7 @@
         "fr": "stagiaire-en-gestion-de-programme-richemont-meyrin",
         "it": "stage-in-program-management-richemont-meyrin",
         "en": "program-management-intern-richemont-meyrin",
-        "de": "praktikum-im-programmmanagement-richemont-meyrin"
+        "de": "program-management-praktikant-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -4635,10 +4649,14 @@
         ],
         "fr": [
           "program-management-intern-richemont-meyrin"
+        ],
+        "de": [
+          "praktikum-im-programmmanagement-richemont-meyrin"
         ]
       },
       "previousSlugs": [
-        "program-management-intern-richemont-meyrin"
+        "program-management-intern-richemont-meyrin",
+        "praktikum-im-programmmanagement-richemont-meyrin"
       ],
       "salaryMin": 46000,
       "salaryMax": 78500,
@@ -7899,7 +7917,7 @@
       "slugByLocale": {
         "en": "sustainability-engagement-intern-richemont-bellevue",
         "it": "stage-sustainability-engagement-richemont-bellevue",
-        "de": "praktikum-nachhaltigkeitsengagement-richemont-bellevue",
+        "de": "sustainability-engagement-praktikant-richemont-bellevue",
         "fr": "stagiaire-engagement-durabilite-richemont-bellevue"
       },
       "company": "Richemont",
@@ -7975,10 +7993,14 @@
       "previousSlugsByLocale": {
         "it": [
           "sustainability-engagement-intern-richemont-bellevue"
+        ],
+        "de": [
+          "praktikum-nachhaltigkeitsengagement-richemont-bellevue"
         ]
       },
       "previousSlugs": [
-        "sustainability-engagement-intern-richemont-bellevue"
+        "sustainability-engagement-intern-richemont-bellevue",
+        "praktikum-nachhaltigkeitsengagement-richemont-bellevue"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -8371,7 +8393,7 @@
       "slugByLocale": {
         "en": "hr-senior-project-portfolio-manager-richemont-bellevue",
         "it": "responsabile-progetti-e-portfolio-senior-delle-risorse-umane-richemont-bellevue",
-        "de": "hr-senior-projekt-portfoliomanager-richemont-bellevue",
+        "de": "personalwesen-senior-project-portfolio-manager-richemont-bellevue",
         "fr": "gestionnaire-de-projet-et-de-portefeuille-principal-rh-richemont-bellevue"
       },
       "company": "Richemont",
@@ -8447,10 +8469,14 @@
       "previousSlugsByLocale": {
         "it": [
           "hr-senior-project-portfolio-manager-richemont-bellevue"
+        ],
+        "de": [
+          "hr-senior-projekt-portfoliomanager-richemont-bellevue"
         ]
       },
       "previousSlugs": [
-        "hr-senior-project-portfolio-manager-richemont-bellevue"
+        "hr-senior-project-portfolio-manager-richemont-bellevue",
+        "hr-senior-projekt-portfoliomanager-richemont-bellevue"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -9752,10 +9778,10 @@
     },
     {
       "id": "richemont-6740a07de84a",
-      "slug": "specialista-dati-principali-fornitori-richemont-villars-sur-glane",
+      "slug": "vendor-master-data-specialista-richemont-villars-sur-glane",
       "slugByLocale": {
         "de": "fachkraft-fur-lieferant-stammdaten-richemont-villars-sur-glane",
-        "it": "specialista-dati-principali-fornitori-richemont-villars-sur-glane",
+        "it": "vendor-master-data-specialista-richemont-villars-sur-glane",
         "en": "vendor-master-data-specialist-richemont-villars-sur-glane",
         "fr": "specialiste-des-donnees-de-base-des-fournisseurs-richemont-villars-sur-glane"
       },
@@ -9802,14 +9828,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "vendor-master-data-specialist-richemont-villars-sur-glane"
+          "vendor-master-data-specialist-richemont-villars-sur-glane",
+          "specialista-dati-principali-fornitori-richemont-villars-sur-glane"
         ],
         "de": [
           "vendor-master-data-specialist-richemont-villars-sur-glane"
         ]
       },
       "previousSlugs": [
-        "vendor-master-data-specialist-richemont-villars-sur-glane"
+        "vendor-master-data-specialist-richemont-villars-sur-glane",
+        "specialista-dati-principali-fornitori-richemont-villars-sur-glane"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10917,7 +10945,7 @@
       "slugByLocale": {
         "it": "coordinatore-di-progetto-industriale-f-a-richemont-bellevue",
         "en": "f-a-industrial-project-coordinator-richemont-bellevue",
-        "de": "f-a-industrieprojektkoordinator-richemont-bellevue",
+        "de": "f-a-industrial-project-koordinator-richemont-bellevue",
         "fr": "coordinateur-de-projet-industriel-f-a-richemont-bellevue"
       },
       "company": "Richemont",
@@ -10990,10 +11018,14 @@
       "previousSlugsByLocale": {
         "it": [
           "f-a-industrial-project-coordinator-richemont-bellevue"
+        ],
+        "de": [
+          "f-a-industrieprojektkoordinator-richemont-bellevue"
         ]
       },
       "previousSlugs": [
-        "f-a-industrial-project-coordinator-richemont-bellevue"
+        "f-a-industrial-project-coordinator-richemont-bellevue",
+        "f-a-industrieprojektkoordinator-richemont-bellevue"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -11192,7 +11224,7 @@
       "slugByLocale": {
         "en": "financial-performance-analyst-intern-6-months-richemont-geneva",
         "it": "analista-delle-performance-finanziarie-6-mesi-cartier-geneva",
-        "de": "praktikant-finanzperformance-analyst-6-monate-cartier-geneva",
+        "de": "financial-performance-analyst-praktikant-6-months-cartier-geneva",
         "fr": "stagiaire-en-analyse-de-la-performance-financiere-6-mois-cartier-geneva"
       },
       "company": "Cartier",
@@ -11239,10 +11271,14 @@
       "previousSlugsByLocale": {
         "it": [
           "financial-performance-analyst-intern-6-months-richemont-geneva"
+        ],
+        "de": [
+          "praktikant-finanzperformance-analyst-6-monate-cartier-geneva"
         ]
       },
       "previousSlugs": [
-        "financial-performance-analyst-intern-6-months-richemont-geneva"
+        "financial-performance-analyst-intern-6-months-richemont-geneva",
+        "praktikant-finanzperformance-analyst-6-monate-cartier-geneva"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -13124,10 +13160,10 @@
     },
     {
       "id": "richemont-2bf2dee5dfae",
-      "slug": "stage-operations-regionali-cartier-meyrin",
+      "slug": "regional-operations-tirocinante-cartier-meyrin",
       "slugByLocale": {
         "en": "regional-operations-intern-cartier-meyrin",
-        "it": "stage-operations-regionali-cartier-meyrin",
+        "it": "regional-operations-tirocinante-cartier-meyrin",
         "de": "praktikant-fur-regionale-operationen-cartier-meyrin",
         "fr": "stagiaire-des-operations-regionales-cartier-meyrin"
       },
@@ -13174,14 +13210,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "regional-operations-intern-richemont-meyrin"
+          "regional-operations-intern-richemont-meyrin",
+          "stage-operations-regionali-cartier-meyrin"
         ],
         "en": [
           "regional-operations-intern-richemont-meyrin"
         ]
       },
       "previousSlugs": [
-        "regional-operations-intern-richemont-meyrin"
+        "regional-operations-intern-richemont-meyrin",
+        "stage-operations-regionali-cartier-meyrin"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -13578,10 +13616,10 @@
     },
     {
       "id": "richemont-98c06fa56297",
-      "slug": "stage-in-ingegneria-dei-servizi-devops-richemont-meyrin",
+      "slug": "devops-services-engineering-tirocinante-richemont-meyrin",
       "slugByLocale": {
         "en": "devops-services-engineering-intern-richemont-meyrin",
-        "it": "stage-in-ingegneria-dei-servizi-devops-richemont-meyrin",
+        "it": "devops-services-engineering-tirocinante-richemont-meyrin",
         "de": "devops-services-engineering-intern-richemont-meyrin",
         "fr": "stagiaire-en-ingenierie-des-services-devops-richemont-meyrin"
       },
@@ -13628,11 +13666,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "devops-services-engineering-intern-richemont-meyrin"
+          "devops-services-engineering-intern-richemont-meyrin",
+          "stage-in-ingegneria-dei-servizi-devops-richemont-meyrin"
         ]
       },
       "previousSlugs": [
-        "devops-services-engineering-intern-richemont-meyrin"
+        "devops-services-engineering-intern-richemont-meyrin",
+        "stage-in-ingegneria-dei-servizi-devops-richemont-meyrin"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

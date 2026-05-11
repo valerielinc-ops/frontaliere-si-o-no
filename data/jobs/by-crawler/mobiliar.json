@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-3889acc4e655",
-      "slug": "quality-master-w-m-d-mobiliar-ch",
+      "slug": "master-di-qualita-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "quality-master-w-m-d-mobiliar-ch",
-        "it": "quality-master-w-m-d-mobiliar-ch",
+        "it": "master-di-qualita-w-m-d-die-mobiliar-bern",
         "en": "quality-master-w-m-d-die-mobiliar-bern",
-        "fr": "quality-master-w-m-d-mobiliar-ch"
+        "fr": "qualite-master-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -87,7 +87,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-11T12:15:54.065Z"
+      "firstSeenAt": "2026-05-11T12:15:54.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-master-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "quality-master-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-master-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-1ed191fccf7f",
@@ -187,10 +198,10 @@
     },
     {
       "id": "mobiliar-fa91f624c83c",
-      "slug": "frontend-entwickler-w-m-d-mobiliar-ch",
+      "slug": "project-manager-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "frontend-entwickler-w-m-d-mobiliar-ch",
-        "it": "frontend-entwickler-w-m-d-mobiliar-ch",
+        "it": "project-manager-m-d-die-mobiliar-bern",
         "en": "frontend-entwickler-w-m-d-die-mobiliar-bern",
         "fr": "frontend-entwickler-w-m-d-mobiliar-ch"
       },
@@ -266,7 +277,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-11T12:15:52.439Z"
+      "firstSeenAt": "2026-05-11T12:15:52.439Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "frontend-entwickler-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "frontend-entwickler-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-647547aeb9e4",
@@ -440,12 +459,12 @@
     },
     {
       "id": "mobiliar-3aad92e7ddd9",
-      "slug": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch",
+      "slug": "consulente-o-consulente-in-assicurazioni-e-previdenza-f-m-d-presso-l-agenzia-generale-di-bienne-die-mobiliar-biel",
       "slugByLocale": {
         "fr": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch",
-        "it": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch",
-        "en": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch",
-        "de": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch"
+        "it": "consulente-o-consulente-in-assicurazioni-e-previdenza-f-m-d-presso-l-agenzia-generale-di-bienne-die-mobiliar-biel",
+        "en": "insurance-and-pension-advisor-f-m-d-at-the-general-agency-of-bienne-die-mobiliar-biel",
+        "de": "versicherungs-und-vorsorgeberater-m-w-d-bei-der-generalagentur-bienne-die-mobiliar-biel"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -501,7 +520,21 @@
         }
       },
       "postalCode": "2501",
-      "firstSeenAt": "2026-05-10T22:09:55.414Z"
+      "firstSeenAt": "2026-05-10T22:09:55.414Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch"
+        ],
+        "en": [
+          "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch"
+        ],
+        "de": [
+          "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-72e950428e11",
@@ -1020,12 +1053,12 @@
     },
     {
       "id": "mobiliar-f48c812bfd17",
-      "slug": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-m-w-d-die-mobiliar-lausanne",
+      "slug": "responsabile-specializzato-del-supporto-alle-vendite-presso-l-agenzia-generale-di-losanna-nord-vaudois-f-h-d-die-mobilia",
       "slugByLocale": {
         "fr": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-",
-        "it": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-m-w-d-die-mobiliar-lausanne",
-        "en": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-",
-        "de": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-"
+        "it": "responsabile-specializzato-del-supporto-alle-vendite-presso-l-agenzia-generale-di-losanna-nord-vaudois-f-h-d-die-mobilia",
+        "en": "specialist-sales-support-manager-at-the-lausanne-nord-vaudois-general-agency-f-h-d-die-mobiliar-lausanne",
+        "de": "spezialist-fur-verkaufsunterstutzung-in-der-generalagentur-lausanne-nord-vaudois-w-m-d-die-mobiliar-lausanne"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1081,7 +1114,22 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-10T22:09:48.954Z"
+      "firstSeenAt": "2026-05-10T22:09:48.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-m-w-d-die-mobiliar-lausanne"
+        ],
+        "en": [
+          "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-"
+        ],
+        "de": [
+          "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-m-w-d-die-mobiliar-lausanne",
+        "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-"
+      ]
     },
     {
       "id": "mobiliar-6de9ce67bf2a",
@@ -2736,12 +2784,12 @@
     },
     {
       "id": "mobiliar-91edcd1b9bca",
-      "slug": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon",
+      "slug": "responsabile-specializzato-del-supporto-alle-vendite-dei-broker-presso-l-agenzia-generale-losanna-nord-vaudois-f-h-d-die",
       "slugByLocale": {
         "fr": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-f-h-d-die-mobiliar-yverdon",
-        "it": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon",
-        "en": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo",
-        "de": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
+        "it": "responsabile-specializzato-del-supporto-alle-vendite-dei-broker-presso-l-agenzia-generale-losanna-nord-vaudois-f-h-d-die",
+        "en": "specialist-broker-sales-support-manager-at-the-lausanne-nord-vaudois-general-agency-f-h-d-die-mobiliar-yverdon",
+        "de": "spezialisierter-manager-des-maklerverkaufs-supports-in-der-generalagentur-lausanne-nord-vaudois-w-m-d-die-mobiliar-yverd"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -2787,10 +2835,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
+        ],
+        "it": [
+          "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon"
+        ],
+        "en": [
+          "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
+        ],
+        "de": [
+          "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
+        "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo",
+        "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3149,9 +3207,9 @@
     },
     {
       "id": "mobiliar-4e7f85c3bde6",
-      "slug": "consulente-senior-m-w-die-mobiliar-olten",
+      "slug": "versicherungs-e-vorsorgeberater-w-m-agenzia-generale-olten-die-mobiliar-olten",
       "slugByLocale": {
-        "it": "consulente-senior-m-w-die-mobiliar-olten",
+        "it": "versicherungs-e-vorsorgeberater-w-m-agenzia-generale-olten-die-mobiliar-olten",
         "en": "senior-consultant-m-w-die-mobiliar-olten",
         "de": "versicherungs-und-vorsorgeberater-w-m-generalagentur-olten-mobiliar-ch",
         "fr": "consultant-principal-m-m-die-mobiliar-olten"
@@ -3197,12 +3255,14 @@
       "sfJobId": "1164314755",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-generalagentur-olten-mobiliar-ch",
-        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-olten-die-mobiliar-olten"
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-olten-die-mobiliar-olten",
+        "consulente-senior-m-w-die-mobiliar-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-generalagentur-olten-mobiliar-ch",
-          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-olten-die-mobiliar-olten"
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-olten-die-mobiliar-olten",
+          "consulente-senior-m-w-die-mobiliar-olten"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-generalagentur-olten-mobiliar-ch"
@@ -3576,9 +3636,9 @@
     },
     {
       "id": "mobiliar-0e8662bd0168",
-      "slug": "praktikant-m-d-projektmanagement-die-mobiliar-uster",
+      "slug": "collaboratore-trice-verkaufssupport-w-m-d-agenzia-generale-uster-die-mobiliar-uster",
       "slugByLocale": {
-        "it": "praktikant-m-d-projektmanagement-die-mobiliar-uster",
+        "it": "collaboratore-trice-verkaufssupport-w-m-d-agenzia-generale-uster-die-mobiliar-uster",
         "en": "praktikant-m-d-projektmanagement-die-mobiliar-uster",
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-mobiliar-ch",
         "fr": "praktikan-m-d-gestion-du-projet-die-mobiliar-uster"
@@ -3641,12 +3701,14 @@
       "sfJobId": "1164463655",
       "previousSlugs": [
         "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-mobiliar-ch",
-        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-uster-die-mobiliar-uster"
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-uster-die-mobiliar-uster",
+        "praktikant-m-d-projektmanagement-die-mobiliar-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-mobiliar-ch",
-          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-uster-die-mobiliar-uster"
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-uster-die-mobiliar-uster",
+          "praktikant-m-d-projektmanagement-die-mobiliar-uster"
         ],
         "fr": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-mobiliar-ch"
@@ -3828,8 +3890,8 @@
       "slugByLocale": {
         "fr": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
         "it": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
-        "en": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
-        "de": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier"
+        "en": "insurance-and-provident-advisor-f-h-d-at-moutier-general-agency-saint-imier-die-mobiliar-moutier",
+        "de": "versicherungs-und-versicherungsberater-f-h-d-bei-moutier-general-agency-saint-imier-die-mobiliar-moutier"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -4373,9 +4435,9 @@
     },
     {
       "id": "mobiliar-f99d25e5128c",
-      "slug": "praktikant-m-d-projektmanagement-die-mobiliar-belp",
+      "slug": "collaboratore-trice-verkaufssupport-w-m-d-agenzia-generale-belp-die-mobiliar-belp",
       "slugByLocale": {
-        "it": "praktikant-m-d-projektmanagement-die-mobiliar-belp",
+        "it": "collaboratore-trice-verkaufssupport-w-m-d-agenzia-generale-belp-die-mobiliar-belp",
         "en": "praktikant-m-d-projektmanagement-die-mobiliar-belp",
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-belp-mobiliar-ch",
         "fr": "praktikan-m-d-gestion-du-projet-die-mobiliar-belp"
@@ -4421,12 +4483,14 @@
       "sfJobId": "1164635755",
       "previousSlugs": [
         "mitarbeiter-verkaufssupport-w-m-d-generalagentur-belp-mobiliar-ch",
-        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-belp-die-mobiliar-belp"
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-belp-die-mobiliar-belp",
+        "praktikant-m-d-projektmanagement-die-mobiliar-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-belp-mobiliar-ch",
-          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-belp-die-mobiliar-belp"
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-belp-die-mobiliar-belp",
+          "praktikant-m-d-projektmanagement-die-mobiliar-belp"
         ],
         "fr": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-belp-mobiliar-ch"
@@ -5042,9 +5106,9 @@
     },
     {
       "id": "mobiliar-5d620d697224",
-      "slug": "consulente-senior-m-w-die-mobiliar-olten-3efff8",
+      "slug": "collaboratore-trice-verkaufssupport-w-m-agenzia-generale-olten-die-mobiliar-olten",
       "slugByLocale": {
-        "it": "consulente-senior-m-w-die-mobiliar-olten-3efff8",
+        "it": "collaboratore-trice-verkaufssupport-w-m-agenzia-generale-olten-die-mobiliar-olten",
         "en": "senior-consultant-m-w-die-mobiliar-olten-3efff8",
         "de": "mitarbeiter-verkaufssupport-w-m-generalagentur-olten-mobiliar-ch",
         "fr": "consultant-principal-m-m-die-mobiliar-olten-3efff8"
@@ -5110,12 +5174,14 @@
       "sfJobId": "1164603255",
       "previousSlugs": [
         "mitarbeiter-verkaufssupport-w-m-generalagentur-olten-mobiliar-ch",
-        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-olten-die-mobiliar-olten"
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-olten-die-mobiliar-olten",
+        "consulente-senior-m-w-die-mobiliar-olten-3efff8"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-w-m-generalagentur-olten-mobiliar-ch",
-          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-olten-die-mobiliar-olten"
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-olten-die-mobiliar-olten",
+          "consulente-senior-m-w-die-mobiliar-olten-3efff8"
         ],
         "en": [
           "mitarbeiter-verkaufssupport-w-m-generalagentur-olten-mobiliar-ch"
@@ -6700,9 +6766,9 @@
     },
     {
       "id": "mobiliar-efbf32fd0280",
-      "slug": "senior-account-manager-m-w-die-mobiliar-winterthur",
+      "slug": "versicherungs-e-vorsorgeberater-m-w-agenzia-generale-winterthur-die-mobiliar-winterthur",
       "slugByLocale": {
-        "it": "senior-account-manager-m-w-die-mobiliar-winterthur",
+        "it": "versicherungs-e-vorsorgeberater-m-w-agenzia-generale-winterthur-die-mobiliar-winterthur",
         "en": "senior-account-manager-m-w-die-mobiliar-winterthur",
         "de": "versicherungs-und-vorsorgeberater-m-w-generalagentur-winterthur-mobiliar-ch",
         "fr": "directeur-principal-des-comptes-m-m-die-mobiliar-winterthur"
@@ -6748,12 +6814,14 @@
       "sfJobId": "1164251755",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-m-w-generalagentur-winterthur-mobiliar-ch",
-        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-winterthur-die-mobiliar-winterthur"
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-winterthur-die-mobiliar-winterthur",
+        "senior-account-manager-m-w-die-mobiliar-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-m-w-generalagentur-winterthur-mobiliar-ch",
-          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-winterthur-die-mobiliar-winterthur"
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-winterthur-die-mobiliar-winterthur",
+          "senior-account-manager-m-w-die-mobiliar-winterthur"
         ],
         "fr": [
           "versicherungs-und-vorsorgeberater-m-w-generalagentur-winterthur-mobiliar-ch"
@@ -7041,9 +7109,9 @@
     },
     {
       "id": "mobiliar-2bb5040e23c4",
-      "slug": "consulente-senior-m-d-die-mobiliar-kreuzlingen",
+      "slug": "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen",
       "slugByLocale": {
-        "it": "consulente-senior-m-d-die-mobiliar-kreuzlingen",
+        "it": "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen",
         "en": "senior-consultant-m-d-die-mobiliar-kreuzlingen",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-kreuzlingen-mobiliar-ch",
         "fr": "consultant-principal-m-j-die-mobiliar-kreuzlingen"
@@ -7089,12 +7157,14 @@
       "sfJobId": "1163970955",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-kreuzlingen-mobiliar-ch",
-        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen"
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen",
+        "consulente-senior-m-d-die-mobiliar-kreuzlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-kreuzlingen-mobiliar-ch",
-          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen"
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen",
+          "consulente-senior-m-d-die-mobiliar-kreuzlingen"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-kreuzlingen-mobiliar-ch"

@@ -1579,10 +1579,10 @@
     },
     {
       "id": "siegfried-5ad954548659",
-      "slug": "senior-lab-technician-analytics-siegfried-ch",
+      "slug": "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen",
       "slugByLocale": {
         "de": "senior-lab-technician-analytics-siegfried-ch",
-        "it": "senior-lab-technician-analytics-siegfried-ch",
+        "it": "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen",
         "en": "senior-lab-technician-analytics-siegfried-ch",
         "fr": "senior-lab-technician-analytics-siegfried-ch"
       },
@@ -1640,7 +1640,15 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-05-11T12:28:48.174Z"
+      "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lab-technician-analytics-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lab-technician-analytics-siegfried-ch"
+      ]
     },
     {
       "id": "siegfried-40180fafe703",

@@ -3420,8 +3420,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
         "it": "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-cazis",
-        "en": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
-        "fr": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis"
+        "en": "dipl-care-specialist-hf-for-night-watch-psychiatrische-dienste-graubunden-cazis",
+        "fr": "dipl-specialiste-des-soins-hf-pour-les-montres-de-nuit-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3474,10 +3474,17 @@
         ],
         "de": [
           "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

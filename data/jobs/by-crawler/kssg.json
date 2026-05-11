@@ -336,7 +336,7 @@
       "slugByLocale": {
         "it": "case-manager-in-risorse-umane-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "case-manager-in-hr-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "de": "case-manager-in-hr-50-kssg-ch",
+        "de": "case-manager-in-personalwesen-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "fr": "case-manager-in-ressources-humaines-50-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
@@ -377,7 +377,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "case-manager-in-personalwesen-50-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "case-manager-in-hr-50-kssg-ch"
         ],
         "it": [
           "case-manager-in-hr-50-kssg-ch"
@@ -387,8 +387,7 @@
         ]
       },
       "previousSlugs": [
-        "case-manager-in-hr-50-kssg-ch",
-        "case-manager-in-personalwesen-50-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "case-manager-in-hr-50-kssg-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:55:17.148Z",

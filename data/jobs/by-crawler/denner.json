@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-e33c6fc5204c",
-      "slug": "verkaufer-in-im-stundenlohn-denner-einsiedeln",
+      "slug": "venditore-in-salario-orario-denner-einsiedeln",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-einsiedeln",
-        "en": "verkaufer-in-im-stundenlohn-denner-einsiedeln",
+        "it": "venditore-in-salario-orario-denner-einsiedeln",
+        "en": "seller-in-in-hourly-wage-denner-einsiedeln",
         "de": "verkaufer-in-im-stundenlohn-denner-einsiedeln",
-        "fr": "verkaufer-in-im-stundenlohn-denner-einsiedeln"
+        "fr": "vendeur-en-salaire-horaire-denner-einsiedeln"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -68,20 +68,24 @@
       "crawledAt": "2026-05-11T11:32:45.850Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-einsiedeln"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-einsiedeln"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-einsiedeln"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-einsiedeln",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -395,12 +399,12 @@
     },
     {
       "id": "denner-9bfcab5fe0ec",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-ebikon",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-ebikon",
+        "en": "assistant-in-branch-management-denner-ebikon",
         "de": "assistent-in-filialleitung-denner-ebikon",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-ebikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -460,10 +464,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -486,7 +501,7 @@
         "it": "student-in-come-ferienaushilfe-denner-oensingen",
         "en": "student-in-als-ferienaushilfe-denner-oensingen",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-vacances-denner-oensingen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -548,6 +563,9 @@
         ],
         "en": [
           "student-in-als-ferienaushilfe-denner-horw"
+        ],
+        "fr": [
+          "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [
@@ -571,12 +589,12 @@
     },
     {
       "id": "denner-a6952a16386d",
-      "slug": "stv-filialleiter-in-in-ausbildung-denner",
+      "slug": "stv-branch-manager-in-formazione-denner-lyssach",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-in-ausbildung-denner",
-        "en": "stv-filialleiter-in-in-ausbildung-denner-lyssach",
+        "it": "stv-branch-manager-in-formazione-denner-lyssach",
+        "en": "stv-branch-manager-in-in-training-denner-lyssach",
         "de": "stv-filialleiter-in-in-ausbildung-denner-lyssach",
-        "fr": "stv-filialleiter-in-in-ausbildung-denner-lyssach"
+        "fr": "directeur-de-la-branche-stv-en-formation-denner-lyssach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -635,21 +653,26 @@
       "crawledAt": "2026-05-11T11:32:43.373Z",
       "previousSlugsByLocale": {
         "it": [
-          "vice-responsabile-di-filiale-in-formazione-denner-chur"
+          "vice-responsabile-di-filiale-in-formazione-denner-chur",
+          "stv-filialleiter-in-in-ausbildung-denner"
         ],
         "en": [
-          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
+          "stv-filialleiter-in-in-ausbildung-denner-lyssach"
         ],
         "de": [
           "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
         ],
         "fr": [
-          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
+          "stv-filialleiter-in-in-ausbildung-denner-lyssach"
         ]
       },
       "previousSlugs": [
         "vice-responsabile-di-filiale-in-formazione-denner-chur",
-        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        "stv-filialleiter-in-in-ausbildung-denner",
+        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
+        "stv-filialleiter-in-in-ausbildung-denner-lyssach"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -667,11 +690,11 @@
     },
     {
       "id": "denner-9d9a72186fa3",
-      "slug": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner",
+      "slug": "capo-dipartimento-di-spedizioni-denner-aclens",
       "slugByLocale": {
-        "it": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner",
-        "en": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner",
-        "de": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner",
+        "it": "capo-dipartimento-di-spedizioni-denner-aclens",
+        "en": "head-of-department-of-shipping-aclens-denner-aclens",
+        "de": "leiter-der-abteilung-versand-aclens-denner-aclens",
         "fr": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
       },
       "company": "Denner",
@@ -743,15 +766,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T11:32:43.371Z"
+      "firstSeenAt": "2026-05-11T11:32:43.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
+        ],
+        "en": [
+          "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
+        ],
+        "de": [
+          "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
+      ]
     },
     {
       "id": "denner-c0956422bd15",
-      "slug": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner",
+      "slug": "capo-del-dipartimento-di-preparazione-dell-ordine-di-aclens-denner-aclens",
       "slugByLocale": {
-        "it": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner",
-        "en": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner",
-        "de": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner",
+        "it": "capo-del-dipartimento-di-preparazione-dell-ordine-di-aclens-denner-aclens",
+        "en": "head-of-the-aclens-order-preparation-department-denner-aclens",
+        "de": "leiter-der-aclens-auftragsvorbereitungsabteilung-denner-aclens",
         "fr": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
       },
       "company": "Denner",
@@ -823,7 +860,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T11:32:43.370Z"
+      "firstSeenAt": "2026-05-11T11:32:43.370Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
+        ],
+        "en": [
+          "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
+        ],
+        "de": [
+          "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
+      ]
     },
     {
       "id": "denner-baae8b59ec71",
@@ -923,12 +974,12 @@
     },
     {
       "id": "denner-8b1b47bccf0e",
-      "slug": "student-in-im-stundenlohn-denner",
+      "slug": "studente-in-salario-orario-denner-bellach",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studente-in-salario-orario-denner-bellach",
         "en": "student-in-im-stundenlohn-denner-bellach",
         "de": "student-in-im-stundenlohn-denner",
-        "fr": "student-in-im-stundenlohn-denner"
+        "fr": "etudiant-en-salaire-horaire-denner-bellach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -986,10 +1037,17 @@
       "previousSlugsByLocale": {
         "en": [
           "student-in-im-stundenlohn-denner-biel-bienne"
+        ],
+        "it": [
+          "student-in-im-stundenlohn-denner"
+        ],
+        "fr": [
+          "student-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
-        "student-in-im-stundenlohn-denner-biel-bienne"
+        "student-in-im-stundenlohn-denner-biel-bienne",
+        "student-in-im-stundenlohn-denner"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

@@ -52,9 +52,9 @@
       },
       "slugByLocale": {
         "it": "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6",
-        "en": "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6",
+        "en": "chef-cook-w-m-d-coop-genossenschaft-davos",
         "de": "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6",
-        "fr": "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6"
+        "fr": "chef-cuisinier-w-m-d-coop-genossenschaft-davos"
       },
       "addressLocality": "Davos",
       "salaryMin": 49500,
@@ -69,7 +69,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6"
+      ]
     },
     {
       "id": "company-pa5qt0",
@@ -121,9 +132,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0",
-        "en": "associate-gastronomie-coop-ristorante-davos-platz-pa5qt0",
+        "en": "staff-in-gastronomy-coop-genossenschaft-davos",
         "de": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz-pa5qt0",
-        "fr": "collaborateur-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0"
+        "fr": "personnel-en-gastronomie-coop-genossenschaft-davos"
       },
       "addressLocality": "Davos",
       "salaryMin": 49500,
@@ -138,7 +149,19 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "associate-gastronomie-coop-ristorante-davos-platz-pa5qt0"
+        ],
+        "fr": [
+          "collaborateur-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0"
+        ]
+      },
+      "previousSlugs": [
+        "associate-gastronomie-coop-ristorante-davos-platz-pa5qt0",
+        "collaborateur-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0"
+      ]
     },
     {
       "id": "company-metayj",
@@ -222,8 +245,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        "verkaufer-in-food-coop-felsberg-graubunden-metayj"
       ],
       "retranslationAttempts": 1
     },
