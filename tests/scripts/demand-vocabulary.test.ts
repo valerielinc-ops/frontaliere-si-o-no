@@ -123,12 +123,12 @@ describe('buildClusterClassifierPrompt', () => {
 
   it('embeds the expected array length N in the response contract', () => {
     const p = buildClusterClassifierPrompt(['a', 'b', 'c', 'd', 'e']);
-    expect(p).toContain('esattamente 5 elementi');
+    expect(p).toContain('esattamente 5 stringhe');
   });
 
   it('handles empty input safely', () => {
     const p = buildClusterClassifierPrompt([]);
-    expect(p).toContain('esattamente 0 elementi');
+    expect(p).toContain('esattamente 0 stringhe');
   });
 });
 

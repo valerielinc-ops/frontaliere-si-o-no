@@ -15,7 +15,7 @@ describe('banca sempione crawler location guards', () => {
     expect(shouldKeepBancaSempioneJob(inferred)).toBe(false);
   });
 
-  it('rejects Zurich roles and keeps Lugano/Ticino roles', () => {
+  it('keeps Banca Sempione roles in any target Swiss canton (Lugano, Zurich, …)', () => {
     const zurich = inferLocation(
       'Private Banking Assistant',
       'The role is based in Zurich and supports the local office.',
@@ -25,8 +25,9 @@ describe('banca sempione crawler location guards', () => {
       'Role based in Lugano with client coverage in Ticino.',
     );
 
+    // Banca Sempione has a Zurich office; cathedral CH-wide scope keeps it.
     expect(zurich).toEqual({ location: 'Zurich', canton: 'ZH' });
-    expect(shouldKeepBancaSempioneJob(zurich)).toBe(false);
+    expect(shouldKeepBancaSempioneJob(zurich)).toBe(true);
     expect(lugano).toEqual({ location: 'Lugano', canton: 'TI' });
     expect(shouldKeepBancaSempioneJob(lugano)).toBe(true);
   });

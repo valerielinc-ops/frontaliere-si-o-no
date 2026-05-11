@@ -186,14 +186,14 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
 ${weatherFontsAndStyle()}
 ${iconSprite()}
 <div data-weather-page>
-<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-stone-900 mb-2 leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(HUB_TITLE[locale])}</h1>
-<p class="text-base sm:text-lg text-stone-600 max-w-2xl">${escapeHtml(HUB_TAGLINE[locale])}</p></header>
-<section class="my-6 max-w-3xl mx-auto"><p class="text-stone-700 leading-relaxed">${escapeHtml(intro)}</p></section>
-<section class="my-6 max-w-3xl mx-auto"><ul class="bg-white rounded-2xl border border-stone-200 overflow-hidden divide-y divide-stone-100">${cityRows}</ul></section>
+<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-heading mb-2 leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(HUB_TITLE[locale])}</h1>
+<p class="text-base sm:text-lg text-body max-w-2xl">${escapeHtml(HUB_TAGLINE[locale])}</p></header>
+<section class="my-6 max-w-3xl mx-auto"><p class="text-body leading-relaxed">${escapeHtml(intro)}</p></section>
+<section class="my-6 max-w-3xl mx-auto"><ul class="bg-white rounded-2xl border border-edge overflow-hidden divide-y divide-edge">${cityRows}</ul></section>
 ${ctaHtml}
 ${climateNotes}
 ${methodology}
-<section class="my-10 max-w-2xl mx-auto pt-6 border-t border-stone-200"><p class="text-xs text-stone-500 leading-relaxed">${attributionInline(locale, snap?.generatedAt)}</p></section>
+<section class="my-10 max-w-2xl mx-auto pt-6 border-t border-edge"><p class="text-xs text-subtle leading-relaxed">${attributionInline(locale, snap?.generatedAt)}</p></section>
 </div>
 `,
     generatedAt: snap?.generatedAt,
@@ -248,11 +248,11 @@ function renderHubRow(locale: Locale, city: WeatherCity, cw?: CityWeather): stri
   const condition = cw ? wmoText(cw.current.weatherCode, locale) : labelUnavailable(locale);
   const iconHtml = cw
     ? `<span class="${colorForWmo(cw.current.weatherCode)} flex justify-center" aria-hidden="true">${useForWmo(cw.current.weatherCode, 24)}</span>`
-    : `<span class="text-stone-300 flex justify-center" aria-hidden="true">—</span>`;
+    : `<span class="text-muted flex justify-center" aria-hidden="true">—</span>`;
   const countryBadge = city.country === 'CH'
-    ? `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-700 text-[10px] font-bold border border-rose-100" aria-label="Svizzera">CH</span>`
-    : `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-100" aria-label="Italia">IT</span>`;
-  return `<li><a class="grid grid-cols-[auto_28px_1fr_auto] sm:grid-cols-[auto_28px_2fr_2fr_auto_auto] gap-3 sm:gap-4 items-center px-4 py-3 sm:py-4 hover:bg-orange-50/40 transition-colors" href="${url}">${countryBadge}${iconHtml}<span class="font-semibold text-stone-900 truncate">${escapeHtml(city.name)}</span><span class="hidden sm:inline text-sm text-stone-500 truncate">${escapeHtml(city.region[locale])}</span><span class="text-lg font-bold text-stone-900 tabular-nums">${tempStr}</span><span class="hidden sm:inline text-sm text-stone-600 truncate">${escapeHtml(condition)}</span></a></li>`;
+    ? `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-danger-subtle text-danger text-[10px] font-bold border border-danger" aria-label="Svizzera">CH</span>`
+    : `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-success-subtle text-success text-[10px] font-bold border border-success" aria-label="Italia">IT</span>`;
+  return `<li><a class="grid grid-cols-[auto_28px_1fr_auto] sm:grid-cols-[auto_28px_2fr_2fr_auto_auto] gap-3 sm:gap-4 items-center px-4 py-3 sm:py-4 hover:bg-accent-subtle/40 transition-colors" href="${url}">${countryBadge}${iconHtml}<span class="font-semibold text-heading truncate">${escapeHtml(city.name)}</span><span class="hidden sm:inline text-sm text-subtle truncate">${escapeHtml(city.region[locale])}</span><span class="text-lg font-bold text-heading tabular-nums">${tempStr}</span><span class="hidden sm:inline text-sm text-body truncate">${escapeHtml(condition)}</span></a></li>`;
 }
 
 function renderCity(locale: Locale, city: WeatherCity, cw: CityWeather | undefined, generatedAt: string | undefined, distDir: string): string {
@@ -291,8 +291,8 @@ ${weatherFontsAndStyle()}
 ${iconSprite()}
 <div data-weather-page>
 ${breadcrumb}
-<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-stone-900 mb-2 leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(headline)}</h1>
-<p class="text-base sm:text-lg text-stone-600 max-w-2xl">${escapeHtml(tagline)}</p></header>
+<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-heading mb-2 leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(headline)}</h1>
+<p class="text-base sm:text-lg text-body max-w-2xl">${escapeHtml(tagline)}</p></header>
 ${heroHtml}
 ${valichiHtml}
 ${hourlyHtml}
@@ -332,11 +332,11 @@ function attributionBlock(locale: Locale, generatedAt?: string): string {
       const d = new Date(generatedAt);
       if (!Number.isNaN(d.getTime())) {
         const human = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-        stamp = `<time datetime="${escapeHtml(generatedAt)}" class="text-sm font-medium text-stone-700">${updatedLabel} ${human}</time>`;
+        stamp = `<time datetime="${escapeHtml(generatedAt)}" class="text-sm font-medium text-body">${updatedLabel} ${human}</time>`;
       }
     } catch { /* ignore */ }
   }
-  return `<section class="my-10 max-w-2xl mx-auto pt-6 border-t border-stone-200 flex flex-col gap-1.5">${stamp}<p class="text-xs text-stone-500 leading-relaxed">${sourceLabel}: <a class="hover:text-stone-700 underline-offset-2 hover:underline" href="https://open-meteo.com/" rel="noopener" target="_blank">Open-Meteo</a> · <a class="hover:text-stone-700 underline-offset-2 hover:underline" href="https://www.met.no/" rel="noopener" target="_blank">MET Norway</a> · <a class="hover:text-stone-700 underline-offset-2 hover:underline" href="https://www.meteoswiss.admin.ch/" rel="noopener" target="_blank">MeteoSwiss</a> · <a class="hover:text-stone-700 underline-offset-2 hover:underline" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-BY 4.0</a></p></section>`;
+  return `<section class="my-10 max-w-2xl mx-auto pt-6 border-t border-edge flex flex-col gap-1.5">${stamp}<p class="text-xs text-subtle leading-relaxed">${sourceLabel}: <a class="hover:text-body underline-offset-2 hover:underline" href="https://open-meteo.com/" rel="noopener" target="_blank">Open-Meteo</a> · <a class="hover:text-body underline-offset-2 hover:underline" href="https://www.met.no/" rel="noopener" target="_blank">MET Norway</a> · <a class="hover:text-body underline-offset-2 hover:underline" href="https://www.meteoswiss.admin.ch/" rel="noopener" target="_blank">MeteoSwiss</a> · <a class="hover:text-body underline-offset-2 hover:underline" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC-BY 4.0</a></p></section>`;
 }
 
 function renderBreadcrumb(locale: Locale, city: WeatherCity): string {
@@ -352,10 +352,10 @@ function renderHero(cw: CityWeather, locale: Locale): string {
   const sourceList = (cw.sources ?? []).map((s) => s === 'open-meteo' ? 'Open-Meteo' : s === 'met-no' ? 'Met.no' : 'MeteoSwiss').join(' + ');
   const confTooltip = sourceList ? `${confLabel} · ${sourceList}` : confLabel;
   const dotClass = (filled: boolean) => filled
-    ? (cw.confidence === 'low' ? 'bg-rose-500' : cw.confidence === 'medium' ? 'bg-amber-500' : 'bg-emerald-500')
+    ? (cw.confidence === 'low' ? 'bg-danger' : cw.confidence === 'medium' ? 'bg-warning' : 'bg-success')
     : 'bg-stone-300';
   const dots = [1, 2, 3].map((i) => `<span class="w-1.5 h-1.5 rounded-full ${dotClass(i <= sourceCount)}" aria-hidden="true"></span>`).join('');
-  const conf = `<span class="inline-flex items-center gap-2 text-xs text-stone-700" title="${escapeHtml(confTooltip)}"><span class="flex items-center gap-0.5">${dots}</span><span class="font-medium">${escapeHtml(confLabel)}</span></span>`;
+  const conf = `<span class="inline-flex items-center gap-2 text-xs text-body" title="${escapeHtml(confTooltip)}"><span class="flex items-center gap-0.5">${dots}</span><span class="font-medium">${escapeHtml(confLabel)}</span></span>`;
 
   const tempStr = `${Math.round(cw.current.temperature)}°`;
   const iconColor = colorForWmo(cw.current.weatherCode);
@@ -363,30 +363,30 @@ function renderHero(cw: CityWeather, locale: Locale): string {
 
   const stats: string[] = [];
   if (cw.current.windSpeedKmh != null) {
-    stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-stone-200/80 flex items-center gap-2.5"><span class="text-stone-500 shrink-0">${useWind(18)}</span><div class="min-w-0"><div class="text-[11px] text-stone-500 uppercase tracking-wide font-medium">${labelWind(locale)}</div><div class="text-sm font-semibold text-stone-800 tabular-nums">${Math.round(cw.current.windSpeedKmh)}<span class="text-stone-500 font-normal"> km/h</span></div></div></div>`);
+    stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-edge/80 flex items-center gap-2.5"><span class="text-subtle shrink-0">${useWind(18)}</span><div class="min-w-0"><div class="text-[11px] text-subtle uppercase tracking-wide font-medium">${labelWind(locale)}</div><div class="text-sm font-semibold text-strong tabular-nums">${Math.round(cw.current.windSpeedKmh)}<span class="text-subtle font-normal"> km/h</span></div></div></div>`);
   }
   if (cw.current.humidity != null) {
-    stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-stone-200/80 flex items-center gap-2.5"><span class="text-sky-600 shrink-0">${useDroplet(18)}</span><div class="min-w-0"><div class="text-[11px] text-stone-500 uppercase tracking-wide font-medium">${labelHumidity(locale)}</div><div class="text-sm font-semibold text-stone-800 tabular-nums">${cw.current.humidity}<span class="text-stone-500 font-normal">%</span></div></div></div>`);
+    stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-edge/80 flex items-center gap-2.5"><span class="text-sky-600 shrink-0">${useDroplet(18)}</span><div class="min-w-0"><div class="text-[11px] text-subtle uppercase tracking-wide font-medium">${labelHumidity(locale)}</div><div class="text-sm font-semibold text-strong tabular-nums">${cw.current.humidity}<span class="text-subtle font-normal">%</span></div></div></div>`);
   }
   const today = cw.daily7?.[0];
   if (today?.sunrise) {
     const t = formatHm(today.sunrise);
-    if (t) stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-stone-200/80 flex items-center gap-2.5"><span class="text-amber-500 shrink-0">${useSunrise(18)}</span><div class="min-w-0"><div class="text-[11px] text-stone-500 uppercase tracking-wide font-medium">${labelSunrise(locale)}</div><div class="text-sm font-semibold text-stone-800 tabular-nums">${t}</div></div></div>`);
+    if (t) stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-edge/80 flex items-center gap-2.5"><span class="text-amber-500 shrink-0">${useSunrise(18)}</span><div class="min-w-0"><div class="text-[11px] text-subtle uppercase tracking-wide font-medium">${labelSunrise(locale)}</div><div class="text-sm font-semibold text-strong tabular-nums">${t}</div></div></div>`);
   }
   if (today?.sunset) {
     const t = formatHm(today.sunset);
-    if (t) stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-stone-200/80 flex items-center gap-2.5"><span class="text-orange-500 shrink-0">${useSunset(18)}</span><div class="min-w-0"><div class="text-[11px] text-stone-500 uppercase tracking-wide font-medium">${labelSunset(locale)}</div><div class="text-sm font-semibold text-stone-800 tabular-nums">${t}</div></div></div>`);
+    if (t) stats.push(`<div class="bg-white/70 rounded-xl px-3.5 py-2.5 border border-edge/80 flex items-center gap-2.5"><span class="text-accent shrink-0">${useSunset(18)}</span><div class="min-w-0"><div class="text-[11px] text-subtle uppercase tracking-wide font-medium">${labelSunset(locale)}</div><div class="text-sm font-semibold text-strong tabular-nums">${t}</div></div></div>`);
   }
   const statsHtml = stats.length
     ? `<div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 mt-6">${stats.join('')}</div>`
     : '';
 
-  return `<section data-weather-hero class="bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 border border-orange-200/60 rounded-3xl p-6 sm:p-10 my-6 max-w-4xl mx-auto" aria-live="polite">
+  return `<section data-weather-hero class="bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 border border-accent/60 rounded-3xl p-6 sm:p-10 my-6 max-w-4xl mx-auto" aria-live="polite">
 <div class="flex items-center gap-5 sm:gap-8">
 <div class="${iconColor} shrink-0">${heroIcon}</div>
 <div class="min-w-0 flex-1">
-<div data-temp-display class="text-7xl sm:text-8xl font-normal text-stone-900 tabular-nums leading-none tracking-tight" data-current-temp>${tempStr}</div>
-<div class="mt-2 text-xl sm:text-2xl text-stone-700">${escapeHtml(condition)}</div>
+<div data-temp-display class="text-7xl sm:text-8xl font-normal text-heading tabular-nums leading-none tracking-tight" data-current-temp>${tempStr}</div>
+<div class="mt-2 text-xl sm:text-2xl text-body">${escapeHtml(condition)}</div>
 <div class="mt-3">${conf}</div>
 </div>
 </div>
@@ -402,9 +402,9 @@ function renderValichiRow(locale: Locale, cityId: string): string {
   const label = locale === 'it' ? 'Valichi vicini' : locale === 'en' ? 'Nearby crossings' : locale === 'de' ? 'Nahe Übergänge' : 'Passages proches';
   const items = list.map((v) => {
     const url = `${localePath}/${valicoSlug}/${v.slug}/oggi/`;
-    return `<a href="${url}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-stone-800 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-300 transition-colors">${escapeHtml(v.name)}<span class="text-stone-400" aria-hidden="true">→</span></a>`;
+    return `<a href="${url}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-strong bg-white hover:bg-surface-alt border border-edge hover:border-edge transition-colors">${escapeHtml(v.name)}<span class="text-muted" aria-hidden="true">→</span></a>`;
   }).join('');
-  return `<div class="max-w-4xl mx-auto -mt-2 mb-6 px-1 flex items-center gap-2 flex-wrap"><span class="text-xs uppercase tracking-wider text-stone-500 font-medium">${escapeHtml(label)}</span>${items}</div>`;
+  return `<div class="max-w-4xl mx-auto -mt-2 mb-6 px-1 flex items-center gap-2 flex-wrap"><span class="text-xs uppercase tracking-wider text-subtle font-medium">${escapeHtml(label)}</span>${items}</div>`;
 }
 
 function renderSentinel(locale: Locale): string {
@@ -436,10 +436,10 @@ function renderHourly(cw: CityWeather, locale: Locale): string {
     const icon = useForWmo(code, 24);
     const iconColor = colorForWmo(code);
     const isNow = i === 0;
-    const ringClass = isNow ? 'ring-1 ring-orange-300 bg-orange-50/60' : 'bg-white';
-    return `<div class="flex-shrink-0 w-[68px] ${ringClass} rounded-xl border border-stone-200 p-2 text-center hover:border-stone-300 transition-colors"><div class="text-[11px] text-stone-500 font-medium tabular-nums">${hour}<span class="text-stone-400">:00</span></div><div class="my-1 flex justify-center ${iconColor}">${icon}</div><div class="text-base font-semibold text-stone-800 tabular-nums">${Math.round(h.temp)}°</div></div>`;
+    const ringClass = isNow ? 'ring-1 ring-orange-300 bg-accent-subtle/60' : 'bg-white';
+    return `<div class="flex-shrink-0 w-[68px] ${ringClass} rounded-xl border border-edge p-2 text-center hover:border-edge transition-colors"><div class="text-[11px] text-subtle font-medium tabular-nums">${hour}<span class="text-muted">:00</span></div><div class="my-1 flex justify-center ${iconColor}">${icon}</div><div class="text-base font-semibold text-strong tabular-nums">${Math.round(h.temp)}°</div></div>`;
   }).join('');
-  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-stone-900 mb-3 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><div class="overflow-x-auto -mx-1 px-1 pb-3" style="scrollbar-width:thin;"><div style="width:${totalW}px;">${sparkline}<div class="flex gap-2 mt-1">${cells}</div></div></div></section>`;
+  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-heading mb-3 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><div class="overflow-x-auto -mx-1 px-1 pb-3" style="scrollbar-width:thin;"><div style="width:${totalW}px;">${sparkline}<div class="flex gap-2 mt-1">${cells}</div></div></div></section>`;
 }
 
 function renderDaily(cw: CityWeather, locale: Locale): string {
@@ -465,12 +465,12 @@ function renderDaily(cw: CityWeather, locale: Locale): string {
       ? (locale === 'it' ? 'Oggi' : locale === 'en' ? 'Today' : locale === 'de' ? 'Heute' : "Aujourd'hui")
       : dayName(d.date);
     const dayLabelHtml = isToday
-      ? `<span class="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700"><span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>${dayLabel}</span>`
-      : `<span class="text-sm font-medium text-stone-700">${dayLabel}</span>`;
-    const rowBg = isToday ? 'bg-orange-50/40' : '';
-    return `<li class="grid grid-cols-[68px_32px_1fr_88px] gap-3 py-3.5 px-3 border-b border-stone-100 last:border-0 items-center ${rowBg}"><span>${dayLabelHtml}</span><span class="${iconColor} flex justify-center" title="${escapeHtml(cond)}" aria-label="${escapeHtml(cond)}">${icon}</span><span class="relative h-2 bg-stone-100 rounded-full overflow-hidden" aria-hidden="true"><span class="absolute top-0 bottom-0 bg-gradient-to-r from-sky-400 via-amber-300 to-rose-500 rounded-full" style="left:${leftPct}%;width:${widthPct}%;"></span></span><span class="text-sm tabular-nums text-right"><span class="font-semibold text-stone-900">${Math.round(d.tempMax)}°</span> <span class="text-stone-400">${Math.round(d.tempMin)}°</span></span></li>`;
+      ? `<span class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>${dayLabel}</span>`
+      : `<span class="text-sm font-medium text-body">${dayLabel}</span>`;
+    const rowBg = isToday ? 'bg-accent-subtle/40' : '';
+    return `<li class="grid grid-cols-[68px_32px_1fr_88px] gap-3 py-3.5 px-3 border-b border-edge last:border-0 items-center ${rowBg}"><span>${dayLabelHtml}</span><span class="${iconColor} flex justify-center" title="${escapeHtml(cond)}" aria-label="${escapeHtml(cond)}">${icon}</span><span class="relative h-2 bg-surface-alt rounded-full overflow-hidden" aria-hidden="true"><span class="absolute top-0 bottom-0 bg-gradient-to-r from-sky-400 via-amber-300 to-rose-500 rounded-full" style="left:${leftPct}%;width:${widthPct}%;"></span></span><span class="text-sm tabular-nums text-right"><span class="font-semibold text-heading">${Math.round(d.tempMax)}°</span> <span class="text-muted">${Math.round(d.tempMin)}°</span></span></li>`;
   }).join('');
-  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-stone-900 mb-3 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><ol class="bg-white rounded-2xl border border-stone-200 overflow-hidden">${rows}</ol></section>`;
+  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-heading mb-3 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><ol class="bg-white rounded-2xl border border-edge overflow-hidden">${rows}</ol></section>`;
 }
 
 /**
@@ -511,8 +511,8 @@ function renderCommuteScenarios(city: WeatherCity, locale: Locale): string {
     ['Vent fort et rafales', `Le vent du nord (foehn) et le vent inversé du sud touchent la bande Ceresio et le haut Verbano : des rafales au-delà de 80 km/h peuvent amener Astra à fermer les ponts exposés (Melide-Maroggia en cas extrême) et Trenord à annuler les régionaux Saronno-Como-Chiasso. À moto ou en fourgon bâché, évitez l'A2 au nord de Bellinzone et prenez l'A13 (San Bernardino), majoritairement en tunnel. Les fermetures sont rares (3-5 épisodes par an) mais coûtent 90+ minutes.`],
     ['Chaleur extrême et ozone', `Entre juin et août, l'ozone troposphérique au-delà de 180 µg/m³ déclenche l'alerte MeteoSwiss niveau 3-4 sur le Mendrisiotto. Les personnes asthmatiques ou cardiaques devraient commuter avant 7h30 (concentrations d'ozone plus basses) et utiliser la climatisation en recyclage. Les lieux de travail sous la loi cantonale tessinoise sur l'hygiène du travail doivent réguler la température intérieure quand la température extérieure dépasse 30 °C pendant trois jours consécutifs.`],
   ];
-  const items = blocks.map(([h, p]) => `<article class="bg-white border border-stone-200 rounded-2xl p-5 sm:p-6"><h3 class="text-base font-semibold text-stone-900 mb-2">${escapeHtml(h)}</h3><p class="text-sm text-stone-700 leading-relaxed">${escapeHtml(p)}</p></article>`).join('');
-  return `<section class="my-10 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-stone-900 mb-4 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><div class="grid gap-3 sm:gap-4">${items}</div></section>`;
+  const items = blocks.map(([h, p]) => `<article class="bg-white border border-edge rounded-2xl p-5 sm:p-6"><h3 class="text-base font-semibold text-heading mb-2">${escapeHtml(h)}</h3><p class="text-sm text-body leading-relaxed">${escapeHtml(p)}</p></article>`).join('');
+  return `<section class="my-10 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-heading mb-4 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><div class="grid gap-3 sm:gap-4">${items}</div></section>`;
 }
 
 function renderEvergreen(city: WeatherCity, locale: Locale): string {
