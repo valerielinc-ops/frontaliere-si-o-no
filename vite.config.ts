@@ -25,6 +25,7 @@ import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
+import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
 // flatHtmlRedirectPlugin + hreflangPostprocessPlugin imports retained for
 // type re-exports / unit tests. Their plugin exports are now consumed
 // internally by `postWalkCoordinatorPlugin` (single-walk perf optimization).
@@ -192,6 +193,15 @@ export default defineConfig(({ mode }) => {
  // canonical slug before the SPA boots — preserves `?reddito=...` so
  // urlStateService prefills the simulation. No 301, AdSense fires.
  calculatorLegacyAliasPlugin(__dirname),
+ // Job-orphan bridge: recover the 92 GSC 404s for /{locale}/{section}/{slug}/
+ // job-detail URLs (Cohort 1). Reads classified entries from
+ // data/gsc-job-orphans.json (refreshed via scripts/ingest-gsc-job-orphans.mjs).
+ // Matched orphans (21): canonical + JS history.replaceState to current job.
+ // Expired orphans (71): canonical to section landing + "annuncio scaduto"
+ // body with extracted company hint. No 301, AdSense fires on both. The
+ // plugin is collision-safe — skips writing if another plugin already
+ // produced real content at the target path (e.g. a re-activated job).
+ jobOrphanBridgePlugin(__dirname),
  // AE-7 — after static pages are written, inject a contextual link into
  // a handful of parent pages so the comparisons hub has inbound links
  // from homepage + confronti hub + salary pillars. Idempotent.
